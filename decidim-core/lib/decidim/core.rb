@@ -153,6 +153,11 @@ module Decidim
     :en
   end
 
+  # Exposes a configuration option: The application translatable locale.
+  config_accessor :translatable_locales do
+    %w(en de fr es pt it nl pl ru)
+  end
+
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
 

@@ -1,400 +1,389 @@
-cs:
+---
+cs-CZ:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Autor
-        description: Popis
-        offline_votes: Podpora tváří v tvář
-        scope_id: Rozsah
-        signature_end_date: Konec doby sběru podpisu
-        signature_start_date: Začátek doby sběru podpisu
-        signature_type: Typ sbírky podpisu
+        decidim_user_group_id: Author
+        description: Description
+        offline_votes: Face-to-face supports
+        scope_id: Scope
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
+        signature_type: Signature collection type
         signature_type_values:
-          any: Smíšený
-          offline: Z očí do očí
+          any: Mixed
+          offline: Face to face
           online: OnLine
-        title: Titul
+        title: Title
       initiative_author:
-        address: Adresa
-        city: Město
-        id_document: DNI / NIE
-        name: Jméno a příjmení
-        phone_number: Telefonní číslo
-        post_code: PSČ
-        province: Provincie
+        address: Address
+        city: City
+        id_document: DNI/NIE
+        name: Name and Surname
+        phone_number: Phone number
+        post_code: Post code
+        province: Province
       initiatives_committee_member:
-        user: člen komise
+        user: Committee member
       initiatives_type:
-        banner_image: Obrázek banneru
-        description: Popis
-        title: Titul
+        banner_image: Banner image
+        description: Description
+        title: Title
       organization_data:
-        address: Adresa
-        id_document: Doklad totožnosti
-        name: Kompletní jméno
+        address: Address
+        id_document: ID document
+        name: Complete name
   activerecord:
     models:
       decidim/initiative:
-        one: Initativní
-        few: Iniciativy
-        many: Iniciativy
-        other: Iniciativy
+        one: Initative
+        other: Initatives
       decidim/initiative_comittee:
-        one: Výbor
-        few: Výbory
-        many: Výbory
-        other: Výbory
+        one: Comittee
+        other: Comittees
       decidim/initiative_vote:
-        one: Podpis
-        few: Podpisy
-        many: Podpisy
-        other: Podpisy
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       actions:
-        new_initiative_type: Nový typ iniciativy
+        new_initiative_type: New initiative type
       menu:
-        initiatives: Iniciativy
-        initiatives_types: Typy iniciativ
+        initiatives: Initiatives
+        initiatives_types: Initiative types
       models:
         initiatives:
           fields:
-            created_at: Vytvořeno u
+            created_at: Created at
             id: ID
-            state: Stát
-            supports_count: Podporuje
-            title: Iniciativy
+            state: State
+            supports_count: Supports
+            title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Rozsah
-            supports_required: Potřebné podpory
-          name: Rozsah typu iniciativy
+            scope: Scope
+            supports_required: Supports required
+          name: Initiative type scope
         initiatives_types:
           fields:
-            created_at: Vytvořeno u
-            title: Typy iniciativ
-          name: Typ iniciativy
+            created_at: Created at
+            title: Initiative types
+          name: Initiative type
       titles:
-        initiatives: Iniciativy
-        initiatives_types: Typy iniciativ
+        initiatives: Initiatives
+        initiatives_types: Initiative types
     events:
       initiatives:
         initiative_extended:
-          email_intro: Podpisový termín pro iniciativu %{resource_title} byl rozšířen!
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Datum ukončení podpisů iniciativy bylo rozšířeno!
-          notification_title: Konec konce podpisu iniciativy <a href="%{resource_path}">%{resource_title}</a> byl prodloužen.
+          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative signatures end date extended!
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           affected_user:
-            email_intro: Vaše iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem iniciativy %{resource_title}.
-            email_subject: Nový milník dokončen!
-            notification_title: Vaše iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
-            email_intro: Iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Nový milník dokončen!
-            notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
-          conditions:
-            - Jděte do prostoru účasti iniciativ
-            - Postupujte podle kroků k vytvoření nové iniciativy
-          description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
-          description_another: Tento uživatel zveřejnil %{score} iniciativ.
-          description_own: Máte k dispozici %{score} iniciativ.
-          name: Publikované iniciativy
-          next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel dosud nezveřejnil žádné iniciativy.
-          unearned_own: Dosud jste nezveřejnili žádné iniciativy.
+          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
+          description_another: This user has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
-          page: "<p>Iniciativa je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu , změňte název oddělení nebo ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
-          title: Co jsou iniciativy?
+          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: Schvalovat
-            confirm_revoke: Jsi si jistá?
-            invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
-            no_members_yet: V komisi promotérů nejsou žádní členové
-            revoke: Zrušit
-            title: členové komise
+            approve: Approve
+            confirm_revoke: Are you sure?
+            invite_to_committee_help: Share this link to invite other users to the promotion committee
+            no_members_yet: There are no members in the promoter committee
+            revoke: Revoke
+            title: Committee members
         content_blocks:
           highlighted_initiatives:
-            max_results: Maximální množství prvků, které chcete zobrazit
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
-            accept: Přijměte iniciativu
-            confirm: Jsi si jistá?
-            discard: Zrušte iniciativu
-            export_votes: Podpora exportu
-            reject: Odmítnout iniciativu
-            send_to_technical_validation: Odeslání k technickému ověření
-            success: Iniciativa byla odeslána k technickému ověření
-            update: Aktualizace
+            accept: Accept initiative
+            confirm: Are you sure?
+            discard: Discard the initiative
+            export_votes: Export supports
+            reject: Reject initiative
+            send_to_technical_validation: Send to technical validation
+            success: The initiative has been sent to technical validation
+            update: Update
           form:
-            title: Obecná informace
+            title: General information
           index:
-            actions_title: Akce
+            actions_title: Action
             filter:
-              accepted: Přijato
-              all: Všechno
-              created: Vytvořeno
-              discarded: Vyřazeno
-              published: Publikováno
-              rejected: Odmítnuto
-              validating: Technická validace
-            filter_by: Filtrovat podle
-            preview: Náhled
-            print: Vytisknout
-            search: Vyhledávání
+              accepted: Accepted
+              all: All
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+            filter_by: Filter by
+            preview: Preview
+            print: Print
+            search: Search
           show:
-            print: Vytisknout
+            print: Print
           update:
-            error: Došlo k chybě
-            success: Iniciativa občanů byla úspěšně aktualizována
+            error: An error has occurred
+            success: The citizen initiative has been successfully updated
         initiatives_type_scopes:
           create:
-            error: Došlo k chybě
-            success: Byla vytvořena nová oblast pro daný typ iniciativy
+            error: An error has occurred
+            success: A new scope for the given initiative type has been created
           destroy:
-            success: Rozsah byl úspěšně odstraněn
+            success: The scope has been successfully removed
           edit:
-            back: Zadní
-            confirm_destroy: Jsi si jistá?
-            destroy: Odstranit
-            title: Upravit rozsah typu iniciativy
-            update: Aktualizace
+            back: Back
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            title: Edit initiative type scope
+            update: Update
           new:
-            back: Zadní
-            create: Vytvořit
-            title: Vytvoření rozsahu typů iniciativy
+            back: Back
+            create: Create
+            title: Create initiative type scope
           update:
-            error: Došlo k chybě
-            success: Rozsah byl úspěšně aktualizován
+            error: An error has occurred
+            success: The scope has been successfully updated
         initiatives_types:
           create:
-            error: Došlo k chybě
-            success: Nový typ iniciativy byl úspěšně vytvořen
+            error: An error has occurred
+            success: A new initiative type has been successfully created
           destroy:
-            success: Typ iniciativy byl úspěšně odstraněn
+            success: The initiative type has been successfully removed
           edit:
-            confirm_destroy: Jsi si jistá?
-            destroy: Odstranit
-            update: Aktualizace
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
           form:
-            title: Obecná informace
+            title: General information
           initiative_type_scopes:
-            title: Zaměřuje se na typ iniciativy
+            title: Scopes for the initiative type
           new:
-            create: Vytvořit
-            title: Nový typ iniciativy
+            create: Create
+            title: New initiative type
           update:
-            error: Došlo k chybě
-            success: Typ iniciativy byl úspěšně aktualizován
+            error: An error has occurred
+            success: The initiative type has been successfully updated
       admin_log:
         initiative:
-          publish: "%{user_name} zveřejnila %{resource_name} iniciativu"
-          send_to_technical_validation: "%{user_name} zaslala %{resource_name} iniciativu k technickému ověření"
-          unpublish: "%{user_name} odhodil %{resource_name} iniciativu"
-          update: "%{user_name} aktualizovala iniciativu %{resource_name}"
+          publish: "%{user_name} published the %{resource_name} initiative"
+          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          unpublish: "%{user_name} discarded the %{resource_name} initiative"
+          update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Přijato
-        created: Vytvořeno
-        discarded: Vyřazeno
-        published: Publikováno
-        rejected: Odmítnuto
-        validating: Technická validace
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
       committee_requests:
         new:
-          continue: Pokračovat
-          help_text: Chystáte se požádat o členství v iniciativě této iniciativy
+          continue: Continue
+          help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
-          success: Vaše žádost byla zaslána autorovi iniciativy.
+          success: Your request has been sent to the initiative author.
       content_blocks:
         highlighted_initiatives:
-          name: Zdůrazněné iniciativy
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
-          back: Zadní
-          continue: Pokračovat
-          fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
-          initiative_type: Typ iniciativy
-          more_information: "(Více informací)"
-          select_scope: Vyberte oblast
+          back: Back
+          continue: Continue
+          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          initiative_type: Initiative type
+          more_information: "(More information)"
+          select_scope: Select a scope
         finish:
-          back: Zadní
-          back_to_initiatives: Zpět na iniciativy
-          callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
-          go_to_my_initiatives: Jděte na mé iniciativy
-          more_information: "(Více informací)"
+          back: Back
+          back_to_initiatives: Back to initiatives
+          callout_text: Congratulations! Your citizen initiative has been created successfully.
+          go_to_my_initiatives: Go to my initiatives
+          more_information: "(More information)"
         finish_help:
-          access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
-          help_for_organizations: Pokud jste sdružení, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
-          help_in_person_signatures: Pokud jste se rozhodli vyzvednout podpisy osobně nebo v kombinaci s online, budete muset nahrát požadované informace.
-          help_text: Nezapomeňte, že pro správné zpracování iniciativy musíte přistupovat k administračnímu panelu, kde naleznete uživatelské menu, nahrát požadované informace a odeslat je ke zpracování.
-          initiatives_page_link: Můžete si prohlédnout všechny tyto informace o %{link} určeny k informování o iniciativách.
-          page: stránka
+          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
+          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
+          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
+          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
+          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
+          page: page
         previous_form:
-          back: Zadní
-          continue: Pokračovat
-          help: Jaká je iniciativa? Zapište název a popis. Doporučujeme krátký a stručný název a popis zaměřený na navrhované řešení.
-          more_information: "(Více informací)"
+          back: Back
+          continue: Continue
+          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
+          more_information: "(More information)"
         promotal_committee:
-          back: Zadní
-          individual_help_text: Iniciativy občanů vyžadují podpůrnou komisi složenou z nejméně tří osob (atestujících). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
-          more_information: "(Více informací)"
+          back: Back
+          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          more_information: "(More information)"
         select_initiative_type:
-          back: Zadní
-          more_information: "(Více informací)"
-          select: Vybrat
-          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Která iniciativa chcete spustit?
+          back: Back
+          more_information: "(More information)"
+          select: Choose
+          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
-          continue: Pokračovat
-          invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí promotorového výboru
+          continue: Continue
+          invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
-          back: Zadní
-          compare_help: Pokud je některá z následujících iniciativ podobná vašim, doporučujeme vám ji podpořit. Váš návrh bude mít více možností, jak to udělat.
-          continue: Moje iniciativa je jiná
-          more_information: "(Více informací)"
+          back: Back
+          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          continue: My initiative is different
+          more_information: "(More information)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, který sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Nová iniciativa %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla vytvořena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New initiative by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, který sledujete, schválil následující iniciativu, možná chcete přispět k rozhovoru:"
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla potvrzena číslem %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: Iniciativy
+        title: Initiatives
       initiative_votes:
         create:
-          error: Při podpisu iniciativy došlo k chybám.
+          error: There's been errors when signing the initiative.
       initiatives:
         author:
-          deleted: Vymazáno
+          deleted: Deleted
         author_list:
           hidden_authors_count:
-            one: a 1 další osobou
-            few: a %{count} dalších lidí
-            many: a %{count} dalších lidí
-            other: a %{count} dalších lidí
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
-            one: "%{count}"
-            few: "%{count} iniciativ"
-            many: "%{count} iniciativ"
-            other: "%{count} iniciativ"
+            one: "%{count} initiative"
+            other: "%{count} initiatives"
         filters:
-          any: Žádný
-          author: Autor
-          closed: Zavřeno
-          myself: Moje iniciativy
-          open: otevřeno
-          search: Vyhledávání
-          state: Stát
-          type: Typ
-          type_prompt: Vyberte typ
+          any: Any
+          author: Author
+          closed: Closed
+          myself: My initiatives
+          open: Open
+          search: Search
+          state: State
+          type: Type
+          type_prompt: Select a type
         filters_small_view:
-          close_modal: Zavřete okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index_header:
-          new_initiative: Nová iniciativa
+          new_initiative: New initiative
         orders:
-          label: 'Třídit iniciativy podle:'
-          most_commented: Nejvíce komentované
-          most_voted: Nejvíce podepsané
-          random: Náhodný
-          recent: Nejnovější
+          label: 'Sort initiatives by:'
+          most_commented: Most commented
+          most_voted: Most signed
+          random: Random
+          recent: Most recent
         result:
-          initiative_accepted_reason: Tato iniciativa byla přijata proto, že
-          initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
+          initiative_accepted_reason: This initiative has been accepted because
+          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
         show:
-          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
-          offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
+          any_vote_method: This citizen initiative collects online support as well as face to face.
+          offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
-          select_identity: Vyberte identifikátor uživatele
+          select_identity: Select user identifier
         signatures_count:
-          one: " podpis"
-          few: " podpisy"
-          many: " podpisy"
-          other: " podpisy"
+          one: " signature"
+          other: " signatures"
         statistics:
-          assistants_count_title: Asistenti
-          comments_count_title: Komentáře
-          meetings_count_title: Setkání
-          supports_count_title: Podpisy
+          assistants_count_title: Assistants
+          comments_count_title: Comments
+          meetings_count_title: Meetings
+          supports_count_title: Signatures
         supports:
-          title: Výpis podpisů
+          title: Listing of signatures
         vote_cabin:
-          already_voted: Již jste podepsal
-          supports_required: "Vyžaduje se %{total_supports} podpisů"
-          vote: Podepsat
-          votes_blocked: Podpis zakázán
+          already_voted: Already signed
+          supports_required: "%{total_supports} signatures required"
+          vote: Sign
+          votes_blocked: Signing disabled
         votes_count:
           count:
-            one: PODPIS
-            few: PODPISY
-            many: PODPISY
-            other: PODPISY
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Vaše občanská iniciativa "%{title}" byla vytvořena
+        creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
-          check_initiative_details: Můžete vidět podrobnosti o iniciativě
-          here: tady
-        more_information: Zde naleznete další informace o procesu vytváření iniciativ.
-        progress_report_body_for: Iniciativa %{title} dosáhla %{percentage}% požadované podpory.
-        progress_report_for: 'Pokračujte v iniciativě: %{title}'
-        promotal_committee_help: Nezapomeňte, že musíte vyzvat nejméně %{member_count} lidí na organizační výbor. Předání následujícího odkazu na pozvání osob do výboru předkladatelů
-        status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
-        status_change_for: Iniciativa %{title} změnila svůj stav
-        technical_validation_body_for: Iniciativa %{title} požádala o jeho technickou validaci.
-        technical_validation_for: Iniciativa %{title} požádala o jeho technickou validaci.
+          check_initiative_details: You can see the initiative details
+          here: here
+        more_information: Here you have more information about the initiative creation process.
+        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
+        progress_report_for: 'Resume about the initiative: %{title}'
+        promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
+        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
+        status_change_for: The initiative %{title} has changed its state
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
-        new_initiative: Nová iniciativa
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktivní iniciativy
-            see_all_initiatives: Podívejte se na všechny iniciativy
+            active_initiatives: Active initiatives
+            see_all_initiatives: See all initiatives
       states:
-        accepted: Přijato
-        expired: Platnost vypršela
-      unavailable_scope: Nedostupný rozsah
+        accepted: Accepted
+        expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
-      initiatives: Iniciativy
+      initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Přílohy
-          committee_members: členové komise
-          components: Komponenty
-          information: Informace
+          attachments: Attachments
+          committee_members: Committee members
+          components: Components
+          information: Information
       initiative_creation_header:
-        fill_data: Vytvořit
-        finish: Dokončit
+        fill_data: Create
+        finish: Finish
         previous_form: Start
-        promotal_committee: Výbor předkladatelů
-        select_initiative_type: Vybrat
-        show_similar_initiatives: Porovnejte
-        step: Krok %{current} z %{total}
-        title: Vytvořte novou iniciativu
+        promotal_committee: Promoter committee
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
-        initiative_menu_item: Iniciativa
+        initiative_menu_item: Initiative
       initiatives:
         initiative:
-          check: Koukni na to
-          check_and_support: Podívejte se na to a podepište
+          check: Check it out
+          check_and_support: Check it out and sign
         no_initiatives_yet:
-          no_initiatives_yet: Zatím žádné iniciativy!
+          no_initiatives_yet: No initiatives yet!

@@ -1,56 +1,57 @@
-fr:
+---
+fr-FR:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Enquête terminée
-      decidim/surveys/opened_survey_event: Enquête commencée
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Enquête
-        other: Enquêtes
+        one: Survey
+        other: Surveys
       decidim/surveys/survey_answer:
-        one: Réponse
-        other: Réponses
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:
         actions:
-          answer: Réponse
-        name: Enquête
+          answer: Answer
+        name: Survey
         settings:
           global:
-            announcement: Annonce
+            announcement: Announcement
           step:
-            allow_answers: Autoriser les réponses
-            announcement: Annonce
+            allow_answers: Allow answers
+            announcement: Announcement
     events:
       surveys:
         survey_closed:
-          email_intro: L'enquête %{resource_title} proposée dans %{participatory_space_title} est maintenant terminée.
-          email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: L'enquête de l'espace participatif %{participatory_space_title} est terminée
-          notification_title: L'enquête <a href="%{resource_path}">%{resource_title}</a> ouverte dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminée.
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has been closed.
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A survey has finished in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has finished.
         survey_opened:
-          email_intro: 'L''enquête %{resource_title} est désormais ouverte dans l''espace participatif %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
-          email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
-          email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
-          notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+          email_intro: 'The survey %{resource_title} in %{participatory_space_title} is now open. You can participate in it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     metrics:
       survey_answers:
-        description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
-        object: réponses aux enquêtes
-        title: Réponses aux enquêtes
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:
-          survey_user_answers: Réponses des participants à l'enquête
+          survey_user_answers: Survey user answers
         surveys:
           update:
-            invalid: Erreurs lors de la sauvegarde de l'enquête.
-            success: Enquête enregistrée avec succès.
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
-          invalid: Votre réponse à l'enquête comporte des erreurs.
-          success: Votre participation à l'enquête a bien été enregistrée.
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.

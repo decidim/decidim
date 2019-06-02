@@ -990,6 +990,10 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.

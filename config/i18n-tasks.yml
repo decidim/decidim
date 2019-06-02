@@ -97,6 +97,7 @@ ignore_missing:
   - email_intro
   - email_outro
   - notification_title
+  - comments.translat*
 
 # Consider these keys used:
 ignore_unused:
@@ -196,6 +197,7 @@ ignore_unused:
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address
   - devise.invitations.*
+  - decidim.comments.translat*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

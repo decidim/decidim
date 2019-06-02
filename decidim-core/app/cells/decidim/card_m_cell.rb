@@ -11,12 +11,25 @@ module Decidim
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
+    include Decidim::LanguageChooserHelper
 
     def show
       render
     end
 
     private
+
+    def default_locale
+      current_component.organization.default_locale
+    end
+
+    def current_locale
+      I18n.locale.to_s
+    end
+
+    def translatable?
+      false
+    end
 
     def resource_path
       resource_locator(model).path

@@ -51,8 +51,8 @@ module Decidim
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
           .tap do |attributes|
-            attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
-          end
+          attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
+        end
       end
 
       def appearance_attributes

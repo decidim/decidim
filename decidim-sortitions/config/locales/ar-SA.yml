@@ -1,24 +1,21 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       sortition:
-        additional_info: معلومات التصنيف
-        decidim_category_id: فئات مجموعة المقترحات التي تريد تطبيق السحب عليها
-        decidim_proposals_component_id: مجموعة المقترحات
-        dice: نتيجة يموت لفة. قم بلف قالب من 6 جوانب ، أو ابحث عن طريقة عشوائية أخرى لإنشاء رقم من 1 إلى 6 ، وأدخل هنا الرقم الناتج أمام بعض الشهود. هذا يساهم في جودة وضمانات عشوائية النتيجة
-        target_items: عدد المقترحات التي سيتم اختيارها (يشير إلى عدد المقترحات التي تريد تحديدها عن طريق رسم الكثير من مجموعة المقترحات التي اخترتها سابقًا)
-        title: عنوان
-        witnesses: شهود عيان
+        additional_info: Sortition information
+        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
+        decidim_proposals_component_id: Proposals set
+        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
+        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        title: Title
+        witnesses: Witnesses
     models:
       decidim/sortitions/create_sortition_event: Sortition
   activerecord:
     models:
       decidim/sortitions/sortition:
-        zero: Sortitions
         one: Sortition
-        two: Sortitions
-        few: Sortitions
-        many: Sortitions
         other: Sortitions
   decidim:
     components:
@@ -26,14 +23,14 @@ ar:
         name: Sortitions
         settings:
           global:
-            comments_enabled: تم تمكين التعليقات
+            comments_enabled: Comments enabled
     events:
       sortitions:
         sortition_created:
-          email_intro: تمت إضافة التصنيف "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: تمت إضافة تصنيف جديد إلى %{participatory_space_title}
-          notification_title: تمت إضافة التصنيف <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
+          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New sortition added to %{participatory_space_title}
+          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
     pages:
       home:
         statistics:
@@ -44,124 +41,112 @@ ar:
     sortitions:
       admin:
         actions:
-          destroy: إلغاء الفرز
-          edit: تصحيح
-          new: فرز جديد
-          show: تفاصيل الفرز
+          destroy: Cancel the sortition
+          edit: Edit
+          new: New sortition
+          show: Sortition details
         models:
           sortition:
             fields:
-              category: الفئة
-              created_at: تاريخ الإنشاء
-              decidim_proposals_component: مكون الاقتراحات
-              dice: حجر النرد
-              reference: مرجع
-              request_timestamp: رسم الوقت
-              seed: بذرة
-              target_items: عناصر للاختيار
-              title: عنوان
+              category: Category
+              created_at: Creation date
+              decidim_proposals_component: Proposals component
+              dice: Dice
+              reference: Reference
+              request_timestamp: Draw time
+              seed: Seed
+              target_items: Items to select
+              title: Title
             name:
-              zero: Sortitions
               one: Sortition
-              two: Sortitions
-              few: Sortitions
-              many: Sortitions
               other: Sortitions
         sortitions:
           confirm_destroy:
-            confirm_destroy: هل أنت متأكد أنك تريد إلغاء هذا التصنيف؟
-            destroy: إلغاء التصنيف
-            title: إلغاء التصنيف
+            confirm_destroy: Are you sure you want to cancel this sortition?
+            destroy: Cancel sortition
+            title: Cancellation of the sortition
           create:
-            success: تم إنشاء التصنيف بنجاح
+            error: There was an error creating a new sortition.
+            success: Sortition successfully created
           destroy:
-            error: لا يمكن إلغاء التصنيف.
-            success: تم الغاء التصنيف بنجاح
+            error: Can not cancel the sortition.
+            success: Sortition successfully cancelled
           edit:
-            title: تحديث المعلومات حول الفرز
-            update: تحديث
+            title: Update the information about the sortition
+            update: Update
           form:
-            all_categories: جميع الفئات
-            select_proposal_component: حدد مجموعة المقترحات
-            title: ترتيب جديد للمقترحات
+            all_categories: All categories
+            select_proposal_component: Select the proposals set
+            title: New sortition for proposals
           index:
             title: Sortitions
           new:
-            confirm: بالضغط على الزر التالي ، سوف يسجل Decidim التاريخ والوقت (بدقة من الثواني) وجنبا إلى جنب مع لفة النرد ، سيتم استخدام هذه المعلومات لإنشاء اختيار عشوائي. لن يكون الإجراء قابلاً للرجوع إليه ، بمجرد النقر فوق الزر سيتم نشر نتيجة هذا السحب مع البيانات التي تم إدخالها في هذا النموذج ولا يمكن تعديلها ، يرجى التحقق من المحتوى بعناية
-            create: خلق
-            title: فرز جديد
+            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            create: Create
+            title: New sortition
           show:
-            selected_proposals: مقترحات مختارة للقرعة
+            selected_proposals: Proposals selected for draw
           update:
-            success: تم تحديث التصنيف بنجاح
+            error: There was an error updating the sortition.
+            success: Sortition successfully updated
       admin_log:
         sortition:
-          create: "%{user_name} خلق %{resource_name} التصنيف في %{space_name}"
-          delete: "%{user_name} ألغى التصنيف %{resource_name} في %{space_name}"
-          update: "%{user_name} تحديث %{resource_name} التصنيف في %{space_name}"
+          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
+          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
       sortitions:
         count:
           proposals_count:
-            zero: "%{count} مقترحات"
-            one: اقتراح واحد
-            two: "%{count} مقترحات"
-            few: "%{count} مقترحات"
-            many: "%{count} مقترحات"
-            other: "%{count} مقترحات"
+            one: 1 proposal
+            other: "%{count} proposals"
         filters:
-          active: نشيط
-          all: الكل
-          cancelled: ألغيت
-          category: الفئة
-          category_prompt: اختر تصنيف
-          search: بحث
+          active: Active
+          all: All
+          cancelled: Cancelled
+          category: Category
+          category_prompt: Select a category
+          search: Search
+          state: State
         filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         linked_sortitions:
-          selected_proposals: مقترحات مختارة
+          selected_proposals: Selected proposals
         orders:
-          label: 'ترتيب الفرز حسب:'
-          random: عشوائية
-          recent: الأخيرة
+          label: 'Order sortitions by:'
+          random: Random
+          recent: Recent
         results_count:
           count:
-            zero: مقترحات مختارة
-            one: الاقتراح المحدد
-            two: مقترحات مختارة
-            few: مقترحات مختارة
-            many: مقترحات مختارة
-            other: مقترحات مختارة
+            one: selected proposal
+            other: selected proposals
         show:
-          any_category: من جميع الفئات
-          cancelled: فرز الملغاة
-          candidate_proposal_ids: ترتيب المقترحات الترتيب ومعرفات
-          candidate_proposals_info: 'تم تنفيذ التصنيف بين المقترحات التالية (%{category_label}) ، مع المعرفات التالية (بالخط العريض للمقترحات المختارة)  '
-          category: من %{category} الفئة
-          dice_result: "(1) نتيجة النرد"
-          introduction: 'تحتوي هذه الصفحة على نتائج الفرز %{reference}. من خلال هذا sortition، %{target_items} تم اختيارها عشوائيا عدد من النتائج ومع التوزيع الاحتمالي على قدم المساواة من مجموعة من المقترحات المعروضة رفع الصوت عاليا. جنبًا إلى جنب مع النتائج ، توفر المعلومات المعروضة على هذه الصفحة جميع المعلومات المطلوبة لزيادة الضمانات وإعادة إنتاج النتائج. المفتاح لجودة هذا الفرز هو العشوائية المزدوجة التي يوفرها المتداول من الزهر (التحقق من قبل الشهود) والوقت الدقيق للترتيب الذي يوفر مدخلات لخوارزمية يولد اختيار عشوائي. إن البذر الزمني للفرز دقيق للغاية (بالثواني) بحيث يستحيل على البشر التحكم فيه ، مما يوفر مدخلات مزدوجة "لا يمكن السيطرة عليها" لضمان نتيجة عادلة.  '
-          mathematical_result: النتيجة (1) × (2)
-          proposals_selected_by_sortition: مقترحات مختارة من قبل الفرز
-          sortition_reproducibility_details: تفاصيل استنساخ الفرز
-          time_seed: "(2) الوقت البذور"
-          witnesses: شهود عيان
+          algorithm: Sortition's Algorithm code
+          any_category: from all categories
+          cancelled: Cancelled sortition
+          candidate_proposal_ids: Sortition proposals order and IDs
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
+          category: from the %{category} category
+          dice_result: "(1) Dice result"
+          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
+          mathematical_result: Result (1) x (2)
+          proposals_selected_by_sortition: Proposals selected by sortition
+          sortition_reproducibility_details: Sortition reproducibility details
+          time_seed: "(2) Time seed"
+          witnesses: Witnesses
         sortition:
-          random_seed: البذور عشوائي
+          random_seed: Random seed
           selected_proposals:
-            zero: مقترحات مختارة
-            one: تم اختيار الاقتراح
-            two: مقترحات مختارة
-            few: مقترحات مختارة
-            many: مقترحات مختارة
-            other: مقترحات مختارة
-          view: رأي
+            one: proposal selected
+            other: proposals selected
+          view: View
+        sortition_author:
+          deleted: Deleted user
+        sortition_cancel_author:
+          deleted: Deleted user
         sortitions_count:
           count:
-            zero: "%{count} التصنيف"
-            one: 1 التصنيف
-            two: "%{count} التصنيف"
-            few: "%{count} التصنيف"
-            many: "%{count} التصنيف"
-            other: "%{count} التصنيف"
+            one: 1 sortition
+            other: "%{count} sortitions"

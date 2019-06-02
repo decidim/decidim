@@ -53,6 +53,13 @@ module Decidim
           badges_enabled: form.badges_enabled,
           user_groups_enabled: form.user_groups_enabled
         }.merge(welcome_notification_attributes)
+          .merge(translation_settings)
+      end
+
+      def translation_settings
+        {
+          deepl_api_key: form.deepl_api_key
+        }
       end
 
       def welcome_notification_attributes

@@ -1,316 +1,297 @@
-cs:
+---
+cs-CZ:
   activemodel:
     attributes:
       consultation:
-        banner_image: Obrázek banneru
-        decidim_highlighted_scope_id: Zvýrazněný rozsah
-        description: Popis
-        end_voting_date: Hlasování končí
-        introductory_image: Úvodní obrázek
-        introductory_video_url: Úvodní URL videa
-        questions: Otázky
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Highlighted scope
+        description: Description
+        end_voting_date: Voting ends
+        introductory_image: Introductory image
+        introductory_video_url: Introductory video URL
+        questions: Questions
         slug: URL slug
-        start_voting_date: Hlasování začíná
-        subtitle: Titulky
-        title: Titul
+        start_voting_date: Voting begins
+        subtitle: Subtitle
+        title: Title
       question:
-        banner_image: Obrázek banneru
-        decidim_scope_id: Městská oblast
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
         hashtag: Hashtag
-        hero_image: Domácí obrázek
-        i_frame_url: Adresa URL externího hlasování
-        origin_scope: Rozsah
-        origin_title: Původ
-        origin_url: Původní URL
-        participatory_scope: Rozsah účastníků
-        promoter_group: Skupina promotérů
-        question_context: Kontext
-        reference: Odkaz
-        scope: Městská oblast
+        hero_image: Home image
+        i_frame_url: External voting system URL
+        origin_scope: Scope
+        origin_title: Origin
+        origin_url: Origin URL
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        question_context: Context
+        reference: Reference
+        scope: Municipal area
         slug: URL slug
-        subtitle: Titulky
-        title: Titul
-        vote: Externí hlasovací systém
-        what_is_decided: Co se rozhodlo
+        subtitle: Subtitle
+        title: Title
+        vote: External voting system
+        what_is_decided: What is decided
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Odpověď nebyla nalezena.
+          not_found: Response not found.
   activerecord:
     models:
       decidim/consultation:
-        one: Konzultace
-        few: Konzultace
-        many: Konzultace
-        other: Konzultace
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
-        one: Otázka
-        few: Otázky
-        many: Otázky
-        other: Otázky
+        one: Question
+        other: Questions
       decidim/consultations/response:
-        one: Odezva
-        few: Odpovědi
-        many: Odpovědi
-        other: Odpovědi
+        one: Response
+        other: Responses
       decidim/consultations/vote:
-        one: Hlasování
-        few: Hlasy
-        many: Hlasy
-        other: Hlasy
+        one: No votes
+        other: Votes
   decidim:
     admin:
       actions:
-        new_consultation: Nová konzultace
-        new_question: Nová otázka
-        new_response: Nová odpověď
-        publish_results: Publikujte výsledky
-        unpublish_results: Zrušit publikování výsledků
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
+        publish_results: Publish results
+        unpublish_results: Unpublish results
       consultation_publications:
         create:
-          error: Při publikování této konzultace došlo k chybě.
-          success: Konzultace byla zveřejněna úspěšně.
+          error: There was an error publishing this consultation.
+          success: Consultation published successfully.
         destroy:
-          error: Při této konzultaci došlo k chybě.
-          success: Konzultace byla nepublikována úspěšně.
+          error: There was an error unpublishing this consultation.
+          success: Consultation unpublished successfully.
       consultation_results_publications:
         create:
-          error: Při publikování výsledků této konzultace došlo k chybě.
-          success: Výsledky konzultací byly úspěšně publikovány.
+          error: There was an error publishing the results for this consultation.
+          success: Consultation results published successfully.
         destroy:
-          error: Při zobrazování výsledků této konzultace došlo k chybě.
-          success: Výsledky konzultací byly nepublikovány úspěšně.
+          error: There was an error unpublishing the results for this consultation.
+          success: Consultation results unpublished successfully.
       consultations:
         create:
-          error: Při vytváření nové konzultace došlo k chybě.
-          success: Konzultace byla úspěšně vytvořena.
+          error: There was an error creating a new consultation.
+          success: Consultation successfully created.
         edit:
-          update: Aktualizace
+          update: Update
         form:
-          slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto konzultaci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
-          title: Obecná informace
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          title: General information
         index:
-          not_published: Není zveřejněno
-          published: Publikováno
+          not_published: Not published
+          published: Published
         new:
-          create: Vytvořit
-          title: Nová konzultace
+          create: Create
+          title: New consultation
         update:
-          error: Při aktualizaci této konzultace došlo k chybě.
-          success: Konzultace byla úspěšně aktualizována.
+          error: There was an error when updating this consultation.
+          success: Consultation updated successfully.
       menu:
-        consultations: Konzultace
+        consultations: Consultations
         consultations_submenu:
-          info: Informace
-          questions: Otázky
+          info: Information
+          questions: Questions
         questions_submenu:
-          components: Komponenty
-          consultation: Konzultace
-          info: Informace
-          responses: Odpovědi
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
       models:
         consultation:
           fields:
-            created_at: Vytvořeno u
-            published: Publikováno
-            title: Titul
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            one: Konzultace
-            few: Konzultace
-            many: Konzultace
-            other: Konzultace
+            one: Consultation
+            other: Consultations
         question:
           fields:
-            created_at: Vytvořeno u
-            published: Publikováno
-            title: Titul
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            one: Otázka
-            few: Otázky
-            many: Otázky
-            other: Otázky
+            one: Question
+            other: Questions
         response:
           fields:
-            created_at: Vytvořeno u
-            title: Titul
+            created_at: Created at
+            title: Title
           name:
-            one: Odezva
-            few: Odpovědi
-            many: Odpovědi
-            other: Odpovědi
+            one: Response
+            other: Responses
       question_publications:
         create:
-          error: Při publikování této otázky došlo k chybě.
-          success: Otázka byla úspěšně publikována.
+          error: There was an error publishing this question.
+          success: Question published successfully.
         destroy:
-          error: Při odebrání této otázky došlo k chybě.
-          success: Otázka byla nepublikována úspěšně.
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
       questions:
         create:
-          error: Při vytváření nové otázky došlo k chybě.
-          success: Byla úspěšně vytvořena otázka.
+          error: There was an error creating a new question.
+          success: Question successfully created.
         destroy:
-          success: Otázka byla úspěšně smazána.
+          success: Question successfully deleted.
         edit:
-          update: Aktualizace
+          update: Update
         form:
-          title: Obecná informace
+          title: General information
         index:
-          not_published: Není zveřejněno
-          published: Publikováno
+          not_published: Not published
+          published: Published
         new:
-          create: Vytvořit
-          title: Nová otázka
+          create: Create
+          title: New question
         update:
-          error: Při aktualizaci této otázky došlo k chybě.
-          success: Otázka byla úspěšně aktualizována.
+          error: There was an error when updating this question.
+          success: Question updated successfully.
       responses:
         create:
-          error: Při vytváření nové odpovědi došlo k chybě.
-          success: Odpověď byla úspěšně vytvořena.
+          error: There was an error creating a new response.
+          success: Response successfully created.
         destroy:
-          error: Při odebrání odpovědi došlo k chybě.
-          success: Odpověď byla úspěšně smazána.
+          error: There was an error when removing the response.
+          success: Response successfully deleted.
         edit:
-          update: Aktualizace
+          update: Update
         form:
-          title: Obecná informace
+          title: General information
         new:
-          create: Vytvořit
-          title: Nová odpověď
+          create: Create
+          title: New response
         update:
-          error: Při aktualizaci této odpovědi došlo k chybě.
-          success: Odpověď byla úspěšně aktualizována.
+          error: There was an error when updating this response.
+          success: Response updated successfully.
       titles:
-        consultations: Konzultace
-        questions: Otázky
-        responses: Odpovědi
+        consultations: Consultations
+        questions: Questions
+        responses: Responses
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Maximální množství prvků, které chcete zobrazit
+            max_results: Maximum amount of elements to show
       consultation:
-        start_voting_date: Hlasování začíná
-        view_results: Zobrazit výsledky
+        start_voting_date: Voting begins
+        view_results: View results
       consultation_card:
-        view_results: Zobrazit výsledky
+        view_results: View results
       consultations:
         orders:
-          label: 'Seřadit konzultace podle:'
-          random: Náhodný
-          recent: Nejnovější
+          label: 'Sort consultations by:'
+          random: Random
+          recent: Most recent
       content_blocks:
         highlighted_consultations:
-          name: Zvýrazněné konzultace
+          name: Highlighted consultations
       count:
         title:
-          one: "%{count} konzultace"
-          few: "%{count} konzultací"
-          many: "%{count} konzultací"
-          other: "%{count} konzultací"
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
-        active: Aktivní
-        all: Všechno
-        finished: Dokončeno
-        search: Vyhledávání
-        state: Stát
-        upcoming: Nadcházející
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
       filters_small_view:
-        close_modal: Zavřete okno
-        filter: Filtr
-        filter_by: Filtrovat podle
-        unfold: Rozvinout
+        close_modal: Close window
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       highlighted_questions:
-        title: Otázky od %{scope_name}
+        title: Questions from %{scope_name}
       index:
-        title: Konzultace
+        title: Consultations
       last_activity:
-        new_consultation: Nová konzultace
-        new_question_at_html: "<span>Nová otázka na %{link}</span>"
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Aktivní konzultace
-            see_all_consultations: Podívejte se na všechny konzultace
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
             voting_ends_in:
-              one: Hlasování končí <strong>zítra</strong>
-              few: Hlasování končí <strong>%{count} dny</strong>
-              many: Hlasování končí <strong>%{count} dny</strong>
-              other: Hlasování končí <strong>%{count} dny</strong>
-            voting_ends_today: Hlasování končí <strong>dnes</strong>
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
-        take_part: Zúčastnit se
-        view_results: Zobrazit výsledky
+        take_part: Take part
+        view_results: View results
         votes_out_of:
-          one: hlasovat z
-          few: hlasy z
-          many: hlasy z
-          other: hlasy z
+          one: vote out of
+          other: votes out of
       question_votes:
         create:
-          error: Během hlasování se vyskytly chyby
+          error: There have been errors when voting the question
       regular_questions:
-        title: Otázky pro tuto konzultaci
+        title: Questions for this consultation
       show:
         badge_name:
-          finished: Dokončeno
-          open: otevřeno
-          open_votes: Otevřené hlasy
-          published_results: Publikované výsledky
+          finished: Finished
+          open: Open
+          open_votes: Open votes
+          published_results: Results published
         footer_button_text:
-          debate: Rozprava
-          view: Pohled
-          view_results: Zobrazit výsledky
-          vote: Hlasování
-        unspecified: Nespecifikováno
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konzultace jsou prostor, který vám umožňuje klást jasnou otázku všem lidem, kteří tvoří organizaci, vyzvat k účasti na konzultacích, zapálit a rozkázat rozpravu pro odpověď nebo proti ní. Když přijde datum konzultace, můžete hlasovat a zveřejnit výsledky hlasování.</p> <p>Příklady: Konzultace se mohou týkat téměř jakéhokoli aspektu, který ovlivňuje organizaci: některé příklady mění jméno nebo logo organizace nabízející několik alternativ, rozhodují se Ano nebo Ne, aby se staly součástí větší organizace, potvrzují nebo odmítají nové strategické plán nebo výsledek pracovní skupiny nebo definovat, zda by pozice měla zůstat maximálně 1, 2 nebo 3 mandáty.</p>\n"
-          page: "<p>Konzultace jsou prostor, který vám umožňuje klást jasnou otázku všem lidem, kteří tvoří organizaci, vyzvat k účasti na konzultacích, zapálit a rozkázat rozpravu pro odpověď nebo proti ní. Když přijde datum konzultace, můžete hlasovat a zveřejnit výsledky hlasování.</p> <p>Příklady: Konzultace se mohou týkat téměř jakéhokoli aspektu, který ovlivňuje organizaci: některé příklady mění jméno nebo logo organizace nabízející několik alternativ, rozhodují se Ano nebo Ne, aby se staly součástí větší organizace, potvrzují nebo odmítají nové strategické plán nebo výsledek pracovní skupiny nebo definovat, zda by pozice měla zůstat maximálně 1, 2 nebo 3 mandáty.</p>v organizaci.</p>\n"
-          title: Co jsou konzultace?
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          title: What are consultations?
     menu:
-      consultations: Konzultace
+      consultations: Consultations
     pages:
       home:
         statistics:
-          consultations_count: Konzultace
+          consultations_count: Consultations
     questions:
       results:
-        title: Výsledek
+        title: Results
       show:
-        read_more: Přečtěte si více
+        read_more: Read more
       statistics:
-        assistants_count_title: Asistenti
-        comments_count_title: Komentáře
-        meetings_count_title: Setkání
-        supports_count_title: Podporuje
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Supports
       technical_info:
-        technical_data: Technická data
+        technical_data: Technical data
       vote_button:
-        already_voted: Již bylo hlasováno
-        already_voted_hover: Odvolání podpory
-        starting_from: Počínaje %{date}
-        vote: Hlasování
+        already_voted: Already voted
+        already_voted_hover: Revoke support
+        starting_from: Starting from %{date}
+        vote: Vote
       vote_modal:
-        contextual_help: Prosím vyberte možnost.
-        title: 'Konzultace: podpora otázek'
+        contextual_help: Please, select an option.
+        title: 'Consultation: question support'
       vote_modal_confirm:
-        change: Změna
-        confirm: Potvrdit
-        contextual_help: Potvrďte vybranou možnost.
-        title: 'Konzultace: potvrďte podporu'
+        change: Change
+        confirm: Confirm
+        contextual_help: Please confirm the selected option.
+        title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Přílohy
-          categories: Kategorie
+          attachments: Attachments
+          categories: Categories
       consultation_voting_data:
-        start_voting_date: Hlasování začíná
+        start_voting_date: Voting begins
       question_components:
-        question_menu_item: Otázka
-        unfold: Rozvinout
+        question_menu_item: The question
+        unfold: Unfold
       question_header:
-        back_to_consultation: Podívejte se na všechny konzultace
+        back_to_consultation: See all consultations

@@ -1,294 +1,297 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       consultation:
-        banner_image: صورة بانر
-        decidim_highlighted_scope_id: نطاق الضوء
-        description: وصف
-        end_voting_date: ينتهي التصويت
-        introductory_image: صورة تمهيدية
-        introductory_video_url: عنوان URL للفيديو التمهيدي
-        questions: الأسئلة
-        slug: سبيكة URL
-        start_voting_date: يبدأ التصويت
-        subtitle: عنوان فرعي
-        title: عنوان
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Highlighted scope
+        description: Description
+        end_voting_date: Voting ends
+        introductory_image: Introductory image
+        introductory_video_url: Introductory video URL
+        questions: Questions
+        slug: URL slug
+        start_voting_date: Voting begins
+        subtitle: Subtitle
+        title: Title
       question:
-        banner_image: صورة بانر
-        decidim_scope_id: منطقة البلدية
-        hashtag: رابطة هاشتاق
-        hero_image: الصورة الرئيسية
-        i_frame_url: عنوان URL لنظام التصويت الخارجي
-        origin_scope: نطاق
-        origin_title: الأصل
-        origin_url: عنوان URL الأصلي
-        participatory_scope: نطاق المشاركة
-        promoter_group: مجموعة المروجين
-        question_context: سياق الكلام
-        reference: مرجع
-        scope: منطقة البلدية
-        slug: سبيكة URL
-        subtitle: عنوان فرعي
-        title: عنوان
-        vote: نظام التصويت الخارجي
-        what_is_decided: ما الذي تقرر
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
+        hashtag: Hashtag
+        hero_image: Home image
+        i_frame_url: External voting system URL
+        origin_scope: Scope
+        origin_title: Origin
+        origin_url: Origin URL
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        question_context: Context
+        reference: Reference
+        scope: Municipal area
+        slug: URL slug
+        subtitle: Subtitle
+        title: Title
+        vote: External voting system
+        what_is_decided: What is decided
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: الرد غير موجود.
+          not_found: Response not found.
   activerecord:
     models:
       decidim/consultation:
-        zero: المشاورات
-        one: تشاور
-        two: المشاورات
-        few: المشاورات
-        many: المشاورات
-        other: المشاورات
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
-        zero: الأسئلة
-        one: سؤال
-        two: الأسئلة
-        few: الأسئلة
-        many: الأسئلة
-        other: الأسئلة
+        one: Question
+        other: Questions
       decidim/consultations/response:
-        zero: استجابات
-        one: استجابة
-        two: استجابات
-        few: استجابات
-        many: استجابات
-        other: استجابات
+        one: Response
+        other: Responses
       decidim/consultations/vote:
-        zero: الأصوات
-        one: تصويت
-        two: الأصوات
-        few: الأصوات
-        many: الأصوات
-        other: الأصوات
+        one: No votes
+        other: Votes
   decidim:
     admin:
       actions:
-        new_consultation: استشارة جديدة
-        new_question: سؤال جديد
-        new_response: استجابة جديدة
-        publish_results: نشر النتائج
-        unpublish_results: نتائج غير منشورة
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
+        publish_results: Publish results
+        unpublish_results: Unpublish results
+      consultation_publications:
+        create:
+          error: There was an error publishing this consultation.
+          success: Consultation published successfully.
+        destroy:
+          error: There was an error unpublishing this consultation.
+          success: Consultation unpublished successfully.
+      consultation_results_publications:
+        create:
+          error: There was an error publishing the results for this consultation.
+          success: Consultation results published successfully.
+        destroy:
+          error: There was an error unpublishing the results for this consultation.
+          success: Consultation results unpublished successfully.
       consultations:
         create:
-          success: تم إنشاء التشاور بنجاح.
+          error: There was an error creating a new consultation.
+          success: Consultation successfully created.
         edit:
-          update: تحديث
+          update: Update
         form:
-          slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التشاور. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
-          title: معلومات عامة
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          title: General information
         index:
-          not_published: غير منشور
-          published: نشرت
+          not_published: Not published
+          published: Published
         new:
-          create: خلق
-          title: استشارة جديدة
+          create: Create
+          title: New consultation
         update:
-          success: تم تحديث المشاورة بنجاح.
+          error: There was an error when updating this consultation.
+          success: Consultation updated successfully.
       menu:
-        consultations: المشاورات
+        consultations: Consultations
         consultations_submenu:
-          info: معلومات
-          questions: الأسئلة
+          info: Information
+          questions: Questions
         questions_submenu:
-          components: المكونات
-          consultation: تشاور
-          info: معلومات
-          responses: استجابات
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
       models:
         consultation:
           fields:
-            created_at: أنشئت في
-            published: نشرت
-            title: عنوان
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            zero: المشاورات
-            one: تشاور
-            two: المشاورات
-            few: المشاورات
-            many: المشاورات
-            other: المشاورات
+            one: Consultation
+            other: Consultations
         question:
           fields:
-            created_at: أنشئت في
-            published: نشرت
-            title: عنوان
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            zero: الأسئلة
-            one: سؤال
-            two: الأسئلة
-            few: الأسئلة
-            many: الأسئلة
-            other: الأسئلة
+            one: Question
+            other: Questions
         response:
           fields:
-            created_at: أنشئت في
-            title: عنوان
+            created_at: Created at
+            title: Title
           name:
-            zero: استجابات
-            one: استجابة
-            two: استجابات
-            few: استجابات
-            many: استجابات
-            other: استجابات
+            one: Response
+            other: Responses
+      question_publications:
+        create:
+          error: There was an error publishing this question.
+          success: Question published successfully.
+        destroy:
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
       questions:
         create:
-          success: تم إنشاء السؤال بنجاح.
+          error: There was an error creating a new question.
+          success: Question successfully created.
         destroy:
-          success: تم حذف السؤال بنجاح.
+          success: Question successfully deleted.
         edit:
-          update: تحديث
+          update: Update
         form:
-          title: معلومات عامة
+          title: General information
         index:
-          not_published: غير منشور
-          published: نشرت
+          not_published: Not published
+          published: Published
         new:
-          create: خلق
-          title: سؤال جديد
+          create: Create
+          title: New question
+        update:
+          error: There was an error when updating this question.
+          success: Question updated successfully.
       responses:
         create:
-          success: تم إنشاء الاستجابة بنجاح.
+          error: There was an error creating a new response.
+          success: Response successfully created.
         destroy:
-          success: تم حذف الرد بنجاح.
+          error: There was an error when removing the response.
+          success: Response successfully deleted.
         edit:
-          update: تحديث
+          update: Update
         form:
-          title: معلومات عامة
+          title: General information
         new:
-          create: خلق
-          title: استجابة جديدة
+          create: Create
+          title: New response
+        update:
+          error: There was an error when updating this response.
+          success: Response updated successfully.
       titles:
-        consultations: المشاورات
-        questions: الأسئلة
-        responses: استجابات
+        consultations: Consultations
+        questions: Questions
+        responses: Responses
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: أقصى قدر من العناصر لإظهارها
+            max_results: Maximum amount of elements to show
       consultation:
-        start_voting_date: يبدأ التصويت
-        view_results: عرض النتائج
+        start_voting_date: Voting begins
+        view_results: View results
       consultation_card:
-        view_results: عرض النتائج
+        view_results: View results
       consultations:
         orders:
-          label: 'ترتيب المشاورات حسب:'
-          random: عشوائية
-          recent: الأحدث
+          label: 'Sort consultations by:'
+          random: Random
+          recent: Most recent
       content_blocks:
         highlighted_consultations:
-          name: مشاورات أبرزت
+          name: Highlighted consultations
       count:
         title:
-          zero: "%{count} مشاورات"
-          one: "%{count} التشاور"
-          two: "%{count} مشاورات"
-          few: "%{count} مشاورات"
-          many: "%{count} مشاورات"
-          other: "%{count} مشاورات"
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
-        active: نشيط
-        all: الكل
-        finished: تم الانتهاء من
-        search: بحث
-        upcoming: القادمة
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
       filters_small_view:
-        close_modal: أغلق النافذة
-        filter: منقي
-        filter_by: مصنف بواسطة
-        unfold: كشف
+        close_modal: Close window
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       highlighted_questions:
-        title: أسئلة من %{scope_name}
+        title: Questions from %{scope_name}
       index:
-        title: المشاورات
+        title: Consultations
       last_activity:
-        new_consultation: استشارة جديدة
-        new_question_at_html: "<span>سؤال جديد في %{link}</span>"
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: مشاورات نشطة
-            see_all_consultations: انظر جميع المشاورات
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
             voting_ends_in:
-              zero: ينتهي التصويت في <strong>%{count} يوم</strong>
-              one: ينتهي التصويت <strong>غدا</strong>
-              two: ينتهي التصويت في <strong>%{count} يوم</strong>
-              few: ينتهي التصويت في <strong>%{count} يوم</strong>
-              many: ينتهي التصويت في <strong>%{count} يوم</strong>
-              other: ينتهي التصويت في <strong>%{count} يوم</strong>
-            voting_ends_today: ينتهي التصويت <strong>اليوم</strong>
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
-        take_part: خذ جزء
-        view_results: عرض النتائج
+        take_part: Take part
+        view_results: View results
         votes_out_of:
-          zero: يصوت من
-          one: التصويت خارج
-          two: يصوت من
-          few: يصوت من
-          many: يصوت من
-          other: يصوت من
+          one: vote out of
+          other: votes out of
+      question_votes:
+        create:
+          error: There have been errors when voting the question
       regular_questions:
-        title: أسئلة لهذا التشاور
+        title: Questions for this consultation
       show:
         badge_name:
-          finished: تم الانتهاء من
-          open: افتح
-          open_votes: فتح الأصوات
-          published_results: النتائج المنشورة
+          finished: Finished
+          open: Open
+          open_votes: Open votes
+          published_results: Results published
         footer_button_text:
-          debate: النقاش
-          view: رأي
-          view_results: عرض النتائج
-          vote: تصويت
-        unspecified: غير محدد
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
     help:
       participatory_spaces:
         consultations:
-          title: ما هي المشاورات؟
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          title: What are consultations?
     menu:
-      consultations: المشاورات
+      consultations: Consultations
     pages:
       home:
         statistics:
-          consultations_count: المشاورات
+          consultations_count: Consultations
     questions:
       results:
-        title: النتائج
+        title: Results
       show:
-        read_more: قراءة المزيد
+        read_more: Read more
       statistics:
-        assistants_count_title: مساعدين
-        comments_count_title: تعليقات
-        meetings_count_title: اجتماعات
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Supports
       technical_info:
-        technical_data: معلومات تقنية
+        technical_data: Technical data
       vote_button:
-        already_voted: صوت بالفعل
-        starting_from: بدءا من %{date}
-        vote: تصويت
+        already_voted: Already voted
+        already_voted_hover: Revoke support
+        starting_from: Starting from %{date}
+        vote: Vote
       vote_modal:
-        contextual_help: من فضلك ، حدد خيار.
+        contextual_help: Please, select an option.
+        title: 'Consultation: question support'
       vote_modal_confirm:
-        change: يتغيرون
-        confirm: تؤكد
-        contextual_help: يرجى تأكيد الخيار المحدد.
+        change: Change
+        confirm: Confirm
+        contextual_help: Please confirm the selected option.
+        title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: مرفقات
-          categories: الاقسام
+          attachments: Attachments
+          categories: Categories
       consultation_voting_data:
-        start_voting_date: يبدأ التصويت
+        start_voting_date: Voting begins
       question_components:
-        question_menu_item: السؤال
-        unfold: كشف
+        question_menu_item: The question
+        unfold: Unfold
       question_header:
-        back_to_consultation: انظر جميع المشاورات
+        back_to_consultation: See all consultations

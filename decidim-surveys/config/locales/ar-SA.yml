@@ -1,52 +1,57 @@
-ar:
+---
+ar-SA:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: انتهى المسح
-      decidim/surveys/opened_survey_event: بدأ المسح
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
   activerecord:
     models:
       decidim/surveys/survey:
-        zero: الدراسات الاستقصائية
-        one: الدراسة الاستقصائية
-        two: الدراسات الاستقصائية
-        few: الدراسات الاستقصائية
-        many: الدراسات الاستقصائية
-        other: الدراسات الاستقصائية
+        one: Survey
+        other: Surveys
       decidim/surveys/survey_answer:
-        zero: الأجوبة
-        one: إجابة
-        two: الأجوبة
-        few: الأجوبة
-        many: الأجوبة
-        other: الأجوبة
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:
         actions:
-          answer: إجابة
-        name: الدراسة الاستقصائية
+          answer: Answer
+        name: Survey
         settings:
           global:
-            announcement: إعلان
+            announcement: Announcement
           step:
-            allow_answers: السماح بالإجابات
-            announcement: إعلان
+            allow_answers: Allow answers
+            announcement: Announcement
     events:
       surveys:
         survey_closed:
-          email_intro: تم إغلاق الاستطلاع %{resource_title} في %{participatory_space_title}.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: انتهى الاستبيان في %{participatory_space_title}
-          notification_title: المسح <a href="%{resource_path}">%{resource_title}</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a> قد انتهى.
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has been closed.
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A survey has finished in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has finished.
         survey_opened:
-          email_intro: 'المسح %{resource_title} في %{participatory_space_title} مفتوح الآن. يمكنك المشاركة فيه من هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: استطلاع جديد في %{participatory_space_title}
-          notification_title: المسح <a href="%{resource_path}">%{resource_title}</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a> مفتوح الآن.
+          email_intro: 'The survey %{resource_title} in %{participatory_space_title} is now open. You can participate in it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     metrics:
       survey_answers:
-        object: إجابات على الدراسات الاستقصائية
-        title: إجابات للمسوحات
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
+      admin:
+        exports:
+          survey_user_answers: Survey user answers
+        surveys:
+          update:
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span>استطلاع جديد في %{link}</span>"
+        new_survey_at_html: "<span>New survey at %{link}</span>"
+      surveys:
+        answer:
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.

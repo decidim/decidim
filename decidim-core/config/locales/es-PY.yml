@@ -990,6 +990,10 @@ es-PY:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.

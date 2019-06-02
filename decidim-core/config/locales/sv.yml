@@ -990,6 +990,10 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad användare
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte någon aktivitet än.

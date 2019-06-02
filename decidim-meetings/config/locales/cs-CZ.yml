@@ -1,457 +1,451 @@
-cs:
+---
+cs-CZ:
   activemodel:
     attributes:
       agenda:
-        description: Popis
-        duration: Doba trvání
-        title: Titul
+        description: Description
+        duration: Duration
+        title: Title
       close_meeting:
-        attendees_count: Počet účastníků
-        attending_organizations: Seznam organizací, které se zúčastnily
-        closing_report: Zpráva
-        contributions_count: Počet příspěvků
-        proposal_ids: Návrhy vytvořené na schůzi
+        attendees_count: Number of attendees
+        attending_organizations: List of organizations that attended
+        closing_report: Report
+        contributions_count: Number of contributions
+        proposal_ids: Proposals created in the meeting
       meeting:
-        address: Adresa
-        available_slots: Dostupné sloty pro toto schůzku
-        decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
-        description: Popis
-        end_time: Čas ukončení
-        location: Umístění
-        location_hints: Tipy pro umístění
-        organizer_id: Organizátor
-        private_meeting: Privátní setkání
-        registration_form_enabled: Registrační formulář je povolen
-        registration_terms: Podmínky registrace
-        registrations_enabled: Registrace povoleny
-        start_time: Doba spuštění
-        title: Titul
-        transparent: Průhledný
+        address: Address
+        available_slots: Available slots for this meeting
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_time: End Time
+        location: Location
+        location_hints: Location hints
+        organizer_id: Organizer
+        private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
+        start_time: Start Time
+        title: Title
+        transparent: Transparent
       minutes:
         audio_url: Audio url
-        description: Popis
+        description: Description
         video_url: Video url
-        visible: Je vidět
+        visible: Is visible
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Doba trvání položek přesahuje dobu trvání konference o %{count} minut
-              too_many_minutes_child: Délka položky dítěte přesahuje po dobu %{count} minuty položku programu "%{parent_title}"
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Tento e-mail již byl pozván
+              already_invited: This email has already been invited
     models:
-      decidim/meetings/close_meeting_event: Setkání bylo uzavřeno
-      decidim/meetings/create_meeting_event: Setkání
-      decidim/meetings/meeting_registrations_enabled_event: Registrace povoleny
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrace nad limit
-      decidim/meetings/upcoming_meeting_event: Nadcházející schůzka
-      decidim/meetings/update_meeting_event: Setkání bylo aktualizováno
+      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+      decidim/meetings/upcoming_meeting_event: Upcoming meeting
+      decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Setkání
-        few: Setkání
-        many: Setkání
-        other: Setkání
+        one: Meeting
+        other: Meetings
       decidim/meetings/minutes:
-        one: Minut
-        few: Minut
-        many: Minut
-        other: Minut
+        one: Minutes
+        other: Minutes
       decidim/meetings/registration:
-        one: Registrace
-        few: Registrace
-        many: Registrace
-        other: Registrace
+        one: Registration
+        other: Registrations
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
-          success: Duplicitní schůzka úspěšně.
+          error: There was en error duplicating this meeting.
+          success: Duplicated meeting successfully.
         new:
-          copy: kopírovat
-          select: Vyberte, která data chcete duplikovat
-          title: Duplicitní schůzka
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate meeting
     components:
       meetings:
         actions:
-          join: Připojit
-        name: Setkání
+          join: Join
+        name: Meetings
         settings:
           global:
-            announcement: Oznámení
-            comments_enabled: Komentáře povoleny
-            default_registration_terms: Výchozí podmínky registrace
-            enable_pads_creation: Povolit vytvoření podložky
-            resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
-            announcement: Oznámení
-            comments_blocked: Komentáře byly blokovány
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Vaše schůzka "%{resource_title}" byla uzavřena. Závěry ze své stránky můžete přečíst:'
-            email_outro: Toto oznámení jste obdrželi, protože jste uspořádali schůzku "%{resource_title}".
-            email_subject: Schůzka "%{resource_title}" byla uzavřena
-            notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
-            email_intro: 'Schůzka "%{resource_title}" byla uzavřena. Závěry ze své stránky můžete přečíst:'
-            email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Schůzka "%{resource_title}" byla uzavřena
-            notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          email_intro: Schůzka "%{resource_title}" byla přidána k "%{participatory_space_title}", kterou sledujete.
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
-          email_subject: Nové schůzky byly přidány k %{participatory_space_title}
-          notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bylo přidáno do %{participatory_space_title}
+          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New meeting added to %{participatory_space_title}
+          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Vaše registrace pro schůzku <a href="%{resource_url}">%{resource_title}</a> byla potvrzena. Váš registrační kód je %{registration_code}.
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Počet schůzek obsazených schůzem "%{resource_title}" je vyšší než %{percentage}%.
-          email_outro: Toto oznámení jste obdrželi, protože jste administrátor participačního prostoru schůzky.
-          email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
-          notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
+          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
         meeting_updated:
-          email_intro: 'Schůzka "%{resource_title}" byla aktualizována. Nová verze si můžete přečíst na stránce:'
-          email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-          email_subject: Schůzka "%{resource_title}" byla aktualizována
-          notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen.
-          email_outro: Toto oznámení jste obdrželi, protože byl ověřen váš registrační kód pro schůzku "%{resource_title}".
-          email_subject: Váš registrační kód "%{registration_code}" pro setkání "%{resource_title}" byl ověřen
-          notification_title: Váš registrační kód "%{registration_code}" pro schůzku <a href="%{resource_path}">%{resource_title}</a> byl ověřen.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
-          email_intro: 'Schůzka "%{resource_title}" povolila registrace. Můžete se zaregistrovat na své stránce:'
-          email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-          email_subject: Schůzka "%{resource_title}" povolila registrace.
-          notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          email_intro: Schůzka "%{resource_title}" začne za méně než 48 hodin.
-          email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-          email_subject: Schůzka "%{resource_title}" začne za méně než 48 hodin.
-          notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Zaregistrujte se na schůzkách, které chcete navštívit
-          description: Tento odznak je udělen, když se účastníte několika osobních setkání.
-          description_another: Tento uživatel se zúčastnil %{score} setkání.
-          description_own: Zúčastnili jste se %{score} setkání.
-          name: Účastnily se setkání
-          next_level_in: Zúčastněte se dalších %{score} setkání, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel se ještě nezúčastnil žádné schůzky.
-          unearned_own: Zatím jste se ještě nezúčastnili.
+          conditions: '["Register in the meetings you want to attend"]'
+          description: This badge is granted when you attend several face-to-face meetings.
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
-        agenda: Denní program
-        attachment_collections: Složky
-        attachments: Přílohy
-        close: Zavřít
-        confirm_destroy: Opravdu chcete tuto schůzku smazat?
-        destroy: Odstranit
-        edit: Upravit
-        minutes: Minut
-        new: Nové setkání
-        preview: Náhled
-        registrations: Registrace
-        title: Akce
+        agenda: Agenda
+        attachment_collections: Folders
+        attachments: Attachments
+        close: Close
+        confirm_destroy: Are you sure you want to delete this meeting?
+        destroy: Delete
+        edit: Edit
+        minutes: Minutes
+        new: New meeting
+        preview: Preview
+        registrations: Registrations
+        title: Actions
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Přidání položky agendy dítěte
-            agenda_item: Položka agendy
+            add_agenda_item_child: Add agenda item child
+            agenda_item: Agenda Item
             agenda_item_children: Agenda Item Childs
-            down: Dolů
-            remove: Odstranit
-            up: Nahoru
+            down: Down
+            remove: Remove
+            up: Up
           agenda_item_child:
-            agenda_item_child: Agenda Položka Dítě
-            down: Dolů
-            remove: Odstranit
-            up: Nahoru
+            agenda_item_child: Agenda Item Child
+            down: Down
+            remove: Remove
+            up: Up
           create:
-            invalid: Při vytváření této agendy došlo k problému
-            success: Agenda byla úspěšně vytvořena
+            invalid: There's been a problem creating this agenda
+            success: Agenda successfully created
           edit:
-            title: Upravit agendu
-            update: Aktualizace
+            title: Edit agenda
+            update: Update
           form:
-            add_agenda_item: Přidat položku agendy
-            agenda_items: Položky agendy
-            end_date: Datum ukončení
-            start_date: Počáteční datum
+            add_agenda_item: Add agenda item
+            agenda_items: Agenda items
+            end_date: End date
+            start_date: Start date
           new:
-            create: Vytvořit
-            title: Nová agenda
+            create: Create
+            title: New agenda
           update:
-            invalid: Při aktualizaci této agendy došlo k problému
-            success: Agenda byla úspěšně aktualizována
+            invalid: There's been a problem updating this agenda
+            success: Agenda successfully updated
         exports:
-          meetings: Setkání
-          registrations: Registrace
+          meetings: Meetings
+          registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            decline: Odmítnout pozvánku
-            invited_you_to_join_a_meeting: "%{invited_by} vás zve na schůzku na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
-            join: Připojte se ke schůzce '%{meeting_title}'
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
+            join: Join meeting '%{meeting_title}'
         invites:
           create:
-            error: Při pozvání uživatele k schůzce došlo k problému.
-            success: Uživatel úspěšně byl pozván k účasti na schůzce.
+            error: There's been a problem while inviting the user to join the meeting.
+            success: User successfully invited to join the meeting.
           form:
-            attendee_type: Typ účastníka
-            existing_user: Existující uživatel
-            invite: Pozvat
-            invite_explanation: Uživatel bude pozván, aby se připojil ke schůzce i organizaci.
-            non_user: Neexistující uživatel
-            select_user: Vyberte uživatele
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite: Invite
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
-              accepted: Přijato
-              all: Všechno
-              rejected: Odmítnuto
-              sent: Odeslaná
-            filter_by: Filtrovat podle
-            invite_attendee: Pozvat účastníka
-            invites: Pozvánky
-            registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou zakázána.
-            search: Vyhledávání
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite attendee
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
-            close: Zavřít
-            title: Zavřete schůzku
+            close: Close
+            title: Close meeting
         meeting_copies:
           form:
-            select_organizer: Vyberte organizátor
+            select_organizer: Select the organizer
         meetings:
           close:
-            invalid: Při setkání došlo k problému
-            success: Setkání bylo úspěšně uzavřeno
+            invalid: There's been a problem closing this meeting
+            success: Meeting successfully closed
           create:
-            invalid: Při vytváření této schůzky došlo k problému
-            success: Setkání bylo úspěšně vytvořeno
+            invalid: There's been a problem creating this meeting
+            success: Meeting successfully created
           destroy:
-            success: Setkání bylo úspěšně smazáno
+            success: Meeting successfully deleted
           edit:
-            update: Aktualizace
+            update: Update
           form:
-            select_organizer: Vyberte organizátor
+            select_organizer: Select the organizer
           index:
-            title: Setkání
+            title: Meetings
           new:
-            create: Vytvořit
-            title: Vytvořte schůzku
+            create: Create
+            title: Create meeting
           service:
-            description: Popis
-            down: Dolů
-            remove: Odstranit
-            service: Služba
-            title: Titul
-            up: Nahoru
+            description: Description
+            down: Down
+            remove: Remove
+            service: Service
+            title: Title
+            up: Up
           services:
-            add_service: Přidat službu
-            services: Služby
+            add_service: Add service
+            services: Services
           update:
-            invalid: Došlo k problému při aktualizaci této schůzky
-            success: Schůzka byla úspěšně aktualizována
+            invalid: There's been a problem updating this meeting
+            success: Meeting successfully updated
         minutes:
           create:
-            invalid: Při vytváření těchto minut došlo k problému
-            success: Minuty úspěšně vytvořeny
+            invalid: There's been a problem creating this minutes
+            success: Minutes successfully created
           edit:
-            update: Aktualizace
+            update: Update
           new:
-            create: Vytvořit
-            title: Vytvořte minuty
+            create: Create
+            title: Create minutes
           update:
-            invalid: Při aktualizaci těchto minut došlo k problému
-            success: Minuty úspěšně aktualizovány
+            invalid: There's been a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
-            name: Setkání
+            name: Meeting
         registrations:
           edit:
-            save: Uložit
-            validate: Ověřit
-            validate_registration_code: Ověřte registrační kód
+            save: Save
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
-            available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
-            invites: Pozvánky
-            registration_form: Registrační formulář
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            invites: Invites
+            registration_form: Registration form
             registrations_count:
-              one: Byla zde registrace %{count}.
-              few: Bylo zde %{count} registrací.
-              many: Bylo zde %{count} registrací.
-              other: Bylo zde %{count} registrací.
-            reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
-            reserved_slots_less_than: Musí být menší nebo rovno %{count}
+              one: There has been %{count} registration.
+              other: There has been %{count} registrations.
+            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_less_than: Must be less than or equal to %{count}
           update:
-            invalid: Došlo k potížím při ukládání nastavení registrace.
-            success: Nastavení úspěšných registrací bylo úspěšně uloženo.
+            invalid: There's been a problem saving the registration settings.
+            success: Meeting registrations settings successfully saved.
           validate_registration_code:
-            invalid: Tento registrační kód je neplatný.
-            success: Registrační kód byl úspěšně ověřen.
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
-          create: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
-          deleted: "%{user_name} nepozvaný %{attendee_name} ze spojení %{resource_name} schůzky na %{space_name} prostoru"
-          update: "%{user_name} pozval %{attendee_name} aby se připojil ke %{resource_name} schůzce na %{space_name} prostoru"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
-          close: "%{user_name} uzavřelo %{resource_name} schůzku na %{space_name} prostoru"
-          create: "%{user_name} vytvořila %{resource_name} schůzku v prostoru %{space_name}"
-          delete: "%{user_name} smazala %{resource_name} schůzku v prostoru %{space_name}"
-          export_registrations: "%{user_name} exportoval registraci %{resource_name} schůzky na %{space_name} prostoru"
-          update: "%{user_name} aktualizovalo %{resource_name} schůzku v prostoru %{space_name}"
+          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
-              not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+              not_found: 'The organizer was not found on the database (ID: %{id})'
         minutes:
-          create: "%{user_name} vytvořilo zápisy ze schůzky %{resource_name} v prostoru %{space_name}"
-          update: "%{user_name} aktualizoval zápisy ze schůzky %{resource_name} na %{space_name} místa"
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       calendar_modal:
-        calendar_url: Adresa URL kalendáře
-        close_window: Zavřete okno
-        export_calendar: Exportovat kalendář
-      conference_venues: Konferenční prostory
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
+      conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
-          name: Připravované akce
-          upcoming_events: Nadcházející schůzky
-          view_all_events: Zobrazit vše
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
       directory:
         meetings:
           index:
-            all: Všechno
-            date: datum
-            meetings: Setkání
-            past: Minulost
-            search: Vyhledávání
-            space_type: Účastní prostor
-            upcoming: Nadcházející
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
       last_activity:
-        new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
+        new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Pozvánka na schůzku
+            subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
-            subject: Registrace schůzky byla potvrzena
+            subject: Your meeting's registration has been confirmed
       meeting:
-        not_allowed: Tuto schůzku není povoleno prohlížet
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
-          category: Kategorie
-          category_prompt: Vyberte kategorii
-          date: datum
-          past: Minulost
-          search: Vyhledávání
-          upcoming: Nadcházející
+          category: Category
+          category_prompt: Select a category
+          date: Date
+          past: Past
+          search: Search
+          upcoming: Upcoming
         filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         meeting_minutes:
-          meeting_minutes: Zápis z porady
-          related_information: Související informace
+          meeting_minutes: Meeting Minutes
+          related_information: Related Information
         meetings:
-          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo není naplánováno žádné schůzky.
-          upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
+          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         registration_confirm:
-          cancel: zrušení
-          confirm: Potvrdit
+          cancel: Cancel
+          confirm: Confirm
         show:
-          attendees: Účastníci se počítají
-          contributions: Počet příspěvků
-          going: Chystáte se
-          join: Připojte se k setkání
-          meeting_report: Zpráva o schůzce
-          no_slots_available: Žádné sloty nejsou k dispozici
-          organizations: Účastnické organizace
-          registration_code_help_text: Váš registrační kód
+          attendees: Attendees count
+          contributions: Contributions count
+          going: Going
+          join: Join meeting
+          meeting_report: Meeting report
+          no_slots_available: No slots available
+          organizations: Attending organizations
+          registration_code_help_text: Your registration code
           registration_state:
-            validated: VALIDOVANÝ
-            validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
-            one: "%{count} zbývajícího slotu"
-            few: "%{count} zbývajících bloků"
-            many: "%{count} zbývajících bloků"
-            other: "%{count} zbývajících bloků"
-          view: Pohled
+            one: "%{count} slot remaining"
+            other: "%{count} slots remaining"
+          view: View
       meetings_map:
-        view_meeting: Zobrazit schůzku
+        view_meeting: View meeting
       models:
         invite:
           fields:
-            email: E-mailem
-            name: název
-            sent_at: Odeslané
-            status: Postavení
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
           status:
-            accepted: Přijato (%{at})
-            rejected: Odmítnuto (%{at})
-            sent: Odeslaná
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
         meeting:
           fields:
-            closed: Zavřeno
-            end_time: Datum ukončení
-            map: Mapa
-            start_time: Počáteční datum
-            title: Titul
-      read_more: "(Přečtěte si více)"
+            closed: Closed
+            end_time: End date
+            map: Map
+            start_time: Start date
+            title: Title
+      read_more: "(read more)"
       registration_mailer:
         confirmation:
-          confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
-          details: Podrobnosti schůzky naleznete v příloze.
-          registration_code: Váš registrační kód je %{code}.
+          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
-          invalid: Na schůzi došlo k problému.
-          success: Do schůzky jste se úspěšně připojili.
+          invalid: There's been a problem joining this meeting.
+          success: You have joined the meeting successfully.
         decline_invitation:
-          invalid: Došlo k potížím s odmítnutím pozvánky.
-          success: Odmítli jste pozvánku úspěšně.
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
-          invalid: Při setkání došlo k problému.
-          success: Zasedání jste úspěšně opustili.
+          invalid: There's been a problem leaving this meeting.
+          success: You have left the meeting successfully.
       types:
-        private_meeting: Privátní setkání
-        transparent: Průhledný
+        private_meeting: Private meeting
+        transparent: Transparent
     metrics:
       meetings:
-        description: Počet vytvořených schůzek
-        object: setkání
-        title: Setkání
+        description: Number of meetings created
+        object: meetings
+        title: Meetings
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Minulé schůze
-          upcoming_meetings: Nadcházející schůzky
+          past_meetings: Past meetings
+          upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Minulé schůze
-        see_all: Zobrazit všechny (%{count})
-        upcoming_meetings: Nadcházející schůzky
+        past_meetings: Past meetings
+        see_all: See all (%{count})
+        upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
-        upcoming_meeting: Nadcházející schůzka
+        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Související výsledky:'
-        result_meeting: 'Související setkání:'
+        meeting_result: 'Related results:'
+        result_meeting: 'Related meetings:'
       proposals_from_meeting:
-        meeting_proposal: 'Související návrhy:'
-        proposal_meeting: 'Související setkání:'
+        meeting_proposal: 'Related proposals:'
+        proposal_meeting: 'Related meetings:'
   devise:
     mailer:
       join_meeting:
-        subject: Pozvánka na schůzku
+        subject: Invitation to join a meeting

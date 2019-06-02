@@ -1,12 +1,13 @@
-cs:
+---
+cs-CZ:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Vytvořeno u
-        field: Moje pole
-        start_date: Počáteční datum
-        title: Titul
-        updated_at: Aktualizováno na
+        created_at: Created at
+        field: My field
+        start_date: Start date
+        title: Title
+        updated_at: Updated at
   decidim:
     dummy:
       admin:
@@ -15,26 +16,25 @@ cs:
     gamification:
       badges:
         test:
-          conditions:
-            - Použijte testovací prostředí pro decidim.
-          description: Uživatelé získají tento odznak vytvořením testů.
-          description_another: Tento uživatel vytvořil %{score} testů.
-          description_own: Vytvořili jste %{score} testů.
-          name: Testy
-          next_level_in: Vytvořte %{score} dalších testů, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel zatím nevytvořil žádné testy.
-          unearned_own: Dosud jste nevytvořili žádné testy.
+          conditions: '["Use a test environment for decidim."]'
+          description: Users get this badge by creating tests.
+          description_another: This user has created %{score} tests.
+          description_own: You have created %{score} tests.
+          name: Tests
+          next_level_in: Create %{score} more tests to reach the next level!
+          unearned_another: This user hasn't created any tests yet.
+          unearned_own: You have created no tests yet.
     pages:
       home:
         statistics:
           bar: Bar
-          dummies_count_high: Figuríny vysoké
-          dummies_count_medium: Dummies střední
+          dummies_count_high: Dummies high
+          dummies_count_medium: Dummies medium
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Figuríny vysoké
-        dummies_count_medium: Dummies střední
+        dummies_count_high: Dummies high
+        dummies_count_medium: Dummies medium
     resource_links:
       test_link:
-        dummy_resource_dummy: Související figurína
+        dummy_resource_dummy: Related dummy

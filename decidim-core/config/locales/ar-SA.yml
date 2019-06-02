@@ -1,53 +1,60 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       account:
-        delete_reason: سبب حذف حسابك
+        delete_reason: Reason to delete your account
       report:
-        details: تعليقات إضافية
+        details: Additional comments
       user:
-        about: عن
-        email: بريدك الإلكتروني
-        name: اسمك
-        nickname: الاسم المستعار
-        password: كلمه السر
-        password_confirmation: أكد كلمتك السرية
-        personal_url: عنوان URL الشخصي
-        remove_avatar: إزالة الصورة الرمزية
+        about: About
+        email: Your email
+        name: Your name
+        nickname: Nickname
+        password: Password
+        password_confirmation: Confirm your password
+        personal_url: Personal URL
+        remove_avatar: Remove avatar
     models:
-      decidim/attachment_created_event: المرفق
-      decidim/component_published_event: العنصر النشط
-      decidim/demoted_membership: لم يعد مشرف المجموعة
-      decidim/gamification/badge_earned_event: شارة المكتسبة
-      decidim/gamification/level_up_event: لقد استعدت
-      decidim/join_request_accepted_event: انضمام طلب مقبول
-      decidim/join_request_rejected_event: طلب الانضمام مرفوض
-      decidim/profile_updated_event: تحديث الملف الشخصي
-      decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
-      decidim/removed_from_group: تمت إزالته من المجموعة
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
+      decidim/attachment_created_event: Attachment
+      decidim/component_published_event: Active component
+      decidim/demoted_membership: No longer a group admin
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
+      decidim/profile_updated_event: Profile updated
+      decidim/promote_to_admin: Promoted to group admin
+      decidim/removed_from_group: Removed from group
   activerecord:
     attributes:
       decidim/user:
-        current_password: كلمة المرور الحالي
-        email: البريد الإلكتروني
-        name: اسم المستخدم
-        password: كلمه السر
-        password_confirmation: تأكيد كلمة المرور
-        remember_me: تذكرنى
+        current_password: Current password
+        email: Email
+        name: Username
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
     models:
       decidim/amendment:
-        zero: تعديلات
-        one: تعديل
-        two: تعديلات
-        few: تعديلات
-        many: تعديلات
-        other: تعديلات
+        one: Amendment
+        other: Amendments
+      decidim/user:
+        one: No users
+        other: Users
+      decidim/user_group:
+        one: User group
+        other: User groups
   booleans:
-    'false': 'لا'
-    'true': 'نعم'
+    'false': 'No'
+    'true': 'Yes'
   carrierwave:
     errors:
-      image_too_big: الصورة كبيرة جدا
+      image_too_big: The image is too big
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -58,1034 +65,1189 @@ ar:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: الملف غير موجود
-        invalid_token: الرمز المميز المقدم غير صالح.
-        no_token: لا رمزية المقدمة
+        file_no_exists: File does not exist
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
-        alert: لا يمكن التراجع عن هذا الإجراء. إذا حذفت حسابك ، فلن تتمكن من تسجيل الدخول.
+        alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
-          close: أغلق النافذة
-          ok: نعم ، أريد حذف حسابي
-          question: هل انت متأكد انك تريد حذف حسابك؟
-          title: احذف حسابي
-        explanation: من فضلك ، املأ سبب رغبتك في حذف حسابك (اختياري).
+          close: Close window
+          ok: Yes, I want to delete my account
+          question: Are you sure you want to delete your account?
+          title: Delete my account
+        explanation: Please, fill in the reason you want to delete your account (optional).
+      destroy:
+        error: There's been an error deleting your account.
+        success: Your account was deleted successfully.
       show:
-        change_password: غير كلمة السر
-        update_account: تحديث الحساب
+        change_password: Change password
+        update_account: Update account
+      update:
+        error: There's been an error updating your account.
+        success: Your account was updated successfully.
+        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
       area:
-        create: "%{user_name} خلق المنطقة %{resource_name}"
-        delete: "%{user_name} حذف المنطقة %{resource_name}"
-        update: "%{user_name} تحديث المنطقة %{resource_name}"
+        create: "%{user_name} created the %{resource_name} area"
+        delete: "%{user_name} deleted the %{resource_name} area"
+        update: "%{user_name} updated the %{resource_name} area"
       component:
-        create: "%{user_name} أضاف المكون %{resource_name} إلى الفضاء %{space_name}"
-        delete: "%{user_name} إزالة المكون %{resource_name} من %{space_name} الفضاء"
-        publish: "%{user_name} نشر المكون %{resource_name} في الفضاء %{space_name}"
-        unpublish: "%{user_name} غير منشور المكون %{resource_name} من %{space_name} الفضاء"
+        create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
+        delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
       moderation:
-        hide: "%{user_name} اختبأ مورد من النوع %{resource_type} في الفضاء %{space_name}"
-        unreport: "%{user_name} الإبلاغ عن مورد من النوع %{resource_type} في %{space_name} الفضاء"
+        hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
+        unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
       newsletter:
-        create: "%{user_name} إنشاء النشرة الإخبارية %{resource_name}"
-        delete: "%{user_name} حذف النشرة الإخبارية %{resource_name}"
-        deliver: "%{user_name} سلمت النشرة الإخبارية %{resource_name}"
-        update: "%{user_name} تحديث النشرة الإخبارية %{resource_name}"
+        create: "%{user_name} created the %{resource_name} newsletter"
+        delete: "%{user_name} deleted the %{resource_name} newsletter"
+        deliver: "%{user_name} delivered the %{resource_name} newsletter"
+        update: "%{user_name} updated the %{resource_name} newsletter"
       oauth_application:
-        create: "%{user_name} أنشأ تطبيق %{resource_name} OAuth"
-        delete: "%{user_name} حذف تطبيق %{resource_name} OAuth"
-        update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
+        create: "%{user_name} created the %{resource_name} OAuth application"
+        delete: "%{user_name} deleted the %{resource_name} OAuth application"
+        update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
-        update: "%{user_name} تحديث إعدادات المؤسسة"
+        update: "%{user_name} updated the organization settings"
+      participatory_space_private_user:
+        create: "%{user_name} invited %{resource_name} to be a private user"
+        delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
-        create: "%{user_name} خلق نطاق %{resource_name}"
-        create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
-        delete: "%{user_name} حذف النطاق %{resource_name}"
-        delete_with_parent: "%{user_name} حذف النطاق %{resource_name} داخل النطاق %{parent_scope}"
-        update: "%{user_name} تحديث النطاق %{resource_name}"
-        update_with_parent: "%{user_name} بتحديث النطاق %{resource_name} داخل النطاق %{parent_scope}"
+        create: "%{user_name} created the %{resource_name} scope"
+        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
+        delete: "%{user_name} deleted the %{resource_name} scope"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
+        update: "%{user_name} updated the %{resource_name} scope"
+        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
       static_page:
-        create: "%{user_name} أنشأ الصفحة الثابتة %{resource_name}"
-        delete: "%{user_name} حذف الصفحة الثابتة %{resource_name}"
-        update: "%{user_name} تحديث الصفحة %{resource_name} ثابت"
+        create: "%{user_name} created the %{resource_name} static page"
+        delete: "%{user_name} deleted the %{resource_name} static page"
+        update: "%{user_name} updated the %{resource_name} static page"
+      user:
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
+        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+      user_group:
+        reject: "%{user_name} rejected the %{resource_name} user group verification"
+        verify: "%{user_name} verified the %{resource_name} user group"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
     amendments:
+      accepted:
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
       amendable:
-        amended_by: عدلت من قبل
-        button: تعديل %{model_name}
-        help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
-        no_amenders: لا يوجد تعديل
-        no_amendments: لا توجد تعديلات
-        section_heading: التعديلات (%{count})
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
       created:
-        success: تم إنشاء التعديل بنجاح
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
       emendation:
         actions:
-          button_accept: قبول
-          button_reject: رفض
-          help_text: مراجعة التغييرات وقبول أو رفض هذا التعديل. سيتم إرسال إشعار إلى مؤلفها (مؤلفيها).
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
         announcement:
           accepted: |-
-            هذا التعديل ل %{amendable_type} %{amendable_link} كان
-            قبلت على <strong>%{announcement_date}</strong>.
+            This amendment for the %{amendable_type} %{amendable_link} has been
+            accepted on <strong>%{announcement_date}</strong>.
           evaluating: |-
-            هذا التعديل لل %{amendable_type} %{amendable_link}
-            قيد التقييم.
+            This amendment for the %{amendable_type} %{amendable_link}
+            is being evaluated.
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
-            تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
-            من قبل المؤلف.
+            This amendment for the %{amendable_type} %{amendable_link}
+            has been withdrawn by the author.
       new:
-        amendment_author: مؤلف التعديل
-        back: الى الخلف
-        heading: إنشاء التعديل الخاص بك
-        help_text: أنت تعدل %{model_name}
-        send: إرسال التعديل
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
+        send: Send amendment
+      promoted:
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
+      rejected:
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
       review:
-        back: الى الخلف
-        heading: مراجعة التعديل
-        help_text: أنت تعدل %{model_name}
-        send: قبول التعديل
-    anonymous_user: مجهول
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
+        send: Accept amendment
+    anonymous_user: Anonymous
     application:
       collection:
         documents:
-          zero: مستندات
-          one: وثيقة
-          two: مستندات
-          few: مستندات
-          many: مستندات
-          other: مستندات
+          one: Document
+          other: Documents
       documents:
-        related_documents: الوثائق ذات الصلة
+        related_documents: Related documents
+      photos:
+        related_photos: Related photos
     author:
       comments:
-        zero: تعليقات
-        one: تعليق
-        two: تعليقات
-        few: تعليقات
-        many: تعليقات
-        other: تعليقات
+        one: comment
+        other: comments
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
+        explanation: Get verified by introducing a passport number starting with "A"
         fields:
-          passport_number: رقم جواز السفر
-        name: مثال آخر إذن
+          passport_number: Passport number
+        name: Another example authorization
       dummy_authorization_handler:
-        explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
+        explanation: Get verified by introducing a document number ending with "X"
         fields:
-          document_number: رقم المستند
-          postal_code: الكود البريدى
-        name: مثال إذن
+          document_number: Document number
+          postal_code: Postal code
+        name: Example authorization
       dummy_authorization_workflow:
-        name: سير العمل التخويل وهمية
-      expired_at: انتهت في %{timestamp}
-      expires_at: تنتهي في %{timestamp}
+        name: Dummy authorization workflow
+      errors:
+        duplicate_authorization: A user is already authorized with the same data.
+      expired_at: Expired at %{timestamp}
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
-          bar: شريط
-          foo: فو
-        name: فو إذن
-      granted_at: منحت في %{timestamp}
+          bar: Bar
+          foo: Foo
+        name: Foo authorization
+      granted_at: Granted at %{timestamp}
       sms:
-        explanation: أرسل رقم هاتفك المحمول حتى نتمكن من التحقق من هويتك.
-        name: رمز عن طريق الرسائل القصيرة
-      started_at: بدأت في %{timestamp}
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
+      started_at: Started at %{timestamp}
     authorization_modals:
       show:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
-          cancel: إلغاء
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
         unauthorized:
-          ok: موافق
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
         unconfirmed:
-          title: تأكيد البريد الإلكتروني
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
-        zero: و %{count} أخرى
-        one: و %{count} أخرى
-        two: و %{count} أخرى
-        few: و %{count} أخرى
-        many: و %{count} أخرى
-        other: و %{count} أخرى
-      see_less: "(انظر أقل)"
-      see_more: "(شاهد المزيد)"
+        one: and %{count} more
+        other: and %{count} more
+      see_less: "(see less)"
+      see_more: "(see more)"
     components:
       dummy:
         actions:
-          bar: شريط
-          foo: فو
-        name: مكون وهمية
+          bar: Bar
+          foo: Foo
+        name: Dummy Component
         settings:
           global:
-            amendments_enabled: تم تمكين التعديلات
-            comments_enabled: تم تمكين التعليقات
-            dummy_global_attribute_1: السمة الدمية 1
-            dummy_global_attribute_2: السمة الدمية 2
-            enable_pads_creation: تمكين إنشاء منصات
-            resources_permissions_enabled: تم تمكين أذونات الموارد
+            amendments_enabled: Amendments enabled
+            comments_enabled: Comments enabled
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Enable pads creation
+            resources_permissions_enabled: Resources permissions enabled
           step:
-            comments_blocked: تم حظر التعليقات
-            dummy_step_attribute_1: الخطوة الدمية السمة 1
-            dummy_step_attribute_2: الخطوة الدمية السمة 2
-    contact: اتصل
+            comments_blocked: Comments blocked
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
+    contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: تذييل البطل الفرعي راية
+        name: Footer sub hero banner
       hero:
-        name: صورة البطل
+        name: Hero image
       highlighted_content_banner:
-        name: شعار المحتوى المميز
+        name: Highlighted content banner
       how_to_participate:
-        name: كيفية المشاركة
+        name: How to participate
       html:
-        html_content: محتوى HTML
-        name: كتلة HTML
+        html_content: HTML content
+        name: HTML block
       last_activity:
-        name: النشاط الاخير
-        title: النشاط الاخير
-        view_all: عرض الكل
+        name: Last activity
+        title: Last activity
+        view_all: View all
       metrics:
-        name: مقاييس المنظمة
+        name: Organization metrics
       stats:
-        name: احصائيات المنظمة
+        name: Organization stats
       sub_hero:
-        name: البطل الفرعي راية
+        name: Sub hero banner
     core:
       actions:
-        unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
+        unauthorized: You are not authorized to perform this action
     data_portability:
       export:
-        ready: جاهز
+        ready: Ready
       show:
-        download_data: قم بتنزيل البيانات
-        download_data_description: سيتم إرسال ملف به جميع المعلومات المرتبطة بالحساب إلى <strong>%{user_email}</strong>
-        request_data: طلب البيانات
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
     datepicker:
-      help_text: 'التنسيق المتوقع: %{datepicker_format}'
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
+          email_already_exists: Another account is using the same email address
         new:
-          complete_profile: الملف الشخصي الكامل
-          sign_up: يرجى استكمال ملف التعريف الخاص بك
-          subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
-          username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
+          complete_profile: Complete profile
+          nickname_help: Your short, unique identifier in %{organization}
+          sign_up: Please complete your profile
+          subtitle: Please fill in the following form in order to complete the sign up
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
-          already_have_an_account?: هل لديك حساب؟
-          newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
-          newsletter_title: الاتصال إذن
-          sign_in: تسجيل الدخول
-          sign_up: سجل
+          already_have_an_account?: Already have an account?
+          newsletter: Receive an occasional newsletter with relevant information
+          newsletter_title: Contact permission
+          nickname_help: Your short, unique identifier in %{organization}
+          sign_in: Log in
+          sign_up: Sign up
           sign_up_as:
-            legend: الاشتراك باسم
-          subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
-          terms: شروط وشروط الاستخدام
-          tos_agreement: بالتسجيل فإنك توافق على %{link}.
-          tos_title: شروط الخدمة
-          username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
+            legend: Sign up as
+          subtitle: Sign up to participate in discussions and support proposals.
+          terms: the terms and conditions of use
+          tos_agreement: By signing up you agree to %{link}.
+          tos_title: Terms of Service
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: جديد على المنصة؟
-          register: انشئ حساب
-          sign_in_disabled: يمكنك الوصول باستخدام حساب خارجي
+          are_you_new?: New to the platform?
+          register: Create an account
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign up is disabled, you can use an existing user to access
       shared:
         newsletter_modal:
           buttons:
-            check: تحقق واستمر
-            close_modal: إغلاق مشروط
-            uncheck: تبقي إلغاء
+            check: Check and continue
+            close_modal: Close modal
+            uncheck: Keep uncheck
           notice: |-
-            <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
-            يرجى النظر مرة أخرى في تحديد خانة الاختيار النشرة الإخبارية أدناه.<br>
-            المهم جدًا بالنسبة لنا أنه يمكنك تلقي رسائل بريد إلكتروني من حين لآخر
-            لإصدار إعلانات مهمة ، يمكنك دائمًا تغيير هذا في صفحة إعدادات الإشعارات
-            .</p>
-            <p>إذا لم تقم بوضع علامة في الخانة ، فقد تفتقد إلى المعلومات ذات الصلة
-            حول فرص المشاركة الجديدة داخل المنصة.<br>
-            إذا كنت لا تزال ترغب في تجنب النشرات الإخبارية المستقبلة، نحن تماما
-            فهم قراركم.</p>
-            <p>شكرا لقراءة هذا!</p>
-          title: الإخطارات الإخبارية
+            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            Please consider again ticking the newsletter checkbox below.<br>
+            It is very important for us that you can receive occasional emails
+            to make important announcements, you can always change this on your
+            notifications settings page.</p>
+            <p>If you don't tick the box you might be missing relevant information
+            about new participatory opportunities within the platform.<br>
+            If you still want to avoid receiving newsletters, we perfectly
+            understand your decision.</p>
+            <p>Thanks for reading this!</p>
+          title: Newsletter notifications
         omniauth_buttons:
-          or: أو
+          or: Or
     doorkeeper:
       authorizations:
         new:
-          authorize: إذن التطبيق
-          by_organization_link_html: <small class="heading-small">بواسطة %{link}</small>
-          cancel: إلغاء
-          connect_your_account_html: قم بتوصيل حسابك بتسجيل الدخول إلى <strong>%{organization}</strong>
-          publish_content: نشر المحتوى لك
-          see_email: انظر البريد الإلكتروني الخاص بك
-          see_name: انظر اسمك
-          this_application_will_be_able_to: 'سيكون هذا التطبيق قادرًا على:'
-          this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
-          update_profile: تحديث ملفك الشخصي
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
+          authorize: Authorize application
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          cancel: Cancel
+          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          publish_content: Publish content for you
+          see_email: See your email
+          see_name: See your name
+          see_username: See your username
+          this_application_will_be_able_to: 'This application will be able to:'
+          this_application_will_not_be_able_to: 'This application will not be able to:'
+          update_profile: Update your profile
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     errors:
       internal_server_error:
-        title: كانت هناك مشكلة في الخادم الخاص بنا
-        try_later: الرجاء معاودة المحاولة في وقت لاحق.
+        title: There was a problem with our server
+        try_later: Please try again later.
       not_found:
-        back_home: العودة إلى المنزل
-        content_doesnt_exist: هذا العنوان غير صحيح أو تمت إزالته.
-        title: لا يمكن العثور على الصفحة التي تبحث عنها
+        back_home: Back home
+        content_doesnt_exist: This address is incorrect or has been removed.
+        title: The page you're looking for can't be found
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-          follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-        amendment_rejected:
-          affected_user:
-            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-          follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-        amendment_promoted:
-          affected_user:
-            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-          follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
         amendment_accepted:
           affected_user:
-            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'تمت إضافة مستند جديد إلى %{resource_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{resource_title}
-          notification_title: تمت إضافة <a href="%{resource_path}">مستند جديد</a> إلى <a href="%{attached_to_url}">%{resource_title}</a>
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title}
+          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'المكون %{resource_title} نشط الآن ل %{participatory_space_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{participatory_space_title}
-          notification_title: المكون %{resource_title} نشط الآن لـ <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
-        email_greeting: مرحبا %{user_name}،
-        email_intro: 'كان هناك تحديث لـ "%{resource_title}". يمكنك أن ترى ذلك من هذه الصفحة:'
-        email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-        email_subject: تحديث إلى %{resource_title}
+        email_greeting: Hello %{user_name},
+        email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
+        email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+        email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
-          email_subject: 'لقد ربحت شارة جديدة: %{badge_name}!'
+          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
-          email_subject: لقد وصلت إلى المستوى %{current_level} في الشارة %{badge_name}!
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
-          email_intro: أزال مشرف المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول الخاصة بك إلى هذه المجموعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
-          email_subject: أنت لم تعد مشرفًا على المجموعة %{user_group_name}!
-          notification_title: لم تعد مشرفًا لمجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are no longer an admin of the %{user_group_name} group!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
         invited_to_group:
-          email_intro: دعاك مسؤول في مجموعة <a href="%{resource_url}">%{user_group_name}</a> للانضمام إليها.
-          email_outro: لقد تلقيت هذا الإشعار لأنك دعيت إلى مجموعة. يرجى التحقق من علامة تبويب المجموعات في ملفك الشخصي للموافقة عليها.
-          email_subject: لقد تمت دعوتك للانضمام إلى المجموعة %{user_group_name}!
-          notification_title: لقد تمت دعوتك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a> . تحقق من <a href="%{groups_profile_tab_path}">مجموعات صفحة</a> في ملفك الشخصي للموافقة عليها!
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} group!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
         join_request_accepted:
-          email_intro: تهانينا! قبل مشرف من مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
-          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
-          email_subject: لقد تم قبولك في المجموعة %{user_group_name}!
-          notification_title: لقد تم قبولك في المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} group!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
         join_request_created:
-          email_intro: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_url}">أعضاء المجموعة</a>.
-          email_outro: لقد تلقيت هذا الإشعار لأنه يمكنك إدارة المجموعة %{user_group_name}.
-          email_subject: طلب شخص ما الانضمام إلى المجموعة %{user_group_name}!
-          notification_title: طلب شخص ما الانضمام إلى المجموعة %{user_group_name} . يمكنك قبول أو رفضه من صفحة <a href="%{resource_path}">أعضاء المجموعة</a>.
+          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} group.
+          email_subject: Someone requested to join the %{user_group_name} group!
+          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
         join_request_rejected:
-          email_intro: رفض أحد مسؤولي مجموعة <a href="%{resource_url}">%{user_group_name}</a> طلبك للانضمام إليه.
-          email_outro: لقد تلقيت هذا الإشعار لأنه تم تحديث طلب الانضمام الخاص بك.
-          email_subject: تم رفض طلبك للانضمام إلى المجموعة %{user_group_name}!
-          notification_title: تم رفض طلبك للانضمام إلى المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} group has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
         promoted_to_admin:
-          email_intro: منحك مسؤول المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول لهذه المجموعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في هذه المجموعة.
-          email_subject: أنت الآن مشرف على المجموعة %{user_group_name}!
-          notification_title: أنت الآن مسؤول عن مجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are now an admin of the %{user_group_name} group!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
         removed_from_group:
-          email_intro: قام مسؤول من مجموعة <a href="%{resource_url}">%{user_group_name}</a> بإزالتك منه.
-          email_outro: لقد تلقيت هذا الإشعار لأنك كنت عضوًا في هذه المجموعة.
-          email_subject: لقد تمت إزالتك من المجموعة %{user_group_name}!
-          notification_title: لقد تمت إزالتك من المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
+          email_outro: You have received this notification because you were a member of that group.
+          email_subject: You have been removed from the %{user_group_name} group!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
-        notification_title: حدث حدث ل <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: "%{nickname} تحديث ملفهم الشخصي"
-          notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
+          email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} updated their profile"
+          notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.
-        download: تحميل
+        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        download: Download
       export:
-        ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
-      subject: تصديرك "%{name}" جاهز
+        ready: Please find attached a zipped version of your export.
+      subject: Your export "%{name}" is ready
     filters:
       linked_classes:
-        all: الكل
-        collaborative_draft: مشروع تعاوني
-        dummy_resource: موارد وهمية
-        meeting: اجتماعات
-        project: مشاريع
-        proposal: اقتراحات
-        result: النتائج
+        all: All
+        collaborative_draft: Collaborative draft
+        dummy_resource: Dummy resources
+        meeting: Meetings
+        project: Projects
+        proposal: Proposals
+        result: Results
     fingerprint:
-      check: تحقق بصمة
-      explanation: جزء النص أدناه عبارة عن تمثيل قصير ومجزم لهذا المحتوى. من المفيد التأكد من عدم التلاعب بالمحتوى ، لأن التعديل الواحد قد ينتج عنه قيمة مختلفة تمامًا.
-      online_calculator_name: MD5 آلة حاسبة على الانترنت
-      replicate_help: يتم حساب بصمة الإصبع هذه باستخدام خوارزمية تجزئة SHA256. لتكرارها بنفسك ، يمكنك استخدام %{online_calculator_link} ونسخ البيانات المصدر.
-      source: مصدر
-      title: بصمة
-      value: القيمة
+      check: Check fingerprint
+      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
+      online_calculator_name: MD5 calculator online
+      replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
+      source: Source
+      title: Fingerprint
+      value: Value
     followers:
-      no_followers: لا متابعين بعد.
+      no_followers: No followers yet.
     following:
-      no_followings: لا يتبع أي شخص أو أي شيء حتى الآن.
+      no_followings: Doesn't follow anyone or anything yet.
     follows:
       create:
-        button: إتبع
+        button: Follow
+        error: There has been an error following this resource.
       destroy:
-        button: وقف التالية
+        button: Stop following
+        error: There has been an error unfollowing this resource.
     forms:
-      current_file: الملف الحالي
-      current_image: الصورة الحالية
-      default_image: الصورة الافتراضية
+      current_file: Current file
+      current_image: Current image
+      default_image: Default image
       errors:
-        error: يوجد خطأ في هذا المجال.
-      remove_this_file: أزل هذا الملف
+        error: There's an error in this field.
+      remove_this_file: Remove this file
     gamification:
-      all_badges_link: رؤية جميع الشارات المتاحة.
+      all_badges_link: See all available badges.
       badges:
         continuity:
-          conditions:
-            - تعال هنا في كثير من الأحيان
-          description: تُمنح هذه الشارة عند زيارة المنصة بطريقة منتظمة. نود وجودك هنا!
-          description_own: لقد قمت بالاتصال لمدة %{score} أيام متتالية في مرحلة ما.
-          name: استمرارية
-          next_level_in: الاتصال لمدة %{score} أيام متتالية للوصول إلى المستوى التالي!
-          unearned_own: أنت غير متصل لأكثر من يوم واحد على التوالي.
+          conditions: '["Come here often"]'
+          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
+          description_another: This user has connected for %{score} consecutive days at some point.
+          description_own: You have connected for %{score} consecutive days at some point.
+          name: Continuity
+          next_level_in: Connect for %{score} consecutive days to get to the next level!
+          unearned_another: This user hasn't signed in for more than one consecutive day.
+          unearned_own: You haven't connected for more than one consecutive day.
         followers:
-          conditions:
-            - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
-          description: تُمنح هذه الشارة عندما تصل إلى عدد معين من المتابعين. %{organization_name} هي شبكة اجتماعية وسياسية ، نسج الويب الخاص بك للتواصل مع أشخاص آخرين في المنصة.
-          name: متابعون
-          unearned_own: ليس لديك متابعين بعد.
+          conditions: '["Being active and following other people will surely make other people follow you."]'
+          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
         index:
-          badge_title: "%{name} شارة"
-          how: كيف يمكنك كسب ذلك
-          page_description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة. فيما يلي قائمة بالشارات وبعض الطرق التي يمكنك من خلالها كسبها.
-          title: شارات
+          badge_title: "%{name} badge"
+          how: How can you earn it
+          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
+          title: Badges
         invitations:
-          conditions:
-            - استخدم رابط "دعوة الأصدقاء" في صفحة المستخدم الخاصة بك لدعوة أصدقائك
-            - تخصيص ، إذا كنت تريد ، الرسالة التي ترسلها
-            - ستصل إلى أعلى مستوى عن طريق إرسال الدعوات وتسجيلها.
-          description: تُمنح هذه الشارة عند قيامك بدعوة بعض الأشخاص وقضاء بعض الوقت للتسجيل في %{organization_name} وتصبح مشاركًا. شكرًا لك على تعريف شخص %{organization_name} للآخرين والمساعدة في توسيع نطاق المجتمع!
-          name: دعوات
-      description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة.
-      level: المستوى %{level}
-      reached_top: لقد وصلت إلى المستوى الأعلى لهذه الشارة.
+          conditions: '["Use the “invite friends” link on your user page to invite your friends", "Customize, if you want, the message you are sending", "You’ll level up by sending invitations and getting them registered."]'
+          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
+          name: Invitations
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
     group_admins:
       actions:
-        demote_admin: إزالة المشرف
+        are_you_sure: Are you sure? This won't remove the user from the group.
+        demote_admin: Remove admin
+      demote:
+        error: There was an error removing this user from the admins list
+        success: User removed from admin successfully
       index:
-        current_admins: 'المشرفون الحاليون:'
-        manage_admins: إدارة المشرفين
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
     group_invites:
-      accept_invitation: قبول
-      accept_or_reject_group_invitations: 'لقد دعوتك المجموعات التالية للانضمام إليهم. قبول أو رفض طلباتهم:'
+      accept:
+        error: There was an error accepting this invitation
+        success: Invitation accepted successfully
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
-        invite: دعا
-        invite_user: دعوة مستخدم
-      reject_invitation: رفض
+        invite: Invite
+        invite_user: Invite a user
+      invite:
+        error: There was an error inviting this user
+        success: User invited successfully
+      reject:
+        error: There was an error rejecting this invitation
+        success: Invitation rejected successfully
+      reject_invitation: Reject
     group_members:
+      accept:
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
       actions:
-        are_you_sure: هل أنت واثق؟
-        promote_to_admin: جعل المشرف
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove user
       index:
-        current_members_without_admins: 'الأعضاء الحاليون (بدون مدراء):'
-        manage_members: إدارة الأعضاء
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
+      promote:
+        error: There was an error promoting this user
+        success: User promoted successfully
+      reject:
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
+      remove:
+        error: There was an error removing this user from the group
+        success: User removed from the group successfully
     groups:
       actions:
-        are_you_sure: هل أنت واثق؟
+        are_you_sure: Are you sure?
+      create:
+        error: There has been a problem creating the group
+        success: Group created successfully
       edit:
-        edit_user_group: تحرير المجموعة
-        update_user_group: تحديث المجموعة
+        edit_user_group: Edit group
+        update_user_group: Update group
       form:
-        document_number_help: لا تستخدم شرطات ولا مسافات
-        email_help: البريد الإلكتروني لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ
-        fill_in_for_verification: 'املأ هذه الحقول إذا كنت تريد التحقق من مجموعتك:'
-        name_help: اسم مؤسستك أو جمعيتك أو جماعتك أو جماعتك ، إلخ.
-        phone_help: لا تستخدم شرطات ولا مسافات
+        document_number_help: Do not use dashes nor spaces
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces
+      join:
+        error: There has been a problem joining the group
+        success: Join request created successfully. An admin will review your request before accepting you to the group.
+      leave:
+        error: There has been a problem leaving the group
+        success: Group left successfully.
       members:
-        accept_or_reject_join_requests: 'تقدم المستخدمون التاليون بطلب للانضمام إلى هذه المجموعة. قبول أو رفض طلباتهم:'
-        accept_request: قبول
-        reject_request: رفض
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
       new:
-        create_user_group: إنشاء مجموعة
-        new_user_group: مجموعة جديدة
-        subtitle: قم بإنشاء مجموعة ودعوة مستخدمين آخرين للانضمام للمشاركة في المستوى الجماعي.
-      no_user_groups: لا ينتمي إلى أي مجموعة حتى الآن.
+        create_user_group: Create group
+        new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
+      no_user_groups: Doesn't belong to any group yet.
       roles:
-        admin: مدير
-        creator: المنشئ
-        member: عضو
+        admin: Administrator
+        creator: Creator
+        member: Member
+      update:
+        error: There has been a problem updating the group
+        success: Group updated successfully
     help:
       main_topic:
         default_page:
-          content: "<p>في %{organization} يمكنك المشاركة واتخاذ قرار بشأن مواضيع مختلفة ، من خلال المساحات التي تراها في القائمة العليا: العمليات ، والجمعيات ، والمبادرات ، والمشاورات.</p> <p>في كل منها ، ستجد خيارات مختلفة للمشاركة: تقديم مقترحات - بشكل فردي أو مع أشخاص آخرين - والمشاركة في المناقشات ، وتحديد أولويات المشاريع للتنفيذ ، وحضور الاجتماعات وجهاً لوجه وغيرها من الإجراءات.</p>\n"
-          title: ماذا يمكنني أن أفعل في %{organization}؟
-        description: قراءة المزيد عن %{organization}
-        title: مساعدة عامة
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
     last_activities:
       activities:
-        no_activities_warning: لا يوجد نشاط
-      all: جميع أنواع النشاط
+        no_activities_warning: No activity
+      all: All activity types
       index:
-        last_activity: النشاط الاخير
-        resource_type: نوع
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
-        create: "%{user_name} تم الإنشاء %{resource_name}"
-        create_with_space: "%{user_name} تم الإنشاء %{resource_name} في %{space_name}"
-        delete: "%{user_name} حذف %{resource_name}"
-        delete_with_space: "%{user_name} حذف %{resource_name} في %{space_name}"
-        unknown_action: "%{user_name} قام ببعض الإجراءات في %{resource_name}"
-        unknown_action_with_space: "%{user_name} قام ببعض الإجراءات في %{resource_name} في %{space_name}"
-        update: "%{user_name} تحديث %{resource_name}"
-        update_with_space: "%{user_name} محدث %{resource_name} في %{space_name}"
+        create: "%{user_name} created %{resource_name}"
+        create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted %{resource_name}"
+        delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} performed some action on %{resource_name}"
+        unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        update: "%{user_name} updated %{resource_name}"
+        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'لم يتم العثور على المنطقة في قاعدة البيانات (المعرف: %{id})'
+          not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:
-          not_found: 'لم يتم العثور على نوع المنطقة في قاعدة البيانات (المعرف: %{id})'
+          not_found: 'The area type was not found on the database (ID: %{id})'
         scope_presenter:
-          not_found: 'لم يتم العثور على النطاق في قاعدة البيانات (المعرف: %{id})'
+          not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
-          not_found: 'لم يتم العثور على نوع النطاق في قاعدة البيانات (المعرف: %{id})'
+          not_found: 'The scope type was not found on the database (ID: %{id})'
+    managed_users:
+      expired_session: The current impersonation session has expired.
+    members:
+      no_members: This user groups doesn't have any member yet.
     menu:
-      help: مساعدة
-      home: الصفحة الرئيسية
+      help: Help
+      home: Home
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: مرحبًا ، %{recipient}!
-          intro: "%{sender} بدأ محادثة جديدة معك. انقر هنا لرؤيتها:"
-          outro: استمتع ديسيديم!
-          subject: "%{sender} بدأ محادثة معك"
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with you. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{sender} has started a conversation with you"
         new_message:
-          greeting: مرحبًا ، %{recipient}!
-          intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
-          outro: استمتع ديسيديم!
-          subject: لديك رسائل جديدة من %{sender}
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: You have new messages from %{sender}
       conversations:
         create:
-          error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
+          error: Conversation not started. Try again later
         index:
-          no_conversations: ليس لديك محادثات حتى الآن
-          title: المحادثات
+          no_conversations: You have no conversations yet
+          title: Conversations
         reply:
-          send: إرسال
-          title: رد
+          send: Send
+          title: Reply
         show:
-          title: المحادثة مع %{usernames}
+          title: Conversation with %{usernames}
         start:
-          send: إرسال
-          title: بدء محادثة
+          send: Send
+          title: Start a conversation
         update:
-          error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
+          error: Message not sent. Try again later
     metrics:
       download:
-        csv: تنزيل البيانات (csv)
+        csv: Download data (csv)
       followers:
-        object: متابعون
-        title: متابعون
+        description: Number of users that follow this participation space
+        object: followers
+        title: Followers
       participants:
-        object: المشاركين
-        title: المشاركين
+        description: Number of active user in organization
+        object: participants
+        title: Participants
+      users:
+        description: Number of user in organization
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
-        note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
-        see_on_website: لا يمكن رؤية هذا البريد الإلكتروني بشكل صحيح؟ مشاهدته على <a href="%{link}" target="_blank">موقع</a>.
-        unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
+        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletters:
       unsubscribe:
-        check_subscription: إذا كنت ترغب في تغيير تفضيلاتك ، يمكنك القيام بذلك في صفحة التكوين <a href="%{link}" target="_blank"></a>
-        success: أنت غير مشترك بنجاح.
-        token_error: انتهت صلاحية الرابط.
-        unsubscribe: إلغاء الاشتراك
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        error: There's been an error unsubscribing
+        success: You are unsubscribed successfully.
+        token_error: The link has expired.
+        unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: عذرًا ، هذا الرابط لم يعد متاحًا
+      unathorized: Sorry, this link is no longer available
       update:
-        error: حدث شيء خطأ
+        error: Something wrong happened
+        success: Newsletter settings updated successfully
     newsletters_opt_in_mailer:
       notify:
-        body_1: تزداد أهمية معالجة البيانات الشخصية وحمايتها بالنسبة لنا جميعًا. مع اللائحة العامة الجديدة لحماية البيانات (GDPR) المؤرخة 25 مايو 2018 ، أصبح للأفراد سيطرة أفضل على بياناتهم الشخصية. لهذا السبب نحتاج إلى "موافق" لمواصلة إرسال المعلومات ذات الصلة حول أنشطة %{organization_name}.
-        body_2: 'كيف يمكنك أن تعطينا موافقتك؟ فقط انقر على الزر التالي:'
-        body_3: مع هذه الموافقة ، ستتمكن من متابعة تلقي معلومات حول خدمات النظام الأساسي. على العكس من ذلك ، إذا لم نتلق تأكيدًا إيجابيًا من جانبك ، فسنوقف إرسال رسائلنا إليك. إذا أكدت رغبتك في أن تظل على اطلاع ، فسيكون لديك دائمًا خيار الإلغاء في أي وقت.
-        button: نعم ، أرغب في متابعة تلقي المعلومات ذات الصلة
-        greetings: تحية طيبة ،<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: مرحبا،
-        subject: هل ترغب في الاستمرار في تلقي المعلومات ذات الصلة حول %{organization_name}؟
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_2: 'How can you give us your consent? Just click the following button:'
+        body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
+        button: Yes, I want to continue receiving relevant information
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      shared:
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
-      no_notifications: لا إخطارات حتى الآن.
+      no_notifications: No notifications yet.
     notifications_settings:
       show:
-        email_on_notification: أرغب في تلقي رسالة بريد إلكتروني في كل مرة أتلقى فيها إشعارًا.
-        everything_followed: كل شيء أتابعه
-        newsletters: النشرات الإخبارية
-        newsletter_notifications: أريد أن أتلقى رسائل إخبارية
-        own_activity: نشاطي الخاص ، مثلما يعلقني أحدهم في اقتراحي أو يذكرني
-        receive_notifications_about: أريد الحصول على إشعارات حول
-        send_notifications_by_email: إرسال الإخطارات عن طريق البريد الإلكتروني
-        update_notifications_settings: حفظ التغييرات
+        email_on_notification: I want to receive an email every time I receive a notification.
+        everything_followed: Everything I follow
+        newsletter_notifications: I want to receive newsletters
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
+        update_notifications_settings: Save changes
+      update:
+        error: There's been an error updating your notifications settings.
+        success: Your notifications settings were updated successfully.
     open_data:
-      not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
-        pending: قيد الانتظار
-        rejected: مرفوض
-        verified: التحقق
+        pending: Pending
+        rejected: Rejected
+        verified: Verified
     pad_iframe:
-      disclaimer: تتم كتابة محتويات هذه اللوحة من قبل المستخدمين المسجلين والتعبير عن آرائهم. لا يمكن تحميل %{organization} مسؤولية محتوياته.
-      explanation: استخدم هذه الوسادة لتدوين الملاحظات بشكل تعاوني أثناء الاجتماع بحيث يسهل تدوينها بعد ذلك.
-      pad: ضمادة
+      disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
+      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      pad: Pad
     pages:
       home:
         extended:
-          debates: المناقشات
-          debates_explanation: مناقشة ومناقشة وتبادل وجهات النظر الخاصة بك وإثراء المواضيع ذات الصلة.
-          how_to_participate: كيف أشارك في العملية؟
-          meetings: اجتماعات
-          meetings_explanation: معرفة أين ومتى يمكنك المشاركة في الاجتماعات العامة.
-          more_info: مزيد من المعلومات
-          proposals: اقتراحات
-          proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
+          debates: Debates
+          debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
+          how_to_participate: How do I take part in a process?
+          meetings: Meetings
+          meetings_explanation: Find out where and when you can participate in public meetings.
+          more_info: More info
+          proposals: Proposals
+          proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونية.<br /> الانضمام والمشاركة وتقرر.
-          footer_sub_hero_headline: مرحبًا بك في %{organization} منصة تشاركية.
-          register: تسجيل
+          footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
+          footer_sub_hero_headline: Welcome to %{organization} participatory platform.
+          register: Register
         hero:
-          participate: مشاركة
-          welcome: مرحبًا بك في %{organization}!
+          participate: Participate
+          welcome: Welcome to %{organization}!
         metrics:
-          headline: المشاركة في الأرقام
+          headline: Participation in figures
         statistics:
-          answers_count: المسوحات المكتملة
-          assemblies_count: جمعيات
-          comments_count: تعليقات
-          conferences_count: المؤتمرات
-          debates_count: المناقشات
-          endorsements_count: موافقات
-          headline: الحالة الحالية لل %{organization}
-          meetings_count: اجتماعات
-          orders_count: الأصوات
-          pages_count: صفحات
-          processes_count: العمليات
-          projects_count: مشاريع
-          proposals_accepted: المقترحات المقبولة
-          proposals_count: اقتراحات
-          results_count: النتائج
-          surveys_count: الدراسات الاستقصائية
-          users_count: المشاركين
-          votes_count: الأصوات
+          answers_count: Completed Surveys
+          assemblies_count: Assemblies
+          comments_count: Comments
+          conferences_count: Conferences
+          debates_count: Debates
+          endorsements_count: Endorsements
+          headline: Current state of %{organization}
+          meetings_count: Meetings
+          orders_count: Votes
+          pages_count: Pages
+          processes_count: Processes
+          projects_count: Projects
+          proposals_accepted: Accepted Proposals
+          proposals_count: Proposals
+          results_count: Results
+          surveys_count: Surveys
+          users_count: Participants
+          votes_count: Votes
         sub_hero:
-          register: تسجيل
+          register: Register
       index:
-        read_more: قراءة المزيد
-        standalone_pages: صفحات
-        subheading: انتقل من خلال صفحات المساعدة من %{name}
-        title: مساعدة
-        topics: المواضيع
-      participatory_space:
-        metrics:
-          headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
+        read_more: Read more
+        standalone_pages: Pages
+        subheading: Navigate through the help pages of %{name}
+        title: Help
+        topics: Topics
       terms_and_conditions:
         accept:
-          success: عظيم! لقد قبلت الشروط والأحكام.
+          error: There's been an error while accepting the terms and conditions.
+          success: Great! You have accepted the terms and conditions.
         form:
-          agreement: أوافق على هذه الشروط
-          legend: توافق على شروط وأحكام الاستخدام
+          agreement: I agree this terms
+          legend: Agree to the terms and conditions of use
         refuse:
-          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
-          modal_btn_continue: قبول الشروط والمتابعة
-          modal_btn_exit: سأراجعها لاحقًا
-          modal_button: رفض الشروط
-          modal_close: إغلاق مشروط
-          modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
+          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_btn_continue: Accept terms and continue
+          modal_btn_exit: I'll review it later
+          modal_button: Refuse the terms
+          modal_close: Close modal
+          modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
-          alert: لقد قمنا بتحديث شروط الخدمة الخاصة بنا ، يرجى مراجعتها.
-          body: يرجى قضاء بعض الوقت لمراجعة التحديثات على شروط الخدمات لدينا. وإلا فلن تتمكن من استخدام النظام الأساسي.
-          title: 'مطلوب: مراجعة التحديثات لشروط الخدمة لدينا'
+          alert: We've updated our Terms of Service, please review them.
+          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
+          title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
-      not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
+      not_allowed: You are not allowed to view this content
     profile:
-      view: رأي
+      deleted: Deleted user
+      view: View
     profiles:
-      default_officialization_text_for_users: تم التحقق من هذا المشارك علنًا ، وتم التحقق من اسمه / دوره ليتوافق مع اسمه / دوره الحقيقي
+      default_officialization_text: Justification
+      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
-        activity: نشاط
-        badges: شارات
-        followers: متابعون
-        following: يتبع
-        groups: المجموعات
-        members: أفراد
-        timeline: الجدول الزمني
-        view_full_profile: عرض الملف الشخصي الكامل
+        activity: Activity
+        badges: Badges
+        followers: Followers
+        following: Follows
+        groups: Groups
+        members: Members
+        timeline: Timeline
+        view_full_profile: View full profile
       sidebar:
         badges:
-          info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
-          title: شارات
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
-        confirmation_instructions_sent: تم إرسال تعليمات تأكيد البريد الإلكتروني
-        create_user_group: إنشاء مجموعة
-        edit_profile: تعديل الملف الشخصي
-        edit_user_group: تحرير ملف تعريف المجموعة
-        fill_in_email_to_confirm_it: يرجى ملء البريد الإلكتروني لمجموعتك لتأكيدها
-        invite_user: دعوة مستخدم
-        join_user_group: طلب الانضمام إلى المجموعة
-        leave_user_group: غادر المجموعة
-        manage_user_group_admins: إدارة المشرفين
-        manage_user_group_users: إدارة الأعضاء
-        resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
+        confirmation_instructions_sent: Email confirmation instructions sent
+        create_user_group: Create group
+        edit_profile: Edit profile
+        edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        invite_user: Invite user
+        join_user_group: Request to join group
+        leave_user_group: Leave group
+        manage_user_group_admins: Manage admins
+        manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
-        hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
-        subject: تم إخفاء المورد تلقائيًا
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
+        subject: A resource has been hidden automatically
       report:
-        hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
-        report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
-        subject: تم الإبلاغ عن مورد
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        subject: A resource has been reported
     reports:
       create:
-        error: حدث خطأ أثناء إنشاء التقرير. من فضلك حاول مرة أخرى.
-        success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
+        error: An error ocurred while creating the report. Please, try it again.
+        success: The report has been created successfully and it will be reviewed by an admin.
     scopes:
-      global: النطاق العالمي
+      global: Global scope
       picker:
-        cancel: إلغاء
-        choose: تحديد
-        title: اختر %{field}
-      prompt: حدد النطاق
-      scopes: نطاقات
+        cancel: Cancel
+        choose: Select
+        title: Select %{field}
+      prompt: Select a scope
+      scopes: Scopes
     search:
-      results_found_for_term: '%{count} نتائج البحث: "%{term}"'
-      term_input_placeholder: بحث
+      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      term_input_placeholder: Search
     searches:
       filters:
-        back: العودة إلى النتائج
-        jump_to: 'اقفز إلى:'
+        back: Back to results
+        jump_to: 'Jump to:'
         state:
-          active: نشيط
-          all: الكل
-          future: مستقبل
-          past: الماضي
+          active: Active
+          all: All
+          future: Future
+          past: Past
       filters_small_view:
-        close_modal: إغلاق مشروط
-        filter: منقي
-        filter_by: مصنف بواسطة
-        unfold: كشف
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       results:
         results:
-          zero: "%{count} النتائج"
-          one: "%{count} النتيجة"
-          two: "%{count} النتائج"
-          few: "%{count} النتائج"
-          many: "%{count} النتائج"
-          other: "%{count} النتائج"
-        view_all: عرض الكل (%{count})
+          one: "%{count} result"
+          other: "%{count} results"
+        view_all: View all (%{count})
     shared:
       embed_modal:
-        close_window: أغلق النافذة
-        embed: يرجى لصق هذا الرمز في صفحتك
-        embed_link: تضمين
+        close_window: Close window
+        embed: Please paste this code in your page
+        embed_link: Embed
       extended_navigation_bar:
-        more: أكثر من
-        unfold: كشف
+        more: More
+        unfold: Unfold
       flag_modal:
-        already_reported: تم الإبلاغ عن هذا المحتوى بالفعل وسيتم مراجعته من قبل المشرف.
-        close: قريب
-        description: هل هذا المحتوى غير مناسب؟
-        does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
-        offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
-        report: أبلغ عن
-        spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
-        title: الإبلاغ عن مشكلة
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
+        description: Is this content inappropriate?
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        report: Report
+        spam: Contains clickbait, advertising, scams or script bots.
+        title: Report a problem
       floating_help:
-        help: مساعدة
+        help: Help
       follow_button:
-        sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
+        sign_in_before_follow: Please sign in before performing this action
       login_modal:
-        please_sign_in: الرجاء تسجيل الدخول
-        sign_up: سجل
+        please_sign_in: Please sign in
+        sign_up: Sign up
       reference:
-        reference: 'المرجع: %{reference}'
+        reference: 'Reference: %{reference}'
       results_per_page:
-        label: 'نتائج لكل صفحة:'
+        label: 'Results per page:'
       share_modal:
-        close_window: أغلق النافذة
-        share: شارك
-        share_link: مشاركة الرابط
+        close_window: Close window
+        share: Share
+        share_link: Share link
+      version_author:
+        deleted: Deleted user
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
+    user_activity:
+      index:
+        no_activities_warning: This user hasn't had any activity yet.
     user_interests:
       show:
-        no_scopes: هذه المنظمة ليس لديها أي نطاق حتى الآن!
-        my_interests: اهتماماتي
-        select_your_interests: حدد الموضوعات التي تهتم بها لتلقي الأحداث المتعلقة بها في علامة التبويب الجدول الزمني لملف التعريف الخاص بك.
-        update_my_interests: تحديث اهتماماتي
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
       update:
-        success: اهتماماتك تم تحديثها بنجاح
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
-      default_body: <p>مرحبا {{name}}، شكرا لانضمامك {{organization}} ومرحبا بكم!</p><ul><li>إذا كنت ترغب في الحصول على فكرة سريعة عما يمكنك القيام به هنا ، ألق نظرة على قسم <a href="{{help_url}}">Help</a> .</li><li>بمجرد قراءتها ، ستحصل على أول شارة. فيما يلي قائمة تضم <a href="{{badges_url}}">الشارات</a> التي يمكنك الحصول عليها وأنت تشارك في {{organization}}</li><li>أخيرًا وليس آخرًا ، انضم إلى أشخاص آخرين ، وشارك معهم تجربة المشاركة والمشاركة في {{organization}}. قم بتقديم مقترحات وتعليقات ومناقشات وفكر في كيفية المساهمة في الصالح العام وتقديم حجج للإقناع والاستماع والقراءة حتى تقتنع ، والتعبير عن أفكارك بطريقة ملموسة ومباشرة ، والاستجابة بصبر وقرار ، والدفاع عن أفكارك والحفاظ عليها بعقل متفتح للتعاون والانضمام إلى أفكار الآخرين.</li></ul>
-      default_subject: شكرا لانضمامك {{organization}}!
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_subject: Thanks for joining {{organization}}!
   devise:
     confirmations:
-      confirmed: تم تأكيد عنوان بريدك الإلكتروني بنجاح.
+      confirmed: Your email address has been successfully confirmed.
       new:
-        resend_confirmation_instructions: إعادة إرسال تعليمات التأكيد
-      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية تأكيد عنوان بريدك الإلكتروني في بضع دقائق.
-      send_paranoid_instructions: إذا كان عنوان بريدك الإلكتروني موجودًا في قاعدة البيانات الخاصة بنا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية تأكيد عنوان بريدك الإلكتروني في غضون دقائق قليلة.
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
     failure:
-      already_authenticated: انت مسجل مسبقا.
-      inactive: لم يتم تفعيل حسابك بعد.
-      invalid: غير صالح %{authentication_keys} أو كلمة المرور.
-      invited: لديك دعوة معلقة ، قم بقبولها لإنهاء إنشاء حسابك.
-      last_attempt: لديك محاولة أخرى قبل قفل حسابك.
-      locked: حسابك مغلق.
-      not_found_in_database: غير صالح %{authentication_keys} أو كلمة المرور.
-      timeout: انتهت جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.
-      unauthenticated: تحتاج إلى تسجيل الدخول أو التسجيل قبل المتابعة.
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      invited: You have a pending invitation, accept it to finish creating your account.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
     invitations:
       edit:
-        header: الانتهاء من إنشاء حسابك
-        submit_button: حفظ
-        subtitle: إذا قبلت الدعوة ، فيرجى تعيين اسم المستخدم وكلمة المرور الخاصين بك.
-      invitation_removed: تمت إزالة دعوتك.
-      invitation_token_invalid: رمز الدعوة المقدم غير صالح!
+        header: Finish creating your account
+        nickname_help: Your unique identifier in %{organization}.
+        submit_button: Save
+        subtitle: If you accept the invitation please set your nickname and password.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
       new:
-        header: إرسال دعوة
-        submit_button: ارسل دعوة
-      no_invitations_remaining: لا توجد دعوات متبقية
-      send_instructions: تم إرسال دعوة بريد إلكتروني إلى %{email}.
-      updated: تم ضبط كلمة مرورك بنجاح. انت الآن مسجل دخولك.
-      updated_not_active: تم ضبط كلمة مرورك بنجاح.
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
       confirmation_instructions:
-        action: تأكيد حسابي
-        greeting: مرحبًا %{recipient}
-        subject: تعليمات التأكيد
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
       email_changed:
-        greeting: مرحبا %{recipient}!
-        message: نحن نتصل بك لإعلامك بأنه يتم تغيير بريدك الإلكتروني إلى %{email}.
-        subject: تم تغيير البريد الإلكتروني
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+        subject: Email Changed
       invitation_instructions:
-        accept: قبول دعوة
-        accept_until: ستكون هذه الدعوة في %{due_date}.
-        decline: رفض الدعوة
-        hello: مرحبا %{email}،
+        accept: Accept invitation
+        accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
+        hello: Hello %{email},
         ignore: |-
-          إذا كنت لا تريد قبول الدعوة ، فيرجى تجاهل هذا البريد الإلكتروني.<br />
-          لن يتم إنشاء حسابك حتى تصل إلى الرابط أعلاه وتعيين اللقب وكلمة المرور.
-        invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
-        someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
-        someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
-        subject: تعليمات الدعوة
+          If you don't want to accept the invitation, please ignore this email.<br />
+          Your account won't be created until you access the link above and set your nickname and password.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
+        someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
+        someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
+        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+        subject: Invitation instructions
       invite_admin:
-        subject: لقد تمت دعوتك لإدارة %{organization}
+        subject: You've been invited to manage %{organization}
       invite_collaborator:
-        subject: لقد تمت دعوتك للتعاون في %{organization}
+        subject: You've been invited to collaborate on %{organization}
       invite_private_user:
-        subject: تمت دعوتك للمشاركة في عملية مشاركة خاصة على %{organization}
+        subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: لقد تمت دعوتك لإدارة %{organization}
+        subject: You've been invited to manage %{organization}
       password_change:
-        greeting: مرحبا %{recipient}!
-        message: نحن نتصل بك لإعلامك بأنه قد تم تغيير كلمة المرور الخاصة بك.
-        subject: تم تغيير كلمة السر
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your password has been changed.
+        subject: Password changed
       reset_password_instructions:
-        action: تغيير كلمة المرور الخاصة بي
-        greeting: مرحبا %{recipient}!
-        instruction: طلب شخص ما رابطًا لتغيير كلمة مرورك ، ويمكنك القيام بذلك من خلال الرابط أدناه.
-        instruction_2: إذا لم تطلب ذلك ، فيرجى تجاهل هذا البريد الإلكتروني.
-        instruction_3: لن تتغير كلمة مرورك حتى تصل إلى الرابط أعلاه وإنشاء كلمة مرور جديدة
-        subject: إعادة تعيين تعليمات كلمة المرور
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
       unlock_instructions:
-        action: فتح حسابي
-        greeting: مرحبا %{recipient}!
-        instruction: 'انقر على الرابط أدناه لفتح حسابك:'
-        message: تم قفل حسابك بسبب كثرة محاولات تسجيل الدخول غير الناجحة.
-        subject: فتح التعليمات
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
     omniauth_callbacks:
-      failure: تعذرت مصادقتك من %{kind} لأن "%{reason}".
-      success: تمت المصادقة بنجاح من %{kind} حساب.
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
     passwords:
       edit:
-        change_my_password: تغيير كلمة المرور الخاصة بي
-        change_your_password: غير كلمة المرور الخاصة بك
-        confirm_new_password: تأكيد كلمة المرور الجديدة
-        new_password: كلمة السر الجديدة
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
       new:
-        forgot_your_password: نسيت رقمك السري؟
-        send_me_reset_password_instructions: أرسل لي إعادة تعيين تعليمات كلمة المرور
-      no_token: لا يمكنك الوصول إلى هذه الصفحة دون القدوم من البريد الإلكتروني لإعادة تعيين كلمة المرور. إذا كنت تأتي من بريد إلكتروني لإعادة تعيين كلمة المرور ، فالرجاء التأكد من استخدام عنوان URL الكامل المقدم.
-      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية إعادة تعيين كلمة المرور الخاصة بك في بضع دقائق.
-      send_paranoid_instructions: إذا كان عنوان بريدك الإلكتروني موجودًا في قاعدة بياناتنا ، فستتلقى رابط استعادة كلمة المرور على عنوان بريدك الإلكتروني في غضون دقائق قليلة.
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
     registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
       edit:
-        are_you_sure: هل أنت واثق؟
-        cancel_my_account: الغاء حسابي
-        currently_waiting_confirmation_for_email: 'حاليا في انتظار تأكيد ل: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: اتركه فارغا إذا كنت لا تريد تغييره
-        title: تحرير %{resource}
-        unhappy: تعيس؟
-        update: تحديث
-        we_need_your_current_password_to_confirm_your_changes: نحتاج كلمة المرور الحالية لتأكيد تغييراتك
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
-        sign_up: سجل
-      signed_up: أهلا بك! لقد اشتركت بنجاح
-      signed_up_but_inactive: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك لم يتم تنشيطه بعد.
-      signed_up_but_locked: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك مغلق.
-      signed_up_but_unconfirmed: تم إرسال رسالة مع رابط التأكيد إلى عنوان بريدك الإلكتروني. يرجى اتباع الرابط لتفعيل حسابك.
-      update_needs_confirmation: لقد قمت بتحديث حسابك بنجاح ، لكننا بحاجة إلى التحقق من عنوان بريدك الإلكتروني الجديد. يرجى التحقق من بريدك الإلكتروني واتبع رابط التأكيد لتأكيد عنوان بريدك الإلكتروني الجديد.
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
     sessions:
-      already_signed_out: تم الخروج بنجاح
+      already_signed_out: Signed out successfully.
       new:
-        sign_in: تسجيل الدخول
-      signed_in: تم تسجيل الدخول بنجاح
-      signed_out: تم الخروج بنجاح
+        sign_in: Log in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
     shared:
       links:
-        back: الى الخلف
-        didn_t_receive_confirmation_instructions: لم تتلق تعليمات التأكيد؟
-        didn_t_receive_unlock_instructions: لم تتلق تعليمات فتح؟
-        forgot_your_password: نسيت رقمك السري؟
-        sign_in: تسجيل الدخول
-        sign_in_with_provider: تسجيل الدخول مع %{provider}
-        sign_up: سجل
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
       minimum_password_length:
-        zero: "(%{count} حرف كحد أدنى)"
-        one: "(%{count} حرف كحد أدنى)"
-        two: "(%{count} حرف كحد أدنى)"
-        few: "(%{count} حرف كحد أدنى)"
-        many: "(%{count} حرف كحد أدنى)"
-        other: "(%{count} حرف كحد أدنى)"
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
       new:
-        resend_unlock_instructions: إعادة إرسال تعليمات فتح
-      send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتح حسابك في بضع دقائق.
-      send_paranoid_instructions: إذا كان حسابك موجودًا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتحه في غضون بضع دقائق.
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   doorkeeper:
     scopes:
-      public: معلوماتك العامة.
+      public: Your public information.
   errors:
     messages:
-      already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
-      confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
-      content_type_whitelist_error: نوع الملف غير صالح
-      cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
-      expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
-      file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
-      long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
-      must_start_with_caps: يجب أن تبدأ بحرف كبير
-      nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
-      not_found: غير معثور عليه
-      not_locked: لم يكن مغلقا
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
+      content_type_whitelist_error: the file type is not valid
+      cycle_detected: a scope's parent can't be one of its descendants
+      expired: has expired, please request a new one
+      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
+      nesting_too_deep: can't be inside of a subcategory
+      not_found: not found
+      not_locked: was not locked
       not_saved:
-        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        one: '1 خطأ يحظر حفظ هذا %{resource}:'
-        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        few: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        many: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        other: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-      too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
-      too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
-      too_short: قصير جدًا (أقل من 15 حرفًا)
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too many capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
-    required: مطلوب
+    required: Required
   invisible_captcha:
-    sentence_for_humans: إذا كنت بشرًا ، فتجاهل هذا الحقل
-    timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
+    sentence_for_humans: If you are human, ignore this field
+    timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
       cookie_warning:
-        description_html: يستخدم هذا الموقع ملفات تعريف الارتباط. من خلال الاستمرار في تصفح الموقع ، فإنك توافق على استخدامنا لملفات تعريف الارتباط. اكتشف المزيد عنها %{link}.
-        link_label: هنا
-        ok: أنا موافق
+        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
+        link_label: here
+        ok: I agree
       edit_link:
-        edit: تصحيح
+        edit: Edit
       footer:
-        download_open_data: تحميل ملفات البيانات المفتوحة
-        made_with_open_source: موقع صنع مع <a target="_blank" href="https://github.com/decidim/decidim">البرمجيات الحرة</a>.
+        download_open_data: Download Open Data files
+        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
-        close_menu: إغلاق القائمة
-        navigation: التنقل
-        sign_in: تسجيل الدخول
-        sign_up: سجل
+        close_menu: Close menu
+        navigation: Navigation
+        sign_in: Sign In
+        sign_up: Sign Up
       impersonation_warning:
-        close_session: اغلق الموسم
-        expire_time_html: سوف تنتهي جلستك في <b><span class="minutes">%{minutes}</span> دقائق</b>.
+        close_session: Close session
+        description_html: You are impersonating the user <b>%{user_name}</b>.
+        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
-        mark_all_as_read: اشر عليها بانها قرات
+        mark_all_as_read: Mark all as read
       user_menu:
-        admin_dashboard: لوحة القيادة الادارية
-        conversations: المحادثات
-        notifications: إخطارات
-        profile: حسابي
-        public_profile: ملفي الشخصي العام
-        sign_out: خروج
+        admin_dashboard: Admin dashboard
+        conversations: Conversations
+        notifications: Notifications
+        profile: My account
+        public_profile: My public profile
+        sign_out: Sign out
       user_profile:
-        account: الحساب
-        authorizations: التراخيص
-        delete_my_account: احذف حسابي
-        my_data: بياناتي
-        my_interests: اهتماماتي
-        notifications_settings: إعدادات الإخطارات
-        title: إعدادات المستخدم
-        user_groups: المجموعات
+        account: Account
+        authorizations: Authorizations
+        delete_my_account: Delete my account
+        my_data: My data
+        my_interests: My interests
+        notifications_settings: Notifications settings
+        title: User settings
+        user_groups: Groups
       widget:
-        see_more: شاهد المزيد
+        see_more: See more
   locale:
-    name: الإنجليزية
+    name: English
   password_validator:
-    domain_included_in_password: مشابه جدًا لاسم النطاق هذا
-    email_included_in_password: مشابه جدا لبريدك الالكتروني
-    fallback: غير صالح
-    name_included_in_password: مشابه جدا لاسمك
-    not_enough_unique_characters: ليس لديه ما يكفي من الشخصيات الفريدة
-    password_not_allowed: غير مسموح
-    password_too_common: هو شائع جدا
-    password_too_long: طويل جدا
-    password_too_short: قصير جدا
+    domain_included_in_password: is too similar to this domain name
+    email_included_in_password: is too similar to your email
+    fallback: is not valid
+    name_included_in_password: is too similar to your name
+    not_enough_unique_characters: does not have enough unique characters
+    password_not_allowed: is not allowed
+    password_too_common: is too common
+    password_too_long: is too long
+    password_too_short: is too short
   social_share_button:
-    delicious: لذيذ
+    delicious: Delicious
     douban: Douban
-    email: البريد الإلكتروني
-    facebook: فيس بوك
-    google_bookmark: جوجل المرجعية
-    google_plus: في + Google
-    hacker_news: أخبار هاكر
-    linkedin: تابعني على
-    pinterest: موقع Pinterest
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
     qq: Qzone
-    reddit: رديت
-    share_to: شارك في %{name}
-    tumblr: نعرفكم
-    twitter: تويتر
-    vkontakte: فكونتاكتي
+    reddit: Reddit
+    share_to: Share to %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
-    weibo: سينا ويبو
-    xing: شينغ
+    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
+    weibo: Sina Weibo
+    xing: Xing
   time:
     formats:
       day_of_month: "%b %d"
@@ -1097,12 +1259,12 @@ ar:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d، %Y %I:%M %p"
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; أولاً"
-      last: آخر &raquo;
-      next: التالي &rsaquo;
-      previous: "&lsaquo; السابق"
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
       truncate: "&hellip;"

@@ -97,5 +97,9 @@ module Decidim
     def open_data_file_path
       "#{host}-open-data.zip"
     end
+
+    def translatable_locales
+      available_locales & Decidim.config.translatable_locales
+    end
   end
 end

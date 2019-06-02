@@ -1,18 +1,19 @@
 <div class="column" id="<%= dom_id(model) %>">
-  <article class="card <%= card_classes %>">
+  <article class="card <%= card_classes %>" data-translatable-parent>
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
     <%= render :image if has_image? %>
     <div class="card__content">
       <%= render :header %>
-
       <div class="card__text">
         <div class="card__text--paragraph">
           <%= render :badge if has_badge? %>
-          <%= description %>
+          <span data-translatable-body>
+            <%= description %>
+          </span>
         </div>
       </div>
-
+      <%= render :translate %>
       <%= render :tags %>
     </div>
 

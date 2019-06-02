@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -84,17 +85,21 @@ nl-BE:
             email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
             email_subject: New milestone completed!
             notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
             email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Go to the participation space of Intiatives
-            - Follow the steps to create a new initiative
+          - Go to the participation space of Intiatives
+          - Follow the steps to create a new initiative
           description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
           description_another: This user has gotten %{score} initiatives published.
           description_own: You've got %{score} initiatives published.

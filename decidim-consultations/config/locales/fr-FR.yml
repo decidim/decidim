@@ -1,41 +1,42 @@
-fr:
+---
+fr-FR:
   activemodel:
     attributes:
       consultation:
-        banner_image: Image de la bannière
-        decidim_highlighted_scope_id: Secteur mis en avant
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Highlighted scope
         description: Description
-        end_voting_date: Le vote prend fin le
-        introductory_image: Image d'introduction
-        introductory_video_url: URL de la vidéo d'introduction
+        end_voting_date: Voting ends
+        introductory_image: Introductory image
+        introductory_video_url: Introductory video URL
         questions: Questions
-        slug: Identifiant
-        start_voting_date: Le vote commence le
-        subtitle: Sous-titre
-        title: Titre
+        slug: URL slug
+        start_voting_date: Voting begins
+        subtitle: Subtitle
+        title: Title
       question:
-        banner_image: Image de la bannière
-        decidim_scope_id: Secteur
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
         hashtag: Hashtag
-        hero_image: Image de la page d'accueil
-        i_frame_url: URL du système de vote externe
-        origin_scope: Secteur
-        origin_title: Origine
-        origin_url: URL de l'origine
-        participatory_scope: Objectif
-        promoter_group: Organisateur
-        question_context: Contexte
-        reference: Référence
-        scope: Secteur
-        slug: Identifiant
-        subtitle: Sous-titre
-        title: Titre
-        vote: Système de vote externe
-        what_is_decided: Objectifs
+        hero_image: Home image
+        i_frame_url: External voting system URL
+        origin_scope: Scope
+        origin_title: Origin
+        origin_url: Origin URL
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        question_context: Context
+        reference: Reference
+        scope: Municipal area
+        slug: URL slug
+        subtitle: Subtitle
+        title: Title
+        vote: External voting system
+        what_is_decided: What is decided
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Réponse introuvable.
+          not_found: Response not found.
   activerecord:
     models:
       decidim/consultation:
@@ -45,252 +46,252 @@ fr:
         one: Question
         other: Questions
       decidim/consultations/response:
-        one: Réponse
-        other: Réponses
+        one: Response
+        other: Responses
       decidim/consultations/vote:
-        one: Vote
-        other: Vote
+        one: No votes
+        other: Votes
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
-        new_question: Nouvelle question
-        new_response: Nouvelle réponse
-        publish_results: Publier les résultats
-        unpublish_results: Dépublier des résultats
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
+        publish_results: Publish results
+        unpublish_results: Unpublish results
       consultation_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette votation.
-          success: La votation a été publiée avec succès.
+          error: There was an error publishing this consultation.
+          success: Consultation published successfully.
         destroy:
-          error: Il y a eu une erreur lors de la dépublication de cette votation.
-          success: La votation a été dépubliée avec succès.
+          error: There was an error unpublishing this consultation.
+          success: Consultation unpublished successfully.
       consultation_results_publications:
         create:
-          error: Une erreur s'est produite lors de la publication des résultats de cette votation.
-          success: Les résultats de la votation ont été publiés avec succès.
+          error: There was an error publishing the results for this consultation.
+          success: Consultation results published successfully.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication des résultats de cette votation.
-          success: Les résultats de la votation ont été dépubliés avec succès.
+          error: There was an error unpublishing the results for this consultation.
+          success: Consultation results unpublished successfully.
       consultations:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle votation.
-          success: La votation a été créée avec succès.
+          error: There was an error creating a new consultation.
+          success: Consultation successfully created.
         edit:
-          update: Mettre à jour
+          update: Update
         form:
-          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette votation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
-          title: Informations générales
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          title: General information
         index:
-          not_published: Non publiée
-          published: Publiée
+          not_published: Not published
+          published: Published
         new:
-          create: Créer
-          title: Nouvelle votation
+          create: Create
+          title: New consultation
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette votation.
-          success: Votation mise à jour avec succès.
+          error: There was an error when updating this consultation.
+          success: Consultation updated successfully.
       menu:
-        consultations: Votations
+        consultations: Consultations
         consultations_submenu:
-          info: Informations
+          info: Information
           questions: Questions
         questions_submenu:
-          components: Fonctionnalités
-          consultation: Votation
-          info: Informations
-          responses: Réponses
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
       models:
         consultation:
           fields:
-            created_at: Créée le
-            published: Publiée
-            title: Titre
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            one: Votation
-            other: Votations
+            one: Consultation
+            other: Consultations
         question:
           fields:
-            created_at: Créée le
-            published: Publiée
-            title: Titre
+            created_at: Created at
+            published: Published
+            title: Title
           name:
             one: Question
             other: Questions
         response:
           fields:
-            created_at: Créée le
-            title: Titre
+            created_at: Created at
+            title: Title
           name:
-            one: Réponse
-            other: Réponses
+            one: Response
+            other: Responses
       question_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette question.
-          success: Question publiée avec succès.
+          error: There was an error publishing this question.
+          success: Question published successfully.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de cette question.
-          success: Question dépubliée avec succès.
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
       questions:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle question.
-          success: Question créée avec succès.
+          error: There was an error creating a new question.
+          success: Question successfully created.
         destroy:
-          success: Question supprimée avec succès.
+          success: Question successfully deleted.
         edit:
-          update: Mettre à jour
+          update: Update
         form:
-          title: Informations générales
+          title: General information
         index:
-          not_published: Non publiée
-          published: Publiée
+          not_published: Not published
+          published: Published
         new:
-          create: Créer
-          title: Nouvelle question
+          create: Create
+          title: New question
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette question.
-          success: Question mise à jour avec succès.
+          error: There was an error when updating this question.
+          success: Question updated successfully.
       responses:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
-          success: Réponse créée avec succès.
+          error: There was an error creating a new response.
+          success: Response successfully created.
         destroy:
-          error: Une erreur s'est produite lors de la suppression de la réponse.
-          success: Réponse supprimée avec succès.
+          error: There was an error when removing the response.
+          success: Response successfully deleted.
         edit:
-          update: Mettre à jour
+          update: Update
         form:
-          title: Informations générales
+          title: General information
         new:
-          create: Créer
-          title: Nouvelle réponse
+          create: Create
+          title: New response
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette réponse.
-          success: Réponse mise à jour avec succès.
+          error: There was an error when updating this response.
+          success: Response updated successfully.
       titles:
-        consultations: Votations
+        consultations: Consultations
         questions: Questions
-        responses: Réponses
+        responses: Responses
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Quantité maximale d'éléments à afficher
+            max_results: Maximum amount of elements to show
       consultation:
-        start_voting_date: Le vote commence le
-        view_results: Voir les résultats
+        start_voting_date: Voting begins
+        view_results: View results
       consultation_card:
-        view_results: Voir les résultats
+        view_results: View results
       consultations:
         orders:
-          label: 'Trier les votations par :'
-          random: Aléatoire
-          recent: Les plus récentes
+          label: 'Sort consultations by:'
+          random: Random
+          recent: Most recent
       content_blocks:
         highlighted_consultations:
-          name: Consultations mises en avant
+          name: Highlighted consultations
       count:
         title:
-          one: "%{count} votation"
-          other: "%{count} votations"
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
-        active: Actives
-        all: Tout
-        finished: Archivées
-        search: Rechercher
-        state: État
-        upcoming: À venir
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
       filters_small_view:
-        close_modal: Fermer la fenêtre
-        filter: Filtre
-        filter_by: Filtrer par
-        unfold: Voir la suite
+        close_modal: Close window
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       highlighted_questions:
-        title: Questions de %{scope_name}
+        title: Questions from %{scope_name}
       index:
-        title: Votations
+        title: Consultations
       last_activity:
-        new_consultation: Nouvelle consultation
-        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Consultations actives
-            see_all_consultations: Voir toutes les consultations
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
             voting_ends_in:
-              one: Le vote se termine <strong>demain</strong>
-              other: Le vote prend fin à <strong>%{count} jour</strong>
-            voting_ends_today: Fin du vote <strong>aujourd'hui</strong>
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
-        take_part: Participer
-        view_results: Voir les résultats
+        take_part: Take part
+        view_results: View results
         votes_out_of:
-          one: vote sur
-          other: votes sur
+          one: vote out of
+          other: votes out of
       question_votes:
         create:
-          error: Il y a eu des erreurs lors du vote sur la question
+          error: There have been errors when voting the question
       regular_questions:
-        title: Questions pour cette votation
+        title: Questions for this consultation
       show:
         badge_name:
-          finished: Terminées
-          open: Ouverte
-          open_votes: Votes ouverts
-          published_results: Résultats publiés
+          finished: Finished
+          open: Open
+          open_votes: Open votes
+          published_results: Results published
         footer_button_text:
-          debate: Débat
-          view: Voir
-          view_results: Voir les résultats
-          vote: Voter
-        unspecified: Non précisé
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
           page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
-          title: Que sont les consultations?
+          title: What are consultations?
     menu:
-      consultations: Votations
+      consultations: Consultations
     pages:
       home:
         statistics:
-          consultations_count: Votations
+          consultations_count: Consultations
     questions:
       results:
-        title: Résultats
+        title: Results
       show:
-        read_more: Voir la suite
+        read_more: Read more
       statistics:
-        assistants_count_title: Audience
-        comments_count_title: Commentaires
-        meetings_count_title: Rencontres
-        supports_count_title: Soutiens
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Supports
       technical_info:
-        technical_data: Données techniques
+        technical_data: Technical data
       vote_button:
-        already_voted: Déjà voté
-        already_voted_hover: Retirer le vote
-        starting_from: À partir de %{date}
-        vote: Voter
+        already_voted: Already voted
+        already_voted_hover: Revoke support
+        starting_from: Starting from %{date}
+        vote: Vote
       vote_modal:
-        contextual_help: Veuillez sélectionner une option.
-        title: 'Votation : soutien aux questions'
+        contextual_help: Please, select an option.
+        title: 'Consultation: question support'
       vote_modal_confirm:
-        change: Modifier
-        confirm: Confirmer
-        contextual_help: Veuillez confirmer l'option sélectionnée.
-        title: 'Consultation : confirmer le soutien'
+        change: Change
+        confirm: Confirm
+        contextual_help: Please confirm the selected option.
+        title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Pièces jointes
-          categories: Catégories
+          attachments: Attachments
+          categories: Categories
       consultation_voting_data:
-        start_voting_date: Le vote commence le
+        start_voting_date: Voting begins
       question_components:
-        question_menu_item: La question
-        unfold: Voir la suite
+        question_menu_item: The question
+        unfold: Unfold
       question_header:
-        back_to_consultation: Voir toutes les votations
+        back_to_consultation: See all consultations

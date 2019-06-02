@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     attributes:
       agenda:
@@ -95,11 +96,15 @@ de:
             email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
             email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
@@ -135,8 +140,7 @@ de:
     gamification:
       badges:
         attended_meetings:
-          conditions:
-            - Register in the meetings you want to attend
+          conditions: '["Register in the meetings you want to attend"]'
           description: This badge is granted when you attend several face-to-face meetings.
           description_another: This user has attended %{score} meetings.
           description_own: You have attended %{score} meetings.

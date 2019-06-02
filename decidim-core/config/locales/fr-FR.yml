@@ -1,59 +1,60 @@
-fr:
+---
+fr-FR:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+        delete_reason: Reason to delete your account
       report:
-        details: Commentaires supplémentaires
+        details: Additional comments
       user:
-        about: A propos de moi
-        email: Votre email
-        name: Votre nom
-        nickname: Surnom
-        password: Mot de passe
-        password_confirmation: Confirmez votre mot de passe
-        personal_url: Site internet personnel
-        remove_avatar: Supprimer l'avatar
+        about: About
+        email: Your email
+        name: Your name
+        nickname: Nickname
+        password: Password
+        password_confirmation: Confirm your password
+        personal_url: Personal URL
+        remove_avatar: Remove avatar
     models:
       decidim/amendable/amendment_accepted_event: Amendmen accepted
       decidim/amendable/amendment_created_event: Amendmen created
       decidim/amendable/amendment_rejected_event: Amendmen rejected
       decidim/amendable/emendation_promoted_event: Amendmen promoted
-      decidim/attachment_created_event: Pièce jointe
-      decidim/component_published_event: Fonctionnalité active
-      decidim/demoted_membership: N'est plus un administrateur de groupe
-      decidim/gamification/badge_earned_event: Badge gagné
-      decidim/gamification/level_up_event: Vous avez progressé d'un niveau
-      decidim/join_request_accepted_event: Demande de participation acceptée
-      decidim/join_request_rejected_event: Demande de participation rejetée
-      decidim/profile_updated_event: Profil mis à jour
-      decidim/promote_to_admin: Promu au groupe admin
-      decidim/removed_from_group: Retiré du groupe
+      decidim/attachment_created_event: Attachment
+      decidim/component_published_event: Active component
+      decidim/demoted_membership: No longer a group admin
+      decidim/gamification/badge_earned_event: Badge earned
+      decidim/gamification/level_up_event: You've leveled up
+      decidim/join_request_accepted_event: Join request accepted
+      decidim/join_request_rejected_event: Join request rejected
+      decidim/profile_updated_event: Profile updated
+      decidim/promote_to_admin: Promoted to group admin
+      decidim/removed_from_group: Removed from group
   activerecord:
     attributes:
       decidim/user:
-        current_password: Mot de passe actuel
-        email: email
-        name: Nom d'utilisateur
-        password: Mot de passe
-        password_confirmation: Confirmation du mot de passe
-        remember_me: Retenir le mot de passe
+        current_password: Current password
+        email: Email
+        name: Username
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
     models:
       decidim/amendment:
-        one: Amendement
-        other: Amendements
+        one: Amendment
+        other: Amendments
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: No users
+        other: Users
       decidim/user_group:
-        one: Groupe d'utilisateurs
-        other: Groupes d'utilisateurs
+        one: User group
+        other: User groups
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': 'No'
+    'true': 'Yes'
   carrierwave:
     errors:
-      image_too_big: L'image est trop grande
+      image_too_big: The image is too big
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -64,97 +65,97 @@ fr:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Le fichier n'existe pas
-        invalid_token: Le jeton fourni est invalide.
-        no_token: Aucun jeton fourni
-        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
+        file_no_exists: File does not exist
+        invalid_token: The provided token is invalid.
+        no_token: No token provided
+        notice: Your data is currently in progress. You'll receive an email when it's complete.
       delete:
-        alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
+        alert: This action cannot be undone. If you delete your account you won't be able to log in.
         confirm:
-          close: Fermer la fenêtre
-          ok: Oui, je souhaite supprimer mon compte
-          question: Êtes-vous sûr de vouloir supprimer votre compte ?
-          title: Supprimer mon compte
-        explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
+          close: Close window
+          ok: Yes, I want to delete my account
+          question: Are you sure you want to delete your account?
+          title: Delete my account
+        explanation: Please, fill in the reason you want to delete your account (optional).
       destroy:
-        error: Une erreur s'est produite lors de la suppression de votre compte.
-        success: Votre compte a été supprimé avec succès.
+        error: There's been an error deleting your account.
+        success: Your account was deleted successfully.
       show:
-        change_password: Changer de mot de passe
-        update_account: Mettre à jour votre compte
+        change_password: Change password
+        update_account: Update account
       update:
-        error: Une erreur s'est produite lors de la mise à jour de votre compte.
-        success: Votre compte a été mis à jour avec succès.
-        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse.
+        error: There's been an error updating your account.
+        success: Your account was updated successfully.
+        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
       area:
-        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
-        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
-        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
+        create: "%{user_name} created the %{resource_name} area"
+        delete: "%{user_name} deleted the %{resource_name} area"
+        update: "%{user_name} updated the %{resource_name} area"
       component:
-        create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
-        delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
-        publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
-        unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
+        delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
       moderation:
-        hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
-        unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
+        hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
+        unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
       newsletter:
-        create: "%{user_name} a créé la newsletter %{resource_name}"
-        delete: "%{user_name} a supprimé la newsletter %{resource_name}"
-        deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
-        update: "%{user_name} a mis à jour la newsletter %{resource_name}"
+        create: "%{user_name} created the %{resource_name} newsletter"
+        delete: "%{user_name} deleted the %{resource_name} newsletter"
+        deliver: "%{user_name} delivered the %{resource_name} newsletter"
+        update: "%{user_name} updated the %{resource_name} newsletter"
       oauth_application:
-        create: "%{user_name} a créé l'application OAuth %{resource_name}"
-        delete: "%{user_name} a supprimé l'application OAuth %{resource_name}"
-        update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
+        create: "%{user_name} created the %{resource_name} OAuth application"
+        delete: "%{user_name} deleted the %{resource_name} OAuth application"
+        update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
-        update: "%{user_name} a mis à jour les paramètres de l'organisation"
+        update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
-        create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
-        delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
+        create: "%{user_name} invited %{resource_name} to be a private user"
+        delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
-        create: "%{user_name} a créé le secteur %{resource_name}"
-        create_with_parent: "%{user_name} a créé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
-        delete: "%{user_name} a supprimé le secteur %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
-        update: "%{user_name} a mis à jour le secteur %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        create: "%{user_name} created the %{resource_name} scope"
+        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
+        delete: "%{user_name} deleted the %{resource_name} scope"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
+        update: "%{user_name} updated the %{resource_name} scope"
+        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
       static_page:
-        create: "%{user_name} a créé la page statique %{resource_name}"
-        delete: "%{user_name} a supprimé la page statique %{resource_name}"
-        update: "%{user_name} a mis à jour la page statique %{resource_name}"
+        create: "%{user_name} created the %{resource_name} static page"
+        delete: "%{user_name} deleted the %{resource_name} static page"
+        update: "%{user_name} updated the %{resource_name} static page"
       user:
-        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
-        officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
-        remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
-        unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
+        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
       user_group:
-        reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
-        verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
-        verify_via_csv: "%{user_name} vérifié le groupe d'utilisateurs %{resource_name} via un fichier CSV"
+        reject: "%{user_name} rejected the %{resource_name} user group verification"
+        verify: "%{user_name} verified the %{resource_name} user group"
+        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
     amendments:
       accepted:
-        error: Une erreur s'est produite lors de l'acceptation de l'emendation, veuillez réessayer plus tard.
-        success: Cette modification a été acceptée avec succès.
+        error: An error ocurred accepting the emendation, please try again later.
+        success: This emendation has been accepted successfully.
       amendable:
-        amended_by: Modifié par
-        button: Modifier la %{model_name}
-        error: Il y a eu une erreur en modifiant cette ressource.
-        help_text: 'Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}'
-        no_amenders: Il n'y a pas d'amendement
-        no_amendments: Il n'y a pas de modification
-        promote_button: Transformer en %{model_name}
-        promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendante
-        section_heading: Modifications (%{count})
+        amended_by: Amended by
+        button: Amend %{model_name}
+        error: There has been an error amending this resource.
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        no_amenders: There are no amenders
+        no_amendments: There are no amendments
+        promote_button: Promote to %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        section_heading: Amendments (%{count})
       created:
-        error: Une erreur s'est produite lors de la création de cette modification, réessayez plus tard
-        success: L'amendement a été proposé avec succès
+        error: An error ocurred creating this amendment, try again later
+        success: The amendment has been created successfully
       emendation:
         actions:
-          button_accept: Accepter
-          button_reject: Rejeter
-          help_text: Examinez les modifications et acceptez ou rejetez cet amendement. Une notification sera envoyée à son (ses) auteur(s).
+          button_accept: Accept
+          button_reject: Reject
+          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
         announcement:
           accepted: |-
             This amendment for the %{amendable_type} %{amendable_link} has been
@@ -163,1081 +164,1088 @@ fr:
             This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
           rejected: |-
-            Cet amendement pour la proposition %{amendable_type}
-            %{amendable_link}
-            a été rejeté le <strong>%{announcement_date}</strong>.
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
             This amendment for the %{amendable_type} %{amendable_link}
             has been withdrawn by the author.
       new:
-        amendment_author: Auteur
-        back: Retour
-        heading: Proposez votre amendement
-        help_text: Vous modifiez la %{model_name}
+        amendment_author: Amendment author
+        back: Back
+        heading: Create your amendment
+        help_text: You are modifying the %{model_name}
         send: Send amendment
       promoted:
-        error: Il y a eu des erreurs lors de la validation de cet amendement
-        success: L'amendement a été accepté avec succès
+        error: There's been errors when promoting the emendation
+        success: Emendation promoted successfully
       rejected:
-        error: Une erreur s'est produite lors du rejet de cette correction, veuillez réessayer plus tard
-        success: L'amendement a bien été refusé
+        error: An error ocurred when rejecting this emendation, please try again later
+        success: The emendation has been rejected successfully
       review:
-        back: Retour
-        heading: Examiner l'amendement
-        help_text: Vous modifiez la %{model_name}
+        back: Back
+        heading: Review the amendment
+        help_text: You are amending the %{model_name}
         send: Accept amendment
-    anonymous_user: Anonyme
+    anonymous_user: Anonymous
     application:
       collection:
         documents:
           one: Document
           other: Documents
       documents:
-        related_documents: Documents à consulter
+        related_documents: Related documents
       photos:
-        related_photos: Photos associées
+        related_photos: Related photos
     author:
       comments:
-        one: Commentaire
-        other: Commentaires
+        one: comment
+        other: comments
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
+        explanation: Get verified by introducing a passport number starting with "A"
         fields:
-          passport_number: Numéro de passeport
-        name: Un autre exemple d'autorisation
+          passport_number: Passport number
+        name: Another example authorization
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
+        explanation: Get verified by introducing a document number ending with "X"
         fields:
-          document_number: Numéro de document
-          postal_code: Code postal
-        name: Exemple d'autorisation
+          document_number: Document number
+          postal_code: Postal code
+        name: Example authorization
       dummy_authorization_workflow:
-        name: Procédure d'autorisation factice
+        name: Dummy authorization workflow
       errors:
-        duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
-      expired_at: Expiré à %{timestamp}
-      expires_at: Expire à %{timestamp}
+        duplicate_authorization: A user is already authorized with the same data.
+      expired_at: Expired at %{timestamp}
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
-          bar: Machin
-          foo: Truc
-        name: Autorisation Truc
-      granted_at: Accordé à %{timestamp}
+          bar: Bar
+          foo: Foo
+        name: Foo authorization
+      granted_at: Granted at %{timestamp}
       sms:
-        explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
-        name: Code par SMS
-      started_at: Commencé à %{timestamp}
+        explanation: Submit your mobile phone number so we can check your identity.
+        name: Code by SMS
+      started_at: Started at %{timestamp}
     authorization_modals:
       show:
         expired:
-          authorize: Autoriser de nouveau avec "%{authorization}"
-          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
-          title: Autorisation expirée
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
-          cancel: Annuler
-          explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
-          reauthorize: Autoriser de nouveau
-          title: Veuillez autoriser de nouveau
+          reauthorize: Reauthorize
+          title: Please reauthorize
         missing:
-          authorize: Autoriser avec "%{authorization}"
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
-          title: Autorisation requise
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
         pending:
-          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
-          resume: Vérifiez votre progression d'autorisation "%{authorization}"
-          title: L'autorisation est toujours en cours de validation
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
         unauthorized:
-          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid_field: "%{field} valeur %{value} n'est pas valide."
-          ok: D'accord
-          title: Non autorisé
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
         unconfirmed:
-          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
-          explanation_html: Vous n'avez pas l'autorisation d'effectuer cette action. Vous devez d'abord confirmer votre email <strong>%{email}</strong>.
-          request_confirmation_instructions: Demander des instructions de confirmation
-          title: confirmez votre email
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
-        one: et %{count} plus
-        other: et %{count} plus
-      see_less: "(voir moins)"
-      see_more: "(voir plus)"
+        one: and %{count} more
+        other: and %{count} more
+      see_less: "(see less)"
+      see_more: "(see more)"
     components:
       dummy:
         actions:
           bar: Bar
           foo: Foo
-        name: Composant factice
+        name: Dummy Component
         settings:
           global:
-            amendments_enabled: Activer le module "Amendements"
-            comments_enabled: Activer le module de commentaire
-            dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut factice 2
-            enable_pads_creation: Activer la création de pads
-            resources_permissions_enabled: Autorisations de ressources activées
+            amendments_enabled: Amendments enabled
+            comments_enabled: Comments enabled
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+            enable_pads_creation: Enable pads creation
+            resources_permissions_enabled: Resources permissions enabled
           step:
-            comments_blocked: Bloquer la création de nouveaux commentaires
-            dummy_step_attribute_1: Attribut d'étape factice 1
-            dummy_step_attribute_2: Attribut d'étape factice 2
+            comments_blocked: Comments blocked
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: Section "Bienvenue sur la plateforme" (.footer_sub_hero)
+        name: Footer sub hero banner
       hero:
-        name: Image principale (hero)
+        name: Hero image
       highlighted_content_banner:
-        name: Bannière de contenu mis en valeur
+        name: Highlighted content banner
       how_to_participate:
-        name: Comment participer
+        name: How to participate
       html:
-        html_content: Contenu HTML
-        name: Bloc HTML
+        html_content: HTML content
+        name: HTML block
       last_activity:
-        name: Activités récentes
-        title: Activités récentes
-        view_all: Voir tout
+        name: Last activity
+        title: Last activity
+        view_all: View all
       metrics:
-        name: Historique des statistiques de participation
+        name: Organization metrics
       stats:
-        name: Statistiques de la participation en cours
+        name: Organization stats
       sub_hero:
-        name: Bannière en dessous de l'image principale ("hero")
+        name: Sub hero banner
     core:
       actions:
-        unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+        unauthorized: You are not authorized to perform this action
     data_portability:
       export:
-        ready: Prêt
+        ready: Ready
       show:
-        download_data: Télécharger les données
-        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
-        request_data: Demander les données
+        download_data: Download the data
+        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        request_data: Request data
     datepicker:
-      help_text: 'Format attendu : %{datepicker_format}'
+      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse email
+          email_already_exists: Another account is using the same email address
         new:
-          complete_profile: Complétez votre profil
-          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_up: Veuillez compléter votre profil
-          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
-          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+          complete_profile: Complete profile
+          nickname_help: Your short, unique identifier in %{organization}
+          sign_up: Please complete your profile
+          subtitle: Please fill in the following form in order to complete the sign up
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
-          already_have_an_account?: Vous avez déjà un compte ?
-          newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          newsletter_title: Recevoir les actualités de la plateforme
-          nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_in: S'identifier
-          sign_up: S'inscrire
+          already_have_an_account?: Already have an account?
+          newsletter: Receive an occasional newsletter with relevant information
+          newsletter_title: Contact permission
+          nickname_help: Your short, unique identifier in %{organization}
+          sign_in: Log in
+          sign_up: Sign up
           sign_up_as:
-            legend: S'inscrire en tant que
-          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
-          terms: les termes et conditions d'utilisation
-          tos_agreement: En vous inscrivant, vous acceptez %{link}.
-          tos_title: Conditions d'utilisation
-          username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+            legend: Sign up as
+          subtitle: Sign up to participate in discussions and support proposals.
+          terms: the terms and conditions of use
+          tos_agreement: By signing up you agree to %{link}.
+          tos_title: Terms of Service
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
-          register: Créer un compte
-          sign_in_disabled: Vous pouvez accéder avec un compte externe
-          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
+          are_you_new?: New to the platform?
+          register: Create an account
+          sign_in_disabled: You can access with an external account
+          sign_up_disabled: Sign up is disabled, you can use an existing user to access
       shared:
         newsletter_modal:
           buttons:
-            check: Oui, je souhaite m'inscrire à la newsletter
-            close_modal: Fermer la fenêtre
-            uncheck: Non merci, je m'informerai autrement
+            check: Check and continue
+            close_modal: Close modal
+            uncheck: Keep uncheck
           notice: |-
-            La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
-          title: Newsletter
+            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            Please consider again ticking the newsletter checkbox below.<br>
+            It is very important for us that you can receive occasional emails
+            to make important announcements, you can always change this on your
+            notifications settings page.</p>
+            <p>If you don't tick the box you might be missing relevant information
+            about new participatory opportunities within the platform.<br>
+            If you still want to avoid receiving newsletters, we perfectly
+            understand your decision.</p>
+            <p>Thanks for reading this!</p>
+          title: Newsletter notifications
         omniauth_buttons:
-          or: Ou
+          or: Or
     doorkeeper:
       authorizations:
         new:
-          authorize: Autoriser l'application
-          by_organization_link_html: <small class="heading-small">par %{link}</small>
-          cancel: Annuler
-          connect_your_account_html: Associez votre compte en vous connectant sur <strong>%{organization}</strong>
-          publish_content: Publier du contenu pour vous
-          see_email: Voir votre email
-          see_name: Voir votre nom
-          see_username: Voir votre pseudonyme
-          this_application_will_be_able_to: 'Cette application sera capable de :'
-          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
-          update_profile: Mettre à jour
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+          authorize: Authorize application
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          cancel: Cancel
+          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          publish_content: Publish content for you
+          see_email: See your email
+          see_name: See your name
+          see_username: See your username
+          this_application_will_be_able_to: 'This application will be able to:'
+          this_application_will_not_be_able_to: 'This application will not be able to:'
+          update_profile: Update your profile
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     errors:
       internal_server_error:
-        title: Il y a eu un problème avec notre serveur
-        try_later: Veuillez réessayer plus tard.
+        title: There was a problem with our server
+        try_later: Please try again later.
       not_found:
-        back_home: Retour à l'accueil
-        content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
-        title: La page que vous recherchez ne peut être trouvée
+        back_home: Back home
+        content_doesnt_exist: This address is incorrect or has been removed.
+        title: The page you're looking for can't be found
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
-            email_subject: Amendement accepté de %{emendation_author_nickname} pour %{amendable_title}
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Une correction a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Amendement accepté de %{emendation_author_nickname} pour %{amendable_title}
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
-            email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
-            email_subject: Nouvel amendement de %{emendation_author_nickname}% pour %{amendable_title}
-            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Une nouvelle correction a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouvel amendement de %{emendation_author_nickname}% pour %{amendable_title}
-            notification_title: Une <a href="%{emendation_path}">new emendation</a> a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}><</a>a pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
-            email_subject: Une emendation de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Une correction rejetée pour %{amendable_title} a été promue à un %{amendable_type} indépendant. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Une emendation de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title} %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}a>.
+            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An emendation from %{emendation_author_nickname} has been promoted
+            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous êtes un auteur de %{amendable_title}.
-            email_subject: Amendement de %{emendation_author_nickname}% refusé pour %{amendable_title}
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Une correction a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Amendement de %{emendation_author_nickname}% refusé pour %{amendable_title}
-            notification_title: Le <a href="%{emendation_path}">emendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejeté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Une mise à jour de %{resource_title}
-          notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title}
+          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'La fonctionnalité %{resource_title} est maintenant active dans %{participatory_space_title}. Vous pouvez y accéder ici :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
-        email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
-        email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-        email_subject: Mise à jour de %{resource_title}
+        email_greeting: Hello %{user_name},
+        email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
+        email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+        email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bravo ! Vous avez gagné le badge <a href="%{resource_url}">%{badge_name}</a> (niveau %{current_level}).
-          email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
-          email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
-          notification_title: Bon travail ! Vous avez gagné le badge <a href="%{resource_path}">%{badge_name}</a> (niveau %{current_level}).
+          email_intro: Great job! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_url}">%{badge_name}</a> !
-          email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
-          email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
-          notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
+          email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: You have received this notification because you made activity on our website.
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
-          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
-          email_outro: Vous avez reçu cette notification parce que vous êtes membre de ce groupe.
-          email_subject: Vous n'êtes plus un administrateur du groupe %{user_group_name}!
-          notification_title: Vous n'êtes plus un administrateur du groupe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are no longer an admin of the %{user_group_name} group!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
         invited_to_group:
-          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a invité à le rejoindre.
-          email_outro: Vous avez reçu cette notification parce que vous avez été invité à un groupe. Veuillez vérifier l'onglet Groupes dans votre profil pour l'approuver.
-          email_subject: Vous avez été invité à rejoindre le groupe %{user_group_name}!
-          notification_title: Vous avez été invité à rejoindre le groupe <a href="%{resource_path}">%{user_group_name}</a> . Vérifiez les <a href="%{groups_profile_tab_path}">page Groupes</a> dans votre profil pour l' approuver!
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} group!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
         join_request_accepted:
-          email_intro: Toutes nos félicitations! Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a accepté votre demande d’adhésion.
-          email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
-          email_subject: Vous avez été accepté dans le groupe %{user_group_name}!
-          notification_title: Vous avez été accepté dans le groupe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} group!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
         join_request_created:
-          email_intro: Quelqu'un a demandé à rejoindre le groupe %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_url}">les membres du groupe la page</a>.
-          email_outro: Vous avez reçu cette notification car vous pouvez gérer le groupe %{user_group_name}.
-          email_subject: Quelqu'un a demandé à rejoindre le groupe %{user_group_name}!
-          notification_title: Quelqu'un a demandé à rejoindre le groupe %{user_group_name} . Vous pouvez accepter ou rejeter de <a href="%{resource_path}">les membres du groupe la page</a>.
+          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} group.
+          email_subject: Someone requested to join the %{user_group_name} group!
+          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
         join_request_rejected:
-          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a rejeté votre demande d'adhésion.
-          email_outro: Vous avez reçu cette notification car votre demande de participation a été mise à jour.
-          email_subject: Votre demande d'adhésion au groupe %{user_group_name} a été rejetée!
-          notification_title: Votre demande d'adhésion au groupe <a href="%{resource_path}">%{user_group_name}</a> a été rejetée.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} group has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
         promoted_to_admin:
-          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a attribué les droits d’administrateur pour ce groupe.
-          email_outro: Vous avez reçu cette notification parce que vous êtes membre de ce groupe.
-          email_subject: Vous êtes maintenant un administrateur du groupe %{user_group_name}!
-          notification_title: Vous êtes maintenant un administrateur du groupe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are now an admin of the %{user_group_name} group!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
         removed_from_group:
-          email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> vous a retiré de la liste.
-          email_outro: Vous avez reçu cette notification parce que vous étiez membre de ce groupe.
-          email_subject: Vous avez été retiré du groupe %{user_group_name}!
-          notification_title: Vous avez été supprimé du groupe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
+          email_outro: You have received this notification because you were a member of that group.
+          email_subject: You have been removed from the %{user_group_name} group!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
       notification_event:
-        notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-          email_subject: "%{nickname} a mis à jour son profil public"
-          notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+          email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} updated their profile"
+          notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu'au %{date}.
-        download: Télécharger
+        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        download: Download
       export:
-        ready: Vous trouverez ci-joint une version zippée de votre exportation.
-      subject: Votre export "%{name}" est prêt
+        ready: Please find attached a zipped version of your export.
+      subject: Your export "%{name}" is ready
     filters:
       linked_classes:
-        all: Tout
-        collaborative_draft: Propositions collaboratives
-        dummy_resource: Exemple factice
-        meeting: Rencontres
-        project: Projets
-        proposal: Propositions
-        result: Réalisations
+        all: All
+        collaborative_draft: Collaborative draft
+        dummy_resource: Dummy resources
+        meeting: Meetings
+        project: Projects
+        proposal: Proposals
+        result: Results
     fingerprint:
-      check: Vérifiez l'empreinte numérique
-      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
-      online_calculator_name: calculateur de hash MD5 en ligne
-      replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
+      check: Check fingerprint
+      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
+      online_calculator_name: MD5 calculator online
+      replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
       source: Source
-      title: Empreinte numérique
-      value: Valeur
+      title: Fingerprint
+      value: Value
     followers:
-      no_followers: Aucun abonné pour le moment.
+      no_followers: No followers yet.
     following:
-      no_followings: Aucun abonnement
+      no_followings: Doesn't follow anyone or anything yet.
     follows:
       create:
-        button: Suivre
-        error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
+        button: Follow
+        error: There has been an error following this resource.
       destroy:
-        button: Ne plus suivre
-        error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
+        button: Stop following
+        error: There has been an error unfollowing this resource.
     forms:
-      current_file: Fichier actuel
-      current_image: Image actuelle
-      default_image: Image par défaut
+      current_file: Current file
+      current_image: Current image
+      default_image: Default image
       errors:
-        error: Ce champ contient une erreur.
-      remove_this_file: Supprimer ce fichier
+        error: There's an error in this field.
+      remove_this_file: Remove this file
     gamification:
-      all_badges_link: Voir tous les badges disponibles.
+      all_badges_link: See all available badges.
       badges:
         continuity:
-          conditions:
-            - Viens ici souvent
-          description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
-          description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
-          description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
-          name: Continuité
-          next_level_in: Connectez-vous pendant %{score} jours consécutifs pour passer au niveau suivant!
-          unearned_another: Cet utilisateur ne s'est pas connecté depuis plus d'un jour consécutif.
-          unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
+          conditions: '["Come here often"]'
+          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
+          description_another: This user has connected for %{score} consecutive days at some point.
+          description_own: You have connected for %{score} consecutive days at some point.
+          name: Continuity
+          next_level_in: Connect for %{score} consecutive days to get to the next level!
+          unearned_another: This user hasn't signed in for more than one consecutive day.
+          unearned_own: You haven't connected for more than one consecutive day.
         followers:
-          conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
-          description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
-          description_another: Cet utilisateur a %{score} abonnés.
-          description_own: "%{score} utilisateurs vous suivent."
-          name: Suiveurs
-          next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
-          unearned_another: Cet utilisateur n'a pas encore de suiveurs.
-          unearned_own: Vous n'avez pas encore de followers.
+          conditions: '["Being active and following other people will surely make other people follow you."]'
+          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
+          description_another: This user has %{score} followers.
+          description_own: "%{score} users are following you."
+          name: Followers
+          next_level_in: Get %{score} more users to follow you to reach the next level!
+          unearned_another: This user doesn't have any followers yet.
+          unearned_own: You've got no followers yet.
         index:
-          badge_title: "Badge : %{name}"
-          how: Comment pouvez-vous le gagner
-          page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
-          title: Insignes
+          badge_title: "%{name} badge"
+          how: How can you earn it
+          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
+          title: Badges
         invitations:
-          conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
-          description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
-          description_another: Cet utilisateur a invité %{score} utilisateurs.
-          description_own: Vous avez invité %{score} utilisateurs.
+          conditions: '["Use the “invite friends” link on your user page to invite your friends", "Customize, if you want, the message you are sending", "You’ll level up by sending invitations and getting them registered."]'
+          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
+          description_another: This user has invited %{score} users.
+          description_own: You have invited %{score} users.
           name: Invitations
-          next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
-          unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
-          unearned_own: Vous n'avez encore invité aucun utilisateur.
-      description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
-      level: Niveau %{level}
-      reached_top: Vous avez atteint le plus haut niveau pour ce badge.
+          next_level_in: Invite %{score} more users to reach the next level!
+          unearned_another: This user hasn't invited any user yet.
+          unearned_own: You have invited no users yet.
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      level: Level %{level}
+      reached_top: You've reached the top level for this badge.
     group_admins:
       actions:
-        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
-        demote_admin: Supprimer admin
+        are_you_sure: Are you sure? This won't remove the user from the group.
+        demote_admin: Remove admin
       demote:
-        error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
-        success: Utilisateur retiré de l'administrateur avec succès
+        error: There was an error removing this user from the admins list
+        success: User removed from admin successfully
       index:
-        current_admins: 'Administrateurs actuels:'
-        manage_admins: Gérer les administrateurs
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
     group_invites:
       accept:
-        error: Une erreur s'est produite lors de l'acceptation de cette invitation.
-        success: Invitation acceptée avec succès
-      accept_invitation: Acceptez
-      accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
+        error: There was an error accepting this invitation
+        success: Invitation accepted successfully
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
-        invite: Inviter
-        invite_user: Inviter un utilisateur
+        invite: Invite
+        invite_user: Invite a user
       invite:
-        error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
-        success: Utilisateur invité avec succès
+        error: There was an error inviting this user
+        success: User invited successfully
       reject:
-        error: Une erreur s'est produite lors du rejet de cette invitation.
-        success: Invitation rejetée avec succès
-      reject_invitation: Rejeter
+        error: There was an error rejecting this invitation
+        success: Invitation rejected successfully
+      reject_invitation: Reject
     group_members:
       accept:
-        error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
-        success: Demande de participation acceptée avec succès
+        error: There was an error accepting this join request
+        success: Join request accepted successfully
       actions:
-        are_you_sure: Êtes-vous sûr?
-        promote_to_admin: Faire admin
-        remove_from_group: Supprimer l'utilisateur
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove user
       index:
-        current_members_without_admins: 'Membres actuels (sans administrateurs):'
-        manage_members: Gérer les membres
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
       promote:
-        error: Une erreur s'est produite lors de la promotion de cet utilisateur.
-        success: Utilisateur promu avec succès
+        error: There was an error promoting this user
+        success: User promoted successfully
       reject:
-        error: Une erreur s'est produite lors du rejet de cette demande de participation.
-        success: Demande de participation rejetée avec succès
+        error: There was an error rejecting this join request
+        success: Join request rejected successfully
       remove:
-        error: Une erreur s'est produite lors de la suppression de cet utilisateur du groupe.
-        success: Utilisateur supprimé du groupe avec succès
+        error: There was an error removing this user from the group
+        success: User removed from the group successfully
     groups:
       actions:
-        are_you_sure: Êtes-vous sûr?
+        are_you_sure: Are you sure?
       create:
-        error: Il y a eu un problème pour créer le groupe
-        success: Groupe créé avec succès
+        error: There has been a problem creating the group
+        success: Group created successfully
       edit:
-        edit_user_group: Editer le groupe
-        update_user_group: Groupe de mise à jour
+        edit_user_group: Edit group
+        update_user_group: Update group
       form:
-        document_number_help: Ne pas utiliser de tirets ni d'espaces
-        email_help: Email de votre organisation, association, collectif, groupe, etc.
-        fill_in_for_verification: 'Remplissez ces champs si vous souhaitez que votre groupe soit vérifié:'
-        name_help: Nom de votre organisation, association, collectif, groupe, etc.
-        nickname_help: Nom d'utilisateur de votre organisation, association, collectif, groupe, etc. N'utilisez pas d'espaces ni d'accents.
-        phone_help: Ne pas utiliser de tirets ni d'espaces
+        document_number_help: Do not use dashes nor spaces
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Username of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces
       join:
-        error: Il y a eu un problème pour rejoindre le groupe
-        success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
+        error: There has been a problem joining the group
+        success: Join request created successfully. An admin will review your request before accepting you to the group.
       leave:
-        error: Il y a eu un problème pour quitter le groupe
-        success: Le groupe est parti avec succès.
+        error: There has been a problem leaving the group
+        success: Group left successfully.
       members:
-        accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
-        accept_request: Acceptez
-        reject_request: Rejeter
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
       new:
-        create_user_group: Créer un groupe
-        new_user_group: Nouveau groupe
-        subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
-      no_user_groups: N'appartient à aucun groupe pour l'instant.
+        create_user_group: Create group
+        new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
+      no_user_groups: Doesn't belong to any group yet.
       roles:
-        admin: Administrateur
-        creator: Créateur
-        member: Membre
+        admin: Administrator
+        creator: Creator
+        member: Member
       update:
-        error: Un problème est survenu lors de la mise à jour du groupe.
-        success: Groupe mis à jour avec succès
+        error: There has been a problem updating the group
+        success: Group updated successfully
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
-          title: Que puis-je faire en %{organization}?
-        description: En savoir plus sur %{organization}
-        title: Rubrique d'aide
+          content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
+          title: What can I do in %{organization}?
+        description: Read more about %{organization}
+        title: General Help
     last_activities:
       activities:
-        no_activities_warning: Aucune activité
-      all: Tous les types d'activité
+        no_activities_warning: No activity
+      all: All activity types
       index:
-        last_activity: Activités récentes
-        resource_type: Type de contenu
+        last_activity: Last activity
+        resource_type: Type
     log:
       base_presenter:
-        create: "%{user_name} a créé %{resource_name}"
-        create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
-        delete: "%{user_name} a supprimé %{resource_name}"
-        delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
-        unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
-        unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
-        update: "%{user_name} a mis à jour %{resource_name}"
-        update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
+        create: "%{user_name} created %{resource_name}"
+        create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted %{resource_name}"
+        delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} performed some action on %{resource_name}"
+        unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        update: "%{user_name} updated %{resource_name}"
+        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'The area was not found on the database (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'The area type was not found on the database (ID: %{id})'
         scope_presenter:
-          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de secteurs n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
-      expired_session: La session de représentation d'identité a expiré.
+      expired_session: The current impersonation session has expired.
     members:
-      no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
+      no_members: This user groups doesn't have any member yet.
     menu:
-      help: Aide
-      home: Accueil
+      help: Help
+      home: Home
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Bonjour, %{recipient} !
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
-          outro: Profitez de cette plateforme !
-          subject: "%{sender} a commencé une conversation avec vous"
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with you. Click here to see it:"
+          outro: Enjoy decidim!
+          subject: "%{sender} has started a conversation with you"
         new_message:
-          greeting: Bonjour, %{recipient} !
-          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
-          outro: Profitez de cette plateforme !
-          subject: Vous avez de nouveaux messages de %{sender}
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
+          outro: Enjoy decidim!
+          subject: You have new messages from %{sender}
       conversations:
         create:
-          error: La conversation n'a pas commencé. Réessayez plus tard
+          error: Conversation not started. Try again later
         index:
-          no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          no_conversations: You have no conversations yet
+          title: Conversations
         reply:
-          send: Envoyer
-          title: Répondre
+          send: Send
+          title: Reply
         show:
-          title: Conversation avec %{usernames}
+          title: Conversation with %{usernames}
         start:
-          send: Envoyer
-          title: Commencer une conversation
+          send: Send
+          title: Start a conversation
         update:
-          error: Message non envoyé. Réessayez plus tard
+          error: Message not sent. Try again later
     metrics:
       download:
-        csv: Télécharger les données (csv)
+        csv: Download data (csv)
       followers:
         description: Number of users that follow this participation space
-        object: suiveurs
-        title: Suiveurs
+        object: followers
+        title: Followers
       participants:
-        description: Nombre d'utilisateurs actifs dans l'organisation
-        object: les participants
+        description: Number of active user in organization
+        object: participants
         title: Participants
       users:
-        description: Nombre d'utilisateurs dans l'organisation
-        object: utilisateurs
-        title: Utilisateurs
+        description: Number of user in organization
+        object: users
+        title: Users
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
-        unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Il y a eu une erreur lors de votre désabonnement
-        success: Vous vous êtes désabonné avec succès.
-        token_error: Le lien a expiré.
-        unsubscribe: Se désabonner
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        error: There's been an error unsubscribing
+        success: You are unsubscribed successfully.
+        token_error: The link has expired.
+        unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Désolé, ce lien n'est plus disponible
+      unathorized: Sorry, this link is no longer available
       update:
-        error: Désolé, un problème est survenu
-        success: Abonnement à la newsletter mis à jour avec succès
+        error: Something wrong happened
+        success: Newsletter settings updated successfully
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les actualités de %{organization_name}.
-        body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
-        body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les actualités de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
-        button: Oui, je veux continuer à recevoir des informations
-        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Bonjour,
-        subject: Voulez-vous continuer à recevoir des actualités de %{organization_name} ?
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_2: 'How can you give us your consent? Just click the following button:'
+        body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
+        button: Yes, I want to continue receiving relevant information
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Do you want to keep receiving relevant information about %{organization_name}?
     notification_mailer:
       shared:
         note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
-      no_notifications: Il n'y a pas encore de notifications.
+      no_notifications: No notifications yet.
     notifications_settings:
       show:
-        email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
-        everything_followed: Tout ce que je suis
-        newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
-        newsletters: Newsletter
-        own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
-        receive_notifications_about: Je veux recevoir des notifications sur
-        send_notifications_by_email: Envoyer des notifications par email
-        update_notifications_settings: Enregistrer les modifications
+        email_on_notification: I want to receive an email every time I receive a notification.
+        everything_followed: Everything I follow
+        newsletter_notifications: I want to receive newsletters
+        newsletters: Newsletters
+        own_activity: My own activity, like when someone comments in my proposal or mentions me
+        receive_notifications_about: I want to get notifications about
+        send_notifications_by_email: Send notifications by email
+        update_notifications_settings: Save changes
       update:
-        error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
-        success: Vos paramètres de notifications ont été mis à jour avec succès.
+        error: There's been an error updating your notifications settings.
+        success: Your notifications settings were updated successfully.
     open_data:
-      not_available_yet: Les fichiers Open Data ne sont pas encore disponibles, veuillez réessayer dans quelques minutes.
+      not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
       index:
-        pending: En attente
-        rejected: Non retenue
-        verified: Vérifié
+        pending: Pending
+        rejected: Rejected
+        verified: Verified
     pad_iframe:
-      disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
-      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
-      pad: Tampon
+      disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
+      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      pad: Pad
     pages:
       home:
         extended:
-          debates: Débats
-          debates_explanation: Débattez, discutez et enrichissez les échanges de vos points de vue.
-          how_to_participate: Comment participer ?
-          meetings: Rencontres
-          meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
-          more_info: En savoir plus
-          proposals: Propositions
-          proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir se réaliser.
+          debates: Debates
+          debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
+          how_to_participate: How do I take part in a process?
+          meetings: Meetings
+          meetings_explanation: Find out where and when you can participate in public meetings.
+          more_info: More info
+          proposals: Proposals
+          proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
         footer_sub_hero:
-          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
-          footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
-          register: S'inscrire
+          footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
+          footer_sub_hero_headline: Welcome to %{organization} participatory platform.
+          register: Register
         hero:
-          participate: Participez
-          welcome: Bienvenue sur %{organization} !
+          participate: Participate
+          welcome: Welcome to %{organization}!
         metrics:
-          headline: Historique de la participation sur %{organization}
+          headline: Participation in figures
         statistics:
-          answers_count: Enquêtes terminées
-          assemblies_count: Assemblées
-          comments_count: Commentaires
-          conferences_count: Conférences
-          debates_count: Débats
-          endorsements_count: Soutiens
-          headline: La participation en cours sur %{organization}
-          meetings_count: Rencontres
+          answers_count: Completed Surveys
+          assemblies_count: Assemblies
+          comments_count: Comments
+          conferences_count: Conferences
+          debates_count: Debates
+          endorsements_count: Endorsements
+          headline: Current state of %{organization}
+          meetings_count: Meetings
           orders_count: Votes
           pages_count: Pages
-          processes_count: Processus participatifs
-          projects_count: Projets
-          proposals_accepted: Propositions acceptées
-          proposals_count: Propositions
-          results_count: Réalisations
-          surveys_count: Enquêtes
+          processes_count: Processes
+          projects_count: Projects
+          proposals_accepted: Accepted Proposals
+          proposals_count: Proposals
+          results_count: Results
+          surveys_count: Surveys
           users_count: Participants
           votes_count: Votes
         sub_hero:
-          register: S'inscrire
+          register: Register
       index:
-        read_more: Lire la suite
-        standalone_pages: Autres
-        subheading: Naviguer à travers les pages d'aide de %{name}
-        title: Aide
-        topics: Thématiques
+        read_more: Read more
+        standalone_pages: Pages
+        subheading: Navigate through the help pages of %{name}
+        title: Help
+        topics: Topics
       terms_and_conditions:
         accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
-          success: Génial ! Vous avez accepté les conditions d'utilisations.
+          error: There's been an error while accepting the terms and conditions.
+          success: Great! You have accepted the terms and conditions.
         form:
-          agreement: Je suis d'accord avec les conditions d'utilisation
-          legend: Accepter les conditions d'utilisation
+          agreement: I agree this terms
+          legend: Agree to the terms and conditions of use
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
-          modal_btn_continue: Accepter les conditions et continuer
-          modal_btn_exit: Je l'examinerai plus tard
-          modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la fenêtre
-          modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
+          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_btn_continue: Accept terms and continue
+          modal_btn_exit: I'll review it later
+          modal_button: Refuse the terms
+          modal_close: Close modal
+          modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
-          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
-          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
+          alert: We've updated our Terms of Service, please review them.
+          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
+          title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
-      not_allowed: Vous n'êtes pas autorisé à voir ce contenu
+      not_allowed: You are not allowed to view this content
     profile:
-      deleted: Utilisateur ayant supprimé son compte
-      view: Voir
+      deleted: Deleted user
+      view: View
     profiles:
       default_officialization_text: Justification
-      default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
-      default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
+      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
-        activity: Mon activité
+        activity: Activity
         badges: Badges
-        followers: Abonnés
-        following: Abonnements
-        groups: Groupes
-        members: Membres
-        timeline: Centres d'intérêts
-        view_full_profile: Voir le profil complet
+        followers: Followers
+        following: Follows
+        groups: Groups
+        members: Members
+        timeline: Timeline
+        view_full_profile: View full profile
       sidebar:
         badges:
-          info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
+          info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
-        confirmation_instructions_sent: Envoi des instructions de confirmation par email
-        create_user_group: Créer un groupe
-        edit_profile: Mettre à jour
-        edit_user_group: Modifier le profil du groupe
-        fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
-        invite_user: Inviter un utilisateur
-        join_user_group: Demande de rejoindre un groupe
-        leave_user_group: Quitter le groupe
-        manage_user_group_admins: Gérer les administrateurs
-        manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par email
+        confirmation_instructions_sent: Email confirmation instructions sent
+        create_user_group: Create group
+        edit_profile: Edit profile
+        edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        invite_user: Invite user
+        join_user_group: Request to join group
+        leave_user_group: Leave group
+        manage_user_group_admins: Manage admins
+        manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
-        hello: Bonjour %{name},
-        manage_moderations: Gérer les modérations
-        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
-        subject: Une ressource a été cachée automatiquement
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
+        subject: A resource has been hidden automatically
       report:
-        hello: Bonjour %{name},
-        manage_moderations: Gérer les modérations
-        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
-        subject: Un contenu a été signalé
+        hello: Hello %{name},
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        subject: A resource has been reported
     reports:
       create:
-        error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
-        success: Le contenu a été signalé, il sera examiné par un administrateur.
+        error: An error ocurred while creating the report. Please, try it again.
+        success: The report has been created successfully and it will be reviewed by an admin.
     scopes:
-      global: Tous les secteurs
+      global: Global scope
       picker:
-        cancel: Annuler
-        choose: Sélectionner
-        title: Sélectionnez %{field}
-      prompt: Sélectionnez un secteur
-      scopes: Secteurs
+        cancel: Cancel
+        choose: Select
+        title: Select %{field}
+      prompt: Select a scope
+      scopes: Scopes
     search:
-      results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
-      term_input_placeholder: Rechercher
+      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      term_input_placeholder: Search
     searches:
       filters:
-        back: Retour aux résultats
-        jump_to: 'Sauter à:'
+        back: Back to results
+        jump_to: 'Jump to:'
         state:
-          active: actif
-          all: Tout
-          future: Futur
-          past: Passé
+          active: Active
+          all: All
+          future: Future
+          past: Past
       filters_small_view:
-        close_modal: Fermer la fenêtre de dialogue
-        filter: Filtrer
-        filter_by: Filtrer par
-        unfold: Voir plus
+        close_modal: Close modal
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       results:
         results:
-          one: "%{count} résultat"
-          other: "%{count} résultats"
-        view_all: Tout voir (%{count})
+          one: "%{count} result"
+          other: "%{count} results"
+        view_all: View all (%{count})
     shared:
       embed_modal:
-        close_window: Fermer la fenêtre
-        embed: Veuillez coller ce code dans votre page
-        embed_link: Intégrer
+        close_window: Close window
+        embed: Please paste this code in your page
+        embed_link: Embed
       extended_navigation_bar:
-        more: Plus
-        unfold: Se dérouler
+        more: More
+        unfold: Unfold
       flag_modal:
-        already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-        close: Fermer
-        description: Ce contenu est-il inapproprié ?
-        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
-        offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
-        report: Signaler
-        spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
-        title: Signaler un problème
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
+        description: Is this content inappropriate?
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        report: Report
+        spam: Contains clickbait, advertising, scams or script bots.
+        title: Report a problem
       floating_help:
-        help: Aide
+        help: Help
       follow_button:
-        sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
+        sign_in_before_follow: Please sign in before performing this action
       login_modal:
-        please_sign_in: Veuillez vous connecter
-        sign_up: S'inscrire
+        please_sign_in: Please sign in
+        sign_up: Sign up
       reference:
-        reference: 'Référence : %{reference}'
+        reference: 'Reference: %{reference}'
       results_per_page:
-        label: 'Résultats par page :'
+        label: 'Results per page:'
       share_modal:
-        close_window: Fermer la fenêtre
-        share: Partager
-        share_link: Lien de partage
+        close_window: Close window
+        share: Share
+        share_link: Share link
       version_author:
-        deleted: Utilisateur ayant supprimé son compte
+        deleted: Deleted user
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
-        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+        no_activities_warning: This user hasn't had any activity yet.
     user_interests:
       show:
-        my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les thématiques qui vous intéressent. Toutes les activités associées apparaîtront dans l'onglet "Centres d'intérêts" de votre profil.
-        update_my_interests: Mettre à jour mes intérêts
+        my_interests: My interests
+        no_scopes: This organization doesn't have any scope yet!
+        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
       update:
-        error: Il y a eu une erreur lors de la mise à jour de vos intérêts.
-        success: Vos intérêts ont été mis à jour avec succès.
+        error: There was an error while updating your interests.
+        success: Your interests have been successfully updated.
     welcome_notification:
-      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue !</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
-      default_subject: Merci d'avoir rejoint {{organization}}!
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_subject: Thanks for joining {{organization}}!
   devise:
     confirmations:
-      confirmed: Votre adresse email a été confirmée avec succès.
+      confirmed: Your email address has been successfully confirmed.
       new:
-        resend_confirmation_instructions: Renvoyer les instructions de confirmation
-      send_instructions: Vous recevrez un email avec les instructions pour confirmer votre adresse d'ici quelques minutes.
-      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un message avec les instructions pour confirmer votre adresse d'ici quelques minutes.
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
     failure:
-      already_authenticated: Vous êtes déjà connecté.
-      inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
-      invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
-      last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
-      locked: Ton compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
-      timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
-      unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid %{authentication_keys} or password.
+      invited: You have a pending invitation, accept it to finish creating your account.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid %{authentication_keys} or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
     invitations:
       edit:
-        header: Terminer la création de votre compte
-        nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-        submit_button: Sauvegarder
-        subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
-      invitation_removed: Votre invitation a été supprimée.
-      invitation_token_invalid: Le jeton d'invitation fourni n'est pas valide!
+        header: Finish creating your account
+        nickname_help: Your unique identifier in %{organization}.
+        submit_button: Save
+        subtitle: If you accept the invitation please set your nickname and password.
+      invitation_removed: Your invitation was removed.
+      invitation_token_invalid: The invitation token provided is not valid!
       new:
-        header: Envoyer une invitation
-        submit_button: Envoyer une invitation
-      no_invitations_remaining: Aucune invitation restante
-      send_instructions: Un email d'invitation a été envoyé à %{email}.
-      updated: Votre mot de passe a été défini avec succès. Vous êtes maintenant inscrit.
-      updated_not_active: Votre mot de passe a été défini avec succès.
+        header: Send invitation
+        submit_button: Send an invitation
+      no_invitations_remaining: No invitations remaining
+      send_instructions: An invitation email has been sent to %{email}.
+      updated: Your password was set successfully. You are now signed in.
+      updated_not_active: Your password was set successfully.
     mailer:
       confirmation_instructions:
-        action: Confirmer mon compte
-        greeting: Bienvenue %{recipient} !
-        instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous:'
-        subject: Instructions de confirmation
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
       email_changed:
-        greeting: Bonjour %{recipient}!
-        message: Nous vous contactons pour vous informer que votre adresse email a été modifiée à %{email}.
-        subject: Email modifié
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+        subject: Email Changed
       invitation_instructions:
-        accept: Accepter l'invitation
-        accept_until: Cette invitation expirera le %{due_date}.
-        decline: Refuser l'invitation
-        hello: Bonjour %{email},
+        accept: Accept invitation
+        accept_until: This invitation will be due in %{due_date}.
+        decline: Decline invitation
+        hello: Hello %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet email.<br />
-          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus puis défini votre pseudonyme et votre mot de passe.
-        invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
-        invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
-        someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
-        someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
-        someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
-        subject: Instructions d'invitation
+          If you don't want to accept the invitation, please ignore this email.<br />
+          Your account won't be created until you access the link above and set your nickname and password.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
+        someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
+        someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
+        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+        subject: Invitation instructions
       invite_admin:
-        subject: Vous avez été invité à gérer %{organization}
+        subject: You've been invited to manage %{organization}
       invite_collaborator:
-        subject: Vous avez été invité à collaborer sur %{organization}
+        subject: You've been invited to collaborate on %{organization}
       invite_private_user:
-        subject: Vous avez été invité à une assemblée privée sur %{organization}
+        subject: You've been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: Vous avez été invité à gérer %{organization}
+        subject: You've been invited to manage %{organization}
       password_change:
-        greeting: Bonjour %{recipient} !
-        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
-        subject: Mot de passe modifié
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your password has been changed.
+        subject: Password changed
       reset_password_instructions:
-        action: Changer mon mot de passe
-        greeting: Bonjour %{recipient}!
-        instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
-        instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer cet email.
-        instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
-        subject: Réinitialiser les instructions de mot de passe
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
       unlock_instructions:
-        action: Débloquer mon compte
-        greeting: Bonjour %{recipient}!
-        instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte:'
-        message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
-        subject: Instructions de déverrouillage
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
     omniauth_callbacks:
-      failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
-      success: Authentifié avec succès à partir de %{kind} compte.
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
     passwords:
       edit:
-        change_my_password: Changer mon mot de passe
-        change_your_password: changez votre mot de passe
-        confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Votre mot de passe
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
       new:
-        forgot_your_password: Mot de passe oublié?
-        send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
-      no_token: Vous ne pouvez pas accéder à cette page sans passer par le lien de réinitialisation de mot de passe. Si vous venez de cliquer sur le lien dans email de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète qui vous a été fournie.
-      send_instructions: Vous recevrez un email avec des instructions pour réinitialiser votre mot de passe d'ici quelques minutes.
-      send_paranoid_instructions: Si votre adresse email existe dans notre base de données, vous recevrez un lien de récupération de mot de passe dans votre boîte de réception d'ici quelques minutes.
-      updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
-      updated_not_active: Votre mot de passe a été changé avec succès.
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
     registrations:
-      destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
       edit:
-        are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Annuler mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour : %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
-        title: Modifier %{resource}
-        unhappy: Malheureux?
-        update: Mettre à jour
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
-        sign_up: S'inscrire
-      signed_up: Bienvenue ! Vous vous êtes inscrit avec succès.
-      signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
-      signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
-      signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse email. Veuillez suivre le lien pour activer votre compte.
-      update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez confirmer adresse suivant le lien de confirmation que vous avez reçu.
-      updated: Votre compte a été mis à jour avec succès.
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
     sessions:
-      already_signed_out: Signé avec succès.
+      already_signed_out: Signed out successfully.
       new:
-        sign_in: S'identifier
-      signed_in: Signé avec succès.
-      signed_out: Signé avec succès.
+        sign_in: Log in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
     shared:
       links:
-        back: Arrière
-        didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
-        forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
-        sign_in_with_provider: Se connecter avec %{provider}
-        sign_up: S'inscrire
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
       minimum_password_length:
-        one: "(%{count} caractère minimum)"
-        other: "(%{count} caractères minimum)"
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
       new:
-        resend_unlock_instructions: Renvoyer les instructions de déverrouillage
-      send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte d'ici quelques minutes.
-      send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer d'ici quelques minutes.
-      unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter pour continuer.
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
   doorkeeper:
     scopes:
-      public: Votre information publique
+      public: Your public information.
   errors:
     messages:
-      already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
-      confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
-      content_type_whitelist_error: le type de fichier n'est pas valide
-      cycle_detected: un filtre géographique parent ne peut pas être au même niveau que ses sous-filtres
-      expired: a expiré, s'il vous plaît demander un nouveau
-      file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
-      long_words: contient des mots trop longs (plus de 35 caractères)
-      must_start_with_caps: doit commencer par une majuscule
-      nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: pas trouvé
-      not_locked: n'était pas verrouillé
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
+      content_type_whitelist_error: the file type is not valid
+      cycle_detected: a scope's parent can't be one of its descendants
+      expired: has expired, please request a new one
+      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      long_words: contains words that are too long (over 35 characters)
+      must_start_with_caps: must start with a capital letter
+      nesting_too_deep: can't be inside of a subcategory
+      not_found: not found
+      not_locked: was not locked
       not_saved:
-        one: '1 erreur a interdit cette sauvegarde %{resource}:'
-        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
-      too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
-      too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
-      too_short: est trop court (moins de 15 caractères)
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: is using too many capital letters (over 25% of the text)
+      too_short: is too short (under 15 characters)
   forms:
-    required: Champs obligatoires
+    required: Required
   invisible_captcha:
-    sentence_for_humans: Si vous êtes humain, ignorez ce champ
-    timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
+    sentence_for_humans: If you are human, ignore this field
+    timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
-        link_label: ici
-        ok: '"J''accepte"'
+        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
+        link_label: here
+        ok: I agree
       edit_link:
-        edit: Modifier
+        edit: Edit
       footer:
-        download_open_data: Télécharger les fichiers de données ouvertes
-        made_with_open_source: 'Site réalisé par <a target="_blank" href="https://www.opensourcepolitics.eu">Open Source Politics</a> grâce à <a target="_blank" href="https://opensourcepolitics.eu/#decidim">Decidim, le logiciel libre</a> de <a target="_blank" href="https://www.opensourcepolitics.eu">démocratie participative</a>.'
+        download_open_data: Download Open Data files
+        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
-        close_menu: Fermer le menu
+        close_menu: Close menu
         navigation: Navigation
-        sign_in: Se connecter
-        sign_up: S'inscrire
+        sign_in: Sign In
+        sign_up: Sign Up
       impersonation_warning:
-        close_session: Fermer la session
-        description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
-        expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
+        close_session: Close session
+        description_html: You are impersonating the user <b>%{user_name}</b>.
+        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
-        mark_all_as_read: Marquer tout comme lu
+        mark_all_as_read: Mark all as read
       user_menu:
-        admin_dashboard: Tableau de bord
+        admin_dashboard: Admin dashboard
         conversations: Conversations
         notifications: Notifications
-        profile: Mon compte
-        public_profile: Mon profil
-        sign_out: Déconnexion
+        profile: My account
+        public_profile: My public profile
+        sign_out: Sign out
       user_profile:
-        account: Compte
-        authorizations: Autorisations
-        delete_my_account: Supprimer mon compte
-        my_data: Mes données
-        my_interests: Mes intérêts
-        notifications_settings: Paramètres des notifications
-        title: Paramètres utilisateur
-        user_groups: Groupes
+        account: Account
+        authorizations: Authorizations
+        delete_my_account: Delete my account
+        my_data: My data
+        my_interests: My interests
+        notifications_settings: Notifications settings
+        title: User settings
+        user_groups: Groups
       widget:
-        see_more: Voir plus
+        see_more: See more
   locale:
-    name: Français
+    name: English
   password_validator:
-    domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
-    email_included_in_password: est trop similaire à votre email
-    fallback: n'est pas valide
-    name_included_in_password: est trop similaire à votre nom
-    not_enough_unique_characters: n'a pas assez de caractères uniques
-    password_not_allowed: n'est pas autorisé
-    password_too_common: est trop commun
-    password_too_long: est trop long
-    password_too_short: est trop court
+    domain_included_in_password: is too similar to this domain name
+    email_included_in_password: is too similar to your email
+    fallback: is not valid
+    name_included_in_password: is too similar to your name
+    not_enough_unique_characters: does not have enough unique characters
+    password_not_allowed: is not allowed
+    password_too_common: is too common
+    password_too_long: is too long
+    password_too_short: is too short
   social_share_button:
     delicious: Delicious
     douban: Douban
-    email: email
+    email: Email
     facebook: Facebook
-    google_bookmark: Google
+    google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
-    linkedin: LinkedIn
+    linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Partager sur %{name}
+    share_to: Share to %{name}
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
+    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
     xing: Xing
   time:
@@ -1251,12 +1259,12 @@ fr:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M:%p"
+            accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Première"
-      last: Dernière &raquo;
-      next: Suivant &rsaquo;
-      previous: "&lsaquo; Précédent"
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
       truncate: "&hellip;"

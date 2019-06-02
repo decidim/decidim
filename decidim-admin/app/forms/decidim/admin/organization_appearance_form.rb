@@ -6,6 +6,7 @@ module Decidim
     # dashboard.
     #
     class OrganizationAppearanceForm < Form
+      DEEPL_LOCALES = %w(EN DE FR ES PT IT NL PL RU).freeze
       include TranslatableAttributes
 
       mimic :organization

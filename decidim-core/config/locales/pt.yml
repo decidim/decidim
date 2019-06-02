@@ -990,6 +990,10 @@ pt:
         share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.

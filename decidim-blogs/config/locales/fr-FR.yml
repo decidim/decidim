@@ -1,79 +1,80 @@
-fr:
+---
+fr-FR:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Nouvel article
+      decidim/blogs/create_post_event: New blog post
   activerecord:
     models:
       decidim/blogs/post:
-        one: Article
-        other: Articles
+        one: Post
+        other: Posts
   decidim:
     blogs:
       actions:
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette article ?
-        destroy: Supprimer
-        edit: Modifier
-        new: Nouvel article
-        title: Titre
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Edit
+        new: New post
+        title: Actions
       admin:
         models:
           components:
-            body: Corps du texte
+            body: Body
           post:
-            name: Publier
+            name: Post
         posts:
           create:
-            invalid: Un problème est survenu lors de la création de cet article
-            success: Article créé avec succès
+            invalid: There's been a problem creating this post
+            success: Post successfully created
           destroy:
-            success: Article supprimé avec succès
+            success: Post successfully deleted
           edit:
-            save: Mettre à jour
+            save: Update
           index:
-            title: Articles
+            title: Posts
           new:
-            create: Créer
-            title: Créer un article
+            create: Create
+            title: Create post
           update:
-            invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
-            success: Article enregistré avec succès
+            invalid: There's been errors when saving the post.
+            success: Post saved successfully
       last_activity:
-        new_post_at_html: "<span>Nouveau post à %{link}</span>"
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:
-            author: Auteur
-            body: Corps du texte
-            created_at: Créé à
-            title: titre
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
       posts:
         show:
-          view: Voir
+          view: View
         sidebar_blog:
-          comments: Commentaires
-          most_commented_posts: Articles les plus commentés
-      read_more: Voir la suite
+          comments: comments
+          most_commented_posts: Most commented posts
+      read_more: Read more
     components:
       blogs:
-        name: Actualités
+        name: Blog
         settings:
           global:
-            announcement: Annonce
-            comments_enabled: Activer le module de commentaire
+            announcement: Announcement
+            comments_enabled: Comments enabled
           step:
-            announcement: Annonce
-            comments_blocked: Commentaires désactivés
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       blogs:
         post_created:
-          email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
-          email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Articles
+          posts_count: Posts
     participatory_processes:
       statistics:
-        posts_count: Articles
+        posts_count: Posts

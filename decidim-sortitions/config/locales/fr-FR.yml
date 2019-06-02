@@ -1,151 +1,152 @@
-fr:
+---
+fr-FR:
   activemodel:
     attributes:
       sortition:
-        additional_info: Information sur le tirage au sort
-        decidim_category_id: Catégories des propositions sur lesquelles vous souhaitez appliquer le tirage au sort
-        decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat de votre tirage au dé. Tirez au sort un nombre de 1 à 6, soit à l'aide d'un dé à 6 faces soit par tout autre moyen, et entrez ici le nombre obtenu devant témoin(s). Cette procédure contribue à garantir la sincérité et le caractère aléatoire du résultat.
-        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez tirer au sort parmi celles du groupe de propositions que vous avez choisi précédemment)
-        title: Titre
-        witnesses: Témoins
+        additional_info: Sortition information
+        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
+        decidim_proposals_component_id: Proposals set
+        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
+        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        title: Title
+        witnesses: Witnesses
     models:
-      decidim/sortitions/create_sortition_event: Tirage au sort
+      decidim/sortitions/create_sortition_event: Sortition
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Tirage au sort
-        other: Tirages au sort
+        one: Sortition
+        other: Sortitions
   decidim:
     components:
       sortitions:
-        name: Tirages au sort
+        name: Sortitions
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Comments enabled
     events:
       sortitions:
         sortition_created:
-          email_intro: Le tirage au sort "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment ne plus suivre cet espace participatif en cliquant sur le lien précédent.
-          email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
-          notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
+          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New sortition added to %{participatory_space_title}
+          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
     pages:
       home:
         statistics:
-          sortitions_count: Tirages au sort
+          sortitions_count: Sortitions
     participatory_processes:
       statistics:
-        sortitions_count: Tirages au sort
+        sortitions_count: Sortitions
     sortitions:
       admin:
         actions:
-          destroy: Annuler le tirage au sort
-          edit: Éditer
-          new: Nouveau tirage au sort
-          show: Détails du tirage au sort
+          destroy: Cancel the sortition
+          edit: Edit
+          new: New sortition
+          show: Sortition details
         models:
           sortition:
             fields:
-              category: Catégorie
-              created_at: Date de création
-              decidim_proposals_component: Module de propositions
-              dice: Dé
-              reference: Référence
-              request_timestamp: Date et heure
-              seed: Valeur aléatoire
-              target_items: Éléments à sélectionner
-              title: Titre
+              category: Category
+              created_at: Creation date
+              decidim_proposals_component: Proposals component
+              dice: Dice
+              reference: Reference
+              request_timestamp: Draw time
+              seed: Seed
+              target_items: Items to select
+              title: Title
             name:
-              one: Tirage au sort
-              other: Tirages au sort
+              one: Sortition
+              other: Sortitions
         sortitions:
           confirm_destroy:
-            confirm_destroy: Êtes-vous sûr de vouloir annuler ce tirage au sort ?
-            destroy: Annuler le tirage au sort
-            title: Annulation du tirage au sort
+            confirm_destroy: Are you sure you want to cancel this sortition?
+            destroy: Cancel sortition
+            title: Cancellation of the sortition
           create:
-            error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
-            success: Le tirage au sort a été créé avec succès
+            error: There was an error creating a new sortition.
+            success: Sortition successfully created
           destroy:
-            error: Impossible d'annuler le tirage au sort.
-            success: Le tirage au sort a été annulé avec succès
+            error: Can not cancel the sortition.
+            success: Sortition successfully cancelled
           edit:
-            title: Mettre à jour les informations sur le tirage au sort
-            update: Mettre à jour
+            title: Update the information about the sortition
+            update: Update
           form:
-            all_categories: Toutes les catégories
-            select_proposal_component: Sélectionnez un ensemble de propositions
-            title: Nouveau tirage au sort de propositions
+            all_categories: All categories
+            select_proposal_component: Select the proposals set
+            title: New sortition for proposals
           index:
-            title: Tirages au sort
+            title: Sortitions
           new:
-            confirm: 'En appuyant sur le bouton suivant, Decidim enregistrera la date et l''heure à la seconde près et, en association avec le résultat du tirage de dé, génèrera un choix aléatoire. Cette action est irréversible : une fois que vous aurez cliqué sur le bouton, le résultat du tirage ainsi que les données saisies dans le formulaire seront publiés et ne pourront pas être modifiés. Veillez donc bien à vérifier les informations renseignées en amont'
-            create: Créer
-            title: Nouveau tirage au sort
+            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            create: Create
+            title: New sortition
           show:
-            selected_proposals: Propositions sélectionnées pour le tirage au sort
+            selected_proposals: Proposals selected for draw
           update:
-            error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tirage au sort a bien été mis à jour
+            error: There was an error updating the sortition.
+            success: Sortition successfully updated
       admin_log:
         sortition:
-          create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
-          delete: "%{user_name} a annulé le tirage au sort %{resource_name} dans %{space_name}"
-          update: "%{user_name} a mis à jour le tirage au sort %{resource_name} dans %{space_name}"
+          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
+          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
       sortitions:
         count:
           proposals_count:
-            one: 1 proposition
-            other: "%{count} propositions"
+            one: 1 proposal
+            other: "%{count} proposals"
         filters:
-          active: Actif
-          all: Tout
-          cancelled: Annulé
-          category: Catégorie
-          category_prompt: Sélectionner une catégorie
-          search: Rechercher
-          state: État
+          active: Active
+          all: All
+          cancelled: Cancelled
+          category: Category
+          category_prompt: Select a category
+          search: Search
+          state: State
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Dérouler
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         linked_sortitions:
-          selected_proposals: Propositions sélectionnées
+          selected_proposals: Selected proposals
         orders:
-          label: 'Trier les tirages au sort par :'
-          random: Aléatoire
-          recent: Récent
+          label: 'Order sortitions by:'
+          random: Random
+          recent: Recent
         results_count:
           count:
-            one: proposition sélectionnée
-            other: propositions sélectionnées
+            one: selected proposal
+            other: selected proposals
         show:
-          algorithm: Code de l'algorithme de tirage au sort
-          any_category: toutes les catégories
-          cancelled: Tirage au sort annulé
-          candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
-          candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
-          category: de la catégorie %{category}
-          dice_result: "(1) Résultat du tirage de dé"
-          introduction: 'Cette page contient le résultat du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} éléments ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus du résultat, cette page fournit toutes les informations nécessaires pour maximiser les garanties et permettre de reproduire le résultat. Le tirage au sort résulte d''un double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La variable temporelle pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "infalsifiable" pour garantir un résultat juste.  '
-          mathematical_result: Résultat (1) x (2)
-          proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
-          sortition_reproducibility_details: Détails de reproductibilité du tirage au sort
-          time_seed: "(2) Date et Heure"
-          witnesses: Témoins
+          algorithm: Sortition's Algorithm code
+          any_category: from all categories
+          cancelled: Cancelled sortition
+          candidate_proposal_ids: Sortition proposals order and IDs
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
+          category: from the %{category} category
+          dice_result: "(1) Dice result"
+          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
+          mathematical_result: Result (1) x (2)
+          proposals_selected_by_sortition: Proposals selected by sortition
+          sortition_reproducibility_details: Sortition reproducibility details
+          time_seed: "(2) Time seed"
+          witnesses: Witnesses
         sortition:
-          random_seed: Valeur aléatoire
+          random_seed: Random seed
           selected_proposals:
-            one: proposition sélectionnée
-            other: '%{count} propositions sélectionnées'
-          view: Voir
+            one: proposal selected
+            other: proposals selected
+          view: View
         sortition_author:
-          deleted: Utilisateur supprimé
+          deleted: Deleted user
         sortition_cancel_author:
-          deleted: Utilisateur supprimé
+          deleted: Deleted user
         sortitions_count:
           count:
-            one: 1 tirage au sort
-            other: "%{count} tirages au sort"
+            one: 1 sortition
+            other: "%{count} sortitions"

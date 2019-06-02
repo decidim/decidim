@@ -1,32 +1,31 @@
-cs:
+---
+cs-CZ:
   activerecord:
     models:
       decidim/pages/page:
-        one: Stránka
-        few: Stránky
-        many: Stránky
-        other: Stránky
+        one: Page
+        other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} aktualizovala %{resource_name} stránku v %{space_name}"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: Stránka
+        name: Page
         settings:
           global:
-            announcement: Oznámení
+            announcement: Announcement
           step:
-            announcement: Oznámení
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: Tělo
+            body: Body
         pages:
           edit:
-            save: Aktualizace
-            title: Upravit stránku
+            save: Update
+            title: Edit page
           update:
-            invalid: Při ukládání stránky došlo k chybám.
-            success: Stránka byla úspěšně uložena.
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.

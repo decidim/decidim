@@ -1,161 +1,196 @@
-cs:
+---
+cs-CZ:
   activemodel:
     attributes:
       project:
-        budget: Rozpočet
-        decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
-        description: Popis
-        proposal_ids: Související návrhy
-        title: Titul
+        budget: Budget
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        proposal_ids: Related proposals
+        title: Title
   activerecord:
+    errors:
+      messages:
+        equal_to: must be equal to %{count}
     models:
       decidim/budgets/project:
-        one: Projekt
-        few: Projekty
-        many: Projekty
-        other: Projekty
+        few: Project
+        many: Projects
+        one: Project
+        other: Projects
+        zero: Project
   decidim:
     budgets:
       actions:
-        attachment_collections: Složky
-        attachments: Přílohy
-        confirm_destroy: Opravdu chcete tento projekt smazat?
-        destroy: Odstranit
-        edit: Upravit
-        import: Návrhy na projekty
-        new: Nový projekt
-        preview: Náhled
-        title: Akce
+        attachment_collections: Folders
+        attachments: Attachments
+        confirm_destroy: Are you sure you want to delete this project?
+        destroy: Delete
+        edit: Edit
+        import: Import proposals to projects
+        new: New project
+        preview: Preview
+        title: Actions
       admin:
         models:
           project:
-            name: Projekt
+            name: Project
         projects:
           create:
-            invalid: Při vytváření tohoto projektu došlo k problému
-            success: Projekt byl úspěšně vytvořen
+            invalid: There's been a problem creating this project
+            success: Project successfully created
           destroy:
-            success: Projekt byl úspěšně smazán
+            success: Project successfully deleted
           edit:
-            title: Upravit projekt
-            update: Aktualizace
+            title: Edit project
+            update: Update
+          form:
+            fields:
+              address: Address
           index:
-            finished_orders: Hotové hlasy
-            pending_orders: Čeká na hlasování
-            title: Projekty
+            finished_orders: Finished votes
+            pending_orders: Pending votes
+            title: Projects
           new:
-            create: Vytvořit
-            title: Nový projekt
+            create: Create
+            title: New project
           update:
-            invalid: Při aktualizaci tohoto projektu došlo k problému
-            success: Projekt byl úspěšně aktualizován
+            invalid: There's been a problem updating this project
+            success: Project successfully updated
         proposals_imports:
           create:
-            invalid: Při importu návrhů do projektů došlo k problému
-            success: "%{number} projektů úspěšně dovezených do projektů"
+            invalid: There's been a problem importing the proposals into projects
+            success: "%{number} proposals successfully imported into projects"
           new:
-            create: Návrhy na projekty
-            no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
-            select_component: Vyberte součást
+            create: Import proposals to projects
+            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
+            select_component: Please select a component
       admin_log:
         project:
-          create: "%{user_name} vytvořil %{resource_name} projekt ve %{space_name} prostoru"
-          delete: "%{user_name} odstranil %{resource_name} projekt v prostoru %{space_name}"
-          update: "%{user_name} aktualizoval %{resource_name} projekt v prostoru %{space_name}"
+          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       models:
         project:
           fields:
-            title: Titul
+            map: Map
+            title: Title
       projects:
         budget_confirm:
-          are_you_sure: Souhlasíš? Jakmile potvrdíte své hlasování, nemůžete to změnit.
-          cancel: zrušení
-          confirm: Potvrdit
-          description: Jedná se o projekty, které jste zvolili jako součást rozpočtu.
-          title: Potvrďte hlasování
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
+          cancel: Cancel
+          confirm: Confirm
+          description: These are the projects you have chosen to be part of the budget.
+          title: Confirm vote
         budget_excess:
-          close: Zavřít
-          description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již přidali, nebo hlasovat podle svých preferencí.
-          ok: OK
-          title: Maximální rozpočet byl překročen
+          close: Закрити
+          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
+          ok: Гаразд
+          title: Перевищено граничний бюджет
         budget_summary:
-          are_you_sure: Opravdu chcete zrušit hlasování?
-          assigned: 'Přiřazeno:'
-          cancel_order: smazat hlas a začít znovu
+          are_you_sure: Are you sure you want to cancel your vote?
+          assigned: 'Assigned:'
+          cancel_order: delete your vote and start over
           checked_out:
-            description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
-            title: Rozpočet byl dokončen
-          description: Jaké projekty by podle vás měly přidělit rozpočet? Přidejte nejméně %{minimum_budget} projektům, které chcete, a hlasujte podle svých preferencí a definujte rozpočet.
-          title: Rozhodnete se pro rozpočet
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            title: Budget vote completed
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          title: You decide the budget
         count:
           projects_count:
-            one: 1 projekt
-            few: "%{count} projektů"
-            many: "%{count} projektů"
-            other: "%{count} projektů"
+            one: 1 project
+            other: "%{count} projects"
         filters:
-          category: Kategorie
-          category_prompt: Vyberte kategorii
-          search: Vyhledávání
+          category: Category
+          category_prompt: Select a category
+          search: Search
         filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
-          vote: Hlasování
+          vote: Vote
         order_selected_projects:
-          remove: Odstranit
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
+          remove: Remove
           selected_projects:
-            one: vybraný projekt
-            few: vybraných projektů
-            many: vybraných projektů
-            other: vybraných projektů
-          view: Pohled
+            one: project selected
+            other: projects selected
+          total_projects:
+            one: projet
+            other: projets
+          view: View
+          vote: Voter
         project:
-          add: Přidat
+          add: Add
           count:
-            one: 1 podpory
-            few: "%{count} podporuje"
-            many: "%{count} podporuje"
-            other: "%{count} podporuje"
-          remove: Odstranit
-          view: Pohled
+            one: 1 support
+            other: "%{count} supports"
+          remove: Remove
+          view: View
         project_budget_button:
-          add: Přidat
-          added: Přidán
+          add: Add
+          added: Added
         show:
-          budget: Rozpočet
-          view_all_projects: Zobrazit všechny projekty
+          budget: Budget
+          view_all_projects: Back to projects list
     components:
       budgets:
         actions:
-          vote: Hlasování
-        name: Rozpočty
+          vote: Vote
+        name: Budgets
         settings:
           global:
-            announcement: Oznámení
-            comments_enabled: Komentáře povoleny
-            projects_per_page: Projekty na stránku
-            resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
-            total_budget: Celkový rozpočet
-            vote_threshold_percent: Hlasovací procentní podíl
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            geocoding_enabled: Geocoding enabled
+            projects_per_page: Projects per page
+            resources_permissions_enabled: Actions permissions can be set for each meeting
+            total_budget: Total budget
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
+            vote_threshold_percent: Vote threshold percent
           step:
-            announcement: Oznámení
-            comments_blocked: Komentáře byly blokovány
-            show_votes: Zobrazit hlasy
-            votes_enabled: Hlasování povoleno
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            show_votes: Show votes
+            votes_enabled: Voting enabled
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated on %{participatory_space_title}
+          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
     orders:
       checkout:
-        error: Při zpracování hlasu došlo k chybě
-        success: Vaše hlasování bylo úspěšně přijato
+        error: An error ocurred while processing your vote
+        success: Your vote has been accepted successfully
       destroy:
-        error: Při zrušení hlasování došlo k chybě
-        success: Váš hlas byl úspěšně zrušen
+        error: An error ocurred while canceling your vote
+        success: Your vote has been canceled successfully
     resource_links:
       included_proposals:
-        project_proposal: 'Návrhy zahrnuté v tomto projektu:'
+        project_proposal: 'Proposals included in this project:'
   index:
-    confirmed_orders_count: Počet hlasů
-  total_budget: Celkový rozpočet
+    confirmed_orders_count: Votes count
+  total_budget: Total budget

@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     models:
       decidim/surveys/closed_survey_event: Survey ended

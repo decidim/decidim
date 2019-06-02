@@ -49,6 +49,11 @@ module Decidim
             );
           })
       end
+
+      def translatable?
+        @organization ||= request.env["decidim.current_organization"]
+        @organization.deepl_api_key.present? && @organization.translatable_locales.count > 1
+      end
     end
   end
 end

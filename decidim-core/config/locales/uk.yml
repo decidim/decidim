@@ -989,6 +989,10 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.

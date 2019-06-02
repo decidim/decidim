@@ -39,6 +39,13 @@ describe("<Comment />", () => {
     };
 
     window.$ = $;
+    window.Decidim = {
+      locale: "en",
+      locale_name: "English",
+      available_locales: ["en"],
+      translatable: false,
+      translatable_locales: ["en"]
+    };
   });
 
   it("should render an article with class comment", () => {

@@ -1,4 +1,5 @@
-fr:
+---
+fr-FR:
   activerecord:
     models:
       decidim/pages/page:
@@ -7,24 +8,24 @@ fr:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} a mis à jour la page %{resource_name} dans %{space_name}"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
         name: Page
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Announcement
           step:
-            announcement: Message d'annonce
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: Corps du texte
+            body: Body
         pages:
           edit:
-            save: Mettre à jour
-            title: Modifier la page
+            save: Update
+            title: Edit page
           update:
-            invalid: Erreurs lors de la sauvegarde de la page.
-            success: Page enregistrée avec succès.
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.

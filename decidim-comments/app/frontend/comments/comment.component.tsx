@@ -29,6 +29,10 @@ interface CommentProps {
 
 interface CommentState {
   showReplyForm: boolean;
+  commentBody: string;
+  translatable: boolean;
+  translatableLabel: string;
+  translated: boolean;
 }
 
 /**
@@ -50,7 +54,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
     super(props);
 
     this.state = {
-      showReplyForm: false
+      showReplyForm: false,
+      commentBody: props.comment.formattedBody,
+      translatable: window.Decidim.translatable,
+      translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+      translated: false
     };
   }
 
@@ -87,7 +95,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, formattedBody, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const { session, comment: { id, author, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const { commentBody } = this.state;
     let modalName = "loginModal";
 
     if (session && session.user) {
@@ -110,11 +119,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
             </div>
           </div>
         </div>
-        <div className="comment__content">
+        <div className="comment__content" data-translatable-parent="true">
           <div>
             {this._renderAlignmentBadge()}
-            <div dangerouslySetInnerHTML={{__html: formattedBody}} />
+            <div data-translatable-body="true" dangerouslySetInnerHTML={{__html: commentBody}} />
           </div>
+          {this._renderTranslateButton()}
         </div>
         <div className="comment__footer">
           {this._renderReplyButton()}
@@ -130,6 +140,57 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
+  }
+
+  private toggleTranslation = () => {
+    if (this.state.translated) {
+      this.setState({
+        commentBody: this.props.comment.formattedBody,
+        translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+        translated: false
+      });
+    } else {
+      fetch("/api/translate", {
+        method: "POST",
+        body: JSON.stringify({
+          target: I18n.locale,
+          original: this.props.comment.formattedBody,
+          authenticity_token: this._getAuthenticityToken()
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+      })
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+          // Deepl API Result :
+          // {
+          //   translations [
+          //     {
+          //       detected_source_language: "EN"
+          //       text: "..."
+          //     }
+          //   ]
+          // }
+
+          if ( result.translations && result.translations[0] ) {
+            this.setState({
+              commentBody: result.translations[0].text,
+              translatableLabel: I18n.t("comments.translated"),
+              translated: true
+            });
+          } else {
+            throw new Error(`API returns empty result : ${JSON.stringify(result)}`);
+          }
+        },
+        (error) => {
+          throw error;
+        }
+      );
+    }
   }
 
   /**
@@ -434,6 +495,33 @@ class Comment extends React.Component<CommentProps, CommentState> {
             })()
           }
         </div>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render translate button
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not if user can reply
+   */
+  private _renderTranslateButton() {
+    const { translatable, translatableLabel } = this.state;
+
+    if (translatable) {
+      return (
+        <div className="card__translate">
+          <button
+            className="btn comment__translate link"
+            aria-controls="comment-translate"
+            onClick={this.toggleTranslation}
+          >
+            <Icon name="icon-globe" iconExtraClassName="" />
+            {translatableLabel}
+          </button>
+        </div>
+
       );
     }
 

@@ -28,6 +28,13 @@
 
     <%= render partial: "decidim/shared/login_modal" %>
     <%= render partial: "decidim/shared/authorization_modal" %>
+    <script type="text/javascript">
+      window.Decidim.locale = "<%= I18n.locale.to_s.html_safe %>";
+      window.Decidim.locale_name = "<%= t("name", scope: "locale") %>";
+      window.Decidim.available_locales = <%= current_organization.available_locales.to_json.html_safe %>;
+      window.Decidim.translatable = <%= (!current_organization.deepl_api_key.blank? && current_organization.translatable_locales.count > 1).to_s %>;
+      window.Decidim.translatable_locales = <%= current_organization.translatable_locales.to_json.html_safe %>;
+    </script>
     <%= organization_colors %>
   </body>
 </html>

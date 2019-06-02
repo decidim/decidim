@@ -1,34 +1,31 @@
-ar:
+---
+ar-SA:
   activerecord:
     models:
       decidim/pages/page:
-        zero: صفحات
-        one: صفحة
-        two: صفحات
-        few: صفحات
-        many: صفحات
-        other: صفحات
+        one: Page
+        other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} تحديث الصفحة %{resource_name} في %{space_name}"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: صفحة
+        name: Page
         settings:
           global:
-            announcement: إعلان
+            announcement: Announcement
           step:
-            announcement: إعلان
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: الجسم
+            body: Body
         pages:
           edit:
-            save: تحديث
-            title: تعديل الصفحة
+            save: Update
+            title: Edit page
           update:
-            invalid: حدثت هناك أخطاء أثناء حفظ الصفحة.
-            success: تم حفظ الصفحة بنجاح.
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.

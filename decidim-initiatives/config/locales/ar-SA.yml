@@ -1,374 +1,389 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: مؤلف
-        description: وصف
-        scope_id: نطاق
-        signature_end_date: نهاية فترة جمع التوقيع
-        signature_start_date: بداية فترة جمع التوقيع
-        signature_type: نوع جمع التوقيع
+        decidim_user_group_id: Author
+        description: Description
+        offline_votes: Face-to-face supports
+        scope_id: Scope
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
+        signature_type: Signature collection type
         signature_type_values:
-          any: مختلط
-          offline: وجها لوجه
-        title: عنوان
+          any: Mixed
+          offline: Face to face
+          online: OnLine
+        title: Title
       initiative_author:
-        address: عنوان
-        city: مدينة
-        id_document: DNI / NIE
-        name: اسم ولقب
-        phone_number: رقم الهاتف
-        post_code: الرمز البريدي
-        province: المحافظة
+        address: Address
+        city: City
+        id_document: DNI/NIE
+        name: Name and Surname
+        phone_number: Phone number
+        post_code: Post code
+        province: Province
       initiatives_committee_member:
-        user: عضو لجنة
+        user: Committee member
       initiatives_type:
-        banner_image: صورة بانر
-        description: وصف
-        title: عنوان
+        banner_image: Banner image
+        description: Description
+        title: Title
       organization_data:
-        address: عنوان
-        id_document: وثيقة الهوية
-        name: اكمل الاسم
+        address: Address
+        id_document: ID document
+        name: Complete name
   activerecord:
     models:
       decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
-        few: بعض المبادرات
-        many: بعض المبادرات
-        other: بعض المبادرات
+        one: Initative
+        other: Initatives
       decidim/initiative_comittee:
-        zero: Comittees
-        one: إحداث الهيئة
-        two: Comittees
-        few: Comittees
-        many: Comittees
+        one: Comittee
         other: Comittees
       decidim/initiative_vote:
-        zero: التوقيعات
-        one: التوقيع
-        two: التوقيعات
-        few: التوقيعات
-        many: التوقيعات
-        other: التوقيعات
+        one: Signature
+        other: Signatures
   decidim:
     admin:
       actions:
-        new_initiative_type: نوع المبادرة الجديدة
+        new_initiative_type: New initiative type
       menu:
-        initiatives: المبادرات
-        initiatives_types: أنواع المبادرة
+        initiatives: Initiatives
+        initiatives_types: Initiative types
       models:
         initiatives:
           fields:
-            created_at: أنشئت في
-            id: هوية شخصية
-            title: المبادرات
+            created_at: Created at
+            id: ID
+            state: State
+            supports_count: Supports
+            title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: نطاق
-          name: نطاق نوع المبادرة
+            scope: Scope
+            supports_required: Supports required
+          name: Initiative type scope
         initiatives_types:
           fields:
-            created_at: أنشئت في
-            title: أنواع المبادرة
-          name: نوع المبادرة
+            created_at: Created at
+            title: Initiative types
+          name: Initiative type
       titles:
-        initiatives: المبادرات
-        initiatives_types: أنواع المبادرة
+        initiatives: Initiatives
+        initiatives_types: Initiative types
     events:
       initiatives:
         initiative_extended:
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تم تمديد تاريخ التوقيعات على المبادرة!
+          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative signatures end date extended!
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           affected_user:
-            email_intro: حققت مبادرتك %{resource_title} ٪ %{percentage}من التوقيعات!
-            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف المبادرة %{resource_title}.
-            notification_title: لقد حققت مبادرة <a href="%{resource_path}">%{resource_title}</a> الخاصة بك %{percentage}٪ من التوقيعات.
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
-          conditions:
-            - انتقل إلى مساحة مشاركة المبادرات
-            - اتبع الخطوات لإنشاء مبادرة جديدة
-          description: تُمنح هذه الشارة عند إطلاق مبادرات جديدة ، وإقامة شراكة مع الآخرين لتنفيذها.
-          description_own: لديك %{score} مبادرات تم نشرها.
-          name: المبادرات المنشورة
-          next_level_in: احصل على %{score} مبادرة تم نشرها للوصول إلى المستوى التالي!
-          unearned_own: لم تحصل على أي مبادرات منشورة بعد.
+          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
+          description_another: This user has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
         initiatives:
-          title: ما هي المبادرات؟
+          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: يوافق
-            confirm_revoke: هل أنت واثق؟
-            no_members_yet: لا يوجد أعضاء في لجنة المروجين
-            revoke: سحب
-            title: أعضاء اللجنة
+            approve: Approve
+            confirm_revoke: Are you sure?
+            invite_to_committee_help: Share this link to invite other users to the promotion committee
+            no_members_yet: There are no members in the promoter committee
+            revoke: Revoke
+            title: Committee members
         content_blocks:
           highlighted_initiatives:
-            max_results: أقصى قدر من العناصر لإظهارها
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
-            accept: اقبل المبادرة
-            confirm: هل أنت واثق؟
-            discard: تجاهل المبادرة
-            reject: رفض المبادرة
-            send_to_technical_validation: إرسال إلى التحقق الفني
-            success: تم إرسال المبادرة إلى التحقق الفني
-            update: تحديث
+            accept: Accept initiative
+            confirm: Are you sure?
+            discard: Discard the initiative
+            export_votes: Export supports
+            reject: Reject initiative
+            send_to_technical_validation: Send to technical validation
+            success: The initiative has been sent to technical validation
+            update: Update
           form:
-            title: معلومات عامة
+            title: General information
           index:
-            actions_title: عمل
+            actions_title: Action
             filter:
-              accepted: وافقت
-              all: الكل
-              created: خلقت
-              discarded: التخلص منها
-              published: نشرت
-              rejected: مرفوض
-              validating: المصادقة الفنية
-            filter_by: مصنف بواسطة
-            preview: معاينة
-            print: طباعة
-            search: بحث
+              accepted: Accepted
+              all: All
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+            filter_by: Filter by
+            preview: Preview
+            print: Print
+            search: Search
           show:
-            print: طباعة
+            print: Print
           update:
-            error: حدث خطأ
+            error: An error has occurred
+            success: The citizen initiative has been successfully updated
         initiatives_type_scopes:
           create:
-            error: حدث خطأ
-            success: تم إنشاء نطاق جديد لنوع المبادرة المحدد
+            error: An error has occurred
+            success: A new scope for the given initiative type has been created
           destroy:
-            success: تمت إزالة النطاق بنجاح
+            success: The scope has been successfully removed
           edit:
-            back: الى الخلف
-            confirm_destroy: هل أنت واثق؟
-            destroy: حذف
-            title: تحرير نطاق نوع المبادرة
-            update: تحديث
+            back: Back
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            title: Edit initiative type scope
+            update: Update
           new:
-            back: الى الخلف
-            create: خلق
-            title: إنشاء نطاق نوع المبادرة
+            back: Back
+            create: Create
+            title: Create initiative type scope
           update:
-            error: حدث خطأ
-            success: تم تحديث النطاق بنجاح
+            error: An error has occurred
+            success: The scope has been successfully updated
         initiatives_types:
           create:
-            error: حدث خطأ
-            success: تم إنشاء نوع مبادرة جديد بنجاح
+            error: An error has occurred
+            success: A new initiative type has been successfully created
           destroy:
-            success: تمت إزالة نوع المبادرة بنجاح
+            success: The initiative type has been successfully removed
           edit:
-            confirm_destroy: هل أنت واثق؟
-            destroy: حذف
-            update: تحديث
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
           form:
-            title: معلومات عامة
+            title: General information
           initiative_type_scopes:
-            title: نطاقات لنوع المبادرة
+            title: Scopes for the initiative type
           new:
-            create: خلق
-            title: نوع المبادرة الجديدة
+            create: Create
+            title: New initiative type
           update:
-            error: حدث خطأ
-            success: تم تحديث نوع المبادرة بنجاح
+            error: An error has occurred
+            success: The initiative type has been successfully updated
       admin_log:
         initiative:
-          publish: "%{user_name} نشرت المبادرة %{resource_name}"
-          send_to_technical_validation: "أرسل %{user_name} المبادرة %{resource_name} إلى التحقق الفني"
-          unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
-          update: "%{user_name} تحديث المبادرة %{resource_name}"
+          publish: "%{user_name} published the %{resource_name} initiative"
+          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          unpublish: "%{user_name} discarded the %{resource_name} initiative"
+          update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: وافقت
-        created: خلقت
-        discarded: التخلص منها
-        published: نشرت
-        rejected: مرفوض
-        validating: المصادقة الفنية
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
       committee_requests:
         new:
-          continue: استمر
-          help_text: أنت على وشك أن تصبح عضوًا في لجنة الترويج لهذه المبادرة
+          continue: Continue
+          help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
-          success: تم إرسال طلبك إلى مؤلف المبادرة.
+          success: Your request has been sent to the initiative author.
       content_blocks:
         highlighted_initiatives:
-          name: المبادرات البارزة
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
-          back: الى الخلف
-          continue: استمر
-          initiative_type: نوع المبادرة
-          more_information: "(معلومات اكثر)"
-          select_scope: حدد النطاق
+          back: Back
+          continue: Continue
+          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          initiative_type: Initiative type
+          more_information: "(More information)"
+          select_scope: Select a scope
         finish:
-          back: الى الخلف
-          back_to_initiatives: العودة إلى المبادرات
-          go_to_my_initiatives: انتقل إلى مبادراتي
-          more_information: "(معلومات اكثر)"
+          back: Back
+          back_to_initiatives: Back to initiatives
+          callout_text: Congratulations! Your citizen initiative has been created successfully.
+          go_to_my_initiatives: Go to my initiatives
+          more_information: "(More information)"
         finish_help:
-          help_for_organizations: إذا كنت جمعية ، فسيتعين عليك رفع محاضر مجلس إدارة جميع المنظمات التي تشكل لجنة الترويج
-          help_in_person_signatures: إذا اخترت جمع التواقيع شخصيًا أو دمجها مع الإنترنت ، فسيلزمك تحميل المعلومات المطلوبة.
-          help_text: تذكر أنه من أجل معالجة المبادرة بشكل صحيح ، يجب عليك الوصول إلى لوحة الإدارة حيث ستجد قائمة المستخدم ، وتحميل المعلومات المطلوبة وإرسالها للمعالجة.
-          initiatives_page_link: يمكنك البحث عن كل هذه المعلومات على %{link} مخصصة للإبلاغ عن المبادرات.
-          page: صفحة
+          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
+          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
+          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
+          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
+          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
+          page: page
         previous_form:
-          back: الى الخلف
-          continue: استمر
-          help: ماذا تتكون المبادرة؟ اكتب العنوان والوصف. نوصي بعنوان قصير وموجز ووصف يركز على الحل المقترح.
-          more_information: "(معلومات اكثر)"
+          back: Back
+          continue: Continue
+          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
+          more_information: "(More information)"
         promotal_committee:
-          back: الى الخلف
-          more_information: "(معلومات اكثر)"
+          back: Back
+          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          more_information: "(More information)"
         select_initiative_type:
-          back: الى الخلف
-          more_information: "(معلومات اكثر)"
-          select: أختر
-          select_initiative_type_help: مبادرات المواطن هي وسيلة يمكن من خلالها للجنسية أن تتدخل حتى يتمكن مجلس المدينة من اتخاذ إجراءات دفاعية عن المصلحة العامة التي تدخل في نطاق اختصاص البلدية. ما هي المبادرة التي تريد إطلاقها؟
+          back: Back
+          more_information: "(More information)"
+          select: Choose
+          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
-          continue: استمر
-          invite_to_committee_help: رابط لدعوة الأشخاص الذين سيكونون جزءًا من لجنة المروجين
+          continue: Continue
+          invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
-          back: الى الخلف
-          continue: مبادرتي مختلفة
-          more_information: "(معلومات اكثر)"
+          back: Back
+          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          continue: My initiative is different
+          more_information: "(More information)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}، الذي تتابعه ، بإنشاء مبادرة جديدة والتحقق منها والمساهمة فيها:"
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: مبادرة جديدة بنسبة %{author_nickname}
-          notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New initiative by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "أيد %{author_name} %{author_nickname}، الذي تتابعه ، المبادرة التالية ، ربما تريد المساهمة في المحادثة:"
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: المبادرة التي أقرتها %{author_nickname}
-          notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: المبادرات
+        title: Initiatives
+      initiative_votes:
+        create:
+          error: There's been errors when signing the initiative.
       initiatives:
         author:
-          deleted: تم الحذف
+          deleted: Deleted
         author_list:
           hidden_authors_count:
-            zero: و %{count} المزيد من الناس
-            one: وشخص آخر
-            two: و %{count} المزيد من الناس
-            few: و %{count} المزيد من الناس
-            many: و %{count} المزيد من الناس
-            other: و %{count} المزيد من الناس
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
-            zero: "%{count} مبادرات"
-            one: "%{count} مبادرة"
-            two: "%{count} مبادرات"
-            few: "%{count} مبادرات"
-            many: "%{count} مبادرات"
-            other: "%{count} مبادرات"
+            one: "%{count} initiative"
+            other: "%{count} initiatives"
         filters:
-          any: أي
-          author: مؤلف
-          closed: مغلق
-          myself: مبادراتي
-          open: افتح
-          search: بحث
-          type: نوع
-          type_prompt: اختر نوع
+          any: Any
+          author: Author
+          closed: Closed
+          myself: My initiatives
+          open: Open
+          search: Search
+          state: State
+          type: Type
+          type_prompt: Select a type
         filters_small_view:
-          close_modal: أغلق النافذة
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index_header:
-          new_initiative: مبادرة جديدة
+          new_initiative: New initiative
         orders:
-          label: 'فرز المبادرات حسب:'
-          most_commented: الأكثر تعليقا
-          most_voted: معظم وقعت
-          random: عشوائية
-          recent: الأحدث
+          label: 'Sort initiatives by:'
+          most_commented: Most commented
+          most_voted: Most signed
+          random: Random
+          recent: Most recent
+        result:
+          initiative_accepted_reason: This initiative has been accepted because
+          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
+        show:
+          any_vote_method: This citizen initiative collects online support as well as face to face.
+          offline_method: This citizen initiative only collects face to face supports.
+        signature_identities:
+          select_identity: Select user identifier
         signatures_count:
-          zero: " التوقيعات"
-          one: " التوقيع"
-          two: " التوقيعات"
-          few: " التوقيعات"
-          many: " التوقيعات"
-          other: " التوقيعات"
+          one: " signature"
+          other: " signatures"
         statistics:
-          assistants_count_title: مساعدون
-          comments_count_title: تعليقات
-          meetings_count_title: اجتماعات
-          supports_count_title: توقيعات
+          assistants_count_title: Assistants
+          comments_count_title: Comments
+          meetings_count_title: Meetings
+          supports_count_title: Signatures
         supports:
-          title: قائمة التوقيعات
+          title: Listing of signatures
         vote_cabin:
-          already_voted: وقعت بالفعل
-          supports_required: "%{total_supports} التوقيعات المطلوبة"
-          vote: إشارة
-          votes_blocked: توقيع المعوقين
+          already_voted: Already signed
+          supports_required: "%{total_supports} signatures required"
+          vote: Sign
+          votes_blocked: Signing disabled
         votes_count:
           count:
-            zero: التوقيعات
-            one: التوقيع
-            two: التوقيعات
-            few: التوقيعات
-            many: التوقيعات
-            other: التوقيعات
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
+        creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
-          check_initiative_details: يمكنك رؤية تفاصيل المبادرة
-          here: هنا
-        more_information: هنا لديك المزيد من المعلومات حول عملية إنشاء المبادرة.
-        promotal_committee_help: تذكر أنه يجب دعوة %{member_count} شخصًا على الأقل إلى لجنة المروجين. أرسل الرابط التالي لدعوة الناس إلى لجنة المروجين
-        technical_validation_body_for: طلبت المبادرة %{title} التحقق من الصحة
-        technical_validation_for: طلبت المبادرة %{title} التحقق من الصحة
+          check_initiative_details: You can see the initiative details
+          here: here
+        more_information: Here you have more information about the initiative creation process.
+        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
+        progress_report_for: 'Resume about the initiative: %{title}'
+        promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
+        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
+        status_change_for: The initiative %{title} has changed its state
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
-        new_initiative: مبادرة جديدة
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: المبادرات النشطة
-            see_all_initiatives: رؤية جميع المبادرات
+            active_initiatives: Active initiatives
+            see_all_initiatives: See all initiatives
       states:
-        accepted: وافقت
-        expired: منتهية الصلاحية
-      unavailable_scope: نطاق غير متاح
+        accepted: Accepted
+        expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
-      initiatives: المبادرات
+      initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: مرفقات
-          committee_members: أعضاء اللجنة
-          components: المكونات
-          information: معلومات
+          attachments: Attachments
+          committee_members: Committee members
+          components: Components
+          information: Information
       initiative_creation_header:
-        fill_data: خلق
-        finish: إنهاء
-        previous_form: بداية
-        promotal_committee: لجنة المروجين
-        select_initiative_type: أختر
-        show_similar_initiatives: قارن
-        step: الخطوة %{current} من %{total}
-        title: ابتكار مبادرة جديدة
+        fill_data: Create
+        finish: Finish
+        previous_form: Start
+        promotal_committee: Promoter committee
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
-        initiative_menu_item: مبادرة
+        initiative_menu_item: Initiative
       initiatives:
         initiative:
-          check: تحقق من ذلك
-          check_and_support: التحقق من ذلك وتوقيع
+          check: Check it out
+          check_and_support: Check it out and sign
         no_initiatives_yet:
-          no_initiatives_yet: لا توجد مبادرات حتى الآن!
+          no_initiatives_yet: No initiatives yet!

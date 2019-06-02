@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -173,10 +174,10 @@ nl-BE:
     events:
       budgets:
         order_checkout:
-          email_intro: "Your vote has been validated. You can always edit it if you like by clicking here: <a href='%{resource_url}'>%{participatory_space_title}"
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Thank you for your participation
-          email_subject: "Your vote has been validated on %{participatory_space_title}"
-          notification_title: "Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like."
+          email_subject: Your vote has been validated on %{participatory_space_title}
+          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
     orders:
       checkout:
         error: An error ocurred while processing your vote

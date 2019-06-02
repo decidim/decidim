@@ -985,6 +985,8 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    translate: "Traduire en %{target}"
+    translated: "Retour à la version d'origine"
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.

@@ -1,427 +1,451 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       agenda:
-        description: وصف
-        duration: المدة الزمنية
-        title: عنوان
+        description: Description
+        duration: Duration
+        title: Title
       close_meeting:
-        attendees_count: عدد الحضور
-        attending_organizations: قائمة المنظمات التي حضرت
-        closing_report: أبلغ عن
-        contributions_count: عدد المساهمات
-        proposal_ids: المقترحات التي تم إنشاؤها في الاجتماع
+        attendees_count: Number of attendees
+        attending_organizations: List of organizations that attended
+        closing_report: Report
+        contributions_count: Number of contributions
+        proposal_ids: Proposals created in the meeting
       meeting:
-        address: عنوان
-        available_slots: فتحات المتاحة لهذا الاجتماع
-        decidim_category_id: الفئة
-        decidim_scope_id: نطاق
-        description: وصف
-        end_time: وقت النهاية
-        location: موقعك
-        location_hints: تلميحات الموقع
-        organizer_id: منظم
-        private_meeting: اجتماع خاص
-        registration_form_enabled: تم تمكين نموذج التسجيل
-        registration_terms: شروط التسجيل
-        registrations_enabled: تم تمكين التسجيلات
-        start_time: وقت البدء
-        title: عنوان
-        transparent: شفاف
+        address: Address
+        available_slots: Available slots for this meeting
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_time: End Time
+        location: Location
+        location_hints: Location hints
+        organizer_id: Organizer
+        private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
+        start_time: Start Time
+        title: Title
+        transparent: Transparent
       minutes:
-        audio_url: رابط الصوت
-        description: وصف
-        video_url: عنوان الفيديو
-        visible: مرئي
+        audio_url: Audio url
+        description: Description
+        video_url: Video url
+        visible: Is visible
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: تتجاوز مدة العناصر مدة الاجتماع بـ %{count} دقيقة
-              too_many_minutes_child: تتجاوز مدة العنصر التابع للطفل مدة الأصل "%{parent_title}" لعنصر جدول الأعمال بمقدار دقيقة %{count}
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
     models:
-      decidim/meetings/close_meeting_event: تم إغلاق الاجتماع
-      decidim/meetings/create_meeting_event: لقاء
-      decidim/meetings/meeting_registrations_enabled_event: تم تمكين التسجيلات
-      decidim/meetings/meeting_registrations_over_percentage_event: التسجيلات فوق الحد
-      decidim/meetings/upcoming_meeting_event: الاجتماع القادم
-      decidim/meetings/update_meeting_event: تم تحديث الاجتماع
+      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+      decidim/meetings/upcoming_meeting_event: Upcoming meeting
+      decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
     models:
       decidim/meetings/meeting:
-        zero: اجتماعات
-        one: لقاء
-        two: اجتماعات
-        few: اجتماعات
-        many: اجتماعات
-        other: اجتماعات
+        one: Meeting
+        other: Meetings
       decidim/meetings/minutes:
-        zero: الدقائق
-        one: الدقائق
-        two: الدقائق
-        few: الدقائق
-        many: الدقائق
-        other: الدقائق
+        one: Minutes
+        other: Minutes
       decidim/meetings/registration:
-        zero: التسجيلات
-        one: التسجيل
-        two: التسجيلات
-        few: التسجيلات
-        many: التسجيلات
-        other: التسجيلات
+        one: Registration
+        other: Registrations
   decidim:
     admin:
       meeting_copies:
+        create:
+          error: There was en error duplicating this meeting.
+          success: Duplicated meeting successfully.
         new:
-          copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: اجتماع مكرر
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate meeting
     components:
       meetings:
         actions:
-          join: انضم
-        name: اجتماعات
+          join: Join
+        name: Meetings
         settings:
           global:
-            announcement: إعلان
-            comments_enabled: تم تمكين التعليقات
-            default_registration_terms: شروط التسجيل الافتراضية
-            enable_pads_creation: تمكين إنشاء منصات
-            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
-            announcement: إعلان
-            comments_blocked: تم حظر التعليقات
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'تم إغلاق اجتماعك "%{resource_title}". يمكنك قراءة الاستنتاجات من صفحتها:'
-            email_outro: لقد تلقيت هذا الإشعار لأنك نظمت اجتماع "%{resource_title}".
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          email_intro: تمت إضافة الاجتماع "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: تمت إضافة اجتماع جديد إلى %{participatory_space_title}
-          notification_title: تمت إضافة الاجتماع <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
+          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New meeting added to %{participatory_space_title}
+          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: تم تأكيد تسجيلك للاجتماع <a href="%{resource_url}">%{resource_title}</a> . رمز التسجيل الخاص بك هو %{registration_code}.
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_outro: لقد تلقيت هذا الإشعار لأنك مسؤول عن المساحة التشاركية للاجتماع.
+          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
         meeting_updated:
-          email_intro: 'تم تحديث الاجتماع "%{resource_title}". يمكنك قراءة الإصدار الجديد من صفحته:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: تم تحديث الاجتماع "%{resource_title}"
-          notification_title: تم تحديث الاجتماع <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}".
-          email_outro: لقد تلقيت هذا الإشعار لأنه تم التحقق من صحة رمز التسجيل الخاص بالاجتماع "%{resource_title}".
-          email_subject: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}"
-          notification_title: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص بالاجتماع <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
-          email_intro: 'لقد مكّن الاجتماع "%{resource_title}" التسجيلات. يمكنك تسجيل نفسك على صفحتها:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: لقد مكّن الاجتماع "%{resource_title}" التسجيلات.
-          notification_title: لقد مكّن الاجتماع <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          email_intro: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          notification_title: سيبدأ الاجتماع <a href="%{resource_path}">%{resource_title}</a> في أقل من 48 ساعة.
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     gamification:
       badges:
         attended_meetings:
-          description: تُمنح هذه الشارة عند حضور العديد من الاجتماعات المباشرة.
-          description_own: لقد حضرت %{score} اجتماع.
-          name: حضور الاجتماعات
-          next_level_in: حضور %{score} اجتماعات أخرى للوصول إلى المستوى التالي!
-          unearned_own: لم تحضر أي اجتماع بعد.
+          conditions: '["Register in the meetings you want to attend"]'
+          description: This badge is granted when you attend several face-to-face meetings.
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
-        agenda: جدول أعمال
-        attachment_collections: المجلدات
-        attachments: مرفقات
-        close: قريب
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
-        destroy: حذف
-        edit: تصحيح
-        minutes: الدقائق
-        new: اجتماع جديد
-        preview: معاينة
-        registrations: التسجيلات
-        title: أفعال
+        agenda: Agenda
+        attachment_collections: Folders
+        attachments: Attachments
+        close: Close
+        confirm_destroy: Are you sure you want to delete this meeting?
+        destroy: Delete
+        edit: Edit
+        minutes: Minutes
+        new: New meeting
+        preview: Preview
+        registrations: Registrations
+        title: Actions
       admin:
         agenda:
           agenda_item:
-            agenda_item: البند من جدول الأعمال
-            down: أسفل
-            remove: إزالة
-            up: فوق
+            add_agenda_item_child: Add agenda item child
+            agenda_item: Agenda Item
+            agenda_item_children: Agenda Item Childs
+            down: Down
+            remove: Remove
+            up: Up
           agenda_item_child:
-            down: أسفل
-            remove: إزالة
-            up: فوق
+            agenda_item_child: Agenda Item Child
+            down: Down
+            remove: Remove
+            up: Up
           create:
-            success: تم إنشاء جدول الأعمال بنجاح
+            invalid: There's been a problem creating this agenda
+            success: Agenda successfully created
           edit:
-            title: تحرير جدول الأعمال
-            update: تحديث
+            title: Edit agenda
+            update: Update
           form:
-            add_agenda_item: إضافة عنصر جدول الأعمال
-            agenda_items: بنود جدول الأعمال
-            end_date: تاريخ الانتهاء
-            start_date: تاريخ البدء
+            add_agenda_item: Add agenda item
+            agenda_items: Agenda items
+            end_date: End date
+            start_date: Start date
           new:
-            create: خلق
-            title: جدول أعمال جديد
+            create: Create
+            title: New agenda
           update:
-            success: تم تحديث جدول الأعمال بنجاح
+            invalid: There's been a problem updating this agenda
+            success: Agenda successfully updated
         exports:
-          meetings: اجتماعات
-          registrations: التسجيلات
+          meetings: Meetings
+          registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            decline: رفض الدعوة
-            invited_you_to_join_a_meeting: "%{invited_by} للانضمام إلى اجتماع في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
-            join: انضم إلى الاجتماع "%{meeting_title}"
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
+            join: Join meeting '%{meeting_title}'
         invites:
+          create:
+            error: There's been a problem while inviting the user to join the meeting.
+            success: User successfully invited to join the meeting.
           form:
-            attendee_type: نوع الحضور
-            invite: دعا
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite: Invite
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
-              accepted: وافقت
-              all: الكل
-              rejected: مرفوض
-              sent: أرسلت
-            filter_by: مصنف بواسطة
-            invite_attendee: دعوة الحضور
-            invites: تدعو
-            registrations_disabled: لا يمكنك دعوة أحد الحاضرين لأن التسجيلات معطلة.
-            search: بحث
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite attendee
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
-            close: قريب
-            title: اجتماع قريب
+            close: Close
+            title: Close meeting
         meeting_copies:
           form:
-            select_organizer: اختر المنظم
+            select_organizer: Select the organizer
         meetings:
           close:
-            success: تم إغلاق الاجتماع بنجاح
+            invalid: There's been a problem closing this meeting
+            success: Meeting successfully closed
           create:
-            success: تم إنشاء الاجتماع بنجاح
+            invalid: There's been a problem creating this meeting
+            success: Meeting successfully created
           destroy:
-            success: تم حذف الاجتماع بنجاح
+            success: Meeting successfully deleted
           edit:
-            update: تحديث
+            update: Update
           form:
-            select_organizer: اختر المنظم
+            select_organizer: Select the organizer
           index:
-            title: اجتماعات
+            title: Meetings
           new:
-            create: خلق
-            title: إنشاء اجتماع
+            create: Create
+            title: Create meeting
           service:
-            description: وصف
-            down: أسفل
-            remove: إزالة
-            service: الخدمات
-            title: عنوان
-            up: فوق
+            description: Description
+            down: Down
+            remove: Remove
+            service: Service
+            title: Title
+            up: Up
           services:
-            add_service: إضافة الخدمة
-            services: خدمات
+            add_service: Add service
+            services: Services
           update:
-            success: تم تحديث الاجتماع بنجاح
+            invalid: There's been a problem updating this meeting
+            success: Meeting successfully updated
         minutes:
           create:
-            success: تم إنشاء الدقائق بنجاح
+            invalid: There's been a problem creating this minutes
+            success: Minutes successfully created
           edit:
-            update: تحديث
+            update: Update
           new:
-            create: خلق
-            title: خلق دقائق
+            create: Create
+            title: Create minutes
           update:
-            success: تم تحديث الدقائق بنجاح
+            invalid: There's been a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
-            name: لقاء
+            name: Meeting
         registrations:
           edit:
-            save: حفظ
-            validate: التحقق من صحة
-            validate_registration_code: التحقق من صحة رمز التسجيل
+            save: Save
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
-            available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
-            invites: تدعو
-            registration_form: إستمارة تسجيل
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            invites: Invites
+            registration_form: Registration form
             registrations_count:
-              zero: كان هناك %{count} التسجيلات.
-              one: كان هناك %{count} تسجيل.
-              two: كان هناك %{count} التسجيلات.
-              few: كان هناك %{count} التسجيلات.
-              many: كان هناك %{count} التسجيلات.
-              other: كان هناك %{count} التسجيلات.
-            reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
-            reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
+              one: There has been %{count} registration.
+              other: There has been %{count} registrations.
+            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_less_than: Must be less than or equal to %{count}
           update:
-            success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.
+            invalid: There's been a problem saving the registration settings.
+            success: Meeting registrations settings successfully saved.
           validate_registration_code:
-            invalid: رمز التسجيل هذا غير صالح.
-            success: تم التحقق من صحة رمز التسجيل بنجاح.
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
-          create: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
-          deleted: "%{user_name} غير مدعو %{attendee_name} من الانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
-          update: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
-          close: "%{user_name} أغلقت الجلسة %{resource_name} على %{space_name} الفضاء"
-          create: "%{user_name} إنشاء الاجتماع %{resource_name} على %{space_name} الفضاء"
-          delete: "%{user_name} حذف الاجتماع %{resource_name} على %{space_name} الفضاء"
-          export_registrations: "%{user_name} تصدير التسجيلات للجلسة %{resource_name} على %{space_name} الفضاء"
-          update: "%{user_name} تحديث الاجتماع %{resource_name} على %{space_name} الفضاء"
+          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
-              not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+              not_found: 'The organizer was not found on the database (ID: %{id})'
         minutes:
-          create: "%{user_name} خلق محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
-          update: "%{user_name} تحديث محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       calendar_modal:
-        calendar_url: عنوان URL للتقويم
-        close_window: أغلق النافذة
-        export_calendar: تصدير التقويم
-      conference_venues: أماكن المؤتمر
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
+      conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
-          name: الأحداث القادمة
-          upcoming_events: الاجتماعات القادمة
-          view_all_events: عرض الكل
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
       directory:
         meetings:
           index:
-            all: الكل
-            date: تاريخ
-            meetings: اجتماعات
-            past: الماضي
-            search: بحث
-            space_type: الفضاء التشاركي
-            upcoming: القادمة
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
       last_activity:
-        new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
+        new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: دعوة للانضمام إلى اجتماع
+            subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
-            subject: تم تأكيد تسجيل اجتماعك
+            subject: Your meeting's registration has been confirmed
       meeting:
-        not_allowed: غير مسموح لك بمشاهدة هذا الاجتماع
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
-          category: الفئة
-          category_prompt: اختر تصنيف
-          date: تاريخ
-          past: الماضي
-          search: بحث
-          upcoming: القادمة
+          category: Category
+          category_prompt: Select a category
+          date: Date
+          past: Past
+          search: Search
+          upcoming: Upcoming
         filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         meeting_minutes:
-          meeting_minutes: محضر الاجتماع
-          related_information: معلومات ذات صله
+          meeting_minutes: Meeting Minutes
+          related_information: Related Information
         meetings:
-          no_meetings_warning: لا توجد اجتماعات تطابق معايير البحث الخاصة بك أو لا يوجد أي اجتماع مجدولة.
-          upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
+          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         registration_confirm:
-          cancel: إلغاء
-          confirm: تؤكد
+          cancel: Cancel
+          confirm: Confirm
         show:
-          attendees: الحضور الحضور
-          contributions: عدد المساهمات
-          going: ذاهب
-          join: أنضم إلى الأجتماع
-          meeting_report: تقرير الاجتماع
-          no_slots_available: لا فتحات المتاحة
-          organizations: حضور المنظمات
-          registration_code_help_text: رمز التسجيل الخاص بك
+          attendees: Attendees count
+          contributions: Contributions count
+          going: Going
+          join: Join meeting
+          meeting_report: Meeting report
+          no_slots_available: No slots available
+          organizations: Attending organizations
+          registration_code_help_text: Your registration code
           registration_state:
-            validated: التحقق من صحة
-            validation_pending: جاري التأكد
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
-            zero: "%{count} فتحات المتبقية"
-            one: "%{count} فتحة المتبقية"
-            two: "%{count} فتحات المتبقية"
-            few: "%{count} فتحات المتبقية"
-            many: "%{count} فتحات المتبقية"
-            other: "%{count} فتحات المتبقية"
-          view: رأي
+            one: "%{count} slot remaining"
+            other: "%{count} slots remaining"
+          view: View
       meetings_map:
-        view_meeting: عرض الاجتماع
+        view_meeting: View meeting
       models:
         invite:
           fields:
-            email: البريد الإلكتروني
-            name: اسم
-            sent_at: أرسلت في
-            status: الحالة
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
           status:
-            accepted: مقبول (%{at})
-            rejected: مرفوض (%{at})
-            sent: أرسلت
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
         meeting:
           fields:
-            closed: مغلق
-            end_time: تاريخ الانتهاء
-            map: خريطة
-            start_time: تاريخ البدء
-            title: عنوان
-      read_more: "(قراءة المزيد)"
+            closed: Closed
+            end_time: End date
+            map: Map
+            start_time: Start date
+            title: Title
+      read_more: "(read more)"
       registration_mailer:
         confirmation:
-          confirmed_html: تم تأكيد تسجيلك للاجتماع <a href="%{url}">%{title}</a>.
-          details: ستجد تفاصيل الاجتماع في المرفق.
-          registration_code: رمز التسجيل الخاص بك هو %{code}.
+          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the meeting's details in the attachment.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
-          success: لقد انضممت إلى الاجتماع بنجاح.
+          invalid: There's been a problem joining this meeting.
+          success: You have joined the meeting successfully.
         decline_invitation:
-          success: لقد رفضت الدعوة بنجاح.
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
-          success: لقد تركت الاجتماع بنجاح.
+          invalid: There's been a problem leaving this meeting.
+          success: You have left the meeting successfully.
       types:
-        private_meeting: اجتماع خاص
-        transparent: شفاف
+        private_meeting: Private meeting
+        transparent: Transparent
     metrics:
       meetings:
-        description: عدد الاجتماعات التي تم إنشاؤها
-        object: اجتماعات
-        title: اجتماعات
+        description: Number of meetings created
+        object: meetings
+        title: Meetings
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: الاجتماعات السابقة
-          upcoming_meetings: الاجتماعات القادمة
+          past_meetings: Past meetings
+          upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: الاجتماعات السابقة
-        see_all: شاهد الكل (%{count})
-        upcoming_meetings: الاجتماعات القادمة
+        past_meetings: Past meetings
+        see_all: See all (%{count})
+        upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
-        upcoming_meeting: الاجتماع القادم
+        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'النتائج ذات الصلة:'
-        result_meeting: 'اجتماعات ذات صلة:'
+        meeting_result: 'Related results:'
+        result_meeting: 'Related meetings:'
       proposals_from_meeting:
-        meeting_proposal: 'المقترحات ذات الصلة:'
-        proposal_meeting: 'اجتماعات ذات صلة:'
+        meeting_proposal: 'Related proposals:'
+        proposal_meeting: 'Related meetings:'
   devise:
     mailer:
       join_meeting:
-        subject: دعوة للانضمام إلى اجتماع
+        subject: Invitation to join a meeting

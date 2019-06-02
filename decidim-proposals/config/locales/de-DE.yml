@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     attributes:
       collaborative_draft:
@@ -235,9 +236,7 @@ de:
     gamification:
       badges:
         accepted_proposals:
-          conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+          conditions: '["Choose the participation space of your interest with submission for proposals enabled", "Try to make proposals that can be carried out. This way they are more likely to be accepted."]'
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
@@ -246,9 +245,7 @@ de:
           unearned_another: This user hasn't gotten any proposals accepted yet.
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
-          conditions:
-            - Browse and spend some time reading other people's proposals
-            - Give support to the proposals you like or find interesting
+          conditions: '["Browse and spend some time reading other people''s proposals", "Give support to the proposals you like or find interesting"]'
           description: This badge is granted when you support other people's proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -257,9 +254,7 @@ de:
           unearned_another: This user hasn't given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
-          conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Create a new proposal
+          conditions: '["Choose the participation space of your interest with submission for proposals enabled", "Create a new proposal"]'
           description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.

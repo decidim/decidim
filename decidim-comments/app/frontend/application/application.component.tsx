@@ -19,6 +19,7 @@ export default class Application extends React.Component<ApplicationProps> {
     const { locale } = props;
 
     I18n.setLocale(locale);
+    I18n.locale = locale;
 
     super(props);
   }

@@ -1,386 +1,389 @@
-fr:
+---
+fr-FR:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Auteur
+        decidim_user_group_id: Author
         description: Description
-        offline_votes: Votes en présentiel
-        scope_id: Secteur
-        signature_end_date: Fin de la période de collecte des signatures
-        signature_start_date: Début de la période de collecte des signatures
-        signature_type: Type de collecte des signatures
+        offline_votes: Face-to-face supports
+        scope_id: Scope
+        signature_end_date: End of signature collection period
+        signature_start_date: Start of signature collection period
+        signature_type: Signature collection type
         signature_type_values:
-          any: Mixte
-          offline: En présentiel
-          online: En ligne
-        title: Titre
+          any: Mixed
+          offline: Face to face
+          online: OnLine
+        title: Title
       initiative_author:
-        address: Adresse
-        city: Ville
-        id_document: Carte d'identité ou titre de séjour
-        name: Nom et prénom
-        phone_number: Numéro de téléphone
-        post_code: Code postal
-        province: Région
+        address: Address
+        city: City
+        id_document: DNI/NIE
+        name: Name and Surname
+        phone_number: Phone number
+        post_code: Post code
+        province: Province
       initiatives_committee_member:
-        user: Membre du Comité de promotion
+        user: Committee member
       initiatives_type:
-        banner_image: Image d'en-tête
+        banner_image: Banner image
         description: Description
-        title: Titre
+        title: Title
       organization_data:
-        address: Adresse
-        id_document: Document d'identité
-        name: Nom complet
+        address: Address
+        id_document: ID document
+        name: Complete name
   activerecord:
     models:
       decidim/initiative:
-        one: Initiative
-        other: Initiatives
+        one: Initative
+        other: Initatives
       decidim/initiative_comittee:
-        one: Comité
-        other: Comités
+        one: Comittee
+        other: Comittees
       decidim/initiative_vote:
         one: Signature
         other: Signatures
   decidim:
     admin:
       actions:
-        new_initiative_type: Nouveau type d'initiative
+        new_initiative_type: New initiative type
       menu:
         initiatives: Initiatives
-        initiatives_types: Types d'initiative
+        initiatives_types: Initiative types
       models:
         initiatives:
           fields:
-            created_at: Créé à
-            id: IDENTIFIANT
-            state: État
-            supports_count: Soutiens
-            title: Titre
+            created_at: Created at
+            id: ID
+            state: State
+            supports_count: Supports
+            title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Secteur
-            supports_required: Nombre de soutiens requis
-          name: Type d'initiative
+            scope: Scope
+            supports_required: Supports required
+          name: Initiative type scope
         initiatives_types:
           fields:
-            created_at: Créé à
-            title: Types d'initiative
-          name: Type d'initiative
+            created_at: Created at
+            title: Initiative types
+          name: Initiative type
       titles:
         initiatives: Initiatives
-        initiatives_types: Types d'initiative
+        initiatives_types: Initiative types
     events:
       initiatives:
         initiative_extended:
-          email_intro: La date de fin du recueil des signatures pour l'initiative %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: La date de fin du recueil des signatures pour l'initiative est prolongée !
-          notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative signatures end date extended!
+          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
         milestone_completed:
           affected_user:
-            email_intro: Votre initiative %{resource_title} a atteint le %{percentage}% des signatures !
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de l'initiative %{resource_title}.
-            email_subject: Nouveau jalon franchi !
-            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
+            email_subject: New milestone completed!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
-            email_intro: L'initiative %{resource_title} a atteint le %{percentage}% des signatures !
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau jalon franchi !
-            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
+            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+            email_subject: New milestone completed!
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
-          conditions:
-            - Accéder à l'espace de participation d'Initiatives
-            - Suivez les étapes pour créer une nouvelle initiative
-          description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
-          description_another: Cet utilisateur a reçu %{score} initiatives publiées.
-          description_own: Vous avez publié %{score} initiatives.
-          name: Initiatives publiées
-          next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
-          unearned_own: Vous n'avez pas encore publié d'initiative.
+          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
+          description_another: This user has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This user hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
-          page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
-          title: Quelles sont les initiatives?
+          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: Approuver
-            confirm_revoke: Êtes-vous certain ?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
-            no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
-            revoke: Révoquer
-            title: Membres du comité de promotion
+            approve: Approve
+            confirm_revoke: Are you sure?
+            invite_to_committee_help: Share this link to invite other users to the promotion committee
+            no_members_yet: There are no members in the promoter committee
+            revoke: Revoke
+            title: Committee members
         content_blocks:
           highlighted_initiatives:
-            max_results: Quantité maximale d'éléments à afficher
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
-            accept: Signer la pétition
-            confirm: Êtes-vous certain ?
-            discard: Dépublier
-            export_votes: Exporter la liste des votes
-            reject: Rejeter la pétition
-            send_to_technical_validation: Envoyer à la validation technique
-            success: L'initiative a été envoyée à la validation technique
-            update: Mettre à jour
+            accept: Accept initiative
+            confirm: Are you sure?
+            discard: Discard the initiative
+            export_votes: Export supports
+            reject: Reject initiative
+            send_to_technical_validation: Send to technical validation
+            success: The initiative has been sent to technical validation
+            update: Update
           form:
-            title: Informations générales
+            title: General information
           index:
             actions_title: Action
             filter:
-              accepted: Acceptée
-              all: Tout
-              created: Créée
-              discarded: Retirée
-              published: Publiée
-              rejected: Rejetée
-              validating: Validation technique
-            filter_by: Filtrer par
-            preview: Aperçu
-            print: Impression
-            search: Rechercher
+              accepted: Accepted
+              all: All
+              created: Created
+              discarded: Discarded
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+            filter_by: Filter by
+            preview: Preview
+            print: Print
+            search: Search
           show:
-            print: Impression
+            print: Print
           update:
-            error: Une erreur est survenue
-            success: L'initiative a été mise à jour avec succès
+            error: An error has occurred
+            success: The citizen initiative has been successfully updated
         initiatives_type_scopes:
           create:
-            error: Une erreur s'est produite lors de la création du type d'initiative
-            success: Un nouveau secteur pour ce type d'initiative a été créé
+            error: An error has occurred
+            success: A new scope for the given initiative type has been created
           destroy:
-            success: Le secteur a été supprimé avec succès
+            success: The scope has been successfully removed
           edit:
-            back: Retour
-            confirm_destroy: Êtes-vous sûr ?
-            destroy: Supprimer
-            title: Modifier le secteur de ce type d'initiative
-            update: Mettre à jour
+            back: Back
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            title: Edit initiative type scope
+            update: Update
           new:
-            back: Retour
-            create: Créer
-            title: Créer un type de secteur pour les initiatives
+            back: Back
+            create: Create
+            title: Create initiative type scope
           update:
-            error: Une erreur s'est produite
-            success: Le secteur a été mis à jour avec succès
+            error: An error has occurred
+            success: The scope has been successfully updated
         initiatives_types:
           create:
-            error: Une erreur s'est produite
-            success: Un nouveau type d'initiative a été créé avec succès
+            error: An error has occurred
+            success: A new initiative type has been successfully created
           destroy:
-            success: Le type d'initiative a été supprimé avec succès
+            success: The initiative type has been successfully removed
           edit:
-            confirm_destroy: Êtes-vous certain ?
-            destroy: Effacer
-            update: Mettre à jour
+            confirm_destroy: Are you sure?
+            destroy: Delete
+            update: Update
           form:
-            title: Information générale
+            title: General information
           initiative_type_scopes:
-            title: Secteurs pour ce type d'initiative
+            title: Scopes for the initiative type
           new:
-            create: Créer
-            title: Nouveau type d'initiative
+            create: Create
+            title: New initiative type
           update:
-            error: Une erreur s'est produite
-            success: Le type d'initiative a été mis à jour avec succès
+            error: An error has occurred
+            success: The initiative type has been successfully updated
       admin_log:
         initiative:
-          publish: "%{user_name} a publié l'initiative %{resource_name}"
-          send_to_technical_validation: "%{user_name} a envoyé l'initiative %{resource_name} à la validation technique"
-          unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
-          update: "%{user_name} a mis à jour l'initiative %{resource_name}"
+          publish: "%{user_name} published the %{resource_name} initiative"
+          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          unpublish: "%{user_name} discarded the %{resource_name} initiative"
+          update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Acceptée
-        created: Créée
-        discarded: Retirée
-        published: Publiée
-        rejected: Rejetée
-        validating: Validation technique
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
       committee_requests:
         new:
-          continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
+          continue: Continue
+          help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
-          success: Votre demande a été envoyée à l'auteur de l'initiative.
+          success: Your request has been sent to the initiative author.
       content_blocks:
         highlighted_initiatives:
-          name: Initiatives soulignées
+          name: Highlighted initiatives
       create_initiative:
         fill_data:
-          back: Retour
-          continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre initiative est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
-          initiative_type: Type d'initiative
-          more_information: "(Plus d'informations)"
-          select_scope: Sélectionnez un secteur
+          back: Back
+          continue: Continue
+          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          initiative_type: Initiative type
+          more_information: "(More information)"
+          select_scope: Select a scope
         finish:
-          back: Retour
-          back_to_initiatives: Retour aux initiatives
-          callout_text: Bravo ! Votre initiative a été créée avec succès.
-          go_to_my_initiatives: Aller à mes initiatives
-          more_information: "(Plus d'informations)"
+          back: Back
+          back_to_initiatives: Back to initiatives
+          callout_text: Congratulations! Your citizen initiative has been created successfully.
+          go_to_my_initiatives: Go to my initiatives
+          more_information: "(More information)"
         finish_help:
-          access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
-          help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
-          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
-          initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les initiatives.
+          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
+          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
+          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
+          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
+          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
           page: page
         previous_form:
-          back: Retour
-          continue: Continuer
-          help: En quoi consiste l'initiative ? Saisissez son titre et sa description. Nous recommandons un titre court et synthétique et une description axée sur la solution proposée.
-          more_information: "(Plus d'informations)"
+          back: Back
+          continue: Continue
+          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
+          more_information: "(More information)"
         promotal_committee:
-          back: Retour
-          individual_help_text: Les initiatives nécessitent un comité de promotion composé d'au moins trois personnes (garants). Vous devez partager le lien suivant avec les autres personnes faisant partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
-          more_information: "(Plus d'informations)"
+          back: Back
+          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          more_information: "(More information)"
         select_initiative_type:
-          back: Retour
-          more_information: "(Plus d'informations)"
-          select: Choisir
-          select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
+          back: Back
+          more_information: "(More information)"
+          select: Choose
+          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
-          continue: Continuer
-          invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
+          continue: Continue
+          invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
-          back: Retour
-          compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura ainsi plus de possibilités de se réaliser.
-          continue: Mon initiative est différente
-          more_information: "(Plus d'informations)"
+          back: Back
+          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
+          continue: My initiative is different
+          more_information: "(More information)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle initiative, lisez -la et contribuez :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Nouvelle initiative de %{author_nickname}
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New initiative by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a soutenu l'initiative suivante; vous pouvez y contribuer si vous le souhaitez :"
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Initiative soutenue par %{author_nickname}
-          notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiatives
       initiative_votes:
         create:
-          error: Il y a eu des erreurs lors de la signature de l'initiative.
+          error: There's been errors when signing the initiative.
       initiatives:
         author:
-          deleted: Supprimé
+          deleted: Deleted
         author_list:
           hidden_authors_count:
-            one: et 1 autre personne
-            other: et %{count} autres personnes
+            one: and 1 more person
+            other: and %{count} more people
         count:
           title:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
-          any: Tout
-          author: Auteur
-          closed: Fermées
-          myself: Mes initiatives
-          open: Ouvrir
-          search: Rechercher
-          state: État
+          any: Any
+          author: Author
+          closed: Closed
+          myself: My initiatives
+          open: Open
+          search: Search
+          state: State
           type: Type
-          type_prompt: Sélectionnez un type
+          type_prompt: Select a type
         filters_small_view:
-          close_modal: Fermer la fenêtre
-          filter: Filtre
-          filter_by: Filtrer par
-          unfold: Voir la suite
+          close_modal: Close window
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index_header:
-          new_initiative: Nouvelle initiative
+          new_initiative: New initiative
         orders:
-          label: 'Trier les initiatives par :'
-          most_commented: Les plus commentées
-          most_voted: Les plus soutenues
-          random: Aléatoire
-          recent: Les plus récentes
+          label: 'Sort initiatives by:'
+          most_commented: Most commented
+          most_voted: Most signed
+          random: Random
+          recent: Most recent
         result:
-          initiative_accepted_reason: Cette initiative a été acceptée parce que
-          initiative_rejected_reason: Cette initiative a été rejetée en raison du manque de soutien.
+          initiative_accepted_reason: This initiative has been accepted because
+          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
         show:
-          any_vote_method: Cette initiative recueille le soutien en ligne ainsi qu'en présentiel.
-          offline_method: Cette initiative ne recueille que des soutiens en présentiel.
+          any_vote_method: This citizen initiative collects online support as well as face to face.
+          offline_method: This citizen initiative only collects face to face supports.
         signature_identities:
-          select_identity: Sélectionner l'identifiant de l'utilisateur
+          select_identity: Select user identifier
         signatures_count:
           one: " signature"
           other: " signatures"
         statistics:
-          assistants_count_title: Audience
-          comments_count_title: Commentaires
-          meetings_count_title: Rencontres
+          assistants_count_title: Assistants
+          comments_count_title: Comments
+          meetings_count_title: Meetings
           supports_count_title: Signatures
         supports:
-          title: Liste des signatures
+          title: Listing of signatures
         vote_cabin:
-          already_voted: Déjà signée
-          supports_required: "%{total_supports} signatures requises"
-          vote: Signer
-          votes_blocked: Signatures désactivées
+          already_voted: Already signed
+          supports_required: "%{total_supports} signatures required"
+          vote: Sign
+          votes_blocked: Signing disabled
         votes_count:
           count:
-            one: Signature
-            other: Signatures
+            one: SIGNATURE
+            other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Votre initiative '%{title}' a été créée
+        creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
-          check_initiative_details: Vous pouvez accéder aux détails de l'initiative
-          here: ici
-        more_information: Vous trouverez ici plus d'informations sur le processus de création d'une initiative.
-        progress_report_body_for: L'initiative %{title} a atteint %{percentage}% des soutiens requis.
-        progress_report_for: 'Résumé de l''initiative : %{title}'
-        promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au Comité de promotion. Envoyez le lien suivant pour les inviter
-        status_change_body_for: 'Le statut de l''initiative %{title} a été changé pour : %{state}'
-        status_change_for: L'initiative %{title} a changé de statut
-        technical_validation_body_for: Une validation technique a été demandée pour l'initiative %{title}.
-        technical_validation_for: Une validation technique a été demandée pour l'initiative %{title}.
+          check_initiative_details: You can see the initiative details
+          here: here
+        more_information: Here you have more information about the initiative creation process.
+        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
+        progress_report_for: 'Resume about the initiative: %{title}'
+        promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
+        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
+        status_change_for: The initiative %{title} has changed its state
+        technical_validation_body_for: The initiative %{title} has requested its technical validation.
+        technical_validation_for: The initiative %{title} has requested its technical validation.
       last_activity:
-        new_initiative: Nouvelle initiative
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Initiatives actives
-            see_all_initiatives: Voir toutes les initiatives
+            active_initiatives: Active initiatives
+            see_all_initiatives: See all initiatives
       states:
-        accepted: Acceptées
-        expired: Expirées
-      unavailable_scope: Secteur indisponible
+        accepted: Accepted
+        expired: Expired
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Pièces jointes
-          committee_members: Membres du Comité de promotion
-          components: Fonctionnalités
-          information: Informations
+          attachments: Attachments
+          committee_members: Committee members
+          components: Components
+          information: Information
       initiative_creation_header:
-        fill_data: Créer
-        finish: Fin
-        previous_form: Début
-        promotal_committee: Comité de promotion
-        select_initiative_type: Sélectionner
-        show_similar_initiatives: Comparer
-        step: Étape %{current} de %{total}
-        title: Créer une nouvelle initiative
+        fill_data: Create
+        finish: Finish
+        previous_form: Start
+        promotal_committee: Promoter committee
+        select_initiative_type: Choose
+        show_similar_initiatives: Compare
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
       initiatives:
         initiative:
-          check: Découvrez l'initiative
-          check_and_support: Découvrez l'initiative et signez-la
+          check: Check it out
+          check_and_support: Check it out and sign
         no_initiatives_yet:
-          no_initiatives_yet: Aucune initiative pour le moment !
+          no_initiatives_yet: No initiatives yet!

@@ -1,79 +1,80 @@
-ar:
+---
+ar-SA:
   activemodel:
     models:
-      decidim/blogs/create_post_event: بلوق وظيفة جديدة
+      decidim/blogs/create_post_event: New blog post
   activerecord:
     models:
       decidim/blogs/post:
-        zero: المشاركات
-        one: بريد
-        two: المشاركات
-        few: المشاركات
-        many: المشاركات
-        other: المشاركات
+        one: Post
+        other: Posts
   decidim:
     blogs:
       actions:
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذه المشاركة؟
-        destroy: حذف
-        edit: تصحيح
-        new: منشور جديد
-        title: أفعال
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Edit
+        new: New post
+        title: Actions
       admin:
         models:
           components:
-            body: الجسم
+            body: Body
           post:
-            name: بريد
+            name: Post
         posts:
           create:
-            success: تم النشر بنجاح
+            invalid: There's been a problem creating this post
+            success: Post successfully created
           destroy:
-            success: تم حذف المشاركة بنجاح
+            success: Post successfully deleted
           edit:
-            save: تحديث
+            save: Update
           index:
-            title: المشاركات
+            title: Posts
           new:
-            create: خلق
-            title: إنشاء وظيفة
+            create: Create
+            title: Create post
+          update:
+            invalid: There's been errors when saving the post.
+            success: Post saved successfully
       last_activity:
-        new_post_at_html: "<span>وظيفة جديدة في %{link}</span>"
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:
-            author: مؤلف
-            body: الجسم
-            created_at: أنشئت في
-            title: عنوان
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
       posts:
         show:
-          view: رأي
+          view: View
         sidebar_blog:
-          comments: تعليقات
-          most_commented_posts: معظم التعليقات علق
-      read_more: قراءة المزيد
+          comments: comments
+          most_commented_posts: Most commented posts
+      read_more: Read more
     components:
       blogs:
-        name: مدونة
+        name: Blog
         settings:
           global:
-            announcement: إعلان
-            comments_enabled: تم تمكين التعليقات
+            announcement: Announcement
+            comments_enabled: Comments enabled
           step:
-            announcement: إعلان
-            comments_blocked: تم حظر التعليقات
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       blogs:
         post_created:
-          email_intro: تم نشر المنشور "%{resource_title}" في "%{participatory_space_title}" الذي تتابعه.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: منشور جديد منشور في %{participatory_space_title}
-          notification_title: تم نشر المنشور <a href="%{resource_path}">%{resource_title}</a> في %{participatory_space_title}
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: المشاركات
+          posts_count: Posts
     participatory_processes:
       statistics:
-        posts_count: المشاركات
+        posts_count: Posts

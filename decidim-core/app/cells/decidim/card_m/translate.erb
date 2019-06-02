@@ -1,0 +1,15 @@
+<% if translatable? %>
+  <div class="card__translate">
+    <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
+      translatabletype: "card-m",
+      targetlang: deepl_target_locale(current_locale, default_locale),
+      translatable: true,
+      translated: t("decidim.translated"),
+      original: t("decidim.translate", target: deepl_current_locale_name(current_locale, default_locale))
+    } do %>
+      <%= icon "globe", class: "action-icon action-icon--disabled" %>
+      <span><%= t("decidim.translate", target: deepl_current_locale_name(current_locale, default_locale)) %></span>
+      <div class="loading-spinner loading-spinner--hidden"></div>
+    <% end %>
+  </div>
+<% end %>

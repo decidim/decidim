@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     models:
       decidim/blogs/create_post_event: New blog post

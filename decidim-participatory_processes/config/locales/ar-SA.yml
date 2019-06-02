@@ -1,313 +1,402 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       participatory_process:
-        announcement: إعلان
-        banner_image: صورة بانر
-        copy_categories: نسخ الفئات
-        copy_components: نسخ المكونات
-        copy_steps: نسخ الخطوات
-        description: وصف
-        developer_group: مجموعة المروجين
-        domain: نطاق
-        end_date: تاريخ الانتهاء
-        hashtag: رابطة هاشتاق
-        hero_image: الصورة الرئيسية
-        local_area: منطقة التنظيم
-        meta_scope: نطاق البيانات الوصفية
-        participatory_process_group_id: مجموعة العمليات
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
-        promoted: رقية
-        published_at: نشرت في
-        scope_id: نطاق
-        scopes_enabled: تم تمكين النطاقات
-        short_description: وصف قصير
-        show_statistics: عرض إحصائيات
-        slug: سبيكة URL
-        start_date: تاريخ البدء
-        subtitle: عنوان فرعي
-        target: من يشارك
-        title: عنوان
+        announcement: Announcement
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_steps: Copy steps
+        description: Description
+        developer_group: Promoter group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Organization area
+        meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: Concertation privée
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        start_date: Start date
+        subtitle: Subtitle
+        target: Who participates
+        title: Title
       participatory_process_group:
-        description: وصف
-        hero_image: صورة
-        name: اسم
-        participatory_process_ids: العمليات ذات الصلة
+        description: Description
+        hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
       participatory_process_step:
-        cta_path: دعوة إلى مسار العمل
-        cta_text: دعوة إلى نص العمل
-        description: وصف
-        end_date: تاريخ الانتهاء
-        short_description: وصف قصير
-        start_date: تاريخ البدء
-        title: عنوان
+        cta_path: Call to Action path
+        cta_text: Call to Action text
+        description: Description
+        end_date: End date
+        short_description: Short description
+        start_date: Start date
+        title: Title
       participatory_process_user_role:
-        email: البريد الإلكتروني
-        name: اسم
-        role: وظيفة
+        email: Email
+        name: Name
+        role: Role
+    models:
+      decidim/participatory_process_step_activated_event: Step activated
+      decidim/participatory_process_step_changed_event: Step changed
   activerecord:
     models:
       decidim/participatory_process:
-        zero: العمليات التشاركية
-        one: عملية المشاركة
-        two: العمليات التشاركية
-        few: العمليات التشاركية
-        many: العمليات التشاركية
-        other: العمليات التشاركية
+        one: Participatory process
+        other: Participatory processes
       decidim/participatory_process_group:
-        zero: مجموعات العملية التشاركية
-        one: مجموعة عملية المشاركة
-        two: مجموعات العملية التشاركية
-        few: مجموعات العملية التشاركية
-        many: مجموعات العملية التشاركية
-        other: مجموعات العملية التشاركية
+        one: Participatory process group
+        other: Participatory process groups
+      decidim/participatory_process_step:
+        one: Step
+        other: Steps
   decidim:
     admin:
       actions:
-        activate: تفعيل
-        configure: تهيئة
-        confirm_destroy: تأكيد الحذف
-        destroy: حذف
-        duplicate: مكرر
-        edit: تصحيح
-        new_process: عملية جديدة
-        new_process_group: مجموعة عملية جديدة
-        new_process_step: خطوة جديدة
-        preview: معاينة
-        publish: نشر
-        resend_invitation: اعادة ارسال الدعوة
-        unpublish: إلغاء النشر
+        activate: Activate
+        configure: Configure
+        confirm_destroy: Confirm delete
+        destroy: Delete
+        duplicate: Duplicate
+        edit: Edit
+        new: New
+        new_process_group: New process group
+        new_process_step: New step
+        new_process_user_role: New process user
+        participatory_process:
+          new: New process
+        preview: Preview
+        publish: Publish
+        resend_invitation: Resend invitation
+        unpublish: Unpublish
       menu:
-        participatory_process_groups: مجموعات العملية
-        participatory_processes: العمليات
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: المجلدات
-          attachment_files: ملفات
-          attachments: مرفقات
-          categories: الاقسام
-          components: المكونات
-          info: معلومات
-          moderations: الإعتدال
-          steps: الخطوات
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          info: Info
+          moderations: Moderations
+          private_users: Private Users
+          process_admins: Process users
+          steps: Steps
       models:
         participatory_process:
           fields:
-            created_at: أنشئت في
-            private: نشر
-            promoted: سلط الضوء
-            published: نشرت
-            title: عنوان
-          name: عملية المشاركة
+            created_at: Created at
+            private: Private
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Participatory process
         participatory_process_group:
           fields:
-            name: اسم
-          name: مجموعة العملية
+            name: Name
+          name: Process group
         participatory_process_step:
           fields:
-            end_date: تاريخ الانتهاء
-            start_date: تاريخ البدء
-            title: عنوان
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
         participatory_process_user_role:
           fields:
-            email: البريد الإلكتروني
-            name: اسم
-            role: وظيفة
+            email: Email
+            name: Name
+            role: Role
+          name: Participatory process user
           roles:
-            admin: مدير
-            collaborator: متعاون
-            moderator: وسيط
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: تم قبول الدعوة في
-            invitation_sent_at: تم إرسال الدعوة في
+            invitation_accepted_at: Invitation accepted at
+            invitation_sent_at: Invitation sent at
       participatory_process_copies:
         new:
-          copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: عملية تشاركية مكررة
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory process
       participatory_process_groups:
+        destroy:
+          success: Participatory process group deleted successfully.
         edit:
-          title: تحرير مجموعة العملية
-          update: تحديث
+          title: Edit process group
+          update: Update
         new:
-          create: خلق
-          title: مجموعة عملية جديدة
+          create: Create
+          title: New process group
+        update:
+          error: There was en error updating this participatory process group.
+          success: Participatory process group updated successfully.
+      participatory_process_publications:
+        create:
+          error: There was an error publishing this participatory process.
+          success: Participatory process published successfully.
+        destroy:
+          error: There was an error unpublishing this participatory process.
+          success: Participatory process unpublished successfully.
+      participatory_process_step_activations:
+        create:
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully.
       participatory_process_steps:
-        default_title: المقدمة
+        create:
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Can't delete the active step.
+            last_step: Can't delete the last step of a process.
+          success: Participatory process step deleted successfully.
         edit:
-          update: تحديث
+          title: Edit participatory process step
+          update: Update
         index:
-          steps_title: الخطوات
+          steps_title: Steps
         new:
-          create: خلق
+          create: Create
+          title: New participatory process step
+        ordering:
+          error: There was an error when reordering this participatory process steps.
+        update:
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully.
       participatory_process_user_roles:
+        create:
+          error: There was an error adding a user for this participatory process.
+          success: User added successfully to this participatory process.
+        destroy:
+          success: User removed successfully from this participatory process.
         edit:
-          update: تحديث
-        new:
-          create: خلق
-      participatory_processes:
-        edit:
-          update: تحديث
-        form:
-          title: معلومات عامة
+          title: Update participatory process user.
+          update: Update
         index:
-          not_published: غير منشور
-          private: نشر
-          public: عامة
-          published: نشرت
+          process_admins_title: Participatory process users
         new:
-          create: خلق
-          title: عملية تشاركية جديدة
+          create: Create
+          title: New participatory process user.
+        update:
+          error: There was an error updated a user for this participatory process.
+          success: User updated successfully for this participatory process.
+      participatory_processes:
+        create:
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully. Configure now its steps.
+        edit:
+          update: Update
+        form:
+          title: General Information
+        index:
+          not_published: Not published
+          private: Private
+          promoted:
+            'false': 'False'
+            'true': 'True'
+          public: Public
+          published: Published
+        new:
+          create: Create
+          title: New participatory process
+        update:
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully.
+      participatory_processes_copies:
+        create:
+          error: There was an error when duplicating this participatory process.
+          success: Participatory process duplicated successfully.
+      participatory_processes_group:
+        create:
+          error: There was an error creating a new participatory process group.
+          success: Participatory process group created successfully.
       titles:
-        participatory_process_groups: مجموعات العملية التشاركية
-        participatory_processes: العمليات التشاركية
+        participatory_process_groups: Participatory process groups
+        participatory_processes: Participatory processes
+      users:
+        resend_invitation:
+          error: There was an error resending the invitation.
+          success: Invitation resent successfully.
     admin_log:
       participatory_process:
-        create: "%{user_name} خلق عملية المشاركة %{resource_name}"
-        publish: "%{user_name} نشر عملية المشاركة %{resource_name}"
-        unpublish: "%{user_name} لم تنشر العملية التشاركية %{resource_name}"
-        update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_step:
+        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
+        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
+        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
+      participatory_process_user_role:
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
     events:
       participatory_process:
         step_activated:
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{participatory_space_title}
+          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{participatory_space_title}
+          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>عملية تشاركية</strong> هي سلسلة من الأنشطة التشاركية (على سبيل المثال ملء أولا مسحا، ثم تقديم مقترحات، مناقشتها في وجها لوجه أو ظاهرية الاجتماعات، وأخيرا إعطاء الأولوية لهم) بهدف تحديد واتخاذ قرار على موضوع محدد.</p> <p>أمثلة على العمليات التشاركية هي: عملية انتخاب أعضاء اللجنة (حيث يتم تقديم الترشيحات لأول مرة ، ثم مناقشتها ، ثم يتم اختيار الترشيح أخيرًا) ، والميزانيات التشاركية (حيث يتم تقديم المقترحات وتقييمها اقتصاديًا والتصويت عليها بالمال المتاح) ، عملية تخطيط استراتيجي أو صياغة تعاونية لقاعدة أو قاعدة أو تصميم فضاء حضري أو إعداد خطة للسياسة العامة.</p>\n"
-          page: "<p>A <strong>عملية تشاركية</strong> هي سلسلة من الأنشطة التشاركية (على سبيل المثال ملء أولا مسحا، ثم تقديم مقترحات، مناقشتها في وجها لوجه أو ظاهرية الاجتماعات، وأخيرا إعطاء الأولوية لهم) بهدف تحديد واتخاذ قرار على موضوع محدد.</p> <p>أمثلة على العمليات التشاركية هي: عملية انتخاب أعضاء اللجنة (حيث يتم تقديم الترشيحات لأول مرة ، ثم مناقشتها ، ثم يتم اختيار الترشيح أخيرًا) ، والميزانيات التشاركية (حيث يتم تقديم المقترحات وتقييمها اقتصاديًا والتصويت عليها بالمال المتاح) ، عملية تخطيط استراتيجي أو صياغة تعاونية لقاعدة أو قاعدة أو تصميم فضاء حضري أو إعداد خطة للسياسة العامة.</p>\n"
-          title: ما هي العملية التشاركية؟
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          title: What is a participatory process?
     menu:
-      processes: العمليات
+      processes: Processes
     metrics:
       participatory_processes:
-        description: عدد العمليات التشاركية في هذه المنظمة
-        object: العمليات التشاركية
-        title: العمليات التشاركية
+        description: Number of participatory processes in this organization
+        object: participatory processes
+        title: Participatory processes
+    pages:
+      participatory_space:
+        metrics:
+          headline: Participation in figures
+          link: Show all statistics
     participatory_process_groups:
       show:
-        title: مجموعات العملية التشاركية
+        group_participatory_processes:
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
+        title: Participatory process groups
+    participatory_process_steps:
+      index:
+        process_steps: Process steps
+        title: Participatory process steps
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: أقصى قدر من العناصر لإظهارها
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
-            cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
-            announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            announcement_help: The text you enter here will be shown to the user right below the process information.
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         highlighted_processes:
-          name: عمليات مميزة
+          name: Highlighted processes
       index:
-        title: العمليات التشاركية
+        title: Participatory processes
       last_activity:
-        new_participatory_process: عملية تشاركية جديدة
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
-            active_processes: عمليات نشطة
-            more_information: معلومات اكثر
-            participate: مشاركة
-            see_all_processes: رؤية جميع العمليات
+            active_processes: Active processes
+            active_step: Active step
+            more_information: More information
+            participate: Participate
+            see_all_processes: See all processes
       participatory_process_groups:
-        none: لا شيء
+        none: None
       participatory_processes:
         filters:
           counters:
             active:
-              zero: "%{count} عمليات نشطة"
-              one: 1 عملية نشطة
-              two: "%{count} عمليات نشطة"
-              few: "%{count} عمليات نشطة"
-              many: "%{count} عمليات نشطة"
-              other: "%{count} عمليات نشطة"
+              one: 1 active process
+              other: "%{count} active processes"
             all:
-              zero: "%{count} عمليات"
-              one: 1 عملية
-              two: "%{count} عمليات"
-              few: "%{count} عمليات"
-              many: "%{count} عمليات"
-              other: "%{count} عمليات"
+              one: 1 process
+              other: "%{count} processes"
             past:
-              zero: "%{count} العمليات الماضية"
-              one: 1 عملية الماضي
-              two: "%{count} العمليات الماضية"
-              few: "%{count} العمليات الماضية"
-              many: "%{count} العمليات الماضية"
-              other: "%{count} العمليات الماضية"
+              one: 1 past process
+              other: "%{count} past processes"
             upcoming:
-              zero: "%{count} العمليات القادمة"
-              one: 1 العملية القادمة
-              two: "%{count} العمليات القادمة"
-              few: "%{count} العمليات القادمة"
-              many: "%{count} العمليات القادمة"
-              other: "%{count} العمليات القادمة"
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
           explanations:
-            no_active: لا توجد عمليات نشطة
-            no_active_nor_upcoming: لا توجد عمليات نشطة ولا قادمة
-            no_active_nor_upcoming_callout: لا توجد عمليات نشطة ولا قادمة. وهنا لائحة من الماضي.
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           names:
-            active: نشيط
-            all: الكل
-            past: الماضي
-            upcoming: القادمة
-          see: نرى
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
         index:
-          loading: جارٍ تحميل النتائج ...
+          loading: Loading results...
       show:
-        developer_group: مجموعة المروجين
-        end_date: تاريخ الانتهاء
-        local_area: منطقة التنظيم
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
-        private_space: هذه عملية خاصة
-        scope: نطاق
-        start_date: تاريخ البدء
-        target: من يشارك
-        unspecified: غير محدد
+        developer_group: Promoter group
+        end_date: End date
+        local_area: Organization Area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private process
+        scope: Scope
+        start_date: Start date
+        target: Who participates
+        unspecified: Not specified
       statistics:
-        answers_count: الأجوبة
-        comments_count: تعليقات
-        debates_count: المناقشات
-        endorsements_count: موافقات
-        headline: نشاط
-        meetings_count: اجتماعات
-        pages_count: صفحات
-        processes_count: العمليات
-        projects_count: مشاريع
-        proposals_count: اقتراحات
-        results_count: النتائج
-        surveys_count: الدراسات الاستقصائية
-        users_count: المشاركين
+        answers_count: Answers
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Votes
+        pages_count: Pages
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: تصفح
-          processes_count: 'العمليات:'
+          browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
-          take_part: خذ جزء
+          active_step: Active step
+          take_part: Take part
       participatory_processes:
         index:
-          promoted_processes: عمليات مميزة
+          promoted_processes: Highlighted processes
         participatory_process:
-          take_part: خذ جزء
+          active_step: 'Current step:'
+          take_part: Take part
         promoted_process:
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
+          active_step: 'Current step:'
+          more_info: More info
+          take_part: Take part
       process_header_steps:
-        view_steps: عرض الخطوات
+        step: Step %{current} of %{total}
+        view_steps: View steps
+      process_navigation:
+        process_menu_item: The process

@@ -1,148 +1,158 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       debate:
-        category_id: الفئة
-        decidim_category_id: الفئة
-        description: وصف
-        end_time: ينتهي عند
-        information_updates: تحديثات المعلومات
-        instructions: تعليمات للمشاركة
-        start_time: يبدأ عند
-        title: عنوان
-        user_group_id: خلق النقاش كما
+        category_id: Category
+        decidim_category_id: Category
+        description: Description
+        end_time: Ends at
+        information_updates: Information updates
+        instructions: Instructions to participate
+        start_time: Starts at
+        title: Title
+        user_group_id: Create debate as
     models:
-      decidim/debates/create_debate_event: النقاش
-      decidim/debates/creation_disabled_event: تم تعطيل المناقشات
-      decidim/debates/creation_enabled_event: تم تمكين المناقشات
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates disabled
+      decidim/debates/creation_enabled_event: Debates enabled
   activerecord:
     models:
       decidim/debates/debate:
-        zero: المناقشات
-        one: النقاش
-        two: المناقشات
-        few: المناقشات
-        many: المناقشات
-        other: المناقشات
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
         actions:
-          create: خلق
-        name: المناقشات
+          create: Create
+        name: Debates
         settings:
           global:
-            announcement: إعلان
-            comments_enabled: تم تمكين التعليقات
+            announcement: Announcement
+            comments_enabled: Comments enabled
           step:
-            announcement: إعلان
-            comments_blocked: تم حظر التعليقات
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            creation_enabled: Debate creation by users enabled
     debates:
       actions:
-        confirm_destroy: هل أنت واثق؟
-        destroy: حذف
-        edit: تصحيح
-        new: جديد %{name}
-        title: أفعال
+        confirm_destroy: Are you sure?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
       admin:
         debates:
+          create:
+            invalid: There has been a problem while creating the debate.
+            success: Debate created successfully.
+          destroy:
+            success: Debate deleted successfully.
           edit:
-            title: تحرير النقاش
-            update: تحديث النقاش
+            title: Edit debate
+            update: Update debate
           index:
-            title: المناقشات
+            title: Debates
           new:
-            create: خلق النقاش
-            title: نقاش جديد
+            create: Create debate
+            title: New debate
+          update:
+            invalid: There has been a problem while updating this debate.
+            success: Debate updated successfully.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
-            name: النقاش
+            name: Debate
       admin_log:
         debate:
-          create: "%{user_name} خلق النقاش %{resource_name} على الفضاء %{space_name}"
-          update: "%{user_name} تحديث المناقشة %{resource_name} على %{space_name} الفضاء"
+          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debates:
         count:
           debates_count:
-            zero: "%{count} النقاشات"
-            one: "%{count} النقاش"
-            two: "%{count} النقاشات"
-            few: "%{count} النقاشات"
-            many: "%{count} النقاشات"
-            other: "%{count} النقاشات"
+            one: "%{count} debate"
+            other: "%{count} debates"
+        create:
+          invalid: There has been a problem while creating the debate.
+          success: Debate created successfully.
         debate:
-          participate: مشاركة
+          participate: Participate
         filters:
-          all: الكل
-          category: الفئة
-          category_prompt: اختر تصنيف
-          citizens: المواطنين
-          official: الرسمية
-          origin: الأصل
-          search: بحث
+          all: All
+          category: Category
+          category_prompt: Select a category
+          citizens: Citizens
+          official: Official
+          origin: Origin
+          search: Search
         filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         index:
-          new_debate: نقاش جديد
+          new_debate: New debate
         new:
-          back: الى الخلف
-          create: خلق
-          select_a_category: الرجاء تحديد الفئة
-          title: نقاش جديد
+          back: Back
+          create: Create
+          select_a_category: Please select a category
+          title: New debate
         share:
-          close_window: أغلق النافذة
-          share: شارك
-          share_link: مشاركة الرابط
+          close_window: Close window
+          share: Share
+          share_link: Share link
       last_activity:
-        new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
+        new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:
-            end_time: تاريخ الانتهاء
-            official_debate: النقاش الرسمي
-            start_time: تاريخ البدء
-            title: عنوان
+            end_time: End date
+            official_debate: Official debate
+            start_time: Start date
+            title: Title
     events:
       debates:
         create_debate_event:
           space_followers:
             email_intro: |-
-              مرحبا،
-              نقاش الجديدة "%{resource_title}" تم إنشاؤها على %{space_title} مساحة المشاركة، والتحقق من ذلك والمساهمة:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع مساحة المشاركة %{space_title} . يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: مناقشة جديدة "%{resource_title}" في %{space_title}
-            notification_title: تم إنشاء المناقشة <a href="%{resource_path}">%{resource_title}</a> في <a href="%{space_path}">%{space_title}</a>.
+              Hi,
+              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
+            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" on %{space_title}
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              مرحبًا ،
-              %{author_name} %{author_nickname}، الذي تتابعه ، أنشأ نقاشًا جديدًا "%{resource_title}". التحقق من ذلك والمساهمة:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: نقاش جديد "%{resource_title}" بنسبة %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> أنشأ النقاش <a href="%{resource_path}">%{resource_title}</a>.
+              Hi,
+              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
+            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" by %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تم تعطيل إنشاء المناقشة في %{participatory_space_title}
-          notification_title: تم إنشاء إنشاء النقاش الآن في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debate creation disabled in %{participatory_space_title}
+          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'يمكنك الآن بدء مناقشات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: المناقشات المتاحة الآن في %{participatory_space_title}
-          notification_title: يمكنك الآن بدء <a href="%{resource_path}">مناقشات جديدة</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debates now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
-          conditions:
-            - اختر نقاشًا مفتوحًا للمشاركة فيه
-          description: تُمنح هذه الشارة عندما تشارك بنشاط في المناقشات المختلفة من خلال ترك تعليقاتك.
-          description_own: لقد شاركت في %{score} مناقشات.
-          name: المناقشات
-          next_level_in: شارك في %{score} مناقشات أخرى للوصول إلى المستوى التالي!
-          unearned_own: لم تشارك في أي مناقشات حتى الآن.
+          conditions: '["Choose an open debate to take part in"]'
+          description: This badge is granted when you actively participate in the different debates by leaving your comments.
+          description_another: This user has participated in %{score} debates.
+          description_own: You have participated in %{score} debates.
+          name: Debates
+          next_level_in: Participate in %{score} more debates to reach the next level!
+          unearned_another: This user hasn't participated in any debate yet.
+          unearned_own: You haven't participated in any debates yet.
     metrics:
       debates:
-        description: عدد المناقشات التي تم إنشاؤها
-        object: المناقشات
-        title: المناقشات
+        description: Number of debates created
+        object: debates
+        title: Debates

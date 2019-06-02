@@ -1,169 +1,181 @@
-ar:
+---
+ar-SA:
   activemodel:
     attributes:
       config:
-        available_methods: الطرق المتاحة
-        offline: غير متصل على الانترنت
-        offline_explanation: تعليمات للتحقق حاليا
-        online: عبر الانترنت
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
-        document_number: رقم الوثيقة (مع خطاب)
-        document_type: نوع المستند
+        document_number: Document number (with letter)
+        document_type: Type of the document
       id_document_upload:
-        document_number: رقم الوثيقة (مع خطاب)
-        document_type: نوع المستند الخاص بك
-        verification_attachment: نسخة ممسوحة ضوئيًا من المستند
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: User
+        verification_attachment: Scanned copy of your document
       offline_confirmation:
-        email: البريد الإلكتروني للمستخدم
+        email: User email
       postal_letter_address:
-        full_address: العنوان الكامل
+        full_address: Full address
       postal_letter_confirmation:
-        verification_code: شيفرة التأكيد
+        verification_code: Verification code
       postal_letter_postage:
-        full_address: العنوان الكامل
-        verification_code: شيفرة التأكيد
+        full_address: Full address
+        verification_code: Verification code
   decidim:
     admin:
       menu:
-        authorization_workflows: التحقق
+        authorization_workflows: Verifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} بتحديث تكوين التحقق من وثائق الهوية"
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
       user:
-        grant_id_documents_offline_verification: "%{user_name} التحقق من %{resource_name} باستخدام التحقق من مستندات الهوية دون اتصال"
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
-          help:
-            - يقوم المستخدمون بملء معلومات هويتهم وتحميل نسخة من وثيقتهم.
-            - يمكنك ملء المعلومات الموجودة في الصورة التي تم تحميلها.
-            - يجب أن تتطابق المعلومات مع كل ما قام المستخدم بملئه.
-            - إذا لم تتمكن من رؤية المعلومات بوضوح أو لم تتمكن من التحقق منها ، فيمكنك رفض الطلب وسيكون المستخدم قادرًا على إصلاحها.
+          help: '["Users fill in their identity information and upload a copy of their document.", "You fill in the information present in the uploaded image.", "The information should match whatever the user filled in.", "If you can''t clearly see the information or you can''t get it verified, you can reject the request and the user will be able to fix it."]'
         postal_letter:
-          help:
-            - Users request a verification code to be sent to their address.
-            - يمكنك إرسال الرسالة إلى عنوانهم مع رمز التحقق.
-            - يمكنك وضع علامة على الرسالة كما تم إرسالها.
-            - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
-      direct: مباشرة
-      help: مساعدة
+          help: '["Users request a verification code to be sent to their address.", "You send the letter to their address with the verification code.", "You mark the letter as sent.", "Once you mark the letter as sent, the user will be able to introduce the code and get verified."]'
+      direct: Direct
+      help: Help
       id_documents:
-        explanation: قم بتحميل وثائق هويتك حتى نتمكن من التحقق من هويتك
-        name: وثائق الهوية
-      multistep: متعدد الخطوة
-      name: اسم
+        explanation: Upload your identity documents so we can check your identity
+        name: Identity documents
+      multistep: Multi-Step
+      name: Name
       postal_letter:
-        explanation: سنرسل لك خطابًا بريديًا مع رمز يتعين عليك إدخاله حتى نتمكن من التحقق من عنوانك
-        name: رمز عن طريق البريد
+        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
+        name: Code by postal letter
     verifications:
       authorizations:
         create:
-          success: لقد تم التفويض بنجاح.
-          unconfirmed: تحتاج إلى تأكيد بريدك الإلكتروني من أجل تفويض نفسك.
+          error: There was an error creating the authorization.
+          success: You've been successfully authorized.
+          unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
-            another_dummy_authorization_handler: تحقق من مثال آخر على معالج التخويل
-            dummy_authorization_handler: تحقق من مقابل معالج التخويل
-            dummy_authorization_workflow: تحقق من سير عمل تخويل المثال
-            id_documents: الحصول على التحقق عن طريق تحميل وثيقة الهوية الخاصة بك
-            postal_letter: الحصول على التحقق من خلال تلقي رمز التحقق عبر البريد العادي
-          title: تحقق من هويتك
-          verify_with_these_options: 'هذه هي الخيارات المتاحة للتحقق من هويتك:'
+            another_dummy_authorization_handler: Verify against another example of authorization handler
+            dummy_authorization_handler: Verify against the example authorization handler
+            dummy_authorization_workflow: Verify against the example authorization workflow
+            id_documents: Get verified by uploading your identity document
+            postal_letter: Get verified by receiving a verification code through postal mail
+          title: Verify your identity
+          verify_with_these_options: 'These are the available options to verify your identity:'
         new:
-          authorize: إرسال
-          authorize_with: تحقق مع %{authorizer}
-        skip_verification: يمكنك تخطي هذا الآن و %{link}
-        start_exploring: البدء في استكشاف
+          authorize: Send
+          authorize_with: Verify with %{authorizer}
+        skip_verification: You can skip this for now and %{link}
+        start_exploring: start exploring
+      dummy_authorization:
+        extra_explanation:
+          one: Participation is restricted to users with the postal code %{postal_codes}.
+          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
       id_documents:
         admin:
           config:
             edit:
-              title: تكوين وثائق الهوية
-              update: تحديث
+              title: Identity documents configuration
+              update: Update
             update:
-              success: تم تحديث التكوين بنجاح
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
+            create:
+              error: Verification doesn't match. Try again or reject the verification so the user can amend it
+              success: User successfully verified
             new:
-              introduce_user_data: إدخال البيانات في الصورة
-              reject: رفض
-              verify: التحقق
+              introduce_user_data: Introduce the data in the picture
+              reject: Reject
+              verify: Verify
           offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
             new:
-              cancel: إلغاء
-              verify: التحقق
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
-              config: التكوين
-              offline_verification: التحقق حاليا
-              title: في انتظار التحقق عبر الإنترنت
-              verification_number: 'التحقق #%{n}'
+              config: Config
+              offline_verification: Offline verification
+              title: Pending online verifications
+              verification_number: 'Verification #%{n}'
+          rejections:
+            create:
+              success: Verification rejected. User will be prompted to amend her documents
         authorizations:
           choose:
-            choose_a_type: "الرجاء تحديد الطريقة التي تريد التحقق منها:"
-            offline: غير متصل على الانترنت
-            online: عبر الانترنت
-            title: تحقق من نفسك باستخدام مستند هويتك
+            choose_a_type: 'Please select how you want to be verified:'
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
-            error: حدثت مشكلة أثناء تحميل المستند
+            error: There was a problem uploading your document
+            success: Document uploaded successfully
           edit:
-            being_reviewed: نحن نراجع مستنداتك سيتم التحقق منك قريبًا
-            offline: استخدم التحقق بلا اتصال
-            online: استخدام التحقق عبر الإنترنت
-            rejection_clarity: تأكد من أن المعلومات مرئية بوضوح في الصورة التي تم تحميلها
-            rejection_correctness: تأكد من صحة المعلومات التي تم إدخالها
-            rejection_notice: حدثت مشكلة في عملية التحقق. حاول مرة اخرى
-            send: طلب التحقق مرة أخرى
+            being_reviewed: We're reviewing your documents. You'll be verified shortly
+            offline: Use offline verification
+            online: Use online verification
+            rejection_clarity: Make sure the information is clearly visible in the uploaded image
+            rejection_correctness: Make sure the information entered is correct
+            rejection_notice: There was a problem with your verification. Please try again
+            send: Request verification again
           new:
-            send: طلب التحقق
-            title: قم بتحميل مستند هويتك
+            send: Request verification
+            title: Upload your identity document
           update:
-            error: حدثت مشكلة أثناء إعادة تحميل المستند
+            error: There was a problem reuploading your document
+            success: Document reuploaded successfully
         dni: DNI
         nie: NIE
-        passport: جواز سفر
+        passport: Passport
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: عنوان
-              letter_sent_at: رسالة أرسلت في
-              mark_as_sent: بمناسبة إرسالها
-              not_yet_sent: لم ترسل بعد
-              title: التحقق المستمر
-              username: اسم المستخدم
-              verification_code: شيفرة التأكيد
+              address: Address
+              letter_sent_at: Letter sent at
+              mark_as_sent: Mark as sent
+              not_yet_sent: Not yet sent
+              title: Ongoing verifications
+              username: Username
+              verification_code: Verification code
           postages:
             create:
-              error: خطأ في تعليم الرسالة على أنها مرسلة
-              success: تم تعليم الرسالة بنجاح على أنها مرسلة
+              error: Error marking letter as sent
+              success: Letter successfully marked as sent
         authorizations:
           create:
-            error: كانت هناك مشكلة مع طلبك
-            success: شكر! سنرسل رمز التحقق إلى عنوانك
+            error: There was a problem with your request
+            success: Thanks! We'll send a verification code to your address
           edit:
-            send: تؤكد
-            title: قدم رمز التحقق الذي تلقيته
-            waiting_for_letter: سنرسل خطابًا إلى عنوانك مع رمز التحقق قريبًا
+            send: Confirm
+            title: Introduce the verification code you received
+            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
           new:
-            send: ارسل لي خطاب
-            title: اطلب رمز التحقق
+            send: Send me a letter
+            title: Request your verification code
           update:
-            error: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسالة التي أرسلناها إليك
-            success: تهانينا. لقد تم التحقق بنجاح
+            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
+            success: Congratulations. You've been successfully verified
       sms:
         authorizations:
           create:
-            error: كانت هناك مشكلة مع طلبك
-            success: شكر! لقد أرسلنا رسالة نصية قصيرة إلى هاتفك.
+            error: There was a problem with your request
+            success: Thanks! We've sent an SMS to your phone.
           edit:
-            send: تؤكد
-            title: قدم رمز التحقق الذي تلقيته
+            send: Confirm
+            title: Introduce the verification code you received
           new:
-            send: ارسل لي رسالة
-            title: اطلب رمز التحقق
+            send: Send me an SMS
+            title: Request your verification code
           update:
-            error: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسائل القصيرة التي أرسلناها إليك.
-            success: تهانينا. لقد تم التحقق بنجاح.
+            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You've been successfully verified.
   errors:
     messages:
-      uppercase_only_letters_numbers: يجب أن تكون جميعها كبيرة وتحتوي فقط على أحرف و / أو أرقام
+      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

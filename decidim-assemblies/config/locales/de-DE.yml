@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     attributes:
       assembly:

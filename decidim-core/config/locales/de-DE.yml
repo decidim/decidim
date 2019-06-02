@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     attributes:
       account:
@@ -554,8 +555,7 @@ de:
       all_badges_link: See all available badges.
       badges:
         continuity:
-          conditions:
-            - Come here often
+          conditions: '["Come here often"]'
           description: This badge is granted when you visit the platform in a regular way. We like having you around here!
           description_another: This user has connected for %{score} consecutive days at some point.
           description_own: You have connected for %{score} consecutive days at some point.
@@ -564,8 +564,7 @@ de:
           unearned_another: This user hasn't signed in for more than one consecutive day.
           unearned_own: You haven't connected for more than one consecutive day.
         followers:
-          conditions:
-            - Being active and following other people will surely make other people follow you.
+          conditions: '["Being active and following other people will surely make other people follow you."]'
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This user has %{score} followers.
           description_own: "%{score} users are following you."
@@ -579,10 +578,7 @@ de:
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
         invitations:
-          conditions:
-            - Use the “invite friends” link on your user page to invite your friends
-            - Customize, if you want, the message you are sending
-            - You’ll level up by sending invitations and getting them registered.
+          conditions: '["Use the “invite friends” link on your user page to invite your friends", "Customize, if you want, the message you are sending", "You’ll level up by sending invitations and getting them registered."]'
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
@@ -993,6 +989,10 @@ de:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    translate: Translate to %{target}
+    translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
