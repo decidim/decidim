@@ -63,4 +63,14 @@ $(() => {
   if (window.Decidim.quillEditor) {
     window.Decidim.quillEditor();
   }
+
+  $('label[for="organization_enable_custom_colors"]').click((event) => {
+    const $enableCustomColors = $(event.delegateTarget).find("#organization_enable_custom_colors").is(":checked");
+    if ($enableCustomColors) {
+      $("#custom_colors_wrapper").removeClass("hide");
+    } else {
+      $("#custom_colors_wrapper").addClass("hide");
+    }
+  });
+
 });

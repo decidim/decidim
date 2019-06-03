@@ -96,7 +96,7 @@ module Decidim
       end
 
       def colors_attributes
-        {
+        form.enable_custom_colors ? {
           colors: {
             primary: form.primary_color,
             secondary: form.secondary_color,
@@ -104,7 +104,7 @@ module Decidim
             warning: form.warning_color,
             alert: form.alert_color
           }
-        }
+        } : { colors: {} }
       end
     end
   end
