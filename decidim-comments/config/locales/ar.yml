@@ -1,0 +1,108 @@
+ar:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: تعليق
+      decidim/comments/comment_created_event: تعليق
+      decidim/comments/reply_created_event: تعليق الرد
+      decidim/comments/user_mentioned_event: أشير
+  activerecord:
+    models:
+      decidim/comments/comment:
+        zero: تعليقات
+        one: تعليق
+        two: تعليقات
+        few: تعليقات
+        many: تعليقات
+        other: تعليقات
+      decidim/comments/comment_vote:
+        zero: الأصوات
+        one: تصويت
+        two: الأصوات
+        few: الأصوات
+        many: الأصوات
+        other: الأصوات
+  decidim:
+    comments:
+      comments: تعليقات
+      last_activity:
+        new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
+      votes:
+        create:
+          error: حدثت مشكلة في التصويت على التعليق.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">سجل الدخول بحسابك</a> أو <a href="%{sign_up_url}">اشترك</a> لإضافة تعليقك.
+        form:
+          body:
+            label: تعليق
+            placeholder: ما رأيك بهذا؟
+          form_error: النص مطلوب ولا يمكن أن يكون أطول من %{length} حرف.
+          submit: إرسال
+          user_group_id:
+            label: التعليق باسم
+        opinion:
+          neutral: محايد
+        remaining_characters: "%{count} الحروف المتبقية"
+        remaining_characters_1: "%{count} حرف اليسار"
+        title: أضف تعليقك
+      comment:
+        alignment:
+          against: ضد
+          in_favor: لصالح
+        deleted_user: مشارك محذوف
+        reply: الرد
+        report:
+          action: أبلغ عن
+          already_reported: تم الإبلاغ عن هذا المحتوى بالفعل وسيتم مراجعته من قبل المشرف.
+          close: قريب
+          description: هل هذا المحتوى غير مناسب؟
+          details: تعليقات اضافية
+          reasons:
+            does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
+            offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
+            spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
+          title: الإبلاغ عن مشكلة
+      comment_order_selector:
+        order:
+          best_rated: أفضل تصنيف
+          most_discussed: الأكثر مناقشة
+          older: اكبر سنا
+          recent: الأخيرة
+        title: 'ترتيب حسب:'
+      comment_thread:
+        title: المحادثة مع %{authorName}
+      comments:
+        blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
+        blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
+        loading: جارٍ تحميل التعليقات ...
+        title: "%{count} تعليقات"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ترك تعليق في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء تتبع هذا المستخدم من صفحة ملفه الشخصي.
+          email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
+          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} تم التعليق. يمكنك قراءة التعليق في هذه الصفحة:"
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}" أو مؤلفه. يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: هناك تعليق جديد من %{author_name} في %{resource_title}
+          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} رد على تعليقك في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
+          email_outro: لقد تلقيت هذا الإشعار لأنه تم الرد على تعليقك.
+          email_subject: "%{author_name} رد على تعليقك في %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> رد على تعليقك في <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: لقد ذكرت
+          email_outro: لقد تلقيت هذا الإشعار لأنك ذكرت في %{resource_title}.
+          email_subject: لقد ذكرت في %{resource_title}
+          notification_title: لقد ذكرت في <a href="%{resource_path}">%{resource_title}</a> من <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: عدد التعليقات الناتجة عن المشاركين
+        object: تعليقات
+        title: تعليقات
+  errors:
+    messages:
+      cannot_have_comments: لا يمكن أن يكون لديك تعليقات

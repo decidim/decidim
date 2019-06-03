@@ -359,6 +359,7 @@ ca:
           more_info: Més informació
           take_part: Participa
         index:
+          children: 'Assemblees: '
           organizational_chart: Organigrama
           promoted_assemblies: Assemblees destacades
           reset_chart: Restablir

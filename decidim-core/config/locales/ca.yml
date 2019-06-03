@@ -322,6 +322,7 @@ ca:
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
           nickname_help: El teu àlies (@sobrenom) a %{organization}
+          password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -1090,6 +1091,7 @@ ca:
         change_your_password: Canvia la teva contrasenya
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
+        password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
@@ -1253,6 +1255,14 @@ ca:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Esborrats
+      right: Addicions
+    dropdown:
+      choose_diff_view_mode: 'Mode de vista de comparació:'
+      option_split: Costat per costat
+      option_unified: Unificat
   views:
     pagination:
       first: "&laquo; Primera"

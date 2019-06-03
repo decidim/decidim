@@ -257,6 +257,8 @@ ca:
         statistics:
           consultations_count: Consultes
     questions:
+      next_button: Següent qüestió
+      previous_button: Qüestió anterior
       results:
         title: Resultats
       show:

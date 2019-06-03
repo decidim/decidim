@@ -1,0 +1,82 @@
+ar:
+  activemodel:
+    attributes:
+      answer:
+        body: إجابة
+      question:
+        max_choices: أقصى عدد من الخيارات
+        question_type: نوع
+      questionnaire_question:
+        mandatory: إلزامي
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: ليست كاملة
+              too_many: كثير جدا
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: وصف
+            tos: شروط الخدمة
+        questionnaires:
+          answer_option:
+            answer_option: خيار الإجابة
+            free_text: نص حر
+            remove: إزالة
+            statement: بيان
+          edit:
+            save: حفظ
+            title: عنوان
+          form:
+            add_question: أضف سؤال
+            already_answered_warning: تمت الإجابة على النموذج من قبل بعض المستخدمين حتى لا تتمكن من تعديل أسئلته.
+          question:
+            add_answer_option: إضافة خيار الإجابة
+            any: أي
+            description: وصف
+            down: أسفل
+            question: سؤال
+            remove: إزالة
+            statement: بيان
+            up: فوق
+          update:
+            invalid: كانت هناك مشكلة في حفظ النموذج.
+            success: تم حفظ النماذج بنجاح.
+      errors:
+        answer:
+          body: لا يمكن أن يكون الجسم فارغًا
+      question_types:
+        long_answer: اجابة طويلة
+        multiple_option: خيار متعدد
+        short_answer: اجابة قصيرة
+        single_option: خيار واحد
+        sorting: فرز
+      questionnaires:
+        answer:
+          invalid: كانت هناك مشكلة في الإجابة على النموذج.
+          success: نموذج أجاب بنجاح.
+        question:
+          max_choices: 'خيارات ماكس: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">قم بتسجيل الدخول بحسابك</a> أو <a href="%{sign_up_link}">اشترك</a> للإجابة على النموذج
+            title: أجب عن النموذج
+          are_you_sure: لا يمكن التراجع عن هذا الإجراء ولن تتمكن من تعديل إجاباتك. هل أنت واثق؟
+          questionnaire_answered:
+            body: لقد أجبت بالفعل على هذا النموذج.
+            title: تمت الاجابة مسبقا
+          questionnaire_closed:
+            body: النموذج مغلق ولا يمكن الرد عليه.
+            title: شكل مغلق
+          questionnaire_for_private_users:
+            body: النموذج متاح فقط للمستخدمين من القطاع الخاص
+            title: شكل مغلق
+          submit: خضع
+          tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
+      user_answers_serializer:
+        created_at: أجاب على
+        id: معرف الإجابة

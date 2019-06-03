@@ -325,6 +325,7 @@ fi:
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi (@nimi) organisaatiossa %{organization}
+          password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -1094,6 +1095,7 @@ fi:
         change_your_password: Vaihda salasanasi
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
+        password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
@@ -1257,6 +1259,14 @@ fi:
           invitation_instructions:
             accept_until_format: "%B %d, %Y klo %k:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Poistot
+      right: Lisäykset
+    dropdown:
+      choose_diff_view_mode: 'Vertailutila:'
+      option_split: Vierekkäin
+      option_unified: Yhdistetty
   views:
     pagination:
       first: "&laquo; Ensimmäinen"

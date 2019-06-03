@@ -246,6 +246,7 @@ es:
         form:
           default_step_settings: Configuraciones por defecto
           global_settings: Configuración global
+          participatory_texts_enabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
           step_settings: Configuración de fase
         index:
           add: Agregar componente
@@ -456,15 +457,21 @@ es:
           title: Nuevo boletín
         select_recipients_to_deliver:
           all_spaces: Todos
+          all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
           confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
+          followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
+          participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
+          select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
           send_to_all_users: Enviar a todos los usuarios
           send_to_followers: Enviar a los seguidores
           send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
+          warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarios para esta selección
         show:
