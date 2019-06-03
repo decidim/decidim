@@ -23,7 +23,7 @@ sv:
         entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
-      decidim/accountability/result_progress_updated_event: Uppdaterad resultatutvecklingen
+      decidim/accountability/result_progress_updated_event: Uppdaterat resultatutvecklingen
   activerecord:
     models:
       decidim/accountability/result:
@@ -51,7 +51,7 @@ sv:
             name: Post i tidslinje
         results:
           create:
-            invalid: Det var problem med att skapa det här resultatet
+            invalid: Det gick inte att skapa det här resultatet
             success: Resultatet har skapats
           destroy:
             success: Resultatet har raderats
@@ -70,14 +70,14 @@ sv:
             current_selection: Aktuellt urval
             select: Välj
           update:
-            invalid: Det var problem med att uppdatera det här resultatet
+            invalid: Det gick inte att uppdatera det här resultatet
             success: Resultatet har uppdaterats
         shared:
           subnav:
             statuses: Status
         statuses:
           create:
-            invalid: Det var problem med att skapa denna status
+            invalid: Det gick inte att skapa denna status
             success: Skapat status
           destroy:
             success: Raderat status
@@ -90,11 +90,11 @@ sv:
             create: Skapa status
             title: Ny status
           update:
-            invalid: Det var problem med att uppdatera denna status
+            invalid: Det gick inte att uppdatera denna status
             success: Uppdaterat status
         timeline_entries:
           create:
-            invalid: Det var problem med att skapa den här posten
+            invalid: Det gick inte att skapa den här posten
             success: Skapade post
           destroy:
             success: Posten har raderats
@@ -107,7 +107,7 @@ sv:
             create: Skapa post
             title: Ny post
           update:
-            invalid: Det var problem med att uppdatera denna post
+            invalid: Det gick inte att uppdatera den här posten
             success: Posten har uppdaterats
       admin_log:
         result:
