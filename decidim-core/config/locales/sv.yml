@@ -91,10 +91,10 @@ sv:
         create: "%{user_name} lade till komponenten %{resource_name} till utrymmet %{space_name}"
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
-        unpublish: "%{user_name} opublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+        unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
       moderation:
-        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name}"
-        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name}"
+        hide: "%{user_name} gömde en resurs av typen %{resource_type} i utrymmet %{space_name}"
+        unreport: "%{user_name} drog tillbaka en resurs av typen %{resource_type} i utrymmet %{space_name}"
       newsletter:
         create: "%{user_name} skapade nyhetsbrevet %{resource_name}"
         delete: "%{user_name} raderade nyhetsbrevet %{resource_name}"
