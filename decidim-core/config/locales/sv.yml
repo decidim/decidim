@@ -536,7 +536,7 @@ sv:
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
-      default_image: Standardbild
+      default_image: Förvald bild
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
@@ -545,12 +545,12 @@ sv:
       badges:
         continuity:
           conditions:
-            - Kommer hit ofta
-          description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
+            - Kommer ofta hit
+          description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
           description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
-          description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
+          description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
           name: Kontinuitet
-          next_level_in: Anslut under %{score} på varandra följande dagar för att komma till nästa nivå!
+          next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
           unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
           unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
