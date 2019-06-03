@@ -62,16 +62,16 @@ sv:
       data_portability_export:
         file_no_exists: Filen finns inte
         invalid_token: Den angivna koden är ogiltig.
-        no_token: Inget tecken har tillhandahålls
+        no_token: Ingen kod gavs
         notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
-        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte kunna logga in.
+        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in.
         confirm:
-          close: Stäng fönstret
-          ok: Ja, jag vill ta bort mitt konto
-          question: Är du säker på att du vill ta bort ditt konto?
-          title: Ta bort mitt konto
-        explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
+          close: Stäng fönster
+          ok: Ja, radera mitt konto
+          question: Är du säker på att du vill radera ditt konto?
+          title: Radera mitt konto
+        explanation: Ange skälet till varför du vill radera ditt konto (valfritt).
       destroy:
         error: Det har blivit ett fel vid radering av ditt konto.
         success: Ditt konto har tagits bort.
@@ -88,8 +88,8 @@ sv:
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
       component:
-        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name}-utrymmet"
-        delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
+        create: "%{user_name} lade till komponenten %{resource_name} till utrymmet %{space_name}"
+        delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} opublicerade komponenten %{resource_name} från utrymmet %{space_name}"
       moderation:
