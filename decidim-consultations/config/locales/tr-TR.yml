@@ -2,7 +2,7 @@ tr:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner resmi
+        banner_image: Filama görseli
         decidim_highlighted_scope_id: Vurgulanan kapsam
         description: Açıklama
         end_voting_date: Oylama biter
