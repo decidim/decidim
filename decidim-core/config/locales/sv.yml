@@ -215,11 +215,11 @@ sv:
           bar: Bar
           foo: Foo
         name: Foo godkännande
-      granted_at: Beviljas vid %{timestamp}
+      granted_at: Beviljades vid %{timestamp}
       sms:
-        explanation: Skicka ditt mobilnummer så att vi kan kontrollera din identitet.
+        explanation: Ange ditt mobilnummer så att vi kan kontrollera din identitet.
         name: Kod via SMS
-      started_at: Börjat vid %{timestamp}
+      started_at: Påbörjades vid %{timestamp}
     authorization_modals:
       content:
         expired:
@@ -260,16 +260,16 @@ sv:
       dummy:
         actions:
           bar: Bar
-          foo: foo
+          foo: Foo
         name: Dummy Komponent
         settings:
           global:
             amendments_enabled: Ändringar är möjliga
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Kommentarer på
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
             enable_pads_creation: Aktivera skapande av memo
-            resources_permissions_enabled: Resursbehörigheter aktiverade
+            resources_permissions_enabled: Resursbehörigheter på
           step:
             comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
@@ -281,7 +281,7 @@ sv:
       hero:
         name: Hjältebild
       highlighted_content_banner:
-        name: Markerad innehållsbanner
+        name: Highlighted content banner
       how_to_participate:
         name: Hur du deltar
       html:
@@ -296,15 +296,15 @@ sv:
       stats:
         name: Organisationsstatistik
       sub_hero:
-        name: Underhjälte banner
+        name: Sub hjälte banner
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
     data_portability:
       export:
-        ready: Redo
+        ready: Klar
       show:
-        download_data: Ladda ner datat
+        download_data: Hämta data
         download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
         request_data: Begär data
     datepicker:
