@@ -187,7 +187,7 @@ sv:
         settings:
           global:
             categories_label: Namn för "Kategorier"
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Kommentarer på
             display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
             heading_parent_level_results: Namn för "Resultat"
