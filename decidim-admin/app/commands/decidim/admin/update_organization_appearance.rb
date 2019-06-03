@@ -96,15 +96,19 @@ module Decidim
       end
 
       def colors_attributes
-        form.enable_custom_colors ? {
-          colors: {
-            primary: form.primary_color,
-            secondary: form.secondary_color,
-            success: form.success_color,
-            warning: form.warning_color,
-            alert: form.alert_color
+        if form.enable_custom_colors
+          {
+            colors: {
+              primary: form.primary_color,
+              secondary: form.secondary_color,
+              success: form.success_color,
+              warning: form.warning_color,
+              alert: form.alert_color
+            }
           }
-        } : { colors: {} }
+        else
+          { colors: {} }
+        end
       end
     end
   end
