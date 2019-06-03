@@ -4,3 +4,4 @@
 //= link decidim/admin/welcome_notification.js
 //= link decidim/admin/newsletters.js
 //= link decidim/admin/application.css
+//= link decidim/admin/form.js

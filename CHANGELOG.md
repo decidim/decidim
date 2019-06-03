@@ -53,6 +53,7 @@ end
 
 **Fixed**:
 
+- **decidim-admin**: Fix: Link `form.js` in `assets/config/decidim_admin_manifest.js` [\#5165](https://github.com/decidim/decidim/pull/5165)
 - **decidim-core**: Fix: potential loop redirection when accepting TOS agreement on multi-languages sites [\#5162](https://github.com/decidim/decidim/pull/5162)
 - **decidim-assemblies**: Fix: Include asterisk in the required field `position` for `AssemblyMemberForm`. [\#5164](https://github.com/decidim/decidim/pull/5164)
 - **decidim-admin**: Fix: disallow enabling `ParticipatoryText` on component when there are proposals [\#5111](https://github.com/decidim/decidim/pull/5111)

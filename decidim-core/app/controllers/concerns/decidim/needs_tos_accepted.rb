@@ -32,7 +32,7 @@ module Decidim
                          decidim.export_data_portability_path,
                          decidim.download_file_data_portability_path]
       # ensure that path with or without query string pass
-      permitted_paths.find { |el| el.split('?').first == request.path }
+      permitted_paths.find { |el| el.split("?").first == request.path }
     end
 
     def tos_path
