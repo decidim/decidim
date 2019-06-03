@@ -140,7 +140,7 @@ sv:
       results:
         count:
           results_count:
-            one: 1 resultat
+            one: Ett resultat
             other: "%{count} resultat"
         filters:
           all: Alla
@@ -149,9 +149,9 @@ sv:
           categories_label: Kategorier
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global utförandestatus
+          global_status: Global genomförandestatus
         nav_breadcrumb:
-          global: Globalt utförande
+          global: Globalt genomförande
         search:
           search: Sök efter åtgärder
         show:
@@ -166,11 +166,11 @@ sv:
             number_of_versions: Versioner
             proposals: Förslag
             show_all_versions: Visa alla versioner
-            version_author: Version författare
-            version_created_at: Version skapad vid
+            version_author: Versionsförfattare
+            version_created_at: Version skapad
             version_number: Versionsnummer
             version_number_out_of_total: "%{current_version} av %{total_count}"
-            votes: stöder
+            votes: Stöder
         timeline:
           title: Projektutveckling
       versions:
@@ -188,20 +188,20 @@ sv:
           global:
             categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer aktiverade
-            display_progress_enabled: Visa framsteg
+            display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
-            heading_parent_level_results: Namn på "Resultat"
+            heading_parent_level_results: Namn för "Resultat"
             intro: Intro
-            subcategories_label: Namn på "Underkategorier"
+            subcategories_label: Namn för "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerade
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden vid föregående länk.
+          email_intro: 'Förslaget "%{proposal_title}" har tagits med i ett resultat. Visa det från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{proposal_title}
-          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i resultat <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har tagits med i resultatet <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'Resultatet "%{resource_title}", som omfattar förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se det från den här sidan:'
           email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
