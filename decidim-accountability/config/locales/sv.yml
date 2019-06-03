@@ -108,22 +108,22 @@ sv:
             title: Ny post
           update:
             invalid: Det var problem med att uppdatera denna post
-            success: Inmatning framgångsrikt uppdaterad
+            success: Posten har uppdaterats
       admin_log:
         result:
-          create: "%{user_name} skapade resultat %{resource_name} i %{space_name}"
+          create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
-          update: "%{user_name} uppdaterade resultat %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade resultatet %{resource_name} i %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Den överordnade hittades inte i databasen (ID: %{id})'
+            not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Nytt resultat på%{link}</span>"
+        new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
         result:
           fields:
             end_date: Slutdatum
-            progress: Framsteg
+            progress: Behandling
             start_date: Startdatum
             status: Status
             title: Titel
@@ -132,7 +132,7 @@ sv:
             description: Beskrivning
             key: Nyckel
             name: Namn
-            progress: Framsteg
+            progress: Behandling
         timeline_entry:
           fields:
             description: Beskrivning
