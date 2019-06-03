@@ -10,7 +10,7 @@ en:
         about: About
         email: Your email
         name: Your name
-        nickname: Nickname
+        nickname: Your nickname
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -1146,6 +1146,7 @@ en:
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
+      password_help: "At least 8 characters, a capital letter and a special character (eg: !)"
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
