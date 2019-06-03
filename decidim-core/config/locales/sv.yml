@@ -429,7 +429,7 @@ sv:
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       components:
