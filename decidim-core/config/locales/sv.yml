@@ -471,23 +471,23 @@ sv:
           email_subject: Du har blivit antagen till gruppen %{user_group_name}!
           notification_title: Du har blivit antagen till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
-          email_outro: Du har fått den här notisen eftersom du kan hantera gruppen %{user_group_name}.
-          email_subject: Någon bad om att få gå med i gruppen %{user_group_name}!
-          notification_title: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
+          email_intro: Någon ansökte att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa den från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
+          email_outro: Du har fått det här meddelandet eftersom du kan hantera gruppen %{user_group_name}.
+          email_subject: Någon ansökte om att gå med i gruppen %{user_group_name}!
+          notification_title: Någon ansökte om att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa den från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
         join_request_rejected:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> avvisade din förfrågan om att gå med i den.
-          email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
+          email_outro: Du har fått det här meddelandet eftersom din förfrågan att gå med har uppdaterats.
           email_subject: Din förfrågan om att gå med i gruppen %{user_group_name} har avvisats!
           notification_title: Din förfrågan om att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> har avvisats.
         promoted_to_admin:
           email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har gett dig administratörsrättigheter till den gruppen.
-          email_outro: Du har fått den här notisen eftersom du är medlem i den gruppen.
+          email_outro: Du har fått det här meddelandet eftersom du är medlem i den gruppen.
           email_subject: Du är nu en administratör för gruppen %{user_group_name}!
           notification_title: Du är nu en administratör för gruppen<a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
           email_intro: En administratör av gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dig från den.
-          email_outro: Du har fått den här notisen eftersom du var medlem i den gruppen.
+          email_outro: Du har fått det här meddelandet eftersom du var medlem i den gruppen.
           email_subject: Du har tagits bort från gruppen %{user_group_name}!
           notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
