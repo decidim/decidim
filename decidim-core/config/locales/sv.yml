@@ -2,29 +2,29 @@ sv:
   activemodel:
     attributes:
       account:
-        delete_reason: Orsak att ta bort ditt konto
+        delete_reason: Skäl att ta bort ditt konto
       report:
         details: Ytterligare kommentarer
       user:
         about: Om
-        email: Din e-post
+        email: Din e-postadress
         name: Ditt namn
-        nickname: Smeknamn
+        nickname: Användarnamn
         password: Lösenord
-        password_confirmation: Bekräfta ditt lösenord
+        password_confirmation: Bekräfta lösenord
         personal_url: Personlig URL
         remove_avatar: Ta bort avatar
     models:
       decidim/attachment_created_event: Bilaga
       decidim/component_published_event: Aktiv komponent
       decidim/demoted_membership: Inte längre en gruppadministratör
-      decidim/gamification/badge_earned_event: Emblem intjänad
+      decidim/gamification/badge_earned_event: Intjänat märke
       decidim/gamification/level_up_event: Du har gått upp i nivå
-      decidim/join_request_accepted_event: Gå med förfrågan accepterad
-      decidim/join_request_rejected_event: Gå med förfrågan avvisad
-      decidim/profile_updated_event: Profil uppdaterad
+      decidim/join_request_accepted_event: Förfrågan att gå med har godkänts
+      decidim/join_request_rejected_event: Förfrågan att gå med har avvisats
+      decidim/profile_updated_event: Profilen har uppdaterats
       decidim/promote_to_admin: Befordrad till gruppadministratör
-      decidim/removed_from_group: Avlägsnad från gruppen
+      decidim/removed_from_group: Borttagen från gruppen
   activerecord:
     attributes:
       decidim/user:
@@ -60,8 +60,8 @@ sv:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Fil existerar inte
-        invalid_token: Den angivna tecknet är ogiltigt.
+        file_no_exists: Filen finns inte
+        invalid_token: Den angivna koden är ogiltig.
         no_token: Inget tecken har tillhandahålls
         notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
@@ -1263,6 +1263,10 @@ sv:
     directions:
       left: Raderingar
       right: Tillägg
+    dropdown:
+      choose_diff_view_mode: 'Visningsläge för jämförelse:'
+      option_split: Sida vid sida
+      option_unified: Sammanslagen
   views:
     pagination:
       first: "&laquo; Första"
