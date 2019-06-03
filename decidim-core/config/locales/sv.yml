@@ -111,15 +111,15 @@ sv:
         delete: "%{user_name} avlägsnade användaren %{resource_name} som privat användare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
-        create_with_parent: "%{user_name} skapade området %{resource_name} inom ramen för %{parent_scope}"
-        delete: "%{user_name} raderade området %{resource_name}"
-        delete_with_parent: "%{user_name} raderade området %{resource_name} inom ramen för %{parent_scope}"
-        update: "%{user_name} uppdaterade området %{resource_name}"
-        update_with_parent: "%{user_name} uppdaterade området %{resource_name} inom ramen för %{parent_scope}"
+        create_with_parent: "%{user_name} skapade omfattningen %{resource_name} inom ramen för %{parent_scope}"
+        delete: "%{user_name} raderade omfattningen %{resource_name}"
+        delete_with_parent: "%{user_name} raderade omfattningen %{resource_name} inom ramen för %{parent_scope}"
+        update: "%{user_name} uppdaterade omfattningen %{resource_name}"
+        update_with_parent: "%{user_name} uppdaterade omfattningen %{resource_name} inom ramen för %{parent_scope}"
       static_page:
-        create: "%{user_name} skapade statisk sida för %{resource_name}"
-        delete: "%{user_name} raderade statisk sida för %{resource_name}"
-        update: "%{user_name} uppdaterade statisk sida för %{resource_name}"
+        create: "%{user_name} skapade den statiska sidan %{resource_name}"
+        delete: "%{user_name} raderade den statiska sidan %{resource_name}"
+        update: "%{user_name} uppdaterade den statiska sidan %{resource_name}"
       user:
         invite: "%{user_name} bjudit in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} publicerade användaren %{resource_name}"
@@ -194,26 +194,26 @@ sv:
         other: kommentarer
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Bli verifierad genom att införa ett passnummer som börjar med "A"
+        explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
         fields:
           passport_number: Passnummer
         name: Ett annat exempel på auktorisering
       dummy_authorization_handler:
-        explanation: Bli verifierad genom att införa ett dokumentnummer som slutar med "X"
+        explanation: Bli bekräftad genom att ange ett dokumentnummer som avslutas med "X"
         fields:
           document_number: Dokumentnummer
           postal_code: Postnummer
-        name: Exempel godkännande
+        name: Exempelbekräftelse
       dummy_authorization_workflow:
-        name: Arbetsflöde för dummy-auktorisering
+        name: Dummy-arbetsflöde för bekräftelse
       errors:
         duplicate_authorization: En deltagare är redan behörig med samma data.
-      expired_at: Förfallit vid %{timestamp}
+      expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
-          foo: foo
+          foo: Foo
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       sms:
