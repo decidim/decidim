@@ -435,31 +435,31 @@ sv:
       components:
         component_published:
           email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden om du följer föregående länk.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden om du följer föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: '%{resource_title} komponenten är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hej %{user_name},
-        email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
-        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan avfölja det från föregående länk.
+        email_intro: 'Det har varit en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
           email_intro: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
-          email_outro: Du har fått det här meddelandet eftersom du hade aktivitet på vår hemsida.
-          email_subject: 'Du har fått ett nytt emblem: %{badge_name}!'
+          email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
+          email_subject: 'Du har uppnått ett nytt märke: %{badge_name}!'
           notification_title: Bra jobbat! Du har intjänat <a href="%{resource_path}">%{badge_name} emblemet</a> (nivå %{current_level}).
         level_up:
           email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_url}">%{badge_name} emblemet</a>!
-          email_outro: Du har fått den här meddelandet eftersom du hade aktivitet på vår hemsida.
-          email_subject: Du har nått nivån %{current_level} på %{badge_name} emblemet!
+          email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
+          email_subject: Du har uppnått nivå %{current_level} på märket %{badge_name}!
           notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
       groups:
         demoted_membership:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
-          email_outro: Du har fått den här notisen eftersom du är medlem i den gruppen.
-          email_subject: Du är inte längre en administratör för %{user_group_name} gruppen!
-          notification_title: Du är inte längre en administratör för <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+          email_outro: Du har fått den här meddelandet eftersom du är medlem i den gruppen.
+          email_subject: Du är inte längre en administratör för gruppen %{user_group_name}!
+          notification_title: Du är inte längre en administratör för gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har bjudit in dig att gå med i den.
           email_outro: Du har fått den här notisen eftersom du har blivit inbjuden till en grupp. Kontrollera fliken Grupper i din profil för att godkänna den.
