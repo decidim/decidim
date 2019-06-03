@@ -364,22 +364,22 @@ sv:
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
-          publish_content: Publicera innehåll för dig
-          see_email: Se din email
+          publish_content: Publicera innehåll åt dig
+          see_email: Se din e-postadress
           see_name: Se ditt namn
           see_username: Se ditt användarnamn
-          this_application_will_be_able_to: 'Denna ansökan kommer att kunna:'
-          this_application_will_not_be_able_to: 'Den här applikationen kommer inte att kunna:'
+          this_application_will_be_able_to: 'Detta program kommer att kunna:'
+          this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     errors:
       internal_server_error:
         title: Det uppstod ett problem med vår server
-        try_later: Vänligen försök igen senare.
+        try_later: Försök igen senare.
       not_found:
         back_home: Tillbaka hem
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
-        title: Sidan du söker kan inte hittas
+        title: Sidan som du söker kan inte hittas
     events:
       amendments:
         amendment_accepted:
@@ -428,7 +428,7 @@ sv:
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
+          email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
