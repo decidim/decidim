@@ -316,13 +316,13 @@ sv:
         new:
           complete_profile: Slutför profil
           nickname_help: Ditt alias (@användarnamn) i %{organization}
-          sign_up: Vänligen fyll i din profil
-          subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
-          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara vilket namn som helst.
+          sign_up: Var god slutför din profil
+          subtitle: Slutför registreringen genom att fylla i följande formulär
+          username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
-          newsletter: Få ett tillfälligt nyhetsbrev med relevant information
+          newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias (@användarnamn) i %{organization}
           password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
@@ -332,12 +332,12 @@ sv:
             legend: Registrera dig som
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
-          tos_agreement: Genom att registrera dig godkänner du till %{link}.
+          tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
       sessions:
         new:
-          are_you_new?: Ny på plattformen?
+          are_you_new?: Ny här?
           register: Skapa ett konto
           sign_in_disabled: Du kan få åtkomst via ett externt konto
           sign_up_disabled: Anmälan är avaktiverad, men du kan komma in med ett befintligt konto
@@ -348,12 +348,12 @@ sv:
             close_modal: Stäng modal
             uncheck: Behåll avmarkeringen
           notice: |-
-            <p>Hej, är du säker på att du inte vill få ett nyhetsbrev?<br>
-            Tänk på att markera kryssrutan nyhetsbrev nedan.<br>
-            Det är väldigt viktigt för oss att du kan få tillfälliga e-postmeddelanden för att göra viktiga meddelanden. Du kan alltid ändra det på sidan Meddelandeinställningar.</p>
-            <p>Om du inte markerar rutan kanske du missar relevant information om nya deltagande möjligheter inom plattformen.<br>
-            Om du fortfarande vill undvika att få nyhetsbrev, förstår vi ditt beslut helt.</p>
-            <p>Tack för att du läste detta!</p>
+            <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
+            Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
+            Det är viktigt för oss att vi kan skicka e-brev då och då med viktiga meddelanden. Du kan alltid ändra det senare på sidan Meddelandeinställningar.</p>
+            <p>Om du inte markerar rutan kanske du inte får relevant information om nya möjligheter till deltagande på plattformen.<br>
+            Om du fortfarande inte vill få några nyhetsbrev, förstår vi ditt beslut helt.</p>
+            <p>Tack så mycket!</p>
           title: Notiser till nyhetsbrev
         omniauth_buttons:
           or: Eller
