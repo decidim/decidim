@@ -51,8 +51,11 @@ module Decidim
       end
 
       def translatable?
+        @organization ||= try(:current_organization)
+        @organization ||= try(:current_participatory_space).try(:organization)
+        @organization ||= try(:current_component).try(:organization)
         @organization ||= request.env["decidim.current_organization"]
-        @organization.deepl_api_key.present? && @organization.translatable_locales.count > 1
+        @organization.try(:deepl_api_key).present? && @organization.try(:translatable_locales).count > 1
       end
     end
   end
