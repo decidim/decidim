@@ -462,14 +462,14 @@ sv:
           notification_title: Du är inte längre en administratör för gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har bjudit in dig att gå med i den.
-          email_outro: Du har fått den här notisen eftersom du har blivit inbjuden till en grupp. Kontrollera fliken Grupper i din profil för att godkänna den.
-          email_subject: Du har blivit inbjuden att gå med i %{user_group_name} gruppen!
-          notification_title: Du har blivit inbjuden att gå med i gruppen <a href="%{resource_path}">%{user_group_name}</a> . Kolla <a href="%{groups_profile_tab_path}">Gruppsidor</a> i din profil för att godkänna det!
+          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till en grupp. Godkänn inbjudan under fliken Grupper i din profil.
+          email_subject: Du har fått en inbjudan till gruppen %{user_group_name}!
+          notification_title: Du har fått en inbjudan till gruppen <a href="%{resource_path}">%{user_group_name}</a>. Godkänn inbjudan på <a href="%{groups_profile_tab_path}">sidan Grupper</a> i din profil!
         join_request_accepted:
-          email_intro: Grattis! En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har accepterat din förfrågan om att gå med i den.
-          email_outro: Du har fått den här notisen eftersom din förfrågan att gå med har uppdaterats.
-          email_subject: Du har blivit accepterad till gruppen %{user_group_name}!
-          notification_title: Du har blivit accepterad till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: Grattis! En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har godkänt din förfrågan om att gå med i den.
+          email_outro: Du får detta meddelande eftersom din förfrågan att gå med har uppdaterats.
+          email_subject: Du har blivit antagen till gruppen %{user_group_name}!
+          notification_title: Du har blivit antagen till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Någon bad om att få gå med i gruppen %{user_group_name}. Du kan acceptera eller avvisa det från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
           email_outro: Du har fått den här notisen eftersom du kan hantera gruppen %{user_group_name}.
