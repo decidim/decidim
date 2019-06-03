@@ -305,7 +305,7 @@ sv:
         ready: Klar
       show:
         download_data: Hämta data
-        download_data_description: En fil med all information som är kopplad till kontot skickas till <strong>%{user_email}</strong>
+        download_data_description: En fil med all information som är kopplad till kontot kommer att skickas till <strong>%{user_email}</strong>
         request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
@@ -314,7 +314,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Färdigställ profil
+          complete_profile: Slutför profil
           nickname_help: Ditt alias (@användarnamn) i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
