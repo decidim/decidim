@@ -93,6 +93,8 @@ end
 - **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
 - **decidim-core**: Escape fingerprint content [#5146](https://github.com/decidim/decidim/pull/5146)
 - **decidim-initiatives**: Escape hashtag content [#5150](https://github.com/decidim/decidim/pull/5150)
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 
 **Removed**:
 
