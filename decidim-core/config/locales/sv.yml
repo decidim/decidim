@@ -580,9 +580,9 @@ sv:
           next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
           unearned_another: Den här användaren har inte bjudit in någon användare än.
           unearned_own: Du har inte bjudit in några användare än.
-      description: Emblem är erkännanden för deltagaråtgärder och framsteg i plattformen. När du börjar upptäcka, delta och interagera i plattformen, tjänar du olika emblem.
+      description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
       level: Nivå %{level}
-      reached_top: Du har nått den översta nivån för detta emblem.
+      reached_top: Du har nått den högsta nivån för detta märke.
     group_admins:
       actions:
         are_you_sure: Är du säker? Detta tar inte bort användaren från gruppen.
@@ -597,7 +597,7 @@ sv:
       accept:
         error: Det gick inte att acceptera den här inbjudan
         success: Inbjudan accepterades
-      accept_invitation: Acceptera
+      accept_invitation: Godkänn
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avslå deras förfrågningar:'
       index:
         invite: Inbjudan
