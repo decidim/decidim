@@ -491,19 +491,19 @@ sv:
           email_subject: Du har tagits bort från gruppen %{user_group_name}!
           notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
       notification_event:
-        notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
-          email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{nickname}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: "%{nickname} uppdaterade sin profil"
-          notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+          notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
         click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.
-        download: Ladda ner
+        download: Hämta
       export:
-        ready: Vänligen se zippad version bifogad av din export.
+        ready: En komprimerad version av exporten är bifogad.
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:
@@ -516,9 +516,9 @@ sv:
         result: Resultat
     fingerprint:
       check: Kontrollera fingeravtryck
-      explanation: Textstycket nedan är en förkortad, sammanfattad representation av detta innehåll. Det är användbart att se till att innehållet inte har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
+      explanation: Textstycket nedan är en förkortad och hashad representation av detta innehåll. Det är användbart för att se om innehållet har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
       online_calculator_name: MD5 onlinekalkylator
-      replicate_help: Detta fingeravtryck beräknas med en SHA256 hash-algoritm. För att replikera det själv kan du använda en %{online_calculator_link} och kopiera och klistra in källdata.
+      replicate_help: Detta fingeravtryck har beräknats med en SHA256 hash-algoritm. För att själv utföra beräkningen via %{online_calculator_link} och kopiera och klistra in källdata.
       source: Källa
       title: Fingeravtryck
       value: Värde
@@ -536,7 +536,7 @@ sv:
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
-      default_image: Standardbild
+      default_image: Förvald bild
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
@@ -545,12 +545,12 @@ sv:
       badges:
         continuity:
           conditions:
-            - Kommer hit ofta
-          description: Detta märke beviljas när du besöker plattformen på ett vanligt sätt. Vi gillar att ha dig här!
+            - Kommer ofta hit
+          description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
           description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
-          description_own: Du har anslutit dig under %{score} på varandra följande dagar vid någon tidpunkt.
+          description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
           name: Kontinuitet
-          next_level_in: Anslut under %{score} på varandra följande dagar för att komma till nästa nivå!
+          next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
           unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
           unearned_own: Du har inte anslutit dig under på varandra följande dagar.
         followers:
