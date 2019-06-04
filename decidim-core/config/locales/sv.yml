@@ -653,7 +653,7 @@ sv:
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
-        accept_request: Acceptera
+        accept_request: Godkänn
         reject_request: Avvisa
       new:
         create_user_group: Skapa grupp
@@ -679,7 +679,7 @@ sv:
         no_activities_warning: Ingen aktivitet
       all: Alla aktivitetstyper
       index:
-        last_activity: Senaste aktiviteten
+        last_activity: Senaste aktivitet
         resource_type: Typ
     log:
       base_presenter:
