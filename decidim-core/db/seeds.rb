@@ -142,7 +142,7 @@ if !Rails.env.production? || ENV["SEED"]
   Decidim::Messaging::Conversation.start!(
     originator: admin,
     interlocutors: [regular_user],
-    body: "Hei! I'm glad you like Decidim"
+    body: "Hey! I'm glad you like Decidim"
   )
 
   Decidim::User.find_each do |user|
@@ -151,6 +151,7 @@ if !Rails.env.production? || ENV["SEED"]
         name: Faker::Company.unique.name,
         nickname: Faker::Twitter.unique.screen_name,
         email: Faker::Internet.email,
+        confirmed_at: Time.current,
         extended_data: {
           document_number: Faker::Number.number(10),
           phone: Faker::PhoneNumber.phone_number,
@@ -158,7 +159,6 @@ if !Rails.env.production? || ENV["SEED"]
         },
         decidim_organization_id: user.organization.id
       )
-      user_group.confirm
 
       Decidim::UserGroupMembership.create!(
         user: user,

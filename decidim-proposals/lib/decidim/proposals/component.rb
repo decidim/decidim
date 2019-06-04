@@ -226,9 +226,10 @@ Decidim.register_component(:proposals) do |component|
             phone: Faker::PhoneNumber.phone_number,
             verified_at: Time.current
           },
-          decidim_organization_id: component.organization.id
+          decidim_organization_id: component.organization.id,
+          confirmed_at: Time.current
         )
-        group.confirm
+
         Decidim::UserGroupMembership.create!(
           user: author,
           role: "creator",
@@ -313,9 +314,10 @@ Decidim.register_component(:proposals) do |component|
                 phone: Faker::PhoneNumber.phone_number,
                 verified_at: Time.current
               },
-              decidim_organization_id: component.organization.id
+              decidim_organization_id: component.organization.id,
+              confirmed_at: Time.current
             )
-            group.confirm
+
             Decidim::UserGroupMembership.create!(
               user: author,
               role: "creator",
