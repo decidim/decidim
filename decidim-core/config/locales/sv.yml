@@ -598,7 +598,7 @@ sv:
         error: Det gick inte att acceptera den här inbjudan
         success: Inbjudan accepterades
       accept_invitation: Godkänn
-      accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avslå deras förfrågningar:'
+      accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
       index:
         invite: Inbjudan
         invite_user: Bjud in en användare
@@ -652,7 +652,7 @@ sv:
         error: Det har uppstått ett problem med att lämna gruppen
         success: Du har lämnat gruppen.
       members:
-        accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avslå deras förfrågningar:'
+        accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
         accept_request: Acceptera
         reject_request: Avvisa
       new:
