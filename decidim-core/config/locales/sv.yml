@@ -552,11 +552,11 @@ sv:
           name: Kontinuitet
           next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
           unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
-          unearned_own: Du har inte anslutit dig under på varandra följande dagar.
+          unearned_own: Du har inte anslutit dig mer än en dag i följd.
         followers:
           conditions:
-            - Att vara aktiv och följa andra människor kommer säkert att få andra att följa dig.
-          description: Detta märke beviljas när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, väv ditt nät för att kommunicera med andra personer på plattformen.
+            - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
+          description: Du får detta märke när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, spinn ditt nät genom att kommunicera med andra personer på plattformen.
           description_another: Den här användaren har %{score} följare.
           description_own: "%{score} användare följer dig."
           name: Följare
@@ -565,7 +565,7 @@ sv:
           unearned_own: Du har inga följare än.
         index:
           badge_title: "%{name} märke"
-          how: Hur kan du tjäna det
+          how: Hur kan du få det
           page_description: Märken är erkännanden för deltagaråtgärder och framsteg på plattformen. När du börjar upptäcka, delta och samverka på plattformen, tjänar du olika märken. Här är listan på märken och några sätt som du kan tjäna dem på.
           title: Märken
         invitations:
