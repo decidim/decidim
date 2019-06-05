@@ -1024,10 +1024,10 @@ sv:
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
     invitations:
       edit:
-        header: Slutför skapandet av ditt konto
+        header: Slutför att skapa ditt konto
         nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
-        subtitle: Om du accepterar inbjudan, vänligen välj ditt användarnamn och lösenord.
+        subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
       invitation_token_invalid: Anbudsinfordran är inte giltig!
       new:
@@ -1045,10 +1045,10 @@ sv:
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
-        message: Vi kontaktar dig för att meddela dig att din e-post ändras till %{email}.
+        message: Vi kontaktar dig eftersom din e-postadress ändras till %{email}.
         subject: E-post ändrad
       invitation_instructions:
-        accept: Acceptera inbjudan
+        accept: Godkänn inbjudan
         accept_until: Denna inbjudan kommer att förfalla %{due_date}.
         decline: Avböj inbjudan
         hello: Hej %{email},
