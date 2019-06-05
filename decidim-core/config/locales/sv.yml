@@ -831,18 +831,18 @@ sv:
           endorsements_count: Påskrifter
           headline: Aktuellt läge för %{organization}
           meetings_count: Möten
-          orders_count: Röster
+          orders_count: Omröstningar
           pages_count: Sidor
           processes_count: Processer
           projects_count: Projekt
-          proposals_accepted: Godkända Förslag
+          proposals_accepted: Godkända förslag
           proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
           users_count: Deltagare
-          votes_count: Röster
+          votes_count: Omröstningar
         sub_hero:
-          register: Registrera dig
+          register: Registrera
       index:
         read_more: Läs mer
         standalone_pages: Sidor
@@ -856,20 +856,20 @@ sv:
       terms_and_conditions:
         accept:
           error: Det har blivit ett fel när du accepterade villkoren.
-          success: Bra! Du har accepterat villkoren.
+          success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag håller med om dessa villkor
+          agreement: Jag godkänner användarvillkoren
           legend: Godkänn användarvillkoren
         refuse:
-          modal_body: Om du vägrar, kan du inte använda plattformen, du kan <a href="%{data_portability_path}">ladda ner data</a> och / eller <a href="%{delete_path}">radera ditt konto</a>.
-          modal_btn_continue: Acceptera villkor och fortsätt
-          modal_btn_exit: Jag ska granska den senare
+          modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
+          modal_btn_continue: Acceptera villkoren och fortsätt
+          modal_btn_exit: Jag granskar dem senare
           modal_button: Avvisa villkoren
-          modal_close: Stäng modal
-          modal_title: Avvisar du verkligen de uppdaterade användarvillkoren?
+          modal_close: Stäng fönstret
+          modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
-          body: Var snäll och granska uppdateringar av våra användarvillkor. Annars kommer du inte kunna använda plattformen.
+          body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte kunna använda plattformen.
           title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
