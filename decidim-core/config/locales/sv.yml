@@ -869,13 +869,13 @@ sv:
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
-          body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte kunna använda plattformen.
-          title: 'Obligatorisk: Granska uppdateringar av våra användarvillkor'
+          body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
+          title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Ta bort användare
-      view: Se
+      view: Visa
     profiles:
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
       default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
