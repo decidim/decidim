@@ -771,16 +771,16 @@ sv:
       notify:
         body_1: Behandlingen och skyddet av personuppgifter blir allt viktigare för oss alla. Med den nya dataskyddsförordningen (GDPR) per den 25 maj 2018 har individer större kontroll över sina personuppgifter. Därför behöver vi ett "OK" från dig för att fortsätta att skicka relevant information om aktiviteterna i %{organization_name}.
         body_2: 'Hur samtycker du? Klicka på följande knapp:'
-        body_3: Med detta samtycke kan du fortsätta att få information om plattformens tjänster. Om vi ​​tvärtom inte får en positiv bekräftelse från din sida kommer vi sluta skicka dig våra meddelanden. Om du bekräftar att du vill fortsätta informeras, har du alltid möjlighet att avbryta när som helst.
+        body_3: Med detta samtycke får du även fortsättningsvis information om plattformens tjänster. Om vi ​​tvärtom inte får en aktiv bekräftelse från din sida kommer vi att sluta att skicka dig meddelanden. Även om du bekräftar att du vill fortsätta att få information från oss, kan du när som helst välja att avbryta att få den.
         button: Ja, jag vill fortsätta att få relevant information
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
     notifications:
-      no_notifications: Inga notiser ännu.
+      no_notifications: Inga meddelanden ännu.
     notifications_settings:
       show:
-        email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
+        email_on_notification: Jag vill få ett e-brev varje gång jag får ett meddelande.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: nyhetsbrev
@@ -795,7 +795,7 @@ sv:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     own_user_groups:
       index:
-        pending: Pågående
+        pending: Avvaktande
         rejected: Avvisad
         verified: Verifierad
     pad_iframe:
@@ -806,7 +806,7 @@ sv:
       home:
         extended:
           debates: Debatter
-          debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
+          debates_explanation: Debattera och diskutera, dela dina åsikter och berika de relevanta ämnena.
           how_to_participate: Hur deltar jag i en process?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
@@ -815,7 +815,7 @@ sv:
           proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
         footer_sub_hero:
           footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
-          footer_sub_hero_headline: Välkommen till %{organization} deltagarplattformen.
+          footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
           participate: Delta
@@ -823,7 +823,7 @@ sv:
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Genomförda Undersökningar
+          answers_count: Genomförda undersökningar
           assemblies_count: Församlingar
           comments_count: Kommentarer
           conferences_count: Konferenser
