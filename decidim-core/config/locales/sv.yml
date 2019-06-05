@@ -1139,8 +1139,8 @@ sv:
         sign_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:
-        one: "(%{count} minimiantal tecken)"
-        other: "(%{count} minimiantal tecken)"
+        one: "(minst %{count} tecken)"
+        other: "(minst %{count} tecken)"
     unlocks:
       new:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
@@ -1154,12 +1154,12 @@ sv:
     messages:
       already_confirmed: var redan bekräftad, var god försök att logga in
       confirmation_period_expired: måste bekräftas inom %{period}, vänligen be om en ny
-      content_type_whitelist_error: filtypen är inte giltig
-      cycle_detected: en omfattnings förälder kan inte vara en av sina efterkommande
-      expired: har gått ut, vänligen be om en ny
+      content_type_whitelist_error: ogiltig filtyp
+      cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
+      expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       long_words: innehåller ord som är för långa (över 35 tecken)
-      must_start_with_caps: måste börja med en versal
+      must_start_with_caps: måste börja med en stor bokstav
       nesting_too_deep: kan inte vara inuti en underkategori
       not_found: hittades inte
       not_locked: låstes inte
