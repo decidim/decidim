@@ -1053,25 +1053,25 @@ sv:
         decline: Avböj inbjudan
         hello: Hej %{email},
         ignore: |-
-          Om du inte vill acceptera inbjudan, ignorerar du detta e-postmeddelande.<br />
-          Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt smeknamn och lösenord.
+          Om du inte vill godkänna inbjudningen kan du ignorera detta e-postmeddelande.<br />
+          Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
-        someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
+        someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
-        subject: Inbjudningsanvisningar
+        subject: Anvisningar om inbjudningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
-        subject: Du har blivit inbjuden att samarbeta på %{organization}
+        subject: Du har blivit inbjuden att samarbeta med %{organization}
       invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagandeprocess på %{organization}
+        subject: Du har blivit inbjuden till en privat deltagandeprocess med %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
         greeting: Hej %{recipient}!
-        message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
+        message: Detta är ett meddelande om att ditt lösenord har ändrats.
         subject: Lösenord ändrat
       reset_password_instructions:
         action: Ändra mitt lösenord
@@ -1083,9 +1083,9 @@ sv:
       unlock_instructions:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
-        instruction: 'Klicka på länken nedan för att låsa upp ditt konto:'
-        message: Ditt konto har blivit låst på grund av ett stort antal misslyckade inloggningsförsök.
-        subject: Instruktioner för upplåsning
+        instruction: 'Lås upp ditt konto med länken nedan:'
+        message: Ditt konto låsts på grund av ett stort antal misslyckade inloggningsförsök.
+        subject: Anvisningar för att låsa upp
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
       success: Succesfullt autentiserad från %{kind} konto.
@@ -1116,10 +1116,10 @@ sv:
         update: Uppdatera
         we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
       new:
-        sign_up: Registrera dig
-      signed_up: Välkommen! Din registrering lyckades.
-      signed_up_but_inactive: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
-      signed_up_but_locked: Din registrering lyckades. Vi kunde dock inte logga in dig eftersom ditt konto är låst.
+        sign_up: Registrera
+      signed_up: Välkommen! Din registrering är klar.
+      signed_up_but_inactive: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto är låst.
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
