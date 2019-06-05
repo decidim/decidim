@@ -1120,15 +1120,15 @@ sv:
       signed_up: Välkommen! Din registrering är klar.
       signed_up_but_inactive: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto ännu inte är aktiverat.
       signed_up_but_locked: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto är låst.
-      signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Aktivera kontot genom att följa länken.
       update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
       updated: Ditt konto har uppdaterats framgångsrikt.
     sessions:
-      already_signed_out: Utloggningen lyckades.
+      already_signed_out: Du har loggats ut.
       new:
         sign_in: Logga in
-      signed_in: Inloggningen lyckades.
-      signed_out: Utloggningen lyckades.
+      signed_in: Inloggningen är klar.
+      signed_out: Du är utloggad.
     shared:
       links:
         back: Tillbaka
