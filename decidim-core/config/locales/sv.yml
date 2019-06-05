@@ -710,18 +710,18 @@ sv:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Hej, %{recipient}!
-          intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se det:"
-          outro: Njut av Decidim!
+          greeting: Hej %{recipient}!
+          intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
+          outro: Njut av decidim!
           subject: "%{sender} har startat en konversation med dig"
         new_message:
-          greeting: Hej, %{recipient}!
-          intro: "%{sender} har lagt upp nya meddelanden i din konversation. Klicka här för att se dem:"
-          outro: Njut av Decidim!
-          subject: Du har nya meddelanden från %{sender}
+          greeting: Hej %{recipient}!
+          intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
+          outro: Njut av decidim!
+          subject: Du har fått nya meddelanden från %{sender}
       conversations:
         create:
-          error: Samtalet startade inte. Försök igen senare
+          error: Konversationen har inte startat. Försök igen senare
         index:
           no_conversations: Du har inga konversationer än
           title: samtal
@@ -752,8 +752,8 @@ sv:
         title: Användare
     newsletter_mailer:
       newsletter:
-        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">notissidan</a>.
-        see_on_website: Kan du inte se det här e-postmeddelandet korrekt? Visa den på <a href="%{link}" target="_blank">webbplatsen</a>.
+        note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
+        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a>.
     newsletters:
       unsubscribe:
