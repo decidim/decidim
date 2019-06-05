@@ -611,7 +611,6 @@ fr:
       proposals:
         compare:
           continue: Continuer
-          mine_is_different: Моя пропозиція інша
           no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         complete:

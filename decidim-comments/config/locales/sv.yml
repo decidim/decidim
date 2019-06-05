@@ -19,6 +19,8 @@ sv:
       comments: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
+      translate: Translate to %{target}
+      translated: Back to original version
       votes:
         create:
           error: Det har blivit fel när du röstar om kommentaren.

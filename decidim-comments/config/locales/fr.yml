@@ -19,8 +19,8 @@ fr:
       comments: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
-      translate: "Traduire en %{target}"
-      translated: "Retour à la version d'origine"
+      translate: Traduire en %{target}
+      translated: Retour à la version d'origine
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.

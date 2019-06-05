@@ -19,6 +19,8 @@ ca:
       comments: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
+      translate: Translate to %{target}
+      translated: Back to original version
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.

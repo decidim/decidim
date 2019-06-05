@@ -19,6 +19,8 @@ fi:
       comments: Kommentit
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
+      translate: Translate to %{target}
+      translated: Back to original version
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.

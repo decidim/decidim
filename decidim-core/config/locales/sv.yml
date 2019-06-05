@@ -991,9 +991,7 @@ sv:
       version_author:
         deleted: Raderad användare
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte någon aktivitet än.
@@ -1144,6 +1142,7 @@ sv:
       minimum_password_length:
         one: "(%{count} minimiantal tecken)"
         other: "(%{count} minimiantal tecken)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen

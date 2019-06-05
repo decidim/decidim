@@ -611,7 +611,6 @@ hu:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Javaslatom más jellegű
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
@@ -731,6 +730,8 @@ hu:
           need_more_votes: Több szavazat kell
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek

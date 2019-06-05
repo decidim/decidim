@@ -92,7 +92,6 @@ pt-BR:
           checked_out:
             description: Você já votou no orçamento. Se você mudou de idéia, você pode %{cancel_link}.
             title: Votação do orçamento concluída
-          description: Hangi projeler için bütçe ayırmamız gerektiğini düşünüyorsunuz? İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihleriniz doğrultusunda oy kullanın.
           description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
           description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Você decide o orçamento

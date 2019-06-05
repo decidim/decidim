@@ -611,7 +611,6 @@ ca:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: La meva proposta és diferent
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
@@ -731,6 +730,8 @@ ca:
           need_more_votes: Necessita més vots
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports

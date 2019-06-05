@@ -989,6 +989,8 @@ tr-TR:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    translate: Translate to %{target}
+    translated: Back to original version
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1139,6 +1141,7 @@ tr-TR:
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions

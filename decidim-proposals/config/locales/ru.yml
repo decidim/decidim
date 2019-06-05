@@ -613,7 +613,6 @@ ru:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Мое предложение отличается
           no_similars_found: Хорошая работа! Подобных предложений не найдено
           title: Похожие предложения
         complete:
@@ -739,6 +738,8 @@ ru:
           need_more_votes: Нужно больше голосов
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки

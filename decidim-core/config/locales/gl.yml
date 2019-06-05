@@ -991,9 +991,7 @@ gl:
       version_author:
         deleted: Usuario eliminado
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
@@ -1144,6 +1142,7 @@ gl:
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(Mínimo de%{count} caracteres)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenvía instrucións de desbloqueo

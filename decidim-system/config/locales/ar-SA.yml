@@ -48,6 +48,7 @@ ar-SA:
           fields:
             created_at: Created at
             name: Name
+            smtp_settings: SMTP settings
           name: Organization
       organizations:
         create:

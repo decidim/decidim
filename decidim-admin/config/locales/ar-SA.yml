@@ -37,6 +37,7 @@ ar-SA:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
@@ -46,6 +47,7 @@ ar-SA:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icon
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
@@ -64,6 +66,8 @@ ar-SA:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
@@ -560,7 +564,6 @@ ar-SA:
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
           omnipresent_banner_appearance_title: Edit omnipresent banner
-          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Active content blocks

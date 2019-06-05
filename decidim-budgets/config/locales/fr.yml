@@ -92,7 +92,6 @@ fr:
           checked_out:
             description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          description: Hangi projeler için bütçe ayırmamız gerektiğini düşünüyorsunuz? İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihleriniz doğrultusunda oy kullanın.
           description_per_budget: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Les projets choisis doivent atteindre le montant minimum cumulé de %{minimum_budget}.
           description_per_project: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Vous devez choisir %{minimum_project} minimum.
           title: Vous décidez du budget

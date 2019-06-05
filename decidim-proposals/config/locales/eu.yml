@@ -611,7 +611,6 @@ eu:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Nire proposamena desberdina da
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
         complete:
@@ -731,6 +730,8 @@ eu:
           need_more_votes: Botoak gehiago behar dituzu
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke

@@ -611,7 +611,6 @@ de:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mein Vorschlag ist anders
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
@@ -731,6 +730,8 @@ de:
           need_more_votes: Brauche mehr Stimmen
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln

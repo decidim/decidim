@@ -613,7 +613,6 @@ uk:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Моя пропозиція інша
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
@@ -739,6 +738,8 @@ uk:
           need_more_votes: Потрібно більше голосів
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей

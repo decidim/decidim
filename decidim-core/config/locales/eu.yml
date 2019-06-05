@@ -991,9 +991,7 @@ eu:
       version_author:
         deleted: Erabiltzailea ezabatua
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
@@ -1144,6 +1142,7 @@ eu:
       minimum_password_length:
         one: "(%{count} karaktere gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Berriro desblokeatzeko argibideak berriro bidaltzea

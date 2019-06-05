@@ -37,6 +37,7 @@ es-MX:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
@@ -46,6 +47,7 @@ es-MX:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
+        from: From email address
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
@@ -64,6 +66,8 @@ es-MX:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Prefijo de la referencia
         secondary_color: Secondary
@@ -561,7 +565,6 @@ es-MX:
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           layout_appearance_title: Editar apariencia de diseño global
           omnipresent_banner_appearance_title: Editar banner omnipresente
-          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contenido activos

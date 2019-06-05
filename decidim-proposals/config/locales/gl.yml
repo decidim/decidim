@@ -611,7 +611,6 @@ gl:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: A miña proposta é diferente
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:
@@ -731,6 +730,8 @@ gl:
           need_more_votes: Necesita máis votos
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios

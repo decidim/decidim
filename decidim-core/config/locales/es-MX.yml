@@ -995,9 +995,7 @@ es-MX:
       version_author:
         deleted: Usuario eliminado
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
@@ -1148,6 +1146,7 @@ es-MX:
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
@@ -1178,6 +1177,17 @@ es-MX:
       too_short: Es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.

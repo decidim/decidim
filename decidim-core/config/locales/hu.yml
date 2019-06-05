@@ -990,9 +990,7 @@ hu:
       version_author:
         deleted: Törölt felhasználó
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Ennek a felhasználónak még nem volt aktívja.
@@ -1143,6 +1141,7 @@ hu:
       minimum_password_length:
         one: "(Legalább%{count} karakter)"
         other: "(Legalább%{count} karakter)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Feloldási utasítások újraküldése

@@ -991,9 +991,7 @@ fi:
       version_author:
         deleted: Käyttäjä poistettu
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
@@ -1144,6 +1142,7 @@ fi:
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
         other: "(vähintään %{count} merkkiä)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon

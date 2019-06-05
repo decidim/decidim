@@ -611,7 +611,6 @@ es-PY:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mi propuesta es diferente
           no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:
@@ -731,6 +730,8 @@ es-PY:
           need_more_votes: Necesita más votos
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos

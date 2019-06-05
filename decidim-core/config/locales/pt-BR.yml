@@ -991,9 +991,7 @@ pt-BR:
       version_author:
         deleted: Usuário excluído
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
@@ -1144,6 +1142,7 @@ pt-BR:
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenvie as instruções de desbloqueio

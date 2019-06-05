@@ -19,6 +19,8 @@ gl:
       comments: Comentarios
       last_activity:
         new_comment_at_html: "<span>Novo comentario en %{link}</span>"
+      translate: Translate to %{target}
+      translated: Back to original version
       votes:
         create:
           error: Houbo erros ao votar o comentario.

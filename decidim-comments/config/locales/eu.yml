@@ -19,6 +19,8 @@ eu:
       comments: Oharrak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
+      translate: Translate to %{target}
+      translated: Back to original version
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.

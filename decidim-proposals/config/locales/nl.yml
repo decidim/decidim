@@ -613,7 +613,6 @@ nl:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mijn voorstel is anders
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:
@@ -733,6 +732,8 @@ nl:
           need_more_votes: Meer stemmen nodig
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen

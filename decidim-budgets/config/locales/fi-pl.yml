@@ -92,7 +92,6 @@ fi-pl:
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
             title: Budjetin äänestys suoritettu
-          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
           description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
           description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Voit päättää budjetin
