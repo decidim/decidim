@@ -825,6 +825,7 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-initiatives**: Fix initiative search with multiple types [\#4322](https://github.com/decidim/decidim/pull/4322)
 - **decidim-debates**: Fix debate search with categories [\#4313](https://github.com/decidim/decidim/pull/4313)
 - **decidim-core**: Fix events for polymorphic authors [\#4387](https://github.com/decidim/decidim/pull/4387)
+- **decidim-conferences**: Fix error when visiting a Conference event[\#4776](https://github.com/decidim/decidim/pull/4776)
 
 **Removed**:
 

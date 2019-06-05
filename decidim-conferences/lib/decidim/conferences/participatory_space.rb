@@ -22,6 +22,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Conferences::Engine
     context.layout = "layouts/decidim/conference"
+    context.helper = "Decidim::Conferences::ConferenceHelper"
   end
 
   participatory_space.context(:admin) do |context|
