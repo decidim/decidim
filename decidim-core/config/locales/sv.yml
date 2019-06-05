@@ -943,7 +943,7 @@ sv:
         close_modal: Stäng fönster
         filter: Filtrera
         filter_by: Filtrera efter
-        unfold: Veckla ut
+        unfold: Vik ut
       results:
         results:
           one: "%{count} resultat"
@@ -952,27 +952,27 @@ sv:
     shared:
       embed_modal:
         close_window: Stäng fönstret
-        embed: Vänligen klistra in den här koden på din sida
+        embed: Klistra in den här koden på din sida
         embed_link: Bädda in
       extended_navigation_bar:
         more: Mer
         unfold: Veckla ut
       flag_modal:
-        already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
+        already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
-        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
+        offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
         report: Rapportera
-        spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+        spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
         title: Rapportera ett problem
       floating_help:
         help: Hjälp
       follow_button:
-        sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
+        sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        please_sign_in: Vänligen logga in
-        sign_up: Bli Medlem
+        please_sign_in: Logga in
+        sign_up: Registrera dig
       participatory_space_filters:
         filters:
           areas: områden
@@ -985,7 +985,7 @@ sv:
       results_per_page:
         label: 'Resultat per sida:'
       share_modal:
-        close_window: Stäng fönstret
+        close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
       version_author:
