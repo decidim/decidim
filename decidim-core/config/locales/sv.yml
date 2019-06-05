@@ -687,19 +687,19 @@ sv:
         create_with_space: "%{user_name} skapade %{resource_name} i %{space_name}"
         delete: "%{user_name} raderade %{resource_name}"
         delete_with_space: "%{user_name} raderade %{resource_name} i %{space_name}"
-        unknown_action: "%{user_name} utförde en viss åtgärd på %{resource_name}"
-        unknown_action_with_space: "%{user_name} utförde en viss åtgärd på %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utförde en åtgärd på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utförde en åtgärd på %{resource_name} i %{space_name}"
         update: "%{user_name} uppdaterade %{resource_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
         area_type_presenter:
-          not_found: 'Områdetypen hittades inte i databasen (ID: %{id})'
+          not_found: 'Områdestypen hittades inte i databasen (ID: %{id})'
         scope_presenter:
           not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Typ av omfattning hittades inte i databasen (ID: %{id})'
+          not_found: 'Omfattningstypen hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     members:
