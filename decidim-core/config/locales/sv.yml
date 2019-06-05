@@ -878,11 +878,11 @@ sv:
       view: Visa
     profiles:
       default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
-      default_officialization_text_for_users: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      default_officialization_text_for_users: Denna deltagare är verifierad. Deras namn eller roll har kontrollerats att motsvara deras riktiga namn och roll
       show:
         activity: Aktivitet
-        badges: Emblem
-        followers: Anhängare
+        badges: Märken
+        followers: Följare
         following: Följer
         groups: Grupper
         members: Medlemmar
@@ -900,7 +900,7 @@ sv:
         fill_in_email_to_confirm_it: Vänligen fyll i din grupps e-post för att bekräfta det
         invite_user: Bjud in användare
         join_user_group: Begär att gå med i gruppen
-        leave_user_group: Lämna gruppen
+        leave_user_group: Lämna grupp
         manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
         resend_email_confirmation_instructions: Skicka vidare bekräftelseinstruktioner för e-post
@@ -908,17 +908,17 @@ sv:
       hide:
         hello: Hej %{name},
         manage_moderations: Hantera moderationer
-        report_html: <p>Följande <a href="%{url}">content</a> har dolts automatiskt.</p>
-        subject: En resurs har dolts automatiskt
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har döljts automatiskt.</p>
+        subject: En resurs har döljts automatiskt
       report:
         hello: Hej %{name},
         manage_moderations: Hantera moderationer
-        report_html: <p>Följande <a href="%{url}">-innehåll</a> har rapporterats.</p>
+        report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
         subject: En resurs har rapporterats
     reports:
       create:
-        error: Ett fel uppstod när rapporten skapades. Vänligen försök igen.
-        success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
+        error: Det uppstod ett fel när rapporten skulle skapas. Försök igen.
+        success: Rapporten har skapats och kommer att granskas av en administratör.
     scopes:
       global: Global omfattning
       picker:
@@ -928,7 +928,7 @@ sv:
       prompt: Välj en omfattning
       scopes: Omfattningar
     search:
-      results_found_for_term: '%{count} Resultat för sökningen: "%{term}"'
+      results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
@@ -940,7 +940,7 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         filter: Filtrera
         filter_by: Filtrera efter
         unfold: Veckla ut
