@@ -63,10 +63,11 @@ end
 
 **Fixed**:
 
+- **decidim-admin**: Fix: Proposals component form introduced regression [\#5180](https://github.com/decidim/decidim/pull/5180)
 - **decidim-admin**: Fix: Link `form.js` in `assets/config/decidim_admin_manifest.js` [\#5165](https://github.com/decidim/decidim/pull/5165)
 - **decidim-core**: Fix: potential loop redirection when accepting TOS agreement on multi-languages sites [\#5162](https://github.com/decidim/decidim/pull/5162)
 - **decidim-assemblies**: Fix: Include asterisk in the required field `position` for `AssemblyMemberForm`. [\#5164](https://github.com/decidim/decidim/pull/5164)
-- **decidim-admin**: Fix: disallow enabling `ParticipatoryText` on component when there are proposals [\#5111](https://github.com/decidim/decidim/pull/5111)
+- **decidim-admin**: Fix: disallow enabling `ParticipatoryText` on component when there are proposals [\#5134](https://github.com/decidim/decidim/pull/5134)
 - **decidim-meetings**: Fix registration form in duplicated meeting [\#5136](https://github.com/decidim/decidim/pull/5136)
 - **decidim-meetings**: Fix meeting minutes related information in public view [\#5137](https://github.com/decidim/decidim/pull/5137)
 - **decidim-meetings**: Fix `deliver_now` call on `send_email_confirmation` [\#5111](https://github.com/decidim/decidim/pull/5111)

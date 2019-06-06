@@ -37,9 +37,9 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
-      # Disables :participatory_texts_enabled checkbox if the Proposals component
-      # has existing proposals, and stores the help text that will be added in a
-      # new div via JavaScript in "decidim/admin/form".
+      # Marks :participatory_texts_enabled checkbox with a unique class if
+      # the Proposals component has existing proposals, and stores the help text
+      # that will be added in a new div via JavaScript in "decidim/admin/form".
       #
       # field_name - The name of the field to disable.
       #
@@ -50,7 +50,6 @@ module Decidim
 
         {
           class: "participatory_texts_disabled",
-          disabled: true,
           data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
         }
       end
