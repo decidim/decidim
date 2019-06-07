@@ -1177,17 +1177,17 @@ sv:
   layouts:
     decidim:
       cookie_warning:
-        description_html: Denna webbplats använder cookies. Genom att fortsätta att surfa på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
+        description_html: Denna webbplats använder cookies. Genom att fortsätta att använda webbplatsen godkänner du vår användning av cookies. Läs mer %{link}.
         link_label: här
         ok: Jag godkänner
       edit_link:
         edit: Redigera
       footer:
         download_open_data: Hämta öppna datafiler
-        made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
+        made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
         close_menu: Stäng meny
-        navigation: Navigering
+        navigation: Navigera
         sign_in: Logga in
         sign_up: Registrera
       impersonation_warning:
@@ -1195,37 +1195,37 @@ sv:
         description_html: Du framställer dig som användaren <b>%{user_name}</b>.
         expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
-        mark_all_as_read: Markera alla som lästa
+        mark_all_as_read: Markera allt som läst
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
-        notifications: Notiser
+        notifications: Meddelanden
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
         account: Konto
         authorizations: Auktoriseringar
-        delete_my_account: Ta bort mitt konto
+        delete_my_account: Radera mitt konto
         my_data: Mitt data
         my_interests: Mina intressen
-        notifications_settings: Notisinställningar
+        notifications_settings: Meddelandeinställningar
         title: Användarinställningar
         user_groups: Grupper
       widget:
-        see_more: Se mer
+        see_more: Visa mer
   locale:
     name: Svenska
   password_validator:
     domain_included_in_password: är för likt detta domännamn
-    email_included_in_password: är för lik din e-post
+    email_included_in_password: är för likt din e-post
     fallback: är inte giltigt
     name_included_in_password: är för likt ditt namn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
-    password_too_long: är för lång
-    password_too_short: är för kort (minimum är 10 tecken)
+    password_too_long: är för långt
+    password_too_short: är för kort
   social_share_button:
     delicious: Delicious
     douban: Douban
