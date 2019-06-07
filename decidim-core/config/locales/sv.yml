@@ -37,13 +37,13 @@ sv:
     models:
       decidim/amendment:
         one: Ändring
-        other: Tillägg
+        other: Ändringar
       decidim/user:
-        one: Inga användare
-        other: användare
+        one: Deltagare
+        other: Deltagare
       decidim/user_group:
-        one: Användargrupp
-        other: Användargrupper
+        one: Grupp
+        other: Grupper
   booleans:
     'false': 'Nej'
     'true': 'Ja'
@@ -63,7 +63,7 @@ sv:
         file_no_exists: Filen finns inte
         invalid_token: Den angivna koden är ogiltig.
         no_token: Ingen kod gavs
-        notice: Dina uppgifter behandlas för närvarande. Du får ett e-postmeddelande när det är klart.
+        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in.
         confirm:
@@ -73,15 +73,15 @@ sv:
           title: Radera mitt konto
         explanation: Ange skälet till varför du vill radera ditt konto (valfritt).
       destroy:
-        error: Det har blivit ett fel vid radering av ditt konto.
-        success: Ditt konto har tagits bort.
+        error: Det gick inte att radera ditt konto.
+        success: Ditt konto har raderats.
       show:
         change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
-        error: Det har uppstått ett fel när du uppdaterade ditt konto.
+        error: Det gick inte att uppdatera ditt konto.
         success: Ditt konto har uppdaterats.
-        success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-postmeddelande för att bekräfta din nya e-postadress.
+        success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-brev för att bekräfta din nya e-postadress.
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -223,25 +223,25 @@ sv:
     authorization_modals:
       content:
         expired:
-          authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
-          title: Auktoriseringen har löpt ut
+          authorize: Auktorisera igen med "%{authorization}"
+          explanation: Ditt auktorisering har förfallit. För att kunna utföra den här åtgärden måste du auktorisera dig igen med "%{authorization}".
+          title: Auktoriseringen har förfallit
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du auktorisera dig igen eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: Återauktorisera
-          title: Vänligen återauktorisera
+          reauthorize: Auktorisera igen
+          title: Auktorisera igen
         missing:
           authorize: Auktorisera med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
           title: Auktorisering krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla hur din "%{authorization}" auktorisering avancerar
-          title: Auktoriseringen är fortfarande på gång
+          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering behandlas fortfarande
+          resume: Se hur auktoriseringen med "%{authorization}" pågår
+          title: Auktoriseringen pågår fortfarande
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
+          explanation: Du kan tyvärr inte utföra denna åtgärd eftersom vissa av dina auktoriseringsuppgifter inte överensstämmer.
           invalid_field: "%{field} värdet %{value} är inte giltigt."
           ok: OK
           title: Ej auktoriserad
