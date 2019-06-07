@@ -37,6 +37,9 @@ module Decidim
 
       attr_reader :form
 
+      # To be able to diff amendments we store the original attributes being amended
+      # in a PaperTrail::Version. We do that by first creating the emendation
+      # with the amendable_params; next updating it with the emendation_params.
       def create_emendation!
         @emendation = Decidim.traceability.perform_action!(
           "publish",
@@ -44,11 +47,12 @@ module Decidim
           @amender,
           visibility: "public-only"
         ) do
-          emendation = @amendable.amendable_type.constantize.new(form.emendation_params)
+          emendation = @amendable.amendable_type.constantize.new(form.amendable_params)
           emendation.component = @amendable.component
           emendation.published_at = Time.current if proposal?
           emendation.add_coauthor(@amender, user_group: @user_group)
           emendation.save!
+          emendation.update!(form.emendation_params)
           emendation
         end
       end

@@ -11,6 +11,7 @@ module Decidim
       attribute :amendable_gid, String
       attribute :user_group_id, Integer
       attribute :emendation_params, Object
+      attribute :amendable_params, Object
 
       validates :amendable_gid, presence: true
       validates :emendation_params, presence: true
@@ -20,7 +21,7 @@ module Decidim
       def emendation_changes_amendable
         return unless amendable.amendable_fields == [:title, :body]
         return unless present(amendable).title == present(emendation).title
-        return unless present(amendable).body.delete("\r") == present(emendation).body.delete("\r")
+        return unless present(amendable).body.strip == present(emendation).body.strip
 
         amendable_form.errors.add(:title, :identical)
         amendable_form.errors.add(:body, :identical)
@@ -32,6 +33,10 @@ module Decidim
 
       def emendation
         amendable.amendable_type.constantize.new(@emendation_params)
+      end
+
+      def amendable_params
+        amendable.attributes.slice(*amendable.amendable_fields.map(&:to_s))
       end
     end
   end
