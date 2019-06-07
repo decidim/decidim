@@ -2,13 +2,12 @@
 
 require "spec_helper"
 
-describe "Amend Proposal", type: :system do
+describe "Amend Proposal", versioning: true, type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposals) { create_list(:proposal, 3, component: component) }
-  let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
-  let!(:emendation) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, title: "Title", body: "One liner body",component: component) }
+  let!(:emendation) { create(:proposal, body: "Amended One liner body", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
@@ -133,6 +132,42 @@ describe "Amend Proposal", type: :system do
       end
     end
 
+    context "when viewing an amendment" do
+      before do
+        visit_component
+        login_as user, scope: :user
+        click_link emendation.title
+      end
+
+      it "shows the changed attributes" do
+        expect(page).to have_content("Amendment to \"#{proposal.title}\"")
+
+        within ".diff-for-title" do
+          expect(page).to have_content("TITLE")
+
+          within ".diff > ul > .del" do
+            expect(page).to have_content(proposal.title)
+          end
+
+          within ".diff > ul > .ins" do
+            expect(page).to have_content(emendation.title)
+          end
+        end
+
+        within ".diff-for-body" do
+          expect(page).to have_content("BODY")
+
+          within ".diff > ul > .del" do
+            expect(page).to have_content(proposal.body)
+          end
+
+          within ".diff > ul > .ins" do
+            expect(page).to have_content(emendation.body)
+          end
+        end
+      end
+    end
+
     context "when the user is the author of the amendable proposal" do
       let(:user) { proposal.creator_author }
 
@@ -156,6 +191,32 @@ describe "Amend Proposal", type: :system do
             visit decidim.review_amend_path(amendment)
           end
 
+          it "shows the changed attributes" do
+            within ".diff-for-title" do
+              expect(page).to have_content("TITLE")
+
+              within ".diff > ul > .del" do
+                expect(page).to have_content(proposal.title)
+              end
+
+              within ".diff > ul > .ins" do
+                expect(page).to have_content(emendation.title)
+              end
+            end
+
+            within ".diff-for-body" do
+              expect(page).to have_content("BODY")
+
+              within ".diff > ul > .del" do
+                expect(page).to have_content(proposal.body)
+              end
+
+              within ".diff > ul > .ins" do
+                expect(page).to have_content(emendation.body)
+              end
+            end
+          end
+
           it "is shown the review the amendment form" do
             expect(page).to have_css(".edit_amendment")
             expect(page).to have_content("REVIEW THE AMENDMENT")
@@ -176,7 +237,11 @@ describe "Amend Proposal", type: :system do
             end
 
             it "is changed the state of the emendation" do
-              expect(page).to have_css(".success", text: "Accepted")
+              visit_component
+
+              within "#proposal_#{emendation.id}" do
+                expect(page).to have_css(".success", text: "ACCEPTED")
+              end
             end
           end
         end
@@ -191,7 +256,11 @@ describe "Amend Proposal", type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".alert", text: "Rejected")
+            visit_component
+
+            within "#proposal_#{emendation.id}" do
+              expect(page).to have_css(".alert", text: "REJECTED")
+            end
           end
         end
       end
