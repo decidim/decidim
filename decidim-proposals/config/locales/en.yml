@@ -78,6 +78,7 @@ en:
     components:
       proposals:
         actions:
+          amend: Amend
           create: Create
           endorse: Endorse
           vote: Support
