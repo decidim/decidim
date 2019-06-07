@@ -58,7 +58,7 @@ module Decidim
       # Returns the last version if the amendment is being evaluated; else,
       # returns the original version at the moment of creating the amendment.
       def emendation_value_for(attribute)
-        return unless proposal.emendation?
+        return unless proposal&.emendation?
         return last_version(attribute) if proposal.amendment.evaluating?
 
         original_version(attribute)
@@ -76,7 +76,7 @@ module Decidim
       end
 
       def proposal
-        @proposal ||= Proposal.find(version.item_id)
+        @proposal ||= Proposal.find_by(id: version.item_id)
       end
     end
   end
