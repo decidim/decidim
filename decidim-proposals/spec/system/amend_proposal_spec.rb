@@ -6,7 +6,7 @@ describe "Amend Proposal", versioning: true, type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposal) { create(:proposal, title: "Title", body: "One liner body",component: component) }
+  let!(:proposal) { create(:proposal, title: "Title", body: "One liner body", component: component) }
   let!(:emendation) { create(:proposal, body: "Amended One liner body", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let!(:user) { create :user, :confirmed, organization: organization }
