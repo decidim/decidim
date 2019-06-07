@@ -37,14 +37,22 @@ module Decidim
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           supports: proposal.proposal_votes_count,
-          endorsements: proposal.endorsements.count,
+          endorsements: {
+            total_count: proposal.endorsements.count,
+            user_endorsements: user_endorsements,
+          },
           comments: proposal.comments.count,
           attachments: proposal.attachments.count,
           followers: proposal.followers.count,
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals
+          related_proposals: related_proposals,
+          is_amend: proposal.emendation?,
+          original_proposal: {
+            title: proposal&.amendable&.title,
+            url: original_proposal_url
+          }
         }
       end
 
@@ -70,6 +78,15 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(proposal).url
+      end
+
+      def user_endorsements
+        proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name }
+      end
+
+      def original_proposal_url
+        return unless proposal.emendation?
+        Decidim::ResourceLocatorPresenter.new(proposal.amendable).url
       end
     end
   end
