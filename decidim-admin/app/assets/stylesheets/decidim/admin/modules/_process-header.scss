@@ -1,3 +1,4 @@
+.assembly-header__title,
 .process-header__title{
   text-transform: uppercase;
   font-size: .8rem;
@@ -5,6 +6,7 @@
   color: $muted;
 }
 
+.assembly-title-summary,
 .process-title-summary{
   @extend .card-title;
 

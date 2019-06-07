@@ -69,23 +69,21 @@ sv:
         one: Möte
         other: Möten
       decidim/assembly_member:
-        one: Mötesmedlem
-        other: Mötesmedlemmar
+        one: Församlingsmedlem
+        other: Församlingsmedlemmar
       decidim/assembly_user_role:
-        one: Mötesanvändarroll
-        other: Mötesanvändarroller
+        one: Församlingsanvändarroll
+        other: Församlingsanvändarroller
   decidim:
     admin:
       actions:
-        new_assembly: Nytt möte
+        new_assembly: Ny församling
       assemblies:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.
           success: Mötet skapades framgångsrikt.
         edit:
           update: Uppdatera
-        form:
-          title: Allmän information
         index:
           not_published: Ej publicerad
           private: Privat
@@ -105,31 +103,31 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilken data du skulle vilja duplicera
-          title: Duplicera möte
+          title: Duplicera församling
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för detta möte.
-          success: Medlem skapades framgångsrikt för detta möte.
+          error: Det gick inte att lägga till en medlem för denna församling.
+          success: Medlem skapades framgångsrikt för denna församling.
         destroy:
-          success: Medlem skapades framgångsrikt för detta möte.
+          success: Medlemmen har tagits bort för denna församling.
         edit:
-          title: Uppdatera mötesmedlem.
+          title: Uppdatera församlingsmedlem.
           update: Uppdatera
         index:
-          assembly_members_title: Mötesmedlemmar
+          assembly_members_title: Församlingsmedlemmar
         new:
           create: Skapa
-          title: Ny mötesmedlem.
+          title: Ny församlingsmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för detta möte.
-          success: Medlem uppdaterad framgångsrikt för detta möte.
+          error: Det uppstod ett fel vid uppdatering av medlemmen för denna församling.
+          success: Medlem uppdaterad framgångsrikt för denna församling.
       assembly_publications:
         create:
           error: Det uppstod ett fel vid publicering av detta möte.
           success: Mötet publicerades framgångsrikt.
         destroy:
           error: Ett fel uppstod vid publicering av detta möte.
-          success: Mötet avpublicerades framgångsrikt.
+          success: Församling avpublicerades framgångsrikt.
       assembly_user_roles:
         create:
           error: Ett fel uppstod när en användare skulle läggas till detta möte.
@@ -168,7 +166,7 @@ sv:
             promoted: Markerad
             published: Publicerad
             title: Titel
-          name: Möte
+          name: Församling
         assembly_member:
           fields:
             ceased_date: Upphört datum
@@ -186,7 +184,7 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Mötesanvändare
+          name: Församlingsadministratör
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -211,14 +209,21 @@ sv:
       admin:
         assemblies:
           form:
+            duration: Varaktighet
             duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
+            filters: filter
+            images: Bilder
             included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            metadata: metadata
+            other: Andra
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en mötestyp
             select_parent_assembly: Välj överordnat möte
             slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Social
+            title: Allmän information
+            visbility: Synlighet
         assembly_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'

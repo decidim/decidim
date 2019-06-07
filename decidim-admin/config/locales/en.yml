@@ -37,6 +37,7 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
@@ -46,6 +47,7 @@ en:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icon
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
@@ -64,6 +66,8 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
@@ -72,6 +76,7 @@ en:
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
+        user_name: Username
         warning_color: Warning
         youtube_handler: YouTube handler
       scope:
@@ -242,6 +247,7 @@ en:
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Step settings
         index:
           add: Add component
@@ -370,6 +376,7 @@ en:
             created_at: Created at
             progress: Progress
             sent_at: Sent at
+            sent_to: Sent to
             subject: Subject
           name: Newsletter
         oauth_application:
@@ -435,15 +442,42 @@ en:
         form:
           interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
         index:
+          all: all
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Are you sure you want to delete this newsletter?
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
+          no_scopes: No scopes
+          not_sent: Not sent
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
           title: Newsletters
         new:
           save: Save
           title: New newsletter
-        show:
+        select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
           deliver: Deliver newsletter
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
+          none: None
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
+        show:
           preview: Preview
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
         update:
           error: There was a problem updating this newsletter.
@@ -606,6 +640,7 @@ en:
           update: Update
         form:
           none: None
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:

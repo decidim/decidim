@@ -121,7 +121,7 @@ sv:
         authorize_url: Godkänn webbadress
         client_id: Klient ID
         client_secret: Kundhemlighet
-        organization_name: Organisations namn
+        organization_name: Organisationsnamn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
         site: Webbplats
@@ -156,6 +156,7 @@ sv:
           error: Det uppstod ett fel vid skapandet av ett nytt område.
           success: Område skapades framgångsrikt.
         destroy:
+          has_spaces: Området har depedenta utrymmen, det får inte ha beroenden för att kunna raderas.
           success: Området framgångsrikt förstörs
         edit:
           title: Redigera område
@@ -438,9 +439,10 @@ sv:
         new:
           save: Spara
           title: Nytt nyhetsbrev
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
+        show:
           preview: Förhandsvisning
           subject: Ämne
         update:

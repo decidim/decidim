@@ -170,7 +170,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
       &:hover{
         cursor: pointer;
-        background-color: rgba(var(--secondary), .05);
+        background-color: rgba(var(--secondary-rgb), .05);
       }
     }
   }

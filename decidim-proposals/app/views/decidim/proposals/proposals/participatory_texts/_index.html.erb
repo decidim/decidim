@@ -6,9 +6,9 @@
         <p>
           <%= link_to resource_locator(proposal).path do %>
             <% if proposal.participatory_text_level == "article" %>
-              <u><%= present(proposal).title %></u>
+              <u><%= decidim_html_escape(present(proposal).title).html_safe %></u>
             <% else %>
-              <u class="text-uppercase"><%= present(proposal).title %></u>
+              <u class="text-uppercase"><%= decidim_html_escape(present(proposal).title).html_safe %></u>
             <% end %>
             <br />
           <% end %>

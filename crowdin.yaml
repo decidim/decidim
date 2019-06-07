@@ -3,6 +3,7 @@ files:
     translation: /**/locales/%locale%.yml
     languages_mapping:
       locale:
+        ar: ar
         ca: ca
         cs: cs
         de: de

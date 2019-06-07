@@ -156,6 +156,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
+          has_spaces: Oblast má depedentní mezery, nesmí mít závislosti, aby mohla být vymazána.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -438,9 +439,10 @@ cs:
         new:
           save: Uložit
           title: Nový informační bulletin
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručte informační bulletin
+        show:
           preview: Náhled
           subject: Předmět
         update:

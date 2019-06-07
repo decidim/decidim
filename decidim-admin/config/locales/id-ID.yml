@@ -156,6 +156,7 @@ id:
           error: Terjadi kesalahan saat membuat area baru.
           success: Area berhasil dibuat.
         destroy:
+          has_spaces: Area memiliki spasi, tidak boleh memiliki dependensi untuk dihapus.
           success: Area berhasil dihancurkan
         edit:
           title: Edit area
@@ -438,9 +439,10 @@ id:
         new:
           save: Menyimpan
           title: Newsletter baru
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Anda yakin ingin menyampaikan buletin ini? Tindakan ini tidak bisa dibatalkan.
           deliver: Kirimkan buletin
+        show:
           preview: Preview
           subject: Subyek
         update:

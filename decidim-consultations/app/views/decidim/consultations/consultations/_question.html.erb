@@ -28,9 +28,7 @@
                 <% end %>
               <% end %>
             <% else %>
-              <%= link_to t("consultations.question.take_part", scope: "decidim"),
-                          decidim_consultations.question_path(question),
-                          class: "button expanded button--sc" %>
+              <%= display_take_part_button_for(question) %>
             <% end %>
           </div>
         </div>

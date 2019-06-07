@@ -190,6 +190,7 @@ ignore_unused:
   - decidim.searches.filters.state.*
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
+  - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

@@ -68,6 +68,7 @@ cs:
       comment_thread:
         title: Konverzace s číslem %{authorName}
       comments:
+        blocked_comments_for_user_warning: V tuto chvíli nemůžete komentovat, ale můžete si přečíst předchozí.
         blocked_comments_warning: Komentáře jsou v tuto chvíli zakázány, ale můžete si přečíst předchozí.
         loading: Načítání komentářů ...
         title: "%{count} komentářů"

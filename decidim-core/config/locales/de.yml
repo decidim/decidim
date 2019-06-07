@@ -131,20 +131,19 @@ de:
         verify_via_csv: "%{user_name} die %{resource_name} Benutzergruppe über eine CSV-Datei überprüft"
     amendments:
       accepted:
-        error: Beim Akzeptieren der Emendation ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
-        success: Diese Ausgabe wurde erfolgreich akzeptiert.
+        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
+        success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         amended_by: Geändert durch
         button: '%{model_name}ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
         help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
-        no_amenders: Es gibt keine Amender
-        no_amendments: Es gibt keine Änderungen
         promote_button: Auf %{model_name}
+        promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
       created:
-        error: Beim Erstellen dieser Änderung ist ein Fehler aufgetreten. Versuchen Sie es später erneut
+        error: Beim Erstellen der Änderung ist ein Fehler aufgetreten
         success: Die Änderung wurde erfolgreich erstellt
       emendation:
         actions:
@@ -177,7 +176,7 @@ de:
       review:
         back: Zurück
         heading: Überprüfen Sie die Änderung
-        help_text: Sie ändern die %{model_name}
+        help_text: Sie überprüfen eine Änderung der %{model_name}
         send: Akzeptieren Sie den Änderungsantrag
     anonymous_user: Anonym
     application:
@@ -387,45 +386,45 @@ de:
             email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
             email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
-            notification_title: Die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> erzeugte <a href="%{emendation_path}">Änderung</a> wurde für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}akzeptiert.
+            notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
-            notification_title: Die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> erzeugte <a href="%{emendation_path}">Änderung</a> wurde für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}akzeptiert.
+            notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
-            email_subject: Eine neue Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">neue emendation</a> wird von geschaffen <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Neuer Änderungsantrag für %{amendable_title}
+            notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-            email_subject: Eine neue Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">neue emendation</a> wird von geschaffen <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Neuer Änderungsantrag für %{amendable_title}
+            notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
-            email_subject: Eine Erweiterung von %{emendation_author_nickname} wurde befördert
-            notification_title: A <a href="%{emendation_path}">abgelehnt emendation</a> für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} wird von gefördert <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-            email_subject: Eine Erweiterung von %{emendation_author_nickname} wurde befördert
-            notification_title: A <a href="%{emendation_path}">abgelehnt emendation</a> für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} wird von gefördert <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
             email_subject: Ein Änderungsantrag wurde für %{amendable_title} von %{emendation_author_nickname}abgelehnt
-            notification_title: Die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> erstellte <a href="%{emendation_path}">Änderung</a> wurde für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}abgelehnt.
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
           follower:
             email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Ein Änderungsantrag wurde für %{amendable_title} von %{emendation_author_nickname}abgelehnt
-            notification_title: Die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> erstellte <a href="%{emendation_path}">Änderung</a> wurde für <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}abgelehnt.
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
@@ -973,8 +972,15 @@ de:
       login_modal:
         please_sign_in: Bitte einloggen
         sign_up: Anmelden
+      participatory_space_filters:
+        filters:
+          areas: Bereiche
+          select_an_area: Wählen Sie einen Bereich aus
       reference:
         reference: 'Referenz: %{reference}'
+      represent_user_group:
+        represent_user_group: Ich vertrete eine Gruppe
+        select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
         label: 'Ergebnisse pro Seite:'
       share_modal:

@@ -64,6 +64,7 @@ gl:
       comment_thread:
         title: Conversa con %{authorName}
       comments:
+        blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         loading: Cargando comentarios ...
         title: "%{count} comentarios"

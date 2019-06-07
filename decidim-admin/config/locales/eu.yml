@@ -156,6 +156,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Eremuak espazio desberdinak ditu, ez du mendekotasunik izan ezabatzeko.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
@@ -438,9 +439,10 @@ eu:
         new:
           save: Gorde
           title: Buletin berria
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
+        show:
           preview: Aurreikusi
           subject: Gaia
         update:

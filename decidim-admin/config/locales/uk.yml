@@ -409,9 +409,10 @@ uk:
         new:
           save: Зберегти
           title: Додати розсилання новин
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Ви впевнені, що хочете розіслати цей випуск новин? Цю дію не можна буде скасувати.
           deliver: Розіслати випуск новин
+        show:
           preview: Попередній перегляд
           subject: Тема
         update:

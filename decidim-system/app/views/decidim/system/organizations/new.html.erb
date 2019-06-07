@@ -66,6 +66,8 @@
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
 
+  <%= render partial: "smtp_settings", locals: { f: f } %>
+
   <div class="actions">
     <%= f.submit t("decidim.system.models.organization.actions.save_and_invite") %>
   </div>

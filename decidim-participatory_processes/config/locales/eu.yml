@@ -71,6 +71,9 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
+        filter:
+          all: Erakutsi prozesu guztiak
+          process_groups: Prozesu taldeak
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
@@ -200,8 +203,6 @@ eu:
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         edit:
           update: Eguneratu
-        form:
-          title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
           private: Pribatua
@@ -293,8 +294,16 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
+            duration: Iraupena
+            filters: iragazkiak
+            images: Irudiak
+            metadata: Metadata
+            other: Beste
             select_an_area: Hautatu eremu bat
+            select_process_group: Hautatu prozesu talde bat
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+            title: Informazio orokorra
+            visbility: ikusgarritasuna
       content_blocks:
         highlighted_processes:
           name: Prozesu nabarmenak
@@ -310,8 +319,6 @@ eu:
             more_information: Informazio gehiago
             participate: Parte hartu
             see_all_processes: Ikusi prozesu guztiak
-      participatory_process_groups:
-        none: Bat bera ere ez
       participatory_processes:
         filters:
           counters:

@@ -10,6 +10,12 @@ linters:
   SpaceAroundErbTag:
     enabled: true
 
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - text/javascript
+      - text/template
+
   Rubocop:
     enabled: true
 

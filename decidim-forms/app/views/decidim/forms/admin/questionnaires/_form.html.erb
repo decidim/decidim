@@ -22,11 +22,12 @@
 
 <div class="questionnaire-questions">
   <% if questionnaire.questions_editable? %>
-    <template>
-      <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
-        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(blank_question), editable: questionnaire.questions_editable? %>
-      <% end %>
-    </template>
+    <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+      <script type="text/template" class="decidim-template">
+        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(blank_question), editable: questionnaire.questions_editable?, child_template_selector: "#answer-option-template-dummy" %>
+      </script>
+      <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
+    <% end %>
   <% else %>
     <div class="callout warning">
       <%= t(".already_answered_warning") %>
@@ -34,9 +35,10 @@
   <% end %>
 
   <div class="questionnaire-questions-list">
-    <% @form.questions.each do |question| %>
+    <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
-        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(question), editable: questionnaire.questions_editable? %>
+        <%= render "decidim/forms/admin/questionnaires/question", form: question_form, id: tabs_id_for_question(question), editable: questionnaire.questions_editable?, child_template_selector: "#answer-option-template-#{index}" %>
+        <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
       <% end %>
     <% end %>
   </div>

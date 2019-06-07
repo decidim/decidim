@@ -128,20 +128,19 @@ id:
         verify_via_csv: "%{user_name} memverifikasi %{resource_name} grup pengguna melalui file CSV"
     amendments:
       accepted:
-        error: Terjadi kesalahan saat menerima emendasi, coba lagi nanti.
-        success: Perubahan ini telah berhasil diterima.
+        error: Terjadi kesalahan saat menerima amandemen.
+        success: Amandemen telah diterima dengan sukses.
       amendable:
         amended_by: Diubah oleh
         button: Ubah %{model_name}
         error: Terjadi kesalahan saat mengubah sumber daya ini.
         help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
-        no_amenders: Tidak ada amandemen
-        no_amendments: Tidak ada amandemen
         promote_button: Promosikan ke %{model_name}
+        promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
         promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
         section_heading: Amandemen (%{count})
       created:
-        error: Terjadi kesalahan saat membuat amendemen ini, coba lagi nanti
+        error: Terjadi kesalahan saat membuat amandemen
         success: Amandemen telah berhasil dibuat
       emendation:
         actions:
@@ -163,7 +162,7 @@ id:
         amendment_author: Pengarang perubahan
         back: Kembali
         heading: Buat amandemen Anda
-        help_text: Anda memodifikasi %{model_name}
+        help_text: Anda mengubah %{model_name}
         send: Kirim amandemen
       promoted:
         error: Sudah ada kesalahan saat mempromosikan emendasi
@@ -174,7 +173,7 @@ id:
       review:
         back: Kembali
         heading: Tinjau amandemennya
-        help_text: Anda mengubah %{model_name}
+        help_text: Anda sedang meninjau amandemen ke %{model_name}
         send: Terima amandemen
     anonymous_user: Anonim
     application:
@@ -385,45 +384,45 @@ id:
             email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
             email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Amendemen telah diterima untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
             email_subject: Amandemen diterima untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah diterima untuk <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Sebuah perubahan baru telah dibuat untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Amandemen baru untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendasi baru</a> telah dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Amandemen baru untuk %{amendable_title}
+            notification_title: Amandemen baru telah dibuat untuk <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Sebuah perubahan baru telah dibuat untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Amandemen baru untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">emendasi baru</a> telah dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Amandemen baru untuk %{amendable_title}
+            notification_title: Amandemen baru telah dibuat untuk <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
-            email_subject: Sebuah perbaikan dari %{emendation_author_nickname} telah dipromosikan
-            notification_title: A <a href="%{emendation_path}">emendasi</a> ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} telah dipromosikan oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Amandemen dari %{emendation_author_nickname} telah diterbitkan sebagai %{amendable_type}baru
+            notification_title: Amandemen</a> <a href="%{emendation_path}">ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> telah dipublikasikan sebagai %{amendable_type} baru oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>
           follower:
             email_intro: 'Suatu emendasi yang ditolak untuk %{amendable_title} telah dipromosikan menjadi independen %{amendable_type}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-            email_subject: Sebuah perbaikan dari %{emendation_author_nickname} telah dipromosikan
-            notification_title: A <a href="%{emendation_path}">emendasi</a> ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} telah dipromosikan oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Amandemen dari %{emendation_author_nickname} telah diterbitkan sebagai %{amendable_type}baru
+            notification_title: Amandemen</a> <a href="%{emendation_path}">ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> telah dipublikasikan sebagai %{amendable_type} baru oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>
         amendment_rejected:
           affected_user:
             email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah seorang pengarang %{amendable_title}.
             email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Amendemen telah ditolak untuk %{amendable_title}. Anda dapat melihatnya dari halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{amendable_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
             email_subject: Amandemen ditolak untuk %{amendable_title} dari %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">emendasi</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: <a href="%{emendation_path}">amendemen</a> dibuat oleh <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> telah ditolak untuk <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Dokumen baru telah ditambahkan ke %{resource_title}. Anda dapat melihatnya dari halaman ini:'
@@ -970,8 +969,15 @@ id:
       login_modal:
         please_sign_in: Silakan masuk
         sign_up: Daftar
+      participatory_space_filters:
+        filters:
+          areas: Area
+          select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
+      represent_user_group:
+        represent_user_group: Saya mewakili grup
+        select_user_group: Pilih satu grup
       results_per_page:
         label: 'Hasil per halaman:'
       share_modal:

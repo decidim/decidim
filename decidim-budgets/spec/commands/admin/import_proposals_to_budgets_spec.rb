@@ -98,6 +98,7 @@ module Decidim
               expect(translated(new_project.title)).to eq(proposal.title)
               expect(translated(new_project.description)).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
+              expect(new_project.scope).to eq(proposal.scope)
             end
           end
         end

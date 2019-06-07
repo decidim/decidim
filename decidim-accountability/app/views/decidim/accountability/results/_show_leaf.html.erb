@@ -26,7 +26,7 @@
         </div>
       <% end %>
 
-      <div class="columns mediumlarge-9 mediumlarge-pull-3">
+      <div class="columns mediumlarge-9 <%= component_settings.display_progress_enabled? && result.progress.present? ? "mediumlarge-pull-3" : "" %>">
         <div class="section">
           <div class="result-meta row">
             <% if result.start_date %>

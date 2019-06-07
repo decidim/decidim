@@ -15,6 +15,7 @@
             <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></th>
             <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -22,9 +23,16 @@
         <tbody>
           <% @newsletters.each do |newsletter| %>
             <tr data-newsletter-id="<%= newsletter.id %>">
-              <td><%= translated_attribute newsletter.subject %></td>
+              <td>
+                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                  <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
+                <% else %>
+                  <%= translated_attribute newsletter.subject %>
+                <% end %>
+              </td>
               <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
               <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
+              <td><%= selective_newsletter_to newsletter %></td>
               <td>
                 <% if newsletter.sent? %>
                   <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
@@ -35,7 +43,9 @@
                   <%= icon_link_to "pencil", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
                 <% end %>
 
-                <%= icon_link_to "eye", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview" %>
+                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                  <%= icon_link_to "eye", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview" %>
+                <% end %>
 
                 <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
                   <%= icon_link_to "circle-x", decidim_admin.newsletter_path(newsletter), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
@@ -46,5 +56,6 @@
         </tbody>
       </table>
     </div>
+    <%= decidim_paginate @newsletters %>
   </div>
 </div>

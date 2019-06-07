@@ -156,6 +156,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: A área tem espaços separados, não deve ter dependências para ser excluída.
           success: Área excluída com sucesso
         edit:
           title: Editar área
@@ -438,9 +439,10 @@ pt-BR:
         new:
           save: Salvar
           title: Novo boletim informativo
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+        show:
           preview: Pré-visualização
           subject: Sujeito
         update:

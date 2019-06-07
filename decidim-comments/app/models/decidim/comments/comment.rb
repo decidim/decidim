@@ -53,6 +53,13 @@ module Decidim
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
       end
 
+      # Public: Override comment threads to exclude hidden ones.
+      #
+      # Returns comment.
+      def comment_threads
+        super.reject(&:hidden?)
+      end
+
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
       # Return the comment author together with whatever ActiveRecord::Relation is returned by
       # the `commentable`. This will cause the comment author to be notified when the
@@ -89,6 +96,13 @@ module Decidim
 
       def self.export_serializer
         Decidim::Comments::CommentSerializer
+      end
+
+      def self.newsletter_participant_ids(space)
+        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
+                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                  .map(&:author).pluck(:id).flatten.compact.uniq
       end
 
       private

@@ -36,6 +36,7 @@ fi:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         cta_button_path: Call To Action -painikkeen polku
@@ -45,6 +46,7 @@ fi:
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
+        from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
@@ -63,6 +65,8 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        password: Salasana
+        port: Portti
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         secondary_color: Toissijainen
@@ -71,6 +75,7 @@ fi:
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        user_name: Käyttäjänimi
         warning_color: Varoitus
         youtube_handler: YouTube-käsittelijä
       scope:
@@ -156,6 +161,7 @@ fi:
           error: Uuden alueen luonti epäonnistui.
           success: Alueen luonti onnistui.
         destroy:
+          has_spaces: Alueella on siitä riippuvia osallisuustiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
           success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
@@ -240,6 +246,7 @@ fi:
         form:
           default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
+          participatory_texts_enabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo syötetty. Luo uusi `Ehdotukset` -komponentti, mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki ehdotukset `Ehdotusaineistot` -valikosta, mikäli haluat ottaa sen pois käytöstä.
           step_settings: Vaiheiden asetukset
         index:
           add: Lisää komponentti
@@ -368,6 +375,7 @@ fi:
             created_at: Luonnin ajankohta
             progress: Edistyminen
             sent_at: Lähetyksen ajankohta
+            sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
         oauth_application:
@@ -433,15 +441,42 @@ fi:
         form:
           interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
         index:
+          all: kaikki
+          all_users: 'Kaikki käyttäjät '
+          and: 'ja '
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
+          followers: 'seuraajat '
+          has_been_sent_to: 'Lähetettiin vastaanottajille: '
+          no_scopes: Ei teemoja
+          not_sent: Ei lähetetty
+          participants: 'osallistujat '
+          segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
           title: Uutiskirjeet
         new:
           save: Tallenna
           title: Uusi uutiskirje
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Kaikki
+          all_users_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille.
           confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
           deliver: Toimita uutiskirje
+          followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
+          none: Ei kenellekään
+          participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
+          scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
+          select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
+          select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
+          select_users: Valitse käyttäjät, joille haluat lähettää uutiskirjeen
+          send_to_all_users: Lähetä kaikille käyttäjille
+          send_to_followers: Lähetä seuraajille
+          send_to_participants: Lähetä osallistujille
+          title: Valitse vastaanottajat
+          warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet <em>Haluan vastaanottaa uutiskirjeitä</em> -asetuksen heidän tilinsä ilmoitusasetuksista."
+        send:
+          no_recipients: Ei vastaanottajia tälle valinnalle
+        show:
           preview: Esikatsele
+          select_recipients_to_deliver: Valitse vastaanottajat
           subject: Otsikko
         update:
           error: Uutiskirjeen päivitys epäonnistui.
@@ -604,6 +639,7 @@ fi:
           update: Päivitä
         form:
           none: Ei mitään
+          slug_help: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:

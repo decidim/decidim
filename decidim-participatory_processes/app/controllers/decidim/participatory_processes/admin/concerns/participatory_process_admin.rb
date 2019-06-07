@@ -12,6 +12,11 @@ module Decidim
         module ParticipatoryProcessAdmin
           extend ActiveSupport::Concern
 
+          RegistersPermissions
+            .register_permissions(::Decidim::ParticipatoryProcesses::Admin::Concerns::ParticipatoryProcessAdmin,
+                                  ::Decidim::ParticipatoryProcesses::Permissions,
+                                  ::Decidim::Admin::Permissions)
+
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
             helper_method :current_participatory_process
@@ -33,10 +38,7 @@ module Decidim
             alias_method :current_participatory_process, :current_participatory_space
 
             def permission_class_chain
-              [
-                Decidim::ParticipatoryProcesses::Permissions,
-                Decidim::Admin::Permissions
-              ]
+              PermissionsRegistry.chain_for(ParticipatoryProcessAdmin)
             end
           end
         end

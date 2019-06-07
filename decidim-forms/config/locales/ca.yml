@@ -2,10 +2,10 @@ ca:
   activemodel:
     attributes:
       answer:
-        body: Resposta
+        body: Respondre
       question:
         max_choices: Nombre màxim d'opcions
-        question_type: Escriu
+        question_type: Tipus
       questionnaire_question:
         mandatory: Obligatori
     errors:
@@ -13,8 +13,8 @@ ca:
         answer:
           attributes:
             choices:
-              missing: no estan complerts
-              too_many: n'hi ha massa
+              missing: no estan complets
+              too_many: en són masses
   decidim:
     forms:
       admin:
@@ -26,7 +26,7 @@ ca:
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
-            remove: Elimina
+            remove: Eliminar
             statement: Declaració
           edit:
             save: Desar
@@ -38,13 +38,13 @@ ca:
             add_answer_option: Afegeix una opció de resposta
             any: Cap
             description: Descripció
-            down: Baixar
+            down: Avall
             question: Pregunta
             remove: Eliminar
             statement: Declaració
-            up: Pujar
+            up: Amunt
           update:
-            invalid: S'han produït un error en desar el formulari.
+            invalid: S'ha produït un error en desar el formulari.
             success: Els formularis s'han desat correctament.
       errors:
         answer:
@@ -58,14 +58,14 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
-          success: El formulari ha estat respost correctament.
+          success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             title: Respon el formulari
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segur?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
@@ -76,7 +76,7 @@ ca:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
           submit: Enviar respostes
-          tos_agreement: En participar, acceptes els Termes i condicions d'ús
+          tos_agreement: En participar acceptes els Termes i condicions d'ús
       user_answers_serializer:
         created_at: Respost el
         id: Identificador de resposta

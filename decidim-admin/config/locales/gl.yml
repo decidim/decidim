@@ -156,6 +156,7 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
+          has_spaces: A área ten espazos dependentes, non debe ter dependencias para ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área
@@ -438,9 +439,10 @@ gl:
         new:
           save: Gardar
           title: Novo boletín informativo
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
+        show:
           preview: Vista previa
           subject: Asunto
         update:

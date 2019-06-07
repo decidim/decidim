@@ -11,7 +11,12 @@ module Decidim
     include Decidim::Searchable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-    ROLES = %w(admin user_manager).freeze
+
+    class Roles
+      def self.all
+        Decidim.config.user_roles
+      end
+    end
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
@@ -47,6 +52,11 @@ module Decidim
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
+
+    scope :interested_in_scopes, lambda { |scope_ids|
+      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
+      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+    }
 
     attr_accessor :newsletter_notifications
 
@@ -201,7 +211,7 @@ module Decidim
     end
 
     def all_roles_are_valid
-      errors.add(:roles, :invalid) unless roles.compact.all? { |role| ROLES.include?(role) }
+      errors.add(:roles, :invalid) unless roles.compact.all? { |role| Roles.all.include?(role) }
     end
 
     def available_locales

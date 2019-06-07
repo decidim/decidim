@@ -41,6 +41,10 @@ id:
           attributes:
             attachment:
               needs_to_be_reattached: Perlu disambungkan kembali
+            body:
+              identical: DAN judul tidak bisa sama
+            title:
+              identical: DAN tubuh tidak bisa identik
     models:
       decidim/proposals/accepted_proposal_event: Proposal diterima
       decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah

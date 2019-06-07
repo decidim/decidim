@@ -6,6 +6,7 @@ require "decidim/core/version"
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
@@ -54,7 +55,9 @@ module Decidim
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
   autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
+  autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
@@ -75,6 +78,7 @@ module Decidim
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
   autoload :HasResourcePermission, "decidim/has_resource_permission"
+  autoload :PermissionsRegistry, "decidim/permissions_registry"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -127,7 +131,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -260,6 +264,16 @@ module Decidim
   # Exposes a configuration option: an object to process a pdf and add a
   # signature to the document
   config_accessor :pdf_signature_service
+
+  # Exposes a configuration option: Decidim::Exporters::CSV's default column separator
+  config_accessor :default_csv_col_sep do
+    ";"
+  end
+
+  # Exposes a configuration option: An Array of Strings with the roles of a Decidim::User.
+  config_accessor :user_roles do
+    %w(admin user_manager)
+  end
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
@@ -400,6 +414,11 @@ module Decidim
   # Public: Stores the registry of resource spaces
   def self.resource_registry
     @resource_registry ||= ManifestRegistry.new(:resources)
+  end
+
+  # Public: Stores the registry for user permissions
+  def self.permissions_registry
+    @permissions_registry ||= PermissionsRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry

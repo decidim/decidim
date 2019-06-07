@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Debates::CreateDebateEvent do
+  include Decidim::SanitizeHelper
+
   include_context "when a simple event"
 
   let(:resource) { create :debate, :with_author }
@@ -10,6 +12,7 @@ describe Decidim::Debates::CreateDebateEvent do
   let(:event_name) { "decidim.events.debates.debate_created" }
   let(:space_path) { resource_locator(space).path }
   let(:extra) { { type: type.to_s } }
+  let(:debate_title) { decidim_html_escape(translated(resource.title)) }
 
   describe "resource_text" do
     let(:type) { "" }
@@ -27,14 +30,14 @@ describe Decidim::Debates::CreateDebateEvent do
 
     describe "email_subject" do
       it "is generated correctly" do
-        expect(subject.email_subject).to eq("New debate \"#{translated resource.title}\" by @#{author.nickname}")
+        expect(subject.email_subject).to eq("New debate \"#{debate_title}\" by @#{author.nickname}")
       end
     end
 
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq("Hi,\n#{author.name} @#{author.nickname}, who you are following, has created a new debate \"#{translated resource.title}\". Check it out and contribute:")
+          .to eq("Hi,\n#{author.name} @#{author.nickname}, who you are following, has created a new debate \"#{debate_title}\". Check it out and contribute:")
       end
     end
 
@@ -51,7 +54,7 @@ describe Decidim::Debates::CreateDebateEvent do
           .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>")
 
         expect(subject.notification_title)
-          .to include("created the <a href=\"#{resource_path}\">#{translated resource.title}</a> debate.")
+          .to include("created the <a href=\"#{resource_path}\">#{debate_title}</a> debate.")
       end
     end
   end
@@ -64,14 +67,14 @@ describe Decidim::Debates::CreateDebateEvent do
 
     describe "email_subject" do
       it "is generated correctly" do
-        expect(subject.email_subject).to eq("New debate \"#{translated resource.title}\" on #{translated(space.title)}")
+        expect(subject.email_subject).to eq("New debate \"#{debate_title}\" on #{translated(space.title)}")
       end
     end
 
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq("Hi,\nA new debate \"#{translated resource.title}\" has been created on the #{translated(space.title)} participatory space, check it out and contribute:")
+          .to eq("Hi,\nA new debate \"#{debate_title}\" has been created on the #{translated(space.title)} participatory space, check it out and contribute:")
       end
     end
 
@@ -86,7 +89,7 @@ describe Decidim::Debates::CreateDebateEvent do
     describe "notification_title" do
       it "is generated correctly" do
         expect(subject.notification_title)
-          .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> debate was created on ")
+          .to include("The <a href=\"#{resource_path}\">#{debate_title}</a> debate was created on ")
 
         expect(subject.notification_title)
           .to include("<a href=\"#{space_path}\">#{translated(space.title)}</a>.")
