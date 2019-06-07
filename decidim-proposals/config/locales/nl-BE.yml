@@ -1,4 +1,3 @@
----
 nl-BE:
   activemodel:
     attributes:
@@ -237,8 +236,8 @@ nl-BE:
       badges:
         accepted_proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
@@ -248,8 +247,8 @@ nl-BE:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-          - Browse and spend some time reading other people's proposals
-          - Give support to the proposals you like or find interesting
+            - Browse and spend some time reading other people's proposals
+            - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -259,8 +258,8 @@ nl-BE:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Create a new proposal
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.

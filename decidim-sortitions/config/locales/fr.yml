@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -28,7 +27,7 @@ fr:
       sortitions:
         sortition_created:
           email_intro: Le tirage au sort "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
+          email_outro: Vous avez reçu cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment ne plus suivre cet espace participatif en cliquant sur le lien précédent.
           email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
           notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
     pages:
@@ -97,7 +96,7 @@ fr:
       sortitions:
         count:
           proposals_count:
-            one: "%{count} proposition"
+            one: 1 proposition
             other: "%{count} propositions"
         filters:
           active: Actif
@@ -140,7 +139,7 @@ fr:
           random_seed: Valeur aléatoire
           selected_proposals:
             one: proposition sélectionnée
-            other: "%{count} propositions sélectionnées"
+            other: '%{count} propositions sélectionnées'
           view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
@@ -148,5 +147,5 @@ fr:
           deleted: Utilisateur supprimé
         sortitions_count:
           count:
-            one: "%{count} tirage au sort"
+            one: 1 tirage au sort
             other: "%{count} tirages au sort"

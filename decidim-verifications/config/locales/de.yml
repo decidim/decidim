@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -37,16 +36,16 @@ de:
       admin:
         id_documents:
           help:
-          - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
-          - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
-          - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
-          - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
-          - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
-          - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
-          - Sie markieren den Brief als gesendet.
-          - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+            - Sie markieren den Brief als gesendet.
+            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       direct: Direkte
       help: Hilfe
       id_documents:

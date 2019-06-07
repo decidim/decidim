@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -92,10 +91,10 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Votre réunion "%{resource_title}" était terminée. Vous pouvez lire les conclusions sur sa page :'
+            email_intro: 'Votre réunion "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
             email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
             email_subject: La réunion "%{resource_title}" est close
-            notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> était close.
+            notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été close.
           email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" est terminée
@@ -103,11 +102,11 @@ fr:
             email_intro: 'La rencontre "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
             email_subject: La rencontre "%{resource_title}" est close
-            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> était close.
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été close.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
@@ -141,7 +140,7 @@ fr:
       badges:
         attended_meetings:
           conditions:
-          - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
+            - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
           description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
           description_another: Cet utilisateur a participé à %{score} réunions.
           description_own: Vous avez assisté à %{score} réunions.
@@ -328,7 +327,7 @@ fr:
         meetings:
           index:
             all: Tout
-            date: Date
+            date: Rendez-vous amoureux
             meetings: Rencontres
             past: Passées
             search: Rechercher
@@ -380,7 +379,7 @@ fr:
             validated: VALIDÉE
             validation_pending: VALIDATION EN ATTENTE
           remaining_slots:
-            one: Dernière place disponible
+            one: "%{count} emplacement disponible"
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:
