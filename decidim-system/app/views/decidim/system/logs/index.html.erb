@@ -1,0 +1,12 @@
+<div class="logs">
+  <pre><%= @logs %></pre>
+</div>
+
+<div class="logs_button">
+  <%= link_to t(".view_log", line: 50), logs_path(lines: 50), class: "button" %>
+  <%= link_to t(".view_log", line: 100), logs_path(lines: 100), class: "button" %>
+  <%= link_to t(".view_log", line: 200), logs_path(lines: 200), class: "button" %>
+  <%= link_to t(".view_log", line: 300), logs_path(lines: 300), class: "button" %>
+  <%= link_to t(".view_log", line: 1000), logs_path(lines: 1000), class: "button" %>
+  <%= link_to t(".download_log"), download_logs_path, class: "button" %>
+</div>

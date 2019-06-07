@@ -10,10 +10,11 @@ module Decidim
 
         it "renders the default main menu" do
           expect(default_main_menu).to \
-            have_selector("li", count: 3) &
+            have_selector("li", count: 4) &
             have_link("Dashboard", href: "/system/") &
             have_link("Organizations", href: "/system/organizations") &
-            have_link("Admins", href: "/system/admins")
+            have_link("Admins", href: "/system/admins") &
+            have_link("Logs", href: "/system/logs")
         end
 
         it "selects the correct default active option" do

@@ -1,0 +1,17 @@
+.logs_button {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logs {
+  overflow: auto;
+  height: 80vh;
+  display: flex;
+
+  pre {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

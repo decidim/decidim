@@ -13,6 +13,8 @@ Decidim::System::Engine.routes.draw do
   authenticate(:admin) do
     resources :organizations, except: [:destroy]
     resources :admins
+    resources :logs
+    get "download_logs", to: "logs#download"
     root to: "dashboard#show"
   end
 end

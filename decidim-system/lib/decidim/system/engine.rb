@@ -45,6 +45,10 @@ module Decidim
                     decidim_system.admins_path,
                     position: 3,
                     active: :inclusive
+
+          menu.item I18n.t("menu.logs", scope: "decidim.system"),
+                    decidim_system.logs_path,
+                    position: 4
         end
       end
     end
