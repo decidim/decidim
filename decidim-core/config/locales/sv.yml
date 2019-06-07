@@ -126,30 +126,30 @@ sv:
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
-        reject: "%{user_name} avvisade användargruppverifiering för %{resource_name}"
-        verify: "%{user_name} verifierade användargruppen %{resource_name}"
-        verify_via_csv: "%{user_name} verifierade %{resource_name} användargrupp via en CSV-fil"
+        reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
+        verify: "%{user_name} verifierade gruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
     amendments:
       accepted:
-        error: Ett fel uppstod vid godkännande av ändringen.
-        success: Ändringen har godkänts framgångsrikt.
+        error: Ett fel uppstod när ändringen skulle godkännas.
+        success: Ändringen har godkänts.
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
         error: Det har inträffat ett fel vid ändring av denna resurs.
-        help_text: Förbättra detta %{model_name} genom att ändra dess %{amendable_fields}
+        help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
         promote_button: Främja till %{model_name}
-        promote_confirm_text: Är du säker på att du vill marknadsföra denna utgåva?
+        promote_confirm_text: Vill du föra fram denna korrigering?
         promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
         section_heading: Ändringar (%{count})
       created:
-        error: Ett fel uppstod när du skapade ändringen
-        success: Ändringen har skapats med framgång
+        error: Ett fel uppstod när ändringen skulle skapas
+        success: Ändringen har skapats
       emendation:
         actions:
           button_accept: Acceptera
           button_reject: Avvisa
-          help_text: Granska ändringarna och acceptera eller avslå detta ändringsförslag. En anmälan kommer att skickas till dess författare (er).
+          help_text: Granska ändringarna och acceptera eller avslå detta ändringsförslag. Ett meddelande kommer att skickas till dess författare.
         announcement:
           accepted: |-
             Detta ändringsförslag för %{amendable_type} %{amendable_link} har blivit
