@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-proposals**: Add authorization workflow to amend action[#5184](https://github.com/decidim/decidim/pull/5184)
 
 **Changed**:
 
