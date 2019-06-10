@@ -149,7 +149,7 @@ sv:
         actions:
           button_accept: Acceptera
           button_reject: Avvisa
-          help_text: Granska ändringarna och acceptera eller avslå detta ändringsförslag. Ett meddelande kommer att skickas till dess författare.
+          help_text: Granska ändringarna och bifall eller avslå detta ändringsförslag. Ett meddelande kommer att skickas till dess författare.
         announcement:
           accepted: |-
             Detta ändringsförslag för %{amendable_type} %{amendable_link} blev
@@ -157,25 +157,25 @@ sv:
           evaluating: |-
             Detta ändringsförslag för %{amendable_type} %{amendable_link}
             utvärderas just nu.
-          rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navvisades <strong>%{announcement_date}</strong>."
+          rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navslogs <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Detta ändringsförslag till %{amendable_type} %{amendable_link}
             har dragits tillbaka av författaren.
       new:
-        amendment_author: Ändringsförfattare
+        amendment_author: Förslagsställare
         back: Tillbaka
-        heading: Skapa ditt ändringsförslag
+        heading: Skapa ändringsförslag
         help_text: Du ändrar %{model_name}
         send: Skicka ändringsförslag
       promoted:
-        error: Det har varit fel när man främjar emendationen
-        success: Emendation främjas framgångsrikt
+        error: Det gick inte att publicera ändringen som ett nytt förslag
+        success: Ändringsförslaget har publicerats som ett nytt förslag
       rejected:
-        error: Ett fel uppstod när du avvisade den här utgåvan, var god försök igen senare
-        success: Emendationen har avvisats framgångsrikt
+        error: Det gick inte av avslå detta ändringsförslag, försök igen senare
+        success: Ändringsförslaget har avslagits
       review:
         back: Tillbaka
-        heading: Granska ändringen
+        heading: Granska ändringsförslaget
         help_text: Du granskar ett ändringsförslag till %{model_name}
         send: Godkänn ändring
     anonymous_user: Anonym
@@ -264,7 +264,7 @@ sv:
         name: Dummy Komponent
         settings:
           global:
-            amendments_enabled: Ändringar är möjliga
+            amendments_enabled: Ändringsförslag är möjliga
             comments_enabled: Kommentarer på
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
