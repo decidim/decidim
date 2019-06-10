@@ -855,7 +855,7 @@ sv:
           link: Visa all statistik
       terms_and_conditions:
         accept:
-          error: Det har blivit ett fel när du accepterade villkoren.
+          error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
           agreement: Jag godkänner användarvillkoren
@@ -874,10 +874,10 @@ sv:
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
-      deleted: Ta bort användare
+      deleted: Deltagaren har raderats
       view: Visa
     profiles:
-      default_officialization_text_for_user_groups: Den här användargruppen är offentligt verifierad, namnet har verifierats för att motsvara sitt riktiga namn
+      default_officialization_text_for_user_groups: Den här gruppen är offentligt verifierad, namnet har kontrollerats att överensstämma med dess riktiga namn
       default_officialization_text_for_users: Denna deltagare är verifierad. Deras namn eller roll har kontrollerats att motsvara deras riktiga namn och roll
       show:
         activity: Aktivitet
@@ -886,8 +886,8 @@ sv:
         following: Följer
         groups: Grupper
         members: Medlemmar
-        timeline: tidslinje
-        view_full_profile: Visa hela profilen
+        timeline: Tidslinje
+        view_full_profile: Visa fullständig profil
       sidebar:
         badges:
           info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
