@@ -91,6 +91,9 @@ en:
         update:
           error: There was a problem updating this consultation.
           success: Consultation updated successfully.
+        results:
+          total_votes: 'Total: %{count} votes'
+          not_visible: Results will be available when consultation closes
       menu:
         consultations: Consultations
         consultations_submenu:
@@ -169,9 +172,6 @@ en:
         update:
           error: There was a problem updating this response.
           success: Response successfully updated.
-        results:
-          total_votes: 'Total: %{count} votes'
-          not_visible: Results will be available when consultation closes
       titles:
         consultations: Consultations
         questions: Questions
