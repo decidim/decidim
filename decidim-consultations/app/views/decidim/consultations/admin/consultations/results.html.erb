@@ -1,0 +1,38 @@
+<div class="card" id="consultations">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.results" %>
+      <span class="label button--title"><%= t "decidim.admin.consultations.results.total_votes", count: @total_votes %></span>
+    </h2>
+  </div>
+  <div class="card-section">
+
+    <% current_consultation.questions.each do |question| %>
+      <% unless question.external_voting %>
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= decidim_sanitize translated_attribute question.title %></th>
+              <th class="table-list__actions">
+                <%= t "decidim.admin.consultations.results.total_votes", count: question.total_votes %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if current_consultation.finished? && question.sorted_results.any? %>
+              <% question.sorted_results.each do |response| %>
+              <tr>
+                <td><%= translated_attribute response.title %></td>
+                <td><%= response.votes_count %></td>
+              </tr>
+              <% end %>
+            <% else %>
+              <tr><td><em><%= t "decidim.admin.consultations.results.not_visible" %></em></td><td>&nbsp;</td></tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

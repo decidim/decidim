@@ -90,11 +90,15 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta consulta.
           success: La consulta s'ha actualitzat correctament.
+        results:
+          total_votes: 'Total: %{count} vots'
+          not_visible: Els resultats seran visibles s'acabi la consulta
       menu:
         consultations: Consultes
         consultations_submenu:
           info: Informació
           questions: Preguntes
+          results: Resultats
         questions_submenu:
           components: Components
           consultation: Consulta
@@ -171,6 +175,7 @@ ca:
         consultations: Consultes
         questions: Preguntes
         responses: Respostes
+        results: Resultats
     consultations:
       admin:
         content_blocks:

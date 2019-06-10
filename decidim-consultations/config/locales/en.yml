@@ -96,6 +96,7 @@ en:
         consultations_submenu:
           info: Information
           questions: Questions
+          results: Results
         questions_submenu:
           components: Components
           consultation: Consultation
@@ -168,10 +169,14 @@ en:
         update:
           error: There was a problem updating this response.
           success: Response successfully updated.
+        results:
+          total_votes: 'Total: %{count} votes'
+          not_visible: Results will be available when consultation closes
       titles:
         consultations: Consultations
         questions: Questions
         responses: Responses
+        results: Results
     consultations:
       admin:
         content_blocks:
