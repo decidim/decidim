@@ -573,35 +573,35 @@ sv:
             - Bjud in dina vänner med länken "bjud in vänner" på din användarsida
             - Om du vill kan du anpassa meddelandet som du skickar
             - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
-          description: Detta märke beviljas när du har bjudit in några personer och de har spenderat lite tid att registrera sig i %{organization_name} och bli deltagare. Tack för att göra %{organization_name} känt för andra och hjälpa till att utvidga community!
-          description_another: Den här användaren har bjudit in %{score} användare.
-          description_own: Du har bjudit in %{score} användare.
+          description: Du får detta märke när när du har bjudit in några personer, de har registrerat sig i %{organization_name} och blivit deltagare. Tack för att du gör %{organization_name} mer välkänt och gör vår gemenskap större!
+          description_another: Den här deltagaren har bjudit in %{score} personer.
+          description_own: Du har bjudit in %{score} personer.
           name: Inbjudningar
-          next_level_in: Bjud in %{score} fler användare att nå nästa nivå!
-          unearned_another: Den här användaren har inte bjudit in någon användare än.
-          unearned_own: Du har inte bjudit in några användare än.
+          next_level_in: Nå nästa nivå genom att bjuda in %{score} personer till!
+          unearned_another: Denna deltagare har inte bjudit in någon användare än.
+          unearned_own: Du har inte ännu bjudit in någon annan.
       description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
     group_admins:
       actions:
-        are_you_sure: Är du säker? Detta tar inte bort användaren från gruppen.
+        are_you_sure: Är du säker? Detta tar inte bort deltagaren från gruppen.
         demote_admin: Ta bort administratör
       demote:
-        error: Det gick inte att ta bort den här användaren från administratörslistan
-        success: Användaren har tagits bort från admin framgångsrikt
+        error: Det gick inte att ta bort den här deltagaren från administratörslistan
+        success: Användaren är inte längre administratör
       index:
         current_admins: 'Nuvarande administratörer:'
         manage_admins: Hantera administratörer
     group_invites:
       accept:
-        error: Det gick inte att acceptera den här inbjudan
-        success: Inbjudan accepterades
+        error: Det gick inte att godkänna den här inbjudan
+        success: Inbjudan har godkänts
       accept_invitation: Godkänn
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
       index:
         invite: Inbjudan
-        invite_user: Bjud in en användare
+        invite_user: Bjud in en deltagare
       invite:
         error: Det uppstod ett fel med att bjuda in den här användaren
         success: Användaren bjöds in
