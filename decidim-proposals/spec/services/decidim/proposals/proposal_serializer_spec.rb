@@ -110,14 +110,24 @@ module Decidim
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
-        it "serializes the amount of endorsements" do
-          expect(serialized).to include(endorsements: proposal.endorsements.count)
+        it "serializes the endorsements" do
+          expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
+          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
         end
 
         it "serializes related proposals" do
           expect(serialized[:related_proposals].length).to eq(2)
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
+
+        it "serializes if proposal is_amend" do
+          expect(serialized).to include(is_amend: proposal.emendation?)
+        end
+
+        it "serializes the original proposal" do
+          expect(serialized[:original_proposal]).to include(title: proposal&.amendable&.title)
+          expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
+        end   
 
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
