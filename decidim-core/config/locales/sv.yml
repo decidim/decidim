@@ -425,7 +425,7 @@ sv:
             email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden via föregående länk.
             email_subject: Ändringsförslaget till %{amendable_title} från %{emendation_author_nickname} avslogs
-            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> till <a href="%{amendable_path}">%{amendable_title}</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits.
       attachments:
         attachment_created:
           email_intro: 'Ett nytt dokument har lagts till i %{resource_title}. Du kan se det från den här sidan:'
@@ -445,15 +445,15 @@ sv:
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bra jobbat! Du har tjänat <a href="%{resource_path}">%{badge_name} märket</a> (nivå %{current_level}).
+          email_intro: Bra jobbat! Du har uppnått <a href="%{resource_url}">märket %{badge_name}</a> (nivå %{current_level}).
           email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
           email_subject: 'Du har uppnått ett nytt märke: %{badge_name}!'
-          notification_title: Bra jobbat! Du har intjänat <a href="%{resource_path}">%{badge_name} emblemet</a> (nivå %{current_level}).
+          notification_title: Bra jobbat! Du har uppnått <a href="%{resource_path}">märket %{badge_name}</a> (nivå %{current_level}).
         level_up:
-          email_intro: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_url}">%{badge_name} emblemet</a>!
+          email_intro: Bra jobbat! Du har uppnått nivå %{current_level} på <a href="%{resource_url}">märket %{badge_name}</a>!
           email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
           email_subject: Du har uppnått nivå %{current_level} på märket %{badge_name}!
-          notification_title: Bra jobbat! Du har nått nivån %{current_level} på <a href="%{resource_path}">%{badge_name} emblemet</a>!
+          notification_title: Bra jobbat! Du har uppnått nivå %{current_level} på <a href="%{resource_path}">märket %{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
@@ -547,11 +547,11 @@ sv:
           conditions:
             - Kommer ofta hit
           description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
-          description_another: Den här användaren har anslutit sig under %{score} på varandra följande dagar vid någon tidpunkt.
+          description_another: Deltagaren har någon gång varit ansluten %{score} på dagar i följd.
           description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
           name: Kontinuitet
           next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
-          unearned_another: Den här användaren har inte loggat in under på varandra följade dagar.
+          unearned_another: Deltagaren har inte loggat in mer än en dag i följd.
           unearned_own: Du har inte anslutit dig mer än en dag i följd.
         followers:
           conditions:
@@ -560,7 +560,7 @@ sv:
           description_another: Deltagaren har %{score} följare.
           description_own: "%{score} personer följer dig."
           name: Följare
-          next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
+          next_level_in: Nå nästa nivå genom att få %{score} fler personer användare att följa dig!
           unearned_another: Den här användaren har inga följare än.
           unearned_own: Du har inga följare än.
         index:
@@ -572,7 +572,7 @@ sv:
           conditions:
             - Bjud in dina vänner med länken "bjud in vänner" på din användarsida
             - Om du vill kan du anpassa meddelandet som du skickar
-            - Du kommer att nivåera upp genom att skicka inbjudningar och få dem registrerade.
+            - Nå nästa nivå genom att skicka inbjudningar till andra och få dem att registrera sig.
           description: Du får detta märke när när du har bjudit in några personer, de har registrerat sig i %{organization_name} och blivit deltagare. Tack för att du gör %{organization_name} mer välkänt och gör vår gemenskap större!
           description_another: Den här deltagaren har bjudit in %{score} personer.
           description_own: Du har bjudit in %{score} personer.
