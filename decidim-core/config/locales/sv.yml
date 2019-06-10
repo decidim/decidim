@@ -606,47 +606,47 @@ sv:
         error: Det gick inte att bjuda in deltagaren
         success: Deltagaren har bjudits in
       reject:
-        error: Det uppstod ett fel vid avvisandet av denna inbjudan
-        success: Inbjudan avvisades
+        error: Det gick inte att avvisa denna inbjudan
+        success: Inbjudan har avvisats
       reject_invitation: Avvisa
     group_members:
       accept:
-        error: Det gick inte att acceptera den här anslutningsförfrågan
-        success: Gå med förfrågan accepterades
+        error: Det gick inte att godkänna denna förfrågan att gå med
+        success: Förfrågan att gå med har godkänts
       actions:
         are_you_sure: Är du säker?
         promote_to_admin: Gör till administratör
-        remove_from_group: Ta bort användaren
+        remove_from_group: Ta bort deltagaren
       index:
         current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
         manage_members: Hantera medlemmar
       promote:
-        error: Det uppstod ett fel i befordrandet av den här användaren
+        error: Det gick inte att befordra deltagaren
         success: Användaren befodrades
       reject:
-        error: Ett fel uppstod vid avvisandet av denna anmälningsförfrågan
-        success: Gå med förfrågan avvisades
+        error: Det gick inte att avvisa denna förfrågan att gå med
+        success: Förfrågan att gå med avvisades
       remove:
-        error: Det gick inte att ta bort den här användaren från gruppen
-        success: Användaren togs bort från gruppen
+        error: Det gick inte att ta bort den här deltagaren från gruppen
+        success: Deltagaren har tagits bort från gruppen
     groups:
       actions:
         are_you_sure: Är du säker?
       create:
-        error: Det har uppstått ett problem med att skapa gruppen
-        success: Grupp skapades
+        error: Det gick inte att skapa gruppen
+        success: Gruppen har skapats
       edit:
         edit_user_group: Redigera grupp
         update_user_group: Uppdatera grupp
       form:
         document_number_help: Använd inte bindestreck eller mellanslag
-        email_help: E-post till din organisation, förening, kollektiv, grupp, etc.
+        email_help: E-post till din organisation, förening, kollektiv, grupp, och så vidare.
         fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
-        name_help: Namn på din organisation, förening, kollektiv, grupp, etc.
+        name_help: Namn på din organisation, förening, kollektiv, grupp eller motsvarande.
         nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
         phone_help: Använd inte bindestreck eller mellanslag
       join:
-        error: Det har uppstått ett problem med att gå med i gruppen
+        error: Det gick inte att gå med i gruppen
         success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
       leave:
         error: Det har uppstått ett problem med att lämna gruppen
