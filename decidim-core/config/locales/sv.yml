@@ -261,7 +261,7 @@ sv:
         actions:
           bar: Bar
           foo: Foo
-        name: Dummy Komponent
+        name: Dummy Component
         settings:
           global:
             amendments_enabled: Ändringsförslag är möjliga
@@ -1121,8 +1121,8 @@ sv:
       signed_up_but_inactive: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto ännu inte är aktiverat.
       signed_up_but_locked: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto är låst.
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Aktivera kontot genom att följa länken.
-      update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress.
-      updated: Ditt konto har uppdaterats framgångsrikt.
+      update_needs_confirmation: Kontot har uppdaterats, men vi måste verifiera din nya e-postadress. Kontrollera din e-post och följ länken som bekräftar din nya e-postadress.
+      updated: Ditt konto har uppdaterats.
     sessions:
       already_signed_out: Du har loggats ut.
       new:
@@ -1146,14 +1146,14 @@ sv:
         resend_unlock_instructions: Skicka anvisningarna om att låsa upp igen
       send_instructions: Du kommer att få ett e-brev med anvisningar om hur du låser upp ditt konto inom några minuter.
       send_paranoid_instructions: Om ditt konto finns, får du ett e-brev med instruktioner om hur du låser upp det på några minuter.
-      unlocked: Ditt konto har upplösts framgångsrikt. Vänligen logga in för att fortsätta.
+      unlocked: Ditt konto har låsts upp. Logga in för att fortsätta.
   doorkeeper:
     scopes:
       public: Din offentliga information.
   errors:
     messages:
-      already_confirmed: var redan bekräftad, var god försök att logga in
-      confirmation_period_expired: måste bekräftas inom %{period}, vänligen be om en ny
+      already_confirmed: var redan bekräftat, försök att logga in
+      confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
       content_type_whitelist_error: ogiltig filtyp
       cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
       expired: har förfallit, men du kan begära en ny
@@ -1192,7 +1192,7 @@ sv:
         sign_up: Registrera
       impersonation_warning:
         close_session: Stäng session
-        description_html: Du framställer dig som användaren <b>%{user_name}</b>.
+        description_html: Du hanterar deltagaren <b>%{user_name}</b>.
         expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
