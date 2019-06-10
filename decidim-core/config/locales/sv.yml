@@ -647,9 +647,9 @@ sv:
         phone_help: Använd inte bindestreck eller mellanslag
       join:
         error: Det gick inte att gå med i gruppen
-        success: Gå med förfrågan skapad framgångsrikt. En administratör granskar din förfrågan innan du accepterar dig till gruppen.
+        success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
-        error: Det har uppstått ett problem med att lämna gruppen
+        error: Det gick inte att lämna gruppen
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -658,15 +658,15 @@ sv:
       new:
         create_user_group: Skapa grupp
         new_user_group: Ny grupp
-        subtitle: Skapa en grupp och bjud in andra användare att gå med för att delta i en kollektiv nivå.
+        subtitle: Skapa en grupp och bjud in andra användare att delta som ett kollektiv.
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
         creator: Skapare
         member: Medlem
       update:
-        error: Det har förekommit ett problem med att uppdatera gruppen
-        success: Gruppen uppdaterades
+        error: Det gick inte att uppdatera gruppen
+        success: Gruppen har uppdaterats
     help:
       main_topic:
         default_page:
