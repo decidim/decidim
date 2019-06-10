@@ -749,7 +749,7 @@ sv:
       users:
         description: Antal användare i organisationen
         object: användare
-        title: Användare
+        title: Deltagare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
@@ -758,7 +758,7 @@ sv:
     newsletters:
       unsubscribe:
         check_subscription: Om du vill ändra dina inställningar kan du göra det på <a href="%{link}" target="_blank">konfigurationssidan</a>
-        error: Ett fel uppstod vid avbrytandet av prenumeration
+        error: Det gick inte att avsluta prenumerationen
         success: Prenumerationen har avslutats.
         token_error: Länken är inte längre giltig.
         unsubscribe: Avprenumerera
@@ -766,7 +766,7 @@ sv:
       unathorized: Länken är tyvärr inte längre tillgänglig
       update:
         error: Ett fel uppstod
-        success: Nyhetsbrevinställningarna uppdateras framgångsrikt
+        success: Inställningarna för nyhetsbrevet har ändrats
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen och skyddet av personuppgifter blir allt viktigare för oss alla. Med den nya dataskyddsförordningen (GDPR) per den 25 maj 2018 har individer större kontroll över sina personuppgifter. Därför behöver vi ett "OK" från dig för att fortsätta att skicka relevant information om aktiviteterna i %{organization_name}.
@@ -783,14 +783,14 @@ sv:
         email_on_notification: Jag vill få ett e-brev varje gång jag får ett meddelande.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
-        newsletters: nyhetsbrev
-        own_activity: Min egen verksamhet, som när någon kommenterar i mitt förslag eller nämner mig
+        newsletters: Nyhetsbrev
+        own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         receive_notifications_about: Jag vill få meddelanden om
         send_notifications_by_email: Skicka meddelanden via e-post
         update_notifications_settings: Spara ändringar
       update:
-        error: Det har uppstått ett fel vid uppdatering av dina notisinställningar.
-        success: Dina inställningar för notiser har framgångsrikt uppdaterats.
+        error: Det gick inte att uppdatera dina meddelandeinställningar.
+        success: Dina meddelandeinställningar har uppdaterats.
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     own_user_groups:
@@ -824,11 +824,11 @@ sv:
           headline: Deltagande i siffror
         statistics:
           answers_count: Genomförda undersökningar
-          assemblies_count: Församlingar
+          assemblies_count: Sammankomster
           comments_count: Kommentarer
           conferences_count: Konferenser
           debates_count: Debatter
-          endorsements_count: Påskrifter
+          endorsements_count: Underskrifter
           headline: Aktuellt läge för %{organization}
           meetings_count: Möten
           orders_count: Omröstningar
@@ -1020,28 +1020,28 @@ sv:
       last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
-      timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
+      timeout: Din session har förfallit. Logga in igen om du vill fortsätta.
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
     invitations:
       edit:
         header: Slutför att skapa ditt konto
-        nickname_help: Din unika identifierare i %{organization}.
+        nickname_help: Ditt användarnamn i %{organization}.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
-      invitation_token_invalid: Anbudsinfordran är inte giltig!
+      invitation_token_invalid: Ogiltig token för inbjudan!
       new:
         header: Skicka inbjudan
         submit_button: Skicka en inbjudan
       no_invitations_remaining: Inga inbjudningar kvar
-      send_instructions: Ett inbjudningsemail har skickats till %{email}.
-      updated: Ditt lösenord har upprättats. Du är nu inloggad.
-      updated_not_active: Ditt lösenord har upprättats.
+      send_instructions: Ett e-brev med inbjudan har skickats till %{email}.
+      updated: Lösenordet har nu ställts in. Du är nu inloggad.
+      updated_not_active: Ditt lösenord har ställts in.
     mailer:
       confirmation_instructions:
         action: Bekräfta mitt konto
         greeting: Välkommen %{recipient}!
-        instruction: 'Du kan bekräfta e-postadressen för ditt konto via länken nedan:'
+        instruction: 'Du kan bekräfta e-postadressen via länken nedan:'
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
