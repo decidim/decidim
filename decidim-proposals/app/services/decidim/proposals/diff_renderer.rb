@@ -48,10 +48,35 @@ module Decidim
           attribute => {
             type: type,
             label: I18n.t(attribute, scope: "activemodel.attributes.collaborative_draft"),
-            old_value: values[0],
+            old_value: emendation_value_for(attribute) || values[0],
             new_value: values[1]
           }
         )
+      end
+
+      # Retrieves the attribute value of the amended proposal.
+      # Returns the last version if the amendment is being evaluated; else,
+      # returns the original version at the moment of creating the amendment.
+      def emendation_value_for(attribute)
+        return unless proposal&.emendation?
+        return last_version(attribute) if proposal.amendment.evaluating?
+
+        original_version(attribute)
+      end
+
+      # Retrieves the CURRENT attribute value of the amended proposal.
+      def last_version(attribute)
+        proposal.amendable.attributes[attribute.to_s]
+      end
+
+      # Retrieves the attribute value of the amended proposal STORED in the first
+      # version created in Decidim::Amendable::Create.create_emendation!
+      def original_version(attribute)
+        proposal.versions.first.changeset[attribute.to_s].last
+      end
+
+      def proposal
+        @proposal ||= Proposal.find_by(id: version.item_id)
       end
     end
   end
