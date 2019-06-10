@@ -1056,10 +1056,10 @@ sv:
           Om du inte vill godkänna inbjudningen kan du ignorera detta e-postmeddelande.<br />
           Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
-        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privat deltagare till %{application}. Du kan godkänna detta via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
-        someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
+        someone_invited_you_as_private_user: Någon har bjudit in dig som privatperson till %{application}, du kan godkänna detta via länken nedan.
         subject: Anvisningar om inbjudningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
@@ -1077,9 +1077,9 @@ sv:
         action: Ändra mitt lösenord
         greeting: Hej %{recipient}!
         instruction: Någon har begärt en länk för att ändra ditt lösenord, och du kan göra det genom länken nedan.
-        instruction_2: Om du inte begärt detta, ignorerar du det här e-postmeddelandet.
-        instruction_3: Ditt lösenord ändras inte förrän du öppnar länken ovan och skapar en ny.
-        subject: Återställ lösenordsinstruktioner
+        instruction_2: Om du inte begärt detta, ignorerar du det här brevet.
+        instruction_3: Ditt lösenord ändras inte förrän du följer länken ovan och skapar ett nytt.
+        subject: Anvisningar om att återställa lösenord
       unlock_instructions:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
@@ -1088,7 +1088,7 @@ sv:
         subject: Anvisningar för att låsa upp
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
-      success: Succesfullt autentiserad från %{kind} konto.
+      success: Du är autentiserad från kontot %{kind}.
     passwords:
       edit:
         change_my_password: Ändra mitt lösenord
@@ -1099,10 +1099,10 @@ sv:
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
-      no_token: Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen.
-      send_instructions: Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter.
-      send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter.
-      updated: Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad.
+      no_token: Du kan inte komma åt den här sidan utan att komma från ett e-brev för återställning av lösenord. Om du kommer från ett e-brev för återställning av lösenord kontrollerar du att du använde hela URL:en.
+      send_instructions: Du får ett e-brev med anvisningar om hur du återställer ditt lösenord om några minuter.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord till din e-postadress om några minuter.
+      updated: Lösenordet har ändrats. Du är nu inloggad.
       updated_not_active: Ditt lösenord har ändrats.
     registrations:
       destroyed: Ditt konto har avregistrerats. Vi hoppas att vi ses snart igen.
@@ -1114,7 +1114,7 @@ sv:
         title: Redigera %{resource}
         unhappy: Olycklig?
         update: Uppdatera
-        we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta dina ändringar
+        we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta ändringarna
       new:
         sign_up: Registrera
       signed_up: Välkommen! Din registrering är klar.
@@ -1132,8 +1132,8 @@ sv:
     shared:
       links:
         back: Tillbaka
-        didn_t_receive_confirmation_instructions: Fick inte bekräftelsesinstruktioner?
-        didn_t_receive_unlock_instructions: Fick inte upplåsningsinstruktioner?
+        didn_t_receive_confirmation_instructions: Fick du inte anvisningar om bekräftelse?
+        didn_t_receive_unlock_instructions: Fick du inte anvisningar om att låsa upp?
         forgot_your_password: Glömt ditt lösenord?
         sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
@@ -1143,9 +1143,9 @@ sv:
         other: "(minst %{count} tecken)"
     unlocks:
       new:
-        resend_unlock_instructions: Skicka om upplåsningsinstruktionerna igen
-      send_instructions: Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter.
-      send_paranoid_instructions: Om ditt konto finns, får du ett mail med instruktioner om hur du låser upp det på några minuter.
+        resend_unlock_instructions: Skicka anvisningarna om att låsa upp igen
+      send_instructions: Du kommer att få ett e-brev med anvisningar om hur du låser upp ditt konto inom några minuter.
+      send_paranoid_instructions: Om ditt konto finns, får du ett e-brev med instruktioner om hur du låser upp det på några minuter.
       unlocked: Ditt konto har upplösts framgångsrikt. Vänligen logga in för att fortsätta.
   doorkeeper:
     scopes:
