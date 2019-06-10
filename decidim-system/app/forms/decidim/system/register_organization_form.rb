@@ -16,6 +16,7 @@ module Decidim
       attribute :default_locale, String
       attribute :reference_prefix
       attribute :users_registration_mode, String
+      attribute :force_users_to_authenticate_before_access_organization, Boolean
 
       validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, :users_registration_mode, presence: true
       validates :available_locales, presence: true
