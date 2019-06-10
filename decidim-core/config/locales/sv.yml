@@ -670,10 +670,10 @@ sv:
     help:
       main_topic:
         default_page:
-          content: "<p>I %{organization} du delta och bestämma olika ämnen genom de utrymmen du ser på toppmenyn: Processer, Sammansättningar, Initiativ, Konsultationer.</p> <p>Inom varje man hittar du olika alternativ att delta: Gör förslag - enskilt eller med andra människor - delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
+          content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: processer, sammankomster, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
         description: Läs mer om %{organization}
-        title: Generell hjälp
+        title: Allmän hjälp
     last_activities:
       activities:
         no_activities_warning: Ingen aktivitet
@@ -701,9 +701,9 @@ sv:
         scope_type_presenter:
           not_found: 'Omfattningstypen hittades inte i databasen (ID: %{id})'
     managed_users:
-      expired_session: Den nuvarande ombildningsperioden har löpt ut.
+      expired_session: Den aktuella administrationsperioden för en användare har förfallit.
     members:
-      no_members: Denna användargrupp har inga medlemmar.
+      no_members: Grupp har inga medlemmar än.
     menu:
       help: Hjälp
       home: Hem
@@ -724,7 +724,7 @@ sv:
           error: Konversationen har inte startat. Försök igen senare
         index:
           no_conversations: Du har inga konversationer än
-          title: samtal
+          title: Samtal
         reply:
           send: Skicka
           title: Svara
@@ -739,13 +739,13 @@ sv:
       download:
         csv: Hämta data (csv)
       followers:
-        description: Antal användare som följer detta deltagarutrymme
+        description: Antal deltagare som följer detta deltagarområde
         object: följare
-        title: anhängare
+        title: Följare
       participants:
-        description: Antal aktiva användare i organisationen
-        object: deltagarna
-        title: Deltagarna
+        description: Antal aktiva deltagare i organisationen
+        object: deltagare
+        title: Deltagare
       users:
         description: Antal användare i organisationen
         object: användare
