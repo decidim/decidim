@@ -890,20 +890,20 @@ sv:
         view_full_profile: Visa fullständig profil
       sidebar:
         badges:
-          info: Badges tjänas genom att utföra specifik aktivitet i plattformen.
+          info: Man får märken genom att utföra olika aktiviteter på plattformen.
           title: Märken
       user:
-        confirmation_instructions_sent: Email-bekräftelsesinstruktioner skickade
+        confirmation_instructions_sent: Skickat e-brev med anvisningar om bekräftelse
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
         edit_user_group: Redigera grupprofil
-        fill_in_email_to_confirm_it: Vänligen fyll i din grupps e-post för att bekräfta det
-        invite_user: Bjud in användare
-        join_user_group: Begär att gå med i gruppen
+        fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den
+        invite_user: Bjud in deltagare
+        join_user_group: Begäran att gå med i grupp
         leave_user_group: Lämna grupp
         manage_user_group_admins: Hantera administratörer
         manage_user_group_users: Hantera medlemmar
-        resend_email_confirmation_instructions: Skicka vidare bekräftelseinstruktioner för e-post
+        resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -1000,16 +1000,16 @@ sv:
         select_your_interests: Välj de ämnen som du är intresserad, och händelser som är relaterade till dessa visas fliken Tidslinje i din profil.
         update_my_interests: Uppdatera mina intressen
       update:
-        error: Ett fel uppstod när du uppdaterade dina intressen.
-        success: Dina intressen har blivit uppdaterade.
+        error: Det gick inte att uppdatera dina intressen.
+        success: Dina intressen har uppdaterats.
     welcome_notification:
       default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
-      default_subject: Tack för att du gick med {{organization}}!
+      default_subject: Tack för att du gick med i {{organization}}!
   devise:
     confirmations:
       confirmed: Din e-postadress har bekräftats.
       new:
-        resend_confirmation_instructions: Skicka om bekräftelsesinstruktionerna igen
+        resend_confirmation_instructions: Skicka bekräftelseanvisningarna igen
       send_instructions: Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter.
       send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
     failure:
@@ -1098,18 +1098,18 @@ sv:
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
       new:
         forgot_your_password: Glömt ditt lösenord?
-        send_me_reset_password_instructions: Skicka mig återställ lösenordsinstruktioner
+        send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
       no_token: Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen.
       send_instructions: Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter.
       send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter.
       updated: Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad.
-      updated_not_active: Ditt lösenord har ändrats framgångsrikt.
+      updated_not_active: Ditt lösenord har ändrats.
     registrations:
-      destroyed: Adjö! Ditt konto har blivit avstängt. Vi hoppas att vi ses snart igen.
+      destroyed: Ditt konto har avregistrerats. Vi hoppas att vi ses snart igen.
       edit:
         are_you_sure: Är du säker?
-        cancel_my_account: Avbryt mitt konto
-        currently_waiting_confirmation_for_email: 'För närvarande väntar bekräftelse på: %{email}'
+        cancel_my_account: Avregistrera mitt konto
+        currently_waiting_confirmation_for_email: 'Väntar för närvarande på bekräftelse från: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill ändra det
         title: Redigera %{resource}
         unhappy: Olycklig?
@@ -1210,7 +1210,7 @@ sv:
         my_data: Mitt data
         my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
-        title: Användarinställningar
+        title: Deltagarinställningar
         user_groups: Grupper
       widget:
         see_more: Visa mer
