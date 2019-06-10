@@ -140,7 +140,7 @@ sv:
         help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
         promote_button: Främja till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-        promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
+        promote_help_text: Du kan stötta detta ändringsförslag och lägga fram det som ett oberoende %{model_name}
         section_heading: Ändringar (%{count})
       created:
         error: Ett fel uppstod när ändringen skulle skapas
@@ -414,16 +414,16 @@ sv:
             email_intro: 'En avslaget ändringsförslag till %{amendable_title} har lagts fram som ett nytt %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Ett ändringsförslag från %{emendation_author_nickname} har lagts fram som ett nytt %{amendable_type}
-            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har lagts fram som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_intro: 'En ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
+            email_outro: Du har fått det här meddelandet eftersom du är en författare till %{amendable_title}.
             email_subject: Avslaget ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: <a href="%{emendation_path}">Ändringsförslaget</a> för <a href="%{amendable_path}">%{amendable_title}</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits.
           follower:
-            email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_intro: 'Ett ändringsförslag till %{amendable_title} har avslagits. Du kan se det från den här sidan:'
+            email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden via föregående länk.
             email_subject: Ändringsförslaget till %{amendable_title} från %{emendation_author_nickname} avslogs
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
