@@ -127,7 +127,7 @@ module Decidim
         it "serializes the original proposal" do
           expect(serialized[:original_proposal]).to include(title: proposal&.amendable&.title)
           expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
-        end   
+        end
 
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }

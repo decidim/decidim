@@ -39,7 +39,7 @@ module Decidim
           supports: proposal.proposal_votes_count,
           endorsements: {
             total_count: proposal.endorsements.count,
-            user_endorsements: user_endorsements,
+            user_endorsements: user_endorsements
           },
           comments: proposal.comments.count,
           attachments: proposal.attachments.count,
