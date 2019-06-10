@@ -398,10 +398,10 @@ sv:
             email_intro: 'Ett nytt ändringsförslag har skapats för %{amendable_title}. Du kan se det från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
             email_subject: Nytt ändringsförslag till %{amendable_title}
-            notification_title: Ett nytt ändringsförslag har skapats för <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Ett nytt ändringsförslag har skapats till <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'En ny emendation har skapats för %{amendable_title}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_intro: 'Ett nytt ändringsförslag har skapats till %{amendable_title}. Du kan se det på den här sidan:'
+            email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Nytt ändringsförslag till %{amendable_title}
             notification_title: Ett nytt ändringsförslag har skapats för <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
@@ -529,10 +529,10 @@ sv:
     follows:
       create:
         button: Följ
-        error: Det har inträffat ett fel efter denna resurs.
+        error: Det gick inte att följa resursen.
       destroy:
         button: Sluta följa
-        error: Det har inträffat ett fel vid avföljandet av denna resurs.
+        error: Det gick inte att sluta följa den här resursen.
     forms:
       current_file: Nuvarande fil
       current_image: Nuvarande bild
@@ -557,8 +557,8 @@ sv:
           conditions:
             - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
           description: Du får detta märke när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, spinn ditt nät genom att kommunicera med andra personer på plattformen.
-          description_another: Den här användaren har %{score} följare.
-          description_own: "%{score} användare följer dig."
+          description_another: Deltagaren har %{score} följare.
+          description_own: "%{score} personer följer dig."
           name: Följare
           next_level_in: Få %{score} fler användare att följa dig för att nå nästa nivå!
           unearned_another: Den här användaren har inga följare än.
