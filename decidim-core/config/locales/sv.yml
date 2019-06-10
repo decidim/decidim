@@ -603,8 +603,8 @@ sv:
         invite: Inbjudan
         invite_user: Bjud in en deltagare
       invite:
-        error: Det uppstod ett fel med att bjuda in den här användaren
-        success: Användaren bjöds in
+        error: Det gick inte att bjuda in deltagaren
+        success: Deltagaren har bjudits in
       reject:
         error: Det uppstod ett fel vid avvisandet av denna inbjudan
         success: Inbjudan avvisades
