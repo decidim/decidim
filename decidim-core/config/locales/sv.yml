@@ -1003,23 +1003,23 @@ sv:
         error: Det gick inte att uppdatera dina intressen.
         success: Dina intressen har uppdaterats.
     welcome_notification:
-      default_body: <p>Hej {{name}}tack för att du gick med {{organization}} och välkommen!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">Help</a> sektionen.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, gå med andra, dela med dig erfarenheten av att vara förlovad och delta i {{organization}}. Gör förslag, kommentarer, debatt, fundera över hur man bidrar till det gemensamma bästa, ge argument för att övertyga, lyssna och läsa för att vara övertygad, uttrycka dina idéer på ett konkret och direkt sätt, svara med tålamod och beslut, försvara dina idéer och behåll ett öppet sinne för att samarbeta och gå med andra människors idéer.</li></ul>
+      default_body: <p>Hej {{name}}, välkommen och tack för att du gick med i {{organization}}!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">hjälpavsnittet</a>.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> som du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, prata med andra och dela med dig av hur det är att vara engagerad i och delta i {{organization}}. Lämna förslag, ge kommentarer, debattera, fundera över hur man kan bidra till det gemensamma bästa, framför övertygande argument, lyssna och läs för att själv bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara med tålamod eller kraft, försvara dina idéer och ha ett öppet sinne för samarbete och andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med i {{organization}}!
   devise:
     confirmations:
       confirmed: Din e-postadress har bekräftats.
       new:
         resend_confirmation_instructions: Skicka bekräftelseanvisningarna igen
-      send_instructions: Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter.
-      send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter.
+      send_instructions: Du kommer att få ett e-brev med anvisningar om hur du bekräftar din e-postadress om några minuter.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett e-brev med anvisningar om hur du bekräftar din e-postadress inom några minuter.
     failure:
       already_authenticated: Du är redan inloggad.
       inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
-      invited: Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto.
-      last_attempt: Du har ytterligare ett försök innan ditt konto är låst.
+      invited: Du har en inbjudan som väntar, slutför att skapa ditt konto genom att godkänna den.
+      last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
-      not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
+      not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
       timeout: Din session har förfallit. Logga in igen om du vill fortsätta.
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
     invitations:
