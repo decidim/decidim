@@ -386,10 +386,10 @@ sv:
           affected_user:
             email_intro: 'Ett ändringsförslag har godkänts för %{amendable_title}. Visa det från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
-            email_subject: '%{emendation_author_nickname} har accepterat ändringsförslaget till %{amendable_title}'
+            email_subject: Bifallet ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'En emendation har godkänts för %{amendable_title}. Du kan se den från den här sidan:'
+            email_intro: 'Ett ändringsförslag har bifallits för %{amendable_title}. Läs det på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ett ändringsförslag accepterat för %{amendable_title} från %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har godkänts för <a href="%{amendable_path}">%{amendable_title}</a>.
