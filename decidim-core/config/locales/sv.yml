@@ -406,25 +406,25 @@ sv:
             notification_title: Ett nytt ändringsförslag har skapats till <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Ett avvisat ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
+            email_intro: 'Ett avslaget ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
             email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
-            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> till <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
+            email_intro: 'En avslaget ändringsförslag till %{amendable_title} har lagts fram som ett nytt %{amendable_type}. Du kan se det på den här sidan:'
+            email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_subject: Ett ändringsförslag från %{emendation_author_nickname} har lagts fram som ett nytt %{amendable_type}
             notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
-            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            email_subject: Avslaget ändringsförslag till %{amendable_title} från %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En emendation har avslagits för %{amendable_title}. Du kan se den från den här sidan:'
             email_outro: Du har fått den här meddelandet eftersom du följer %{amendable_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-            email_subject: Ett ändringsförslag avvisat för %{amendable_title} från %{emendation_author_nickname}
+            email_subject: Ändringsförslaget till %{amendable_title} från %{emendation_author_nickname} avslogs
             notification_title: <a href="%{emendation_path}">ändringsförslag</a> skapat av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> har avslagits för <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
@@ -471,7 +471,7 @@ sv:
           email_subject: Du har blivit antagen till gruppen %{user_group_name}!
           notification_title: Du har blivit antagen till gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Någon ansökte att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa den från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
+          email_intro: Någon ansökte att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa ansökan från <a href="%{resource_url}">sidan gruppmedlemmar</a>.
           email_outro: Du har fått det här meddelandet eftersom du kan hantera gruppen %{user_group_name}.
           email_subject: Någon ansökte om att gå med i gruppen %{user_group_name}!
           notification_title: Någon ansökte om att gå med i gruppen %{user_group_name}. Du kan godkänna eller avvisa den från <a href="%{resource_path}">sidan gruppmedlemmar</a>.
