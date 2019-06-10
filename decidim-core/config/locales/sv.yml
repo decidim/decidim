@@ -403,11 +403,11 @@ sv:
             email_intro: 'Ett nytt ändringsförslag har skapats till %{amendable_title}. Du kan se det på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer %{amendable_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Nytt ändringsförslag till %{amendable_title}
-            notification_title: Ett nytt ändringsförslag har skapats för <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Ett nytt ändringsförslag har skapats till <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'En emendation som avvisats för %{amendable_title} har blivit promoterad till en oberoende %{amendable_type}. Du kan se den från den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du är en författare till %{amendable_title}.
+            email_intro: 'Ett avvisat ändringsförslag till %{amendable_title} har publicerats som en ny %{amendable_type}. Du kan se det på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du är en författare av %{amendable_title}.
             email_subject: Ett ändringsförslag från %{emendation_author_nickname} har publicerats som ett nytt %{amendable_type}
             notification_title: Ett <a href="%{emendation_path}">avslaget ändringsförslag</a> för <a href="%{amendable_path}">%{amendable_title}</a> har publicerats som ett nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
