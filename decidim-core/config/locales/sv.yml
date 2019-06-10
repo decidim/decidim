@@ -799,8 +799,8 @@ sv:
         rejected: Avvisad
         verified: Verifierad
     pad_iframe:
-      disclaimer: Innehållet i denna kudde är skrivet av registrerade användare och uttryckt sina åsikter. %{organization} kan inte hållas ansvarig för innehållet.
-      explanation: Använd denna kudde för att samarbeta anteckningar under mötet så det är lättare att skriva ner minuten efteråt.
+      disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
+      explanation: Använd detta memo till att föra gemensamma anteckningar under mötet, så att det är enklare att renskriva protokollet efteråt.
       pad: Memo
     pages:
       home:
@@ -812,7 +812,7 @@ sv:
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
           proposals: Förslag
-          proposals_explanation: Gör förslag, stötta befintliga och främja de förändringar du vill se.
+          proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
           footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
@@ -846,9 +846,9 @@ sv:
       index:
         read_more: Läs mer
         standalone_pages: Sidor
-        subheading: Navigera genom hjälpsidorna till %{name}
+        subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
-        topics: ämnen
+        topics: Ämnen
       participatory_space:
         metrics:
           headline: Deltagande i siffror
@@ -933,7 +933,7 @@ sv:
     searches:
       filters:
         back: Tillbaka till resultat
-        jump_to: 'Hoppa till:'
+        jump_to: 'Gå till:'
         state:
           active: Aktiva
           all: Alla
@@ -975,7 +975,7 @@ sv:
         sign_up: Registrera dig
       participatory_space_filters:
         filters:
-          areas: områden
+          areas: Områden
           select_an_area: Välj ett område
       reference:
         reference: 'Referens: %{reference}'
@@ -989,15 +989,15 @@ sv:
         share: Dela
         share_link: Dela länk
       version_author:
-        deleted: Raderad användare
+        deleted: Raderad deltagare
     user_activity:
       index:
-        no_activities_warning: Den här användaren har inte någon aktivitet än.
+        no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_interests:
       show:
         my_interests: Mina intressen
-        no_scopes: Den här organisationen har inget utrymme än!
-        select_your_interests: Välj de ämnen du är intresserad av att ta emot händelser relaterade till dem i din profil Tidslinje flik.
+        no_scopes: Den här organisationen har ingen omfattning än!
+        select_your_interests: Välj de ämnen som du är intresserad, och händelser som är relaterade till dessa visas fliken Tidslinje i din profil.
         update_my_interests: Uppdatera mina intressen
       update:
         error: Ett fel uppstod när du uppdaterade dina intressen.
