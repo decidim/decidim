@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-proposals**: Add :amend action to proposal's authorization workflow [#5184](https://github.com/decidim/decidim/pull/5184)
 - **decidim-core**, **decidim-proposals**: Add: Improvements in amendments on `Proposals` control version [#5185](https://github.com/decidim/decidim/pull/5185)
 
 **Changed**:
