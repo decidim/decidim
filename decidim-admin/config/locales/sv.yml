@@ -563,7 +563,7 @@ sv:
           update: Uppdatera
       participatory_space_private_users:
         create:
-          error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
+          error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
           success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
         destroy:
           error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
