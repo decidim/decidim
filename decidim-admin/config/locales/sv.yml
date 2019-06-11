@@ -40,7 +40,7 @@ sv:
         badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
-        default_locale: Standardspråk
+        default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa allestädes närvarande banner
         facebook_handler: Facebook-hanterare
@@ -143,11 +143,11 @@ sv:
         destroy:
           success: Typ av område framgångsrikt förstört
         edit:
-          title: Redigera områdets typ
+          title: Redigera områdestyp
           update: Uppdatera
         new:
-          create: Skapa områdets typ
-          title: Ny typ av område
+          create: Skapa områdestyp
+          title: Ny områdestyp
         update:
           error: Det uppstod ett fel vid uppdatering av denna typ av område.
           success: Områdestypen uppdaterades framgångsrikt
@@ -185,31 +185,31 @@ sv:
           title: Ny mapp
         update:
           error: Det uppstod ett fel vid uppdateringen av den här mappen.
-          success: Mapp uppdaterad.
+          success: Mappen har uppdaterats.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
-          success: Bilagan skapades.
+          success: Bilagan har skapats.
         destroy:
           success: Bilagan förstördes.
         edit:
-          title: Redigera bifogade fil
+          title: Redigera bilaga
           update: Uppdatera
         index:
-          attachments_title: Bifogade filer
+          attachments_title: Bilagor
         new:
-          create: Skapa bifogad fil
+          create: Skapa bilaga
           title: Ny bifogad fil
         update:
           error: Det uppstod ett fel vid uppdateringen av den här bilagan.
-          success: Bilagan uppdaterades.
+          success: Bilagan har uppdaterats.
       autocomplete:
-        no_results: Inga resultat
+        no_results: Hittade inga resultat
         search_prompt: Skriv minst tre tecken att söka
       categories:
         create:
           error: Det uppstod ett fel vid skapandet av den här kategorin.
-          success: Kategori skapad.
+          success: Kategori har skapats.
         destroy:
           error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
           success: Kategori raderas framgångsrikt.
@@ -282,7 +282,7 @@ sv:
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
           name: Namn
-          needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
+          needs_authorization_warning: Minst en auktorisering måste vara aktiv för organisationen.
           not_managed: Inte hanterad
           promote: Främja
           search: Sök
@@ -291,7 +291,7 @@ sv:
       impersonations:
         close_session:
           error: Det har uppstått ett fel vid stängningen av den aktuella uppträdande sessionen.
-          success: Den nuvarande ombildningsperioden har framgångsrikt avslutats.
+          success: Den nuvarande perioden att uppträda som någon annan har avslutats.
         create:
           error: Det har inträffat ett fel för att ersätta användaren.
           success: Den hanterade användaren har skapats.
@@ -351,7 +351,7 @@ sv:
             content_type: Typ
             file_size: Storlek
             title: Titel
-          name: Bifogad fil
+          name: Bilaga
         attachment_collection:
           name: Mapp
         category:
@@ -398,7 +398,7 @@ sv:
             name: Namn
             role: Roll
             roles:
-              admin: Admin
+              admin: Administratör
               user_manager: Användarhanteraren
           name: Användare
         user_group:
