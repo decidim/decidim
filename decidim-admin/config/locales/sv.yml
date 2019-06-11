@@ -252,25 +252,25 @@ sv:
           add: Lägg till komponent
           title: 'Lägg till komponent: %{name}'
         publish:
-          success: Komponenten har publicerats framgångsrikt.
+          success: Komponenten har publicerats.
         title: Komponenter
         unpublish:
-          success: Komponenten har blivit framgångsrikt opublicerad.
+          success: Komponenten har avpublicerats.
         update:
-          error: Det har uppstått ett fel vid uppdateringen av den här komponenten.
-          success: Komponenten uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera komponenten.
+          success: Komponenten har uppdaterats.
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Decidim Admin Panel.
+          welcome: Välkommen till Decidims administratörspanel.
       exports:
         export_as: "%{name} som %{export_format}"
-        notice: Din export är pågående. Du får ett mail när det är klart.
+        notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
       help_sections:
-        error: Det har uppstått ett fel vid uppdateringen av hjälpavsnitten
+        error: Det gick inte att uppdatera hjälpavsnitten
         form:
           save: Spara
-        success: Hjälpsektionerna uppdateras framgångsrikt
+        success: Hjälpavsnitten har uppdaterats
       impersonatable_users:
         index:
           filter:
@@ -303,7 +303,7 @@ sv:
           impersonate: Uppträd som
           impersonate_existing_managed_user: Hantera deltagaren "%{name}"
           impersonate_existing_user: Hantera deltagaren "%{name}"
-          impersonate_new_managed_user: Impersonera ny hanterad användare
+          impersonate_new_managed_user: Hantera ny deltagare
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
@@ -403,8 +403,8 @@ sv:
           name: Användare
         user_group:
           fields:
-            actions: Handlingar
-            created_at: Skapad vid
+            actions: Åtgärder
+            created_at: Skapad
             document_number: Dokumentnummer
             name: Namn
             phone: Telefon
@@ -473,27 +473,27 @@ sv:
         destroy:
           success: Användaren inofficiellt framgångsrikt
         index:
-          actions: Handlingar
+          actions: Åtgärder
           badge: Märke
-          created_at: Skapad vid
+          created_at: Skapad
           filter:
             all: Alla
-            not_officialized: Ej officiellt
-            officialized: Officialized
+            not_officialized: Ej gjord officiell
+            officialized: Gjord officiell
           filter_by: Filtrera efter
           name: Namn
           nickname: Användarnamn
-          not_officialized: Ej officiellt
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          not_officialized: Ej gjord officiell
+          officialize: Gör officiell
+          officialized: Gjord officiell
+          reofficialize: Gör officiell igen
           search: Sök
           status: Status
-          unofficialize: Unofficialize
+          unofficialize: Sluta gör officiell
         new:
           badge: Officiella märke
           officialize: Officialize
-          title: Officiella användaren "%{name}"
+          title: Gör deltagaren "%{name}" officiell
       organization:
         edit:
           title: Redigera organisation
@@ -507,8 +507,8 @@ sv:
           url: URL
           youtube: Youtube
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här organisationen.
-          success: Organisationen uppdateras framgångsrikt.
+          error: Det gick inte att uppdatera organisationen.
+          success: Organisationen har uppdaterats.
       organization_appearance:
         edit:
           update: Uppdatera
@@ -542,10 +542,10 @@ sv:
           title: Ny deltagande utrymme privat användare.
       resource_permissions:
         edit:
-          submit: Lämna
+          submit: Skicka in
           title: Redigera behörigheter
         update:
-          success: Tillstånd uppdaterade framgångsrikt.
+          success: Behörigheterna har uppdaterats.
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
