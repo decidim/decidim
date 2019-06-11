@@ -293,7 +293,7 @@ sv:
           error: Det har uppstått ett fel vid stängningen av den aktuella uppträdande sessionen.
           success: Den nuvarande perioden att uppträda som någon annan har avslutats.
         create:
-          error: Det har inträffat ett fel för att ersätta användaren.
+          error: Det gick inte att hantera användaren.
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
@@ -326,16 +326,16 @@ sv:
         dashboard: Kontrollpanel
         help_sections: Hjälpavsnitt
         homepage: Hemsida
-        impersonations: impersonations
+        impersonations: Uppträd som
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
-        participants: Deltagarna
+        participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
         static_pages: Sidor
-        user_groups: Användargrupper
-        users: Användare
+        user_groups: Grupper
+        users: Deltagare
       models:
         area:
           fields:
@@ -377,7 +377,7 @@ sv:
             name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
-          name: Deltagande utrymme privat användare
+          name: Deltagare i privat deltagarutrymme
         scope:
           fields:
             name: Namn
@@ -388,19 +388,19 @@ sv:
             plural: Flertal
         static_page:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Titel
         user:
           fields:
-            created_at: Skapelsedagen
+            created_at: Skapandedatum
             email: E-post
             last_sign_in_at: Senast inloggningsdatum
             name: Namn
             role: Roll
             roles:
               admin: Administratör
-              user_manager: Användarhanteraren
-          name: Användare
+              user_manager: Användarhanterare
+          name: Deltagare
         user_group:
           fields:
             actions: Åtgärder
@@ -420,21 +420,21 @@ sv:
             spam: Skräp
       newsletters:
         create:
-          error: Det har varit ett fel att skapa detta nyhetsbrev.
-          success: Nyhetsbrev skapades framgångsrikt. Snälla, granska det innan du skickar.
+          error: Det gick inte att skapa nyhetsbrevet.
+          success: Nyhetsbrevet har skapats. Granska det gärna innan du skickar det.
         deliver:
-          error: Det har varit ett fel vid leverans av detta nyhetsbrev.
-          success: Nyhetsbrev levereras framgångsrikt.
+          error: Det gick inte att skicka nyhetsbrevet.
+          success: Nyhetsbrevet har skickats.
         destroy:
-          error_already_sent: 'Kan inte förstöra nyhetsbrev: Det har redan skickats.'
-          success: Nyhetsbrevet förstördes framgångsrikt.
+          error_already_sent: 'Kan inte ta bort nyhetsbrevet: det har redan skickats.'
+          success: Nyhetsbrevet har tagits bort.
         edit:
           save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
         form:
           interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
-          confirm_delete: Är du säker på att du vill radera detta nyhetsbrev?
+          confirm_delete: Vill du radera nyhetsbrevet?
           title: Nyhetsbrev
         new:
           save: Spara
@@ -446,7 +446,7 @@ sv:
           preview: Förhandsvisa
           subject: Ämne
         update:
-          error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
+          error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
       oauth_applications:
         create:
@@ -590,11 +590,11 @@ sv:
           create: Skapa ämne
           title: Nytt ämne
         update:
-          error: Det uppstod ett fel vid uppdateringen av det här ämnet.
-          success: Ämnet uppdaterades framgångsrikt
+          error: Det gick inte att uppdatera ämnet.
+          success: Ämnet har uppdaterats
       static_pages:
         actions:
-          view: Visa allmän sida
+          view: Visa offentlig sida
         create:
           error: Det uppstod ett fel vid att skapa en ny sida.
           success: Sidan skapades framgångsrikt.
@@ -631,8 +631,8 @@ sv:
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
-        user_groups: Användargrupper
-        users: Användare
+        user_groups: Grupper
+        users: Deltagare
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
@@ -654,20 +654,20 @@ sv:
           search: Sök
           state:
             pending: Väntande
-            rejected: avvisade
+            rejected: Avvisade
             verified: Verifierat
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
           explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
           title: Ladda upp din CSV-fil
-          upload: Ladda upp
+          upload: Skicka
       users:
         create:
-          error: Det uppstod ett fel vid inbjudan till den här användaren.
-          success: Användaren bjöds in framgångsrikt.
+          error: Det gick inte att bjuda in administratören.
+          success: Deltagaren har bjudits in.
         destroy:
-          error: Det uppstod ett fel när du försökte ta bort den här användaren.
+          error: Det gick inte att radera administratören.
           success: Användaren är inte längre en administratör.
         form:
           email: E-post
@@ -676,38 +676,38 @@ sv:
         new:
           create: Bjud in
           title: Bjud in användaren som administratör
-      view_public_page: Visa allmän sida
+      view_public_page: Visa offentlig sida
     forms:
       errors:
         impersonate_user:
-          reason: Du måste ange en anledning när du ersätter en icke-hanterad användare
+          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     moderations:
       actions:
         hidden: Dold
         hide: Dölj
         not_hidden: Inte dold
-        title: Handlingar
-        unhide: Ta fram
-        unreport: Unreport
+        title: Åtgärder
+        unhide: Sluta dölja
+        unreport: Ta bort rapport
       admin:
         reportable:
           hide:
-            invalid: Det har varit ett problem att dölja resursen.
-            success: Resurs framgångsrikt dold.
+            invalid: Det gick inte att dölja resursen.
+            success: Resursen har dolts.
           unhide:
-            invalid: Det har varit ett problem att undvika resursen.
-            success: Resurs framgångsrikt oskyddat.
+            invalid: Det gick inte att sluta dölja resursen.
+            success: Resursen är inte längre dold.
           unreport:
-            invalid: Det har varit ett problem att rapportera resursen.
-            success: Resurs framgångsrikt orapporterad.
+            invalid: Det gick inte att ta bort rapporten om resursen.
+            success: Resursen är inte längre rapporterad.
       models:
         moderation:
           fields:
-            hidden_at: Dold vid
+            hidden_at: Dold
             report_count: Antal
-            reportable: rapporter
+            reportable: Rapporterbart
             reported_content_url: Rapporterad innehållsadress
-            reports: rapporter
+            reports: Rapporter
             visit_url: Besök URL
   errors:
     messages:
@@ -720,4 +720,4 @@ sv:
         settings:
           title: inställningar
         users:
-          title: Användare
+          title: Deltagare
