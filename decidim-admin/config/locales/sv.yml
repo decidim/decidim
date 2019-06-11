@@ -36,10 +36,10 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
-        alert_color: Avisering
+        alert_color: Larm
         badges_enabled: Aktivera märken
-        cta_button_path: Knappsökväg till Uppmaning till Handing
-        cta_button_text: Knapptext för Uppmaning till Handling
+        cta_button_path: Uppmaningens knappsökväg
+        cta_button_text: Uppmaningens knapptext
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa allestädes närvarande banner
@@ -122,8 +122,8 @@ sv:
         client_id: Klient-ID
         client_secret: Klienthemlighet
         organization_name: Organisationsnamn
-        organization_url: Organisationsadress
-        redirect_uri: Omdirigera URI
+        organization_url: Organisations-URL
+        redirect_uri: Omdirigerings-URI
         site: Webbplats
   decidim:
     admin:
@@ -138,10 +138,10 @@ sv:
         verify: Kontrollera
       area_types:
         create:
-          error: Ett fel uppstod med att skapa en ny områdes typ.
-          success: Områdetypen skapades framgångsrikt.
+          error: Det gick inte att skapa en ny områdestyp.
+          success: Områdestypen har skapats.
         destroy:
-          success: Typ av område framgångsrikt förstört
+          success: Områdestypen har tagits bort
         edit:
           title: Redigera områdestyp
           update: Uppdatera
@@ -149,12 +149,12 @@ sv:
           create: Skapa områdestyp
           title: Ny områdestyp
         update:
-          error: Det uppstod ett fel vid uppdatering av denna typ av område.
+          error: Det gick inte att uppdatera områdestypen.
           success: Områdestypen uppdaterades framgångsrikt
       areas:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt område.
-          success: Område skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt område.
+          success: Området har har skapats.
         destroy:
           has_spaces: Området har depedenta utrymmen, det får inte ha beroenden för att kunna raderas.
           success: Området framgångsrikt förstörs
@@ -167,7 +167,7 @@ sv:
         no_areas: Inga områden
         update:
           error: Det uppstod ett fel vid uppdateringen av det här området.
-          success: Området uppdateras framgångsrikt
+          success: Området har uppdaterats
       attachment_collections:
         create:
           error: Det gick inte att skapa en ny mapp.
@@ -184,11 +184,11 @@ sv:
           create: Skapa
           title: Ny mapp
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här mappen.
+          error: Det gick inte att uppdatera mappen.
           success: Mappen har uppdaterats.
       attachments:
         create:
-          error: Det uppstod ett fel vid att skapa en ny bilaga.
+          error: Det gick inte att skapa en ny bilaga.
           success: Bilagan har skapats.
         destroy:
           success: Bilagan förstördes.
@@ -201,18 +201,18 @@ sv:
           create: Skapa bilaga
           title: Ny bifogad fil
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här bilagan.
+          error: Det gick inte att uppdatera bilagan.
           success: Bilagan har uppdaterats.
       autocomplete:
         no_results: Hittade inga resultat
-        search_prompt: Skriv minst tre tecken att söka
+        search_prompt: Sök genom att skriva minst tre tecken
       categories:
         create:
-          error: Det uppstod ett fel vid skapandet av den här kategorin.
+          error: Det gick inte att skapa kategorin.
           success: Kategori har skapats.
         destroy:
           error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
-          success: Kategori raderas framgångsrikt.
+          success: Kategori har raderats.
         edit:
           title: Redigera kategori
           update: Uppdatera
@@ -223,11 +223,11 @@ sv:
           create: Skapa kategori
           title: Ny kategori
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här kategorin.
-          success: Kategori uppdaterad framgångsrikt.
+          error: Det gick inte att uppdatera kategorin.
+          success: Kategorin har uppdaterats.
       component_permissions:
         update:
-          success: Tillstånd uppdaterade framgångsrikt.
+          success: Behörigheterna har uppdaterats.
       components:
         create:
           error: Det uppstod ett fel vid skapandet av den här komponenten.
@@ -275,12 +275,12 @@ sv:
         index:
           filter:
             all: Alla
-            managed: Managed
+            managed: Hanterad
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
-          impersonate_new_managed_user: Impersonera ny hanterad användare
-          managed: Managed
+          impersonate_new_managed_user: Hantera ny deltagare
+          managed: Hanterad
           name: Namn
           needs_authorization_warning: Minst en auktorisering måste vara aktiv för organisationen.
           not_managed: Inte hanterad
