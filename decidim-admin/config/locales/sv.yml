@@ -576,13 +576,13 @@ sv:
         no_scopes: Inga omfattningar på denna nivå.
         update:
           error: Ett fel uppstod vid uppdatering av detta räckvidd.
-          success: Omfattning uppdateras framgångsrikt
+          success: Omfattningen har uppdaterats
       static_page_topics:
         create:
           error: Det uppstod ett fel vid skapandet av ett nytt ämne.
-          success: Ämne skapades framgångsrikt.
+          success: Ämnet har skapats.
         destroy:
-          success: Ämne framgångsrikt förstört
+          success: Ämne har tagits bort
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
