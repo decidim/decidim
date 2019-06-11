@@ -439,7 +439,7 @@ sv:
           save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
         form:
-          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
+          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
           all: alla
           all_users: 'Alla användare '
@@ -480,7 +480,7 @@ sv:
           subject: Ämne
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
-          success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+          success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       oauth_applications:
         create:
           error: Det gick inte att skapa tillämpningen.
@@ -549,10 +549,10 @@ sv:
           colors_title: Organisationens färger
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
-          header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
+          header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
-          layout_appearance_title: Ändra layoututseende
+          layout_appearance_title: Redigera layoutens utseende
           omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
       organization_homepage:
         edit:
@@ -569,10 +569,10 @@ sv:
           error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
           success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
         index:
-          title: Deltagande utrymme privat användare
+          title: Privat deltagare i deltagarutrymme
         new:
           create: Skapa
-          title: Ny deltagande utrymme privat användare.
+          title: Ny privat deltagare i deltagarutrymme.
       resource_permissions:
         edit:
           submit: Skicka in
@@ -581,8 +581,8 @@ sv:
           success: Behörigheterna har uppdaterats.
       scope_types:
         create:
-          error: Ett fel uppstod med att skapa en ny räckviddstyp.
-          success: Omfattningstypen skapades framgångsrikt.
+          error: Det gick inte att skapa en ny omfångstyp.
+          success: Omfångstypen har skapats.
         destroy:
           success: Omfattningstypen förstörs framgångsrikt
         edit:
