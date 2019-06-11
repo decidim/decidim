@@ -156,8 +156,8 @@ sv:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
-          has_spaces: Området har depedenta utrymmen, det får inte ha beroenden för att kunna raderas.
-          success: Området framgångsrikt förstörs
+          has_spaces: Området har beroende utrymmen och får inte ha beroenden för att kunna raderas.
+          success: Området har tagits bort
         edit:
           title: Redigera område
           update: Uppdatera
@@ -166,7 +166,7 @@ sv:
           title: Nytt område
         no_areas: Inga områden
         update:
-          error: Det uppstod ett fel vid uppdateringen av det här området.
+          error: Det gick inte att uppdatera området.
           success: Området har uppdaterats
       attachment_collections:
         create:
@@ -211,14 +211,14 @@ sv:
           error: Det gick inte att skapa kategorin.
           success: Kategori har skapats.
         destroy:
-          error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
+          error: Det gick inte att radera kategorin. Radera eventuella underkategorier först, se till att inget annat objekt tillhör kategorin och försök igen.
           success: Kategori har raderats.
         edit:
           title: Redigera kategori
           update: Uppdatera
         index:
           categories_title: Kategorier
-          category_used: Den här kategorin kan inte tas bort eftersom den används.
+          category_used: Kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
           title: Ny kategori
@@ -230,11 +230,11 @@ sv:
           success: Behörigheterna har uppdaterats.
       components:
         create:
-          error: Det uppstod ett fel vid skapandet av den här komponenten.
-          success: Komponent skapad framgångsrikt.
+          error: Det gick inte att skapa komponenten.
+          success: Komponenten har skapats.
         destroy:
-          error: Det har inträffat ett fel som förstörde denna komponent.
-          success: Komponenten har tagits bort.
+          error: Det har inträffat ett fel som förstörde komponenten.
+          success: Komponenten har raderats.
         edit:
           title: Redigera komponent
           update: Uppdatera
@@ -245,7 +245,7 @@ sv:
         index:
           add: Lägg till komponent
           headers:
-            actions: Handlingar
+            actions: Åtgärder
             name: Komponentnamn
             type: Komponenttyp
         new:
@@ -301,8 +301,8 @@ sv:
           reason: Anledning
         new:
           impersonate: Uppträd som
-          impersonate_existing_managed_user: Impersonera hanterad användare "%{name}"
-          impersonate_existing_user: Impersonera användaren "%{name}"
+          impersonate_existing_managed_user: Hantera deltagaren "%{name}"
+          impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Impersonera ny hanterad användare
       logs:
         logs_list:
