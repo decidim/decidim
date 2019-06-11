@@ -460,18 +460,18 @@ sv:
           title: Redigera program
         index:
           confirm_delete: Är du säker på att du vill ta bort den här applikationen?
-          title: OAuth applikationer
+          title: OAuth-tillämpningar
         new:
           save: Spara
-          title: Ny ansökan
+          title: Ny tillämpning
         update:
-          error: Det har uppstått ett fel vid uppdateringen av den här applikationen.
-          success: Applikationen uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera tillämpningen.
+          success: Tillämpningen har uppdaterats.
       officializations:
         create:
-          success: Användaren officiellt godkändes
+          success: Deltagaren har gjorts officiell
         destroy:
-          success: Användaren inofficiellt framgångsrikt
+          success: Deltagaren är inte längre officiell
         index:
           actions: Åtgärder
           badge: Märke
@@ -492,7 +492,7 @@ sv:
           unofficialize: Sluta gör officiell
         new:
           badge: Officiella märke
-          officialize: Officialize
+          officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
       organization:
         edit:
@@ -596,10 +596,10 @@ sv:
         actions:
           view: Visa offentlig sida
         create:
-          error: Det uppstod ett fel vid att skapa en ny sida.
-          success: Sidan skapades framgångsrikt.
+          error: Det gick inte att skapa en ny sida.
+          success: Sidan har skapats.
         destroy:
-          success: Sidan förstördes framgångsrikt
+          success: Sidan har tagits bort
         edit:
           changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
           title: Redigera sida
@@ -607,7 +607,7 @@ sv:
         form:
           none: Ingen
         index:
-          last_notable_change: Senast anmärkningsvärda förändring
+          last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
@@ -617,17 +617,17 @@ sv:
           empty: Det finns ingen sida under det här ämnet
           without_topic: Sidor utan ämne
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här sidan.
-          success: Sidan uppdaterad framgångsrikt
+          error: Det gick inte att uppdatera sidan.
+          success: Sidan har uppdaterats
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
-        impersonatable_users: Hanterbara användare
-        impersonations: Användarhantering
-        participants: användare
+        impersonatable_users: Hanterbara deltagare
+        impersonations: Deltagarhantering
+        participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
@@ -647,8 +647,8 @@ sv:
         index:
           filter:
             all: Alla
-            pending: Avvaktan
-            rejected: avvisade
+            pending: Väntande
+            rejected: Avvisade
             verified: Verifierat
           filter_by: Filtrera efter
           search: Sök
