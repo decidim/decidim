@@ -246,6 +246,7 @@ sv:
         form:
           default_step_settings: Standard steginställningar
           global_settings: Globala inställningar
+          participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
           step_settings: Steginställningar
         index:
           add: Lägg till komponent
@@ -459,8 +460,23 @@ sv:
           all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
           confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
+          followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
+          none: Inga
+          participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          scopes_help: Skickar nyhetsbrev till användare som har något av de valda omfången markerade under "Mina intressen" i sina konton.
+          select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
+          select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
+          select_users: Välj vilka användare som ska få nyhetsbrevet
+          send_to_all_users: Skicka till alla användare
+          send_to_followers: Skicka till följare
+          send_to_participants: Skicka till deltagare
+          title: Välj mottagare att skicka till
+          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
+        send:
+          no_recipients: Inga mottagare för det här urvalet
         show:
           preview: Förhandsvisa
+          select_recipients_to_deliver: Välj mottagare att leverera till
           subject: Ämne
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
@@ -623,6 +639,7 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
+          slug_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
           last_notable_change: Senast märkbara förändring
         new:
