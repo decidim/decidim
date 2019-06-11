@@ -36,7 +36,7 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
-        alert_color: Varna
+        alert_color: Avisering
         badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
@@ -67,10 +67,10 @@ sv:
         reference_prefix: Referensprefix
         secondary_color: Sekundär
         show_statistics: Visa statistik
-        success_color: Framgång
+        success_color: Färdigt
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
-        user_groups_enabled: Aktivera användargrupper
+        user_groups_enabled: Aktivera grupper
         warning_color: Varning
         youtube_handler: YouTube-hanterare
       scope:
@@ -416,8 +416,8 @@ sv:
         report:
           reasons:
             does_not_belong: Hör inte hemma
-            offensive: Offensiv
-            spam: Spam
+            offensive: Stötande
+            spam: Skräp
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -443,7 +443,7 @@ sv:
           confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
         show:
-          preview: Förhandsvisning
+          preview: Förhandsvisa
           subject: Ämne
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
@@ -474,7 +474,7 @@ sv:
           success: Användaren inofficiellt framgångsrikt
         index:
           actions: Handlingar
-          badge: Emblem
+          badge: Märke
           created_at: Skapad vid
           filter:
             all: Alla
@@ -482,7 +482,7 @@ sv:
             officialized: Officialized
           filter_by: Filtrera efter
           name: Namn
-          nickname: Smeknamn
+          nickname: Användarnamn
           not_officialized: Ej officiellt
           officialize: Officialize
           officialized: Officialized
@@ -502,7 +502,7 @@ sv:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
+          social_handlers: Sociala
           twitter: Twitter
           url: URL
           youtube: Youtube
@@ -620,8 +620,8 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
           success: Sidan uppdaterad framgångsrikt
       titles:
-        admin_log: Admin logg
-        area_types: Typer av område
+        admin_log: Administratörslogg
+        area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
@@ -649,13 +649,13 @@ sv:
             all: Alla
             pending: Avvaktan
             rejected: avvisade
-            verified: Verifierad
+            verified: Verifierat
           filter_by: Filtrera efter
           search: Sök
           state:
             pending: Väntande
             rejected: avvisade
-            verified: Verifierad
+            verified: Verifierat
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
@@ -685,7 +685,7 @@ sv:
       actions:
         hidden: Dold
         hide: Dölj
-        not_hidden: Inte dolt
+        not_hidden: Inte dold
         title: Handlingar
         unhide: Ta fram
         unreport: Unreport
@@ -711,7 +711,7 @@ sv:
             visit_url: Besök URL
   errors:
     messages:
-      invalid_json: Ogiltigt JSON
+      invalid_json: Ogiltig JSON
   layouts:
     decidim:
       admin:
