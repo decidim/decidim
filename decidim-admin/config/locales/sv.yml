@@ -23,7 +23,7 @@ sv:
         parent_id: Överordnad
       component:
         name: Namn
-        published_at: Publicerad vid
+        published_at: Publicerad
         weight: Vikt
       id: ID
       newsletter:
@@ -31,7 +31,7 @@ sv:
         subject: Ämne
       oauth_application:
         name: Namn
-        organization_logo: Organisationslogotypen (kvadrat)
+        organization_logo: Organisationslogo (kvadrat)
         organization_name: Organisationsnamn
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
