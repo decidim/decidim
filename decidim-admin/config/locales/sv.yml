@@ -313,9 +313,9 @@ sv:
           success: Den hanterade användaren har framgångsrikt marknadsförts.
         promotions:
           new:
-            explanation: Administrerade användare kan främjas till standardanvändare. Det innebär att de kommer att bli inbjudna till ansökan och du kommer inte att kunna förverkliga dem igen. Den inbjudna användaren får ett mail för att acceptera din inbjudan.
+            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till tillämpningen och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             new_managed_user_promotion: Ny hanterad användarpromotion
-            promote: Främja
+            promote: Befordra
       menu:
         admin_log: Adminaktivitetslogg
         admins: Administratörer
@@ -328,7 +328,7 @@ sv:
         homepage: Hemsida
         impersonations: Uppträd som
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth applikationer
+        oauth_applications: OAuth-tillämpningar
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -359,21 +359,21 @@ sv:
         impersonation_log:
           fields:
             admin: Admin
-            ended_at: Avslutad vid
-            expired_at: Förfallit ut vid
+            ended_at: Slutade
+            expired_at: Förföll
             reason: Anledning
-            started_at: Börjat vid
-            user: Användare
+            started_at: Började
+            user: Deltagare
         newsletter:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             progress: Framsteg
-            sent_at: Skickat på
+            sent_at: Skickades
             subject: Ämne
           name: Nyhetsbrev
         oauth_application:
           fields:
-            created_at: Skapad vid
+            created_at: Skapades
             name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
@@ -457,7 +457,7 @@ sv:
           success: Programmet förstördes framgångsrikt.
         edit:
           save: Spara
-          title: Redigera program
+          title: Redigera tillämpning
         index:
           confirm_delete: Är du säker på att du vill ta bort den här applikationen?
           title: OAuth-tillämpningar
@@ -559,14 +559,14 @@ sv:
           create: Skapa omfattningstyp
           title: Ny omfattning
         update:
-          error: Ett fel uppstod vid uppdatering av denna räckviddstyp.
-          success: Omfattningstypen uppdateras framgångsrikt
+          error: Det gick inte att uppdatera omfångstypen.
+          success: Omfångstypen har uppdaterats
       scopes:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt räckvidd.
-          success: Omfattning skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt omfång.
+          success: Omfånget har skapats.
         destroy:
-          success: Omfattning framgångsrikt förstörs
+          success: Omfånget har tagits bort
         edit:
           title: Redigera omfattning
           update: Uppdatera
@@ -575,11 +575,11 @@ sv:
           title: Ny omfattning
         no_scopes: Inga omfattningar på denna nivå.
         update:
-          error: Ett fel uppstod vid uppdatering av detta räckvidd.
+          error: Det gick inte att uppdatera omfånget.
           success: Omfattningen har uppdaterats
       static_page_topics:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt ämne.
+          error: Det gick inte att skapa ett nytt ämne.
           success: Ämnet har skapats.
         destroy:
           success: Ämne har tagits bort
@@ -638,11 +638,11 @@ sv:
           invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
         reject:
-          invalid: Det uppstod ett fel när du avvisade den här användargruppen.
-          success: Användargruppen avvisades framgångsrikt
+          invalid: Det gick inte att avvisa gruppen.
+          success: Gruppen har avvisats
         verify:
-          invalid: Det uppstod ett fel vid verifiering av denna användargrupp.
-          success: Användargruppen verifierades framgångsrikt
+          invalid: Det gicka inte att verifiera gruppen.
+          success: Gruppen har verifierats
       user_groups:
         index:
           filter:
@@ -659,8 +659,8 @@ sv:
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
-          title: Ladda upp din CSV-fil
+          explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
+          title: Skicka CSV-fil
           upload: Skicka
       users:
         create:
