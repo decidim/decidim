@@ -85,7 +85,7 @@ sv:
         organization: Organisation
         plural: Flertal
       static_page:
-        changed_notably: Det har förekommit märkbara förändringar.
+        changed_notably: Det har skett större förändringar.
         content: Innehåll
         organization: Organisation
         show_in_footer: Visa i sidfoten
@@ -118,9 +118,9 @@ sv:
         slug: URL slug
         title: Titel
       doorkeeper/application:
-        authorize_url: Godkänn webbadress
-        client_id: Klient ID
-        client_secret: Kundhemlighet
+        authorize_url: Godkänn URL
+        client_id: Klient-ID
+        client_secret: Klienthemlighet
         organization_name: Organisationsnamn
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
@@ -170,16 +170,16 @@ sv:
           success: Området uppdateras framgångsrikt
       attachment_collections:
         create:
-          error: Det uppstod ett fel vid att skapa en ny mapp.
-          success: Mapp skapad framgångsrikt.
+          error: Det gick inte att skapa en ny mapp.
+          success: Mappen har skapats.
         destroy:
-          success: Mappen förstördes framgångsrikt.
+          success: Mappen har tagits bort.
         edit:
           title: Redigera mapp
           update: Uppdatera
         index:
           attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
-          attachment_collections_title: Bilagor
+          attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
           title: Ny mapp
