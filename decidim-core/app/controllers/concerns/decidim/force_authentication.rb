@@ -30,11 +30,7 @@ module Decidim
     # authorized
     def allow_unauthorized_path?
       # Changing the locale
-      if request.path =~ /^\/locale/
-        return true
-      elsif request.path =~ /^\/cookies/
-        return true
-      end
+      return true if %r{^\/locale}.match?(request.path) || %r{^\/cookies}.match?(request.path)
       false
     end
   end

@@ -97,7 +97,7 @@ FactoryBot.define do
         "address" => "smtp.example.org"
       }
     end
-    
+
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
       create(:static_page, :tos, organization: organization) if tos_page.nil?
