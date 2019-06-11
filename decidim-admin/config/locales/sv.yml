@@ -584,7 +584,7 @@ sv:
           error: Det gick inte att skapa en ny omfångstyp.
           success: Omfångstypen har skapats.
         destroy:
-          success: Omfattningstypen förstörs framgångsrikt
+          success: Omfångstypen har tagits bort
         edit:
           title: Redigera omfattningstyp
           update: Uppdatera
@@ -634,7 +634,7 @@ sv:
         destroy:
           success: Sidan har tagits bort
         edit:
-          changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
+          changed_notably_help: Om markerad kommer deltagarna att bli ombedda att godkänna de nya villkoren.
           title: Redigera sida
           update: Uppdatera
         form:
@@ -670,7 +670,7 @@ sv:
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
-          success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
+          success: CSV-filen har tagits mot, och vi verifierar de grupper som överensstämmer med kriterierna. Det kan ta en stund.
         reject:
           invalid: Det gick inte att avvisa gruppen.
           success: Gruppen har avvisats
