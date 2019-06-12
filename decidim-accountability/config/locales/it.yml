@@ -183,7 +183,7 @@ it:
           version_index: Versione %{index}
     components:
       accountability:
-        name: Responsabilità
+        name: Accountability
         settings:
           global:
             categories_label: Nome per "Categorie"
