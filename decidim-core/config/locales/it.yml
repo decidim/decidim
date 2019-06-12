@@ -1205,7 +1205,7 @@ it:
         sign_out: Esci
       user_profile:
         account: Account
-        authorizations: Authorizzazioni
+        authorizations: Autorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
         my_interests: I miei interessi
