@@ -43,7 +43,7 @@ sv:
         cta_button_text: Uppmaningens knapptext
         default_locale: Förvalt språk och region
         description: Beskrivning
-        enable_omnipresent_banner: Visa allestädes närvarande banner
+        enable_omnipresent_banner: Visa banner på alla sidor
         facebook_handler: Facebook-hanterare
         favicon: Ikon
         from: Från e-postadress
@@ -60,7 +60,7 @@ sv:
         logo: Logo
         name: Namn
         official_img_footer: Officiell logo sidfot
-        official_img_header: Officiell logotyphuvud
+        official_img_header: Officiell logoyp till sidhuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
@@ -244,10 +244,10 @@ sv:
           title: Redigera komponent
           update: Uppdatera
         form:
-          default_step_settings: Standard steginställningar
+          default_step_settings: Förvalda inställningar för steg
           global_settings: Globala inställningar
           participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
-          step_settings: Steginställningar
+          step_settings: Inställningar för steg
         index:
           add: Lägg till komponent
           headers:
@@ -546,28 +546,28 @@ sv:
         edit:
           update: Uppdatera
         form:
-          colors_title: Organisationens färger
+          colors_title: Organisationsfärger
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
           header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Redigera layoutens utseende
-          omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
+          omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_homepage:
         edit:
-          active_content_blocks: Aktiva innehållsblock
-          inactive_content_blocks: Inaktiva innehållsblock
+          active_content_blocks: Block med aktivt innehåll
+          inactive_content_blocks: Block med inaktivt innehåll
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
-          success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
+          success: Åtkomst för privat deltagare till deltagarutrymmet har skapats.
         destroy:
-          error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
-          success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
+          error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
+          success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
         index:
           title: Privat deltagare i deltagarutrymme
         new:
