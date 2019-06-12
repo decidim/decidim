@@ -370,7 +370,7 @@ sv:
           more_info: Mer information
           take_part: Delta
       assembly_navigation:
-        assembly_member_menu_item: medlemmar
+        assembly_member_menu_item: Medlemmar
         assembly_menu_item: Mötet
       assembly_widgets:
         show:
