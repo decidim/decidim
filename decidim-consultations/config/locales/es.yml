@@ -90,15 +90,11 @@ es:
         update:
           error: Se ha producido un error al actualizar esta consulta.
           success: La consulta se ha actualizado correctamente.
-        results:
-          total_votes: 'Total: %{count} votos'
-          not_visible: Los resultados serán visibles cuando se acabe la consulta
       menu:
         consultations: Consultas
         consultations_submenu:
           info: Información
           questions: Preguntas
-          results: Resultados
         questions_submenu:
           components: Componentes
           consultation: Consulta
@@ -175,7 +171,6 @@ es:
         consultations: Consultas
         questions: Preguntas
         responses: Respuestas
-        results: Resultados
     consultations:
       admin:
         content_blocks:
