@@ -1266,6 +1266,7 @@ it:
     dropdown:
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
       option_split: Affiancati
+      option_unified: Unificato
   views:
     pagination:
       first: "&laquo; Primo"
