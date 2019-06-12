@@ -2,12 +2,12 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.results" %>
-      <span class="label button--title"><%= t "decidim.admin.consultations.results.total_votes", count: @total_votes %></span>
+      <span class="label button--title"><%= t "decidim.admin.consultations.results.total_votes", count: current_consultation.total_votes %></span>
     </h2>
   </div>
   <div class="card-section">
 
-    <% current_consultation.questions.each do |question| %>
+    <% current_consultation.questions.published.each do |question| %>
       <% unless question.external_voting %>
         <table class="table-list">
           <thead>

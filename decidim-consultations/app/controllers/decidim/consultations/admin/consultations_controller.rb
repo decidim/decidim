@@ -67,7 +67,6 @@ module Decidim
         # GET /admin/consultations/:slug/results
         def results
           enforce_permission_to :read, :consultation, consultation: current_consultation
-          @total_votes = current_consultation.questions.reduce(0) { |sum, question| sum + question.total_votes }
           render layout: "decidim/admin/consultation"
         end
 
