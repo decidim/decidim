@@ -37,12 +37,6 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
-      # Marks :participatory_texts_enabled checkbox with a unique class if
-      # the Proposals component has existing proposals, and stores the help text
-      # that will be added in a new div via JavaScript in "decidim/admin/form".
-      #
-      # field_name - The name of the field to disable.
-      #
       # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
         case field_name
@@ -53,18 +47,17 @@ module Decidim
         when :amendment_creation_enabled,
              :amendment_reaction_enabled,
              :amendment_promotion_enabled
-          amendments_extra_options(field_name)
+          amendments_extra_options(field_name, :step)
         else
           {}
         end
       end
 
-      def any_proposal_component?
-        Decidim::Proposals::Proposal.where(component: @component).any?
-      end
-
+      # Marks :participatory_texts_enabled checkbox with a unique class if
+      # the Proposals component has existing proposals, and stores the help text
+      # that will be added in a new div via JavaScript in "decidim/admin/form".
       def participatory_texts_extra_options
-        return unless any_proposal_component?
+        return {} unless Decidim::Proposals::Proposal.where(component: @component).any?
 
         {
           class: "participatory_texts_disabled field_has_help_text",
@@ -72,9 +65,7 @@ module Decidim
         }
       end
 
-      def amendments_extra_options(field_name, settings_scope = "step")
-        return unless field_name && any_proposal_component?
-
+      def amendments_extra_options(field_name, settings_scope)
         {
           class: "field_has_help_text",
           data: { text: t("#{settings_scope}.#{field_name}_help", scope: "decidim.components.proposals.settings") }
