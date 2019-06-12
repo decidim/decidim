@@ -440,7 +440,7 @@ it:
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
-        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo cliccando sul link precedente.
         email_subject: Un aggiornamento per %{resource_title}
       gamification:
         badge_earned:
