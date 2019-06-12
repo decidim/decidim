@@ -325,6 +325,7 @@ it:
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo identificatore univoco breve in %{organization}
+          password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
           sign_up_as:
@@ -1094,6 +1095,7 @@ it:
         change_your_password: Cambia la tua password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
+        password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
       new:
         forgot_your_password: Hai dimenticato la password?
         send_me_reset_password_instructions: Inviami le istruzioni per la reimpostazione della password
@@ -1257,6 +1259,13 @@ it:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Eliminazioni
+      right: Aggiunte
+    dropdown:
+      choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
+      option_split: Affiancati
   views:
     pagination:
       first: "&laquo; Primo"
