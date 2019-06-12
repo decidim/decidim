@@ -450,6 +450,7 @@ it:
           no_scopes: Nessuno scope
           not_sent: Non inviato
           participants: 'partecipanti '
+          segmented_to: 'Segmentato a %{subject}: '
           title: Newsletters
         new:
           save: Salva
@@ -464,6 +465,7 @@ it:
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
           scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
+          select_spaces: Selezionare gli spazi per segmentare la newsletter
           select_users: Seleziona gli utenti a cui desideri inviare la newsletter
           send_to_all_users: Invia a tutti gli utenti
           send_to_followers: Invia ai follower
