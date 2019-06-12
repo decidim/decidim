@@ -16,6 +16,16 @@ module Decidim
       state == "rejected"
     end
 
+    def promoted?
+      return unless rejected?
+      promoted_to_proposal.present?
+    end
+
+    def promoted_to_proposal
+      return unless rejected?
+      emendation.linked_resources(:proposal, "created_from_rejected_emendation").first
+    end
+
     validates :amendable, :amender, :emendation, presence: true
   end
 end

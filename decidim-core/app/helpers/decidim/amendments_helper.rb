@@ -40,6 +40,7 @@ module Decidim
 
     # Returns Html action button card to AMEND an amendable resource
     def amend_button_for(amendable)
+      return unless current_component.current_settings.amendment_creation_enabled
       return unless amendments_enabled? && amendable.amendable?
 
       cell("decidim/amendable/amend_button_card", amendable)
@@ -76,11 +77,12 @@ module Decidim
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
 
-      true
+      current_component.current_settings.amendment_reaction_enabled
     end
 
     # Checks if the user can accept and reject the emendation
     def allowed_to_accept_and_reject?(emendation)
+      return unless current_component.current_settings.amendment_reaction_enabled
       return unless emendation.amendment.evaluating?
 
       emendation.amendable.created_by?(current_user) || current_user.admin?
@@ -89,18 +91,9 @@ module Decidim
     # Checks if the user can promote the emendation
     def allowed_to_promote?(emendation)
       return unless emendation.amendment.rejected? && emendation.created_by?(current_user)
-      return if promoted?(emendation)
+      return if emendation.amendment.promoted?
 
-      true
-    end
-
-    # Checks if the unique ActionLog created in the promote command exists.
-    def promoted?(emendation)
-      logs = Decidim::ActionLog.where(decidim_component_id: emendation.component)
-                               .where(decidim_user_id: emendation.creator_author)
-                               .where(action: "promote")
-
-      logs.select { |log| log.extra["promoted_from"] == emendation.id }.present?
+      current_component.current_settings.amendment_promotion_enabled
     end
 
     # Renders a UserGroup select field in a form.

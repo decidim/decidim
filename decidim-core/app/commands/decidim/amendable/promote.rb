@@ -26,6 +26,7 @@ module Decidim
         transaction do
           promote_emendation!
           notify_amendable_and_emendation_authors_and_followers
+          link_promoted_emendation_and_proposal
         end
 
         broadcast(:ok, @promoted_emendation)
@@ -71,6 +72,10 @@ module Decidim
 
       def proposal?
         @amendable.amendable_type == "Decidim::Proposals::Proposal"
+      end
+
+      def link_promoted_emendation_and_proposal
+        @promoted_emendation.link_resources(@emendation, "created_from_rejected_emendation")
       end
     end
   end

@@ -45,12 +45,39 @@ module Decidim
       #
       # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
-        return {} unless field_name == :participatory_texts_enabled &&
-                         Decidim::Proposals::Proposal.where(component: @component).any?
+        case field_name
+        when :participatory_texts_enabled
+          participatory_texts_extra_options
+        when :amendments_enabled
+          amendments_extra_options(field_name, :global)
+        when :amendment_creation_enabled,
+             :amendment_reaction_enabled,
+             :amendment_promotion_enabled
+          amendments_extra_options(field_name)
+        else
+          {}
+        end
+      end
+
+      def any_proposal_component?
+        Decidim::Proposals::Proposal.where(component: @component).any?
+      end
+
+      def participatory_texts_extra_options
+        return unless any_proposal_component?
 
         {
-          class: "participatory_texts_disabled",
+          class: "participatory_texts_disabled field_has_help_text",
           data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
+        }
+      end
+
+      def amendments_extra_options(field_name, settings_scope = "step")
+        return unless field_name && any_proposal_component?
+
+        {
+          class: "field_has_help_text",
+          data: { text: t("#{settings_scope}.#{field_name}_help", scope: "decidim.components.proposals.settings") }
         }
       end
     end

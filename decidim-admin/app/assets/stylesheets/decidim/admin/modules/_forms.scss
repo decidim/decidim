@@ -134,3 +134,11 @@ textarea{
   cursor: not-allowed;
   opacity: .5;
 }
+
+.edit_component .step-settings{
+  .card-section fieldset legend{
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+  }
+}
