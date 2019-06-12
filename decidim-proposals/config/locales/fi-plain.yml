@@ -77,6 +77,7 @@ fi-pl:
     components:
       proposals:
         actions:
+          amend: Muokkaa
           create: Luo
           endorse: Suosittele
           vote: Äänestä
@@ -677,6 +678,7 @@ fi-pl:
           view_proposal: Näytä ehdotus
         show:
           back_to: Takaisin
+          changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
