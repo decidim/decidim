@@ -693,7 +693,7 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Archiviato come
+          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto
