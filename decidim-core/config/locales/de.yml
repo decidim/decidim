@@ -989,7 +989,7 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

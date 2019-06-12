@@ -990,7 +990,7 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

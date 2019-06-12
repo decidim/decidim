@@ -990,7 +990,7 @@ it:
         share_link: Condividi link
       version_author:
         deleted: Utente eliminato
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

@@ -23,7 +23,7 @@ pl:
       comments: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
-      translate: Translate to %{target}
+      translate: Translate
       translated: Back to original version
       votes:
         create:

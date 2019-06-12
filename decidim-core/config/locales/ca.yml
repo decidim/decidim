@@ -988,7 +988,7 @@ ca:
         share_link: Comparteix l'enllaç
       version_author:
         deleted: Usuari eliminat
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

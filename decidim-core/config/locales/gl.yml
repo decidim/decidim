@@ -990,7 +990,7 @@ gl:
         share_link: Compartir a ligazón
       version_author:
         deleted: Usuario eliminado
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

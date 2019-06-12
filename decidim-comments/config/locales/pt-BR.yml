@@ -19,7 +19,7 @@ pt-BR:
       comments: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
-      translate: Translate to %{target}
+      translate: Translate
       translated: Back to original version
       votes:
         create:

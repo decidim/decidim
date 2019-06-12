@@ -5,10 +5,10 @@
       targetlang: deepl_target_locale(current_locale, default_locale),
       translatable: true,
       translated: t("decidim.translated"),
-      original: t("decidim.translate", target: deepl_current_locale_name(current_locale, default_locale))
+      original: t("decidim.translate")
     } do %>
       <%= icon "globe", class: "action-icon action-icon--disabled" %>
-      <span><%= t("decidim.translate", target: deepl_current_locale_name(current_locale, default_locale)) %></span>
+      <span><%= t("decidim.translate") %></span>
       <div class="loading-spinner loading-spinner--hidden"></div>
     <% end %>
   </div>

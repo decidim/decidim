@@ -985,7 +985,7 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
-    translate: Traduire en %{target}
+    translate: Traduire
     translated: Retour à la version d'origine
     user_activity:
       index:

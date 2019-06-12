@@ -42,9 +42,5 @@ module Decidim
 
       requested_locale.upcase
     end
-
-    def deepl_current_locale_name(current_locale, default_locale)
-      locale_name(deepl_target_locale(current_locale, default_locale).downcase)
-    end
   end
 end

@@ -19,7 +19,7 @@ tr-TR:
       comments: Comments
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
-      translate: Translate to %{target}
+      translate: Translate
       translated: Back to original version
       votes:
         create:

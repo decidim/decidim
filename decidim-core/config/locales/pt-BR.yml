@@ -990,7 +990,7 @@ pt-BR:
         share_link: Partilhar link
       version_author:
         deleted: Usuário excluído
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

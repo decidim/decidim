@@ -989,7 +989,7 @@ hu:
         share_link: Hivatkozás megosztása
       version_author:
         deleted: Törölt felhasználó
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

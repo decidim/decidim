@@ -989,7 +989,7 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

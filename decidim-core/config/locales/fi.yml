@@ -990,7 +990,7 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

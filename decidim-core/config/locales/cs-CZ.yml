@@ -989,7 +989,7 @@ cs-CZ:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    translate: Translate to %{target}
+    translate: Translate
     translated: Translated
     user_activity:
       index:

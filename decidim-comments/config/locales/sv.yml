@@ -19,7 +19,7 @@ sv:
       comments: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
-      translate: Translate to %{target}
+      translate: Translate
       translated: Back to original version
       votes:
         create:
