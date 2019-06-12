@@ -1,6 +1,10 @@
 de:
   decidim:
     system:
+      logs:
+        index:
+          view_log: "View %{line} lines"
+          download_log: Download log
       actions:
         confirm_destroy: Möchtest du das wirklich löschen?
         destroy: Löschen
@@ -32,6 +36,7 @@ de:
       menu:
         admins: Admins
         dashboard: Instrumententafel
+        logs: Logs
         organizations: Organisationen
       models:
         admin:

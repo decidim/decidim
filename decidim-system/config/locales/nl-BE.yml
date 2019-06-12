@@ -1,6 +1,10 @@
 nl-BE:
   decidim:
     system:
+      logs:
+        index:
+          view_log: "View %{line} lines"
+          download_log: Download log
       actions:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Delete
@@ -32,6 +36,7 @@ nl-BE:
       menu:
         admins: Admins
         dashboard: Dashboard
+        logs: Logs
         organizations: Organizations
       models:
         admin:
