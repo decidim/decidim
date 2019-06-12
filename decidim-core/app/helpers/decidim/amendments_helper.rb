@@ -16,7 +16,7 @@ module Decidim
       content << cell("decidim/collapsible_list",
                       amendable.emendations,
                       cell_options: { context: { current_user: current_user } },
-                      list_class: "row small-up-1 medium-up-2 card-grid",
+                      list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
                       size: 4).to_s
 
       content_tag :div, content.html_safe, class: "section"

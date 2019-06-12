@@ -179,9 +179,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it "DOES NOT ALLOW the admin the enable the Participatory texts feature" do
         expect(participatory_texts_enabled_checkbox[:class]).to include("disabled")
 
-        within ".help-text" do
-          expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
-        end
+        expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
       end
     end
   end
