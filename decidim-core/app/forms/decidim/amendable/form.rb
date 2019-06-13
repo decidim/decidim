@@ -53,6 +53,10 @@ module Decidim
 
         amendable_form.validate
       end
+
+      def component
+        @component ||= amendable&.component || emendation&.component
+      end
     end
   end
 end

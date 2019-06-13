@@ -40,8 +40,8 @@ module Decidim
 
     # Returns Html action button card to AMEND an amendable resource
     def amend_button_for(amendable)
-      return unless current_component.current_settings.amendment_creation_enabled
       return unless amendments_enabled? && amendable.amendable?
+      return unless current_component.current_settings.amendment_creation_enabled
 
       cell("decidim/amendable/amend_button_card", amendable)
     end
@@ -82,7 +82,6 @@ module Decidim
 
     # Checks if the user can accept and reject the emendation
     def allowed_to_accept_and_reject?(emendation)
-      return unless current_component.current_settings.amendment_reaction_enabled
       return unless emendation.amendment.evaluating?
 
       emendation.amendable.created_by?(current_user) || current_user.admin?
