@@ -20,7 +20,7 @@ sv:
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slogan: Slogan
-        slug: URL slug
+        slug: URL-slug
         title: Titel
       conference_speaker:
         full_name: Fullständiga namn
@@ -301,17 +301,17 @@ sv:
             select_user: Välj användare
           index:
             filter:
-              accepted: Accepterad
+              accepted: Accepterat
               all: Alla
-              rejected: Avvisad
-              sent: Skickad
+              rejected: Avvisade
+              sent: Skickade
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
             search: Sök
           new:
             explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Bjuda in
+            invite: Inbjudan
             new_invite: Bjud in användare
         conference_registrations:
           index:
