@@ -40,11 +40,11 @@ sv:
         one: Konferens
         other: Konferenser
       decidim/conference_speaker:
-        one: Föredragshållare
-        other: Föredragshållare
+        one: Talare
+        other: Talare
       decidim/conference_user_role:
-        one: Konferens användarroll
-        other: Konferens användarroll
+        one: Konferensanvändarroll
+        other: Konferenceanvändarroller
   decidim:
     admin:
       actions:
@@ -65,22 +65,22 @@ sv:
           success: Konferensen har avpublicerats.
       conference_registration:
         confirm:
-          error: Ett fel uppstod vid bekräftelse av denna konferensregistrering.
-          success: Konferensregistrering bekräftades med framgång.
+          error: Det gick inte att bekräfta konferensregistreringen.
+          success: Konferensregistreringen har bekräftats.
       conference_speakers:
         create:
-          error: Det gick inte att lägga till en högtalare för den här konferensen.
-          success: Högtalare skapades framgångsrikt för denna konferens.
+          error: Det gick inte att lägga till en talare till konferensen.
+          success: Talaren har lagts till.
         destroy:
-          success: Högtalaren raderades framgångsrikt för denna konferens.
+          success: Talaren har tagits bort.
         edit:
-          title: Uppdatera konferenshögtalare.
+          title: Uppdatera talare.
           update: Uppdatera
         index:
-          conference_speakers_title: Konferenshögtalare
+          conference_speakers_title: Föredragshållare
         new:
           create: Skapa
-          title: Ny konferenshögtalare.
+          title: Ny föredragshållare.
         update:
           error: Det uppstod ett fel vid uppdatering av högtalaren för den här konferensen.
           success: Högtalaren uppdaterades framgångsrikt för denna konferens.
