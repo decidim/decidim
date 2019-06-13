@@ -8,6 +8,9 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+
 **Removed**:
 
 ## [0.17.1](https://github.com/decidim/decidim/tree/v0.17.1)
