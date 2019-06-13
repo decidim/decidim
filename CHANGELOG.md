@@ -8,6 +8,9 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+
 **Removed**:
 
 ## [0.17.1](https://github.com/decidim/decidim/tree/v0.17.1)
@@ -198,6 +201,25 @@ end
 - **decidim-proposals**: Fix linking to items in other modules than proposals [\#4978](https://github.com/decidim/decidim/pull/4978)
 - **decidim-core**: Fix CSS transparencies using customized colors. [\#5071](https://github.com/decidim/decidim/pull/5071)
 - **decidim-initiatives**: Escape hashtag content [#5151](https://github.com/decidim/decidim/pull/5151)
+- **decidim-core**, **decidim-proposals**: Fix: show existing amendments when amendments feature is disabled [\#5070](https://github.com/decidim/decidim/pull/5070)
+- **decidim-assemblies**: Fix admin assemblies form. [\#5054](https://github.com/decidim/decidim/pull/5054)
+- **decidim-core**: Fix repeated amendments notifications. [\#5001](https://github.com/decidim/decidim/pull/5001)
+- **decidim-core**: Fix amendments forms: show error messages and render hashtags. [#4951](https://github.com/decidim/decidim/pull/4951)
+- **decidim-comments**: Fixes that as a normal user (no private user) I can comment on a private assembly where is available. [#4924](https://github.com/decidim/decidim/pull/4924)
+- **decidim-accountability**: Handle special case when all children weight are nil on accountability. [#5026](https://github.com/decidim/decidim/pull/5026)
+- **decidim-proposals**: Filter emendations by rendering only amendments. [#5025](https://github.com/decidim/decidim/pull/5025)
+- **decidim-proposals**: Add documents folder in proposals manifest for precompile assets. [#5015](https://github.com/decidim/decidim/pull/5015)
+- **decidim-core**: Fix user notification and interest settings on IE11. [#5044](https://github.com/decidim/decidim/pull/5044)
+- **decidim-admin**, **decidim-forms**, **decidim-meetings**: Fix dynamic fields components on IE11. [#5052](https://github.com/decidim/decidim/pull/5052)
+- **decidim-core**: Fix possible NoMethodErrors in the notification jobs filling logs. [#5083](https://github.com/decidim/decidim/pull/5083)
+- **decidim-participatory_processes**: Fix step CTA URL when abse URL had params [#5082](https://github.com/decidim/decidim/pull/5082)
+- **decidim-admin**: Ensure static pages slugs are relative paths [#5085](https://github.com/decidim/decidim/pull/5085)
+- **decidim-accountability**: Remove useless button on the admin page for accountability statuses [#5099](https://github.com/decidim/decidim/pull/5099)
+- **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
+- **decidim-core**: Escape fingerprint content [#5146](https://github.com/decidim/decidim/pull/5146)
+- **decidim-initiatives**: Escape hashtag content [#5150](https://github.com/decidim/decidim/pull/5150)
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 
 **Removed**:
 
