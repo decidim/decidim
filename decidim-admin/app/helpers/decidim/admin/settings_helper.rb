@@ -30,6 +30,12 @@ module Decidim
         end
       end
 
+      # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
+      def help_text_for_component_setting(field_name, settings_name, component_name)
+        key = "decidim.components.#{component_name}.settings.#{settings_name}.#{field_name}_help"
+        return t(key) if I18n.exists?(key)
+      end
+
       private
 
       def form_method_for_attribute(attribute)
@@ -37,39 +43,37 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
+      # Handles special cases.
       # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
         case field_name
         when :participatory_texts_enabled
           participatory_texts_extra_options
-        when :amendments_enabled
-          amendments_extra_options(field_name, :global)
         when :amendment_creation_enabled,
-             :amendment_reaction_enabled,
-             :amendment_promotion_enabled
-          amendments_extra_options(field_name, :step)
+            :amendment_reaction_enabled,
+            :amendment_promotion_enabled
+          amendments_extra_options
         else
           {}
         end
       end
 
-      # Marks :participatory_texts_enabled checkbox with a unique class if
-      # the Proposals component has existing proposals, and stores the help text
-      # that will be added in a new div via JavaScript in "decidim/admin/form".
+      # Marks :participatory_texts_enabled setting with a class if the
+      # Proposals component has existing proposals, so it can be identified
+      # in "decidim/admin/form.js". Also, adds a help_text.
       def participatory_texts_extra_options
         return {} unless Decidim::Proposals::Proposal.where(component: @component).any?
 
         {
-          class: "participatory_texts_disabled field_has_help_text",
-          data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
+          class: "participatory_texts_disabled",
+          help_text: help_text_for_component_setting(:participatory_texts_enabled, :global, :proposals)
         }
       end
 
-      def amendments_extra_options(field_name, settings_scope)
-        {
-          class: "field_has_help_text",
-          data: { text: t("#{settings_scope}.#{field_name}_help", scope: "decidim.components.proposals.settings") }
-        }
+      # Marks component_step_settings related to amendments with a class,
+      # so they can be identified in "decidim/admin/form.js".
+      def amendments_extra_options
+        { class: "amendments_step_settings" }
       end
     end
   end

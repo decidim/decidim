@@ -4,6 +4,7 @@
     attribute,
     name,
     label: t("decidim.components.#{component.manifest.name}.settings.#{settings_name}.#{name}"),
-    tabs_prefix: tabs_prefix
+    tabs_prefix: tabs_prefix,
+    help_text: help_text_for_component_setting(name, settings_name, component.manifest.name)
   ) %>
 <% end %>

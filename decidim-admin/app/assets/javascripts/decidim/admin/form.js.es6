@@ -1,26 +1,24 @@
-// Checks if the form contains a field with a special CSS class added in
-// Decidim::Admin::SettingsHelper.
-// when .participatory_texts_disabled, prevents the checkbox from being clicked.
-// or .field_has_help_text, extracts the stored text and
-// adds a new paragraph after the field.
+// Checks if the form contains fields special CSS classes added in
+// Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {
-  const $checkboxes = $(".field_has_help_text, .participatory_texts_disabled");
+  // Prevents checkbox with ".participatory_texts_disabled" class from being clicked.
+  const $participatory_texts = $(".participatory_texts_disabled");
 
-  if ($checkboxes.length > 0) {
-    $checkboxes.each(function(index, element) {
-      let $checkbox = $(element);
+  $participatory_texts.click((event) => {
+    event.preventDefault();
+    return false;
+  });
 
-      if ($checkbox.hasClass("participatory_texts_disabled") > 0) {
-        $checkbox.click((event) => {
-          event.preventDefault();
-          return false;
-        });
-      }
+  // Toggles visibilty of fields with ".amendments_step_settings" class
+  // when amendments_enabled global setting is clicked.
+  const $amendments_enabled = $('input#component_settings_amendments_enabled');
 
-      if ($checkbox.hasClass("field_has_help_text") > 0) {
-        let $text = $checkbox.data("text");
-        $checkbox.closest("label").after(`<p class="help-text">${$text}</p>`);
-      }
+  if ($amendments_enabled.length > 0) {
+
+    $amendments_enabled.click(() => {
+      const $amendment_step_settings = $(".amendments_step_settings").parent();
+
+      $amendment_step_settings.toggle().siblings(".help-text").toggle();
     });
   }
 });
