@@ -58,7 +58,7 @@ module Decidim
         end
       end
 
-      # Marks :participatory_texts_enabled setting with a class if the
+      # Marks :participatory_texts_enabled setting with a CSS class if the
       # Proposals component has existing proposals, so it can be identified
       # in "decidim/admin/form.js". Also, adds a help_text.
       def participatory_texts_extra_options
@@ -70,7 +70,7 @@ module Decidim
         }
       end
 
-      # Marks component_step_settings related to amendments with a class,
+      # Marks component_step_settings related to amendments with a CSS class,
       # so they can be identified in "decidim/admin/form.js".
       def amendments_extra_options
         { class: "amendments_step_settings" }
