@@ -36,11 +36,11 @@ it:
         remember_me: Ricordare password
     models:
       decidim/amendment:
-        one: Modifica
+        one: Emendamento
         other: Modifiche
       decidim/user:
-        one: Nessun utente
-        other: Utenti
+        one: Partecipante
+        other: Partecipanti
       decidim/user_group:
         one: Gruppo di utenti
         other: Gruppi di utenti
