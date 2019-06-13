@@ -28,7 +28,7 @@ it:
     models:
       decidim/accountability/result:
         one: Risultato
-        other: risultati
+        other: Risultati
   decidim:
     accountability:
       actions:
