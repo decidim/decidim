@@ -33,7 +33,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   end
 
   describe "on update" do
-    context "when trying to change the `participatory_texts_enabled` setting" do
+    describe "participatory_texts_enabled" do
       let(:form) do
         instance_double(
           Decidim::Admin::ComponentForm,
@@ -54,6 +54,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "updates the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:ok)
+        end
+
+        it "changes the setting value" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to change {
             component.settings.participatory_texts_enabled
           }.from(false).to(true)
@@ -64,10 +70,16 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         let(:proposal) { create(:proposal, component: component) }
         let(:valid) { false }
 
-        it "does not update the component" do
+        it "does NOT update the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
+        end
+
+        it "does NOT change the setting value" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to_not change{ component.settings.participatory_texts_enabled }
         end
       end
     end
@@ -151,35 +163,58 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let(:edit_component_path) do
       Decidim::EngineRouter.admin_proxy(component.participatory_space).edit_component_path(component.id)
     end
-    let(:participatory_texts_enabled_checkbox) do
-      page.find("input[name='component[settings][participatory_texts_enabled]']")
-    end
 
     before do
       switch_to_host(component.organization.host)
       login_as current_user, scope: :user
     end
 
-    context "when there are no proposals for the component" do
+    describe "participatory_texts_enabled" do
+      let(:participatory_texts_enabled) { page.find("input#component_settings_participatory_texts_enabled") }
+
       before do
         visit edit_component_path
       end
 
-      it "ALLOWS the admin the enable the Participatory texts feature" do
-        expect(participatory_texts_enabled_checkbox[:class]).not_to include("disabled")
+      context "when there are no proposals for the component" do
+        it "allows to check the setting" do
+          expect(participatory_texts_enabled[:class]).not_to include("disabled")
+        end
+      end
+
+      context "when there are proposals for the component" do
+        before do
+          create(:proposal, component: component)
+          visit edit_component_path
+        end
+
+        it "does NOT allow to check the setting" do
+          expect(participatory_texts_enabled[:class]).to include("disabled")
+
+          expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+        end
       end
     end
 
-    context "when there are proposals for the component" do
+    describe "amendments settings" do
       before do
-        create(:proposal, component: component)
         visit edit_component_path
       end
 
-      it "DOES NOT ALLOW the admin the enable the Participatory texts feature" do
-        expect(participatory_texts_enabled_checkbox[:class]).to include("disabled")
+      context "when amendments_enabled global setting is checked" do
+        before do
+          check "Amendments enabled"
+        end
 
-        expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+        it "is shown the amendments step settings" do
+          expect(page).to have_css(".amendments_step_settings", visible: true)
+        end
+      end
+
+      context "when amendments_enabled global setting is NOT checked" do
+        it "is NOT shown the amendments step settings" do
+          expect(page).to have_css(".amendments_step_settings", visible: false)
+        end
       end
     end
   end

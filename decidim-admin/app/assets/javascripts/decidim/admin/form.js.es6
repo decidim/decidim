@@ -9,15 +9,20 @@ $(() => {
     return false;
   });
 
-  // Toggles visibilty of fields with ".amendments_step_settings" class
-  // when amendments_enabled global setting is clicked.
+  // (1) Hides fields with ".amendments_step_settings" class if amendments_enabled
+  // component setting is checked.
+  // (2) Toggles visibilty of fields with ".amendments_step_settings" class when
+  // amendments_enabled component setting is clicked.
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {
+    const $amendmentStepSettings = $(".amendments_step_settings").parent();
+
+    if ($amendmentsEnabled.is(":not(:checked)")) {
+      $amendmentStepSettings.hide().siblings(".help-text").hide();
+    }
 
     $amendmentsEnabled.click(() => {
-      const $amendmentStepSettings = $(".amendments_step_settings").parent();
-
       $amendmentStepSettings.toggle().siblings(".help-text").toggle();
     });
   }
