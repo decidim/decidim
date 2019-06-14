@@ -19,7 +19,7 @@ fr:
       comments: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
-      translate: Traduire
+      translate: Translate
       translated: Retour à la version d'origine
       votes:
         create:
