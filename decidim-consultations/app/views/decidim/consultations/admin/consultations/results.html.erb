@@ -7,7 +7,7 @@
   </div>
   <div class="card-section">
 
-    <% current_consultation.questions.published.each do |question| %>
+    <% current_consultation.questions.published.includes(:responses).each do |question| %>
       <% unless question.external_voting %>
         <table class="table-list">
           <thead>
@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <% if current_consultation.finished? && question.sorted_results.any? %>
+            <% if question.publishable_results? %>
               <% question.sorted_results.each do |response| %>
               <tr>
                 <td><%= translated_attribute response.title %></td>
