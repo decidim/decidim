@@ -79,7 +79,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "does NOT change the setting value" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
-          end.to_not change{ component.settings.participatory_texts_enabled }
+          end.not_to change(component.settings, :participatory_texts_enabled)
         end
       end
     end

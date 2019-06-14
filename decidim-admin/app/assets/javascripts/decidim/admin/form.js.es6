@@ -10,7 +10,7 @@ $(() => {
   });
 
   // (1) Hides fields with ".amendments_step_settings" class if amendments_enabled
-  // component setting is checked.
+  // component setting is NOT checked.
   // (2) Toggles visibilty of fields with ".amendments_step_settings" class when
   // amendments_enabled component setting is clicked.
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
