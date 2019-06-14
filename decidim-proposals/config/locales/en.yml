@@ -78,6 +78,7 @@ en:
     components:
       proposals:
         actions:
+          amend: Amend
           create: Create
           endorse: Endorse
           vote: Support
@@ -678,6 +679,7 @@ en:
           view_proposal: View proposal
         show:
           back_to: Back to
+          changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:

@@ -5,12 +5,16 @@
 
 **Added**:
 - **decidim-core**: Adds SECURITY.md per Github recommendations [#5181](https://github.com/decidim/decidim/pull/5181)
+- **decidim-proposals**: Add :amend action to proposal's authorization workflow [#5184](https://github.com/decidim/decidim/pull/5184)
+- **decidim-core**, **decidim-proposals**: Add: Improvements in amendments on `Proposals` control version [#5185](https://github.com/decidim/decidim/pull/5185)
+
 
 **Changed**:
 
 
 **Fixed**:
 
+- **decidim-admin**: Fix: Proposals component form introduced regression [#5179](https://github.com/decidim/decidim/pull/5179)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 

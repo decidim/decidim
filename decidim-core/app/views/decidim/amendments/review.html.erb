@@ -1,6 +1,6 @@
 <main class="wrapper">
   <div class="row">
-    <div class="columns large-3">
+    <div class="columns">
       <div class="m-bottom">
         <%= link_to :back do %>
           <%= icon "chevron-left", class: "icon--small" %>
@@ -16,7 +16,10 @@
         </p>
       </div>
     </div>
-    <div class="columns large-6">
+    <div class="columns mediumlarge-6">
+      <%= cell("decidim/diff", emendation.versions.last) %>
+    </div>
+    <div class="columns mediumlarge-6">
       <h2 class="section-heading">
         <%= t(".heading") %>
       </h2>
@@ -34,6 +37,5 @@
         </div>
       </div>
     </div>
-    <div class="columns large-3"></div>
   </div>
 </main>

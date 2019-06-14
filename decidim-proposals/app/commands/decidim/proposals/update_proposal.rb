@@ -67,7 +67,12 @@ module Decidim
       end
 
       def update_proposal
-        @proposal.update!(attributes)
+        @proposal = Decidim.traceability.update!(
+          @proposal,
+          current_user,
+          attributes,
+          visibility: "public-only"
+        )
         @proposal.coauthorships.clear
         @proposal.add_coauthor(current_user, user_group: user_group)
       end
