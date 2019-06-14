@@ -36,10 +36,8 @@ module Decidim
 
       attr_reader :form
 
-      # The log of this action contains unique information
-      # that is used to show/hide the promote button
-      #
-      # extra_log_info = { promoted_form: emendation.id }
+      # The log of this action contains unique information:
+      # extra_log_info = { promoted_from: emendation.id }
       def promote_emendation!
         @promoted_emendation = Decidim.traceability.perform_action!(
           "promote",

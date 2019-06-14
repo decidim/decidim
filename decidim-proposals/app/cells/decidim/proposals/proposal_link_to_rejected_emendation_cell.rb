@@ -9,7 +9,7 @@ module Decidim
       private
 
       def linked_resource
-        @linked_resource ||= model.linked_resources(:proposal, "created_from_rejected_emendation").first
+        @linked_resource ||= model.linked_promoted_resource
       end
 
       def link_to_resource

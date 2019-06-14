@@ -24,7 +24,7 @@ module Decidim::Amendable
 
     def promoted_message
       return "" unless model.amendment.promoted?
-      proposal = model.amendment.promoted_to_proposal
+      proposal = model.linked_promoted_resource
       text = message(:promoted, amendable_type)
       %(<br><strong>#{proposal_link(proposal, text)}</strong>)
     end

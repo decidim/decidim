@@ -84,7 +84,7 @@ module Decidim
     end
 
     def emendation_state
-      return resource_state if resource_state == "withdrawn"
+      return resource_state if resource_state == "withdrawn" # Special case for Proposals
 
       amendment.state
     end
@@ -93,6 +93,10 @@ module Decidim
       return emendation_state if emendation?
 
       resource_state
+    end
+
+    def linked_promoted_resource
+      linked_resources(:proposal, "created_from_rejected_emendation").first
     end
   end
 end
