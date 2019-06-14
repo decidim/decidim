@@ -6,7 +6,6 @@
     </h2>
   </div>
   <div class="card-section">
-
     <% current_consultation.questions.published.includes(:responses).each do |question| %>
       <% unless question.external_voting %>
         <table class="table-list">
@@ -34,5 +33,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
