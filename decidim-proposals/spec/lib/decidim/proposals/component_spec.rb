@@ -56,14 +56,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
             Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:ok)
         end
-
-        it "changes the setting value" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.to change {
-            component.settings.participatory_texts_enabled
-          }.from(false).to(true)
-        end
       end
 
       context "when there are proposals for the component" do
@@ -74,12 +66,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
-        end
-
-        it "does NOT change the setting value" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.not_to change(component.settings, :participatory_texts_enabled)
         end
       end
     end
@@ -180,10 +166,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "allows to check the setting" do
           expect(participatory_texts_enabled[:class]).not_to include("disabled")
         end
+
+        it "changes the setting value after updating" do
+          expect do # rubocop:disable Lint/AmbiguousBlockAssociation
+            check "Participatory texts enabled"
+            click_button "Update"
+          end.to change { component.reload.settings.participatory_texts_enabled }
+        end
       end
 
       context "when there are proposals for the component" do
         before do
+          component.update(settings: { participatory_texts_enabled: true }) # Testing from true to false
           create(:proposal, component: component)
           visit edit_component_path
         end
@@ -192,6 +186,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           expect(participatory_texts_enabled[:class]).to include("disabled")
 
           expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+        end
+
+        it "does NOT change the setting value after updating" do
+          expect do # rubocop:disable Lint/AmbiguousBlockAssociation
+            click_button "Update"
+          end.not_to change { component.reload.settings.participatory_texts_enabled }
         end
       end
     end
