@@ -23,7 +23,7 @@ sv:
         parent_id: Överordnad
       component:
         name: Namn
-        published_at: Publicerad vid
+        published_at: Publicerad
         weight: Vikt
       id: ID
       newsletter:
@@ -31,20 +31,22 @@ sv:
         subject: Ämne
       oauth_application:
         name: Namn
-        organization_logo: Organisationslogotypen (kvadrat)
+        organization_logo: Organisationslogo (kvadrat)
         organization_name: Organisationsnamn
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
-        alert_color: Varna
+        address: SMTP-värdnamn
+        alert_color: Larm
         badges_enabled: Aktivera märken
-        cta_button_path: Knappsökväg till Uppmaning till Handing
-        cta_button_text: Knapptext för Uppmaning till Handling
-        default_locale: Standardspråk
+        cta_button_path: Uppmaningens knappsökväg
+        cta_button_text: Uppmaningens knapptext
+        default_locale: Förvalt språk och region
         description: Beskrivning
-        enable_omnipresent_banner: Visa allestädes närvarande banner
+        enable_omnipresent_banner: Visa banner på alla sidor
         facebook_handler: Facebook-hanterare
         favicon: Ikon
+        from: Från e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
         highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
@@ -58,19 +60,22 @@ sv:
         logo: Logo
         name: Namn
         official_img_footer: Officiell logo sidfot
-        official_img_header: Officiell logotyphuvud
+        official_img_header: Officiell logoyp till sidhuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        password: Lösenord
+        port: Port
         primary_color: Primär
         reference_prefix: Referensprefix
         secondary_color: Sekundär
         show_statistics: Visa statistik
-        success_color: Framgång
+        success_color: Färdigt
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
-        user_groups_enabled: Aktivera användargrupper
+        user_groups_enabled: Aktivera grupper
+        user_name: Användarnamn
         warning_color: Varning
         youtube_handler: YouTube-hanterare
       scope:
@@ -85,7 +90,7 @@ sv:
         organization: Organisation
         plural: Flertal
       static_page:
-        changed_notably: Det har förekommit märkbara förändringar.
+        changed_notably: Det har skett större förändringar.
         content: Innehåll
         organization: Organisation
         show_in_footer: Visa i sidfoten
@@ -118,12 +123,12 @@ sv:
         slug: URL slug
         title: Titel
       doorkeeper/application:
-        authorize_url: Godkänn webbadress
-        client_id: Klient ID
-        client_secret: Kundhemlighet
+        authorize_url: Godkänn URL
+        client_id: Klient-ID
+        client_secret: Klienthemlighet
         organization_name: Organisationsnamn
-        organization_url: Organisationsadress
-        redirect_uri: Omdirigera URI
+        organization_url: Organisations-URL
+        redirect_uri: Omdirigerings-URI
         site: Webbplats
   decidim:
     admin:
@@ -138,26 +143,26 @@ sv:
         verify: Kontrollera
       area_types:
         create:
-          error: Ett fel uppstod med att skapa en ny områdes typ.
-          success: Områdetypen skapades framgångsrikt.
+          error: Det gick inte att skapa en ny områdestyp.
+          success: Områdestypen har skapats.
         destroy:
-          success: Typ av område framgångsrikt förstört
+          success: Områdestypen har tagits bort
         edit:
-          title: Redigera områdets typ
+          title: Redigera områdestyp
           update: Uppdatera
         new:
-          create: Skapa områdets typ
-          title: Ny typ av område
+          create: Skapa områdestyp
+          title: Ny områdestyp
         update:
-          error: Det uppstod ett fel vid uppdatering av denna typ av område.
+          error: Det gick inte att uppdatera områdestypen.
           success: Områdestypen uppdaterades framgångsrikt
       areas:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt område.
-          success: Område skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt område.
+          success: Området har har skapats.
         destroy:
-          has_spaces: Området har depedenta utrymmen, det får inte ha beroenden för att kunna raderas.
-          success: Området framgångsrikt förstörs
+          has_spaces: Området har beroende utrymmen och får inte ha beroenden när det ska raderas.
+          success: Området har tagits bort
         edit:
           title: Redigera område
           update: Uppdatera
@@ -166,134 +171,135 @@ sv:
           title: Nytt område
         no_areas: Inga områden
         update:
-          error: Det uppstod ett fel vid uppdateringen av det här området.
-          success: Området uppdateras framgångsrikt
+          error: Det gick inte att uppdatera området.
+          success: Området har uppdaterats
       attachment_collections:
         create:
-          error: Det uppstod ett fel vid att skapa en ny mapp.
-          success: Mapp skapad framgångsrikt.
+          error: Det gick inte att skapa en ny mapp.
+          success: Mappen har skapats.
         destroy:
-          success: Mappen förstördes framgångsrikt.
+          success: Mappen har tagits bort.
         edit:
           title: Redigera mapp
           update: Uppdatera
         index:
           attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
-          attachment_collections_title: Bilagor
+          attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
           title: Ny mapp
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här mappen.
-          success: Mapp uppdaterad.
+          error: Det gick inte att uppdatera mappen.
+          success: Mappen har uppdaterats.
       attachments:
         create:
-          error: Det uppstod ett fel vid att skapa en ny bilaga.
-          success: Bilagan skapades.
+          error: Det gick inte att skapa en ny bilaga.
+          success: Bilagan har skapats.
         destroy:
           success: Bilagan förstördes.
         edit:
-          title: Redigera bifogade fil
+          title: Redigera bilaga
           update: Uppdatera
         index:
-          attachments_title: Bifogade filer
+          attachments_title: Bilagor
         new:
-          create: Skapa bifogad fil
+          create: Skapa bilaga
           title: Ny bifogad fil
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här bilagan.
-          success: Bilagan uppdaterades.
+          error: Det gick inte att uppdatera bilagan.
+          success: Bilagan har uppdaterats.
       autocomplete:
-        no_results: Inga resultat
-        search_prompt: Skriv minst tre tecken att söka
+        no_results: Hittade inga resultat
+        search_prompt: Sök genom att skriva minst tre tecken
       categories:
         create:
-          error: Det uppstod ett fel vid skapandet av den här kategorin.
-          success: Kategori skapad.
+          error: Det gick inte att skapa kategorin.
+          success: Kategori har skapats.
         destroy:
-          error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
-          success: Kategori raderas framgångsrikt.
+          error: Det gick inte att radera kategorin. Radera eventuella underkategorier först, se till att inget annat objekt tillhör kategorin och försök igen.
+          success: Kategori har raderats.
         edit:
           title: Redigera kategori
           update: Uppdatera
         index:
           categories_title: Kategorier
-          category_used: Den här kategorin kan inte tas bort eftersom den används.
+          category_used: Kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
           title: Ny kategori
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här kategorin.
-          success: Kategori uppdaterad framgångsrikt.
+          error: Det gick inte att uppdatera kategorin.
+          success: Kategorin har uppdaterats.
       component_permissions:
         update:
-          success: Tillstånd uppdaterade framgångsrikt.
+          success: Behörigheterna har uppdaterats.
       components:
         create:
-          error: Det uppstod ett fel vid skapandet av den här komponenten.
-          success: Komponent skapad framgångsrikt.
+          error: Det gick inte att skapa komponenten.
+          success: Komponenten har skapats.
         destroy:
-          error: Det har inträffat ett fel som förstörde denna komponent.
-          success: Komponenten har tagits bort.
+          error: Det har inträffat ett fel som förstörde komponenten.
+          success: Komponenten har raderats.
         edit:
           title: Redigera komponent
           update: Uppdatera
         form:
-          default_step_settings: Standard steginställningar
+          default_step_settings: Förvalda inställningar för steg
           global_settings: Globala inställningar
-          step_settings: Steginställningar
+          participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
+          step_settings: Inställningar för steg
         index:
           add: Lägg till komponent
           headers:
-            actions: Handlingar
+            actions: Åtgärder
             name: Komponentnamn
             type: Komponenttyp
         new:
           add: Lägg till komponent
           title: 'Lägg till komponent: %{name}'
         publish:
-          success: Komponenten har publicerats framgångsrikt.
+          success: Komponenten har publicerats.
         title: Komponenter
         unpublish:
-          success: Komponenten har blivit framgångsrikt opublicerad.
+          success: Komponenten har avpublicerats.
         update:
-          error: Det har uppstått ett fel vid uppdateringen av den här komponenten.
-          success: Komponenten uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera komponenten.
+          success: Komponenten har uppdaterats.
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Decidim Admin Panel.
+          welcome: Välkommen till Decidims administratörspanel.
       exports:
         export_as: "%{name} som %{export_format}"
-        notice: Din export är pågående. Du får ett mail när det är klart.
+        notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
       help_sections:
-        error: Det har uppstått ett fel vid uppdateringen av hjälpavsnitten
+        error: Det gick inte att uppdatera hjälpavsnitten
         form:
           save: Spara
-        success: Hjälpsektionerna uppdateras framgångsrikt
+        success: Hjälpavsnitten har uppdaterats
       impersonatable_users:
         index:
           filter:
             all: Alla
-            managed: Managed
+            managed: Hanterad
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
-          impersonate_new_managed_user: Impersonera ny hanterad användare
-          managed: Managed
+          impersonate_new_managed_user: Hantera ny deltagare
+          managed: Hanterad
           name: Namn
-          needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
+          needs_authorization_warning: Minst en auktorisering måste vara aktiv för organisationen.
           not_managed: Inte hanterad
-          promote: Främja
+          promote: Befordra
           search: Sök
           status: Status
           view_logs: Visa loggar
       impersonations:
         close_session:
-          error: Det har uppstått ett fel vid stängningen av den aktuella uppträdande sessionen.
-          success: Den nuvarande ombildningsperioden har framgångsrikt avslutats.
+          error: Det gick inte att stänga sessionen med den hanterade användaren.
+          success: Den nuvarande perioden att uppträda som någon annan har avslutats.
         create:
-          error: Det har inträffat ett fel för att ersätta användaren.
+          error: Det gick inte att hantera användaren.
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
@@ -301,21 +307,21 @@ sv:
           reason: Anledning
         new:
           impersonate: Uppträd som
-          impersonate_existing_managed_user: Impersonera hanterad användare "%{name}"
-          impersonate_existing_user: Impersonera användaren "%{name}"
-          impersonate_new_managed_user: Impersonera ny hanterad användare
+          impersonate_existing_managed_user: Hantera deltagaren "%{name}"
+          impersonate_existing_user: Hantera deltagaren "%{name}"
+          impersonate_new_managed_user: Hantera ny deltagare
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
       managed_users:
         promotion:
-          error: Det har inträffat ett fel som främjar den hanterade användaren.
-          success: Den hanterade användaren har framgångsrikt marknadsförts.
+          error: Det gick inte att befordra den hanterade användaren.
+          success: Den hanterade användaren har befordrats.
         promotions:
           new:
-            explanation: Administrerade användare kan främjas till standardanvändare. Det innebär att de kommer att bli inbjudna till ansökan och du kommer inte att kunna förverkliga dem igen. Den inbjudna användaren får ett mail för att acceptera din inbjudan.
-            new_managed_user_promotion: Ny hanterad användarpromotion
-            promote: Främja
+            explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till tillämpningen och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
+            new_managed_user_promotion: Befordra ny hanterad användare
+            promote: Befordra
       menu:
         admin_log: Adminaktivitetslogg
         admins: Administratörer
@@ -326,16 +332,16 @@ sv:
         dashboard: Kontrollpanel
         help_sections: Hjälpavsnitt
         homepage: Hemsida
-        impersonations: impersonations
+        impersonations: Uppträd som
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth applikationer
-        participants: Deltagarna
+        oauth_applications: OAuth-tillämpningar
+        participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
         static_pages: Sidor
-        user_groups: Användargrupper
-        users: Användare
+        user_groups: Grupper
+        users: Deltagare
       models:
         area:
           fields:
@@ -351,7 +357,7 @@ sv:
             content_type: Typ
             file_size: Storlek
             title: Titel
-          name: Bifogad fil
+          name: Bilaga
         attachment_collection:
           name: Mapp
         category:
@@ -359,25 +365,26 @@ sv:
         impersonation_log:
           fields:
             admin: Admin
-            ended_at: Avslutad vid
-            expired_at: Förfallit ut vid
+            ended_at: Slutade
+            expired_at: Förföll
             reason: Anledning
-            started_at: Börjat vid
-            user: Användare
+            started_at: Började
+            user: Deltagare
         newsletter:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             progress: Framsteg
-            sent_at: Skickat på
+            sent_at: Skickades
+            sent_to: Skickat till
             subject: Ämne
           name: Nyhetsbrev
         oauth_application:
           fields:
-            created_at: Skapad vid
+            created_at: Skapades
             name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
-          name: Deltagande utrymme privat användare
+          name: Deltagare i privat deltagarutrymme
         scope:
           fields:
             name: Namn
@@ -388,23 +395,23 @@ sv:
             plural: Flertal
         static_page:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Titel
         user:
           fields:
-            created_at: Skapelsedagen
+            created_at: Skapandedatum
             email: E-post
             last_sign_in_at: Senast inloggningsdatum
             name: Namn
             role: Roll
             roles:
-              admin: Admin
-              user_manager: Användarhanteraren
-          name: Användare
+              admin: Administratör
+              user_manager: Användarhanterare
+          name: Deltagare
         user_group:
           fields:
-            actions: Handlingar
-            created_at: Skapad vid
+            actions: Åtgärder
+            created_at: Skapad
             document_number: Dokumentnummer
             name: Namn
             phone: Telefon
@@ -416,84 +423,110 @@ sv:
         report:
           reasons:
             does_not_belong: Hör inte hemma
-            offensive: Offensiv
-            spam: Spam
+            offensive: Stötande
+            spam: Skräp
       newsletters:
         create:
-          error: Det har varit ett fel att skapa detta nyhetsbrev.
-          success: Nyhetsbrev skapades framgångsrikt. Snälla, granska det innan du skickar.
+          error: Det gick inte att skapa nyhetsbrevet.
+          success: Nyhetsbrevet har skapats. Granska det gärna innan du skickar det.
         deliver:
-          error: Det har varit ett fel vid leverans av detta nyhetsbrev.
-          success: Nyhetsbrev levereras framgångsrikt.
+          error: Det gick inte att skicka nyhetsbrevet.
+          success: Nyhetsbrevet har skickats.
         destroy:
-          error_already_sent: 'Kan inte förstöra nyhetsbrev: Det har redan skickats.'
-          success: Nyhetsbrevet förstördes framgångsrikt.
+          error_already_sent: 'Kan inte ta bort nyhetsbrevet: det har redan skickats.'
+          success: Nyhetsbrevet har tagits bort.
         edit:
           save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
         form:
-          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
+          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
-          confirm_delete: Är du säker på att du vill radera detta nyhetsbrev?
+          all: alla
+          all_users: 'Alla användare '
+          and: 'och '
+          confirm_delete: Vill du radera nyhetsbrevet?
+          followers: 'följare '
+          has_been_sent_to: 'Har skickats till: '
+          no_scopes: Inga omfång
+          not_sent: Inte skickat
+          participants: 'deltagare '
+          segmented_to: 'Segmenterad till %{subject}: '
           title: Nyhetsbrev
         new:
           save: Spara
           title: Nytt nyhetsbrev
         select_recipients_to_deliver:
+          all_spaces: Alla
+          all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
           confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
+          followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
+          none: Inga
+          participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          scopes_help: Skickar nyhetsbrev till användare som har något av de valda omfången markerade under "Mina intressen" i sina konton.
+          select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
+          select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
+          select_users: Välj vilka användare som ska få nyhetsbrevet
+          send_to_all_users: Skicka till alla användare
+          send_to_followers: Skicka till följare
+          send_to_participants: Skicka till deltagare
+          title: Välj mottagare att skicka till
+          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
+        send:
+          no_recipients: Inga mottagare för det här urvalet
         show:
-          preview: Förhandsvisning
+          preview: Förhandsvisa
+          select_recipients_to_deliver: Välj mottagare att leverera till
           subject: Ämne
         update:
-          error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
-          success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+          error: Det gick inte att uppdatera nyhetsbrevet.
+          success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       oauth_applications:
         create:
-          error: Det har uppstått ett fel vid skapandet av den här applikationen.
-          success: Programmet skapades framgångsrikt.
+          error: Det gick inte att skapa tillämpningen.
+          success: Tillämpningen har skapats.
         destroy:
-          error: Det har inträffat ett fel som förstörde den här applikationen.
-          success: Programmet förstördes framgångsrikt.
+          error: Det gick inte att ta bort tillämpningen.
+          success: Tillämpningen har tagits bort.
         edit:
           save: Spara
-          title: Redigera program
+          title: Redigera tillämpning
         index:
-          confirm_delete: Är du säker på att du vill ta bort den här applikationen?
-          title: OAuth applikationer
+          confirm_delete: Vill du ta bort tillämpningen?
+          title: OAuth-tillämpningar
         new:
           save: Spara
-          title: Ny ansökan
+          title: Ny tillämpning
         update:
-          error: Det har uppstått ett fel vid uppdateringen av den här applikationen.
-          success: Applikationen uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera tillämpningen.
+          success: Tillämpningen har uppdaterats.
       officializations:
         create:
-          success: Användaren officiellt godkändes
+          success: Deltagaren har gjorts officiell
         destroy:
-          success: Användaren inofficiellt framgångsrikt
+          success: Deltagaren är inte längre officiell
         index:
-          actions: Handlingar
-          badge: Emblem
-          created_at: Skapad vid
+          actions: Åtgärder
+          badge: Märke
+          created_at: Skapad
           filter:
             all: Alla
-            not_officialized: Ej officiellt
-            officialized: Officialized
+            not_officialized: Ej gjord officiell
+            officialized: Gjord officiell
           filter_by: Filtrera efter
           name: Namn
-          nickname: Smeknamn
-          not_officialized: Ej officiellt
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          nickname: Användarnamn
+          not_officialized: Ej gjord officiell
+          officialize: Gör officiell
+          officialized: Gjord officiell
+          reofficialize: Gör officiell igen
           search: Sök
           status: Status
-          unofficialize: Unofficialize
+          unofficialize: Sluta gör officiell
         new:
-          badge: Officiella märke
-          officialize: Officialize
-          title: Officiella användaren "%{name}"
+          badge: Officiellt märke
+          officialize: Gör officiell
+          title: Gör deltagaren "%{name}" officiell
       organization:
         edit:
           title: Redigera organisation
@@ -502,56 +535,56 @@ sv:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
+          social_handlers: Sociala
           twitter: Twitter
           url: URL
           youtube: Youtube
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här organisationen.
-          success: Organisationen uppdateras framgångsrikt.
+          error: Det gick inte att uppdatera organisationen.
+          success: Organisationen har uppdaterats.
       organization_appearance:
         edit:
           update: Uppdatera
         form:
-          colors_title: Organisationens färger
-          cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
-          cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
-          header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
+          colors_title: Organisationsfärger
+          cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+          cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
+          header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
           homepage_appearance_title: Redigera startsidans utseende
-          homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
-          layout_appearance_title: Ändra layoututseende
-          omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
+          homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
+          layout_appearance_title: Redigera layoutens utseende
+          omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_homepage:
         edit:
-          active_content_blocks: Aktiva innehållsblock
-          inactive_content_blocks: Inaktiva innehållsblock
+          active_content_blocks: Block med aktivt innehåll
+          inactive_content_blocks: Block med inaktivt innehåll
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera
       participatory_space_private_users:
         create:
-          error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
-          success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
+          error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
+          success: Åtkomst för privat deltagare till deltagarutrymmet har skapats.
         destroy:
-          error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
-          success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
+          error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
+          success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
         index:
-          title: Deltagande utrymme privat användare
+          title: Privat deltagare i deltagarutrymme
         new:
           create: Skapa
-          title: Ny deltagande utrymme privat användare.
+          title: Ny privat deltagare i deltagarutrymme.
       resource_permissions:
         edit:
-          submit: Lämna
+          submit: Skicka in
           title: Redigera behörigheter
         update:
-          success: Tillstånd uppdaterade framgångsrikt.
+          success: Behörigheterna har uppdaterats.
       scope_types:
         create:
-          error: Ett fel uppstod med att skapa en ny räckviddstyp.
-          success: Omfattningstypen skapades framgångsrikt.
+          error: Det gick inte att skapa en ny omfångstyp.
+          success: Omfångstypen har skapats.
         destroy:
-          success: Omfattningstypen förstörs framgångsrikt
+          success: Omfångstypen har tagits bort
         edit:
           title: Redigera omfattningstyp
           update: Uppdatera
@@ -559,14 +592,14 @@ sv:
           create: Skapa omfattningstyp
           title: Ny omfattning
         update:
-          error: Ett fel uppstod vid uppdatering av denna räckviddstyp.
-          success: Omfattningstypen uppdateras framgångsrikt
+          error: Det gick inte att uppdatera omfångstypen.
+          success: Omfångstypen har uppdaterats
       scopes:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt räckvidd.
-          success: Omfattning skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt omfång.
+          success: Omfånget har skapats.
         destroy:
-          success: Omfattning framgångsrikt förstörs
+          success: Omfånget har tagits bort
         edit:
           title: Redigera omfattning
           update: Uppdatera
@@ -575,14 +608,14 @@ sv:
           title: Ny omfattning
         no_scopes: Inga omfattningar på denna nivå.
         update:
-          error: Ett fel uppstod vid uppdatering av detta räckvidd.
-          success: Omfattning uppdateras framgångsrikt
+          error: Det gick inte att uppdatera omfånget.
+          success: Omfattningen har uppdaterats
       static_page_topics:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt ämne.
-          success: Ämne skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt ämne.
+          success: Ämnet har skapats.
         destroy:
-          success: Ämne framgångsrikt förstört
+          success: Ämne har tagits bort
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
@@ -590,24 +623,25 @@ sv:
           create: Skapa ämne
           title: Nytt ämne
         update:
-          error: Det uppstod ett fel vid uppdateringen av det här ämnet.
-          success: Ämnet uppdaterades framgångsrikt
+          error: Det gick inte att uppdatera ämnet.
+          success: Ämnet har uppdaterats
       static_pages:
         actions:
-          view: Visa allmän sida
+          view: Visa offentlig sida
         create:
-          error: Det uppstod ett fel vid att skapa en ny sida.
-          success: Sidan skapades framgångsrikt.
+          error: Det gick inte att skapa en ny sida.
+          success: Sidan har skapats.
         destroy:
-          success: Sidan förstördes framgångsrikt
+          success: Sidan har tagits bort
         edit:
-          changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
+          changed_notably_help: Om markerad kommer deltagarna att bli ombedda att godkänna de nya villkoren.
           title: Redigera sida
           update: Uppdatera
         form:
           none: Ingen
+          slug_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
-          last_notable_change: Senast anmärkningsvärda förändring
+          last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
@@ -617,57 +651,57 @@ sv:
           empty: Det finns ingen sida under det här ämnet
           without_topic: Sidor utan ämne
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här sidan.
-          success: Sidan uppdaterad framgångsrikt
+          error: Det gick inte att uppdatera sidan.
+          success: Sidan har uppdaterats
       titles:
-        admin_log: Admin logg
-        area_types: Typer av område
+        admin_log: Administratörslogg
+        area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
-        impersonatable_users: Hanterbara användare
-        impersonations: Användarhantering
-        participants: användare
+        impersonatable_users: Hanterbara deltagare
+        impersonations: Deltagarhantering
+        participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
-        user_groups: Användargrupper
-        users: Användare
+        user_groups: Grupper
+        users: Deltagare
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
-          success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
+          success: CSV-filen har tagits mot, och vi verifierar de grupper som överensstämmer med kriterierna. Det kan ta en stund.
         reject:
-          invalid: Det uppstod ett fel när du avvisade den här användargruppen.
-          success: Användargruppen avvisades framgångsrikt
+          invalid: Det gick inte att avvisa gruppen.
+          success: Gruppen har avvisats
         verify:
-          invalid: Det uppstod ett fel vid verifiering av denna användargrupp.
-          success: Användargruppen verifierades framgångsrikt
+          invalid: Det gicka inte att verifiera gruppen.
+          success: Gruppen har verifierats
       user_groups:
         index:
           filter:
             all: Alla
-            pending: Avvaktan
-            rejected: avvisade
-            verified: Verifierad
+            pending: Väntande
+            rejected: Avvisade
+            verified: Verifierat
           filter_by: Filtrera efter
           search: Sök
           state:
             pending: Väntande
-            rejected: avvisade
-            verified: Verifierad
+            rejected: Avvisade
+            verified: Verifierat
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
-          title: Ladda upp din CSV-fil
-          upload: Ladda upp
+          explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
+          title: Skicka CSV-fil
+          upload: Skicka
       users:
         create:
-          error: Det uppstod ett fel vid inbjudan till den här användaren.
-          success: Användaren bjöds in framgångsrikt.
+          error: Det gick inte att bjuda in administratören.
+          success: Deltagaren har bjudits in.
         destroy:
-          error: Det uppstod ett fel när du försökte ta bort den här användaren.
+          error: Det gick inte att radera administratören.
           success: Användaren är inte längre en administratör.
         form:
           email: E-post
@@ -676,42 +710,42 @@ sv:
         new:
           create: Bjud in
           title: Bjud in användaren som administratör
-      view_public_page: Visa allmän sida
+      view_public_page: Visa offentlig sida
     forms:
       errors:
         impersonate_user:
-          reason: Du måste ange en anledning när du ersätter en icke-hanterad användare
+          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     moderations:
       actions:
         hidden: Dold
         hide: Dölj
-        not_hidden: Inte dolt
-        title: Handlingar
-        unhide: Ta fram
-        unreport: Unreport
+        not_hidden: Inte dold
+        title: Åtgärder
+        unhide: Sluta dölja
+        unreport: Ta bort rapport
       admin:
         reportable:
           hide:
-            invalid: Det har varit ett problem att dölja resursen.
-            success: Resurs framgångsrikt dold.
+            invalid: Det gick inte att dölja resursen.
+            success: Resursen har dolts.
           unhide:
-            invalid: Det har varit ett problem att undvika resursen.
-            success: Resurs framgångsrikt oskyddat.
+            invalid: Det gick inte att sluta dölja resursen.
+            success: Resursen är inte längre dold.
           unreport:
-            invalid: Det har varit ett problem att rapportera resursen.
-            success: Resurs framgångsrikt orapporterad.
+            invalid: Det gick inte att ta bort rapporten om resursen.
+            success: Resursen är inte längre rapporterad.
       models:
         moderation:
           fields:
-            hidden_at: Dold vid
+            hidden_at: Dold
             report_count: Antal
-            reportable: rapporter
+            reportable: Rapporterbart
             reported_content_url: Rapporterad innehållsadress
-            reports: rapporter
+            reports: Rapporter
             visit_url: Besök URL
   errors:
     messages:
-      invalid_json: Ogiltigt JSON
+      invalid_json: Ogiltig JSON
   layouts:
     decidim:
       admin:
@@ -720,4 +754,4 @@ sv:
         settings:
           title: inställningar
         users:
-          title: Användare
+          title: Deltagare

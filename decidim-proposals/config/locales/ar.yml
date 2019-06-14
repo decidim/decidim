@@ -97,6 +97,7 @@ ar:
     components:
       proposals:
         actions:
+          amend: تعديل
           create: إنشاء
           endorse: تأييد
           vote: الدعم
@@ -700,6 +701,7 @@ ar:
           view_proposal: عرض الاقتراح
         show:
           back_to: ارجع الى
+          changes_at_title: تعديل على "%{title}"
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
           hidden_endorsers_count:
