@@ -30,9 +30,14 @@ hu:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
           title: 'Alapértelmezett cím: %{page}'
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Adminok
         dashboard: Irányítópult
+        logs: Logs
         organizations: Szervezetek
       models:
         admin:

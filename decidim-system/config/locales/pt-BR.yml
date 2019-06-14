@@ -30,9 +30,14 @@ pt-BR:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
           title: Título padrão para %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administradores
         dashboard: painel de controle
+        logs: Logs
         organizations: Organizações
       models:
         admin:

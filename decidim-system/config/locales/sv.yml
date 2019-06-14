@@ -30,9 +30,14 @@ sv:
         placeholders:
           content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
           title: Standardtitel för %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administratörer
         dashboard: Kontrollpanel
+        logs: Logs
         organizations: Organisationer
       models:
         admin:

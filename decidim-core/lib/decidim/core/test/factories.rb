@@ -123,6 +123,10 @@ FactoryBot.define do
       confirmed_at { Time.current }
     end
 
+    trait :newsletter_notifications do
+      newsletter_notifications_at { Time.current }
+    end
+
     trait :deleted do
       email { "" }
       deleted_at { Time.current }

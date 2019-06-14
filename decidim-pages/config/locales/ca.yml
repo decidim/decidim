@@ -29,3 +29,6 @@ ca:
           update:
             invalid: Hi ha hagut errors en desar la pàgina.
             success: Pàgina guardada correctament.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

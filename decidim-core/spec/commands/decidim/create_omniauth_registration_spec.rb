@@ -35,55 +35,164 @@ module Decidim
         end
         let(:command) { described_class.new(form, verified_email) }
 
-        before do
-          stub_request(:get, "http://www.example.com/foo.jpg")
-            .to_return(status: 200, body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" })
-        end
-
-        describe "when the form oauth_signature cannot ve verified" do
-          let(:oauth_signature) { "1234" }
-
-          it "raises a InvalidOauthSignature exception" do
-            expect { command.call }.to raise_error InvalidOauthSignature
-          end
-        end
-
-        context "when the form is not valid" do
+        context "when avatar is jpg type" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            stub_request(:get, "http://www.example.com/foo.jpg")
+              .to_return(status: 200, body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" })
           end
 
-          it "broadcasts invalid" do
-            expect { command.call }.to broadcast(:invalid)
+          describe "when the form oauth_signature cannot ve verified" do
+            let(:oauth_signature) { "1234" }
+
+            it "raises a InvalidOauthSignature exception" do
+              expect { command.call }.to raise_error InvalidOauthSignature
+            end
           end
 
-          it "doesn't create a user" do
-            expect do
+          context "when the form is not valid" do
+            before do
+              expect(form).to receive(:invalid?).and_return(true)
+            end
+
+            it "broadcasts invalid" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+
+            it "doesn't create a user" do
+              expect do
+                command.call
+              end.not_to change(User, :count)
+            end
+          end
+
+          context "when the form is valid" do
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+
+            it "creates a new user" do
+              expect(SecureRandom).to receive(:hex).and_return("abcde1234")
+
+              expect do
+                command.call
+              end.to change(User, :count).by(1)
+
+              user = User.find_by(email: form.email)
+              expect(user.encrypted_password).not_to be_nil
+              expect(user.email).to eq(form.email)
+              expect(user.organization).to eq(organization)
+              expect(user.newsletter_notifications_at).to be_nil
+              expect(user.email_on_notification).to eq(true)
+              expect(user).to be_confirmed
+              expect(user.valid_password?("abcde1234")).to eq(true)
+            end
+
+            it "notifies about registration with oauth data" do
+              user = create(:user, email: email, organization: organization)
+              identity = Decidim::Identity.new(id: 1234)
+              expect(command).to receive(:create_identity).and_return(identity)
+
+              expect(ActiveSupport::Notifications)
+                .to receive(:publish)
+                .with(
+                  "decidim.events.user.omniauth_registration",
+                  user_id: user.id,
+                  identity_id: 1234,
+                  provider: provider,
+                  uid: uid,
+                  email: email,
+                  name: "Facebook User",
+                  nickname: "facebook_user",
+                  avatar_url: "http://www.example.com/foo.jpg",
+                  raw_data: {}
+                )
               command.call
-            end.not_to change(User, :count)
+            end
+
+            describe "user linking" do
+              context "with a verified email" do
+                let(:verified_email) { email }
+
+                it "links a previously existing user" do
+                  user = create(:user, email: email, organization: organization)
+                  expect { command.call }.to change(User, :count).by(0)
+
+                  expect(user.identities.length).to eq(1)
+                end
+              end
+
+              context "with an unverified email" do
+                let(:verified_email) { nil }
+
+                it "doesn't link a previously existing user" do
+                  user = create(:user, email: email, organization: organization)
+                  expect { command.call }.to broadcast(:error)
+
+                  expect(user.identities.length).to eq(0)
+                end
+              end
+            end
+
+            it "creates a new identity" do
+              expect do
+                command.call
+              end.to change(Identity, :count).by(1)
+              last_identity = Identity.last
+              expect(last_identity.provider).to eq(form.provider)
+              expect(last_identity.uid).to eq(form.uid)
+              expect(last_identity.organization).to eq(organization)
+            end
+
+            it "confirms the user if the email is already verified" do
+              # rubocop:disable RSpec/AnyInstance
+              expect_any_instance_of(User).to receive(:skip_confirmation!)
+              # rubocop:enable RSpec/AnyInstance
+              command.call
+            end
+          end
+
+          context "when a user exists with that identity" do
+            it "broadcasts ok" do
+              user = create(:user, email: email, organization: organization)
+              create(:identity, user: user, provider: provider, uid: uid)
+
+              expect { command.call }.to broadcast(:ok)
+            end
           end
         end
 
-        context "when the form is valid" do
+        context "when avatar is svg type" do
+          let(:form_params) do
+            {
+              "user" => {
+                "provider" => provider,
+                "uid" => uid,
+                "email" => email,
+                "email_verified" => true,
+                "name" => "Facebook User",
+                "nickname" => "facebook_user",
+                "oauth_signature" => oauth_signature,
+                "avatar_url" => "http://www.example.com/foo.svg"
+              }
+            }
+          end
+
+          before do
+            stub_request(:get, "http://www.example.com/foo.svg")
+              .to_return(status: 200, body: File.read("spec/assets/avatar.svg"), headers: { "Content-Type" => "image/svg+xml" })
+          end
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new user" do
-            expect(SecureRandom).to receive(:hex).and_return("abcde1234")
-
+          it "Returns user's avatar" do
             expect do
               command.call
             end.to change(User, :count).by(1)
 
             user = User.find_by(email: form.email)
-            expect(user.encrypted_password).not_to be_nil
-            expect(user.email).to eq(form.email)
-            expect(user.organization).to eq(organization)
-            expect(user.newsletter_notifications_at).to be_nil
-            expect(user.email_on_notification).to eq(true)
-            expect(user).to be_confirmed
-            expect(user.valid_password?("abcde1234")).to eq(true)
+            expect(user.avatar_url).to end_with("svg")
           end
 
           it "notifies about registration with oauth data" do
@@ -102,60 +211,10 @@ module Decidim
                 email: email,
                 name: "Facebook User",
                 nickname: "facebook_user",
-                avatar_url: "http://www.example.com/foo.jpg",
+                avatar_url: "http://www.example.com/foo.svg",
                 raw_data: {}
               )
             command.call
-          end
-
-          describe "user linking" do
-            context "with a verified email" do
-              let(:verified_email) { email }
-
-              it "links a previously existing user" do
-                user = create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
-
-                expect(user.identities.length).to eq(1)
-              end
-            end
-
-            context "with an unverified email" do
-              let(:verified_email) { nil }
-
-              it "doesn't link a previously existing user" do
-                user = create(:user, email: email, organization: organization)
-                expect { command.call }.to broadcast(:error)
-
-                expect(user.identities.length).to eq(0)
-              end
-            end
-          end
-
-          it "creates a new identity" do
-            expect do
-              command.call
-            end.to change(Identity, :count).by(1)
-            last_identity = Identity.last
-            expect(last_identity.provider).to eq(form.provider)
-            expect(last_identity.uid).to eq(form.uid)
-            expect(last_identity.organization).to eq(organization)
-          end
-
-          it "confirms the user if the email is already verified" do
-            # rubocop:disable RSpec/AnyInstance
-            expect_any_instance_of(User).to receive(:skip_confirmation!)
-            # rubocop:enable RSpec/AnyInstance
-            command.call
-          end
-        end
-
-        context "when a user exists with that identity" do
-          it "broadcasts ok" do
-            user = create(:user, email: email, organization: organization)
-            create(:identity, user: user, provider: provider, uid: uid)
-
-            expect { command.call }.to broadcast(:ok)
           end
         end
       end

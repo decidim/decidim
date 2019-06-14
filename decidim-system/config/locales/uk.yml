@@ -30,9 +30,14 @@ uk:
         placeholders:
           content: Будь ласка, додайте змістовний вміст на статичну сторінку %{page} на приладній дошці адміністратора.
           title: Назва за замовчуванням для %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Адміністратори
         dashboard: Приладна дошка
+        logs: Logs
         organizations: Організації
       models:
         admin:

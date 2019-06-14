@@ -30,9 +30,14 @@ pl:
         placeholders:
           content: Proszę dodać istotne treści do strony statyczne %{page} na panelu administratora.
           title: Domyślny tytuł dla %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administratorzy
         dashboard: Deska rozdzielcza
+        logs: Logs
         organizations: Organizacje
       models:
         admin:

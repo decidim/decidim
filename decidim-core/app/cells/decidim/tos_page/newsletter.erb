@@ -1,0 +1,11 @@
+<div class="flex-center">
+  <div class="switch tiny switch-with-label newsletter_notifications">
+    <label>
+      <input name="newsletter_notifications" type="checkbox" value="0" class="switch-input" id="newsletter_tos" data-url="<%= decidim.newsletter_tos_path %>" />
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t("form.newsletter_notifications", scope: "decidim.pages.terms_and_conditions") %></span>
+    </label>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/newsletter_tos.js" %>

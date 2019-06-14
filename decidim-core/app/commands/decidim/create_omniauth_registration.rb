@@ -56,7 +56,8 @@ module Decidim
         @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password
-        @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
+        # TODO: raise ActiveRecord::RecordInvalid because of quality setting on uploader, this line is a quick fix
+        @user.remote_avatar_url = form.avatar_url if form.avatar_url.present? && !form.avatar_url.end_with?("svg")
         @user.skip_confirmation! if verified_email
       end
 

@@ -6,7 +6,6 @@ module Decidim
     include CarrierWave::MiniMagick
 
     process :validate_dimensions
-    process quality: 60
 
     version :profile do
       process resize_to_fill: [536, 640] # double the size, for retina displays

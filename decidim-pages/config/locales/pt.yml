@@ -29,3 +29,6 @@ pt:
           update:
             invalid: Ocorreu erros ao salvar a página.
             success: Página salva com sucesso.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

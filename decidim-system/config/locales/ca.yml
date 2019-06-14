@@ -30,9 +30,14 @@ ca:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administradors
         dashboard: Tauler de control
+        logs: Logs
         organizations: Organitzacions
       models:
         admin:

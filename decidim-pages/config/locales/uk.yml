@@ -31,3 +31,6 @@ uk:
           update:
             invalid: При спробі збереження цієї сторінки сталися помилки.
             success: Сторінку успішно збережено.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

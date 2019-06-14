@@ -111,6 +111,7 @@ Decidim::Core::Engine.routes.draw do
   get "/static_map", to: "static_map#show", as: :static_map
   get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
   put "/pages/terms-and-conditions/accept", to: "tos#accept_tos", as: :accept_tos
+  match "/pages/terms-and-conditions/newsletter_tos", to: "tos#newsletter_tos", as: :newsletter_tos, via: :post
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all

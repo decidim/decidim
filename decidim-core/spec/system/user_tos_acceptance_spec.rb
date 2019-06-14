@@ -93,5 +93,34 @@ describe "UserTosAcceptance", type: :system do
         end
       end
     end
+
+    context "when the user has not subscribed to newsletter notifications" do
+      it "display newsletter switch" do
+        expect(page).to have_selector(".newsletter_tos")
+      end
+
+      context "when user has subscribed to newsletter notifications" do
+        let!(:user) { create(:user, :confirmed, :newsletter_notifications, organization: organization) }
+
+        it "doesn't display newsletter switch" do
+          expect(page).not_to have_selector(".newsletter_tos")
+        end
+      end
+
+      context "when user switch on newsletter notifications" do
+        it "updates user preference" do
+          within ".switch.newsletter_notifications" do
+            page.find(".switch-paddle").click
+          end
+
+          visit current_path
+          # We are using a post request to update user preferences, in order to test if it's working, we need to let some time for the request to pass.
+          # we could have done "expect(user.newsletter_notifications_at).not_to be_nil" but the request would not have been executed.
+          # We do a little trick as we know this selector should not be present if user.newsletter_notifications_at is not nil.
+
+          expect(page).not_to have_selector(".newsletter_tos")
+        end
+      end
+    end
   end
 end

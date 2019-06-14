@@ -29,3 +29,6 @@ hu:
           update:
             invalid: Hiba történt az oldal mentése során.
             success: Oldal mentése sikeres.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

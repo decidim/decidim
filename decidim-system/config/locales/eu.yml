@@ -30,9 +30,14 @@ eu:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
+        logs: Logs
         organizations: Erakundeak
       models:
         admin:

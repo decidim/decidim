@@ -12,3 +12,4 @@
 // = link decidim/widget.js
 // = link decidim/impersonation.js
 // = link decidim/floating_help.js
+// = link decidim/newsletter_tos

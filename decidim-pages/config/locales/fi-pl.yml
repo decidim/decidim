@@ -29,3 +29,6 @@ fi-pl:
           update:
             invalid: Sivun tallennuksessa tapahtui virheitä.
             success: Sivu tallennettu onnistuneesti.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

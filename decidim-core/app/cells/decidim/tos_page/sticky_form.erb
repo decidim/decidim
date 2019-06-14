@@ -1,11 +1,11 @@
 <div data-sticky-container class="cell-sticky">
   <div class="sticky"
-        data-sticky
-        data-stick-to="bottom"
-        data-margin-bottom="0"
-        data-top-anchor="sticky-top-stop:top"
-        data-btm-anchor="sticky-btm-stop:top"
-        data-sticky-on="small">
+       data-sticky
+       data-stick-to="bottom"
+       data-margin-bottom="0"
+       data-top-anchor="sticky-top-stop:top"
+       data-btm-anchor="sticky-btm-stop:top"
+       data-sticky-on="small">
     <article class="card">
       <div class="card__content">
         <div class="card__header">
@@ -13,6 +13,12 @@
             <%= t("form.legend", scope: "decidim.pages.terms_and_conditions") %>
           </h5>
         </div>
+
+        <% unless current_user.newsletter_notifications_at %>
+          <div class=" row column newsletter_tos text-center">
+            <%= cell "decidim/tos_page", :newsletter %>
+          </div>
+        <% end %>
 
         <div class="row column flex-center">
           <%= cell "decidim/tos_page", :refuse_btn_modal %>

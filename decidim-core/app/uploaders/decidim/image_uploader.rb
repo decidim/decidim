@@ -6,7 +6,7 @@ module Decidim
     include CarrierWave::MiniMagick
 
     process :validate_size, :validate_dimensions
-    process quality: Decidim.image_uploader_quality
+    process quality: Decidim.image_uploader_quality, if: :processable?
 
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
@@ -43,6 +43,12 @@ module Decidim
     def validation_error!(text)
       model.errors.add(mounted_as, text)
       raise CarrierWave::IntegrityError, text
+    end
+
+    protected
+
+    def processable?(new_file)
+      !new_file.content_type.include? "svg"
     end
   end
 end

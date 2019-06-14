@@ -30,9 +30,14 @@ ru:
         placeholders:
           content: Пожалуйста, добавьте осмысленное содержание на статическую страницу %{page} через панель администратора.
           title: Заголовок по умолчанию для %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Администраторы
         dashboard: Панель управления
+        logs: Logs
         organizations: Организации
       models:
         admin:

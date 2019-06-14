@@ -1,3 +1,4 @@
+---
 de:
   activerecord:
     models:
@@ -28,3 +29,6 @@ de:
           update:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

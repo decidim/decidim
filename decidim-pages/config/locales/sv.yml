@@ -29,3 +29,6 @@ sv:
           update:
             invalid: Det har blivit fel när du sparar sidan.
             success: Sidan sparades framgångsrikt.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

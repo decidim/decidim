@@ -29,3 +29,6 @@ it:
           update:
             invalid: C'è stato un errore durante il salvataggio della pagina.
             success: OK, la pagina è stata salvata.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications

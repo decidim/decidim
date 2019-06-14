@@ -9,29 +9,58 @@ module Decidim
 
     let(:organization) { build(:organization) }
     let(:user) { build(:user, organization: organization) }
-    let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     let(:uploader) { ImageUploader.new(user, :avatar) }
 
-    before do
-      ImageUploader.enable_processing = true
-      File.open(avatar) { |f| uploader.store!(f) }
+    context "when avatar is jpg type" do
+      let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+      before do
+        ImageUploader.enable_processing = true
+        File.open(avatar) { |f| uploader.store!(f) }
+      end
+
+      after do
+        ImageUploader.enable_processing = false
+        uploader.remove!
+      end
+
+      it "compress the image" do
+        expect(uploader.file.size).to be < File.size(avatar)
+      end
+
+      it "makes the image readable only to the owner and not executable" do
+        expect(uploader).to have_permissions(0o666)
+      end
+
+      it "has the correct format" do
+        expect(uploader).to be_format("jpeg")
+      end
     end
 
-    after do
-      ImageUploader.enable_processing = false
-      uploader.remove!
-    end
+    context "when avatar is svg type" do
+      let(:avatar) { Decidim::Dev.test_file("avatar.svg", "image/svg+xml") }
 
-    it "compress the image" do
-      expect(uploader.file.size).to be < File.size(avatar)
-    end
+      before do
+        ImageUploader.enable_processing = true
+        File.open(avatar) { |f| uploader.store!(f) }
+      end
 
-    it "makes the image readable only to the owner and not executable" do
-      expect(uploader).to have_permissions(0o666)
-    end
+      after do
+        ImageUploader.enable_processing = false
+        uploader.remove!
+      end
 
-    it "has the correct format" do
-      expect(uploader).to be_format("jpeg")
+      it "doesn't compress the image" do
+        expect(uploader.file.size).to eq(File.size(avatar))
+      end
+
+      it "has the correct format" do
+        expect(uploader).to be_format("svg")
+      end
+
+      it "content type contains svg" do
+        expect(uploader.content_type).to include("svg")
+      end
     end
   end
 end

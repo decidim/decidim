@@ -30,9 +30,14 @@ nl:
         placeholders:
           content: Voeg relevante inhoud aan het statische pagina van %{page} op het admin dashboard.
           title: Standaard titel voor %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Dashboard
+        logs: Logs
         organizations: Organisaties
       models:
         admin:

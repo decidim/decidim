@@ -30,9 +30,14 @@ gl:
         placeholders:
           content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
           title: Título predeterminado para %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administradores
         dashboard: Taboleiro de instrumentos
+        logs: Logs
         organizations: Organizacións
       models:
         admin:

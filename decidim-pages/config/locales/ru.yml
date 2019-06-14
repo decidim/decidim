@@ -31,3 +31,6 @@ ru:
           update:
             invalid: При попытке сохранить страницу произошли ошибки.
             success: Страница сохранена успешно.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications
