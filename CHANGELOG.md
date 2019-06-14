@@ -4,7 +4,7 @@
 
 
 **Added**:
-
+- **decidim-core**: Adds SECURITY.md per Github recommendations [#5181](https://github.com/decidim/decidim/pull/5181)
 
 **Changed**:
 
