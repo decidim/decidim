@@ -95,8 +95,11 @@ module Decidim
       resource_state
     end
 
+    # Returns the linked resource to or from this model
+    # for the given resource name and link name.
+    # See Decidim::Resourceable#link_resources
     def linked_promoted_resource
-      linked_resources(:proposal, "created_from_rejected_emendation").first
+      linked_resources(amendable_type, "created_from_rejected_emendation").first
     end
   end
 end
