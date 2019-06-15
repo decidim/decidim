@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     models:
@@ -19,7 +18,7 @@ fr:
       comments: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
-      translate: Translate
+      translate: Traduire
       translated: Retour à la version d'origine
       votes:
         create:

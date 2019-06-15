@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -93,7 +92,7 @@ fr:
             description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           description_per_budget: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Les projets choisis doivent atteindre le montant minimum cumulé de %{minimum_budget}.
-          description_per_project: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Vous devez choisir %{minimum_project} minimum.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
         count:
           projects_count:

@@ -1,11 +1,6 @@
----
 fr:
   decidim:
     system:
-      logs:
-        index:
-          view_log: "View %{line} lines"
-          download_log: Download log
       actions:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
         destroy: Supprimer
@@ -36,8 +31,8 @@ fr:
           title: Titre par défaut pour %{page}
       logs:
         index:
-          download_log: Download log
-          view_log: View %{line} lines
+          download_log: Télécharger les logs
+          view_log: Voir %{line} lignes
       menu:
         admins: Administrateurs
         dashboard: Journal d'administration

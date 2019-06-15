@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -37,7 +36,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
-        address: SMTP hostname
+        address: Nom d'hôte SMTP
         alert_color: Couleur d'alerte
         badges_enabled: Activer les Badges
         cta_button_path: Chemin du bouton d'appel à l'action
@@ -47,7 +46,7 @@ fr:
         enable_omnipresent_banner: Afficher une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Favicon
-        from: From email address
+        from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'appel à l'action
@@ -66,7 +65,7 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
-        password: Password
+        password: Mot de passe
         port: Port
         primary_color: Couleur primaire
         reference_prefix: Préfixe de référence
@@ -268,7 +267,7 @@ fr:
           success: La fonctionnalité a été mise à jour avec succès.
       dashboard:
         show:
-          view_more_logs: Afficher plus
+          view_more_logs: Logs
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -395,7 +394,7 @@ fr:
           fields:
             created_at: Créée le
             name: Titre
-          name: OAuth uygulaması
+          name: Nom
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -420,7 +419,7 @@ fr:
             roles:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
-          name: kullanıcı
+          name: utilisateurs
         user_group:
           fields:
             actions: Actions
@@ -468,7 +467,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
+          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser

@@ -1,4 +1,3 @@
----
 fr:
   activerecord:
     models:
@@ -31,4 +30,4 @@ fr:
             success: Page enregistrée avec succès.
       terms_and_conditions:
         form:
-          newsletter_notifications: Newsletter notifications
+          newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
