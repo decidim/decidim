@@ -257,6 +257,8 @@ it:
         statistics:
           consultations_count: consultazioni
     questions:
+      next_button: Domanda successiva
+      previous_button: Domanda precedente
       results:
         title: risultati
       show:
