@@ -108,7 +108,7 @@ sv:
         edit:
           update: Uppdatera
         exports:
-          registrations: registreringar
+          registrations: Registreringar
         form:
           title: Allmän information
         index:
@@ -555,14 +555,14 @@ sv:
           more_info: Mer information
           take_part: Medverka
         index:
-          promoted_conferences: Främjda konferenser
+          promoted_conferences: Annonserade konferenser
         order_by_conferences:
           conferences:
             one: "%{count} konferens"
             other: "%{count} konferenser"
         promoted_conference:
           more_info: Mer information
-          take_part: Ta del
+          take_part: Medverka
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partners
