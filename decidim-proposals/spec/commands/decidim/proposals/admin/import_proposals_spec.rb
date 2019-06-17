@@ -128,6 +128,21 @@ module Decidim
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
               end
             end
+
+            describe "when the proposal has attachments" do
+              let!(:attachment) do
+                create(:attachment, attached_to: proposal)
+              end
+
+              it "duplicates the attachments" do
+                expect do
+                  command.call
+                end.to change(Attachment, :count).by(1)
+
+                new_proposal = Proposal.where(component: current_component).last
+                expect(new_proposal.attachments.count).to eq(1)
+              end
+            end
           end
         end
       end
