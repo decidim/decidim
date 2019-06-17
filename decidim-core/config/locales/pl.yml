@@ -156,17 +156,6 @@ pl:
           button_accept: Zaakceptować
           button_reject: Odrzucać
           help_text: Przejrzyj zmiany i zaakceptuj lub odrzuć tę poprawkę. Powiadomienie zostanie wysłane do jego autora (ów).
-        announcement:
-          accepted: |-
-            Ta poprawka do %{amendable_type} %{amendable_link} została
-            zaakceptowana na <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Niniejsza poprawka do oceny %{amendable_type} %{amendable_link}
-            jest przedmiotem oceny.
-          rejected: "Ta emisja dla %{amendable_type} %{amendable_link}\nzostała odrzucona na <strong>%{announcement_date}</strong>."
-          withdrawn: |-
-            Ta poprawka do %{amendable_type} %{amendable_link}
-            została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
         back: Z powrotem
