@@ -126,18 +126,18 @@ sv:
           success: Konferensen har duplicerats.
       media_links:
         create:
-          error: Det uppstod ett fel vid skapandet av en ny medielänk.
+          error: Det gick inte att skapa en ny medialänk.
           success: Medialänk har skapats.
         destroy:
-          success: Media Link raderas framgångsrikt.
+          success: Medialänken har raderats.
         edit:
-          title: Uppdatera media länk.
+          title: Uppdatera medialänk.
           update: Uppdatera
         index:
-          media_links_title: Media Länkar
+          media_links_title: Medialänkar
         new:
           create: Skapa
-          title: Media Link
+          title: Medialänk
         update:
           error: Det uppstod ett fel vid uppdateringen av den här mediekopplingen.
           success: Media Link uppdaterad framgångsrikt.
