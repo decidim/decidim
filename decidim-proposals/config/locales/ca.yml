@@ -77,6 +77,7 @@ ca:
     components:
       proposals:
         actions:
+          amend: Esmena
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
@@ -677,6 +678,7 @@ ca:
           view_proposal: Veure proposta
         show:
           back_to: Torna
+          changes_at_title: Esmena a "%{title}"
           edit_proposal: Edita proposta
           endorsements_list: Llistat d'adhesions
           hidden_endorsers_count:

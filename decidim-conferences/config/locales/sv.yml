@@ -3,27 +3,27 @@ sv:
     attributes:
       conference:
         assemblies_ids: Relaterade församlingar
-        banner_image: Banner image
+        banner_image: Bannerbild
         consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         description: Beskrivning
         hashtag: Hashtag
-        hero_image: Hembild
-        participatory_processes_ids: Relaterade deltagande processer
-        promoted: främjas
-        published_at: Publicerad på
-        scope_id: Omfattning
-        scopes_enabled: Scopes aktiverade
+        hero_image: Bild till startsida
+        participatory_processes_ids: Relaterade deltagarprocesser
+        promoted: Uppmärksammad
+        published_at: Publicerad
+        scope_id: Omfång
+        scopes_enabled: Omfång aktiverat
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slogan: Slogan
-        slug: URL slug
+        slug: URL-slug
         title: Titel
       conference_speaker:
-        full_name: Fullständiga namn
+        full_name: Fullständigt namn
       conference_user_role:
         email: E-post
         name: Namn
@@ -33,18 +33,18 @@ sv:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Det här mailet har redan blivit inbjudet
+              already_invited: Det här e-postadressen har redan blivit inbjuden
   activerecord:
     models:
       decidim/conference:
         one: Konferens
-        other: konferenser
+        other: Konferenser
       decidim/conference_speaker:
-        one: Konferenshögtalare
-        other: Konferenshögtalare
+        one: Talare
+        other: Talare
       decidim/conference_user_role:
-        one: Konferens användarroll
-        other: Konferens användarroll
+        one: Konferensanvändarroll
+        other: Konferenceanvändarroller
   decidim:
     admin:
       actions:
@@ -54,33 +54,33 @@ sv:
       conference_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
-          title: Dubbelkonferens
+          select: Välj vilka data som du vill duplicera
+          title: Duplicera konferens
       conference_publications:
         create:
-          error: Det uppstod ett fel vid publicering av denna konferens.
-          success: Konferensen publiceras framgångsrikt.
+          error: Det gick inte att publicera konferensen.
+          success: Konferensen har publicerats.
         destroy:
-          error: Ett fel uppstod vid publicering av denna konferens.
-          success: Konferensen publicerades framgångsrikt.
+          error: Det gick inte att avpublicera konferensen.
+          success: Konferensen har avpublicerats.
       conference_registration:
         confirm:
-          error: Ett fel uppstod vid bekräftelse av denna konferensregistrering.
-          success: Konferensregistrering bekräftades med framgång.
+          error: Det gick inte att bekräfta konferensregistreringen.
+          success: Konferensregistreringen har bekräftats.
       conference_speakers:
         create:
-          error: Det gick inte att lägga till en högtalare för den här konferensen.
-          success: Högtalare skapades framgångsrikt för denna konferens.
+          error: Det gick inte att lägga till en talare till konferensen.
+          success: Talaren har lagts till.
         destroy:
-          success: Högtalaren raderades framgångsrikt för denna konferens.
+          success: Talaren har tagits bort.
         edit:
-          title: Uppdatera konferenshögtalare.
+          title: Uppdatera talare.
           update: Uppdatera
         index:
-          conference_speakers_title: Konferenshögtalare
+          conference_speakers_title: Föredragshållare
         new:
           create: Skapa
-          title: Ny konferenshögtalare.
+          title: Ny föredragshållare.
         update:
           error: Det uppstod ett fel vid uppdatering av högtalaren för den här konferensen.
           success: Högtalaren uppdaterades framgångsrikt för denna konferens.
@@ -301,17 +301,17 @@ sv:
             select_user: Välj användare
           index:
             filter:
-              accepted: Accepterad
+              accepted: Accepterat
               all: Alla
-              rejected: Avvisad
-              sent: Skickad
+              rejected: Avvisade
+              sent: Skickade
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningskort
             search: Sök
           new:
             explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Bjuda in
+            invite: Inbjudan
             new_invite: Bjud in användare
         conference_registrations:
           index:
@@ -416,7 +416,7 @@ sv:
         show:
           login_as: Du är inloggad som %{name} <%{email}>
           make_conference_registration: 'Gör din registrering på konferensen:'
-          register: Registrera
+          register: Registrering
       content_blocks:
         highlighted_conferences:
           name: Upplysta konferenser
@@ -440,7 +440,7 @@ sv:
             email: E-post
             name: Namn
             registration_type: Registreringstyp
-            sent_at: Skickat på
+            sent_at: Skickad
             status: Status
           status:
             accepted: Accepterad (%{at})
@@ -496,7 +496,7 @@ sv:
         meetings_count: Möten
         orders_count: Röster
         pages_count: Sidor
-        posts_count: inlägg
+        posts_count: Inlägg
         projects_count: Projekt
         proposals_count: förslag
         results_count: Resultat
@@ -568,4 +568,4 @@ sv:
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Talare
         media: Media
-        venues: Ställen
+        venues: Lokaler

@@ -359,6 +359,7 @@ it:
           more_info: Ulteriori informazioni
           take_part: Partecipa
         index:
+          children: 'Assemblee: '
           organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
           reset_chart: Reset

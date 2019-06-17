@@ -11,6 +11,7 @@ module Decidim
     include NeedsTosAccepted
     include HttpCachingDisabler
     include ActionAuthorization
+    include ForceAuthentication
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper

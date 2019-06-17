@@ -87,6 +87,7 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
       {
         "from" => "test@example.org",
