@@ -77,34 +77,34 @@ sv:
           title: Uppdatera talare.
           update: Uppdatera
         index:
-          conference_speakers_title: Föredragshållare
+          conference_speakers_title: Talare
         new:
           create: Skapa
-          title: Ny föredragshållare.
+          title: Ny talare.
         update:
-          error: Det uppstod ett fel vid uppdatering av högtalaren för den här konferensen.
-          success: Högtalaren uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera talaren.
+          success: Talaren har uppdaterats.
       conference_user_roles:
         create:
-          error: Det uppstod ett fel vid att lägga till en användare för den här konferensen.
-          success: Användaren läggs till med framgång till denna konferens.
+          error: Det gick inte att lägga till en administratör till konferensen.
+          success: Konferensadministratör har lagts till.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från denna konferens.
+          success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensanvändare.
+          title: Uppdatera konferensadministratör.
           update: Uppdatera
         index:
-          conference_admins_title: konferensanvändare
+          conference_admins_title: konferensadministratörer
         new:
           create: Skapa
-          title: Ny konferensanvändare.
+          title: Ny konferensadministratör.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här konferensen.
-          success: Användaren uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera konferensadministratören.
+          success: Konferensadministratören har uppdaterats.
       conferences:
         create:
-          error: Det uppstod ett fel vid att skapa en ny konferens.
-          success: Konferensen skapades framgångsrikt.
+          error: Det gick inte att skapa konferensen.
+          success: Konferensen har skapats.
         edit:
           update: Uppdatera
         exports:
@@ -163,7 +163,7 @@ sv:
       models:
         conference:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             promoted: främjas
             published: Publicerad
             title: Titel
