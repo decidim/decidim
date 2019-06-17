@@ -77,38 +77,38 @@ sv:
           title: Uppdatera talare.
           update: Uppdatera
         index:
-          conference_speakers_title: Föredragshållare
+          conference_speakers_title: Talare
         new:
           create: Skapa
-          title: Ny föredragshållare.
+          title: Ny talare.
         update:
-          error: Det uppstod ett fel vid uppdatering av högtalaren för den här konferensen.
-          success: Högtalaren uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera talaren.
+          success: Talaren har uppdaterats.
       conference_user_roles:
         create:
-          error: Det uppstod ett fel vid att lägga till en användare för den här konferensen.
-          success: Användaren läggs till med framgång till denna konferens.
+          error: Det gick inte att lägga till en administratör till konferensen.
+          success: Konferensadministratör har lagts till.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från denna konferens.
+          success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensanvändare.
+          title: Uppdatera konferensadministratör.
           update: Uppdatera
         index:
-          conference_admins_title: konferensanvändare
+          conference_admins_title: konferensadministratörer
         new:
           create: Skapa
-          title: Ny konferensanvändare.
+          title: Ny konferensadministratör.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här konferensen.
-          success: Användaren uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera konferensadministratören.
+          success: Konferensadministratören har uppdaterats.
       conferences:
         create:
-          error: Det uppstod ett fel vid att skapa en ny konferens.
-          success: Konferensen skapades framgångsrikt.
+          error: Det gick inte att skapa konferensen.
+          success: Konferensen har skapats.
         edit:
           update: Uppdatera
         exports:
-          registrations: registreringar
+          registrations: Registreringar
         form:
           title: Allmän information
         index:
@@ -118,26 +118,26 @@ sv:
           create: Skapa
           title: Konferens
         update:
-          error: Det uppstod ett fel vid uppdateringen av denna konferens.
-          success: Konferensen uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera konferensen.
+          success: Konferensen har uppdaterats.
       conferences_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av den här konferensen.
-          success: Konferensen dupliceras framgångsrikt.
+          error: Det gick inte att duplicera konferensen.
+          success: Konferensen har duplicerats.
       media_links:
         create:
-          error: Det uppstod ett fel vid skapandet av en ny medielänk.
-          success: Media Link skapades framgångsrikt.
+          error: Det gick inte att skapa en ny medialänk.
+          success: Medialänk har skapats.
         destroy:
-          success: Media Link raderas framgångsrikt.
+          success: Medialänken har raderats.
         edit:
-          title: Uppdatera media länk.
+          title: Uppdatera medialänk.
           update: Uppdatera
         index:
-          media_links_title: Media Länkar
+          media_links_title: Medialänkar
         new:
           create: Skapa
-          title: Media Link
+          title: Medialänk
         update:
           error: Det uppstod ett fel vid uppdateringen av den här mediekopplingen.
           success: Media Link uppdaterad framgångsrikt.
@@ -163,7 +163,7 @@ sv:
       models:
         conference:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             promoted: främjas
             published: Publicerad
             title: Titel
@@ -248,14 +248,14 @@ sv:
         conferences: konferenser
     admin_log:
       conference:
-        create: "%{user_name} skapade %{resource_name} konferens"
+        create: "%{user_name} skapade konferensen %{resource_name}"
         publish: "%{user_name} publicerade %{resource_name} konferens"
         send_conference_diplomas: "%{user_name} skickade deltagarbevis till de %{resource_name} konferensdeltagarna"
         unpublish: "%{user_name} opublicerade %{resource_name} konferens"
         update: "%{user_name} uppdaterade %{resource_name} konferens"
         update_diploma: "%{user_name} uppdaterade certifikat för deltagande konfiguration för %{resource_name} konferens"
       conference_speaker:
-        create: "%{user_name} skapade %{resource_name} högtalare på %{space_name} konferensen"
+        create: "%{user_name} skapade talaren %{resource_name} på konferensen %{space_name}"
         delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
         update: "%{user_name} uppdaterade %{resource_name} högtalare på %{space_name} konferensen"
       conference_user_role:
@@ -266,16 +266,16 @@ sv:
         conference_registration:
           confirm: "%{user_name} bekräftade en konferensregistrering på %{resource_name} konferens"
         partner:
-          create: "%{user_name} skapade %{resource_name} till %{space_name} konferensen"
+          create: "%{user_name} skapade %{resource_name} på konferensen %{space_name}"
           delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
           update: "%{user_name} uppdaterad %{resource_name} på %{space_name} konferensen"
         registration_type:
-          create: "%{user_name} skapade %{resource_name} registreringstyp i %{space_name} konferensen"
+          create: "%{user_name} skapade registreringstypen %{resource_name} på konferensen %{space_name}"
           publish: "%{user_name} publicerade %{resource_name} registreringstyp i %{space_name} konferensen"
           unpublish: "%{user_name} opublicerade %{resource_name} registreringstyp i %{space_name} konferensen"
           update: "%{user_name} uppdaterade %{resource_name} registreringstyp i %{space_name} konferensen"
       media_link:
-        create: "%{user_name} skapade %{resource_name} media länk i %{space_name} konferensen"
+        create: "%{user_name} skapade media länken %{resource_name} på konferensen %{space_name}"
         delete: "%{user_name} bort %{resource_name} media länk från %{space_name} konferensen"
         update: "%{user_name} uppdaterade %{resource_name} media länk på %{space_name} konferensen"
     conference_program:
@@ -538,7 +538,7 @@ sv:
         description: Länkar om denna konferens
         title: Media och länkar
     menu:
-      conferences: konferenser
+      conferences: Konferenser
   devise:
     mailer:
       join_conference:
@@ -549,19 +549,19 @@ sv:
         register: Registrera
       conference_widgets:
         show:
-          take_part: Ta del
+          take_part: Medverka
       conferences:
         conference:
-          take_part: Ta del
+          take_part: Medverka
         index:
-          promoted_conferences: Främjda konferenser
+          promoted_conferences: Annonserade konferenser
         order_by_conferences:
           conferences:
             one: "%{count} konferens"
             other: "%{count} konferenser"
         promoted_conference:
           more_info: Mer information
-          take_part: Ta del
+          take_part: Medverka
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partners
