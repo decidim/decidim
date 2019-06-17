@@ -118,12 +118,12 @@ sv:
           create: Skapa
           title: Konferens
         update:
-          error: Det uppstod ett fel vid uppdateringen av denna konferens.
-          success: Konferensen uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera konferensen.
+          success: Konferensen har uppdaterats.
       conferences_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av den här konferensen.
-          success: Konferensen dupliceras framgångsrikt.
+          error: Det gick inte att duplicera konferensen.
+          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det uppstod ett fel vid skapandet av en ny medielänk.
