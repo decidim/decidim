@@ -36,6 +36,7 @@ it:
         organization_url: URL dell'organizzazione
         redirect_uri: Reindirizza URI
       organization:
+        address: Server SMTP
         alert_color: Mettere in guardia
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
@@ -45,6 +46,7 @@ it:
         enable_omnipresent_banner: Mostra banner onnipresente
         facebook_handler: Gestore di Facebook
         favicon: Icona
+        from: '"Da" indirizzo email'
         github_handler: Gestore di GitHub
         header_snippets: Frammenti di intestazione
         highlighted_content_banner_action_subtitle: Sottotitolo del pulsante di azione
@@ -63,6 +65,8 @@ it:
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
         omnipresent_banner_url: URL
+        password: Password
+        port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
         secondary_color: Secondario
@@ -71,6 +75,7 @@ it:
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi di utenti
+        user_name: Nome Utente
         warning_color: avvertimento
         youtube_handler: Gestore di YouTube
       scope:
@@ -369,6 +374,7 @@ it:
             created_at: Creato il
             progress: Avanzamento
             sent_at: Inviato alle
+            sent_to: Inviato
             subject: Oggetto
           name: notiziario
         oauth_application:
@@ -434,16 +440,42 @@ it:
         form:
           interpolations_hint: 'Suggerimento: puoi utilizzare "%{name}" ovunque nel corpo del testo  o nell''oggetto e sarà sostituito con il nome del contenitore.'
         index:
+          all: tutti
+          all_users: 'Tutti gli utenti '
+          and: 'e '
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
+          followers: 'followers '
+          has_been_sent_to: 'E'' stato inviato a: '
+          no_scopes: Nessuno scope
+          not_sent: Non inviato
+          participants: 'partecipanti '
+          segmented_to: 'Segmentato a %{subject}: '
           title: Newsletters
         new:
           save: Salva
           title: Nuova newsletter
         select_recipients_to_deliver:
+          all_spaces: Tutti
+          all_users_help: Invia newsletter a tutti gli utenti confermati.
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
           deliver: Invia la newsletter
+          followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
+          none: Nessuno
+          participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
+          scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
+          select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
+          select_spaces: Selezionare gli spazi per segmentare la newsletter
+          select_users: Seleziona gli utenti a cui desideri inviare la newsletter
+          send_to_all_users: Invia a tutti gli utenti
+          send_to_followers: Invia ai follower
+          send_to_participants: Invia ai partecipanti
+          title: Seleziona destinatari a cui inviare
+          warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
+        send:
+          no_recipients: Nessun destinatario per questa selezione
         show:
           preview: Anteprima
+          select_recipients_to_deliver: Seleziona destinatari a cui inviare
           subject: Oggetto
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
@@ -606,6 +638,7 @@ it:
           update: Aggiorna
         form:
           none: Nessuna
+          slug_help: 'Usa URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Esempio: %{url}'
         index:
           last_notable_change: Ultimo cambiamento notevole
         new:
