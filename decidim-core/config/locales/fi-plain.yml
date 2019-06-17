@@ -150,17 +150,6 @@ fi-pl:
           button_accept: Hyväksy
           button_reject: Hylkää
           help_text: Tarkastele muutoksia ja hyväksy tai hylkää tämä muutos. Laatijoille lähetetään ilmoitus.
-        announcement:
-          accepted: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
-            hyväksytty <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
-            arvioidaan.
-          rejected: "Tämä muutos kohteelle %{amendable_type} %{amendable_link}\nhylättiin ajankohtana <strong>%{announcement_date}</strong>."
-          withdrawn: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link}
-            on peruutettu sen laatijan toimesta.
       new:
         amendment_author: Muutoksen laatija
         back: Takaisin
@@ -299,6 +288,7 @@ fi-pl:
         name: Hero-kuvan alabanneri
     core:
       actions:
+        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
