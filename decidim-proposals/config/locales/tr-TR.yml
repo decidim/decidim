@@ -77,6 +77,7 @@ tr:
     components:
       proposals:
         actions:
+          amend: Değiştir
           create: yaratmak
           endorse: desteklemek
           vote: Oy
@@ -85,6 +86,7 @@ tr:
         settings:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
+            amendments_enabled_help: Etkin ise, her adım için Yasa Değişikliği özelliklerini yapılandırın.
             announcement: duyuru
             attachments_allowed: Eklere izin ver
             can_accumulate_supports_beyond_threshold: Destekleri eşiğin ötesinde biriktirebilir
@@ -95,6 +97,7 @@ tr:
             new_proposal_help_text: Yeni teklif yardım metni
             official_proposals_enabled: Resmi teklifler etkinleştirildi
             participatory_texts_enabled: Katılımcı metinler etkinleştirildi
+            participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
             proposal_answering_enabled: Teklif yanıtlama etkin
             proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu
@@ -107,6 +110,10 @@ tr:
             threshold_per_proposal: Teklif başına eşik
             vote_limit: Kullanıcı başına oy sınırı
           step:
+            amendment_creation_enabled: Yasa değişikliği oluşturma etkinleştirildi
+            amendment_creation_enabled_help: Katılımcı teklifleri değiştirebilir.
+            amendment_promotion_enabled: Değişiklik tanıtımı etkinleştirildi
+            amendment_reaction_enabled: Değişikliğe karşı çıkma etkinleştirildi
             announcement: duyuru
             automatic_hashtags: Hashtags tüm tekliflere eklendi
             comments_blocked: Yorumlar engellendi
@@ -684,6 +691,7 @@ tr:
             other: ve %{count} kişi daha
           link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
           link_to_collaborative_draft_text: Ortak taslaka bakın
+          link_to_proposal_from_emendation_text: Öneriye bakın
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
