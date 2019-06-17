@@ -150,14 +150,6 @@ ca:
           button_accept: Acceptar
           button_reject: Rebutjar
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació a la seva autora(es).
-        announcement:
-          accepted: |-
-            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
-          rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
-          withdrawn: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
         back: Torna
