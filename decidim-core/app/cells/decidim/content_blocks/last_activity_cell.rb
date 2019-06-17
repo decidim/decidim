@@ -9,6 +9,7 @@ module Decidim
 
       def show
         return if activities.empty?
+
         render
       end
 

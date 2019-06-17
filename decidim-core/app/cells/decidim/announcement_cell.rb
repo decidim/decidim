@@ -16,6 +16,7 @@ module Decidim
 
     def show
       return unless announcement.presence
+
       render :show
     end
 

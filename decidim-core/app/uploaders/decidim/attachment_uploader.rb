@@ -62,6 +62,7 @@ module Decidim
 
       manipulate! do |image|
         raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
+
         image
       end
     end

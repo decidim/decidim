@@ -23,11 +23,13 @@ module Decidim
       # Private: check if the proposal and the author have the same organization
       def author_and_proposal_same_organization
         return if !proposal || !author
+
         errors.add(:proposal, :invalid) unless author.organization == proposal.organization
       end
 
       def proposal_not_rejected
         return unless proposal
+
         errors.add(:proposal, :invalid) if proposal.rejected?
       end
     end

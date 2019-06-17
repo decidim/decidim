@@ -11,6 +11,7 @@ module Decidim
       # Returns a hash with the css classes for the count number and label
       def votes_count_classes(from_proposals_list)
         return { number: "card__support__number", label: "" } if from_proposals_list
+
         { number: "extra__suport-number", label: "extra__suport-text" }
       end
 
@@ -21,6 +22,7 @@ module Decidim
       # Returns a string with the value of the css classes.
       def vote_button_classes(from_proposals_list)
         return "card__button button--sc" if from_proposals_list
+
         "expanded button--sc"
       end
 
@@ -29,6 +31,7 @@ module Decidim
       # Returns an Integer if set, nil otherwise.
       def vote_limit
         return nil if component_settings.vote_limit.zero?
+
         component_settings.vote_limit
       end
 
@@ -51,6 +54,7 @@ module Decidim
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def threshold_per_proposal
         return nil unless component_settings.threshold_per_proposal.positive?
+
         component_settings.threshold_per_proposal
       end
 
@@ -89,6 +93,7 @@ module Decidim
       # Returns a number with the remaining votes for that user
       def remaining_votes_count_for(user)
         return 0 unless vote_limit_enabled?
+
         proposals = Proposal.where(component: current_component)
         votes_count = ProposalVote.where(author: user, proposal: proposals).size
         component_settings.vote_limit - votes_count

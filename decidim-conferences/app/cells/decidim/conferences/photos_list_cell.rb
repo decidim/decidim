@@ -10,6 +10,7 @@ module Decidim
 
       def show
         return unless model.any?
+
         render
       end
     end

@@ -13,11 +13,13 @@ module Decidim
 
         def choose
           return redirect_to action: :new, using: verification_type if available_methods.count == 1
+
           render :choose
         end
 
         def new
           raise ActionController::RoutingError, "Method not available" unless available_methods.include?(verification_type)
+
           enforce_permission_to :create, :authorization, authorization: @authorization
 
           @form = UploadForm.from_params(id_document_upload: { verification_type: verification_type })
@@ -92,6 +94,7 @@ module Decidim
 
         def authorization_verification_type
           return unless @authorization
+
           @authorization.verification_metadata["verification_type"]
         end
 

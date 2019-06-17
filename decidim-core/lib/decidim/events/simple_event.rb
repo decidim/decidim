@@ -54,6 +54,7 @@ module Decidim
       # then the role is appended to the i18n scope.
       def i18n_scope
         return event_name if user_role.blank? || !event_has_roles?
+
         "#{event_name}.#{user_role}"
       end
 
@@ -79,12 +80,14 @@ module Decidim
       # Caches the path for the given resource when it's a Decidim::Component.
       def resource_path
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_path ||= main_component_path(resource)
       end
 
       # Caches the URL for the given resource when it's a Decidim::Component.
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_url ||= main_component_url(resource)
       end
 

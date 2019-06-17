@@ -13,7 +13,7 @@ module Decidim
       include Decidim::SanitizeHelper
 
       # Matches a global id representing a Decidim::Hashtag
-      GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)\/?(_?)([[:alnum:]](?:[[:alnum:]]|_)*)?\b}
+      GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)\/?(_?)([[:alnum:]](?:[[:alnum:]]|_)*)?\b}.freeze
 
       # Replaces found Global IDs matching an existing hashtag with
       # a link to their detail page. The Global IDs representing an
