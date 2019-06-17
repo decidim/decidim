@@ -150,6 +150,17 @@ nl:
           button_accept: Aanvaarden
           button_reject: afwijzen
           help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
+        announcement:
+          accepted: |-
+            Dit amendement voor de %{amendable_type} %{amendable_link} is
+            aanvaard op <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Dit amendement voor de %{amendable_type} %{amendable_link}
+            wordt geëvalueerd.
+          rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
+          withdrawn: |-
+            Dit amendement voor de %{amendable_type} %{amendable_link}
+            is door de auteur ingetrokken.
       new:
         amendment_author: Amendement auteur
         back: Terug
