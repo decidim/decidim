@@ -159,17 +159,6 @@ ar:
           button_accept: قبول
           button_reject: رفض
           help_text: مراجعة التغييرات وقبول أو رفض هذا التعديل. سيتم إرسال إشعار إلى مؤلفها (مؤلفيها).
-        announcement:
-          accepted: |-
-            هذا التعديل ل %{amendable_type} %{amendable_link} كان
-            قبلت على <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            هذا التعديل لل %{amendable_type} %{amendable_link}
-            قيد التقييم.
-          rejected: تم رفض تعديل %{amendable_type} %{amendable_link} هذا في <strong>%{announcement_date}</strong>.
-          withdrawn: |-
-            تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
-            من قبل المؤلف.
       new:
         amendment_author: مؤلف التعديل
         back: الى الخلف
