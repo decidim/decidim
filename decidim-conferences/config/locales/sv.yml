@@ -139,56 +139,56 @@ sv:
           create: Skapa
           title: Medialänk
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här mediekopplingen.
-          success: Media Link uppdaterad framgångsrikt.
+          error: Det gick inte att uppdatera medialänken.
+          success: Medialänken har uppdaterats.
       menu:
-        conferences: konferenser
+        conferences: Konferenser
         conferences_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
-          attachments: bilagor
-          categories: kategorier
+          attachments: Bilagor
+          categories: Kategorier
           components: Komponenter
           conference_admins: Konferensadministratörer
-          conference_invites: Inbjudningskort
-          conference_speakers: högtalare
+          conference_invites: Inbjudningar
+          conference_speakers: Talare
           diploma: Närvarointyg
           info: Info
-          media_links: Media Länkar
-          moderations: modere
+          media_links: Medialänkar
+          moderations: Moderering
           partners: Partners
           registration_types: Registreringstyper
-          registrations: registreringar
+          registrations: Registreringar
           user_registrations: Användarregistreringar
       models:
         conference:
           fields:
             created_at: Skapad
-            promoted: främjas
+            promoted: Annonserad
             published: Publicerad
             title: Titel
         conference_speaker:
           fields:
-            affiliation: Anslutning
-            full_name: Fullständiga namn
+            affiliation: Anknytning
+            full_name: Fullständigt namn
             position: Position
-          name: Konferens högtalare
+          name: Talare
         conference_user_role:
           fields:
             email: E-post
             name: Namn
             role: Roll
-          name: Konferensanvändare
+          name: Konferensadministratör
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
         media_link:
           fields:
             date: Datum
             link: Länk
             title: Titel
-          name: Media Link
+          name: Medialänk
         partner:
           fields:
             link: Länk
