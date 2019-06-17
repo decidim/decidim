@@ -150,6 +150,17 @@ de:
           button_accept: Akzeptieren
           button_reject: Ablehnen
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
+        announcement:
+          accepted: |-
+            Durch diese Änderung für die %{amendable_type} %{amendable_link} wurde
+            auf akzeptiert <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Diese Änderung für die %{amendable_type} %{amendable_link}
+            wird bewertet.
+          rejected: "Diese Änderung für die %{amendable_type} %{amendable_link}\nwurde am <strong>%{announcement_date}</strong>abgelehnt."
+          withdrawn: |-
+            Diese Änderung für die %{amendable_type} %{amendable_link}
+            wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
         back: Zurück
