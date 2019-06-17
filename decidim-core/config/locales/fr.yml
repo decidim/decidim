@@ -150,6 +150,17 @@ fr:
           button_accept: Acceptez
           button_reject: Rejeter
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
+        announcement:
+          accepted: |-
+            Cette modification du %{amendable_type} %{amendable_link} a été
+            accepté sur <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Cet amendement pour le %{amendable_type} %{amendable_link}
+            est en cours d’évaluation.
+          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          withdrawn: |-
+            Cet amendement pour le %{amendable_type} %{amendable_link}
+            a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
         back: Retour
