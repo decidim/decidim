@@ -1,17 +1,29 @@
-// Checks if the form contains a field with a special CSS class added in
-// Decidim::Admin::SettingsHelper. If so, prevents the checkbox from being clicked,
-// extracts the stored text and adds a new paragraph after the field.
+// Checks if the form contains fields with special CSS classes added in
+// Decidim::Admin::SettingsHelper and acts accordingly.
 $(() => {
-  const $checkbox = $(".participatory_texts_disabled");
+  // Prevents checkbox with ".participatory_texts_disabled" class from being clicked.
+  const $participatoryTexts = $(".participatory_texts_disabled");
 
-  $checkbox.click((event) => {
+  $participatoryTexts.click((event) => {
     event.preventDefault();
     return false;
   });
 
-  if ($checkbox.length > 0) {
-    const $text = $checkbox[0].dataset.text
+  // (1) Hides fields with ".amendments_step_settings" class if amendments_enabled
+  // component setting is NOT checked.
+  // (2) Toggles visibilty of fields with ".amendments_step_settings" class when
+  // amendments_enabled component setting is clicked.
+  const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
-    $checkbox.parent().after(`<p class="help-text">${$text}</p>`)
+  if ($amendmentsEnabled.length > 0) {
+    const $amendmentStepSettings = $(".amendments_step_settings").parent();
+
+    if ($amendmentsEnabled.is(":not(:checked)")) {
+      $amendmentStepSettings.hide().siblings(".help-text").hide();
+    }
+
+    $amendmentsEnabled.click(() => {
+      $amendmentStepSettings.toggle().siblings(".help-text").toggle();
+    });
   }
 });
