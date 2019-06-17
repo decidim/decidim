@@ -246,7 +246,6 @@ tr:
         form:
           default_step_settings: Varsayılan adım ayarları
           global_settings: Genel Ayarlar
-          participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
           step_settings: Adım ayarları
         index:
           add: Bileşen ekle
