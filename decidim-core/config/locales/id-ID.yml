@@ -147,17 +147,6 @@ id:
           button_accept: Menerima
           button_reject: Menolak
           help_text: Tinjau perubahan dan terima atau tolak amandemen ini. Pemberitahuan akan dikirim ke penulisnya.
-        announcement:
-          accepted: |-
-            Amandemen untuk %{amendable_type} %{amendable_link} ini telah
-            diterima pada <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Perubahan ini untuk %{amendable_type} %{amendable_link}
-            sedang dievaluasi.
-          rejected: "Perubahan ini untuk %{amendable_type} %{amendable_link}\nditolak pada <strong>%{announcement_date}</strong>."
-          withdrawn: |-
-            Perubahan ini untuk %{amendable_type} %{amendable_link}
-            telah ditarik oleh penulis.
       new:
         amendment_author: Pengarang perubahan
         back: Kembali
