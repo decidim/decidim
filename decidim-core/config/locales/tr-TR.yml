@@ -150,17 +150,6 @@ tr:
           button_accept: Kabul etmek
           button_reject: reddetmek
           help_text: Değişiklikleri gözden geçirin ve bu değişikliği kabul edin veya reddedin. Yazar (lar) a bir bildirim gönderilecektir.
-        announcement:
-          accepted: |-
-            Bu değişiklik, %{amendable_type} %{amendable_link} olmuştur
-            kabul <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            %{amendable_type} %{amendable_link}
-            için yapılan bu değişiklik değerlendiriliyor.
-          rejected: "%{amendable_type} %{amendable_link}\niçin bu emenisyon <strong>%{announcement_date}</strong>reddedildi."
-          withdrawn: |-
-            %{amendable_type} %{amendable_link}
-            için bu değişiklik yazar tarafından geri çekilmiştir.
       new:
         amendment_author: Değişiklik yazarı
         back: Geri
