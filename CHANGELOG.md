@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-consultations**: Add admin results page to consultations [#5188](https://github.com/decidim/decidim/pull/5188)
 - **decidim-core**: Adds SECURITY.md per Github recommendations [#5181](https://github.com/decidim/decidim/pull/5181)
 - **decidim-core**, **decidim-system**: Add force users to authenticate before access to the organization [#5189](https://github.com/decidim/decidim/pull/5189)
 - **decidim-proposals**: Add new fields to proposal_serializer [#5186](https://github.com/decidim/decidim/pull/5186)

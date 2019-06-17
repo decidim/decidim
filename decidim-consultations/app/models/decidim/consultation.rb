@@ -64,6 +64,10 @@ module Decidim
       questions.published.group_by(&:scope)
     end
 
+    def total_votes
+      @total_votes ||= questions.published.sum(:votes_count)
+    end
+
     # This method exists with the only purpose of getting rid of whats seems to be an issue in
     # the new scope picker: This engine is a bit special: consultations and questions are a kind of
     # nested participatory spaces. When a new question is created the consultation is the participatory space.

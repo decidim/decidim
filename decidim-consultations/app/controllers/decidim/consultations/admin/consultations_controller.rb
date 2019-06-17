@@ -44,7 +44,7 @@ module Decidim
           render layout: "decidim/admin/consultation"
         end
 
-        # PUT /admin/initiatives/:id
+        # PUT /admin/consultations/:slug
         def update
           enforce_permission_to :update, :consultation, consultation: current_consultation
 
@@ -62,6 +62,12 @@ module Decidim
               render :edit, layout: "decidim/admin/consultation"
             end
           end
+        end
+
+        # GET /admin/consultations/:slug/results
+        def results
+          enforce_permission_to :read, :consultation, consultation: current_consultation
+          render layout: "decidim/admin/consultation"
         end
 
         private
