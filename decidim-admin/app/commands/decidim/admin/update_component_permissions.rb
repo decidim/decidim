@@ -75,7 +75,7 @@ module Decidim
         return permissions unless component.permissions
 
         permissions.deep_stringify_keys.reject do |action, config|
-          HashDiff.diff(config, component.permissions[action]).empty?
+          Hashdiff.diff(config, component.permissions[action]).empty?
         end
       end
 
