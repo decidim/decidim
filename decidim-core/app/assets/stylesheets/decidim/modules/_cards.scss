@@ -48,6 +48,21 @@ $datetime-bg: var(--primary);
   box-shadow: none;
 }
 
+.card--inline-m {
+  display: inline-block;
+  width: auto;
+  padding: 1rem;
+  margin-bottom: 0;
+
+  .switch {
+    margin-bottom: .5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .card__content {
   padding: $card-padding-small;
 

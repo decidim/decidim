@@ -28,6 +28,3 @@ fr:
           update:
             invalid: Erreurs lors de la sauvegarde de la page.
             success: Page enregistrée avec succès.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
