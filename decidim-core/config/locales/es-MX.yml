@@ -150,17 +150,6 @@ es-MX:
           button_accept: Aceptar
           button_reject: Rechazar
           help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autor(es).
-        announcement:
-          accepted: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido
-            aceptada en <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link}
-            está siendo evaluada.
-          rejected: "Esta enmienda para el %{amendable_type} %{amendable_link}\nfue rechazada en <strong>%{announcement_date}</strong>."
-          withdrawn: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link}
-            ha sido retirada por el autor.
       new:
         amendment_author: Autor de la enmienda
         back: Volver
