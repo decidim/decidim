@@ -150,17 +150,6 @@ hu:
           button_accept: Elfogad
           button_reject: Elutasít
           help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
-        announcement:
-          accepted: |-
-            A %{amendable_type} %{amendable_link}
-            re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
-          evaluating: |-
-            Ezt a %{amendable_type} %{amendable_link}
-            módosító javaslat értékelés alatt van.
-          rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították."
-          withdrawn: |-
-            Ezt a %{amendable_type} %{amendable_link}
-            módosító javaslatot a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
         back: Vissza
