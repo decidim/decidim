@@ -506,13 +506,13 @@ sv:
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
+          notification_title: Din registrering till konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
         conference_registration_validation_pending:
-          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på att bekräftas.
+          notification_title: Din registrering till konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på bekräftelse.
         conference_registrations_over_percentage:
-          email_intro: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%.'
-          email_outro: Du har fått den här meddelandet eftersom du är en administratör för konferensens deltagande utrymme.
-          email_subject: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%'
+          email_intro: Konferensen "%{resource_title}" har mer än %{percentage}% bokade platser.
+          email_outro: Du har fått det här meddelandet eftersom du är en administratör för konferensens deltagarutrymme.
+          email_subject: Konferensens "%{resource_title}" har mer än %{percentage}% bokade platser
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> konferensbesatta slotsna är över %{percentage}%.
         conference_updated:
           email_intro: 'Konferensen "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
