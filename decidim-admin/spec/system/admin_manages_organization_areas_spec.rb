@@ -96,11 +96,7 @@ describe "Organization Areas", type: :system do
     end
   end
 
-  #---------------------------------------------------
-
   private
-
-  #---------------------------------------------------
 
   def click_delete_area
     within find("tr", text: translated(area.name)) do
