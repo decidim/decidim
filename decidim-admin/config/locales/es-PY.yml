@@ -246,7 +246,6 @@ es-PY:
         form:
           default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
-          participatory_texts_enabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
           step_settings: Configuración de paso
         index:
           add: Agregar componente

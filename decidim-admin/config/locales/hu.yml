@@ -246,7 +246,6 @@ hu:
         form:
           default_step_settings: Alapértelmezett lépés-beállítások
           global_settings: Globális beállítások
-          participatory_texts_enabled_help: Meglévő javaslatok esetén nem lehet együttműködni ezzel a beállítással. Legyen szíves, egy új ' javaslatok' konponenst hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
           step_settings: Lépésbeállítások
         index:
           add: Elem hozzáadása

@@ -299,6 +299,7 @@ fi:
         name: Hero-kuvan alabanneri
     core:
       actions:
+        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:

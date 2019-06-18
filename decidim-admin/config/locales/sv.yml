@@ -246,7 +246,6 @@ sv:
         form:
           default_step_settings: Förvalda inställningar för steg
           global_settings: Globala inställningar
-          participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
           step_settings: Inställningar för steg
         index:
           add: Lägg till komponent

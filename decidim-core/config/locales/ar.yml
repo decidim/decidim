@@ -299,6 +299,7 @@ ar:
         name: البطل الفرعي راية
     core:
       actions:
+        login_before_access: من فضلك ، لِج بحسابك قبل الوصول
         unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
     data_portability:
       export:
