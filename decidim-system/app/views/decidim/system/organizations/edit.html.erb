@@ -13,6 +13,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :force_authentication %>
+    <%= f.check_box :force_users_to_authenticate_before_access_organization %>
+  </div>
+
+  <div class="field">
     <%= f.label :users_registration_mode %>
     <%= f.collection_radio_buttons :users_registration_mode,
                                    Decidim::Organization.users_registration_modes,

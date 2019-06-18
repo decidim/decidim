@@ -325,6 +325,7 @@ es-MX:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
+          password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -1094,6 +1095,7 @@ es-MX:
         change_your_password: Cambia tu contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
+        password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
@@ -1257,6 +1259,14 @@ es-MX:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Supresiones
+      right: Adiciones
+    dropdown:
+      choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_split: En paralelo
+      option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primera"

@@ -35,6 +35,8 @@ module Decidim
           can_endorse_proposal?
         when :unendorse
           can_unendorse_proposal?
+        when :amend
+          can_create_amendment?
         when :vote
           can_vote_proposal?
         when :unvote
@@ -91,6 +93,14 @@ module Decidim
         is_allowed = proposal &&
                      authorized?(:endorse, resource: proposal) &&
                      current_settings&.endorsements_enabled?
+
+        toggle_allow(is_allowed)
+      end
+
+      def can_create_amendment?
+        is_allowed = proposal &&
+                     authorized?(:amend, resource: proposal) &&
+                     current_settings&.amendments_enabled?
 
         toggle_allow(is_allowed)
       end

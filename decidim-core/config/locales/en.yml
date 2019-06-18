@@ -153,14 +153,15 @@ en:
           help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
         announcement:
           accepted: |-
-            This amendment for the %{amendable_type} %{amendable_link} has been
-            accepted on <strong>%{announcement_date}</strong>.
+            This amendment for the %{amendable_type} %{proposal_link} has been
+            accepted on <strong>%{date}</strong>.
           evaluating: |-
-            This amendment for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{proposal_link}
             is being evaluated.
-          rejected: This amendment for the %{amendable_type} %{amendable_link} has been rejected on <strong>%{announcement_date}</strong>.
+          promoted: Promoted to a %{amendable_type}.
+          rejected: This amendment for the %{amendable_type} %{proposal_link} was rejected on <strong>%{date}</strong>.
           withdrawn: |-
-            This amendment for the %{amendable_type} %{amendable_link}
+            This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
       new:
         amendment_author: Amendment author
@@ -300,6 +301,7 @@ en:
         name: Sub hero banner
     core:
       actions:
+        login_before_access: Please, login with your account before access
         unauthorized: You are not authorized to perform this action
     data_portability:
       export:

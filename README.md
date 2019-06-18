@@ -168,4 +168,4 @@ Since Decidim is a ruby gem, you can check out the [dependent repositories](http
 
 ## Security 
 
-Security is very important to us. If you have any issue regarding security, please disclose the information responsibly by sending an email to security [at] decidim [dot] org and not by creating a github/metadecidim issue. We appreciate your effort to make Decidim more secure. 
+Security is very important to us. If you have any issue regarding security, please disclose the information responsibly by sending an email to security [at] decidim [dot] org and not by creating a github/metadecidim issue. We appreciate your effort to make Decidim more secure. See [full security policy](SECURITY.md).

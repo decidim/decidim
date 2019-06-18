@@ -84,7 +84,7 @@ module Decidim
     end
 
     def emendation_state
-      return resource_state if resource_state == "withdrawn"
+      return resource_state if resource_state == "withdrawn" # Special case for Proposals
 
       amendment.state
     end
@@ -93,6 +93,13 @@ module Decidim
       return emendation_state if emendation?
 
       resource_state
+    end
+
+    # Returns the linked resource to or from this model
+    # for the given resource name and link name.
+    # See Decidim::Resourceable#link_resources
+    def linked_promoted_resource
+      linked_resources(amendable_type, "created_from_rejected_emendation").first
     end
   end
 end

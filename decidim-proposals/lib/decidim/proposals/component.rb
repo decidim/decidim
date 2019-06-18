@@ -15,7 +15,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw)
+  component.actions = %w(endorse vote create withdraw amend)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
@@ -55,6 +55,9 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :amendment_creation_enabled, type: :boolean, default: true
+    settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
+    settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
     settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
@@ -64,7 +67,7 @@ Decidim.register_component(:proposals) do |component|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
-    resource.actions = %w(endorse vote)
+    resource.actions = %w(endorse vote amend)
     resource.searchable = true
   end
 

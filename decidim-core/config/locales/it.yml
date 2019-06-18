@@ -36,11 +36,11 @@ it:
         remember_me: Ricordare password
     models:
       decidim/amendment:
-        one: Modifica
+        one: Emendamento
         other: Modifiche
       decidim/user:
-        one: Nessun utente
-        other: Utenti
+        one: Partecipante
+        other: Partecipanti
       decidim/user_group:
         one: Gruppo di utenti
         other: Gruppi di utenti
@@ -325,8 +325,9 @@ it:
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo identificatore univoco breve in %{organization}
+          password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
-          sign_up: Iscriviti
+          sign_up: Registrati
           sign_up_as:
             legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
@@ -440,7 +441,7 @@ it:
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
-        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo cliccando sul link precedente.
         email_subject: Un aggiornamento per %{resource_title}
       gamification:
         badge_earned:
@@ -711,12 +712,12 @@ it:
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
-          outro: Godi di decidim!
+          outro: Questa applicazione è stata realizzata con decidim!
           subject: "%{sender} ha iniziato una conversazione con te"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
-          outro: Godi di decidim!
+          outro: Questa applicazione è stata realizzata con decidim!
           subject: Hai nuovi messaggi da %{sender}
       conversations:
         create:
@@ -822,7 +823,7 @@ it:
         metrics:
           headline: Partecipazione in cifre
         statistics:
-          answers_count: Sondaggi completati
+          answers_count: Questionari completati
           assemblies_count: assemblee
           comments_count: Commenti
           conferences_count: conferenze
@@ -837,7 +838,7 @@ it:
           proposals_accepted: Proposte accettate
           proposals_count: proposte
           results_count: risultati
-          surveys_count: indagini
+          surveys_count: Questionari
           users_count: Partecipanti
           votes_count: Voti
         sub_hero:
@@ -1094,6 +1095,7 @@ it:
         change_your_password: Cambia la tua password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
+        password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
       new:
         forgot_your_password: Hai dimenticato la password?
         send_me_reset_password_instructions: Inviami le istruzioni per la reimpostazione della password
@@ -1203,7 +1205,7 @@ it:
         sign_out: Esci
       user_profile:
         account: Account
-        authorizations: Authorizzazioni
+        authorizations: Autorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
         my_interests: I miei interessi
@@ -1257,6 +1259,14 @@ it:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Eliminazioni
+      right: Aggiunte
+    dropdown:
+      choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
+      option_split: Affiancati
+      option_unified: Unificato
   views:
     pagination:
       first: "&laquo; Primo"
