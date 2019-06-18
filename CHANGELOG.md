@@ -22,6 +22,7 @@
 - **decidim-admin**: Fix: Proposals component form introduced regression [#5179](https://github.com/decidim/decidim/pull/5179)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
 
 
 **Removed**:
