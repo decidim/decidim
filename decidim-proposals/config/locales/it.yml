@@ -86,6 +86,7 @@ it:
         settings:
           global:
             amendments_enabled: Emendamenti abilitati
+            amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
@@ -96,6 +97,7 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             participatory_texts_enabled: Testi di partecipazione abilitati
+            participatory_texts_enabled_help: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o scartare tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_length: Lunghezza massima della proposta
@@ -108,6 +110,11 @@ it:
             threshold_per_proposal: Soglia per proposta
             vote_limit: Limite di voto per utente
           step:
+            amendment_creation_enabled: Creazione di emendamenti abilitata
+            amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
+            amendment_promotion_enabled: Promozione dell'emendamento abilitata
+            amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
+            amendment_reaction_enabled: Risposta all'emendamento abilitata
             announcement: Annuncio
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
