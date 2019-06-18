@@ -246,6 +246,7 @@ it:
         form:
           default_step_settings: Impostazioni del passo predefinite
           global_settings: Impostazioni globali
+          participatory_texts_enabled_help: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o scartare tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
           step_settings: Impostazioni del passo
         index:
           add: Aggiungi componente
