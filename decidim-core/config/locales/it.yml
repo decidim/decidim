@@ -157,6 +157,7 @@ it:
           evaluating: |-
             Questo emendamento per lo %{amendable_type} %{amendable_link}
             è in fase di valutazione.
+          promoted: Promosso a un %{amendable_type}.
           rejected: "Questa emendazione per lo %{amendable_type} %{amendable_link}\nstata respinta su <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Questo emendamento per lo %{amendable_type} %{amendable_link}
@@ -299,6 +300,7 @@ it:
         name: Banner di sub eroe
     core:
       actions:
+        login_before_access: Per favore, fai login con il tuo account prima di accedere
         unauthorized: Non sei autorizzato a eseguire questa azione
     data_portability:
       export:
