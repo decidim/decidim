@@ -41,9 +41,6 @@ hu:
       decidim/user:
         one: Nincsenek résztvevők
         other: Felhasználók
-      decidim/user_group:
-        one: Felhasználói csoport
-        other: csoportok
   booleans:
     'false': 'Nem'
     'true': 'Igen'
