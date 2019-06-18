@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-assemblies**: Fix: admin assemblies form. [#5211](https://github.com/decidim/decidim/pull/5211)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 
