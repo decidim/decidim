@@ -36,7 +36,7 @@ sv:
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
-        promoted: Främjad
+        promoted: Uppmärksammad
         published_at: Publicerad på
         purpose_of_action: Syfte med åtgärden
         scope_id: Omfattning
@@ -66,8 +66,8 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: Möte
-        other: Möten
+        one: Sammankomst
+        other: Sammankomster
       decidim/assembly_member:
         one: Församlingsmedlem
         other: Församlingsmedlemmar
@@ -370,7 +370,7 @@ sv:
           more_info: Mer information
           take_part: Delta
       assembly_navigation:
-        assembly_member_menu_item: medlemmar
+        assembly_member_menu_item: Medlemmar
         assembly_menu_item: Mötet
       assembly_widgets:
         show:
