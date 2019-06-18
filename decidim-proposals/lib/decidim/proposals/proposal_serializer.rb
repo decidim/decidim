@@ -86,6 +86,7 @@ module Decidim
 
       def original_proposal_url
         return unless proposal.emendation? && proposal.amendable.present?
+
         Decidim::ResourceLocatorPresenter.new(proposal.amendable).url
       end
     end

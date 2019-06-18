@@ -23,6 +23,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           update_participatory_process
 
           if @participatory_process.valid?

@@ -83,6 +83,7 @@ module Decidim
     # Returns nothing.
     def run_hooks(event_name, context = nil)
       return unless hooks[event_name]
+
       hooks[event_name.to_sym].each do |hook|
         hook.call(context)
       end
@@ -146,6 +147,7 @@ module Decidim
     # Returns nothing.
     def exports(name, &block)
       return unless name
+
       @exports ||= []
       @exports << [name, block]
       @export_manifests = nil

@@ -82,6 +82,7 @@ module Decidim
 
       def cta_button_text_key
         return :more_info if empty_published_component?
+
         :take_part
       end
     end

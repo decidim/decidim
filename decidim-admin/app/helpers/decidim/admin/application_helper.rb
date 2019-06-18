@@ -25,7 +25,7 @@ module Decidim
       # Returns a String with a link wrapped in a <li> element.
       def public_page_link(url)
         content_tag(:li) do
-          link_to url, class: "button", style: "color: #fff", target: "_blank" do
+          link_to url, class: "button", style: "color: #fff", target: "_blank", rel: "noopener" do
             I18n.t("decidim.admin.view_public_page")
           end
         end

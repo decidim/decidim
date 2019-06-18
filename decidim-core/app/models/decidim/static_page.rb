@@ -65,6 +65,7 @@ module Decidim
     # set the organization tos_version
     def update_organization_tos_version
       return unless slug == "terms-and-conditions"
+
       organization.update!(tos_version: created_at)
     end
 

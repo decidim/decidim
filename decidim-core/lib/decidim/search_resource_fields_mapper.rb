@@ -98,6 +98,7 @@ module Decidim
         if value_field.is_a?(Array)
           value_field.collect do |vfield_name|
             raise ArgumentError, "nested fields not supported for translations" if vfield_name.is_a?(Hash)
+
             resource.send(vfield_name.to_sym)
           end
         else
@@ -122,6 +123,7 @@ module Decidim
     def read_i18n_field(resource, locale, field_name)
       content = read_field(resource, @declared_fields, field_name)
       return if content.nil?
+
       content = Array.wrap(content).collect do |item|
         item.is_a?(Hash) ? item[locale] : item
       end

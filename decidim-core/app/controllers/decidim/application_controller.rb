@@ -78,6 +78,7 @@ module Decidim
 
     def track_continuity_badge
       return unless current_user
+
       Decidim::ContinuityBadgeTracker.new(current_user).track!(Time.zone.today)
     end
   end

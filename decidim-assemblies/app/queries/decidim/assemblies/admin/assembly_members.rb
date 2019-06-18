@@ -36,6 +36,7 @@ module Decidim
 
         def filter_by_search(assembly_members)
           return assembly_members if @query.blank?
+
           assembly_members.where("LOWER(full_name) LIKE LOWER(?)", "%#{@query}%")
         end
 

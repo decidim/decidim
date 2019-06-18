@@ -75,6 +75,7 @@ module Decidim
 
       def explanation
         return if process_count_by_filter["active"].positive?
+
         content_tag(
           :span,
           I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
@@ -84,6 +85,7 @@ module Decidim
 
       def explanation_text
         return "no_active" if process_count_by_filter["upcoming"].positive?
+
         "no_active_nor_upcoming"
       end
     end
