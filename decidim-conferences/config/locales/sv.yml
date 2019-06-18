@@ -477,19 +477,19 @@ sv:
         conference_user_login:
           already_account: Har du redan ett konto i decidim?
           new_user: Ny användare?
-          sign_in: Logga in för att registrera dig för konferensen
-          sign_up: Skapa ett konto i decidim för att registrera dig för konferensen
+          sign_in: Logga in om du vill registrera dig till konferensen
+          sign_up: Skapa ett konto i decidim om du vill registrera dig till konferensen
       show:
         details: Detaljer
         introduction: Introduktion
-        objectives: mål
+        objectives: Mål
         related_assemblies: Relaterade församlingar
         related_consultations: Relaterade samråd
-        related_participatory_processes: Relaterade deltagande processer
+        related_participatory_processes: Relaterade deltagandeprocesser
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
-        conference_count: konferenser
+        conference_count: Konferenser
         debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
@@ -498,7 +498,7 @@ sv:
         pages_count: Sidor
         posts_count: Inlägg
         projects_count: Projekt
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
@@ -525,17 +525,17 @@ sv:
           email_subject: Konferensen "%{resource_title}" har aktiverat registreringar.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen har aktiverat registreringar.
         upcoming_conference:
-          email_intro: 'Konferensen "%{resource_title}" äger rum om 2 dagar. Du kan läsa beskrivningen från sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
+          email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
+          email_outro: Du har fått den här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
           email_subject: Konferensen "%{resource_title}" kommer!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen kommer inom 2 dagar.
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
     log:
       value_types:
         conference_presenter:
           not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
     media:
       index:
-        description: Länkar om denna konferens
+        description: Länkar om konferensen
         title: Media och länkar
     menu:
       conferences: Konferenser
