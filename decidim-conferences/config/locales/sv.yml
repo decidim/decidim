@@ -379,22 +379,22 @@ sv:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
-          details_1: 'Du är registrerad på konferensen med %{registration_type} typ. Det kostar %{price} och du kan delta i följande evenemang:'
+          details_1: 'Du är registrerad till konferensen med registreringstypen %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
           details_2: Du hittar konferensens detaljer i bilagan.
         pending_validation:
           confirmation_pending: Du kommer snart att få bekräftelsen
-          details: 'Du har registrerat dig till %{registration_type} typ med en kostnad av %{price} och du kan delta i följande händelser:'
-          pending_html: Din registrering för konferensen <a href="%{url}">%{title}</a> väntar på att bekräftas.
+          details: 'Du har registrerat dig med registreringstypen %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
+          pending_html: Väntar på bekräftelse för din registrering till konferensen <a href="%{url}">%{title}</a>.
       conference_registrations:
         create:
-          invalid: Det har varit ett problem att gå med i denna konferens.
-          success: Du har anslutit konferensen framgångsrikt.
+          invalid: Det gick inte att gå med i denna konferens.
+          success: Du har gått med i konferensen.
         decline_invitation:
-          invalid: Det har varit ett problem att minska inbjudan.
-          success: Du har avböjt inbjudan framgångsrikt.
+          invalid: Det gick inte att avböja inbjudan.
+          success: Du har avböjt inbjudan.
         destroy:
-          invalid: Det har varit ett problem att lämna denna konferens.
-          success: Du har lämnat konferensen framgångsrikt.
+          invalid: Det gick inte att lämna konferensen.
+          success: Du har lämnat konferensen.
       conference_speaker:
         go_to_twitter: Gå till Twitter
         more_info: mer information
@@ -415,25 +415,25 @@ sv:
           main_promotors: Organisatörer
         show:
           login_as: Du är inloggad som %{name} <%{email}>
-          make_conference_registration: 'Gör din registrering på konferensen:'
+          make_conference_registration: 'Registrera dig på konferensen:'
           register: Registrering
       content_blocks:
         highlighted_conferences:
-          name: Upplysta konferenser
+          name: Annonserade konferenser
       index:
-        title: konferenser
+        title: Konferenser
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Din konferenss registrering har bekräftats
+            subject: Din konferensregistrering har bekräftats
           pending_validation:
-            subject: Din konferensens registrering väntar på att bekräftas
+            subject: Din konferensregistrering väntar på bekräftelse
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
         send_conference_diploma_mailer:
           diploma:
-            subject: Ditt konferensbevis har skickats
+            subject: Ditt deltagarbevis för konferensen har skickats
       models:
         conference_invite:
           fields:
@@ -453,23 +453,23 @@ sv:
             registration_type: Registreringstyp
             state: Status
             states:
-              confirmed: bekräftat
-              pending: Avvaktan
+              confirmed: Bekräftad
+              pending: Väntande
       pages:
         home:
           highlighted_conferences:
             active_conferences: Aktiva konferenser
-            see_all_conferences: Se alla konferenser
+            see_all_conferences: Visa alla konferenser
       photo:
         show:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           photo: Bild
       photos_list:
         show:
           related_photos: Bilder
       registration_types:
         index:
-          choose_an_option: 'Välj ditt registreringsalternativ:'
+          choose_an_option: 'Välj registreringsalternativ:'
           login_as: Du är inloggad som %{name} <%{email}>
           register: Registrera
           title: Registreringstyper
