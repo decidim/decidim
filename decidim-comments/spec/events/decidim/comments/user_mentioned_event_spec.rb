@@ -5,8 +5,7 @@ require "spec_helper"
 describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
 
-  include_context "comment event"
-  it_behaves_like "a comment event"
+  include_context "when it's a comment event"
 
   before do
     body = "Comment mentioning some user, @#{comment.author.nickname}"
@@ -14,6 +13,8 @@ describe Decidim::Comments::UserMentionedEvent do
     comment.body = parsed_body.rewrite
     comment.save
   end
+
+  it_behaves_like "a comment event"
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -43,6 +44,7 @@ describe Decidim::Comments::UserMentionedEvent do
         .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")
     end
   end
+
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")

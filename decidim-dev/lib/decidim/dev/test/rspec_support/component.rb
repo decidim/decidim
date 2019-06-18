@@ -63,6 +63,7 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
+      include Hashtaggable
 
       searchable_fields(
         scope_id: { scope: :id },
