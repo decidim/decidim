@@ -96,6 +96,7 @@ end
 - **decidim-initiatives**: Escape hashtag content [#5150](https://github.com/decidim/decidim/pull/5150)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-core**: Fix user names migration [#5210](https://github.com/decidim/decidim/pull/5210)
 
 **Removed**:
 
