@@ -60,8 +60,8 @@ PATH
     decidim-conferences (0.19.0.dev)
       decidim-core (= 0.19.0.dev)
       decidim-meetings (= 0.19.0.dev)
-      wicked_pdf
-      wkhtmltopdf-binary
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
     decidim-consultations (0.19.0.dev)
       decidim-admin (= 0.19.0.dev)
       decidim-comments (= 0.19.0.dev)
@@ -777,7 +777,7 @@ DEPENDENCIES
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.3p62
 
 BUNDLED WITH
    1.17.3
