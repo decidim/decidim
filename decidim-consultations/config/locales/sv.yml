@@ -15,7 +15,7 @@ sv:
         title: Titel
       question:
         banner_image: Banner image
-        decidim_scope_id: Kommunala området
+        decidim_scope_id: Kommundelsområde
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: URL till externt röstningssystem
@@ -28,9 +28,9 @@ sv:
         reference: Referens
         scope: Kommunala området
         slug: URL-slug
-        subtitle: Texta
+        subtitle: Underrubrik
         title: Titel
-        vote: Externt röstsystem
+        vote: Externt omröstningssystem
         what_is_decided: Vad som bestäms
     errors:
       vote:
@@ -60,17 +60,17 @@ sv:
         unpublish_results: Avpublicera resultat
       consultation_publications:
         create:
-          error: Det uppstod ett fel vid publicering av detta samråd.
-          success: Samråd publicerades framgångsrikt.
+          error: Det gick inte att publicera samrådet.
+          success: Samrådet har publicerats.
         destroy:
-          error: Ett fel uppstod vid publicering av detta samråd.
-          success: Konsultationen publicerades framgångsrikt.
+          error: Det gick inte att avpublicera samrådet.
+          success: Samrådet har publicerats.
       consultation_results_publications:
         create:
-          error: Det uppstod ett fel vid publicering av resultaten för detta samråd.
-          success: Konsulteringsresultat publiceras framgångsrikt.
+          error: Det gick inte att publicera resultaten från samrådet.
+          success: Resultaten från samrådet har publicerats.
         destroy:
-          error: Ett fel uppstod för att publicera resultaten för detta samråd.
+          error: Det gick inte att avpublicera resultaten från samrådet.
           success: Konsulteringsresultatet är opublicerat framgångsrikt.
       consultations:
         create:
@@ -157,7 +157,7 @@ sv:
       responses:
         create:
           error: Det uppstod ett fel vid skapandet av ett nytt svar.
-          success: Svar skapat.
+          success: Svaret har skapats.
         destroy:
           error: Det gick inte att ta bort svaret.
           success: Svaret har tagits bort.
@@ -269,19 +269,19 @@ sv:
       show:
         read_more: Läs mer
       statistics:
-        assistants_count_title: assistenter
+        assistants_count_title: Assistenter
         comments_count_title: Kommentarer
         meetings_count_title: Möten
         supports_count_title: Stöder
       technical_info:
-        technical_data: Teknisk data
+        technical_data: Tekniska data
       vote_button:
-        already_voted: Redan röstade
-        already_voted_hover: Återkalla support
-        starting_from: Börjar från %{date}
+        already_voted: Redan röstat
+        already_voted_hover: Återkalla röst
+        starting_from: Börjar %{date}
         vote: Rösta
       vote_modal:
-        contextual_help: Var god välj ett alternativ.
+        contextual_help: Välj ett alternativ.
         title: 'Samråd: Frågestöd'
       vote_modal_confirm:
         change: Ändra
