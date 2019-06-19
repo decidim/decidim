@@ -74,12 +74,12 @@ sv:
           success: Resultatet från samrådet har avpublicerats.
       consultations:
         create:
-          error: Det uppstod ett fel vid att skapa ett nytt samråd.
-          success: Samråd med framgångsrikt skapat.
+          error: Det gick inte att skapa ett nytt samråd.
+          success: Samrådet har skapats.
         edit:
           update: Uppdatera
         form:
-          slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på detta samråd. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+          slug_help: 'URL-slugs används till att generera de URL:er som pekar på samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
           title: Allmän information
         index:
           not_published: Ej publicerad
@@ -91,13 +91,13 @@ sv:
           not_visible: Resultaten kommer att vara tillgängliga när samrådet har avslutats
           total_votes: 'Totalt: %{count} röster'
         update:
-          error: Det uppstod ett fel vid uppdateringen av detta samråd.
-          success: Samråd uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera samrådet.
+          success: Samrådet har uppdaterats.
       menu:
         consultations: Samråd
         consultations_submenu:
           info: Information
-          questions: frågor
+          questions: Frågor
           results: Resultat
         questions_submenu:
           components: Komponenter
@@ -152,11 +152,11 @@ sv:
           create: Skapa
           title: Ny fråga
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här frågan.
-          success: Fråga uppdaterad framgångsrikt.
+          error: Det gick inte att uppdatera frågan.
+          success: Frågan har uppdaterats.
       responses:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt svar.
+          error: Det gick inte att skapa ett nytt svar.
           success: Svaret har skapats.
         destroy:
           error: Det gick inte att ta bort svaret.
@@ -183,12 +183,12 @@ sv:
             max_results: Maximalt antal element att visa
       consultation:
         start_voting_date: Omröstningen börjar
-        view_results: Se Resultat
+        view_results: Visa resultat
       consultation_card:
-        view_results: Se Resultat
+        view_results: Visa resultat
       consultations:
         orders:
-          label: 'Sortera samråd med:'
+          label: 'Sortera samråd efter:'
           random: Slumpmässig
           recent: Senaste
       content_blocks:
@@ -234,15 +234,15 @@ sv:
           other: röster av
       question_votes:
         create:
-          error: Det har förekommit fel när man röstade frågan
+          error: Det gick inte att rösta i frågan
       regular_questions:
         title: Frågor för detta samråd
       show:
         badge_name:
           finished: Avslutad
           open: Öppen
-          open_votes: Öppna röster
-          published_results: Resultat publicerade
+          open_votes: Öppna omröstningar
+          published_results: Publicerade resultat
         footer_button_text:
           debate: Debatt
           view: Se
@@ -252,7 +252,7 @@ sv:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
+          contextual: "<p><strong>Samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
           page: "<p><strong>Samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
           title: Vad är samråd?
     menu:
