@@ -231,28 +231,28 @@ sv:
           success: Registreringstypen har avpublicerats.
       registration_types:
         create:
-          error: Det gick inte att lägga till en registreringstyp för den här konferensen.
-          success: Registreringstypen har lagts till framgång på denna konferens.
+          error: Det gick inte att lägga till en registreringstyp till konferensen.
+          success: Registreringstypen har lagts till till konferensen.
         destroy:
-          success: Registreringstypen har tagits bort framgångsrikt från denna konferens.
+          success: Registreringstypen har tagits från konferensen.
         edit:
-          title: Uppdatera registreringstypen.
+          title: Uppdatera registreringstyp.
           update: Uppdatera
         new:
           create: Skapa
           title: Ny registreringstyp
         update:
-          error: Det uppstod ett fel som uppdaterade en registreringstyp för den här konferensen.
-          success: Registreringstypen uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera en registreringstyp för konferensen.
+          success: Registreringstypen till konferensen har uppdaterats.
       titles:
         conferences: Konferenser
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
-        publish: "%{user_name} publicerade %{resource_name} konferens"
-        send_conference_diplomas: "%{user_name} skickade deltagarbevis till de %{resource_name} konferensdeltagarna"
-        unpublish: "%{user_name} opublicerade %{resource_name} konferens"
-        update: "%{user_name} uppdaterade %{resource_name} konferens"
+        publish: "%{user_name} publicerade konferensen %{resource_name}"
+        send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade konferensen %{resource_name}"
+        update: "%{user_name} uppdaterade konferensen %{resource_name}"
         update_diploma: "%{user_name} uppdaterade certifikat för deltagande konfiguration för %{resource_name} konferens"
       conference_speaker:
         create: "%{user_name} skapade talaren %{resource_name} på konferensen %{space_name}"
@@ -295,10 +295,10 @@ sv:
             success: Användaren framgångsrikt inbjuden att delta i konferensen.
           form:
             attendee_type: Deltagartyp
-            existing_user: Existerande användare
-            invite_explanation: Användaren kommer att bli inbjuden att ansluta sig till konferensen och till organisationen också.
-            non_user: Icke befintlig användare
-            select_user: Välj användare
+            existing_user: Befintlig deltagare
+            invite_explanation: Deltagaren kommer att bli inbjuden att delta i konferensen och även till organisationen.
+            non_user: Icke befintlig deltagare
+            select_user: Välj deltagare
           index:
             filter:
               accepted: Accepterat
@@ -310,9 +310,9 @@ sv:
             invites: Inbjudningar
             search: Sök
           new:
-            explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
+            explanation: Deltagaren kommer att bli inbjuden att delta i en konferens. Om dennes e-postadress inte är registrerad kommer de även att bjudas in till organisationen.
             invite: Inbjudan
-            new_invite: Bjud in användare
+            new_invite: Bjud in deltagare
         conference_registrations:
           index:
             registrations: Registreringar
@@ -328,18 +328,18 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsat antal platser.
             registrations_count:
-              one: Det har gjorts 1 registrering.
+              one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara
             title: Närvarointyg
         invite_join_conference_mailer:
           invite:
-            decline: Avvisa inbjudan '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller acceptera det genom länkarna nedan."
-            registration: Registrering för '%{conference_title}'
+            decline: Avböj inbjudan till '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
+            registration: Registrering till '%{conference_title}'
         partners:
           index:
             title: Partners
@@ -350,22 +350,22 @@ sv:
             title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Du kommer att hitta bevis för närvaro för konferensen <a href="%{url}">%{title}</a> i bilagorna.
+            diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
           diploma_user:
-            attendance_verified_by: Närvaro verifierad av
+            attendance_verified_by: Närvaro bekräftad av
             certificate_of_attendance: Närvarointyg
-            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och deltagit i <strong>%{title}</strong> hölls på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Det har varit ett problem när du skickade konferensbevis för närvaro.
-          success: Konferensbevis för deltagande skickas korrekt
+          error: Det gick inte att skicka närvarointyg för konferensen.
+          success: Skickade närvarointyg för konferensen
       conference:
         registration_confirm:
           cancel: Avbryta
           confirm: Bekräfta
         show:
-          free: Gratis
-          going: Gående
-          no_slots_available: Inga slots tillgängliga
+          free: Fritt
+          going: Närvarande
+          no_slots_available: Inga platser tillgängliga
           registration: Registrering
       conference_program:
         program_meeting:
@@ -379,22 +379,22 @@ sv:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
-          details_1: 'Du är registrerad på konferensen med %{registration_type} typ. Det kostar %{price} och du kan delta i följande evenemang:'
+          details_1: 'Du är registrerad till konferensen med registreringstypen %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
           details_2: Du hittar konferensens detaljer i bilagan.
         pending_validation:
           confirmation_pending: Du kommer snart att få bekräftelsen
-          details: 'Du har registrerat dig till %{registration_type} typ med en kostnad av %{price} och du kan delta i följande händelser:'
-          pending_html: Din registrering för konferensen <a href="%{url}">%{title}</a> väntar på att bekräftas.
+          details: 'Du har registrerat dig med registreringstypen %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
+          pending_html: Väntar på bekräftelse för din registrering till konferensen <a href="%{url}">%{title}</a>.
       conference_registrations:
         create:
-          invalid: Det har varit ett problem att gå med i denna konferens.
-          success: Du har anslutit konferensen framgångsrikt.
+          invalid: Det gick inte att gå med i denna konferens.
+          success: Du har gått med i konferensen.
         decline_invitation:
-          invalid: Det har varit ett problem att minska inbjudan.
-          success: Du har avböjt inbjudan framgångsrikt.
+          invalid: Det gick inte att avböja inbjudan.
+          success: Du har avböjt inbjudan.
         destroy:
-          invalid: Det har varit ett problem att lämna denna konferens.
-          success: Du har lämnat konferensen framgångsrikt.
+          invalid: Det gick inte att lämna konferensen.
+          success: Du har lämnat konferensen.
       conference_speaker:
         go_to_twitter: Gå till Twitter
         more_info: mer information
@@ -415,25 +415,25 @@ sv:
           main_promotors: Organisatörer
         show:
           login_as: Du är inloggad som %{name} <%{email}>
-          make_conference_registration: 'Gör din registrering på konferensen:'
+          make_conference_registration: 'Registrera dig på konferensen:'
           register: Registrering
       content_blocks:
         highlighted_conferences:
-          name: Upplysta konferenser
+          name: Annonserade konferenser
       index:
-        title: konferenser
+        title: Konferenser
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Din konferenss registrering har bekräftats
+            subject: Din konferensregistrering har bekräftats
           pending_validation:
-            subject: Din konferensens registrering väntar på att bekräftas
+            subject: Din konferensregistrering väntar på bekräftelse
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
         send_conference_diploma_mailer:
           diploma:
-            subject: Ditt konferensbevis har skickats
+            subject: Ditt deltagarbevis för konferensen har skickats
       models:
         conference_invite:
           fields:
@@ -453,23 +453,23 @@ sv:
             registration_type: Registreringstyp
             state: Status
             states:
-              confirmed: bekräftat
-              pending: Avvaktan
+              confirmed: Bekräftad
+              pending: Väntande
       pages:
         home:
           highlighted_conferences:
             active_conferences: Aktiva konferenser
-            see_all_conferences: Se alla konferenser
+            see_all_conferences: Visa alla konferenser
       photo:
         show:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           photo: Bild
       photos_list:
         show:
           related_photos: Bilder
       registration_types:
         index:
-          choose_an_option: 'Välj ditt registreringsalternativ:'
+          choose_an_option: 'Välj registreringsalternativ:'
           login_as: Du är inloggad som %{name} <%{email}>
           register: Registrera
           title: Registreringstyper
@@ -477,19 +477,19 @@ sv:
         conference_user_login:
           already_account: Har du redan ett konto i decidim?
           new_user: Ny användare?
-          sign_in: Logga in för att registrera dig för konferensen
-          sign_up: Skapa ett konto i decidim för att registrera dig för konferensen
+          sign_in: Logga in om du vill registrera dig till konferensen
+          sign_up: Skapa ett konto i decidim om du vill registrera dig till konferensen
       show:
         details: Detaljer
         introduction: Introduktion
-        objectives: mål
+        objectives: Mål
         related_assemblies: Relaterade församlingar
         related_consultations: Relaterade samråd
-        related_participatory_processes: Relaterade deltagande processer
+        related_participatory_processes: Relaterade deltagandeprocesser
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
-        conference_count: konferenser
+        conference_count: Konferenser
         debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
@@ -498,7 +498,7 @@ sv:
         pages_count: Sidor
         posts_count: Inlägg
         projects_count: Projekt
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
@@ -506,36 +506,36 @@ sv:
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
+          notification_title: Din registrering till konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
         conference_registration_validation_pending:
-          notification_title: Din registrering för konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på att bekräftas.
+          notification_title: Din registrering till konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på bekräftelse.
         conference_registrations_over_percentage:
-          email_intro: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%.'
-          email_outro: Du har fått den här meddelandet eftersom du är en administratör för konferensens deltagande utrymme.
-          email_subject: '"%{resource_title}" -konferensens upptagna platser är över %{percentage}%'
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> konferensbesatta slotsna är över %{percentage}%.
+          email_intro: Konferensen "%{resource_title}" har mer än %{percentage}% bokade platser.
+          email_outro: Du har fått det här meddelandet eftersom du är en administratör för konferensens deltagarutrymme.
+          email_subject: Konferensens "%{resource_title}" har mer än %{percentage}% bokade platser
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har mer än bokade %{percentage}% punkter.
         conference_updated:
-          email_intro: 'Konferensen "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
-          email_subject: Konferensen "%{resource_title}" uppdaterades
-          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
+          email_intro: 'Konferensen "%{resource_title}" har uppdaterats. Läs den nya versionen på dess sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den via föregående länk.
+          email_subject: Konferensen "%{resource_title}" har uppdaterats
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har uppdaterats.
         registrations_enabled:
-          email_intro: 'Konferensen "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
-          email_subject: Konferensen "%{resource_title}" har aktiverat registreringar.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen har aktiverat registreringar.
+          email_intro: 'Konferensen "%{resource_title}" har tar nu emot registreringar. Du kan själv registrera dig på denna sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den via föregående länk.
+          email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
         upcoming_conference:
-          email_intro: 'Konferensen "%{resource_title}" äger rum om 2 dagar. Du kan läsa beskrivningen från sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" -konferensen. Du kan följa det från föregående länk.
+          email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
+          email_outro: Du har fått den här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
           email_subject: Konferensen "%{resource_title}" kommer!
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferensen kommer inom 2 dagar.
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
     log:
       value_types:
         conference_presenter:
           not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
     media:
       index:
-        description: Länkar om denna konferens
+        description: Länkar om konferensen
         title: Media och länkar
     menu:
       conferences: Konferenser

@@ -156,7 +156,6 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
-          has_spaces: Gebied heeft depedent spaces, het mag geen afhankelijkheden hebben om te worden verwijderd.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
