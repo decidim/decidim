@@ -17,9 +17,13 @@ module Decidim::Amendable
       model
     end
 
+    def visible_amendments
+      amendable.visible_amendments_for(current_user)
+    end
+
     # Returns a UserPresenter array
     def amenders
-      @amenders ||= amendable.amendments.map { |amendment| present(amendment.amender) }.uniq
+      @amenders ||= visible_amendments.map { |amendment| present(amendment.amender) }.uniq
     end
 
     def options
