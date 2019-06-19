@@ -89,6 +89,7 @@ sv:
           title: Nytt samråd
         results:
           not_visible: Resultaten kommer att vara tillgängliga när samrådet har avslutats
+          total_votes: 'Totalt: %{count} röster'
         update:
           error: Det uppstod ett fel vid uppdateringen av detta samråd.
           success: Samråd uppdaterades framgångsrikt.
