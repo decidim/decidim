@@ -28,10 +28,10 @@ sv:
         name: Debatter
         settings:
           global:
-            announcement: Notis
+            announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
           step:
-            announcement: Notis
+            announcement: Meddelande
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av debatter av användare aktiverat
     debates:
@@ -40,7 +40,7 @@ sv:
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
-        title: Handlingar
+        title: Åtgärder
       admin:
         debates:
           create:
@@ -97,11 +97,11 @@ sv:
           select_a_category: Välj en kategori
           title: Ny debatt
         share:
-          close_window: Stäng fönstret
+          close_window: Stäng fönster
           share: Dela
           share_link: Dela länk
       last_activity:
-        new_debate_at_html: "<span>Ny debatt på %{link}</span>"
+        new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
         debate:
           fields:
@@ -116,19 +116,19 @@ sv:
             email_intro: |-
               Hej,
               En ny debatt "%{resource_title}" har skapats på %{space_title} deltagande utrymmen, kolla in det och bidra:
-            email_outro: Du har fått denna notis eftersom du följer deltagandeplatsen %{space_title}. Du kan sluta ta emot notiser på föregående länk.
+            email_outro: Du har fått detta meddelande eftersom du följer deltagarutrymmet %{space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Ny debatt "%{resource_title}" på %{space_title}
-            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades på <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> har skapats i <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hej,
               %{author_name} %{author_nickname}, som du följer, har skapat en ny debatt "%{resource_title}". Kolla in det och bidra med:
-            email_outro: Du har fått den här notisen eftersom du följer %{author_nickname}. Du kan sluta ta emot notiser vid föregående länk.
+            email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Ny debatt "%{resource_title}" med %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> skapade <a href="%{resource_path}">%{resource_title}</a> debatten.
         creation_disabled:
           email_intro: 'Debattskapandet är inte längre aktivt i %{participatory_space_title}. Du kan fortfarande delta i öppna debatter på den här sidan:'
-          email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Skapande av debatter är inaktiverat i %{participatory_space_title}
           notification_title: Skapande av debatter är nu inaktiverat i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
