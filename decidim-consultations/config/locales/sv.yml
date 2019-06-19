@@ -5,13 +5,13 @@ sv:
         banner_image: Banner image
         decidim_highlighted_scope_id: Markerat omfattning
         description: Beskrivning
-        end_voting_date: Röstningen slutar
-        introductory_image: Inledande bild
-        introductory_video_url: Inledande videoadress
-        questions: frågor
+        end_voting_date: Omröstningen avslutas
+        introductory_image: Introduktionsbild
+        introductory_video_url: URL till introduktionsvideo
+        questions: Frågor
         slug: URL slug
-        start_voting_date: Röstningen börjar
-        subtitle: Texta
+        start_voting_date: Omröstningen börjar
+        subtitle: Underrubrik
         title: Titel
       question:
         banner_image: Banner image
