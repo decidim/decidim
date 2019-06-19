@@ -5,13 +5,13 @@ sv:
         banner_image: Banner image
         decidim_highlighted_scope_id: Markerat omfattning
         description: Beskrivning
-        end_voting_date: Röstningen slutar
-        introductory_image: Inledande bild
-        introductory_video_url: Inledande videoadress
-        questions: frågor
+        end_voting_date: Omröstningen avslutas
+        introductory_image: Introduktionsbild
+        introductory_video_url: URL till introduktionsvideo
+        questions: Frågor
         slug: URL slug
-        start_voting_date: Röstningen börjar
-        subtitle: Texta
+        start_voting_date: Omröstningen börjar
+        subtitle: Underrubrik
         title: Titel
       question:
         banner_image: Banner image
@@ -19,7 +19,7 @@ sv:
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: Webbplats för externt röstningssystem
-        origin_scope: Omfattning
+        origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungsadress
         participatory_scope: Deltagande räckvidd
@@ -27,7 +27,7 @@ sv:
         question_context: Kontext
         reference: Referens
         scope: Kommunala området
-        slug: URL slug
+        slug: URL-slug
         subtitle: Texta
         title: Titel
         vote: Externt röstsystem
@@ -116,10 +116,10 @@ sv:
             title: Titel
           name:
             one: Fråga
-            other: frågor
+            other: Frågor
         response:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Titel
           name:
             one: Svar
