@@ -231,10 +231,10 @@ sv:
           success: Registreringstypen har avpublicerats.
       registration_types:
         create:
-          error: Det gick inte att lägga till en registreringstyp för den här konferensen.
-          success: Registreringstypen har lagts till framgång på denna konferens.
+          error: Det gick inte att lägga till en registreringstyp till konferensen.
+          success: Registreringstypen har lagts till till konferensen.
         destroy:
-          success: Registreringstypen har tagits bort framgångsrikt från denna konferens.
+          success: Registreringstypen har tagits från konferensen.
         edit:
           title: Uppdatera registreringstyp.
           update: Uppdatera
@@ -242,17 +242,17 @@ sv:
           create: Skapa
           title: Ny registreringstyp
         update:
-          error: Det uppstod ett fel som uppdaterade en registreringstyp för den här konferensen.
-          success: Registreringstypen uppdaterades framgångsrikt för denna konferens.
+          error: Det gick inte att uppdatera en registreringstyp för konferensen.
+          success: Registreringstypen till konferensen har uppdaterats.
       titles:
         conferences: Konferenser
     admin_log:
       conference:
         create: "%{user_name} skapade konferensen %{resource_name}"
-        publish: "%{user_name} publicerade %{resource_name} konferens"
-        send_conference_diplomas: "%{user_name} skickade deltagarbevis till de %{resource_name} konferensdeltagarna"
-        unpublish: "%{user_name} opublicerade %{resource_name} konferens"
-        update: "%{user_name} uppdaterade %{resource_name} konferens"
+        publish: "%{user_name} publicerade konferensen %{resource_name}"
+        send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade konferensen %{resource_name}"
+        update: "%{user_name} uppdaterade konferensen %{resource_name}"
         update_diploma: "%{user_name} uppdaterade certifikat för deltagande konfiguration för %{resource_name} konferens"
       conference_speaker:
         create: "%{user_name} skapade talaren %{resource_name} på konferensen %{space_name}"
@@ -295,10 +295,10 @@ sv:
             success: Användaren framgångsrikt inbjuden att delta i konferensen.
           form:
             attendee_type: Deltagartyp
-            existing_user: Existerande användare
-            invite_explanation: Användaren kommer att bli inbjuden att ansluta sig till konferensen och till organisationen också.
-            non_user: Icke befintlig användare
-            select_user: Välj användare
+            existing_user: Befintlig deltagare
+            invite_explanation: Deltagaren kommer att bli inbjuden att delta i konferensen och även till organisationen.
+            non_user: Icke befintlig deltagare
+            select_user: Välj deltagare
           index:
             filter:
               accepted: Accepterat
@@ -310,7 +310,7 @@ sv:
             invites: Inbjudningar
             search: Sök
           new:
-            explanation: Användaren kommer att bli inbjuden att delta i en konferens. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
+            explanation: Deltagaren kommer att bli inbjuden att delta i en konferens. Om dennes e-postadress inte är registrerad kommer de även att bjudas in till organisationen.
             invite: Inbjudan
             new_invite: Bjud in deltagare
         conference_registrations:
@@ -330,7 +330,7 @@ sv:
             registrations_count:
               one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara
@@ -350,14 +350,14 @@ sv:
             title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Du kommer att hitta bevis för närvaro för konferensen <a href="%{url}">%{title}</a> i bilagorna.
+            diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
           diploma_user:
             attendance_verified_by: Närvaro bekräftad av
             certificate_of_attendance: Närvarointyg
-            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och deltagit i <strong>%{title}</strong> hölls på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Det har varit ett problem när du skickade konferensbevis för närvaro.
-          success: Konferensbevis för deltagande skickas korrekt
+          error: Det gick inte att skicka närvarointyg för konferensen.
+          success: Skickade närvarointyg för konferensen
       conference:
         registration_confirm:
           cancel: Avbryta
