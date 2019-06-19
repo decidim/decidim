@@ -18,11 +18,11 @@ sv:
         decidim_scope_id: Kommunala området
         hashtag: Hashtag
         hero_image: Hembild
-        i_frame_url: Webbplats för externt röstningssystem
+        i_frame_url: URL till externt röstningssystem
         origin_scope: Omfång
         origin_title: Ursprung
-        origin_url: Ursprungsadress
-        participatory_scope: Deltagande räckvidd
+        origin_url: Ursprungs-URL
+        participatory_scope: Deltagaromfång
         promoter_group: Promotorgrupp
         question_context: Kontext
         reference: Referens
@@ -31,11 +31,11 @@ sv:
         subtitle: Texta
         title: Titel
         vote: Externt röstsystem
-        what_is_decided: Vad bestäms
+        what_is_decided: Vad som bestäms
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Svar ej hittat.
+          not_found: Hittade inte svar.
   activerecord:
     models:
       decidim/consultation:
@@ -48,8 +48,8 @@ sv:
         one: Svar
         other: Svar
       decidim/consultations/vote:
-        one: Rösta
-        other: Rösta
+        one: Omröstning
+        other: Omröstningar
   decidim:
     admin:
       actions:
@@ -57,7 +57,7 @@ sv:
         new_question: Ny fråga
         new_response: Nytt svar
         publish_results: Publicera resultat
-        unpublish_results: Uppdatera resultaten
+        unpublish_results: Avpublicera resultat
       consultation_publications:
         create:
           error: Det uppstod ett fel vid publicering av detta samråd.
@@ -87,6 +87,8 @@ sv:
         new:
           create: Skapa
           title: Nytt samråd
+        results:
+          not_visible: Resultaten kommer att vara tillgängliga när samrådet har avslutats
         update:
           error: Det uppstod ett fel vid uppdateringen av detta samråd.
           success: Samråd uppdaterades framgångsrikt.
@@ -95,6 +97,7 @@ sv:
         consultations_submenu:
           info: Information
           questions: frågor
+          results: Resultat
         questions_submenu:
           components: Komponenter
           consultation: Samråd
@@ -111,7 +114,7 @@ sv:
             other: Samråd
         question:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             published: Publicerad
             title: Titel
           name:
@@ -126,8 +129,8 @@ sv:
             other: Svar
       question_publications:
         create:
-          error: Det uppstod ett fel vid publicering av denna fråga.
-          success: Fråga publicerad framgångsrikt.
+          error: Det gick inte att publicera den här frågan.
+          success: Frågan har publicerats.
         destroy:
           error: Ett fel uppstod vid publicering av denna fråga.
           success: Fråga unpublished successfully.
@@ -155,7 +158,7 @@ sv:
           error: Det uppstod ett fel vid skapandet av ett nytt svar.
           success: Svar skapat.
         destroy:
-          error: Ett fel uppstod när svaret togs bort.
+          error: Det gick inte att ta bort svaret.
           success: Svaret har tagits bort.
         edit:
           update: Uppdatera
@@ -165,19 +168,20 @@ sv:
           create: Skapa
           title: Nytt svar
         update:
-          error: Det uppstod ett fel vid uppdateringen av detta svar.
-          success: Svaret uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera svaret.
+          success: Svaret har uppdaterats.
       titles:
         consultations: Samråd
-        questions: frågor
+        questions: Frågor
         responses: Svar
+        results: Resultat
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Maximal mängd element att visa
+            max_results: Maximalt antal element att visa
       consultation:
-        start_voting_date: Röstningen börjar
+        start_voting_date: Omröstningen börjar
         view_results: Se Resultat
       consultation_card:
         view_results: Se Resultat
@@ -188,15 +192,15 @@ sv:
           recent: Senaste
       content_blocks:
         highlighted_consultations:
-          name: Markerade samråd
+          name: Annonserade samråd
       count:
         title:
-          one: "%{count} konsultation"
-          other: "%{count} konsultationer"
+          one: "%{count} samråd"
+          other: "%{count} samråd"
       filters:
         active: Aktiv
         all: Alla
-        finished: Färdiga
+        finished: Avslutade
         search: Sök
         state: Status
         upcoming: Kommande
@@ -218,14 +222,14 @@ sv:
             active_consultations: Aktiva samråd
             see_all_consultations: Se alla samråd
             voting_ends_in:
-              one: Röstningen slutar <strong>morgon</strong>
-              other: Röstningen slutar i <strong>%{count} dagar</strong>
-            voting_ends_today: Omröstning slutar <strong>idag</strong>
+              one: Omröstningen avslutas <strong>imorgon</strong>
+              other: Omröstningen avslutas om <strong>%{count} dagar</strong>
+            voting_ends_today: Omröstning avslutas <strong>idag</strong>
       question:
-        take_part: Ta del
-        view_results: Se Resultat
+        take_part: Delta
+        view_results: Visa resultat
         votes_out_of:
-          one: rösta ut ur
+          one: röst av
           other: röster av
       question_votes:
         create:
@@ -257,6 +261,8 @@ sv:
         statistics:
           consultations_count: Samråd
     questions:
+      next_button: Nästa fråga
+      previous_button: Föregående fråga
       results:
         title: Resultat
       show:
@@ -288,7 +294,7 @@ sv:
           attachments: bilagor
           categories: kategorier
       consultation_voting_data:
-        start_voting_date: Röstningen börjar
+        start_voting_date: Omröstningen börjar
       question_components:
         question_menu_item: Frågan
         unfold: Veckla ut
