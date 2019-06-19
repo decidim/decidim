@@ -141,6 +141,71 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
       end
     end
+
+    context "when amendments VISIBILITY is set to 'participants'" do
+      before do
+        update_component_step_setting(component, :amendments_visibility, "participants")
+      end
+
+      context "when the user is logged in" do
+        before do
+          login_as user, scope: :user
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal that they have amended" do
+          let(:user) { emendation.creator_author }
+
+          it "is shown the emendation from other user in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown the other user in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
+        end
+
+        context "and visit an amendable proposal that they have NOT amended" do
+          let!(:user) { create :user, :confirmed, organization: component.organization }
+
+          it "is shown the emendation from other users in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown other users in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
+        end
+      end
+
+      context "when the user is NOT logged in" do
+        before do
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal" do
+          it "is shown the emendation from other users in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown other users in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
+        end
+      end
+    end
   end
 
   context "with amendments enabled" do
@@ -163,11 +228,11 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "when the user is not logged in and clicks" do
-          it "is shown the login modal" do
-            within ".card__amend-button", match: :first do
-              click_link "Amend Proposal"
-            end
+          before do
+            click_link "Amend Proposal"
+          end
 
+          it "is shown the login modal" do
             expect(page).to have_css("#loginModal", visible: true)
           end
         end
@@ -417,6 +482,128 @@ describe "Amend Proposal", versioning: true, type: :system do
         it "is NOT shown the promote button" do
           expect(page).not_to have_content("PROMOTE TO PROPOSAL")
           expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
+        end
+      end
+    end
+
+    context "when amendments VISIBILITY is set to 'participants'" do
+      before do
+        update_component_step_setting(component, :amendments_visibility, "participants")
+      end
+
+      context "when the user is logged in" do
+        before do
+          login_as user, scope: :user
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal that they have amended" do
+          let(:user) { emendation.creator_author }
+
+          it "is shown the emendation in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown the user in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(user.name)
+            end
+          end
+        end
+
+        context "and visit an amendable proposal that they have NOT amended" do
+          let!(:user) { create :user, :confirmed, organization: component.organization }
+
+          it "is NOT shown the amendments list" do
+            expect(page).not_to have_css(".amendment-list")
+          end
+
+          it "is NOT shown the amenders list" do
+            expect(page).not_to have_css(".amender-list")
+          end
+        end
+      end
+
+      context "when the user is NOT logged in" do
+        before do
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal" do
+          it "is NOT shown the amendments list" do
+            expect(page).not_to have_css(".amendment-list")
+          end
+
+          it "is NOT shown the amenders list" do
+            expect(page).not_to have_css(".amender-list")
+          end
+        end
+      end
+    end
+
+    context "when amendments VISIBILITY is set to 'all'" do
+      before do
+        update_component_step_setting(component, :amendments_visibility, "all")
+      end
+
+      context "when the user is logged in" do
+        before do
+          login_as user, scope: :user
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal that they have amended" do
+          let(:user) { emendation.creator_author }
+
+          it "is shown the emendation from other user in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown the other user in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
+        end
+
+        context "and visit an amendable proposal that they have NOT amended" do
+          let!(:user) { create :user, :confirmed, organization: component.organization }
+
+          it "is shown the emendation from other users in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown other users in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
+        end
+      end
+
+      context "when the user is NOT logged in" do
+        before do
+          visit proposal_path
+        end
+
+        context "and visit an amendable proposal" do
+          it "is shown the emendation from other users in the amendments list" do
+            within ".amendment-list" do
+              expect(page).to have_content(emendation.title)
+            end
+          end
+
+          it "is shown other users in the amenders list" do
+            within ".amender-list" do
+              expect(page).to have_content(emendation.creator_author.name)
+            end
+          end
         end
       end
     end

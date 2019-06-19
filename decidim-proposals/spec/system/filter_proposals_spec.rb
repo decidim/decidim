@@ -280,7 +280,7 @@ describe "Filter Proposals", type: :system do
     context "when there are amendments to proposals" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let!(:emendation) { create(:proposal, component: component, scope: scope) }
-      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author) }
 
       before do
         visit_component
@@ -317,6 +317,152 @@ describe "Filter Proposals", type: :system do
           expect(page).to have_css(".card.card--proposal", count: 1)
           expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("AMENDMENT", count: 1)
+        end
+      end
+
+      context "when amendments_enabled component setting is enabled" do
+        before do
+          component.update!(settings: { amendments_enabled: true })
+        end
+
+        context "and amendments_visbility component step_setting is set to 'participants'" do
+          before do
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => {
+                  amendments_visibility: "participants"
+                }
+              }
+            )
+          end
+
+          context "when the user is logged in" do
+            context "and has amended a proposal" do
+              let!(:new_emendation) { create(:proposal, component: component, scope: scope) }
+              let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
+              let(:user) { new_amendment.amender }
+
+              before do
+                login_as user, scope: :user
+                visit_component
+              end
+
+              it "can be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_content(/Type/i)
+                end
+              end
+
+              it "lists only their amendments" do
+                within ".filters" do
+                  choose "Amendments"
+                end
+                expect(page).to have_css(".card.card--proposal", count: 1)
+                expect(page).to have_content("1 PROPOSAL")
+                expect(page).to have_content("AMENDMENT", count: 1)
+                expect(page).to have_content(new_emendation.title)
+                expect(page).to have_no_content(emendation.title)
+              end
+            end
+
+            context "and has NOT amended a proposal" do
+              before do
+                login_as user, scope: :user
+                visit_component
+              end
+
+              it "cannot be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_no_content(/Type/i)
+                end
+              end
+            end
+          end
+
+          context "when the user is NOT logged in" do
+            before do
+              visit_component
+            end
+
+            it "cannot be filtered by type" do
+              within "form.new_filter" do
+                expect(page).to have_no_content(/Type/i)
+              end
+            end
+          end
+        end
+      end
+
+      context "when amendments_enabled component setting is NOT enabled" do
+        before do
+          component.update!(settings: { amendments_enabled: false })
+        end
+
+        context "and amendments_visbility component step_setting is set to 'participants'" do
+          before do
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => {
+                  amendments_visibility: "participants"
+                }
+              }
+            )
+          end
+
+          context "when the user is logged in" do
+            context "and has amended a proposal" do
+              let!(:new_emendation) { create(:proposal, component: component, scope: scope) }
+              let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
+              let(:user) { new_amendment.amender }
+
+              before do
+                login_as user, scope: :user
+                visit_component
+              end
+
+              it "can be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_content(/Type/i)
+                end
+              end
+
+              it "lists all the amendments" do
+                within ".filters" do
+                  choose "Amendments"
+                end
+                expect(page).to have_css(".card.card--proposal", count: 2)
+                expect(page).to have_content("2 PROPOSAL")
+                expect(page).to have_content("AMENDMENT", count: 2)
+                expect(page).to have_content(new_emendation.title)
+                expect(page).to have_content(emendation.title)
+              end
+            end
+
+            context "and has NOT amended a proposal" do
+              before do
+                login_as user, scope: :user
+                visit_component
+              end
+
+              it "can be filtered by type" do
+                within "form.new_filter" do
+                  expect(page).to have_content(/Type/i)
+                end
+              end
+            end
+          end
+
+          context "when the user is NOT logged in" do
+            before do
+              visit_component
+            end
+
+            it "can be filtered by type" do
+              within "form.new_filter" do
+                expect(page).to have_content(/Type/i)
+              end
+            end
+          end
         end
       end
     end
