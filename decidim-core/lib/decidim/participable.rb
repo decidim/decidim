@@ -75,6 +75,16 @@ module Decidim
       def can_participate?(_user)
         true
       end
+
+      def empty_published_component?
+        components.published.empty?
+      end
+
+      def cta_button_text_key
+        return :more_info if empty_published_component?
+
+        :take_part
+      end
     end
 
     class_methods do

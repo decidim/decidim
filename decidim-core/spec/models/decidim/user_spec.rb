@@ -235,5 +235,22 @@ module Decidim
         end
       end
     end
+
+    describe "#find_for_authentication" do
+      let(:user) { create(:user, organization: organization) }
+
+      let(:conditions) do
+        {
+          env: {
+            "decidim.current_organization" => organization
+          },
+          email: user.email.upcase
+        }
+      end
+
+      it "finds the user even with weird casing in email" do
+        expect(described_class.find_for_authentication(conditions)).to eq user
+      end
+    end
   end
 end

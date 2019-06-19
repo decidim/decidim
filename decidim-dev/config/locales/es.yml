@@ -11,18 +11,18 @@ es:
     dummy:
       admin:
         exports:
-          dummies: Maniquíes
+          dummies: Pruebas
     gamification:
       badges:
         test:
           conditions:
             - Utilice un entorno de prueba para decidim.
-          description: Los usuarios obtienen esta insignia al crear pruebas.
-          description_another: Este usuario ha creado %{score} pruebas.
+          description: Las participantes obtienen esta insignia al crear pruebas.
+          description_another: Esta participante ha creado %{score} pruebas.
           description_own: Has creado %{score} pruebas.
           name: Pruebas
           next_level_in: '¡Crea %{score} pruebas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha creado ninguna prueba.
+          unearned_another: Esta participante aún no ha creado ninguna prueba.
           unearned_own: No has creado ninguna prueba todavía.
     pages:
       home:
@@ -37,4 +37,4 @@ es:
         dummies_count_medium: Dummies media
     resource_links:
       test_link:
-        dummy_resource_dummy: Ficticio relacionado
+        dummy_resource_dummy: Prueba relacionada

@@ -152,7 +152,7 @@ shared_examples "manage conferences" do
 
     it "publishes the conference" do
       click_link "Publish"
-      expect(page).to have_content("published successfully")
+      expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
 
@@ -170,7 +170,7 @@ shared_examples "manage conferences" do
 
     it "unpublishes the conference" do
       click_link "Unpublish"
-      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
 

@@ -31,8 +31,8 @@ module Decidim
         trigger_omniauth_registration
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordInvalid => error
-        broadcast(:error, error.record)
+      rescue ActiveRecord::RecordInvalid => e
+        broadcast(:error, e.record)
       end
     end
 
@@ -95,7 +95,7 @@ module Decidim
 
     def trigger_omniauth_registration
       ActiveSupport::Notifications.publish(
-        "decidim.events.user.omniauth_registration",
+        "decidim.user.omniauth_registration",
         user_id: @user.id,
         identity_id: @identity.id,
         provider: form.provider,

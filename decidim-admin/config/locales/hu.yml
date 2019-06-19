@@ -36,6 +36,8 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
+        address: SMTP host név
+        alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
@@ -44,6 +46,7 @@ hu:
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
         facebook_handler: Facebook handler
         favicon: Ikon
+        from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
         highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
@@ -62,11 +65,18 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
+        password: Jelszó
+        port: Port
+        primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
+        secondary_color: Másodlagos
         show_statistics: Statisztikák megjelenítése
+        success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
         user_groups_enabled: Felhasználói csoportok engedélyezése
+        user_name: Felhasználónév
+        warning_color: Figyelem
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -102,9 +112,9 @@ hu:
               must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Érvénytelen képfájl
             official_img_footer:
+              allowed_file_content_types: Érvénytelen képfájl
+            official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
   activerecord:
     attributes:
@@ -151,6 +161,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A területnek depedens terek vannak, a törléshez nem lehet függőség.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -363,6 +374,7 @@ hu:
             created_at: 'Létrehozva:'
             progress: Folyamat
             sent_at: 'Elküldve:'
+            sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
         oauth_application:
@@ -428,15 +440,42 @@ hu:
         form:
           interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
+          all: mind
+          all_users: 'Minden felhasználó'
+          and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
+          followers: 'követők '
+          has_been_sent_to: 'Elküldve ide: '
+          no_scopes: Nincsenek hatókörök
+          not_sent: Nem került elküldésre
+          participants: 'résztvevők '
+          segmented_to: 'Szegmentált %{subject}: '
           title: Hírlevelek
         new:
           save: Mentés
           title: Új hírlevél
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Összes
+          all_users_help: Hírlevelet küld minden megerősített felhasználónak.
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
+          followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
+          none: Egyik sem
+          participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
+          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
+          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
+          select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
+          select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés mindenkinek
+          send_to_followers: Küldés a követőknek
+          send_to_participants: Küldés a résztvevőknek
+          title: Címzettek kiválasztása
+          warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
+        send:
+          no_recipients: Ehhez a kiválasztáshoz nem tartoznak címzettek
+        show:
           preview: Előnézet
+          select_recipients_to_deliver: Címzettek kiválasztása
           subject: Tárgy
         update:
           error: Hiba történt a hírlevél frissítése során.
@@ -506,6 +545,7 @@ hu:
         edit:
           update: Frissítés
         form:
+          colors_title: Szervezet színei
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
@@ -598,6 +638,7 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
+          slug_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és per-jelek fogadhatók el, és betűvel kell kezdődniük. Példa: %{url}'
         index:
           last_notable_change: Utolsó jelentős változás
         new:

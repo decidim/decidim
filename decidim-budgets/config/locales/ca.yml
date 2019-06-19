@@ -18,7 +18,7 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Segur que vols eliminar aquest projecte?
+        confirm_destroy: Estàs segura que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
         import: Importa propostes a projectes
@@ -31,7 +31,7 @@ ca:
             name: Projecte
         projects:
           create:
-            invalid: Hi ha hagut un problema creant aquest projecte
+            invalid: S'ha produït un error en crear aquest projecte
             success: Projecte creat correctament
           destroy:
             success: El projecte s'ha eliminat correctament
@@ -39,18 +39,18 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
-            finished_orders: Suports finalitzats
+            finished_orders: Vots finalitzats
             pending_orders: Vots en procés
             title: Projectes
           new:
             create: Crear
             title: Nou projecte
           update:
-            invalid: Hi ha hagut un problema actualitzant aquest projecte
+            invalid: S'ha produït un error en actualitzar aquest projecte
             success: Projecte actualitzat correctament
         proposals_imports:
           create:
-            invalid: Hi ha hagut un problema en importar les propostes en projectes
+            invalid: S'ha produït un error en importar les propostes en projectes
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
@@ -76,7 +76,7 @@ ca:
           close: Tancar
           description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport amb les seves preferències.
           ok: D'acord
-          title: Pressupost superat
+          title: Pressupost excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
@@ -84,7 +84,7 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i donar suport amb les teves preferències per definir el pressupost.
+          description: En quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que desitges i vota per definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -100,7 +100,7 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         order_progress:
-          vote: Donar suport
+          vote: Vota
         order_selected_projects:
           remove: Esborrar
           selected_projects:
@@ -123,28 +123,28 @@ ca:
     components:
       budgets:
         actions:
-          vote: Donar suport
+          vote: Vota
         name: Pressupostos
         settings:
           global:
-            announcement: Anunci
+            announcement: Avís
             comments_enabled: Comentaris habilitats
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
-            announcement: Anunci
+            announcement: Avís
             comments_blocked: Comentaris bloquejats
             show_votes: Mostra els suports
             votes_enabled: S'ha habilitat la votació
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot
-        success: El teu vot s'ha tramitat amb èxit
+        success: El teu vot s'ha tramitat correctament
       destroy:
-        error: S'ha produït un error en cancel·lar el seu vot
-        success: El seu vot ha estat cancel·lat correctament
+        error: S'ha produït un error en cancel·lar el teu vot
+        success: El teu vot ha estat cancel·lat correctament
     resource_links:
       included_proposals:
         project_proposal: 'Propostes incloses en aquest projecte:'

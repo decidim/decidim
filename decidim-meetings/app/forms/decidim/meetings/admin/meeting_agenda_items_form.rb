@@ -21,11 +21,15 @@ module Decidim
         validates :duration, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
         def to_param
-          id || "meeting-agenda-item-id"
+          return id if id.present?
+
+          "meeting-agenda-item-id"
         end
 
         def to_param_child
-          id || "meeting-agenda-item-child-id"
+          return id if id.present?
+
+          "meeting-agenda-item-child-id"
         end
       end
     end

@@ -24,7 +24,7 @@ describe "User group joining", type: :system do
     it "allows the user to join" do
       click_link "Request to join group"
 
-      expect(page).to have_content("Join request created successfully")
+      expect(page).to have_content("Join request successfully created")
       expect(page).to have_no_content("Request to join group")
     end
   end

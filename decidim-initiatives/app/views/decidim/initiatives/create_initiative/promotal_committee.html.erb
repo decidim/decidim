@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="row column">
-  <div class="column large-6 medium-centered">
+  <div class="medium-centered">
     <div class="callout secondary">
       <%= t ".individual_help_text", committee_size: current_initiative.minimum_committee_members %>
       <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>.
@@ -15,7 +15,7 @@
 </div>
 <br />
 <div class="row">
-  <div class="columns large-6 small-12 medium-centered">
+  <div class="small-12 medium-centered">
     <%= render partial: "share_committee_link" %>
   </div>
 </div>

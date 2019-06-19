@@ -1,0 +1,20 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.smtp_settings") %></h4>
+  <%= f.fields_for :smtp_settings do %>
+    <div class="field">
+      <%= f.email_field :from %>
+    </div>
+    <div class="field">
+      <%= f.text_field :user_name %>
+    </div>
+    <div class="field">
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.number_field :port %>
+    </div>
+  <% end %>
+</div>

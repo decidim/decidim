@@ -11,7 +11,7 @@ module Decidim
       def initialize(form)
         @form = form
         @emendation = form.emendation
-        @amendable = form.emendation.amendable
+        @amendable = form.amendable
       end
 
       # Executes the command. Broadcasts these events:
@@ -21,11 +21,12 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @form.invalid?
+        return broadcast(:invalid) if form.invalid?
 
         transaction do
           promote_emendation!
           notify_amendable_and_emendation_authors_and_followers
+          link_promoted_emendation_and_proposal
         end
 
         broadcast(:ok, @promoted_emendation)
@@ -33,46 +34,46 @@ module Decidim
 
       private
 
+      attr_reader :form
+
+      # The log of this action contains unique information:
+      # extra_log_info = { promoted_from: emendation.id }
       def promote_emendation!
         @promoted_emendation = Decidim.traceability.perform_action!(
           "promote",
-          @form.amendable_type.constantize,
+          @emendation.amendable_type.constantize,
           @emendation.creator_author,
           visibility: "public-only",
           promoted_from: @emendation.id
         ) do
-          promoted_emendation = @form.amendable_type.constantize.new(emendation_attributes)
-          promoted_emendation.add_coauthor(@emendation.creator_author, user_group: nil) if promoted_emendation.is_a?(Decidim::Coauthorable)
+          promoted_emendation = @emendation.amendable_type.constantize.new(form.emendation_params)
+          promoted_emendation.component = @emendation.component
+          promoted_emendation.published_at = Time.current if proposal?
+          promoted_emendation.add_coauthor(@emendation.creator_author)
           promoted_emendation.save!
           promoted_emendation
         end
       end
 
-      def emendation_attributes
-        fields = {}
-
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.title, current_organization: @form.current_organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @emendation.body, current_organization: @form.current_organization).rewrite
-
-        fields[:title] = parsed_title
-        fields[:body] = parsed_body
-        fields[:component] = @emendation.component
-        fields[:published_at] = Time.current if @form.emendation_type == "Decidim::Proposals::Proposal"
-
-        fields
-      end
-
       def notify_amendable_and_emendation_authors_and_followers
-        affected_users = @emendation.authors + @amendable.authors
+        affected_users = @emendation.authors + @amendable.notifiable_identities
         followers = @emendation.followers + @amendable.followers - affected_users
 
         Decidim::EventsManager.publish(
           event: "decidim.events.amendments.amendment_promoted",
           event_class: Decidim::Amendable::EmendationPromotedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
+      end
+
+      def proposal?
+        @amendable.amendable_type == "Decidim::Proposals::Proposal"
+      end
+
+      def link_promoted_emendation_and_proposal
+        @promoted_emendation.link_resources(@emendation, "created_from_rejected_emendation")
       end
     end
   end

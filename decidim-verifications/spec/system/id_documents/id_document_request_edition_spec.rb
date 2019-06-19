@@ -45,7 +45,7 @@ describe "Identity document request edition", type: :system do
         doc_number: "XXXXXXXY",
         file_name: "dni.jpg"
       )
-      expect(page).to have_content("Document reuploaded successfully")
+      expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
       expect(authorization.verification_metadata["verification_type"]).to eq "online"
       expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -72,7 +72,7 @@ describe "Identity document request edition", type: :system do
         doc_type: "DNI",
         doc_number: "XXXXXXXY"
       )
-      expect(page).to have_content("Document reuploaded successfully")
+      expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
       expect(authorization.verification_metadata["verification_type"]).to eq "offline"
       expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -103,7 +103,7 @@ describe "Identity document request edition", type: :system do
           file_name: "dni.jpg"
         )
 
-        expect(page).to have_content("Document reuploaded successfully")
+        expect(page).to have_content("Document successfully reuploaded")
         authorization.reload
         expect(authorization.verification_metadata["verification_type"]).to eq "online"
         expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"
@@ -124,7 +124,7 @@ describe "Identity document request edition", type: :system do
           doc_number: "XXXXXXXY"
         )
 
-        expect(page).to have_content("Document reuploaded successfully")
+        expect(page).to have_content("Document successfully reuploaded")
         authorization.reload
         expect(authorization.verification_metadata["verification_type"]).to eq "offline"
         expect(authorization.verification_metadata["document_number"]).to eq "XXXXXXXY"

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["jsperezg@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.3.1"
+  s.required_ruby_version = ">= 2.5"
 
   s.name = "decidim-initiatives"
   s.summary = "Decidim initiatives module"
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "origami"
   s.add_dependency "social-share-button", "~> 1.0"
+  s.add_dependency "virtus-multiparams"
   s.add_dependency "wicked", "~> 1.3"
   s.add_dependency "wicked_pdf"
   s.add_dependency "wkhtmltopdf-binary"

@@ -47,7 +47,7 @@ shared_examples "manage assembly members examples" do
       find(".datepicker-days .active").click
 
       within ".new_assembly_member" do
-        select "Existing user", from: :assembly_member_existing_user
+        select "Existing participant", from: :assembly_member_existing_user
         autocomplete_select "#{member_user.name} (@#{member_user.nickname})", from: :user_id
 
         select "President", from: :assembly_member_position

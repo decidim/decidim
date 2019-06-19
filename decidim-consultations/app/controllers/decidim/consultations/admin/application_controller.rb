@@ -11,13 +11,14 @@ module Decidim
 
         include NeedsPermission
 
+        register_permissions(::Decidim::Consultations::Admin::ApplicationController,
+                             Decidim::Consultations::Permissions,
+                             Decidim::Admin::Permissions)
+
         private
 
         def permission_class_chain
-          [
-            Decidim::Consultations::Permissions,
-            Decidim::Admin::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Consultations::Admin::ApplicationController)
         end
 
         def permission_scope

@@ -1,0 +1,801 @@
+ar:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: عنوان
+        body: الجسم
+        category_id: الفئة
+        decidim_scope_id: نطاق
+        has_address: لديه عنوان
+        state: حالة
+        title: عنوان
+        user_group_id: إنشاء مسودة تعاونية كـ
+      proposal:
+        address: عنوان
+        answer: إجابة
+        answered_at: أجاب في
+        automatic_hashtags: علامات التصنيف المضافة تلقائيًا
+        body: الجسم
+        category_id: الفئة
+        has_address: لديه عنوان
+        scope_id: نطاق
+        state: حالة
+        suggested_hashtags: الهاشتاج المقترحة
+        title: عنوان
+        user_group_id: إنشاء اقتراح باسم
+      proposal_answer:
+        answer: إجابة
+      proposals_copy:
+        copy_proposals: أدرك أن هذا سيؤدي إلى استيراد جميع المقترحات من المكون المحدد إلى المكون الحالي وأنه لا يمكن عكس هذا الإجراء.
+        origin_component_id: مكون لنسخ المقترحات من
+      proposals_import:
+        import_proposals: مقترحات الاستيراد
+        keep_authors: الحفاظ على المؤلفين الأصلي
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'نوع المستند غير صالح. التنسيقات المقبولة هي: %{valid_mime_types}'
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: يحتاج إلى إعادة ربط
+            body:
+              identical: لا يمكن أن يكون العنوان متطابقًا
+            title:
+              identical: و الجسم لا يمكن أن تكون متطابقة
+    models:
+      decidim/proposals/accepted_proposal_event: تم قبول الاقتراح
+      decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
+      decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
+      decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
+      decidim/proposals/evaluating_proposal_event: يجري تقييم الاقتراح
+      decidim/proposals/proposal_endorsed_event: تمت الموافقة على الاقتراح
+      decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
+      decidim/proposals/publish_proposal_event: تم نشر الاقتراح
+      decidim/proposals/rejected_proposal_event: تم رفض الاقتراح
+      decidim/proposals/voting_enabled_event: تم تمكين التصويت على الاقتراح
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        zero: المسودات التعاونية
+        one: مشروع تعاوني
+        two: المسودات التعاونية
+        few: المسودات التعاونية
+        many: المسودات التعاونية
+        other: المسودات التعاونية
+      decidim/proposals/proposal:
+        zero: اقتراحات
+        one: اقتراح
+        two: اقتراحات
+        few: اقتراحات
+        many: اقتراحات
+        other: اقتراحات
+      decidim/proposals/proposal_endorsement:
+        zero: موافقات
+        one: المصادقة
+        two: موافقات
+        few: موافقات
+        many: موافقات
+        other: موافقات
+      decidim/proposals/proposal_note:
+        zero: ملاحظات
+        one: ملحوظة
+        two: ملاحظات
+        few: ملاحظات
+        many: ملاحظات
+        other: ملاحظات
+      decidim/proposals/proposal_vote:
+        zero: الدعم
+        one: الدعم
+        two: الدعم
+        few: الدعم
+        many: الدعم
+        other: الدعم
+  decidim:
+    components:
+      proposals:
+        actions:
+          create: إنشاء
+          endorse: تأييد
+          vote: الدعم
+          withdraw: سحب
+        name: اقتراحات
+        settings:
+          global:
+            amendments_enabled: تم تمكين التعديلات
+            announcement: إعلان
+            attachments_allowed: السماح للمرفقات
+            can_accumulate_supports_beyond_threshold: يمكن أن تتراكم الدعم وراء العتبة
+            collaborative_drafts_enabled: تم تمكين المسودات التعاونية
+            comments_enabled: تم تمكين التعليقات
+            geocoding_enabled: تم تمكين الترميز الجغرافي
+            minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
+            new_proposal_help_text: نص مساعدة اقتراح جديد
+            official_proposals_enabled: تم تمكين المقترحات الرسمية
+            participatory_texts_enabled: تم تمكين النصوص التشاركية
+            proposal_answering_enabled: تم تمكين الرد على الاقتراح
+            proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
+            proposal_length: الحد الأقصى لطول الاقتراح المقترح
+            proposal_limit: حد الاقتراح لكل مشارك
+            proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
+            proposal_wizard_step_2_help_text: اقتراح الاقتراح "قارن" نص خطوة المساعدة
+            proposal_wizard_step_3_help_text: نص اقتراح "إكمال" تعليمات نص المعالج
+            proposal_wizard_step_4_help_text: اقتراح الاقتراح "نشر" نص تعليمات الخطوة
+            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
+            threshold_per_proposal: عتبة لكل اقتراح
+            vote_limit: حد الدعم لكل مشارك
+          step:
+            announcement: إعلان
+            automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
+            comments_blocked: تم حظر التعليقات
+            creation_enabled: تمكين إنشاء الاقتراح
+            endorsements_blocked: المصادقة المحظورة
+            endorsements_enabled: تم التصديق
+            proposal_answering_enabled: تم تمكين الرد على الاقتراح
+            suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
+            votes_blocked: يدعم المحظورة
+            votes_enabled: يدعم تمكين
+            votes_hidden: يدعم مخفي (إذا تم تمكين الدعم ، سيؤدي تحديد هذا إلى إخفاء عدد الدعم)
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: 'تم قبول %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "تم قبول %{requester_name} للوصول كمساهم في %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> كان <strong>مقبولة للوصول كمساهم</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع تعاوني.
+        collaborative_draft_access_rejected:
+          email_intro: 'تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> تم رفض الوصول إلى <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} طلب الوصول كمساهم. يمكنك <strong>قبول أو رفض طلب</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع الصفحة التعاونية.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} طلب الوصول للمساهمة في %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> طلب الوصول للمساهمة في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a> . يرجى <strong>قبول أو رفض الطلب</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: لقد تم قبولك للدخول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنك طلبت أن تصبح متعاونًا مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: تم قبولك كمساهم بـ %{resource_title}.
+          notification_title: لقد تم قبول <strong>للدخول كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: لقد تم رفض وصولك كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنك طلبت أن تصبح متعاونًا مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: لقد تم رفضك كمساهم بـ %{resource_title}.
+          notification_title: لقد تم رفض دخولك <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> سحبت المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} سحب المشروع %{resource_title} التعاوني."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>سحبت</strong> مشروع <a href="%{resource_path}">%{resource_title}</a> التعاوني.
+        creation_enabled:
+          email_intro: 'يمكنك الآن إنشاء مقترحات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: مقترحات متاحة الآن في %{participatory_space_title}
+          notification_title: يمكنك الآن طرح <a href="%{resource_path}">مقترحات جديدة</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'يمكنك تأييد المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: بدأت اقتراحات الموافقة على %{participatory_space_title}
+          notification_title: يمكنك الآن بدء <a href="%{resource_path}">تأييد مقترحات</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_accepted:
+          affected_user:
+            email_intro: 'تم قبول اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
+            email_subject: تم قبول الاقتراح الخاص بك
+            notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_endorsed:
+          email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: "%{endorser_nickname} قد صادق على اقتراح جديد"
+          notification_title: تمت الموافقة على اقتراح <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'يتم حاليًا تقييم الاقتراح الخاص بك "%{resource_title}". يمكنك التحقق من وجود إجابة في هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
+            email_subject: يتم تقييم الاقتراح الخاص بك
+            notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_mentioned:
+          email_intro: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
+          email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
+          notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}، الذي تتابعه ، بنشر اقتراح جديد يسمى "%{resource_title}". التحقق من ذلك والمساهمة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: اقتراح جديد "%{resource_title}" من %{author_nickname}
+          notification_title: تم نشر مقترح <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
+          notification_title: تمت إضافة الاقتراح <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
+        proposal_rejected:
+          affected_user:
+            email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
+            email_subject: تم رفض اقتراحك
+            notification_title: تم رفض اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_update_category:
+          email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
+          email_subject: تم تحديث فئة %{resource_title} اقتراح
+          notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
+        voting_enabled:
+          email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+          email_subject: بدأ دعم الاقتراح لمدة %{participatory_space_title}
+          notification_title: يمكنك الآن بدء <a href="%{resource_path}">دعم المقترحات</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+            - حاول تقديم مقترحات يمكن تنفيذها. بهذه الطريقة هم أكثر عرضة للقبول.
+          description: تُمنح هذه الشارة عندما تشارك بفعالية في المقترحات الجديدة ويتم قبولها.
+          description_another: هذا المشارك لديه %{score} مقترحات مقبولة.
+          description_own: حصلت على %{score} مقترحات مقبولة.
+          name: مقترحات مقبولة
+          next_level_in: احصل على %{score} مقترحات أخرى مقبولة للوصول إلى المستوى التالي!
+          unearned_another: هذا المشارك لم يكن لديه أي مقترحات مقبولة.
+          unearned_own: لم تحصل على اقتراحات مقبولة حتى الآن.
+        proposal_votes:
+          conditions:
+            - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
+            - قدم الدعم للمقترحات التي تحبها أو تجدها مثيرة للاهتمام
+          description: تُمنح هذه الشارة عند دعم اقتراحات الآخرين.
+          description_another: قدم هذا المشارك الدعم إلى %{score} مقترحات.
+          description_own: لقد قدمت الدعم إلى %{score} مقترحات.
+          name: يدعم الاقتراح
+          next_level_in: تقديم الدعم ل %{score} مقترحات أخرى للوصول إلى المستوى التالي!
+          unearned_another: لم يقدم هذا المشارك الدعم لأي مقترحات حتى الآن.
+          unearned_own: لقد قدمت الدعم لأية مقترحات حتى الآن.
+        proposals:
+          conditions:
+            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+            - إنشاء اقتراح جديد
+          description: تُمنح هذه الشارة عندما تشارك بنشاط في مقترحات جديدة.
+          description_another: قام هذا المشارك بإنشاء %{score} مقترحات.
+          description_own: لقد قمت بإنشاء %{score} مقترحات.
+          name: اقتراحات
+          next_level_in: إنشاء %{score} المزيد من المقترحات للوصول إلى المستوى التالي!
+          unearned_another: لم ينشئ هذا المشارك أي مقترحات حتى الآن.
+          unearned_own: لم تنشئ اقتراحات بعد.
+    metrics:
+      accepted_proposals:
+        description: عدد المقترحات المقبولة
+        object: اقتراحات
+        title: مقترحات مقبولة
+      endorsements:
+        description: عدد موافقات المقترحات
+        object: موافقات
+        title: موافقات
+      proposals:
+        description: عدد المقترحات
+        object: اقتراحات
+        title: اقتراحات
+      votes:
+        description: عدد الدعم للمقترحات
+        object: الدعم
+        title: الدعم
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: اقتراحات
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: شاهد الكل (%{count})
+    proposals:
+      actions:
+        answer: إجابة
+        edit_proposal: تعديل الاقتراح
+        import: استيراد من مكون آخر
+        new: عرض جديد
+        participatory_texts: النصوص التشاركية
+        private_notes: ملاحظات خاصة
+        title: أفعال
+      admin:
+        actions:
+          preview: معاينة
+        exports:
+          comments: تعليقات
+          proposals: اقتراحات
+        models:
+          proposal:
+            name: اقتراح
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: هل أنت متأكد من تجاهل مشروع النص التشاركي بأكمله؟
+            discard_all: تجاهل كل
+            import_doc: استيراد المستند
+          discard:
+            success: تم تجاهل جميع المسودات النصية التشاركية.
+          import:
+            invalid: النموذج غير صالح!
+            success: مبروك ، تم تحويل الأقسام التالية إلى مقترحات. يمكنك الآن مراجعتها وضبطها قبل النشر.
+          index:
+            info_1: تم تحويل الأقسام التالية إلى مقترحات. يمكنك الآن مراجعتها وضبطها قبل النشر.
+            publish_document: نشر المستند
+            save_draft: حفظ المسودة
+            title: عرض نص المشاركة
+          new_import:
+            accepted_mime_types:
+              md: تخفيض السعر
+              odt: ODT
+            bottom_hint: "(سوف تكون قادرًا على معاينة وفرز أقسام المستندات)"
+            document_legend: 'أضف مستندًا أقل من 2 ميغابايت ، وسيتم تحليل كل قسم حتى عمق 3 مستويات في الاقتراحات. التنسيقات المدعومة هي: %{valid_mime_types}'
+            title: إضافة وثيقة
+            upload_document: تحميل المستند
+          publish:
+            invalid: لا يمكن نشر المقترحات
+            success: تم نشر جميع المقترحات
+          sections:
+            article: "<em>المادة</em>"
+            section: "<em>القسم:</em> <strong>%{title}</strong>"
+            sub-section: "<em>القسم الفرعي:</em> %{title}"
+          update:
+            success: تم تحديث النص التشاركي بنجاح.
+        proposal_answers:
+          edit:
+            accepted: وافقت
+            answer_proposal: إجابة
+            evaluating: تقييم
+            rejected: مرفوض
+            title: الإجابة على الاقتراح %{title}
+        proposal_notes:
+          create:
+            error: حدثت مشكلة أثناء إنشاء مذكرة الاقتراح هذه
+            success: تم إنشاء ملاحظة الاقتراح بنجاح
+          form:
+            note: ملحوظة
+            submit: خضع
+          leave_your_note: اترك ملاحظتك
+          title: ملاحظات خاصة
+        proposals:
+          answer:
+            invalid: كانت هناك مشكلة في الإجابة على هذا الاقتراح
+            success: تم الرد على الاقتراح بنجاح
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذا الاقتراح
+            success: تم إنشاء الاقتراح بنجاح
+          edit:
+            title: تحديث الاقتراح
+            update: تحديث
+          form:
+            attachment_legend: "(اختياري) إضافة مرفق"
+            created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            select_a_category: اختر تصنيف
+            select_a_meeting: اختيار اجتماع
+          index:
+            actions: أفعال
+            cancel: إلغاء
+            change_category: تغيير الفئة
+            merge: دمج في واحدة جديدة
+            merge_button: دمج
+            select_component: حدد المكون
+            selected: المحدد
+            split: تقسيم المقترحات
+            split_button: انشق، مزق
+            title: اقتراحات
+            update: تحديث
+          new:
+            create: إنشاء
+            title: إنشاء اقتراح
+          update_category:
+            invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
+            select_a_category: الرجاء تحديد الفئة
+            select_a_proposal: يرجى اختيار الاقتراح
+            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{category} : %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: كانت هناك مشكلة في استيراد المقترحات
+            success: "%{number} مقترحات تم استيرادها بنجاح"
+          new:
+            create: مقترحات الاستيراد
+            no_components: لا توجد مكونات اقتراح أخرى في هذه المساحة التشاركية لاستيراد المقترحات منها.
+            select_component: يرجى اختيار عنصر
+            select_states: تحقق من حالة مقترحات الاستيراد
+        proposals_merges:
+          create:
+            invalid: كانت هناك مشكلة في دمج المقترحات المحددة.
+            success: دمج المقترحات بنجاح في واحدة جديدة.
+        proposals_splits:
+          create:
+            invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
+            success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
+        shared:
+          info_proposal:
+            body: الجسم
+            created_at: تاريخ الإنشاء
+            proposal_votes_count: يدعم العد
+            proposals: اقتراحات
+      admin_log:
+        proposal:
+          answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
+          create: "%{user_name} بإنشاء الاقتراح %{resource_name} على الحيز %{space_name} كمقترح رسمي"
+          update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
+        proposal_note:
+          create: "غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء"
+      answers:
+        accepted: وافقت
+        evaluating: تقييم
+        not_answered: بلا جواب
+        rejected: مرفوض
+        withdrawn: سحب
+      application_helper:
+        filter_origin_values:
+          all: الكل
+          citizens: المواطنون
+          meetings: اجتماعات
+          user_groups: المجموعات
+        filter_state_values:
+          accepted: وافقت
+          all: الكل
+          evaluating: تقييم
+          rejected: مرفوض
+        filter_type_values:
+          all: الكل
+          amendments: تعديلات
+          proposals: اقتراحات
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: حدثت مشكلة أثناء نشر المسودة التعاونية.
+            irreversible_action_modal:
+              body: بعد نشر المسودة كاقتراح ، لن تكون المسودة قابلة للتحرير بعد الآن. لن يقبل الاقتراح مؤلفين أو مساهمات جديدة.
+              cancel: إلغاء
+              ok: نشر كاقتراح
+              title: الإجراء التالي لا رجعة فيه
+            success: مسودة تعاونية تم نشرها بنجاح كمقترح
+          view_collaborative_draft: عرض المسودة التعاونية
+          withdraw:
+            error: حدثت مشكلة أثناء إغلاق المسودة التعاونية.
+            irreversible_action_modal:
+              body: بعد إغلاق المسودة ، لن تكون المسودة قابلة للتحرير بعد الآن. لن يقبل المسودة مؤلفين أو مساهمات جديدة.
+              cancel: إلغاء
+              ok: سحب المسودة التعاونية
+              title: الإجراء التالي لا رجعة فيه
+            success: تم سحب مشروع تعاوني بنجاح.
+        compare:
+          mine_is_different: مسودتي التعاونية مختلفة
+          no_similars_found: أحسنت! لم يتم العثور على مسودات تعاونية مماثلة
+          title: مسودات تعاونية مماثلة
+        complete:
+          send: إرسال
+          title: أكمل مسودتك التعاونية
+        count:
+          drafts_count:
+            zero: "%{count} مسودات تعاونية"
+            one: "%{count} مشروع تعاوني"
+            two: "%{count} مسودات تعاونية"
+            few: "%{count} مسودات تعاونية"
+            many: "%{count} مسودات تعاونية"
+            other: "%{count} مسودات تعاونية"
+        create:
+          error: كانت هناك مشكلة في إنشاء هذه المسودات التعاونية
+          success: تم إنشاء مشروع تعاوني بنجاح.
+        edit:
+          attachment_legend: "(اختياري) إضافة مرفق"
+          back: الى الخلف
+          select_a_category: الرجاء تحديد الفئة
+          send: إرسال
+          title: تحرير المسودة التعاونية
+        filters:
+          all: الكل
+          amendment: تعديلات
+          category: الفئة
+          category_prompt: الفئة موجه
+          open: افتح
+          published: نشرت
+          related_to: متعلق ب
+          search: بحث
+          state: الحالة
+          withdrawn: سحب
+        filters_small_view:
+          close_modal: إغلاق مشروط
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        new:
+          send: استمر
+          title: إنشاء مسودتك التعاونية
+        new_collaborative_draft_button:
+          new_collaborative_draft: مشروع تعاوني جديد
+        orders:
+          label: 'ترتيب المسودات حسب:'
+          most_contributed: التي تحصلت على معظم المساهمات
+          random: عشوائية
+          recent: الأخيرة
+        requests:
+          accepted_request:
+            error: لا يمكن قبول كمتعاون ، يرجى المحاولة مرة أخرى في وقت لاحق.
+            success: "تم قبول @%{user} كمتعاون بنجاح"
+          access_requested:
+            error: تعذر إكمال طلبك ، يرجى إعادة المحاولة لاحقًا.
+            success: تم إرسال طلبك للتعاون بنجاح
+          collaboration_requests:
+            accept_request: قبول
+            reject_request: رفض
+            title: طلبات التعاون
+          rejected_request:
+            error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
+            success: "تم رفض @%{user} بنجاح كمتعاون"
+        show:
+          back: الى الخلف
+          edit: تحرير المسودة التعاونية
+          final_proposal: الاقتراح النهائي
+          final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
+          hidden_authors_count:
+            zero: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
+            two: و %{count} المزيد من الناس
+            few: و %{count} المزيد من الناس
+            many: و %{count} المزيد من الناس
+            other: و %{count} المزيد من الناس
+          info-message: هذا هو <strong>مشروع تعاوني</strong> لاقتراح. هذا يعني أنه يمكنك مساعدة مؤلفيها في صياغة الاقتراح باستخدام قسم التعليقات أدناه أو تحسينه مباشرةً من خلال طلب الوصول لتحريره. بمجرد أن يمنحك المؤلفون حق الوصول ، ستتمكن من إجراء تغييرات على هذه المسودة.
+          of_versions: "(من %{number})"
+          publish: نشر
+          publish_info: نشر هذا الإصدار من المسودة أو
+          published_proposal: الاقتراح المنشور
+          request_access: طلب الدخول
+          requested_access: طلب الوصول
+          see_other_versions: رؤية الإصدارات الأخرى
+          version: الإصدار %{number}
+          version_history: انظر تاريخ الإصدار لهذا الاقتراح
+          withdraw: سحب المشروع
+        states:
+          open: افتح
+          published: نشرت
+          withdrawn: سحب
+        update:
+          error: حدثت مشكلة في حفظ المسودة التعاونية.
+          success: تم تحديث المسودة التعاونية بنجاح.
+        wizard_aside:
+          back: الى الخلف
+          info: إنك لعلى خلق <strong>مشروع تعاوني</strong>.
+        wizard_steps:
+          see_steps: عرض الخطوات
+          step_1: إنشاء مسودتك التعاونية
+          step_2: قارن مع المسودات التعاونية
+          step_3: أكمل مسودتك التعاونية
+          step_of: الخطوة %{current_step_num} من %{total_steps}
+      create:
+        error: كانت هناك مشكلة في حفظ الاقتراح.
+        success: تم إنشاء الاقتراح بنجاح. تم الحفظ كمسودة.
+      destroy_draft:
+        error: حدثت مشكلة في حذف المسودة التعاونية.
+        success: تم حذف مسودة الاقتراح بنجاح.
+      last_activity:
+        new_proposal_at_html: "<span>اقتراح جديد في %{link}</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: المؤلفون
+            comments: تعليقات
+            contributions: مساهمات
+        proposal:
+          fields:
+            category: الفئة
+            comments: تعليقات
+            endorsements: موافقات
+            id: هوية شخصية
+            notes: ملاحظات
+            official_proposal: الاقتراح الرسمي
+            published_at: نشرت في
+            scope: نطاق
+            state: الحالة
+            title: عنوان
+            votes: الأصوات
+      new:
+        limit_reached: لا يمكنك إنشاء مقترحات جديدة لأنك تجاوزت الحد.
+      participatory_text_proposal:
+        alternative_title: لا توجد نصوص تشاركية في الوقت الحالي
+        buttons:
+          amend: تعديل
+          comment: تعليق
+          comments: تعليقات
+          endorse: تأييد
+      proposal_endorsements:
+        create:
+          error: كانت هناك مشكلة في تأييد الاقتراح.
+        identities:
+          done: فعله
+          select_identity: حدد الهوية
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: أيد
+          endorse: تأييد
+        render_endorsements_button_card_part:
+          endorse: تأييد
+      proposal_votes:
+        create:
+          error: كانت هناك مشكلة في دعم الاقتراح.
+      proposals:
+        compare:
+          continue: استمر
+          no_similars_found: أحسنت! لم يتم العثور على مقترحات مماثلة
+          title: مقترحات مماثلة
+        complete:
+          send: إرسال
+          title: أكمل اقتراحك
+        count:
+          proposals_count:
+            zero: "%{count} مقترحات"
+            one: "%{count} اقتراح"
+            two: "%{count} مقترحات"
+            few: "%{count} مقترحات"
+            many: "%{count} مقترحات"
+            other: "%{count} مقترحات"
+        edit:
+          attachment_legend: "(اختياري) إضافة مرفق"
+          back: الى الخلف
+          select_a_category: الرجاء تحديد الفئة
+          send: إرسال
+          title: تعديل الاقتراح
+        edit_draft:
+          discard: تجاهل هذه المسودة
+          discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
+          send: معاينة
+          title: تحرير مسودة الاقتراح
+        endorsement_identities_cabin:
+          endorse: تأييد
+        endorsements_card_row:
+          comments: تعليقات
+        filters:
+          activity: نشاط
+          amendment_type: نوع
+          category: الفئة
+          category_prompt: اختر تصنيف
+          origin: الأصل
+          related_to: متعلق ب
+          search: بحث
+          state: الحالة
+          voted: أيد
+        filters_small_view:
+          close_modal: إغلاق مشروط
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        index:
+          collaborative_drafts_list: الوصول إلى المسودات التعاونية
+          new_proposal: عرض جديد
+          see_all_withdrawn: الاطلاع على جميع المقترحات المسحوبة
+          view_proposal: عرض الاقتراح
+        linked_proposals:
+          proposal_votes:
+            zero: الدعم
+            one: الدعم
+            two: الدعم
+            few: الدعم
+            many: الدعم
+            other: الدعم
+        new:
+          send: استمر
+          title: إنشاء اقتراحك
+        orders:
+          label: 'ترتيب المقترحات حسب:'
+          most_voted: التي تحصلت على أكبر دعم
+          random: عشوائية
+          recent: الأخيرة
+        participatory_texts:
+          index:
+            document_index: فهرس الوثيقة
+          view_index:
+            see_index: انظر الفهرس
+        preview:
+          modify: تعديل الاقتراح
+          proposal_edit_before_minutes:
+            zero: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            one: ستتمكن من تعديل هذا الاقتراح خلال الدقيقة الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            two: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            few: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            many: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            other: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+          publish: نشر
+          title: نشر اقتراحك
+        proposal:
+          creation_date: 'الإنشاء: %{date}'
+          view_proposal: عرض الاقتراح
+        show:
+          back_to: ارجع الى
+          edit_proposal: تعديل الاقتراح
+          endorsements_list: قائمة المصادقة
+          hidden_endorsers_count:
+            zero: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
+            two: و %{count} المزيد من الناس
+            few: و %{count} المزيد من الناس
+            many: و %{count} المزيد من الناس
+            other: و %{count} المزيد من الناس
+          link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
+          link_to_collaborative_draft_text: انظر المسودة التعاونية
+          proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
+          proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
+          proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
+          report: أبلغ عن
+          withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
+          withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
+          withdraw_proposal: سحب الاقتراح
+        tags:
+          changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
+          filed_as: قدم كما
+        vote_button:
+          already_voted: معتمد بالفعل
+          already_voted_hover: سحب الدعم
+          maximum_votes_reached: تم الوصول إلى حد الدعم
+          no_votes_remaining: لا يدعم المتبقية
+          vote: الدعم
+          votes_blocked: يدعم المعوقين
+        votes_count:
+          count:
+            zero: يدعم
+            one: الدعم
+            two: يدعم
+            few: يدعم
+            many: يدعم
+            other: يدعم
+          most_popular_proposal: الاقتراح الأكثر شعبية
+          need_more_votes: بحاجة الى مزيد من الدعم
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: كل اقتراح يمكن أن تتراكم أكثر من %{limit} يدعم
+          minimum_votes_per_user:
+            description: يجب عليك توزيع ما لا يقل عن %{votes} دعما بين المقترحات المختلفة.
+            given_enough_votes: لقد قدمت ما يكفي من الدعم.
+            supports_remaining: يجب عليك دعم %{remaining_votes} مقترحات أخرى ليتم أخذها في الاعتبار.
+          proposal_limit:
+            description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
+          threshold_per_proposal:
+            description: من أجل التحقق من صحة المقترحات تحتاج إلى الوصول إلى %{limit} الدعم
+          title: 'الدعامات تخضع للقواعد التالية:'
+          vote_limit:
+            description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
+            left: متبق
+            votes: الدعم
+        wizard_aside:
+          back: الى الخلف
+          info: إنك بصدد إنشاء <strong>اقتراح</strong>.
+        wizard_steps:
+          see_steps: عرض الخطوات
+          step_1: إنشاء اقتراحك
+          step_2: قارن
+          step_3: إكمال
+          step_4: انشر اقتراحك
+          step_of: الخطوة %{current_step_num} من %{total_steps}
+      publish:
+        error: كانت هناك مشكلة في نشر الاقتراح.
+        success: تم نشر الاقتراح بنجاح.
+      update:
+        error: كانت هناك مشكلة في حفظ الاقتراح.
+        success: تم تحديث الاقتراح بنجاح.
+      update_draft:
+        error: حدثت مشكلة في حفظ المسودة التعاونية.
+        success: تم تحديث مسودة الاقتراح بنجاح.
+      versions:
+        changes_at_title: التغييرات في "%{title}"
+        index:
+          title: إصدارات
+        stats:
+          back_to_collaborative_draft: العودة إلى المسودة التعاونية
+          back_to_proposal: العودة إلى الاقتراح
+          number_of_versions: إصدارات
+          show_all_versions: عرض جميع الإصدارات
+          version_author: مؤلف الإصدار
+          version_created_at: تم إنشاء الإصدار في
+          version_number: رقم الإصدار
+          version_number_out_of_total: "%{current_version} من %{total_count}"
+        version:
+          version_index: الإصدار %{index}
+      withdraw:
+        errors:
+          has_supports: لا يمكن سحب هذا الاقتراح لأنه تلقى دعما مِن قَبل.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: المقترحات ذات الصلة
+      included_projects:
+        project_result: 'النتائج التي تظهر في هذا المشروع:'
+      included_proposals:
+        proposal_project: 'اقتراح يظهر في هذه المشاريع:'
+        proposal_result: 'اقتراح يظهر في هذه النتائج:'

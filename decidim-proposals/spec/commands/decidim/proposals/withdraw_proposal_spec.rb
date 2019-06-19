@@ -31,7 +31,7 @@ module Decidim
 
           it "is not able to withdraw the proposal" do
             expect do
-              expect { command.call }.to broadcast(:invalid)
+              expect { command.call }.to broadcast(:has_supports)
             end.to change { Decidim::Proposals::Proposal.count }.by(0)
             expect(proposal.state).not_to eq("withdrawn")
           end

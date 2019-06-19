@@ -89,14 +89,18 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the changed attributes" do
-      expect(page).to have_content("PROGRESS")
+      expect(page).to have_content("Changes at")
 
-      within ".card.diff .removal" do
-        expect(page).to have_content("25.00%")
-      end
+      within ".diff-for-progress" do
+        expect(page).to have_content("PROGRESS")
 
-      within ".card.diff .addition" do
-        expect(page).to have_content("50.00%")
+        within ".diff > ul > .del" do
+          expect(page).to have_content("25.0")
+        end
+
+        within ".diff > ul > .ins" do
+          expect(page).to have_content("50.0")
+        end
       end
     end
   end

@@ -11,6 +11,7 @@ module Decidim
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
       include Decidim::ComponentPathHelper
+      include Decidim::SanitizeHelper
 
       class_attribute :i18n_interpolations
       self.i18n_interpolations = []
@@ -53,6 +54,7 @@ module Decidim
       # then the role is appended to the i18n scope.
       def i18n_scope
         return event_name if user_role.blank? || !event_has_roles?
+
         "#{event_name}.#{user_role}"
       end
 
@@ -66,18 +68,26 @@ module Decidim
 
       # Public: The Hash of options to pass to the I18.t method.
       def i18n_options
-        default_i18n_options.merge(event_interpolations)
+        default_i18n_options.merge(event_interpolations).transform_values do |value|
+          if value.is_a?(String)
+            decidim_html_escape(value)
+          else
+            value
+          end
+        end
       end
 
       # Caches the path for the given resource when it's a Decidim::Component.
       def resource_path
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_path ||= main_component_path(resource)
       end
 
       # Caches the URL for the given resource when it's a Decidim::Component.
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_url ||= main_component_url(resource)
       end
 

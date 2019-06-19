@@ -20,8 +20,8 @@
           <%= f.text_field :document_number, required: true %>
         </div>
 
-        <div class="field">
-          <%= f.date_field :date_of_birth, required: true %>
+        <div class="field date">
+          <%= f.date_select :date_of_birth, start_year: 1900, end_year: 16.years.ago.year, default: 35.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
         </div>
 
         <div class="field">

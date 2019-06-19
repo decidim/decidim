@@ -138,7 +138,7 @@ module Decidim
           when :discard
             toggle_allow(initiative.validating?)
           when :export_pdf_signatures
-            toggle_allow(initiative.published?)
+            toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected?)
           when :export_votes
             toggle_allow(initiative.offline? || initiative.any?)
           when :accept
@@ -165,6 +165,7 @@ module Decidim
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
                         permission_action.action == :list
+
           allow!
         end
 

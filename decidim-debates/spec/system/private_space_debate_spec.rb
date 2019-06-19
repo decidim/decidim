@@ -100,7 +100,7 @@ describe "Private Space Debate", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("Debate created successfully.")
+          expect(page).to have_content("Debate successfully created.")
         end
       end
 

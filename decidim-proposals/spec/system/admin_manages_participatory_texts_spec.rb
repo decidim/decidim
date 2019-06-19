@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages particpatory texts", type: :system do
+describe "Admin manages participatory texts", type: :system do
   let(:manifest_name) { "proposals" }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -42,7 +42,7 @@ describe "Admin manages particpatory texts", type: :system do
     )
     attach_file :import_participatory_text_document, Decidim::Dev.asset("participatory_text.md")
     click_button "Upload document"
-    expect(page).to have_content "Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing."
+    expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
@@ -90,7 +90,7 @@ describe "Admin manages particpatory texts", type: :system do
 
   def save_participatory_text_drafts
     click_button "Save draft"
-    expect(page).to have_content "Participatory text updated successfully."
+    expect(page).to have_content "Participatory text successfully updated."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
@@ -98,11 +98,11 @@ describe "Admin manages particpatory texts", type: :system do
     page.accept_alert "Are you sure to discard the whole participatory text draft?" do
       click_link "Discard all"
     end
-    expect(page).to have_content "All Participatory text drafts have been discarded."
+    expect(page).to have_content "All participatory text drafts have been discarded."
     expect(page).to have_content "PREVIEW PARTICIPATORY TEXT"
   end
 
-  describe "importing partipatory texts from a document" do
+  describe "importing participatory texts from a document" do
     it "creates proposals" do
       visit_participatory_texts
       import_document

@@ -26,14 +26,16 @@ describe "Initiative signing", type: :system do
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
     within ".view-side" do
-      expect(page).to have_content("0\nSIGNATURE")
+      expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
 
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago
+      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
+      select "January", from: :initiatives_vote_date_of_birth_2i
+      select "1", from: :initiatives_vote_date_of_birth_3i
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
@@ -43,12 +45,8 @@ describe "Initiative signing", type: :system do
   context "when initiative type personal data collection is disabled" do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization: organization) }
 
-    it "The vote is created without wizard steps" do
-      expect(page).to have_no_content("initiative has been signed correctly")
-
-      within ".view-side" do
-        expect(page).to have_content("1\nSIGNATURE")
-      end
+    it "The sms step appears" do
+      expect(page).to have_content("MOBILE PHONE NUMBER")
     end
   end
 
@@ -58,11 +56,11 @@ describe "Initiative signing", type: :system do
         let(:authorizations) { [] }
 
         it "The vote is created" do
-          expect(page).to have_content("initiative has been signed correctly")
+          expect(page).to have_content("initiative has been successfully signed")
           click_on "Back to initiative"
 
           within ".view-side" do
-            expect(page).to have_content("1\nSIGNATURE")
+            expect(page).to have_content(signature_text(1))
             expect(initiative.reload.initiative_votes_count).to eq(1)
           end
         end
@@ -127,10 +125,10 @@ describe "Initiative signing", type: :system do
               it "the vote is created" do
                 fill_sms_code
 
-                expect(page).to have_content("initiative has been signed correctly")
+                expect(page).to have_content("initiative has been successfully signed")
                 click_on "Back to initiative"
 
-                expect(page).to have_content("1\nSIGNATURE")
+                expect(page).to have_content(signature_text(1))
                 expect(initiative.reload.initiative_votes_count).to eq(1)
               end
             end
@@ -149,4 +147,10 @@ end
 def fill_sms_code
   fill_in :confirmation_verification_code, with: form_sms_code
   click_button "Check code and continue"
+end
+
+def signature_text(number)
+  return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+
+  "#{number}/#{initiative.supports_required}\nSIGNATURES"
 end

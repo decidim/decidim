@@ -5,12 +5,14 @@
 %>
 
 <%= form.fields_for(:authorization_handlers_options) do |options_form| %>
-  <% attributes.each do |name, attribute| %>
-    <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
-      <%= attribute_options_form.send(
-            form_method_for_attribute(attribute),
+  <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
+    <% attributes.each do |name, attribute| %>
+      <%= settings_attribute_input(
+            attribute_options_form,
+            attribute,
             name,
-            label: t("authorization_handlers.#{handler_name}.fields.#{name}", scope: "decidim")#,
+            label: t("authorization_handlers.#{handler_name}.fields.#{name}", scope: "decidim"),
+            tabs_prefix: "#{name}_tabs_prefix"
           ) %>
     <% end %>
   <% end %>

@@ -31,7 +31,7 @@ describe "User prints the initiative", type: :system do
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
-            select "Face to face", from: "initiative_signature_type"
+            select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate
         end
@@ -80,7 +80,7 @@ describe "User prints the initiative", type: :system do
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
-            select "Face to face", from: "initiative_signature_type"
+            select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate
         end
@@ -96,7 +96,7 @@ describe "User prints the initiative", type: :system do
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
             select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
-            select "Face to face", from: "initiative_signature_type"
+            select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate
         end

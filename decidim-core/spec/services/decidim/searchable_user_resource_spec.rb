@@ -27,7 +27,7 @@ module Decidim
           organization.available_locales.each do |locale|
             searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
             expect(searchable.content_a).to eq user.name
-            expect(searchable.updated_at).to be > created_at
+            expect(searchable.updated_at.to_i).to be >= created_at.to_i
           end
         end
 

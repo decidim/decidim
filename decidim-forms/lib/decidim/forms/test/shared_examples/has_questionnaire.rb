@@ -10,9 +10,13 @@ shared_examples_for "has questionnaire" do
       expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
 
-      expect(page).to have_no_i18n_content(question.body)
+      expect(page).not_to have_css(".form.answer-questionnaire")
 
-      expect(page).to have_content("Sign in with your account or sign up to answer the questionnaire.")
+      within ".questionnaire-question_readonly" do
+        expect(page).to have_i18n_content(question.body)
+      end
+
+      expect(page).to have_content("Sign in with your account or sign up to answer the form.")
     end
   end
 
@@ -39,7 +43,7 @@ shared_examples_for "has questionnaire" do
 
       visit questionnaire_public_path
 
-      expect(page).to have_content("You have already answered this questionnaire.")
+      expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
     end
 
@@ -130,7 +134,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("can't be blank")
@@ -176,7 +180,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("can't be blank")
@@ -266,7 +270,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There's been errors when answering")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -312,7 +316,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There's been errors when answering")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -361,7 +365,7 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -390,7 +394,7 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
 
@@ -410,7 +414,7 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_button "Submit" }
 
         within ".alert.flash" do
-          expect(page).to have_content("There's been errors")
+          expect(page).to have_content("There was a problem answering")
         end
 
         expect(page).to have_content("are too many")
@@ -447,7 +451,7 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -514,7 +518,7 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_button "Submit" }
 
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("are not complete")

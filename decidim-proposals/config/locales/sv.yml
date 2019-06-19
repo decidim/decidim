@@ -28,12 +28,23 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
+      proposals_import:
+        import_proposals: Importera förslag
+        keep_authors: Förvara originalförfattare
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Behöver återbifogas
+            body:
+              identical: OCH titel kan inte vara identisk
+            title:
+              identical: OCH kropp kan inte vara identisk
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
@@ -292,8 +303,10 @@ sv:
         participatory_texts:
           bulk-actions:
             are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            import_doc: Importera dokument
             discard_all: Kassera allt
+            import_doc: Importera dokument
+          discard:
+            success: Alla deltagande textförslag har kasseras.
           import:
             invalid: Blanketten är ogiltig!
             success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
@@ -303,15 +316,16 @@ sv:
             save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
           new_import:
+            accepted_mime_types:
+              md: Prissänkning
+              odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsgranska och sortera dokumentavsnitt)"
-            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: Markdown'
+            document_legend: 'Lägg till ett dokument mindre än 2 MB, varje sektion tills 3 nivåer djup kommer att analyseras i förslag. Suported format är: %{valid_mime_types}'
             title: ADD DOKUMENT
             upload_document: Ladda upp dokument
           publish:
             invalid: Kunde inte publicera förslag
             success: Alla förslag har publicerats
-          discard:
-            success: Alla deltagande textförslag har kasseras.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -419,7 +433,7 @@ sv:
           except_rejected: Alla förutom avvisade
           rejected: avvisade
         filter_type_values:
-          all: Allt
+          all: Alla
           amendments: Tillägg
           proposals: förslag
       collaborative_drafts:
@@ -589,7 +603,7 @@ sv:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
-          mine_is_different: Mitt förslag är annorlunda
+          continue: Fortsätta
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
         complete:
@@ -616,6 +630,7 @@ sv:
           comments: Kommentarer
         filters:
           activity: Aktivitet
+          amendment_type: Typ
           category: Kategori
           category_prompt: Välj en kategori
           origin: Ursprung
@@ -623,7 +638,6 @@ sv:
           search: Sök
           state: Status
           voted: Röstade
-          amendment_type: Typ
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -743,6 +757,9 @@ sv:
           version_number_out_of_total: "%{current_version} av %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Detta förslag kan inte återkallas eftersom det redan har stöd.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag

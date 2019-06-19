@@ -8,6 +8,7 @@ module Decidim
       describe ImportProposals do
         describe "call" do
           let!(:proposal) { create(:proposal, :accepted) }
+          let(:keep_authors) { false }
           let(:current_component) do
             create(
               :proposal_component,
@@ -20,6 +21,7 @@ module Decidim
               origin_component: proposal.component,
               current_component: current_component,
               current_organization: current_component.organization,
+              keep_authors: keep_authors,
               states: states,
               current_user: create(:user),
               valid?: valid
@@ -97,6 +99,19 @@ module Decidim
               expect(new_proposal.reference).not_to eq(proposal.reference)
             end
 
+            describe "when keep_authors is true" do
+              let(:keep_authors) { true }
+
+              it "only keeps the proposal authors" do
+                command.call
+
+                new_proposal = Proposal.where(component: current_component).last
+                expect(new_proposal.title).to eq(proposal.title)
+                expect(new_proposal.body).to eq(proposal.body)
+                expect(new_proposal.creator_author).to eq(proposal.creator_author)
+              end
+            end
+
             describe "proposal states" do
               let(:states) { %w(not_answered rejected) }
 
@@ -111,6 +126,21 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+              end
+            end
+
+            describe "when the proposal has attachments" do
+              let!(:attachment) do
+                create(:attachment, attached_to: proposal)
+              end
+
+              it "duplicates the attachments" do
+                expect do
+                  command.call
+                end.to change(Attachment, :count).by(1)
+
+                new_proposal = Proposal.where(component: current_component).last
+                expect(new_proposal.attachments.count).to eq(1)
               end
             end
           end

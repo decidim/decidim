@@ -1,6 +1,6 @@
 <% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? && allowed_to?(:vote, :initiative, initiative: initiative) %>
   <button id="select-identity-button"
-          class="card__button button expanded button--sc">
+          class="button expanded light button--sc">
     <%= t(".vote") %>
   </button>
 
@@ -18,7 +18,7 @@
                    steps: signature_has_steps?
                } %>
 <% else %>
-  <button class='card__button button expanded button--sc disabled' disabled>
+  <button class='button expanded light button--sc disabled' disabled>
     <%= t(".votes_blocked") %>
   </button>
 <% end %>

@@ -16,6 +16,7 @@ module Decidim
       return if model.nil?
       return unless current_user
       return if current_user.tos_accepted?
+
       render model
     end
 

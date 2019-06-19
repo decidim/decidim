@@ -134,7 +134,7 @@ describe "Explore debates", type: :system do
           visit_component
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
+            select category.name[I18n.locale.to_s], from: "filter[category_id]"
           end
 
           expect(page).to have_css(".card--debate", count: 1)
@@ -159,6 +159,12 @@ describe "Explore debates", type: :system do
     end
   end
 
+  context "when component is not commentable" do
+    let(:ressources) { create_list(:debate, 3, component: current_component) }
+
+    it_behaves_like "an uncommentable component"
+  end
+
   describe "show" do
     let(:path) do
       decidim_participatory_process_debates.debate_path(
@@ -176,9 +182,9 @@ describe "Explore debates", type: :system do
 
     it "shows all debate info" do
       expect(page).to have_i18n_content(debate.title)
-      expect(page).to have_i18n_content(debate.description)
-      expect(page).to have_i18n_content(debate.information_updates)
-      expect(page).to have_i18n_content(debate.instructions)
+      expect(page).to have_i18n_content(debate.description, strip_tags: true)
+      expect(page).to have_i18n_content(debate.information_updates, strip_tags: true)
+      expect(page).to have_i18n_content(debate.instructions, strip_tags: true)
 
       within ".section.view-side" do
         expect(page).to have_content(13)

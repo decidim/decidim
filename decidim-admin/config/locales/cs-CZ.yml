@@ -36,6 +36,7 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
+        alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka volat na akci
         cta_button_text: Text tlačítka Volat na akci
@@ -62,11 +63,15 @@ cs:
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Titul
         omnipresent_banner_url: URL
+        primary_color: Hlavní
         reference_prefix: Referenční předpona
+        secondary_color: Sekundární
         show_statistics: Zobrazit statistiky
+        success_color: Úspěch
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny uživatelů
+        warning_color: Varování
         youtube_handler: Obslužný program YouTube
       scope:
         code: Kód
@@ -506,6 +511,7 @@ cs:
         edit:
           update: Aktualizace
         form:
+          colors_title: Organizační barvy
           cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
           cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
           header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.

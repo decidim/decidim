@@ -36,6 +36,7 @@ id:
         organization_url: URL Organisasi
         redirect_uri: Alihkan URI
       organization:
+        alert_color: Waspada
         badges_enabled: Aktifkan lencana
         cta_button_path: Jalur tombol Call To Action
         cta_button_text: Teks tombol Call To Action
@@ -62,11 +63,15 @@ id:
         omnipresent_banner_short_description: Deskripsi Singkat
         omnipresent_banner_title: Judul
         omnipresent_banner_url: URL
+        primary_color: Utama
         reference_prefix: Awalan referensi
+        secondary_color: Sekunder
         show_statistics: Tampilkan statistik
+        success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
         twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
+        warning_color: Peringatan
         youtube_handler: Penangan YouTube
       scope:
         code: Kode
@@ -102,9 +107,9 @@ id:
               must_be_ssl: URI pengalihan harus berupa URI SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: File gambar tidak valid
             official_img_footer:
+              allowed_file_content_types: File gambar tidak valid
+            official_img_header:
               allowed_file_content_types: File gambar tidak valid
   activerecord:
     attributes:
@@ -151,6 +156,7 @@ id:
           error: Terjadi kesalahan saat membuat area baru.
           success: Area berhasil dibuat.
         destroy:
+          has_spaces: Area memiliki spasi, tidak boleh memiliki dependensi untuk dihapus.
           success: Area berhasil dihancurkan
         edit:
           title: Edit area
@@ -433,9 +439,10 @@ id:
         new:
           save: Menyimpan
           title: Newsletter baru
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Anda yakin ingin menyampaikan buletin ini? Tindakan ini tidak bisa dibatalkan.
           deliver: Kirimkan buletin
+        show:
           preview: Preview
           subject: Subyek
         update:
@@ -506,6 +513,7 @@ id:
         edit:
           update: Memperbarui
         form:
+          colors_title: Warna organisasi
           cta_button_path_help: 'Anda dapat menimpa tempat tombol Ajakan Bertindak di tautan beranda ke. Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi. Contoh: %{url}'
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           header_snippets_help: Gunakan bidang ini untuk menambahkan sesuatu ke kepala HTML. Penggunaan yang paling umum adalah mengintegrasikan layanan pihak ketiga yang memerlukan beberapa JavaScript atau CSS tambahan. Juga, Anda dapat menggunakannya untuk menambahkan meta tag ekstra ke HTML. Perhatikan bahwa ini hanya akan ditampilkan di halaman publik, bukan di bagian admin.

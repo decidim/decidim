@@ -36,6 +36,7 @@ de:
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
       organization:
+        alert_color: Warnen
         badges_enabled: Abzeichen aktivieren
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
@@ -62,11 +63,15 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        primary_color: Primär
         reference_prefix: Referenzpräfix
+        secondary_color: Sekundär
         show_statistics: Zeige Statistiken
+        success_color: Erfolg
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
+        warning_color: Warnung
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -102,9 +107,9 @@ de:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Ungültige Bilddatei
             official_img_footer:
+              allowed_file_content_types: Ungültige Bilddatei
+            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
@@ -151,6 +156,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Bereich hat abhängige Bereiche, es darf keine Abhängigkeiten haben, um gelöscht zu werden.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -433,9 +439,10 @@ de:
         new:
           save: sparen
           title: Neuer Newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
           deliver: Liefern Newsletter
+        show:
           preview: Vorschau
           subject: Gegenstand
         update:
@@ -506,6 +513,7 @@ de:
         edit:
           update: Aktualisieren
         form:
+          colors_title: Organisationsfarben
           cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.

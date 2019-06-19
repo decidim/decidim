@@ -39,7 +39,19 @@ module Decidim
         content_tag(
           :strong,
           t("layouts.decidim.participatory_process_groups.participatory_process_group.processes_count")
-        ) + " " + model.participatory_processes.published.count.to_s
+        ) + " " + processes_visible_for_user
+      end
+
+      def processes_visible_for_user
+        processes = model.participatory_processes.published
+
+        if current_user
+          return processes.count.to_s if current_user.admin
+
+          processes.visible_for(current_user).count.to_s
+        else
+          processes.public_spaces.count.to_s
+        end
       end
     end
   end

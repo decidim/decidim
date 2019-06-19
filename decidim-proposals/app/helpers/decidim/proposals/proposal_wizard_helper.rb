@@ -57,6 +57,7 @@ module Decidim
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
         return if step == :step_4 && type_of == :collaborative_drafts
+
         content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 
@@ -130,6 +131,19 @@ module Decidim
         else
           t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
         end
+      end
+
+      # Renders the back link except for step_2: compare
+      def proposal_wizard_aside_link_to_back(step)
+        url = case step
+              when :step_1
+                proposals_path
+              when :step_3
+                compare_proposal_path
+              when :step_4
+                edit_draft_proposal_path
+              end
+        url
       end
 
       def wizard_aside_back_text

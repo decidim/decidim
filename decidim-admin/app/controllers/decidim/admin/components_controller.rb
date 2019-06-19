@@ -64,8 +64,8 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("components.update.error", scope: "decidim.admin")
-            render action: "new"
+            flash[:alert] = I18n.t("components.update.error", scope: "decidim.admin")
+            redirect_to action: :edit
           end
         end
       end

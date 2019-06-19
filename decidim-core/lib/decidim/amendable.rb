@@ -6,67 +6,77 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :amendments, as: :amendable, foreign_key: "decidim_amendable_id", foreign_type: "decidim_amendable_type", class_name: "Decidim::Amendment"
+      has_many :amendments,
+               as: :amendable,
+               foreign_key: "decidim_amendable_id",
+               foreign_type: "decidim_amendable_type",
+               class_name: "Decidim::Amendment"
 
       # resource.emendations : resources that have amend the resource
-      has_many :emendations, through: :amendments, source: :emendation, source_type: name, inverse_of: :emendations
+      has_many :emendations,
+               through: :amendments,
+               source: :emendation,
+               source_type: name,
+               inverse_of: :emendations
 
       # resource.amenders :  users that have emendations for the resource
-      has_many :amenders, through: :amendments, source: :amender
+      has_many :amenders,
+               through: :amendments,
+               source: :amender
 
-      # resource.amended : the original resource that was amended
-      has_one :amended, as: :amendable, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", class_name: "Decidim::Amendment"
+      has_one :amended,
+              as: :amendable,
+              foreign_key: "decidim_emendation_id",
+              foreign_type: "decidim_emendation_type",
+              class_name: "Decidim::Amendment"
+
+      # resource.amendable : the original resource that was amended
       has_one :amendable, through: :amended, source: :amendable, source_type: name
+
+      scope :only_amendables, -> { where.not(id: joins(:amendable)) }
+      scope :only_emendations, -> { where(id: joins(:amendable)) }
     end
 
     class_methods do
       attr_reader :amendable_options
       # Public: Configures amendable for this model.
       #
-      # fields  - An `Array` of `symbols` specifying the fields that can be
-      #           amended.
-      # ignore  - An `Array` of `symbols` specifying the fields to be
-      #           ignored from amendable when creating the related emendation,
-      #           the :id is allways ignored.
-      # reset   - The counters that should be reseted on the creation of the emmendation
-      # form    - The form used for the validation and creation of the emmendation
+      # fields  - An `Array` of `symbols` specifying the fields that can be amended
+      # form    - The form used for the validation and creation of the emendation
       #
       # Returns nothing.
-      def amendable(fields: nil, ignore: [], reset: nil, form: nil)
-        @amendable_options = {}
+      def amendable(fields: nil, form: nil)
         raise "You must provide a set of fields to amend" unless fields
         raise "You must provide a form class of the amendable" unless form
-        @amendable_options[:fields] = fields
-        @amendable_options[:ignore_fields] = ignore + [:id, :created_at, :updated_at]
-        @amendable_options[:reset] = reset
-        @amendable_options[:form] = form
+
+        @amendable_options = { fields: fields, form: form }
       end
     end
 
-    def fields
+    def amendable_fields
       self.class.amendable_options[:fields]
     end
 
-    def ignore_fields
-      self.class.amendable_options[:ignore_fields]
-    end
-
-    def form
+    def amendable_form
       self.class.amendable_options[:form].constantize
     end
 
+    def amendable_type
+      resource_manifest.model_class_name
+    end
+
     def amendment
-      return Decidim::Amendment.find_by(emendation: id) if emendation?
-      Decidim::Amendment.find_by(amendable: id)
+      associated_resource = emendation? ? :emendation : :amendable
+
+      Decidim::Amendment.find_by(associated_resource => id)
     end
 
     def emendation?
-      true if amendable.present?
+      amendable.present?
     end
 
     def amendable?
-      return false if emendation?
-      component.settings.amendments_enabled
+      amendable.blank?
     end
 
     def resource_state
@@ -74,13 +84,22 @@ module Decidim
     end
 
     def emendation_state
-      return resource_state if resource_state == "withdrawn"
-      amendment.state if emendation?
+      return resource_state if resource_state == "withdrawn" # Special case for Proposals
+
+      amendment.state
     end
 
     def state
       return emendation_state if emendation?
+
       resource_state
+    end
+
+    # Returns the linked resource to or from this model
+    # for the given resource name and link name.
+    # See Decidim::Resourceable#link_resources
+    def linked_promoted_resource
+      linked_resources(amendable_type, "created_from_rejected_emendation").first
     end
   end
 end

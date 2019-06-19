@@ -9,6 +9,16 @@ module Decidim
     module NeedsInitiative
       extend ActiveSupport::Concern
 
+      RegistersPermissions
+        .register_permissions("#{::Decidim::Initiatives::NeedsInitiative.name}/admin",
+                              Decidim::Initiatives::Permissions,
+                              Decidim::Admin::Permissions)
+      RegistersPermissions
+        .register_permissions("#{::Decidim::Initiatives::NeedsInitiative.name}/public",
+                              Decidim::Initiatives::Permissions,
+                              Decidim::Admin::Permissions,
+                              Decidim::Permissions)
+
       included do
         include NeedsOrganization
         include InitiativeSlug
@@ -33,7 +43,7 @@ module Decidim
           return unless current_initiative
 
           initiative_type = current_initiative.scoped_type.type
-          initiative_type.collect_user_extra_fields?
+          initiative_type.collect_user_extra_fields? || initiative_type.validate_sms_code_on_votes?
         end
 
         private
@@ -47,13 +57,11 @@ module Decidim
         end
 
         def permission_class_chain
-          list = [
-            Decidim::Initiatives::Permissions,
-            Decidim::Admin::Permissions
-          ]
-
-          return list if permission_scope == :admin
-          list << Decidim::Permissions
+          if permission_scope == :admin
+            PermissionsRegistry.chain_for("#{::Decidim::Initiatives::NeedsInitiative.name}/admin")
+          else
+            PermissionsRegistry.chain_for("#{::Decidim::Initiatives::NeedsInitiative.name}/public")
+          end
         end
       end
     end

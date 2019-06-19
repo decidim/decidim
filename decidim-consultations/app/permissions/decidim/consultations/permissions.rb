@@ -6,10 +6,10 @@ module Decidim
       def permissions
         allowed_public_anonymous_action?
 
-        permission_action unless user
+        return permission_action unless user
+
         allowed_public_action?
 
-        permission_action unless permission_action.scope == :admin
         return Decidim::Consultations::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
         permission_action

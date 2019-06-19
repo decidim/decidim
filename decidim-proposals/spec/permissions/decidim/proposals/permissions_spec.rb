@@ -269,4 +269,30 @@ describe Decidim::Proposals::Permissions do
       it { is_expected.to eq true }
     end
   end
+
+  describe "amend" do
+    let(:action) do
+      { scope: :public, action: :amend, subject: :proposal }
+    end
+
+    context "when amend is disabled" do
+      let(:extra_settings) do
+        {
+          amendments_enabled?: false
+        }
+      end
+
+      it { is_expected.to eq false }
+    end
+
+    context "when the user is authorized" do
+      let(:extra_settings) do
+        {
+          amendments_enabled?: true
+        }
+      end
+
+      it { is_expected.to eq true }
+    end
+  end
 end

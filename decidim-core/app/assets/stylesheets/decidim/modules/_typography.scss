@@ -83,7 +83,7 @@ hr{
     display: inline-block;
     width: 4px;
     height: .8em;
-    background-color: $primary;
+    background-color: var(--primary);
     margin-right: .5rem;
     margin-bottom: -.1rem;
   }
@@ -133,7 +133,7 @@ hr{
     color: inherit;
 
     &:hover{
-      color: $primary;
+      color: var(--primary);
     }
   }
 }

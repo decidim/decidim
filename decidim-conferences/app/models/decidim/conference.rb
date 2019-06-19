@@ -87,6 +87,7 @@ module Decidim
 
     def has_available_slots?
       return true if available_slots.zero?
+
       available_slots > conference_registrations.count
     end
 
@@ -96,7 +97,14 @@ module Decidim
 
     def diploma_sent?
       return false if diploma_sent_at.nil?
+
       true
+    end
+
+    def closed?
+      return false if end_date.blank?
+
+      end_date < Date.current
     end
   end
 end

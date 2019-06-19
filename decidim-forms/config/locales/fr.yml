@@ -42,7 +42,7 @@ fr:
             question: Question
             remove: Retirer
             statement: Déclaration
-            up: Up
+            up: Vers le haut
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Questionnaires sauvegardés avec succès.
@@ -77,3 +77,6 @@ fr:
             title: Questionnaire fermé
           submit: Soumettre
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+      user_answers_serializer:
+        created_at: Répondu le
+        id: ID de réponse

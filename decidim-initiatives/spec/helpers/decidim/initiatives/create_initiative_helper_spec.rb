@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe CreateInitiativeHelper do
-      let(:online) { %w(OnLine online) }
-      let(:offline) { ["Face to face", "offline"] }
+      let(:online) { %w(Online online) }
+      let(:offline) { ["In-person", "offline"] }
       let(:mixed) { %w(Mixed any) }
       let(:all) { [online, offline, mixed] }
 

@@ -11,7 +11,12 @@ module Decidim
     include Decidim::Searchable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-    ROLES = %w(admin user_manager).freeze
+
+    class Roles
+      def self.all
+        Decidim.config.user_roles
+      end
+    end
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
@@ -48,6 +53,11 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    scope :interested_in_scopes, lambda { |scope_ids|
+      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
+      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+    }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -58,6 +68,8 @@ module Decidim
                       },
                       index_on_create: ->(user) { !user.deleted? },
                       index_on_update: ->(user) { !user.deleted? })
+
+    before_save :ensure_encrypted_password
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
@@ -120,7 +132,7 @@ module Decidim
     def self.find_for_authentication(warden_conditions)
       organization = warden_conditions.dig(:env, "decidim.current_organization")
       find_by(
-        email: warden_conditions[:email],
+        email: warden_conditions[:email].to_s.downcase,
         decidim_organization_id: organization.id
       )
     end
@@ -170,6 +182,7 @@ module Decidim
     # If the user has been deleted or it is managed the email field is not required anymore.
     def email_required?
       return false if deleted? || managed?
+
       super
     end
 
@@ -177,6 +190,7 @@ module Decidim
     # If the user is managed the password field is not required anymore.
     def password_required?
       return false if managed?
+
       super
     end
 
@@ -199,11 +213,15 @@ module Decidim
     end
 
     def all_roles_are_valid
-      errors.add(:roles, :invalid) unless roles.compact.all? { |role| ROLES.include?(role) }
+      errors.add(:roles, :invalid) unless roles.compact.all? { |role| Roles.all.include?(role) }
     end
 
     def available_locales
       Decidim.available_locales.map(&:to_s)
+    end
+
+    def ensure_encrypted_password
+      restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
     end
   end
 end

@@ -1,0 +1,83 @@
+ar:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: بلوق وظيفة جديدة
+  activerecord:
+    models:
+      decidim/blogs/post:
+        zero: المشاركات
+        one: بريد
+        two: المشاركات
+        few: المشاركات
+        many: المشاركات
+        other: المشاركات
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: هل أنت متأكد أنك تريد حذف هذه المشاركة؟
+        destroy: حذف
+        edit: تعديل
+        new: منشور جديد
+        title: أفعال
+      admin:
+        models:
+          components:
+            body: الجسم
+          post:
+            name: بريد
+        posts:
+          create:
+            invalid: حدثت مشكلة أثناء إنشاء هذا المنشور
+            success: تم النشر بنجاح
+          destroy:
+            success: تم حذف المشاركة بنجاح
+          edit:
+            save: تحديث
+          index:
+            title: المشاركات
+          new:
+            create: إنشاء
+            title: إنشاء وظيفة
+          update:
+            invalid: حدثت مشكلة في حفظ المشاركة.
+            success: تم حفظ النشر بنجاح
+      last_activity:
+        new_post_at_html: "<span>وظيفة جديدة في %{link}</span>"
+      models:
+        post:
+          fields:
+            author: مؤلف
+            body: الجسم
+            created_at: أنشئت في
+            title: عنوان
+      posts:
+        show:
+          view: رأي
+        sidebar_blog:
+          comments: تعليقات
+          most_commented_posts: الأكثر تعليقًا عليها
+      read_more: قراءة المزيد
+    components:
+      blogs:
+        name: مدونة
+        settings:
+          global:
+            announcement: إعلان
+            comments_enabled: تم تمكين التعليقات
+          step:
+            announcement: إعلان
+            comments_blocked: تم حظر التعليقات
+    events:
+      blogs:
+        post_created:
+          email_intro: تم نشر المنشور "%{resource_title}" في "%{participatory_space_title}" الذي تتابعه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: منشور جديد منشور في %{participatory_space_title}
+          notification_title: تم نشر المنشور <a href="%{resource_path}">%{resource_title}</a> في %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: المشاركات
+    participatory_processes:
+      statistics:
+        posts_count: المشاركات

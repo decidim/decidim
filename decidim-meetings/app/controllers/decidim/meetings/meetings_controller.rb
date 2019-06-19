@@ -8,7 +8,7 @@ module Decidim
       include Paginable
       helper Decidim::WidgetUrlsHelper
 
-      helper_method :meetings, :meeting, :search
+      helper_method :meetings, :meeting, :registration, :search
 
       def index
         return unless search.results.empty? && params.dig("filter", "date") != "past"
@@ -24,6 +24,7 @@ module Decidim
 
       def show
         return if meeting.current_user_can_visit_meeting?(current_user)
+
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
         redirect_to action: "index"
       end
@@ -36,6 +37,10 @@ module Decidim
 
       def meetings
         @meetings ||= paginate(search.results)
+      end
+
+      def registration
+        @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
       def search_klass

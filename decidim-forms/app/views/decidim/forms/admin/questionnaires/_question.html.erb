@@ -81,13 +81,7 @@
     <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
     <%= form.hidden_field :deleted, disabled: !editable %>
 
-    <div class="questionnaire-question-answer-options">
-      <template>
-        <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
-          <%= render "decidim/forms/admin/questionnaires/answer_option", form: answer_option_form, question: question, editable: editable %>
-        <% end %>
-      </template>
-
+    <div class="questionnaire-question-answer-options" data-template="<%= child_template_selector %>">
       <div class="questionnaire-question-answer-options-list">
         <% question.answer_options.each do |answer_option| %>
           <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>

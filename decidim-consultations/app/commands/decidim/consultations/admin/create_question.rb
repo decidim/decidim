@@ -20,6 +20,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           question = create_question
 
           if question.persisted?
@@ -59,6 +60,7 @@ module Decidim
           )
 
           return question unless question.valid?
+
           question.save
           question
         end

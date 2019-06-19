@@ -26,5 +26,5 @@ fi:
             save: Päivitä
             title: Muokkaa sivua
           update:
-            invalid: Sivun tallennuksessa tapahtui virheitä.
-            success: Sivu tallennettu onnistuneesti.
+            invalid: Sivun tallennus epäonnistui.
+            success: Sivun tallentaminen onnistui.

@@ -50,6 +50,7 @@ module Decidim
       #
       def try_add_to_index_as_search_resource
         return unless self.class.search_resource_fields_mapper.index_on_create?(self)
+
         add_to_index_as_search_resource
       end
 
@@ -71,7 +72,7 @@ module Decidim
             add_to_index_as_search_resource
           else
             fields = self.class.search_resource_fields_mapper.mapped(self)
-            searchables_in_org.each do |sr|
+            searchables_in_org.find_each do |sr|
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end
@@ -105,6 +106,7 @@ module Decidim
     class_methods do
       def search_resource_fields_mapper
         raise "`searchable_fields` should be declared when including Searchable" unless defined?(@search_resource_indexable_fields)
+
         @search_resource_indexable_fields
       end
 

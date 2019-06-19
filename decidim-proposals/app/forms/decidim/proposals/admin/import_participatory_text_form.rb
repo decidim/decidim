@@ -15,7 +15,42 @@ module Decidim
         attribute :document
 
         validates :title, translatable_presence: true
-        validate :accepted_mime_type
+        validates :document, presence: true, if: :new_participatory_text?
+        validate :document_type_must_be_valid, if: :document
+
+        # Assume it's a NEW participatory_text if there are no proposals
+        # Validate document presence while CREATING proposals from document
+        # Allow skipping document validation while UPDATING title/description
+        def new_participatory_text?
+          Decidim::Proposals::Proposal.where(component: current_component).blank?
+        end
+
+        def document_type_must_be_valid
+          return if valid_mime_types.include?(document_type)
+
+          errors.add(:document, i18n_invalid_document_type_text)
+        end
+
+        # Return ACCEPTED_MIME_TYPES plus `text/plain` for better markdown support
+        def valid_mime_types
+          ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE]
+        end
+
+        def document_type
+          document.content_type
+        end
+
+        def i18n_invalid_document_type_text
+          I18n.t("invalid_document_type",
+                 scope: "activemodel.errors.models.participatory_text.attributes.document",
+                 valid_mime_types: i18n_valid_mime_types_text)
+        end
+
+        def i18n_valid_mime_types_text
+          ACCEPTED_MIME_TYPES.keys.map do |mime_type|
+            I18n.t(mime_type, scope: "decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types")
+          end.join(", ")
+        end
 
         def default_locale
           current_participatory_space.organization.default_locale
@@ -23,21 +58,6 @@ module Decidim
 
         def document_text
           @document_text ||= document&.read
-        end
-
-        def document_type
-          document.content_type
-        end
-
-        def accepted_mime_type
-          accepted_mime_types = ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE]
-          return if accepted_mime_types.include?(document_type)
-
-          errors.add(:document,
-                     I18n.t("activemodel.errors.models.participatory_text.attributes.document.invalid_document_type",
-                            valid_mime_types: ACCEPTED_MIME_TYPES.keys.map do |m|
-                              I18n.t("decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.#{m}")
-                            end.join(", ")))
         end
       end
     end

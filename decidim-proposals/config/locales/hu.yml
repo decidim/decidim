@@ -28,12 +28,23 @@ hu:
       proposals_copy:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
+      proposals_import:
+        import_proposals: Import-javaslatok
+        keep_authors: Tartsa meg az eredeti szerzőket
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Újra kell csatolni
+            body:
+              identical: A cím nem lehet azonos
+            title:
+              identical: A test nem lehet azonos
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
@@ -292,8 +303,10 @@ hu:
         participatory_texts:
           bulk-actions:
             are_you_sure: Biztos, hogy elveti az egész részvételi szöveg tervezet?
-            import_doc: Dokumentum importálása
             discard_all: Összes elvetése
+            import_doc: Dokumentum importálása
+          discard:
+            success: Az összes résztvevő szövegtervezetet elvetették.
           import:
             invalid: Az űrlap érvénytelen!
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
@@ -303,15 +316,16 @@ hu:
             save_draft: Vázlat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
+            accepted_mime_types:
+              md: Árleszállítás
+              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adj hozzá egy dokumentumot, amely kisebb, mint 2 MB -minden egyes szakasz 3 szint mélységig javaslattá lesz alakítva. A támogatott formátum a szöveghez: Markdown'
+            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:
             invalid: Nem sikerült közzé tenni a javaslatokat
             success: Minden pályázat megjelent
-          discard:
-            success: Az összes résztvevő szövegtervezetet elvetették.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
@@ -589,7 +603,7 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          mine_is_different: Javaslatom más jellegű
+          continue: Folytatni
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
@@ -616,6 +630,7 @@ hu:
           comments: Hozzászólások
         filters:
           activity: Tevékenység
+          amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
           origin: Kiindulópont
@@ -623,7 +638,6 @@ hu:
           search: Keresés
           state: Állapot
           voted: Szavazott
-          amendment_type: Típus
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrés
@@ -743,6 +757,9 @@ hu:
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
           version_index: '%{index} verzió'
+      withdraw:
+        errors:
+          has_supports: Ez a javaslat nem vonható vissza, mert már rendelkezik támogatással.
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok

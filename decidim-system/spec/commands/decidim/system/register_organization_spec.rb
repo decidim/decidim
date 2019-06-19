@@ -23,7 +23,15 @@ module Decidim
               organization_admin_email: "f.laguardia@gotham.gov",
               available_locales: ["en"],
               default_locale: "en",
-              users_registration_mode: "enabled"
+              users_registration_mode: "enabled",
+              force_users_to_authenticate_before_access_organization: "false",
+              smtp_settings: {
+                "address" => "mail.gotham.gov",
+                "port" => "25",
+                "user_name" => "f.laguardia",
+                "password" => Decidim::AttributeEncryptor.encrypt("password"),
+                "from" => "decide@gotham.gov"
+              }
             }
           end
 

@@ -56,7 +56,7 @@ describe "Admin manages responses", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("error")
+      expect(page).to have_admin_callout("problem")
     end
   end
 
@@ -104,7 +104,7 @@ describe "Admin manages responses", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout("error")
+      expect(page).to have_admin_callout("problem")
     end
   end
 

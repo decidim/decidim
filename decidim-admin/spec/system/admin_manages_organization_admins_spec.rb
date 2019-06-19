@@ -16,7 +16,7 @@ describe "Organization admins", type: :system do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Users"
+      click_link "Participants"
       click_link "Admins"
     end
 
@@ -47,7 +47,7 @@ describe "Organization admins", type: :system do
       within ".new_user" do
         fill_in :user_name, with: "New user manager"
         fill_in :user_email, with: "newusermanager@example.org"
-        select "User manager", from: :user_role
+        select "Participant manager", from: :user_role
 
         find("*[type=submit]").click
       end
@@ -56,7 +56,7 @@ describe "Organization admins", type: :system do
 
       within "table" do
         expect(page).to have_content("New user manager")
-        expect(page).to have_content("User manager")
+        expect(page).to have_content("Participant manager")
       end
     end
 
@@ -77,7 +77,7 @@ describe "Organization admins", type: :system do
           click_link "Resend invitation"
         end
 
-        expect(page).to have_content("Invitation resent successfully")
+        expect(page).to have_content("Invitation successfully resent")
       end
 
       it "can remove the admin rights" do

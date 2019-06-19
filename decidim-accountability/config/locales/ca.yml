@@ -33,8 +33,8 @@ ca:
     accountability:
       actions:
         confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
-        destroy: Esborra
-        edit: Edita
+        destroy: Esborrar
+        edit: Editar
         new: Nou/va %{name}
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
@@ -51,64 +51,64 @@ ca:
             name: Element
         results:
           create:
-            invalid: Hi ha hagut un problema en crear aquest resultat
+            invalid: S'ha produït un error en crear aquest resultat
             success: El resultat ha estat creat correctament
           destroy:
             success: El resultat ha estat eliminat correctament
           edit:
-            title: Edita resultat
+            title: Editar resultat
             update: Actualitza resultat
           form:
             add_proposal: Afegir proposta
           index:
             title: Resultats
           new:
-            create: Crea resultat
+            create: Crear resultat
             title: Nou resultat
           proposals:
-            close: Tanca
+            close: Tancar
             current_selection: Selecció actual
-            select: Selecciona
+            select: Seleccionar
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            invalid: S'ha produït un error en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
             statuses: Estats
         statuses:
           create:
-            invalid: Hi ha hagut un problema en crear aquest estat
-            success: El estat ha estat creat correctament
+            invalid: S'ha produït un error en crear aquest estat
+            success: L'estat ha estat creat correctament
           destroy:
-            success: El estat ha estat eliminat correctament
+            success: L'estat ha estat eliminat correctament
           edit:
-            title: Edita estat
-            update: Actualitza estat
+            title: Editar estat
+            update: Actualitzar estat
           index:
             title: Estats
           new:
-            create: Crea estat
+            create: Crear estat
             title: Nou estat
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest estat
-            success: El estat ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest estat
+            success: L'estat ha estat actualitzat correctament
         timeline_entries:
           create:
-            invalid: Hi ha hagut un problema en crear aquest element
-            success: El element ha estat creat correctament
+            invalid: S'ha produït un error en crear aquest element
+            success: L'element ha estat creat correctament
           destroy:
-            success: El element ha estat eliminat correctament
+            success: L'element ha estat eliminat correctament
           edit:
-            title: Edita element
-            update: Actualitza element
+            title: Editar element
+            update: Actualitzar element
           index:
             title: Evolució del projecte
           new:
-            create: Crea element
+            create: Crear element
             title: Nou element
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest element
-            success: El element ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest element
+            success: L'element ha estat actualitzat correctament
       admin_log:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
@@ -140,7 +140,7 @@ ca:
       results:
         count:
           results_count:
-            one: 1 resultat
+            one: Un resultat
             other: "%{count} resultats"
         filters:
           all: Tots
@@ -153,11 +153,11 @@ ca:
         nav_breadcrumb:
           global: Execució global
         search:
-          search: Cerca actuacions
+          search: Cercar actuacions
         show:
           stats:
             attendees: Assistents
-            back_to_result: Torna al resultat
+            back_to_result: Tornar al resultat
             comments: Comentaris
             contributions: Aportacions
             last_edited_by: Editat per última vegada per
@@ -188,7 +188,7 @@ ca:
           global:
             categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
-            display_progress_enabled: Mostra el progrés
+            display_progress_enabled: Mostrar el progrés
             heading_leaf_level_results: Nom per a "Projectes"
             heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció

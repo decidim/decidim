@@ -28,8 +28,15 @@ cs:
       proposals_copy:
         copy_proposals: Chápu, že to bude importovat všechny návrhy z vybrané komponenty na aktuální a že tato akce nemůže být zrušena.
         origin_component_id: Komponenta pro kopírování návrhů z
+      proposals_import:
+        import_proposals: Návrhy na dovoz
+        keep_authors: Uchovávejte původní autory
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: "Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -313,8 +320,11 @@ cs:
             save_draft: Uložit koncept
             title: PŘEHLED ÚČASTNÍHO TEXTU
           new_import:
+            accepted_mime_types:
+              md: Snížení
+              odt: Odt
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
-            document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: Markdown'
+            document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
             title: PŘIDAT DOKUMENT
             upload_document: Nahrát dokument
           publish:

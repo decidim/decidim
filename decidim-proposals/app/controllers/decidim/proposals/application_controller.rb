@@ -13,6 +13,7 @@ module Decidim
 
       def proposal_limit
         return nil if component_settings.proposal_limit.zero?
+
         component_settings.proposal_limit
       end
 

@@ -21,12 +21,33 @@ module Decidim
       attribute :step_settings, Hash[String => Object]
       attribute :participatory_space
 
+      validate :must_be_able_to_change_participatory_texts_setting, if: :proposal_component?
+
       def settings?
         settings.manifest.attributes.any?
       end
 
       def default_step_settings?
         default_step_settings.manifest.attributes.any?
+      end
+
+      def component
+        @component ||= Component.find_by(id: id)
+      end
+
+      def proposal_component?
+        component&.manifest_name == "proposals"
+      end
+
+      # Validation for `Proposals` components. Prevents changing the global
+      # setting `participatory_texts_enabled` when there are proposals.
+      # Does not add a custom error message as it would be unused, because
+      # the setting's checkbox is automatically being disabled on the frontend.
+      def must_be_able_to_change_participatory_texts_setting
+        form_setting_value = settings[:participatory_texts_enabled].to_i == 1 # Convert "1"/"0" to true/false
+        return if form_setting_value == component.settings.participatory_texts_enabled
+
+        errors.add(:settings) if Decidim::Proposals::Proposal.where(component: component).any?
       end
     end
   end

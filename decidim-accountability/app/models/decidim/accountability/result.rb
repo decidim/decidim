@@ -76,10 +76,18 @@ module Decidim
         true
       end
 
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate_in_space?(user)
+      end
+
       private
 
       # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
+      # Handle special case when all children weight are nil
       def children_use_weighted_progress?
+        return false if children.pluck(:weight).all?(&:nil?)
+
         children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
       end
     end

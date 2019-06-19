@@ -28,12 +28,23 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+      proposals_import:
+        import_proposals: Importa proposte
+        keep_authors: Mantieni gli autori originali
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Ha bisogno di essere ricollegato
+            body:
+              identical: E il titolo non può essere identico
+            title:
+              identical: E il corpo non può essere identico
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
       decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
@@ -66,8 +77,9 @@ it:
     components:
       proposals:
         actions:
+          amend: Modificare
           create: Creare
-          endorse: Approvare
+          endorse: Sostieni
           vote: Votazione
           withdraw: ritirarsi
         name: proposte
@@ -292,8 +304,10 @@ it:
         participatory_texts:
           bulk-actions:
             are_you_sure: Sei sicuro di scartare l'intera bozza del testo partecipativo?
-            import_doc: Importa il documento
             discard_all: Scarta tutto
+            import_doc: Importa il documento
+          discard:
+            success: Tutte le bozze di testo partecipativo sono state scartate.
           import:
             invalid: Il modulo non è valido!
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
@@ -303,15 +317,16 @@ it:
             save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
+            accepted_mime_types:
+              md: .md
+              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: Markdown'
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:
             invalid: Impossibile pubblicare proposte
             success: Tutte le proposte sono state pubblicate
-          discard:
-            success: Tutte le bozze di testo partecipativo sono state scartate.
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
@@ -511,7 +526,7 @@ it:
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           of_versions: "(di %{number})"
-          publish: Pubblicare
+          publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
@@ -531,7 +546,7 @@ it:
           back: Indietro
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
-          see_steps: vedere i passaggi
+          see_steps: visualizza le fasi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
@@ -571,7 +586,7 @@ it:
           amend: emendare
           comment: Commento
           comments: Commenti
-          endorse: Approvare
+          endorse: Sostieni
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -581,15 +596,15 @@ it:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: approvato
-          endorse: Approvare
+          endorse: Sostieni
         render_endorsements_button_card_part:
-          endorse: Approvare
+          endorse: Sostieni
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          mine_is_different: La mia proposta è diversa
+          continue: Prosegui
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:
@@ -611,11 +626,12 @@ it:
           send: Anteprima
           title: Modifica bozza di proposta
         endorsement_identities_cabin:
-          endorse: Approvare
+          endorse: Sostieni
         endorsements_card_row:
           comments: Commenti
         filters:
           activity: Attività
+          amendment_type: genere
           category: Categoria
           category_prompt: Scegli una categoria
           origin: Origine
@@ -623,7 +639,6 @@ it:
           search: Cerca
           state: Stato
           voted: Votata
-          amendment_type: genere
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
@@ -654,15 +669,16 @@ it:
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
-            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-            other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-          publish: Pubblicare
+            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
+            other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
+          publish: Pubblica
           title: Pubblica la tua proposta
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
           back_to: Torna a
+          changes_at_title: Modifica a "%{title}"
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco di approvazioni
           hidden_endorsers_count:
@@ -679,7 +695,7 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Archiviato come
+          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto
@@ -743,6 +759,9 @@ it:
           version_number_out_of_total: "%{current_version} su %{total_count}"
         version:
           version_index: Versione %{index}
+      withdraw:
+        errors:
+          has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate

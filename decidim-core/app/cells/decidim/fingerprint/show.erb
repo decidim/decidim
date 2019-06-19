@@ -7,11 +7,11 @@
   <p><%= t "decidim.fingerprint.explanation" %></p>
   <p>
     <strong><%= t "decidim.fingerprint.value" %>:</strong>
-    <code class="fingerprint-value"><%= model.fingerprint.value %></code>
+    <code class="fingerprint-value"><%= decidim_html_escape model.fingerprint.value %></code>
   </p>
   <p>
     <strong><%= t "decidim.fingerprint.source" %>:</strong>
-    <code class="fingerprint-source"><%= model.fingerprint.source %></code>
+    <code class="fingerprint-source"><%= decidim_html_escape model.fingerprint.source %></code>
   </p>
 
   <p><%= t "decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank") %>

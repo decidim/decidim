@@ -54,6 +54,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :force_authentication %>
+    <%= f.check_box :force_users_to_authenticate_before_access_organization %>
+  </div>
+
+  <div class="field">
     <%= f.label :users_registration_mode %>
     <%= f.collection_radio_buttons :users_registration_mode,
                                    Decidim::Organization.users_registration_modes,
@@ -65,6 +70,8 @@
     <%= f.label :available_authorizations %>
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
+
+  <%= render partial: "smtp_settings", locals: { f: f } %>
 
   <div class="actions">
     <%= f.submit t("decidim.system.models.organization.actions.save_and_invite") %>

@@ -45,7 +45,7 @@ shared_examples "manage conference speakers examples" do
       find(".card-title a.new").click
 
       within ".new_conference_speaker" do
-        select "Existing user", from: :conference_speaker_existing_user
+        select "Existing participant", from: :conference_speaker_existing_user
         autocomplete_select "#{speaker_user.name} (@#{speaker_user.nickname})", from: :user_id
 
         find("*[type=submit]").click

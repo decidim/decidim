@@ -10,6 +10,8 @@ Decidim.register_component(:debates) do |component|
 
   component.data_portable_entities = ["Decidim::Debates::Debate"]
 
+  component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end
@@ -26,7 +28,7 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Debates::Debate.where(component: components).count
+    Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
   component.register_resource(:debate) do |resource|

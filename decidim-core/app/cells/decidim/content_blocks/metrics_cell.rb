@@ -5,6 +5,7 @@ module Decidim
     class MetricsCell < Decidim::ViewModel
       def show
         return unless current_organization.show_statistics?
+
         render
       end
 

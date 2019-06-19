@@ -41,6 +41,7 @@ module Decidim
 
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
+
         root_commentable.participatory_space
       end
 
@@ -50,7 +51,14 @@ module Decidim
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
-        depth < MAX_DEPTH
+        root_commentable.accepts_new_comments? && depth < MAX_DEPTH
+      end
+
+      # Public: Override comment threads to exclude hidden ones.
+      #
+      # Returns comment.
+      def comment_threads
+        super.reject(&:hidden?)
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
@@ -91,12 +99,19 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
+      def self.newsletter_participant_ids(space)
+        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
+                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                  .map(&:author).pluck(:id).flatten.compact.uniq
+      end
+
       private
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
       def commentable_can_have_comments
-        errors.add(:commentable, :cannot_have_comments) unless commentable.accepts_new_comments?
+        errors.add(:commentable, :cannot_have_comments) unless root_commentable.accepts_new_comments?
       end
 
       # Private: Compute comment depth inside the current comment tree

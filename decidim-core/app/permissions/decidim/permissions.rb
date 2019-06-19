@@ -30,11 +30,13 @@ module Decidim
     def read_public_pages_action?
       return unless permission_action.subject == :public_page &&
                     permission_action.action == :read
+
       allow!
     end
 
     def locales_action?
       return unless permission_action.subject == :locales
+
       allow!
     end
 
@@ -45,27 +47,33 @@ module Decidim
       return allow! if component.published?
       return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
+
       disallow!
     end
 
     def search_scope_action?
       return unless permission_action.subject == :scope
+
       toggle_allow([:search, :pick].include?(permission_action.action))
     end
 
     def manage_self_user_action?
       return unless permission_action.subject == :user
+
       toggle_allow(context.fetch(:current_user, nil) == user)
     end
 
     def authorization_action?
       return unless permission_action.subject == :authorization
+
       authorization = context.fetch(:authorization, nil)
 
       case permission_action.action
       when :create
         toggle_allow(authorization.user == user && not_already_active?(authorization))
       when :update
+        toggle_allow(authorization.user == user && !authorization.granted?)
+      when :destroy
         toggle_allow(authorization.user == user && !authorization.granted?)
       end
     end
@@ -80,10 +88,17 @@ module Decidim
 
     def amend_action?
       return unless permission_action.subject == :amendment
-      return allow! if permission_action.action == :create
-      return allow! if permission_action.action == :reject
-      return allow! if permission_action.action == :promote
-      return allow! if permission_action.action == :accept
+      return disallow! unless component.settings.amendments_enabled
+
+      case permission_action.action
+      when :create
+        return allow! if component.current_settings.amendment_creation_enabled
+      when :accept,
+          :reject
+        return allow! if component.current_settings.amendment_reaction_enabled
+      when :promote
+        return allow! if component.current_settings.amendment_promotion_enabled
+      end
 
       amendment = context.fetch(:amendment, nil)
       toggle_allow(amendment&.amender == user)
@@ -137,17 +152,15 @@ module Decidim
 
     def user_can_admin_component_via_space?
       Decidim.participatory_space_manifests.any? do |manifest|
-        begin
-          new_permission_action = Decidim::PermissionAction.new(
-            action: permission_action.action,
-            scope: :admin,
-            subject: permission_action.subject
-          )
-          new_context = context.merge(current_participatory_space: component.participatory_space)
-          manifest.permissions_class.new(user, new_permission_action, new_context).permissions.allowed?
-        rescue Decidim::PermissionAction::PermissionNotSetError
-          nil
-        end
+        new_permission_action = Decidim::PermissionAction.new(
+          action: permission_action.action,
+          scope: :admin,
+          subject: permission_action.subject
+        )
+        new_context = context.merge(current_participatory_space: component.participatory_space)
+        manifest.permissions_class.new(user, new_permission_action, new_context).permissions.allowed?
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        nil
       end
     end
 

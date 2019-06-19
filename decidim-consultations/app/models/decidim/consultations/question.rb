@@ -59,6 +59,11 @@ module Decidim
         responses.order(votes_count: :desc)
       end
 
+      # if results can be shown to admins
+      def publishable_results?
+        consultation.finished? && sorted_results.any?
+      end
+
       def most_voted_response
         @most_voted_response ||= responses.order(votes_count: :desc).first
       end

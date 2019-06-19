@@ -5,21 +5,21 @@ ca:
         area_id: Àrea
         assembly_type: Tipus d'assemblea
         assembly_type_other: Altre tipus d'assemblea
-        banner_image: Imatge de bàner
+        banner_image: Imatge de banner
         closing_date: Data de finalització
-        closing_date_reason: Raó de la data de tancament
+        closing_date_reason: Motiu de la data de tancament
         composition: Composició
-        copy_categories: Copiar categories
-        copy_components: Copiar components
-        copy_features: Copiar funcionalitats
+        copy_categories: Copia categories
+        copy_components: Copia components
+        copy_features: Copia funcionalitats
         created_by: Creat per
-        created_by_other: Creat per un altre
+        created_by_other: Creat per una altre
         creation_date: Data de creació
         decidim_area_id: Àrea
-        decidim_scope_id: Abast
+        decidim_scope_id: Àmbit
         description: Descripció
         developer_group: Grup promotor
-        domain: Àrees municipals
+        domain: Domini
         duration: Durada
         facebook: Facebook
         github: GitHub
@@ -33,14 +33,14 @@ ca:
         meta_scope: Metadades d'àmbit
         parent_id: Assemblea principal
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: El que es decideix
+        participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
         scope_id: Àmbit
-        scopes_enabled: Àmbit habilitat
+        scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
@@ -62,7 +62,7 @@ ca:
       assembly_user_role:
         email: Correu electrònic
         name: Nom
-        role: Rol
+        role: Rol de participant
   activerecord:
     models:
       decidim/assembly:
@@ -72,8 +72,8 @@ ca:
         one: Membre de l'assemblea
         other: Membres de l'assemblea
       decidim/assembly_user_role:
-        one: Rol d'usuari de l'assemblea
-        other: Rol dels usuaris de l'assemblea
+        one: Rol de participant de l'assemblea
+        other: Rol de participants de l'assemblea
   decidim:
     admin:
       actions:
@@ -84,15 +84,13 @@ ca:
           success: Assemblea creada correctament.
         edit:
           update: Actualitzar
-        form:
-          title: Informació general
         index:
           not_published: No publicada
           private: Privat
           public: Públic
           published: Publicat
         new:
-          create: Crear
+          create: Crea
           title: Nova assemblea
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
@@ -108,49 +106,49 @@ ca:
           title: Assemblea duplicada
       assembly_members:
         create:
-          error: S'ha produït un error en afegir un membre per a aquest assemblea.
-          success: Membre creat amb èxit per a aquesta assemblea.
+          error: S'ha produït un error en afegir un membre per a aquesta assemblea.
+          success: El membre d'aquesta assemblea s'ha creat correctament.
         destroy:
-          success: Membre eliminat amb èxit per a aquesta assemblea.
+          success: El membre per a aquesta assemblea s'ha eliminat correctament.
         edit:
           title: Actualitza el membre de l'assemblea.
           update: Actualitza
         index:
           assembly_members_title: Membres de l'assemblea
         new:
-          create: Crear
+          create: Crea
           title: Nou membre de l'assemblea.
         update:
           error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
-          success: Membre actualitzat amb èxit per a aquesta assemblea.
+          success: Membre actualitzat correctament per a aquesta assemblea.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
-          success: Assemblea publicada amb èxit.
+          success: Assemblea publicada correctament.
         destroy:
-          error: S'ha produït un error en despublicar aquesta assemblea.
-          success: Assemblea despublicada amb èxit.
+          error: S'ha produït un error en publicar aquesta assemblea.
+          success: Assemblea despublicada correctament.
       assembly_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari per a aquesta assamblea.
-          success: L'usuari s'ha afegit correctament a aquesta assemblea.
+          error: S'ha produït un error en afegir una administradora per a aquesta assemblea.
+          success: L'administradora s'ha afegit correctament a aquesta assemblea.
         destroy:
-          success: L'usuari s'ha eliminat d'aquesta assemblea correctament.
+          success: L'administradora s'ha eliminat correctament d'aquesta assemblea.
         edit:
-          title: Actualitza l'usuari de l'assemblea.
+          title: Actualitza l'administradora de l'assemblea.
           update: Actualitza
         index:
-          assembly_admins_title: Usuaris de l'assemblea
+          assembly_admins_title: Administradores de l'assemblea
         new:
           create: Crea
-          title: Nou usuari de l'assemblea.
+          title: Nova administradora de l'assemblea.
         update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquesta assemblea.
-          success: L'usuari s'ha actualitzat correctament per a aquesta assemblea.
+          error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
+          success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
       menu:
         assemblies: Assemblees
         assemblies_submenu:
-          assembly_admins: Usuaris de l'assemblea
+          assembly_admins: Administradores de l'assemblea
           assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
@@ -159,14 +157,14 @@ ca:
           components: Components
           info: Informació
           moderations: Moderacions
-          private_users: Usuaris privats
+          private_users: Participants privades
       models:
         assembly:
           fields:
             created_at: Data de creació
-            private: Privat
-            promoted: Destacat
-            published: Publicat
+            private: Privada
+            promoted: Destacada
+            published: Publicada
             title: Títol
           name: Assemblea
         assembly_member:
@@ -177,20 +175,20 @@ ca:
             position: Posició
           name: Membre
           positions:
-            other: Un altre
-            president: President
-            secretary: Secretari
-            vice_president: Vicepresident
+            other: Altre
+            president: Presidenta
+            secretary: Secretària
+            vice_president: Vicepresidenta
         assembly_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de l'assemblea
+          name: Administradora de l'assemblea
           roles:
-            admin: Administrador
-            collaborator: Col·laborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Col·laboradora
+            moderator: Moderadora
       titles:
         assemblies: Assemblees
     admin_log:
@@ -205,35 +203,42 @@ ca:
         update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} de l'assemblea %{space_name}"
         update: "%{user_name} ha canviat el rol de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            filters: Filtres
+            images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
-            select_a_created_by: Selecciona un creador
-            select_an_area: Selecciona una àrea
-            select_an_assembly_type: Seleccioneu un tipus d'assemblea
-            select_parent_assembly: Seleccioneu una assemblea principal
+            metadata: Metadades
+            other: Altre
+            select_a_created_by: Selecciona una creadora
+            select_an_area: Selecciona una Àrea
+            select_an_assembly_type: Selecciona un tipus d'assemblea
+            select_parent_assembly: Selecciona una assemblea principal
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
+            title: Informació general
+            visbility: Visibilitat
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Usuari existent
-            non_user: No usuari
+            existing_user: Participant existent
+            non_user: No participant
             select_a_position: Selecciona una posició
-            select_user: Selecciona un usuari
-            user_type: Tipus d'usuari
+            select_user: Selecciona una participant
+            user_type: Tipus de participant
           index:
             filter:
-              all: Tots
-              ceased: Cessat
-              not_ceased: No cessat
+              all: Totes
+              ceased: Cessada
+              not_ceased: No cessada
             filter_by: Filtra per
             search: Cerca
         content_blocks:
@@ -244,7 +249,7 @@ ca:
           members: Membres
       assembly_types:
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva / Assessora
         executive: Executiva
         government: Govern
         others: Altres
@@ -258,9 +263,9 @@ ca:
         others: Altres
         public: Públic
       filter:
-        all: Tot tipus d'assemblees
+        all: Tots els tipus d'assemblees
         commission: Comissió
-        consultative_advisory: Consultiva/Assessora
+        consultative_advisory: Consultiva / Assessora
         executive: Executiu
         government: Govern
         help: 'Mostrar:'
@@ -296,7 +301,7 @@ ca:
           'false': opaca
           'true': transparent
         local_area: Àrea d'organització
-        participatory_scope: El que es decideix
+        participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         private_space: Aquesta és una assemblea privada
         purpose_of_action: Propòsit de l'acció
@@ -313,8 +318,8 @@ ca:
         debates_count: Debats
         endorsements_count: Adhesions
         headline: Activitat
-        meetings_count: Trobades presencials
-        orders_count: Vots
+        meetings_count: Trobades
+        orders_count: Suports
         pages_count: Pàgines
         projects_count: Projectes
         proposals_count: Propostes
@@ -330,8 +335,8 @@ ca:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
-          page: "<p>Una assemblea és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
+          contextual: "<p>Una <strong>assemblea</strong> és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
+          page: "<p>Una <strong>assemblea</strong> és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Les assemblees realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Una assemblea general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples d'assemblees.</p>\n"
           title: Què són les assemblees?
     log:
       value_types:
@@ -346,13 +351,15 @@ ca:
         title: Assemblees
   errors:
     messages:
-      cannot_be_blank: no es pot deixar en blanc
+      cannot_be_blank: no es pot estar en blanc
   layouts:
     decidim:
       assemblies:
         assembly:
+          more_info: Més informació
           take_part: Participa
         index:
+          children: 'Assemblees: '
           organizational_chart: Organigrama
           promoted_assemblies: Assemblees destacades
           reset_chart: Restablir

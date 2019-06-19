@@ -36,6 +36,7 @@ pt-BR:
         organization_url: URL da organização
         redirect_uri: Redirecionar URI
       organization:
+        alert_color: Alerta
         badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
@@ -62,11 +63,15 @@ pt-BR:
         omnipresent_banner_short_description: Descrição curta
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        primary_color: Primário
         reference_prefix: Prefixo de referência
+        secondary_color: Secundário
         show_statistics: Exibir estatisticas
+        success_color: Sucesso
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
+        warning_color: Aviso
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -102,9 +107,9 @@ pt-BR:
               must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Arquivo de imagem inválido
             official_img_footer:
+              allowed_file_content_types: Arquivo de imagem inválido
+            official_img_header:
               allowed_file_content_types: Arquivo de imagem inválido
   activerecord:
     attributes:
@@ -151,6 +156,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: A área tem espaços separados, não deve ter dependências para ser excluída.
           success: Área excluída com sucesso
         edit:
           title: Editar área
@@ -433,9 +439,10 @@ pt-BR:
         new:
           save: Salvar
           title: Novo boletim informativo
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+        show:
           preview: Pré-visualização
           subject: Sujeito
         update:
@@ -506,6 +513,7 @@ pt-BR:
         edit:
           update: Atualizar
         form:
+          colors_title: Cores da organização
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.

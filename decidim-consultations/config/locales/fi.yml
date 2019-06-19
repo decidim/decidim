@@ -60,21 +60,21 @@ fi:
         unpublish_results: Peru tulosten julkistus
       consultation_publications:
         create:
-          error: Tämän kuulemisen julkaisussa tapahtui virhe.
-          success: Kuuleminen julkaistu onnistuneesti.
+          error: Kuulemisen julkaiseminen epäonnistui.
+          success: Kuulemisen julkaiseminen onnistui.
         destroy:
-          error: Tämän kuulemisen julkaisun perumisessa tapahtui virhe.
-          success: Kuulemisen julkaisu peruttu onnistuneesti.
+          error: Kuulemisen julkaisun peruminen epäonnistui.
+          success: Kuulemisen julkaisun peruminen onnistui.
       consultation_results_publications:
         create:
-          error: Virhe julkaistasessa tämän kuulemisen tuloksia.
-          success: Kuulemisen tulokset julkaistiin onnistuneesti.
+          error: Kuulemisen tulosten julkaisu epäonnistui.
+          success: Kuulemisen tulosten julkaisu onnistui.
         destroy:
-          error: Virhe tämän kuulemisen tulosten julkaisun perumisessa.
-          success: Kuulemisen tulosten julkaisu peruttu onnistuneesti.
+          error: Kuulemisen tulosten julkaisun peruminen epäonnistui.
+          success: Kuulemisen tulosten julkaisun peruminen onnistui.
       consultations:
         create:
-          error: Virhe uuden kuulemisen luonnissa.
+          error: Kuulemisen luonti epäonnistui.
           success: Kuuleminen luotu onnistuneesti.
         edit:
           update: Päivitä
@@ -88,7 +88,7 @@ fi:
           create: Luo
           title: Uusi kuuleminen
         update:
-          error: Virhe päivitettäessä tätä kuulemista.
+          error: Kuulemisen päivitys epäonnistui.
           success: Kuuleminen päivitetty onnistuneesti.
       menu:
         consultations: Kuulemiset
@@ -126,14 +126,14 @@ fi:
             other: Vastaukset
       question_publications:
         create:
-          error: Virhe julkaistaessa tätä kysymystä.
-          success: Kysymys julkaistu onnistuneesti.
+          error: Kysymyksen julkaisu epäonnistui.
+          success: Kysymyksen julkaisu onnistui.
         destroy:
-          error: Virhe tämän kysymyksen julkaisun perumisessa.
-          success: Kysymyksen julkaisu peruutettu onnistuneesti.
+          error: Kysymyksen julkaisun peruminen epäonnistui.
+          success: Kysymyksen julkaisun peruminen onnistui.
       questions:
         create:
-          error: Uuden kysymyksen luomisessa tapahtui virhe.
+          error: Uuden kysymyksen luonti epäonnistui.
           success: Kysymys luotu onnistuneesti.
         destroy:
           success: Kysely poistettu onnistuneesti.
@@ -148,14 +148,14 @@ fi:
           create: Luo
           title: Uusi kysymys
         update:
-          error: Tämän kysymyksen päivityksessä tapahtui virhe.
-          success: Kysymys päivitetty onnistuneesti.
+          error: Kysymyksen päivitys epäonnistui.
+          success: Kysymyksen päivitys onnistui.
       responses:
         create:
-          error: Uuden vastauksen luonnissa tapahtui virhe.
+          error: Uuden vastauksen luonti epäonnistui.
           success: Vastaus luotu onnistuneesti.
         destroy:
-          error: Poistettaessa vastausta tapahtui virhe.
+          error: Vastauksen poistaminen epäonnistui.
           success: Vastaus poistettu onnistuneesti.
         edit:
           update: Päivitä
@@ -165,8 +165,8 @@ fi:
           create: Luo
           title: Uusi vastaus
         update:
-          error: Tämän vastauksen päivittämisessä tapahtui virhe.
-          success: Vastaus päivitetty onnistuneesti.
+          error: Vastauksen päivitys epäonnistui.
+          success: Vastauksen päivitys onnistui.
       titles:
         consultations: Kuulemiset
         questions: Kysymykset
@@ -229,7 +229,7 @@ fi:
           other: ääntä yhteismäärästä
       question_votes:
         create:
-          error: Kysymystä äänestäessä tapahtui virheitä
+          error: Kysymyksen äänestäminen epäonnistui
       regular_questions:
         title: Tätä kuulemista koskevat kysymykset
       show:
@@ -247,8 +247,8 @@ fi:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Kuulemiset ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kun kuulemisen päivä tulee, voit äänestää ja julkaista äänestyksen tulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta näkökulmasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen validoinnista tai hylkäämisestä, tai mandaattien vaaditusta määrästä päättäminen.</p>\n"
-          page: "<p>Neuvottelut ovat välilyönti, jonka avulla voit kysyä selkeä kysymys kaikille ihmisille, jotka muodostavat organisaation, soittaa osallistua kuulemiseen, kipinä ja tilaa keskustelun puolesta tai sitä vastaan vastausta. Kun kuulemispäivämäärä saapuu, voit äänestää ja julkaista äänestystulokset.</p> <p>Esimerkkejä: Neuvottelut voivat koskea lähes kaikkia organisaatioon vaikuttavia näkökohtia: jotkin esimerkit muuttavat useita vaihtoehtoja tarjoavan organisaation nimeä tai logoa, päättäessään Kyllä tai Ei osaksi laajempaa organisaatiota, uuden strategisen validoinnin tai hylkäämisen. suunnitelman tai työryhmän tuloksen tai määrittelemään, pitäisikö paikkakunnalla olla enintään 1, 2 tai 3 toimeksiantoa organisaatiossa.</p>\n"
+          contextual: "<p><strong>Kuulemiset</strong> ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          page: "<p><strong>Kuulemiset</strong> ovat osallisuustila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
           title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
@@ -257,6 +257,8 @@ fi:
         statistics:
           consultations_count: Kuulemisia
     questions:
+      next_button: Seuraava kysymys
+      previous_button: Edellinen kysymys
       results:
         title: Tulokset
       show:
@@ -265,22 +267,22 @@ fi:
         assistants_count_title: Avustajaa
         comments_count_title: Kommenttia
         meetings_count_title: Tapaamista
-        supports_count_title: Kannatusta
+        supports_count_title: Ääntä
       technical_info:
         technical_data: Tekniset tiedot
       vote_button:
         already_voted: Äänestetty aikaisemmin
-        already_voted_hover: Peruuta kannatus
+        already_voted_hover: Peruuta ääni
         starting_from: Alkaa %{date}
         vote: Äänestä
       vote_modal:
         contextual_help: Valitse vaihtoehto.
-        title: 'Kuuleminen: kysymyksen kannatus'
+        title: 'Kuuleminen: kysymyksen ääni'
       vote_modal_confirm:
         change: Muuta
         confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
-        title: 'Kuuleminen: vahvista kannatus'
+        title: 'Kuuleminen: vahvista ääni'
   layouts:
     decidim:
       admin:

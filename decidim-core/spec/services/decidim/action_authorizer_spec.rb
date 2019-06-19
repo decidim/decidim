@@ -219,6 +219,50 @@ module Decidim
               expect(response).to be_ok
             end
           end
+
+          context "when attribute is defined in manifest with required_for_authorization" do
+            before do
+              Verifications.find_workflow_manifest(name).options do |opts|
+                opts.attribute :location, type: :string, required: false, required_for_authorization: required_for_authorization
+              end
+            end
+
+            context "when options are empty" do
+              let(:options) { {} }
+
+              context "and required_for_authorization is true" do
+                let(:required_for_authorization) { true }
+
+                context "and metadata is empty" do
+                  let(:metadata) { {} }
+
+                  it "returns incomplete" do
+                    expect(response.codes).to include(:incomplete)
+                  end
+                end
+
+                context "and metadata contains a value for the attribute" do
+                  let(:metadata) { { location: "Tomorrowland" } }
+
+                  it "returns ok" do
+                    expect(response).to be_ok
+                  end
+                end
+              end
+
+              context "and required_for_authorization is false" do
+                let(:required_for_authorization) { false }
+
+                context "and metadata is empty" do
+                  let(:metadata) { {} }
+
+                  it "returns ok" do
+                    expect(response).to be_ok
+                  end
+                end
+              end
+            end
+          end
         end
 
         context "when the authorization has expired" do

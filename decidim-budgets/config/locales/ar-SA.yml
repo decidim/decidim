@@ -1,0 +1,169 @@
+ar:
+  activemodel:
+    attributes:
+      project:
+        budget: ميزانية
+        decidim_category_id: الفئة
+        decidim_scope_id: نطاق
+        description: وصف
+        proposal_ids: المقترحات ذات الصلة
+        title: عنوان
+  activerecord:
+    models:
+      decidim/budgets/project:
+        zero: مشاريع
+        one: مشروع
+        two: مشاريع
+        few: مشاريع
+        many: مشاريع
+        other: مشاريع
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: المجلدات
+        attachments: مرفقات
+        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
+        destroy: حذف
+        edit: تعديل
+        import: استيراد مقترحات للمشاريع
+        new: مشروع جديد
+        preview: معاينة
+        title: أفعال
+      admin:
+        models:
+          project:
+            name: مشروع
+        projects:
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذا المشروع
+            success: تم إنشاء المشروع بنجاح
+          destroy:
+            success: تم حذف المشروع بنجاح
+          edit:
+            title: تحرير المشروع
+            update: تحديث
+          index:
+            finished_orders: الانتهاء من الأصوات
+            pending_orders: في انتظار الأصوات
+            title: مشاريع
+          new:
+            create: إنشاء
+            title: مشروع جديد
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذا المشروع
+            success: تم تحديث المشروع بنجاح
+        proposals_imports:
+          create:
+            invalid: كانت هناك مشكلة في استيراد المقترحات إلى المشاريع
+            success: "%{number} مقترحات تم استيرادها بنجاح في المشروعات"
+          new:
+            create: استيراد مقترحات للمشاريع
+            no_components: لا توجد مكونات أخرى مقترحة في هذه المساحة التشاركية لاستيراد المقترحات إلى المشروعات.
+            select_component: يرجى اختيار عنصر
+      admin_log:
+        project:
+          create: "%{user_name} إنشاء المشروع %{resource_name} في %{space_name} الفضاء"
+          delete: "%{user_name} حذف المشروع %{resource_name} في %{space_name} الفضاء"
+          update: "%{user_name} تحديث المشروع %{resource_name} في %{space_name} الفضاء"
+      models:
+        project:
+          fields:
+            title: عنوان
+      projects:
+        budget_confirm:
+          are_you_sure: هل توافق؟ بمجرد تأكيد تصويتك ، لا يمكنك تغييره.
+          cancel: إلغاء
+          confirm: تؤكد
+          description: هذه هي المشاريع التي اخترتها لتكون جزءًا من الميزانية.
+          title: تأكيد التصويت
+        budget_excess:
+          close: قريب
+          description: هذا المشروع يتجاوز الحد الأقصى للميزانية ولا يمكن إضافته. إذا كنت تريد ، يمكنك حذف مشروع قمت باختياره بالفعل لإضافته أو إجراء تصويتك وفقًا لتفضيلاتك.
+          ok: حسنا
+          title: تم تجاوز الحد الأقصى للميزانية
+        budget_summary:
+          are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
+          assigned: 'تعيين:'
+          cancel_order: احذف صوتك وابدأ من جديد
+          checked_out:
+            description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
+            title: اكتمال التصويت في الميزانية
+          description: ما هي المشاريع التي تعتقد أنه يجب علينا تخصيص ميزانية لها؟ قم بتعيين %{minimum_budget} على الأقل للمشروعات التي تريدها وقم بالتصويت مع تفضيلاتك لتحديد الميزانية.
+          title: عليك أن تقرر الميزانية
+        count:
+          projects_count:
+            zero: "%{count} مشاريع"
+            one: 1 مشروع
+            two: "%{count} مشاريع"
+            few: "%{count} مشاريع"
+            many: "%{count} مشاريع"
+            other: "%{count} مشاريع"
+        filters:
+          category: الفئة
+          category_prompt: اختر تصنيف
+          search: بحث
+        filters_small_view:
+          close_modal: إغلاق مشروط
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        order_progress:
+          vote: تصويت
+        order_selected_projects:
+          remove: إزالة
+          selected_projects:
+            zero: المشاريع المختارة
+            one: المشروع المحدد
+            two: المشاريع المختارة
+            few: المشاريع المختارة
+            many: المشاريع المختارة
+            other: المشاريع المختارة
+          view: رأي
+        project:
+          add: إضافة
+          count:
+            zero: "%{count} يدعم"
+            one: 1 الدعم
+            two: "%{count} يدعم"
+            few: "%{count} يدعم"
+            many: "%{count} يدعم"
+            other: "%{count} يدعم"
+          remove: إزالة
+          view: رأي
+        project_budget_button:
+          add: إضافة
+          added: وأضاف
+        show:
+          budget: ميزانية
+          view_all_projects: عرض جميع المشاريع
+    components:
+      budgets:
+        actions:
+          vote: تصويت
+        name: الميزانيات
+        settings:
+          global:
+            announcement: إعلان
+            comments_enabled: تم تمكين التعليقات
+            projects_per_page: مشاريع لكل صفحة
+            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
+            total_budget: الميزانية الإجمالية
+            vote_threshold_percent: التصويت عتبة المئة
+          step:
+            announcement: إعلان
+            comments_blocked: تم حظر التعليقات
+            show_votes: إظهار الأصوات
+            votes_enabled: تم تمكين التصويت
+    orders:
+      checkout:
+        error: حدثت مشكلة أثناء معالجة تصويتك
+        success: تم قبول تصويتك بنجاح
+      destroy:
+        error: حدثت مشكلة في إلغاء تصويتك
+        success: تم إلغاء تصويتك بنجاح
+    resource_links:
+      included_proposals:
+        project_proposal: 'المقترحات المدرجة في هذا المشروع:'
+  index:
+    confirmed_orders_count: عدد الأصوات
+  total_budget: الميزانية الإجمالية

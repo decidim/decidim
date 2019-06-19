@@ -34,16 +34,16 @@ describe("<DownVoteButton />", () => {
     expect(wrapper.find(VoteButton).prop("votes")).toEqual(comment.downVotes);
   });
 
-  it("should pass disabled prop as true if comment downVoted is true", () => {
-    comment.downVoted = true;
+  it("should pass disabled prop as false if comment upVoted is true", () => {
+    comment.upVoted = true;
     const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find(VoteButton).prop("disabled")).toBeTruthy();
+    expect(wrapper.find(VoteButton).prop("disabled")).toBeFalsy();
   });
 
-  it("should pass disabled prop as true if comment downVoted is true", () => {
+  it("should pass disabled prop as false if comment downVoted is true", () => {
     comment.downVoted = true;
     const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find(VoteButton).prop("disabled")).toBeTruthy();
+    expect(wrapper.find(VoteButton).prop("disabled")).toBeFalsy();
   });
 
   describe("when session is not present", () => {

@@ -22,7 +22,7 @@
       <%= label_tag "#{choice_id}_body" do %>
         <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
                              translated_attribute(answer_option.body),
-                             choice.try(:body),
+                             answer_option.id == choice.try(:answer_option_id),
                              id: "#{choice_id}_body", disabled: disabled %>
 
         <%= translated_attribute(answer_option.body) %>

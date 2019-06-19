@@ -38,12 +38,8 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
-      describe "assemblies" do
-        it "includes only published, with promoted listed first" do
-          expect(controller.helpers.assemblies).to match_array([promoted, published])
-        end
-
-        context "when there are no assemblies" do
+      describe "published_assemblies" do
+        context "when there are no published assemblies" do
           before do
             published.unpublish!
             promoted.unpublish!
@@ -93,8 +89,9 @@ module Decidim
       describe "parent_assemblies" do
         let!(:child_assembly) { create(:assembly, parent: published, organization: organization) }
 
-        it "includes only parent assemblies" do
-          expect(controller.helpers.parent_assemblies).to contain_exactly(published, promoted)
+        it "includes only parent assemblies, with promoted listed first" do
+          expect(controller.helpers.parent_assemblies.first).to eq(promoted)
+          expect(controller.helpers.parent_assemblies.second).to eq(published)
         end
       end
 

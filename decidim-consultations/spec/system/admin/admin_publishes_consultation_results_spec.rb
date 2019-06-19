@@ -20,7 +20,7 @@ describe "Admin publishes consultation results", type: :system do
 
     it "publishes the consultation" do
       click_link "Publish results"
-      expect(page).to have_content("published successfully")
+      expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish results")
       expect(page).to have_current_path decidim_admin_consultations.edit_consultation_path(consultation)
 
@@ -38,7 +38,7 @@ describe "Admin publishes consultation results", type: :system do
 
     it "unpublishes the results" do
       click_link "Unpublish results"
-      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish results")
       expect(page).to have_current_path decidim_admin_consultations.edit_consultation_path(consultation)
 

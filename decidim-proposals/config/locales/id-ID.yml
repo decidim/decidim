@@ -28,12 +28,23 @@ id:
       proposals_copy:
         copy_proposals: Saya memahami bahwa ini akan mengimpor semua proposal dari komponen yang dipilih ke komponen saat ini dan bahwa tindakan ini tidak dapat dibatalkan.
         origin_component_id: Komponen untuk menyalin proposal dari
+      proposals_import:
+        import_proposals: Impor proposal
+        keep_authors: Simpan penulis asli
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Perlu disambungkan kembali
+            body:
+              identical: DAN judul tidak bisa sama
+            title:
+              identical: DAN tubuh tidak bisa identik
     models:
       decidim/proposals/accepted_proposal_event: Proposal diterima
       decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah
@@ -287,8 +298,10 @@ id:
         participatory_texts:
           bulk-actions:
             are_you_sure: Apakah Anda yakin akan membuang seluruh konsep teks partisipatif?
-            import_doc: Impor dokumen
             discard_all: Buang semua
+            import_doc: Impor dokumen
+          discard:
+            success: Semua konsep teks Partisipatif telah dibuang.
           import:
             invalid: Formulirnya tidak valid!
             success: Selamat, bagian berikut telah diuraikan dari dokumen yang diimpor, mereka telah dikonversi menjadi proposal. Sekarang Anda dapat meninjau dan menyesuaikan apa pun yang Anda perlukan sebelum memublikasikan.
@@ -298,15 +311,16 @@ id:
             save_draft: Menyimpan konsep
             title: TEKNIK PREVIEW TEKNIKAL
           new_import:
+            accepted_mime_types:
+              md: Penurunan harga
+              odt: Ganjil
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
-            document_legend: 'Tambahkan dokumen yang lebih kecil dari 2MB, setiap bagian hingga 3 level akan diolah menjadi Proposal. Format yang ditawar adalah: Penurunan harga'
+            document_legend: 'Tambahkan dokumen yang kurang dari 2MB, setiap bagian hingga 3 level akan diuraikan menjadi Proposal. Format yang didukung adalah: %{valid_mime_types}'
             title: TAMBAHKAN DOKUMEN
             upload_document: Unggah dokumen
           publish:
             invalid: Tidak dapat memublikasikan proposal
             success: Semua proposal telah dipublikasikan
-          discard:
-            success: Semua konsep teks Partisipatif telah dibuang.
           sections:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
@@ -582,7 +596,7 @@ id:
           error: Ada kesalahan saat memilih proposal.
       proposals:
         compare:
-          mine_is_different: Proposal saya berbeda
+          continue: Terus
           no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
           title: Proposal serupa
         complete:
@@ -608,6 +622,7 @@ id:
           comments: Komentar
         filters:
           activity: Aktivitas
+          amendment_type: Mengetik
           category: Kategori
           category_prompt: Pilih Kategori
           origin: Asal
@@ -615,7 +630,6 @@ id:
           search: Pencarian
           state: Negara
           voted: Dipilih
-          amendment_type: Mengetik
         filters_small_view:
           close_modal: Tutup modal
           filter: Filter
@@ -731,6 +745,9 @@ id:
           version_number_out_of_total: "%{current_version} dari %{total_count}"
         version:
           version_index: Versi %{index}
+      withdraw:
+        errors:
+          has_supports: Proposal ini tidak dapat ditarik karena sudah memiliki dukungan.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposal terkait

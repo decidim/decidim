@@ -343,7 +343,7 @@ shared_examples_for "manage questionnaires" do
           click_button "Save"
         end
 
-        expect(page).to have_admin_callout("There's been errors")
+        expect(page).to have_admin_callout("There was a problem saving")
         expect(page).to have_content("can't be blank", count: 3) # emtpy question, 2 empty default answer options
 
         expect(page).to have_selector("input[value='']")
@@ -504,9 +504,9 @@ shared_examples_for "manage questionnaires" do
           within ".questionnaire-question:last-of-type" do
             click_button "Up"
           end
-
-          it_behaves_like "switching questions order"
         end
+
+        it_behaves_like "switching questions order"
       end
 
       context "when moving a question down" do
@@ -522,9 +522,9 @@ shared_examples_for "manage questionnaires" do
       it "properly decides which button to show after adding/removing questions" do
         click_button "Add question"
 
-        expect(page.find(".questionnaire-question:nth-child(1)")).to look_like_first_question
-        expect(page.find(".questionnaire-question:nth-child(2)")).to look_like_intermediate_question
-        expect(page.find(".questionnaire-question:nth-child(3)")).to look_like_last_question
+        expect(page.find(".questionnaire-question:nth-of-type(1)")).to look_like_first_question
+        expect(page.find(".questionnaire-question:nth-of-type(2)")).to look_like_intermediate_question
+        expect(page.find(".questionnaire-question:nth-of-type(3)")).to look_like_last_question
 
         within ".questionnaire-question:first-of-type" do
           click_button "Remove"

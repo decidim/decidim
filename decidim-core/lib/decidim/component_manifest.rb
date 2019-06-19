@@ -25,6 +25,10 @@ module Decidim
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
     attribute :data_portable_entities, Array, default: []
 
+    # An array with the name of the classes to know the participants
+    # of the component at the time of sending the newsletter. For example, `Decidim::<MyModule>::<MyClass>``
+    attribute :newsletter_participant_entities, Array, default: []
+
     # A path with the `scss` stylesheet this engine provides. It is used to
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.
@@ -79,6 +83,7 @@ module Decidim
     # Returns nothing.
     def run_hooks(event_name, context = nil)
       return unless hooks[event_name]
+
       hooks[event_name.to_sym].each do |hook|
         hook.call(context)
       end
@@ -142,6 +147,7 @@ module Decidim
     # Returns nothing.
     def exports(name, &block)
       return unless name
+
       @exports ||= []
       @exports << [name, block]
       @export_manifests = nil

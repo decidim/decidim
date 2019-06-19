@@ -3,12 +3,16 @@ files:
     translation: /**/locales/%locale%.yml
     languages_mapping:
       locale:
+        ar: ar
         ca: ca
+        cs: cs
         de: de
         es-ES: es
+        es-MX: es-MX
         es-PY: es-PY
         eu: eu
         fi: fi
+        fi-plain: fi-plain
         fr: fr
         gl: gl
         hu: hu

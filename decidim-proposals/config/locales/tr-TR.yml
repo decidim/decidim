@@ -18,7 +18,7 @@ tr:
         body: Vücut
         category_id: Kategori
         has_address: Adresi var
-        scope_id: kapsam
+        scope_id: Kapsam
         state: Belirtmek, bildirmek
         suggested_hashtags: Önerilen hashtag'ler
         title: Başlık
@@ -28,12 +28,23 @@ tr:
       proposals_copy:
         copy_proposals: Bunun, tüm önerileri seçilen bileşenden geçerli olana aktardığını ve bu işlemin geri alınamayacağını anlıyorum.
         origin_component_id: Teklifleri kopyalamak için bileşen
+      proposals_import:
+        import_proposals: Teklifleri içe aktar
+        keep_authors: Orijinal yazarları sakla
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Geçersiz doküman tipi Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Yeniden bağlanması gerekiyor
+            body:
+              identical: AND title aynı olamaz
+            title:
+              identical: VE vücut aynı olamaz
     models:
       decidim/proposals/accepted_proposal_event: Teklif kabul edildi
       decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
@@ -66,6 +77,7 @@ tr:
     components:
       proposals:
         actions:
+          amend: Değiştir
           create: yaratmak
           endorse: desteklemek
           vote: Oy
@@ -74,6 +86,7 @@ tr:
         settings:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
+            amendments_enabled_help: Etkin ise, her adım için Yasa Değişikliği özelliklerini yapılandırın.
             announcement: duyuru
             attachments_allowed: Eklere izin ver
             can_accumulate_supports_beyond_threshold: Destekleri eşiğin ötesinde biriktirebilir
@@ -84,6 +97,7 @@ tr:
             new_proposal_help_text: Yeni teklif yardım metni
             official_proposals_enabled: Resmi teklifler etkinleştirildi
             participatory_texts_enabled: Katılımcı metinler etkinleştirildi
+            participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
             proposal_answering_enabled: Teklif yanıtlama etkin
             proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu
@@ -96,6 +110,10 @@ tr:
             threshold_per_proposal: Teklif başına eşik
             vote_limit: Kullanıcı başına oy sınırı
           step:
+            amendment_creation_enabled: Yasa değişikliği oluşturma etkinleştirildi
+            amendment_creation_enabled_help: Katılımcı teklifleri değiştirebilir.
+            amendment_promotion_enabled: Değişiklik tanıtımı etkinleştirildi
+            amendment_reaction_enabled: Değişikliğe karşı çıkma etkinleştirildi
             announcement: duyuru
             automatic_hashtags: Hashtags tüm tekliflere eklendi
             comments_blocked: Yorumlar engellendi
@@ -292,8 +310,10 @@ tr:
         participatory_texts:
           bulk-actions:
             are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
-            import_doc: Dokümanı içe aktar
             discard_all: Hepsini at
+            import_doc: Dokümanı içe aktar
+          discard:
+            success: Tüm Katılımcı metin taslakları atıldı.
           import:
             invalid: Form geçersiz!
             success: Tebrikler, aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
@@ -303,15 +323,16 @@ tr:
             save_draft: Taslağı kaydet
             title: ÖNEMLİ KATILIMCI METİN
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: odt
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
-            document_legend: '2MB''dan daha az bir belge ekleyin, her bölüm 3 seviye derinlik Tekliflere ayrıştırılır. Desteklenen biçimler: Markdown'
+            document_legend: '2 MB''tan küçük bir belge ekleyin, her bölüm 3 seviye derinliğinde Teklifler''e ayrıştırılıncaya kadar Gösterilen biçimler: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
           publish:
             invalid: Teklifler yayınlanamadı
             success: Tüm teklifler yayınlandı
-          discard:
-            success: Tüm Katılımcı metin taslakları atıldı.
           sections:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
@@ -589,7 +610,7 @@ tr:
           error: Teklif oylanırken hatalar oluştu.
       proposals:
         compare:
-          mine_is_different: Teklifim farklı
+          continue: Devam et
           no_similars_found: Aferin! Benzer teklif bulunamadı
           title: Benzer teklifler
         complete:
@@ -616,6 +637,7 @@ tr:
           comments: Yorumlar
         filters:
           activity: Aktivite
+          amendment_type: tip
           category: Kategori
           category_prompt: bir kategori seç
           origin: Menşei
@@ -623,7 +645,6 @@ tr:
           search: Arama
           state: Belirtmek, bildirmek
           voted: oy
-          amendment_type: tip
         filters_small_view:
           close_modal: Yakın kalıcı
           filter: filtre
@@ -670,6 +691,7 @@ tr:
             other: ve %{count} kişi daha
           link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
           link_to_collaborative_draft_text: Ortak taslaka bakın
+          link_to_proposal_from_emendation_text: Öneriye bakın
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
@@ -743,6 +765,9 @@ tr:
           version_number_out_of_total: "%{current_version} üzerinden %{total_count}"
         version:
           version_index: Sürüm %{index}
+      withdraw:
+        errors:
+          has_supports: Zaten destekleri olduğu için bu teklif geri çekilemez.
     resource_links:
       copied_from_component:
         proposal_proposal: İlgili teklifler

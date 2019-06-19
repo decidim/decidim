@@ -34,6 +34,10 @@ eu:
         grant_id_documents_offline_verification: "%{user_name} egiaztatua %{resource_name} Lineako identitate dokumentuen egiaztapena erabiliz"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Onartzen diren onartutako parte-hartzaileen mezu elektronikoak igortzen dituzte CSVak
+            - CSV fitxategi horretan mezu elektroniko bat duten parte-hartzaileek soilik egiaztatu ahal izango dute
         id_documents:
           help:
             - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
@@ -46,6 +50,9 @@ eu:
             - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
             - Bidalitako mezua markatzen du.
             - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+      csv_census:
+        explanation: Egiaztatu erakundearen zentsua erabiliz
+        name: Erakundearen zentsua
       direct: Zuzeneko
       help: Laguntza
       id_documents:
@@ -65,6 +72,7 @@ eu:
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
+            csv_census: Egiaztatu erakundearen zentsuaren aurka
             dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
             dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
             id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
@@ -76,6 +84,33 @@ eu:
           authorize_with: Egiaztatu %{authorizer} rekin
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Errore bat gertatu da errolda inportatzean.
+              success: Arrakastaz inportatutako %{count} elementu (%{errors} errore)
+            destroy_all:
+              success: Erroldatze-datu guztiak ezabatu egin dira
+          destroy:
+            confirm: Ezabatu errolda guztia ezin da desegin. Ziur zaude jarraitu nahi duzula?
+            title: Zentsu-datu guztiak ezabatu
+          index:
+            data: Guztira %{count} karga daude guztira. Azken kargatze-data %{due_date}
+            empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
+            title: Uneko erroldako datuak
+          instructions:
+            body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
+            title: Erakunde honetarako Csv errolda aktibatu behar duzu
+          new:
+            file: ".csv fitxategia helbide elektronikoen datuekin"
+            info: 'Fitxategi bat CSV formatuarekin izan behar da zutabe batekin: posta elektronikoa'
+            submit: Kargatu fitxategia
+            title: Kargatu zentsu berri bat
+        authorizations:
+          new:
+            error: Ezin izan dugu zure kontua egiaztatu edo ez duzu erakundearen zentsuan.
+            success: Zure kontua ondo egiaztatu da.
       dummy_authorization:
         extra_explanation:
           one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
@@ -116,7 +151,7 @@ eu:
               success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
-            choose_a_type: "Hautatu nola egiaztatu nahi duzun:"
+            choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
             title: Egiaztatu zure identifikazio dokumentua
@@ -174,7 +209,12 @@ eu:
           create:
             error: Arazo bat izan da eskaera zurekin
             success: Eskerrik asko! SMS bat bidali dizugu telefonoan.
+          destroy:
+            success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           edit:
+            confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
+            destroy: Berrezarri egiaztapen-kodea
+            resend: Ez al duzu egiaztapen-kodea jaso?
             send: Berretsi
             title: Jasotako egiaztapen-kodea sartu
           new:

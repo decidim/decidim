@@ -1,0 +1,463 @@
+ar:
+  activemodel:
+    attributes:
+      agenda:
+        description: وصف
+        duration: المدة الزمنية
+        title: عنوان
+      close_meeting:
+        attendees_count: عدد الحضور
+        attending_organizations: قائمة المنظمات التي حضرت
+        closing_report: أبلغ عن
+        contributions_count: عدد المساهمات
+        proposal_ids: المقترحات التي تم إنشاؤها في الاجتماع
+      meeting:
+        address: عنوان
+        available_slots: فتحات المتاحة لهذا الاجتماع
+        decidim_category_id: الفئة
+        decidim_scope_id: نطاق
+        description: وصف
+        end_time: وقت النهاية
+        location: موقعك
+        location_hints: تلميحات الموقع
+        organizer_id: منظم
+        private_meeting: اجتماع خاص
+        registration_form_enabled: تم تمكين نموذج التسجيل
+        registration_terms: شروط التسجيل
+        registrations_enabled: تم تمكين التسجيلات
+        start_time: وقت البدء
+        title: عنوان
+        transparent: شفاف
+      minutes:
+        audio_url: العنوان الشبكي للصوت
+        description: وصف
+        video_url: العنوان الشبكي للفيديو
+        visible: مرئي
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: تتجاوز مدة العناصر مدة الاجتماع بـ %{count} دقيقة
+              too_many_minutes_child: تتجاوز مدة العنصر التابع للطفل مدة الأصل "%{parent_title}" لعنصر جدول الأعمال بمقدار دقيقة %{count}
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: تمت دعوة حساب البريد الإلكتروني هذا بالفعل
+    models:
+      decidim/meetings/close_meeting_event: تم إغلاق الاجتماع
+      decidim/meetings/create_meeting_event: لقاء
+      decidim/meetings/meeting_registrations_enabled_event: تم تمكين التسجيلات
+      decidim/meetings/meeting_registrations_over_percentage_event: التسجيلات فوق الحد
+      decidim/meetings/upcoming_meeting_event: الاجتماع القادم
+      decidim/meetings/update_meeting_event: تم تحديث الاجتماع
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        zero: اجتماعات
+        one: لقاء
+        two: اجتماعات
+        few: اجتماعات
+        many: اجتماعات
+        other: اجتماعات
+      decidim/meetings/minutes:
+        zero: الدقائق
+        one: الدقائق
+        two: الدقائق
+        few: الدقائق
+        many: الدقائق
+        other: الدقائق
+      decidim/meetings/registration:
+        zero: التسجيلات
+        one: التسجيل
+        two: التسجيلات
+        few: التسجيلات
+        many: التسجيلات
+        other: التسجيلات
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: كانت هناك مشكلة في تكرار هذا الاجتماع.
+          success: تم تكرار الاجتماع بنجاح.
+        new:
+          copy: نسخ
+          select: حدد البيانات التي ترغب في تكرارها
+          title: اجتماع مكرر
+    components:
+      meetings:
+        actions:
+          join: انضم
+        name: اجتماعات
+        settings:
+          global:
+            announcement: إعلان
+            comments_enabled: تم تمكين التعليقات
+            default_registration_terms: شروط التسجيل الافتراضية
+            enable_pads_creation: تمكين إنشاء منصات
+            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
+          step:
+            announcement: إعلان
+            comments_blocked: تم حظر التعليقات
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'تم إغلاق اجتماعك "%{resource_title}". يمكنك قراءة الاستنتاجات من صفحتها:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك نظمت اجتماع "%{resource_title}".
+          follower:
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+        meeting_created:
+          email_intro: تمت إضافة الاجتماع "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: تمت إضافة اجتماع جديد إلى %{participatory_space_title}
+          notification_title: تمت إضافة الاجتماع <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: تم تأكيد تسجيلك للاجتماع <a href="%{resource_url}">%{resource_title}</a> . رمز التسجيل الخاص بك هو %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: الشقوق المخصصة للاجتماع "%{resource_title}" تزيد عن %{percentage}٪.
+          email_outro: لقد تلقيت هذا الإشعار لأنك مسؤول عن المساحة التشاركية للاجتماع.
+          email_subject: الشقوق المخصصة للاجتماع "%{resource_title}" تتجاوز %{percentage}٪
+          notification_title: تتجاوز الفواصل المخصصة للاجتماع <a href="%{resource_path}">%{resource_title}</a> ٪ %{percentage}.
+        meeting_updated:
+          email_intro: 'تم تحديث الاجتماع "%{resource_title}". يمكنك قراءة الإصدار الجديد من صفحته:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: تم تحديث الاجتماع "%{resource_title}"
+          notification_title: تم تحديث الاجتماع <a href="%{resource_path}">%{resource_title}</a>.
+        registration_code_validated:
+          email_intro: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}".
+          email_outro: لقد تلقيت هذا الإشعار لأنه تم التحقق من صحة رمز التسجيل الخاص بالاجتماع "%{resource_title}".
+          email_subject: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}"
+          notification_title: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص بالاجتماع <a href="%{resource_path}">%{resource_title}</a>.
+        registrations_enabled:
+          email_intro: 'لقد مكّن الاجتماع "%{resource_title}" التسجيلات. يمكنك تسجيل نفسك على صفحتها:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: لقد مكّن الاجتماع "%{resource_title}" التسجيلات.
+          notification_title: لقد مكّن الاجتماع <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
+        upcoming_meeting:
+          email_intro: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
+          email_subject: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
+          notification_title: سيبدأ الاجتماع <a href="%{resource_path}">%{resource_title}</a> في أقل من 48 ساعة.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - سجل للاجتماعات التي تريد حضورها
+          description: تُمنح هذه الشارة عند حضور العديد من الاجتماعات المباشرة.
+          description_another: حضر هذا المشارك %{score} جلسة.
+          description_own: لقد حضرت %{score} اجتماع.
+          name: حضور الاجتماعات
+          next_level_in: حضور %{score} اجتماعات أخرى للوصول إلى المستوى التالي!
+          unearned_another: هذا المشارك لم يحضر أي اجتماع حتى الآن.
+          unearned_own: لم تحضر أي اجتماع بعد.
+    meetings:
+      actions:
+        agenda: جدول أعمال
+        attachment_collections: المجلدات
+        attachments: مرفقات
+        close: قريب
+        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
+        destroy: حذف
+        edit: تعديل
+        minutes: الدقائق
+        new: اجتماع جديد
+        preview: معاينة
+        registrations: التسجيلات
+        title: أفعال
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: إضافة بند جدول الأعمال الفرعي
+            agenda_item: البند من جدول الأعمال
+            agenda_item_children: بنود جدول الأعمال الفرعية
+            down: أسفل
+            remove: إزالة
+            up: فوق
+          agenda_item_child:
+            agenda_item_child: بند جدول الأعمال الفرعي
+            down: أسفل
+            remove: إزالة
+            up: فوق
+          create:
+            invalid: كانت هناك مشكلة في إنشاء جدول الأعمال هذا
+            success: تم إنشاء جدول الأعمال بنجاح
+          edit:
+            title: تحرير جدول الأعمال
+            update: تحديث
+          form:
+            add_agenda_item: إضافة عنصر جدول الأعمال
+            agenda_items: بنود جدول الأعمال
+            end_date: تاريخ الانتهاء
+            start_date: تاريخ البدء
+          new:
+            create: إنشاء
+            title: جدول أعمال جديد
+          update:
+            invalid: حدثت مشكلة أثناء تحديث جدول الأعمال هذا
+            success: تم تحديث جدول الأعمال بنجاح
+        exports:
+          meetings: اجتماعات
+          registrations: التسجيلات
+        invite_join_meeting_mailer:
+          invite:
+            decline: رفض الدعوة
+            invited_you_to_join_a_meeting: "%{invited_by} للانضمام إلى اجتماع في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
+            join: انضم إلى الاجتماع "%{meeting_title}"
+        invites:
+          create:
+            error: حدثت مشكلة أثناء دعوة المشارك للانضمام إلى الاجتماع.
+            success: تمت دعوة المشارك بنجاح للانضمام إلى الاجتماع.
+          form:
+            attendee_type: نوع الحضور
+            existing_user: المشارك الحالي
+            invite: دعا
+            invite_explanation: سيتم دعوة المشارك للانضمام إلى الاجتماع وإلى المنظمة أيضًا.
+            non_user: مشارك غير موجود
+            select_user: اختر المشارك
+          index:
+            filter:
+              accepted: وافقت
+              all: الكل
+              rejected: مرفوض
+              sent: أرسلت
+            filter_by: مصنف بواسطة
+            invite_attendee: دعوة الحضور
+            invites: تدعو
+            registrations_disabled: لا يمكنك دعوة أحد الحاضرين لأن التسجيلات معطلة.
+            search: بحث
+        meeting_closes:
+          edit:
+            close: قريب
+            title: اجتماع قريب
+        meeting_copies:
+          form:
+            select_organizer: اختر المنظم
+        meetings:
+          close:
+            invalid: حدثت مشكلة أثناء اختتام هذا الاجتماع
+            success: تم إغلاق الاجتماع بنجاح
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذا الاجتماع
+            success: تم إنشاء الاجتماع بنجاح
+          destroy:
+            success: تم حذف الاجتماع بنجاح
+          edit:
+            update: تحديث
+          form:
+            select_organizer: اختر المنظم
+          index:
+            title: اجتماعات
+          new:
+            create: إنشاء
+            title: إنشاء اجتماع
+          service:
+            description: وصف
+            down: أسفل
+            remove: إزالة
+            service: الخدمات
+            title: عنوان
+            up: فوق
+          services:
+            add_service: إضافة الخدمة
+            services: خدمات
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذا الاجتماع
+            success: تم تحديث الاجتماع بنجاح
+        minutes:
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذه الدقائق
+            success: تم إنشاء الدقائق بنجاح
+          edit:
+            update: تحديث
+          new:
+            create: إنشاء
+            title: خلق دقائق
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذه الدقائق
+            success: تم تحديث الدقائق بنجاح
+        models:
+          meeting:
+            name: لقاء
+        registrations:
+          edit:
+            save: حفظ
+            validate: التحقق من صحة
+            validate_registration_code: التحقق من صحة رمز التسجيل
+          form:
+            available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
+            invites: دعوات
+            registration_form: إستمارة تسجيل
+            registrations_count:
+              zero: كان هناك %{count} التسجيلات.
+              one: كان هناك %{count} تسجيل.
+              two: كان هناك %{count} التسجيلات.
+              few: كان هناك %{count} التسجيلات.
+              many: كان هناك %{count} التسجيلات.
+              other: كان هناك %{count} التسجيلات.
+            reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
+            reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
+            title: التسجيلات
+          update:
+            invalid: حدثت مشكلة أثناء حفظ إعدادات التسجيل.
+            success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.
+          validate_registration_code:
+            invalid: رمز التسجيل هذا غير صالح.
+            success: تم التحقق من صحة رمز التسجيل بنجاح.
+      admin_log:
+        invite:
+          create: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
+          deleted: "%{user_name} غير مدعو %{attendee_name} من الانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
+          update: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
+        meeting:
+          close: "%{user_name} أغلقت الجلسة %{resource_name} على %{space_name} الفضاء"
+          create: "%{user_name} إنشاء الاجتماع %{resource_name} على %{space_name} الفضاء"
+          delete: "%{user_name} حذف الاجتماع %{resource_name} على %{space_name} الفضاء"
+          export_registrations: "%{user_name} تصدير التسجيلات للجلسة %{resource_name} على %{space_name} الفضاء"
+          update: "%{user_name} تحديث الاجتماع %{resource_name} على %{space_name} الفضاء"
+          value_types:
+            organizer_presenter:
+              not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+        minutes:
+          create: "%{user_name} خلق محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
+          update: "%{user_name} تحديث محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
+      calendar_modal:
+        calendar_url: العنوان الشبكي للتقويم
+        close_window: أغلق النافذة
+        export_calendar: تصدير التقويم
+      conference_venues: أماكن المؤتمر
+      content_blocks:
+        upcoming_events:
+          name: الأحداث القادمة
+          upcoming_events: الاجتماعات القادمة
+          view_all_events: عرض الكل
+      directory:
+        meetings:
+          index:
+            all: الكل
+            date: تاريخ
+            meetings: اجتماعات
+            past: الماضي
+            search: بحث
+            space_type: الفضاء التشاركي
+            upcoming: القادمة
+      last_activity:
+        new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: دعوة للانضمام إلى اجتماع
+        registration_mailer:
+          confirmation:
+            subject: تم تأكيد تسجيل اجتماعك
+      meeting:
+        not_allowed: غير مسموح لك بمشاهدة هذا الاجتماع
+      meetings:
+        filters:
+          category: الفئة
+          category_prompt: اختر تصنيف
+          date: تاريخ
+          past: الماضي
+          search: بحث
+          upcoming: القادمة
+        filters_small_view:
+          close_modal: إغلاق مشروط
+          filter: منقي
+          filter_by: مصنف بواسطة
+          unfold: كشف
+        meeting_minutes:
+          meeting_minutes: محضر الاجتماع
+          related_information: معلومات ذات صله
+        meetings:
+          no_meetings_warning: لا توجد اجتماعات تطابق معايير البحث الخاصة بك أو لا يوجد أي اجتماع مجدولة.
+          upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
+        registration_confirm:
+          cancel: إلغاء
+          confirm: تؤكد
+        show:
+          attendees: الحضور الحضور
+          contributions: عدد المساهمات
+          going: ذاهب
+          join: أنضم إلى الأجتماع
+          meeting_report: تقرير الاجتماع
+          no_slots_available: لا فتحات المتاحة
+          organizations: حضور المنظمات
+          registration_code_help_text: رمز التسجيل الخاص بك
+          registration_state:
+            validated: التحقق من صحة
+            validation_pending: جاري التأكد
+          remaining_slots:
+            zero: "%{count} فتحات المتبقية"
+            one: "%{count} فتحة المتبقية"
+            two: "%{count} فتحات المتبقية"
+            few: "%{count} فتحات المتبقية"
+            many: "%{count} فتحات المتبقية"
+            other: "%{count} فتحات المتبقية"
+          view: رأي
+      meetings_map:
+        view_meeting: عرض الاجتماع
+      models:
+        invite:
+          fields:
+            email: البريد الإلكتروني
+            name: اسم
+            sent_at: أرسلت في
+            status: الحالة
+          status:
+            accepted: مقبول (%{at})
+            rejected: مرفوض (%{at})
+            sent: أرسلت
+        meeting:
+          fields:
+            closed: مغلق
+            end_time: تاريخ الانتهاء
+            map: خريطة
+            start_time: تاريخ البدء
+            title: عنوان
+      read_more: "(قراءة المزيد)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: تم تأكيد تسجيلك للاجتماع <a href="%{url}">%{title}</a>.
+          details: ستجد تفاصيل الاجتماع في المرفق.
+          registration_code: رمز التسجيل الخاص بك هو %{code}.
+      registrations:
+        create:
+          invalid: حدثت مشكلة أثناء الانضمام إلى هذا الاجتماع.
+          success: لقد انضممت إلى الاجتماع بنجاح.
+        decline_invitation:
+          invalid: حدثت مشكلة في رفض الدعوة.
+          success: لقد رفضت الدعوة بنجاح.
+        destroy:
+          invalid: حدثت مشكلة أثناء مغادرة هذا الاجتماع.
+          success: لقد تركت الاجتماع بنجاح.
+      types:
+        private_meeting: اجتماع خاص
+        transparent: شفاف
+    metrics:
+      meetings:
+        description: عدد الاجتماعات التي تم إنشاؤها
+        object: اجتماعات
+        title: اجتماعات
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: الاجتماعات السابقة
+          upcoming_meetings: الاجتماعات القادمة
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: الاجتماعات السابقة
+        see_all: شاهد الكل (%{count})
+        upcoming_meetings: الاجتماعات القادمة
+      upcoming_meeting_for_card:
+        upcoming_meeting: الاجتماع القادم
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'النتائج ذات الصلة:'
+        result_meeting: 'اجتماعات ذات صلة:'
+      proposals_from_meeting:
+        meeting_proposal: 'المقترحات ذات الصلة:'
+        proposal_meeting: 'اجتماعات ذات صلة:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: دعوة للانضمام إلى اجتماع

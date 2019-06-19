@@ -28,12 +28,23 @@ nl:
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
+      proposals_import:
+        import_proposals: Voorstellen importeren
+        keep_authors: Houd originele auteurs
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
+            body:
+              identical: EN titel kan niet identiek zijn
+            title:
+              identical: EN lichaam kan niet identiek zijn
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
@@ -292,8 +303,10 @@ nl:
         participatory_texts:
           bulk-actions:
             are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
-            import_doc: Document importeren
             discard_all: Gooi alles weg
+            import_doc: Document importeren
+          discard:
+            success: Alle participatieve tekstconcepten zijn genegeerd.
           import:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
@@ -303,15 +316,16 @@ nl:
             save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: odt
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
-            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Voorgestelde formaten zijn: Markdown'
+            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Gestuurde indelingen zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Upload document
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
-          discard:
-            success: Alle participatieve tekstconcepten zijn genegeerd.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
@@ -589,7 +603,7 @@ nl:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
         compare:
-          mine_is_different: Mijn voorstel is anders
+          continue: Doorgaan met
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:
@@ -616,14 +630,14 @@ nl:
           comments: Comments
         filters:
           activity: Activiteit
+          amendment_type: Type
           category: Categorie
           category_prompt: Kies een categorie
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Status
+          state: staat
           voted: Gestemd
-          amendment_type: Type
         filters_small_view:
           close_modal: Dialoogvenster sluiten
           filter: Filter
@@ -743,6 +757,9 @@ nl:
           version_number_out_of_total: "%{current_version} van de %{total_count}"
         version:
           version_index: Versie %{index}
+      withdraw:
+        errors:
+          has_supports: Dit voorstel kan niet worden ingetrokken omdat het al wordt ondersteund.
     resource_links:
       copied_from_component:
         proposal_proposal: Verwante voorstellen

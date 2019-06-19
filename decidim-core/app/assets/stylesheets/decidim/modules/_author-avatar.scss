@@ -171,5 +171,5 @@ a:hover .author__name{
 .author__badge svg{
   display: inline-block;
   vertical-align: middle;
-  color: $primary;
+  color: var(--primary);
 }

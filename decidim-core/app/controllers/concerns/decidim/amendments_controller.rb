@@ -14,8 +14,7 @@ module Decidim
 
     def create
       @form = form(Decidim::Amendable::CreateForm).from_params(params)
-      enforce_permission_to :create, :amendment
-
+      enforce_permission_to :create, :amendment, current_component: @form.component
       Decidim::Amendable::Create.call(@form) do
         on(:ok) do
           flash[:notice] = t("created.success", scope: "decidim.amendments")
@@ -24,14 +23,14 @@ module Decidim
 
         on(:invalid) do
           flash[:alert] = t("created.error", scope: "decidim.amendments")
-          redirect_to new_amend_path(amendable_gid: @form.amendable_gid)
+          render :new
         end
       end
     end
 
     def reject
       @form = form(Decidim::Amendable::RejectForm).from_params(params)
-      enforce_permission_to :reject, :amendment, amendment: @form.amendable
+      enforce_permission_to :reject, :amendment, amendment: @form.amendable, current_component: @form.component
 
       Decidim::Amendable::Reject.call(@form) do
         on(:ok) do
@@ -47,7 +46,7 @@ module Decidim
 
     def promote
       @form = Decidim::Amendable::PromoteForm.from_params(params)
-      enforce_permission_to :promote, :amendment, amendment: @form.emendation
+      enforce_permission_to :promote, :amendment, amendment: @form.emendation, current_component: @form.component
 
       Decidim::Amendable::Promote.call(@form) do
         on(:ok) do |proposal|
@@ -68,7 +67,7 @@ module Decidim
 
     def accept
       @form = Decidim::Amendable::ReviewForm.from_params(params)
-      enforce_permission_to :accept, :amendment, amendment: @form.amendable
+      enforce_permission_to :accept, :amendment, amendment: @form.amendable, current_component: @form.component
 
       Decidim::Amendable::Accept.call(@form) do
         on(:ok) do
@@ -78,7 +77,7 @@ module Decidim
 
         on(:invalid) do
           flash[:alert] = t("accepted.error", scope: "decidim.amendments")
-          redirect_to review_amend_path(id: params[:id])
+          render :review
         end
       end
     end
@@ -86,11 +85,11 @@ module Decidim
     private
 
     def amendable_gid
-      params[:amendable_gid]
+      params[:amendable_gid] || params[:amendment][:amendable_gid]
     end
 
     def amendable
-      @amendable ||= if params[:amendable_gid]
+      @amendable ||= if amendable_gid
                        present(GlobalID::Locator.locate_signed(amendable_gid))
                      else
                        Decidim::Amendment.find_by(decidim_emendation_id: params[:id]).amendable

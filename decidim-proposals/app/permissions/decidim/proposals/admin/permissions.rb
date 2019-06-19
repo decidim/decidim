@@ -59,6 +59,7 @@ module Decidim
 
         def admin_edition_is_available?
           return unless proposal
+
           (proposal.official? || proposal.official_meeting?) && proposal.votes.empty?
         end
 

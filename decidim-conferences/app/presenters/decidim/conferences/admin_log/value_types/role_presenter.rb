@@ -13,6 +13,7 @@ module Decidim
           # Returns an HTML-safe String.
           def present
             return if value.blank?
+
             h.t(value, scope: "decidim.admin.models.conference_user_role.roles", default: value)
           end
         end

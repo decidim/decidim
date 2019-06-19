@@ -176,6 +176,7 @@ module Decidim
     delegate :banner_image, to: :type
 
     delegate :document_number_authorization_handler, to: :type
+    delegate :supports_required, to: :scoped_type
 
     def votes_enabled?
       published? &&
@@ -216,6 +217,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def publish!
       return false if published?
+
       update(
         published_at: Time.current,
         state: "published",
@@ -230,6 +232,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
       return false unless published?
+
       update(published_at: nil, state: "discarded")
     end
 
@@ -251,9 +254,14 @@ module Decidim
 
     # Public: Returns the percentage of required supports reached
     def percentage
-      percentage = supports_count * 100 / scoped_type.supports_required
-      percentage = 100 if percentage > 100
-      percentage
+      return 100 if supports_goal_reached?
+
+      supports_count * 100 / supports_required
+    end
+
+    # Public: Whether the supports required objective has been reached
+    def supports_goal_reached?
+      supports_count >= supports_required
     end
 
     # Public: Overrides slug attribute from participatory processes.
@@ -284,6 +292,7 @@ module Decidim
     # RETURNS boolean
     def has_authorship?(user)
       return true if author.id == user.id
+
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
@@ -330,6 +339,7 @@ module Decidim
 
     def notify_state_change
       return unless saved_change_to_state?
+
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

@@ -33,5 +33,15 @@ describe Decidim::NotificationGeneratorJob do
 
       subject.perform_now(event, event_class_name, resource, followers, affected_users, extra)
     end
+
+    context "when event_class_name is nil" do
+      let(:event_class_name) { nil }
+
+      it "does not raise error" do
+        expect do
+          subject.perform_now(event, event_class_name, resource, followers, affected_users, extra)
+        end.not_to raise_error
+      end
+    end
   end
 end

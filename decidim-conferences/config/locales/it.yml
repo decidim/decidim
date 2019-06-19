@@ -149,7 +149,7 @@ it:
           attachments: allegati
           categories: categorie
           components: componenti
-          conference_admins: Utenti della conferenza
+          conference_admins: Amministratori della conferenza
           conference_invites: Inviti
           conference_speakers: Altoparlanti
           diploma: Certificato di partecipazione
@@ -505,10 +505,10 @@ it:
         votes_count: voti
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: La tua registrazione per la conferenza <a href="%{resource_url}">%{resource_title}</a> è in attesa di conferma.
         conference_registration_confirmed:
           notification_title: La tua registrazione per la conferenza <a href="%{resource_url}">%{resource_title}</a> è stata confermata.
+        conference_registration_validation_pending:
+          notification_title: La tua registrazione per la conferenza <a href="%{resource_url}">%{resource_title}</a> è in attesa di conferma.
         conference_registrations_over_percentage:
           email_intro: Gli spazi occupati con la conferenza "%{resource_title}" sono superiori %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della conferenza.
@@ -552,6 +552,7 @@ it:
           take_part: Prendere parte
       conferences:
         conference:
+          more_info: Ulteriori informazioni
           take_part: Prendere parte
         index:
           promoted_conferences: Conferenze promosse

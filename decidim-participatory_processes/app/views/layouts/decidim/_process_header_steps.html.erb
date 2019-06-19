@@ -26,7 +26,7 @@
         <%= link_to t(".view_steps"), decidim_participatory_processes.participatory_process_participatory_process_steps_path(current_participatory_space) %>
         <%= link_to(
           cta_text,
-          decidim_participatory_processes.participatory_process_path(participatory_process) + "/" + participatory_process.active_step.cta_path,
+          step_cta_url(participatory_process),
           class: "button small button--sc show-for-medium"
         ) %>
       <% else %>

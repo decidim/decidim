@@ -24,10 +24,47 @@ namespace :decidim do
     desc "Execute one metric calculation method"
     task :one, [:metric, :day] => :environment do |_task, args|
       next if args.metric.blank?
+
       Decidim::Organization.find_each do |organization|
         metric_manifest = Decidim.metrics_registry.for(args.metric)
         call_metric_job(metric_manifest, organization, args.day)
       end
+    end
+
+    desc "Rebuild calculations from specific day"
+    task :rebuild, [:metric, :day] => :environment do |_task, args|
+      metric = args.metric
+      day = args.day
+      if args.day.blank?
+        day = args.metric
+        metric = nil
+      end
+      begin
+        raise ArgumentError if day.blank?
+
+        (Date.parse(day)..Time.zone.today).each do |d|
+          Decidim::Organization.find_each do |organization|
+            if metric
+              m_manifest = Decidim.metrics_registry.for(metric)
+              puts "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{d}]"
+              call_metric_job(m_manifest, organization, day)
+            else
+              puts "[#{organization.name}]: rebuilding all metrics for day [#{d}]"
+              Decidim.metrics_registry.all.each do |metric_manifest|
+                call_metric_job(metric_manifest, organization, day)
+              end
+            end
+          end
+        end
+      rescue ArgumentError
+        puts "ERROR: Please specify since which date should the metrics be rebuild"
+        puts "ie: rails decidim:metrics:rebuild[2019-01-01]"
+      end
+    end
+
+    desc "Show available metrics"
+    task list: :environment do
+      puts Decidim.metrics_registry.all.pluck :metric_name
     end
 
     def call_metric_job(metric_manifest, organization, day = nil)

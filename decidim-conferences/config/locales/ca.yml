@@ -10,13 +10,13 @@ ca:
         copy_features: Copiar funcionalitats
         decidim_scope_id: Àmbit
         description: Descripció
-        hashtag: Etiqueta
-        hero_image: Imatge d'inici
+        hashtag: Hashtag
+        hero_image: Imatge de la pàgina d'inici
         participatory_processes_ids: Processos participatius relacionats
         promoted: Destacada
         published_at: Publicat a
         scope_id: Àmbit
-        scopes_enabled: Àmbit habilitat
+        scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_statistics: Mostrar estadístiques
         slogan: Eslògan
@@ -37,74 +37,74 @@ ca:
   activerecord:
     models:
       decidim/conference:
-        one: Conferència
-        other: Conferències
+        one: Jornada
+        other: Jornades
       decidim/conference_speaker:
-        one: Ponent de la conferència
-        other: Ponents de la conferència
+        one: Ponent de la jornada
+        other: Ponents de la jornada
       decidim/conference_user_role:
-        one: Rol d'usuari de la conferència
-        other: Rols d'usuari de la conferència
+        one: Rol de participant de la jornada
+        other: Rol de participant de la jornada
   decidim:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nova conferència
+        new_conference: Nova jornada
         send_diplomas: Enviar certificats d'assistència
       conference_copies:
         new:
           copy: Copiar
           select: Selecciona quines dades vols duplicar
-          title: Conferència duplicada
+          title: Jornada duplicada
       conference_publications:
         create:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència s'ha publicat correctament.
+          error: S'ha produït un error en publicar aquesta jornada.
+          success: La jornada s'ha publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta conferència.
-          success: La conferència no s'ha publicat correctament.
+          error: S'ha produït un error en despublicar aquesta jornada.
+          success: La jornada s'ha despublicat correctament.
       conference_registration:
         confirm:
-          error: S'ha produït un error en confirmar aquest registre de la conferència.
-          success: El registre de la conferència s'ha confirmat amb èxit.
+          error: S'ha produït un error en confirmar la inscripció a aquesta jornada.
+          success: La inscripció a la jornada s'ha confirmat correctament.
       conference_speakers:
         create:
-          error: S'ha produït un error en afegir un ponent per a aquesta conferència.
-          success: Ponent creat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en afegir una ponent a aquesta aquesta jornada.
+          success: Ponent de la jornada creada correctament.
         destroy:
-          success: El ponent s'ha eliminat correctament per a aquesta conferència.
+          success: Ponent de la jornada eliminada correctament.
         edit:
-          title: Actualitza el ponent de la conferència.
+          title: Actualitzar la ponència de la jornada.
           update: Actualitzar
         index:
           conference_speakers_title: Ponents de les conferències
         new:
           create: Crear
-          title: Nou ponent de la conferència.
+          title: Nova ponent de la jornada.
         update:
-          error: S'ha produït un error en actualitzar el ponent d'aquesta conferència.
-          success: Ponent actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar la ponent d'aquesta jornada.
+          success: Ponent de la jornada actualitzada correctament.
       conference_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari a aquesta conferència.
-          success: L'usuari s'ha afegit amb èxit a aquesta conferència.
+          error: S'ha produït un error en afegir una administradora a aquesta jornada.
+          success: Administradora de la jornada afegida correctament.
         destroy:
-          success: L'usuari s'ha eliminat correctament d'aquesta conferència.
+          success: Administradora de la jornada eliminada correctament.
         edit:
-          title: Actualitza l'usuari de la conferència.
+          title: Actualitzar administradora de la jornada.
           update: Actualitzar
         index:
-          conference_admins_title: usuaris de conferències
+          conference_admins_title: administradores de la jornada
         new:
           create: Crear
-          title: Nou usuari de la conferència.
+          title: Nova administradora de jornada.
         update:
-          error: S'ha produït un error en l'actualització d'un usuari per a aquesta conferència.
-          success: L'usuari s'ha actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
+          success: Administradora de la jornada actualitzada correctament.
       conferences:
         create:
-          error: S'ha produït un error en crear una nova conferència.
-          success: La conferència s'ha creat correctament.
+          error: S'ha produït un error en crear aquesta jornada.
+          success: La jornada s'ha creat correctament.
         edit:
           update: Actualitzar
         exports:
@@ -112,26 +112,26 @@ ca:
         form:
           title: Informació general
         index:
-          not_published: No s'ha publicat
+          not_published: No publicat
           published: Publicat
         new:
           create: Crear
-          title: Conferència
+          title: Jornada
         update:
-          error: S'ha produït un error en actualitzar aquesta conferència.
-          success: S'ha actualitzat la conferència amb èxit.
+          error: S'ha produït un error en actualitzar aquesta jornada.
+          success: Jornada actualitzada correctament.
       conferences_copies:
         create:
-          error: S'ha produït un error en duplicar aquesta conferència.
-          success: La conferència s'ha duplicat correctament.
+          error: S'ha produït un error en duplicar aquesta jornada.
+          success: La jornada s'ha duplicat correctament.
       media_links:
         create:
           error: S'ha produït un error en crear un nou enllaç multimèdia.
           success: Enllaç multimèdia creat correctament.
         destroy:
-          success: S'ha eliminat correctament l'enllaç de multimèdia.
+          success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
-          title: Actualitza l'enllaç multimèdia.
+          title: Actualitzar l'enllaç multimèdia.
           update: Actualitzar
         index:
           media_links_title: Enllaços multimèdia
@@ -142,24 +142,24 @@ ca:
           error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
           success: Enllaç multimèdia actualitzat correctament.
       menu:
-        conferences: Conferències
+        conferences: Jornades
         conferences_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
-          attachments: Fitxers adjunts
-          categories: Categoríes
+          attachments: Adjunts
+          categories: Categories
           components: Components
-          conference_admins: Usuaris de la conferència
+          conference_admins: Administradors de conferències
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
-          info: Info
+          info: Informació
           media_links: Enllaços multimedia
           moderations: Moderacions
-          partners: Col·laboradors
-          registration_types: Tipus de registre
+          partners: Col·laboradores
+          registration_types: Tipus d'inscripcions
           registrations: Inscripcions
-          user_registrations: Registre d'usuaris
+          user_registrations: Inscripcions de participants
       models:
         conference:
           fields:
@@ -171,18 +171,18 @@ ca:
           fields:
             affiliation: Afiliació
             full_name: Nom complet
-            position: Posició
-          name: Ponents de la conferència
+            position: Càrrec
+          name: Ponents de la jornada
         conference_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari de la conferència
+          name: Administradora de la jornada
           roles:
-            admin: Administrador
-            collaborator: Col·laborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Col·laboradora
+            moderator: Moderadora
         media_link:
           fields:
             date: Data
@@ -194,47 +194,47 @@ ca:
             link: Enllaç
             logo: Logotip
             name: Nom
-            partner_type: Escriu
-          name: Col·laborador
+            partner_type: Tipus
+          name: Col·laboradora
           types:
-            collaborator: Col·laborador
-            main_promotor: Promotor principal
+            collaborator: Col·laboradora
+            main_promotor: Promotora principal
         registration_type:
           fields:
-            conference_meetings: Trobades de la conferència
+            conference_meetings: Trobades de la jornada
             price: Preu
-            registrations_count: Contador d'inscripcions
+            registrations_count: Nombre d'inscripcions
             title: Títol
             weight: Pes
-          name: Tipus de registre
+          name: Tipus d'inscripció
       partners:
         create:
-          error: S'ha produït un error en afegir un col·laborador a aquesta jornada.
-          success: El col·laborador s'ha afegit correctament a aquesta jornada.
+          error: S'ha produït un error en afegir una col·laboradora a aquesta jornada.
+          success: Col·laboradora de la jornada afegida correctament.
         destroy:
-          success: Col·laborador eliminat correctament d'aquesta jornada.
+          success: Col·laboradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar col·laborador.
+          title: Actualitzar col·laboradora.
           update: Actualitzar
         new:
           create: Crear
-          title: Nou col·laborador
+          title: Nova col·laboradora
         update:
           error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
-          success: Col·laborador actualitzat correctament per a aquesta jornada.
+          success: Col·laboradora de la jornada actualtizada correctament.
       registration_type_publications:
         create:
-          error: S'ha produït un error en publicar aquest tipus de registre.
-          success: El tipus de registre s'ha publicat correctament.
-        destroy:
           error: S'ha produït un error en publicar aquest tipus d'inscripció.
-          success: El tipus de registre no s'ha publicat correctament.
+          success: El tipus d'inscripció s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha despublicat correctament.
       registration_types:
         create:
-          error: S'ha produït un error en afegir un tipus de registre per a aquesta conferència.
-          success: El tipus de registre s'ha afegit amb èxit a aquesta conferència.
+          error: S'ha produït un error en afegir un tipus d'inscripció per a aquesta jornada.
+          success: El tipus d'inscripció s'ha afegit correctament a aquesta jornada.
         destroy:
-          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta conferència.
+          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
           title: Actualitzar el tipus de registre.
           update: Actualitzar
@@ -242,42 +242,42 @@ ca:
           create: Crear
           title: Nou tipus de registre
         update:
-          error: S'ha produït un error en actualitzar un tipus de registre per a aquesta conferència.
-          success: El tipus de registre s'ha actualitzat amb èxit per a aquesta conferència.
+          error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
+          success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
       titles:
-        conferences: Conferències
+        conferences: Jornades
     admin_log:
       conference:
-        create: "%{user_name} ha creat la conferènica %{resource_name}"
-        publish: "%{user_name} ha publicat la conferència %{resource_name}"
-        send_conference_diplomas: "%{user_name} enviar certificats d'assistència als %{resource_name} assistents de la conferència"
-        unpublish: "%{user_name} no publicada la conferència %{resource_name}"
-        update: "%{user_name} actualitzem la conferència %{resource_name}"
-        update_diploma: "%{user_name} actualitzar els certificats de configuració d'assistència per a %{resource_name} conferència"
+        create: "%{user_name} ha creat la jornada %{resource_name}"
+        publish: "%{user_name} ha publicat la jornada %{resource_name}"
+        send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
+        unpublish: "%{user_name} no publicada la jornada %{resource_name}"
+        update: "%{user_name} ha actualitzat la jornada %{resource_name}"
+        update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per a la jornada %{resource_name}"
       conference_speaker:
-        create: "%{user_name} va crear el ponent %{resource_name} a la conferència %{space_name}"
-        delete: "%{user_name} treure el ponent %{resource_name} de la conferència %{space_name}"
-        update: "%{user_name} va actualitzar el ponent %{resource_name} a la conferència %{space_name}"
+        create: "%{user_name} ha creat a la ponent %{resource_name} a la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat a la ponent %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha actualitzat a la ponent %{resource_name} a la jornada %{space_name}"
       conference_user_role:
-        create: "%{user_name} ha estat convidat com a %{resource_name} per la conferència %{space_name}"
-        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
-        update: "%{user_name} ha canviat el rol d' %{resource_name} a la conferència %{space_name}"
+        create: "%{user_name} ha convidat %{resource_name} a la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat l'administradora %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a la jornada %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} ha confirmat un registre per a la conferència %{resource_name}"
+          confirm: "%{user_name} ha confirmat la seva inscripció a la jornada %{resource_name}"
         partner:
-          create: "%{user_name} ha creat %{resource_name} a la conferència %{space_name}"
-          delete: "%{user_name} ha eliminat l'usuari %{resource_name} de la conferència %{space_name}"
-          update: "%{user_name} ha actualitzat %{resource_name} a la conferència %{space_name}"
+          create: "%{user_name} ha creat %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat l'administradora %{resource_name} de la jornada %{space_name}"
+          update: "%{user_name} ha actualitzat %{resource_name} a la jornada %{space_name}"
         registration_type:
-          create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} per a la conferència %{space_name}"
-          publish: "%{user_name} ha publicat el tipus de registre %{resource_name} per a la conferència %{space_name}"
-          unpublish: "%{user_name} no publicat el tipus d'inscripció %{resource_name} a la conferència %{space_name}"
-          update: "%{user_name} ha actualitzat el tipus de registre %{resource_name} a la conferència %{space_name}"
+          create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          unpublish: "%{user_name} ha despublicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          update: "%{user_name} ha actualitzat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
       media_link:
-        create: "%{user_name} ha creat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
-        delete: "%{user_name} ha eliminat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
-        update: "%{user_name} ha actualitzat l'enllaç de mitjans de comunicació %{resource_name} per a la conferència %{space_name}"
+        create: "%{user_name} ha creat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
+        delete: "%{user_name} ha eliminat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
+        update: "%{user_name} ha actualitzat l'enllaç de mitjans %{resource_name} de la jornada %{space_name}"
     conference_program:
       index:
         title: Programa
@@ -288,76 +288,76 @@ ca:
       admin:
         conference_copies:
           form:
-            slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         conference_invites:
           create:
-            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la conferència.
-            success: S'ha convidat a l'usuari a participar a la conferència.
+            error: S'ha produït un error en convidar la participant a unir-se a la jornada.
+            success: Participant convidada correctament a unir-se a la jornada.
           form:
             attendee_type: Tipus d'assistent
-            existing_user: Usuari existent
-            invite_explanation: L'usuari també serà convidat a participar a la conferència i a l'organització.
-            non_user: Usuari no existent
-            select_user: Seleccioneu l'usuari
+            existing_user: Participant existent
+            invite_explanation: La participant serà convidada a unir-se a la jornada i també a l'organització.
+            non_user: Participant no existent
+            select_user: Seleccionar participant
           index:
             filter:
-              accepted: Acceptat
-              all: Tots
+              accepted: Acceptada
+              all: Totes
               rejected: Rebutjada
-              sent: Enviat
-            filter_by: Filtra per
-            invite_attendee: Convida l'assistent
+              sent: Enviada
+            filter_by: Filtrar per
+            invite_attendee: Convidar participant
             invites: Convida
             search: Cercar
           new:
-            explanation: L'usuari serà convidat a participar en una conferència. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
+            explanation: La participant serà convidada a unir-se a una jornada. Si el correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
             invite: Convidar
-            new_invite: Convida l'usuari
+            new_invite: Convidar participant
         conference_registrations:
           index:
             registrations: Inscripcions
         conference_speakers:
           form:
-            existing_user: Usuari existent
-            non_user: No usuari
-            select_user: Seleccioneu l'usuari
-            user_type: Tipus d'usuari
+            existing_user: Participant existent
+            non_user: No participant
+            select_user: Seleccionar participant
+            user_type: Tipus de participant
           index:
             search: Cercar
         conferences:
           form:
-            available_slots_help: Deixa-ho a 0 si hi ha places il·limitades disponibles.
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
             registrations_count:
-              one: Hi ha 1 inscripció.
-              other: Hi ha %{count} inscripcions.
-            slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta conferència. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
+            slug_help: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         diplomas:
           edit:
             save: Desa
             title: Certificat d'assistència
         invite_join_conference_mailer:
           invite:
-            decline: Rebutjar la invitació '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a participar en una conferència a l'%{application}. Pots rebutjar-la o acceptar-la a través dels enllaços a continuació."
+            decline: Rebutjar la invitació a '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
             registration: Inscripció a '%{conference_title}'
         partners:
           index:
-            title: Col·laboradors
+            title: Col·laboradores
         registration_types:
           form:
             select_conference_meetings: Seleccioneu trobades de la conferència
           index:
-            title: Tipus de registre
+            title: Tipus d'inscripció
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Trobareu el certificat d'assistència per a la conferència <a href="%{url}">%{title}</a> als fitxers adjunts.
+            diploma_html: Trobaràs el certificat d'assistència a la jornada <a href="%{url}">%{title}</a> als adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
             certificate_of_attendance: Certificat d'assistència
             certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Hi ha hagut un problema en enviar els certificats d'assistència de la conferència.
-          success: Certificats d'assistència de la conferència enviats correctament
+          error: S'ha produït un error en enviar els certificats d'assistència a la jornada.
+          success: Certificats d'assistència a la jornada enviats correctament
       conference:
         registration_confirm:
           cancel: Cancel·lar
@@ -378,23 +378,23 @@ ca:
           program: Programa
       conference_registration_mailer:
         confirmation:
-          confirmed_html: S'ha confirmat la teva inscripció a la conferència <a href="%{url}">%{title}</a>.
-          details_1: 'T''has inscrit a la conferència amb %{registration_type} tipus. Té un cost de %{price} i pots assistir als següents esdeveniments:'
+          confirmed_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> ha estat confirmada.
+          details_1: 'La teva inscripció a la jornada es de tipus %{registration_type} tipus. Té un cost de %{price} i pots assistir als següents esdeveniments:'
           details_2: Trobareu les dades de la conferència al fitxer adjunt.
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
-          details: 'T''has inscrit a %{registration_type} tipus amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: La teva inscripció a la conferència <a href="%{url}">%{title}</a> està pendent de ser confirmada.
+          details: 'La teva inscripció a la jornada és de tipus %{registration_type} amb un cost de %{price} i pots assistir als següents esdeveniments:'
+          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmación.
       conference_registrations:
         create:
-          invalid: Hi ha hagut un problema en inscriure't a aquesta conferència.
-          success: T'has inscrit a la conferència amb èxit.
+          invalid: S'ha produït un error en inscriure't a aquesta jornada.
+          success: T'has inscrit a la jornada correctament.
         decline_invitation:
-          invalid: Hi ha hagut un problema al rebutjar la invitació.
-          success: Has rebutjat la invitació amb èxit.
+          invalid: S'ha produït un error en rebutjar la invitació.
+          success: Has rebutjat la invitació correctament.
         destroy:
-          invalid: Hi ha hagut un problema en abandonar aquesta conferència.
-          success: Heu abandonat la conferència amb èxit.
+          invalid: S'ha produït un error en abandonar aquesta jornada.
+          success: Has abandonat la jornada correctament.
       conference_speaker:
         go_to_twitter: Anar a Twitter
         more_info: més informació
@@ -411,29 +411,29 @@ ca:
           speakers: Ponents
       conferences:
         partners:
-          collaborators: Col·laboradors
-          main_promotors: Organitzadors
+          collaborators: Col·laboradores
+          main_promotors: Organitzadores
         show:
           login_as: Has iniciat la sessió com a %{name} <%{email}>
-          make_conference_registration: 'Fes la teva inscripció a la conferència:'
-          register: Registre
+          make_conference_registration: 'Inscriu-te a la jornada:'
+          register: Inscripcions
       content_blocks:
         highlighted_conferences:
-          name: Conferències destacades
+          name: Jornades destacades
       index:
-        title: Conferències
+        title: Jornades
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: S'ha confirmat la teva inscripció a la conferència
+            subject: S'ha confirmat la teva inscripció a la jornada
           pending_validation:
-            subject: La teva inscripció a la conferència està pendent de confirmació
+            subject: La teva inscripció a la jornada està pendent de confirmació
         invite_join_conference_mailer:
           invite:
-            subject: Invitació per participar a una conferència
+            subject: Invitació per a unir-se a una jornada
         send_conference_diploma_mailer:
           diploma:
-            subject: S'ha enviat el certificat d'assistència de la vostra conferència
+            subject: S'ha enviat el teu certificat d'assistència a la jornada
       models:
         conference_invite:
           fields:
@@ -450,7 +450,7 @@ ca:
           fields:
             email: Correu electrònic
             name: Nom
-            registration_type: Tipus de registre
+            registration_type: Tipus d'inscripció
             state: Estat
             states:
               confirmed: Confirmat
@@ -458,27 +458,27 @@ ca:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferències actives
-            see_all_conferences: Veure totes les conferències
+            active_conferences: Jornades actives
+            see_all_conferences: Veure totes les jornades
       photo:
         show:
           close_modal: Tanca el modal
-          photo: Foto
+          photo: Imatge
       photos_list:
         show:
-          related_photos: Fotografies
+          related_photos: Imatges
       registration_types:
         index:
-          choose_an_option: 'Trieu l''opció de registre:'
+          choose_an_option: 'Tria el teu tipus d''inscripció:'
           login_as: Has iniciat la sessió com a %{name} <%{email}>
-          register: Registre
-          title: Tipus de registre
+          register: Inscriu-te
+          title: Tipus d'inscripció
       shared:
         conference_user_login:
           already_account: Ja tens un compte a Decidim?
           new_user: Nou usuari?
-          sign_in: Inicia sessió per inscriure't a la conferència
-          sign_up: Crea un compte per inscriure't a la conferència
+          sign_in: Inicia sessió per inscriure't a la jornada
+          sign_up: Crea un compte de participant per inscriure't a la jornada
       show:
         details: Detalls
         introduction: Introducció
@@ -489,12 +489,12 @@ ca:
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
-        conference_count: Conferències
+        conference_count: Jornades
         debates_count: Debats
         endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades
-        orders_count: Vots
+        orders_count: Donar suport
         pages_count: Pàgines
         posts_count: Publicacions
         projects_count: Projectes
@@ -502,69 +502,70 @@ ca:
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Vots
+        votes_count: Suports
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: El registre de la conferència <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registration_confirmed:
-          notification_title: S'ha confirmat el teu registre a la conferència <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: S'ha confirmat la teva inscripció a la jornada <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registration_validation_pending:
+          notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
-          email_intro: Les places ocupades per a la conferència "%{resource_title}" ocupen més del %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets administrador de la conferència.
-          email_subject: Les places ocupades per a la conferència "%{resource_title}" superen el %{percentage}%
-          notification_title: Les places ocupades per a la conferència <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
+          email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la jornada.
+          email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
+          notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:
-          email_intro: 'S''ha actualitzat la conferència "%{resource_title}". Pots llegir la nova versió des de la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la conferència "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
-          email_subject: S'ha actualitzat la conferència "%{resource_title}"
+          email_intro: 'S''ha actualitzat la jornada "%{resource_title}". Pots llegir la nova versió des de la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: S'ha actualitzat la jornada "%{resource_title}"
           notification_title: S'ha actualitzat la conferència <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
-          email_intro: 'S''han habilitat les inscripcions per a la conferència "%{resource_title}". Ja pots registrar-te a la pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la conferència "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
-          email_subject: S'han activat les inscripcions per a la conferència "%{resource_title}".
-          notification_title: S'han activat les inscripcions per a la conferència <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'La jornada "%{resource_title}" ha habilitat les inscripcions. Ja pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè segueixes la jornada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
+          email_subject: S'han activat les inscripcions per a la jornada "%{resource_title}".
+          notification_title: S'han habilitat les inscripcions a la jornada <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'La conferència "%{resource_title}" es durà a terme en 2 dies. Podeu llegir-ne la descripció des de la pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la conferència "%{resource_title}". Podeu deixar-la de seguir clicant a l'enllaç anterior.
-          email_subject: La conferència "%{resource_title}" està a punt de començar!
-          notification_title: La conferència <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
+          email_intro: 'La jornada "%{resource_title}" es durà a terme en 2 dies. Pots llegir-ne la descripció des de la pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Podeu deixar-la de seguir-a des de l'enllaç anterior.
+          email_subject: La jornada "%{resource_title}" s'apropa!
+          notification_title: La jornada <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
     log:
       value_types:
         conference_presenter:
-          not_found: 'La conferència no s''ha trobar a la base de dades (ID: %{id})'
+          not_found: 'La jornada no s''ha trobat a la base de dades (ID: %{id})'
     media:
       index:
-        description: Enllaços sobre aquesta conferència
+        description: Enllaços sobre aquesta jornada
         title: Multimedia i enllaços
     menu:
-      conferences: Conferències
+      conferences: Jornades
   devise:
     mailer:
       join_conference:
-        subject: Invitació a participar en una conferència
+        subject: Invitació a unir-se a una jornada
   layouts:
     decidim:
       conference_hero:
-        register: Registre
+        register: Inscripció
       conference_widgets:
         show:
-          take_part: Formar part
+          take_part: Participar
       conferences:
         conference:
-          take_part: Formar part
+          more_info: Més informació
+          take_part: Participar
         index:
-          promoted_conferences: Conferències destacades
+          promoted_conferences: Jornades destacades
         order_by_conferences:
           conferences:
-            one: "%{count} conferència"
-            other: "%{count} conferències"
+            one: "%{count} jornada"
+            other: "%{count} jornadas"
         promoted_conference:
           more_info: Més informació
-          take_part: Formar part
+          take_part: Participar
       conferences_nav:
         conference_menu_item: Informació
-        conference_partners_menu_item: Col·laboradors
+        conference_partners_menu_item: Col·laboradores
         conference_speaker_menu_item: Ponents
         media: Mèdia
-        venues: Llocs de realització
+        venues: Seus

@@ -18,7 +18,7 @@ describe "User group invite to join", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Invite user")
+      expect(page).to have_no_content("Invite participant")
     end
 
     it "rejects the user that accesses manually" do
@@ -34,14 +34,14 @@ describe "User group invite to join", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
-      click_link "Invite user"
+      click_link "Invite participant"
     end
 
     it "allows inviting a user" do
       fill_in "Nickname", with: invited_user.nickname
       click_button "Invite"
 
-      expect(page).to have_content("User invited successfully")
+      expect(page).to have_content("Participant successfully invited")
     end
   end
 end

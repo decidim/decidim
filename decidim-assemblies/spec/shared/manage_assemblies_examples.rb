@@ -17,9 +17,14 @@ shared_examples "manage assemblies" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
+
       attach_file :assembly_banner_image, image3_path
 
       within ".edit_assembly" do
+        fill_in "assembly[creation_date]", with: Date.yesterday
+        fill_in "assembly[included_at]", with: Date.current
+        fill_in "assembly[duration]", with: Date.tomorrow
+        fill_in "assembly[closing_date]", with: Date.tomorrow
         find("*[type=submit]").click
       end
 
@@ -28,6 +33,9 @@ shared_examples "manage assemblies" do
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
+        expect(page).to have_css("input[value='#{Date.yesterday}']")
+        expect(page).to have_css("input[value='#{Date.current}']")
+        expect(page).to have_css("input[value='#{Date.tomorrow}']", count: 2)
       end
     end
   end
@@ -91,7 +99,7 @@ shared_examples "manage assemblies" do
 
     it "publishes the assembly" do
       click_link "Publish"
-      expect(page).to have_content("published successfully")
+      expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
@@ -109,7 +117,7 @@ shared_examples "manage assemblies" do
 
     it "unpublishes the assembly" do
       click_link "Unpublish"
-      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 

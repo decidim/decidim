@@ -8,14 +8,27 @@ module Decidim
     #
     class UpdateOrganizationForm < Form
       include TranslatableAttributes
+      include JsonbAttributes
 
       mimic :organization
 
       attribute :name, String
       attribute :host, String
       attribute :secondary_hosts, String
+      attribute :force_users_to_authenticate_before_access_organization, Boolean
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
+      jsonb_attribute :smtp_settings, [
+        [:from, String],
+        [:user_name, String],
+        [:encrypted_password, String],
+        [:address, String],
+        [:port, Integer],
+        [:authentication, String],
+        [:enable_starttls_auto, Boolean]
+      ]
+
+      attr_writer :password
 
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
@@ -27,12 +40,22 @@ module Decidim
 
       def clean_secondary_hosts
         return unless secondary_hosts
+
         secondary_hosts.split("\n").map(&:chomp).select(&:present?)
       end
 
       def clean_available_authorizations
         return unless available_authorizations
+
         available_authorizations.select(&:present?)
+      end
+
+      def password
+        Decidim::AttributeEncryptor.decrypt(encrypted_password) unless encrypted_password.nil?
+      end
+
+      def encrypted_smtp_settings
+        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
       end
 
       private

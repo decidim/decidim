@@ -16,6 +16,7 @@ module Decidim
         let(:params) do
           {
             states: states,
+            keep_authors: false,
             origin_component_id: origin_component.try(:id),
             import_proposals: import_proposals
           }

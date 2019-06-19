@@ -1,7 +1,7 @@
 ca:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Nova publicació del bloc
+      decidim/blogs/create_post_event: Nova publicació al blog
   activerecord:
     models:
       decidim/blogs/post:
@@ -10,7 +10,7 @@ ca:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Estàs segur que vols eliminar aquesta publicació?
+        confirm_destroy: Estàs segura que vols eliminar aquesta publicació?
         destroy: Suprimeix
         edit: Edita
         new: Nova publicació
@@ -20,11 +20,11 @@ ca:
           components:
             body: Cos
           post:
-            name: Publicació
+            name: Publicar
         posts:
           create:
-            invalid: S'ha produït un problema en crear aquesta publicació
-            success: S'ha creat correctament la publicació
+            invalid: S'ha produït un error en crear aquesta publicació
+            success: Publicació creada correctament
           destroy:
             success: La publicació s'ha eliminat correctament
           edit:
@@ -35,14 +35,14 @@ ca:
             create: Crear
             title: Crea una publicació
           update:
-            invalid: Hi ha hagut errors en desar la publicació.
-            success: La publicació s'ha desat correctament
+            invalid: S'ha produït un error en guardar la publicació.
+            success: S'ha desat la publicació correctament
       last_activity:
         new_post_at_html: "<span>Nova publicació a %{link}</span>"
       models:
         post:
           fields:
-            author: Autor
+            author: Autora
             body: Cos
             created_at: Creat el
             title: títol
@@ -58,15 +58,15 @@ ca:
         name: Blog
         settings:
           global:
-            announcement: Anunci
+            announcement: Avís
             comments_enabled: Comentaris habilitats
           step:
-            announcement: Anunci
+            announcement: Avís
             comments_blocked: Comentaris bloquejats
     events:
       blogs:
         post_created:
-          email_intro: La publicació "%{resource_title}" s'ha publicat al "%{participatory_space_title}", que segueixes.
+          email_intro: La publicació "%{resource_title}" s'ha publicat al "%{participatory_space_title}", el qual segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova publicació publicada a %{participatory_space_title}
           notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}

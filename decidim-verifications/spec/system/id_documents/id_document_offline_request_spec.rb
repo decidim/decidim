@@ -31,7 +31,7 @@ describe "Identity document offline request", type: :system do
       doc_number: "XXXXXXXX"
     )
 
-    expect(page).to have_content("Document uploaded successfully")
+    expect(page).to have_content("Document successfully uploaded")
   end
 
   private

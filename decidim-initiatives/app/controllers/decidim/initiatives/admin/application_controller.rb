@@ -7,6 +7,10 @@ module Decidim
       class ApplicationController < Decidim::Admin::ApplicationController
         layout "decidim/admin/initiatives"
 
+        register_permissions(::Decidim::Initiatives::Admin::ApplicationController,
+                             ::Decidim::Initiatives::Permissions,
+                             ::Decidim::Admin::Permissions)
+
         def permissions_context
           super.merge(
             current_participatory_space: try(:current_participatory_space)
@@ -14,10 +18,7 @@ module Decidim
         end
 
         def permission_class_chain
-          [
-            Decidim::Initiatives::Permissions,
-            Decidim::Admin::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::ApplicationController)
         end
       end
     end

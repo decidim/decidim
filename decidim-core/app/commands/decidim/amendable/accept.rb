@@ -14,6 +14,7 @@ module Decidim
         @amendable = form.amendable
         @emendation = form.emendation
         @amender = form.emendation.creator_author
+        @user_group = form.emendation.creator.user_group
       end
 
       # Executes the command. Broadcasts these events:
@@ -23,7 +24,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @form.invalid?
+        return broadcast(:invalid) if form.invalid?
 
         transaction do
           accept_amendment!
@@ -35,6 +36,8 @@ module Decidim
       end
 
       private
+
+      attr_reader :form
 
       def accept_amendment!
         @amendment = Decidim.traceability.update!(
@@ -48,35 +51,23 @@ module Decidim
       def update_amendable!
         @amendable = Decidim.traceability.update!(
           @amendable,
-          emendation_author,
-          amendable_attributes,
+          @amender,
+          form.emendation_params,
           visibility: "public-only"
         )
-        @amendable.add_coauthor(@amender, user_group: nil)
-      end
-
-      def emendation_author
-        return @emendation.creator.user_group if @emendation.creator.user_group
-        @emendation.creator_author
-      end
-
-      def amendable_attributes
-        {
-          title: @form.title,
-          body: @form.body
-        }
+        @amendable.add_coauthor(@amender, user_group: @user_group)
       end
 
       def notify_amendable_and_emendation_authors_and_followers
-        affected_users = @emendation.authors + @amendable.authors
+        affected_users = @emendation.authors + @amendable.notifiable_identities
         followers = @emendation.followers + @amendable.followers - affected_users
 
         Decidim::EventsManager.publish(
           event: "decidim.events.amendments.amendment_accepted",
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: @emendation,
-          affected_users: affected_users,
-          followers: followers
+          affected_users: affected_users.uniq,
+          followers: followers.uniq
         )
       end
     end

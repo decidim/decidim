@@ -45,16 +45,18 @@
 
   <div class="card-section">
     <div class="meeting-agenda-items">
-      <template>
-        <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
-          <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), editable: true %>
-        <% end %>
-      </template>
+      <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
+        <script type="text/template" class="decidim-template">
+          <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-dummy" %>
+        </script>
+        <%= render "agenda_item_child_template", form: agenda_item_form, editable: true, template_id: "agenda-item-child-template-dummy" %>
+      <% end %>
 
       <div class="meeting-agenda-items-list">
-        <% @form.agenda_items.each do |agenda_item| %>
+        <% @form.agenda_items.each_with_index do |agenda_item, index| %>
           <%= fields_for "meeting_agenda[agenda_items][]", agenda_item do |agenda_item_form| %>
-            <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(agenda_item), editable: true %>
+            <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-#{index}" %>
+            <%= render "agenda_item_child_template", form: agenda_item_form, editable: true, template_id: "agenda-item-child-template-#{index}" %>
           <% end %>
         <% end %>
       </div>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class execute some measures related to Metrics, and return its results
+  # This class executes some measures related to Metrics, and return its results
   #
   #  - day: Date object
   #  - resource: Object used to make measurements. Object class is dependant within each measure
@@ -9,6 +9,7 @@ module Decidim
     def initialize(day, resource)
       @day = day.try(:to_date) || Time.zone.yesterday
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
+
       @day ||= Time.zone.yesterday
       @resource = resource
     end
