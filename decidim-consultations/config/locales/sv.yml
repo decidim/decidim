@@ -19,7 +19,7 @@ sv:
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: Webbplats för externt röstningssystem
-        origin_scope: Omfattning
+        origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungsadress
         participatory_scope: Deltagande räckvidd
@@ -27,7 +27,7 @@ sv:
         question_context: Kontext
         reference: Referens
         scope: Kommunala området
-        slug: URL slug
+        slug: URL-slug
         subtitle: Texta
         title: Titel
         vote: Externt röstsystem
@@ -116,10 +116,10 @@ sv:
             title: Titel
           name:
             one: Fråga
-            other: frågor
+            other: Frågor
         response:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Titel
           name:
             one: Svar
