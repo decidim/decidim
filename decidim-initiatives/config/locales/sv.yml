@@ -32,7 +32,7 @@ sv:
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kommittémedlemmar
-        online_signature_enabled: Online signatur aktiverad
+        online_signature_enabled: Digitala signaturer är aktiverade
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
@@ -102,9 +102,9 @@ sv:
       initiatives:
         initiative_extended:
           email_intro: Slutdatumet för att skriva under initiativet %{resource_title} har skjutits fram!
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Initiativa signaturer slutdatum förlängt!
-          notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_subject: Slutdatumet för underskrift om initiativet har skjutits fram!
+          notification_title: Slutdatum för att skriva under initiativet <a href="%{resource_path}">%{resource_title}</a> har skjutits fram.
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% av signaturerna!
@@ -144,10 +144,10 @@ sv:
             answer: Svar
             title: Svar för %{title}
           info_initiative:
-            created_at: Skapad vid
+            created_at: Skapad
             description: Beskrivning
-            initiative_votes_count: Röster räknas
-            initiatives: initiativ
+            initiative_votes_count: Räknade röster
+            initiatives: Initiativ
             state: stat
         committee_requests:
           index:
