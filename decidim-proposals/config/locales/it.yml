@@ -115,6 +115,7 @@ it:
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
             amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
             amendment_reaction_enabled: Risposta all'emendamento abilitata
+            amendment_reaction_enabled_help: Gli autori della proposta potranno accettare o rifiutare le modifiche dei partecipanti.
             announcement: Annuncio
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
@@ -693,6 +694,10 @@ it:
             other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa
+          link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa
+          link_to_promoted_emendation_text: Vedi la modifica rifiutata.
+          link_to_proposal_from_emendation_help_text: Questa è una modifica rifiutata
+          link_to_proposal_from_emendation_text: Vedi la Proposta
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
