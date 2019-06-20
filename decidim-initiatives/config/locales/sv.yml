@@ -10,7 +10,7 @@ sv:
         signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
-          any: Blandad
+          any: Blandade
           offline: Ansikte mot ansikte
           online: Digitala
         state: stat
@@ -151,7 +151,7 @@ sv:
             state: stat
         committee_requests:
           index:
-            approve: Godkänna
+            approve: Godkänn
             confirm_revoke: Är du säker?
             invite_to_committee_help: Dela den här länken för att bjuda in andra användare till kampanjutskottet
             no_members_yet: Det finns inga medlemmar i promotorkommittén
@@ -176,19 +176,19 @@ sv:
           index:
             actions_title: Åtgärd
             filter:
-              accepted: Accepterad
+              accepted: Godkända
               all: Alla
               created: Skapad
               discarded: kasserad
               published: Publicerad
-              rejected: Avvisad
+              rejected: Avvisade
               validating: Teknisk validering
             filter_by: Filtrera efter
             preview: Förhandsvisning
-            print: Skriva ut
+            print: Skriv ut
             search: Sök
           show:
-            print: Skriva ut
+            print: Skriv ut
           update:
             error: Ett fel har uppstått
             success: Medborgarinitiativet har blivit uppdaterat
@@ -238,11 +238,11 @@ sv:
           unpublish: "%{user_name} kasserade %{resource_name} -initiativet"
           update: "%{user_name} uppdaterade %{resource_name} -initiativet"
       admin_states:
-        accepted: Accepterad
+        accepted: Godkända
         created: Skapad
         discarded: kasserad
         published: Publicerad
-        rejected: Avvisad
+        rejected: Avvisade
         validating: Teknisk validering
       committee_requests:
         new:
@@ -256,7 +256,7 @@ sv:
       create_initiative:
         fill_data:
           back: Tillbaka
-          continue: Fortsätta
+          continue: Fortsätt
           fill_data_help: "<ul> <li>Ändra innehållet i ditt initiativ. Är din titel lätt att förstå? Är målet med ditt initiativ tydligt?</li> <li>Du måste välja typ av signatur. Personlig, online eller en kombination av båda</li> <li>Vilken är initiativets geografiska räckvidd? Stadsdel?</li> </ul>"
           initiative_type: Initiativtyp
           more_information: "(Mer information)"
@@ -276,7 +276,7 @@ sv:
           page: sida
         previous_form:
           back: Tillbaka
-          continue: Fortsätta
+          continue: Fortsätt
           help: Vad består initiativet av? Skriv ner titeln och beskrivningen. Vi rekommenderar en kort och kortfattad titel och en beskrivning fokuserad på den föreslagna lösningen.
           more_information: "(Mer information)"
         promotal_committee:
@@ -290,7 +290,7 @@ sv:
           select: Jag vill främja detta initiativ
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
-          continue: Fortsätta
+          continue: Fortsätt
           invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
         show_similar_initiatives:
           back: Tillbaka
@@ -339,7 +339,7 @@ sv:
           invalid: Telefonnumret är ogiltigt eller inte godkänt. Var god kontrollera dina auktorisationer.
       initiatives:
         author:
-          deleted: Raderad
+          deleted: Raderade
         author_list:
           hidden_authors_count:
             one: och ytterligare 1 person
