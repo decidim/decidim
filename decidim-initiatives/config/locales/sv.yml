@@ -27,9 +27,9 @@ sv:
         user: Kommittémedlem
       initiatives_type:
         banner_image: Banner image
-        collect_user_extra_fields: Samla användarens personuppgifter om signatur
+        collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
         description: Beskrivning
-        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
+        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Online signatur aktiverad
@@ -101,7 +101,7 @@ sv:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Signaturens slutdatum för initiativet %{resource_title} har förlängts!
+          email_intro: Slutdatumet för att skriva under initiativet %{resource_title} har skjutits fram!
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Initiativa signaturer slutdatum förlängt!
           notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
