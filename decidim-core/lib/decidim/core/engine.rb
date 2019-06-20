@@ -405,6 +405,10 @@ module Decidim
           badge.levels = [2, 10, 30, 60, 180, 365]
         end
       end
+
+      initializer "nbspw" do
+        NOBSPW.configuration.use_ruby_grep = true
+      end
     end
   end
 end
