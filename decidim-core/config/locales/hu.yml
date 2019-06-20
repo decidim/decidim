@@ -641,7 +641,7 @@ hu:
         email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
         fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
         name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
-        nickname_help: Add meg a szervezet, az egyesület, a társaság, a csoport stb. fFhasználónevét. Ne használj szóközöket vagy ékezeteket.
+        nickname_help: Adja meg a szervezet, az egyesület, a társaság, a csoport stb. felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
         phone_help: Ne használjon kötőjeleket és szóközöket
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
