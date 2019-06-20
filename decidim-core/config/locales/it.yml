@@ -1129,7 +1129,7 @@ it:
       already_signed_out: Sottoscritto con successo.
       new:
         sign_in: Accesso
-      signed_in: Loggin effettuato.
+      signed_in: Login effettuato.
       signed_out: Sottoscritto con successo.
     shared:
       links:
