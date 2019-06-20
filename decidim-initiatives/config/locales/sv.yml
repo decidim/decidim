@@ -349,11 +349,11 @@ sv:
             one: "%{count} initiativ"
             other: "%{count} initiativ"
         filters:
-          any: Vilken som helst
+          any: Något
           author: Författare
-          closed: Stängd
+          closed: Stängda
           myself: Mina initiativ
-          open: Öppet
+          open: Öppna
           search: Sök
           state: Status
           type: Typ
@@ -429,7 +429,7 @@ sv:
             active_initiatives: Aktiva initiativ
             see_all_initiatives: Se alla initiativ
       states:
-        accepted: Accepterad
+        accepted: Godkända
         expired: Utgånget
       unavailable_scope: Otillgänglig räckvidd
     menu:
@@ -453,8 +453,8 @@ sv:
         finish: Avsluta
         previous_form: Start
         promotal_committee: Promotörskommitté
-        select_initiative_type: Välja
-        show_similar_initiatives: Jämföra
+        select_initiative_type: Välj
+        show_similar_initiatives: Jämför
         step: Steg %{current} av %{total}
         title: Skapa ny satsning
       initiative_header:
