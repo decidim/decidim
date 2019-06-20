@@ -5,15 +5,15 @@ sv:
         decidim_user_group_id: Författare
         description: Beskrivning
         offline_votes: Ansikte mot ansikte stöd
-        scope_id: Omfattning
+        scope_id: Omfång
         signature_end_date: Slutet på signaturuppsamlingsperioden
         signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
           any: Blandade
           offline: Ansikte mot ansikte
-          online: Digitala
-        state: stat
+          online: Online
+        state: Status
         title: Titel
       initiative_author:
         address: Adress
@@ -31,11 +31,11 @@ sv:
         description: Beskrivning
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
-        minimum_committee_members: Minsta utskottets medlemmar
+        minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Online signatur aktiverad
         title: Titel
-        undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
-        validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
+        undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
+        validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -48,14 +48,14 @@ sv:
   activerecord:
     models:
       decidim/initiative:
-        one: intitiativ
-        other: Initatives
+        one: Intitiativ
+        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
       decidim/initiative_vote:
-        one: Signatur
-        other: signaturer
+        one: Underskrift
+        other: Underskrifter
   decidim:
     admin:
       actions:
@@ -66,19 +66,19 @@ sv:
       models:
         initiatives:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             id: ID
             state: Status
             supports_count: signaturer
             title: Initiativ
         initiatives_type_scope:
           fields:
-            scope: Omfattning
-            supports_required: Stöd krävs
-          name: Typ av initiativ typ
+            scope: Omfång
+            supports_required: Underskrifter krävs
+          name: Initiativtypens omfång
         initiatives_types:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Initiativtyper
           name: Initiativtyp
         initiatives_votes:
@@ -88,8 +88,8 @@ sv:
             hash: Hash
             initiative_end_date: Slutdatum
             initiative_id: Initiativ ID
-            initiative_signatures_count: Antal signaturer
-            initiative_start_date: Start datum
+            initiative_signatures_count: Antal underskrifter
+            initiative_start_date: Startdatum
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
