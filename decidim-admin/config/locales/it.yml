@@ -23,7 +23,7 @@ it:
         parent_id: Su
       component:
         name: Nome
-        published_at: Pubblicato a
+        published_at: Pubblicato il
         weight: Peso
       id: ID
       newsletter:
@@ -34,10 +34,10 @@ it:
         organization_logo: Logo dell'organizzazione (quadrato)
         organization_name: Nome dell'organizzazione
         organization_url: URL dell'organizzazione
-        redirect_uri: Reindirizza URI
+        redirect_uri: URI di Reindirizzamento
       organization:
         address: Server SMTP
-        alert_color: Mettere in guardia
+        alert_color: Notifica
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
@@ -59,7 +59,7 @@ it:
         instagram_handler: Gestore di Instagram
         logo: Logo
         name: Nome
-        official_img_footer: Logo ufficiale del footer
+        official_img_footer: Logo ufficiale nel footer
         official_img_header: Intestazione logo ufficiale
         official_url: URL ufficiale dell'organizzazione
         omnipresent_banner_short_description: Breve descrizione
