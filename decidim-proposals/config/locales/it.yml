@@ -116,6 +116,8 @@ it:
             amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendment_reaction_enabled_help: Gli autori della proposta potranno accettare o rifiutare le modifiche dei partecipanti.
+            amendments_visibility: Visibilità dell'emendamento
+            amendments_visibility_help: Se viene selezionata l'opzione "Gli emendamenti sono visibili solo ai loro autori", il partecipante deve essere loggato per vedere gli emendamenti apportati.
             announcement: Annuncio
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
