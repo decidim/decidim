@@ -274,7 +274,7 @@ it:
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
-          save: Salvare
+          save: Salva
         success: Aiuto sezioni aggiornate con successo
       impersonatable_users:
         index:
@@ -284,7 +284,7 @@ it:
             not_managed: Non gestito
           filter_by: Filtra per
           impersonate: Impersonare
-          impersonate_new_managed_user: Impersonare il nuovo utente gestito
+          impersonate_new_managed_user: Gestisci nuovi partecipanti
           managed: Gestito
           name: Nome
           needs_authorization_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
