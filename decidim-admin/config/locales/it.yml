@@ -209,14 +209,14 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
       autocomplete:
-        no_results: nessun risultato trovato
+        no_results: Nessun risultato trovato
         search_prompt: Digitare almeno tre caratteri da cercare
       categories:
         create:
           error: Si è verificato un errore durante la creazione di questa categoria.
           success: OK, la categoria è stata creata.
         destroy:
-          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartengaa questa categoria e provare di nuovo.
+          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
           success: OK, categoria cancellata.
         edit:
           title: Modifica categoria
@@ -238,11 +238,11 @@ it:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
         destroy:
-          error: C'è stato un errore nel distruggere questo componente.
+          error: C'è stato un errore nell'eliminare questo componente.
           success: Componente cancellato con successo.
         edit:
           title: Modifica componente
-          update: Aggiornare
+          update: Aggiorna
         form:
           default_step_settings: Impostazioni del passo predefinite
           global_settings: Impostazioni globali
@@ -258,7 +258,7 @@ it:
           title: 'Aggiungi componente: %{name}'
         publish:
           success: Il componente è stato pubblicato con successo.
-        title: componenti
+        title: Componenti
         unpublish:
           success: Il componente è stato pubblicato con successo.
         update:
