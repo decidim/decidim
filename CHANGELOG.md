@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim-core**: Update nobspw [#5227](https://github.com/decidim/decidim/pull/5227)
+
 **Fixed**:
 
 **Removed**:
