@@ -179,6 +179,9 @@ it:
         heading: Rivedi l'emendamento
         help_text: Stai rivedendo un emendamento allo %{model_name}
         send: Accettare l'emendamento
+      visibility_options:
+        all: Gli emendamenti sono visibili a tutti
+        participants: Gli emendamenti sono visibili solo ai loro autori
     anonymous_user: Anonimo
     application:
       collection:
