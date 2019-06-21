@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim-core**: Update nobspw [#5226](https://github.com/decidim/decidim/pull/5226)
+
 **Fixed**:
 
 - **decidim-assemblies**: Fix: admin assemblies form. [#5211](https://github.com/decidim/decidim/pull/5211)
