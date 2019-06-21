@@ -5,15 +5,15 @@ sv:
         decidim_user_group_id: Författare
         description: Beskrivning
         offline_votes: Ansikte mot ansikte stöd
-        scope_id: Omfattning
+        scope_id: Omfång
         signature_end_date: Slutet på signaturuppsamlingsperioden
         signature_start_date: Början av signaturuppsamlingsperioden
         signature_type: Signaturuppsamlingstyp
         signature_type_values:
-          any: Blandad
+          any: Blandade
           offline: Ansikte mot ansikte
-          online: Digitala
-        state: stat
+          online: Online
+        state: Status
         title: Titel
       initiative_author:
         address: Adress
@@ -27,15 +27,15 @@ sv:
         user: Kommittémedlem
       initiatives_type:
         banner_image: Banner image
-        collect_user_extra_fields: Samla användarens personuppgifter om signatur
+        collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
         description: Beskrivning
-        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer vid omröstning
+        document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
-        minimum_committee_members: Minsta utskottets medlemmar
-        online_signature_enabled: Online signatur aktiverad
+        minimum_committee_members: Minsta antal kommittémedlemmar
+        online_signature_enabled: Digitala signaturer är aktiverade
         title: Titel
-        undo_online_signatures_enabled: Aktivera användarna att ångra sina online-signaturer
-        validate_sms_code_on_votes: Lägg till SMS-kodvalideringssteg till signaturprocess
+        undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
+        validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -48,14 +48,14 @@ sv:
   activerecord:
     models:
       decidim/initiative:
-        one: intitiativ
-        other: Initatives
+        one: Intitiativ
+        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
       decidim/initiative_vote:
-        one: Signatur
-        other: signaturer
+        one: Underskrift
+        other: Underskrifter
   decidim:
     admin:
       actions:
@@ -66,19 +66,19 @@ sv:
       models:
         initiatives:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             id: ID
             state: Status
             supports_count: signaturer
             title: Initiativ
         initiatives_type_scope:
           fields:
-            scope: Omfattning
-            supports_required: Stöd krävs
-          name: Typ av initiativ typ
+            scope: Omfång
+            supports_required: Underskrifter krävs
+          name: Initiativtypens omfång
         initiatives_types:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             title: Initiativtyper
           name: Initiativtyp
         initiatives_votes:
@@ -88,8 +88,8 @@ sv:
             hash: Hash
             initiative_end_date: Slutdatum
             initiative_id: Initiativ ID
-            initiative_signatures_count: Antal signaturer
-            initiative_start_date: Start datum
+            initiative_signatures_count: Antal underskrifter
+            initiative_start_date: Startdatum
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
@@ -101,10 +101,10 @@ sv:
     events:
       initiatives:
         initiative_extended:
-          email_intro: Signaturens slutdatum för initiativet %{resource_title} har förlängts!
-          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Initiativa signaturer slutdatum förlängt!
-          notification_title: Signaturens slutdatum för <a href="%{resource_path}">%{resource_title}</a> initiativet har förlängts.
+          email_intro: Slutdatumet för att skriva under initiativet %{resource_title} har skjutits fram!
+          email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_subject: Slutdatumet för underskrift om initiativet har skjutits fram!
+          notification_title: Slutdatum för att skriva under initiativet <a href="%{resource_path}">%{resource_title}</a> har skjutits fram.
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% av signaturerna!
@@ -144,14 +144,14 @@ sv:
             answer: Svar
             title: Svar för %{title}
           info_initiative:
-            created_at: Skapad vid
+            created_at: Skapad
             description: Beskrivning
-            initiative_votes_count: Röster räknas
-            initiatives: initiativ
+            initiative_votes_count: Räknade röster
+            initiatives: Initiativ
             state: stat
         committee_requests:
           index:
-            approve: Godkänna
+            approve: Godkänn
             confirm_revoke: Är du säker?
             invite_to_committee_help: Dela den här länken för att bjuda in andra användare till kampanjutskottet
             no_members_yet: Det finns inga medlemmar i promotorkommittén
@@ -176,19 +176,19 @@ sv:
           index:
             actions_title: Åtgärd
             filter:
-              accepted: Accepterad
+              accepted: Godkända
               all: Alla
               created: Skapad
               discarded: kasserad
               published: Publicerad
-              rejected: Avvisad
+              rejected: Avvisade
               validating: Teknisk validering
             filter_by: Filtrera efter
             preview: Förhandsvisning
-            print: Skriva ut
+            print: Skriv ut
             search: Sök
           show:
-            print: Skriva ut
+            print: Skriv ut
           update:
             error: Ett fel har uppstått
             success: Medborgarinitiativet har blivit uppdaterat
@@ -238,11 +238,11 @@ sv:
           unpublish: "%{user_name} kasserade %{resource_name} -initiativet"
           update: "%{user_name} uppdaterade %{resource_name} -initiativet"
       admin_states:
-        accepted: Accepterad
+        accepted: Godkända
         created: Skapad
         discarded: kasserad
         published: Publicerad
-        rejected: Avvisad
+        rejected: Avvisade
         validating: Teknisk validering
       committee_requests:
         new:
@@ -256,7 +256,7 @@ sv:
       create_initiative:
         fill_data:
           back: Tillbaka
-          continue: Fortsätta
+          continue: Fortsätt
           fill_data_help: "<ul> <li>Ändra innehållet i ditt initiativ. Är din titel lätt att förstå? Är målet med ditt initiativ tydligt?</li> <li>Du måste välja typ av signatur. Personlig, online eller en kombination av båda</li> <li>Vilken är initiativets geografiska räckvidd? Stadsdel?</li> </ul>"
           initiative_type: Initiativtyp
           more_information: "(Mer information)"
@@ -276,7 +276,7 @@ sv:
           page: sida
         previous_form:
           back: Tillbaka
-          continue: Fortsätta
+          continue: Fortsätt
           help: Vad består initiativet av? Skriv ner titeln och beskrivningen. Vi rekommenderar en kort och kortfattad titel och en beskrivning fokuserad på den föreslagna lösningen.
           more_information: "(Mer information)"
         promotal_committee:
@@ -290,7 +290,7 @@ sv:
           select: Jag vill främja detta initiativ
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
-          continue: Fortsätta
+          continue: Fortsätt
           invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
         show_similar_initiatives:
           back: Tillbaka
@@ -339,7 +339,7 @@ sv:
           invalid: Telefonnumret är ogiltigt eller inte godkänt. Var god kontrollera dina auktorisationer.
       initiatives:
         author:
-          deleted: Raderad
+          deleted: Raderade
         author_list:
           hidden_authors_count:
             one: och ytterligare 1 person
@@ -349,11 +349,11 @@ sv:
             one: "%{count} initiativ"
             other: "%{count} initiativ"
         filters:
-          any: Vilken som helst
+          any: Något
           author: Författare
-          closed: Stängd
+          closed: Stängda
           myself: Mina initiativ
-          open: Öppet
+          open: Öppna
           search: Sök
           state: Status
           type: Typ
@@ -429,7 +429,7 @@ sv:
             active_initiatives: Aktiva initiativ
             see_all_initiatives: Se alla initiativ
       states:
-        accepted: Accepterad
+        accepted: Godkända
         expired: Utgånget
       unavailable_scope: Otillgänglig räckvidd
     menu:
@@ -453,8 +453,8 @@ sv:
         finish: Avsluta
         previous_form: Start
         promotal_committee: Promotörskommitté
-        select_initiative_type: Välja
-        show_similar_initiatives: Jämföra
+        select_initiative_type: Välj
+        show_similar_initiatives: Jämför
         step: Steg %{current} av %{total}
         title: Skapa ny satsning
       initiative_header:

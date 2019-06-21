@@ -157,6 +157,7 @@ fi-pl:
           evaluating: |-
             Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
             arvioidaan.
+          promoted: Korostettu kohteeksi %{amendable_type}.
           rejected: "Tämä muutos kohteelle %{amendable_type} %{amendable_link}\nhylättiin ajankohtana <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
