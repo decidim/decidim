@@ -118,7 +118,7 @@ en:
             amendment_reaction_enabled: Amendment reaction enabled
             amendment_reaction_enabled_help: Proposal's authors will be able to accept or reject Participant's emendations.
             amendments_visibility: Amendment visibility
-            amendments_visibility_help: If the option "Participants can only see their own amendments" is selected, participant must be logged in to see the amendments made.
+            amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked

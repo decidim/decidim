@@ -181,8 +181,8 @@ en:
         help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
       visibility_options:
-        all: All amendments are visible
-        participants: Participants can only see their own amendments
+        all: Amendments are visible to all
+        participants: Amendments are visible only to their authors
     anonymous_user: Anonymous
     application:
       collection:
