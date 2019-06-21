@@ -7,14 +7,15 @@ module Decidim
     #
     # Returns Html grid of CardM.
     def amendments_for(amendable)
-      return unless amendable.amendable? && amendable.emendations.count.positive?
+      return unless amendable.amendable?
+      return unless (emendations = amendable.visible_emendations_for(current_user)).any?
 
       content = content_tag(:h2, class: "section-heading", id: "amendments") do
-        t("section_heading", scope: "decidim.amendments.amendable", count: amendable.emendations.count)
+        t("section_heading", scope: "decidim.amendments.amendable", count: emendations.count)
       end
 
       content << cell("decidim/collapsible_list",
-                      amendable.emendations,
+                      emendations,
                       cell_options: { context: { current_user: current_user } },
                       list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
                       size: 4).to_s

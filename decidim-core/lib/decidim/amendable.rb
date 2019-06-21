@@ -35,6 +35,34 @@ module Decidim
 
       scope :only_amendables, -> { where.not(id: joins(:amendable)) }
       scope :only_emendations, -> { where(id: joins(:amendable)) }
+      # retrieves resources that are emendations and visible to the user
+      # based on the component's amendments settings.
+      scope :only_visible_emendations_for, lambda { |user, component|
+        return only_emendations unless component.settings.amendments_enabled
+
+        case component.current_settings.amendments_visibility
+        when "participants"
+          return none unless user
+
+          where(id: joins(:amendable).where("decidim_amendments.decidim_user_id = ?", user.id))
+        else # Assume 'all' or wrong value
+          only_emendations
+        end
+      }
+      # retrieves both resources that are amendables and emendations filtering out the emendations
+      # that are not visible to the user based on the component's amendments settings.
+      scope :amendables_and_visible_emendations_for, lambda { |user, component|
+        return all unless component.settings.amendments_enabled
+
+        case component.current_settings.amendments_visibility
+        when "participants"
+          return only_amendables unless user
+
+          where.not(id: joins(:amendable).where.not("decidim_amendments.decidim_user_id = ?", user.id))
+        else # Assume 'all' or wrong value
+          all
+        end
+      }
     end
 
     class_methods do
@@ -100,6 +128,27 @@ module Decidim
     # See Decidim::Resourceable#link_resources
     def linked_promoted_resource
       linked_resources(amendable_type, "created_from_rejected_emendation").first
+    end
+
+    # Returns the emendations of an amendable that are visible to the user
+    # based on the component's amendments settings.
+    def visible_emendations_for(user)
+      return emendations unless component.settings.amendments_enabled
+
+      case component.current_settings.amendments_visibility
+      when "participants"
+        return amendable_type.constantize.none unless user
+
+        emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
+      else # Assume 'all' or wrong value
+        emendations
+      end
+    end
+
+    # Returns the amendments (polymorphic association) of the emendations that
+    # are visible to the user based on the component's amendments settings.
+    def visible_amendments_for(user)
+      amendments.where(emendation: visible_emendations_for(user))
     end
   end
 end

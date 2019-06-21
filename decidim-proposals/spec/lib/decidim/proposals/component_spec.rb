@@ -33,20 +33,21 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   end
 
   describe "on update" do
+    let(:form) do
+      instance_double(
+        Decidim::Admin::ComponentForm,
+        invalid?: !valid,
+        weight: 0,
+        name: {},
+        default_step_settings: {},
+        settings: settings,
+        step_settings: step_settings
+      )
+    end
+
     describe "participatory_texts_enabled" do
-      let(:form) do
-        instance_double(
-          Decidim::Admin::ComponentForm,
-          invalid?: !valid,
-          weight: 0,
-          name: {},
-          default_step_settings: {},
-          step_settings: {},
-          settings: {
-            participatory_texts_enabled: true
-          }
-        )
-      end
+      let(:settings) { { participatory_texts_enabled: true } }
+      let(:step_settings) { {} }
 
       context "when there are no proposals for the component" do
         let(:valid) { true }
@@ -60,6 +61,39 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       context "when there are proposals for the component" do
         let(:proposal) { create(:proposal, component: component) }
+        let(:valid) { false }
+
+        it "does NOT update the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:invalid)
+        end
+      end
+    end
+
+    describe "amendments_visibility" do
+      let(:settings) { { amendments_enabled: true } }
+      let(:step_settings) do
+        {
+          component.participatory_space.active_step.id => {
+            amendments_visibility: amendment_visibility_option
+          }
+        }
+      end
+
+      context "when the amendment visibility option is valid" do
+        let(:amendment_visibility_option) { "all" }
+        let(:valid) { true }
+
+        it "updates the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:ok)
+        end
+      end
+
+      context "when the amendment visibility option is NOT valid" do
+        let(:amendment_visibility_option) { "INVALID" }
         let(:valid) { false }
 
         it "does NOT update the component" do

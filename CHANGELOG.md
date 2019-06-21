@@ -5,6 +5,8 @@
 
 **Added**:
 
+- **decidim-core**, **decidim-admin**, **decidim-proposals**: Add: `amendments_visibility` component step setting [#5223](https://github.com/decidim/decidim/pull/5223)
+- **decidim-core**, **decidim-admin**, **decidim-proposals**: Add: admin configuration of amendments by step [#5178](https://github.com/decidim/decidim/pull/5178)
 - **decidim-consultations**: Add admin results page to consultations [#5188](https://github.com/decidim/decidim/pull/5188)
 - **decidim-core**: Adds SECURITY.md per Github recommendations [#5181](https://github.com/decidim/decidim/pull/5181)
 - **decidim-core**, **decidim-system**: Add force users to authenticate before access to the organization [#5189](https://github.com/decidim/decidim/pull/5189)
