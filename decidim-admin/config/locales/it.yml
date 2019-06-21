@@ -74,9 +74,9 @@ it:
         success_color: Successo
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
-        user_groups_enabled: Abilita gruppi di utenti
+        user_groups_enabled: Abilita gruppi
         user_name: Nome Utente
-        warning_color: avvertimento
+        warning_color: Attenzione
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -93,13 +93,13 @@ it:
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
-        show_in_footer: Mostra nel piè di pagina
+        show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
         weight: Peso
       static_page_topic:
         description: Descrizione
-        show_in_footer: Mostra nel piè di pagina
+        show_in_footer: Mostra nel footer
         title: Titolo
         weight: Peso
       user_group_csv_verification:
@@ -139,17 +139,17 @@ it:
         manage: Gestisci
         new: Nuovo %{name}
         permissions: Permessi
-        reject: Rifiutare
+        reject: Rifiuta
         verify: Verifica
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
           success: Tipo di area creato con successo.
         destroy:
-          success: Tipo di area distrutta con successo
+          success: Tipo di area eliminata con successo
         edit:
           title: Modifica il tipo di area
-          update: Aggiornare
+          update: Aggiorna
         new:
           create: Crea il tipo di area
           title: Nuovo tipo di area
@@ -165,11 +165,11 @@ it:
           success: Area distrutta con successo
         edit:
           title: Modifica area
-          update: Aggiornare
+          update: Aggiorna
         new:
           create: Crea un'area
           title: Nuova area
-        no_areas: Nessuna zona
+        no_areas: Nessuna area
         update:
           error: Si è verificato un errore durante l'aggiornamento di quest'area.
           success: Area aggiornata con successo
@@ -178,10 +178,10 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova cartella.
           success: Cartella creata con successo.
         destroy:
-          success: Cartella distrutta con successo.
+          success: Cartella eliminata con successo.
         edit:
           title: Modifica cartella
-          update: Aggiornare
+          update: Aggiorna
         index:
           attachment_collection_used: Questa cartella non può essere rimossa perché è in uso.
           attachment_collections_title: Cartelle dell'allegato
