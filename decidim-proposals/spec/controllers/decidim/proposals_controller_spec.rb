@@ -41,7 +41,7 @@ module Decidim
             get :index
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:participatory_text)
-            expect(assigns(:proposals).order_values.first.expr.name).to eq(:position)
+            expect(assigns(:proposals).order_values.first.expr.name).to eq("position")
           end
 
           context "when emendations exist" do
