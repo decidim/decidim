@@ -23,7 +23,7 @@ it:
         parent_id: Su
       component:
         name: Nome
-        published_at: Pubblicato a
+        published_at: Pubblicato il
         weight: Peso
       id: ID
       newsletter:
@@ -34,10 +34,10 @@ it:
         organization_logo: Logo dell'organizzazione (quadrato)
         organization_name: Nome dell'organizzazione
         organization_url: URL dell'organizzazione
-        redirect_uri: Reindirizza URI
+        redirect_uri: URI di Reindirizzamento
       organization:
         address: Server SMTP
-        alert_color: Mettere in guardia
+        alert_color: Notifica
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
@@ -59,7 +59,7 @@ it:
         instagram_handler: Gestore di Instagram
         logo: Logo
         name: Nome
-        official_img_footer: Logo ufficiale del footer
+        official_img_footer: Logo ufficiale nel footer
         official_img_header: Intestazione logo ufficiale
         official_url: URL ufficiale dell'organizzazione
         omnipresent_banner_short_description: Breve descrizione
@@ -74,9 +74,9 @@ it:
         success_color: Successo
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
-        user_groups_enabled: Abilita gruppi di utenti
+        user_groups_enabled: Abilita gruppi
         user_name: Nome Utente
-        warning_color: avvertimento
+        warning_color: Attenzione
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -93,13 +93,13 @@ it:
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
-        show_in_footer: Mostra nel piè di pagina
+        show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
         weight: Peso
       static_page_topic:
         description: Descrizione
-        show_in_footer: Mostra nel piè di pagina
+        show_in_footer: Mostra nel footer
         title: Titolo
         weight: Peso
       user_group_csv_verification:
@@ -139,17 +139,17 @@ it:
         manage: Gestisci
         new: Nuovo %{name}
         permissions: Permessi
-        reject: Rifiutare
+        reject: Rifiuta
         verify: Verifica
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
           success: Tipo di area creato con successo.
         destroy:
-          success: Tipo di area distrutta con successo
+          success: Tipo di area eliminata con successo
         edit:
           title: Modifica il tipo di area
-          update: Aggiornare
+          update: Aggiorna
         new:
           create: Crea il tipo di area
           title: Nuovo tipo di area
@@ -165,11 +165,11 @@ it:
           success: Area distrutta con successo
         edit:
           title: Modifica area
-          update: Aggiornare
+          update: Aggiorna
         new:
           create: Crea un'area
           title: Nuova area
-        no_areas: Nessuna zona
+        no_areas: Nessuna area
         update:
           error: Si è verificato un errore durante l'aggiornamento di quest'area.
           success: Area aggiornata con successo
@@ -178,10 +178,10 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova cartella.
           success: Cartella creata con successo.
         destroy:
-          success: Cartella distrutta con successo.
+          success: Cartella eliminata con successo.
         edit:
           title: Modifica cartella
-          update: Aggiornare
+          update: Aggiorna
         index:
           attachment_collection_used: Questa cartella non può essere rimossa perché è in uso.
           attachment_collections_title: Cartelle dell'allegato
@@ -209,14 +209,14 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
       autocomplete:
-        no_results: nessun risultato trovato
+        no_results: Nessun risultato trovato
         search_prompt: Digitare almeno tre caratteri da cercare
       categories:
         create:
           error: Si è verificato un errore durante la creazione di questa categoria.
           success: OK, la categoria è stata creata.
         destroy:
-          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartengaa questa categoria e provare di nuovo.
+          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
           success: OK, categoria cancellata.
         edit:
           title: Modifica categoria
@@ -238,11 +238,11 @@ it:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
         destroy:
-          error: C'è stato un errore nel distruggere questo componente.
+          error: C'è stato un errore nell'eliminare questo componente.
           success: Componente cancellato con successo.
         edit:
           title: Modifica componente
-          update: Aggiornare
+          update: Aggiorna
         form:
           default_step_settings: Impostazioni del passo predefinite
           global_settings: Impostazioni globali
@@ -258,7 +258,7 @@ it:
           title: 'Aggiungi componente: %{name}'
         publish:
           success: Il componente è stato pubblicato con successo.
-        title: componenti
+        title: Componenti
         unpublish:
           success: Il componente è stato pubblicato con successo.
         update:
@@ -274,7 +274,7 @@ it:
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
-          save: Salvare
+          save: Salva
         success: Aiuto sezioni aggiornate con successo
       impersonatable_users:
         index:
@@ -284,7 +284,7 @@ it:
             not_managed: Non gestito
           filter_by: Filtra per
           impersonate: Impersonare
-          impersonate_new_managed_user: Impersonare il nuovo utente gestito
+          impersonate_new_managed_user: Gestisci nuovi partecipanti
           managed: Gestito
           name: Nome
           needs_authorization_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
