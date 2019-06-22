@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Conferences.version
   s.add_dependency "decidim-meetings", Decidim::Conferences.version
-  s.add_dependency "wicked_pdf"
-  s.add_dependency "wkhtmltopdf-binary"
+  s.add_dependency "wicked_pdf", "~> 1.4"
+  s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-admin", Decidim::Conferences.version
   s.add_development_dependency "decidim-dev", Decidim::Conferences.version

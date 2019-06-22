@@ -209,10 +209,6 @@ module Decidim
         end
       end
 
-      initializer "paper_trail" do
-        PaperTrail.config.track_associations = false
-      end
-
       initializer "add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
@@ -408,6 +404,10 @@ module Decidim
         Decidim::Gamification.register_badge(:continuity) do |badge|
           badge.levels = [2, 10, 30, 60, 180, 365]
         end
+      end
+
+      initializer "nbspw" do
+        NOBSPW.configuration.use_ruby_grep = true
       end
     end
   end
