@@ -624,12 +624,12 @@ hu:
         success: Csatlakozási kérelem sikeresen elutasítva
       remove:
         error: Hiba történt a felhasználó eltávolításakor a csoportból
-        success: A felhasználó sikeresen eltávolította a csoportot
+        success: A felhasználó sikeresen eltávolításra került a csoportból
     groups:
       actions:
         are_you_sure: biztos vagy ebben?
       create:
-        error: Hiba történt a csoport létrehozásában
+        error: Hiba történt a csoport létrehozásakor
         success: A csoport sikeresen létrehozva
       edit:
         edit_user_group: Csoport szerkesztése
@@ -639,11 +639,11 @@ hu:
         email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
         fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
         name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
-        nickname_help: Add meg a szervezet, az egyesület, a társaság, a csoport stb. fFhasználónevét. Ne használj szóközöket vagy ékezeteket.
+        nickname_help: Adja meg a szervezet, az egyesület, a társaság, a csoport stb. felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
         phone_help: Ne használjon kötőjeleket és szóközöket
       join:
         error: Hiba történt a csoporthoz való csatlakozáskor
-        success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmedet, mielőtt elfogadja a csatlakozásodat.
+        success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmet, mielőtt a csatlakozás elfogadásra kerül.
       leave:
         error: Hiba történt a csoport elhagyása kapcsán
         success: A csoportot sikeresen elhagytad.

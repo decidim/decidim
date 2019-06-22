@@ -265,22 +265,22 @@ hu:
         assistants_count_title: Segítség
         comments_count_title: Hozzászólások
         meetings_count_title: Találkozók
-        supports_count_title: Támogatások
+        supports_count_title: Szavazatok
       technical_info:
         technical_data: Technikai részletek
       vote_button:
         already_voted: Már szavaztál
-        already_voted_hover: Támogatás visszavonása
+        already_voted_hover: A szavazás visszavonása
         starting_from: '%{date} óta'
         vote: Szavazás
       vote_modal:
         contextual_help: Válassz az opciók közül.
-        title: 'Konzultáció: kérdés-támogatás'
+        title: 'Konzultáció: kérdés-szavazás'
       vote_modal_confirm:
         change: Módosítás
         confirm: Megerősítés
         contextual_help: Erősítsd meg a kiválasztott opciót.
-        title: 'Konzultáció: erősítsd meg a támogatást'
+        title: 'Konzultáció: erősítsd meg a szavazatot'
   layouts:
     decidim:
       admin:
