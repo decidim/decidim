@@ -4,7 +4,7 @@ sv:
       answer:
         body: Svar
       question:
-        max_choices: Max antal val
+        max_choices: Högst antal val
         question_type: Typ
       questionnaire_question:
         mandatory: Obligatorisk
@@ -24,8 +24,8 @@ sv:
             tos: Användarvillkor
         questionnaires:
           answer_option:
-            answer_option: Svaralternativ
-            free_text: Fri text
+            answer_option: Svarsalternativ
+            free_text: Fritext
             remove: Ta bort
             statement: Påstående
           edit:
@@ -33,50 +33,50 @@ sv:
             title: Titel
           form:
             add_question: Lägg till fråga
-            already_answered_warning: Frågeformuläret är redan besvarat av vissa användare så att du inte kan ändra sina frågor.
+            already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
           question:
-            add_answer_option: Lägg till svaralternativ
-            any: Vilken som helst
+            add_answer_option: Lägg till svarsalternativ
+            any: Någon
             description: Beskrivning
-            down: Ner
+            down: Ned
             question: Fråga
             remove: Ta bort
             statement: Påstående
             up: Upp
           update:
-            invalid: Det har varit fel när du sparat frågeformuläret.
-            success: Frågeformulär sparades framgångsrikt.
+            invalid: Det gick inte att spara formuläret.
+            success: Formuläret har sparats.
       errors:
         answer:
-          body: Kroppen kan inte vara tomt
+          body: Kroppen kan inte vara to
       question_types:
         long_answer: Långt svar
         multiple_option: Flera alternativ
         short_answer: Kort svar
-        single_option: Enkelt alternativ
+        single_option: Ett alternativ
         sorting: Sortering
       questionnaires:
         answer:
-          invalid: Det har varit fel när du besvarade frågeformuläret.
-          success: Frågeformuläret besvarades med framgång.
+          invalid: Det gick inte att besvara formuläret.
+          success: Formuläret har besvarats.
         question:
-          max_choices: 'Max val: %{n}'
+          max_choices: 'Högst antal val: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> att svara på frågeformuläret.
-            title: Besvara frågeformuläret
+            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> om du vill svara på formuläret.
+            title: Besvara formuläret
           are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           questionnaire_answered:
-            body: Du har redan besvarat det här frågeformuläret.
+            body: Du har redan besvarat det här formuläret.
             title: Redan svarat
           questionnaire_closed:
-            body: Frågeformuläret är stängt och kan inte besvaras.
-            title: Frågeformuläret stängt
+            body: Formuläret är stängt och kan inte besvaras.
+            title: Formuläret är stängt
           questionnaire_for_private_users:
-            body: Frågeformuläret är endast tillgängligt för privata användare
-            title: Frågeformuläret stängt
-          submit: Lämna
-          tos_agreement: Genom att acceptera accepterar du användarvillkoren
+            body: Formuläret är endast tillgängligt för privata användare
+            title: Formuläret är stängt
+          submit: Skicka in
+          tos_agreement: Genom att delta godkänner du användarvillkoren
       user_answers_serializer:
-        created_at: Besvarat
-        id: Svar-ID
+        created_at: Besvarad
+        id: Svars-ID

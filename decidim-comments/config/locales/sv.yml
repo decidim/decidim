@@ -20,7 +20,7 @@ sv:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:
         create:
-          error: Det har blivit fel när du röstar om kommentaren.
+          error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lägga till din kommentar.
@@ -41,7 +41,7 @@ sv:
         alignment:
           against: Mot
           in_favor: För
-        deleted_user: Raderad användare
+        deleted_user: Raderad deltagare
         reply: Svara
         report:
           action: Rapportera
@@ -64,7 +64,7 @@ sv:
       comment_thread:
         title: Samtal med %{authorName}
       comments:
-        blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa de föregående.
+        blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         loading: Laddar kommentarer...
         title: "%{count} kommentarer"
@@ -92,7 +92,7 @@ sv:
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Antal kommentarer som genereras av användare
+        description: Antal kommentarer från deltagare
         object: kommentarer
         title: Kommentarer
   errors:

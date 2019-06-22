@@ -253,31 +253,31 @@ sv:
         send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna på konferensen %{resource_name}"
         unpublish: "%{user_name} avpublicerade konferensen %{resource_name}"
         update: "%{user_name} uppdaterade konferensen %{resource_name}"
-        update_diploma: "%{user_name} uppdaterade certifikat för deltagande konfiguration för %{resource_name} konferens"
+        update_diploma: "%{user_name} uppdaterade konfigurationen av närvarointygen till konferensen %{resource_name}"
       conference_speaker:
         create: "%{user_name} skapade talaren %{resource_name} på konferensen %{space_name}"
-        delete: "%{user_name} bort %{resource_name} högtalaren från %{space_name} konferens"
-        update: "%{user_name} uppdaterade %{resource_name} högtalare på %{space_name} konferensen"
+        delete: "%{user_name} tog bort talaren %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} uppdaterade talaren %{resource_name} på konferensen %{space_name}"
       conference_user_role:
-        create: "%{user_name} inbjudna %{resource_name} till %{space_name} konferens"
-        delete: "%{user_name} avlägsnas användaren %{resource_name} från %{space_name} konferens"
-        update: "%{user_name} ändrade rollen som %{resource_name} i %{space_name} konferensen"
+        create: "%{user_name} bjöd in %{resource_name} till konferensen %{space_name}"
+        delete: "%{user_name} tog bort administratören %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i konferensen %{space_name}"
       conferences:
         conference_registration:
-          confirm: "%{user_name} bekräftade en konferensregistrering på %{resource_name} konferens"
+          confirm: "%{user_name} bekräftade en konferensregistrering till konferensen %{resource_name}"
         partner:
           create: "%{user_name} skapade %{resource_name} på konferensen %{space_name}"
           delete: "%{user_name} tog bort administratören %{resource_name} från konferensen %{space_name}"
           update: "%{user_name} uppdaterade %{resource_name} på konferensen %{space_name}"
         registration_type:
           create: "%{user_name} skapade registreringstypen %{resource_name} på konferensen %{space_name}"
-          publish: "%{user_name} publicerade %{resource_name} registreringstyp i %{space_name} konferensen"
-          unpublish: "%{user_name} opublicerade %{resource_name} registreringstyp i %{space_name} konferensen"
-          update: "%{user_name} uppdaterade %{resource_name} registreringstyp i %{space_name} konferensen"
+          publish: "%{user_name} publicerade registreringstypen %{resource_name} till konferensen %{space_name}"
+          unpublish: "%{user_name} avpublicerade registreringstypen %{resource_name} till konferensen %{space_name}"
+          update: "%{user_name} uppdaterade registreringstypen %{resource_name} till konferensen %{space_name}"
       media_link:
         create: "%{user_name} skapade media länken %{resource_name} på konferensen %{space_name}"
-        delete: "%{user_name} bort %{resource_name} media länk från %{space_name} konferensen"
-        update: "%{user_name} uppdaterade %{resource_name} media länk på %{space_name} konferensen"
+        delete: "%{user_name} tog bort medialänken %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} uppdaterade medialänken %{resource_name} på konferensen %{space_name}"
     conference_program:
       index:
         title: Program
@@ -288,11 +288,11 @@ sv:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på denna konferens. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
-            error: Det har varit ett problem när du inbjuder användaren att gå med i konferensen.
-            success: Användaren framgångsrikt inbjuden att delta i konferensen.
+            error: Det gick inte att bjuda in deltagaren till konferensen.
+            success: Deltagaren har bjudits in att delta i konferensen.
           form:
             attendee_type: Deltagartyp
             existing_user: Befintlig deltagare
