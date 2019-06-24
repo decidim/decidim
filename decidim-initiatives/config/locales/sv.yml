@@ -288,24 +288,24 @@ sv:
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
           more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
-          select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
+          select_initiative_type_help: Medborgainitiativ är ett sätt för medborgarna att berätta för kommunfullmäktige vilka åtgärder som ligger i det allmänna intresset inom den kommunala jurisdiktionen. Vilket initiativ vill du föra fram?
         share_committee_link:
           continue: Fortsätt
-          invite_to_committee_help: Länk för att bjuda in personer som kommer att vara en del av promotorkommittén
+          invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
         show_similar_initiatives:
           back: Tillbaka
-          compare_help: Om något av följande initiativ liknar ditt, uppmanar vi dig att skriva under det. Det ger ditt förslag fler chanser att gå igenom.
+          compare_help: Om något av följande initiativ liknar ditt, uppmanar vi dig att skriva under det. Det ger ditt förslag fler chanser att genomföras.
           continue: Mitt initiativ är annorlunda
           more_information: "(Mer information)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, vem du följer har skapat ett nytt initiativ, kolla in det och bidra med:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_intro: "%{author_name} %{author_nickname}, som du följer, har skapat ett nytt initiativ. Ta en titt och bidra:"
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta att emot meddelanden via föregående länk.
           email_subject: Nytt initiativ från %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, vem du följer har godkänt följande initiativ, kanske du vill bidra till samtalet:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_intro: "%{author_name} %{author_nickname}, som du följer, har antagit följande initiativ. Kanske du vill bidra till diskussionen:"
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Initiativet stöds av %{author_nickname}
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> antogs av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
