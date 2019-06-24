@@ -233,10 +233,10 @@ sv:
             success: Initiativtypen har uppdaterats
       admin_log:
         initiative:
-          publish: "%{user_name} publicerade %{resource_name} -initiativet"
+          publish: "%{user_name} publicerade initiativet %{resource_name}"
           send_to_technical_validation: "%{user_name} skickade initiativet %{resource_name} till teknisk validering"
-          unpublish: "%{user_name} kasserade %{resource_name} -initiativet"
-          update: "%{user_name} uppdaterade %{resource_name} -initiativet"
+          unpublish: "%{user_name} förkastade initiativet %{resource_name}"
+          update: "%{user_name} uppdaterade initiativet %{resource_name}"
       admin_states:
         accepted: Godkända
         created: Skapad
@@ -247,7 +247,7 @@ sv:
       committee_requests:
         new:
           continue: Fortsätta
-          help_text: Du är på väg att begära att bli medlem av promotorutskottet för detta initiativ
+          help_text: Du kommer att be att få medlem av initiativets kampanjutskott
         spawn:
           success: Din förfrågan har skickats till initiativtagaren.
       content_blocks:
