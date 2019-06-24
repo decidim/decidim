@@ -6,9 +6,9 @@ sv:
         description: Beskrivning
         offline_votes: Ansikte mot ansikte stöd
         scope_id: Omfång
-        signature_end_date: Slutet på signaturuppsamlingsperioden
-        signature_start_date: Början av signaturuppsamlingsperioden
-        signature_type: Signaturuppsamlingstyp
+        signature_end_date: Insamling av underskrifter avslutas
+        signature_start_date: Insamling av underskrifter påbörjas
+        signature_type: Typ av underskrifter att samla in
         signature_type_values:
           any: Blandade
           offline: Ansikte mot ansikte
@@ -120,11 +120,11 @@ sv:
       badges:
         initiatives:
           conditions:
-            - Gå till Intiatives deltagande utrymme
+            - Gå till deltagarutrymmet för initiativ
             - Följ stegen för att skapa ett nytt initiativ
-          description: Detta märke beviljas när du startar nya initiativ, samarbetar med andra för att utföra dem.
-          description_another: Den här användaren har fått %{score} initiativ publicerade.
-          description_own: Du har %{score} initiativ publicerade.
+          description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
+          description_another: Användaren har publicerat %{score} initiativ.
+          description_own: Du har publicerat %{score} initiativ.
           name: Publicerade initiativ
           next_level_in: Få %{score} fler initiativ publicerade för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några initiativ publicerade än.
@@ -166,7 +166,7 @@ sv:
             confirm: Är du säker?
             discard: Förkasta initiativet
             export_pdf_signatures: Exportera PDF av signaturer
-            export_votes: Exportstöd
+            export_votes: Exportera underskrifter
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
             success: Initiativet har skickats till teknisk validering
