@@ -1129,11 +1129,11 @@ it:
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
     sessions:
-      already_signed_out: Sottoscritto con successo.
+      already_signed_out: Logout eseguito correttamente.
       new:
         sign_in: Accesso
       signed_in: Login effettuato.
-      signed_out: Sottoscritto con successo.
+      signed_out: Logout eseguito correttamente.
     shared:
       links:
         back: Indietro
