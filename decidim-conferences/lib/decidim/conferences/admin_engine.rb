@@ -51,7 +51,11 @@ module Decidim
         end
 
         scope "/conferences/:conference_slug" do
-          resources :categories
+          resources :categories do
+            collection do
+              resource :categories_import, only: [:new, :create]
+            end
+          end
 
           resources :components do
             resource :permissions, controller: "component_permissions"

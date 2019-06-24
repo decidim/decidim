@@ -137,6 +137,7 @@ en:
         add: Add
         browse: Browse
         export: Export
+        import: Import categories from another space
         manage: Manage
         new: New %{name}
         permissions: Permissions
@@ -222,6 +223,15 @@ en:
         edit:
           title: Edit category
           update: Update
+        import:
+          create:
+            error: There was a problem importing the categories
+            success: "%{number} categories successfully imported"
+          new:
+            create: Import
+            no_spaces: There are no other spaces to import categories from.
+            origin_space: Origin participatory space
+            select_participatory_space: Please select a space
         index:
           categories_title: Categories
           category_used: This category cannot be removed because it is in use.
