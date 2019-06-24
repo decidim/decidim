@@ -207,14 +207,14 @@ sv:
           new:
             back: Tillbaka
             create: Skapa
-            title: Skapa initiativtyps omfattning
+            title: Skapa omfång till initiativtyp
           update:
-            error: Ett fel har uppstått
-            success: Omfattningen har blivit uppdaterad
+            error: Ett fel har inträffat
+            success: Omfånget har uppdaterats
         initiatives_types:
           create:
-            error: Ett fel har uppstått
-            success: En ny initiativtyp har skapats med framgång
+            error: Ett fel har inträffat
+            success: En ny initiativtyp har skapats
           destroy:
             success: Initiativtypen har tagits bort
           edit:
@@ -224,12 +224,12 @@ sv:
           form:
             title: Allmän information
           initiative_type_scopes:
-            title: Områden för initiativtypen
+            title: Omfång för initiativtypen
           new:
             create: Skapa
             title: Ny initiativtyp
           update:
-            error: Ett fel har uppstått
+            error: Ett fel har inträffat
             success: Initiativtypen har blivit uppdaterad
       admin_log:
         initiative:
@@ -241,7 +241,7 @@ sv:
         accepted: Godkända
         created: Skapad
         discarded: Förkastade
-        published: Publicerad
+        published: Publicerade
         rejected: Avvisade
         validating: Teknisk validering
       committee_requests:
