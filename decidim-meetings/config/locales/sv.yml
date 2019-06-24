@@ -20,7 +20,7 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Platstips
-        organizer_id: Arrangör
+        organizer_id: Organisatör
         private_meeting: Privat möte
         registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
@@ -43,7 +43,7 @@ sv:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Det här e-postadressen har redan blivit inbjuden
+              already_invited: E-postkontot har redan bjudits in
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
