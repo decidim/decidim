@@ -336,14 +336,14 @@ sv:
         sms_code:
           invalid: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det SMS vi skickade till dig.
         sms_phone:
-          invalid: Telefonnumret är ogiltigt eller inte godkänt. Var god kontrollera dina auktorisationer.
+          invalid: Telefonnumret är ogiltigt eller har ännu inte godkänts. Kontrollera dina godkännanden.
       initiatives:
         author:
           deleted: Raderade
         author_list:
           hidden_authors_count:
-            one: och ytterligare 1 person
-            other: och %{count} fler personer
+            one: och ytterligare en person
+            other: och %{count} till personer
         count:
           title:
             one: "%{count} initiativ"
@@ -359,7 +359,7 @@ sv:
           type: Typ
           type_prompt: Välj en typ
         filters_small_view:
-          close_modal: Stäng fönstret
+          close_modal: Stäng fönster
           filter: Filter
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -369,22 +369,22 @@ sv:
           comments_count:
             count:
               one: Kommentar
-              other: kommentarer
+              other: Kommentarer
         orders:
-          label: 'Sortera initiativ av:'
+          label: 'Sortera initiativ efter:'
           most_commented: Mest kommenterade
-          most_voted: Mest signerade
+          most_voted: Mest underskrifter
           random: Slumpmässig
           recent: Senaste
         result:
           answer_title:
             accepted: Detta förslag har godkänts eftersom
             created: Detta förslag har skapats
-            discarded: Detta förslag har blivit kasserat eftersom
-            published: Detta förslag publiceras på grund av
+            discarded: Detta förslag har förkastats eftersom
+            published: Detta förslag publiceras eftersom
             rejected: Detta förslag har avslagits eftersom
             validating: Detta förslag utvärderas
-          initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på stöd.
+          initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
           any_vote_method: Detta medborgarinitiativ samlar in online-support och ansikte mot ansikte.
           follow_description: Få en anmälan när det finns nyheter i detta initiativ
