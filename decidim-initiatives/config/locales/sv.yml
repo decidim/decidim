@@ -4,7 +4,7 @@ sv:
       initiative:
         decidim_user_group_id: Författare
         description: Beskrivning
-        offline_votes: Ansikte mot ansikte stöd
+        offline_votes: Fysiska underskrifter
         scope_id: Omfång
         signature_end_date: Insamling av underskrifter avslutas
         signature_start_date: Insamling av underskrifter påbörjas
@@ -153,7 +153,7 @@ sv:
           index:
             approve: Godkänn
             confirm_revoke: Är du säker?
-            invite_to_committee_help: Dela den här länken för att bjuda in andra användare till kampanjutskottet
+            invite_to_committee_help: Dela den här länken för att bjuda in andra deltagare till kampanjutskottet
             no_members_yet: Det finns inga medlemmar i kampanjutskottet
             revoke: Återkalla
             title: Kommittémedlemmar
@@ -271,21 +271,21 @@ sv:
           access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
           help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
           help_in_person_signatures: Om du har valt att samla in underskrifter fysiskt eller i kombination med digitala underskrifter måste du skicka in den information som krävs.
-          help_text: Kom ihåg att för att behandla initiativet på rätt sätt måste du öppna administratörspanelen där du hittar användarmenyn, kan skicka in den information som krävs och skicka den för bearbetning.
-          initiatives_page_link: Du kan slå upp all denna information på %{link} för att informera om initiativ.
+          help_text: Kom ihåg att för att behandla initiativet på rätt sätt måste du öppna administratörspanelen där du hittar användarmenyn, skicka in den information som krävs och skicka den för bearbetning.
+          initiatives_page_link: Du kan slå upp all denna information på %{link}, som informerar om initiativ.
           page: sida
         previous_form:
           back: Tillbaka
           continue: Fortsätt
-          help: Vad består initiativet av? Skriv ner titeln och beskrivningen. Vi rekommenderar en kort och kortfattad titel och en beskrivning fokuserad på den föreslagna lösningen.
+          help: Vad består initiativet av? Skriv ner titeln och beskrivningen. Vi rekommenderar en kort och tydlig titel och en beskrivning som lägger fokus på den föreslagna lösningen.
           more_information: "(Mer information)"
         promotal_committee:
           back: Tillbaka
-          individual_help_text: Denna typ av medborgarinitiativ kräver en uppdragskommission bestående av minst %{committee_size} personer (vittnen). Du måste dela följande länk med andra personer som ingår i detta initiativ. När dina kontakter får den här länken måste de följa de angivna stegen.
+          individual_help_text: Denna typ av medborgarinitiativ kräver ett kampanjuskott bestående av minst %{committee_size} personer (understödjare). Du måste dela följande länk med de andra personerna som ingår i initiativet. När dina kontakter får länken måste de följa de angivna stegen.
           more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
-          choose_html: Jag vill skapa en <strong>%{title}</strong>
+          choose_html: Jag vill skapa ett <strong>%{title}</strong>
           more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
@@ -301,13 +301,13 @@ sv:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, vem du följer har skapat ett nytt initiativ, kolla in det och bidra med:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Nytt initiativ av %{author_nickname}
+          email_subject: Nytt initiativ från %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, vem du följer har godkänt följande initiativ, kanske du vill bidra till samtalet:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Initiativ godkänd av %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet godkändes av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: Initiativet stöds av %{author_nickname}
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> antogs av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Initiativ
       initiative_signatures:
@@ -392,16 +392,16 @@ sv:
         signature_identities:
           select_identity: Välj användaridentifierare
         signatures_count:
-          one: " signatur"
-          other: " signaturer"
+          one: " underskrift"
+          other: " underskrifter"
         supports:
-          title: Förteckning över signaturer
+          title: Lista över undertecknare
         vote_cabin:
           already_voted: Redan undertecknad
-          supports_required: "%{total_supports} signaturer krävs"
-          verification_required: Verifiera ditt konto för att underteckna initiativet
+          supports_required: "%{total_supports} underskrifter krävs"
+          verification_required: Verifiera ditt konto för att skriva under initiativet
           vote: Signera
-          votes_blocked: Signering inaktiverad
+          votes_blocked: Underskrifter är avaktiverade
         votes_count:
           count:
             one: UNDERSKRIFT
@@ -416,11 +416,11 @@ sv:
         more_information: Läs mer om processen för att skapa initiativ.
         progress_report_body_for: Initiativet %{title} har nått %{percentage}% av underskrifterna som krävs.
         progress_report_for: 'Sammanfattning av initiativet: %{title}'
-        promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotorutskottet. Vidarebefordra följande länk för att bjuda in personer till promotorkommittén
-        status_change_body_for: 'Initiativet %{title} har ändrat sitt tillstånd till: %{state}'
-        status_change_for: Initiativet %{title} har ändrat sitt tillstånd
-        technical_validation_body_for: Initiativet %{title} har begärt sin tekniska validering.
-        technical_validation_for: Initiativet %{title} har begärt sin tekniska validering.
+        promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till kampanjutskottet. Bjud in till kampanjutskottet genom att vidarebefordra följande länk
+        status_change_body_for: 'Initiativet %{title} har ändrat status till: %{state}'
+        status_change_for: Initiativet %{title} har ändrat status
+        technical_validation_body_for: Initiativet %{title} har begärt teknisk validering.
+        technical_validation_for: Initiativet %{title} har begärt tekniska validering.
       last_activity:
         new_initiative: Nytt initiativ
       pages:
