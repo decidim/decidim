@@ -107,10 +107,10 @@ sv:
           notification_title: Slutdatum för att skriva under initiativet <a href="%{resource_path}">%{resource_title}</a> har skjutits fram.
         milestone_completed:
           affected_user:
-            email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% av signaturerna!
-            email_outro: Du har fått den här meddelandet eftersom du är författaren till initiativet %{resource_title}.
+            email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
+            email_outro: Du har fått den här meddelandet eftersom du är författaren av initiativet %{resource_title}.
             email_subject: Ny milstolpe färdigställd!
-            notification_title: Ditt <a href="%{resource_path}">%{resource_title}</a> initiativ har uppnått %{percentage}% av underskrifterna.
+            notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
           follower:
             email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
             email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
