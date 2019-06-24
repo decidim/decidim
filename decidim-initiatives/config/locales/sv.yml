@@ -142,7 +142,7 @@ sv:
         answers:
           edit:
             answer: Svar
-            title: Svar för %{title}
+            title: Svar på %{title}
           info_initiative:
             created_at: Skapad
             description: Beskrivning
@@ -156,16 +156,16 @@ sv:
             invite_to_committee_help: Dela den här länken för att bjuda in andra användare till kampanjutskottet
             no_members_yet: Det finns inga medlemmar i promotorkommittén
             revoke: Återkalla
-            title: kommittémedlemmar
+            title: Kommittémedlemmar
         content_blocks:
           highlighted_initiatives:
             max_results: Maximal mängd element att visa
         initiatives:
           edit:
-            accept: Acceptera initiativ
+            accept: Godkänn initiativ
             confirm: Är du säker?
-            discard: Förkasta initiativet
-            export_pdf_signatures: Exportera PDF av signaturer
+            discard: Kasta bort initiativet
+            export_pdf_signatures: Exportera PDF med underskrifter
             export_votes: Exportera underskrifter
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
@@ -240,7 +240,7 @@ sv:
       admin_states:
         accepted: Godkända
         created: Skapad
-        discarded: kasserad
+        discarded: Förkastade
         published: Publicerad
         rejected: Avvisade
         validating: Teknisk validering
@@ -252,19 +252,19 @@ sv:
           success: Din förfrågan har skickats till initiativtagaren.
       content_blocks:
         highlighted_initiatives:
-          name: Markerade initiativ
+          name: Annonserade initiativ
       create_initiative:
         fill_data:
           back: Tillbaka
           continue: Fortsätt
           fill_data_help: "<ul> <li>Ändra innehållet i ditt initiativ. Är din titel lätt att förstå? Är målet med ditt initiativ tydligt?</li> <li>Du måste välja typ av signatur. Personlig, online eller en kombination av båda</li> <li>Vilken är initiativets geografiska räckvidd? Stadsdel?</li> </ul>"
-          initiative_type: Initiativtyp
+          initiative_type: Typ av initiativ
           more_information: "(Mer information)"
           select_scope: Välj ett räckvidd
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats framgångsrikt.
+          callout_text: Grattis! Ditt medborgarinitiativ har skapats.
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
         finish_help:
@@ -309,10 +309,10 @@ sv:
           email_subject: Initiativ godkänd av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet godkändes av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: initiativ
+        title: Initiativ
       initiative_signatures:
         fill_personal_data:
-          continue: Fortsätta
+          continue: Fortsätt
           date_select:
             day: Dag
             month: Månad
@@ -322,7 +322,7 @@ sv:
           back_to_initiative: Tillbaka till initiativet
         sms_code:
           continue: Kontrollera koden och fortsätt
-          help: Kontrollera det SMS som mottas i telefonen
+          help: Se det SMS som skickades till din telefon
         sms_phone_number:
           continue: Skicka mig ett SMS
           help: Fyll i formuläret med ditt verifierade telefonnummer för att begära din verifieringskod
@@ -427,24 +427,24 @@ sv:
         home:
           highlighted_initiatives:
             active_initiatives: Aktiva initiativ
-            see_all_initiatives: Se alla initiativ
+            see_all_initiatives: Visa alla initiativ
       states:
         accepted: Godkända
-        expired: Utgånget
-      unavailable_scope: Otillgänglig räckvidd
+        expired: Utgångna
+      unavailable_scope: Ej tillgängligt omfång
     menu:
-      initiatives: initiativ
+      initiatives: Initiativ
     resources:
       initiatives_type:
         actions:
           title: Åtgärder
-          vote: Rösta
+          vote: Underteckna
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: bilagor
-          committee_members: kommittémedlemmar
+          attachments: Bilagor
+          committee_members: Kommittémedlemmar
           components: Komponenter
           information: Information
       initiative_creation_header:
@@ -456,23 +456,23 @@ sv:
         select_initiative_type: Välj
         show_similar_initiatives: Jämför
         step: Steg %{current} av %{total}
-        title: Skapa ny satsning
+        title: Skapa nytt initiativ
       initiative_header:
         initiative_menu_item: Initiativ
       initiative_signature_creation_header:
         back: Tillbaka
-        fill_personal_data: Fyll i dina uppgifter
-        finish: Avsluta
-        finished: Initiativ signatur skapad
-        see_steps: se steg
+        fill_personal_data: Komplettera dina uppgifter
+        finish: Slutför
+        finished: Skapat underskrift till initiativet
+        see_steps: visa steg
         select_identity: Välj identitet
-        sms_code: SMS-kod verifiering
-        sms_phone_number: mobilnummer
+        sms_code: Verifiering med SMS-kod
+        sms_phone_number: Mobiltelefonnummer
         step: Steg %{current} av %{total}
-        title: Sign %{initiative_title}
+        title: Skriv under %{initiative_title}
       initiatives:
         initiative:
-          check: Kolla in det
-          check_and_support: Kolla in det och logga in
+          check: Ta en titt
+          check_and_support: Ta en titt och skriv under
         no_initiatives_yet:
           no_initiatives_yet: Inga initiativ ännu!
