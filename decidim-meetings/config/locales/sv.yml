@@ -8,18 +8,18 @@ sv:
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
-        closing_report: Rapportera
+        closing_report: Rapport
         contributions_count: Antal bidrag
-        proposal_ids: Förslag som skapats i mötet
+        proposal_ids: Förslag som skapades på mötet
       meeting:
         address: Adress
         available_slots: Tillgängliga platser för detta möte
         decidim_category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         description: Beskrivning
         end_time: Sluttid
         location: Plats
-        location_hints: Platstips
+        location_hints: Detaljer om platsen
         organizer_id: Organisatör
         private_meeting: Privat möte
         registration_form_enabled: Registreringsformulär aktiverat
