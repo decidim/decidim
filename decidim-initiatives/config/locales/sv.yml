@@ -11,7 +11,7 @@ sv:
         signature_type: Typ av underskrifter att samla in
         signature_type_values:
           any: Blandade
-          offline: Ansikte mot ansikte
+          offline: Fysiska
           online: Online
         state: Status
         title: Titel
@@ -247,9 +247,9 @@ sv:
       committee_requests:
         new:
           continue: Fortsätta
-          help_text: Du kommer att be att få medlem av initiativets kampanjutskott
+          help_text: Du kommer att be att få bli medlem av initiativets kampanjutskott
         spawn:
-          success: Din förfrågan har skickats till initiativtagaren.
+          success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
         highlighted_initiatives:
           name: Annonserade initiativ
@@ -257,10 +257,10 @@ sv:
         fill_data:
           back: Tillbaka
           continue: Fortsätt
-          fill_data_help: "<ul> <li>Ändra innehållet i ditt initiativ. Är din titel lätt att förstå? Är målet med ditt initiativ tydligt?</li> <li>Du måste välja typ av signatur. Personlig, online eller en kombination av båda</li> <li>Vilken är initiativets geografiska räckvidd? Stadsdel?</li> </ul>"
+          fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrifter. Fysiska, digitala eller en kombination av båda</li> <li>Vilket är initiativets geografiska omfång? Stad, distrikt?</li> </ul>"
           initiative_type: Typ av initiativ
           more_information: "(Mer information)"
-          select_scope: Välj ett räckvidd
+          select_scope: Välj ett omfång
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
@@ -268,10 +268,10 @@ sv:
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
         finish_help:
-          access_reminder: Kom ihåg att du alltid kommer att kunna komma åt dina initiativ via användarmenyn.
-          help_for_organizations: Om du är en förening måste du ladda upp protokollen från styrelsen för alla organisationer som bildar den främjande kommissionen
-          help_in_person_signatures: Om du har valt att samla signaturerna personligen eller i kombination med online måste du ladda upp den information som krävs.
-          help_text: Kom ihåg att för att korrekt bearbeta initiativet måste du komma åt administratörspanelen där du hittar användarmenyn, ladda upp den information som krävs och skicka den för bearbetning.
+          access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
+          help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
+          help_in_person_signatures: Om du har valt att samla in underskrifter fysiskt eller i kombination med digitala underskrifter måste du skicka in den information som krävs.
+          help_text: Kom ihåg att för att behandla initiativet på rätt sätt måste du öppna administratörspanelen där du hittar användarmenyn, kan skicka in den information som krävs och skicka den för bearbetning.
           initiatives_page_link: Du kan slå upp all denna information på %{link} för att informera om initiativ.
           page: sida
         previous_form:
@@ -287,7 +287,7 @@ sv:
           back: Tillbaka
           choose_html: Jag vill skapa en <strong>%{title}</strong>
           more_information: "(Mer information)"
-          select: Jag vill främja detta initiativ
+          select: Jag vill arbeta för detta initiativ
           select_initiative_type_help: Medborgarskapsinitiativ är ett medel för att medborgarskapet kan ingripa, så att kommunfullmäktige kan vidta åtgärder för att försvara det allmänna intresset inom områdena kommunal jurisdiktion. Vilket initiativ vill du lansera?
         share_committee_link:
           continue: Fortsätt
@@ -404,18 +404,18 @@ sv:
           votes_blocked: Signering inaktiverad
         votes_count:
           count:
-            one: SIGNATUR
+            one: UNDERSKRIFT
             other: UNDERSKRIFTER
           most_popular_initiative: Mest populära initiativ
-          need_more_votes: Behöver du fler signaturer
+          need_more_votes: Behöver fler underskrifter
       initiatives_mailer:
-        creation_subject: Ditt medborgarinitiativ "%{title}" har skapats
+        creation_subject: Ditt initiativ "%{title}" har skapats
         initiative_link:
           check_initiative_details: Du kan se initiativets detaljer
           here: här
-        more_information: Här har du mer information om initiativskapande processen.
-        progress_report_body_for: Initiativet %{title} har nått %{percentage}% av de nödvändiga stöden.
-        progress_report_for: 'Fortsätt om initiativet: %{title}'
+        more_information: Läs mer om processen för att skapa initiativ.
+        progress_report_body_for: Initiativet %{title} har nått %{percentage}% av underskrifterna som krävs.
+        progress_report_for: 'Sammanfattning av initiativet: %{title}'
         promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till promotorutskottet. Vidarebefordra följande länk för att bjuda in personer till promotorkommittén
         status_change_body_for: 'Initiativet %{title} har ändrat sitt tillstånd till: %{state}'
         status_change_for: Initiativet %{title} har ändrat sitt tillstånd
@@ -452,7 +452,7 @@ sv:
         fill_data: Skapa
         finish: Avsluta
         previous_form: Start
-        promotal_committee: Promotörskommitté
+        promotal_committee: Kampanjutskott
         select_initiative_type: Välj
         show_similar_initiatives: Jämför
         step: Steg %{current} av %{total}
