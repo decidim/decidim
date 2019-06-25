@@ -97,7 +97,7 @@ sv:
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
           follower:
             email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-            email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
+            email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta att följa det via föregående länk.
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
@@ -283,11 +283,12 @@ sv:
             registration_form: Anmälningsformulär
             registrations_count:
               one: Det har gjorts %{count} anmälan.
-              other: Det har gjorts %{count} registreringar.
+              other: Det har gjorts %{count} anmälningar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
+            title: Anmälningar
           update:
-            invalid: Det uppstod ett problem med att spara registreringsinställningarna.
+            invalid: Det gick inte att spara inställningarna för anmälan.
             success: Mötesregistreringsinställningarna har sparats.
           validate_registration_code:
             invalid: Denna registreringskod är ogiltig.
@@ -310,13 +311,13 @@ sv:
           create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
           update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
       calendar_modal:
-        calendar_url: Kalenderadress
-        close_window: Stäng fönstret
+        calendar_url: Kalender-URL
+        close_window: Stäng fönster
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
         upcoming_events:
-          name: Uppkommande händelser
+          name: Kommande händelser
           upcoming_events: Kommande möten
           view_all_events: Visa alla
       directory:
@@ -327,7 +328,7 @@ sv:
             meetings: Möten
             past: Tidigare
             search: Sök
-            space_type: Deltagande utrymme
+            space_type: Deltagarutrymme
             upcoming: Kommande
       last_activity:
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
@@ -372,11 +373,11 @@ sv:
           organizations: Delta i organisationer
           registration_code_help_text: Din registreringskod
           registration_state:
-            validated: validerad
-            validation_pending: BEKRÄFTELSE PÅGÅR
+            validated: VALIDERAD
+            validation_pending: VALIDERING PÅGÅR
           remaining_slots:
-            one: "%{count} slits kvar"
-            other: "%{count} slits kvar"
+            one: "%{count} plats kvar"
+            other: "%{count} platser kvar"
           view: Visa
       meetings_map:
         view_meeting: Visa möte
@@ -406,20 +407,20 @@ sv:
           registration_code: Din registreringskod är %{code}.
       registrations:
         create:
-          invalid: Det har uppstått ett problem med att gå med i det här mötet.
+          invalid: Det gick inte att ansluta till mötet.
           success: Du har gått med på mötet.
         decline_invitation:
-          invalid: Det uppstod ett problem med att avböja inbjudan.
+          invalid: Det gick inte att avböja inbjudan.
           success: Du har avböjt inbjudan.
         destroy:
-          invalid: Det uppstod ett problem med att lämna detta möte.
+          invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       types:
         private_meeting: Privat möte
         transparent: Transparent
     metrics:
       meetings:
-        description: Antal möten skapade
+        description: Antal skapade möten
         object: möten
         title: Möten
     participatory_processes:
@@ -430,7 +431,7 @@ sv:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
-        see_all: Se alla (%{count})
+        see_all: Visa alla (%{count})
         upcoming_meetings: Kommande möten
       upcoming_meeting_for_card:
         upcoming_meeting: Kommande möte
