@@ -46,7 +46,7 @@ sv:
         title: Titel
       participatory_process_user_role:
         email: E-post
-        name: namn
+        name: Namn
         role: Roll
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
@@ -57,8 +57,8 @@ sv:
         one: Deltagandeprocess
         other: Deltagandeprocesser
       decidim/participatory_process_group:
-        one: Deltagande processgrupp
-        other: Deltagande processgrupper
+        one: Deltagarprocessgrupp
+        other: Deltagarprocessgrupper
       decidim/participatory_process_step:
         one: Steg
         other: Steg
