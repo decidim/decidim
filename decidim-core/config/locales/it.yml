@@ -33,7 +33,7 @@ it:
         name: Nome Utente
         password: Password
         password_confirmation: Conferma della password
-        remember_me: Ricordare password
+        remember_me: Ricorda la password
     models:
       decidim/amendment:
         one: Emendamento
@@ -1131,7 +1131,7 @@ it:
     sessions:
       already_signed_out: Logout eseguito correttamente.
       new:
-        sign_in: Accesso
+        sign_in: Accedi
       signed_in: Login effettuato.
       signed_out: Logout eseguito correttamente.
     shared:
@@ -1140,7 +1140,7 @@ it:
         didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
         didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
         forgot_your_password: Hai dimenticato la password?
-        sign_in: Accesso
+        sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:
