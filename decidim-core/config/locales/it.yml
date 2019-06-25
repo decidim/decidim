@@ -1103,7 +1103,7 @@ it:
         password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
       new:
         forgot_your_password: Hai dimenticato la password?
-        send_me_reset_password_instructions: Inviami le istruzioni per la reimpostazione della password
+        send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
       no_token: Non è possibile accedere a questa pagina senza l'invio di un'email di reimpostazione della password. Se provieni da un'email di reimpostazione della password, assicurati di aver utilizzato l'URL completo fornito.
       send_instructions: Riceverai un'email con le istruzioni su come reimpostare la password in pochi minuti.
       send_paranoid_instructions: Se il tuo indirizzo e-mail esiste nel nostro database, riceverai un link per il recupero della password al tuo indirizzo e-mail in pochi minuti.
