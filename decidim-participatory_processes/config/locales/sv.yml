@@ -88,7 +88,7 @@ sv:
         participatory_processes_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
-          attachments: Bifogade filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -99,12 +99,12 @@ sv:
       models:
         participatory_process:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             private: Privat
-            promoted: Markerad
+            promoted: Annonserad
             published: Publicerad
             title: Titel
-          name: Deltagande process
+          name: Deltagarprocess
         participatory_process_group:
           fields:
             name: Namn
@@ -127,13 +127,13 @@ sv:
             moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: Inbjudan accepterad vid
-            invitation_sent_at: Inbjudan skickad till
+            invitation_accepted_at: Inbjudan godkänd
+            invitation_sent_at: Inbjudan skickad
       participatory_process_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du skulle vilja duplicera
-          title: Duplicera deltagandeprocess
+          select: Välj vilka data som du vill duplicera
+          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           success: Deltagande processgrupp raderades framgångsrikt.
@@ -210,7 +210,7 @@ sv:
           published: Publicerad
         new:
           create: Skapa
-          title: Ny deltagande process
+          title: Ny deltagarprocess
         update:
           error: Det uppstod ett fel vid uppdateringen av den här deltagandeprocessen.
           success: Deltagandeprocessen uppdaterades framgångsrikt.
