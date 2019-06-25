@@ -167,7 +167,7 @@ it:
             proposals: Proposte
             show_all_versions: Mostra tutte le versioni
             version_author: Autore della versione
-            version_created_at: Versione creata a
+            version_created_at: Versione creata il
             version_number: Numero della versione
             version_number_out_of_total: "%{current_version} su %{total_count}"
             votes: Voti
