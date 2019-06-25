@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Notis
+        announcement: Meddelande
         area_id: Område
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
