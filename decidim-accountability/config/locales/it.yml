@@ -4,7 +4,7 @@ it:
       result:
         decidim_accountability_status_id: Stato
         decidim_category_id: Categoria
-        decidim_scope_id: Scopi
+        decidim_scope_id: Obiettivi
         description: Descrizione
         end_date: Data finale
         progress: Progresso
