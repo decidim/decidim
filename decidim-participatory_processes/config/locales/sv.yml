@@ -223,18 +223,18 @@ sv:
           error: Det uppstod ett fel vid att skapa en ny grupp för deltagandeprocess.
           success: Grupp för deltagandeprocess skapades framgångsrikt.
       titles:
-        participatory_process_groups: Grupper för deltagandeprocess
-        participatory_processes: Deltagande processer
+        participatory_process_groups: Grupper för deltagarprocess
+        participatory_processes: Deltagarprocesser
       users:
         resend_invitation:
           error: Det uppstod ett fel när du skickade inbjudan igen.
           success: Inbjudan skickades om framgångsrikt.
     admin_log:
       participatory_process:
-        create: "%{user_name} skapade deltagandeprocess %{resource_name}"
-        publish: "%{user_name} publicerade deltagandeprocess %{resource_name}"
-        unpublish: "%{user_name} avpublicerade deltagandeprocess %{resource_name}"
-        update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
+        create: "%{user_name} skapade deltagarprocessen %{resource_name}"
+        publish: "%{user_name} publicerade deltagarprocessen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade deltagarprocessen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagarprocessen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
@@ -248,12 +248,12 @@ sv:
       participatory_process:
         step_activated:
           email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Steget %{resource_title} är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Dagen för steget %{resource_title} vid %{participatory_space_title} har uppdaterats. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     help:
@@ -274,7 +274,7 @@ sv:
         group_participatory_processes:
           one: 1 process för %{group}
           other: "%{count} processer för %{group}"
-        title: Grupper vid deltagandeprocesser
+        title: Grupper för deltagarprocesser
     participatory_process_steps:
       index:
         process_steps: Processsteg
@@ -283,7 +283,7 @@ sv:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximalt antal element att visa
+            max_results: Högsta antal element att visa
         participatory_process_copies:
           form:
             slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
@@ -386,7 +386,7 @@ sv:
           take_part: Delta
       participatory_processes:
         index:
-          promoted_processes: Markerade processer
+          promoted_processes: Annonserade processer
         participatory_process:
           active_step: 'Nuvarande steg:'
           more_info: Mer information
