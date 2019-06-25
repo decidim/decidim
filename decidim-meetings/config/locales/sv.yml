@@ -199,7 +199,7 @@ sv:
             join: Gå med i mötet "%{meeting_title}"
         invites:
           create:
-            error: Det har uppstått ett problem när du bjöd in användaren att gå med i mötet.
+            error: Det gick inte att bjuda in deltagaren till mötet.
             success: Deltagaren har bjudits in att delta i mötet.
           form:
             attendee_type: Deltagartyp
@@ -231,7 +231,7 @@ sv:
             invalid: Det gick inte att stänga mötet
             success: Mötet avslutades
           create:
-            invalid: Det har uppstått ett problem med att skapa detta möte
+            invalid: Det gick inte att skapa mötet
             success: Möte skapades
           destroy:
             success: Mötet har tagits bort
@@ -255,11 +255,11 @@ sv:
             add_service: Lägg till service
             services: Tjänster
           update:
-            invalid: Det uppstod ett problem med att uppdatera det här mötet
+            invalid: Det gick inte att uppdatera mötet
             success: Mötet har uppdaterats
         minutes:
           create:
-            invalid: Det uppstod ett problem med att skapa det här protokollet
+            invalid: Det gick inte att skapa protokollet
             success: Protokollet skapades
           edit:
             update: Uppdatering
@@ -267,7 +267,7 @@ sv:
             create: Skapa
             title: Skapa protokoll
           update:
-            invalid: Det har uppstått problem med att uppdatera det här protokollet
+            invalid: Det gick inte att uppdatera protokollet
             success: Protokollet uppdaterades
         models:
           meeting:
