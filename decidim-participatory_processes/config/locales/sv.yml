@@ -286,14 +286,14 @@ sv:
             max_results: Högsta antal element att visa
         participatory_process_copies:
           form:
-            slug_help: 'Rena URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Använd partiella sökvägar och inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck och måste börja med en bokstav. Om den inte är inställd kommer inte knappen att visas. Exempel: %{url}'
-            cta_text_help: Om den inte är inställd kommer inte knappen att visas.
+            cta_text_help: Om den inte är på kommer knappen inte att visas.
         participatory_processes:
           form:
-            announcement_help: Texten du anger här visas för användaren precis nedanför processinformationen.
+            announcement_help: Texten du skriver här visas för användaren direkt under processinformationen.
             duration: Varaktighet
             filters: filter
             images: Bilder
@@ -301,14 +301,14 @@ sv:
             other: Andra
             select_an_area: Välj ett område
             select_process_group: Välj en processgrupp
-            slug_help: 'URL-adresser används för att generera de URL-adresser som pekar på denna process. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             title: Allmän information
             visbility: Synlighet
       content_blocks:
         highlighted_processes:
-          name: Markerade processer
+          name: Annonserade processer
       index:
-        title: Deltagande processer
+        title: Deltagarprocesser
       last_activity:
         new_participatory_process: Ny deltagande process
       pages:
@@ -318,26 +318,26 @@ sv:
             active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
-            see_all_processes: Se alla processer
+            see_all_processes: Visa alla processer
       participatory_processes:
         filters:
           counters:
             active:
-              one: 1 aktiv process
+              one: En aktiv process
               other: "%{count} aktiva processer"
             all:
-              one: 1 process
+              one: En process
               other: "%{count} processer"
             past:
-              one: 1 tidigare process
+              one: En tidigare process
               other: "%{count} tidigare processer"
             upcoming:
-              one: 1 kommande process
+              one: En kommande process
               other: "%{count} kommande processer"
           explanations:
             no_active: Inga aktiva processer
             no_active_nor_upcoming: Inga aktiva eller kommande processer
-            no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över de förflutna.
+            no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över tidigare processer.
           names:
             active: Aktiva
             all: Alla
