@@ -10,26 +10,26 @@ sv:
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
-        developer_group: Främjandegrupp
+        developer_group: Kampanjgrupp
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
         local_area: Organisationsområde
-        meta_scope: Omfattning metadata
+        meta_scope: Omfångets metadata
         participatory_process_group_id: Processgrupp
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
-        promoted: Främjad
-        published_at: Publicerad vid
-        scope_id: Omfattning
-        scopes_enabled: Omfattningar aktiverade
+        promoted: Annonserad
+        published_at: Publicerad
+        scope_id: Omfång
+        scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
-        slug: URL slug
+        slug: URL-slug
         start_date: Startdatum
         subtitle: Underrubrik
-        target: Vem som deltar
+        target: Vilka deltar
         title: Titel
       participatory_process_group:
         description: Beskrivning
