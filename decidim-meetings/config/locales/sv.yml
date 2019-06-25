@@ -66,8 +66,8 @@ sv:
     admin:
       meeting_copies:
         create:
-          error: Ett fel uppstod när det här mötet skulle dupliceras.
-          success: Mötet duplicerat.
+          error: Det gick inte att duplicera mötet.
+          success: Mötet har duplicerats.
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
@@ -82,7 +82,7 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             default_registration_terms: Villkor för standardregistrering
-            enable_pads_creation: Aktivera skapandet av pads
+            enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
@@ -91,8 +91,8 @@ sv:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Ditt möte "%{resource_title}" stängdes. Du kan läsa slutsatserna från sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du organiserade mötet "%{resource_title}".
+            email_intro: 'Ditt möte "%{resource_title}" har stängts. Läs slutsatserna på dess sida:'
+            email_outro: Du har fått det här meddelandet eftersom du organiserade mötet "%{resource_title}".
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
           follower:
@@ -280,9 +280,9 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
-            registration_form: Anmälningsblankett
+            registration_form: Anmälningsformulär
             registrations_count:
-              one: Det har varit %{count} registrering.
+              one: Det har gjorts %{count} anmälan.
               other: Det har gjorts %{count} registreringar.
             reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
