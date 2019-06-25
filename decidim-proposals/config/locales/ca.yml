@@ -108,6 +108,7 @@ ca:
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
+            amendments_visibility: Visibilitat de les esmenes
             announcement: Avís
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
