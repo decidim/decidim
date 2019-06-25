@@ -106,21 +106,21 @@ sv:
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Din registrering för mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din registreringskod är %{registration_code}.
+          notification_title: Din anmälan till mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din anmälningskod är %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: De upptagna platserna vid "%{resource_title}" är över %{percentage}%.
+          email_intro: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
-          email_subject: De upptagna platserna vid "%{resource_title}" är över %{percentage}%
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
+          email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
+          notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
           email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
-          email_intro: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats.
+          email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
           email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
-          email_subject: Din registreringskod "%{registration_code}" för mötet "%{resource_title}" har validerats
+          email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
           notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
@@ -136,13 +136,13 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Registrera dig i de möten du vill delta i
-          description: Detta märke beviljas när du deltar i flera möten mellan ansikte mot ansikte.
-          description_another: Den här användaren har deltagit i %{score} möten.
+            - Anmäl dig till de möten som du vill delta i
+          description: Du får detta märke när du har deltagit i flera fysiska möten.
+          description_another: Deltagaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.
           name: Deltog i möten
           next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
-          unearned_another: Den här användaren har inte deltagit i något möte än.
+          unearned_another: Deltagaren har inte deltagit i något möte än.
           unearned_own: Du har inte deltagit i något möte än.
     meetings:
       actions:
@@ -161,19 +161,19 @@ sv:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Lägg till dagordning för underordnat objekt
+            add_agenda_item_child: Lägg till delpunkt på dagordningen
             agenda_item: Dagordningspunkt
-            agenda_item_children: Underordnade dagordningspunkter
+            agenda_item_children: Delpunkter på dagordningen
             down: Ned
             remove: Ta bort
             up: Upp
           agenda_item_child:
-            agenda_item_child: Underordnade dagordningspunkter
+            agenda_item_child: Delpunkt på dagordningen
             down: Ned
             remove: Ta bort
             up: Upp
           create:
-            invalid: Det blev ett problem med att skapa denna dagordning
+            invalid: Det gick inte att skapa dagordningen
             success: Dagordning skapades
           edit:
             title: Redigera dagordning
@@ -187,10 +187,10 @@ sv:
             create: Skapa
             title: Ny dagordning
           update:
-            invalid: Det har blivit ett problem med att uppdatera den här dagordningen
+            invalid: Det gick inte att uppdatera dagordningen
             success: Dagordning uppdaterad
         exports:
-          meetings: möten
+          meetings: Möten
           registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
@@ -200,14 +200,14 @@ sv:
         invites:
           create:
             error: Det har uppstått ett problem när du bjöd in användaren att gå med i mötet.
-            success: Användaren bjöds inbjuden att delta i mötet.
+            success: Deltagaren har bjudits in att delta i mötet.
           form:
             attendee_type: Deltagartyp
-            existing_user: Existerande användare
+            existing_user: Befintlig deltagare
             invite: Bjuda in
-            invite_explanation: Användaren kommer att bli inbjuden att delta i mötet och till organisationen likaså.
-            non_user: Icke-existerande användare
-            select_user: Välj användare
+            invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
+            non_user: Icke befintlig deltagare
+            select_user: Välj deltagare
           index:
             filter:
               accepted: Accepterad
@@ -228,7 +228,7 @@ sv:
             select_organizer: Välj arrangören
         meetings:
           close:
-            invalid: Det uppstod ett problem med att stänga detta möte
+            invalid: Det gick inte att stänga mötet
             success: Mötet avslutades
           create:
             invalid: Det har uppstått ett problem med att skapa detta möte
