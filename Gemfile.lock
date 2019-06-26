@@ -85,7 +85,7 @@ PATH
       foundation-rails (~> 6.4, < 6.5)
       foundation_rails_helper (~> 3.0)
       geocoder (~> 1.5)
-      hashdiff (>= 1.0.0.beta1, < 2.0.0)
+      hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
       jquery-rails (~> 4.3)
       kaminari (~> 1.1)
