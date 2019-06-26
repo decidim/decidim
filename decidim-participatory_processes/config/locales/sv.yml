@@ -182,7 +182,7 @@ sv:
           success: Steget i deltagandeprocessen uppdaterades framgångsrikt.
       participatory_process_user_roles:
         create:
-          error: Det gick inte att lägga till en användare för den här deltagandeprocessen.
+          error: Det gick inte att lägga till en deltagare till deltagarprocessen.
           success: Användaren lades framgångsrikt till den här deltagandeprocessen.
         destroy:
           success: Användaren avlägsnades framgångsrikt från den här deltagandeprocessen.
@@ -297,7 +297,7 @@ sv:
             duration: Varaktighet
             filters: Filter
             images: Bilder
-            metadata: metadata
+            metadata: Metadata
             other: Andra
             select_an_area: Välj ett område
             select_process_group: Välj en processgrupp
@@ -310,7 +310,7 @@ sv:
       index:
         title: Deltagarprocesser
       last_activity:
-        new_participatory_process: Ny deltagande process
+        new_participatory_process: Ny deltagarprocess
       pages:
         home:
           highlighted_processes:
@@ -388,11 +388,11 @@ sv:
         index:
           promoted_processes: Annonserade processer
         participatory_process:
-          active_step: 'Nuvarande steg:'
+          active_step: 'Aktuellt steg:'
           more_info: Mer information
           take_part: Delta
         promoted_process:
-          active_step: 'Nuvarande steg:'
+          active_step: 'Aktuellt steg:'
           more_info: Mer information
           take_part: Delta
       process_header_steps:
