@@ -77,6 +77,7 @@ sv:
     components:
       proposals:
         actions:
+          amend: Ändra
           create: Skapa
           endorse: Stödja
           vote: Rösta
@@ -107,6 +108,11 @@ sv:
             threshold_per_proposal: Tröskel per förslag
             vote_limit: Röstningsgräns per användare
           step:
+            amendment_creation_enabled: Skapa ändringar är aktiverat
+            amendment_creation_enabled_help: Deltagare kan ändra förslag.
+            amendment_reaction_enabled: Reagera på ändringar är aktiverat
+            amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
+            amendments_visibility: Ändringens synlighet
             announcement: Meddelande
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
@@ -677,6 +683,7 @@ sv:
           view_proposal: Visa förslag
         show:
           back_to: Tillbaka till
+          changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag
           endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
@@ -684,6 +691,9 @@ sv:
             other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett samlat förslag. Granska historiken
           link_to_collaborative_draft_text: Se samarbetsutkastet
+          link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
+          link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
+          link_to_proposal_from_emendation_text: Visa förslaget
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
