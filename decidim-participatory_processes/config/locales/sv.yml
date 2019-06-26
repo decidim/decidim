@@ -237,8 +237,8 @@ sv:
         update: "%{user_name} uppdaterade deltagarprocessen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
-        create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
-        delete: "%{user_name} raderade steget %{resource_name} i den deltagandeprocessen %{space_name}"
+        create: "%{user_name} skapade steget %{resource_name} i deltagarprocessen %{space_name}"
+        delete: "%{user_name} raderade steget %{resource_name} i deltagarprocessen %{space_name}"
         update: "%{user_name} uppdaterade steget %{resource_name} i den deltagandeprocessen %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} bjudit in användaren %{resource_name} till deltagandeprocess %{space_name}"
