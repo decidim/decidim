@@ -345,24 +345,24 @@ sv:
             upcoming: Kommande
           see: Se
         index:
-          loading: Laddar resultat...
+          loading: Läser in resultat...
       show:
         area: Område
-        developer_group: Främjandegrupp
+        developer_group: Kampanjgrupp
         end_date: Slutdatum
         local_area: Organisationsområde
         participatory_scope: Vad som bestäms
         participatory_structure: Hur bestäms det
         private_space: Detta är en privat process
-        scope: Omfattning
+        scope: Omfång
         start_date: Startdatum
-        target: Vem deltar
+        target: Vilka deltar
         unspecified: Ej angivet
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
         debates_count: Debatter
-        endorsements_count: Påskrivet
+        endorsements_count: Underskrifter
         headline: Aktivitet
         meetings_count: Möten
         orders_count: Röster
