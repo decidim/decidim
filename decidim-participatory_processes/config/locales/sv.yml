@@ -136,7 +136,7 @@ sv:
           title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
-          success: Deltagande processgrupp raderades framgångsrikt.
+          success: Deltagarprocessgruppen har raderats.
         edit:
           title: Redigera processgrupp
           update: Uppdatera
@@ -144,8 +144,8 @@ sv:
           create: Skapa
           title: Ny processgrupp
         update:
-          error: Det uppstod ett fel vid uppdaterandet av denna deltagande processgrupp.
-          success: Deltagande processgrupp uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera deltagarprocessgruppen.
+          success: Deltagarprocessgruppen har uppdaterats.
       participatory_process_publications:
         create:
           error: Det uppstod ett fel vid publicering av denna deltagandeprocess.
@@ -174,7 +174,7 @@ sv:
           steps_title: Steg
         new:
           create: Skapa
-          title: Nytt steg i deltagandeprocessen
+          title: Nytt steg i deltagarprocessen
         ordering:
           error: Ett fel uppstod med att omarrangera stegen för denna deltagandeprocess.
         update:
