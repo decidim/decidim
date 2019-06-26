@@ -212,22 +212,22 @@ sv:
           create: Skapa
           title: Ny deltagarprocess
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här deltagandeprocessen.
-          success: Deltagandeprocessen uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera deltagarprocessen.
+          success: Deltagarprocessen har uppdaterats.
       participatory_processes_copies:
         create:
-          error: Det uppstod ett fel vid duplicering av denna deltagandeprocess.
-          success: Deltagandeprocessen duplicerades framgångsrikt.
+          error: Det gick inte att duplicera deltagarprocessen.
+          success: Deltagarprocessen har duplicerats.
       participatory_processes_group:
         create:
-          error: Det uppstod ett fel vid att skapa en ny grupp för deltagandeprocess.
-          success: Grupp för deltagandeprocess skapades framgångsrikt.
+          error: Det gick inte att skapa en ny grupp i deltagarprocessen.
+          success: Skapade grupp för deltagarprocessen.
       titles:
         participatory_process_groups: Grupper för deltagarprocess
         participatory_processes: Deltagarprocesser
       users:
         resend_invitation:
-          error: Det uppstod ett fel när du skickade inbjudan igen.
+          error: Det gick inte att skicka inbjudan igen.
           success: Inbjudan har skickats om igen.
     admin_log:
       participatory_process:
