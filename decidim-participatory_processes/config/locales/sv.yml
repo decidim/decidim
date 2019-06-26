@@ -195,12 +195,12 @@ sv:
           create: Skapa
           title: Ny administratör för deltagarprocess.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här deltagandeprocessen.
-          success: Användaren uppdaterades framgångsrikt för denna deltagandeprocess.
+          error: Det gick inte att uppdatera administratören för deltagarprocessen.
+          success: Administratören har uppdaterats för deltagarprocessen.
       participatory_processes:
         create:
-          error: Det uppstod ett fel vid att skapa en ny deltagandeprocess.
-          success: Deltagandeprocessen skapades framgångsrikt. Konfigurera nu dess steg.
+          error: Det gick inte att skapa en ny deltagarprocess.
+          success: Deltagarprocessen har skapats. Konfigurera nu dess steg.
         edit:
           update: Uppdatera
         index:
