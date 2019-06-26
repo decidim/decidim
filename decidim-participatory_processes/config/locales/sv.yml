@@ -165,10 +165,10 @@ sv:
         destroy:
           error:
             active_step: Det aktiva steget kan inte raderas.
-            last_step: Kan inte ta bort det sista steget i en process.
-          success: Steget i deltagandeprocessen raderades framgångsrikt.
+            last_step: Kan inte radera det sista steget i en process.
+          success: Steget i deltagarprocessen har raderats.
         edit:
-          title: Redigera steget i deltagandeprocessen
+          title: Redigera steg i deltagarprocessen
           update: Uppdatera
         index:
           steps_title: Steg
@@ -176,7 +176,7 @@ sv:
           create: Skapa
           title: Nytt steg i deltagarprocessen
         ordering:
-          error: Ett fel uppstod med att omarrangera stegen för denna deltagandeprocess.
+          error: Det gick inte att ändra ordningen på stegen i deltagarprocessen.
         update:
           error: Ett fel uppstod vid uppdatering av detta steg i deltagandeprocessen.
           success: Steget i deltagandeprocessen uppdaterades framgångsrikt.
