@@ -239,15 +239,15 @@ sv:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagarprocessen %{space_name}"
         delete: "%{user_name} raderade steget %{resource_name} i deltagarprocessen %{space_name}"
-        update: "%{user_name} uppdaterade steget %{resource_name} i den deltagandeprocessen %{space_name}"
+        update: "%{user_name} uppdaterade steget %{resource_name} i deltagarprocessen %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} bjudit in användaren %{resource_name} till deltagandeprocess %{space_name}"
-        delete: "%{user_name} tagit bort användaren %{resource_name} från deltagandeprocess %{space_name}"
-        update: "%{user_name} ändrade användarens roll %{resource_name} i deltagandeprocess %{space_name}"
+        create: "%{user_name} bjöd in deltagaren %{resource_name} till deltagarprocess %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från deltagarprocessen %{space_name}"
+        update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i deltagarprocessen %{space_name}"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Visa det från den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Steget %{resource_title} är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>
