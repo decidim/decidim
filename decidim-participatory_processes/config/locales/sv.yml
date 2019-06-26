@@ -148,19 +148,19 @@ sv:
           success: Deltagarprocessgruppen har uppdaterats.
       participatory_process_publications:
         create:
-          error: Det uppstod ett fel vid publicering av denna deltagandeprocess.
-          success: Deltagandeprocessen publiceras framgångsrikt.
+          error: Det gick inte att publicera deltagarprocessen.
+          success: Deltagarprocessen har publicerats.
         destroy:
-          error: Ett fel uppstod vid publicering av denna deltagandeprocess.
-          success: Deltagandeprocessen publicerades framgångsrikt.
+          error: Det gick inte att avpublicera deltagarprocessen.
+          success: Deltagarprocessen har avpublicerats.
       participatory_process_step_activations:
         create:
-          error: Det gick inte att aktivera det här steget i deltagandeprocessen.
-          success: Steget i deltagandeprocessen aktiverades framgångsrikt.
+          error: Det gick inte att aktivera det här steget i deltagarprocessen.
+          success: Steget i deltagarprocessen har aktiverats.
       participatory_process_steps:
         create:
-          error: Det uppstod ett fel vid skapandet av ett nytt steg i deltagandeprocess.
-          success: Steget i deltagandeprocessen skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt steg i deltagarprocessen.
+          success: Steget i deltagarprocessen har skapats.
         default_title: Introduktion
         destroy:
           error:
@@ -228,7 +228,7 @@ sv:
       users:
         resend_invitation:
           error: Det uppstod ett fel när du skickade inbjudan igen.
-          success: Inbjudan skickades om framgångsrikt.
+          success: Inbjudan har skickats om igen.
     admin_log:
       participatory_process:
         create: "%{user_name} skapade deltagarprocessen %{resource_name}"
