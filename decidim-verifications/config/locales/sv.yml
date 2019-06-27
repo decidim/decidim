@@ -3,8 +3,8 @@ sv:
     attributes:
       config:
         available_methods: Tillgängliga metoder
-        offline: Off-line
-        offline_explanation: Instruktioner för offline verifiering
+        offline: Offline
+        offline_explanation: Anvisningar för verifiering offline
         online: Uppkopplad
       id_document_information:
         document_number: ID-nummer (med bokstav)
@@ -12,10 +12,10 @@ sv:
       id_document_upload:
         document_number: ID-nummer (med bokstav)
         document_type: Typ av ID-handling
-        user: Användare
+        user: Deltagare
         verification_attachment: Inläst kopia av ID-handlingen
       offline_confirmation:
-        email: Användar-e-post
+        email: Deltagarens e-post
       postal_letter_address:
         full_address: Fullständig adress
       postal_letter_confirmation:
@@ -56,33 +56,33 @@ sv:
       direct: Direkt
       help: Hjälp
       id_documents:
-        explanation: Ladda upp dina identitetshandlingar så att vi kan kontrollera din identitet
+        explanation: Skicka in dina identitetshandlingar så att vi kan kontrollera din identitet
         name: Identitetsdokument
-      multistep: Flersteg
+      multistep: Flera steg
       name: Namn
       postal_letter:
-        explanation: Vi skickar dig ett brev med en kod som du måste ange så vi kan verifiera din adress
-        name: Kod med postbrev
+        explanation: Vi skickar dig ett brev med en kod som du måste ange så att vi kan verifiera din adress
+        name: Kod via fysiskt brev
     verifications:
       authorizations:
         create:
           error: Ett fel uppstod när auktoriseringen skulle skapas.
-          success: Du har framgångsrikt auktoriserats.
-          unconfirmed: Du måste bekräfta din e-post för att auktorisera dig själv.
+          success: Du har auktoriserats.
+          unconfirmed: Du måste bekräfta din e-post för att kunna auktorisera dig själv.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verifiera mot ett annat exempel på behörighetshanteraren
+            another_dummy_authorization_handler: Verifiera med hjälp av ett annat auktoriseringsverktyg
             csv_census: Verifiera mot organisationens folkräkning
-            dummy_authorization_handler: Verifiera mot exempel av behörighetshanterare
-            dummy_authorization_workflow: Verifiera mot exemplet på arbetsflöde för auktorisering
-            id_documents: Bli verifierad genom att ladda upp ditt identitetsdokument
-            postal_letter: Få verifierad genom att ta emot en verifieringskod via brev
+            dummy_authorization_handler: Verifiera via exempelbehörighetshanteraren
+            dummy_authorization_workflow: Verifiera med exemplet på arbetsflöde för auktorisering
+            id_documents: Verifiera dig genom att skicka in din identitetshandling
+            postal_letter: Verifiera dig genom att ta emot en verifieringskod via fysiskt brev
           title: Verifiera din identitet
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
-        skip_verification: Du kan hoppa över det här för tillfället och %{link}
+        skip_verification: Du kan hoppa över detta just nu och %{link}
         start_exploring: börja utforska
       csv_census:
         admin:
@@ -129,7 +129,7 @@ sv:
               error: Verifieringen matchar inte. Försök igen eller avvisa verifieringen så att användaren kan ändra den
               success: Användaren har verifierats
             new:
-              introduce_user_data: Presentera data i bilden
+              introduce_user_data: För in uppgifterna från bilden
               reject: Avvisa
               verify: Verifiera
           offline_confirmations:
@@ -156,21 +156,21 @@ sv:
             online: Uppkopplad
             title: Verifiera dig själv med ditt identitetsdokument
           create:
-            error: Det gick inte att ladda upp dokumentet
+            error: Det gick inte att skicka in ID-handlingen
             success: Dokumentet har laddats upp
           edit:
-            being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
+            being_reviewed: Vi granskar dina handlingar. Du kommer att verifieras inom kort
             offline: Använd offline verifiering
             online: Använd online verifiering
-            rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
-            rejection_correctness: Se till att informationen som angivits är korrekt
-            rejection_notice: Det uppstod ett problem med din verifiering. Var god försök igen
+            rejection_clarity: Se till att informationen syns tydligt i bilden som du skickade in
+            rejection_correctness: Se till att den angivna informationen är korrekt
+            rejection_notice: Det gick inte att verifiera dig. Försök igen
             send: Begär verifiering igen
           new:
             send: Begär verifiering
-            title: Ladda upp ditt identitetsdokument
+            title: Skicka in din identitetshandling
           update:
-            error: Ett problem uppstod när dokumentet skulle laddas upp igen
+            error: Det gick inte att skicka in ID-handlingen igen
             success: Dokumentet laddades framgångsrikt upp
         dni: ID-kort
         nie: Personnummer
@@ -180,29 +180,29 @@ sv:
           pending_authorizations:
             index:
               address: Adress
-              letter_sent_at: Brev skickat till
+              letter_sent_at: Brev skickat
               mark_as_sent: Markera som skickat
               not_yet_sent: inte skickat än
-              title: Pågående kontroller
+              title: Pågående verifieringar
               username: Användarnamn
               verification_code: Verifieringskod
           postages:
             create:
-              error: Fel uppstod när brev skulle markeras som skickat
+              error: Det gick inte att markera brevet som skickat
               success: Brevet har markerats som skickat
         authorizations:
           create:
-            error: Det uppstod ett problem med din förfrågan
+            error: Det var ett problem med din förfrågan
             success: Tack! Vi skickar en verifieringskod till din adress
           edit:
             send: Bekräfta
-            title: Presentera verifieringskoden du fick
-            waiting_for_letter: Vi skickar snart ett brev till din adress med din verifieringskod
+            title: Ange verifieringskoden som du fick
+            waiting_for_letter: Vi skickar snart ett brev med din verifieringskod till din adress
           new:
             send: Skicka mig ett brev
             title: Begär din verifieringskod
           update:
-            error: Din verifieringskod stämmer inte överens med vår. Vänligen dubbelklicka på det brev vi skickade till dig
+            error: Din verifieringskod stämmer inte överens med vår. Kontrollera brevet som vi skickade till dig igen
             success: Grattis. Du har blivit verifierad
       sms:
         authorizations:
@@ -225,4 +225,4 @@ sv:
             success: Grattis. Du har blivit verifierad.
   errors:
     messages:
-      uppercase_only_letters_numbers: måste vara versaler och endast innehålla bokstäver och/eller siffror
+      uppercase_only_letters_numbers: får endast innehålla stora bokstäver och/eller siffror
