@@ -745,8 +745,8 @@ it:
         wizard_steps:
           see_steps: vedere i passaggi
           step_1: Crea la tua proposta
-          step_2: Confrontare
-          step_3: Completare
+          step_2: Confronta
+          step_3: Completa
           step_4: Pubblica la tua proposta
           step_of: Step %{current_step_num} di %{total_steps}
       publish:
