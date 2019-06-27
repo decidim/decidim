@@ -5,20 +5,20 @@ sv:
         address: Adress
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         has_address: Har adress
-        state: Tillstånd
+        state: Status
         title: Titel
-        user_group_id: Skapa samarbetsförslag som
+        user_group_id: Skapa samarbetsutkast som
       proposal:
         address: Adress
         answer: Svara
-        answered_at: Besvarad vid
+        answered_at: Besvarad
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
         has_address: Har adress
-        scope_id: Omfattning
+        scope_id: Omfång
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
