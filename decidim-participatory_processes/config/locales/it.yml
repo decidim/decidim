@@ -20,7 +20,7 @@ it:
         participatory_structure: Come è deciso?
         promoted: Promossa
         published_at: Pubblicato a
-        scope_id: Objetivos
+        scope_id: Obiettivi
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
         show_statistics: Mostra statistiche
@@ -343,7 +343,7 @@ it:
         participatory_scope: Che cosa si decide
         participatory_structure: Come si decide
         private_space: Questo è un processo privato
-        scope: Objetivos
+        scope: Obiettivi
         start_date: Date di inizio
         target: Chi partecipa
         unspecified: Non specificato
