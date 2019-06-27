@@ -86,6 +86,7 @@ sv:
         settings:
           global:
             amendments_enabled: Ändringar möjliga
+            amendments_enabled_help: Om aktivt, konfigurera funktioner för ändringar för varje steg.
             announcement: Notis
             attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
@@ -96,6 +97,7 @@ sv:
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
             participatory_texts_enabled: Deltagande texter aktiverade
+            participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
             proposal_answering_enabled: Svar tlll förslag aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
             proposal_length: Maximal längd på förslagets innehåll
@@ -110,6 +112,8 @@ sv:
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
+            amendment_promotion_enabled: Annonsering av ändringar är aktiverat
+            amendment_promotion_enabled_help: Författare av ändringsförslag kommer att kunna lägga fram det avvisade ändringsförslaget som ett förslag.
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
             amendments_visibility: Ändringens synlighet
@@ -691,6 +695,7 @@ sv:
             other: och %{count} fler personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett samlat förslag. Granska historiken
           link_to_collaborative_draft_text: Se samarbetsutkastet
+          link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
           link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
           link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
           link_to_proposal_from_emendation_text: Visa förslaget
