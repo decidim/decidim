@@ -564,7 +564,7 @@ it:
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
-          name: Seguaci
+          name: Followers
           next_level_in: Ottieni altri %{score} utenti che ti seguono per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora follower.
           unearned_own: Non hai ancora follower.
@@ -661,7 +661,7 @@ it:
         accept_request: Accettare
         reject_request: Rifiutare
       new:
-        create_user_group: Creare un gruppo
+        create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
         subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
       no_user_groups: Non appartiene ancora a nessun gruppo.
@@ -745,8 +745,8 @@ it:
         csv: Scarica dati (csv)
       followers:
         description: Numero di utenti che seguono questo spazio di partecipazione
-        object: seguaci
-        title: Seguaci
+        object: Followers
+        title: Followers
       participants:
         description: Numero di utenti attivi nell'organizzazione
         object: partecipanti
@@ -887,11 +887,11 @@ it:
       show:
         activity: Attività
         badges: badge
-        followers: Seguaci
-        following: segue
+        followers: Followers
+        following: Seguiti
         groups: gruppi
         members: Utenti
-        timeline: Sequenza temporale
+        timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
@@ -899,7 +899,7 @@ it:
           title: badge
       user:
         confirmation_instructions_sent: Istruzioni di conferma via email inviate
-        create_user_group: Creare un gruppo
+        create_user_group: Crea un gruppo
         edit_profile: Modifica Profilo
         edit_user_group: Modifica il profilo del gruppo
         fill_in_email_to_confirm_it: Per favore, inserisci l'email del tuo gruppo per confermarlo
