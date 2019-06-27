@@ -37,7 +37,7 @@ module Decidim
 
         def send_notification
           return unless conference.registrations_enabled?
-          
+
           Decidim::EventsManager.publish(
             event: "decidim.events.conferences.registrations_enabled",
             event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
