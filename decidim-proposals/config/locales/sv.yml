@@ -5,7 +5,7 @@ sv:
         address: Adress
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         has_address: Har adress
         state: Tillstånd
         title: Titel
