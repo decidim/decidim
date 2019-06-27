@@ -8,7 +8,7 @@ it:
       user:
         about: Di
         email: La tua email
-        name: Il tuo nome
+        name: Nickname
         nickname: Nome utente
         password: Password
         password_confirmation: Conferma la tua password
