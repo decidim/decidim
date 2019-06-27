@@ -7,13 +7,13 @@ sv:
         offline_explanation: Instruktioner för offline verifiering
         online: Uppkopplad
       id_document_information:
-        document_number: Dokumentnummer (med bokstav)
-        document_type: Dokumentets typ
+        document_number: ID-nummer (med bokstav)
+        document_type: Typ av ID-handling
       id_document_upload:
-        document_number: Dokumentnummer (med bokstav)
-        document_type: Dokumentets typ
+        document_number: ID-nummer (med bokstav)
+        document_type: Typ av ID-handling
         user: Användare
-        verification_attachment: Inläst kopia av dokumentet
+        verification_attachment: Inläst kopia av ID-handlingen
       offline_confirmation:
         email: Användar-e-post
       postal_letter_address:
@@ -40,9 +40,9 @@ sv:
             - Endast deltagare med ett e-postmeddelande i den CSV-filen kan verifieras
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och laddar upp en kopia av deras dokument.
-            - Du fyller i informationen som finns i den uppladdade bilden.
-            - Informationen ska matcha vad användaren fyllt i.
+            - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
+            - Du fyller i informationen som visas i den inskickade bilden.
+            - Informationen ska stämma överens med vad användaren fyllde i.
             - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
         postal_letter:
           help:
