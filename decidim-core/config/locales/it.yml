@@ -321,8 +321,8 @@ it:
         new:
           complete_profile: Completa il profilo
           nickname_help: Il tuo nickname (@nickname) in %{organization}
-          sign_up: Si prega di completare il profilo
-          subtitle: Si prega di compilare il seguente modulo per completare la registrazione
+          sign_up: Completa il tuo profilo
+          subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
@@ -1186,7 +1186,7 @@ it:
         link_label: qui
         ok: OK, accetto
       edit_link:
-        edit: modificare
+        edit: Modifica
       footer:
         download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
