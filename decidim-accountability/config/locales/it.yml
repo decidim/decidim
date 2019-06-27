@@ -144,7 +144,7 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutto
-          scopes: Visibilità
+          scopes: Ambiti
         home:
           categories_label: Categorie
           subcategories_label: Sotto-categorie
