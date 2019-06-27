@@ -339,7 +339,7 @@ it:
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
           tos_title: Termini di servizio
-          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
+          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se non vuoi essere riconoscibile.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
