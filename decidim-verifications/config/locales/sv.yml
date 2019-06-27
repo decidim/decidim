@@ -43,11 +43,11 @@ sv:
             - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
             - Du fyller i informationen som visas i den inskickade bilden.
             - Informationen ska stämma överens med vad användaren fyllde i.
-            - Om du inte klart kan se informationen eller du inte kan verifiera den kan du avvisa förfrågan och användaren kommer att kunna åtgärda det.
+            - Om informationen inte visas tydligt, eller om du inte kan verifiera den, kan du avvisa förfrågan och användaren kommer att kunna åtgärda den.
         postal_letter:
           help:
             - Användare begär en verifieringskod som ska skickas till deras adress.
-            - Du skickar brevet till deras adress med verifieringskoden.
+            - Skicka brevet med verifieringskoden till deras adress.
             - Du markerar brevet som skickat.
             - När du markerar brevet som skickat kommer användaren att kunna införa koden och bli verifierad.
       csv_census:
