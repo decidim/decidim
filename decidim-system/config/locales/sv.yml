@@ -47,6 +47,7 @@ sv:
           fields:
             created_at: Skapad vid
             name: Namn
+            smtp_settings: SMTP-inställningar
           name: Organisation
       organizations:
         create:
