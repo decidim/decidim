@@ -7,15 +7,15 @@ sv:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} uppdaterade %{resource_name} sidan i %{space_name}"
+        update: "%{user_name} uppdaterade sidan %{resource_name} i %{space_name}"
     components:
       pages:
         name: Sida
         settings:
           global:
-            announcement: Notis
+            announcement: Meddelande
           step:
-            announcement: Notis
+            announcement: Meddelande
     pages:
       admin:
         models:
@@ -26,5 +26,5 @@ sv:
             save: Uppdatera
             title: Redigera sida
           update:
-            invalid: Det har blivit fel när du sparar sidan.
+            invalid: Det gick inte att spara sidan.
             success: Sidan sparades framgångsrikt.
