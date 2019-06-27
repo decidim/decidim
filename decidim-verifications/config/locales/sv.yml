@@ -8,12 +8,12 @@ sv:
         online: Uppkopplad
       id_document_information:
         document_number: Dokumentnummer (med bokstav)
-        document_type: Typ av dokumentet
+        document_type: Dokumentets typ
       id_document_upload:
         document_number: Dokumentnummer (med bokstav)
-        document_type: Typ av ditt dokument
+        document_type: Dokumentets typ
         user: Användare
-        verification_attachment: Skannad kopia av ditt dokument
+        verification_attachment: Inläst kopia av dokumentet
       offline_confirmation:
         email: Användar-e-post
       postal_letter_address:
