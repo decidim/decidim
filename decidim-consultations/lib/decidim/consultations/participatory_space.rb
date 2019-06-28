@@ -26,6 +26,11 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     resource.card = "decidim/consultations/consultation"
   end
 
+  participatory_space.register_resource(:question) do |resource|
+    resource.model_class_name = "Decidim::Consultations::Question"
+    resource.actions = %w(vote)
+  end
+
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
     organization = Decidim::Organization.first

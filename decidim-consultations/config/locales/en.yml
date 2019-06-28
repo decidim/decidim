@@ -289,6 +289,10 @@ en:
         confirm: Confirm
         contextual_help: Please confirm the selected option.
         title: 'Consultation: confirm vote'
+    resources:
+      consultations:
+        actions:
+          vote: Vote
   layouts:
     decidim:
       admin:

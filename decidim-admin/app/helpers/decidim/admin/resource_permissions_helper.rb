@@ -29,7 +29,7 @@ module Decidim
         return unless resource.allow_resource_permissions? && allowed_to?(:update, resource_key, resource_key => resource)
 
         icon_link_to "key",
-                     send("edit_#{resource_key}_permissions_path", resource.id, resource_name: resource.resource_manifest.name),
+                     send("edit_#{resource_key}_permissions_path", resource.slug.presence || resource.id, resource_name: resource.resource_manifest.name),
                      t("actions.permissions", scope: "decidim.admin"),
                      class: "action-icon--permissions #{"action-icon--highlighted" if resource.permissions.present?}"
       end
