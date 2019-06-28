@@ -59,8 +59,8 @@ sv:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Samarbetsförslag
-        other: Samarbetsförslagen
+        one: Gemensamt utkast
+        other: Gemensamma utkast
       decidim/proposals/proposal:
         one: Förslag
         other: Förslagen
@@ -87,19 +87,19 @@ sv:
           global:
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera funktioner för ändringar för varje steg.
-            announcement: Notis
-            attachments_allowed: Tillåt bifogade filer
+            announcement: Meddelande
+            attachments_allowed: Tillåt bilagor
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
-            geocoding_enabled: Geocoding aktiverad
+            geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal röster per användare
-            new_proposal_help_text: Nytt förslag till hjälptext
-            official_proposals_enabled: Officiella förslag möjliga
+            new_proposal_help_text: Hjälptext om nya förslag
+            official_proposals_enabled: Officiella förslag aktiverade
             participatory_texts_enabled: Deltagande texter aktiverade
             participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
-            proposal_answering_enabled: Svar tlll förslag aktiverat
-            proposal_edit_before_minutes: Förslag kan redigeras av författare innan så här många minuter passerar
+            proposal_answering_enabled: Aktiverat svar på förslag
+            proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
