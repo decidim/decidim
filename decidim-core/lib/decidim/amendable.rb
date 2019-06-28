@@ -12,14 +12,14 @@ module Decidim
                foreign_type: "decidim_amendable_type",
                class_name: "Decidim::Amendment"
 
-      # resource.emendations : resources that have amend the resource
+      # resource.emendations : resources that have amended the original resource
       has_many :emendations,
                through: :amendments,
                source: :emendation,
                source_type: name,
                inverse_of: :emendations
 
-      # resource.amenders :  users that have emendations for the resource
+      # resource.amenders : users that have created emendations for the original resource
       has_many :amenders,
                through: :amendments,
                source: :amender
@@ -81,46 +81,45 @@ module Decidim
       end
     end
 
+    # Returns the fields that can be amended.
     def amendable_fields
       self.class.amendable_options[:fields]
     end
 
+    # Returns the form used for the validation and creation of the emendation.
     def amendable_form
       self.class.amendable_options[:form].constantize
     end
 
+    # Returns the ActiveRecord class name of the resource.
     def amendable_type
       resource_manifest.model_class_name
     end
 
+    # Returns the polymorphic association.
     def amendment
       associated_resource = emendation? ? :emendation : :amendable
 
       Decidim::Amendment.find_by(associated_resource => id)
     end
 
+    # Checks if the resource HAS amended another resource.
+    # Returns true or false.
     def emendation?
       amendable.present?
     end
 
+    # Checks if the resource CAN be amended by other resources.
+    # Returns true or false.
     def amendable?
       amendable.blank?
     end
 
-    def resource_state
-      attributes["state"]
-    end
-
-    def emendation_state
-      return resource_state if resource_state == "withdrawn" # Special case for Proposals
-
-      amendment.state
-    end
-
+    # Returns the state of the amendment or the state of the resource.
     def state
-      return emendation_state if emendation?
+      return amendment.state if emendation?
 
-      resource_state
+      attributes["state"]
     end
 
     # Returns the linked resource to or from this model
