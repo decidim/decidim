@@ -46,34 +46,106 @@ describe "Amend Proposal", versioning: true, type: :system do
     end
 
     context "when visiting an amendment to a proposal" do
-      before do
-        visit emendation_path
-      end
+      let!(:proposal) { create(:proposal, title: "Original long enough title", body: "Original one liner body", component: component) }
+      # The first version of the emendation should hold the original proposal attribute values being amended.
+      let!(:emendation) { create(:proposal, title: proposal.title, body: proposal.body, component: component) }
 
-      it "shows the changed attributes" do
-        expect(page).to have_content("Amendment to \"#{proposal.title}\"")
-
-        within ".diff-for-title" do
-          expect(page).to have_content("TITLE")
-
-          within ".diff > ul > .del" do
-            expect(page).to have_content(proposal.title)
-          end
-
-          within ".diff > ul > .ins" do
-            expect(page).to have_content(emendation.title)
-          end
+      context "and the amendment is being evaluated" do
+        before do
+          # The last version of the emendation should hold the amending attribute values.
+          emendation.update(title: "Amended long enough title", body: "Amended one liner body")
+          proposal.update(title: "Updated long enough title", body: "Updated one liner body")
+          visit emendation_path
         end
 
-        within ".diff-for-body" do
-          expect(page).to have_content("BODY")
+        it "shows the changed attributes compared to the last version of the original proposal" do
+          expect(page).to have_content('Amendment to "Updated long enough title"')
 
-          within ".diff > ul > .del" do
-            expect(page).to have_content(proposal.body)
+          within ".diff-for-title" do
+            expect(page).to have_content("TITLE")
+
+            within ".diff > ul > .del" do
+              expect(page).to have_content("Updated long enough title")
+            end
+
+            within ".diff > ul > .ins" do
+              expect(page).to have_content("Amended long enough title")
+            end
           end
 
-          within ".diff > ul > .ins" do
-            expect(page).to have_content(emendation.body)
+          within ".diff-for-body" do
+            expect(page).to have_content("BODY")
+
+            within ".diff > ul > .del" do
+              expect(page).to have_content("Updated one liner body")
+            end
+
+            within ".diff > ul > .ins" do
+              expect(page).to have_content("Amended one liner body")
+            end
+          end
+        end
+      end
+
+      context "and the amendment is NOT being evaluated" do
+        before do
+          # The last version of the emendation should hold the amending attribute values.
+          emendation.update(title: "Amended long enough title", body: "Amended one liner body")
+          proposal.update(title: "Updated long enough title", body: "Updated one liner body")
+          amendment.update(state: "withdrawn")
+          visit emendation_path
+        end
+
+        it "shows the changed attributes compared to the version of the original proposal at the moment of making the amendment" do
+          expect(page).to have_content('Amendment to "Updated long enough title"')
+
+          within ".diff-for-title" do
+            expect(page).to have_content("TITLE")
+
+            within ".diff > ul > .del" do
+              expect(page).to have_content("Original long enough title")
+            end
+
+            within ".diff > ul > .ins" do
+              expect(page).to have_content("Amended long enough title")
+            end
+          end
+
+          within ".diff-for-body" do
+            expect(page).to have_content("BODY")
+
+            within ".diff > ul > .del" do
+              expect(page).to have_content("Original one liner body")
+            end
+
+            within ".diff > ul > .ins" do
+              expect(page).to have_content("Amended one liner body")
+            end
+          end
+        end
+      end
+
+      context "and the emendation and the amendable have visibly the same body but different newlines escape sequences" do
+        before do
+          # The last version of the emendation should hold the amending attribute values.
+          emendation.update(body: "One liner body\r\nAmended")
+          proposal.update(body: "One liner body\nAmended")
+          visit emendation_path
+        end
+
+        it "shows the no CHANGES in the body" do
+          expect(page).to have_content('Amendment to "Original long enough title"')
+
+          within ".diff-for-body" do
+            expect(page).to have_content("BODY")
+
+            within all(".diff > ul > .unchanged").first do
+              expect(page).to have_content("One liner body")
+            end
+
+            within all(".diff > ul > .unchanged").last do
+              expect(page).to have_content("Amended")
+            end
           end
         end
       end
