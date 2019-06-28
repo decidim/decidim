@@ -28,9 +28,6 @@ module Decidim
           allowed_question_action?
           allowed_response_action?
 
-          # Every user allowed by the space can update the question of the consultation
-          allow! if permission_action.subject == :question && permission_action.action == :update
-
           permission_action
         end
 
