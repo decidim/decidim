@@ -82,22 +82,42 @@ module Decidim
       end
     end
 
+    def withdraw
+      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: amendable.component
+
+      Decidim::Amendable::Withdraw.call(amendment, current_user) do
+        on(:ok) do |withdrawn_emendation|
+          flash[:notice] = t("success", scope: "decidim.amendments.withdraw")
+          redirect_to Decidim::ResourceLocatorPresenter.new(withdrawn_emendation).path
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("error", scope: "decidim.amendments.withdraw")
+          redirect_to Decidim::ResourceLocatorPresenter.new(emendation).path
+        end
+      end
+    end
+
     private
 
     def amendable_gid
-      params[:amendable_gid] || params[:amendment][:amendable_gid]
+      params[:amendable_gid] || params.dig(:amendment, :amendable_gid)
+    end
+
+    def amendment
+      @amendment ||= Decidim::Amendment.find_by(id: params[:id])
     end
 
     def amendable
       @amendable ||= if amendable_gid
-                       present(GlobalID::Locator.locate_signed(amendable_gid))
+                       GlobalID::Locator.locate_signed(amendable_gid)
                      else
-                       Decidim::Amendment.find_by(decidim_emendation_id: params[:id]).amendable
+                       amendment&.amendable
                      end
     end
 
     def emendation
-      @emendation ||= present(Decidim::Amendment.find(params[:id]).emendation)
+      @emendation ||= amendment&.emendation
     end
   end
 end
