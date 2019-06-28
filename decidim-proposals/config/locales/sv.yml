@@ -132,10 +132,10 @@ sv:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} har accepterats för att få tillgång till som medskapare till samarbetsutkastet <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Du har fått den här meddelandet eftersom du är en medskapare till <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} har fått tillgång som en medskapare till %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>godkänts för att få tillgång till som medskapare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} har nu tillgång till och är accepterad som bidragsgivare till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Du har fått det här meddelandet eftersom du är bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} har avvisad för att få tillgång till som medskapare till <a href="%{resource_path}">%{resource_title}</a> samarbetsförslaget.'
           email_outro: Du har fått den här notifikationen eftersom du är en samarbetspartner på <a href="%{resource_path}">%{resource_title}</a>.
