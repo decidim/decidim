@@ -44,35 +44,46 @@ module Decidim
       end
 
       def parse_changeset(attribute, values, type, diff)
+        values = parse_values(attribute, values)
+
         diff.update(
           attribute => {
             type: type,
             label: I18n.t(attribute, scope: "activemodel.attributes.collaborative_draft"),
-            old_value: emendation_value_for(attribute) || values[0],
+            old_value: values[0],
             new_value: values[1]
           }
         )
       end
 
-      # Retrieves the attribute value of the amended proposal.
-      # Returns the last version if the amendment is being evaluated; else,
-      # returns the original version at the moment of creating the amendment.
-      def emendation_value_for(attribute)
-        return unless proposal&.emendation?
-        return last_version(attribute) if proposal.amendment.evaluating?
-
-        original_version(attribute)
+      # Handles the values to use for diffing emendations and
+      # normalizes line endings of the :body attribute values.
+      # Returns and Array of two Strings.
+      def parse_values(attribute, values)
+        values = emendation_values(attribute.to_s, values) if proposal&.emendation?
+        values = values.map { |value| normalize_line_endings(value) } if attribute == :body
+        values
       end
 
-      # Retrieves the CURRENT attribute value of the amended proposal.
-      def last_version(attribute)
-        proposal.amendable.attributes[attribute.to_s]
+      # Sets the old value so the amendment can be compared to the amended proposal.
+      # If the amendment is being evaluated, compares the changes with the CURRENT
+      # attribute value of the amendable. Else, compares the changes to the version
+      # of the amendable at the moment of creating the amendment (which is the first
+      # version of the emendation created in Decidim::Amendable::Create.create_emendation!).
+      # Returns and Array of two Strings.
+      def emendation_values(attribute, values)
+        old_value = if proposal.amendment.evaluating?
+                      proposal.amendable.attributes[attribute]
+                    else
+                      proposal.versions.first.changeset[attribute].last
+                    end
+        [old_value, values[1]]
       end
 
-      # Retrieves the attribute value of the amended proposal STORED in the first
-      # version created in Decidim::Amendable::Create.create_emendation!
-      def original_version(attribute)
-        proposal.versions.first.changeset[attribute.to_s].last
+      # Normalizes the escape sequences used for newlines.
+      # Returns a String.
+      def normalize_line_endings(string)
+        Decidim::ContentParsers::NewlineParser.new(string, context: {}).rewrite
       end
 
       def proposal
