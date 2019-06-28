@@ -9,7 +9,7 @@ sv:
         has_address: Har adress
         state: Status
         title: Titel
-        user_group_id: Skapa samarbetsutkast som
+        user_group_id: Skapa gemensamt utkast som
       proposal:
         address: Adress
         answer: Svara
@@ -40,7 +40,7 @@ sv:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Behöver återbifogas
+              needs_to_be_reattached: Måste bifogas igen
             body:
               identical: OCH titel kan inte vara identisk
             title:
