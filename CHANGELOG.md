@@ -21,6 +21,7 @@
 
 **Fixed**:
 
+- **decidim-core**, **decidim-proposals**: Fix: diffing withdrawn amendments and new lines in body [#5242](https://github.com/decidim/decidim/pull/5242)
 - **decidim-admin**: Fix: Proposals component form introduced regression [#5179](https://github.com/decidim/decidim/pull/5179)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
