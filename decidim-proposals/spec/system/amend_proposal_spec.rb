@@ -58,7 +58,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           visit emendation_path
         end
 
-        it "shows the changed attributes compared to the last version of the original proposal" do
+        it "shows the changed attributes compared to the last version of the amended proposal" do
           expect(page).to have_content('Amendment to "Updated long enough title"')
 
           within ".diff-for-title" do
@@ -96,7 +96,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           visit emendation_path
         end
 
-        it "shows the changed attributes compared to the version of the original proposal at the moment of making the amendment" do
+        it "shows the changed attributes compared to the version of the amended proposal at the moment of making the amendment" do
           expect(page).to have_content('Amendment to "Updated long enough title"')
 
           within ".diff-for-title" do
@@ -125,7 +125,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
       end
 
-      context "and the emendation and the amendable have visibly the same body but different newlines escape sequences" do
+      context "and the emendation and the amendable have seemingly the same body but different newline escape sequences" do
         before do
           # The last version of the emendation should hold the amending attribute values.
           emendation.update(body: "One liner body\r\nAmended")

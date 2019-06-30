@@ -10,6 +10,7 @@ module Decidim
       # current_user  - The current user.
       def initialize(amendment, current_user)
         @amendment = amendment
+        @amender = amendment.amender
         @current_user = current_user
         @emendation = amendment.emendation
       end
@@ -17,12 +18,11 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the resource.
-      # - :invalid if the resource does not belong to the current user or already has supports.
+      # - :invalid if resource does not belong to the current user or already has supports.
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless emendation.created_by?(current_user) &&
-                                          emendation.votes.empty?
+        return broadcast(:invalid) unless emendation.votes.empty? && amender == current_user
 
         transaction do
           withdraw_amendment!
@@ -34,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :amendment, :current_user, :emendation
+      attr_reader :amendment, :amender, :current_user, :emendation
 
       def withdraw_amendment!
         @amendment = Decidim.traceability.update!(

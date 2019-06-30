@@ -100,6 +100,9 @@ module Decidim
 
     private
 
+    # Amendable's GlobalID::SignedGlobalID parameter.
+    # The first case is for locating the amendable and for building the CreateForm
+    # in the :new action; the second one is for locating it in the :create action.
     def amendable_gid
       params[:amendable_gid] || params.dig(:amendment, :amendable_gid)
     end
@@ -108,12 +111,9 @@ module Decidim
       @amendment ||= Decidim::Amendment.find_by(id: params[:id])
     end
 
+    # For actions :new and :create, we retrieve the amendable with the #amendable_gid.
     def amendable
-      @amendable ||= if amendable_gid
-                       GlobalID::Locator.locate_signed(amendable_gid)
-                     else
-                       amendment&.amendable
-                     end
+      @amendable ||= GlobalID::Locator.locate_signed(amendable_gid) || amendment&.amendable
     end
 
     def emendation
