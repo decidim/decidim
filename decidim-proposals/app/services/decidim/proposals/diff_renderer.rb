@@ -67,7 +67,7 @@ module Decidim
 
       # Sets the old value so the amendment can be compared to the amended proposal.
       # If the amendment is being evaluated, compares the changes with the CURRENT
-      # attribute value of the amendable. Else, compares the changes to the version
+      # attribute value of the amendable; else, compares the changes to the version
       # of the amendable at the moment of creating the amendment (which is the first
       # version of the emendation created in Decidim::Amendable::Create.create_emendation!).
       # Returns and Array of two Strings.
