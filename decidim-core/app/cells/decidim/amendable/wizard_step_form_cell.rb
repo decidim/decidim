@@ -2,7 +2,7 @@
 
 module Decidim
   module Amendable
-    # This cell renders the button to amend the given resource.
+    # This cell passes the necessary information to Decidim::WizardStepFormCell
     class WizardStepFormCell < Decidim::ViewModel
       def show
         cell("decidim/wizard_step_form", options_for_view)
@@ -21,10 +21,6 @@ module Decidim
                           when :preview_draft, :publish_draft
                             4
                           end
-      end
-
-      def step?(step)
-        current_step == step
       end
 
       def i18n_step(step_number)
@@ -65,7 +61,7 @@ module Decidim
         {
           wizard_header_title: wizard_header_title,
           wizard_header_similar_resources_count: options[:similar_resources_count],
-          wizard_header_announcement: wizard_header_announcement
+          wizard_header_help_text: wizard_header_help_text
         }
       end
 
@@ -103,7 +99,7 @@ module Decidim
         t("decidim.amendments.#{key}.title")
       end
 
-      def wizard_header_announcement
+      def wizard_header_help_text
         attribute = amendable.component.settings.amendments_wizard_help_text
         {
           announcement: translated_attribute(attribute).presence

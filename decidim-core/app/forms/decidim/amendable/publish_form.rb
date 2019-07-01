@@ -2,7 +2,7 @@
 
 module Decidim
   module Amendable
-    # A form object used to promote emendations
+    # A form object used to publish emendations
     class PublishForm < Decidim::Amendable::Form
       mimic :amendment
 

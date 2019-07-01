@@ -26,11 +26,8 @@ module Decidim
 
       private
 
-      def amendable_fields_as_string
-        amendable.amendable_fields.map(&:to_s)
-      end
-
-      def emendation_changes_amendable
+      # Validates the emendation is not identical to the amendable.
+      def emendation_must_change_amendable
         return unless %w(title body).all? { |attr| attr.in? amendable_fields_as_string }
 
         emendation = amendable.amendable_type.constantize.new(emendation_params)
@@ -41,13 +38,14 @@ module Decidim
         amendable_form.errors.add(:body, :identical)
       end
 
-      def check_amendable_form_validations
+      # Validates the emendation using the amendable form.
+      def amendable_form_must_be_valid
         parse_hashtaggable_params
-        # Preserves the errors added in #emendation_changes_amendable.
-        amendable_form.validate unless defined?(@amendable_form)
+        amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
         @errors = @amendable_form.errors
       end
 
+      # Parses :title and :body attribute values with HashtagParser.
       def parse_hashtaggable_params
         emendation_params.each do |key, value|
           next unless [:title, :body].include?(key)
@@ -56,10 +54,18 @@ module Decidim
         end
       end
 
+      # Returns an instance of the Form Object class defined in Decidim::Amendable#amendable_form
+      # constructed with the :emendation_params.
       def amendable_form
         @amendable_form ||= amendable.amendable_form.from_params(emendation_params).with_context(form_context)
       end
 
+      # Returns the amendable fields keys as String.
+      def amendable_fields_as_string
+        amendable.amendable_fields.map(&:to_s)
+      end
+
+      # Adds additional information to the base context from the current controller.
       def form_context
         context.to_h.merge(
           current_component: amendable.component,

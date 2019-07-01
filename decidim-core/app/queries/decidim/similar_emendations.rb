@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Class used to retrieve similar proposals.
+  # Class used to retrieve similar emendations, scoped to the current component.
   class SimilarEmendations < Rectify::Query
     include Decidim::TranslationsHelper
 
@@ -21,7 +21,7 @@ module Decidim
       @amender = amendment.amender
     end
 
-    # Retrieves similar proposals
+    # Retrieves similar emendations
     def query
       emendation.amendable_type.constantize
                 .where(component: component)

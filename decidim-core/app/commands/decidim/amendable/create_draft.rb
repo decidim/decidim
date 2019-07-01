@@ -7,7 +7,6 @@ module Decidim
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
-      # amendable    - The resource that is being amended.
       def initialize(form)
         @form = form
         @amendable = form.amendable
@@ -36,6 +35,11 @@ module Decidim
 
       attr_reader :form, :amendable, :current_user, :user_group
 
+      # Prevent PaperTrail from creating an additional version
+      # in the amendment multi-step creation process (step 1: create)
+      #
+      # A first version will be created in step 4: publish
+      # for diff rendering in the amendment control version
       def create_emendation!
         PaperTrail.request(enabled: false) do
           @emendation = Decidim.traceability.perform_action!(

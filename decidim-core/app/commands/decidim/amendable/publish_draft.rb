@@ -19,6 +19,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the amend.
+      # - :invalid if the amendment is not a draft.
       # - :invalid if the form isn't valid or the amender is not the current user.
       #
       # Returns nothing.

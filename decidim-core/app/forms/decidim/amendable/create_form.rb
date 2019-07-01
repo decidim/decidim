@@ -11,8 +11,8 @@ module Decidim
       attribute :emendation_params, Hash
 
       validates :amendable_gid, presence: true
-      validate :emendation_changes_amendable
-      validate :check_amendable_form_validations
+      validate :emendation_must_change_amendable
+      validate :amendable_form_must_be_valid
 
       def amendable
         @amendable ||= GlobalID::Locator.locate_signed(amendable_gid)
