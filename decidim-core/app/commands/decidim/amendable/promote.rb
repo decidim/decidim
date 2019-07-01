@@ -10,8 +10,11 @@ module Decidim
       # amendable - The amendable resource.
       def initialize(form)
         @form = form
+        @amendment = form.amendment
         @emendation = form.emendation
         @amendable = form.amendable
+        @amender = form.amender
+        @current_user = form.current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -21,7 +24,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) unless form.valid? && amendment.rejected? && amender == current_user
 
         transaction do
           promote_emendation!
@@ -34,7 +37,7 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :amendment, :amender, :current_user
 
       # The log of this action contains unique information:
       # extra_log_info = { promoted_from: emendation.id }
