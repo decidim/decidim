@@ -155,10 +155,10 @@ sv:
           email_intro: Du har blivit avvisad att bli bidragsgivare till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Du har fått det här meddelandet eftersom du bad om att bli bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Du har blivit avvisad som bidragsgivare till %{resource_title}.
-          notification_title: Du har blivit <strong>avvisad för att få tillgång till som medskapare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Du har blivit <strong>avvisad tillgång till </strong> det gemensamma förslaget <a href="%{resource_path}">%{resource_title}</a> som bidragsgivare.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> återtog samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Du har fått den här notifikationen eftersom du är en medskapare till <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> drog tillbaka det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Du har fått det här meddelandet eftersom du är en bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} återkallade de %{resource_title} samlade utkasten."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>tillbakadragna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetsutkast.
         creation_enabled:
