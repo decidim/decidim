@@ -235,7 +235,8 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.from_all_author_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
+        Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
+                .where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft
