@@ -159,8 +159,8 @@ sv:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> drog tillbaka det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Du har fått det här meddelandet eftersom du är en bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} återkallade de %{resource_title} samlade utkasten."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>tillbakadragna</strong> <a href="%{resource_path}">%{resource_title}</a> samarbetsutkast.
+          email_subject: "%{author_name} %{author_nickname} drog tillbaka det gemensamma utkastet %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>drog tillbaka</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationer vid föregående länk.
