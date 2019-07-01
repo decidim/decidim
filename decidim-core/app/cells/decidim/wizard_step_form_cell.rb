@@ -71,12 +71,12 @@ module Decidim
 
     # Returns the normal announcement
     def wizard_header_announcement
-      view_options[:wizard_header_announcement]
+      view_options[:wizard_header_announcement] || {}
     end
 
     # Returns the help text announcement
     def wizard_header_help_text
-      view_options[:wizard_header_help_text]
+      view_options[:wizard_header_help_text] || {}
     end
 
     def wizard_header_title

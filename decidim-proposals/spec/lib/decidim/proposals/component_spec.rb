@@ -240,12 +240,22 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           check "Amendments enabled"
         end
 
+        it "is shown the amendments_wizard_help_text global setting" do
+          expect(page).to have_content("Amendments Wizard help text")
+          expect(page).to have_css("div[data-tabs-content='global-settings-amendments_wizard_help_text-tabs']", visible: true)
+        end
+
         it "is shown the amendments step settings" do
           expect(page).to have_css(".amendments_step_settings", visible: true)
         end
       end
 
       context "when amendments_enabled global setting is NOT checked" do
+        it "is NOT shown the amendments_wizard_help_text global setting" do
+          expect(page).not_to have_content("Amendments Wizard help text")
+          expect(page).to have_css("div[data-tabs-content='global-settings-amendments_wizard_help_text-tabs']", visible: false)
+        end
+
         it "is NOT shown the amendments step settings" do
           expect(page).to have_css(".amendments_step_settings", visible: false)
         end

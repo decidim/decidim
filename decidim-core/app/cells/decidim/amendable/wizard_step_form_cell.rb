@@ -65,8 +65,7 @@ module Decidim
         {
           wizard_header_title: wizard_header_title,
           wizard_header_similar_resources_count: options[:similar_resources_count],
-          wizard_header_announcement: wizard_header_announcement,
-          wizard_header_help_text: wizard_header_help_text
+          wizard_header_announcement: wizard_header_announcement
         }
       end
 
@@ -104,28 +103,11 @@ module Decidim
         t("decidim.amendments.#{key}.title")
       end
 
-      def component
-        amendable.component
-      end
-
-      def proposal_component?
-        component.manifest_name == "proposals"
-      end
-
       def wizard_header_announcement
-        return {} unless proposal_component?
-        return {} if step?(4)
-
-        attribute = component.settings.new_proposal_help_text
-        { announcement: translated_attribute(attribute).presence }
-      end
-
-      def wizard_header_help_text
-        return {} unless proposal_component?
-
-        attribute = component.settings.send("proposal_wizard_step_#{current_step}_help_text")
-        callout_class = step?(2) ? "warning" : nil
-        { announcement: translated_attribute(attribute).presence, callout_class: callout_class }
+        attribute = amendable.component.settings.amendments_wizard_help_text
+        {
+          announcement: translated_attribute(attribute).presence
+        }
       end
     end
   end
