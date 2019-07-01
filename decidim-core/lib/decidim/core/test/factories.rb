@@ -535,5 +535,13 @@ FactoryBot.define do
     state { "evaluating" }
     amendable { build(:dummy_resource) }
     emendation { build(:dummy_resource) }
+
+    trait :draft do
+      state { "draft" }
+    end
+
+    trait :rejected do
+      state { "rejected" }
+    end
   end
 end

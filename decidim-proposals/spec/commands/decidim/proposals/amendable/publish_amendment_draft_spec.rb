@@ -4,13 +4,13 @@ require "spec_helper"
 
 module Decidim
   module Amendable
-    describe Promote do
+    describe PublishDraft do
       let!(:component) { create(:proposal_component) }
       let!(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
       let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create :amendment, :rejected, amendable: amendable, emendation: emendation, amender: emendation.creator_author }
+      let!(:emendation) { create(:proposal, :unpublished, component: component) }
+      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation, amender: emendation.creator_author) }
 
       let(:current_user) { amendment.amender }
       let(:context) do
@@ -20,10 +20,10 @@ module Decidim
         }
       end
 
-      let(:form) { Decidim::Amendable::PromoteForm.from_model(amendment).with_context(context) }
+      let(:form) { Decidim::Amendable::PublishForm.from_model(amendment).with_context(context) }
       let(:command) { described_class.new(form) }
 
-      include_examples "promote amendment"
+      include_examples "publish amendment draft"
     end
   end
 end
