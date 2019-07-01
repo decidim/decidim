@@ -6,7 +6,7 @@ module Decidim
     class RejectForm < Decidim::Amendable::Form
       mimic :amendment
 
-      attribute :id, String
+      attribute :id, Integer
 
       validates :id, presence: true
     end
