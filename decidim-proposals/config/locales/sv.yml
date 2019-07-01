@@ -145,9 +145,9 @@ sv:
           email_intro: '%{requester_name} begärde tillgång som bidragsgivare. Du kan <strong>acceptera eller avvisa begäran</strong> från sidan för det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Du har fått det här meddelandet eftersom du är bidragsgivare till <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} begärde tillgång att bidra till %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde tillgång för att få bidra till samarbetsutkastet <a href="%{resource_path}">%{resource_title}</a>. Vänligen <strong>acceptera eller avslå begäran</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> begärde tillgång för att få bidra till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>. <strong>Godkänn eller avvisa begäran</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Du har accepterats för att få tillgång till som medskapare till samarbetet <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Du har godkänts att få tillgång till det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a> som bidragsgivare.
           email_outro: Du har fått den här meddelandet eftersom du bad om att bli en medskapare av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Du har accepterats som medskapare av %{resource_title}.
           notification_title: Du har blivit <strong>accepterad för att få tillgång till som medskapare</strong> av samarbetsförslaget <a href="%{resource_path}">%{resource_title}</a>.
