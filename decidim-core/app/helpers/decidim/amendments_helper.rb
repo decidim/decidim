@@ -8,7 +8,7 @@ module Decidim
     # Returns Html grid of CardM.
     def amendments_for(amendable)
       return unless amendable.amendable?
-      return unless (emendations = amendable.visible_emendations_for(current_user)).any?
+      return unless (emendations = amendable.visible_emendations_for(current_user).published).any?
 
       content = content_tag(:h2, class: "section-heading", id: "amendments") do
         t("section_heading", scope: "decidim.amendments.amendable", count: emendations.count)
