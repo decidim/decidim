@@ -15,7 +15,7 @@ describe "Amendment Wizard", type: :system do
     switch_to_host(component.organization.host)
   end
 
-  context "when creating a new proposal" do
+  context "when amending a proposal" do
     before do
       login_as user, scope: :user
       visit proposal_path
@@ -275,6 +275,37 @@ describe "Amendment Wizard", type: :system do
 
         it "redirects to step_3: Complete your amendment" do
           expect(page).to have_content("EDIT AMENDMENT DRAFT")
+        end
+      end
+    end
+  end
+
+  context "with existing amendment drafts" do
+    let!(:emendation) { create(:proposal, component: component) }
+    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+    let!(:emendation_draft) { create(:proposal, :unpublished, component: component) }
+    let!(:amendment_draft) { create :amendment, :draft, amendable: proposal, emendation: emendation_draft, amender: emendation_draft.creator_author }
+
+    context "and visiting an amended proposal" do
+      before do
+        visit proposal_path
+      end
+
+      it "is NOT shown the amendment draft in the amendments list" do
+        expect(page).to have_css("#amendments", text: "AMENDMENTS")
+
+        within ".amendment-list" do
+          expect(page).to have_content(emendation.title)
+          expect(page).not_to have_content(emendation_draft.title)
+        end
+      end
+
+      it "is NOT shown the author of the amendment draft in the amenders list" do
+        expect(page).to have_content("AMENDED BY")
+
+        within ".amender-list" do
+          expect(page).to have_content(amendment.amender.name)
+          expect(page).not_to have_content(amendment_draft.amender.name)
         end
       end
     end
