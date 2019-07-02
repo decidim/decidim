@@ -182,7 +182,7 @@ en:
       preview_draft:
         modify: Modify
         publish: Publish
-        title: Preview Amendment Draft
+        title: Publish Amendment Draft
       promoted:
         error: There was a problem publishing the amendment as a new proposal
         success: The amendment has been successfully published as a new proposal

@@ -232,7 +232,7 @@ describe "Amendment Wizard", type: :system do
 
       it "shows a preview before publishing" do
         within ".section-heading" do
-          expect(page).to have_content("PREVIEW AMENDMENT DRAFT")
+          expect(page).to have_content("PUBLISH AMENDMENT DRAFT")
         end
 
         within ".card" do
