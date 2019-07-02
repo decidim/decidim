@@ -4,7 +4,7 @@ it:
       result:
         decidim_accountability_status_id: Stato
         decidim_category_id: Categoria
-        decidim_scope_id: Scopi
+        decidim_scope_id: Obiettivi
         description: Descrizione
         end_date: Data finale
         progress: Progresso
@@ -144,7 +144,7 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutto
-          scopes: Visibilità
+          scopes: Ambiti
         home:
           categories_label: Categorie
           subcategories_label: Sotto-categorie
@@ -167,7 +167,7 @@ it:
             proposals: Proposte
             show_all_versions: Mostra tutte le versioni
             version_author: Autore della versione
-            version_created_at: Versione creata a
+            version_created_at: Versione creata il
             version_number: Numero della versione
             version_number_out_of_total: "%{current_version} su %{total_count}"
             votes: Voti

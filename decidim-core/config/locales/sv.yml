@@ -140,7 +140,7 @@ sv:
         help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
         promote_button: Främja till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-        promote_help_text: Du kan marknadsföra denna utgåva och publicera den som en oberoende %{model_name}
+        promote_help_text: Du kan stötta detta ändringsförslag och lägga fram det som ett oberoende %{model_name}
         section_heading: Ändringar (%{count})
       created:
         error: Ett fel uppstod när ändringen skulle skapas
@@ -223,25 +223,25 @@ sv:
     authorization_modals:
       content:
         expired:
-          authorize: Återauktorisera med "%{authorization}"
-          explanation: Ditt auktorisering har löpt ut. För att kunna utföra den här åtgärden måste du bli återauktoriserad med "%{authorization}".
-          title: Auktoriseringen har löpt ut
+          authorize: Auktorisera igen med "%{authorization}"
+          explanation: Ditt auktorisering har förfallit. För att kunna utföra den här åtgärden måste du auktorisera dig igen med "%{authorization}".
+          title: Auktoriseringen har förfallit
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du återauktorisera dig eftersom vi saknar följande data:'
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du auktorisera dig igen eftersom vi saknar följande data:'
           invalid_field: "%{field}"
-          reauthorize: Återauktorisera
-          title: Vänligen återauktorisera
+          reauthorize: Auktorisera igen
+          title: Auktorisera igen
         missing:
           authorize: Auktorisera med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
           title: Auktorisering krävs
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering är fortfarande på gång
-          resume: Kolla hur din "%{authorization}" auktorisering avancerar
-          title: Auktoriseringen är fortfarande på gång
+          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering behandlas fortfarande
+          resume: Se hur auktoriseringen med "%{authorization}" pågår
+          title: Auktoriseringen pågår fortfarande
         unauthorized:
-          explanation: Tyvärr, du kan inte utföra denna åtgärd eftersom vissa av dina auktoriseringsdata inte matchar.
+          explanation: Du kan tyvärr inte utföra denna åtgärd eftersom vissa av dina auktoriseringsuppgifter inte överensstämmer.
           invalid_field: "%{field} värdet %{value} är inte giltigt."
           ok: OK
           title: Ej auktoriserad
