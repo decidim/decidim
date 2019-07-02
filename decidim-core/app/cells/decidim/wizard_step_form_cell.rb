@@ -13,24 +13,24 @@ module Decidim
 
     private
 
+    # A Hash with all necessary data to render the view.
     def view_options
       model
     end
 
+    # Returns the name of the view we want to render, as Symbol.
     def view
       view_options[:view]
     end
 
+    # Returns the current step as Integer.
     def current_step
       view_options[:current_step]
     end
 
+    # Returns the total number of steps to build the #wizard_stepper, as Integer.
     def total_steps
       view_options[:total_steps]
-    end
-
-    def step?(step)
-      current_step == step
     end
 
     # Returns the list with all the steps, in HTML.
@@ -52,7 +52,7 @@ module Decidim
 
     # Returns the CSS classes used for the wizard for the given step.
     def wizard_step_classes(step)
-      if step?(step)
+      if step == current_step
         %(step--active step_#{step})
       elsif step < current_step
         %(step--past step_#{step})
@@ -68,7 +68,7 @@ module Decidim
 
     # Returns the translation of the back button.
     def i18n_wizard_aside_back
-      t("decidim.wizard_step_form.wizard_aside.back")
+      t(".wizard_aside.back")
     end
 
     # Returns a Hash to be passed to Decidim::AnnouncementCell.
@@ -101,12 +101,12 @@ module Decidim
 
     # Returns a translation with the current step number and the total steps number.
     def i18n_wizard_header_step_of
-      t("decidim.wizard_step_form.wizard_header.step_of", current_step: current_step, total_steps: total_steps)
+      t(".wizard_header.step_of", current_step: current_step, total_steps: total_steps)
     end
 
-    # Returns the header link to show the steps in the mobile view.
+    # Returns a link that toggles the steps in the mobile view.
     def wizard_header_see_steps_link
-      content_tag(:a, t("decidim.wizard_step_form.wizard_header.see_steps"), "data-toggle": "steps")
+      content_tag(:a, t(".wizard_header.see_steps"), "data-toggle": "steps")
     end
   end
 end

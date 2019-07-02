@@ -11,6 +11,7 @@ module Decidim
 
       private
 
+      # Returns the current step as Integer.
       def current_step
         @current_step ||= case params[:action].to_sym
                           when :new, :create
@@ -24,20 +25,24 @@ module Decidim
                           end
       end
 
+      # Returns the translation for a given step.
       def i18n_step(step_number)
         t("decidim.amendments.wizard_step_form.steps.#{step_number}")
       end
 
+      # Returns the name of the view we want to render, as Symbol.
       def view
         options[:view]
       end
 
+      # Returns a Hash with all the data that will be needed in Decidim::WizardStepFormCell.
       def options_for_view
         common_options.merge(
           send("#{view}_options")
         )
       end
 
+      # A Hash of data that is used in both :wizard_header and :wizard_aside views.
       def common_options
         {
           view: view,
@@ -52,12 +57,14 @@ module Decidim
         }
       end
 
+      # A Hash of data needed for the :wizard_aside view.
       def wizard_aside_options
         {
           wizard_aside_back_url: wizard_aside_back_url
         }
       end
 
+      # A Hash of data needed for the :wizard_header view.
       def wizard_header_options
         {
           wizard_header_title: wizard_header_title,
@@ -74,6 +81,7 @@ module Decidim
         @amendment ||= amendable.amendment
       end
 
+      # Returns the link we want the back button to point to.
       def wizard_aside_back_url
         case current_step
         when 1
@@ -85,6 +93,7 @@ module Decidim
         end
       end
 
+      # Returns the translation of the header title.
       def wizard_header_title
         key = case current_step
               when 1
@@ -100,6 +109,7 @@ module Decidim
         t("decidim.amendments.#{key}.title")
       end
 
+      # Returns a Hash that will be passed to a Decidim::AnnouncementCell.
       def wizard_header_help_text
         attribute = amendable.component.settings.amendments_wizard_help_text
         {

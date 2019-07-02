@@ -1,5 +1,5 @@
 <div class="columns large-3">
-  <% unless step?(2) %>
+  <% if wizard_aside_back_url %>
     <div class="m-bottom">
       <%= link_to wizard_aside_back_url do %>
         <%= icon "chevron-left", class: "icon--small" %>
