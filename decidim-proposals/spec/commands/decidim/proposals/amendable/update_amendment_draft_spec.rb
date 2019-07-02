@@ -10,7 +10,7 @@ module Decidim
 
       let!(:amendable) { create(:proposal, component: component) }
       let!(:emendation) { create(:proposal, :unpublished, component: component) }
-      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation, amender: emendation.creator_author) }
+      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation) }
 
       let(:title) { "More sidewalks and less roads!" }
       let(:body) { "Everything would be better" }

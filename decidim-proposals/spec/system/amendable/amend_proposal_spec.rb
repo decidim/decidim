@@ -6,7 +6,7 @@ describe "Amend Proposal", versioning: true, type: :system do
   let!(:component) { create(:proposal_component) }
   let!(:proposal) { create(:proposal, title: "Long enough title", body: "One liner body", component: component) }
   let!(:emendation) { create(:proposal, title: "Amended Long enough title", body: "Amended One liner body", component: component) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 

@@ -59,7 +59,7 @@ describe "Amendment Wizard", type: :system do
     context "and in step_2: Compare your amendment" do
       context "with similar results" do
         let!(:emendation) { create(:proposal, title: title, body: body, component: component) }
-        let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+        let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
         before do
           within ".new_amendment" do
@@ -179,7 +179,7 @@ describe "Amendment Wizard", type: :system do
       context "when the back button is clicked" do
         context "with similar results" do
           let!(:emendation) { create(:proposal, title: title, body: body, component: component) }
-          let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+          let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
           before do
             click_link "Back"
@@ -282,9 +282,9 @@ describe "Amendment Wizard", type: :system do
 
   context "with existing amendment drafts" do
     let!(:emendation) { create(:proposal, component: component) }
-    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
     let!(:emendation_draft) { create(:proposal, :unpublished, component: component) }
-    let!(:amendment_draft) { create :amendment, :draft, amendable: proposal, emendation: emendation_draft, amender: emendation_draft.creator_author }
+    let!(:amendment_draft) { create :amendment, :draft, amendable: proposal, emendation: emendation_draft }
 
     context "and visiting an amended proposal" do
       before do
