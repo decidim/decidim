@@ -2,7 +2,8 @@
 
 module Decidim
   module Amendable
-    # This cell passes the necessary information to Decidim::WizardStepFormCell
+    # This cell functions as an intermediary cell that computes and passes the
+    # necessary information, as a Hash, to Decidim::WizardStepFormCell.
     class WizardStepFormCell < Decidim::ViewModel
       def show
         cell("decidim/wizard_step_form", options_for_view)

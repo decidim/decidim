@@ -2,6 +2,8 @@
 
 module Decidim
   # This cell renders the wizard step form :wizard_aside or :wizard_header view.
+  # Is designed to be used by different models and so it does not try to compute
+  # the information likely to change. Expects a Hash with all necessary data.
   class WizardStepFormCell < Decidim::ViewModel
     include Decidim::LayoutHelper
 
