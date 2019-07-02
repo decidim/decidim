@@ -33,6 +33,8 @@ en:
         title: Title
         vote: External voting system
         what_is_decided: What is decided
+        max_responses: Maximum number of responses
+        min_responses: Minimum number of responses
     errors:
       vote:
         decidim_consultations_response_id:
@@ -102,6 +104,7 @@ en:
           results: Results
         questions_submenu:
           components: Components
+          configuration: Configuration
           consultation: Consultation
           info: Information
           responses: Responses

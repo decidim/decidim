@@ -1,0 +1,14 @@
+<%= javascript_include_tag "decidim/slug_form" %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t "questions.form.title", scope: "decidim.admin" %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.number_field :max_responses, step: 1, min: 1 %>
+      <%= form.number_field :min_responses, step: 1, min: 1 %>
+    </div>
+  </div>
+</div>
