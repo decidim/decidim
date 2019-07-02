@@ -528,7 +528,7 @@ FactoryBot.define do
   factory :amendment, class: "Decidim::Amendment" do
     amendable { build(:dummy_resource) }
     emendation { build(:dummy_resource) }
-    amender { emendation.creator_author }
+    amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
     trait :draft do
