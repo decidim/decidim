@@ -381,7 +381,7 @@ sv:
             merge: Sammanfoga till en ny
             merge_button: Slå ihop
             select_component: Välj en komponent
-            selected: vald
+            selected: valda
             split: Delade förslag
             split_button: Dela
             title: Förslag
@@ -390,17 +390,17 @@ sv:
             create: Skapa
             title: Skapa förslag
           update_category:
-            invalid: 'Dessa förslag hade redan kategorin: %{category} %{proposals}.'
+            invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
             select_a_category: Välj en kategori
-            select_a_proposal: Vänligen välj ett förslag
-            success: 'Förslag som har uppdaterats till kategorin: %{category} %{proposals}.'
+            select_a_proposal: Välj ett förslag
+            success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
         proposals_imports:
           create:
             invalid: Det uppstod ett problem med att importera förslagen
-            success: "%{number} Förslag som importerats"
+            success: "%{number} förslag har importerats"
           new:
             create: Importera förslag
-            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme att importera förslagen från.
+            no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         proposals_merges:
@@ -414,7 +414,7 @@ sv:
         shared:
           info_proposal:
             body: Innehåll
-            created_at: Skapandedatum
+            created_at: Skapelsedatum
             proposal_votes_count: Antal röster
             proposals: Förslag
       admin_log:
