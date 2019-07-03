@@ -87,6 +87,7 @@ fi-pl:
           global:
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
+            amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
