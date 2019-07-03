@@ -39,7 +39,7 @@ it:
         promoted: Promosso
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
-        scope_id: Scopi
+        scope_id: Obiettivi
         scopes_enabled: Scopi abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
@@ -48,7 +48,7 @@ it:
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
-        twitter: cinguettio
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Compleanno
@@ -303,7 +303,7 @@ it:
         read_less: Leggi di meno
         read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
-        scope: Objetivos
+        scope: Obiettivi
         social_networks: Social networks
         target: Chi partecipa
       statistics:
