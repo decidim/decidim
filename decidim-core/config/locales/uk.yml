@@ -110,6 +110,13 @@ uk:
       user_group:
         reject: "%{user_name} відхилив підтвердження гурту учасників %{resource_name}"
         verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
+    amendments:
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Анонімний вхід
     application:
       collection:
