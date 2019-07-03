@@ -39,6 +39,11 @@ en:
       vote:
         decidim_consultations_response_id:
           not_found: Response not found.
+      models:
+        question:
+          attributes:
+            max_responses:
+              lower_than_min: Maximum number of responses should be higher or equal than the minimum.
   activerecord:
     models:
       decidim/consultation:
@@ -132,6 +137,9 @@ en:
           name:
             one: Response
             other: Responses
+      question_configuration:
+        form:
+          title: Advanced configuration
       question_publications:
         create:
           error: There was a problem publishing this question.
