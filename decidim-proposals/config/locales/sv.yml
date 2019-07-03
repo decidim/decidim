@@ -461,33 +461,33 @@ sv:
           withdraw:
             error: Det har uppstått fel vid stängningen av samarbetsutkastet.
             irreversible_action_modal:
-              body: Efter avslutandet av utkastet kommer utkastet inte längre att kunna redigeras. Utkastet accepterar inte nya författare eller medskapare.
-              cancel: Avbryt
-              ok: Dra tillbaka ut samarbetsutkastet
-              title: Följande åtgärd är oåterkallelig
-            success: Samarbetsutkast återkallades.
+              body: Efter att utkastet stängs går det inte längre att redigera. Utkastet accepterar inte nya författare eller bidrag.
+              cancel: Dra tillbaka
+              ok: Dra tillbaka det gemensamma utkastet
+              title: Det går inte att ångra denna åtgärd
+            success: Det gemensamma utkastet har dragits tillbaka.
         compare:
-          mine_is_different: Mitt samarbetsutkast är annorlunda
-          no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
-          title: Liknande samarbetsförslag
+          mine_is_different: Mitt gemensamma utkast är annorlunda
+          no_similars_found: Bra gjort! Hittade inga liknande gemensamma utkast
+          title: Liknande gemensamma utkast
         complete:
           send: Skicka
-          title: Färdigställ i ditt samarbetsutkast
+          title: Färdigställ det gemensamma utkastet
         count:
           drafts_count:
             one: "%{count} samarbetsförslag"
             other: "%{count} samarbetsförslag"
         create:
           error: Det uppstod ett problem med att skapa dessa samarbetsutkast
-          success: Samarbetsutkast framgångsrikt utarbetat.
+          success: Det gemensamma utkastet har skapats.
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Skicka
-          title: Redigera samarbetsutkast
+          title: Redigera gemensamt utkast
         filters:
-          all: Allt
+          all: Alla
           amendment: Tillägg
           category: Kategori
           category_prompt: Kategorifråga
