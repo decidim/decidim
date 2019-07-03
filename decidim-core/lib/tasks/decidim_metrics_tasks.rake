@@ -24,6 +24,7 @@ namespace :decidim do
     desc "Execute one metric calculation method"
     task :one, [:metric, :day] => :environment do |_task, args|
       next if args.metric.blank?
+
       Decidim::Organization.find_each do |organization|
         metric_manifest = Decidim.metrics_registry.for(args.metric)
         call_metric_job(metric_manifest, organization, args.day)
@@ -40,6 +41,7 @@ namespace :decidim do
       end
       begin
         raise ArgumentError if day.blank?
+
         (Date.parse(day)..Time.zone.today).each do |d|
           Decidim::Organization.find_each do |organization|
             if metric

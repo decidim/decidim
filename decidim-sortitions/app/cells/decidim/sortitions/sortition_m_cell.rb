@@ -28,11 +28,13 @@ module Decidim
 
       def badge_name
         return t("filters.cancelled", scope: "decidim.sortitions.sortitions") if model.cancelled?
+
         t("filters.active", scope: "decidim.sortitions.sortitions")
       end
 
       def state_classes
         return ["muted"] if model.cancelled?
+
         ["success"]
       end
 

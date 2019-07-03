@@ -29,6 +29,7 @@ module Decidim
 
     def unique_document_number
       return if document_number.blank?
+
       errors.add :document_number, :taken if UserGroup
                                              .with_document_number(
                                                context.current_organization,

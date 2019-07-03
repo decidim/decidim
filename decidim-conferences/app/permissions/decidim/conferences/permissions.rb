@@ -30,6 +30,7 @@ module Decidim
         end
 
         return permission_action unless user
+
         if !has_manageable_conferences? && !user.admin?
           disallow!
           return permission_action
@@ -94,12 +95,14 @@ module Decidim
       # Checks if it has any manageable conference, with any possible role.
       def has_manageable_conferences?(role: :any)
         return unless user
+
         conferences_with_role_privileges(role).any?
       end
 
       # Whether the user can manage the given conference or not.
       def can_manage_conference?(role: :any)
         return unless user
+
         conferences_with_role_privileges(role).include? conference
       end
 
@@ -123,6 +126,7 @@ module Decidim
 
         return allow! if user&.admin?
         return allow! if conference.published?
+
         toggle_allow(can_manage_conference?)
       end
 
@@ -222,12 +226,14 @@ module Decidim
       # Everyone can read the conference list
       def user_can_read_conference_list?
         return unless read_conference_list_permission_action?
+
         toggle_allow(user.admin? || has_manageable_conferences?)
       end
 
       def user_can_read_current_conference?
         return unless read_conference_list_permission_action?
         return if permission_action.subject == :conference_list
+
         toggle_allow(user.admin? || can_manage_conference?)
       end
 

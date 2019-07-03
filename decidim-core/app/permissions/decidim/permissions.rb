@@ -30,11 +30,13 @@ module Decidim
     def read_public_pages_action?
       return unless permission_action.subject == :public_page &&
                     permission_action.action == :read
+
       allow!
     end
 
     def locales_action?
       return unless permission_action.subject == :locales
+
       allow!
     end
 
@@ -45,21 +47,25 @@ module Decidim
       return allow! if component.published?
       return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
+
       disallow!
     end
 
     def search_scope_action?
       return unless permission_action.subject == :scope
+
       toggle_allow([:search, :pick].include?(permission_action.action))
     end
 
     def manage_self_user_action?
       return unless permission_action.subject == :user
+
       toggle_allow(context.fetch(:current_user, nil) == user)
     end
 
     def authorization_action?
       return unless permission_action.subject == :authorization
+
       authorization = context.fetch(:authorization, nil)
 
       case permission_action.action

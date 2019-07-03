@@ -20,6 +20,7 @@ module Decidim
       def call
         @meeting.with_lock do
           return broadcast(:invalid) unless registration
+
           destroy_registration
           destroy_questionnaire_answers
           decrement_score

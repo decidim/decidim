@@ -32,6 +32,7 @@ module Decidim
 
       def statuses
         return super unless has_children?
+
         [:creation_date, :follow, :children_count]
       end
 
@@ -47,6 +48,7 @@ module Decidim
 
         if current_user
           return assemblies.count.to_s if current_user.admin
+
           assemblies.visible_for(current_user).count.to_s
         else
           assemblies.public_spaces.count.to_s

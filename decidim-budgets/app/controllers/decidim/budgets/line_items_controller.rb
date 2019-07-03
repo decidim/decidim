@@ -20,7 +20,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render nothing: true, status: 422
+              render nothing: true, status: :unprocessable_entity
             end
           end
         end
@@ -35,7 +35,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render nothing: true, status: 422
+              render nothing: true, status: :unprocessable_entity
             end
           end
         end

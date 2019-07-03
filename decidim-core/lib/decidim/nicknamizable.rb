@@ -35,6 +35,7 @@ module Decidim
       #
       def nicknamize(name, scope = {})
         return unless name
+
         disambiguate(
           name.parameterize(separator: "_")[nickname_length_range],
           scope

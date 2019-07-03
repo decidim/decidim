@@ -14,6 +14,7 @@ module Decidim
 
       def participatory_space_types_form_object(form_object, space_type)
         return if spaces_user_can_admin[space_type.manifest_name.to_sym].blank?
+
         html = ""
         form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
           html += ff.hidden_field :manifest_name, value: space_type.manifest_name
@@ -24,6 +25,7 @@ module Decidim
 
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)
         return unless spaces
+
         content_tag :div, class: "#{manifest_name}-block spaces-block-tag cell small-12 medium-6" do
           child_form.select :ids, options_for_select(spaces),
                             { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
@@ -43,6 +45,7 @@ module Decidim
       def selective_newsletter_to(newsletter)
         return content_tag(:strong, t("index.not_sent", scope: "decidim.admin.newsletters"), class: "text-warning") unless newsletter.sent?
         return content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters"), class: "text-success") if newsletter.sent? && newsletter.extended_data.blank?
+
         content_tag :div do
           concat sent_to_users newsletter
           concat sent_to_spaces newsletter
@@ -64,6 +67,7 @@ module Decidim
         html = "<p style='margin-bottom:0;'> "
         newsletter.sended_to_partipatory_spaces.try(:each) do |type|
           next if type["ids"].blank?
+
           html += t("index.segmented_to", scope: "decidim.admin.newsletters", subject: t("activerecord.models.decidim/#{type["manifest_name"].singularize}.other"))
           if type["ids"].include?("all")
             html += "<strong> #{t("index.all", scope: "decidim.admin.newsletters")} </strong>"
@@ -106,6 +110,7 @@ module Decidim
         Decidim.participatory_space_manifests.each do |manifest|
           organization_participatory_space(manifest.name)&.each do |space|
             next unless space.admins.exists?(id: current_user.id)
+
             @spaces_user_can_admin[manifest.name] ||= []
             space_as_option_for_select_data = space_as_option_for_select(space)
             @spaces_user_can_admin[manifest.name] << space_as_option_for_select_data unless @spaces_user_can_admin[manifest.name].detect do |x|
@@ -118,6 +123,7 @@ module Decidim
 
       def space_as_option_for_select(space)
         return unless space
+
         [
           translated_attribute(space.title),
           space.id,

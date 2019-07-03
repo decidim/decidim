@@ -53,6 +53,7 @@ module Decidim
                   expected = {}
                   %w(position title body).each do |attr|
                     next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
+
                     expected[attr] = proposal_form.send attr.to_sym
                     actual[attr] = proposal.attributes[attr]
                   end

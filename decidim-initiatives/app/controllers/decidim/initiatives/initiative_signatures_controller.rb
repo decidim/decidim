@@ -52,7 +52,7 @@ module Decidim
           on(:invalid) do
             render json: {
               error: I18n.t("create.error", scope: "decidim.initiatives.initiative_votes")
-            }, status: 422
+            }, status: :unprocessable_entity
           end
         end
       end

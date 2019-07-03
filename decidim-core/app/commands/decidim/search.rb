@@ -52,6 +52,7 @@ module Decidim
 
     def paginate(collection)
       return collection if page_params.blank?
+
       collection.page(page_params[:page]).per(page_params[:per_page])
     end
 

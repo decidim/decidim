@@ -50,6 +50,7 @@ module Decidim
         def conference_meetings
           meeting_components = current_participatory_space.components.where(manifest_name: "meetings")
           return unless meeting_components || conference_meeting_ids.delete("").present?
+
           @conference_meetings ||= Decidim::ConferenceMeeting.where(component: meeting_components).where(id: conference_meeting_ids)
         end
 

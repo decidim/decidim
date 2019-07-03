@@ -19,6 +19,7 @@ module Decidim
 
     def newsletter_notifications_at
       return nil unless newsletter_notifications
+
       Time.current
     end
 

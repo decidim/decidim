@@ -28,6 +28,7 @@ module Decidim
       # Private: check if the question and the author have the same organization
       def author_and_question_same_organization
         return if !question || !author
+
         errors.add(:question, :invalid) unless author.organization == question.organization
       end
     end

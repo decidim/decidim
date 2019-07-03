@@ -40,6 +40,7 @@ module Decidim
 
         def proposals_to_link
           return previous_links if form.same_component?
+
           form.proposals
         end
 

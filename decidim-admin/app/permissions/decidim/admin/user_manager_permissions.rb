@@ -5,6 +5,7 @@ module Decidim
     class UserManagerPermissions < Decidim::DefaultPermissions
       def permissions
         return permission_action unless user_manager? || user.admin?
+
         allow! if read_admin_dashboard_action?
 
         allow! if managed_user_action?
@@ -37,6 +38,7 @@ module Decidim
 
       def user_action?
         return unless [:user, :impersonatable_user].include?(permission_action.subject)
+
         subject_user = context.fetch(:user, nil)
 
         case permission_action.action

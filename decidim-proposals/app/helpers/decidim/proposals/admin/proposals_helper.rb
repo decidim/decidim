@@ -11,6 +11,7 @@ module Decidim
         # in forms.
         def meetings_as_authors_selected
           return unless @proposal.present? && @proposal.official_meeting?
+
           @meetings_as_authors_selected ||= @proposal.authors.pluck(:id)
         end
       end

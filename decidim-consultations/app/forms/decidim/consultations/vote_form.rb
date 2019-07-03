@@ -18,6 +18,7 @@ module Decidim
 
       def response_exists
         return unless response.nil?
+
         errors.add(
           :decidim_consultations_response_id,
           I18n.t("decidim_consultations_response_id.not_found", scope: "activemodel.errors.vote")

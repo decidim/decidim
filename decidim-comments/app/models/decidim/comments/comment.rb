@@ -41,6 +41,7 @@ module Decidim
 
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
+
         root_commentable.participatory_space
       end
 
