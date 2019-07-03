@@ -365,7 +365,7 @@ sv:
             success: Förslaget har besvarats
           create:
             invalid: Det gick inte att skapa förslaget
-            success: Förslaget skapades
+            success: Förslaget har skapats
           edit:
             title: Uppdatera förslag
             update: Uppdatera
