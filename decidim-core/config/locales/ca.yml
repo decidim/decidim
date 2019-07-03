@@ -175,6 +175,9 @@ ca:
         heading: Revisa l'esmena
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
+      visibility_options:
+        all: Les esmenes són visibles per a tothom
+        participants: Les esmenes són visibles únicament per als seus autors
     anonymous_user: Anònim
     application:
       collection:

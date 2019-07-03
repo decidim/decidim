@@ -20,10 +20,7 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :area,
-               foreign_key: "decidim_area_id",
-               class_name: "Decidim::Area",
-               optional: true
+
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",

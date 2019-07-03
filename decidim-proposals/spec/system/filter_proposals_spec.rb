@@ -280,7 +280,7 @@ describe "Filter Proposals", type: :system do
     context "when there are amendments to proposals" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let!(:emendation) { create(:proposal, component: component, scope: scope) }
-      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
 
       before do
         visit_component
