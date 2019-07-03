@@ -1,0 +1,10 @@
+<%= render "layouts/decidim/application" do %>
+  <div class="wrapper">
+    <%= render partial: "layouts/decidim/question_header", locals: { question: current_participatory_space } %>
+
+    <%= yield %>
+
+    <%= render partial: "layouts/decidim/question_components", locals: { question: current_participatory_space } %>
+  </div>
+
+<% end %>

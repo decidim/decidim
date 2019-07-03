@@ -36,11 +36,10 @@
 <% else %>
   <% if question.results_published? %>
     <%= render partial: "decidim/consultations/questions/results", locals: { question: question } %>
-  <% else %>
+  <% elsif not question.multiple? %>
     <div id="question-<%= question.id %>-vote-button">
       <%= render partial: "decidim/consultations/questions/vote_button", locals: { question: question } %>
     </div>
   <% end %>
 <% end %>
 
-<%= render partial: "layouts/decidim/question_components", locals: { question: question } %>

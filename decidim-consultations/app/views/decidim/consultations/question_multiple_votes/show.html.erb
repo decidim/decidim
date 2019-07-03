@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form,
+    url: decidim_consultations.question_question_multiple_votes_path(current_participatory_space),
+    method: :post,
+    html: { class: "form" }) do |f| %>
+
+  <div class="row column">
+    <% current_participatory_space.responses.each do |response| %>
+      <%= render partial: "form", locals: {form: f, response: response} %>
+    <% end %>
+  </div>
+
+  <%= render partial: "decidim/consultations/questions/vote_button", locals: { question: current_participatory_space } %>
+
+<% end %>

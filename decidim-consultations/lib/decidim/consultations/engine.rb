@@ -27,6 +27,7 @@ module Decidim
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
             resource :question_widget, only: :show, path: "embed"
             resource :question_votes, only: [:create, :destroy], path: "vote"
+            resource :question_multiple_votes, only: [:create, :show, :destroy], path: "multivote"
           end
         end
 

@@ -72,6 +72,11 @@ module Decidim
         @total_votes ||= responses.sum(&:votes_count)
       end
 
+      # Multiple answers allowed?
+      def multiple?
+        max_responses&.> 1
+      end
+
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
       def comments_have_alignment?
         true

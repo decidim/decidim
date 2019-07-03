@@ -38,8 +38,19 @@
           </div>
         <% end %>
       <% elsif allowed_to? :vote, :question, question: question %>
-        <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
-          <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+        <% if question.multiple? %>
+          <%= button_to decidim_consultations.question_question_votes_path(question),
+                      method: :post,
+                      remote: true,
+                      data: { disable: true },
+                      class: "card__button button expanded",
+                      id: "vote_button" do %>
+            <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+          <% end %>
+        <% else %>
+          <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
+            <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+          <% end %>
         <% end %>
       <% end %>
     <% elsif question.consultation.active? %>
@@ -66,7 +77,9 @@
   </div>
 </div>
 
-<%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: question } %>
-<%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: question } %>
-<%= javascript_include_tag "decidim/consultations/utils" %>
-<%= javascript_include_tag "decidim/consultations/vote_dialog" %>
+<% unless question.multiple? %>
+  <%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: question } %>
+  <%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: question } %>
+  <%= javascript_include_tag "decidim/consultations/utils" %>
+  <%= javascript_include_tag "decidim/consultations/vote_dialog" %>
+<% end %>
