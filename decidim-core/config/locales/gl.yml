@@ -142,9 +142,6 @@ gl:
         promote_confirm_text: '¿Está seguro de que quere promocionar esta enmienda?'
         promote_help_text: Pode promover esta modificación e publicala como un %{model_name}independente
         section_heading: Enmendas (%{count})
-      created:
-        error: Produciuse un erro ao crear a modificación
-        success: A modificación foi creada con éxito
       emendation:
         actions:
           button_accept: Aceptar
@@ -163,10 +160,6 @@ gl:
             .
       new:
         amendment_author: Autor da emenda
-        back: De volta
-        heading: Crea a túa emenda
-        help_text: Está a modificar o %{model_name}
-        send: Enviar a emenda
       promoted:
         error: Houbo erros ao promover a modificación
         success: Emendación promovida con éxito
@@ -178,6 +171,12 @@ gl:
         heading: Revisa a modificación
         help_text: Estás revisando unha modificación no %{model_name}
         send: Aceptar a emenda
+      wizard_step_form:
+        steps:
+          '1': Crea a túa emenda
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anónimo
     application:
       collection:
