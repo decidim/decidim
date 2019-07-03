@@ -142,6 +142,21 @@ fi-pl:
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
         section_heading: Muutokset (%{count})
+      compare_draft:
+        continue: Jatka
+        no_similars_found: Samankaltaisia muutoksia ei löytynyt.
+        title: Samankaltaiset muutokset
+      created:
+        error: Muutosluonnoksen lisäys epäonnistui.
+        success: Muutosluonnoksen lisäys onnistui.
+      destroy_draft:
+        error: Muutosluonnoksen poisto epäonnistui.
+        success: Muutosluonnoksen poisto onnistui.
+      edit_draft:
+        discard: Hylkää tämä luonnos
+        discard_confirmation: Haluatko varmasti hylätä tämän muutosluonnoksen?
+        send: Esikatsele
+        title: Muokkaa muutosluonnosta
       emendation:
         actions:
           button_accept: Hyväksy
@@ -161,9 +176,18 @@ fi-pl:
             on peruutettu sen laatijan toimesta.
       new:
         amendment_author: Muutoksen laatija
+        send: Luo
+        title: Luo muutosluonnos
+      preview_draft:
+        modify: Muokkaa
+        publish: Julkaise
+        title: Julkaise muutosluonnos
       promoted:
         error: Muutoksen korostamisessa tapahtui virheitä
         success: Muutos korostettu onnistuneesti
+      publish_draft:
+        error: Muutoksen julkaisu epäonnistui.
+        success: Muutoksen julkaisu onnistui.
       rejected:
         error: Tämän muutoksen, hylkäämisessä tapahtui virhe, yritä myöhemmin uudelleen
         success: Muutos on hylätty onnistuneesti
@@ -172,15 +196,18 @@ fi-pl:
         heading: Tarkastele muutosta
         help_text: Tarkastat muutosta kohteelle %{model_name}
         send: Hyväksy muutos
+      update_draft:
+        error: Muutosluonnoksen päivitys epäonnistui.
+        success: Muutosluonnoksen päivitys onnistui.
       visibility_options:
         all: Muutokset ovat näkyvillä kaikille
         participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
       wizard_step_form:
         steps:
           '1': Luo muutos
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Vertaile muutostasi
+          '3': Viimeistele muutoksesi
+          '4': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       collection:
@@ -1009,6 +1036,12 @@ fi-pl:
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Takaisin
+      wizard_header:
+        see_steps: näytä vaiheet
+        step_of: Vaihe %{current_step} / %{total_steps}
   devise:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
