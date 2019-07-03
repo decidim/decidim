@@ -93,7 +93,7 @@ PATH
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
       nobspw (~> 0.6.0)
-      omniauth (~> 1.0)
+      omniauth (~> 1.9)
       omniauth-facebook (~> 5.0)
       omniauth-google-oauth2 (~> 0.7)
       omniauth-twitter (~> 1.4)

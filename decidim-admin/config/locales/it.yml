@@ -244,9 +244,9 @@ it:
           title: Modifica componente
           update: Aggiorna
         form:
-          default_step_settings: Impostazioni del passo predefinite
+          default_step_settings: Impostazioni della fase predefinite
           global_settings: Impostazioni globali
-          step_settings: Impostazioni del passo
+          step_settings: Impostazioni della fase
         index:
           add: Aggiungi componente
           headers:
@@ -535,7 +535,7 @@ it:
           github: GitHub
           instagram: Instagram
           social_handlers: Sociale
-          twitter: cinguettio
+          twitter: Twitter
           url: URL
           youtube: Youtube
         update:

@@ -179,6 +179,9 @@ fi:
         heading: Tarkastele muutosta
         help_text: Tarkastat muutosta kohteelle %{model_name}
         send: Hyväksy muutos
+      visibility_options:
+        all: Muutokset ovat näkyvillä kaikille
+        participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
     anonymous_user: Anonyymi
     application:
       collection:
