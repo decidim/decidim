@@ -257,7 +257,7 @@ sv:
           name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte stöttat några förslag än.
-          unearned_own: Du har inte stöttat några förslag än.
+          unearned_own: Du har inte gett stöd till några förslag än.
         proposals:
           conditions:
             - Välj deltagarutrymme av intresse med inlämning av förslag aktiverade
@@ -266,7 +266,7 @@ sv:
           description_another: Den här användaren har skapat %{score} förslag.
           description_own: Du har skapat %{score} förslag.
           name: Förslag
-          next_level_in: Skapa %{score} fler förslag för att nå nästa nivå!
+          next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
           unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
     metrics:
@@ -345,11 +345,11 @@ sv:
             success: Deltagande text uppdaterad framgångsrikt.
         proposal_answers:
           edit:
-            accepted: Accepterad
+            accepted: Godkända
             answer_proposal: Svara
             evaluating: Utvärderas
             rejected: Avslaget
-            title: Svar för förslag %{title}
+            title: Svar på förslaget %{title}
         proposal_notes:
           create:
             error: Det uppstod ett problem med att skapa denna förslagsnotering
@@ -357,14 +357,14 @@ sv:
           form:
             note: Annteckning
             submit: Skicka in
-          leave_your_note: Lämna din anteckning
+          leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
           answer:
-            invalid: Det uppstod ett problem med att svara på detta förslag
-            success: Förslaget godkändes
+            invalid: Det gick inte att svara på förslaget
+            success: Förslaget har besvarats
           create:
-            invalid: Det har uppstått ett problem med att skapa detta förslag
+            invalid: Det gick inte att skapa förslaget
             success: Förslaget skapades
           edit:
             title: Uppdatera förslag
