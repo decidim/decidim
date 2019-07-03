@@ -63,7 +63,7 @@ it:
         file_no_exists: Il file non esiste
         invalid_token: Il token fornito non è valido.
         no_token: Nessun token fornito
-        notice: Il download dei tuoi dati è in corso. Riceverai un email non appena completato.
+        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
@@ -316,8 +316,8 @@ it:
         new:
           complete_profile: Completa il profilo
           nickname_help: Il tuo nickname (@nickname) in %{organization}
-          sign_up: Si prega di completare il profilo
-          subtitle: Si prega di compilare il seguente modulo per completare la registrazione
+          sign_up: Completa il tuo profilo
+          subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
@@ -1124,11 +1124,11 @@ it:
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
     sessions:
-      already_signed_out: Logout eseguito correttamente.
+      already_signed_out: Logout effettuato.
       new:
         sign_in: Accedi
       signed_in: Login effettuato.
-      signed_out: Logout eseguito correttamente.
+      signed_out: Logout effettuato.
     shared:
       links:
         back: Indietro
@@ -1181,7 +1181,7 @@ it:
         link_label: qui
         ok: OK, accetto
       edit_link:
-        edit: modificare
+        edit: Modifica
       footer:
         download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
