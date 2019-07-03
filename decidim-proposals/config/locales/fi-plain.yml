@@ -116,6 +116,8 @@ fi-pl:
             amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
             amendment_reaction_enabled_help: Ehdotuksen laatijat voivat hyväksyä tai hylätä osallistujan muutoksia.
+            amendments_visibility: Muutosten näkyvyys
+            amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
