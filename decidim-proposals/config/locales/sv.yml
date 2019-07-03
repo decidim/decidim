@@ -491,14 +491,14 @@ sv:
           amendment: Tillägg
           category: Kategori
           category_prompt: Kategorifråga
-          open: Öppen
-          published: Publicerad
-          related_to: Relaterat till
+          open: Öppna
+          published: Publicerade
+          related_to: Relaterade till
           search: Sök
           state: Status
-          withdrawn: Tillbakadraget
+          withdrawn: Tillbakadragna
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
