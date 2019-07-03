@@ -679,8 +679,8 @@ sv:
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
-            one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
-            other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter att förslaget har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera förslaget.
+            one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det tidsfönstret har passerat kommer du inte att kunna redigera förslaget.
+            other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
         proposal:
@@ -694,16 +694,16 @@ sv:
           hidden_endorsers_count:
             one: och %{count} mer person
             other: och %{count} fler personer
-          link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett samlat förslag. Granska historiken
-          link_to_collaborative_draft_text: Se samarbetsutkastet
+          link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
+          link_to_collaborative_draft_text: Se det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
           link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
           link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
           link_to_proposal_from_emendation_text: Visa förslaget
-          proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
+          proposal_accepted_reason: 'Detta förslag har antagits eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
-          report: Rapportera
+          report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
