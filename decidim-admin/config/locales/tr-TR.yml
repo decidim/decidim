@@ -161,6 +161,7 @@ tr:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
         destroy:
+          has_spaces: Alanın bağımlı boşlukları mevcut, silinmesi için bağımlılıklarının olmaması gerekmektedir.
           success: Alan başarıyla yok edildi
         edit:
           title: Alanı düzenle
