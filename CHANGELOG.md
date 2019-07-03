@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/0.17-stable)
+## [0.17.2](https://github.com/decidim/decidim/tree/v0.17.2)
 
 **Added**:
 
