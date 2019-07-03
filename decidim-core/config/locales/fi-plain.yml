@@ -142,9 +142,6 @@ fi-pl:
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
         section_heading: Muutokset (%{count})
-      created:
-        error: Muutoksen luonti epäonnistui
-        success: Muutos luotu onnistuneesti
       emendation:
         actions:
           button_accept: Hyväksy
@@ -164,10 +161,6 @@ fi-pl:
             on peruutettu sen laatijan toimesta.
       new:
         amendment_author: Muutoksen laatija
-        back: Takaisin
-        heading: Luo muutos
-        help_text: Olet muuttamassa kohdetta %{model_name}
-        send: Lähetä muutos
       promoted:
         error: Muutoksen korostamisessa tapahtui virheitä
         success: Muutos korostettu onnistuneesti
@@ -179,6 +172,15 @@ fi-pl:
         heading: Tarkastele muutosta
         help_text: Tarkastat muutosta kohteelle %{model_name}
         send: Hyväksy muutos
+      visibility_options:
+        all: Muutokset ovat näkyvillä kaikille
+        participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
+      wizard_step_form:
+        steps:
+          '1': Luo muutos
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonyymi
     application:
       collection:
