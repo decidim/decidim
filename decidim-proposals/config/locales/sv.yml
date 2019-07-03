@@ -452,12 +452,12 @@ sv:
           publish:
             error: Det har uppstått ett fel vid publicering av samarbetsförslaget.
             irreversible_action_modal:
-              body: Efter att förslaget har publicerats som ett förslag kommer utkastet inte att längre kunna redigeras. Förslaget kommer inte acceptera nya författare eller bidrag.
-              cancel: Annullera
-              ok: Publicera som ett Förslag
-              title: Följande åtgärd är oåterkallelig
-            success: Sammanfattande utkast publicerades som ett förslag.
-          view_collaborative_draft: Visa samarbetsutkast
+              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller bidrag.
+              cancel: Dra tillbaka
+              ok: Publicera som ett förslag
+              title: Följande åtgärd kan inte ångras
+            success: Det gemensamma utkastet har publicerats som ett förslag.
+          view_collaborative_draft: Visa gemensamt utkast
           withdraw:
             error: Det har uppstått fel vid stängningen av samarbetsutkastet.
             irreversible_action_modal:
