@@ -421,27 +421,27 @@ sv:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
           create: "%{user_name} skapade förslaget %{resource_name} på utrymmet %{space_name} som ett officiellt förslag"
-          update: "%{user_name} uppdaterade officiella förslaget %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppdaterade det officiella förslaget %{resource_name} på utrymmet %{space_name}"
         proposal_note:
-          create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på platsen %{space_name}"
+          create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på utrymmet %{space_name}"
       answers:
-        accepted: Accepterad
+        accepted: Godkända
         evaluating: Utvärderas
-        not_answered: Inte besvarad
+        not_answered: Ej besvarade
         rejected: Avvisade
-        withdrawn: Tillbakadragen
+        withdrawn: Tillbakadragna
       application_helper:
         filter_origin_values:
           all: Alla
           citizens: Medborgare
           meetings: möten
-          official: Officiell
+          official: Officiella
           user_groups: Användargrupper
         filter_state_values:
           accepted: Accepterad
           all: Alla
           evaluating: utvärdera
-          except_rejected: Alla förutom avvisade
+          except_rejected: Alla förutom avslagna
           rejected: avvisade
         filter_type_values:
           all: Alla
