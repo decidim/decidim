@@ -195,7 +195,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
+            email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
@@ -221,17 +221,17 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avvisats.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
-            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
-            email_subject: Ett förslag som du följer har avvisats
+            email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
+            email_subject: Ett förslag som du följer har avslagits
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
-          email_outro: Du har fått den här meddelandet eftersom du är författaren till förslaget.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
           email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
-          email_outro: Du har fått den här notifikationen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notifikationer vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Omröstningar för förslag har börjat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
@@ -242,11 +242,11 @@ sv:
             - Försök att lägga fram förslag som kan utföras. På detta sätt är de mer benägna att accepteras.
           description: Detta märke beviljas när du aktivt deltar med nya förslag och dessa accepteras.
           description_another: Den här användaren har fått %{score} förslag accepterade.
-          description_own: Du har accepterat %{score} förslag.
-          name: Godkända förslag
-          next_level_in: Få %{score} fler förslag accepterade för att nå nästa nivå!
+          description_own: '%{score} av dina förslag har antagits.'
+          name: Antagna förslag
+          next_level_in: Få %{score} fler förslag antagna för att nå nästa nivå!
           unearned_another: Den här användaren har inte fått några förslag accepterade än.
-          unearned_own: Du har inga förslag accepterade än.
+          unearned_own: Du har inga antagna förslag än.
         proposal_votes:
           conditions:
             - Bläddra och spendera lite tid på att läsa andras förslag
@@ -254,7 +254,7 @@ sv:
           description: Detta märke beviljas när du stöder andra människors förslag.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
-          name: Förslagstjänster
+          name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här användaren har inte stöttat några förslag än.
           unearned_own: Du har inte stöttat några förslag än.
