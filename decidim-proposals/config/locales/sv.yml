@@ -30,7 +30,7 @@ sv:
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
-        keep_authors: Förvara originalförfattare
+        keep_authors: Behåll originalförfattare
     errors:
       models:
         participatory_text:
@@ -704,7 +704,7 @@ sv:
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
           report: Rapport
-          withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
+          withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget
         tags:
@@ -733,7 +733,7 @@ sv:
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
-            description: För att accepteras måste förslag nå %{limit} stöd
+            description: För att valideras måste förslag nå stöd från %{limit}
           title: 'Röstning är föremål för följande regler:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
@@ -743,10 +743,10 @@ sv:
           back: Tillbaka
           info: Du skapar ett <strong>förslag</strong>.
         wizard_steps:
-          see_steps: se steg
+          see_steps: visa steg
           step_1: Skapa ditt förslag
-          step_2: Jämföra
-          step_3: Slutförd
+          step_2: Jämför
+          step_3: Slutför
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
       publish:
@@ -759,17 +759,17 @@ sv:
         error: Det har uppstått fel när du sparade förslaget.
         success: Förslagsutkastet uppdaterades.
       versions:
-        changes_at_title: Ändringar vid "%{title}"
+        changes_at_title: Ändringar i "%{title}"
         index:
           title: Versioner
         stats:
-          back_to_collaborative_draft: Gå tillbaka till samarbetsutkast
+          back_to_collaborative_draft: Gå tillbaka till gemensamt utkast
           back_to_proposal: Gå tillbaka till förslaget
           number_of_versions: Versioner
           show_all_versions: Visa alla versioner
           version_author: Versionsförfattare
-          version_created_at: Version skapad vid
-          version_number: Versionsnummer
+          version_created_at: Version skapad
+          version_number: Version nummer
           version_number_out_of_total: "%{current_version} av %{total_count}"
         version:
           version_index: Version %{index}
