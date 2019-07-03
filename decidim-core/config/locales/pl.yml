@@ -170,7 +170,7 @@ pl:
             została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
-        back: Z powrotem
+        back: Plecy
         heading: Utwórz poprawkę
         help_text: Modyfikujesz %{model_name}
         send: Wyślij poprawkę
