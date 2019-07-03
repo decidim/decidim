@@ -1,17 +1,5 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/0.18-stable)
-
-**Added**:
-
-**Changed**:
-
-- **decidim-core**: Update nobspw [#5227](https://github.com/decidim/decidim/pull/5227)
-
-**Fixed**:
-
-**Removed**:
-
 ## [0.18.0](https://github.com/decidim/decidim/tree/v0.18.0)
 
 ### Upgrade notes
@@ -62,6 +50,7 @@ end
 - **decidim-core**: Change attachment photo image alt texts to title instead of description. [#5043](https://github.com/decidim/decidim/pull/5043)
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
 - **decidim-initiatives**: Add styles inline in PDF document of signatures [#5103](https://github.com/decidim/decidim/pull/5103)
+- **decidim-core**: Update nobspw [#5227](https://github.com/decidim/decidim/pull/5227)
 
 **Fixed**:
 
