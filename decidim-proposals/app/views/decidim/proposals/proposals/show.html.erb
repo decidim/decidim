@@ -54,7 +54,7 @@ edit_link(
         </div>
       </div>
     <% end %>
-    <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
+    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% else %>
       <%= amend_button_for @proposal %>

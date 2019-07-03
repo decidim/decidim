@@ -2,11 +2,12 @@
 
 module Decidim
   module Amendable
-    # A form object used to review emendations
-    class ReviewForm < Decidim::Amendable::Form
+    # A form object used to edit emendations
+    class EditForm < Decidim::Amendable::Form
       mimic :amendment
 
       attribute :id, Integer
+      attribute :user_group_id, Integer
       attribute :emendation_params, Hash
 
       validates :id, presence: true
@@ -14,7 +15,7 @@ module Decidim
       validate :amendable_form_must_be_valid
 
       def map_model(model)
-        self.emendation_params = model.emendation.attributes.slice(*amendable_fields_as_string)
+        self.emendation_params = model.emendation.attributes.slice(*emendation.amendable_fields.map(&:to_s))
       end
     end
   end

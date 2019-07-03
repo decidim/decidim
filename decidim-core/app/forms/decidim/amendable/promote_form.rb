@@ -6,16 +6,13 @@ module Decidim
     class PromoteForm < Decidim::Amendable::Form
       mimic :amendment
 
-      attribute :id, String
-      attribute :emendation_params, Object
+      attribute :id, Integer
+      attribute :emendation_params, Hash
 
       validates :id, presence: true
 
-      def emendation_params
-        {
-          title: emendation&.title,
-          body: emendation&.body
-        }
+      def map_model(model)
+        self.emendation_params = model.emendation.attributes.slice(*amendable_fields_as_string)
       end
     end
   end

@@ -390,7 +390,7 @@ shared_examples "manage proposals" do
     context "when the proposal is an emendation" do
       let!(:amendable) { create(:proposal, component: current_component) }
       let!(:emendation) { create(:proposal, component: current_component) }
-      let!(:amendment) { create :amendment, amender: emendation.creator_author, amendable: amendable, emendation: emendation, state: "evaluating" }
+      let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation, state: "evaluating" }
 
       it "cannot answer a proposal" do
         visit_component_admin

@@ -18,7 +18,7 @@ module Decidim::Amendable
     end
 
     def visible_amendments
-      amendable.visible_amendments_for(current_user)
+      amendable.visible_amendments_for(current_user).where.not(state: "draft")
     end
 
     # Returns a UserPresenter array
