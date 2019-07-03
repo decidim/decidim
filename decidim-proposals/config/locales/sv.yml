@@ -42,9 +42,9 @@ sv:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
             body:
-              identical: OCH titel kan inte vara identisk
+              identical: OCH titeln kan inte vara identisk
             title:
-              identical: OCH kropp kan inte vara identisk
+              identical: OCH innehållet kan inte vara identiskt
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
@@ -86,17 +86,17 @@ sv:
         settings:
           global:
             amendments_enabled: Ändringar möjliga
-            amendments_enabled_help: Om aktivt, konfigurera funktioner för ändringar för varje steg.
+            amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd bortom tröskeln
+            can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
-            participatory_texts_enabled: Deltagande texter aktiverade
+            participatory_texts_enabled: Deltagartexter är aktiverade
             participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
