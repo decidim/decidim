@@ -211,6 +211,35 @@ describe "Assemblies", type: :system do
         end
       end
     end
+
+    context "when the assembly has children private and transparent assemblies" do
+      let!(:private_transparent_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: true }
+      let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: true }
+
+      before do
+        visit decidim_assemblies.assembly_path(assembly)
+      end
+
+      it "shows only the published, private and transparent children assemblies" do
+        within("#assemblies-grid") do
+          expect(page).to have_link translated(private_transparent_child_assembly.title)
+          expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
+        end
+      end
+    end
+
+    context "when the assembly has children private and not transparent assemblies" do
+      let!(:private_child_assembly) { create :assembly, organization: organization, parent: assembly, private_space: true, is_transparent: false }
+      let!(:private_unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly, private_space: true, is_transparent: false }
+
+      before do
+        visit decidim_assemblies.assembly_path(assembly)
+      end
+
+      it "not shows any children assemblies" do
+        expect(page).not_to have_css("div#assemblies-grid")
+      end
+    end
   end
 
   describe "when going to the assembly child page" do
