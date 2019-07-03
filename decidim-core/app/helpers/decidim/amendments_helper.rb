@@ -8,7 +8,7 @@ module Decidim
     # Returns Html grid of CardM.
     def amendments_for(amendable)
       return unless amendable.amendable?
-      return unless (emendations = amendable.visible_emendations_for(current_user)).any?
+      return unless (emendations = amendable.visible_emendations_for(current_user).published).any?
 
       content = content_tag(:h2, class: "section-heading", id: "amendments") do
         t("section_heading", scope: "decidim.amendments.amendable", count: emendations.count)
@@ -105,11 +105,23 @@ module Decidim
                   label: t("new.amendment_author", scope: "decidim.amendments"))
     end
 
-    # Return the edited field value or presents the original attribute value in a form.
-    def emendation_field_value(form, original, key)
-      return params[:amendment][:emendation_params][key] if params[:amendment].present?
+    # Return the translated attribute name to use as label in a form.
+    # Returns a String.
+    def amendments_form_fields_label(attribute)
+      model_name = amendable.model_name.singular_route_key
+      I18n.t(attribute, scope: "activemodel.attributes.#{model_name}")
+    end
 
-      present(form.object.send(original)).send(key)
+    # Return the edited field value or presents the original attribute value in a form.
+    #
+    # original_resource - name of the method to send to the controller (:amendable or :emendation)
+    # attribute         - name of the attribute to send to the original_resource Presenter
+    #
+    # Returns a String.
+    def amendments_form_fields_value(original_resource, attribute)
+      return params[:amendment][:emendation_params][attribute] if params[:amendment].present?
+
+      present(send(original_resource)).send(attribute)
     end
   end
 end

@@ -32,7 +32,7 @@ module Decidim
           notify_amendable_and_emendation_authors_and_followers
         end
 
-        broadcast(:ok, @amendable)
+        broadcast(:ok, @emendation)
       end
 
       private

@@ -16,7 +16,7 @@ module Decidim::Proposals
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
     let!(:emendation) { create(:proposal) }
-    let!(:amendment) { create :amendment, amender: emendation.creator_author, amendable: proposal, emendation: emendation }
+    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)

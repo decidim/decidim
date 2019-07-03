@@ -19,38 +19,38 @@ sv:
         name: Enkät
         settings:
           global:
-            announcement: Notis
+            announcement: Meddelande
           step:
-            allow_answers: Tillåta svar
-            announcement: Notis
+            allow_answers: Tillåt svar
+            announcement: Meddelande
     events:
       surveys:
         survey_closed:
           email_intro: Enkäten %{resource_title} i %{participatory_space_title} har stängts.
-          email_outro: Du har fått den här notisen eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser på föregående länk.
-          email_subject: En enkät har slutförts på %{participatory_space_title}
-          notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har slutförts.
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_subject: En enkät har avslutats i %{participatory_space_title}
+          notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har avslutats.
         survey_opened:
-          email_intro: 'Enkäten %{resource_title} i %{participatory_space_title} är nu öppen. Du kan delta i det från den här sidan:'
-          email_outro: Du har fått den här notis eftersom du följer %{participatory_space_title}. Du kan sluta ta emot notiser vid föregående länk.
+          email_intro: 'Enkäten %{resource_title} i %{participatory_space_title} är nu öppen. Du kan delta i den från den här sidan:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
     metrics:
       survey_answers:
-        description: Antal enkäter besvarade av användarna
-        object: svar på undersökningar
-        title: Svar på undersökningar
+        description: Antal enkäter besvarade av deltagarna
+        object: svar på enkäter
+        title: Svar på enkäter
     surveys:
       admin:
         exports:
-          survey_user_answers: Enkäten användarsvar
+          survey_user_answers: Svar från enkätdeltagarna
         surveys:
           update:
-            invalid: Det har blivit fel när du sparat enkäten.
-            success: Enkäten sparades.
+            invalid: Det gick inte att spara enkäten.
+            success: Enkäten har sparats.
       last_activity:
-        new_survey_at_html: "<span>Ny undersökning vid %{link}</span>"
+        new_survey_at_html: "<span>Ny enkät på %{link}</span>"
       surveys:
         answer:
-          invalid: Det har blivit fel vid besvarandet av enkäten.
-          success: Enkäten besvarades.
+          invalid: Det gick inte att besvara enkäten.
+          success: Enkäten har besvarats.

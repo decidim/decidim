@@ -38,7 +38,7 @@ it:
       actions:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
-        edit: modificare
+        edit: Modifica
         new: Nuovo %{name}
         title: Azioni
       admin:

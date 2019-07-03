@@ -88,6 +88,7 @@ en:
           global:
             amendments_enabled: Amendments enabled
             amendments_enabled_help: If active, configure Amendment features for each step.
+            amendments_wizard_help_text: Amendments Wizard help text
             announcement: Announcement
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold

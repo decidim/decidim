@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
-shared_examples "create amendment" do
-  context "when the form is valid" do
+shared_examples "publish amendment draft" do
+  describe "when the form is valid" do
     it "broadcasts ok" do
       expect { command.call }.to broadcast(:ok)
     end
 
-    it "creates an amendment and the emendation" do
-      expect { command.call }
-        .to change(Decidim::Amendment, :count)
-        .by(1)
-        .and change(amendable.resource_manifest.model_class_name.constantize, :count)
-        .by(1)
+    it "publishes the amendment and the emendation" do
+      command.call
+
+      expect(Decidim::Amendment.last.draft?).to eq(false)
+      expect(amendable.amendable_type.constantize.last.published?).to eq(true)
     end
 
     it "traces the action", versioning: true do
@@ -42,19 +41,29 @@ shared_examples "create amendment" do
     end
   end
 
-  context "when the form is invalid" do
-    let(:title) { "Too short" }
+  context "when the form is not valid" do
+    let(:form) { Decidim::Amendable::PublishForm.from_params(id: nil) }
 
     it "broadcasts invalid" do
       expect { command.call }.to broadcast(:invalid)
     end
+  end
 
-    it "doesn't create an amendment and the emendation" do
-      expect { command.call }
-        .to change(Decidim::Amendment, :count)
-        .by(0)
-        .and change(amendable.resource_manifest.model_class_name.constantize, :count)
-        .by(0)
+  context "when current user is not the author of the amendment" do
+    let(:current_user) { other_user }
+
+    it "broadcasts invalid" do
+      expect { command.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when amendment is not a draft" do
+    before do
+      amendment.update(state: "evaluating")
+    end
+
+    it "broadcasts invalid" do
+      expect { command.call }.to broadcast(:invalid)
     end
   end
 end

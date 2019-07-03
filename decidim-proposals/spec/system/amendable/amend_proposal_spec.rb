@@ -6,7 +6,7 @@ describe "Amend Proposal", versioning: true, type: :system do
   let!(:component) { create(:proposal_component) }
   let!(:proposal) { create(:proposal, title: "Long enough title", body: "One liner body", component: component) }
   let!(:emendation) { create(:proposal, title: "Amended Long enough title", body: "Amended One liner body", component: component) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation, amender: emendation.creator_author }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
@@ -321,11 +321,11 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the amendment create form" do
             expect(page).to have_css(".new_amendment", visible: true)
-            expect(page).to have_content("CREATE YOUR AMENDMENT")
+            expect(page).to have_content("Create your amendment")
             expect(page).to have_css(".field", text: "Title", visible: true)
             expect(page).to have_css(".field", text: "Body", visible: true)
             expect(page).to have_css(".field", text: "Amendment author", visible: true)
-            expect(page).to have_button("Send amendment")
+            expect(page).to have_button("Create")
           end
 
           context "when the form is filled correctly" do
@@ -335,11 +335,11 @@ describe "Amend Proposal", versioning: true, type: :system do
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
                 select user_group.name, from: :amendment_user_group_id # Optional
               end
-              click_button "Send amendment"
+              click_button "Create"
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "The amendment has been created successfully")
+              expect(page).to have_css(".callout.success")
             end
           end
 
@@ -348,7 +348,7 @@ describe "Amend Proposal", versioning: true, type: :system do
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
-              click_button "Send amendment"
+              click_button "Create"
             end
 
             it "is shown the Error Callout" do
