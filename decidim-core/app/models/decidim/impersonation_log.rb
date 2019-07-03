@@ -25,11 +25,13 @@ module Decidim
 
     def same_organization
       return if admin&.organization == user&.organization
+
       errors.add(:admin, :invalid)
     end
 
     def non_active_impersonation
       return if ended? || expired?
+
       errors.add(:admin, :invalid) if Decidim::ImpersonationLog.where(admin: admin).active.any?
     end
   end

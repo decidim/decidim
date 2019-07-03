@@ -73,6 +73,7 @@ module Decidim
 
     def forbid_cycles
       return unless parent
+
       errors.add(:parent_id, :cycle_detected) if parent.part_of.include?(id)
     end
 

@@ -37,7 +37,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { error: I18n.t("messaging.conversations.create.error", scope: "decidim") }, status: 422
+            render json: { error: I18n.t("messaging.conversations.create.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
       end
@@ -67,7 +67,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render json: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: 422
+            render json: { error: I18n.t("messaging.conversations.update.error", scope: "decidim") }, status: :unprocessable_entity
           end
         end
       end

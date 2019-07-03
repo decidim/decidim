@@ -75,6 +75,7 @@ module Decidim
 
       def has_available_slots?
         return true if available_slots.zero?
+
         (available_slots - reserved_slots) > registrations.count
       end
 
@@ -127,6 +128,7 @@ module Decidim
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
+
         errors.add(:organizer, :invalid) unless organizer.organization == organization
       end
 

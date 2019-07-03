@@ -36,6 +36,7 @@ module Decidim
       # Returns the managed user impersonated by an admin if exists
       def managed_user
         return unless can_impersonate_users?
+
         impersonation_log&.user
       end
 

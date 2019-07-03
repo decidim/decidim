@@ -46,7 +46,7 @@ module Decidim
           Decidim::Assembly::SOCIAL_HANDLERS.each do |handler|
             handler_name = "#{handler}_handler"
             if assembly.send(handler_name).present?
-              html += link_to handler.capitalize, "https://#{handler}.com/#{assembly.send(handler_name)}", target: "_blank", class: "", title: handler.capitalize
+              html += link_to handler.capitalize, "https://#{handler}.com/#{assembly.send(handler_name)}", target: "_blank", class: "", title: handler.capitalize, rel: "noopener"
             end
           end
           html += "</div>".html_safe

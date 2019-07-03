@@ -22,6 +22,7 @@ module Decidim
       attribute :participatory_space
 
       validate :must_be_able_to_change_participatory_texts_setting, if: :proposal_component?
+      validate :amendments_visibility_options_must_be_valid, if: :proposal_component?
 
       def settings?
         settings.manifest.attributes.any?
@@ -48,6 +49,15 @@ module Decidim
         return if form_setting_value == component.settings.participatory_texts_enabled
 
         errors.add(:settings) if Decidim::Proposals::Proposal.where(component: component).any?
+      end
+
+      def amendments_visibility_options_must_be_valid
+        return unless component.settings.amendments_enabled
+        return unless step_settings.any? do |_step, settings|
+          Decidim::Amendment::VisibilityStepSetting.options.map(&:last).exclude? settings[:amendments_visibility]
+        end
+
+        errors.add(:settings)
       end
     end
   end

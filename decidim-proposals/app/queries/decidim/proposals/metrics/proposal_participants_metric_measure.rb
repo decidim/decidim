@@ -45,6 +45,7 @@ module Decidim
                                                      .except_withdrawn
 
           return @proposals.where("decidim_proposals_proposals.published_at >= ?", start_time) if from_start
+
           @proposals
         end
 
@@ -53,6 +54,7 @@ module Decidim
                                                      .where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
 
           return @votes.where("decidim_proposals_proposal_votes.created_at >= ?", start_time) if from_start
+
           @votes
         end
 
@@ -62,6 +64,7 @@ module Decidim
                                                                    .where(decidim_author_type: "Decidim::UserBaseEntity")
 
           return @endorsements.where("decidim_proposals_proposal_endorsements.created_at >= ?", start_time) if from_start
+
           @endorsements
         end
       end

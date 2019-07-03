@@ -77,6 +77,7 @@ it:
     components:
       proposals:
         actions:
+          amend: Modificare
           create: Creare
           endorse: Sostieni
           vote: Votazione
@@ -85,6 +86,7 @@ it:
         settings:
           global:
             amendments_enabled: Emendamenti abilitati
+            amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
@@ -95,6 +97,7 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             participatory_texts_enabled: Testi di partecipazione abilitati
+            participatory_texts_enabled_help: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o scartare tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_length: Lunghezza massima della proposta
@@ -107,6 +110,14 @@ it:
             threshold_per_proposal: Soglia per proposta
             vote_limit: Limite di voto per utente
           step:
+            amendment_creation_enabled: Creazione di emendamenti abilitata
+            amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
+            amendment_promotion_enabled: Promozione dell'emendamento abilitata
+            amendment_promotion_enabled_help: Gli autori delle Emandation potranno promuovere la proposta di emendamento respinto.
+            amendment_reaction_enabled: Risposta all'emendamento abilitata
+            amendment_reaction_enabled_help: Gli autori della proposta potranno accettare o rifiutare le modifiche dei partecipanti.
+            amendments_visibility: Visibilità dell'emendamento
+            amendments_visibility_help: Se viene selezionata l'opzione "Gli emendamenti sono visibili solo ai loro autori", il partecipante deve essere loggato per vedere gli emendamenti apportati.
             announcement: Annuncio
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
@@ -668,7 +679,7 @@ it:
         preview:
           modify: Modifica la proposta
           proposal_edit_before_minutes:
-            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questo periodo, non sarai più in grado di modificare la proposta.
+            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
@@ -677,6 +688,7 @@ it:
           view_proposal: Visualizza la proposta
         show:
           back_to: Torna a
+          changes_at_title: Modifica a "%{title}"
           edit_proposal: Modifica la proposta
           endorsements_list: Elenco di approvazioni
           hidden_endorsers_count:
@@ -684,6 +696,10 @@ it:
             other: e altre %{count} persone
           link_to_collaborative_draft_help_text: Questa proposta è il risultato di una bozza di collaborazione. Rivedere la storia
           link_to_collaborative_draft_text: Vedi la bozza collaborativa
+          link_to_promoted_emendation_help_text: Questa proposta è una modifica promossa
+          link_to_promoted_emendation_text: Vedi la modifica rifiutata.
+          link_to_proposal_from_emendation_help_text: Questa è una modifica rifiutata
+          link_to_proposal_from_emendation_text: Vedi la Proposta
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
@@ -693,7 +709,7 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Archiviato come
+          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto

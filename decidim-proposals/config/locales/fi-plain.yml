@@ -77,6 +77,7 @@ fi-pl:
     components:
       proposals:
         actions:
+          amend: Muokkaa
           create: Luo
           endorse: Suosittele
           vote: Äänestä
@@ -85,6 +86,7 @@ fi-pl:
         settings:
           global:
             amendments_enabled: Muutokset käytössä
+            amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
@@ -95,6 +97,7 @@ fi-pl:
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
+            participatory_texts_enabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
@@ -107,6 +110,12 @@ fi-pl:
             threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
             vote_limit: Käytettävissä olevien äänien määrä käyttäjää kohden
           step:
+            amendment_creation_enabled: Muutosten luonti on käytössä
+            amendment_creation_enabled_help: Osallistuja voi muuttaa ehdotuksia.
+            amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
+            amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
+            amendment_reaction_enabled: Reaktiot käytössä muutoksille
+            amendment_reaction_enabled_help: Ehdotuksen laatijat voivat hyväksyä tai hylätä osallistujan muutoksia.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
@@ -677,6 +686,7 @@ fi-pl:
           view_proposal: Näytä ehdotus
         show:
           back_to: Takaisin
+          changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
@@ -684,6 +694,10 @@ fi-pl:
             other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
+          link_to_promoted_emendation_help_text: Tämä ehdotus on peräisin toisen ehdotuksen muutoksesta
+          link_to_promoted_emendation_text: Näytä hylätty muutos.
+          link_to_proposal_from_emendation_help_text: Tämä on hylätty muutos
+          link_to_proposal_from_emendation_text: Näytä ehdotus
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'

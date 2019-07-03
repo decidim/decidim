@@ -55,6 +55,7 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless set_proposal
+
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 

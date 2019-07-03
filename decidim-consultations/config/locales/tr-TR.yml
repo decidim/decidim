@@ -87,6 +87,9 @@ tr:
         new:
           create: yaratmak
           title: Yeni danışma
+        results:
+          not_visible: Danışma kapatıldığında sonuçlar ulaşılabilir olacak
+          total_votes: 'Toplam: %{count} oy'
         update:
           error: Bu danışma hizmetini güncellerken bir hata oluştu.
           success: Danışma başarıyla güncellendi.
@@ -95,6 +98,7 @@ tr:
         consultations_submenu:
           info: Bilgi
           questions: Sorular
+          results: Sonuçlar
         questions_submenu:
           components: Bileşenler
           consultation: konsültasyon
@@ -171,6 +175,7 @@ tr:
         consultations: istişareler
         questions: Sorular
         responses: Tepkiler
+        results: Sonuçlar
     consultations:
       admin:
         content_blocks:

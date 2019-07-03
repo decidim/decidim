@@ -88,6 +88,9 @@ en:
         new:
           create: Create
           title: New consultation
+        results:
+          not_visible: Results will be available when consultation closes
+          total_votes: 'Total: %{count} votes'
         update:
           error: There was a problem updating this consultation.
           success: Consultation updated successfully.
@@ -96,6 +99,7 @@ en:
         consultations_submenu:
           info: Information
           questions: Questions
+          results: Results
         questions_submenu:
           components: Components
           consultation: Consultation
@@ -172,6 +176,7 @@ en:
         consultations: Consultations
         questions: Questions
         responses: Responses
+        results: Results
     consultations:
       admin:
         content_blocks:

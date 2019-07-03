@@ -23,7 +23,7 @@ module Decidim
           on(:invalid) do
             render json: {
               error: I18n.t("question_votes.create.error", scope: "decidim.consultations")
-            }, status: 422
+            }, status: :unprocessable_entity
           end
         end
       end

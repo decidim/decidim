@@ -152,14 +152,15 @@ fi:
           help_text: Tarkastele muutoksia ja hyväksy tai hylkää tämä muutos. Laatijoille lähetetään ilmoitus.
         announcement:
           accepted: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link} on
-            hyväksytty <strong>%{announcement_date}</strong>.
+            Tämä muutos kohteelle %{amendable_type} %{proposal_link} on
+            hyväksytty <strong>%{date}</strong>.
           evaluating: |-
-            Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
+            Tätä muutosta kohteelle %{amendable_type} %{proposal_link}
             arvioidaan.
-          rejected: "Tämä muutos kohteelle %{amendable_type} %{amendable_link}\nhylättiin ajankohtana <strong>%{announcement_date}</strong>."
+          promoted: Korostettu kohteeksi %{amendable_type}.
+          rejected: "Tämä muutos kohteelle %{amendable_type} %{proposal_link}\nhylättiin ajankohtana <strong>%{date}</strong>."
           withdrawn: |-
-            Tämä muutos kohteelle %{amendable_type} %{amendable_link}
+            Tämä muutos kohteelle %{amendable_type} %{proposal_link}
             on peruutettu sen laatijan toimesta.
       new:
         amendment_author: Muutoksen laatija
@@ -299,6 +300,7 @@ fi:
         name: Hero-kuvan alabanneri
     core:
       actions:
+        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:

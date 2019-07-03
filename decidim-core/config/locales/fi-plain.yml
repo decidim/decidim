@@ -157,6 +157,7 @@ fi-pl:
           evaluating: |-
             Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
             arvioidaan.
+          promoted: Korostettu kohteeksi %{amendable_type}.
           rejected: "Tämä muutos kohteelle %{amendable_type} %{amendable_link}\nhylättiin ajankohtana <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
@@ -299,6 +300,7 @@ fi-pl:
         name: Hero-kuvan alabanneri
     core:
       actions:
+        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
@@ -325,6 +327,7 @@ fi-pl:
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Lyhyt, yksilöivä käyttäjätunnus organisaatiossa %{organization}
+          password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -1094,6 +1097,7 @@ fi-pl:
         change_your_password: Vaihda salasanasi
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
+        password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
@@ -1257,6 +1261,14 @@ fi-pl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y klo %k:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Poistot
+      right: Lisäykset
+    dropdown:
+      choose_diff_view_mode: 'Vertailutila:'
+      option_split: Vierekkäin
+      option_unified: Yhdistetty
   views:
     pagination:
       first: "&laquo; Ensimmäinen"

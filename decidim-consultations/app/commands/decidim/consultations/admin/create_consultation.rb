@@ -21,6 +21,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           consultation = create_consultation
 
           if consultation.persisted?
@@ -52,6 +53,7 @@ module Decidim
           )
 
           return consultation unless consultation.valid?
+
           consultation.save
           consultation
         end

@@ -275,6 +275,16 @@ module Decidim
     %w(admin user_manager)
   end
 
+  # Exposes a configuration option: An Array of Strings that serve both as
+  # locale keys and values to construct the input collection in
+  # Decidim::Amendment::VisibilityStepSetting::options.
+  # This collection is used in Decidim::Admin::SettingsHelper to generate a
+  # radio buttons collection input field form for a Decidim::Component
+  # step setting :amendments_visibility.
+  config_accessor :amendments_visibility_options do
+    %w(all participants)
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

@@ -87,6 +87,9 @@ it:
         new:
           create: Creare
           title: Nuova consultazione
+        results:
+          not_visible: I risultati saranno disponibili alla chiusura delle consultazioni
+          total_votes: 'Totale: %{count} voti'
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa consultazione.
           success: Consultazione aggiornata con successo.
@@ -95,6 +98,7 @@ it:
         consultations_submenu:
           info: Informazione
           questions: Domande
+          results: Risultati
         questions_submenu:
           components: componenti
           consultation: Consultazione
@@ -171,6 +175,7 @@ it:
         consultations: consultazioni
         questions: Domande
         responses: risposte
+        results: Risultati
     consultations:
       admin:
         content_blocks:
@@ -257,6 +262,8 @@ it:
         statistics:
           consultations_count: consultazioni
     questions:
+      next_button: Domanda successiva
+      previous_button: Domanda precedente
       results:
         title: risultati
       show:

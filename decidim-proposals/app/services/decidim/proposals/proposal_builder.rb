@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "open-uri"
+
 module Decidim
   module Proposals
     # A factory class to ensure we always create Proposals the same way since it involves some logic.
@@ -90,11 +92,32 @@ module Decidim
                    end
 
         proposal.link_resources(original_proposal, "copied_from_component") unless skip_link
+        copy_attachments(original_proposal, proposal)
+
         proposal
       end
       # rubocop:enable Metrics/ParameterLists
 
       module_function :copy
+
+      def copy_attachments(original_proposal, proposal)
+        original_proposal.attachments.each do |attachment|
+          new_attachment = Decidim::Attachment.new(attachment.attributes.slice("content_type", "description", "file", "file_size", "title", "weight"))
+          new_attachment.attached_to = proposal
+
+          if File.exist?(attachment.file.file.path)
+            new_attachment.file = File.open(attachment.file.file.path)
+          else
+            new_attachment.remote_file_url = attachment.url
+          end
+
+          new_attachment.save!
+        rescue Errno::ENOENT, OpenURI::HTTPError => e
+          Rails.logger.warn("[ERROR] Couldn't copy attachment from proposal #{original_proposal.id} when copying to component due to #{e.message}")
+        end
+      end
+
+      module_function :copy_attachments
     end
   end
 end

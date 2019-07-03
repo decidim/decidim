@@ -246,7 +246,6 @@ fi:
         form:
           default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
-          participatory_texts_enabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo syötetty. Luo uusi `Ehdotukset` -komponentti, mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki ehdotukset `Ehdotusaineistot` -valikosta, mikäli haluat ottaa sen pois käytöstä.
           step_settings: Vaiheiden asetukset
         index:
           add: Lisää komponentti

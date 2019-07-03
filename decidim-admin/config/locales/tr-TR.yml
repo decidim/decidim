@@ -161,7 +161,6 @@ tr:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
         destroy:
-          has_spaces: Alanın bağımlı alanları vardır, silinmek için bağımlılıkları olmamalıdır.
           success: Alan başarıyla yok edildi
         edit:
           title: Alanı düzenle
@@ -246,7 +245,6 @@ tr:
         form:
           default_step_settings: Varsayılan adım ayarları
           global_settings: Genel Ayarlar
-          participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
           step_settings: Adım ayarları
         index:
           add: Bileşen ekle

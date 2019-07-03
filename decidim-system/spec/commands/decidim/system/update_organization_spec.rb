@@ -19,6 +19,7 @@ module Decidim
               name: "Gotham City",
               host: "decide.gotham.gov",
               secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
+              force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing"
             }
           end

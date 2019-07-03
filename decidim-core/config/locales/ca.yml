@@ -296,6 +296,7 @@ ca:
         name: Banner de sub-heros
     core:
       actions:
+        login_before_access: Si us plau, identifica't amb el teu compte abans d'accedir
         unauthorized: No tens permís per realitzar aquesta acció
     data_portability:
       export:

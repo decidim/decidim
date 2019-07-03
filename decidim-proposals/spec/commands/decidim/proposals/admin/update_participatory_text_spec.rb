@@ -28,8 +28,8 @@ module Decidim
               modifs << Decidim::Proposals::Admin::ProposalForm.new(
                 id: proposal.id,
                 position: new_positions.shift,
-                title: ::Faker::Lovecraft.fhtagn,
-                body: ::Faker::Lovecraft.fhtagn(5)
+                title: ::Faker::Books::Lovecraft.fhtagn,
+                body: ::Faker::Books::Lovecraft.fhtagn(5)
               )
             end
             modifs
@@ -53,6 +53,7 @@ module Decidim
                   expected = {}
                   %w(position title body).each do |attr|
                     next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
+
                     expected[attr] = proposal_form.send attr.to_sym
                     actual[attr] = proposal.attributes[attr]
                   end

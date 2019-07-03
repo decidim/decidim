@@ -299,6 +299,7 @@ tr:
         name: Alt kahraman afişi
     core:
       actions:
+        login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
         unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
     data_portability:
       export:

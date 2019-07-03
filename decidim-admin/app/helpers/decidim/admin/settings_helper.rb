@@ -23,35 +23,84 @@ module Decidim
       #
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
-        if attribute.translated?
+        if name == :amendments_visibility
+          amendments_visibility_form_field(form, options)
+        elsif attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
           form.send(form_method_for_attribute(attribute), name, options.merge(extra_options_for(name)))
         end
       end
 
+      # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
+      def help_text_for_component_setting(field_name, settings_name, component_name)
+        key = "decidim.components.#{component_name}.settings.#{settings_name}.#{field_name}_help"
+        return t(key) if I18n.exists?(key)
+      end
+
       private
+
+      # Returns a radio buttons collection input for the component's step setting
+      # :amendments_visibility; all wrap in a label tag and with help text.
+      def amendments_visibility_form_field(form, options)
+        collection = Decidim::Amendment::VisibilityStepSetting.options
+        step_number = options[:tabs_prefix].split("-")[1] # Gets the number in a String like "step-N-settings"
+        checked = @component.step_settings[step_number].amendments_visibility
+
+        html = label_tag(:amendments_visibility) do
+          concat options[:label]
+          concat tag(:br)
+          concat form.collection_radio_buttons(:amendments_visibility,
+                                               collection,
+                                               :last,
+                                               :first,
+                                               { checked: checked },
+                                               amendments_extra_options)
+        end
+        html << content_tag(:p,
+                            help_text_for_component_setting(:amendments_visibility, :step, :proposals),
+                            class: "help-text")
+
+        html.html_safe
+      end
 
       def form_method_for_attribute(attribute)
         return :editor if attribute.type.to_sym == :text && attribute.editor?
+
         TYPES[attribute.type.to_sym]
       end
 
-      # Marks :participatory_texts_enabled checkbox with a unique class if
-      # the Proposals component has existing proposals, and stores the help text
-      # that will be added in a new div via JavaScript in "decidim/admin/form".
-      #
-      # field_name - The name of the field to disable.
-      #
+      # Handles special cases.
       # Returns an empty Hash or a Hash with extra HTML options.
       def extra_options_for(field_name)
-        return {} unless field_name == :participatory_texts_enabled &&
-                         Decidim::Proposals::Proposal.where(component: @component).any?
+        case field_name
+        when :participatory_texts_enabled
+          participatory_texts_extra_options
+        when :amendment_creation_enabled,
+            :amendment_reaction_enabled,
+            :amendment_promotion_enabled
+          amendments_extra_options
+        else
+          {}
+        end
+      end
+
+      # Marks :participatory_texts_enabled setting with a CSS class if the
+      # Proposals component has existing proposals, so it can be identified
+      # in "decidim/admin/form.js". Also, adds a help_text.
+      def participatory_texts_extra_options
+        return {} unless Decidim::Proposals::Proposal.where(component: @component).any?
 
         {
           class: "participatory_texts_disabled",
-          data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
+          help_text: help_text_for_component_setting(:participatory_texts_enabled, :global, :proposals)
         }
+      end
+
+      # Marks component_step_settings related to amendments with a CSS class,
+      # so they can be identified in "decidim/admin/form.js".
+      def amendments_extra_options
+        { class: "amendments_step_settings" }
       end
     end
   end

@@ -87,6 +87,9 @@ fi-pl:
         new:
           create: Luo
           title: Uusi kuuleminen
+        results:
+          not_visible: Tulokset tulee näkyviin, kun kuuleminen sulkeutuu
+          total_votes: 'Yhteensä: %{count} ääntä'
         update:
           error: Virhe päivitettäessä tätä kuulemista.
           success: Kuuleminen päivitetty onnistuneesti.
@@ -95,6 +98,7 @@ fi-pl:
         consultations_submenu:
           info: Tiedot
           questions: Kysymykset
+          results: Tulokset
         questions_submenu:
           components: Komponentit
           consultation: Kuuleminen
@@ -171,6 +175,7 @@ fi-pl:
         consultations: Kuulemiset
         questions: Kysymykset
         responses: Vastaukset
+        results: Tulokset
     consultations:
       admin:
         content_blocks:

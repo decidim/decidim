@@ -18,7 +18,7 @@ module Decidim
 
       # Matches a nickname if it starts with a letter or number
       # and only contains letters, numbers or underscores.
-      MENTION_REGEX = /\B@([a-zA-Z0-9]\w*)\b/
+      MENTION_REGEX = /\B@([a-zA-Z0-9]\w*)\b/.freeze
 
       # Replaces found mentions matching a nickname of an existing
       # user in the current organization with a global id. Other

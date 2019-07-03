@@ -14,6 +14,7 @@ module Decidim
         def present
           return unless value
           return h.translated_attribute(area.name) if area
+
           I18n.t("not_found", id: value, scope: "decidim.log.value_types.area_presenter")
         end
 

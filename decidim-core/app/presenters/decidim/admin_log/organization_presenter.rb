@@ -81,6 +81,7 @@ module Decidim
 
       def action_string
         return "decidim.admin_log.organization.update_id_documents_config" if action == "update_id_documents_config"
+
         "decidim.admin_log.organization.update"
       end
 
