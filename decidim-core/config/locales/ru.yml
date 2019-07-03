@@ -110,6 +110,13 @@ ru:
       user_group:
         reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
         verify: "%{user_name} подтвердил группу участников %{resource_name}"
+    amendments:
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Анонимный
     application:
       collection:
