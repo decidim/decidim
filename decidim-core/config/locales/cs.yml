@@ -148,9 +148,6 @@ cs:
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
         promote_help_text: Tuto změnu můžete propagovat a publikovat ji jako nezávislou %{model_name}
         section_heading: Změny (%{count})
-      created:
-        error: Při vytváření změny došlo k chybě
-        success: Novela byla úspěšně vytvořena
       emendation:
         actions:
           button_accept: Akceptovat
@@ -169,10 +166,6 @@ cs:
             byla autorem stažena.
       new:
         amendment_author: Autor změn
-        back: Zadní
-        heading: Vytvořte svůj pozměňovací návrh
-        help_text: Změníte %{model_name}
-        send: Odeslat změnu
       promoted:
         error: Došlo k chybě při propagování emendace
         success: Úprava byla úspěšně podporována
@@ -184,6 +177,12 @@ cs:
         heading: Přezkoumejte pozměňovací návrh
         help_text: Přezkoumáváte změnu %{model_name}
         send: Přijmout pozměňovací návrh
+      wizard_step_form:
+        steps:
+          '1': Vytvořte svůj pozměňovací návrh
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonymní
     application:
       collection:
