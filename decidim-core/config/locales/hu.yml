@@ -161,7 +161,7 @@ hu:
             módosító javaslatot a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
-        back: Vissza
+        back: Hát
         heading: Készítse el a módosítását
         help_text: Módosítja a %{model_name}
         send: Módosító javaslat elküldése
