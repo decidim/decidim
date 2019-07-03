@@ -615,7 +615,7 @@ sv:
       proposals:
         compare:
           continue: Fortsätta
-          no_similars_found: Bra gjort! Inga liknande förslag hittades
+          no_similars_found: Bra gjort! Hittade inga liknande förslag
           title: Liknande förslag
         complete:
           send: Skicka
@@ -631,10 +631,10 @@ sv:
           send: Skicka
           title: Redigera förslag
         edit_draft:
-          discard: Kassera detta utkast
-          discard_confirmation: Är du säker på att du vill kassera detta förslagsutkast?
+          discard: Släng utkastet
+          discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
-          title: Redigera förslagsutkast
+          title: Redigera utkast till förslag
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
@@ -645,17 +645,17 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           origin: Ursprung
-          related_to: Relaterad till
+          related_to: Relaterade till
           search: Sök
           state: Status
           voted: Röstade
         filters_small_view:
-          close_modal: Stäng fönstret
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
         index:
-          collaborative_drafts_list: Se samarbetsutkast
+          collaborative_drafts_list: Visa gemensamma utkast
           new_proposal: Nytt förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
           view_proposal: Visa förslag
@@ -667,7 +667,7 @@ sv:
           send: Fortsätt
           title: Skapa ditt förslag
         orders:
-          label: 'Beställ förslag av:'
+          label: 'Ordna förslag efter:'
           most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
