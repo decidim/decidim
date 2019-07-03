@@ -164,7 +164,7 @@ fr:
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
-        back: Retour
+        back: Arrière
         heading: Créez votre amendement
         help_text: Vous modifiez le %{model_name}
         send: Envoyer l'amendement
