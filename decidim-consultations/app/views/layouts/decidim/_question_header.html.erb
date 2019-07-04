@@ -30,16 +30,3 @@
 
   <%= yield :question_header_details if content_for? :question_header_details %>
 </div>
-
-<% if question.external_voting %>
-  <iframe src="<%= question.i_frame_url %>"></iframe>
-<% else %>
-  <% if question.results_published? %>
-    <%= render partial: "decidim/consultations/questions/results", locals: { question: question } %>
-  <% elsif not question.multiple? %>
-    <div id="question-<%= question.id %>-vote-button">
-      <%= render partial: "decidim/consultations/questions/vote_button", locals: { question: question } %>
-    </div>
-  <% end %>
-<% end %>
-
