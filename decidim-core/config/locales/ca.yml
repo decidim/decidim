@@ -183,6 +183,7 @@ ca:
         success: L'esmena s'ha publicat com una nova proposta correctament
       publish_draft:
         error: S'ha produït un error en publicar aquesta esmena.
+        success: Esmena publicada correctament.
       rejected:
         error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
@@ -191,15 +192,21 @@ ca:
         heading: Revisa l'esmena
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
+      update_draft:
+        error: Hi va haver un problema en actualitzar el projecte d'esmena.
+        success: Projecte d'esmena actualitzat amb èxit.
       visibility_options:
         all: Les esmenes són visibles per a tothom
         participants: Les esmenes són visibles únicament per als seus autors
+      withdraw:
+        error: S'ha produït un error en retirar l'esmena
+        success: L'esmena ha estat retirada amb èxit
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Compareu la vostra esmena
+          '3': Completeu la vostra esmena
+          '4': Publiqueu la vostra esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -1028,6 +1035,12 @@ ca:
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera insígnia. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Enrere
+      wizard_header:
+        see_steps: veure les fases
+        step_of: Fase %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
