@@ -155,6 +155,7 @@ ca:
         discard: Descarta aquest esborrany
         discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
         send: Previsualitzar
+        title: Edita l'esmena del Projecte
       emendation:
         actions:
           button_accept: Acceptar
@@ -165,14 +166,23 @@ ca:
             Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
           evaluating: |-
             Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
+          promoted: Promocionar a %{amendable_type}.
           rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
+        send: Crea
+        title: Crear esborrany d'esmena
+      preview_draft:
+        modify: Modificar
+        publish: Publica
+        title: Publica l'esmena del projecte
       promoted:
         error: S'ha produït un error en publicar l'esmena com una nova proposta
         success: L'esmena s'ha publicat com una nova proposta correctament
+      publish_draft:
+        error: S'ha produït un error en publicar aquesta esmena.
       rejected:
         error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
         success: L'esmena s'ha rebutjat correctament
