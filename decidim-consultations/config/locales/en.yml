@@ -58,6 +58,12 @@ en:
       decidim/consultations/vote:
         one: Vote
         other: Votes
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Number of votes is invalid
   decidim:
     admin:
       actions:

@@ -22,22 +22,18 @@ module Decidim
 
         vote_forms = []
         params[:responses].each do |k,v|
+          next if v.to_i.zero?
           vote_forms << form(VoteForm).from_params({decidim_consultations_response_id: k}, current_question: current_question)
         end
-        p '//////////////////'
-        p vote_forms
-        p '//////////////////'
         MultipleVoteQuestion.call(vote_forms) do
           on(:ok) do
             current_question.reload
-            redirect_to question_question_votes_path
+            redirect_to question_path(current_question)
           end
 
-          on(:invalid) do
-            p "ERROROOOOOOOORRRRR"
-            p vote_forms
-            p "ERROROOOOOOOORRRRR"
+          on(:invalid) do |form, error|
             flash[:error] = I18n.t("question_votes.create.error", scope: "decidim.consultations")
+            flash[:error] << " (#{error.message})" if error
             redirect_to question_question_multiple_votes_path
           end
         end

@@ -1,2 +1,2 @@
-<%= form.check_box :id, id: "vote_id_#{response.id}", name: "responses[#{response.id}]", label: false %>
+<%= form.check_box :id, id: "vote_id_#{response.id}", name: "responses[#{response.id}]", as: :boolean, label: false %>
 <%= form.label :id, translated_attribute(response.title), for: "vote_id_#{response.id}" %>

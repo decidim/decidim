@@ -21,6 +21,7 @@ module Decidim
       def call
         ActiveRecord::Base.transaction do
           begin
+            check_num_votes
             forms.each do |form|
               vote = build_vote form
               p '%%%%%%%%%%%%'
@@ -28,10 +29,9 @@ module Decidim
               vote.save!
             end
             broadcast(:ok, forms)
-          rescue StandardError => error
-            p "ERRRRR"
-            p error
-            p "ERRRRR"
+          rescue => e
+            broadcast(:invalid, forms, e)
+          rescue
             broadcast(:invalid, forms)
           end
         end
@@ -40,6 +40,14 @@ module Decidim
       private
 
       attr_reader :forms
+
+      def check_num_votes
+        question = forms&.first&.context&.current_question
+        if question
+          return if forms.count.between?(question.min_responses, question.max_responses)
+        end
+        raise StandardError, I18n.t("activerecord.errors.models.decidim/consultations/vote.attributes.question.invalid_num_votes")
+      end
 
       def build_vote(form)
         form.context.current_question.votes.build(
