@@ -551,7 +551,7 @@ sv:
           withdrawn: Tillbakadraget
         update:
           error: Det har uppstått fel när du sparade samarbetsutkastet.
-          success: Samarbetsutkastet uppdaterat.
+          success: Det gemensamma utkastet har uppdaterats.
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>gemensamt utkast</strong>.
@@ -562,8 +562,8 @@ sv:
           step_3: Färdigställ ditt gemensamma utkast
           step_of: Steg %{current_step_num} av %{total_steps}
       create:
-        error: Det uppstått fel när du sparade förslaget.
-        success: Förslaget skapades. Sparat som ett Utkast.
+        error: Det gick inte att spara förslaget.
+        success: Förslaget har skapats. Det är sparat som ett utkast.
       destroy_draft:
         error: Det har uppstått fel vid radering av förslagsutkastet.
         success: Utkastet till förslag har tagits bort.
@@ -591,11 +591,11 @@ sv:
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
-        alternative_title: Det finns inga deltagande texter just nu
+        alternative_title: Det finns inga deltagartexter just nu
         buttons:
           amend: Ändra
           comment: Kommentar
-          comments: kommentarer
+          comments: Kommentarer
           endorse: Stödja
       proposal_endorsements:
         create:
@@ -614,7 +614,7 @@ sv:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
-          continue: Fortsätta
+          continue: Fortsätt
           no_similars_found: Bra gjort! Hittade inga liknande förslag
           title: Liknande förslag
         complete:
@@ -675,7 +675,7 @@ sv:
           index:
             document_index: Dokumentindex
           view_index:
-            see_index: Se index
+            see_index: Visa index
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
@@ -692,8 +692,8 @@ sv:
           edit_proposal: Redigera förslag
           endorsements_list: Förteckning över Stöd
           hidden_endorsers_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
+            one: och %{count} till person
+            other: och %{count} till personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Se det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
