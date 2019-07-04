@@ -148,13 +148,14 @@ ca:
         title: Esmenes similars
       created:
         error: S'ha produït un error durant la creació de l’esmena.
+        success: El projecte d’esmena ha estat creat amb èxit.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
         discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
-        send: Previsualitzar
+        send: Vista prèvia
         title: Edita l'esmena del Projecte
       emendation:
         actions:
