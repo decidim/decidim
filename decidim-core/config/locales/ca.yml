@@ -142,6 +142,19 @@ ca:
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         section_heading: Esmenes (%{count})
+      compare_draft:
+        continue: Continua
+        no_similars_found: No s’han trobat esmenes semblants.
+        title: Esmenes similars
+      created:
+        error: S'ha produït un error durant la creació de l’esmena.
+      destroy_draft:
+        error: S'ha produït un error en suprimir l'esborrany de la proposta.
+        success: L'esborrany de proposta s'ha eliminat correctament.
+      edit_draft:
+        discard: Descarta aquest esborrany
+        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+        send: Previsualitzar
       emendation:
         actions:
           button_accept: Acceptar
