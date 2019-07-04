@@ -142,9 +142,6 @@ pt-BR:
         promote_confirm_text: Tem certeza de que deseja promover essa emenda?
         promote_help_text: Você pode promover esta emendação e publicá-la como um %{model_name}independente
         section_heading: Alterações (%{count})
-      created:
-        error: Ocorreu um erro ao criar a emenda
-        success: A emenda foi criada com sucesso
       emendation:
         actions:
           button_accept: Aceitar
@@ -163,10 +160,6 @@ pt-BR:
             foi retirada pelo autor.
       new:
         amendment_author: Autor de alteração
-        back: De volta
-        heading: Crie sua emenda
-        help_text: Você está alterando o %{model_name}
-        send: Enviar emenda
       promoted:
         error: Houve erros ao promover a emenda
         success: Emendação promovida com sucesso
@@ -178,6 +171,12 @@ pt-BR:
         heading: Revise a emenda
         help_text: Você está revisando uma emenda ao %{model_name}
         send: Aceitar alteração
+      wizard_step_form:
+        steps:
+          '1': Crie sua emenda
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anônimo
     application:
       collection:
