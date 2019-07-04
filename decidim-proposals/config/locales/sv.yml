@@ -117,7 +117,7 @@ sv:
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
             amendments_visibility: Ändringens synlighet
-            amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se vilka ändringar som gjorts.
+            amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
@@ -125,7 +125,7 @@ sv:
             endorsements_blocked: Stöd blockerade
             endorsements_enabled: Stöd aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
-            suggested_hashtags: Hashtags föreslog användare för nya förslag
+            suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Röstande blockerat
             votes_enabled: Röstning aktiverat
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
