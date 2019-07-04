@@ -1,1 +1,24 @@
 eo:
+  activemodel:
+    attributes:
+      area:
+        area_type: Areo tipo
+        name: Nomo
+        organization: Organizo
+      area_type:
+        name: Nomo
+        organization: Organizo
+      attachment:
+        attachment_collection_id: Dosierujo
+        description: Priskribo
+        file: Dosiero
+        title: Titolo
+      attachment_collection:
+        description: Priskribo
+        name: Nomo
+      category:
+        description: Priskribo
+        name: Nomo
+        parent_id: Gepatro
+      component:
+        name: Nomo
