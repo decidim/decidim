@@ -163,7 +163,7 @@ es-PY:
             ha sido retirada por el autor.
       new:
         amendment_author: Autor de la enmienda
-        back: Volver
+        back: Espalda
         heading: Crea tu enmienda
         help_text: Estás enmendando el %{model_name}
         send: Enviar enmienda

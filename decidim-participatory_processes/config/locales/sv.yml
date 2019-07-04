@@ -220,10 +220,10 @@ sv:
           success: Deltagarprocessen har duplicerats.
       participatory_processes_group:
         create:
-          error: Det gick inte att skapa en ny grupp i deltagarprocessen.
+          error: Det gick inte att skapa en ny grupp för deltagarprocesser.
           success: Skapade grupp för deltagarprocessen.
       titles:
-        participatory_process_groups: Grupper för deltagarprocess
+        participatory_process_groups: Grupper med deltagarprocess
         participatory_processes: Deltagarprocesser
       users:
         resend_invitation:
@@ -274,7 +274,7 @@ sv:
         group_participatory_processes:
           one: En process för %{group}
           other: "%{count} processer för %{group}"
-        title: Grupper för deltagarprocesser
+        title: Grupper med deltagarprocesser
     participatory_process_steps:
       index:
         process_steps: Processsteg
