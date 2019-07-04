@@ -164,7 +164,7 @@ pt-BR:
             foi retirada pelo autor.
       new:
         amendment_author: Autor de alteração
-        back: De volta
+        back: Costas
         heading: Crie sua emenda
         help_text: Você está modificando o %{model_name}
         send: Enviar emenda
