@@ -7,17 +7,17 @@ module Decidim
       class QuestionConfigurationForm < Form
         mimic :question
 
-        attribute :max_responses, Integer, default: 1
-        attribute :min_responses, Integer, default: 1
+        attribute :max_votes, Integer, default: 1
+        attribute :min_votes, Integer, default: 1
 
-        validates :max_responses, numericality: { greater_than_or_equal_to: 1 }
-        validates :min_responses, numericality: { greater_than_or_equal_to: 1 }
+        validates :max_votes, numericality: { greater_than_or_equal_to: 1 }
+        validates :min_votes, numericality: { greater_than_or_equal_to: 1 }
         validate :min_lower_than_max
 
         def min_lower_than_max
-          return if min_responses <= max_responses
+          return if min_votes <= max_votes
 
-          errors.add(:max_responses, :lower_than_min)
+          errors.add(:max_votes, :lower_than_min)
         end
       end
     end

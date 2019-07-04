@@ -3,7 +3,7 @@
     method: :post,
     html: { class: "form" }) do |f| %>
 
-    <%= render partial: "form", locals: {form: f, question: current_participatory_space} %>
+  <%= render partial: "form", locals: {form: f, question: current_participatory_space} %>
 
   <div class="section question-vote-cabin">
 
@@ -30,4 +30,8 @@
   </div>
 
 
+<% end %>
+
+<%= content_for :question_header_instructions do %>
+  <%= render partial: "decidim/consultations/question_multiple_votes/voting_rules", locals: {question: current_participatory_space} %>
 <% end %>

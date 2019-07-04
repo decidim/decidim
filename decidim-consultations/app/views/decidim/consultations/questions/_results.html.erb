@@ -1,6 +1,10 @@
 <% if question.sorted_results.any? %>
+
   <div class=row>
     <h2 class=section-heading><%= t "questions.results.title", scope: "decidim" %></h2>
+  <% if question.multiple? %>
+    <%= render partial: "decidim/consultations/question_multiple_votes/results_rules", locals: {question: question} %>
+  <% end %>
     <div class="card card--list">
       <% question.sorted_results.each do |response| %>
         <div class=card--list__item>

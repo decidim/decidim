@@ -6,9 +6,13 @@
   </div>
 
   <div class="card-section">
+    <%= t "question_configuration.form.help", scope: "decidim.admin" %>
+  </div>
+
+  <div class="card-section">
     <div class="row column">
-      <%= form.number_field :max_responses, step: 1, min: 1 %>
-      <%= form.number_field :min_responses, step: 1, min: 1 %>
+      <%= form.number_field :max_votes, step: 1, min: 1 %>
+      <%= form.number_field :min_votes, step: 1, min: 1 %>
     </div>
   </div>
 </div>

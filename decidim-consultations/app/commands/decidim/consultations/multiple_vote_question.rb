@@ -44,7 +44,7 @@ module Decidim
       def check_num_votes
         question = forms&.first&.context&.current_question
         if question
-          return if forms.count.between?(question.min_responses, question.max_responses)
+          return if forms.count.between?(question.min_votes, question.max_votes)
         end
         raise StandardError, I18n.t("activerecord.errors.models.decidim/consultations/vote.attributes.question.invalid_num_votes")
       end

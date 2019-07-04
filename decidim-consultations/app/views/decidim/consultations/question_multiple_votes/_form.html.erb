@@ -1,7 +1,7 @@
 <div class="row column">
   <div class="large-offset-4 large-4 medium-offset-3 medium-6">
     <div class="card">
-      <div class="card__content">
+      <div class="card__content multiple_votes_form">
         <% question.responses.each do |response| %>
           <div>
             <%= form.check_box :id, id: "vote_id_#{response.id}", name: "responses[#{response.id}]", as: :boolean, label: false %>

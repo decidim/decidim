@@ -33,8 +33,8 @@ en:
         title: Title
         vote: External voting system
         what_is_decided: What is decided
-        max_responses: Maximum number of responses
-        min_responses: Minimum number of responses
+        max_votes: Maximum number of responses
+        min_votes: Minimum number of responses
     errors:
       vote:
         decidim_consultations_response_id:
@@ -42,7 +42,7 @@ en:
       models:
         question:
           attributes:
-            max_responses:
+            max_votes:
               lower_than_min: Maximum number of responses should be higher or equal than the minimum.
   activerecord:
     models:
@@ -145,8 +145,10 @@ en:
             one: Response
             other: Responses
       question_configuration:
+        disable_external_voting: Please disable external voting for advanced configurations
         form:
           title: Advanced configuration
+          help: Set up multiple choices questions by increasing the maximum number of responses a participant can choose. Default maximum value is 1, meaning that only one response can be voted.
       question_publications:
         create:
           error: There was a problem publishing this question.
@@ -254,6 +256,22 @@ en:
       question_votes:
         create:
           error: There was a problem voting the question
+      question_multiple_votes:
+        results_rules:
+          title: In this question multiple choices where allowed
+          minimum_votes_per_user:
+            description: Participants could distribute a minimum of %{votes} votes among different options.
+          vote_limit:
+            description: Participants could vote up to %{limit} options.
+          total_participants: 'A total of %{count} people participated in the vote.'
+        voting_rules:
+          minimum_votes_per_user:
+            description: You must distribute a minimum of %{votes} votes among different options.
+          title: 'Votes are subject to the following rules:'
+          vote_limit:
+            description: You can vote up to %{limit} options.
+            left: Remaining
+            votes: Votes
       regular_questions:
         title: Questions for this consultation
       show:

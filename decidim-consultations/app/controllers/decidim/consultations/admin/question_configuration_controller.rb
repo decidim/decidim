@@ -6,9 +6,10 @@ module Decidim
       class QuestionConfigurationController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
+        before_action :check_external_voting
+
         def edit
           enforce_permission_to :configure, :question, question: current_question
-          p current_question.inspect
           @form = question_form.from_model(current_question, current_consultation: current_consultation)
           render layout: "decidim/admin/question"
         end
@@ -32,8 +33,16 @@ module Decidim
           end
         end
 
+        private
+
         def question_form
           form(QuestionConfigurationForm)
+        end
+
+        def check_external_voting
+          return unless current_question.external_voting
+          flash[:alert] = I18n.t("question_configuration.disable_external_voting", scope: "decidim.admin")
+          redirect_to edit_question_path(current_question)
         end
       end
     end

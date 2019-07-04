@@ -20,6 +20,8 @@
   </div>
 </div>
 
+<%= yield :question_header_instructions if content_for? :question_header_instructions %>
+
 <div class="row column consultations-title">
   <h1 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h1>
   <% unless question.hashtag.blank? %>

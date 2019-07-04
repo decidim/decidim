@@ -38,17 +38,6 @@ module Decidim
           end
         end
       end
-
-      # TODO
-      def destroy
-        enforce_permission_to :unvote, :question, question: current_question
-        UnvoteQuestion.call(current_question, current_user) do
-          on(:ok) do
-            current_question.reload
-            redirect_to question_question_multiple_votes_path
-          end
-        end
-      end
     end
   end
 end
