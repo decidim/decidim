@@ -173,6 +173,22 @@ module Decidim
       end
     end
 
+    def withdraw
+      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: amendable.component
+
+      Decidim::Amendable::Withdraw.call(amendment, current_user) do
+        on(:ok) do |withdrawn_emendation|
+          flash[:notice] = t("success", scope: "decidim.amendments.withdraw")
+          redirect_to Decidim::ResourceLocatorPresenter.new(withdrawn_emendation).path
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("error", scope: "decidim.amendments.withdraw")
+          redirect_to Decidim::ResourceLocatorPresenter.new(emendation).path
+        end
+      end
+    end
+
     private
 
     # GlobalID::SignedGlobalID parameter to locate the amendable resource.

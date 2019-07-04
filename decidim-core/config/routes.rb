@@ -134,6 +134,7 @@ Decidim::Core::Engine.routes.draw do
       post :promote
       get :review
       patch :accept
+      put :withdraw
     end
   end
 

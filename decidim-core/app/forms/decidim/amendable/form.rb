@@ -4,8 +4,6 @@ module Decidim
   module Amendable
     # a form object common for amendments
     class Form < Decidim::Form
-      include Decidim::ApplicationHelper
-
       mimic :amendment
 
       def amendment
@@ -31,11 +29,16 @@ module Decidim
         return unless %w(title body).all? { |attr| attr.in? amendable_fields_as_string }
 
         emendation = amendable.amendable_type.constantize.new(emendation_params)
-        return unless present(amendable).title == present(emendation).title
-        return unless present(amendable).body.strip == present(emendation).body.strip
+        return unless amendable.title == emendation.title
+        return unless normalized_body(amendable) == normalized_body(emendation)
 
         amendable_form.errors.add(:title, :identical)
         amendable_form.errors.add(:body, :identical)
+      end
+
+      # Normalizes the escape sequences used for newlines.
+      def normalized_body(resource)
+        Decidim::ContentParsers::NewlineParser.new(resource.body, context: {}).rewrite
       end
 
       # Validates the emendation using the amendable form.

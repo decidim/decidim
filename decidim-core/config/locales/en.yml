@@ -203,6 +203,9 @@ en:
       visibility_options:
         all: Amendments are visible to all
         participants: Amendments are visible only to their authors
+      withdraw:
+        error: An error ocurred while withdrawing the amendment
+        success: The amendment has been withdrawn successfully
       wizard_step_form:
         steps:
           '1': Create your amendment

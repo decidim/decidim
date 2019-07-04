@@ -4,78 +4,34 @@ require "spec_helper"
 
 describe "Amend Proposal", versioning: true, type: :system do
   let!(:component) { create(:proposal_component) }
-  let!(:proposal) { create(:proposal, title: "Long enough title", body: "One liner body", component: component) }
-  let!(:emendation) { create(:proposal, title: "Amended Long enough title", body: "Amended One liner body", component: component) }
+  let!(:proposal) { create(:proposal, title: "Long enough title", component: component) }
+  let!(:emendation) { create(:proposal, title: "Amended Long enough title", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+
+  let(:active_step_id) { component.participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
-
-  def update_component_step_setting(component, step_setting_name, value)
-    component.update!(
-      step_settings: {
-        component.participatory_space.active_step.id => {
-          step_setting_name => value
-        }
-      }
-    )
-  end
 
   before do
     switch_to_host(component.organization.host)
   end
 
-  context "with existing amendments" do
-    context "when visiting an amended proposal" do
-      before do
-        visit proposal_path
-      end
+  context "when visiting an amended proposal" do
+    before do
+      visit proposal_path
+    end
 
-      it "is shown the amendments list" do
-        expect(page).to have_css("#amendments", text: "AMENDMENTS")
-        within ".amendment-list" do
-          expect(page).to have_content(emendation.title)
-        end
-      end
-
-      it "is shown the amenders list" do
-        expect(page).to have_content("AMENDED BY")
-        within ".amender-list" do
-          expect(page).to have_content(emendation.creator_author.name)
-        end
+    it "is shown the amendments list" do
+      expect(page).to have_css("#amendments", text: "AMENDMENTS")
+      within ".amendment-list" do
+        expect(page).to have_content(emendation.title)
       end
     end
 
-    context "when visiting an amendment to a proposal" do
-      before do
-        visit emendation_path
-      end
-
-      it "shows the changed attributes" do
-        expect(page).to have_content("Amendment to \"#{proposal.title}\"")
-
-        within ".diff-for-title" do
-          expect(page).to have_content("TITLE")
-
-          within ".diff > ul > .del" do
-            expect(page).to have_content(proposal.title)
-          end
-
-          within ".diff > ul > .ins" do
-            expect(page).to have_content(emendation.title)
-          end
-        end
-
-        within ".diff-for-body" do
-          expect(page).to have_content("BODY")
-
-          within ".diff > ul > .del" do
-            expect(page).to have_content(proposal.body)
-          end
-
-          within ".diff > ul > .ins" do
-            expect(page).to have_content(emendation.body)
-          end
-        end
+    it "is shown the amenders list" do
+      expect(page).to have_content("AMENDED BY")
+      within ".amender-list" do
+        expect(page).to have_content(emendation.creator_author.name)
       end
     end
   end
@@ -87,7 +43,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment CREATION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_creation_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
       context "and visits an amendable proposal" do
@@ -103,7 +59,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment REACTION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_reaction_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: true } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -123,7 +79,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment PROMOTION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_promotion_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: true } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -144,7 +100,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendments VISIBILITY is set to 'participants'" do
       before do
-        update_component_step_setting(component, :amendments_visibility, "participants")
+        component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
       end
 
       context "when the user is logged in" do
@@ -215,7 +171,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment CREATION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_creation_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
       context "and visits an amendable proposal" do
@@ -293,7 +249,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment CREATION is NOT enabled" do
       before do
-        update_component_step_setting(component, :amendment_creation_enabled, false)
+        component.update!(step_settings: { active_step_id => { amendment_creation_enabled: false } })
       end
 
       context "and visits an amendable proposal" do
@@ -309,7 +265,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment REACTION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_reaction_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: true } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -328,32 +284,6 @@ describe "Amend Proposal", versioning: true, type: :system do
         context "when the user clicks on the accept button" do
           before do
             click_link "Accept"
-          end
-
-          it "shows the changed attributes" do
-            within ".diff-for-title" do
-              expect(page).to have_content("TITLE")
-
-              within ".diff > ul > .del" do
-                expect(page).to have_content(proposal.title)
-              end
-
-              within ".diff > ul > .ins" do
-                expect(page).to have_content(emendation.title)
-              end
-            end
-
-            within ".diff-for-body" do
-              expect(page).to have_content("BODY")
-
-              within ".diff > ul > .del" do
-                expect(page).to have_content(proposal.body)
-              end
-
-              within ".diff > ul > .ins" do
-                expect(page).to have_content(emendation.body)
-              end
-            end
           end
 
           it "is shown the amendment review form" do
@@ -399,7 +329,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment REACTION is NOT enabled" do
       before do
-        update_component_step_setting(component, :amendment_reaction_enabled, false)
+        component.update!(step_settings: { active_step_id => { amendment_reaction_enabled: false } })
       end
 
       context "and the proposal author visits an emendation to their proposal" do
@@ -419,7 +349,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment PROMOTION is enabled" do
       before do
-        update_component_step_setting(component, :amendment_promotion_enabled, true)
+        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: true } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -467,7 +397,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendment PROMOTION is NOT enabled" do
       before do
-        update_component_step_setting(component, :amendment_promotion_enabled, false)
+        component.update!(step_settings: { active_step_id => { amendment_promotion_enabled: false } })
       end
 
       context "and the author of a rejected emendation visits their emendation" do
@@ -488,7 +418,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendments VISIBILITY is set to 'participants'" do
       before do
-        update_component_step_setting(component, :amendments_visibility, "participants")
+        component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
       end
 
       context "when the user is logged in" do
@@ -545,7 +475,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
     context "when amendments VISIBILITY is set to 'all'" do
       before do
-        update_component_step_setting(component, :amendments_visibility, "all")
+        component.update!(step_settings: { active_step_id => { amendments_visibility: "all" } })
       end
 
       context "when the user is logged in" do
