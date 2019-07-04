@@ -273,13 +273,13 @@ sv:
       accepted_proposals:
         description: Antal förslag accepterade av användarna
         object: förslag
-        title: Godkända Förslag
+        title: Godkända förslag
       endorsements:
         description: Antal anmärkningar som genereras i förslag
         object: påskrifter
         title: påskrifter
       proposals:
-        description: Antal förslag som genererats
+        description: Antal förslag
         object: förslag
         title: Förslag
       votes:
@@ -292,14 +292,14 @@ sv:
           proposals: Förslag
     participatory_spaces:
       highlighted_proposals:
-        see_all: Se alla (%{count})
+        see_all: Visa alla (%{count})
     proposals:
       actions:
         answer: Svara
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
-        participatory_texts: Deltagande texter
+        participatory_texts: Deltagartexter
         private_notes: Privata anteckningar
         title: Åtgärder
       admin:
@@ -313,16 +313,16 @@ sv:
             name: Förslag
         participatory_texts:
           bulk-actions:
-            are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            discard_all: Kassera allt
+            are_you_sure: Vill du kasta utkastet till deltagartext?
+            discard_all: Kasta alla
             import_doc: Importera dokument
           discard:
-            success: Alla deltagande textförslag har kasseras.
+            success: Alla utkast till deltagartexter har kastats.
           import:
-            invalid: Blanketten är ogiltig!
-            success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            invalid: Formuläret är ogiltig!
+            success: Grattis, följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
           index:
-            info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            info_1: Följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
             publish_document: Publicera dokument
             save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
@@ -342,7 +342,7 @@ sv:
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
             sub-section: "<em>Underavsnitt:</em> %{title}"
           update:
-            success: Deltagande text uppdaterad framgångsrikt.
+            success: Deltagartexten har uppdaterats.
         proposal_answers:
           edit:
             accepted: Godkända
@@ -352,7 +352,7 @@ sv:
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
-            error: Det uppstod ett problem med att skapa denna förslagsnotering
+            error: Det gick inte att skapa anteckningen till förslaget
             success: Förslagsanteckning skapades
           form:
             note: Annteckning
@@ -434,11 +434,11 @@ sv:
         filter_origin_values:
           all: Alla
           citizens: Medborgare
-          meetings: möten
+          meetings: Möten
           official: Officiella
-          user_groups: Användargrupper
+          user_groups: Grupper
         filter_state_values:
-          accepted: Accepterad
+          accepted: Godkända
           all: Alla
           evaluating: utvärdera
           except_rejected: Alla förutom avslagna
