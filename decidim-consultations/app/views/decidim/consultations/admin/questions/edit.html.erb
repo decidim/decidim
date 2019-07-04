@@ -1,5 +1,6 @@
 <%= decidim_form_for @form,
                      url: question_path(current_question),
+                     method: :patch,
                      html: { class: "form edit_question" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
