@@ -48,6 +48,19 @@ module Decidim::Conferences
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "update"
       end
+
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: ConferenceRegistrationsEnabledEvent,
+            resource: kind_of(Decidim::Conference),
+            followers: [current_user]
+          )
+
+        subject.call
+      end
     end
   end
 end
