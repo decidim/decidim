@@ -6,14 +6,16 @@
     </h2>
   </div>
   <div class="card-section">
-    <% current_consultation.questions.published.includes(:responses).each do |question| %>
-      <% unless question.external_voting %>
-        <table class="table-list">
+    <table class="table-list">
+      <% current_consultation.questions.published.includes(:responses).each do |question| %>
+        <% unless question.external_voting %>
           <thead>
             <tr>
-              <th><%= decidim_sanitize translated_attribute question.title %></th>
+              <th><%= strip_tags translated_attribute question.title %></th>
               <th class="table-list__actions">
                 <%= t "decidim.admin.consultations.results.total_votes", count: question.total_votes %>
+                /
+                <%= t "decidim.admin.consultations.results.participants", count: question.total_participants %>
               </th>
             </tr>
           </thead>
@@ -21,7 +23,7 @@
             <% if question.publishable_results? %>
               <% question.sorted_results.each do |response| %>
               <tr>
-                <td><%= translated_attribute response.title %></td>
+                <td><%= strip_tags translated_attribute response.title %></td>
                 <td><%= response.votes_count %></td>
               </tr>
               <% end %>
@@ -29,8 +31,8 @@
               <tr><td><em><%= t "decidim.admin.consultations.results.not_visible" %></em></td><td>&nbsp;</td></tr>
             <% end %>
           </tbody>
-        </table>
+        <% end %>
       <% end %>
-    <% end %>
+    </table>
   </div>
 </div>

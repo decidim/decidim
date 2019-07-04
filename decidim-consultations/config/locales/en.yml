@@ -104,6 +104,7 @@ en:
         results:
           not_visible: Results will be available when consultation closes
           total_votes: 'Total: %{count} votes'
+          participants: '%{count} participants'
         update:
           error: There was a problem updating this consultation.
           success: Consultation updated successfully.
