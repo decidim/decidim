@@ -15,7 +15,7 @@ module Decidim
         validate :min_lower_than_max
 
         def min_lower_than_max
-          return if min_votes <= max_votes
+          return if min_votes.to_i <= max_votes.to_i
 
           errors.add(:max_votes, :lower_than_min)
         end
