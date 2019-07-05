@@ -24,8 +24,6 @@ module Decidim
             check_num_votes
             forms.each do |form|
               vote = build_vote form
-              p '%%%%%%%%%%%%'
-              p vote
               vote.save!
             end
             broadcast(:ok, forms)
