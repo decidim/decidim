@@ -21,6 +21,7 @@ Upgrade note:
 
 **Changed**:
 
+- **decidim-core**: Inverse blocks on the login modal so the user experience is more intuitive. [\#730](https://github.com/OpenSourcePolitics/decidim/pull/730)
 - **decidim-budgets**: Improve the display of budget voting [\#509](https://github.com/OpenSourcePolitics/decidim/pull/509)
 - **decidim-admin**: Change admin moderations manager [\#4717](https://github.com/decidim/decidim/pull/4717)
 - **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
