@@ -87,6 +87,8 @@ module Decidim
             allow!
           when :update, :destroy
             toggle_allow(response.present?)
+          when :create_group
+            allow! if question&.multiple?
           end
         end
 
