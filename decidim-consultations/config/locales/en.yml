@@ -70,8 +70,11 @@ en:
         new_consultation: New consultation
         new_question: New question
         new_response: New response
+        new_response_group: New group
+        response_groups: Manage response groups
         publish_results: Publish results
         unpublish_results: Unpublish results
+        back_to_responses: Back to responses
       consultation_publications:
         create:
           error: There was a problem publishing this consultation.
@@ -196,6 +199,7 @@ en:
         consultations: Consultations
         questions: Questions
         responses: Responses
+        response_groups: Response Groups
         results: Results
     consultations:
       admin:
