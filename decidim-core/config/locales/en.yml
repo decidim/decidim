@@ -4,6 +4,14 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      group:
+        about: About
+        avatar: Avatar
+        document_number: Document number
+        email: Email
+        name: Name
+        nickname: Nickname
+        phone: Phone
       report:
         details: Additional comments
       user:
