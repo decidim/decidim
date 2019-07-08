@@ -37,6 +37,12 @@ module Decidim
                inverse_of: :question,
                dependent: :destroy
 
+      has_many :response_groups,
+               foreign_key: "decidim_consultations_questions_id",
+               class_name: "Decidim::Consultations::ResponseGroup",
+               inverse_of: :question,
+               dependent: :destroy
+
       has_many :categories,
                foreign_key: "decidim_participatory_space_id",
                foreign_type: "decidim_participatory_space_type",
