@@ -14,6 +14,13 @@ module Decidim
                class_name: "Decidim::Consultations::Vote",
                inverse_of: :response,
                dependent: :restrict_with_error
+
+      belongs_to :response_group,
+                 foreign_key: "decidim_consultations_response_group_id",
+                 class_name: "Decidim::Consultations::ResponseGroup",
+                 inverse_of: :responses,
+                 counter_cache: :response_groups_count
+
     end
   end
 end
