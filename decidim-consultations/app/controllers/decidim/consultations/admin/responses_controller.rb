@@ -7,6 +7,7 @@ module Decidim
       class ResponsesController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
+        helper QuestionsHelper
         helper_method :current_response
 
         def index

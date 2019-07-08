@@ -19,7 +19,7 @@ module Decidim
                  foreign_key: "decidim_consultations_response_group_id",
                  class_name: "Decidim::Consultations::ResponseGroup",
                  inverse_of: :responses,
-                 counter_cache: :response_groups_count
+                 counter_cache: :responses_count
 
     end
   end

@@ -6,6 +6,7 @@
   <div class="card-section">
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
+      <%= form.collection_select :decidim_consultations_response_group_id, question_response_groups, :id, :title %>
     </div>
   </div>
 </div>
