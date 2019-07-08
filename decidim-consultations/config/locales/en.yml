@@ -195,6 +195,8 @@ en:
         update:
           error: There was a problem updating this response.
           success: Response successfully updated.
+      response_groups:
+        help: Use groups to organize multiple choices questions in packages.
       titles:
         consultations: Consultations
         questions: Questions

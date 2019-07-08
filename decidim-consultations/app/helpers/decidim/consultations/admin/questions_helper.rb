@@ -5,8 +5,17 @@ module Decidim
     module Admin
       # Helper for questions controller
       module QuestionsHelper
+        Option = Struct.new(:id, :title)
+
         def question_example_slug
           "question-#{Time.now.utc.year}-#{Time.now.utc.month}-1"
+        end
+
+        def question_response_groups(question = current_question)
+          [Option.new("", "-")] +
+            question.response_groups.map do |group|
+              Option.new(group.id, translated_attribute(group.title))
+            end
         end
       end
     end
