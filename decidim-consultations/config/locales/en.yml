@@ -35,6 +35,8 @@ en:
         what_is_decided: What is decided
         max_votes: Maximum number of votes
         min_votes: Minimum number of votes
+      response:
+        decidim_consultations_response_group_id: Group
     errors:
       vote:
         decidim_consultations_response_id:

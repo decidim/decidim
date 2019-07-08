@@ -6,7 +6,9 @@
   <div class="card-section">
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
-      <%= form.collection_select :decidim_consultations_response_group_id, question_response_groups, :id, :title %>
+      <% if allowed_to? :create_group, :response, question: current_question %>
+        <%= form.collection_select :decidim_consultations_response_group_id, question_response_groups, :id, :title %>
+      <% end %>
     </div>
   </div>
 </div>
