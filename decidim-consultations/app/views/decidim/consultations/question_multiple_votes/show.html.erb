@@ -3,15 +3,15 @@
     method: :post,
     html: { class: "form" }) do |f| %>
 
-  <div class="row">
+  <div class="section row">
     <% current_participatory_space.grouped_responses.each do |group, responses| %>
-      <div class="column large-4 medium-6<%= " large-offset-4 medium-offset-3" unless current_participatory_space.grouped? %>">
+      <div style="float:left" class="column large-4 medium-6<%= " large-offset-4 medium-offset-3" unless current_participatory_space.grouped? %>">
         <%= render partial: "form", locals: { form: f, group: group, responses: responses } %>
       </div>
     <% end %>
   </div>
 
-  <div class="section question-vote-cabin">
+  <div class="question-vote-cabin">
 
     <div class="row column">
       <div class="large-offset-4 large-4 medium-offset-3 medium-6">
