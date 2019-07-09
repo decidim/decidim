@@ -33,10 +33,7 @@ module Decidim
 
         def update_response
           response.assign_attributes(attributes)
-          p '/////////////'
-          p response
-          p '/////////////'
-          response.save
+          response.save!
         end
 
         def attributes
