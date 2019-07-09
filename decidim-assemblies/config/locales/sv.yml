@@ -146,13 +146,13 @@ sv:
           error: Det gick inte att uppdatera en administratör för församlingen.
           success: Administratören för församlingen har uppdaterats.
       menu:
-        assemblies: Sammankomst
+        assemblies: Församlingar
         assemblies_submenu:
           assembly_admins: Administratörer för församlingen
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
-          attachments: Bifogade filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -161,15 +161,15 @@ sv:
       models:
         assembly:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             private: Privat
-            promoted: Markerad
+            promoted: Uppmärksammad
             published: Publicerad
             title: Titel
           name: Församling
         assembly_member:
           fields:
-            ceased_date: Upphört datum
+            ceased_date: Slutade datum
             designation_date: Utnämningsdatum
             full_name: Namn
             position: Position
@@ -190,27 +190,27 @@ sv:
             collaborator: Medarbetare
             moderator: Moderator
       titles:
-        assemblies: Möten
+        assemblies: Församlingar
     admin_log:
       assembly:
         create: "%{user_name} skapade församlingen %{resource_name}"
-        publish: "%{user_name} publicerade mötet %{resource_name}"
-        unpublish: "%{user_name} avpublicerade mötet %{resource_name}"
-        update: "%{user_name} uppdaterade mötet %{resource_name}"
+        publish: "%{user_name} publicerade församlingen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade församlingen %{resource_name}"
+        update: "%{user_name} uppdaterade församlingen %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade %{resource_name} medlem i mötet %{space_name}"
-        delete: "%{user_name} bort %{resource_name} medlem från mötet %{space_name}"
-        update: "%{user_name} uppdaterade %{resource_name} medlem i mötet %{space_name}"
+        create: "%{user_name} skapade medlemmen %{resource_name} i församlingen %{space_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingen %{space_name}"
+        update: "%{user_name} uppdaterade medlemmen %{resource_name} i församlingen %{space_name}"
       assembly_user_role:
-        create: "%{user_name} inbjudna %{resource_name} till mötet %{space_name}"
+        create: "%{user_name} bjöd in %{resource_name} till församlingen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från församlingen %{space_name}"
-        update: "%{user_name} ändrade rollen som %{resource_name} i mötet %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i församlingen %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Varaktighet
-            duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
+            duration_help: Om varaktigheten för församlingen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
             images: Bilder
             included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
