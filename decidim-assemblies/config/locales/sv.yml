@@ -66,13 +66,13 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: Sammankomst
-        other: Sammankomster
+        one: Församling
+        other: Församlingar
       decidim/assembly_member:
         one: Församlingsmedlem
         other: Församlingsmedlemmar
       decidim/assembly_user_role:
-        one: Församlingsanvändarroll
+        one: Roll i församlingen
         other: Församlingsanvändarroller
   decidim:
     admin:
