@@ -87,11 +87,11 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
-          public: Offentlig
+          public: Öppen
           published: Publicerad
         new:
           create: Skapa
-          title: Nytt möte
+          title: Ny församling
         update:
           error: Det gick inte att uppdatera församlingen.
           success: Församlingen har uppdaterats.
@@ -102,7 +102,7 @@ sv:
       assembly_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du skulle vilja duplicera
+          select: Välj vilka data som ska dupliceras
           title: Duplicera församling
       assembly_members:
         create:
