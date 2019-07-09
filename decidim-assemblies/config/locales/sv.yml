@@ -73,14 +73,14 @@ sv:
         other: Församlingsmedlemmar
       decidim/assembly_user_role:
         one: Roll i församlingen
-        other: Församlingsanvändarroller
+        other: Roller i församlingen
   decidim:
     admin:
       actions:
         new_assembly: Ny församling
       assemblies:
         create:
-          error: Det uppstod ett fel när ett nytt möte skulle skapas.
+          error: Det gick inte att skapa en ny församling.
           success: Mötet skapades framgångsrikt.
         edit:
           update: Uppdatera
@@ -93,12 +93,12 @@ sv:
           create: Skapa
           title: Nytt möte
         update:
-          error: Det uppstod ett fel vid uppdateringen av detta möte.
-          success: Mötet uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera församlingen.
+          success: Församlingen har uppdaterats.
       assemblies_copies:
         create:
-          error: Det uppstod ett fel vid dupliceringen av detta möte.
-          success: Mötet duplicerades framgångsrikt.
+          error: Det gick inte att duplicera församlingen.
+          success: Församlingen har duplicerats.
       assembly_copies:
         new:
           copy: Kopiera
@@ -106,15 +106,15 @@ sv:
           title: Duplicera församling
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för denna församling.
-          success: Medlem skapades framgångsrikt för denna församling.
+          error: Det gick inte att lägga till en medlem till församlingen.
+          success: Skapade medlem i församlingen.
         destroy:
-          success: Medlemmen har tagits bort för denna församling.
+          success: Medlemmen har raderats från församlingen.
         edit:
-          title: Uppdatera församlingsmedlem.
+          title: Uppdatera medlem i församlingen.
           update: Uppdatera
         index:
-          assembly_members_title: Församlingsmedlemmar
+          assembly_members_title: Medlemmar i församlingen
         new:
           create: Skapa
           title: Ny församlingsmedlem.
@@ -124,10 +124,10 @@ sv:
       assembly_publications:
         create:
           error: Det uppstod ett fel vid publicering av detta möte.
-          success: Mötet publicerades framgångsrikt.
+          success: Församlingen har publicerats.
         destroy:
-          error: Ett fel uppstod vid publicering av detta möte.
-          success: Församling avpublicerades framgångsrikt.
+          error: Det gick inte att avpublicera församlingen.
+          success: Församlingen har avpublicerats.
       assembly_user_roles:
         create:
           error: Ett fel uppstod när en användare skulle läggas till detta möte.
@@ -135,10 +135,10 @@ sv:
         destroy:
           success: Användaren avlägsnades framgångsrikt från detta möte.
         edit:
-          title: Uppdatera mötesanvändaren.
+          title: Uppdatera församlingsadministratör.
           update: Uppdatera
         index:
-          assembly_admins_title: Sammanskomstanvändare
+          assembly_admins_title: Församlingsadministratörer
         new:
           create: Skapa
           title: Ny sammankomstsanvändare.
@@ -211,11 +211,11 @@ sv:
           form:
             duration: Varaktighet
             duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
-            filters: filter
+            filters: Filter
             images: Bilder
             included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
-            metadata: metadata
-            other: Andra
+            metadata: Metadata
+            other: Annan
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj en mötestyp
@@ -229,11 +229,11 @@ sv:
             slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
         assembly_members:
           form:
-            existing_user: Existerande användare
-            non_user: Icke-användare
+            existing_user: Befintlig deltagare
+            non_user: Ej deltagande
             select_a_position: Välj en position
-            select_user: Välj en användare
-            user_type: Användartyp
+            select_user: Välj en deltagare
+            user_type: Typ av deltagare
           index:
             filter:
               all: Allt
@@ -263,12 +263,12 @@ sv:
         others: Övriga
         public: Offentligt
       filter:
-        all: Alla typer av aggregat
-        commission: Provision
-        consultative_advisory: Rådgivande / rådgivande
+        all: Alla typer av församlingar
+        commission: Kommitté
+        consultative_advisory: Rådgivande
         executive: Verkställande
-        government: Regering
-        help: 'Show:'
+        government: Styrande
+        help: 'Visa:'
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
@@ -348,7 +348,7 @@ sv:
       assemblies:
         description: Antal monterade enheter
         object: aggregaten
-        title: Assemblies
+        title: Församlingar
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
@@ -364,8 +364,8 @@ sv:
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} möte"
-            other: "%{count} möten"
+            one: "%{count} församling"
+            other: "%{count} församlingar"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
