@@ -119,7 +119,7 @@ sv:
           create: Skapa
           title: Ny församlingsmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för denna församling.
+          error: Det gick inte att uppdatera medlemmen i församlingen.
           success: Medlem uppdaterad framgångsrikt för denna församling.
       assembly_publications:
         create:
@@ -130,10 +130,10 @@ sv:
           success: Församlingen har avpublicerats.
       assembly_user_roles:
         create:
-          error: Ett fel uppstod när en användare skulle läggas till detta möte.
-          success: Användaren har lagts till med framgång till detta möte.
+          error: Det gick inte att lägga till en administratör till församlingen.
+          success: Administratören har lagts till församlingen.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från detta möte.
+          success: Administratören har tagits bort från församlingen.
         edit:
           title: Uppdatera församlingsadministratör.
           update: Uppdatera
@@ -141,7 +141,7 @@ sv:
           assembly_admins_title: Församlingsadministratörer
         new:
           create: Skapa
-          title: Ny sammankomstsanvändare.
+          title: Ny församlingsadministratör.
         update:
           error: Det uppstod ett fel vid uppdatering av en användare för den här sammankomsten.
           success: Användaren uppdaterades framgångsrikt för denna sammankomst.
@@ -337,7 +337,7 @@ sv:
         assemblies:
           contextual: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
           page: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
-          title: Vad är sammansättningar?
+          title: Vad är församlingar?
     log:
       value_types:
         assembly_presenter:
