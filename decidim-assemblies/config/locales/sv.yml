@@ -218,15 +218,15 @@ sv:
             other: Annan
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj en mötestyp
-            select_parent_assembly: Välj överordnat möte
-            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
-            social_handlers: Social
+            select_an_assembly_type: Välj typ av församling
+            select_parent_assembly: Välj överordnad församling
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
         assembly_copies:
           form:
-            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -249,9 +249,9 @@ sv:
           members: Medlemmar
       assembly_types:
         commission: Kommission
-        consultative_advisory: Rådgivande / rådgivande
+        consultative_advisory: Rådgivande
         executive: Verkställande
-        government: Regering
+        government: Styrande
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
@@ -264,7 +264,7 @@ sv:
         public: Offentligt
       filter:
         all: Alla typer av församlingar
-        commission: Kommitté
+        commission: Kommission
         consultative_advisory: Rådgivande
         executive: Verkställande
         government: Styrande
@@ -273,29 +273,29 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       index:
-        title: Möten
+        title: Församlingar
       last_activity:
-        new_assembly: Ny sammankomst
+        new_assembly: Ny församling
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva möten
-            see_all_assemblies: Se alla möten
+            active_assemblies: Aktiva församlingar
+            see_all_assemblies: Visa alla församlingar
         user_profile:
           member_of:
             member_of: Medlem av
       show:
         area: Område
-        assembly_type: Mötestyp
-        children: Möten
+        assembly_type: Typ av församling
+        children: Församlingar
         closing_date: Stängningsdatum
         composition: Sammansättning
         created_by: Skapad av
-        creation_date: Skapat datum
-        developer_group: Främjandegrupp
+        creation_date: Skapelsedatum
+        developer_group: Kampanjgrupp
         duration: Varaktighet
         included_at: Ingår vid
-        indefinite_duration: Obestämd
+        indefinite_duration: Permanent
         internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
@@ -303,17 +303,17 @@ sv:
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
         participatory_structure: Hur det bestäms
-        private_space: Detta är ett privat möte
+        private_space: Detta är en privat församling
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
-        related_participatory_processes: Relaterade deltagandeprocesser
-        scope: Omfattning
+        related_participatory_processes: Relaterade deltagarprocesser
+        scope: Omfång
         social_networks: Sociala nätverk
-        target: Vem deltar
+        target: Vilka deltar
       statistics:
         answers_count: Svar
-        assemblies_count: Möten
+        assemblies_count: Församlingar
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Påskrifter
@@ -329,7 +329,7 @@ sv:
         votes_count: Röster
     assembly_members:
       assembly_member:
-        designated_on: Betecknad den
+        designated_on: Utsedd den
       index:
         title: Medlemmar
     help:
@@ -341,9 +341,9 @@ sv:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Mötet hittades inte i databasen (ID: %{id})'
+          not_found: 'Församlingen hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Möten
+      assemblies: Församlingar
     metrics:
       assemblies:
         description: Antal skapade församlingar
@@ -359,8 +359,9 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
+          children: 'Församlingar: '
           organizational_chart: Organisationsschema
-          promoted_assemblies: Markerade möten
+          promoted_assemblies: Uppmärksammade församlingar
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
@@ -371,7 +372,7 @@ sv:
           take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmar
-        assembly_menu_item: Mötet
+        assembly_menu_item: Församlingen
       assembly_widgets:
         show:
           take_part: Delta
