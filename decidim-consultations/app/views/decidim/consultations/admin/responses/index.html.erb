@@ -16,12 +16,15 @@
         <thead>
           <tr>
             <th><%= t("models.response.fields.title", scope: "decidim.admin") %></th>
+            <% if allowed_to? :create_group, :response, question: current_question %>
+              <th><%= t("models.response.fields.response_group", scope: "decidim.admin") %></th>
+            <% end %>
             <th><%= t("models.response.fields.created_at", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <% current_question.responses.each do |response| %>
+          <% current_question.sorted_responses.each do |response| %>
             <tr>
               <td>
                 <% if allowed_to? :update, :response, response: response %>
@@ -31,6 +34,11 @@
                   <%= translated_attribute(response.title) %>
                 <% end %>
               </td>
+              <% if allowed_to? :create_group, :response, question: current_question %>
+              <td>
+                  <%= translated_attribute(response&.response_group&.title) %>
+              </td>
+              <% end %>
               <td>
                 <%= l response.created_at, format: :short %>
               </td>

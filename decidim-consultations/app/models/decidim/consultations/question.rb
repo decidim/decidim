@@ -60,6 +60,11 @@ module Decidim
 
       alias participatory_space consultation
 
+      # Sorted responses according to configuration
+      def sorted_responses
+        responses.sort_by { |r| r.response_group&.id.to_i }
+      end
+
       # Sorted results for the given question.
       def sorted_results
         responses.order(votes_count: :desc)
