@@ -3,22 +3,22 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Sammankomststyp
-        assembly_type_other: Sammankomsttyp annat
+        assembly_type: Typ av församling
+        assembly_type_other: Annan typ av församling
         banner_image: Bannerbild
-        closing_date: Stängningsdatum
-        closing_date_reason: Stängningsdatum orsak
+        closing_date: Slutdatum
+        closing_date_reason: Skäl till slutdatum
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
         created_by: Skapad av
-        created_by_other: Skapat av andra
-        creation_date: Skapat datum
+        created_by_other: Skapad av andra
+        creation_date: Skapad datum
         decidim_area_id: Område
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         description: Beskrivning
-        developer_group: Främjandegrupp
+        developer_group: Kampanjgrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
@@ -30,20 +30,20 @@ sv:
         internal_organisation: Intern organisation
         is_transparent: Är transparent
         local_area: Organisationsområde
-        meta_scope: Omfattning metadata
-        parent_id: Föräldrasammankomst
-        participatory_processes_ids: Relaterade deltagandeprocesser
+        meta_scope: Metadata för omfång
+        parent_id: Överordnad församling
+        participatory_processes_ids: Relaterade deltagarprocesser
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
         promoted: Uppmärksammad
-        published_at: Publicerad på
+        published_at: Publicerad
         purpose_of_action: Syfte med åtgärden
-        scope_id: Omfattning
-        scopes_enabled: Omfattningar aktiverade
+        scope_id: Omfång
+        scopes_enabled: Omfång är aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
-        slug: URL slug
+        slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
         target: Vem deltar
@@ -53,12 +53,12 @@ sv:
       assembly_member:
         birthday: Födelsedag
         birthplace: Födelseort
-        ceased_date: Upphört datum
+        ceased_date: Slutade datum
         designation_date: Utnämningsdatum
         designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
-        position: Position
+        position: Befattning
       assembly_user_role:
         email: E-post
         name: Namn
@@ -69,8 +69,8 @@ sv:
         one: Församling
         other: Församlingar
       decidim/assembly_member:
-        one: Församlingsmedlem
-        other: Församlingsmedlemmar
+        one: Medlem i församlingen
+        other: Medlemmar i församlingen
       decidim/assembly_user_role:
         one: Roll i församlingen
         other: Roller i församlingen
