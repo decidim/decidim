@@ -3,7 +3,13 @@
     method: :post,
     html: { class: "form" }) do |f| %>
 
-  <%= render partial: "form", locals: {form: f, question: current_participatory_space} %>
+  <div class="row">
+    <% current_participatory_space.grouped_responses.each do |group, responses| %>
+      <div class="column large-4 medium-6<%= " large-offset-4 medium-offset-3" unless current_participatory_space.grouped? %>">
+        <%= render partial: "form", locals: { form: f, group: group, responses: responses } %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="section question-vote-cabin">
 

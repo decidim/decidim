@@ -60,11 +60,6 @@ module Decidim
 
       alias participatory_space consultation
 
-      # Sorted responses according to configuration
-      def sorted_responses
-        responses.sort_by { |r| r.response_group&.id.to_i }
-      end
-
       # Sorted results for the given question.
       def sorted_results
         responses.order(votes_count: :desc)
@@ -94,6 +89,21 @@ module Decidim
         return false if external_voting
 
         max_votes&.> 1
+      end
+
+      # Sorted responses according to configuration
+      def sorted_responses
+        responses.sort_by { |r| r.response_group&.id.to_i }
+      end
+
+      # matrix of responses by group (sorted by configuration)
+      def grouped_responses
+        sorted_responses.group_by { |r| r.response_group }
+      end
+
+      def grouped?
+        return false unless multiple?
+        response_groups_count > 0
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
