@@ -146,6 +146,7 @@ en:
           fields:
             created_at: Created at
             title: Title
+            response_group: Group
           name:
             one: Response
             other: Responses
