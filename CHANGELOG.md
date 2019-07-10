@@ -22,6 +22,7 @@
 
 **Fixed**:
 
+- **decidim-core**, **decidim-admin**: Fix: amendments visibility options and controller [#5263](https://github.com/decidim/decidim/pull/5263)
 - **decidim-core**, **decidim-proposals**: Fix: diffing withdrawn amendments and new lines in body [#5242](https://github.com/decidim/decidim/pull/5242)
 - **decidim-core**: Filter forbidden characters in users invitations. [\#5245](https://github.com/decidim/decidim/pull/5245)
 - **decidim-assemblies**: Don't show private assemblies when becoming childs from another assembly. [#5235](https://github.com/decidim/decidim/pull/5235)
