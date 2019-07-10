@@ -149,5 +149,26 @@ module Decidim
     def visible_amendments_for(user)
       amendments.where(emendation: visible_emendations_for(user))
     end
+
+    # Handles the logic to assign an author to the resource, be it Coauthorable or Authorable.
+    def assign_author(author, user_group = nil)
+      if is_a?(Decidim::Coauthorable)
+        coauthorships.clear
+        add_coauthor(author, user_group: user_group)
+      elsif is_a?(Decidim::Authorable)
+        update(author: user_group || author)
+      else
+        raise "The resource is neither Coauthorable nor Authorable."
+      end
+    end
+
+    # Returns an Array of Decidim::User.
+    def notifiable_identities
+      if is_a?(Decidim::Coauthorable)
+        super
+      else
+        [author]
+      end
+    end
   end
 end

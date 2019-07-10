@@ -52,7 +52,7 @@ module Decidim
           promoted_emendation = @emendation.amendable_type.constantize.new(form.emendation_params)
           promoted_emendation.component = @emendation.component
           promoted_emendation.published_at = Time.current if proposal?
-          promoted_emendation.add_coauthor(@emendation.creator_author)
+          promoted_emendation.assign_author(current_user)
           promoted_emendation.save!
           promoted_emendation
         end
