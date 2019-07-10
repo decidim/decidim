@@ -98,11 +98,12 @@ module Decidim
 
       # matrix of responses by group (sorted by configuration)
       def grouped_responses
-        sorted_responses.group_by { |r| r.response_group }
+        sorted_responses.group_by(&:response_group)
       end
 
       def grouped?
         return false unless multiple?
+
         response_groups_count > 0
       end
 

@@ -20,6 +20,9 @@ en:
         hashtag: Hashtag
         hero_image: Home image
         i_frame_url: External voting system URL
+        instructions: Additional instructions for voting
+        max_votes: Maximum number of votes
+        min_votes: Minimum number of votes
         origin_scope: Scope
         origin_title: Origin
         origin_url: Origin URL
@@ -33,21 +36,25 @@ en:
         title: Title
         vote: External voting system
         what_is_decided: What is decided
-        max_votes: Maximum number of votes
-        min_votes: Minimum number of votes
-        instructions: Additional instructions for voting
-       response:
+      response:
         decidim_consultations_response_group_id: Group
     errors:
-      vote:
-        decidim_consultations_response_id:
-          not_found: Response not found.
       models:
         question:
           attributes:
             max_votes:
-              lower_than_min: Maximum number of votes should be higher or equal than the minimum.
+              lower_than_min: Maximum number of votes should be higher or equal than
+                the minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Response not found.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Number of votes is invalid
     models:
       decidim/consultation:
         one: Consultation
@@ -61,23 +68,17 @@ en:
       decidim/consultations/vote:
         one: Vote
         other: Votes
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Number of votes is invalid
   decidim:
     admin:
       actions:
+        back_to_responses: Back to responses
         new_consultation: New consultation
         new_question: New question
         new_response: New response
         new_response_group: New group
-        response_groups: Manage response groups
         publish_results: Publish results
+        response_groups: Manage response groups
         unpublish_results: Unpublish results
-        back_to_responses: Back to responses
       consultation_publications:
         create:
           error: There was a problem publishing this consultation.
@@ -99,7 +100,9 @@ en:
         edit:
           update: Update
         form:
-          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation.
+            Only accepts letters, numbers and dashes, and must start with a letter.
+            Example: %{url}'
           title: General information
         index:
           not_published: Not published
@@ -109,8 +112,8 @@ en:
           title: New consultation
         results:
           not_visible: Results will be available when consultation closes
+          participants: "%{count} participants"
           total_votes: 'Total: %{count} votes'
-          participants: '%{count} participants'
         update:
           error: There was a problem updating this consultation.
           success: Consultation updated successfully.
@@ -146,16 +149,18 @@ en:
         response:
           fields:
             created_at: Created at
-            title: Title
             response_group: Group
+            title: Title
           name:
             one: Response
             other: Responses
       question_configuration:
         disable_external_voting: Please disable external voting for advanced configurations
         form:
+          help: Set up multiple choices questions by increasing the maximum number
+            of responses a participant can choose. Default maximum value is 1, meaning
+            that only one response can be voted.
           title: Advanced configuration
-          help: Set up multiple choices questions by increasing the maximum number of responses a participant can choose. Default maximum value is 1, meaning that only one response can be voted.
       question_publications:
         create:
           error: There was a problem publishing this question.
@@ -182,6 +187,8 @@ en:
         update:
           error: There was a problem updating this question.
           success: Question successfully updated.
+      response_groups:
+        help: Use groups to organize multiple choices questions in packages.
       responses:
         create:
           error: There was a problem creating a new response.
@@ -199,13 +206,11 @@ en:
         update:
           error: There was a problem updating this response.
           success: Response successfully updated.
-      response_groups:
-        help: Use groups to organize multiple choices questions in packages.
       titles:
         consultations: Consultations
         questions: Questions
-        responses: Responses
         response_groups: Response Groups
+        responses: Responses
         results: Results
     consultations:
       admin:
@@ -263,25 +268,27 @@ en:
         votes_out_of:
           one: vote out of
           other: votes out of
-      question_votes:
-        create:
-          error: There was a problem voting the question
       question_multiple_votes:
         results_rules:
-          title: In this question multiple choices where allowed
           minimum_votes_per_user:
-            description: Participants could distribute a minimum of %{votes} votes among different options.
+            description: Participants could distribute a minimum of %{votes} votes
+              among different options.
+          title: In this question multiple choices where allowed
+          total_participants: A total of %{count} people participated in the vote.
           vote_limit:
             description: Participants could vote up to %{limit} options.
-          total_participants: 'A total of %{count} people participated in the vote.'
         voting_rules:
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different options.
+            description: You must distribute a minimum of %{votes} votes among different
+              options.
           title: 'Votes are subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} options.
             left: Remaining
             votes: Votes
+      question_votes:
+        create:
+          error: There was a problem voting the question
       regular_questions:
         title: Questions for this consultation
       show:
@@ -299,8 +306,27 @@ en:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>Consultations</strong> are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p><strong>Consultations</strong> are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          contextual: "<p><strong>Consultations</strong> are a space that allows you
+            to ask a clear question to all the people who form an organization, make
+            a call to participate in the consultation, spark and order the debate
+            for or against a response. When the consultation date arrives, you can
+            vote and publish the results of the votes.</p> <p>Examples: The consultations
+            can be about almost any aspect that affects an organization: some examples
+            are changing the name or logo of the organization offering several alternatives,
+            deciding Yes or No to become part of a larger organization, validating
+            or rejecting a new strategic plan or the result of a working group, or
+            defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p><strong>Consultations</strong> are a space that allows you to
+            ask a clear question to all the people who form an organization, make
+            a call to participate in the consultation, spark and order the debate
+            for or against a response. When the consultation date arrives, you can
+            vote and publish the results of the votes.</p> <p>Examples: The consultations
+            can be about almost any aspect that affects an organization: some examples
+            are changing the name or logo of the organization offering several alternatives,
+            deciding Yes or No to become part of a larger organization, validating
+            or rejecting a new strategic plan or the result of a working group, or
+            defining whether the positions should remain a maximum of 1, 2 or 3 mandates
+            in the organization.</p>\n"
           title: What are consultations?
     menu:
       consultations: Consultations
