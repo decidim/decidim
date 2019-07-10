@@ -79,6 +79,7 @@ en:
         publish_results: Publish results
         response_groups: Manage response groups
         unpublish_results: Unpublish results
+        back_to_responses: Back to responses
       consultation_publications:
         create:
           error: There was a problem publishing this consultation.
@@ -151,6 +152,7 @@ en:
             created_at: Created at
             response_group: Group
             title: Title
+            response_group: Group
           name:
             one: Response
             other: Responses
@@ -206,6 +208,8 @@ en:
         update:
           error: There was a problem updating this response.
           success: Response successfully updated.
+      response_groups:
+        help: Use groups to organize multiple choices questions in packages.
       titles:
         consultations: Consultations
         questions: Questions
