@@ -81,6 +81,7 @@ module Decidim
       # Multiple answers allowed?
       def multiple?
         return false if external_voting
+
         max_votes&.> 1
       end
 

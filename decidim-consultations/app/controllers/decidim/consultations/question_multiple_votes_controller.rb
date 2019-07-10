@@ -21,9 +21,10 @@ module Decidim
         enforce_permission_to :vote, :question, question: current_question
 
         vote_forms = []
-        params[:responses].each do |k,v|
+        params[:responses].each do |k, v|
           next if v.to_i.zero?
-          vote_forms << form(VoteForm).from_params({decidim_consultations_response_id: k}, current_question: current_question)
+
+          vote_forms << form(VoteForm).from_params({ decidim_consultations_response_id: k }, current_question: current_question)
         end
         MultipleVoteQuestion.call(vote_forms) do
           on(:ok) do
@@ -31,7 +32,7 @@ module Decidim
             redirect_to question_path(current_question)
           end
 
-          on(:invalid) do |form, error|
+          on(:invalid) do |_form, error|
             flash[:error] = I18n.t("question_votes.create.error", scope: "decidim.consultations")
             flash[:error] << " (#{error.message})" if error
             redirect_to question_question_multiple_votes_path

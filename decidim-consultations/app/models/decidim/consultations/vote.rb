@@ -36,6 +36,7 @@ module Decidim
       # Author can vote multiple times constrained to question limits
       def votes_per_author
         return unless question.multiple?
+
         total = Vote.where(author: author, question: question, decidim_user_group_id: decidim_user_group_id).count
         errors.add(:question, :invalid_num_votes) unless total < question.max_votes
       end

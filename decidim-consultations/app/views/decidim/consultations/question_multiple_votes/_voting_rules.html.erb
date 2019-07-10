@@ -7,6 +7,9 @@
           <li><%= t(".vote_limit.description", limit: question.max_votes) %></li>
           <li><%= t(".minimum_votes_per_user.description", votes: question.min_votes) %></li>
         </ul>
+        <% if question.instructions %>
+          <%= decidim_sanitize translated_attribute question.instructions %>
+        <% end %>
       </div>
       <div class="columns medium-4 large-3">
         <div class="card card--nomargin text-center remaining-votes-counter">

@@ -20,18 +20,16 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          begin
-            check_num_votes
-            forms.each do |form|
-              vote = build_vote form
-              vote.save!
-            end
-            broadcast(:ok, forms)
-          rescue => e
-            broadcast(:invalid, forms, e)
-          rescue
-            broadcast(:invalid, forms)
+          check_num_votes
+          forms.each do |form|
+            vote = build_vote form
+            vote.save!
           end
+          broadcast(:ok, forms)
+        rescue StandardError => e
+          broadcast(:invalid, forms, e)
+        rescue StandardError
+          broadcast(:invalid, forms)
         end
       end
 

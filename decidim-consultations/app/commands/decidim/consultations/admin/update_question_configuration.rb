@@ -45,7 +45,8 @@ module Decidim
         def attributes
           {
             max_votes: form.max_votes,
-            min_votes: form.min_votes
+            min_votes: form.min_votes,
+            instructions: form.instructions
           }
         end
       end

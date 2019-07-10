@@ -41,6 +41,7 @@ module Decidim
 
         def check_external_voting
           return unless current_question.external_voting
+
           flash[:alert] = I18n.t("question_configuration.disable_external_voting", scope: "decidim.admin")
           redirect_to edit_question_path(current_question)
         end
