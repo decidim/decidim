@@ -55,7 +55,7 @@ module Decidim
           form.emendation_params,
           visibility: "public-only"
         )
-        @amendable.add_coauthor(@amender, user_group: @user_group)
+        @amendable.add_author(@amender, @user_group)
       end
 
       def notify_amendable_and_emendation_authors_and_followers

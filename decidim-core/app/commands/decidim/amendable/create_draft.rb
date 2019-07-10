@@ -50,8 +50,8 @@ module Decidim
           ) do
             emendation = amendable.amendable_type.constantize.new(form.emendation_params)
             emendation.component = amendable.component
-            emendation.assign_author(current_user, user_group)
             emendation.save!
+            emendation.add_author(current_user, user_group)
             emendation
           end
         end

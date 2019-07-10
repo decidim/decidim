@@ -151,7 +151,7 @@ module Decidim
     end
 
     # Handles the logic to assign an author to the resource, be it Coauthorable or Authorable.
-    def assign_author(author, user_group = nil)
+    def add_author(author, user_group = nil)
       if is_a?(Decidim::Coauthorable)
         coauthorships.clear
         add_coauthor(author, user_group: user_group)
