@@ -69,7 +69,7 @@ sv:
             created_at: Skapad
             id: ID
             state: Status
-            supports_count: signaturer
+            supports_count: Underskrifter
             title: Initiativ
         initiatives_type_scope:
           fields:
@@ -109,13 +109,13 @@ sv:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
             email_outro: Du har fått den här meddelandet eftersom du är författaren av initiativet %{resource_title}.
-            email_subject: Ny milstolpe färdigställd!
+            email_subject: Uppnådde ny milstolpe!
             notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
           follower:
-            email_intro: Initiativet %{resource_title} har uppnått %{percentage}% av underskrifterna!
+            email_intro: Initiativet %{resource_title} har uppnått %{percentage}% underskrifter!
             email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-            email_subject: Ny milstolpe färdigställd!
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har uppnått %{percentage}% av underskrifterna.
+            email_subject: Uppnådde ny milstolpe!
+            notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
     gamification:
       badges:
         initiatives:
@@ -132,7 +132,7 @@ sv:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa eller sammankalla en QQQförsamling, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
+          contextual: "<p>Ett <strong>initiativ</strong> är ett förslag om att organisationen ska genomföra en specifik åtgärd (ändra en stadga, påbörja ett projekt, ändra namn på en avdelning eller en gata, osv.), som kan föras fram av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) underskrifter.</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida initiativet och ange samlingspunkter där underskrifter kan samlas in från deltagarna eller där debatten är öppen för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att kalla till samråd med alla medlemmar i en organisation, eller att skapa eller sammankalla en församling, eller att påbörja en utökning av budgeten för ett område i organisationen. Under processen att samla in underskrifter kan fler människor stödja kravet och sprida det inom organisationen.</p>\n"
           page: "<p>Ett initiativ är ett förslag som kan främjas av någon på eget initiativ (oberoende av andra kanaler eller deltagarutrymmen) genom insamling av (digitala) signaturer för organisationen att genomföra en specifik åtgärd (ändra en förordning, initiera ett projekt , ändra namn på en avdelning eller en gata, etc.).</p> <p>Initiativtagarna kan definiera sina mål, samla stöd, debattera, sprida och definiera mötespunkter där signaturer kan hämtas från deltagarna eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla signaturer för att sammankalla samråd med alla organisationer i en organisation eller att skapa eller sammankalla en sammansättning eller att initiera en budgethöjning för ett område eller område i organisationen. Under processen att samla signaturer kan fler människor lägga till denna efterfrågan och vidarebefordra den i organisationen.</p>\n"
           title: Vad är initiativ?
     initiatives:
@@ -148,7 +148,7 @@ sv:
             description: Beskrivning
             initiative_votes_count: Räknade röster
             initiatives: Initiativ
-            state: stat
+            state: Status
         committee_requests:
           index:
             approve: Godkänn
