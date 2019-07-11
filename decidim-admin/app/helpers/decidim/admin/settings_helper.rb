@@ -45,7 +45,7 @@ module Decidim
       def amendments_visibility_form_field(form, options)
         collection = Decidim::Amendment::VisibilityStepSetting.options
         checked = if @component.step_settings.present?
-                    step_number = options[:tabs_prefix].split("-")[1] # Gets number in String "step-N-settings"
+                    step_number = options[:tabs_prefix].split("-")[1] # Gets number in String like "step-N-settings"
                     @component.step_settings[step_number][:amendments_visibility]
                   else
                     @component.current_settings[:amendments_visibility]
