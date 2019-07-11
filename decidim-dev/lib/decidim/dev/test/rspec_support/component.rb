@@ -9,7 +9,6 @@ module Decidim
     include Decidim::Events::NotificationEvent
   end
 
-  # This namespace holds the logic of the `DummyResources` component.
   module DummyResources
     include ActiveSupport::Configurable
 

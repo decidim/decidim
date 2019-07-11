@@ -8,7 +8,6 @@ describe "Participatory texts", type: :system do
 
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let(:comment_buttons) { page.find_all("a", text: "Comment", visible: false) }
 
   def should_have_proposal(selector, proposal)
     expect(page).to have_tag(selector, text: proposal.title)
