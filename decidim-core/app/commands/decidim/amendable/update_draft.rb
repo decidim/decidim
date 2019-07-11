@@ -44,8 +44,9 @@ module Decidim
       # for diff rendering in the amendment control version
       def update_draft
         PaperTrail.request(enabled: false) do
-          emendation.update(form.emendation_params)
+          emendation.assign_attributes(form.emendation_params)
           emendation.add_author(current_user, user_group)
+          emendation.save!
         end
       end
     end
