@@ -5,8 +5,8 @@ sv:
         additional_info: Information om tilldelningen
         decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
         decidim_proposals_component_id: Förslagen
-        dice: Resultat av tärningskast. Rulla en 6-sidig tärning eller leta efter ett annat slumpmässigt sätt att generera ett tal från 1 till 6 och skriv in det resulterande numret framför några vittnen. Detta bidrar detta till kvaliteten och garantierna för slumpmässigheten av resultatet
-        target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill välja genom att dra lott från gruppen av förslag du tidigare har valt)
+        dice: Tärningskast. Slå en sexsidig tärning inför vittnen, eller använd ett annat sätt att slumpmässigt skapa ett tal från 1 till 6, och skriv in resultatet. Detta bidrar till kvalitén och garanterar resultatets slumpmässighet
+        target_items: Antal förslag som ska väljas (anger hur många förslag som ska väljas genom lottdragning från den utvalda gruppen av förslag)
         title: Titel
         witnesses: Vittnen
     models:
@@ -26,10 +26,10 @@ sv:
     events:
       sortitions:
         sortition_created:
-          email_intro: Tilldelning "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här notisen eftersom du följer "%{participatory_space_title}". Du kan avfölja den vid föregående länk.
-          email_subject: Ny tilldelning läggs till %{participatory_space_title}
-          notification_title: Tilldelning <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
+          email_intro: Tilldelningen "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det via föregående länk.
+          email_subject: Ny tilldelning har lagts till i %{participatory_space_title}
+          notification_title: Tilldelningen <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
     pages:
       home:
         statistics:
@@ -43,17 +43,17 @@ sv:
           destroy: Avbryt tilldelningen
           edit: Redigera
           new: Ny tilldelning
-          show: Tilldelningsdetaljer
+          show: Detaljer om tilldelningen
         models:
           sortition:
             fields:
               category: Kategori
-              created_at: Datum för skapande
+              created_at: Skapelsedatum
               decidim_proposals_component: Förslagskomponent
               dice: Tärningar
               reference: Referens
-              request_timestamp: Tid för dragning
-              seed: Lott
+              request_timestamp: Lottningstid
+              seed: Frö
               target_items: Objekt att välja
               title: Titel
             name:
@@ -61,12 +61,12 @@ sv:
               other: Tilldelningar
         sortitions:
           confirm_destroy:
-            confirm_destroy: Är du säker på att du vill avbryta denna tilldelning?
+            confirm_destroy: Vill du avbryta tilldelningen?
             destroy: Avbryt tilldelningen
-            title: Annullering av tilldelningen
+            title: Avbryta tilldelningen
           create:
             error: Det gick inte att skapa en ny tilldelning.
-            success: Tilldelning skapad
+            success: Tilldelningen har skapats
           destroy:
             error: Kan inte avbryta tilldelningen.
             success: Tilldelning avbruten
