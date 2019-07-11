@@ -69,30 +69,30 @@ sv:
             success: Tilldelningen har skapats
           destroy:
             error: Kan inte avbryta tilldelningen.
-            success: Tilldelning avbruten
+            success: Tilldelningen har avbrutits
           edit:
             title: Uppdatera informationen om tilldelningen
-            update: Uppdatering
+            update: Uppdatera
           form:
             all_categories: Alla kategorier
-            select_proposal_component: Välj de föreslagna förslagen
-            title: Ny tilldelning för förslag
+            select_proposal_component: Välj förslagen som ska behandlas
+            title: Ny tilldelning av förslag
           index:
             title: Tilldelningar
           new:
-            confirm: Genom att trycka på nästa knapp kommer Decidim registrera datum och tid (med precision i sekunder) och tillsammans med tärningsrullningen används denna information för att generera ett slumpmässigt urval. Åtgärden kommer att vara oåterkallelig, när knappen är klickad kommer resultatet av denna dragning att publiceras, tillsammans med de uppgifter som anges i denna blankett och kan inte ändras, var god kontrollera innehållet noggrant
+            confirm: När du trycker på nästa knapp kommer Decidim att registrera datum och tid (med precision i sekunder) och tillsammans med tärningskastet genereras ett slumpmässigt urval. Åtgärden kan inte ångras eller göras om. När knappen har klickats kommer resultatet av lottningen att publiceras, tillsammans med de uppgifter som anges i formuläret, och kan inte längre ändras. Kontrollera innehållet noggrant
             create: Skapa
             title: Ny tilldelning
           show:
-            selected_proposals: Förslag utvalda för dragning
+            selected_proposals: Förslag som valts för lottning
           update:
             error: Det gick inte att uppdatera tilldelningen.
-            success: Tilldelning uppdaterad
+            success: Tilldelningen har uppdaterats
       admin_log:
         sortition:
-          create: "%{user_name} skapade %{resource_name} tilldelningen i %{space_name}"
-          delete: "%{user_name} avbröt %{resource_name} tilldelningen i %{space_name}"
-          update: "%{user_name} uppdaterade %{resource_name} tilldelningen i %{space_name}"
+          create: "%{user_name} skapade tilldelningen %{resource_name} i %{space_name}"
+          delete: "%{user_name} avbröt tilldelningen %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade tilldelningen %{resource_name} i %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -100,21 +100,21 @@ sv:
             other: "%{count} förslag"
         filters:
           active: Aktiva
-          all: Allt
-          cancelled: Avbruten
+          all: Alla
+          cancelled: Avbrutna
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
           state: Status
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
         linked_sortitions:
           selected_proposals: Utvalda förslag
         orders:
-          label: 'Sortera tilldelning genom:'
+          label: 'Sortera tilldelningar efter:'
           random: Slumpmässig
           recent: Nyligen
         results_count:
