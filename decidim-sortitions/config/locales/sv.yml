@@ -2,9 +2,9 @@ sv:
   activemodel:
     attributes:
       sortition:
-        additional_info: Fördelningsinformation
-        decidim_category_id: Kategorier av den uppsättning förslag som du vill tillämpa dragningen på
-        decidim_proposals_component_id: Bestämda förslag
+        additional_info: Information om tilldelningen
+        decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
+        decidim_proposals_component_id: Förslagen
         dice: Resultat av tärningskast. Rulla en 6-sidig tärning eller leta efter ett annat slumpmässigt sätt att generera ett tal från 1 till 6 och skriv in det resulterande numret framför några vittnen. Detta bidrar detta till kvaliteten och garantierna för slumpmässigheten av resultatet
         target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill välja genom att dra lott från gruppen av förslag du tidigare har valt)
         title: Titel
@@ -65,7 +65,7 @@ sv:
             destroy: Avbryt tilldelningen
             title: Annullering av tilldelningen
           create:
-            error: Det uppstod ett fel vid skapandet av en ny tilldelning.
+            error: Det gick inte att skapa en ny tilldelning.
             success: Tilldelning skapad
           destroy:
             error: Kan inte avbryta tilldelningen.
@@ -86,7 +86,7 @@ sv:
           show:
             selected_proposals: Förslag utvalda för dragning
           update:
-            error: Det uppstod ett fel vid uppdateringen av tilldelningen.
+            error: Det gick inte att uppdatera tilldelningen.
             success: Tilldelning uppdaterad
       admin_log:
         sortition:
@@ -105,7 +105,7 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
-          state: Tillstånd
+          state: Status
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
@@ -142,9 +142,9 @@ sv:
             other: '%{count} utvalda förslag'
           view: Visa
         sortition_author:
-          deleted: Raderad användare
+          deleted: Raderad deltagare
         sortition_cancel_author:
-          deleted: Raderad användare
+          deleted: Raderad deltagare
         sortitions_count:
           count:
             one: 1 tilldelning
