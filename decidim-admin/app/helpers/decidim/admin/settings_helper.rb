@@ -96,7 +96,7 @@ module Decidim
 
         {
           class: "participatory_texts_disabled",
-          help_text: help_text_for_component_setting(:participatory_texts_enabled, :global, :proposals)
+          help_text: help_text_for_component_setting(:participatory_texts_disabled, :global, :proposals)
         }
       end
 

@@ -199,6 +199,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       context "when there are no proposals for the component" do
         it "allows to check the setting" do
           expect(participatory_texts_enabled[:class]).not_to include("disabled")
+          expect(page).not_to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
         it "changes the setting value after updating" do
@@ -218,7 +219,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT allow to check the setting" do
           expect(participatory_texts_enabled[:class]).to include("disabled")
-
           expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
