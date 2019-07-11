@@ -43,7 +43,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_resource
         if resource.blank? || resource_path.blank?
-          span = h.content_tag(:span, present_resource_name, class: "logs__log__resource")
+          h.content_tag(:span, present_resource_name, class: "logs__log__resource")
         else
           h.link_to(present_resource_name, resource_path, class: "logs__log__resource")
         end
