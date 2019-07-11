@@ -20,6 +20,15 @@ module Decidim
       render model
     end
 
+    def accept_tos_params
+      return if params[:redirect_url].blank?
+
+      redirect_path = URI.parse(params[:redirect_url]).path
+      return if redirect_path == decidim.root_path
+
+      { redirect_url: params[:redirect_url] }
+    end
+
     private
 
     def announcement_args
