@@ -129,14 +129,14 @@ sv:
           candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
           category: från kategorin %{category}
           dice_result: "(1) Tärningskast"
-          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten visas informationen på denna sida all information som krävs för att maximera garantier och återskapa resultaten. Nyckeln till kvaliteten på denna tilldelning är den dubbla slumpen som tillhandahålls av rullandet av en tärning (verifierad av vittnen) och den exakta tiden för tilldelningen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för tilldelningen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat.  '
+          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Förslag valda genom tilldelning
           sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
-          time_seed: "(2) Tid för lottning"
+          time_seed: "(2) Tidsfrö"
           witnesses: Vittnen
         sortition:
-          random_seed: Slumpmässig lottning
+          random_seed: Slumpmässigt frö
           selected_proposals:
             one: 1 valt förslag
             other: '%{count} utvalda förslag'
