@@ -20,3 +20,17 @@ $size: 45px;
     width: $size;
   }
 }
+
+/* hide whatsapp_app icon on devices with mouse or touch pad */
+@media (hover: hover) and (pointer: fine) {
+  a.ssb-icon.ssb-whatsapp_app{
+      display: none;
+  }
+}
+
+/* hide whatsapp_web icon on devices with touchscreens */
+@media (hover: none) and (pointer: coarse) {
+  a.ssb-icon.ssb-whatsapp_web {
+    display: none;
+  }
+}
