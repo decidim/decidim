@@ -109,7 +109,7 @@ describe "Participatory texts", type: :system do
             end
 
             it "shows the Amend button enabled" do
-              expect(amend_button[:disabled]).to eq(nil)
+              expect(amend_button[:disabled]).to be_falsey
             end
           end
 
@@ -120,7 +120,7 @@ describe "Participatory texts", type: :system do
             end
 
             it "shows the Amend button disabled" do
-              expect(amend_button[:disabled]).to eq("true")
+              expect(amend_button[:disabled]).to be_truthy
             end
           end
 
@@ -203,7 +203,7 @@ describe "Participatory texts", type: :system do
             end
 
             it "shows the Amend button disabled" do
-              expect(amend_button[:disabled]).to eq("true")
+              expect(amend_button[:disabled]).to be_truthy
             end
           end
 
@@ -214,7 +214,7 @@ describe "Participatory texts", type: :system do
             end
 
             it "shows the Amend button disabled" do
-              expect(amend_button[:disabled]).to eq("true")
+              expect(amend_button[:disabled]).to be_truthy
             end
           end
 
