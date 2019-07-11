@@ -45,7 +45,7 @@ module Decidim
           return none unless user
 
           where(id: joins(:amendable).where("decidim_amendments.decidim_user_id = ?", user.id))
-        else # Assume 'all' or wrong value
+        else # Assume 'all'
           only_emendations
         end
       }
@@ -59,7 +59,7 @@ module Decidim
           return only_amendables unless user
 
           where.not(id: joins(:amendable).where.not("decidim_amendments.decidim_user_id = ?", user.id))
-        else # Assume 'all' or wrong value
+        else # Assume 'all'
           all
         end
       }
@@ -132,6 +132,7 @@ module Decidim
     # Returns the emendations of an amendable that are visible to the user
     # based on the component's amendments settings.
     def visible_emendations_for(user)
+      emendations = emendations.published # Filters "drafts" (published_at = nil)
       return emendations unless component.settings.amendments_enabled
 
       case component.current_settings.amendments_visibility
@@ -139,7 +140,7 @@ module Decidim
         return amendable_type.constantize.none unless user
 
         emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
-      else # Assume 'all' or wrong value
+      else # Assume 'all'
         emendations
       end
     end

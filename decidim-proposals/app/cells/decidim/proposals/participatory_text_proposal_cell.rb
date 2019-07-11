@@ -75,7 +75,7 @@ module Decidim
       end
 
       def visible_emendations
-        @visible_emendations ||= model.visible_emendations_for(current_user).published
+        @visible_emendations ||= model.visible_emendations_for(current_user)
       end
 
       def amend_button_disabled?
