@@ -13,7 +13,7 @@ shared_examples "destroy amendment draft" do
         expect { command.call }
           .to change(Decidim::Amendment, :count)
           .by(-1)
-          .and change(amendable.amendable_type.constantize, :count)
+          .and change(amendable.class, :count)
           .by(-1)
       end
     end

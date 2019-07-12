@@ -91,11 +91,6 @@ module Decidim
       self.class.amendable_options[:form].constantize
     end
 
-    # Returns the ActiveRecord class name of the resource.
-    def amendable_type
-      resource_manifest.model_class_name
-    end
-
     # Returns the polymorphic association.
     def amendment
       associated_resource = emendation? ? :emendation : :amendable
@@ -126,7 +121,7 @@ module Decidim
     # for the given resource name and link name.
     # See Decidim::Resourceable#link_resources
     def linked_promoted_resource
-      linked_resources(amendable_type, "created_from_rejected_emendation").first
+      linked_resources(self.class, "created_from_rejected_emendation").first
     end
 
     # Returns the emendations of an amendable that are visible to the user
@@ -137,7 +132,7 @@ module Decidim
 
       case component.current_settings.amendments_visibility
       when "participants"
-        return amendable_type.constantize.none unless user
+        return self.class.none unless user
 
         pubslished_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
       else # Assume 'all'

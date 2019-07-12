@@ -28,7 +28,7 @@ module Decidim
       def emendation_must_change_amendable
         return unless %w(title body).all? { |attr| attr.in? amendable_fields_as_string }
 
-        emendation = amendable.amendable_type.constantize.new(emendation_params)
+        emendation = amendable.class.new(emendation_params)
         return unless amendable.title == emendation.title
         return unless normalized_body(amendable) == normalized_body(emendation)
 
