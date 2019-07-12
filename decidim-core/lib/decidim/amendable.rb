@@ -130,18 +130,18 @@ module Decidim
     end
 
     # Returns the emendations of an amendable that are visible to the user
-    # based on the component's amendments settings.
+    # based on the component's amendments settings and filtering out the "drafts".
     def visible_emendations_for(user)
-      emendations = emendations.published # Filters "drafts" (published_at = nil)
-      return emendations unless component.settings.amendments_enabled
+      pubslished_emendations = emendations.published
+      return pubslished_emendations unless component.settings.amendments_enabled
 
       case component.current_settings.amendments_visibility
       when "participants"
         return amendable_type.constantize.none unless user
 
-        emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
+        pubslished_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
       else # Assume 'all'
-        emendations
+        pubslished_emendations
       end
     end
 
