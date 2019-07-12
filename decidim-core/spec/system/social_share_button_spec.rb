@@ -4,23 +4,16 @@ require "spec_helper"
 
 describe "Social share button", type: :system do
   let!(:resource) { create(:dummy_resource) }
-  let(:user) { create(:user, :confirmed, organization: resource.organization) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
   let(:web_driver) { :headless_chrome }
 
   before do
     driven_by(web_driver)
     switch_to_host(resource.organization.host)
-    sign_in user
-    visit resource_path
   end
 
-  context "when clicking on the Share button" do
-    before do
-      click_button "Share"
-    end
-
-    it "shows the Share modal" do
+  shared_examples_for "showing the social share buttons" do
+    it "shows the 'socialShare' modal" do
       within "#socialShare", visible: true do
         expect(page).to have_css("h3", text: "Share:")
         expect(page).to have_css(".social-share-button")
@@ -73,6 +66,29 @@ describe "Social share button", type: :system do
           expect(page).not_to have_css('a[data-site="whatsapp_web"]')
         end
       end
+    end
+  end
+
+  context "when the user is logged in" do
+    before do
+      sign_in resource.author
+      visit resource_path
+    end
+
+    context "and clicks on the Share button" do
+      before { click_button "Share" }
+
+      it_behaves_like "showing the social share buttons"
+    end
+  end
+
+  context "when the user is NOT logged in" do
+    before { visit resource_path }
+
+    context "and clicks on the Share button" do
+      before { click_button "Share" }
+
+      it_behaves_like "showing the social share buttons"
     end
   end
 end
