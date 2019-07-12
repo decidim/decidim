@@ -38,7 +38,7 @@ edit_link(
       </div>
     </div>
     <%= resource_reference(debate) %>
-    <%= render partial: "share", locals: { debate: debate } %>
+    <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
@@ -63,9 +63,6 @@ edit_link(
 </div>
 
 <%= comments_for debate %>
-
-<%= javascript_include_tag "decidim/proposals/social_share" %>
-<%= stylesheet_link_tag "decidim/proposals/social_share" %>
 
 <%=
   render partial: "decidim/shared/flag_modal", locals: {
