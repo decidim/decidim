@@ -43,6 +43,14 @@ module Decidim
         include TranslatableAttributes
 
         cattr_accessor :manifest
+        attr_reader :default_locale
+
+        # Allows to set a :default_locale to validate translatable attributes.
+        # See TranslatablePresenceValidator#default_locale_for(record).
+        def initialize(attributes = nil, default_locale = nil)
+          @default_locale = default_locale
+          super(attributes)
+        end
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "Settings")
