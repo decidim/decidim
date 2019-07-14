@@ -45,7 +45,8 @@ module Decidim
         cattr_accessor :manifest
         attr_reader :default_locale
 
-        # Allows to set a :default_locale to validate translatable attributes.
+        # Overwrites Virtus::InstanceMethods::Constructor#initialize to allow
+        # passing a default_locale needed to validate translatable attributes.
         # See TranslatablePresenceValidator#default_locale_for(record).
         def initialize(attributes = nil, default_locale = nil)
           @default_locale = default_locale
