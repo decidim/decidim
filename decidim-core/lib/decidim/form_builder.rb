@@ -28,6 +28,23 @@ module Decidim
     end
     # rubocop:enable Metrics/ParameterLists
 
+    # Public: generates a radio buttons input from a collection and adds help
+    # text and errors.
+    #
+    # attribute       - the name of the field
+    # collection      - the collection from which we will render the check boxes
+    # value_attribute - a Symbol or a Proc defining how to find the value attribute
+    # text_attribute  - a Symbol or a Proc defining how to find the text attribute
+    # options         - a Hash with options
+    # html_options    - a Hash with options
+    #
+    # Renders a collection of radio buttons.
+    # rubocop:disable Metrics/ParameterLists
+    def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
+      super + error_and_help_text(attribute, options)
+    end
+    # rubocop:enable Metrics/ParameterLists
+
     # Public: Generates an form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_input`
@@ -300,7 +317,7 @@ module Decidim
 
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-      custom_label(attribute, options[:label], options[:label_options], true, false) do
+      custom_label(attribute, options[:label], options[:label_options], true) do
         options.delete(:label)
         options.delete(:label_options)
         @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
