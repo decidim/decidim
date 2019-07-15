@@ -446,7 +446,7 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stato inviato a: '
-          no_scopes: Nessuno scope
+          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
