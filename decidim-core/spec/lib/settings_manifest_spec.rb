@@ -150,18 +150,22 @@ module Decidim
         end
 
         context "and `default_locale` is present" do
+          let(:default_locale) { "en" }
+
           it "allows to validate the translatable presence of the setting" do
-            settings = subject.schema.new({ translatable_setting_en: "Some text" }, "en")
+            settings = subject.schema.new({ translatable_setting_en: "Some text" }, default_locale)
             expect(settings).to be_valid
 
-            settings = subject.schema.new({ translatable_setting_en: "" }, "en")
+            settings = subject.schema.new({ translatable_setting_en: "" }, default_locale)
             expect(settings).not_to be_valid
           end
         end
 
         context "and `default_locale` is nil" do
-          it "raises an error when trying to validate translatable presence of the setting" do
-            settings = subject.schema.new(translatable_setting_en: "Some text")
+          let(:default_locale) { nil }
+
+          it "raises an error when trying to validate the translatable presence of the setting" do
+            settings = subject.schema.new({ translatable_setting_en: "Some text" }, default_locale)
             expect { settings.validate }.to raise_error(NoMethodError)
           end
         end
