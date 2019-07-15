@@ -326,7 +326,7 @@ it:
             all: Tutti
             date: Data
             meetings: incontri
-            past: Concluso
+            past: Conclusi
             search: Ricerca
             space_type: Spazio partecipativo
             upcoming: Prossime
@@ -346,7 +346,7 @@ it:
           category: Categoria
           category_prompt: Scegli una categoria
           date: Data
-          past: Passato
+          past: Conclusi
           search: Cerca
           upcoming: Imminenti
         filters_small_view:
