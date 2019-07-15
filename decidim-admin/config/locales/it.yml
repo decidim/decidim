@@ -574,7 +574,7 @@ it:
           title: Nuovo utente privato dello spazio partecipativo.
       resource_permissions:
         edit:
-          submit: Sottoscrivi
+          submit: Invia
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
