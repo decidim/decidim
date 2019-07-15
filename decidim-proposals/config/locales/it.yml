@@ -356,7 +356,7 @@ it:
             success: Nota della proposta creata con successo
           form:
             note: Nota
-            submit: Sottoscrivi
+            submit: Invia
           leave_your_note: Lascia il tuo messaggio
           title: Note private
         proposals:
