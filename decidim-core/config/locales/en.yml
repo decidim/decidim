@@ -300,12 +300,14 @@ en:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
+            dummy_global_translatable_text: Dummy Translatable Text
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
             comments_blocked: Comments blocked
+            dummy_step_translatable_text: Dummy Step Translatable Text
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact

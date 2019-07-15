@@ -117,20 +117,20 @@ Decidim.register_component(:dummy) do |component|
   component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
-    settings.attribute :comments_enabled, type: :boolean, default: true, required: false
-    settings.attribute :resources_permissions_enabled, type: :boolean, default: true, required: false
-    settings.attribute :dummy_global_attribute_1, type: :boolean, required: false
-    settings.attribute :dummy_global_attribute_2, type: :boolean, required: false
-    settings.attribute :enable_pads_creation, type: :boolean, default: false, required: false
-    settings.attribute :amendments_enabled, type: :boolean, default: false, required: false
-    settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true
+    settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
+    settings.attribute :dummy_global_attribute_1, type: :boolean
+    settings.attribute :dummy_global_attribute_2, type: :boolean
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :amendments_enabled, type: :boolean, default: false
+    settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :comments_blocked, type: :boolean, default: false, required: false
-    settings.attribute :dummy_step_attribute_1, type: :boolean, required: false
-    settings.attribute :dummy_step_attribute_2, type: :boolean, required: false
-    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true
+    settings.attribute :comments_blocked, type: :boolean, default: false
+    settings.attribute :dummy_step_attribute_1, type: :boolean
+    settings.attribute :dummy_step_attribute_2, type: :boolean
+    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
   end
 
   component.register_resource(:dummy_resource) do |resource|

@@ -99,7 +99,7 @@ module Decidim
       attribute :default
       attribute :translated, Boolean, default: false
       attribute :editor, Boolean, default: false
-      attribute :required, Boolean, default: true
+      attribute :required, Boolean, default: false
       attribute :required_for_authorization, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
