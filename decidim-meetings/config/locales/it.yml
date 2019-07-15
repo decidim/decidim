@@ -326,7 +326,7 @@ it:
             all: Tutti
             date: Data
             meetings: incontri
-            past: Passato
+            past: Concluso
             search: Ricerca
             space_type: Spazio partecipativo
             upcoming: Prossime
