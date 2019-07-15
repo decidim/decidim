@@ -930,7 +930,7 @@ it:
         choose: Selezionare
         title: Seleziona %{field}
       prompt: Seleziona un ambito
-      scopes: Scopes
+      scopes: Ambiti
     search:
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
@@ -942,7 +942,7 @@ it:
           active: Attivo
           all: Tutti
           future: Futuro
-          past: Passato
+          past: Concluso
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
