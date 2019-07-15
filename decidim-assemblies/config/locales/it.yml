@@ -40,7 +40,7 @@ it:
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
         scope_id: Obiettivi
-        scopes_enabled: Scopi abilitati
+        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
         slug: URL slug
