@@ -937,7 +937,7 @@ it:
     searches:
       filters:
         back: Torna ai risultati
-        jump_to: 'Salta a:'
+        jump_to: 'Filtra per:'
         state:
           active: Attivo
           all: Tutti
