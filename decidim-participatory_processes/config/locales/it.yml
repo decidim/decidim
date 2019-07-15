@@ -341,7 +341,7 @@ it:
           names:
             active: Attivo
             all: Tutti
-            past: Concluso
+            past: Conclusi
             upcoming: Imminenti
           see: Vedi tutto
         index:
@@ -355,7 +355,7 @@ it:
         participatory_structure: Come si decide
         private_space: Questo è un processo privato
         scope: Obiettivi
-        start_date: Date di inizio
+        start_date: Data di inizio
         target: Chi partecipa
         unspecified: Non specificato
       statistics:
