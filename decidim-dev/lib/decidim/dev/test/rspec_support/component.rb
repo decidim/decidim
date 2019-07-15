@@ -123,14 +123,14 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_attribute_2, type: :boolean, required: false
     settings.attribute :enable_pads_creation, type: :boolean, default: false, required: false
     settings.attribute :amendments_enabled, type: :boolean, default: false, required: false
-    settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
+    settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|
-    settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_blocked, type: :boolean, default: false, required: false
     settings.attribute :dummy_step_attribute_1, type: :boolean, required: false
     settings.attribute :dummy_step_attribute_2, type: :boolean, required: false
+    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true
   end
 
   component.register_resource(:dummy_resource) do |resource|

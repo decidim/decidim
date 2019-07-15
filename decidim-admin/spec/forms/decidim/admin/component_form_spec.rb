@@ -12,34 +12,32 @@ module Decidim
       let(:manifest) { Decidim.find_component_manifest("dummy") }
       let(:name) { generate_localized_title }
 
-      let(:default_registration_terms) do
+      let(:dummy_global_translatable_text) do
         {
-          "default_registration_terms_ca" => "",
-          "default_registration_terms_en" => "Default terms en",
-          "default_registration_terms_es" => ""
-
+          "dummy_global_translatable_text_ca" => "",
+          "dummy_global_translatable_text_en" => "Dummy text en",
+          "dummy_global_translatable_text_es" => ""
         }
       end
 
-      let(:announcement) do
+      let(:dummy_step_translatable_text) do
         {
-          "announcement_ca" => "",
-          "announcement_en" => "Default terms en",
-          "announcement_es" => ""
-
+          "dummy_step_translatable_text_ca" => "",
+          "dummy_step_translatable_text_en" => "Dummy text en",
+          "dummy_step_translatable_text_es" => ""
         }
       end
 
       let(:settings) do
         return {} unless manifest
 
-        manifest.settings(:global).schema.new(default_registration_terms, "en")
+        manifest.settings(:global).schema.new(dummy_global_translatable_text, "en")
       end
 
       let(:default_step_settings) do
         return {} unless manifest
 
-        manifest.settings(:step).schema.new(announcement, "en")
+        manifest.settings(:step).schema.new(dummy_step_translatable_text, "en")
       end
 
       let(:params) do
@@ -79,12 +77,11 @@ module Decidim
       end
 
       context "when a settings required attribute is missing" do
-        let(:default_registration_terms) do
+        let(:dummy_global_translatable_text) do
           {
-            "default_registration_terms_ca" => "Default terms ca",
-            "default_registration_terms_en" => "",
-            "default_registration_terms_es" => "Default terms es"
-
+            "dummy_global_translatable_text_ca" => "Dummy text ca",
+            "dummy_global_translatable_text_en" => "",
+            "dummy_global_translatable_text_es" => "Dummy text es"
           }
         end
 
@@ -92,12 +89,11 @@ module Decidim
       end
 
       context "when a default_step_settings required attribute is missing" do
-        let(:announcement) do
+        let(:dummy_step_translatable_text) do
           {
-            "announcement_ca" => "Default terms ca",
-            "announcement_en" => "",
-            "announcement_es" => "Default terms es"
-
+            "dummy_step_translatable_text_ca" => "Dummy text ca",
+            "dummy_step_translatable_text_en" => "",
+            "dummy_step_translatable_text_es" => "Dummy text es"
           }
         end
 
@@ -112,12 +108,11 @@ module Decidim
         end
 
         context "and a step_settings required attribute is missing" do
-          let(:announcement) do
+          let(:dummy_step_translatable_text) do
             {
-              "announcement_ca" => "Default terms ca",
-              "announcement_en" => "",
-              "announcement_es" => "Default terms es"
-
+              "dummy_step_translatable_text_ca" => "Dummy text ca",
+              "dummy_step_translatable_text_en" => "",
+              "dummy_step_translatable_text_es" => "Dummy text es"
             }
           end
 
