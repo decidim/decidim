@@ -942,7 +942,7 @@ it:
           active: Attivo
           all: Tutti
           future: Futuro
-          past: Concluso
+          past: Conclusi
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
