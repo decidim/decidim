@@ -62,6 +62,8 @@ module Decidim
     # Returns a Class with the attributes sanitized, coerced  and filtered
     # to the right type. See Decidim::SettingsManifest#schema.
     def new_settings_schema(name, data)
+      return {} unless manifest && participatory_space
+
       manifest.settings(name).schema.new(data, participatory_space.organization.default_locale)
     end
 
