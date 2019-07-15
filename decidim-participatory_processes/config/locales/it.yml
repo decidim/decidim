@@ -388,11 +388,11 @@ it:
         index:
           promoted_processes: Processi evidenziati
         participatory_process:
-          active_step: 'Fase attuale:'
+          active_step: 'Fase attiva:'
           more_info: Ulteriori informazioni
           take_part: Partecipa
         promoted_process:
-          active_step: 'Fase attuale:'
+          active_step: 'Fase attiva:'
           more_info: Maggiori informazioni
           take_part: Partecipa
       process_header_steps:
