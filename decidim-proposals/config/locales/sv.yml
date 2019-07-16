@@ -51,7 +51,7 @@ sv:
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
-      decidim/proposals/proposal_endorsed_event: Förslaget stöttat
+      decidim/proposals/proposal_endorsed_event: Instämt med förslaget
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
       decidim/proposals/publish_proposal_event: Förslag publicerat
       decidim/proposals/rejected_proposal_event: Förslag avvisat
@@ -65,8 +65,8 @@ sv:
         one: Förslag
         other: Förslagen
       decidim/proposals/proposal_endorsement:
-        one: Stöd
-        other: Stöd
+        one: Instämmande
+        other: Instämmanden
       decidim/proposals/proposal_note:
         one: Anteckning
         other: Anteckningar
@@ -79,7 +79,7 @@ sv:
         actions:
           amend: Ändra
           create: Skapa
-          endorse: Stödja
+          endorse: Instäm
           vote: Rösta
           withdraw: Dra tillbaka
         name: Förslag
@@ -183,10 +183,10 @@ sv:
             email_subject: Ett förslag som du följer har antagits
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har antagits.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just godkänt förslaget "%{resource_title}" och vi tycker att det kan vara intressant för dig. Kolla in det och bidra med:'
+          email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med förslaget "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
-          notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
+          email_subject: "%{endorser_nickname} har instämt med ett nytt förslag"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> har instämt med förslaget <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
@@ -605,7 +605,7 @@ sv:
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Stött
+          already_endorsed: Instämt
           endorse: Stödja
         render_endorsements_button_card_part:
           endorse: Stöd
