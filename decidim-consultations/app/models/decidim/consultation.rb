@@ -68,6 +68,12 @@ module Decidim
       @total_votes ||= questions.published.sum(:votes_count)
     end
 
+    def total_participants
+      @total_participants ||= questions.published.reduce(0) do |sum, q|
+        q.votes.select(:decidim_author_id).distinct.count + sum
+      end
+    end
+
     # This method exists with the only purpose of getting rid of whats seems to be an issue in
     # the new scope picker: This engine is a bit special: consultations and questions are a kind of
     # nested participatory spaces. When a new question is created the consultation is the participatory space.
