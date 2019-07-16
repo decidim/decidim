@@ -136,7 +136,7 @@ sv:
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
-        error: Det har inträffat ett fel vid ändring av denna resurs.
+        error: Det gick inte att ändra resursen.
         help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
         promote_button: Främja till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
@@ -149,15 +149,14 @@ sv:
           help_text: Granska ändringarna och bifall eller avslå detta ändringsförslag. Ett meddelande kommer att skickas till dess författare.
         announcement:
           accepted: |-
-            Detta ändringsförslag för %{amendable_type} %{amendable_link} blev
-            godkänt <strong>%{announcement_date}</strong>.
+            Detta ändringsförslag till %{amendable_type} %{proposal_link} blev
+            godkänt <strong>%{date}</strong>.
           evaluating: |-
-            Detta ändringsförslag för %{amendable_type} %{amendable_link}
+            Detta ändringsförslag till %{amendable_type} %{proposal_link}
             utvärderas just nu.
           rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navslogs <strong>%{announcement_date}</strong>."
           withdrawn: |-
-            Detta ändringsförslag till %{amendable_type} %{amendable_link}
-            har dragits tillbaka av författaren.
+            Detta ändringsförslag till %{amendable_type} %{proposal_link} har dragits tillbaka av författaren.
       new:
         amendment_author: Förslagsställare
       promoted:
@@ -827,7 +826,7 @@ sv:
           comments_count: Kommentarer
           conferences_count: Konferenser
           debates_count: Debatter
-          endorsements_count: Underskrifter
+          endorsements_count: Instämmanden
           headline: Aktuellt läge för %{organization}
           meetings_count: Möten
           orders_count: Omröstningar
