@@ -42,6 +42,7 @@ en:
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
@@ -71,6 +72,7 @@ en:
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
+        send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
         tos_version: Terms of service version
@@ -78,6 +80,8 @@ en:
         user_groups_enabled: Enable groups
         user_name: Username
         warning_color: Warning
+        welcome_notification_body: Welcome notification body
+        welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
       scope:
         code: Code
