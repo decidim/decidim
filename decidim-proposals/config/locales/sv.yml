@@ -122,8 +122,8 @@ sv:
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
-            endorsements_blocked: Stöd blockerade
-            endorsements_enabled: Stöd aktiverade
+            endorsements_blocked: Instämmanden är blockerade
+            endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Röstande blockerat
@@ -167,7 +167,7 @@ sv:
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
           notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Du kan godkänna förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Förslag till godkännande har startat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -275,9 +275,9 @@ sv:
         object: förslag
         title: Godkända förslag
       endorsements:
-        description: Antal anmärkningar som genereras i förslag
-        object: påskrifter
-        title: påskrifter
+        description: Antal instämmanden med förslag
+        object: instämmanden
+        title: Instämmanden
       proposals:
         description: Antal förslag
         object: förslag
@@ -579,7 +579,7 @@ sv:
           fields:
             category: Kategori
             comments: Kommentarer
-            endorsements: Påskrifter
+            endorsements: Instämmanden
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
@@ -596,19 +596,19 @@ sv:
           amend: Ändra
           comment: Kommentar
           comments: Kommentarer
-          endorse: Stödja
+          endorse: Instäm
       proposal_endorsements:
         create:
-          error: Det har blivit fel när man godkände förslaget.
+          error: Det gick inte att instämma med förslaget.
         identities:
           done: Klar
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Instämt
-          endorse: Stödja
+          endorse: Instäm
         render_endorsements_button_card_part:
-          endorse: Stöd
+          endorse: Instäm
       proposal_votes:
         create:
           error: Det har uppstått fel när man röstade om förslaget.
@@ -636,7 +636,7 @@ sv:
           send: Förhandsvisa
           title: Redigera utkast till förslag
         endorsement_identities_cabin:
-          endorse: Stödja
+          endorse: Instäm
         endorsements_card_row:
           comments: Kommentarer
         filters:
@@ -690,7 +690,7 @@ sv:
           back_to: Tillbaka till
           changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag
-          endorsements_list: Förteckning över Stöd
+          endorsements_list: Lista över instämmanden
           hidden_endorsers_count:
             one: och %{count} till person
             other: och %{count} till personer
