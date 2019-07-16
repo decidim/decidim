@@ -369,6 +369,7 @@ fr:
             created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
+            sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
