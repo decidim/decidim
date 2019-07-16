@@ -22,15 +22,15 @@ $size: 45px;
 }
 
 a.ssb-icon.ssb-whatsapp_app{
-    display: none;
+  display: none;
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: coarse){
   a.ssb-icon.ssb-whatsapp_app{
     display: inline-block;
-}
+  }
 
-  a.ssb-icon.ssb-whatsapp_web {
+  a.ssb-icon.ssb-whatsapp_web{
     display: none;
   }
 }
