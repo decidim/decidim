@@ -2,7 +2,11 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.results" %>
-      <span class="label button--title"><%= t "decidim.admin.consultations.results.total_votes", count: current_consultation.total_votes %></span>
+      <span class="label button--title">
+        <%= t "decidim.admin.consultations.results.total_votes", count: current_consultation.total_votes %>
+        /
+        <%= t "decidim.admin.consultations.results.participants", count: current_consultation.total_participants %>
+        </span>
     </h2>
   </div>
   <div class="card-section">
