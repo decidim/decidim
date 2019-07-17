@@ -17,13 +17,13 @@ module Decidim
 
     describe "current locale" do
       it "matches default language" do
-        expect(controller.set_locale.to_s).to eq(default_locale)
+        expect(controller.detect_locale.to_s).to eq(default_locale)
       end
       context "with alternate default locale" do
         let(:default_locale) { alt_locale }
 
         it "matches organization's default language" do
-          expect(controller.set_locale.to_s).to eq(alt_locale)
+          expect(controller.detect_locale.to_s).to eq(alt_locale)
         end
       end
     end
@@ -65,7 +65,7 @@ module Decidim
       end
 
       it "locale matches default language" do
-        expect(controller.set_locale.to_s).to eq(default_locale)
+        expect(controller.detect_locale.to_s).to eq(default_locale)
       end
     end
 
@@ -75,7 +75,7 @@ module Decidim
       end
 
       it "locale matches requested language" do
-        expect(controller.set_locale.to_s).to eq("ca")
+        expect(controller.detect_locale.to_s).to eq("ca")
       end
     end
 
@@ -85,7 +85,41 @@ module Decidim
       end
 
       it "locale matches requested language" do
-        expect(controller.set_locale.to_s).to eq("pt-BR")
+        expect(controller.detect_locale.to_s).to eq("pt-BR")
+      end
+    end
+
+    describe "request with GET locale parameter" do
+      before do
+        request.headers["Accept-Language"] = "ca-ES"
+        controller.params[:locale] = "de"
+      end
+
+      it "locale matches GET language" do
+        expect(controller.detect_locale.to_s).to eq("de")
+      end
+    end
+
+    describe "request with GET invalid locale parameter" do
+      before do
+        request.headers["Accept-Language"] = "ca-ES"
+        controller.params[:locale] = "foo"
+      end
+
+      it "locale matches GET language" do
+        expect(controller.detect_locale.to_s).to eq(default_locale)
+      end
+    end
+
+    describe "request with user session defined language" do
+      let(:user) { create(:user, :confirmed, locale: "ca", organization: organization) }
+
+      before do
+        controller.session[:user_locale] = "ca"
+      end
+
+      it "locale matches user language" do
+        expect(controller.detect_locale.to_s).to eq("ca")
       end
     end
   end
