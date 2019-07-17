@@ -62,12 +62,35 @@ module Decidim
       def set_locale
         session[:user_locale] = params[:locale] if params[:locale].present?
         locale = session[:user_locale] || extract_locale_from_accept_language_header
-        I18n.locale = available_locales.include?(locale) ? locale : I18n.default_locale
+        I18n.locale = locale.presence || default_locale
       end
 
+      # Finds a suitable language or returns nil
+      # Follows the RFC 2616 rules with this particularities:
+      # if no language matches, goes for the 2 chars prefixes
+      # ie: pt-BR is available locale but user requests pt, then pt-BR will be served
+      #     pt is available locale but user requests pt-BR, then pt will be served
       def extract_locale_from_accept_language_header
-        lang = request.env["HTTP_ACCEPT_LANGUAGE"] || I18n.locale.to_s
-        lang.scan(/\A^[a-z]{2}\z/).first
+        return nil unless request.env["HTTP_ACCEPT_LANGUAGE"]
+
+        accept_langs = request.env["HTTP_ACCEPT_LANGUAGE"].gsub(/[^a-z0-9\-;,=.]/i, "")
+
+        langs_and_qs = accept_langs.split(",").each_with_index.map do |l, i|
+          l += ";q=1.0" unless l =~ /;q=\d+(?:\.\d+)?$/
+          parts = l.split(";q=")
+          [parts[0], parts[1].to_f - (i.to_f / 1000)]
+        end
+        langs_and_qs = langs_and_qs.sort_by { |(_l, q)| q }.reverse
+        lang = langs_and_qs.detect do |(locale, _q)|
+          locale == "*" || available_locales.map(&:to_s).include?(locale.to_s)
+        end
+
+        lang &&= lang.first
+        # if no language detected go for RFC 2616 non-compliant (check prefixes)
+        lang ||= available_locales.detect do |available|
+          langs_and_qs.any? { |locale, _q| locale.to_s[0..1] == available.to_s[0..1] }
+        end
+        lang == "*" ? nil : lang
       end
     end
   end
