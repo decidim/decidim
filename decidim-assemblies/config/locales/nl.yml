@@ -365,7 +365,7 @@ nl:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} groepen"
+            one: "%{count} groep"
             other: "%{count} groepen"
         promoted_assembly:
           more_info: Meer informatie
