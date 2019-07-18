@@ -149,8 +149,8 @@ nl:
         assemblies: Events
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
-          assembly_members: leden
-          attachment_collections: folders
+          assembly_members: Leden
+          attachment_collections: Mappen
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
@@ -169,16 +169,16 @@ nl:
           name: Bijeenkomst
         assembly_member:
           fields:
-            ceased_date: Gestaakte datum
-            designation_date: Aanwijzingsdatum
+            ceased_date: Sluitingsdatum
+            designation_date: Ontwerpdatum
             full_name: Naam
             position: Positie
           name: Lid
           positions:
-            other: anders
-            president: President
+            other: Overige
+            president: De Voorzitter
             secretary: Secretaris
-            vice_president: Onderdirecteur
+            vice_president: Ondervoorzitter
         assembly_user_role:
           fields:
             email: E-mail
