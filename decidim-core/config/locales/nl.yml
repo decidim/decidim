@@ -19,7 +19,7 @@ nl:
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je bent genivelleerd
+      decidim/gamification/level_up_event: Je bereikte een hoger niveau
       decidim/join_request_accepted_event: Aanvragen geaccepteerd
       decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
       decidim/profile_updated_event: Profiel geüpdatet
