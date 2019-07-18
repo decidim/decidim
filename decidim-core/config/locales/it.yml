@@ -149,6 +149,14 @@ it:
       created:
         error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
+      destroy_draft:
+        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        success: La proposta di emendamento è stata eliminata con successo.
+      edit_draft:
+        discard: Scarta questa bozza
+        discard_confirmation: Sei sicuro di voler scartare questa bozza?
+        send: Anteprima
+        title: Modifica progetto di emendamento
       emendation:
         actions:
           button_accept: Accettato
@@ -168,9 +176,18 @@ it:
             è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
+        send: Crea
+        title: Crea proposta di emendamento
+      preview_draft:
+        modify: Modifica
+        publish: Pubblica
+        title: Pubblica la proposta di emendamento
       promoted:
         error: Ci sono stati errori nel promuovere l'emendamento
         success: Emendation promossa con successo
+      publish_draft:
+        error: Si è verificato un errore durante la pubblicazione di questo emendamento.
+        success: Emendamento pubblicato con successo.
       rejected:
         error: Si è verificato un errore durante il rifiuto di questa modifica, riprova più tardi
         success: L'emendamento è stato respinto con successo
@@ -179,15 +196,21 @@ it:
         heading: Rivedi l'emendamento
         help_text: Stai rivedendo un emendamento allo %{model_name}
         send: Accettare l'emendamento
+      update_draft:
+        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        success: Bozza emendamento aggiornata correttamente.
       visibility_options:
         all: Gli emendamenti sono visibili a tutti
         participants: Gli emendamenti sono visibili solo ai loro autori
+      withdraw:
+        error: Si è verificato un errore durante la creazione della proposta di emendamento
+        success: L'emendamento è stato creato con successo
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Confronta il tuo emendamento
+          '3': Completa il tuo emendamento
+          '4': Pubblica il tuo emendamento
     anonymous_user: Anonimo
     application:
       collection:
@@ -1016,6 +1039,12 @@ it:
     welcome_notification:
       default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Indietro
+      wizard_header:
+        see_steps: vedi passi
+        step_of: Passo %{current_step} di %{total_steps}
   devise:
     confirmations:
       confirmed: Il tuo indirizzo email è stato confermato con successo.
