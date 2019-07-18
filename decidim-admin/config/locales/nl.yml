@@ -64,6 +64,7 @@ nl:
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         password: Wachtwoord
+        port: Poort
         primary_color: primair
         reference_prefix: Referentievoorvoegsel
         secondary_color: Tweede
@@ -72,6 +73,7 @@ nl:
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Schakel gebruikersgroepen in
+        user_name: Gebruikersnaam
         warning_color: Waarschuwing
         youtube_handler: YouTube gebruikersnaam
       scope:
@@ -434,14 +436,24 @@ nl:
         form:
           interpolations_hint: 'Hint: U kunt "%{name}" overal in de body of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
+          all: alle
+          all_users: 'Alle gebruikers '
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
+          not_sent: Niet verzonden
+          participants: 'deelnemers '
           title: Nieuwsbrieven
         new:
           save: Opslaan
           title: Nieuwe nieuwsbrief
         select_recipients_to_deliver:
+          all_spaces: Alle
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
+          none: Geen
+          send_to_all_users: Stuur naar alle gebruikers
+          send_to_followers: Stuur naar volgers
+          send_to_participants: Stuur naar deelnemers
+          title: Selecteer ontvangers
         show:
           preview: Voorbeeld
           subject: Onderwerpen
