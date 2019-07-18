@@ -739,7 +739,7 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
-      help: Helpen
+      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -881,7 +881,7 @@ nl:
         read_more: Lees verder
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
-        title: Helpen
+        title: Help
         topics: Onderwerpen
       participatory_space:
         metrics:
@@ -1001,7 +1001,7 @@ nl:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
-        help: Helpen
+        help: Help
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
