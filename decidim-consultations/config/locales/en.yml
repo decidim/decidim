@@ -236,6 +236,9 @@ en:
       question_votes:
         create:
           error: There was a problem voting the question
+          success: You can change it until the end of the consultation. Only the last vote will be accepted.
+          title_error: Vote error!
+          title_success: Vote successfully registered
       regular_questions:
         title: Questions for this consultation
       show:

@@ -1,3 +1,11 @@
+<div class="callout hide" id="vote-result-callout" data-closable data-title-ok="<%= t('question_votes.create.title_success', scope: 'decidim.consultations') %>" data-message-ok="<%= t('question_votes.create.success', scope: 'decidim.consultations') %>" data-title-ko="<%= t('question_votes.create.title_error', scope: 'decidim.consultations') %>" data-message-ko="<%= t('question_votes.create.error', scope: 'decidim.consultations') %>">
+  <h5 class="callout-title"></h5>
+  <p class="callout-message"></p>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="row column question-vote-cabin">
   <div class="columns mediumlarge-4 show-for-mediumlarge previous-question">
     <%= display_next_previous_button(:previous, "float-left") %>
@@ -60,11 +68,13 @@
   <div class="columns mediumlarge-4 show-for-mediumlarge next-question">
     <%= display_next_previous_button(:next, "float-right") %>
   </div>
+</div>
+<div class="row column section hide-for-mediumlarge">
   <div class="small-buttons">
-    <div class="columns small-6 hide-for-mediumlarge previous-question">
+    <div class="columns small-6 previous-question">
       <%= display_next_previous_button(:previous, "expanded") %>
     </div>
-    <div class="columns small-6 hide-for-mediumlarge next-question">
+    <div class="columns small-6 next-question">
       <%= display_next_previous_button(:next, "expanded") %>
     </div>
   </div>
