@@ -87,6 +87,7 @@ it:
           global:
             amendments_enabled: Emendamenti abilitati
             amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
+            amendments_wizard_help_text: Creazione guidata emendamenti
             announcement: Annuncio
             attachments_allowed: Consenti allegati
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
