@@ -198,28 +198,28 @@ nl:
         unpublish: "%{user_name} heeft de groep %{resource_name} gedepubliceerd"
         update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
       assembly_member:
-        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly gemaakt"
-        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} assembly"
-        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly bijgewerkt"
+        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep gemaakt"
+        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
-        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
+        create: "%{user_name} nodigde %{resource_name} uit voor de groep %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} groep"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} groep gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Looptijd
-            duration_help: Als de duur van deze assembly beperkt is, selecteert u de einddatum. Anders zal het verschijnen als onbepaald.
-            filters: filters
+            duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
+            filters: Filters
             images: Afbeeldingen
-            included_at_help: Selecteer de datum waarop deze assembly aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
-            metadata: metadata
-            other: anders
+            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
+            metadata: Metadata
+            other: Anders
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
-            select_an_assembly_type: Selecteer een vergadering type
-            select_parent_assembly: Selecteer de ouderassemblage
+            select_an_assembly_type: Selecteer een groepstype
+            select_parent_assembly: Selecteer de hoofdgroep
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
             title: Algemene informatie
@@ -237,7 +237,7 @@ nl:
           index:
             filter:
               all: Alle
-              ceased: opgehouden
+              ceased: Gestopt
               not_ceased: Niet opgehouden
             filter_by: Filteren op
             search: Zoeken
@@ -246,10 +246,10 @@ nl:
             max_results: Maximum aantal elementen dat kan worden weergegeven
       assembly_members:
         index:
-          members: leden
+          members: Leden
       assembly_types:
         commission: Comissie
-        consultative_advisory: Consultative / Advisory
+        consultative_advisory: Adviesgroep
         executive: Uitvoerend
         government: Regering
         others: Overige
@@ -257,25 +257,25 @@ nl:
         working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
-          name: Gemarkeerde vergaderingen
+          name: Gemarkeerde groepen
       created_by:
         city_council: Gemeenteraad
         others: Overige
         public: Openbaar
       filter:
-        all: Alle soorten vergaderingen
+        all: Alle soorten groepen
         commission: Commissie
-        consultative_advisory: Consultative / Advisory
-        executive: uitvoerend
+        consultative_advisory: Adviesgroep
+        executive: Uitvoerend
         government: Regering
         help: 'Laten zien:'
-        others: anderen
-        participatory: deelnemend
+        others: Overige
+        participatory: Participatief
         working_group: Werkgroep
       index:
         title: Events
       last_activity:
-        new_assembly: Nieuwe vergadering
+        new_assembly: Nieuwe groep
       pages:
         home:
           highlighted_assemblies:
@@ -286,7 +286,7 @@ nl:
             member_of: Lid van
       show:
         area: onderwerp
-        assembly_type: Montage type
+        assembly_type: Groepstype
         children: Events
         closing_date: Einddatum
         composition: Samenstelling
@@ -319,36 +319,36 @@ nl:
         endorsements_count: Aanbevelingen
         headline: Activiteit
         meetings_count: Events
-        orders_count: Stemmen
+        orders_count: Ondersteunt
         pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: Stemmen
+        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
       index:
-        title: leden
+        title: Leden
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          contextual: "<p>Een groep is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene groep (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van groepen.</p>\n"
           page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
-          title: Wat zijn vergaderingen?
+          title: Wat zijn groepen?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
+          not_found: 'De groep is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Events
     metrics:
       assemblies:
-        description: Aantal aangemaakte vergaderingen
-        object: assemblages
-        title: Assemblies
+        description: Aantal aangemaakte groepen
+        object: groepen
+        title: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn
@@ -365,13 +365,13 @@ nl:
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} bijeenkomst"
-            other: "%{count} bijeenkomsten"
+            one: "%{count} groepen"
+            other: "%{count} groepen"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_navigation:
-        assembly_member_menu_item: leden
+        assembly_member_menu_item: Leden
         assembly_menu_item: De bijeenkomst
       assembly_widgets:
         show:
