@@ -15,7 +15,7 @@ nl:
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
-      decidim/attachment_created_event: gehechtheid
+      decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
@@ -37,7 +37,7 @@ nl:
     models:
       decidim/amendment:
         one: Amendement
-        other: wijzigingen
+        other: Amendementen
       decidim/user:
         one: Geen gebruikers
         other: gebruikers
