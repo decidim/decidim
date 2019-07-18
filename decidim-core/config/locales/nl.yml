@@ -142,6 +142,21 @@ nl:
         promote_confirm_text: Weet je zeker dat je deze emendatie wilt promoten?
         promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
         section_heading: Wijzigingen (%{count})
+      compare_draft:
+        continue: Volgende
+        no_similars_found: Geen gelijkaardige amendementen gevonden.
+        title: Gelijkaardige amendementen
+      created:
+        error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
+        success: Het amendement werd met succes aangemaakt.
+      destroy_draft:
+        error: Er was een probleem bij het verwijderen van het amendement.
+        success: Amendement ontwerp is succesvol verwijderd.
+      edit_draft:
+        discard: Verwijder dit concept
+        discard_confirmation: Weet u zeker dat u dit amendementsontwerp wilt verwijderen?
+        send: Voorbeeld
+        title: Wijzig amendement concept
       emendation:
         actions:
           button_accept: Aanvaarden
@@ -154,15 +169,25 @@ nl:
           evaluating: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
       new:
         amendment_author: Amendement auteur
+        send: Aanmaken
+        title: Maak een amendement
+      preview_draft:
+        modify: Aanpassen
+        publish: Publiceren
+        title: Publiceer het ontwerpdocument van amendement
       promoted:
         error: Er zijn fouten opgetreden bij het promoten van de emendation
         success: Emendation met succes gepromoot
+      publish_draft:
+        error: Er is een fout opgetreden bij het publiceren van dit amendement.
+        success: Amendement succesvol gepubliceerd.
       rejected:
         error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
         success: De emendation is met succes afgewezen
@@ -171,12 +196,21 @@ nl:
         heading: Bekijk het amendement
         help_text: U bekijkt een amendement op de %{model_name}
         send: Accepteer het amendement
+      update_draft:
+        error: Er is een fout opgetreden bij het bijwerken van dit amendement.
+        success: Amendement ontwerp is succesvol bijgewerkt.
+      visibility_options:
+        all: Amendementen zijn zichtbaar voor iedereen
+        participants: Amendementen zijn alleen zichtbaar voor hun auteurs
+      withdraw:
+        error: Er is een fout opgetreden tijdens het intrekken van het amendement
+        success: Het amendement is met succes ingetrokken
       wizard_step_form:
         steps:
           '1': Maak uw amendement
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Vergelijk uw amendement
+          '3': Voltooi uw amendement
+          '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
       collection:
@@ -298,6 +332,7 @@ nl:
         name: Sub held banner
     core:
       actions:
+        login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
     data_portability:
       export:
@@ -324,6 +359,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw korte, unieke ID op %{organization}
+          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -1003,6 +1039,12 @@ nl:
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Terug
+      wizard_header:
+        see_steps: bekijk stappen
+        step_of: Stap %{current_step} van %{total_steps}
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -1093,6 +1135,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
+        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
@@ -1256,6 +1299,14 @@ nl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Verwijderingen
+      right: Toevoegingen
+    dropdown:
+      choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_split: Naast elkaar
+      option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"
