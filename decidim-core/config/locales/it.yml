@@ -142,6 +142,13 @@ it:
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
         section_heading: Modifiche (%{count})
+      compare_draft:
+        continue: Prosegui
+        no_similars_found: Nessun emendamento simile trovato.
+        title: Emendamenti simili
+      created:
+        error: Si è verificato un errore durante la creazione della proposta di emendamento.
+        success: La proposta di emendamento è stata creata con successo.
       emendation:
         actions:
           button_accept: Accettato
