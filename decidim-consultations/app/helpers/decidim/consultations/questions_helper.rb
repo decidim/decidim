@@ -22,6 +22,24 @@ module Decidim
 
         link_to(i18n_text, decidim_consultations.question_path(question), class: css)
       end
+
+      def authorized_vote_modal_button(question, html_options, &block)
+        return if current_user && action_authorized_to(:vote, resource: nil, permissions_holder: question).ok?
+
+        tag = "button"
+        html_options ||= {}
+
+        if !current_user
+          html_options["data-open"] = "loginModal"
+        else
+          html_options["data-open"] = "authorizationModal"
+          html_options["data-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
+        end
+
+        html_options["onclick"] = "event.preventDefault();"
+
+        send("#{tag}_to", "", html_options, &block)
+      end
     end
   end
 end

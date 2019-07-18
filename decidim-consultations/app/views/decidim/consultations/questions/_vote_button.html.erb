@@ -41,6 +41,10 @@
         <%= link_to "#", class: "card__button button expanded", id: "vote_button" do %>
           <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
         <% end %>
+      <% else %>
+        <%= authorized_vote_modal_button(question, remote: true, class: "button expanded light button--sc") do %>
+          <%= t("questions.vote_button.verification_required", scope: "decidim") %>
+        <% end %>
       <% end %>
     <% elsif question.consultation.active? %>
       <%= logged_button_to decidim_consultations.question_question_votes_path(question),

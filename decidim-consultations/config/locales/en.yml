@@ -280,6 +280,7 @@ en:
         already_voted: Already voted
         already_voted_hover: Revoke vote
         starting_from: Starting from %{date}
+        verification_required: Verify your account to vote
         vote: Vote
       vote_modal:
         contextual_help: Please, select an option.
