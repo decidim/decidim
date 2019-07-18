@@ -190,27 +190,15 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-        if @proposal.emendation?
-          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
-        else
-          WithdrawProposal.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
-            on(:has_supports) do
-              flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
+          on(:has_supports) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end
@@ -235,7 +223,8 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.from_all_author_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
+        Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
+                .where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft

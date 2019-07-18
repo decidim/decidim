@@ -1,20 +1,23 @@
 <%= form.fields_for :emendation_params, form.object.emendation_params do |emendation_form| %>
-    <% form.object.amendable.attributes.each do |key, value| %>
-      <% key = key.to_sym %>
-      <% if form.object.amendable.amendable_fields.include?(key) %>
+  <% amendable.attributes.each do |key, value| %>
+    <% key = key.to_sym %>
+    <% if amendable.amendable_fields.include?(key) %>
 
-        <% if [:title, :body].include?(key) %>
-          <div class="field hashtags__container">
-            <%= emendation_form.form_field_for key, class: "js-hashtags",
-                hashtaggable: true, value: emendation_field_value(form, original, key) %>
-          </div>
-        <% end %>
+      <% if [:title, :body].include?(key) %>
+        <div class="field hashtags__container">
+          <%= emendation_form.form_field_for key,
+                                             class: "js-hashtags",
+                                             hashtaggable: true,
+                                             label: amendments_form_fields_label(key),
+                                             value: amendments_form_fields_value(original, key) %>
+        </div>
+      <% end %>
 
-        <% if form.object.errors[key].present? %>
-          <% form.object.errors.full_messages_for(key).each do |message| %>
-            <small class="form-error is-visible"><%= message %></small>
-          <% end %>
+      <% if form.object.errors[key].present? %>
+        <% form.object.errors.full_messages_for(key).each do |message| %>
+          <small class="form-error is-visible"><%= message %></small>
         <% end %>
+      <% end %>
 
     <% end %>
   <% end %>

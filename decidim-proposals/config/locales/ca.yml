@@ -108,6 +108,8 @@ ca:
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
+            amendments_visibility: Visibilitat de les esmenes
+            amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats

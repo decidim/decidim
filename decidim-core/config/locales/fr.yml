@@ -142,9 +142,6 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
-      created:
-        error: Une erreur s'est produite lors de la création de la modification.
-        success: L'amendement a été créé avec succès
       emendation:
         actions:
           button_accept: Acceptez
@@ -163,10 +160,6 @@ fr:
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
-        back: Retour
-        heading: Créez votre amendement
-        help_text: Vous modifiez le %{model_name}
-        send: Envoyer l'amendement
       promoted:
         error: Il y a eu des erreurs lors de la promotion de l'amendation
         success: Amendation promue avec succès
@@ -178,6 +171,12 @@ fr:
         heading: Revoir l'amendement
         help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
+      wizard_step_form:
+        steps:
+          '1': Créez votre amendement
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonyme
     application:
       collection:

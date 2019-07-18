@@ -8,7 +8,7 @@ it:
       user:
         about: Di
         email: La tua email
-        name: Il tuo nome
+        name: Nickname
         nickname: Nome utente
         password: Password
         password_confirmation: Conferma la tua password
@@ -33,7 +33,7 @@ it:
         name: Nome Utente
         password: Password
         password_confirmation: Conferma della password
-        remember_me: Ricordare password
+        remember_me: Ricorda la password
     models:
       decidim/amendment:
         one: Emendamento
@@ -63,7 +63,7 @@ it:
         file_no_exists: Il file non esiste
         invalid_token: Il token fornito non è valido.
         no_token: Nessun token fornito
-        notice: Il download dei tuoi dati è in corso. Riceverai un email non appena completato.
+        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
@@ -142,9 +142,6 @@ it:
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
         section_heading: Modifiche (%{count})
-      created:
-        error: Si è verificato un errore durante la creazione dell'emendamento
-        success: La modifica è stata creata con successo
       emendation:
         actions:
           button_accept: Accettato
@@ -164,10 +161,6 @@ it:
             è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
-        back: Indietro
-        heading: Crea il tuo emendamento
-        help_text: Stai modificando lo %{model_name}
-        send: Invia un emendamento
       promoted:
         error: Ci sono stati errori nel promuovere l'emendamento
         success: Emendation promossa con successo
@@ -182,6 +175,12 @@ it:
       visibility_options:
         all: Gli emendamenti sono visibili a tutti
         participants: Gli emendamenti sono visibili solo ai loro autori
+      wizard_step_form:
+        steps:
+          '1': Crea il tuo emendamento
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonimo
     application:
       collection:
@@ -321,8 +320,8 @@ it:
         new:
           complete_profile: Completa il profilo
           nickname_help: Il tuo nickname (@nickname) in %{organization}
-          sign_up: Si prega di completare il profilo
-          subtitle: Si prega di compilare il seguente modulo per completare la registrazione
+          sign_up: Completa il tuo profilo
+          subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
@@ -339,7 +338,7 @@ it:
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
           tos_title: Termini di servizio
-          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
+          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se non vuoi essere riconoscibile.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
@@ -564,7 +563,7 @@ it:
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
-          name: Seguaci
+          name: Followers
           next_level_in: Ottieni altri %{score} utenti che ti seguono per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora follower.
           unearned_own: Non hai ancora follower.
@@ -661,7 +660,7 @@ it:
         accept_request: Accettare
         reject_request: Rifiutare
       new:
-        create_user_group: Creare un gruppo
+        create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
         subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
       no_user_groups: Non appartiene ancora a nessun gruppo.
@@ -745,8 +744,8 @@ it:
         csv: Scarica dati (csv)
       followers:
         description: Numero di utenti che seguono questo spazio di partecipazione
-        object: seguaci
-        title: Seguaci
+        object: Followers
+        title: Followers
       participants:
         description: Numero di utenti attivi nell'organizzazione
         object: partecipanti
@@ -887,11 +886,11 @@ it:
       show:
         activity: Attività
         badges: badge
-        followers: Seguaci
-        following: segue
+        followers: Followers
+        following: Seguiti
         groups: gruppi
         members: Utenti
-        timeline: Sequenza temporale
+        timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
@@ -899,7 +898,7 @@ it:
           title: badge
       user:
         confirmation_instructions_sent: Istruzioni di conferma via email inviate
-        create_user_group: Creare un gruppo
+        create_user_group: Crea un gruppo
         edit_profile: Modifica Profilo
         edit_user_group: Modifica il profilo del gruppo
         fill_in_email_to_confirm_it: Per favore, inserisci l'email del tuo gruppo per confermarlo
@@ -1103,7 +1102,7 @@ it:
         password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
       new:
         forgot_your_password: Hai dimenticato la password?
-        send_me_reset_password_instructions: Inviami le istruzioni per la reimpostazione della password
+        send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
       no_token: Non è possibile accedere a questa pagina senza l'invio di un'email di reimpostazione della password. Se provieni da un'email di reimpostazione della password, assicurati di aver utilizzato l'URL completo fornito.
       send_instructions: Riceverai un'email con le istruzioni su come reimpostare la password in pochi minuti.
       send_paranoid_instructions: Se il tuo indirizzo e-mail esiste nel nostro database, riceverai un link per il recupero della password al tuo indirizzo e-mail in pochi minuti.
@@ -1129,18 +1128,18 @@ it:
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
     sessions:
-      already_signed_out: Sottoscritto con successo.
+      already_signed_out: Logout effettuato.
       new:
-        sign_in: Accesso
+        sign_in: Accedi
       signed_in: Login effettuato.
-      signed_out: Sottoscritto con successo.
+      signed_out: Logout effettuato.
     shared:
       links:
         back: Indietro
         didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
         didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
         forgot_your_password: Hai dimenticato la password?
-        sign_in: Accesso
+        sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:
@@ -1186,7 +1185,7 @@ it:
         link_label: qui
         ok: OK, accetto
       edit_link:
-        edit: modificare
+        edit: Modifica
       footer:
         download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.

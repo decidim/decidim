@@ -142,9 +142,15 @@ tr:
         promote_confirm_text: Bu yayılımı arttırmak istediğinize emin misiniz?
         promote_help_text: Bu ödemenizi tanıtabilir ve bağımsız olarak yayınlayabilirsiniz %{model_name}
         section_heading: Değişiklikler (%{count})
+      compare_draft:
+        continue: Devam et
+        no_similars_found: Hiç benzer düzeltme bulunamadı.
+        title: Benzer Düzeltmeler
       created:
-        error: Değişiklik oluşturulurken bir hata oluştu
-        success: Değişiklik başarıyla oluşturuldu
+        error: Değişiklik tasarısı oluşturulurken bir hata oluştu.
+        success: Değişiklik tasarısı başarı ile oluşturuldu.
+      destroy_draft:
+        error: Değişiklik tasarısını silerken bir hata oluştu.
       emendation:
         actions:
           button_accept: Kabul etmek
@@ -163,10 +169,6 @@ tr:
             için bu değişiklik yazar tarafından geri çekilmiştir.
       new:
         amendment_author: Değişiklik yazarı
-        back: Geri
-        heading: Değişikliğinizi oluşturun
-        help_text: '%{model_name}değiştiriyorsun'
-        send: Değişiklik gönder
       promoted:
         error: Düzeltmeyi teşvik ederken hatalar oluştu
         success: Emendation başarıyla tanıtıldı
@@ -178,6 +180,12 @@ tr:
         heading: Değişikliği gözden geçirin
         help_text: '%{model_name}yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
+      wizard_step_form:
+        steps:
+          '1': Değişikliğinizi oluşturun
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anonim
     application:
       collection:

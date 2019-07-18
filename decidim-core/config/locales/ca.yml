@@ -142,9 +142,6 @@ ca:
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         section_heading: Esmenes (%{count})
-      created:
-        error: S'ha produït un error durant la creació de l’esmena
-        success: L'esmena s'ha creat correctament
       emendation:
         actions:
           button_accept: Acceptar
@@ -160,10 +157,6 @@ ca:
             Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
-        back: Torna
-        heading: Crea la teva esmena
-        help_text: Estàs modificant el %{model_name}
-        send: Enviar esmena
       promoted:
         error: S'ha produït un error en publicar l'esmena com una nova proposta
         success: L'esmena s'ha publicat com una nova proposta correctament
@@ -175,6 +168,15 @@ ca:
         heading: Revisa l'esmena
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
+      visibility_options:
+        all: Les esmenes són visibles per a tothom
+        participants: Les esmenes són visibles únicament per als seus autors
+      wizard_step_form:
+        steps:
+          '1': Crea la teva esmena
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anònim
     application:
       collection:

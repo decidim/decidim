@@ -1,0 +1,18 @@
+<%= cell("decidim/announcement", wizard_header_announcement) %>
+
+<div class="proposal_wizard_help_text">
+  <%= cell("decidim/announcement", wizard_header_help_text) %>
+</div>
+
+<h2 class="section-heading">
+  <%= wizard_header_title %>
+  <%= wizard_header_similar_resources_count %>
+</h2>
+
+<div class="hide-for-large m-bottom">
+  <%= wizard_header_see_steps %>
+
+  <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+    <%= wizard_stepper %>
+  </ol>
+</div>

@@ -5,5 +5,6 @@ module Decidim
     autoload :BaseParser, "decidim/content_parsers/base_parser"
     autoload :UserParser, "decidim/content_parsers/user_parser"
     autoload :HashtagParser, "decidim/content_parsers/hashtag_parser"
+    autoload :NewlineParser, "decidim/content_parsers/newline_parser"
   end
 end

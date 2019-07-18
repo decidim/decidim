@@ -1,23 +1,10 @@
 <main class="wrapper">
   <div class="row">
-    <div class="columns large-3">
-      <div class="m-bottom">
-        <%= link_to :back do %>
-          <%= icon "chevron-left", class: "icon--small" %>
-          <%= t(".back") %>
-        <% end %>
-      </div>
-      <div class="section">
-        <p>
-          <%= t(".help_text", model_name: amendable.model_name.human.downcase ) %>
-          <strong>
-            <%= decidim_html_escape(amendable.title).html_safe %>
-          </strong>
-        </p>
-      </div>
-    </div>
+    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
+
     <div class="columns large-6">
-      <h2 class="section-heading"><%= t(".heading") %></h2>
+      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header ) %>
+
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
@@ -38,6 +25,7 @@
         </div>
       </div>
     </div>
+
     <div class="columns large-3"></div>
   </div>
 </main>
