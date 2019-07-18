@@ -31,11 +31,11 @@ nl:
         is_transparent: Is transparant
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
-        parent_id: Montage van de ouders
-        participatory_processes_ids: Verwante burgerinspraken
+        parent_id: Hoofdgroep
+        participatory_processes_ids: Verwante bevragingen
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe is het besloten
-        private_space: Prive ruimte
+        private_space: Privé ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doel van actie
@@ -53,10 +53,10 @@ nl:
       assembly_member:
         birthday: Verjaardag
         birthplace: Geboorteplaats
-        ceased_date: Gestaakte datum
+        ceased_date: Sluitingsdatum
         designation_date: Aanwijzingsdatum
         designation_mode: Aanwijzingsmodus
-        full_name: Voor-en achternaam
+        full_name: Volledige naam
         gender: Geslacht
         position: Positie
       assembly_user_role:
@@ -77,10 +77,10 @@ nl:
   decidim:
     admin:
       actions:
-        new_assembly: Nieuwe vergadering
+        new_assembly: Nieuwe groep
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw event.
+          error: Er is een fout opgetreden bij het maken van een nieuwe groep.
           success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
@@ -93,7 +93,7 @@ nl:
           create: creëren
           title: Nieuwe bijeenkomst
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze bijeenkomt.
+          error: Er is een fout opgetreden bij het bijwerken van deze groep.
           success: Bijeenkomst is succesvol bijgewerkt.
       assemblies_copies:
         create:
@@ -114,10 +114,10 @@ nl:
           title: Update assembly-lid.
           update: Bijwerken
         index:
-          assembly_members_title: Vergadering leden
+          assembly_members_title: Groepsleden
         new:
           create: creëren
-          title: Nieuw assemblagelid.
+          title: Nieuw groepslid.
         update:
           error: Er is een fout opgetreden bij het bijwerken van het lid voor deze assembly.
           success: Lid is succesvol bijgewerkt voor deze assembly.
