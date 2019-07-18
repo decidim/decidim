@@ -3,8 +3,8 @@ nl:
     attributes:
       assembly:
         area_id: Onderwerp
-        assembly_type: Montage type
-        assembly_type_other: Montagetype anders
+        assembly_type: Groeptype
+        assembly_type_other: Ander groeptype
         banner_image: Bannerafbeelding
         closing_date: Einddatum
         closing_date_reason: Reden sluitingsdatum
@@ -359,6 +359,7 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
+          children: 'Groepen: '
           organizational_chart: Organisatieschema
           promoted_assemblies: Uitgelichte events
           reset_chart: Reset
