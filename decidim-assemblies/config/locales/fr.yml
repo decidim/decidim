@@ -359,6 +359,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
         index:
+          children: 'Assemblées : '
           organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
           reset_chart: Réinitialiser
