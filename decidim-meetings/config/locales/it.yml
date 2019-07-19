@@ -348,7 +348,7 @@ it:
           date: Data
           past: Conclusi
           search: Cerca
-          upcoming: Imminenti
+          upcoming: Prossimi
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
