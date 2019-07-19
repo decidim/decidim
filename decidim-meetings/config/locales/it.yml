@@ -324,7 +324,7 @@ it:
         meetings:
           index:
             all: Tutti
-            date: Data
+            date: Quando
             meetings: incontri
             past: Conclusi
             search: Ricerca
