@@ -30,6 +30,7 @@
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
+- **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
 
 
 **Removed**:
