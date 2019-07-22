@@ -27,7 +27,7 @@ it:
         short_description: Descrizione breve
         show_statistics: Mostra statistiche
         slug: Stringa URL
-        start_date: Date di inizio
+        start_date: Data di inizio
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
@@ -42,7 +42,7 @@ it:
         description: Descrizione
         end_date: Data di fine
         short_description: Descrizione breve
-        start_date: Date di inizio
+        start_date: Data di inizio
         title: Titolo
       participatory_process_user_role:
         email: Email
@@ -112,7 +112,7 @@ it:
         participatory_process_step:
           fields:
             end_date: Data di fine
-            start_date: Date di inizio
+            start_date: Data di inizio
             title: Titolo
           name: Fase del processo partecipativo
         participatory_process_user_role:
