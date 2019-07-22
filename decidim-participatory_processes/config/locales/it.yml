@@ -76,7 +76,7 @@ it:
           process_groups: Gruppi di processi
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
-        new_process_step: Nuovo passo
+        new_process_step: Nuova fase
         new_process_user_role: Nuovo utente del processo
         preview: Anteprima
         publish: Pubblica
