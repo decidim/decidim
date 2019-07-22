@@ -91,13 +91,18 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "adds a question with answer options" do
-      question_body = [
-        "This is the first question",
-        "This is the second question"
-      ]
+      question_body = ["This is the first question", "This is the second question"]
       answer_options_body = [
-        ["This is the Q1 first option", "This is the Q1 second option"],
-        ["This is the Q2 first option", "This is the Q2 second option"]
+        [
+          "This is the Q1 first option",
+          "This is the Q1 second option",
+          "This is the Q1 third option"
+        ],
+        [
+          "This is the Q2 first option",
+          "This is the Q2 second option",
+          "This is the Q2 third option"
+        ]
       ]
 
       within "form.edit_questionnaire" do
@@ -115,6 +120,7 @@ shared_examples_for "manage questionnaires" do
         page.all(".questionnaire-question").each do |question|
           within question do
             select "Single option", from: "Type"
+            click_button "Add answer option"
           end
         end
 
@@ -136,9 +142,11 @@ shared_examples_for "manage questionnaires" do
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the Q1 first option']")
       expect(page).to have_selector("input[value='This is the Q1 second option']")
+      expect(page).to have_selector("input[value='This is the Q1 third option']")
       expect(page).to have_selector("input[value='This is the second question']")
       expect(page).to have_selector("input[value='This is the Q2 first option']")
       expect(page).to have_selector("input[value='This is the Q2 second option']")
+      expect(page).to have_selector("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
