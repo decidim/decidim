@@ -691,7 +691,7 @@ it:
           back_to: Torna a
           changes_at_title: Modifica a "%{title}"
           edit_proposal: Modifica la proposta
-          endorsements_list: Elenco di approvazioni
+          endorsements_list: Elenco dei sostenitori
           hidden_endorsers_count:
             one: e %{count} altra persona
             other: e altre %{count} persone
