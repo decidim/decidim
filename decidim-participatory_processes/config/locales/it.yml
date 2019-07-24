@@ -314,7 +314,7 @@ it:
       pages:
         home:
           highlighted_processes:
-            active_processes: Processi attivi
+            active_processes: Processi di partecipazione e consultazione attivi
             active_step: Fase attiva
             more_information: Maggiori informazioni
             participate: Partecipa
