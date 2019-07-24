@@ -65,8 +65,8 @@ it:
         one: Proposta
         other: proposte
       decidim/proposals/proposal_endorsement:
-        one: Approvazione
-        other: Riconoscimenti
+        one: Mi piace
+        other: Mi piace
       decidim/proposals/proposal_note:
         one: Nota
         other: Gli appunti
@@ -277,8 +277,8 @@ it:
         title: Proposte accettate
       endorsements:
         description: Numero di approvazioni generate nelle proposte
-        object: approvazioni
-        title: Riconoscimenti
+        object: Mi piace
+        title: Mi piace
       proposals:
         description: Numero di proposte generate
         object: proposte
@@ -606,7 +606,7 @@ it:
           select_identity: Seleziona identità
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: approvato
+          already_endorsed: Mi piace
           endorse: Sostieni
         render_endorsements_button_card_part:
           endorse: Sostieni
