@@ -11,7 +11,7 @@ it:
         decidim_scope_id: Scopo
         description: Descrizione
         hashtag: hashtag
-        hero_image: Immagine domestica
+        hero_image: Immagine della home page
         participatory_processes_ids: Processi partecipativi correlati
         promoted: Promossa
         published_at: Pubblicato a
