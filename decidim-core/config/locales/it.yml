@@ -862,7 +862,7 @@ it:
           comments_count: Commenti
           conferences_count: conferenze
           debates_count: Dibattiti
-          endorsements_count: Riconoscimenti
+          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
           meetings_count: incontri
           orders_count: Voti
