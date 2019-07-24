@@ -137,6 +137,7 @@ en:
           title: Duplicate participatory process
       participatory_process_groups:
         destroy:
+          error: There was an error while destroying the Participatory process group.
           success: Participatory process group successfully deleted.
         edit:
           title: Edit process group
