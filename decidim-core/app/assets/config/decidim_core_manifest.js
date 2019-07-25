@@ -12,3 +12,5 @@
 // = link decidim/widget.js
 // = link decidim/impersonation.js
 // = link decidim/floating_help.js
+// = link decidim/extras/_social_share.css
+// = link decidim/social_share.js

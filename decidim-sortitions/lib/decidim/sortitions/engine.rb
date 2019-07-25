@@ -18,10 +18,6 @@ module Decidim
         root to: "sortitions#index"
       end
 
-      initializer "decidim_sorititions.assets" do |app|
-        app.config.assets.precompile += %w(decidim_sortitions_manifest.js decidim_sortitions_manifest.css)
-      end
-
       initializer "decidim_sortitions.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Sortitions::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Sortitions::Engine.root}/app/views") # for proposal partials

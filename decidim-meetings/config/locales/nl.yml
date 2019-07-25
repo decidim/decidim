@@ -22,7 +22,7 @@ nl:
         location_hints: Locatie hints
         organizer_id: Organisator
         private_meeting: Privé vergadering
-        registration_form_enabled: Registratieformulier ingeschakeld
+        registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
@@ -286,6 +286,7 @@ nl:
               other: Er zijn %{count} registraties geweest.
             reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
+            title: Inschrijvingen
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.

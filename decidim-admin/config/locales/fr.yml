@@ -63,6 +63,7 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        password: Mot de passe
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
@@ -368,6 +369,7 @@ fr:
             created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
+            sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
@@ -439,10 +441,13 @@ fr:
           save: Enregistrer
           title: Nouvelle newsletter
         select_recipients_to_deliver:
+          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          title: Sélectionner les destinataires
         show:
           preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.

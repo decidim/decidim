@@ -4,6 +4,7 @@ shared_examples "manage process components" do
   let!(:participatory_process) do
     create(:participatory_process, :with_steps, organization: organization)
   end
+  let(:step_id) { participatory_process.steps.first.id }
 
   before do
     switch_to_host(organization.host)
@@ -33,10 +34,20 @@ shared_examples "manage process components" do
           )
 
           within ".global-settings" do
+            fill_in_i18n_editor(
+              :component_settings_dummy_global_translatable_text,
+              "#global-settings-dummy_global_translatable_text-tabs",
+              en: "Dummy Text"
+            )
             all("input[type=checkbox]").last.click
           end
 
           within ".step-settings" do
+            fill_in_i18n_editor(
+              "component_step_settings_#{step_id}_dummy_step_translatable_text",
+              "#step-#{step_id}-settings-dummy_step_translatable_text-tabs",
+              en: "Dummy Text for Step"
+            )
             all("input[type=checkbox]").first.click
           end
 
@@ -96,10 +107,20 @@ shared_examples "manage process components" do
           )
 
           within ".global-settings" do
+            fill_in_i18n_editor(
+              :component_settings_dummy_global_translatable_text,
+              "#global-settings-dummy_global_translatable_text-tabs",
+              en: "Dummy Text"
+            )
             all("input[type=checkbox]").last.click
           end
 
           within ".default-step-settings" do
+            fill_in_i18n_editor(
+              :component_default_step_settings_dummy_step_translatable_text,
+              "#default-step-settings-dummy_step_translatable_text-tabs",
+              en: "Dummy Text for Step"
+            )
             all("input[type=checkbox]").first.click
           end
 
@@ -148,7 +169,14 @@ shared_examples "manage process components" do
     end
 
     let!(:component) do
-      create(:component, name: component_name, participatory_space: participatory_process)
+      create(
+        :component,
+        name: component_name,
+        participatory_space: participatory_process,
+        step_settings: {
+          step_id => { dummy_step_translatable_text: generate_localized_title }
+        }
+      )
     end
 
     before do
