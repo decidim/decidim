@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari", "~> 1.1"
   s.add_dependency "ransack", "~> 2.1"
   s.add_dependency "redcarpet", "~> 3.4"
-  s.add_dependency "social-share-button", "~> 1.2"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version
   s.add_development_dependency "decidim-assemblies", Decidim::Proposals.version

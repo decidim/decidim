@@ -1292,12 +1292,15 @@ en:
     qq: Qzone
     reddit: Reddit
     share_to: Share to %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
