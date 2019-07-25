@@ -25,6 +25,9 @@ module Decidim
           resource :consultation_widget, only: :show, path: "embed"
 
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
+            member do
+              get :authorization_vote_modal, to: "authorization_vote_modals#show"
+            end
             resource :question_widget, only: :show, path: "embed"
             resource :question_votes, only: [:create, :destroy], path: "vote"
           end

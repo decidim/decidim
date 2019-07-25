@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class QuestionsController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
+        helper ::Decidim::Admin::ResourcePermissionsHelper
 
         def index
           enforce_permission_to :read, :question
