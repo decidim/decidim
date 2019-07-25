@@ -35,7 +35,7 @@ module Decidim
 
     def profile_path
       return "" if respond_to?(:deleted?) && deleted?
-      
+
       # OSP safety net
       return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
