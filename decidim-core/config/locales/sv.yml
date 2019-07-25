@@ -136,9 +136,9 @@ sv:
       amendable:
         amended_by: Ändrad av
         button: Ändra %{model_name}
-        error: Det har inträffat ett fel vid ändring av denna resurs.
+        error: Det gick inte att ändra resursen.
         help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
-        promote_button: Främja till %{model_name}
+        promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
         promote_help_text: Du kan stötta detta ändringsförslag och lägga fram det som ett oberoende %{model_name}
         section_heading: Ändringar (%{count})
@@ -828,7 +828,7 @@ sv:
           comments_count: Kommentarer
           conferences_count: Konferenser
           debates_count: Debatter
-          endorsements_count: Underskrifter
+          endorsements_count: Instämmanden
           headline: Aktuellt läge för %{organization}
           meetings_count: Möten
           orders_count: Omröstningar
