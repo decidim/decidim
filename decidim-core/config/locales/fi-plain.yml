@@ -202,6 +202,9 @@ fi-pl:
       visibility_options:
         all: Muutokset ovat näkyvillä kaikille
         participants: Muutokset ovat näkyvillä ainoastaan niiden laatijoille
+      withdraw:
+        error: Muutoksen peruuttaminen epäonnistui
+        success: Muutoksen peruuttaminen onnistui
       wizard_step_form:
         steps:
           '1': Luo muutos
