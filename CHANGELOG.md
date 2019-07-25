@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-dev**, **decidim-initiatives**, **decidim-participatory_processes**: Fix: `Decidim::Admin::ComponentForm` validations [#5269](https://github.com/decidim/decidim/pull/5269)
 - **decidim-core**, **decidim-proposals**: Add: amendments Wizard Step Form [#5244](https://github.com/decidim/decidim/pull/5244)
 - **decidim-core**, **decidim-admin**, **decidim-proposals**: Add: `amendments_visibility` component step setting [#5223](https://github.com/decidim/decidim/pull/5223)
 - **decidim-core**, **decidim-admin**, **decidim-proposals**: Add: admin configuration of amendments by step [#5178](https://github.com/decidim/decidim/pull/5178)

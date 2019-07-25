@@ -312,6 +312,17 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    settings do
+      {
+        dummy_global_translatable_text: generate_localized_title
+      }
+    end
+
+    default_step_settings do
+      {
+        dummy_step_translatable_text: generate_localized_title
+      }
+    end
 
     trait :unpublished do
       published_at { nil }
