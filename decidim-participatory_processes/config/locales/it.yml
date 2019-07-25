@@ -25,7 +25,7 @@ it:
         short_description: Descrizione breve
         show_statistics: Mostra statistiche
         slug: Stringa URL
-        start_date: Date di inizio
+        start_date: Data di inizio
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
@@ -40,7 +40,7 @@ it:
         description: Descrizione
         end_date: Data di fine
         short_description: Descrizione breve
-        start_date: Date di inizio
+        start_date: Data di inizio
         title: Titolo
       participatory_process_user_role:
         email: Email
@@ -71,7 +71,7 @@ it:
         edit: Modifica
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
-        new_process_step: Nuovo passo
+        new_process_step: Nuova fase
         new_process_user_role: Nuovo utente del processo
         preview: Anteprima
         publish: Pubblica
@@ -107,7 +107,7 @@ it:
         participatory_process_step:
           fields:
             end_date: Data di fine
-            start_date: Date di inizio
+            start_date: Data di inizio
             title: Titolo
           name: Fase del processo partecipativo
         participatory_process_user_role:
@@ -302,7 +302,7 @@ it:
       pages:
         home:
           highlighted_processes:
-            active_processes: Processi attivi
+            active_processes: Processi di partecipazione e consultazione attivi
             active_step: Fase attiva
             more_information: Maggiori informazioni
             participate: Partecipa
@@ -331,7 +331,7 @@ it:
           names:
             active: Attivo
             all: Tutti
-            past: Concluso
+            past: Conclusi
             upcoming: Imminenti
           see: Vedi tutto
         index:
@@ -344,14 +344,14 @@ it:
         participatory_structure: Come si decide
         private_space: Questo è un processo privato
         scope: Obiettivi
-        start_date: Date di inizio
+        start_date: Data di inizio
         target: Chi partecipa
         unspecified: Non specificato
       statistics:
         answers_count: risposte
         comments_count: Commenti
         debates_count: dibattiti
-        endorsements_count: Riconoscimenti
+        endorsements_count: Mi piace
         headline: Attività
         meetings_count: Eventi
         orders_count: Voti
@@ -377,10 +377,10 @@ it:
         index:
           promoted_processes: Processi evidenziati
         participatory_process:
-          active_step: 'Fase attuale:'
+          active_step: 'Fase attiva:'
           take_part: Partecipa
         promoted_process:
-          active_step: 'Fase attuale:'
+          active_step: 'Fase attiva:'
           more_info: Maggiori informazioni
           take_part: Partecipa
       process_header_steps:
