@@ -8,7 +8,7 @@ module Decidim
 
     describe "attribute" do
       it "adds an attribute to the attribute hash with defaults" do
-        subject.attribute :something
+        subject.attribute :something # default: boolean
         expect(subject.attributes[:something].type).to eq(:boolean)
       end
 
@@ -24,14 +24,47 @@ module Decidim
       end
 
       it "stores presenceness" do
-        subject.attribute :something
-        expect(subject.attributes[:something].required).to eq(true)
+        subject.attribute :something # default: false
+        expect(subject.attributes[:something].required).to eq(false)
 
         subject.attribute :something, required: true
         expect(subject.attributes[:something].required).to eq(true)
 
         subject.attribute :something, required: false
         expect(subject.attributes[:something].required).to eq(false)
+      end
+
+      it "stores `translated`" do
+        subject.attribute :something # default: false
+        expect(subject.attributes[:something].translated).to eq(false)
+
+        subject.attribute :something, translated: true
+        expect(subject.attributes[:something].translated).to eq(true)
+
+        subject.attribute :something, translated: false
+        expect(subject.attributes[:something].translated).to eq(false)
+      end
+
+      it "stores `editor`" do
+        subject.attribute :something # default: false
+        expect(subject.attributes[:something].editor).to eq(false)
+
+        subject.attribute :something, editor: true
+        expect(subject.attributes[:something].editor).to eq(true)
+
+        subject.attribute :something, editor: false
+        expect(subject.attributes[:something].editor).to eq(false)
+      end
+
+      it "stores `required_for_authorization`" do
+        subject.attribute :something # default: false
+        expect(subject.attributes[:something].required_for_authorization).to eq(false)
+
+        subject.attribute :something, required_for_authorization: true
+        expect(subject.attributes[:something].required_for_authorization).to eq(true)
+
+        subject.attribute :something, required_for_authorization: false
+        expect(subject.attributes[:something].required_for_authorization).to eq(false)
       end
 
       describe "supported types" do
@@ -57,6 +90,12 @@ module Decidim
           attribute = SettingsManifest::Attribute.new(type: :text)
           expect(attribute.type_class).to eq(String)
           expect(attribute.default_value).to eq(nil)
+        end
+
+        it "supports arrays" do
+          attribute = SettingsManifest::Attribute.new(type: :array)
+          expect(attribute.type_class).to eq(Array)
+          expect(attribute.default_value).to eq([])
         end
       end
 
@@ -86,15 +125,50 @@ module Decidim
         expect(settings.attributes).not_to include(invalid_option: true)
       end
 
-      it "adds presence validation to the model according the the presenceness of the setting" do
-        subject.attribute :something_enabled, required: false
-        subject.attribute :comments_enabled
+      it "adds presence validation to the model according the presenceness of the setting" do
+        subject.attribute :something_enabled
+        subject.attribute :comments_enabled, required: true
 
         settings = subject.schema.new(something_enabled: true)
         expect(settings).not_to be_valid
 
         settings = subject.schema.new(comments_enabled: true)
         expect(settings).to be_valid
+      end
+
+      it "allows passing an optional argument `default_locale` that defaults to nil" do
+        settings = subject.schema.new({}, "en")
+        expect(settings.default_locale).to eq("en")
+
+        settings = subject.schema.new({})
+        expect(settings.default_locale).to eq(nil)
+      end
+
+      context "when adding presence validation to the model from a translated setting" do
+        before do
+          subject.attribute :translatable_setting, type: :text, translated: true, required: true
+        end
+
+        context "and `default_locale` is present" do
+          let(:default_locale) { "en" }
+
+          it "allows to validate the translatable presence of the setting" do
+            settings = subject.schema.new({ translatable_setting_en: "Some text" }, default_locale)
+            expect(settings).to be_valid
+
+            settings = subject.schema.new({ translatable_setting_en: "" }, default_locale)
+            expect(settings).not_to be_valid
+          end
+        end
+
+        context "and `default_locale` is nil" do
+          let(:default_locale) { nil }
+
+          it "raises an error when trying to validate the translatable presence of the setting" do
+            settings = subject.schema.new({ translatable_setting_en: "Some text" }, default_locale)
+            expect { settings.validate }.to raise_error(NoMethodError)
+          end
+        end
       end
     end
   end
