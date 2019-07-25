@@ -32,6 +32,19 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
+Capybara.register_driver :iphone do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+  options.args << "--headless"
+  options.args << "--no-sandbox"
+  options.add_emulation(device_name: "iPhone 6")
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: options
+  )
+end
+
 Capybara.server = :puma, { Silent: true }
 
 Capybara.asset_host = "http://localhost:3000"
