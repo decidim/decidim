@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -15,7 +16,7 @@ fr:
         user: Utilisateur
         verification_attachment: Copie scannée du document
       offline_confirmation:
-        email: email de l'utilisateur
+        email: Email de l'utilisateur
       postal_letter_address:
         full_address: Adresse complète
       postal_letter_confirmation:
@@ -29,23 +30,30 @@ fr:
         authorization_workflows: Vérifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} mise à jour de la configuration de vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} a mis à jour la configuration de la vérification des documents d'identité"
       user:
-        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
+        grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} aide d'une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+          - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
+          - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
         id_documents:
           help:
-            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
-            - Vous remplissez les informations présentes dans l'image téléchargée.
-            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
+          - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+          - Vous remplissez les informations présentes dans l'image téléchargée.
+          - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+          - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
-            - Vous envoyez la lettre à leur adresse avec le code de vérification.
-            - Vous marquez la lettre comme envoyée.
-            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+          - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+          - Vous envoyez la lettre à leur adresse avec le code de vérification.
+          - Vous marquez la lettre comme envoyée.
+          - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+      csv_census:
+        explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
+        name: Recensement de l'organisation
       direct: Direct
       help: Texte d'aide
       id_documents:
@@ -65,6 +73,7 @@ fr:
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
+            csv_census: Vérifier par rapport au recensement de l'organisation
             dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
@@ -76,6 +85,33 @@ fr:
           authorize_with: Vérifier votre identité avec %{authorizer}
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Une erreur est survenue lors du recensement.
+              success: "%{count} articles importés avec succès (%{errors} erreur)"
+            destroy_all:
+              success: Toutes les données du recensement ont été supprimées
+          destroy:
+            confirm: Supprimer tout le recensement ne peut pas être annulé. Es-tu sur de vouloir continuer?
+            title: Supprimer toutes les données du recensement
+          index:
+            data: Il y a %{count} enregistrements chargés au total. La dernière date de mise en ligne était le %{due_date}
+            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
+            title: Données de recensement actuelles
+          instructions:
+            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
+            title: Vous devez activer le recensement CSV pour cette organisation
+          new:
+            file: Fichier .csv avec données de courrier électronique
+            info: 'Doit être un fichier au format CSV avec une colonne: email'
+            submit: Téléverser un fichier
+            title: Télécharger un nouveau recensement
+        authorizations:
+          new:
+            error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
+            success: Votre compte a été vérifié avec succès.
       dummy_authorization:
         extra_explanation:
           one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
@@ -85,7 +121,7 @@ fr:
           config:
             edit:
               title: Configuration des documents d'identité
-              update: Mise à jour
+              update: Mettre à jour
             update:
               error: Une erreur s'est produite lors de la mise à jour de la configuration.
               success: Configuration mise à jour avec succès
@@ -99,11 +135,11 @@ fr:
               verify: Vérifier
           offline_confirmations:
             create:
-              error: La vérification ne correspond pas. Essayez à nouveau ou demandez à l'utilisateur de le modifier
+              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
               success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
-              introduce_user_data: Renseignez l'email de l'utilisateur et les données du document
+              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:
@@ -116,10 +152,10 @@ fr:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
-            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
+            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez valider votre compte :'
             offline: Hors ligne
             online: En ligne
-            title: Authentifiez-vous à l'aide de votre pièce d'identité
+            title: Validation de votre pièce d'identité
           create:
             error: Un problème est survenu lors de l'importation de votre document
             success: Document importé avec succès
@@ -174,7 +210,12 @@ fr:
           create:
             error: Il y avait un problème avec votre demande
             success: Merci! Nous avons envoyé un SMS sur votre téléphone.
+          destroy:
+            success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           edit:
+            confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
+            destroy: Réinitialiser le code de vérification
+            resend: Vous n'avez pas reçu le code de vérification?
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
           new:

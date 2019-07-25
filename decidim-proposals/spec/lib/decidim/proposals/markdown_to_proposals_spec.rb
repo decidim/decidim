@@ -136,6 +136,56 @@ module Decidim
         end
       end
 
+      describe "formats are parsed" do
+        let(:paragraph) do
+          <<~EOPARAGRAPH
+            **bold text** is supported, *italics text* is supported, __underlined text__ is supported.
+            As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks
+            and underscores as indicators of emphasis.
+            Text wrapped with one asterisk or underscore will be wrapped with an HTML &lt;em> tag; double asterisks or underscores will be wrapped with an HTML &lt;strong> tag. E.g., this input:
+            - *single asterisks*
+            - _single underscores_
+            - **double asterisks**
+            - __double underscores__
+            Will produce this oputput:
+            - &lt;em>single asterisks&lt;/em>
+            - &lt;u>single underscores&lt;/u>
+            - &lt;strong>double asterisks&lt;/strong>
+            - &lt;strong>double underscores&lt;/strong>
+          EOPARAGRAPH
+        end
+
+        before do
+          items << "#{paragraph}\n"
+        end
+
+        it "transforms formated texts to html tags" do
+          should_parse_and_produce_proposals(1)
+
+          proposal = Proposal.last
+          expect(proposal.title).to eq("1")
+          paragraph = <<~EOEXPECTED
+            <strong>bold text</strong> is supported, <em>italics text</em> is supported, <strong>underlined text</strong> is supported.
+            As explained <a href="https://daringfireball.net/projects/markdown/syntax#em">here</a> Markdown treats asterisks
+            and underscores as indicators of emphasis.
+            Text wrapped with one asterisk or underscore will be wrapped with an HTML &lt;em> tag; double asterisks or underscores will be wrapped with an HTML &lt;strong> tag. E.g., this input:
+            - <em>single asterisks</em>
+            - <u>single underscores</u>
+            - <strong>double asterisks</strong>
+            - <strong>double underscores</strong>
+            Will produce this oputput:
+            - &lt;em>single asterisks&lt;/em>
+            - &lt;u>single underscores&lt;/u>
+            - &lt;strong>double asterisks&lt;/strong>
+            - &lt;strong>double underscores&lt;/strong>
+          EOEXPECTED
+          expect(proposal.body).to eq(paragraph.strip)
+          expect(proposal.position).to eq(1)
+          expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
+          should_have_expected_states(proposal)
+        end
+      end
+
       describe "lists as a whole" do
         context "when unordered" do
           let(:list) do

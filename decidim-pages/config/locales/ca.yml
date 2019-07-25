@@ -1,4 +1,3 @@
----
 ca:
   activerecord:
     models:
@@ -27,8 +26,5 @@ ca:
             save: Actualitzar
             title: Editar pàgina
           update:
-            invalid: Hi ha hagut errors en desar la pàgina.
-            success: Pàgina guardada correctament.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications
+            invalid: S'ha produït un error en desar la pàgina.
+            success: Pàgina desada correctament.

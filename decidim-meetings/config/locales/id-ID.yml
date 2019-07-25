@@ -1,451 +1,442 @@
----
-id-ID:
+id:
   activemodel:
     attributes:
       agenda:
-        description: Description
-        duration: Duration
-        title: Title
+        description: Deskripsi
+        duration: Lamanya
+        title: Judul
       close_meeting:
-        attendees_count: Number of attendees
-        attending_organizations: List of organizations that attended
-        closing_report: Report
-        contributions_count: Number of contributions
-        proposal_ids: Proposals created in the meeting
+        attendees_count: Jumlah peserta
+        attending_organizations: Daftar organisasi yang hadir
+        closing_report: Melaporkan
+        contributions_count: Jumlah kontribusi
+        proposal_ids: Proposal yang dibuat dalam pertemuan
       meeting:
-        address: Address
-        available_slots: Available slots for this meeting
-        decidim_category_id: Category
-        decidim_scope_id: Scope
-        description: Description
-        end_time: End Time
-        location: Location
-        location_hints: Location hints
-        organizer_id: Organizer
-        private_meeting: Private meeting
-        registration_form_enabled: Registration form enabled
-        registration_terms: Registration terms
-        registrations_enabled: Registrations enabled
-        start_time: Start Time
-        title: Title
-        transparent: Transparent
+        address: Alamat
+        available_slots: Slot yang tersedia untuk rapat ini
+        decidim_category_id: Kategori
+        decidim_scope_id: Cakupan
+        description: Deskripsi
+        end_time: Akhir waktu
+        location: Lokasi
+        location_hints: Petunjuk lokasi
+        organizer_id: Penyelenggara
+        private_meeting: Pertemuan pribadi
+        registration_form_enabled: Formulir pendaftaran diaktifkan
+        registration_terms: Ketentuan pendaftaran
+        registrations_enabled: Pendaftaran diaktifkan
+        start_time: Waktu mulai
+        title: Judul
+        transparent: Transparan
       minutes:
-        audio_url: Audio url
-        description: Description
-        video_url: Video url
-        visible: Is visible
+        audio_url: Url audio
+        description: Deskripsi
+        video_url: Url video
+        visible: Terlihat
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: Durasi barang melebihi durasi rapat dengan %{count} menit
+              too_many_minutes_child: Durasi item anak melebihi item agenda "%{parent_title}" durasi induk %{count} menit
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: Email ini sudah diundang
     models:
-      decidim/meetings/close_meeting_event: Meeting closed
-      decidim/meetings/create_meeting_event: Meeting
-      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
-      decidim/meetings/upcoming_meeting_event: Upcoming meeting
-      decidim/meetings/update_meeting_event: Meeting updated
+      decidim/meetings/close_meeting_event: Pertemuan tertutup
+      decidim/meetings/create_meeting_event: Pertemuan
+      decidim/meetings/meeting_registrations_enabled_event: Pendaftaran diaktifkan
+      decidim/meetings/meeting_registrations_over_percentage_event: Pendaftaran melebihi batas
+      decidim/meetings/upcoming_meeting_event: Pertemuan yang akan datang
+      decidim/meetings/update_meeting_event: Rapat diperbarui
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Meeting
-        other: Meetings
+        other: Rapat
       decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
+        other: Menit
       decidim/meetings/registration:
-        one: Registration
-        other: Registrations
+        other: Pendaftaran
   decidim:
     admin:
       meeting_copies:
         create:
-          error: There was en error duplicating this meeting.
-          success: Duplicated meeting successfully.
+          error: Terjadi kesalahan saat menduplikasi rapat ini.
+          success: Pertemuan duplikat berhasil.
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate meeting
+          copy: Salinan
+          select: Pilih data mana yang ingin Anda gandakan
+          title: Pertemuan duplikat
     components:
       meetings:
         actions:
-          join: Join
-        name: Meetings
+          join: Ikut
+        name: Rapat
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-            default_registration_terms: Default registration terms
-            enable_pads_creation: Enable pads creation
-            resources_permissions_enabled: Actions permissions can be set for each meeting
+            announcement: Pengumuman
+            comments_enabled: Komentar diaktifkan
+            default_registration_terms: Ketentuan pendaftaran default
+            enable_pads_creation: Aktifkan pembuatan bantalan
+            resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap pertemuan
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
+            announcement: Pengumuman
+            comments_blocked: Komentar diblokir
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
+            email_intro: 'Rapat Anda "%{resource_title}" ditutup. Anda dapat membaca kesimpulan dari halamannya:'
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengatur rapat "%{resource_title}".
+            email_subject: Rapat "%{resource_title}" ditutup
+            notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> ditutup.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+            email_intro: 'Rapat "%{resource_title}" ditutup. Anda dapat membaca kesimpulan dari halamannya:'
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+            email_subject: Rapat "%{resource_title}" ditutup
+            notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> ditutup.
         meeting_created:
-          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
-          email_subject: New meeting added to %{participatory_space_title}
-          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_intro: Pertemuan "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Pertemuan baru ditambahkan ke %{participatory_space_title}
+          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Pendaftaran Anda untuk pertemuan <a href="%{resource_url}">%{resource_title}</a> telah dikonfirmasi. Kode registrasi Anda adalah %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+          email_intro: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah admin ruang partisipatif rapat.
+          email_subject: Slot "%{resource_title}" yang ditempati slot lebih dari %{percentage}%
+          notification_title: Slot pertemuan <a href="%{resource_path}">%{resource_title}</a> diduduki lebih dari %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          email_intro: 'Rapat "%{resource_title}" telah diperbarui. Anda dapat membaca versi baru dari halamannya:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Rapat "%{resource_title}" telah diperbarui
+          notification_title: Rapat <a href="%{resource_path}">%{resource_title}</a> telah diperbarui.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
-          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
-          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
+          email_intro: Kode registrasi Anda "%{registration_code}" untuk rapat "%{resource_title}" telah divalidasi.
+          email_outro: Anda telah menerima pemberitahuan ini karena kode pendaftaran Anda untuk rapat "%{resource_title}" telah divalidasi.
+          email_subject: Kode registrasi Anda "%{registration_code}" untuk rapat "%{resource_title}" telah divalidasi
+          notification_title: Kode registrasi Anda "%{registration_code}" untuk pertemuan <a href="%{resource_path}">%{resource_title}</a> telah divalidasi.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
+          email_intro: 'Rapat "%{resource_title}" telah memungkinkan pendaftaran. Anda dapat mendaftarkan diri Anda di halamannya:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Rapat "%{resource_title}" telah memungkinkan pendaftaran.
+          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> telah memungkinkan pendaftaran.
         upcoming_meeting:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+          email_intro: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti rapat "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Pertemuan "%{resource_title}" akan dimulai dalam waktu kurang dari 48 jam.
+          notification_title: Pertemuan <a href="%{resource_path}">%{resource_title}</a> akan dimulai dalam waktu kurang dari 48 jam.
     gamification:
       badges:
         attended_meetings:
-          conditions: '["Register in the meetings you want to attend"]'
-          description: This badge is granted when you attend several face-to-face meetings.
-          description_another: This user has attended %{score} meetings.
-          description_own: You have attended %{score} meetings.
-          name: Attended meetings
-          next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This user hasn't attended any meeting yet.
-          unearned_own: You haven't attended any meeting yet.
+          conditions:
+            - Daftarkan dalam pertemuan yang ingin Anda hadiri
+          description: Lencana ini diberikan ketika Anda menghadiri beberapa pertemuan tatap muka.
+          description_another: Pengguna ini telah menghadiri %{score} rapat.
+          description_own: Anda telah menghadiri %{score} pertemuan.
+          name: Menghadiri pertemuan
+          next_level_in: Hadiri %{score} pertemuan lagi untuk mencapai level berikutnya!
+          unearned_another: Pengguna ini belum menghadiri rapat apa pun.
+          unearned_own: Anda belum menghadiri rapat apa pun.
     meetings:
       actions:
-        agenda: Agenda
-        attachment_collections: Folders
-        attachments: Attachments
-        close: Close
-        confirm_destroy: Are you sure you want to delete this meeting?
-        destroy: Delete
+        agenda: Jadwal acara
+        attachment_collections: Folder
+        attachments: Lampiran
+        close: Dekat
+        confirm_destroy: Anda yakin ingin menghapus rapat ini?
+        destroy: Menghapus
         edit: Edit
-        minutes: Minutes
-        new: New meeting
+        minutes: Menit
+        new: Pertemuan baru
         preview: Preview
-        registrations: Registrations
-        title: Actions
+        registrations: Pendaftaran
+        title: Tindakan
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Add agenda item child
-            agenda_item: Agenda Item
-            agenda_item_children: Agenda Item Childs
-            down: Down
-            remove: Remove
-            up: Up
+            add_agenda_item_child: Tambahkan anak item agenda
+            agenda_item: Item Agenda
+            agenda_item_children: Item Agenda Anak-anak
+            down: Turun
+            remove: Menghapus
+            up: Naik
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
-            down: Down
-            remove: Remove
-            up: Up
+            agenda_item_child: Item Agenda Anak
+            down: Turun
+            remove: Menghapus
+            up: Naik
           create:
-            invalid: There's been a problem creating this agenda
-            success: Agenda successfully created
+            invalid: Ada masalah saat membuat agenda ini
+            success: Agenda berhasil dibuat
           edit:
             title: Edit agenda
-            update: Update
+            update: Memperbarui
           form:
-            add_agenda_item: Add agenda item
-            agenda_items: Agenda items
-            end_date: End date
-            start_date: Start date
+            add_agenda_item: Tambahkan item agenda
+            agenda_items: Item agenda
+            end_date: Tanggal akhir
+            start_date: Mulai tanggal
           new:
-            create: Create
-            title: New agenda
+            create: Membuat
+            title: Agenda baru
           update:
-            invalid: There's been a problem updating this agenda
-            success: Agenda successfully updated
+            invalid: Terjadi masalah saat memperbarui agenda ini
+            success: Agenda berhasil diperbarui
         exports:
-          meetings: Meetings
-          registrations: Registrations
+          meetings: Rapat
+          registrations: Pendaftaran
         invite_join_meeting_mailer:
           invite:
-            decline: Decline invitation
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
-            join: Join meeting '%{meeting_title}'
+            decline: Tolak undangan
+            invited_you_to_join_a_meeting: "%{invited_by} telah mengundang Anda untuk bergabung dalam rapat di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
+            join: Bergabunglah dengan rapat '%{meeting_title}'
         invites:
           create:
-            error: There's been a problem while inviting the user to join the meeting.
-            success: User successfully invited to join the meeting.
+            error: Ada masalah saat mengundang pengguna untuk bergabung dengan rapat.
+            success: Pengguna berhasil diundang untuk bergabung dengan rapat.
           form:
-            attendee_type: Attendee type
-            existing_user: Existing user
-            invite: Invite
-            invite_explanation: The user will be invited to join the meeting and to the organization as well.
-            non_user: Non existing user
-            select_user: Select user
+            attendee_type: Tipe penerima tamu
+            existing_user: Pengguna yang sudah ada
+            invite: Undang
+            invite_explanation: Pengguna akan diundang untuk bergabung dengan rapat dan ke organisasi juga.
+            non_user: Pengguna tidak ada
+            select_user: Pilih pengguna
           index:
             filter:
-              accepted: Accepted
-              all: All
-              rejected: Rejected
-              sent: Sent
-            filter_by: Filter by
-            invite_attendee: Invite attendee
-            invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
-            search: Search
+              accepted: Diterima
+              all: Semua
+              rejected: Ditolak
+              sent: Terkirim
+            filter_by: Filter berdasarkan
+            invite_attendee: Undang hadirin
+            invites: Undangan
+            registrations_disabled: Anda tidak dapat mengundang peserta karena pendaftaran dinonaktifkan.
+            search: Pencarian
         meeting_closes:
           edit:
-            close: Close
-            title: Close meeting
+            close: Dekat
+            title: Tutup rapat
         meeting_copies:
           form:
-            select_organizer: Select the organizer
+            select_organizer: Pilih penyelenggara
         meetings:
           close:
-            invalid: There's been a problem closing this meeting
-            success: Meeting successfully closed
+            invalid: Terjadi masalah saat menutup rapat ini
+            success: Rapat berhasil ditutup
           create:
-            invalid: There's been a problem creating this meeting
-            success: Meeting successfully created
+            invalid: Ada masalah saat membuat rapat ini
+            success: Pertemuan berhasil dibuat
           destroy:
-            success: Meeting successfully deleted
+            success: Rapat berhasil dihapus
           edit:
-            update: Update
+            update: Memperbarui
           form:
-            select_organizer: Select the organizer
+            select_organizer: Pilih penyelenggara
           index:
-            title: Meetings
+            title: Rapat
           new:
-            create: Create
-            title: Create meeting
+            create: Membuat
+            title: Buat pertemuan
           service:
-            description: Description
-            down: Down
-            remove: Remove
-            service: Service
-            title: Title
-            up: Up
+            description: Deskripsi
+            down: Turun
+            remove: Menghapus
+            service: Layanan
+            title: Judul
+            up: Naik
           services:
-            add_service: Add service
-            services: Services
+            add_service: Tambahkan layanan
+            services: Jasa
           update:
-            invalid: There's been a problem updating this meeting
-            success: Meeting successfully updated
+            invalid: Terjadi masalah saat memperbarui rapat ini
+            success: Rapat berhasil diperbarui
         minutes:
           create:
-            invalid: There's been a problem creating this minutes
-            success: Minutes successfully created
+            invalid: Terjadi masalah saat membuat menit ini
+            success: Menit berhasil dibuat
           edit:
-            update: Update
+            update: Memperbarui
           new:
-            create: Create
-            title: Create minutes
+            create: Membuat
+            title: Buat menit
           update:
-            invalid: There's been a problem updating this minutes
-            success: Minutes successfully updated
+            invalid: Terjadi masalah saat memperbarui menit ini
+            success: Notulen berhasil diperbarui
         models:
           meeting:
-            name: Meeting
+            name: Pertemuan
         registrations:
           edit:
-            save: Save
-            validate: Validate
-            validate_registration_code: Validate registration code
+            save: Menyimpan
+            validate: Mengesahkan
+            validate_registration_code: Validasikan kode registrasi
           form:
-            available_slots_help: Leave it to 0 if you have unlimited slots available.
-            invites: Invites
-            registration_form: Registration form
+            available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
+            invites: Undangan
+            registration_form: Formulir pendaftaran
             registrations_count:
-              one: There has been %{count} registration.
-              other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
-            reserved_slots_less_than: Must be less than or equal to %{count}
+              other: Ada %{count} pendaftaran.
+            reserved_slots_help: Biarkan hingga 0 jika Anda tidak memiliki slot yang dipesan
+            reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
           update:
-            invalid: There's been a problem saving the registration settings.
-            success: Meeting registrations settings successfully saved.
+            invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
+            success: Pengaturan pendaftaran rapat berhasil disimpan.
           validate_registration_code:
-            invalid: This registration code is invalid.
-            success: Registration code successfully validated.
+            invalid: Kode registrasi ini tidak valid.
+            success: Kode registrasi berhasil divalidasi.
       admin_log:
         invite:
-          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
-          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} diundang %{attendee_name} untuk bergabung dengan %{resource_name} pertemuan di %{space_name} ruang"
+          deleted: "%{user_name} diundang %{attendee_name} dari bergabung dengan %{resource_name} pertemuan di %{space_name} ruang"
+          update: "%{user_name} diundang %{attendee_name} untuk bergabung dengan %{resource_name} pertemuan di %{space_name} ruang"
         meeting:
-          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
-          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          close: "%{user_name} menutup %{resource_name} pertemuan pada %{space_name} ruang"
+          create: "%{user_name} membuat %{resource_name} pertemuan pada %{space_name} ruang"
+          delete: "%{user_name} menghapus %{resource_name} pertemuan pada %{space_name} ruang"
+          export_registrations: "%{user_name} mengekspor registrasi dari %{resource_name} pertemuan pada %{space_name} ruang"
+          update: "%{user_name} memperbarui %{resource_name} pertemuan pada %{space_name} ruang"
           value_types:
             organizer_presenter:
-              not_found: 'The organizer was not found on the database (ID: %{id})'
+              not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
         minutes:
-          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
-          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+          create: "%{user_name} membuat menit dari pertemuan %{resource_name} pada %{space_name} ruang"
+          update: "%{user_name} memperbarui notulen rapat %{resource_name} pada %{space_name} ruang"
       calendar_modal:
-        calendar_url: Calendar URL
-        close_window: Close window
-        export_calendar: Export calendar
-      conference_venues: Conference Venues
+        calendar_url: URL Kalender
+        close_window: Tutup jendela
+        export_calendar: Ekspor kalender
+      conference_venues: Tempat Konferensi
       content_blocks:
         upcoming_events:
-          name: Upcoming events
-          upcoming_events: Upcoming meetings
-          view_all_events: View all
+          name: Acara Mendatang
+          upcoming_events: Pertemuan yang akan datang
+          view_all_events: Lihat semua
       directory:
         meetings:
           index:
-            all: All
-            date: Date
-            meetings: Meetings
-            past: Past
-            search: Search
-            space_type: Participatory space
-            upcoming: Upcoming
+            all: Semua
+            date: Tanggal
+            meetings: Rapat
+            past: Lalu
+            search: Pencarian
+            space_type: Ruang partisipatif
+            upcoming: Mendatang
       last_activity:
-        new_meeting_at_html: "<span>New meeting at %{link}</span>"
+        new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitation to join a meeting
+            subject: Undangan untuk bergabung dalam rapat
         registration_mailer:
           confirmation:
-            subject: Your meeting's registration has been confirmed
+            subject: Pendaftaran pertemuan Anda telah dikonfirmasi
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: Anda tidak diizinkan untuk melihat rapat ini
       meetings:
         filters:
-          category: Category
-          category_prompt: Select a category
-          date: Date
-          past: Past
-          search: Search
-          upcoming: Upcoming
+          category: Kategori
+          category_prompt: Pilih Kategori
+          date: Tanggal
+          past: Lalu
+          search: Pencarian
+          upcoming: Mendatang
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Tutup modal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filter berdasarkan
+          unfold: Membuka
         meeting_minutes:
-          meeting_minutes: Meeting Minutes
-          related_information: Related Information
+          meeting_minutes: Risalah Pertemuan
+          related_information: Informasi Terkait
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+          no_meetings_warning: Tidak ada pertemuan yang sesuai dengan kriteria pencarian Anda atau tidak ada jadwal pertemuan.
+          upcoming_meetings_warning: Saat ini, tidak ada pertemuan yang dijadwalkan, tetapi di sini Anda dapat menemukan semua pertemuan sebelumnya yang terdaftar.
         registration_confirm:
-          cancel: Cancel
-          confirm: Confirm
+          cancel: Membatalkan
+          confirm: Memastikan
         show:
-          attendees: Attendees count
-          contributions: Contributions count
-          going: Going
-          join: Join meeting
-          meeting_report: Meeting report
-          no_slots_available: No slots available
-          organizations: Attending organizations
-          registration_code_help_text: Your registration code
+          attendees: Jumlah peserta
+          contributions: Kontribusi dihitung
+          going: Pergi
+          join: Bergabunglah dengan rapat
+          meeting_report: Laporan pertemuan
+          no_slots_available: Tidak ada slot yang tersedia
+          organizations: Menghadiri organisasi
+          registration_code_help_text: Kode registrasi Anda
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: DIvalidasi
+            validation_pending: MENUNGGU VALIDASI
           remaining_slots:
-            one: "%{count} slot remaining"
-            other: "%{count} slots remaining"
-          view: View
+            other: "%{count} slot tersisa"
+          view: Melihat
       meetings_map:
-        view_meeting: View meeting
+        view_meeting: Lihat rapat
       models:
         invite:
           fields:
-            email: Email
-            name: Name
-            sent_at: Sent at
+            email: E-mail
+            name: Nama
+            sent_at: Dikirim pada
             status: Status
           status:
-            accepted: Accepted (%{at})
-            rejected: Rejected (%{at})
-            sent: Sent
+            accepted: Diterima (%{at})
+            rejected: Ditolak (%{at})
+            sent: Terkirim
         meeting:
           fields:
-            closed: Closed
-            end_time: End date
-            map: Map
-            start_time: Start date
-            title: Title
-      read_more: "(read more)"
+            closed: Tutup
+            end_time: Tanggal akhir
+            map: Peta
+            start_time: Mulai tanggal
+            title: Judul
+      read_more: "(Baca lebih lajut)"
       registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
-          details: You will find the meeting's details in the attachment.
-          registration_code: Your registration code is %{code}.
+          confirmed_html: Pendaftaran Anda untuk pertemuan <a href="%{url}">%{title}</a> telah dikonfirmasi.
+          details: Anda akan menemukan rincian rapat dalam lampiran.
+          registration_code: Kode registrasi Anda adalah %{code}.
       registrations:
         create:
-          invalid: There's been a problem joining this meeting.
-          success: You have joined the meeting successfully.
+          invalid: Ada masalah saat bergabung dengan rapat ini.
+          success: Anda telah berhasil bergabung dengan rapat.
         decline_invitation:
-          invalid: There's been a problem declining the invitation.
-          success: You have declined the invitation successfully.
+          invalid: Terjadi masalah saat menolak undangan.
+          success: Anda berhasil menolak undangan.
         destroy:
-          invalid: There's been a problem leaving this meeting.
-          success: You have left the meeting successfully.
+          invalid: Ada masalah saat meninggalkan rapat ini.
+          success: Anda telah berhasil menyelesaikan rapat.
       types:
-        private_meeting: Private meeting
-        transparent: Transparent
+        private_meeting: Pertemuan pribadi
+        transparent: Transparan
     metrics:
       meetings:
-        description: Number of meetings created
-        object: meetings
-        title: Meetings
+        description: Jumlah pertemuan yang dibuat
+        object: pertemuan
+        title: Rapat
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Past meetings
-          upcoming_meetings: Upcoming meetings
+          past_meetings: Pertemuan sebelumnya
+          upcoming_meetings: Pertemuan yang akan datang
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Past meetings
-        see_all: See all (%{count})
-        upcoming_meetings: Upcoming meetings
+        past_meetings: Pertemuan sebelumnya
+        see_all: Lihat semua (%{count})
+        upcoming_meetings: Pertemuan yang akan datang
       upcoming_meeting_for_card:
-        upcoming_meeting: Upcoming meeting
+        upcoming_meeting: Pertemuan yang akan datang
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Related results:'
-        result_meeting: 'Related meetings:'
+        meeting_result: 'Hasil terkait:'
+        result_meeting: 'Pertemuan terkait:'
       proposals_from_meeting:
-        meeting_proposal: 'Related proposals:'
-        proposal_meeting: 'Related meetings:'
+        meeting_proposal: 'Proposal terkait:'
+        proposal_meeting: 'Pertemuan terkait:'
   devise:
     mailer:
       join_meeting:
-        subject: Invitation to join a meeting
+        subject: Undangan untuk bergabung dalam rapat

@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+shared_examples "an uncommentable component" do
+  let!(:component) do
+    create(:component,
+           manifest: manifest,
+           participatory_space: participatory_space)
+  end
+
+  it "doesn't displays comments count" do
+    component.update!(settings: { comments_enabled: false })
+
+    visit_component
+
+    ressources.each do |ressource|
+      expect(page).not_to have_link(resource_locator(ressource).path)
+    end
+  end
+end

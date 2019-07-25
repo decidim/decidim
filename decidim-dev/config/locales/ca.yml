@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -12,18 +11,18 @@ ca:
     dummy:
       admin:
         exports:
-          dummies: Maniquins
+          dummies: Proves
     gamification:
       badges:
         test:
           conditions:
-          - Utilitza un entorn de prova per decidim.
-          description: Els usuaris obtenen aquesta insígnia creant proves.
-          description_another: Aquest usuari ha creat %{score} proves.
-          description_own: Heu creat %{score} proves.
+            - Utilitza un entorn de prova per decidim.
+          description: Les participants obtenen aquesta insígnia creant proves.
+          description_another: Aquesta participant ha creat %{score} proves.
+          description_own: Has creat %{score} proves.
           name: Proves
           next_level_in: Crea %{score} més proves per arribar al següent nivell!
-          unearned_another: Aquest usuari encara no ha creat cap prova.
+          unearned_another: Aquesta participant encara no ha creat cap prova.
           unearned_own: Encara no has creat cap prova.
     pages:
       home:
@@ -38,4 +37,4 @@ ca:
         dummies_count_medium: Prova mig
     resource_links:
       test_link:
-        dummy_resource_dummy: Fictici relacionat
+        dummy_resource_dummy: Prova relacionada

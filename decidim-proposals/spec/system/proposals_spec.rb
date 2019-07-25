@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "Proposals", type: :system do
+  include ActionView::Helpers::TextHelper
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -46,7 +47,7 @@ describe "Proposals", type: :system do
       click_link proposal.title
 
       expect(page).to have_content(proposal.title)
-      expect(page).to have_content(proposal.body)
+      expect(page).to have_content(strip_tags(proposal.body).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
       expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
@@ -167,7 +168,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "filter_state_rejected"
+        choose "Rejected", name: "filter[state]"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -208,7 +209,7 @@ describe "Proposals", type: :system do
 
         click_link proposal.title
 
-        expect(page).to have_content("Deleted user")
+        expect(page).to have_content("Participant deleted")
       end
     end
   end
@@ -312,13 +313,13 @@ describe "Proposals", type: :system do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_selector("a", text: "Most voted")
+        expect(page).to have_selector("a", text: "Most supported")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
-        expect(page).to have_button("Voting disabled", disabled: true, count: 2)
+        expect(page).to have_button("Supports disabled", disabled: true, count: 2)
         expect(page).to have_no_link("View proposal")
       end
     end
@@ -340,7 +341,7 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Voting disabled", disabled: true)
+        expect(page).to have_no_button("Supports disabled", disabled: true)
         expect(page).to have_no_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
@@ -364,267 +365,6 @@ describe "Proposals", type: :system do
       end
     end
 
-    context "when filtering" do
-      context "when official_proposals setting is enabled" do
-        before do
-          component.update!(settings: { official_proposals_enabled: true })
-        end
-
-        it "can be filtered by origin" do
-          visit_component
-
-          within "form.new_filter" do
-            expect(page).to have_content(/Origin/i)
-          end
-        end
-
-        context "with 'official' origin" do
-          it "lists the filtered proposals" do
-            create_list(:proposal, 2, :official, component: component, scope: scope)
-            create(:proposal, component: component, scope: scope)
-            visit_component
-
-            within ".filters" do
-              choose "Official"
-            end
-
-            expect(page).to have_css(".card--proposal", count: 2)
-            expect(page).to have_content("2 PROPOSALS")
-          end
-        end
-
-        context "with 'citizens' origin" do
-          it "lists the filtered proposals" do
-            create_list(:proposal, 2, component: component, scope: scope)
-            create(:proposal, :official, component: component, scope: scope)
-            visit_component
-
-            within ".filters" do
-              choose "Citizens"
-            end
-
-            expect(page).to have_css(".card--proposal", count: 2)
-            expect(page).to have_content("2 PROPOSALS")
-          end
-        end
-      end
-
-      context "when official_proposals setting is not enabled" do
-        before do
-          component.update!(settings: { official_proposals_enabled: false })
-        end
-
-        it "cannot be filtered by origin" do
-          visit_component
-
-          within "form.new_filter" do
-            expect(page).to have_no_content(/Official/i)
-          end
-        end
-      end
-
-      context "with scope" do
-        let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-        let!(:scope2) { create :scope, organization: participatory_process.organization }
-
-        before do
-          create_list(:proposal, 2, component: component, scope: scope)
-          create(:proposal, component: component, scope: scope2)
-          create(:proposal, component: component, scope: nil)
-          visit_component
-        end
-
-        it "can be filtered by scope" do
-          within "form.new_filter" do
-            expect(page).to have_content(/Scopes/i)
-          end
-        end
-
-        context "when selecting the global scope" do
-          it "lists the filtered proposals", :slow do
-            within ".filters" do
-              scope_pick scopes_picker, nil
-            end
-
-            expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
-          end
-        end
-
-        context "when selecting one scope" do
-          it "lists the filtered proposals", :slow do
-            within ".filters" do
-              scope_pick scopes_picker, scope
-            end
-
-            expect(page).to have_css(".card--proposal", count: 2)
-            expect(page).to have_content("2 PROPOSALS")
-          end
-        end
-
-        context "when selecting the global scope and another scope" do
-          it "lists the filtered proposals", :slow do
-            within ".filters" do
-              scope_pick scopes_picker, scope
-              scope_pick scopes_picker, nil
-            end
-
-            expect(page).to have_css(".card--proposal", count: 3)
-            expect(page).to have_content("3 PROPOSALS")
-          end
-        end
-
-        context "when modifying the selected scope" do
-          it "lists the filtered proposals" do
-            within ".filters" do
-              scope_pick scopes_picker, scope
-              scope_pick scopes_picker, nil
-              scope_repick scopes_picker, scope, scope2
-            end
-
-            expect(page).to have_css(".card--proposal", count: 2)
-            expect(page).to have_content("2 PROPOSALS")
-          end
-        end
-
-        context "when unselecting the selected scope" do
-          it "lists the filtered proposals" do
-            within ".filters" do
-              scope_pick scopes_picker, scope
-              scope_pick scopes_picker, nil
-              scope_unpick scopes_picker, scope
-            end
-
-            expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
-          end
-        end
-      end
-
-      context "when process is related to a scope" do
-        let(:participatory_process) { scoped_participatory_process }
-
-        it "cannot be filtered by scope" do
-          visit_component
-
-          within "form.new_filter" do
-            expect(page).to have_no_content(/Scopes/i)
-          end
-        end
-      end
-
-      context "when proposal_answering component setting is enabled" do
-        before do
-          component.update!(settings: { proposal_answering_enabled: true })
-        end
-
-        context "when proposal_answering step setting is enabled" do
-          before do
-            component.update!(
-              step_settings: {
-                component.participatory_space.active_step.id => {
-                  proposal_answering_enabled: true
-                }
-              }
-            )
-          end
-
-          it "can be filtered by state" do
-            visit_component
-
-            within "form.new_filter" do
-              expect(page).to have_content(/State/i)
-            end
-          end
-
-          it "lists accepted proposals" do
-            create(:proposal, :accepted, component: component, scope: scope)
-            visit_component
-
-            within ".filters" do
-              choose "Accepted"
-            end
-
-            expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
-
-            within ".card--proposal" do
-              expect(page).to have_content("ACCEPTED")
-            end
-          end
-
-          it "lists the filtered proposals" do
-            create(:proposal, :rejected, component: component, scope: scope)
-            visit_component
-
-            within ".filters" do
-              choose "Rejected"
-            end
-
-            expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
-
-            within ".card--proposal" do
-              expect(page).to have_content("REJECTED")
-            end
-          end
-        end
-
-        context "when proposal_answering step setting is disabled" do
-          before do
-            component.update!(
-              step_settings: {
-                component.participatory_space.active_step.id => {
-                  proposal_answering_enabled: false
-                }
-              }
-            )
-          end
-
-          it "cannot be filtered by state" do
-            visit_component
-
-            within "form.new_filter" do
-              expect(page).to have_no_content(/State/i)
-            end
-          end
-        end
-      end
-
-      context "when proposal_answering component setting is not enabled" do
-        before do
-          component.update!(settings: { proposal_answering_enabled: false })
-        end
-
-        it "cannot be filtered by state" do
-          visit_component
-
-          within "form.new_filter" do
-            expect(page).to have_no_content(/State/i)
-          end
-        end
-      end
-
-      context "when the user is logged in" do
-        before do
-          login_as user, scope: :user
-        end
-
-        it "can be filtered by category" do
-          create_list(:proposal, 3, component: component)
-          create(:proposal, component: component, category: category)
-
-          visit_component
-
-          within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: :filter_category_id
-          end
-
-          expect(page).to have_css(".card--proposal", count: 1)
-        end
-      end
-    end
-
     context "when ordering by 'most_voted'" do
       let!(:component) do
         create(:proposal_component,
@@ -643,7 +383,7 @@ describe "Proposals", type: :system do
         within ".order-by" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
           page.find("a", text: "Random").click
-          click_link "Most voted"
+          click_link "Most supported"
         end
 
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
@@ -676,49 +416,10 @@ describe "Proposals", type: :system do
       it_behaves_like "a paginated resource"
     end
 
-    context "when amendments_enabled setting is enabled" do
-      let!(:proposal) { create(:proposal, component: component, scope: scope) }
-      let!(:emendation) { create(:proposal, component: component, scope: scope) }
-      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+    context "when component is not commentable" do
+      let!(:ressources) { create_list(:proposal, 3, component: component) }
 
-      before do
-        component.update!(settings: { amendments_enabled: true })
-        visit_component
-      end
-
-      context "with 'all' type" do
-        it "lists the filtered proposals" do
-          find('input[id="filter_type_all"]').click
-
-          expect(page).to have_css(".card.card--proposal", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
-          expect(page).to have_content("AMENDMENT", count: 1)
-        end
-      end
-
-      context "with 'proposals' type" do
-        it "lists the filtered proposals" do
-          within ".filters" do
-            choose "Proposals"
-          end
-
-          expect(page).to have_css(".card.card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 0)
-        end
-      end
-
-      context "with 'amendments' type" do
-        it "lists the filtered proposals" do
-          within ".filters" do
-            choose "Amendments"
-          end
-
-          expect(page).to have_css(".card.card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 1)
-        end
-      end
+      it_behaves_like "an uncommentable component"
     end
   end
 

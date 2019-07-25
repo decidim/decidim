@@ -78,3 +78,6 @@ hu:
             title: A kérdőív lezárult
           submit: Beküldés
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
+      user_answers_serializer:
+        created_at: Válaszolt
+        id: Válaszazonosító

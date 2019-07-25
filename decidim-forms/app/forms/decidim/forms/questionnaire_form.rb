@@ -5,6 +5,7 @@ module Decidim
     # This class holds a Form to answer a questionnaire from Decidim's public page.
     class QuestionnaireForm < Decidim::Form
       attribute :answers, Array[AnswerForm]
+      attribute :user_group_id, Integer
 
       attribute :tos_agreement, Boolean
       validates :tos_agreement, allow_nil: false, acceptance: true

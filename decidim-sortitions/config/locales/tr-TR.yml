@@ -1,15 +1,14 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       sortition:
-        additional_info: Sortition information
-        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
-        decidim_proposals_component_id: Proposals set
-        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
-        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
-        title: Title
-        witnesses: Witnesses
+        additional_info: Sıralama bilgileri
+        decidim_category_id: Draw'ı uygulamak istediğiniz teklif kümesinin kategorileri
+        decidim_proposals_component_id: Teklifler belirlendi
+        dice: Kalıp rulosunun sonucu. 6 taraflı bir kalıbı yuvarlayın veya 1 ila 6 arasında bir sayı oluşturmak için rastgele bir yol arayın ve sonuçta bazı tanıkların önüne buradaki sayıyı girin. Bu, sonucun rastlantısallığının kalitesine ve garantisine katkıda bulunur.
+        target_items: Seçilecek teklif sayısı (daha önce seçmiş olduğunuz teklif grubunun çoğunu çizerek, seçmek istediğiniz teklif sayısını gösterir)
+        title: Başlık
+        witnesses: Tanıklar
     models:
       decidim/sortitions/create_sortition_event: Sortition
   activerecord:
@@ -23,14 +22,14 @@ tr-TR:
         name: Sortitions
         settings:
           global:
-            comments_enabled: Comments enabled
+            comments_enabled: Yorumlar etkin
     events:
       sortitions:
         sortition_created:
-          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
-          email_subject: New sortition added to %{participatory_space_title}
-          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_intro: Sortition "%{resource_title}" "eklendi%{participatory_space_title}" izlediğinizi.
+          email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
+          email_subject: Yeni sortition eklenen %{participatory_space_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> %{participatory_space_title}eklendi
     pages:
       home:
         statistics:
@@ -41,112 +40,112 @@ tr-TR:
     sortitions:
       admin:
         actions:
-          destroy: Cancel the sortition
-          edit: Edit
-          new: New sortition
-          show: Sortition details
+          destroy: Sıralamayı iptal et
+          edit: Düzenle
+          new: Yeni sıralama
+          show: Sıralama detayları
         models:
           sortition:
             fields:
-              category: Category
-              created_at: Creation date
-              decidim_proposals_component: Proposals component
-              dice: Dice
-              reference: Reference
-              request_timestamp: Draw time
-              seed: Seed
-              target_items: Items to select
-              title: Title
+              category: Kategori
+              created_at: Oluşturulma tarihi
+              decidim_proposals_component: Teklifler bileşeni
+              dice: Zar
+              reference: Referans
+              request_timestamp: Zaman çekmek
+              seed: Tohum
+              target_items: Seçilecek öğeler
+              title: Başlık
             name:
               one: Sortition
               other: Sortitions
         sortitions:
           confirm_destroy:
-            confirm_destroy: Are you sure you want to cancel this sortition?
-            destroy: Cancel sortition
-            title: Cancellation of the sortition
+            confirm_destroy: Bu sıralamayı iptal etmek istediğinize emin misiniz?
+            destroy: Sıralamayı iptal et
+            title: Sıralamanın iptali
           create:
-            error: There was an error creating a new sortition.
-            success: Sortition successfully created
+            error: Yeni bir sıralama oluştururken bir sorun oluştu.
+            success: Sıralama başarıyla oluşturuldu
           destroy:
-            error: Can not cancel the sortition.
-            success: Sortition successfully cancelled
+            error: Sıralama iptal edilemez.
+            success: Sıralama başarıyla iptal edildi
           edit:
-            title: Update the information about the sortition
-            update: Update
+            title: Sıralama hakkındaki bilgileri güncelleyin
+            update: Güncelleştirme
           form:
-            all_categories: All categories
-            select_proposal_component: Select the proposals set
-            title: New sortition for proposals
+            all_categories: Tüm Kategoriler
+            select_proposal_component: Belirlenen teklifleri seçin
+            title: Teklifler için yeni sıralama
           index:
             title: Sortitions
           new:
-            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
-            create: Create
-            title: New sortition
+            confirm: Bir sonraki düğmeye basıldığında Decidim, tarih ve saati (saniyenin kesinliği ile) kaydedecek ve zar rulosuyla birlikte, bu bilgi rastgele bir seçim oluşturmak için kullanılacak. İşlem geri alınamaz, düğme tıklandıktan sonra bu çekilişin sonucu yayınlanacak, bu forma girilen verilerle birlikte değiştirilemez, lütfen içeriği dikkatlice kontrol edin
+            create: yaratmak
+            title: Yeni sıralama
           show:
-            selected_proposals: Proposals selected for draw
+            selected_proposals: Çizim için seçilen teklifler
           update:
-            error: There was an error updating the sortition.
-            success: Sortition successfully updated
+            error: Sıralama güncellenirken bir sorun oluştu.
+            success: Sıralama başarıyla güncellendi
       admin_log:
         sortition:
-          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
-          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
-          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
+          create: "%{user_name} , %{space_name}%{resource_name} sıralamayı yarattı"
+          delete: "%{user_name} , %{space_name}%{resource_name} sıralamayı iptal etti"
+          update: "%{user_name} updated %{resource_name} de sortition %{space_name}"
       sortitions:
         count:
           proposals_count:
-            one: 1 proposal
-            other: "%{count} proposals"
+            one: 1 teklif
+            other: "%{count} teklif"
         filters:
-          active: Active
-          all: All
-          cancelled: Cancelled
-          category: Category
-          category_prompt: Select a category
-          search: Search
-          state: State
+          active: Aktif
+          all: Herşey
+          cancelled: İptal edildi
+          category: Kategori
+          category_prompt: bir kategori seç
+          search: Arama
+          state: durum
         filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          close_modal: Kalıcı modal
+          filter: filtre
+          filter_by: Tarafından filtre
+          unfold: açılmak
         linked_sortitions:
-          selected_proposals: Selected proposals
+          selected_proposals: Seçili teklifler
         orders:
-          label: 'Order sortitions by:'
-          random: Random
-          recent: Recent
+          label: 'Sıralama sıralamaları:'
+          random: rasgele
+          recent: Son
         results_count:
           count:
-            one: selected proposal
-            other: selected proposals
+            one: seçilen teklif
+            other: seçilen teklifler
         show:
-          algorithm: Sortition's Algorithm code
-          any_category: from all categories
-          cancelled: Cancelled sortition
-          candidate_proposal_ids: Sortition proposals order and IDs
-          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
-          category: from the %{category} category
-          dice_result: "(1) Dice result"
-          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
-          mathematical_result: Result (1) x (2)
-          proposals_selected_by_sortition: Proposals selected by sortition
-          sortition_reproducibility_details: Sortition reproducibility details
-          time_seed: "(2) Time seed"
-          witnesses: Witnesses
+          algorithm: Sıralamanın algoritma kodu
+          any_category: tüm kategorilerden
+          cancelled: İptal edilen sıralama
+          candidate_proposal_ids: Sıralama teklifleri siparişi ve kimlikleri
+          candidate_proposals_info: 'Sıralama, aşağıdaki teklifler arasında (%{category_label}), aşağıdaki kimliklerle (seçilen tekliflerin kalın harflerle belirtildiği şekilde) yapıldı.  '
+          category: '%{category} kategoriden'
+          dice_result: "(1) Zar sonucu"
+          introduction: 'Bu sayfa, %{reference}sıralamasının sonuçlarını içerir. Bu sıralama yoluyla, %{target_items} sonuç, rastgele ve aşağıda gösterilen teklif grubundan eşit olasılık dağılımına sahip olarak seçilmiştir. Sonuçlarla birlikte, bu sayfada görüntülenen bilgiler garantileri en üst düzeye çıkarmak ve sonuçları çoğaltmak için gereken tüm bilgileri sağlar. Bu sıralamanın kalitesinin anahtarı, bir zarın (tanıkların doğruladığı) yuvarlanmasıyla sağlanan çift rastgele ve rastgele bir seçim üreten bir algoritma için girdi sağlayan sıralamanın tam zamanıdır. Sıralama için gereken zaman aralığı o kadar hassastır ki (saniye) insanlar tarafından kontrol edilmesi imkansızdır, bu nedenle adil bir sonuç elde etmek için çift "kontrol edilemez" bir giriş sağlar.  '
+          mathematical_result: Sonuç (1) x (2)
+          proposals_selected_by_sortition: Sıralamaya göre seçilen teklifler
+          sortition_reproducibility_details: Sıralama tekrarlanabilirliği ayrıntıları
+          time_seed: "(2) Zaman tohumu"
+          witnesses: Tanıklar
         sortition:
-          random_seed: Random seed
+          random_seed: Rastgele tohum
           selected_proposals:
-            one: proposal selected
-            other: proposals selected
-          view: View
+            one: teklif seçildi
+            other: teklif seçildi
+          view: Görünüm
         sortition_author:
-          deleted: Deleted user
+          deleted: Silinmiş katılımcı
         sortition_cancel_author:
-          deleted: Deleted user
+          deleted: Silinmiş katılımcı
         sortitions_count:
           count:
-            one: 1 sortition
-            other: "%{count} sortitions"
+            one: 1 sıralama
+            other: "%{count} sıralama"

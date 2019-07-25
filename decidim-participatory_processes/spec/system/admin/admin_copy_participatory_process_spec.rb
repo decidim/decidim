@@ -65,7 +65,7 @@ describe "Admin copies participatory process", type: :system do
       expect(page).to have_content("successfully")
 
       click_link "Copy participatory process"
-      click_link "Steps"
+      click_link "Phases"
 
       within ".table-list" do
         participatory_process.steps.each do |step|

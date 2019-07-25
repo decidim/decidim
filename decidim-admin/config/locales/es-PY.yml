@@ -1,4 +1,3 @@
----
 es-PY:
   activemodel:
     attributes:
@@ -37,8 +36,8 @@ es-PY:
         organization_url: URL de organización
         redirect_uri: Redirigir URI
       organization:
-        address: SMTP hostname
-        alert_color: Alert
+        address: Nombre de host SMTP
+        alert_color: Alerta
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
@@ -47,7 +46,7 @@ es-PY:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
-        from: From email address
+        from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
@@ -66,17 +65,18 @@ es-PY:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Password
-        port: Port
-        primary_color: Primary
+        password: Contraseña
+        port: Puerto
+        primary_color: Primario
         reference_prefix: Prefijo de la referencia
-        secondary_color: Secondary
+        secondary_color: Secundario
         show_statistics: Mostrar estadísticas
-        success_color: Success
+        success_color: Éxito
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
-        warning_color: Warning
+        user_name: Nombre de usuario
+        warning_color: Advertencia
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -137,6 +137,7 @@ es-PY:
         browse: Explorar
         export: Exportar
         manage: Gestionar
+        new: Nuevo %{name}
         permissions: Permisos
         reject: Rechazar
         verify: Verificar
@@ -229,10 +230,6 @@ es-PY:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
       component_permissions:
-        edit:
-          everyone: Todo el mundo
-          submit: Guardar permisos
-          title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
       components:
@@ -248,6 +245,7 @@ es-PY:
         form:
           default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
+          participatory_texts_enabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
           step_settings: Configuración de paso
         index:
           add: Agregar componente
@@ -315,11 +313,6 @@ es-PY:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
           success: El usuario gestionado se ha promocionado correctamente.
@@ -339,7 +332,6 @@ es-PY:
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
-        navbar_links: Navbar links
         newsletters: Boletines
         oauth_applications: Aplicaciones OAuth
         participants: Participantes
@@ -377,18 +369,12 @@ es-PY:
             reason: Razón
             started_at: Empezó a las
             user: Usuario
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Fecha de creación
             progress: Progreso
             sent_at: Enviado el
+            sent_to: Enviado a
             subject: Asunto
           name: Boletín
         oauth_application:
@@ -438,28 +424,6 @@ es-PY:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -476,21 +440,46 @@ es-PY:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
+          all: todos
+          all_users: 'Todos los usuarios '
+          and: 'y '
+          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          followers: 'seguidores '
+          has_been_sent_to: 'Se ha enviado a: '
+          no_scopes: Sin ámbitos
+          not_sent: No enviado
+          participants: 'participantes '
+          segmented_to: 'Segmentado para %{subject}: '
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
-        show:
-          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
+        select_recipients_to_deliver:
+          all_spaces: Todos
+          all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
+          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
+          followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
+          none: Ninguno
+          participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
+          select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
+          select_spaces: Selecciona espacios para segmentar el boletín
+          select_users: Selecciona a qué usuarios deseas enviar el boletín
+          send_to_all_users: Enviar a todos los usuarios
+          send_to_followers: Enviar a los seguidores
+          send_to_participants: Enviar a los participantes
+          title: Selecciona los destinatarios
+          warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
+        send:
+          no_recipients: No hay destinatarios para esta selección
+        show:
           preview: Previsualizar
+          select_recipients_to_deliver: Selecciona los destinatarios
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
-      oauth_application:
-        new: New Oauth application
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
@@ -502,7 +491,7 @@ es-PY:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: "¿Estás seguro que quieres eliminar esta aplicación?"
+          confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
           save: Guardar
@@ -556,7 +545,7 @@ es-PY:
         edit:
           update: Actualizar
         form:
-          colors_title: Organization colors
+          colors_title: Colores de organizacion
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
@@ -583,6 +572,12 @@ es-PY:
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -643,6 +638,7 @@ es-PY:
           update: Actualizar
         form:
           none: Ninguna
+          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
@@ -662,18 +658,14 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        impersonatable_users: Usuarios impersonables
-        impersonations: Impersonaciones
-        managed_users: Managed users
-        navbar_links: Navbar links
+        impersonatable_users: Usuarios manejables
+        impersonations: Gestion de usuarios
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
-      user:
-        new: New user
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
@@ -728,7 +720,7 @@ es-PY:
         hide: Esconder
         not_hidden: No ocultas
         title: Acciones
-        unhide: Unhide
+        unhide: Ocultar
         unreport: Cancelar denuncia
       admin:
         reportable:
@@ -736,8 +728,8 @@ es-PY:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: Ha habido un problema al no encontrar el recurso.
+            success: Recurso exitosamente no oculto.
           unreport:
             invalid: Ha habido un problema cancelando la denuncia.
             success: Denuncia cancelada correctamente.

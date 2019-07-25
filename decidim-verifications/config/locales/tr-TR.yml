@@ -1,181 +1,228 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
-        offline: Offline
-        offline_explanation: Instructions for offline verification
-        online: Online
+        available_methods: Mevcut yöntemler
+        offline: Çevrimdışı
+        offline_explanation: Çevrimdışı doğrulama için talimatlar
+        online: İnternet üzerinden
       id_document_information:
-        document_number: Document number (with letter)
-        document_type: Type of the document
+        document_number: Belge numarası (harf ile)
+        document_type: Belgenin türü
       id_document_upload:
-        document_number: Document number (with letter)
-        document_type: Type of your document
-        user: User
-        verification_attachment: Scanned copy of your document
+        document_number: Belge numarası (harf ile)
+        document_type: Belgenizin tipi
+        user: kullanıcı
+        verification_attachment: Belgenizin taranmış kopyası
       offline_confirmation:
-        email: User email
+        email: Kullanıcı e-postası
       postal_letter_address:
-        full_address: Full address
+        full_address: Açık adres
       postal_letter_confirmation:
-        verification_code: Verification code
+        verification_code: Doğrulama kodu
       postal_letter_postage:
-        full_address: Full address
-        verification_code: Verification code
+        full_address: Açık adres
+        verification_code: Doğrulama kodu
   decidim:
     admin:
       menu:
-        authorization_workflows: Verifications
+        authorization_workflows: Doğrulama
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} bir çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} doğrulandı"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Yöneticiler, kabul edilen katılımcıların e-postalarıyla bir CSV yükler
+            - Yalnızca bu CSV dosyasında e-posta adresine sahip katılımcılar doğrulanabilir
         id_documents:
-          help: '["Users fill in their identity information and upload a copy of their document.", "You fill in the information present in the uploaded image.", "The information should match whatever the user filled in.", "If you can''t clearly see the information or you can''t get it verified, you can reject the request and the user will be able to fix it."]'
+          help:
+            - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
+            - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
+            - Bilgi, kullanıcının doldurduğu her şeyle eşleşmelidir.
+            - Bilgileri açıkça göremiyorsanız veya doğrulamıyorsanız, isteği reddedebilirsiniz ve kullanıcı bunu düzeltebilir.
         postal_letter:
-          help: '["Users request a verification code to be sent to their address.", "You send the letter to their address with the verification code.", "You mark the letter as sent.", "Once you mark the letter as sent, the user will be able to introduce the code and get verified."]'
-      direct: Direct
-      help: Help
+          help:
+            - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
+            - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
+            - Mektubu gönderildiği gibi işaretlersiniz.
+            - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
+      csv_census:
+        explanation: Kuruluşun sayımını kullanarak doğrulayın
+        name: Kuruluşun nüfus sayımı
+      direct: direkt
+      help: yardım et
       id_documents:
-        explanation: Upload your identity documents so we can check your identity
-        name: Identity documents
-      multistep: Multi-Step
-      name: Name
+        explanation: Kimlik belgelerinizi yükleyin, böylece kimliğinizi kontrol edebiliriz
+        name: Kimlik belgeleri
+      multistep: Çok Adım
+      name: isim
       postal_letter:
-        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
-        name: Code by postal letter
+        explanation: Size adresinizi doğrulayabilmemiz için girmeniz gereken bir kod içeren bir posta mektubu göndereceğiz.
+        name: Posta mektubu ile kod
     verifications:
       authorizations:
         create:
-          error: There was an error creating the authorization.
-          success: You've been successfully authorized.
-          unconfirmed: You need to confirm your email in order to authorize yourself.
+          error: Yetkilendirme oluşturulurken bir hata oluştu.
+          success: Başarılı bir şekilde yetkilendirildiniz.
+          unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verify against another example of authorization handler
-            dummy_authorization_handler: Verify against the example authorization handler
-            dummy_authorization_workflow: Verify against the example authorization workflow
-            id_documents: Get verified by uploading your identity document
-            postal_letter: Get verified by receiving a verification code through postal mail
-          title: Verify your identity
-          verify_with_these_options: 'These are the available options to verify your identity:'
+            another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
+            csv_census: Kuruluşun sayımına göre doğrulayın
+            dummy_authorization_handler: Örnek yetkilendirme işleyicisine karşı doğrulayın
+            dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
+            id_documents: Kimlik belgenizi yükleyerek doğrulanma
+            postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
+          title: Kimliginizi dogrulayin
+          verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
         new:
-          authorize: Send
-          authorize_with: Verify with %{authorizer}
-        skip_verification: You can skip this for now and %{link}
-        start_exploring: start exploring
+          authorize: göndermek
+          authorize_with: '%{authorizer}ile doğrulayın'
+        skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
+        start_exploring: keşfetmeye başla
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Sayım alınırken bir hata oluştu.
+              success: '%{count} öğe başarıyla içe aktarıldı (%{errors} hata)'
+            destroy_all:
+              success: Tüm nüfus sayımı verileri silindi
+          destroy:
+            confirm: Silinen tüm nüfus sayımı geri alınamaz. Devam etmek istediğine emin misin?
+            title: Tüm nüfus sayımı verilerini sil
+          index:
+            data: Toplam %{count} kayıt var. Son yükleme tarihi %{due_date}
+            empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
+            title: Mevcut nüfus sayımı verileri
+          instructions:
+            body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
+            title: Bu kuruluş için csv sayımını etkinleştirmeniz gerekir
+          new:
+            file: "e-posta verileri içeren .csv dosyası"
+            info: 'Tek sütunlu CSV biçiminde bir dosya olmalı: e-posta'
+            submit: Dosya yükleme
+            title: Yeni bir nüfus sayımı yükleyin
+        authorizations:
+          new:
+            error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
+            success: Hesabınız başarıyla doğrulandı.
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to users with the postal code %{postal_codes}.
-          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+          one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
+          other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
       id_documents:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Kimlik belgeleri yapılandırması
+              update: Güncelleştirme
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Yapılandırma güncellenirken bir hata oluştu.
+              success: Yapılandırma başarıyla güncellendi
           confirmations:
             create:
-              error: Verification doesn't match. Try again or reject the verification so the user can amend it
-              success: User successfully verified
+              error: Doğrulama uyuşmuyor. Tekrar deneyebilir veya doğrulamayı reddedebilir, böylece kullanıcı bunu değiştirebilir
+              success: Kullanıcı başarıyla doğrulandı
             new:
-              introduce_user_data: Introduce the data in the picture
-              reject: Reject
-              verify: Verify
+              introduce_user_data: Resimdeki verileri tanıtın
+              reject: reddetmek
+              verify: DOĞRULAYIN
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Doğrulama uyuşmuyor. Tekrar dene veya kullanıcıyı değiştirmesini söyle
+              success: Kullanıcı başarıyla doğrulandı
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: İptal etmek
+              introduce_user_data: Kullanıcı e-postasını ve belge verilerini tanıtın
+              verify: DOĞRULAYIN
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Pending online verifications
-              verification_number: 'Verification #%{n}'
+              config: Yapılandırma
+              offline_verification: Çevrimdışı doğrulama
+              title: Bekleyen çevrimiçi doğrulamalar
+              verification_number: 'Doğrulama #%{n}'
           rejections:
             create:
-              success: Verification rejected. User will be prompted to amend her documents
+              success: Doğrulama reddedildi. Kullanıcı dokümanlarını değiştirmek için istenecektir
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
-            offline: Offline
-            online: Online
-            title: Verify yourself using your identity document
+            choose_a_type: 'Lütfen nasıl doğrulanmak istediğinizi seçin:'
+            offline: Çevrimdışı
+            online: İnternet üzerinden
+            title: Kimlik belgenizi kullanarak kendinizi doğrulayın
           create:
-            error: There was a problem uploading your document
-            success: Document uploaded successfully
+            error: Belgenizi yüklerken bir sorun oluştu
+            success: Belge başarıyla yüklendi
           edit:
-            being_reviewed: We're reviewing your documents. You'll be verified shortly
-            offline: Use offline verification
-            online: Use online verification
-            rejection_clarity: Make sure the information is clearly visible in the uploaded image
-            rejection_correctness: Make sure the information entered is correct
-            rejection_notice: There was a problem with your verification. Please try again
-            send: Request verification again
+            being_reviewed: Belgelerini inceliyoruz. Kısa bir süre sonra doğrulanacaksınız
+            offline: Çevrimdışı doğrulamayı kullan
+            online: Çevrimiçi doğrulamayı kullan
+            rejection_clarity: Yüklenen görselde bilgilerin net bir şekilde göründüğünden emin olun.
+            rejection_correctness: Girilen bilgilerin doğru olduğundan emin olun.
+            rejection_notice: Doğrulamanızla ilgili bir sorun oluştu. Lütfen tekrar deneyin
+            send: Doğrulamayı tekrar isteyin
           new:
-            send: Request verification
-            title: Upload your identity document
+            send: Doğrulama isteğinde bulun
+            title: Kimlik belgenizi yükleyin
           update:
-            error: There was a problem reuploading your document
-            success: Document reuploaded successfully
+            error: Belgenizi yeniden yüklerken bir sorun oluştu
+            success: Belge başarıyla yeniden yüklendi
         dni: DNI
         nie: NIE
-        passport: Passport
+        passport: Pasaport
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: Address
-              letter_sent_at: Letter sent at
-              mark_as_sent: Mark as sent
-              not_yet_sent: Not yet sent
-              title: Ongoing verifications
-              username: Username
-              verification_code: Verification code
+              address: Adres
+              letter_sent_at: Gönderdiği mektup
+              mark_as_sent: Gönderildiği gibi işaretle
+              not_yet_sent: Henüz gönderilmedi
+              title: Devam eden doğrulamalar
+              username: Kullanıcı adı
+              verification_code: Doğrulama kodu
           postages:
             create:
-              error: Error marking letter as sent
-              success: Letter successfully marked as sent
+              error: Gönderilen mektup işaretlenirken hata oluştu
+              success: Mektup başarıyla gönderildi olarak işaretlendi
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We'll send a verification code to your address
+            error: İsteğiniz ile ilgili bir sorun vardı
+            success: Teşekkürler! Adresinize bir doğrulama kodu göndereceğiz
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
-            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+            send: Onaylamak
+            title: Aldığınız doğrulama kodunu tanıtın
+            waiting_for_letter: Yakında doğrulama kodunuzla adresinize bir mektup gönderiyoruz
           new:
-            send: Send me a letter
-            title: Request your verification code
+            send: Bana bir mektup gönder
+            title: Doğrulama kodunuzu isteyin
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
-            success: Congratulations. You've been successfully verified
+            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz mektubu iki kez kontrol edin
+            success: Tebrikler. Başarıyla doğrulandı
       sms:
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            error: İsteğiniz ile ilgili bir sorun vardı
+            success: Teşekkürler! Telefonunuza bir SMS gönderdik.
+          destroy:
+            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
+            confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
+            destroy: Doğrulama kodunu sıfırla
+            resend: Doğrulama kodunu alamadınız mı?
+            send: Onaylamak
+            title: Aldığınız doğrulama kodunu tanıtın
           new:
-            send: Send me an SMS
-            title: Request your verification code
+            send: Bana bir SMS gönder
+            title: Doğrulama kodunuzu isteyin
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz SMS'i tekrar kontrol edin.
+            success: Tebrikler. Başarıyla doğrulandı.
   errors:
     messages:
-      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
+      uppercase_only_letters_numbers: tüm büyük harf olmalı ve sadece harf ve / veya sayı içermelidir

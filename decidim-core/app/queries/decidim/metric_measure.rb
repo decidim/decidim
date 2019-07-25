@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class execute some measures related to Metrics, and return its results
+  # This class executes some measures related to Metrics, and return its results
   #
   #  - day: Date object
   #  - resource: Object used to make measurements. Object class is dependant within each measure

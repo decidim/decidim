@@ -52,7 +52,7 @@ fi:
             name: Aikajanan merkintä
         results:
           create:
-            invalid: Tuloksen luonnissa tapahtui virhe
+            invalid: Tuloksen luonti epäonnistui
             success: Tulos luotu onnistuneesti
           destroy:
             success: Tulos poistettu onnistuneesti
@@ -71,14 +71,14 @@ fi:
             current_selection: Nykyinen valinta
             select: Valitse
           update:
-            invalid: Tuloksen päivityksessä tapahtui virhe
+            invalid: Tuloksen päivitys epäonnistui
             success: Tulos päivitetty onnistuneesti
         shared:
           subnav:
             statuses: Tilat
         statuses:
           create:
-            invalid: Tilan luomisessa tapahtui virhe
+            invalid: Tilan luonti epäonnistui
             success: Tila luotu onnistuneesti
           destroy:
             success: Tilan poistettu onnistuneesti
@@ -91,11 +91,11 @@ fi:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: Tilan päivittämisessä tapahtui virhe
+            invalid: Tilan päivitys epäonnistui
             success: Tilan päivitys onnistui
         timeline_entries:
           create:
-            invalid: Merkinnän luomisessa tapahtui virhe
+            invalid: Kohteen luonti epäonnistui
             success: Merkintä luotu onnistuneesti
           destroy:
             success: Merkintä poistettu onnistuneesti
@@ -108,7 +108,7 @@ fi:
             create: Luo merkintä
             title: Uusi merkintä
           update:
-            invalid: Merkinnän päivityksessä tapahtui virhe
+            invalid: Kohteen päivitys epäonnistui
             success: Merkinnän päivitys onnistui
       admin_log:
         result:

@@ -36,6 +36,7 @@ module Decidim
           body: present(proposal).body,
           state: proposal.state.to_s,
           reference: proposal.reference,
+          answer: ensure_translatable(proposal.answer),
           supports: proposal.proposal_votes_count,
           endorsements: proposal.endorsements.count,
           comments: proposal.comments.count,

@@ -1,0 +1,7 @@
+<% agenda_item = form.object %>
+
+<script type="text/template" class="decidim-template" id="<%= template_id %>">
+  <%= fields_for "meeting_agenda[agenda_items][#{agenda_item.to_param}][agenda_item_children][#{blank_agenda_item.to_param_child}]", blank_agenda_item do |agenda_item_child_form| %>
+    <%= render "agenda_item_child", form: agenda_item_child_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), tabs_id_child: tabs_id_for_agenda_item_child(blank_agenda_item), editable: editable %>
+  <% end %>
+</script>

@@ -112,6 +112,7 @@ module Decidim
         Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
       end
 
+      # OSP Safety net
       def has_address?
         form.has_address && form.address.present?
       end

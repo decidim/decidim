@@ -39,6 +39,7 @@ require "nobspw"
 require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
+require "diffy"
 
 require "decidim/api"
 
@@ -414,6 +415,10 @@ module Decidim
         Decidim::Gamification.register_badge(:continuity) do |badge|
           badge.levels = [2, 10, 30, 60, 180, 365]
         end
+      end
+
+      initializer "nbspw" do
+        NOBSPW.configuration.use_ruby_grep = true
       end
     end
   end

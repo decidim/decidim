@@ -441,15 +441,7 @@
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
-            if (date && date.length > this.formatText.length) {
-                    $(this.picker).addClass('is-invalid')
-                    $(this.element).addClass('is-invalid-input')
-                    return;
-            } else {
-                $(this.picker).removeClass('is-invalid')
-                $(this.element).removeClass('is-invalid-input')
-            }
-        
+
             this.date = DPGlobal.parseDate(date, this.format, this.language);
 
             if (fromArgs) {

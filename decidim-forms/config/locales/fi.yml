@@ -34,7 +34,7 @@ fi:
             title: Otsikko
           form:
             add_question: Lisää kysymys
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselylomakkeeseen, joten et voi enää muokata kysymyksiä.
           question:
             add_answer_option: Lisää vastausvaihtoehto
             any: Minkä tahansa
@@ -45,7 +45,7 @@ fi:
             statement: Selite
             up: Ylös
           update:
-            invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
+            invalid: Kyselylomakkeen tallentaminen epäonnistui.
             success: Kyselylomakkeet tallennettiin onnistuneesti.
       errors:
         answer:
@@ -58,23 +58,26 @@ fi:
         sorting: Järjestäminen
       questionnaires:
         answer:
-          invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
-          success: Kyselyyn vastattu onnistuneesti.
+          invalid: Kyselylomakkeeseen vastaaminen epäonnistui.
+          success: Kyselylomakkeeseen vastaaminen onnistui.
         question:
           max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
-            title: Vastaa kyselyyn
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi lomakkeeseen.
+            title: Vastaa kyselylomakkeeseen
           are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
           questionnaire_answered:
-            body: Olet jo vastannut tähän kyselyyn.
+            body: Olet jo vastannut tähän kyselylomakkeeseen.
             title: Olet jo vastannut
           questionnaire_closed:
             body: Kyselylomake on suljettu, eikä siihen voi vastata.
-            title: Kysely on suljettu
+            title: Kyselylomake on suljettu
           questionnaire_for_private_users:
-            body: Kyselylomake on saatavilla vain yksityisille käyttäjille
-            title: Kysely on suljettu
+            body: Kyselylomake on nähtävillä vain yksityisille käyttäjille
+            title: Kyselylomake on suljettu
           submit: Lähetä
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
+      user_answers_serializer:
+        created_at: Vastauksen ajankohta
+        id: Vastauksen ID

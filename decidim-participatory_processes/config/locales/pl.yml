@@ -1,13 +1,14 @@
----
 pl:
   activemodel:
     attributes:
       participatory_process:
         announcement: Ogłoszenie
+        area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
+        decidim_area_id: Powierzchnia
         description: Opis
         developer_group: Grupa promotorów
         domain: Domena
@@ -19,7 +20,6 @@ pl:
         participatory_process_group_id: Grupa procesów
         participatory_scope: Co postanowiono
         participatory_structure: Jak to się decyduje
-        private_space: Concertation privée
         promoted: Lansowany
         published_at: Opublikowano na
         scope_id: Zakres
@@ -54,19 +54,19 @@ pl:
   activerecord:
     models:
       decidim/participatory_process:
+        one: Proces partycypacyjny
         few: Procesy partycypacyjne
         many: Procesy partycypacyjne
-        one: Proces partycypacyjny
         other: Procesy partycypacyjne
       decidim/participatory_process_group:
+        one: Uczestnicza grupa procesowa
         few: Uczestniczące grupy procesów
         many: Uczestniczące grupy procesów
-        one: Uczestnicza grupa procesowa
         other: Uczestniczące grupy procesów
       decidim/participatory_process_step:
+        one: Krok
         few: Kroki
         many: Kroki
-        one: Krok
         other: Kroki
   decidim:
     admin:
@@ -77,12 +77,13 @@ pl:
         destroy: Kasować
         duplicate: Duplikat
         edit: Edytuj
-        new: New
+        filter:
+          all: Pokaż wszystkie procesy
+          process_groups: Grupy procesowe
+        new_process: Nowy proces
         new_process_group: Nowa grupa procesów
         new_process_step: Nowy krok
         new_process_user_role: Nowy użytkownik procesu
-        participatory_process:
-          new: New
         preview: Podgląd
         publish: Opublikować
         resend_invitation: Wyślij ponownie zaproszenie
@@ -208,14 +209,9 @@ pl:
           success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
         edit:
           update: Aktualizuj
-        form:
-          title: Informacje ogólne
         index:
           not_published: Nie opublikowane
           private: Prywatny
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Publiczny
           published: Opublikowany
         new:
@@ -279,17 +275,12 @@ pl:
         description: Liczba procesów uczestniczących w tej organizacji
         object: procesy uczestniczące
         title: Procesy partycypacyjne
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
+          one: 1 procesy dla %{group}
           few: "%{count} procesów dla %{group}"
           many: "%{count} procesów dla %{group}"
-          one: 1 procesy dla %{group}
           other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -311,7 +302,16 @@ pl:
         participatory_processes:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
+            duration: Trwanie
+            filters: Filtry
+            images: Obrazy
+            metadata: Metadane
+            other: Inny
+            select_an_area: Wybierz obszar
+            select_process_group: Wybierz grupę procesów
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+            title: Informacje ogólne
+            visbility: Widoczność
       content_blocks:
         highlighted_processes:
           name: Wyróżnione procesy
@@ -327,30 +327,28 @@ pl:
             more_information: Więcej informacji
             participate: Uczestniczyć
             see_all_processes: Zobacz wszystkie procesy
-      participatory_process_groups:
-        none: Brak
       participatory_processes:
         filters:
           counters:
             active:
+              one: 1 aktywny proces
               few: "%{count} aktywnych procesów"
               many: "%{count} aktywnych procesów"
-              one: 1 aktywny proces
               other: "%{count} aktywnych procesów"
             all:
+              one: 1 proces
               few: "%{count} procesów"
               many: "%{count} procesów"
-              one: 1 proces
               other: "%{count} procesów"
             past:
+              one: 1 przeszły proces
               few: "%{count} przeszłych procesów"
               many: "%{count} przeszłych procesów"
-              one: 1 przeszły proces
               other: "%{count} przeszłych procesów"
             upcoming:
+              one: 1 nadchodzący proces
               few: "%{count} nadchodzących procesów"
               many: "%{count} nadchodzących procesów"
-              one: 1 nadchodzący proces
               other: "%{count} nadchodzących procesów"
           explanations:
             no_active: Brak aktywnych procesów
@@ -365,6 +363,7 @@ pl:
         index:
           loading: Wyniki wyszukiwania...
       show:
+        area: Powierzchnia
         developer_group: Grupa promotorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
@@ -406,6 +405,7 @@ pl:
           promoted_processes: Podświetlone procesy
         participatory_process:
           active_step: 'Aktualny krok:'
+          more_info: Więcej informacji
           take_part: Wziąć udział
         promoted_process:
           active_step: 'Aktualny krok:'

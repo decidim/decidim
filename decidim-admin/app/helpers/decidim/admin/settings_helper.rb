@@ -26,7 +26,7 @@ module Decidim
         if attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
-          form.send(form_method_for_attribute(attribute), name, options)
+          form.send(form_method_for_attribute(attribute), name, options.merge(extra_options_for(name)))
         end
       end
 
@@ -36,6 +36,23 @@ module Decidim
         return :editor if attribute.type.to_sym == :text && attribute.editor?
 
         TYPES[attribute.type.to_sym]
+      end
+
+      # Marks :participatory_texts_enabled checkbox with a unique class if
+      # the Proposals component has existing proposals, and stores the help text
+      # that will be added in a new div via JavaScript in "decidim/admin/form".
+      #
+      # field_name - The name of the field to disable.
+      #
+      # Returns an empty Hash or a Hash with extra HTML options.
+      def extra_options_for(field_name)
+        return {} unless field_name == :participatory_texts_enabled &&
+                         Decidim::Proposals::Proposal.where(component: @component).any?
+
+        {
+          class: "participatory_texts_disabled",
+          data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
+        }
       end
     end
   end

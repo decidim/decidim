@@ -78,3 +78,6 @@ eu:
             title: Galdeketa itxia
           submit: Bidali
           tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
+      user_answers_serializer:
+        created_at: Erantzuna
+        id: Erantzun IDa

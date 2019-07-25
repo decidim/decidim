@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -77,3 +78,6 @@ fr:
             title: Questionnaire fermé
           submit: Soumettre
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+      user_answers_serializer:
+        created_at: Répondu le
+        id: ID de réponse

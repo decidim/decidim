@@ -106,23 +106,139 @@ describe "Admin manages newsletters", type: :system do
     end
   end
 
-  describe "deliver a newsletter" do
+  describe "select newsletter recipients" do
     let!(:newsletter) { create(:newsletter, organization: organization) }
 
-    it "allows a newsletter to be created" do
-      perform_enqueued_jobs do
-        visit decidim_admin.newsletter_path(newsletter)
+    context "when all users are selected" do
+      it "sends to all users" do
+        visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          within(".newsletter_deliver") do
+            find(:css, "#newsletter_send_to_all_users").set(true)
+          end
 
-        within ".button--double" do
-          accept_confirm { find("*", text: "Deliver").click }
+          within ".button--double" do
+            accept_confirm { find("*", text: "Deliver").click }
+          end
+
+          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_admin_callout("successfully")
         end
 
-        expect(page).to have_content("NEWSLETTERS")
-        expect(page).to have_content("successfully")
+        within "tbody" do
+          expect(page).to have_content("Has been sent to: All users")
+          expect(page).to have_content("5 / 5")
+        end
+      end
+    end
+
+    context "when followers are selected" do
+      let!(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
+      let!(:followers) do
+        deliverable_users.each do |follower|
+          create(:follow, followable: participatory_processes.first, user: follower)
+        end
       end
 
-      within "tbody" do
-        expect(page).to have_content("5 / 5")
+      it "sends to followers" do
+        visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          within(".newsletter_deliver") do
+            uncheck("Send to all users")
+            check("Send to followers")
+            uncheck("Send to participants")
+            within ".participatory_processes-block" do
+              select translated(participatory_processes.first.title), from: :newsletter_participatory_space_types_participatory_processes__ids
+            end
+          end
+
+          within ".button--double" do
+            accept_confirm { find("*", text: "Deliver").click }
+          end
+
+          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_admin_callout("successfully")
+        end
+
+        within "tbody" do
+          expect(page).to have_content("5 / 5")
+        end
+      end
+    end
+
+    context "when participants are selected" do
+      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
+
+      before do
+        deliverable_users.each do |participant|
+          create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+        end
+      end
+
+      it "sends to participants" do
+        visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          within(".newsletter_deliver") do
+            uncheck("Send to all users")
+            uncheck("Send to followers")
+            check("Send to participants")
+            within ".participatory_processes-block" do
+              select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
+            end
+          end
+
+          within ".button--double" do
+            accept_confirm { find("*", text: "Deliver").click }
+          end
+
+          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_admin_callout("successfully")
+        end
+
+        within "tbody" do
+          expect(page).to have_content("5 / 5")
+        end
+      end
+    end
+
+    context "when selecting both followers and participants" do
+      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
+
+      let!(:followers) do
+        deliverable_users.each do |follower|
+          create(:follow, followable: component.participatory_space, user: follower)
+        end
+      end
+
+      before do
+        deliverable_users.each do |participant|
+          create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+        end
+      end
+
+      it "sends to participants" do
+        visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          within(".newsletter_deliver") do
+            uncheck("Send to all users")
+            check("Send to followers")
+            check("Send to participants")
+            within ".participatory_processes-block" do
+              select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
+            end
+          end
+
+          within ".button--double" do
+            accept_confirm { find("*", text: "Deliver").click }
+          end
+
+          expect(page).to have_content("NEWSLETTERS")
+          expect(page).to have_admin_callout("successfully")
+        end
+
+        within "tbody" do
+          expect(page).to have_content("5 / 5")
+        end
       end
     end
   end

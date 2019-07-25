@@ -10,8 +10,6 @@ module Decidim
 
         render
       end
-
-      delegate :current_organization, to: :controller
     end
   end
 end

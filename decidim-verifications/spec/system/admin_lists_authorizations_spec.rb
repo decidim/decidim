@@ -13,7 +13,7 @@ describe "Admin lists authorizations", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Users"
+    click_link "Participants"
     click_link "Verifications"
   end
 

@@ -77,3 +77,6 @@ de:
             title: Fragebogen geschlossen
           submit: einreichen
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      user_answers_serializer:
+        created_at: Beantwortet am
+        id: ID beantworten

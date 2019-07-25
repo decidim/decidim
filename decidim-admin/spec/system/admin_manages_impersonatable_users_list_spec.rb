@@ -11,7 +11,7 @@ describe "Admin manages impersonatable users list", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Users"
+    click_link "Participants"
   end
 
   describe "listing impersonatable users" do

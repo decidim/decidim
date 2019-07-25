@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -85,8 +84,6 @@ gl:
           success: Asemblea creada con éxito.
         edit:
           update: Actualización
-        form:
-          title: Información xeral
         index:
           not_published: Non publicado
           private: Privado
@@ -212,14 +209,21 @@ gl:
       admin:
         assemblies:
           form:
+            duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            filters: Filtros
+            images: Imaxes
             included_at_help: Seleccione a data en que se engadiu este conxunto a Decidim. Non ten que ser necesariamente o mesmo que a data de creación.
+            metadata: Metadatos
+            other: Outra
             select_a_created_by: Seleccione un creado por
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
             select_parent_assembly: Seleccione o conxunto primario
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
+            title: Información xeral
+            visbility: Visibilidade
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
@@ -259,16 +263,14 @@ gl:
         others: Outros
         public: Público
       filter:
-        all: Todo
+        all: Todo tipo de montaxes
         commission: Comisión
         consultative_advisory: Consultivo / asesor
         executive: Executivo
         government: Goberno
         help: 'Amosar:'
-        label: 'Amosar:'
         others: Outros
         participatory: Participativa
-        placeholder: Filtrar por tipo
         working_group: Grupo de traballo
       index:
         title: Asembleas
@@ -354,6 +356,7 @@ gl:
     decidim:
       assemblies:
         assembly:
+          more_info: Máis información
           take_part: Tomar parte en
         index:
           organizational_chart: Organigrama
@@ -361,8 +364,8 @@ gl:
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: Asemblea %{count}
-            other: Asembleas %{count}
+            one: "Asemblea %{count}"
+            other: "Asembleas %{count}"
         promoted_assembly:
           more_info: Máis información
           take_part: Tomar parte en

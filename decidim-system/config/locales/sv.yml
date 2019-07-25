@@ -1,9 +1,8 @@
----
 sv:
   decidim:
     system:
       actions:
-        confirm_destroy: Är du säker på att du vill radera detta?
+        confirm_destroy: Vill du radera detta?
         destroy: Radera
         edit: Redigera
         new: Ny
@@ -11,54 +10,49 @@ sv:
         title: Åtgärder
       admins:
         create:
-          error: Det uppstod ett fel vid skapandet av en ny admin.
-          success: Admin skapades framgångsrikt
+          error: Det gick inte att skapa en ny administratör.
+          success: Administratören har skapats
         destroy:
-          success: Admin har raderats
+          success: Administratören har raderats
         edit:
-          title: Redigera admin
+          title: Redigera administratören
           update: Uppdatera
         index:
           title: Administratörer
         new:
           create: Skapa
-          title: Ny admin
+          title: Ny administratör
         update:
-          error: Det uppstod ett fel vid uppdateringen av denna admin.
-          success: Admin uppdaterad
+          error: Det gick inte att uppdatera administratören.
+          success: Administratören har uppdaterats
       default_pages:
         placeholders:
-          content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
+          content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
           title: Standardtitel för %{page}
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Administratörer
         dashboard: Kontrollpanel
-        logs: Logs
         organizations: Organisationer
       models:
         admin:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             email: E-post
-          name: Admin
+          name: Administratör
           validations:
-            email_uniqueness: En annan admin med samma e-post finns redan
+            email_uniqueness: det finns redan en administratör med samma e-postadress
         organization:
           actions:
-            save_and_invite: Skapa organisation och bjud in admin
+            save_and_invite: Skapa organisation och bjud in administratör
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             name: Namn
-            smtp_settings: SMTP settings
+            smtp_settings: SMTP-inställningar
           name: Organisation
       organizations:
         create:
-          error: Det uppstod ett fel vid skapandet av ny organisation.
-          success: Organisationen skapades.
+          error: Det gick inte att skapa en ny organisation.
+          success: Organisationen har skapats.
         edit:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
         index:
@@ -68,15 +62,15 @@ sv:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         update:
-          error: Det uppstod ett fel vid uppdateringen av den här organisationen.
-          success: Organisationen uppdaterades.
+          error: Det gick inte att uppdatera organisationen.
+          success: Organisationen har uppdaterats.
         users_registration_mode:
-          disabled: Endast åtkomst kan göras med externa konton
-          enabled: Tillåt användare att registrera och logga in
-          existing: Låt inte användare registrera sig, men låta befintliga användare logga in
+          disabled: Åtkomst kan endast göras med externa konton
+          enabled: Tillåt deltagare att registrera och logga in
+          existing: Tillåt inte deltagare att registrera sig, men tillåt inloggning från befintliga användare
       shared:
         notices:
-          no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.
+          no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
       titles:
         dashboard: Kontrollpanel

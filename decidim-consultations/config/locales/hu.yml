@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -207,7 +206,7 @@ hu:
         filter_by: 'Szűrés ez alapján:'
         unfold: Kibont
       highlighted_questions:
-        title: "%{scope_name} kérdések"
+        title: '%{scope_name} kérdések'
       index:
         title: Konzultációk
       last_activity:
@@ -249,7 +248,7 @@ hu:
       participatory_spaces:
         consultations:
           contextual: "<p>A konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generáljanak egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, igennel vagy nemmel döntve arról, hogy a szervezet egy megállapodást írjon alá, nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása kérdésében, vagy munkacsoport eredményét, vagy adott esetben meghatározni, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
-          page: "<p>A konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generáljanak egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, igennel vagy nemmel döntve arról, hogy a szervezet egy megállapodást írjon alá, nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása kérdésében, vagy munkacsoport eredményét, vagy adott esetben meghatározni, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
+          page: "<p>konzultációk olyan teret jelentenek, amely lehetővé teszi, hogy egyértelmű kérdéseket tegyenek fel a szervezetet alkotó embereknek, hívjanak fel a konzultációban való részvételre, szikrázzanak és megrendeljék a vitát egy válasz ellen vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteszi a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte minden olyan aspektusra vonatkozhatnak, amely a szervezetet érinti: néhány példa megváltoztatja a több alternatívát kínáló szervezet nevét vagy logóját, úgy dönt, hogy igen vagy nem, hogy egy nagyobb szervezet részévé váljon, új stratégiai jóváhagyást vagy elutasítást kapjon vagy egy munkacsoport eredménye, vagy meghatározza, hogy a pozíciók maximálisan 1, 2 vagy 3 mandátumot kell-e maradniuk a szervezetben.</p>\n"
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
@@ -258,6 +257,8 @@ hu:
         statistics:
           consultations_count: Konzultációk
     questions:
+      next_button: Következő kérdés
+      previous_button: Előző kérdés
       results:
         title: Eredmények
       show:
@@ -266,22 +267,22 @@ hu:
         assistants_count_title: Segítség
         comments_count_title: Hozzászólások
         meetings_count_title: Találkozók
-        supports_count_title: Támogatások
+        supports_count_title: Szavazatok
       technical_info:
         technical_data: Technikai részletek
       vote_button:
         already_voted: Már szavaztál
-        already_voted_hover: Támogatás visszavonása
-        starting_from: "%{date} óta"
+        already_voted_hover: A szavazás visszavonása
+        starting_from: '%{date} óta'
         vote: Szavazás
       vote_modal:
         contextual_help: Válassz az opciók közül.
-        title: 'Konzultáció: kérdés-támogatás'
+        title: 'Konzultáció: kérdés-szavazás'
       vote_modal_confirm:
         change: Módosítás
         confirm: Megerősítés
         contextual_help: Erősítsd meg a kiválasztott opciót.
-        title: 'Konzultáció: erősítsd meg a támogatást'
+        title: 'Konzultáció: erősítsd meg a szavazatot'
   layouts:
     decidim:
       admin:

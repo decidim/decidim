@@ -23,6 +23,10 @@ module Decidim
       Decidim::DataPortabilitySerializers::DataPortabilityFollowSerializer
     end
 
+    def self.user_follower_ids_for_participatory_spaces(spaces)
+      joins(:user).where(followable: spaces).pluck(:decidim_user_id).uniq
+    end
+
     private
 
     # rubocop:disable Rails/SkipsModelValidations

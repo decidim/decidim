@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
   description: translated_attribute(debate.description),
-  title: translated_attribute(debate.title),
+  title: present(debate).title,
   url: debate_url(debate.id)
 }) %>
 
@@ -15,7 +15,7 @@ edit_link(
 
 <div class="row column view-header">
   <h2 class="heading2">
-    <%== translated_attribute debate.title %>
+    <%== present(debate).title %>
   </h2>
 
   <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>

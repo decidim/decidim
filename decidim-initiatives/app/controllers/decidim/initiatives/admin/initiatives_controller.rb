@@ -74,7 +74,7 @@ module Decidim
 
           PublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
-              redirect_to decidim_admin_initiatives.initiatives_path
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
         end
@@ -85,7 +85,7 @@ module Decidim
 
           UnpublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
-              redirect_to decidim_admin_initiatives.initiatives_path
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
         end
@@ -94,21 +94,21 @@ module Decidim
         def discard
           enforce_permission_to :discard, :initiative, initiative: current_initiative
           current_initiative.discarded!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # POST /admin/initiatives/:id/accept
         def accept
           enforce_permission_to :accept, :initiative, initiative: current_initiative
           current_initiative.accepted!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # DELETE /admin/initiatives/:id/reject
         def reject
           enforce_permission_to :reject, :initiative, initiative: current_initiative
           current_initiative.rejected!
-          redirect_to decidim_admin_initiatives.initiatives_path
+          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
         end
 
         # GET /admin/initiatives/:id/send_to_technical_validation
@@ -141,6 +141,32 @@ module Decidim
           respond_to do |format|
             format.csv { send_data csv_data, file_name: "votes.csv" }
           end
+        end
+
+        # GET /admin/initiatives/:id/export_pdf_signatures.pdf
+        def export_pdf_signatures
+          enforce_permission_to :export_pdf_signatures, :initiative, initiative: current_initiative
+
+          @votes = current_initiative.votes.votes
+
+          output = render_to_string(
+            pdf: "votes_#{current_initiative.id}",
+            layout: "decidim/admin/initiatives_votes",
+            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures.pdf.erb"
+          )
+          output = pdf_signature_service.new(pdf: output).signed_pdf if pdf_signature_service
+
+          respond_to do |format|
+            format.pdf do
+              send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
+            end
+          end
+        end
+
+        private
+
+        def pdf_signature_service
+          @pdf_signature_service ||= Decidim.pdf_signature_service.to_s.safe_constantize
         end
       end
     end

@@ -1,297 +1,298 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner image
-        decidim_highlighted_scope_id: Highlighted scope
-        description: Description
-        end_voting_date: Voting ends
-        introductory_image: Introductory image
-        introductory_video_url: Introductory video URL
-        questions: Questions
-        slug: URL slug
-        start_voting_date: Voting begins
-        subtitle: Subtitle
-        title: Title
+        banner_image: Filama görseli
+        decidim_highlighted_scope_id: Vurgulanan kapsam
+        description: Açıklama
+        end_voting_date: Oylama biter
+        introductory_image: Tanıtım görüntü
+        introductory_video_url: Tanıtım videosu URL'si
+        questions: Sorular
+        slug: URL sümüklü böcek
+        start_voting_date: Oylama başlıyor
+        subtitle: Alt yazı
+        title: Başlık
       question:
-        banner_image: Banner image
-        decidim_scope_id: Municipal area
-        hashtag: Hashtag
-        hero_image: Home image
-        i_frame_url: External voting system URL
-        origin_scope: Scope
-        origin_title: Origin
-        origin_url: Origin URL
-        participatory_scope: Participatory scope
-        promoter_group: Promoter group
-        question_context: Context
-        reference: Reference
-        scope: Municipal area
-        slug: URL slug
-        subtitle: Subtitle
-        title: Title
-        vote: External voting system
-        what_is_decided: What is decided
+        banner_image: Banner resmi
+        decidim_scope_id: Belediye alanı
+        hashtag: Başlık etiketi
+        hero_image: Ana resim
+        i_frame_url: Harici oylama sistemi URL'si
+        origin_scope: kapsam
+        origin_title: Menşei
+        origin_url: Kökeni URL
+        participatory_scope: Katılımcı kapsamı
+        promoter_group: Tanıtım grubu
+        question_context: bağlam
+        reference: Referans
+        scope: Belediye alanı
+        slug: URL sümüklü böcek
+        subtitle: Alt yazı
+        title: Başlık
+        vote: Dış oylama sistemi
+        what_is_decided: Karar nedir
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Response not found.
+          not_found: Yanıt bulunamadı.
   activerecord:
     models:
       decidim/consultation:
-        one: Consultation
-        other: Consultations
+        one: konsültasyon
+        other: istişareler
       decidim/consultations/question:
-        one: Question
-        other: Questions
+        one: Soru
+        other: Sorular
       decidim/consultations/response:
-        one: Response
-        other: Responses
+        one: Tepki
+        other: Tepkiler
       decidim/consultations/vote:
-        one: No votes
-        other: Votes
+        one: Oy
+        other: oy
   decidim:
     admin:
       actions:
-        new_consultation: New consultation
-        new_question: New question
-        new_response: New response
-        publish_results: Publish results
-        unpublish_results: Unpublish results
+        new_consultation: Yeni danışma
+        new_question: Yeni soru
+        new_response: Yeni cevap
+        publish_results: Sonuçları yayınla
+        unpublish_results: Sonuçları yayından kaldır
       consultation_publications:
         create:
-          error: There was an error publishing this consultation.
-          success: Consultation published successfully.
+          error: Bu danışmada bir hata oluştu.
+          success: Danışmanlık başarıyla yayınlandı.
         destroy:
-          error: There was an error unpublishing this consultation.
-          success: Consultation unpublished successfully.
+          error: Bu danışma işleminin yayından kaldırılmasıyla ilgili bir hata oluştu.
+          success: Danışmanlık başarıyla yayından kaldırıldı.
       consultation_results_publications:
         create:
-          error: There was an error publishing the results for this consultation.
-          success: Consultation results published successfully.
+          error: Bu danışma için sonuçları yayınlayan bir hata oluştu.
+          success: Danışmanlık sonuçları başarıyla yayınlandı.
         destroy:
-          error: There was an error unpublishing the results for this consultation.
-          success: Consultation results unpublished successfully.
+          error: Bu danışma için sonuçların yayından kaldırılmasıyla ilgili bir hata oluştu.
+          success: Danışmanlık sonuçları başarılı bir şekilde yayınlanmamıştır.
       consultations:
         create:
-          error: There was an error creating a new consultation.
-          success: Consultation successfully created.
+          error: Yeni bir danışma oluştururken bir hata oluştu.
+          success: Danışmanlık başarıyla oluşturuldu.
         edit:
-          update: Update
+          update: Güncelleştirme
         form:
-          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-          title: General information
+          slug_help: 'URL sümükleri, bu danışmaya işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+          title: Genel bilgi
         index:
-          not_published: Not published
-          published: Published
+          not_published: Yayınlanmadı
+          published: Yayınlanan
         new:
-          create: Create
-          title: New consultation
+          create: yaratmak
+          title: Yeni danışma
         update:
-          error: There was an error when updating this consultation.
-          success: Consultation updated successfully.
+          error: Bu danışma hizmetini güncellerken bir hata oluştu.
+          success: Danışma başarıyla güncellendi.
       menu:
-        consultations: Consultations
+        consultations: istişareler
         consultations_submenu:
-          info: Information
-          questions: Questions
+          info: Bilgi
+          questions: Sorular
         questions_submenu:
-          components: Components
-          consultation: Consultation
-          info: Information
-          responses: Responses
+          components: Bileşenler
+          consultation: konsültasyon
+          info: Bilgi
+          responses: Tepkiler
       models:
         consultation:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Düzenlendi
+            published: Yayınlanan
+            title: Başlık
           name:
-            one: Consultation
-            other: Consultations
+            one: konsültasyon
+            other: istişareler
         question:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Düzenlendi
+            published: Yayınlanan
+            title: Başlık
           name:
-            one: Question
-            other: Questions
+            one: Soru
+            other: Sorular
         response:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Düzenlendi
+            title: Başlık
           name:
-            one: Response
-            other: Responses
+            one: Tepki
+            other: Tepkiler
       question_publications:
         create:
-          error: There was an error publishing this question.
-          success: Question published successfully.
+          error: Bu soruyu yayınlarken bir hata oluştu.
+          success: Soru başarıyla basıldı.
         destroy:
-          error: There was an error unpublishing this question.
-          success: Question unpublished successfully.
+          error: Bu soruyu yayından kaldırmada bir hata oluştu.
+          success: Soru başarıyla basıldı.
       questions:
         create:
-          error: There was an error creating a new question.
-          success: Question successfully created.
+          error: Yeni bir soru oluşturulurken bir hata oluştu.
+          success: Soru başarıyla oluşturuldu.
         destroy:
-          success: Question successfully deleted.
+          success: Soru başarıyla silindi.
         edit:
-          update: Update
+          update: Güncelleştirme
         form:
-          title: General information
+          title: Genel bilgi
         index:
-          not_published: Not published
-          published: Published
+          not_published: Yayınlanmadı
+          published: Yayınlanan
         new:
-          create: Create
-          title: New question
+          create: yaratmak
+          title: Yeni soru
         update:
-          error: There was an error when updating this question.
-          success: Question updated successfully.
+          error: Bu soru güncellenirken bir hata oluştu.
+          success: Soru başarıyla güncellendi.
       responses:
         create:
-          error: There was an error creating a new response.
-          success: Response successfully created.
+          error: Yeni bir yanıt oluştururken bir hata oluştu.
+          success: Yanıt başarıyla oluşturuldu.
         destroy:
-          error: There was an error when removing the response.
-          success: Response successfully deleted.
+          error: Yanıtı kaldırırken bir hata oluştu.
+          success: Yanıt başarıyla silindi.
         edit:
-          update: Update
+          update: Güncelleştirme
         form:
-          title: General information
+          title: Genel bilgi
         new:
-          create: Create
-          title: New response
+          create: yaratmak
+          title: Yeni cevap
         update:
-          error: There was an error when updating this response.
-          success: Response updated successfully.
+          error: Bu yanıtı güncellerken bir hata oluştu.
+          success: Yanıt başarıyla güncellendi.
       titles:
-        consultations: Consultations
-        questions: Questions
-        responses: Responses
+        consultations: istişareler
+        questions: Sorular
+        responses: Tepkiler
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Maximum amount of elements to show
+            max_results: Gösterilecek maksimum öğe miktarı
       consultation:
-        start_voting_date: Voting begins
-        view_results: View results
+        start_voting_date: Oylama başlıyor
+        view_results: Sonuçları Görüntüle
       consultation_card:
-        view_results: View results
+        view_results: Sonuçları Görüntüle
       consultations:
         orders:
-          label: 'Sort consultations by:'
-          random: Random
-          recent: Most recent
+          label: 'Danışmanlıklara göre sırala:'
+          random: rasgele
+          recent: En yeni
       content_blocks:
         highlighted_consultations:
-          name: Highlighted consultations
+          name: Vurgulanan istişareler
       count:
         title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
+          one: "%{count} danışma"
+          other: "%{count} görüşme"
       filters:
-        active: Active
-        all: All
-        finished: Finished
-        search: Search
-        state: State
-        upcoming: Upcoming
+        active: Aktif
+        all: Herşey
+        finished: bitirdi
+        search: Arama
+        state: Belirtmek, bildirmek
+        upcoming: Yaklaşan
       filters_small_view:
-        close_modal: Close window
-        filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
+        close_modal: Pencereyi kapat
+        filter: filtre
+        filter_by: Tarafından filtre
+        unfold: açılmak
       highlighted_questions:
-        title: Questions from %{scope_name}
+        title: '%{scope_name}soru'
       index:
-        title: Consultations
+        title: istişareler
       last_activity:
-        new_consultation: New consultation
-        new_question_at_html: "<span>New question at %{link}</span>"
+        new_consultation: Yeni danışma
+        new_question_at_html: "<span>Yeni soru, %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Active consultations
-            see_all_consultations: See all consultations
+            active_consultations: Aktif istişareler
+            see_all_consultations: Tüm istişarelere bakın
             voting_ends_in:
-              one: Voting ends <strong>tomorrow</strong>
-              other: Voting ends in <strong>%{count} days</strong>
-            voting_ends_today: Voting ends <strong>today</strong>
+              one: Oylama bitiş <strong>yarın</strong>
+              other: Oylama <strong>%{count} gün içinde sona erer</strong>
+            voting_ends_today: Oylama bitiş <strong>bugün</strong>
       question:
-        take_part: Take part
-        view_results: View results
+        take_part: Yer almak
+        view_results: Sonuçları Görüntüle
         votes_out_of:
-          one: vote out of
-          other: votes out of
+          one: oy vermek
+          other: oy vermemek
       question_votes:
         create:
-          error: There have been errors when voting the question
+          error: Soruya oy verirken hatalar oldu
       regular_questions:
-        title: Questions for this consultation
+        title: Bu danışma için sorular
       show:
         badge_name:
-          finished: Finished
-          open: Open
-          open_votes: Open votes
-          published_results: Results published
+          finished: bitirdi
+          open: Açık
+          open_votes: Açık oylar
+          published_results: Sonuçlar yayınlandı
         footer_button_text:
-          debate: Debate
-          view: View
-          view_results: View results
-          vote: Vote
-        unspecified: Not specified
+          debate: tartışma
+          view: Görünüm
+          view_results: Sonuçları Görüntüle
+          vote: Oy
+        unspecified: Belirtilmemiş
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
-          title: What are consultations?
+          contextual: "<p>İstişareler, bir organizasyon oluşturan tüm kişilere net bir soru sormanızı, görüşmelere katılmak için bir çağrı yapmanızı, bir sorgunun lehine veya aleyhinde tartışma başlatmanızı ve talep etmenizi sağlayan bir alandır. Danışma tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir örgütü etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler, organizasyonun adını veya logosunu çeşitli alternatifler sunarak değiştirir, daha büyük bir organizasyonun parçası olmak için Evet veya Hayır'a karar verir, yeni bir stratejikin geçerliliğini onaylar veya reddeder. Bir çalışma grubunun sonucu veya planı veya pozisyonların en fazla 1, 2 veya 3 mandat kalması gerekip gerekmediğini tanımlamak.</p>\n"
+          page: "<p>İstişareler, bir örgütü oluşturan herkese açık bir soru sormanıza, istişareye katılmak için bir çağrı yapmanıza, bir yanıtı yanıtlamaya ya da aleyhine tartışmaya yol açmanıza izin veren bir alandır. İstişare tarihi geldiğinde, oyların sonuçlarını oylayabilir ve yayınlayabilirsiniz.</p> <p>Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönüyle ilgili olabilir: bazı örnekler daha büyük bir kuruluşun parçası olmak için Evet veya Hayır olarak karar vermek, yeni bir stratejik onaylamak veya reddetmek için çeşitli alternatifler sunan kuruluşun adını veya logosunu değiştiriyor Bir çalışma grubunun planını veya sonucunu ya da pozisyonların organizasyonda azami 1, 2 veya 3 zorunlu kalması gerekip gerekmediğini tanımlayın.</p>\n"
+          title: Danışmalar nelerdir?
     menu:
-      consultations: Consultations
+      consultations: istişareler
     pages:
       home:
         statistics:
-          consultations_count: Consultations
+          consultations_count: istişareler
     questions:
+      next_button: Sonraki soru
+      previous_button: Önceki soru
       results:
-        title: Results
+        title: Sonuçlar
       show:
-        read_more: Read more
+        read_more: Daha fazla oku
       statistics:
-        assistants_count_title: Assistants
-        comments_count_title: Comments
-        meetings_count_title: Meetings
-        supports_count_title: Supports
+        assistants_count_title: Yardımcıları
+        comments_count_title: Yorumlar
+        meetings_count_title: Toplantılar
+        supports_count_title: Destekler
       technical_info:
-        technical_data: Technical data
+        technical_data: Teknik veri
       vote_button:
-        already_voted: Already voted
-        already_voted_hover: Revoke support
-        starting_from: Starting from %{date}
-        vote: Vote
+        already_voted: Çoktan oy verildi
+        already_voted_hover: Desteği iptal et
+        starting_from: '%{date}başlayarak'
+        vote: Oy
       vote_modal:
-        contextual_help: Please, select an option.
-        title: 'Consultation: question support'
+        contextual_help: Lütfen bir seçenek seçin.
+        title: 'Danışma: soru desteği'
       vote_modal_confirm:
-        change: Change
-        confirm: Confirm
-        contextual_help: Please confirm the selected option.
-        title: 'Consultation: confirm support'
+        change: Değişiklik
+        confirm: Onaylamak
+        contextual_help: Lütfen seçilen seçeneği onaylayın.
+        title: 'Danışma: teyit teyit'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Attachments
-          categories: Categories
+          attachments: Ekler
+          categories: Kategoriler
       consultation_voting_data:
-        start_voting_date: Voting begins
+        start_voting_date: Oylama başlıyor
       question_components:
-        question_menu_item: The question
-        unfold: Unfold
+        question_menu_item: Soru
+        unfold: açılmak
       question_header:
-        back_to_consultation: See all consultations
+        back_to_consultation: Tüm istişarelere bakın

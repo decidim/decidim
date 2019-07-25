@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -49,11 +50,11 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   carrierwave:
     errors:
-      image_too_big: "L'image est trop grande"
+      image_too_big: L'image est trop grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -64,7 +65,7 @@ fr:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: "Le fichier n'existe pas"
+        file_no_exists: Le fichier n'existe pas
         invalid_token: Le jeton fourni est invalide.
         no_token: Aucun jeton fourni
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
@@ -142,8 +143,6 @@ fr:
         button: Modifier la %{model_name}
         error: Il y a eu une erreur en modifiant cette ressource.
         help_text: 'Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}'
-        no_amenders: Il n'y a pas d'amendement
-        no_amendments: Il n'y a pas de modification
         promote_button: Transformer en %{model_name}
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendante
         section_heading: Modifications (%{count})
@@ -162,10 +161,7 @@ fr:
           evaluating: |-
             L'amendement pour le %{amendable_type} %{amendable_link}
             est en cours d'évaluation.
-          rejected: |-
-            Cet amendement pour la proposition %{amendable_type}
-            %{amendable_link}
-            a été rejeté le <strong>%{announcement_date}</strong>.
+          rejected: Cet amendement pour "%{amendable_link}" (%{amendable_type}) a été rejeté le <strong>%{announcement_date}</strong>.
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{amendable_link}
             a été retiré par l'auteur.
@@ -179,7 +175,7 @@ fr:
         error: Il y a eu des erreurs lors de la validation de cet amendement
         success: L'amendement a été accepté avec succès
       rejected:
-        error: Une erreur s'est produite lors du rejet de cette correction, veuillez réessayer plus tard
+        error: Une erreur s'est produite lors du rejet de cet amendement, veuillez réessayer plus tard
         success: L'amendement a bien été refusé
       review:
         back: Retour
@@ -229,7 +225,7 @@ fr:
         name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Autoriser de nouveau avec "%{authorization}"
           explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
@@ -354,8 +350,7 @@ fr:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
             uncheck: Non merci, je m'informerai autrement
-          notice: |-
-            La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Newsletter
         omniauth_buttons:
           or: Ou
@@ -442,7 +437,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -547,7 +542,7 @@ fr:
       badges:
         continuity:
           conditions:
-            - Viens ici souvent
+          - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -557,7 +552,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -566,15 +561,15 @@ fr:
           unearned_another: Cet utilisateur n'a pas encore de suiveurs.
           unearned_own: Vous n'avez pas encore de followers.
         index:
-          badge_title: "Badge : %{name}"
+          badge_title: 'Badge : %{name}'
           how: Comment pouvez-vous le gagner
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
         invitations:
           conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+          - Personnalisez, si vous le souhaitez, le message que vous envoyez
+          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -638,8 +633,8 @@ fr:
         error: Il y a eu un problème pour créer le groupe
         success: Groupe créé avec succès
       edit:
-        edit_user_group: Editer le groupe
-        update_user_group: Groupe de mise à jour
+        edit_user_group: Éditer le groupe
+        update_user_group: Mettre à jour le groupe
       form:
         document_number_help: Ne pas utiliser de tirets ni d'espaces
         email_help: Email de votre organisation, association, collectif, groupe, etc.
@@ -672,8 +667,8 @@ fr:
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
-          title: Que puis-je faire en %{organization}?
+          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          title: Que puis-je faire sur %{organization} ?
         description: En savoir plus sur %{organization}
         title: Rubrique d'aide
     last_activities:
@@ -895,7 +890,7 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
-        confirmation_instructions_sent: Envoi des instructions de confirmation par email
+        confirmation_instructions_sent: Instructions de confirmation envoyées par courrier électronique
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour
         edit_user_group: Modifier le profil du groupe
@@ -905,7 +900,7 @@ fr:
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par email
+        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -975,8 +970,15 @@ fr:
       login_modal:
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
+      participatory_space_filters:
+        filters:
+          areas: Zones
+          select_an_area: Sélectionnez une région
       reference:
         reference: 'Référence : %{reference}'
+      represent_user_group:
+        represent_user_group: Je représente un groupe
+        select_user_group: Sélectionner un groupe
       results_per_page:
         label: 'Résultats par page :'
       share_modal:
@@ -1012,11 +1014,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1158,11 +1160,11 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: pas trouvé
+      not_found: non trouvé
       not_locked: n'était pas verrouillé
       not_saved:
-        one: '1 erreur a interdit cette sauvegarde %{resource}:'
-        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
+        one: '1 erreur a empêché la sauvegarde de %{resource} :'
+        other: "%{count} erreurs ont empêché la sauvegarde de %{resource} :"
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
@@ -1191,8 +1193,8 @@ fr:
       edit_link:
         edit: Modifier
       footer:
-        download_open_data: Télécharger les fichiers de données ouvertes
-        made_with_open_source: 'Site réalisé par <a target="_blank" href="https://www.opensourcepolitics.eu">Open Source Politics</a> grâce à <a target="_blank" href="https://opensourcepolitics.eu/#decidim">Decidim, le logiciel libre</a> de <a target="_blank" href="https://www.opensourcepolitics.eu">démocratie participative</a>.'
+        download_open_data: Télécharger les fichiers Open Data
+        made_with_open_source: Site réalisé grâce au logiciel libre <a target="_blank" href="https://decidim.org">Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation

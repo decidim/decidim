@@ -1,4 +1,3 @@
----
 fi-pl:
   decidim:
     system:
@@ -30,14 +29,9 @@ fi-pl:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
-        logs: Logs
         organizations: Organisaatiot
       models:
         admin:
@@ -53,7 +47,6 @@ fi-pl:
           fields:
             created_at: Luotu
             name: Nimi
-            smtp_settings: SMTP settings
           name: Organisaatio
       organizations:
         create:

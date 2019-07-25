@@ -1,181 +1,226 @@
----
-cs-CZ:
+cs:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Dostupné metody
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Pokyny pro ověření offline
         online: Online
       id_document_information:
-        document_number: Document number (with letter)
-        document_type: Type of the document
+        document_number: Číslo dokumentu (s písmenem)
+        document_type: Typ dokumentu
       id_document_upload:
-        document_number: Document number (with letter)
-        document_type: Type of your document
-        user: User
-        verification_attachment: Scanned copy of your document
+        document_number: Číslo dokumentu (s písmenem)
+        document_type: Typ dokumentu
+        user: Uživatel
+        verification_attachment: Naskenovaná kopie dokumentu
       offline_confirmation:
-        email: User email
+        email: Uživatelský e-mail
       postal_letter_address:
-        full_address: Full address
+        full_address: Celá adresa
       postal_letter_confirmation:
-        verification_code: Verification code
+        verification_code: Ověřovací kód
       postal_letter_postage:
-        full_address: Full address
-        verification_code: Verification code
+        full_address: Celá adresa
+        verification_code: Ověřovací kód
   decidim:
     admin:
       menu:
-        authorization_workflows: Verifications
+        authorization_workflows: Ověření
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} aktualizovala konfiguraci ověření dokumentů identit"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} ověřeno %{resource_name} pomocí ověření dokumentů offline"
     authorization_handlers:
       admin:
         id_documents:
-          help: '["Users fill in their identity information and upload a copy of their document.", "You fill in the information present in the uploaded image.", "The information should match whatever the user filled in.", "If you can''t clearly see the information or you can''t get it verified, you can reject the request and the user will be able to fix it."]'
+          help:
+            - Uživatelé vyplní informace o své identitě a nahrají kopii dokumentu.
+            - Vyplníte informace obsažené v nahraném obrázku.
+            - Informace by měly odpovídat uživateli, který vyplnil.
+            - Pokud nemůžete informace zřetelně vidět nebo ji nelze ověřit, můžete žádost odmítnout a uživatel ji bude moci opravit.
         postal_letter:
-          help: '["Users request a verification code to be sent to their address.", "You send the letter to their address with the verification code.", "You mark the letter as sent.", "Once you mark the letter as sent, the user will be able to introduce the code and get verified."]'
-      direct: Direct
-      help: Help
+          help:
+            - Uživatelé požadují, aby jejich adresa byla odeslána ověřovacímu kódu.
+            - Na adresu zasíláte dopis s ověřovacím kódem.
+            - Označte písmeno jako odesláno.
+            - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
+      csv_census:
+        explanation: Získejte ověření pomocí sčítání organizace
+        name: Sčítání organizace
+      direct: Přímo
+      help: Pomoc
       id_documents:
-        explanation: Upload your identity documents so we can check your identity
-        name: Identity documents
-      multistep: Multi-Step
-      name: Name
+        explanation: Nahrajte své doklady totožnosti, abychom mohli ověřit vaši totožnost
+        name: Doklady totožnosti
+      multistep: Více kroků
+      name: název
       postal_letter:
-        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
-        name: Code by postal letter
+        explanation: Pošleme vám poštovní dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu
+        name: Kód poštovním dopisem
     verifications:
       authorizations:
         create:
-          error: There was an error creating the authorization.
-          success: You've been successfully authorized.
-          unconfirmed: You need to confirm your email in order to authorize yourself.
+          error: Při vytváření oprávnění došlo k chybě.
+          success: Byl jste úspěšně autorizován.
+          unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verify against another example of authorization handler
-            dummy_authorization_handler: Verify against the example authorization handler
-            dummy_authorization_workflow: Verify against the example authorization workflow
-            id_documents: Get verified by uploading your identity document
-            postal_letter: Get verified by receiving a verification code through postal mail
-          title: Verify your identity
-          verify_with_these_options: 'These are the available options to verify your identity:'
+            another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
+            csv_census: Ověřte sčítání organizace
+            dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
+            dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
+            id_documents: Získejte ověření odesláním dokladu totožnosti
+            postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
+          title: Potvrďte vaši identitu
+          verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         new:
-          authorize: Send
-          authorize_with: Verify with %{authorizer}
-        skip_verification: You can skip this for now and %{link}
-        start_exploring: start exploring
+          authorize: Poslat
+          authorize_with: Ověřte pomocí %{authorizer}
+        skip_verification: Můžete to přeskočit nyní a %{link}
+        start_exploring: začít zkoumat
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Při importu sčítání došlo k chybě.
+              success: Úspěšně importováno %{count} položek (%{errors} chyb)
+            destroy_all:
+              success: Všechna data sčítání byly smazány
+          destroy:
+            confirm: Odstranit veškeré sčítání nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
+            title: Smazat všechna data sčítání
+          index:
+            data: Celkem bylo načteno celkem %{count} záznamů. Poslední nahraje datum %{due_date}
+            empty: Neexistují údaje o sčítání. Pomocí níže uvedeného formuláře jej importujte pomocí souboru CSV.
+            title: Aktuální údaje o sčítání
+          instructions:
+            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
+            title: Pro tuto organizaci musíte aktivovat csv sčítání
+          new:
+            info: 'Musí být soubor ve formátu CSV s jedním sloupcem: e-mail'
+            file: .csv soubor s daty e-mailů
+            submit: Nahrát soubor
+            title: Nahrajte nové sčítání
+        authorizations:
+          new:
+            error: Váš účet nebyl ověřen, nebo nejste v sčítání organizace.
+            success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to users with the postal code %{postal_codes}.
-          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+          one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
+          few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
       id_documents:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Konfigurace dokumentů identit
+              update: Aktualizace
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Při aktualizaci konfigurace došlo k chybě.
+              success: Konfigurace byla úspěšně aktualizována
           confirmations:
             create:
-              error: Verification doesn't match. Try again or reject the verification so the user can amend it
-              success: User successfully verified
+              error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit
+              success: Uživatel úspěšně ověřen
             new:
-              introduce_user_data: Introduce the data in the picture
-              reject: Reject
-              verify: Verify
+              introduce_user_data: Vložte data do obrázku
+              reject: Odmítnout
+              verify: Ověřte
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Ověření neodpovídá. Zkuste to znovu nebo řekněte uživateli, že ho změní
+              success: Uživatel úspěšně ověřen
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: zrušení
+              introduce_user_data: Zadejte e-mail uživatele a data dokumentu
+              verify: Ověřte
           pending_authorizations:
             index:
               config: Config
-              offline_verification: Offline verification
-              title: Pending online verifications
-              verification_number: 'Verification #%{n}'
+              offline_verification: Ověření offline
+              title: Čekající ověření online
+              verification_number: 'Ověření #%{n}'
           rejections:
             create:
-              success: Verification rejected. User will be prompted to amend her documents
+              success: Ověření bylo zamítnuto. Uživatel bude vyzván, aby změnil své dokumenty
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: "Vyberte, jak chcete ověřit:"
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Ověřte svou identitu
           create:
-            error: There was a problem uploading your document
-            success: Document uploaded successfully
+            error: Při nahrávání dokumentu došlo k potížím
+            success: Dokument byl úspěšně nahrán
           edit:
-            being_reviewed: We're reviewing your documents. You'll be verified shortly
-            offline: Use offline verification
-            online: Use online verification
-            rejection_clarity: Make sure the information is clearly visible in the uploaded image
-            rejection_correctness: Make sure the information entered is correct
-            rejection_notice: There was a problem with your verification. Please try again
-            send: Request verification again
+            being_reviewed: Kontrolujeme vaše dokumenty. Budete brzy ověřeni
+            offline: Použijte ověření offline
+            online: Používejte ověření online
+            rejection_clarity: Ujistěte se, že informace jsou v nahraném obrázku jasně viditelné
+            rejection_correctness: Ujistěte se, že zadané informace jsou správné
+            rejection_notice: Při ověřování došlo k potížím. Prosím zkuste to znovu
+            send: Znovu požádejte o ověření
           new:
-            send: Request verification
-            title: Upload your identity document
+            send: Požádejte o ověření
+            title: Nahrajte svůj doklad totožnosti
           update:
-            error: There was a problem reuploading your document
-            success: Document reuploaded successfully
+            error: Při načítání dokumentu došlo k problému
+            success: Dokument byl úspěšně obnoven
         dni: DNI
         nie: NIE
-        passport: Passport
+        passport: Cestovní pas
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: Address
-              letter_sent_at: Letter sent at
-              mark_as_sent: Mark as sent
-              not_yet_sent: Not yet sent
-              title: Ongoing verifications
-              username: Username
-              verification_code: Verification code
+              address: Adresa
+              letter_sent_at: Dopis zaslaný na
+              mark_as_sent: Označit jako odesláno
+              not_yet_sent: Dosud nebyla odeslána
+              title: Probíhající ověřování
+              username: Uživatelské jméno
+              verification_code: Ověřovací kód
           postages:
             create:
-              error: Error marking letter as sent
-              success: Letter successfully marked as sent
+              error: Chyba při označování dopisu
+              success: Písmeno bylo úspěšně označeno jako odesláno
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We'll send a verification code to your address
+            error: Při vašem požadavku došlo k potížím
+            success: Dík! Na vaši adresu vám zašleme ověřovací kód
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
-            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+            send: Potvrdit
+            title: Zadejte ověřovací kód, který jste obdrželi
+            waiting_for_letter: Na váš adresu vám brzy zašleme váš ověřovací kód
           new:
-            send: Send me a letter
-            title: Request your verification code
+            send: Pošlete mi dopis
+            title: Požádejte o ověřovací kód
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
-            success: Congratulations. You've been successfully verified
+            error: Váš ověřovací kód neodpovídá našemu. Zkontrolujte, prosím, dopis, který jsme vám poslali
+            success: Gratulujeme. Byl jste úspěšně ověřen
       sms:
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            error: Při vašem požadavku došlo k potížím
+            success: Dík! Do telefonu jsme poslali SMS.
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
+            confirm_destroy: Opravdu chcete obnovit ověřovací kód?
+            destroy: Obnovit ověřovací kód
+            send: Potvrdit
+            resend: Nezískal jste ověřovací kód?
+            title: Zadejte ověřovací kód, který jste obdrželi
+          destroy:
+            success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           new:
-            send: Send me an SMS
-            title: Request your verification code
+            send: Pošlete mi SMS
+            title: Požádejte o ověřovací kód
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Váš ověřovací kód neodpovídá našemu. Prosím, zkontrolujte SMS, který jsme vám poslali.
+            success: Gratulujeme. Byl jste úspěšně ověřen.
   errors:
     messages:
-      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
+      uppercase_only_letters_numbers: musí být všechny velké a obsahují pouze písmena a / nebo čísla

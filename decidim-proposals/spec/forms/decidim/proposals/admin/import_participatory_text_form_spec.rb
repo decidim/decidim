@@ -8,7 +8,7 @@ module Decidim
       describe ImportParticipatoryTextForm do
         subject { form }
 
-        let(:component) { create :component }
+        let(:component) { create :component, manifest_name: "proposals" }
         let(:title) do
           {
             ca: "Yes very good, patates amb suc",
@@ -17,12 +17,13 @@ module Decidim
           }
         end
         let(:description) {}
-        let(:document_file) { Decidim::Dev.asset("participatory_text.md") }
+        let(:document) { Decidim::Dev.test_file("participatory_text.md", "text/markdown") }
+
         let(:params) do
           {
             title: title,
             description: description,
-            document: document_file
+            document: document
           }
         end
 
@@ -43,10 +44,22 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when the document is not valid" do
-          let(:document_file) { nil }
+        context "when creating a participatory_text" do
+          context "when the document is not valid" do
+            let(:document) { nil }
 
-          it { is_expected.to be_valid }
+            it { is_expected.to be_invalid }
+          end
+        end
+
+        context "when updating a participatory_text which has existing proposals" do
+          let!(:proposal) { create :proposal, component: component }
+
+          context "when the document is not valid" do
+            let(:document) { nil }
+
+            it { is_expected.to be_valid }
+          end
         end
       end
     end

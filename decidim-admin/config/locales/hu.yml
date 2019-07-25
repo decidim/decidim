@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -37,8 +36,8 @@ hu:
         organization_url: Szervezet URL
         redirect_uri: Redirect URI
       organization:
-        address: SMTP hostname
-        alert_color: Alert
+        address: SMTP host név
+        alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
@@ -47,7 +46,7 @@ hu:
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
         facebook_handler: Facebook handler
         favicon: Ikon
-        from: From email address
+        from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
         highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
@@ -66,17 +65,18 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
-        password: Password
+        password: Jelszó
         port: Port
-        primary_color: Primary
+        primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
-        secondary_color: Secondary
+        secondary_color: Másodlagos
         show_statistics: Statisztikák megjelenítése
-        success_color: Success
+        success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
         user_groups_enabled: Felhasználói csoportok engedélyezése
-        warning_color: Warning
+        user_name: Felhasználónév
+        warning_color: Figyelem
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -137,6 +137,7 @@ hu:
         browse: Böngészés
         export: Exportálás
         manage: Kezelés
+        new: Új %{name}
         permissions: Engedélyek
         reject: Elutasít
         verify: Ellenőrzés
@@ -229,10 +230,6 @@ hu:
           error: Hiba történt a kategória frissítése során.
           success: Kategória frissítése sikeres.
       component_permissions:
-        edit:
-          everyone: Mindenki
-          submit: Engedélyek mentése
-          title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
       components:
@@ -248,6 +245,7 @@ hu:
         form:
           default_step_settings: Alapértelmezett lépés-beállítások
           global_settings: Globális beállítások
+          participatory_texts_enabled_help: Meglévő javaslatok esetén nem lehet együttműködni ezzel a beállítással. Legyen szíves, egy új ' javaslatok' konponenst hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
           step_settings: Lépésbeállítások
         index:
           add: Elem hozzáadása
@@ -257,7 +255,7 @@ hu:
             type: Elem típusa
         new:
           add: Elem hozzáadása
-          title: "%{name} nevű elem hozzáadása"
+          title: '%{name} nevű elem hozzáadása'
         publish:
           success: Az elem közzététele sikeres volt.
         title: Elemek
@@ -315,11 +313,6 @@ hu:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Hiba történt a felügyelt felhasználó előléptetése során.
           success: A felügyelt felhasználó előléptetése sikeres.
@@ -339,7 +332,6 @@ hu:
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
-        navbar_links: Navbar links
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
         participants: Résztvevők
@@ -377,18 +369,12 @@ hu:
             reason: Indok
             started_at: 'Kezdődik:'
             user: Felhasználó
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
             progress: Folyamat
             sent_at: 'Elküldve:'
+            sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
         oauth_application:
@@ -438,28 +424,6 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -476,21 +440,46 @@ hu:
         form:
           interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
+          all: mind
+          all_users: 'Minden felhasználó'
+          and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
+          followers: 'követők '
+          has_been_sent_to: 'Elküldve ide: '
+          no_scopes: Nincsenek hatókörök
+          not_sent: Nem került elküldésre
+          participants: 'résztvevők '
+          segmented_to: 'Szegmentált %{subject}: '
           title: Hírlevelek
         new:
           save: Mentés
           title: Új hírlevél
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Összes
+          all_users_help: Hírlevelet küld minden megerősített felhasználónak.
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
+          followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
+          none: Egyik sem
+          participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
+          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
+          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
+          select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
+          select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés mindenkinek
+          send_to_followers: Küldés a követőknek
+          send_to_participants: Küldés a résztvevőknek
+          title: Címzettek kiválasztása
+          warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
+        send:
+          no_recipients: Ehhez a kiválasztáshoz nem tartoznak címzettek
+        show:
           preview: Előnézet
+          select_recipients_to_deliver: Címzettek kiválasztása
           subject: Tárgy
         update:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
-      oauth_application:
-        new: New Oauth application
       oauth_applications:
         create:
           error: Hiba történt az alkalmazás létrehozása során.
@@ -556,7 +545,7 @@ hu:
         edit:
           update: Frissítés
         form:
-          colors_title: Organization colors
+          colors_title: Szervezet színei
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
@@ -583,6 +572,12 @@ hu:
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      resource_permissions:
+        edit:
+          submit: Beküldés
+          title: Engedélyek szerkesztése
+        update:
+          success: Engedélyek frissítése sikeres.
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -643,6 +638,7 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
+          slug_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és per-jelek fogadhatók el, és betűvel kell kezdődniük. Példa: %{url}'
         index:
           last_notable_change: Utolsó jelentős változás
         new:
@@ -662,18 +658,14 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
-        impersonatable_users: Felhatalmazható felhasználók
-        impersonations: Felhatalmazások
-        managed_users: Managed users
-        navbar_links: Navbar links
+        impersonatable_users: Kezelhető felhasználók
+        impersonations: Felhasználók kezelése
         participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Felhasználók
-      user:
-        new: New user
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -728,7 +720,7 @@ hu:
         hide: Elrejt
         not_hidden: Nem rejtett
         title: Műveletek
-        unhide: Unhide
+        unhide: Felfedés
         unreport: Ne jelentse
       admin:
         reportable:
@@ -736,8 +728,8 @@ hu:
             invalid: Probléma történt az erőforrás elrejtésekor.
             success: Erőforrás sikeresen elrejtve.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: Probléma volt az erőforrás megmutatásával.
+            success: Az erőforrás sikeresen elrejtve.
           unreport:
             invalid: Probléma történt az erőforrás elrejtésének visszavonásakor.
             success: Erőforrás jelentésének visszavonása sikeres.

@@ -78,3 +78,6 @@ nl:
             title: Vragenlijst gesloten
           submit: voorleggen
           tos_agreement: Door deel te nemen, gaat u akkoord met de Servicevoorwaarden
+      user_answers_serializer:
+        created_at: Beantwoord
+        id: Antwoord ID

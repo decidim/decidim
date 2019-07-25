@@ -1,4 +1,3 @@
----
 fi:
   decidim:
     system:
@@ -11,8 +10,8 @@ fi:
         title: Toiminnot
       admins:
         create:
-          error: Uuden hallinnoijan luonnissa tapahtui virhe.
-          success: Hallinnoija luotu onnistuneesti
+          error: Uuden hallinnointikäyttäjän luonti epäonnistui.
+          success: Hallinnointikäyttäjän luonti onnistui
         destroy:
           success: Hallinnointikäyttäjän poistaminen onnistui
         edit:
@@ -24,20 +23,15 @@ fi:
           create: Luo
           title: Uusi hallinnoija
         update:
-          error: Hallinnoijan päivityksessä tapahtui virhe.
-          success: Hallinnoija päivitetty onnistuneesti
+          error: Hallinnointikäyttäjän päivitys epäonnistui.
+          success: Hallinnointikäyttäjän päivitys onnistui
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
-        logs: Logs
         organizations: Organisaatiot
       models:
         admin:
@@ -53,23 +47,23 @@ fi:
           fields:
             created_at: Luotu
             name: Nimi
-            smtp_settings: SMTP settings
+            smtp_settings: SMTP-asetukset
           name: Organisaatio
       organizations:
         create:
-          error: Uuden organisaation luonnissa tapahtui virhe.
-          success: Organisaatio luotu onnistuneesti.
+          error: Uuden organisaation luonti epäonnistui.
+          success: Organisaation luonti onnistui.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
         index:
           title: Organisaatiot
         new:
-          reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
+          reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Uusi organisaatio
         update:
-          error: Organisaation päivityksessä tapahtui virhe.
-          success: Organisaatio päivitetty onnistuneesti.
+          error: Organisaation päivitys epäonnistui.
+          success: Organisaation päivitys onnistui.
         users_registration_mode:
           disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
           enabled: Salli rekisteröityminen ja sisäänkirjautuminen käyttäjille

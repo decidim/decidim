@@ -1,571 +1,566 @@
----
-id-ID:
+id:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Related Assemblies
-        banner_image: Banner image
-        consultations_ids: Related Consultations
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
-        decidim_scope_id: Scope
-        description: Description
-        hashtag: Hashtag
-        hero_image: Home image
-        participatory_processes_ids: Related Participatory processes
-        promoted: Promoted
-        published_at: Published at
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
+        assemblies_ids: Rakitan Terkait
+        banner_image: Gambar spanduk
+        consultations_ids: Konsultasi Terkait
+        copy_categories: Salin kategori
+        copy_components: Salin komponen
+        copy_features: Salin fitur
+        decidim_scope_id: Cakupan
+        description: Deskripsi
+        hashtag: Tanda pagar
+        hero_image: Gambar rumah
+        participatory_processes_ids: Proses Partisipatif Terkait
+        promoted: Dipromosikan
+        published_at: Diterbitkan di
+        scope_id: Cakupan
+        scopes_enabled: Lingkup diaktifkan
+        short_description: Deskripsi Singkat
+        show_statistics: Tampilkan statistik
         slogan: Slogan
-        slug: URL slug
-        title: Title
+        slug: Siput URL
+        title: Judul
       conference_speaker:
-        full_name: Full name
+        full_name: Nama lengkap
       conference_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Nama
+        role: Peran
     errors:
       models:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: Email ini sudah diundang
   activerecord:
     models:
       decidim/conference:
-        one: Conference
-        other: Conferences
+        other: Konferensi
       decidim/conference_speaker:
-        one: Conference speaker
-        other: Conference speakers
+        other: Pembicara konferensi
       decidim/conference_user_role:
-        one: Conference user role
-        other: Conference user roles
+        other: Peran pengguna konferensi
   decidim:
     admin:
       actions:
-        confirm: Confirm
-        new_conference: New Conference
-        send_diplomas: Send certificates of attendance
+        confirm: Memastikan
+        new_conference: Konferensi Baru
+        send_diplomas: Kirim sertifikat kehadiran
       conference_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate conference
+          copy: Salinan
+          select: Pilih data mana yang ingin Anda gandakan
+          title: Konferensi duplikat
       conference_publications:
         create:
-          error: There was an error publishing this conference.
-          success: Conference published successfully.
+          error: Terjadi kesalahan saat mempublikasikan konferensi ini.
+          success: Konferensi berhasil diterbitkan.
         destroy:
-          error: There was an error unpublishing this conference.
-          success: Conference unpublished successfully.
+          error: Terjadi kesalahan saat membatalkan publikasi konferensi ini.
+          success: Konferensi tidak berhasil diterbitkan.
       conference_registration:
         confirm:
-          error: There was an error when confirm this conference registration.
-          success: Conference registration confirmed successfully.
+          error: Ada kesalahan saat mengonfirmasi pendaftaran konferensi ini.
+          success: Pendaftaran konferensi dikonfirmasi berhasil.
       conference_speakers:
         create:
-          error: There was an error adding a speaker for this conference.
-          success: Speaker created successfully for this conference.
+          error: Terjadi kesalahan saat menambahkan pembicara untuk konferensi ini.
+          success: Pembicara berhasil dibuat untuk konferensi ini.
         destroy:
-          success: Speaker deleted successfully for this conference.
+          success: Pembicara berhasil dihapus untuk konferensi ini.
         edit:
-          title: Update conference speaker.
-          update: Update
+          title: Perbarui pembicara konferensi.
+          update: Memperbarui
         index:
-          conference_speakers_title: Conference speakers
+          conference_speakers_title: Pembicara konferensi
         new:
-          create: Create
-          title: New conference speaker.
+          create: Membuat
+          title: Pembicara konferensi baru.
         update:
-          error: There was an error updating the speaker for this conference.
-          success: Speaker updated successfully for this conference.
+          error: Terjadi kesalahan saat memperbarui pembicara untuk konferensi ini.
+          success: Pembicara berhasil diperbarui untuk konferensi ini.
       conference_user_roles:
         create:
-          error: There was an error adding a user for this conference.
-          success: User added successfully to this conference.
+          error: Terjadi kesalahan saat menambahkan pengguna untuk konferensi ini.
+          success: Pengguna berhasil ditambahkan ke konferensi ini.
         destroy:
-          success: User removed successfully from this conference.
+          success: Pengguna berhasil dihapus dari konferensi ini.
         edit:
-          title: Update conference user.
-          update: Update
+          title: Perbarui pengguna konferensi.
+          update: Memperbarui
         index:
-          conference_admins_title: conference users
+          conference_admins_title: pengguna konferensi
         new:
-          create: Create
-          title: New conference user.
+          create: Membuat
+          title: Pengguna konferensi baru.
         update:
-          error: There was an error updated a user for this conference.
-          success: User updated successfully for this conference.
+          error: Terjadi kesalahan saat memperbarui pengguna untuk konferensi ini.
+          success: Pengguna berhasil diperbarui untuk konferensi ini.
       conferences:
         create:
-          error: There was an error creating a new conference.
-          success: Conference created successfully.
+          error: Terjadi kesalahan saat membuat konferensi baru.
+          success: Konferensi berhasil dibuat.
         edit:
-          update: Update
+          update: Memperbarui
         exports:
-          registrations: Registrations
+          registrations: Pendaftaran
         form:
-          title: General Information
+          title: Informasi Umum
         index:
-          not_published: Not published
-          published: Published
+          not_published: Tidak diterbitkan
+          published: Diterbitkan
         new:
-          create: Create
-          title: Conference
+          create: Membuat
+          title: Konferensi
         update:
-          error: There was an error when updating this conference.
-          success: Conference updated successfully.
+          error: Ada kesalahan saat memperbarui konferensi ini.
+          success: Konferensi berhasil diperbarui.
       conferences_copies:
         create:
-          error: There was an error when duplicating this conference.
-          success: Conference duplicated successfully.
+          error: Ada kesalahan saat menduplikasi konferensi ini.
+          success: Konferensi berhasil digandakan.
       media_links:
         create:
-          error: There was an error creating a new media link.
-          success: Media Link created successfully.
+          error: Terjadi kesalahan saat membuat tautan media baru.
+          success: Media Link berhasil dibuat.
         destroy:
-          success: Media Link deleted successfully.
+          success: Tautan Media berhasil dihapus.
         edit:
-          title: Update media link.
-          update: Update
+          title: Perbarui tautan media.
+          update: Memperbarui
         index:
-          media_links_title: Media Links
+          media_links_title: Tautan Media
         new:
-          create: Create
-          title: Media Link
+          create: Membuat
+          title: Tautan Media
         update:
-          error: There was an error when updating this media link.
-          success: Media Link updated successfully.
+          error: Terjadi kesalahan saat memperbarui tautan media ini.
+          success: Media Link berhasil diperbarui.
       menu:
-        conferences: Conferences
+        conferences: Konferensi
         conferences_submenu:
-          attachment_collections: Folders
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
-          conference_admins: Conference users
-          conference_invites: Invites
-          conference_speakers: Speakers
-          diploma: Certificate of Attendance
+          attachment_collections: Folder
+          attachment_files: File
+          attachments: Lampiran
+          categories: Kategori
+          components: Komponen
+          conference_admins: Admin konferensi
+          conference_invites: Undangan
+          conference_speakers: Pembicara
+          diploma: Sertifikat kehadiran
           info: Info
-          media_links: Media Links
-          moderations: Moderations
-          partners: Partners
-          registration_types: Registration Types
-          registrations: Registrations
-          user_registrations: User Registrations
+          media_links: Tautan Media
+          moderations: Moderasi
+          partners: Mitra
+          registration_types: Jenis Pendaftaran
+          registrations: Pendaftaran
+          user_registrations: Registrasi Pengguna
       models:
         conference:
           fields:
-            created_at: Created at
-            promoted: Promoted
-            published: Published
-            title: Title
+            created_at: Dibuat di
+            promoted: Dipromosikan
+            published: Diterbitkan
+            title: Judul
         conference_speaker:
           fields:
-            affiliation: Affiliation
-            full_name: Full name
-            position: Position
-          name: Conference Speaker
+            affiliation: Afiliasi
+            full_name: Nama lengkap
+            position: Posisi
+          name: Pembicara Konferensi
         conference_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Conference User
+            email: E-mail
+            name: Nama
+            role: Peran
+          name: Pengguna Konferensi
           roles:
             admin: Administrator
-            collaborator: Collaborator
+            collaborator: Kolaborator
             moderator: Moderator
         media_link:
           fields:
-            date: Date
+            date: Tanggal
             link: Link
-            title: Title
-          name: Media Link
+            title: Judul
+          name: Tautan Media
         partner:
           fields:
             link: Link
             logo: Logo
-            name: Name
-            partner_type: Type
-          name: Partner
+            name: Nama
+            partner_type: Mengetik
+          name: Pasangan
           types:
-            collaborator: Collaborator
-            main_promotor: Main promotor
+            collaborator: Kolaborator
+            main_promotor: Promotor utama
         registration_type:
           fields:
-            conference_meetings: Conference meetings
-            price: Price
-            registrations_count: Registrations count
-            title: Title
-            weight: Weight
-          name: Registration type
+            conference_meetings: Pertemuan konferensi
+            price: Harga
+            registrations_count: Jumlah registrasi
+            title: Judul
+            weight: Berat
+          name: Jenis pendaftaran
       partners:
         create:
-          error: There was an error adding a partner for this conference.
-          success: Partner added successfully to this conference.
+          error: Terjadi kesalahan saat menambahkan mitra untuk konferensi ini.
+          success: Mitra berhasil ditambahkan ke konferensi ini.
         destroy:
-          success: Partner removed successfully from this conference.
+          success: Mitra berhasil dihapus dari konferensi ini.
         edit:
-          title: Update partner.
-          update: Update
+          title: Perbarui mitra.
+          update: Memperbarui
         new:
-          create: Create
-          title: New partner
+          create: Membuat
+          title: Mitra baru
         update:
-          error: There was an error updated a partner for this conference.
-          success: Partner updated successfully for this conference.
+          error: Terjadi kesalahan saat memperbarui mitra untuk konferensi ini.
+          success: Mitra berhasil diperbarui untuk konferensi ini.
       registration_type_publications:
         create:
-          error: There was an error publishing this registration type.
-          success: Registration type published successfully.
+          error: Terjadi kesalahan saat memublikasikan jenis pendaftaran ini.
+          success: Jenis pendaftaran berhasil diterbitkan.
         destroy:
-          error: There was an error unpublishing this registration type.
-          success: Registration type unpublished successfully.
+          error: Terjadi kesalahan saat membatalkan publikasi jenis pendaftaran ini.
+          success: Jenis pendaftaran tidak berhasil diterbitkan.
       registration_types:
         create:
-          error: There was an error adding a registration type for this conference.
-          success: Registration type added successfully to this conference.
+          error: Terjadi kesalahan saat menambahkan jenis pendaftaran untuk konferensi ini.
+          success: Jenis pendaftaran berhasil ditambahkan ke konferensi ini.
         destroy:
-          success: Registration type removed successfully from this conference.
+          success: Jenis pendaftaran berhasil dihapus dari konferensi ini.
         edit:
-          title: Update registration type.
-          update: Update
+          title: Perbarui jenis pendaftaran.
+          update: Memperbarui
         new:
-          create: Create
-          title: New registration type
+          create: Membuat
+          title: Jenis pendaftaran baru
         update:
-          error: There was an error updated a registration type for this conference.
-          success: Registration type updated successfully for this conference.
+          error: Terjadi kesalahan saat memperbarui jenis pendaftaran untuk konferensi ini.
+          success: Jenis pendaftaran berhasil diperbarui untuk konferensi ini.
       titles:
-        conferences: Conferences
+        conferences: Konferensi
     admin_log:
       conference:
-        create: "%{user_name} created the %{resource_name} conference"
-        publish: "%{user_name} published the %{resource_name} conference"
-        send_conference_diplomas: "%{user_name} sent certificates of attendance to the %{resource_name} conference atendees"
-        unpublish: "%{user_name} unpublished the %{resource_name} conference"
-        update: "%{user_name} updated the %{resource_name} conference"
-        update_diploma: "%{user_name} updated the certificates of attendance configuration for %{resource_name} conference"
+        create: "%{user_name} menciptakan konferensi %{resource_name}"
+        publish: "%{user_name} mempublikasikan %{resource_name} konferensi"
+        send_conference_diplomas: "%{user_name} mengirimkan sertifikat kehadiran ke %{resource_name} peserta konferensi"
+        unpublish: "%{user_name} tidak menerbitkan %{resource_name} konferensi"
+        update: "%{user_name} memperbarui %{resource_name} konferensi"
+        update_diploma: "%{user_name} memperbarui sertifikat konfigurasi kehadiran untuk %{resource_name} konferensi"
       conference_speaker:
-        create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
-        delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
-        update: "%{user_name} updated the %{resource_name} speaker in the %{space_name} conference"
+        create: "%{user_name} menciptakan %{resource_name} pembicara dalam %{space_name} konferensi"
+        delete: "%{user_name} menghapus %{resource_name} pembicara dari %{space_name} konferensi"
+        update: "%{user_name} memperbarui %{resource_name} pembicara di konferensi %{space_name}"
       conference_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+        create: "%{user_name} diundang %{resource_name} ke %{space_name} konferensi"
+        delete: "%{user_name} menghapus pengguna %{resource_name} dari %{space_name} konferensi"
+        update: "%{user_name} mengubah peran %{resource_name} dalam %{space_name} konferensi"
       conferences:
         conference_registration:
-          confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
+          confirm: "%{user_name} mengkonfirmasi pendaftaran konferensi dalam %{resource_name} konferensi"
         partner:
-          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
-          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
+          create: "%{user_name} dibuat %{resource_name} ke %{space_name} konferensi"
+          delete: "%{user_name} menghapus pengguna %{resource_name} dari %{space_name} konferensi"
+          update: "%{user_name} diperbarui %{resource_name} di %{space_name} konferensi"
         registration_type:
-          create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
-          publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
-          unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
-          update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
+          create: "%{user_name} menciptakan tipe %{resource_name} pendaftaran dalam %{space_name} konferensi"
+          publish: "%{user_name} menerbitkan %{resource_name} tipe pendaftaran dalam %{space_name} konferensi"
+          unpublish: "%{user_name} tidak menerbitkan %{resource_name} jenis pendaftaran dalam %{space_name} konferensi"
+          update: "%{user_name} memperbarui %{resource_name} tipe registrasi di %{space_name} konferensi"
       media_link:
-        create: "%{user_name} created the %{resource_name} media link in the %{space_name} conference"
-        delete: "%{user_name} removed the %{resource_name} media link from the %{space_name} conference"
-        update: "%{user_name} updated the %{resource_name} media link in the %{space_name} conference"
+        create: "%{user_name} membuat tautan %{resource_name} media di %{space_name} konferensi"
+        delete: "%{user_name} menghapus %{resource_name} tautan media dari %{space_name} konferensi"
+        update: "%{user_name} memperbarui %{resource_name} tautan media dalam %{space_name} konferensi"
     conference_program:
       index:
         title: Program
     conference_speakers:
       index:
-        title: Speakers
+        title: Pembicara
     conferences:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         conference_invites:
           create:
-            error: There's been a problem while inviting the user to join the conference.
-            success: User successfully invited to join the conference.
+            error: Ada masalah saat mengundang pengguna untuk bergabung dengan konferensi.
+            success: Pengguna berhasil diundang untuk bergabung dengan konferensi.
           form:
-            attendee_type: Attendee type
-            existing_user: Existing user
-            invite_explanation: The user will be invited to join the conference and to the organization as well.
-            non_user: Non existing user
-            select_user: Select user
+            attendee_type: Tipe penerima tamu
+            existing_user: Pengguna yang sudah ada
+            invite_explanation: Pengguna akan diundang untuk bergabung dengan konferensi dan ke organisasi juga.
+            non_user: Pengguna tidak ada
+            select_user: Pilih pengguna
           index:
             filter:
-              accepted: Accepted
-              all: All
-              rejected: Rejected
-              sent: Sent
-            filter_by: Filter by
-            invite_attendee: Invite Attendee
-            invites: Invites
-            search: Search
+              accepted: Diterima
+              all: Semua
+              rejected: Ditolak
+              sent: Terkirim
+            filter_by: Filter berdasarkan
+            invite_attendee: Undang Peserta
+            invites: Undangan
+            search: Pencarian
           new:
-            explanation: The user will be invited to join a conference. If the email is not registered they will be invited to the organization as well.
-            invite: Invite
-            new_invite: Invite user
+            explanation: Pengguna akan diundang untuk bergabung dengan konferensi. Jika email tidak terdaftar mereka akan diundang ke organisasi juga.
+            invite: Undang
+            new_invite: Undang pengguna
         conference_registrations:
           index:
-            registrations: Registrations
+            registrations: Pendaftaran
         conference_speakers:
           form:
-            existing_user: Existing user
-            non_user: Non user
-            select_user: Select user
-            user_type: User type
+            existing_user: Pengguna yang sudah ada
+            non_user: Non-pengguna
+            select_user: Pilih pengguna
+            user_type: Tipe Pengguna
           index:
-            search: Search
+            search: Pencarian
         conferences:
           form:
-            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             registrations_count:
-              one: There has been 1 registration.
-              other: There has been %{count} registrations.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+              other: Ada %{count} pendaftaran.
+            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         diplomas:
           edit:
-            save: Save
-            title: Certificate of Attendance
+            save: Menyimpan
+            title: Sertifikat kehadiran
         invite_join_conference_mailer:
           invite:
-            decline: Decline invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
-            registration: Registration for '%{conference_title}'
+            decline: Tolak undangan '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
+            registration: Registrasi untuk '%{conference_title}'
         partners:
           index:
-            title: Partners
+            title: Mitra
         registration_types:
           form:
-            select_conference_meetings: Select conference meetings
+            select_conference_meetings: Pilih pertemuan konferensi
           index:
-            title: Registration types
+            title: Jenis pendaftaran
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
+            diploma_html: Anda akan menemukan sertifikat kehadiran untuk konferensi <a href="%{url}">%{title}</a> di lampiran.
           diploma_user:
-            attendance_verified_by: Attendance verified by
-            certificate_of_attendance: Certificate of Attendance
-            certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
+            attendance_verified_by: Kehadiran diverifikasi oleh
+            certificate_of_attendance: Sertifikat kehadiran
+            certificate_of_attendance_description: Ini untuk menyatakan bahwa <strong>%{user}</strong> telah hadir dan mengambil bagian dalam <strong>%{title}</strong> diadakan pada <strong>%{location}</strong> pada <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: There's been a problem while sending the conference certificates of attendance.
-          success: Conference certificates of attendance sent correctly
+          error: Ada masalah saat mengirim sertifikat kehadiran konferensi.
+          success: Sertifikat kehadiran konferensi dikirim dengan benar
       conference:
         registration_confirm:
-          cancel: Cancel
-          confirm: Confirm
+          cancel: Membatalkan
+          confirm: Memastikan
         show:
-          free: Free
-          going: Going
-          no_slots_available: No slots available
-          registration: Registration
+          free: Bebas
+          going: Pergi
+          no_slots_available: Tidak ada slot yang tersedia
+          registration: Pendaftaran
       conference_program:
         program_meeting:
-          content: Content
-          location: Location
-          speakers: Speakers
+          content: Konten
+          location: Lokasi
+          speakers: Pembicara
           streaming: Streaming
         show:
-          day: Day
+          day: Hari
           program: Program
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
-          details_2: You will find the conference's details in the attachment.
+          confirmed_html: Pendaftaran Anda untuk konferensi <a href="%{url}">%{title}</a> telah dikonfirmasi.
+          details_1: 'Anda terdaftar di konferensi dengan %{registration_type} jenis. Ini memiliki biaya %{price} dan Anda dapat menghadiri acara-acara berikut:'
+          details_2: Anda akan menemukan rincian konferensi dalam lampiran.
         pending_validation:
-          confirmation_pending: You will receive the confirmation shortly
-          details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
-          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
+          confirmation_pending: Anda akan menerima konfirmasi segera
+          details: 'Anda telah mendaftar ke %{registration_type} jenis dengan biaya %{price} dan Anda dapat menghadiri acara-acara berikut:'
+          pending_html: Pendaftaran Anda untuk konferensi <a href="%{url}">%{title}</a> masih menunggu untuk dikonfirmasi.
       conference_registrations:
         create:
-          invalid: There's been a problem joining this conference.
-          success: You have joined the conference successfully.
+          invalid: Ada masalah saat bergabung dengan konferensi ini.
+          success: Anda telah berhasil mengikuti konferensi.
         decline_invitation:
-          invalid: There's been a problem declining the invitation.
-          success: You have declined the invitation successfully.
+          invalid: Terjadi masalah saat menolak undangan.
+          success: Anda berhasil menolak undangan.
         destroy:
-          invalid: There's been a problem leaving this conference.
-          success: You have left the conference successfully.
+          invalid: Ada masalah saat meninggalkan konferensi ini.
+          success: Anda telah meninggalkan konferensi dengan sukses.
       conference_speaker:
-        go_to_twitter: Go to Twitter
-        more_info: more info
-        personal_website: Personal website
+        go_to_twitter: Pergi ke Twitter
+        more_info: Info lebih lanjut
+        personal_website: Situs web pribadi
         show:
-          more_info: more info
+          more_info: Info lebih lanjut
       conference_speaker_cell:
         personal_url:
-          personal_website: Personal website
+          personal_website: Situs web pribadi
         twitter_handle:
-          go_to_twitter: Go to Twitter
+          go_to_twitter: Pergi ke Twitter
       conference_speakers:
         index:
-          speakers: Speakers
+          speakers: Pembicara
       conferences:
         partners:
-          collaborators: Partners
-          main_promotors: Organizers
+          collaborators: Mitra
+          main_promotors: Penyelenggara
         show:
-          login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: 'Make your registration in the conference:'
-          register: Register
+          login_as: Anda masuk sebagai %{name} <%{email}>
+          make_conference_registration: 'Buat pendaftaran Anda di konferensi:'
+          register: Daftar
       content_blocks:
         highlighted_conferences:
-          name: Highlighted conferences
+          name: Konferensi yang disorot
       index:
-        title: Conferences
+        title: Konferensi
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Your conference's registration has been confirmed
+            subject: Pendaftaran konferensi Anda telah dikonfirmasi
           pending_validation:
-            subject: Your conference's registration is pending to be confirmed
+            subject: Pendaftaran konferensi Anda sedang menunggu untuk dikonfirmasi
         invite_join_conference_mailer:
           invite:
-            subject: Invitation to join a conference
+            subject: Undangan untuk bergabung dalam konferensi
         send_conference_diploma_mailer:
           diploma:
-            subject: Your conference certificate of attendance has been sent
+            subject: Sertifikat kehadiran konferensi Anda telah dikirim
       models:
         conference_invite:
           fields:
-            email: Email
-            name: Name
-            registration_type: Registration type
-            sent_at: Sent at
+            email: E-mail
+            name: Nama
+            registration_type: Jenis pendaftaran
+            sent_at: Dikirim pada
             status: Status
           status:
-            accepted: Accepted (%{at})
-            rejected: Rejected (%{at})
-            sent: Sent
+            accepted: Diterima (%{at})
+            rejected: Ditolak (%{at})
+            sent: Terkirim
         conference_registration:
           fields:
-            email: Email
-            name: Name
-            registration_type: Registration type
-            state: State
+            email: E-mail
+            name: Nama
+            registration_type: Jenis pendaftaran
+            state: Negara
             states:
-              confirmed: Confirmed
-              pending: Pending
+              confirmed: Dikonfirmasi
+              pending: Menunggu keputusan
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
-            see_all_conferences: See all conferences
+            active_conferences: Konferensi aktif
+            see_all_conferences: Lihat semua konferensi
       photo:
         show:
-          close_modal: Close modal
-          photo: Photo
+          close_modal: Tutup modal
+          photo: Foto
       photos_list:
         show:
-          related_photos: Photos
+          related_photos: Foto
       registration_types:
         index:
-          choose_an_option: 'Choose your registration option:'
-          login_as: You are logged in as %{name} <%{email}>
-          register: Register
-          title: Registration types
+          choose_an_option: 'Pilih opsi pendaftaran Anda:'
+          login_as: Anda masuk sebagai %{name} <%{email}>
+          register: Daftar
+          title: Jenis pendaftaran
       shared:
         conference_user_login:
-          already_account: Do you already have an account in decidim?
-          new_user: New user?
-          sign_in: Login to register for the conference
-          sign_up: Create an account in decidim to register for the conference
+          already_account: Apakah Anda sudah memiliki akun di desidim?
+          new_user: Pengguna baru?
+          sign_in: Login untuk mendaftar konferensi
+          sign_up: Buat akun di desidim untuk mendaftar konferensi
       show:
-        details: Details
-        introduction: Introduction
-        objectives: Objectives
-        related_assemblies: Related Assemblies
-        related_consultations: Related Consultations
-        related_participatory_processes: Related Participatory Processes
+        details: Detail
+        introduction: pengantar
+        objectives: Tujuan
+        related_assemblies: Rakitan Terkait
+        related_consultations: Konsultasi Terkait
+        related_participatory_processes: Proses Partisipatif Terkait
       statistics:
-        answers_count: Answers
-        comments_count: Comments
-        conference_count: Conferences
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
-        pages_count: Pages
-        posts_count: Posts
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        answers_count: Jawaban
+        comments_count: Komentar
+        conference_count: Konferensi
+        debates_count: Perdebatan
+        endorsements_count: Endorsemen
+        headline: Aktivitas
+        meetings_count: Rapat
+        orders_count: Suara
+        pages_count: Halaman
+        posts_count: Kiriman
+        projects_count: Proyek
+        proposals_count: Proposal
+        results_count: Hasil
+        surveys_count: Survei
+        users_count: Peserta
+        votes_count: Suara
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+          notification_title: Pendaftaran Anda untuk konferensi <a href="%{resource_url}">%{resource_title}</a> telah dikonfirmasi.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Pendaftaran Anda untuk konferensi <a href="%{resource_url}">%{resource_title}</a> masih menunggu untuk dikonfirmasi.
         conference_registrations_over_percentage:
-          email_intro: The "%{resource_title}" conference occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the conference's participatory space.
-          email_subject: The "%{resource_title}" conference occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference occupied slots are over %{percentage}%.
+          email_intro: Slot "%{resource_title}" konferensi yang ditempati lebih dari %{percentage}%.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah admin ruang partisipatif konferensi.
+          email_subject: Slot konferensi "%{resource_title}" lebih dari %{percentage}%
+          notification_title: Slot konferensi <a href="%{resource_path}">%{resource_title}</a> diduduki lebih dari %{percentage}%.
         conference_updated:
-          email_intro: 'The "%{resource_title}" conference was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference was updated.
+          email_intro: 'Konferensi "%{resource_title}" telah diperbarui. Anda dapat membaca versi baru dari halamannya:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti konferensi "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Konferensi "%{resource_title}" telah diperbarui
+          notification_title: Konferensi <a href="%{resource_path}">%{resource_title}</a> telah diperbarui.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" conference has enabled registrations. You can register yourself on its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference has enabled registrations.
+          email_intro: 'Konferensi "%{resource_title}" telah memungkinkan pendaftaran. Anda dapat mendaftarkan diri Anda di halamannya:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti konferensi "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Konferensi "%{resource_title}" telah memungkinkan pendaftaran.
+          notification_title: Konferensi <a href="%{resource_path}">%{resource_title}</a> telah memungkinkan pendaftaran.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'Konferensi "%{resource_title}" berlangsung dalam 2 hari. Anda dapat membaca deskripsi dari halamannya:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti konferensi "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Konferensi "%{resource_title}" akan datang!
+          notification_title: Konferensi <a href="%{resource_path}">%{resource_title}</a> akan datang dalam 2 hari.
     log:
       value_types:
         conference_presenter:
-          not_found: 'The conference was not found on the database (ID: %{id})'
+          not_found: 'Konferensi tidak ditemukan di database (ID: %{id})'
     media:
       index:
-        description: Links about this conference
-        title: Media and Links
+        description: Tautan tentang konferensi ini
+        title: Media dan Tautan
     menu:
-      conferences: Conferences
+      conferences: Konferensi
   devise:
     mailer:
       join_conference:
-        subject: Invitation to join a conference
+        subject: Undangan untuk bergabung dalam konferensi
   layouts:
     decidim:
       conference_hero:
-        register: Register
+        register: Daftar
       conference_widgets:
         show:
-          take_part: Take part
+          take_part: Ambil bagian
       conferences:
         conference:
-          take_part: Take part
+          more_info: Info lebih lanjut
+          take_part: Ambil bagian
         index:
-          promoted_conferences: Promoted conferences
+          promoted_conferences: Konferensi yang dipromosikan
         order_by_conferences:
           conferences:
-            one: "%{count} conference"
-            other: "%{count} conferences"
+            other: "%{count} konferensi"
         promoted_conference:
-          more_info: More info
-          take_part: Take part
+          more_info: Info lebih lanjut
+          take_part: Ambil bagian
       conferences_nav:
-        conference_menu_item: Information
-        conference_partners_menu_item: Partners
-        conference_speaker_menu_item: Speakers
+        conference_menu_item: Informasi
+        conference_partners_menu_item: Mitra
+        conference_speaker_menu_item: Pembicara
         media: Media
         venues: Venues

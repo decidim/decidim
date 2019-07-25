@@ -41,6 +41,19 @@ module Decidim
       @backtrace << [class_name, state]
     end
 
+    # Checks if this PermissionAction specifies the same +scope+, +action+ and
+    # +subject+ thant the ones provided as arguments.
+    def matches?(scope, action, subject)
+      same = (self.action == action)
+      same &&= (self.scope == scope)
+      same &&= (self.subject == subject)
+      same
+    end
+
+    def to_s
+      "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}, state: #{@state}>"
+    end
+
     class PermissionNotSetError < StandardError; end
     class PermissionCannotBeDisallowedError < StandardError; end
   end

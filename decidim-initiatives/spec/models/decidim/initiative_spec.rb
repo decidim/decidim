@@ -6,7 +6,18 @@ module Decidim
   describe Initiative do
     subject { initiative }
 
+    let(:organization) { create(:organization) }
     let(:initiative) { build :initiative }
+
+    let(:initiatives_type_minimum_committee_members) { 2 }
+    let(:initiatives_type) do
+      create(
+        :initiatives_type,
+        organization: organization,
+        minimum_committee_members: initiatives_type_minimum_committee_members
+      )
+    end
+    let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
 
     include_examples "has reference"
 
@@ -14,6 +25,8 @@ module Decidim
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
+      let(:offline_type) { create(:initiatives_type, :online_signature_disabled, organization: organization) }
+      let(:offline_scope) { create(:initiatives_type_scope, type: offline_type) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)
@@ -21,6 +34,14 @@ module Decidim
 
       it "is versioned" do
         expect(initiative).to be_versioned
+      end
+
+      it "enforces signature types specified in the type" do
+        online_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "online")
+        offline_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "offline")
+
+        expect(online_initiative).to be_invalid
+        expect(offline_initiative).to be_valid
       end
 
       it "technical revission request is notified by email" do
@@ -43,9 +64,21 @@ module Decidim
 
     context "when published initiative" do
       let(:published_initiative) { build :initiative }
+      let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+      let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
       it "is valid" do
         expect(published_initiative).to be_valid
+      end
+
+      it "does not enforce signature type if the type was updated" do
+        initiative = build(:initiative, :published, organization: organization, scoped_type: online_allowed_scope, signature_type: "online")
+
+        expect(initiative.save).to be_truthy
+
+        online_allowed_type.update!(online_signature_enabled: false)
+
+        expect(initiative).to be_valid
       end
 
       it "unpublish!" do
@@ -181,6 +214,50 @@ module Decidim
           initiative.update(offline_votes: offline_votes, initiative_votes_count: online_votes)
           expect(initiative.percentage).to eq(100)
         end
+      end
+    end
+
+    describe "#minimum_committee_members" do
+      subject { initiative.minimum_committee_members }
+
+      let(:committee_members_fallback_setting) { 1 }
+      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+
+      before do
+        allow(Decidim::Initiatives).to(
+          receive(:minimum_committee_members).and_return(committee_members_fallback_setting)
+        )
+      end
+
+      context "when setting defined in type" do
+        it { is_expected.to eq initiatives_type_minimum_committee_members }
+      end
+
+      context "when setting not set" do
+        let(:initiatives_type_minimum_committee_members) { nil }
+
+        it { is_expected.to eq committee_members_fallback_setting }
+      end
+    end
+
+    describe "#enough_committee_members?" do
+      subject { initiative.enough_committee_members? }
+
+      let(:initiatives_type_minimum_committee_members) { 2 }
+      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+
+      before { initiative.committee_members.destroy_all }
+
+      context "when enough members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative: initiative) }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when not enough members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative: initiative) }
+
+        it { is_expected.to eq false }
       end
     end
   end

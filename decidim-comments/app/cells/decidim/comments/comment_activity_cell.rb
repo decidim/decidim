@@ -24,7 +24,7 @@ module Decidim
         I18n.t(
           "decidim.comments.last_activity.new_comment_at_html",
           link: link_to(
-            resource_title,
+            root_commentable_title,
             resource_locator(root_commentable).path
           )
         )
@@ -36,6 +36,10 @@ module Decidim
 
       def comment
         model.resource_lazy
+      end
+
+      def root_commentable_title
+        decidim_html_escape(translated_attribute(root_commentable.title))
       end
 
       def url_params

@@ -1,4 +1,3 @@
----
 fi:
   activerecord:
     models:
@@ -27,8 +26,5 @@ fi:
             save: Päivitä
             title: Muokkaa sivua
           update:
-            invalid: Sivun tallennuksessa tapahtui virheitä.
-            success: Sivu tallennettu onnistuneesti.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications
+            invalid: Sivun tallennus epäonnistui.
+            success: Sivun tallentaminen onnistui.

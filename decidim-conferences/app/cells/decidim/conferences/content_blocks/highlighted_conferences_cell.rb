@@ -4,7 +4,6 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ViewModel
-        delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
         def show

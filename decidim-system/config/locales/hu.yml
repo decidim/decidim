@@ -1,4 +1,3 @@
----
 hu:
   decidim:
     system:
@@ -30,14 +29,9 @@ hu:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
           title: 'Alapértelmezett cím: %{page}'
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Adminok
         dashboard: Irányítópult
-        logs: Logs
         organizations: Szervezetek
       models:
         admin:
@@ -53,7 +47,7 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
-            smtp_settings: SMTP settings
+            smtp_settings: SMTP beállítások
           name: Szervezet
       organizations:
         create:

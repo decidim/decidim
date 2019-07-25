@@ -1,13 +1,14 @@
----
 eu:
   activemodel:
     attributes:
       participatory_process:
         announcement: Anuntzio
+        area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
+        decidim_area_id: Area
         description: Deskribapena
         developer_group: Sustatzailearen taldea
         domain: Domeinua
@@ -19,7 +20,6 @@ eu:
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
-        private_space: Concertation privée
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -71,12 +71,13 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
-        new: New
+        filter:
+          all: Erakutsi prozesu guztiak
+          process_groups: Prozesu taldeak
+        new_process: Prozesu berria
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
         new_process_user_role: Prozesu berria erabiltzailea
-        participatory_process:
-          new: New
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
@@ -202,14 +203,9 @@ eu:
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         edit:
           update: Eguneratu
-        form:
-          title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
           private: Pribatua
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Publiko
           published: Argitaratua
         new:
@@ -251,14 +247,14 @@ eu:
     events:
       participatory_process:
         step_activated:
-          email_intro: "%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:"
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{participatory_space_title} eguneratze bat"
+          email_subject: '%{participatory_space_title} eguneratze bat'
           notification_title: '%{resource_title} urratsa aktiboa da <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
-          email_intro: "%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:"
+          email_intro: '%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: "%{participatory_space_title} eguneratze bat"
+          email_subject: '%{participatory_space_title} eguneratze bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
     help:
       participatory_spaces:
@@ -273,11 +269,6 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -303,7 +294,16 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
+            duration: Iraupena
+            filters: iragazkiak
+            images: Irudiak
+            metadata: Metadata
+            other: Beste
+            select_an_area: Hautatu eremu bat
+            select_process_group: Hautatu prozesu talde bat
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+            title: Informazio orokorra
+            visbility: ikusgarritasuna
       content_blocks:
         highlighted_processes:
           name: Prozesu nabarmenak
@@ -319,8 +319,6 @@ eu:
             more_information: Informazio gehiago
             participate: Parte hartu
             see_all_processes: Ikusi prozesu guztiak
-      participatory_process_groups:
-        none: Bat bera ere ez
       participatory_processes:
         filters:
           counters:
@@ -349,6 +347,7 @@ eu:
         index:
           loading: Emaitzak kargatzen...
       show:
+        area: Area
         developer_group: Sustatzailearen taldea
         end_date: Bukaera-data
         local_area: Antolakuntza eremua
@@ -390,13 +389,14 @@ eu:
           promoted_processes: Prozesu nabarmenduak
         participatory_process:
           active_step: 'Oraingo fasea:'
+          more_info: Informazio gehiago
           take_part: Parte hartu
         promoted_process:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
           take_part: Parte hartu
       process_header_steps:
-        step: "%{total} fasetatik %{current}.a"
+        step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak
       process_navigation:
         process_menu_item: Prozesua

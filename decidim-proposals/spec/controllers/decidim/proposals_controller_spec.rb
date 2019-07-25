@@ -43,6 +43,19 @@ module Decidim
             expect(subject).to render_template(:participatory_text)
             expect(assigns(:proposals).order_values.first.expr.name).to eq(:position)
           end
+
+          context "when emendations exist" do
+            let!(:amendable) { create(:proposal, component: component) }
+            let!(:emendation) { create(:proposal, component: component) }
+            let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, state: "accepted") }
+
+            it "does not include emendations" do
+              get :index
+              expect(response).to have_http_status(:ok)
+              emendations = assigns(:proposals).select(&:emendation?)
+              expect(emendations).to be_empty
+            end
+          end
         end
       end
 
@@ -103,8 +116,23 @@ module Decidim
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
 
-            expect(flash[:notice]).not_to be_empty
+            expect(flash[:notice]).to eq("Proposal successfully updated.")
             expect(response).to have_http_status(:found)
+            proposal.reload
+            expect(proposal.withdrawn?).to be true
+          end
+
+          context "and the proposal already has supports" do
+            let(:proposal) { create(:proposal, :with_votes, component: component, users: [user]) }
+
+            it "is not able to withdraw the proposal" do
+              put :withdraw, params: params.merge(id: proposal.id)
+
+              expect(flash[:alert]).to eq("This proposal can not be withdrawn because it already has supports.")
+              expect(response).to have_http_status(:found)
+              proposal.reload
+              expect(proposal.withdrawn?).to be false
+            end
           end
         end
 
@@ -118,8 +146,10 @@ module Decidim
 
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).not_to be_empty
+              expect(flash[:alert]).to eq("You are not authorized to perform this action")
               expect(response).to have_http_status(:found)
+              proposal.reload
+              expect(proposal.withdrawn?).to be false
             end
           end
         end

@@ -150,7 +150,7 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          conference_admins: Usuarios da conferencia
+          conference_admins: Administradores de conferencias
           conference_invites: Invitacións
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
@@ -357,8 +357,8 @@ gl:
             certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Houbo un problema ao enviar os diplomas da conferencia.
-          success: Diplomas de conferencia enviados correctamente
+          error: Produciuse un problema ao enviar os certificados de asistencia da conferencia.
+          success: Certificados de asistencia de conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -553,6 +553,7 @@ gl:
           take_part: Tomar parte en
       conferences:
         conference:
+          more_info: Máis información
           take_part: Tomar parte en
         index:
           promoted_conferences: Conferencias promocionadas

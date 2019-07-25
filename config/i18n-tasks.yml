@@ -64,6 +64,7 @@ search:
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
+    - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
     - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
@@ -117,6 +118,7 @@ ignore_unused:
   - decidim.components.*
   - decidim.filters.linked_classes.*
   - decidim.forms.errors.*
+  - decidim.forms.user_answers_serializer.*
   - decidim.participatory_processes.statistics.*
   - decidim.proposals.answers.*
   - decidim.proposals.proposals.orders.*
@@ -193,11 +195,16 @@ ignore_unused:
   - decidim.amendments.accept.error
   - decidim.searches.filters.state.*
   - decidim.assemblies.filter.*
+  # OSP CUSTO START HERE
+  - decidim.initiatives.initiatives.votes_count.count.*
+  - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   - decidim.proposals.proposals.edit.address
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address
   - devise.invitations.*
   - decidim.comments.translat*
+  - decidim.system.organizations.smtp_settings.*
+  # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

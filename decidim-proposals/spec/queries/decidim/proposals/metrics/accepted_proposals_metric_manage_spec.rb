@@ -7,8 +7,8 @@ describe Decidim::Proposals::Metrics::AcceptedProposalsMetricManage do
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
   let(:day) { Time.zone.yesterday }
-  let!(:proposals) { create_list(:proposal, 3, :accepted, published_at: day, component: component) }
-  let!(:not_accepted_proposals) { create_list(:proposal, 2, published_at: day, component: component) }
+  let!(:accepted_proposals) { create_list(:proposal, 3, :accepted, created_at: day, component: component) }
+  let!(:not_accepted_proposals) { create_list(:proposal, 3, created_at: day, component: component) }
 
   context "when executing" do
     it "creates new metric records" do

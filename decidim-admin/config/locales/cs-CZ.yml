@@ -1,764 +1,721 @@
----
-cs-CZ:
+cs:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: Typ oblasti
+        name: název
+        organization: Organizace
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: název
+        organization: Organizace
+        plural: Množný
       attachment:
-        attachment_collection_id: Folder
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: Složka
+        description: Popis
+        file: Soubor
+        title: Titul
       attachment_collection:
-        description: Description
-        name: Name
+        description: Popis
+        name: název
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: Popis
+        name: název
+        parent_id: Rodič
       component:
-        name: Name
-        published_at: Published at
-        weight: Weight
+        name: název
+        published_at: Publikováno v
+        weight: Hmotnost
       id: ID
       newsletter:
-        body: Body
-        subject: Subject
+        body: Tělo
+        subject: Předmět
       oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        name: název
+        organization_logo: Logo organizace (čtverec)
+        organization_name: Název organizace
+        organization_url: URL organizace
+        redirect_uri: Přesměrování URI
       organization:
-        address: SMTP hostname
-        alert_color: Alert
-        badges_enabled: Enable badges
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
-        default_locale: Default locale
-        description: Description
-        enable_omnipresent_banner: Show omnipresent banner
+        alert_color: Upozornění
+        badges_enabled: Povolit odznaky
+        cta_button_path: Cesta tlačítka volat na akci
+        cta_button_text: Text tlačítka Volat na akci
+        default_locale: Výchozí nastavení
+        description: Popis
+        enable_omnipresent_banner: Zobrazit všudypřítomný banner
         facebook_handler: Facebook handler
-        favicon: Icon
-        from: From email address
-        github_handler: GitHub handler
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
-        instagram_handler: Instagram handler
+        favicon: Ikona
+        github_handler: Manipulátor GitHub
+        header_snippets: Úryvky záhlaví
+        highlighted_content_banner_action_subtitle: Tlačítko Akce tlačítka
+        highlighted_content_banner_action_title: Název tlačítka akce
+        highlighted_content_banner_action_url: Adresa URL tlačítka akce
+        highlighted_content_banner_enabled: Zobrazit zvýrazněný banner obsahu
+        highlighted_content_banner_image: obraz
+        highlighted_content_banner_short_description: Stručný popis
+        highlighted_content_banner_title: Titul
+        instagram_handler: Manipulátor Instagram
         logo: Logo
-        name: Name
-        official_img_footer: Official logo footer
-        official_img_header: Official logo header
-        official_url: Official organization URL
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
+        name: název
+        official_img_footer: Oficiální zápatí loga
+        official_img_header: Oficiální záhlaví loga
+        official_url: Oficiální URL organizace
+        omnipresent_banner_short_description: Stručný popis
+        omnipresent_banner_title: Titul
         omnipresent_banner_url: URL
-        password: Password
-        port: Port
-        primary_color: Primary
-        reference_prefix: Reference prefix
-        secondary_color: Secondary
-        show_statistics: Show statistics
-        success_color: Success
-        tos_version: Terms of service version
+        primary_color: Hlavní
+        reference_prefix: Referenční předpona
+        secondary_color: Sekundární
+        show_statistics: Zobrazit statistiky
+        success_color: Úspěch
+        tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
-        user_groups_enabled: Enable user groups
-        warning_color: Warning
-        youtube_handler: YouTube handler
+        user_groups_enabled: Povolit skupiny uživatelů
+        warning_color: Varování
+        youtube_handler: Obslužný program YouTube
       scope:
-        code: Code
-        name: Name
-        organization: Organization
-        parent_id: Parent
-        scope_type: Scope type
-        scope_type_id: Scope type
+        code: Kód
+        name: název
+        organization: Organizace
+        parent_id: Rodič
+        scope_type: Typ rozsahu
+        scope_type_id: Typ rozsahu
       scope_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: název
+        organization: Organizace
+        plural: Množný
       static_page:
-        changed_notably: There have been noticeable changes.
-        content: Content
-        organization: Organization
-        show_in_footer: Show in the footer
+        changed_notably: Došlo ke znatelným změnám.
+        content: Obsah
+        organization: Organizace
+        show_in_footer: Zobrazit v zápatí
         slug: URL slug
-        title: Title
-        weight: Weight
+        title: Titul
+        weight: Hmotnost
       static_page_topic:
-        description: Description
-        show_in_footer: Show in the footer
-        title: Title
-        weight: Weight
+        description: Popis
+        show_in_footer: Zobrazit v zápatí
+        title: Titul
+        weight: Hmotnost
       user_group_csv_verification:
-        file: File
+        file: Soubor
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: URI přesměrování musí být URI SSL
         organization:
           attributes:
-            official_img_footer:
-              allowed_file_content_types: Invalid image file
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Neplatný soubor s obrázkem
+            official_img_footer:
+              allowed_file_content_types: Neplatný soubor s obrázkem
   activerecord:
     attributes:
       decidim/static_page:
-        content: Content
+        content: Obsah
         slug: URL slug
-        title: Title
+        title: Titul
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
-        site: Website
+        authorize_url: Autorizujte URL
+        client_id: ID klienta
+        client_secret: Klientské tajemství
+        organization_name: Název organizace
+        organization_url: URL organizace
+        redirect_uri: Přesměrování URI
+        site: webová stránka
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: Přidat
+        browse: Procházet
+        export: Vývozní
+        manage: Spravovat
+        new: Nové %{name}
+        permissions: Oprávnění
+        reject: Odmítnout
+        verify: Ověřte
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: Při vytváření nového typu oblasti došlo k chybě.
+          success: Typ oblasti byl úspěšně vytvořen.
         destroy:
-          success: Area type successfully destroyed
+          success: Typ prostoru úspěšně zničen
         edit:
-          title: Edit area type
-          update: Update
+          title: Upravit typ oblasti
+          update: Aktualizace
         new:
-          create: Create area type
-          title: New area type
+          create: Vytvořit typ oblasti
+          title: Nový typ oblasti
         update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
+          error: Při aktualizaci tohoto typu oblasti došlo k chybě.
+          success: Typ oblasti byl úspěšně aktualizován
       areas:
         create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
+          error: Při vytváření nové oblasti došlo k chybě.
+          success: Oblast byla úspěšně vytvořena.
         destroy:
-          success: Area successfully destroyed
+          success: Oblast úspěšně zničena
         edit:
-          title: Edit area
-          update: Update
+          title: Upravit oblast
+          update: Aktualizace
         new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
+          create: Vytvořte oblast
+          title: Nová oblast
+        no_areas: Žádné oblasti
         update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
+          error: Při aktualizaci této oblasti došlo k chybě.
+          success: Oblast byla úspěšně aktualizována
       attachment_collections:
         create:
-          error: There was an error creating a new folder.
-          success: Folder created successfully.
+          error: Při vytváření nové složky došlo k chybě.
+          success: Složka byla úspěšně vytvořena.
         destroy:
-          success: Folder destroyed successfully.
+          success: Složka byla úspěšně zlikvidována.
         edit:
-          title: Edit folder
-          update: Update
+          title: Upravit složku
+          update: Aktualizace
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
-          attachment_collections_title: Attachment folders
+          attachment_collection_used: Tento adresář nelze odstranit, protože je používán.
+          attachment_collections_title: Přílohy složky
         new:
-          create: Create
-          title: New folder
+          create: Vytvořit
+          title: Nová složka
         update:
-          error: There was an error when updating this folder.
-          success: Folder updated successfully.
+          error: Při aktualizaci této složky došlo k chybě.
+          success: Složka byla úspěšně aktualizována.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: Při vytváření nové přílohy došlo k chybě.
+          success: Příloha byla úspěšně vytvořena.
         destroy:
-          success: Attachment destroyed successfully.
+          success: Příloha byla úspěšně zlikvidována.
         edit:
-          title: Edit attachment
-          update: Update
+          title: Upravit přílohu
+          update: Aktualizace
         index:
-          attachments_title: Attachments
+          attachments_title: Přílohy
         new:
-          create: Create attachment
-          title: New attachment
+          create: Vytvoření přílohy
+          title: Nová příloha
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: Při aktualizaci této přílohy došlo k chybě.
+          success: Příloha byla úspěšně aktualizována.
       autocomplete:
-        no_results: No results found
-        search_prompt: Type at least three characters to search
+        no_results: Nebyly nalezeny žádné výsledky
+        search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
       categories:
         create:
-          error: There was an error creating this category.
-          success: Category created successfully.
+          error: Při vytváření této kategorie došlo k chybě.
+          success: Kategorie byla úspěšně vytvořena.
         destroy:
-          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
+          error: Při odstraňování této kategorie došlo k chybě. Vymažte nejprve podkategorie, ujistěte se, že do této kategorie nepatří žádná další entita a zkuste to znovu.
+          success: Kategorie byla úspěšně smazána.
         edit:
-          title: Edit category
-          update: Update
+          title: Upravit kategorii
+          update: Aktualizace
         index:
-          categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
+          categories_title: Kategorie
+          category_used: Tuto kategorii nelze odstranit, protože se používá.
         new:
-          create: Create category
-          title: New category
+          create: Vytvořte kategorii
+          title: Nová kategorie
         update:
-          error: There was an error updating this category.
-          success: Category updated successfully.
+          error: Při aktualizaci této kategorie došlo k chybě.
+          success: Kategorie byla úspěšně aktualizována.
       component_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
         update:
-          success: Permissions updated successfully.
+          success: Oprávnění byla úspěšně aktualizována.
       components:
         create:
-          error: There was an error creating this component.
-          success: Component created successfully.
+          error: Při vytváření této komponenty došlo k chybě.
+          success: Složka byla úspěšně vytvořena.
         destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
+          error: Došlo k chybě při poškození této součásti.
+          success: Složka byla úspěšně smazána.
         edit:
-          title: Edit component
-          update: Update
+          title: Upravit součást
+          update: Aktualizace
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: Výchozí nastavení kroku
+          global_settings: Globální nastavení
+          step_settings: Nastavení kroku
         index:
-          add: Add component
+          add: Přidat součást
           headers:
-            actions: Actions
-            name: Component name
-            type: Component type
+            actions: Akce
+            name: Název součásti
+            type: Typ komponenty
         new:
-          add: Add component
-          title: 'Add component: %{name}'
+          add: Přidat součást
+          title: 'Přidat součást: %{name}'
         publish:
-          success: The component has been successfully published.
-        title: Components
+          success: Komponenta byla úspěšně publikována.
+        title: Komponenty
         unpublish:
-          success: The component has been successfully unpublished.
+          success: Komponenta byla úspěšně zrušena.
         update:
-          error: There has been an error updating this component.
-          success: The component was updated successfully.
+          error: Při aktualizaci této komponenty došlo k chybě.
+          success: Komponenta byla úspěšně aktualizována.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: Zobrazit další protokoly
+          welcome: Vítejte v administrátorském panelu Decidim.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} jako %{export_format}"
+        notice: Váš export právě probíhá. Po dokončení e-mailu obdržíte e-mail.
       help_sections:
-        error: There's been an error updating the help sections
+        error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
-          save: Save
-        success: Help sections updated successfully
+          save: Uložit
+        success: Části nápovědy byly úspěšně aktualizovány
       impersonatable_users:
         index:
           filter:
-            all: All
-            managed: Managed
-            not_managed: Not managed
-          filter_by: Filter by
-          impersonate: Impersonate
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
-          name: Name
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
-          promote: Promote
-          search: Search
-          status: Status
-          view_logs: View logs
+            all: Všechno
+            managed: Podařilo se
+            not_managed: Není spravováno
+          filter_by: Filtrovat podle
+          impersonate: Vyděsit
+          impersonate_new_managed_user: Vyděsit nového spravovaného uživatele
+          managed: Podařilo se
+          name: název
+          needs_authorization_warning: Pro tuto organizaci je zapotřebí alespoň jedna autorizace.
+          not_managed: Není spravováno
+          promote: Podporovat
+          search: Vyhledávání
+          status: Postavení
+          view_logs: Zobrazení protokolů
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Došlo k chybě při zavření aktuální relace zosobnění.
+          success: Aktuální relace zosobnění byla úspěšně ukončena.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: Došlo k chybě, která se vyskytuje u uživatele.
+          success: Spravovaný uživatel byl úspěšně vytvořen.
         form:
-          authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          authorization_method: Metoda autorizace
+          name: název
+          reason: Důvod
         new:
-          impersonate: Impersonate
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate: Vyděsit
+          impersonate_existing_managed_user: Odcestujte ke spravovanému uživateli "%{name}"
+          impersonate_existing_user: Odsudzovat uživatele "%{name}"
+          impersonate_new_managed_user: Vyděsit nového spravovaného uživatele
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: Dosud nejsou žádné protokoly
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
-          error: There has been an error promoting the managed user.
-          success: The managed user has been successfully promoted.
+          error: Při správě spravovaného uživatele došlo k chybě.
+          success: Spravovaný uživatel byl úspěšně podporován.
         promotions:
           new:
-            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed user promotion
-            promote: Promote
+            explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
+            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
+            promote: Podporovat
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
-        area_types: Area types
-        areas: Areas
-        configuration: Configuration
-        dashboard: Dashboard
-        help_sections: Help sections
-        homepage: Homepage
-        impersonations: Impersonations
-        navbar_links: Navbar links
-        newsletters: Newsletters
-        oauth_applications: OAuth applications
-        participants: Participants
-        scope_types: Scope types
+        admin_log: Protokol aktivity správce
+        admins: Správci
+        appearance: Vzhled
+        area_types: Typy oblastí
+        areas: Oblasti
+        configuration: Konfigurace
+        dashboard: Přístrojová deska
+        help_sections: Části nápovědy
+        homepage: Domovská stránka
+        impersonations: Odhalení
+        newsletters: Zprávy
+        oauth_applications: Aplikace OAuth
+        participants: Účastníci
+        scope_types: Typy rozsahu
         scopes: Scopes
-        settings: Settings
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        settings: Nastavení
+        static_pages: Stránky
+        user_groups: Skupiny uživatelů
+        users: Uživatelé
       models:
         area:
           fields:
-            area_type: Area type
-            name: Name
+            area_type: Typ oblasti
+            name: název
         area_type:
           fields:
-            name: Name
-            plural: Plural
+            name: název
+            plural: Množný
         attachment:
           fields:
-            collection: Folder
-            content_type: Type
-            file_size: Size
-            title: Title
-          name: Attachment
+            collection: Složka
+            content_type: Typ
+            file_size: Velikost
+            title: Titul
+          name: Příloha
         attachment_collection:
-          name: Folder
+          name: Složka
         category:
-          name: Category
+          name: Kategorie
         impersonation_log:
           fields:
-            admin: Admin
-            ended_at: Ended at
-            expired_at: Expired at
-            reason: Reason
-            started_at: Started at
-            user: User
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
+            admin: Správce
+            ended_at: Ukončeno
+            expired_at: Platnost vypršela na
+            reason: Důvod
+            started_at: Začal u
+            user: Uživatel
         newsletter:
           fields:
-            created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            created_at: Vytvořeno u
+            progress: Pokrok
+            sent_at: Odeslané
+            subject: Předmět
+          name: Zpravodaj
         oauth_application:
           fields:
-            created_at: Created at
-            name: Name
-          name: OAuth uygulaması
+            created_at: Vytvořeno u
+            name: název
+          name: Aplikace OAuth
         participatory_space_private_user:
-          name: Participatory space private user
+          name: Účastní prostor soukromý uživatel
         scope:
           fields:
-            name: Name
-            scope_type: Scope type
+            name: název
+            scope_type: Typ rozsahu
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: název
+            plural: Množný
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Vytvořeno u
+            title: Titul
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
+            created_at: Datum vzniku
+            email: E-mailem
+            last_sign_in_at: Poslední datum přihlášení
+            name: název
             role: Role
             roles:
-              admin: Admin
-              user_manager: User manager
-          name: kullanıcı
+              admin: Správce
+              user_manager: Správce uživatelů
+          name: Uživatel
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: Akce
+            created_at: Vytvořeno u
+            document_number: Číslo dokumentu
+            name: název
+            phone: Telefon
+            state: Stát
+            users_count: Uživatelé se počítají
       moderations:
         index:
-          title: Moderations
+          title: Moderování
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
+            does_not_belong: Nepatří
+            offensive: Urážlivý
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
-          error: There's been an error creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          error: Při vytváření tohoto bulletinu došlo k chybě.
+          success: Newsletter byl úspěšně vytvořen. Před odesláním si je přečtěte.
         deliver:
-          error: There's been an error delivering this newsletter.
-          success: Newsletter delivered successfully.
+          error: Došlo k chybě při zasílání tohoto zpravodaje.
+          success: Newsletter byl úspěšně doručen.
         destroy:
-          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
-          success: Newsletter destroyed successfully.
+          error_already_sent: 'Nelze zničit informační bulletin: Už byl odeslán.'
+          success: Newsletter byl úspěšně zlikvidován.
         edit:
-          save_and_preview: Save and preview
-          title: Edit newsletter
+          save_and_preview: Uložit a zobrazit náhled
+          title: Upravit informační bulletin
         form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
         index:
-          confirm_delete: Are you sure you want to delete this newsletter?
-          title: Newsletters
+          confirm_delete: Opravdu chcete tento newsletter smazat?
+          title: Zprávy
         new:
-          save: Save
-          title: New newsletter
+          save: Uložit
+          title: Nový informační bulletin
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
-          preview: Preview
-          subject: Subject
+          confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
+          deliver: Doručte informační bulletin
+          preview: Náhled
+          subject: Předmět
         update:
-          error: There's been an error updating this newsletter.
-          success: Newsletter updated successfully. Please review it before sending.
-      oauth_application:
-        new: New Oauth application
+          error: Při aktualizaci tohoto bulletinu došlo k chybě.
+          success: Newsletter byl úspěšně aktualizován. Před odesláním si je přečtěte.
       oauth_applications:
         create:
-          error: There's been an error creating this application.
-          success: Application created successfully.
+          error: Při vytváření této aplikace došlo k chybě.
+          success: Aplikace byla úspěšně vytvořena.
         destroy:
-          error: There's been an error destroying this application.
-          success: Application destroyed successfully.
+          error: Došlo k chybě při zničení této aplikace.
+          success: Aplikace byla úspěšně zlikvidována.
         edit:
-          save: Save
-          title: Edit application
+          save: Uložit
+          title: Upravit aplikaci
         index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
+          confirm_delete: Opravdu chcete tuto aplikaci smazat?
+          title: Aplikace OAuth
         new:
-          save: Save
-          title: New application
+          save: Uložit
+          title: Nová aplikace
         update:
-          error: There's been an error updating this application.
-          success: Application updated successfully.
+          error: Při aktualizaci této aplikace došlo k chybě.
+          success: Aplikace byla úspěšně aktualizována.
       officializations:
         create:
-          success: User officialized successfully
+          success: Uživatel úspěšně oficializován
         destroy:
-          success: User unofficialized successfully
+          success: Uživatel neoficiálně úspěšně
         index:
-          actions: Actions
-          badge: Badge
-          created_at: Created At
+          actions: Akce
+          badge: Odznak
+          created_at: Vytvořeno na
           filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
-          name: Name
-          nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
-          officialized: Officialized
+            all: Všechno
+            not_officialized: Není oficializováno
+            officialized: Úředně
+          filter_by: Filtrovat podle
+          name: název
+          nickname: Přezdívka
+          not_officialized: Není oficializováno
+          officialize: Úředně
+          officialized: Úředně
           reofficialize: Reofficialize
-          search: Search
-          status: Status
-          unofficialize: Unofficialize
+          search: Vyhledávání
+          status: Postavení
+          unofficialize: Neoficiálně
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: Oficiální odznak
+          officialize: Úředně
+          title: Oficializovat uživatele "%{name}"
       organization:
         edit:
-          title: Edit organization
-          update: Update
+          title: Upravit organizaci
+          update: Aktualizace
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
-          twitter: Twitter
+          social_handlers: Sociální
+          twitter: Cvrlikání
           url: Url
-          youtube: YouTube
+          youtube: Youtube
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: Při aktualizaci této organizace došlo k chybě.
+          success: Organizace byla úspěšně aktualizována.
       organization_appearance:
         edit:
-          update: Update
+          update: Aktualizace
         form:
-          colors_title: Organization colors
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          colors_title: Organizační barvy
+          cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
+          cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
+          header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
+          homepage_appearance_title: Upravit vzhled stránky
+          homepage_highlighted_content_banner_title: Vysoce kvalitní banner obsahu
+          layout_appearance_title: Upravit vzhled vzhledu
+          omnipresent_banner_appearance_title: Upravte všudypřítomný banner
       organization_homepage:
         edit:
-          active_content_blocks: Active content blocks
-          inactive_content_blocks: Inactive content blocks
+          active_content_blocks: Bloky aktivního obsahu
+          inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
-          update: Update
+          update: Aktualizace
       participatory_space_private_users:
         create:
-          error: There was an error adding a private user for this participatory space.
-          success: Participatory space private user access created successfully.
+          error: Došlo k chybě přidání soukromého uživatele pro tento prostor pro účast.
+          success: Úspěšně byl úspěšně vytvořen soukromý uživatelský přístup.
         destroy:
-          error: There was an error deleting a private user for this participatory space.
-          success: Participatory space private user access destroyed successfully.
+          error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
+          success: Úspěšně zničen soukromý uživatelský prostor účastníka.
         index:
-          title: Participatory space private user
+          title: Účastní prostor soukromý uživatel
         new:
-          create: Create
-          title: New Participatory Space private user.
+          create: Vytvořit
+          title: Nový účastník soukromého prostoru.
+      resource_permissions:
+        edit:
+          submit: Předložit
+          title: Upravit oprávnění
+        update:
+          success: Oprávnění byla úspěšně aktualizována.
       scope_types:
         create:
-          error: There was an error creating a new scope type.
-          success: Scope type created successfully.
+          error: Při vytváření nového typu oboru došlo k chybě.
+          success: Typ oboru byl úspěšně vytvořen.
         destroy:
-          success: Scope type successfully destroyed
+          success: Typ pole rozsahu byl úspěšně zlikvidován
         edit:
-          title: Edit scope type
-          update: Update
+          title: Upravit typ pole
+          update: Aktualizace
         new:
-          create: Create scope type
-          title: New scope
+          create: Vytvořte typ pole
+          title: Nový rozsah
         update:
-          error: There was an error when updating this scope type.
-          success: Scope type updated successfully
+          error: Při aktualizaci tohoto typu pole došlo k chybě.
+          success: Typ rozsahu bylo úspěšně aktualizováno
       scopes:
         create:
-          error: There was an error creating a new scope.
-          success: Scope created successfully.
+          error: Při vytváření nového oboru došlo k chybě.
+          success: Rozsah byl úspěšně vytvořen.
         destroy:
-          success: Scope successfully destroyed
+          success: Rozsah úspěšně zničen
         edit:
-          title: Edit scope
-          update: Update
+          title: Úprava rozsahu
+          update: Aktualizace
         new:
-          create: Create scope
-          title: New scope
-        no_scopes: No scopes at this level.
+          create: Vytvořte oblast
+          title: Nový rozsah
+        no_scopes: Na této úrovni nejsou žádné oblasti.
         update:
-          error: There was an error when updating this scope.
-          success: Scope updated successfully
+          error: Při aktualizaci tohoto oboru došlo k chybě.
+          success: Rozsah byl úspěšně aktualizován
       static_page_topics:
         create:
-          error: There was an error creating a new topic.
-          success: Topic created successfully.
+          error: Při vytváření nového tématu došlo k chybě.
+          success: Téma vytvořeno úspěšně.
         destroy:
-          success: Topic successfully destroyed
+          success: Téma úspěšně zničena
         edit:
-          title: Edit topic
-          update: Update topic
+          title: Upravit téma
+          update: Aktualizovat téma
         new:
-          create: Create topic
-          title: New topic
+          create: Vytvořit téma
+          title: Nové téma
         update:
-          error: There was an error when updating this topic.
-          success: Topic updated successfully
+          error: Při aktualizaci tohoto tématu došlo k chybě.
+          success: Téma byla úspěšně aktualizována
       static_pages:
         actions:
-          view: View public page
+          view: Zobrazit veřejnou stránku
         create:
-          error: There was an error creating a new page.
-          success: Page created successfully.
+          error: Při vytváření nové stránky došlo k chybě.
+          success: Stránka byla úspěšně vytvořena.
         destroy:
-          success: Page successfully destroyed
+          success: Stránka byla úspěšně zničena
         edit:
-          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
-          title: Edit page
-          update: Update
+          changed_notably_help: Pokud je zaškrtnuto, uživatelé budou upozorněni, aby přijali nové smluvní podmínky.
+          title: Upravit stránku
+          update: Aktualizace
         form:
-          none: None
+          none: Žádný
         index:
-          last_notable_change: Last notable change
+          last_notable_change: Poslední pozoruhodná změna
         new:
-          create: Create page
-          title: New page
+          create: Vytvořit stránku
+          title: Nová stránka
         topic:
-          destroy: Remove topic
-          edit: Edit topic
-          empty: There's no page under this topic
-          without_topic: Pages without topic
+          destroy: Odebrat téma
+          edit: Upravit téma
+          empty: V tomto tématu není žádná stránka
+          without_topic: Stránky bez tématu
         update:
-          error: There was an error when updating this page.
-          success: Page updated successfully
+          error: Při aktualizaci této stránky došlo k chybě.
+          success: Stránka byla úspěšně aktualizována
       titles:
-        admin_log: Admin log
-        area_types: Area types
-        areas: Areas
-        authorization_workflows: Verification methods
-        dashboard: Dashboard
-        impersonatable_users: Manageable users
-        impersonations: Users management
-        managed_users: Managed users
-        navbar_links: Navbar links
-        participants: Users
-        scope_types: Scope types
+        admin_log: Správce protokolu
+        area_types: Typy oblastí
+        areas: Oblasti
+        authorization_workflows: Metody ověření
+        dashboard: Přístrojová deska
+        impersonatable_users: Spravovatelní uživatelé
+        impersonations: Správa uživatelů
+        participants: Uživatelé
+        scope_types: Typy rozsahu
         scopes: Scopes
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
-      user:
-        new: New user
+        static_pages: Stránky
+        user_groups: Skupiny uživatelů
+        users: Uživatelé
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: Při čtení souboru CSV došlo k chybě.
+          success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny uživatelů, které odpovídají kritériím. To může chvíli trvat.
         reject:
-          invalid: There was an error when rejecting this user group.
-          success: User group rejected successfully
+          invalid: Při odmítnutí této skupiny uživatelů došlo k chybě.
+          success: Uživatelská skupina byla úspěšně odmítnuta
         verify:
-          invalid: There was an error when verifying this user group.
-          success: User group verified successfully
+          invalid: Při ověřování této skupiny uživatelů došlo k chybě.
+          success: Uživatelská skupina byla úspěšně ověřena
       user_groups:
         index:
           filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
+            all: Všechno
+            pending: čekající
+            rejected: Odmítnuto
+            verified: Ověřeno
+          filter_by: Filtrovat podle
+          search: Vyhledávání
           state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          verify_via_csv: Verify via CSV
+            pending: čekající
+            rejected: Odmítnuto
+            verified: Ověřeno
+          verify_via_csv: Ověřte pomocí CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin uživatelů ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny uživatelů, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
+          title: Nahrajte soubor CSV
+          upload: nahrát
       users:
         create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
+          error: Při pozvání tohoto uživatele došlo k chybě.
+          success: Uživatel pozván úspěšně.
         destroy:
-          error: There was an error when trying to delete this user.
-          success: User is no longer an administrator.
+          error: Při pokusu o odstranění tohoto uživatele došlo k chybě.
+          success: Uživatel již není správcem.
         form:
-          email: Email
-          name: Name
+          email: E-mailem
+          name: název
           role: Role
         new:
-          create: Invite
-          title: Invite user as administrator
-      view_public_page: View public page
+          create: Pozvat
+          title: Pozvat uživatele jako správce
+      view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when impersonating a non managed user
+          reason: Musíte uvést důvod, proč se vydáte za nezúčastněného uživatele
     moderations:
       actions:
-        hidden: Hidden
-        hide: Hide
-        not_hidden: Not hidden
-        title: Actions
-        unhide: Unhide
+        hidden: Skrytý
+        hide: Skrýt
+        not_hidden: Ne ukryté
+        title: Akce
+        unhide: Odkryjte
         unreport: Unreport
       admin:
         reportable:
           hide:
-            invalid: There's been a problem hiding the resource.
-            success: Resource successfully hidden.
+            invalid: Došlo k potížím při skrývání zdroje.
+            success: Zdroj byl úspěšně skryt.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: Došlo k potížím s vynecháním zdroje.
+            success: Zdroj byl úspěšně vyloučen.
           unreport:
-            invalid: There's been a problem unreporting the resource.
-            success: Resource successfully unreported.
+            invalid: Došlo k problému, že zdroj nebyl hlášen.
+            success: Úspěšně nehlášený zdroj.
       models:
         moderation:
           fields:
-            hidden_at: Hidden at
-            report_count: Count
+            hidden_at: Skryté u
+            report_count: Spočítat
             reportable: Reportable
-            reported_content_url: Reported content URL
-            reports: Reports
-            visit_url: Visit URL
+            reported_content_url: Oznámená adresa URL obsahu
+            reports: Zprávy
+            visit_url: Navštivte adresu URL
   errors:
     messages:
-      invalid_json: Invalid JSON
+      invalid_json: Neplatná JSON
   layouts:
     decidim:
       admin:
         newsletters:
-          title: Newsletters
+          title: Zprávy
         settings:
-          title: Settings
+          title: Nastavení
         users:
-          title: Users
+          title: Uživatelé

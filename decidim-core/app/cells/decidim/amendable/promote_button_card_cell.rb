@@ -19,11 +19,15 @@ module Decidim
       end
 
       def promote_amend_path
-        decidim.promote_amend_path(model)
+        decidim.promote_amend_path(model.amendment)
       end
 
       def promote_amend_button_label
         t("promote_button", scope: "decidim.amendments.amendable", model_name: model_name)
+      end
+
+      def promote_confirm_text
+        t("promote_confirm_text", scope: "decidim.amendments.amendable")
       end
 
       def promote_amend_help_text
@@ -31,7 +35,7 @@ module Decidim
           t("promote_help_text",
             scope: "decidim.amendments.amendable",
             model_name: model_name.downcase,
-            amendable_fields: model.fields.to_sentence)
+            amendable_fields: model.amendable_fields.to_sentence)
         end
       end
 

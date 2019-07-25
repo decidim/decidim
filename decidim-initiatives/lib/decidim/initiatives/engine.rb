@@ -16,6 +16,7 @@ module Decidim
       routes do
         get "/initiative_types/search", to: "initiative_types#search", as: :initiative_types_search
         get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
+        get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
 
         resources :create_initiative
 
@@ -30,8 +31,10 @@ module Decidim
         }, constraints: { initiative_id: /[0-9]+/ }
 
         resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
+          resources :initiative_signatures
           member do
             get :signature_identities
+            get :authorization_sign_modal, to: "authorization_sign_modals#show"
           end
 
           resource :initiative_vote, only: [:create, :destroy]

@@ -1,4 +1,3 @@
----
 it:
   activerecord:
     models:
@@ -14,9 +13,9 @@ it:
         name: Pagina
         settings:
           global:
-            announcement: Annuncio
+            announcement: Avviso
           step:
-            announcement: Annuncio
+            announcement: Avviso
     pages:
       admin:
         models:
@@ -28,7 +27,4 @@ it:
             title: Modifica la pagina
           update:
             invalid: C'è stato un errore durante il salvataggio della pagina.
-            success: OK, la pagina è stata salvata.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications
+            success: La pagina è stata salvata correttamente.

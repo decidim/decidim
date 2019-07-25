@@ -14,12 +14,12 @@ module Decidim
         return @query if @query
 
         @query = Decidim::User.where(organization: @organization)
-        @query = @query.where("confirmed_at <= ?", end_time).not_managed.confirmed
+        @query = @query.where("created_at <= ?", end_time)
         @query
       end
 
       def quantity
-        @quantity ||= @query.where("confirmed_at >= ?", start_time).count
+        @quantity ||= @query.where("created_at >= ?", start_time).count
       end
     end
   end

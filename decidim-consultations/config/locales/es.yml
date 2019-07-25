@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -6,29 +5,29 @@ es:
         banner_image: Imagen de banner
         decidim_highlighted_scope_id: Alcance resaltado
         description: Descripción
-        end_voting_date: La votación ha terminado
+        end_voting_date: La votación finaliza
         introductory_image: Imagen introductoria
         introductory_video_url: URL de vídeo introductoria
         questions: Preguntas
-        slug: URL slug
+        slug: Nom curt d'URL
         start_voting_date: Empieza la votación
-        subtitle: Subtitular
+        subtitle: Substítulo
         title: Título
       question:
         banner_image: Imagen de banner
         decidim_scope_id: Área municipal
         hashtag: Hashtag
-        hero_image: Imagen de inicio
+        hero_image: Imagen de la pagina de inicio
         i_frame_url: URL del sistema de votación externa
-        origin_scope: Alcance
+        origin_scope: Ámbito
         origin_title: Origen
         origin_url: URL de origen
-        participatory_scope: Alcance participativo
+        participatory_scope: Ámbito participativo
         promoter_group: Grupo promotor
         question_context: Contexto
         reference: Referencia
         scope: Área municipal
-        slug: URL slug
+        slug: Nom curt d'URL
         subtitle: Subtitular
         title: Título
         vote: Sistema de votación externa
@@ -36,7 +35,7 @@ es:
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Respuesta no encontrada
+          not_found: Respuesta no encontrada.
   activerecord:
     models:
       decidim/consultation:
@@ -58,29 +57,29 @@ es:
         new_question: Nueva pregunta
         new_response: Nueva respuesta
         publish_results: Publicar resultados
-        unpublish_results: Anular la publicación de resultados
+        unpublish_results: Despublicar resultados
       consultation_publications:
         create:
-          error: Hubo un error al publicar esta consulta.
-          success: Consulta publicada con éxito
+          error: Se ha producido un error al publicar esta consulta.
+          success: Consulta publicada correctamente.
         destroy:
-          error: Hubo un error al anular la publicación de esta consulta.
-          success: Consulta despublicada con éxito.
+          error: Se ha producido un error al despublicar esta consulta.
+          success: La consulta se ha despublicado correctamente.
       consultation_results_publications:
         create:
-          error: Hubo un error al publicar los resultados de esta consulta.
-          success: Resultados de consulta publicados con éxito.
+          error: Se ha producido un error al publicar los resultados de esta consulta.
+          success: Los resultados de la consulta se han  publicado correctamente.
         destroy:
-          error: Hubo un error al despublicar de los resultados de esta consulta.
-          success: Resultados de la consulta despublicados con éxito.
+          error: Se ha producido un error al despublicar los resultados de esta consulta.
+          success: Los resultados de la consulta se han despublicado correctamente.
       consultations:
         create:
-          error: Hubo un error al crear una nueva consulta.
-          success: Consulta creada con éxito.
+          error: Se ha producido un error al crear una nueva consulta.
+          success: Consulta creada correctamente.
         edit:
           update: Actualizar
         form:
-          slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta consulta. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          slug_help: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta consulta. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
           title: Información general
         index:
           not_published: No publicado
@@ -89,8 +88,8 @@ es:
           create: Crear
           title: Nueva consulta
         update:
-          error: Hubo un error al actualizar esta consulta.
-          success: Consulta actualizada con éxito
+          error: Se ha producido un error al actualizar esta consulta.
+          success: La consulta se ha actualizado correctamente.
       menu:
         consultations: Consultas
         consultations_submenu:
@@ -104,7 +103,7 @@ es:
       models:
         consultation:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             published: Publicado
             title: Título
           name:
@@ -112,7 +111,7 @@ es:
             other: Consultas
         question:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             published: Publicado
             title: Título
           name:
@@ -120,24 +119,24 @@ es:
             other: Preguntas
         response:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             title: Título
           name:
             one: Respuesta
             other: Respuestas
       question_publications:
         create:
-          error: Hubo un error al publicar esta pregunta.
-          success: Pregunta publicada con éxito.
+          error: Se ha producido un error al publicar esta pregunta.
+          success: La pregunta se ha publicado correctamente.
         destroy:
-          error: Se produjo un error al despublicar esta asamblea.
-          success: Prueba despublicada correctamente.
+          error: Se ha producido un error al despublicar esta pregunta.
+          success: La pregunta se ha despublicado correctamente.
       questions:
         create:
-          error: Hubo un error al crear una nueva pregunta.
-          success: Pregunta creada con éxito.
+          error: Se ha producido un error al crear una nueva pregunta.
+          success: Se ha creado la pregunta correctamente.
         destroy:
-          success: Pregunta eliminada con éxito.
+          success: Se ha eliminado la pregunta correctamente.
         edit:
           update: Actualizar
         form:
@@ -149,15 +148,15 @@ es:
           create: Crear
           title: Nueva pregunta
         update:
-          error: Hubo un error al actualizar esta pregunta.
-          success: Pregunta actualizada con éxito.
+          error: Se ha producido un error al actualizar esta pregunta.
+          success: La pregunta se ha actualizado correctamente.
       responses:
         create:
-          error: Hubo un error al crear una nueva respuesta.
-          success: Respuesta creada con éxito.
+          error: Se ha producido un error al crear una nueva respuesta.
+          success: La respuesta se ha creado correctamente.
         destroy:
-          error: Hubo un error al eliminar la respuesta.
-          success: Respuesta eliminada con éxito
+          error: Se ha producido un error al eliminar la respuesta.
+          success: La respuesta se ha eliminado correctamente.
         edit:
           update: Actualizar
         form:
@@ -166,8 +165,8 @@ es:
           create: Crear
           title: Nueva respuesta
         update:
-          error: Hubo un error al actualizar esta respuesta.
-          success: Respuesta actualizada con éxito.
+          error: Se ha producido un error al actualizar esta respuesta.
+          success: Respuesta actualizada correctamente.
       titles:
         consultations: Consultas
         questions: Preguntas
@@ -176,7 +175,7 @@ es:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Cantidad máxima de elementos para mostrar
+            max_results: Cantidad máxima de elementos que se mostraran
       consultation:
         start_voting_date: Empieza la votación
         view_results: Ver resultados
@@ -184,7 +183,7 @@ es:
         view_results: Ver resultados
       consultations:
         orders:
-          label: 'Ordenar consultas por:'
+          label: 'Ordena las consultas por:'
           random: Aleatorio
           recent: Más reciente
       content_blocks:
@@ -197,14 +196,14 @@ es:
       filters:
         active: Activo
         all: Todas
-        finished: Completada
+        finished: Acabada
         search: Buscar
         state: Estado
         upcoming: Próximo
       filters_small_view:
-        close_modal: Cerrar ventana
-        filter: Filtrar
-        filter_by: Filtrado por
+        close_modal: Cierra la ventana
+        filter: Filtro
+        filter_by: Filtra por
         unfold: Desplegar
       highlighted_questions:
         title: Preguntas de %{scope_name}
@@ -221,7 +220,7 @@ es:
             voting_ends_in:
               one: La votación finaliza <strong>mañana</strong>
               other: La votación finaliza en <strong>%{count} días</strong>
-            voting_ends_today: La votación finaliza hoy <strong></strong>
+            voting_ends_today: La votación finaliza <strong>hoy</strong>
       question:
         take_part: Participar
         view_results: Ver resultados
@@ -230,12 +229,12 @@ es:
           other: votos de
       question_votes:
         create:
-          error: Ha habido errores al votar la pregunta
+          error: Se ha producido un error al votar la pregunta
       regular_questions:
         title: Preguntas para esta consulta
       show:
         badge_name:
-          finished: Terminado
+          finished: Acabada
           open: Abierta
           open_votes: Votos abiertos
           published_results: Resultados publicados
@@ -248,9 +247,9 @@ es:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Las consultas son un espacio que permite realizar una pregunta clara a todas las personas que forman una organización, hacer un llamamiento a participar en la consulta, suscitar y ordenar el debate a favor o encontra de una respuesta. Llegada la fecha de la consulta permite votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas puede versar sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o logotipo de la organización ofreciendo varias alternativas, decidir Sí o No a formar parte de una organización más grande, validar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo, o definir si los cargos deben permanecer un máximo de 1, 2 ó 3 mandatos.</p>\n"
-          page: "<p>Las consultas son un espacio que permite realizar una pregunta clara a todas las personas que forman una organización, hacer un llamamiento a participar en la consulta, suscitar y ordenar el debate a favor o encontra de una respuesta. Llegada la fecha de la consulta permite votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas puede versar sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o logotipo de la organización ofreciendo varias alternativas, decidir Sí o No a formar parte de una organización más grande, validar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo, o definir si los cargos deben permanecer un máximo de 1, 2 ó 3 mandatos.</p>\n"
-          title: "¿Qué son las consultas?"
+          contextual: "<p>Las <strong>consultas</strong> son un espacio que permite realizar una pregunta clara a todas las personas que forman una organización, hacer un llamamiento a participar en la consulta, suscitar y ordenar el debate a favor o encontra de una respuesta. Llegada la fecha de la consulta permite votar y publicar los resultados de las votaciones.\n</p> <p>Ejemplos: Las consultas puede versar sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o logotipo de la organización ofreciendo varias alternativas, decidir Sí o No a formar parte de una organización más grande, validar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo, o definir si los cargos deben permanecer un máximo de 1, 2 ó 3 mandatos</p>\n"
+          page: "<p>Las <strong>consultas</strong> son un espacio que permite realizar una pregunta clara a todas las personas que forman una organización, hacer un llamamiento a participar en la consulta, suscitar y ordenar el debate a favor o encontra de una respuesta. Llegada la fecha de la consulta permite votar y publicar los resultados de las votaciones.\n</p> <p>Ejemplos: Las consultas puede versar sobre casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o logotipo de la organización ofreciendo varias alternativas, decidir Sí o No a formar parte de una organización más grande, validar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo, o definir si los cargos deben permanecer un máximo de 1, 2 ó 3 mandatos</p>\n"
+          title: '¿Qué son las consultas?'
     menu:
       consultations: Consultas
     pages:
@@ -258,6 +257,8 @@ es:
         statistics:
           consultations_count: Consultas
     questions:
+      next_button: Siguiente pregunta
+      previous_button: Pregunta anterior
       results:
         title: Resultados
       show:
@@ -265,28 +266,28 @@ es:
       statistics:
         assistants_count_title: Asistentes
         comments_count_title: Comentarios
-        meetings_count_title: Reuniones
-        supports_count_title: Apoyos
+        meetings_count_title: Encuentros
+        supports_count_title: Votos
       technical_info:
         technical_data: Datos técnicos
       vote_button:
         already_voted: Ya votado
-        already_voted_hover: Revocar apoyo
+        already_voted_hover: Revocar el voto
         starting_from: A partir de %{date}
         vote: Votar
       vote_modal:
         contextual_help: Por favor, selecciona una opción.
-        title: 'Consulta: soporte de preguntas'
+        title: 'Consulta: votar la pregunta'
       vote_modal_confirm:
         change: Cambio
-        confirm: Confirmar
-        contextual_help: Por favor confirma la opción seleccionada.
-        title: 'Consulta: confirma el apoyo'
+        confirm: Confirma
+        contextual_help: Por favor, confirma la opción seleccionada.
+        title: 'Consulta: confirma el voto'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Archivos adjuntos
+          attachments: Adjuntos
           categories: Categorías
       consultation_voting_data:
         start_voting_date: Empieza la votación

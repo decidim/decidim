@@ -1,13 +1,14 @@
----
 gl:
   activemodel:
     attributes:
       participatory_process:
         announcement: Anuncio
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
+        decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
         domain: Dominio
@@ -19,7 +20,6 @@ gl:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: O que se decide
         participatory_structure: Como se decide
-        private_space: Concertation privée
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -71,12 +71,13 @@ gl:
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
-        new: New
+        filter:
+          all: Mostrar todos os procesos
+          process_groups: Procesar grupos
+        new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
         new_process_user_role: Novo usuario do proceso
-        participatory_process:
-          new: New
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
@@ -202,14 +203,9 @@ gl:
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
         edit:
           update: Actualización
-        form:
-          title: Información xeral
         index:
           not_published: Non publicado
           private: Privado
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Público
           published: Publicado
         new:
@@ -265,7 +261,7 @@ gl:
         participatory_processes:
           contextual: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
           page: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
-          title: "¿Que é un proceso participativo?"
+          title: '¿Que é un proceso participativo?'
     menu:
       processes: Procesos
     metrics:
@@ -273,11 +269,6 @@ gl:
         description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -303,7 +294,16 @@ gl:
         participatory_processes:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
+            duration: Duración
+            filters: Filtros
+            images: Imaxes
+            metadata: Metadatos
+            other: Outra
+            select_an_area: Seleccione unha área
+            select_process_group: Seleccione un grupo de procesos
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+            title: Información xeral
+            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Procesos destacados
@@ -319,8 +319,6 @@ gl:
             more_information: Máis información
             participate: Participar
             see_all_processes: Ver todos os procesos
-      participatory_process_groups:
-        none: Nada
       participatory_processes:
         filters:
           counters:
@@ -349,6 +347,7 @@ gl:
         index:
           loading: Cargando resultados ...
       show:
+        area: Área
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
@@ -390,6 +389,7 @@ gl:
           promoted_processes: Procesos destacados
         participatory_process:
           active_step: 'Paso actual:'
+          more_info: Máis información
           take_part: Tomar parte en
         promoted_process:
           active_step: 'Paso actual:'

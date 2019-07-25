@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -35,18 +34,25 @@ pl:
         grant_id_documents_offline_verification: "%{user_name} zweryfikowanych %{resource_name} przy użyciu weryfikacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Administratorzy przesyłają plik CSV z wiadomościami e-mail akceptowanych uczestników
+            - Tylko uczestnicy z e-mailem w tym pliku CSV mogą zostać zweryfikowani
         id_documents:
           help:
-          - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
-          - Wypełniasz informacje zawarte w przesłanym obrazie.
-          - Informacje powinny pasować do tego, co użytkownik wypełnił.
-          - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
+            - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
+            - Wypełniasz informacje zawarte w przesłanym obrazie.
+            - Informacje powinny pasować do tego, co użytkownik wypełnił.
+            - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
         postal_letter:
           help:
-          - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
-          - Wysyłasz list na adres z kodem weryfikacyjnym.
-          - Oznacz list jako wysłany.
-          - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+            - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
+            - Wysyłasz list na adres z kodem weryfikacyjnym.
+            - Oznacz list jako wysłany.
+            - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+      csv_census:
+        explanation: Uzyskaj weryfikację za pomocą spisu przeprowadzonego przez organizację
+        name: Spis organizacji
       direct: Bezpośredni
       help: Wsparcie
       id_documents:
@@ -66,6 +72,7 @@ pl:
         first_login:
           actions:
             another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
+            csv_census: Zweryfikuj w oparciu o spis powszechny organizacji
             dummy_authorization_handler: Sprawdź na przykładzie przykładowej procedury autoryzacji
             dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
             id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
@@ -77,11 +84,38 @@ pl:
           authorize_with: Zweryfikuj przy pomocy %{authorizer}
         skip_verification: Możesz teraz pominąć to i %{link}
         start_exploring: zacznij odkrywać
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Wystąpił błąd podczas importowania spisu.
+              success: Pomyślnie zaimportowano %{count} elementów (%{errors} błędy)
+            destroy_all:
+              success: Wszystkie dane spisu ludności zostały usunięte
+          destroy:
+            confirm: Usuń cały spis nie można cofnąć. Jesteś pewien, że chcesz kontynuować?
+            title: Usuń wszystkie dane spisu ludności
+          index:
+            data: Łącznie załadowanych jest %{count} rekordów. Ostatnia data przesyłania została ustawiona na %{due_date}
+            empty: Brak danych spisu ludności. Użyj poniższego formularza, aby zaimportować go za pomocą pliku CSV.
+            title: Aktualne dane spisowe
+          instructions:
+            body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
+            title: Musisz aktywować spis csv dla tej organizacji
+          new:
+            file: "Plik .csv z danymi e-maili"
+            info: 'Musi to być plik w formacie CSV z jedną kolumną: e-mail'
+            submit: Przesyłanie pliku
+            title: Prześlij nowy spis ludności
+        authorizations:
+          new:
+            error: Nie mogliśmy zweryfikować Twojego konta lub nie znajdujesz się w spisie organizacji.
+            success: Twoje konto zostało pomyślnie zweryfikowane.
       dummy_authorization:
         extra_explanation:
+          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
           few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
           many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
-          one: Udział jest ograniczony do użytkowników, którzy mają kod pocztowy %{postal_codes}.
           other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
       id_documents:
         admin:
@@ -177,7 +211,12 @@ pl:
           create:
             error: Był problem z Twoją prośbą
             success: Dzięki! Wysłaliśmy SMS-a na Twój telefon.
+          destroy:
+            success: Kod weryfikacyjny został pomyślnie zresetowany. Wprowadź ponownie swój numer telefonu.
           edit:
+            confirm_destroy: Czy na pewno chcesz zresetować kod weryfikacyjny?
+            destroy: Zresetuj kod weryfikacyjny
+            resend: Nie otrzymałeś kodu weryfikacyjnego?
             send: Potwierdzać
             title: Wprowadź kod weryfikacyjny, który otrzymałeś
           new:

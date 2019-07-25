@@ -10,7 +10,7 @@ module Decidim
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create :proposal_component, :with_participatory_texts_enabled }
-        let(:document_file) { fixture_file_upload(Decidim::Dev.asset("participatory_text.md")) }
+        let(:document_file) { fixture_file_upload(Decidim::Dev.asset("participatory_text.md"), "text/markdown") }
         let(:title) { { en: ::Faker::Book.title } }
         let(:params) do
           {
@@ -42,7 +42,7 @@ module Decidim
           context "when the command succeeds" do
             it "parses the document" do
               post :import, params: params
-              expect(response).to redirect_to participatory_texts_path(component_id: component.id, initiative_slug: "asdf")
+              expect(response).to redirect_to EngineRouter.admin_proxy(component).participatory_texts_path
               expect(flash[:notice].starts_with?("Congratulations")).to be true
             end
           end

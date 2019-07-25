@@ -1,764 +1,757 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: Alan Türü
+        name: Adı
+        organization: Kuruluş
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Adı
+        organization: Kuruluş
+        plural: Çoğul
       attachment:
-        attachment_collection_id: Folder
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: Klasör
+        description: Açıklama
+        file: Dosya
+        title: Başlık
       attachment_collection:
-        description: Description
-        name: Name
+        description: Açıklama
+        name: isim
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: Açıklama
+        name: isim
+        parent_id: ebeveyn
       component:
-        name: Name
-        published_at: Published at
-        weight: Weight
-      id: ID
+        name: isim
+        published_at: Yayınlandı
+        weight: Ağırlık
+      id: İD
       newsletter:
-        body: Body
-        subject: Subject
+        body: Vücut
+        subject: konu
       oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        name: isim
+        organization_logo: Organizasyon logosu (kare)
+        organization_name: Kuruluş Adı
+        organization_url: Kuruluş URL'si
+        redirect_uri: Yönlendiren URI
       organization:
-        address: SMTP hostname
-        alert_color: Alert
-        badges_enabled: Enable badges
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
-        default_locale: Default locale
-        description: Description
-        enable_omnipresent_banner: Show omnipresent banner
-        facebook_handler: Facebook handler
-        favicon: Icon
-        from: From email address
-        github_handler: GitHub handler
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
-        instagram_handler: Instagram handler
+        address: SMTP Sunucu Adı
+        alert_color: Alarm
+        badges_enabled: Rozetleri etkinleştir
+        cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
+        cta_button_text: Harekete Geçirici Mesaj metni
+        default_locale: Varsayılan yerel ayar
+        description: Açıklama
+        enable_omnipresent_banner: Her yerde banner göster
+        facebook_handler: Facebook işleyicisi
+        favicon: ikon
+        from: Gelen e-posta adresi
+        github_handler: GitHub işleyicisi
+        header_snippets: Üstbilgi snippet'leri
+        highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
+        highlighted_content_banner_action_title: Eylem düğmesi başlığı
+        highlighted_content_banner_action_url: Eylem düğmesi URL'si
+        highlighted_content_banner_enabled: Vurgulanan içerik afişini göster
+        highlighted_content_banner_image: görüntü
+        highlighted_content_banner_short_description: Kısa Açıklama
+        highlighted_content_banner_title: Başlık
+        instagram_handler: Instagram işleyicisi
         logo: Logo
-        name: Name
-        official_img_footer: Official logo footer
-        official_img_header: Official logo header
-        official_url: Official organization URL
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
+        name: isim
+        official_img_footer: Resmi logo altbilgisi
+        official_img_header: Resmi logo başlığı
+        official_url: Resmi kuruluş URL'si
+        omnipresent_banner_short_description: Kısa Açıklama
+        omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
-        password: Password
-        port: Port
-        primary_color: Primary
-        reference_prefix: Reference prefix
-        secondary_color: Secondary
-        show_statistics: Show statistics
-        success_color: Success
-        tos_version: Terms of service version
-        twitter_handler: Twitter handler
-        user_groups_enabled: Enable user groups
-        warning_color: Warning
-        youtube_handler: YouTube handler
+        password: Parola
+        port: Bağlantı noktası
+        primary_color: Birincil
+        reference_prefix: Referans öneki
+        secondary_color: İkincil
+        show_statistics: İstatistikleri göster
+        success_color: başarı
+        tos_version: Hizmet sürümü şartları
+        twitter_handler: Twitter işleyicisi
+        user_groups_enabled: Kullanıcı gruplarını etkinleştir
+        user_name: Kullanıcı adı
+        warning_color: Uyarı
+        youtube_handler: YouTube işleyici
       scope:
-        code: Code
-        name: Name
-        organization: Organization
-        parent_id: Parent
-        scope_type: Scope type
-        scope_type_id: Scope type
+        code: kod
+        name: isim
+        organization: organizasyon
+        parent_id: ebeveyn
+        scope_type: Kapsam türü
+        scope_type_id: Kapsam türü
       scope_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: isim
+        organization: organizasyon
+        plural: Çoğul
       static_page:
-        changed_notably: There have been noticeable changes.
-        content: Content
-        organization: Organization
-        show_in_footer: Show in the footer
-        slug: URL slug
-        title: Title
-        weight: Weight
+        changed_notably: Gözle görülür değişiklikler oldu.
+        content: içerik
+        organization: organizasyon
+        show_in_footer: Altbilgiyi göster
+        slug: URL sümüklü böcek
+        title: Başlık
+        weight: Ağırlık
       static_page_topic:
-        description: Description
-        show_in_footer: Show in the footer
-        title: Title
-        weight: Weight
+        description: Açıklama
+        show_in_footer: Altbilgiyi göster
+        title: Başlık
+        weight: Ağırlık
       user_group_csv_verification:
-        file: File
+        file: Dosya
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: Yönlendirme URI bir SSL URI'sı olmalıdır
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Geçersiz resim dosyası
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Geçersiz resim dosyası
   activerecord:
     attributes:
       decidim/static_page:
-        content: Content
-        slug: URL slug
-        title: Title
+        content: içerik
+        slug: URL sümüklü böcek
+        title: Başlık
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
-        site: Website
+        authorize_url: URL'yi yetkilendir
+        client_id: Müşteri Kimliği
+        client_secret: Müşteri sırrı
+        organization_name: Kuruluş Adı
+        organization_url: Kuruluş URL'si
+        redirect_uri: Yönlendiren URI
+        site: Web sitesi
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: Eklemek
+        browse: Araştır
+        export: ihracat
+        manage: yönetme
+        new: Yeni %{name}
+        permissions: İzinler
+        reject: reddetmek
+        verify: DOĞRULAYIN
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: Yeni alan türü oluştururken bir hata oluştu.
+          success: Alan türü başarıyla oluşturuldu.
         destroy:
-          success: Area type successfully destroyed
+          success: Alan tipi başarıyla yok edildi
         edit:
-          title: Edit area type
-          update: Update
+          title: Alan türünü düzenle
+          update: Güncelleştirme
         new:
-          create: Create area type
-          title: New area type
+          create: Alan türü oluştur
+          title: Yeni alan tipi
         update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
+          error: Bu alan türünü güncellerken bir hata oluştu.
+          success: Alan türü başarıyla güncellendi
       areas:
         create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
+          error: Yeni bir alan oluştururken bir hata oluştu.
+          success: Alan başarıyla oluşturuldu.
         destroy:
-          success: Area successfully destroyed
+          has_spaces: Alanın bağımlı boşlukları mevcut, silinmesi için bağımlılıklarının olmaması gerekmektedir.
+          success: Alan başarıyla yok edildi
         edit:
-          title: Edit area
-          update: Update
+          title: Alanı düzenle
+          update: Güncelleştirme
         new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
+          create: Alan oluştur
+          title: Yeni alan
+        no_areas: Alan Yok
         update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
+          error: Bu alanı güncellerken bir hata oluştu.
+          success: Alan başarıyla güncellendi
       attachment_collections:
         create:
-          error: There was an error creating a new folder.
-          success: Folder created successfully.
+          error: Yeni bir klasör oluştururken bir hata oluştu.
+          success: Klasör başarıyla oluşturuldu.
         destroy:
-          success: Folder destroyed successfully.
+          success: Klasör başarıyla yok edildi.
         edit:
-          title: Edit folder
-          update: Update
+          title: Klasörü düzenle
+          update: Güncelleştirme
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
-          attachment_collections_title: Attachment folders
+          attachment_collection_used: Bu klasör kullanımda olduğundan kaldırılamaz.
+          attachment_collections_title: Ek klasörleri
         new:
-          create: Create
-          title: New folder
+          create: yaratmak
+          title: Yeni dosya
         update:
-          error: There was an error when updating this folder.
-          success: Folder updated successfully.
+          error: Bu klasör güncellenirken bir hata oluştu.
+          success: Klasör başarıyla güncellendi.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: Yeni bir ek oluştururken bir hata oluştu.
+          success: Ek başarıyla oluşturuldu.
         destroy:
-          success: Attachment destroyed successfully.
+          success: Ek başarıyla başarılı bir şekilde yok edildi.
         edit:
-          title: Edit attachment
-          update: Update
+          title: Eki düzenle
+          update: Güncelleştirme
         index:
-          attachments_title: Attachments
+          attachments_title: Ekler
         new:
-          create: Create attachment
-          title: New attachment
+          create: Ek oluştur
+          title: Yeni ek
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: Bu eki güncellerken bir hata oluştu.
+          success: Ek başarıyla güncellendi.
       autocomplete:
-        no_results: No results found
-        search_prompt: Type at least three characters to search
+        no_results: Sonuç bulunamadı
+        search_prompt: Aramak için en az üç karakter girin
       categories:
         create:
-          error: There was an error creating this category.
-          success: Category created successfully.
+          error: Bu kategori oluşturulurken bir hata oluştu.
+          success: Kategori başarıyla oluşturuldu.
         destroy:
-          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
+          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
+          success: Kategori başarıyla silindi.
         edit:
-          title: Edit category
-          update: Update
+          title: Kategoriyi düzenle
+          update: Güncelleştirme
         index:
-          categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
+          categories_title: Kategoriler
+          category_used: Bu kategori kullanımda olduğu için kaldırılamaz.
         new:
-          create: Create category
-          title: New category
+          create: Kategori oluştur
+          title: Yeni kategori
         update:
-          error: There was an error updating this category.
-          success: Category updated successfully.
+          error: Bu kategori güncellenirken bir hata oluştu.
+          success: Kategori başarıyla güncellendi.
       component_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
         update:
-          success: Permissions updated successfully.
+          success: İzinler başarıyla güncellendi.
       components:
         create:
-          error: There was an error creating this component.
-          success: Component created successfully.
+          error: Bu bileşeni oluştururken bir hata oluştu.
+          success: Bileşen başarıyla oluşturuldu.
         destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
+          error: Bu bileşeni yok eden bir hata oluştu.
+          success: Bileşen başarıyla silindi.
         edit:
-          title: Edit component
-          update: Update
+          title: Bileşeni düzenle
+          update: Güncelleştirme
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: Varsayılan adım ayarları
+          global_settings: Genel Ayarlar
+          participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
+          step_settings: Adım ayarları
         index:
-          add: Add component
+          add: Bileşen ekle
           headers:
-            actions: Actions
-            name: Component name
-            type: Component type
+            actions: Eylemler
+            name: Bileşen Adı
+            type: Bileşen tipi
         new:
-          add: Add component
-          title: 'Add component: %{name}'
+          add: Bileşen ekle
+          title: 'Bileşen ekle: %{name}'
         publish:
-          success: The component has been successfully published.
-        title: Components
+          success: Bileşen başarıyla yayınlandı.
+        title: Bileşenler
         unpublish:
-          success: The component has been successfully unpublished.
+          success: Bileşen başarıyla yayından kaldırıldı.
         update:
-          error: There has been an error updating this component.
-          success: The component was updated successfully.
+          error: Bu bileşeni güncellerken bir hata oluştu.
+          success: Bileşen başarıyla güncellendi.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: Daha fazla günlükleri görüntüle
+          welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} olarak %{export_format}"
+        notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       help_sections:
-        error: There's been an error updating the help sections
+        error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
-          save: Save
-        success: Help sections updated successfully
+          save: Kayıt etmek
+        success: Bölümler başarıyla güncellenmiş Yardım
       impersonatable_users:
         index:
           filter:
-            all: All
-            managed: Managed
-            not_managed: Not managed
-          filter_by: Filter by
-          impersonate: Impersonate
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
-          name: Name
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
-          promote: Promote
-          search: Search
-          status: Status
-          view_logs: View logs
+            all: Herşey
+            managed: Yönetilen
+            not_managed: Yönetilmeyen
+          filter_by: Tarafından filtre
+          impersonate: taklit etmek
+          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
+          managed: Yönetilen
+          name: isim
+          needs_authorization_warning: Bu kuruluş için etkinleştirilen en az bir yetkilendirmeye ihtiyacınız var.
+          not_managed: Yönetilmeyen
+          promote: Desteklemek
+          search: Arama
+          status: durum
+          view_logs: Günlükleri görüntüle
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Mevcut kimliğe bürünme oturumunu kapatırken bir hata oluştu.
+          success: Geçerli kimliğe bürünme oturumu başarıyla sona ermiştir.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: Kullanıcıyı taklit eden bir hata oluştu.
+          success: Yönetilen kullanıcı başarıyla oluşturuldu.
         form:
-          authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          authorization_method: Yetkilendirme yöntemi
+          name: isim
+          reason: neden
         new:
-          impersonate: Impersonate
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate: taklit etmek
+          impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
+          impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
+          impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: Henüz kayıt yok
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
-          error: There has been an error promoting the managed user.
-          success: The managed user has been successfully promoted.
+          error: Yönetilen kullanıcıyı tanıtan bir hata oluştu.
+          success: Yönetilen kullanıcı başarıyla tanıtıldı.
         promotions:
           new:
-            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed user promotion
-            promote: Promote
+            explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
+            new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
+            promote: Desteklemek
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
-        area_types: Area types
-        areas: Areas
-        configuration: Configuration
-        dashboard: Dashboard
-        help_sections: Help sections
-        homepage: Homepage
-        impersonations: Impersonations
-        navbar_links: Navbar links
-        newsletters: Newsletters
-        oauth_applications: OAuth applications
-        participants: Participants
-        scope_types: Scope types
-        scopes: Scopes
-        settings: Settings
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        admin_log: Yönetici etkinlik günlüğü
+        admins: Yöneticiler
+        appearance: Görünüm
+        area_types: Alan türleri
+        areas: alanlar
+        configuration: Yapılandırma
+        dashboard: gösterge paneli
+        help_sections: Yardım bölümleri
+        homepage: Anasayfa
+        impersonations: impersonations
+        newsletters: Haber bültenleri
+        oauth_applications: OAuth uygulamaları
+        participants: Katılımcılar
+        scope_types: Kapsam türleri
+        scopes: kapsamları
+        settings: Ayarlar
+        static_pages: Sayfalar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
       models:
         area:
           fields:
-            area_type: Area type
-            name: Name
+            area_type: Alan türü
+            name: isim
         area_type:
           fields:
-            name: Name
-            plural: Plural
+            name: isim
+            plural: Çoğul
         attachment:
           fields:
-            collection: Folder
-            content_type: Type
-            file_size: Size
-            title: Title
-          name: Attachment
+            collection: Klasör
+            content_type: tip
+            file_size: Boyut
+            title: Başlık
+          name: Ek dosya
         attachment_collection:
-          name: Folder
+          name: Klasör
         category:
-          name: Category
+          name: Kategori
         impersonation_log:
           fields:
-            admin: Admin
-            ended_at: Ended at
-            expired_at: Expired at
-            reason: Reason
-            started_at: Started at
-            user: User
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
+            admin: yönetim
+            ended_at: İle bitti
+            expired_at: Süresi doldu
+            reason: neden
+            started_at: Başlangıç
+            user: kullanıcı
         newsletter:
           fields:
-            created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            created_at: Düzenlendi
+            progress: İlerleme
+            sent_at: Adresine gönderildi
+            sent_to: Gönderilen
+            subject: konu
+          name: Bülten
         oauth_application:
           fields:
-            created_at: Created at
-            name: Name
+            created_at: Düzenlendi
+            name: isim
           name: OAuth uygulaması
         participatory_space_private_user:
-          name: Participatory space private user
+          name: Katılımcı alan özel kullanıcısı
         scope:
           fields:
-            name: Name
-            scope_type: Scope type
+            name: isim
+            scope_type: Kapsam türü
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: isim
+            plural: Çoğul
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Düzenlendi
+            title: Başlık
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
-            role: Role
+            created_at: Oluşturulma tarihi
+            email: E-posta
+            last_sign_in_at: Son giriş tarihi
+            name: isim
+            role: rol
             roles:
-              admin: Admin
-              user_manager: User manager
+              admin: yönetim
+              user_manager: Kullanıcı yöneticisi
           name: kullanıcı
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: Eylemler
+            created_at: Düzenlendi
+            document_number: Belge Numarası
+            name: isim
+            phone: Telefon
+            state: Belirtmek, bildirmek
+            users_count: Kullanıcılar
       moderations:
         index:
-          title: Moderations
+          title: Denetimler
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
-            spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
+            does_not_belong: Ait değil
+            offensive: saldırgan
+            spam: İstenmeyen e
       newsletters:
         create:
-          error: There's been an error creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          error: Bu bülteni oluştururken bir hata oluştu.
+          success: Bülten başarıyla oluşturuldu. Lütfen göndermeden önce gözden geçirin.
         deliver:
-          error: There's been an error delivering this newsletter.
-          success: Newsletter delivered successfully.
+          error: Bu bülteni veren bir hata oluştu.
+          success: Bülten başarıyla teslim edildi.
         destroy:
-          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
-          success: Newsletter destroyed successfully.
+          error_already_sent: 'Haber bülteni yok edilemez: Zaten gönderilmiş.'
+          success: Bülten başarıyla imha edildi.
         edit:
-          save_and_preview: Save and preview
-          title: Edit newsletter
+          save_and_preview: Kaydet ve önizle
+          title: Bülten düzenle
         form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+          interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
-          confirm_delete: Are you sure you want to delete this newsletter?
-          title: Newsletters
+          all: tümü
+          all_users: 'Tüm kullanıcılar '
+          and: 've '
+          confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
+          followers: 'takipçiler '
+          has_been_sent_to: 'Şuraya gönderildi: '
+          no_scopes: Kapsam yok
+          not_sent: Gönderilmedi
+          participants: 'katılımcılar '
+          segmented_to: '%{subject} bölüme ayrılmış: '
+          title: Haber bültenleri
         new:
-          save: Save
-          title: New newsletter
+          save: Kayıt etmek
+          title: Yeni bülten
+        select_recipients_to_deliver:
+          all_spaces: Tüm
+          all_users_help: Tüm onaylanmış kullanıcılara haber bülteni gönderir.
+          confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
+          deliver: Bülten sunun
+          followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          none: Hiçbiri
+          participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
+          select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
+          select_spaces: Haber bültenini bölmek için alanları seçin
+          select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
+          send_to_all_users: Tüm kullanıcılara gönder
+          send_to_followers: Takipçilere gönder
+          send_to_participants: Katılımcılara gönder
+          title: Teslim etmek için alıcıları seçiniz
+          warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
+        send:
+          no_recipients: Bu seçim için hiç alıcı yok
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
-          preview: Preview
-          subject: Subject
+          preview: Ön izleme
+          select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
+          subject: konu
         update:
-          error: There's been an error updating this newsletter.
-          success: Newsletter updated successfully. Please review it before sending.
-      oauth_application:
-        new: New Oauth application
+          error: Bu bülteni güncellerken bir hata oluştu.
+          success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       oauth_applications:
         create:
-          error: There's been an error creating this application.
-          success: Application created successfully.
+          error: Bu uygulama oluşturulurken bir hata oluştu.
+          success: Uygulama başarıyla oluşturuldu.
         destroy:
-          error: There's been an error destroying this application.
-          success: Application destroyed successfully.
+          error: Bu uygulamayı yok eden bir hata oluştu.
+          success: Uygulama başarıyla yok edildi.
         edit:
-          save: Save
-          title: Edit application
+          save: Kayıt etmek
+          title: Uygulamayı düzenle
         index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
+          confirm_delete: Bu uygulamayı silmek istediğinizden emin misiniz?
+          title: OAuth uygulamaları
         new:
-          save: Save
-          title: New application
+          save: Kayıt etmek
+          title: Yeni uygulama
         update:
-          error: There's been an error updating this application.
-          success: Application updated successfully.
+          error: Bu uygulama güncellenirken bir hata oluştu.
+          success: Uygulama başarıyla güncellendi.
       officializations:
         create:
-          success: User officialized successfully
+          success: Kullanıcı başarıyla onaylandı
         destroy:
-          success: User unofficialized successfully
+          success: Kullanıcı başarıyla gayri resmi
         index:
-          actions: Actions
-          badge: Badge
-          created_at: Created At
+          actions: Eylemler
+          badge: rozet
+          created_at: At düzenlendi
           filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
-          name: Name
-          nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
-          officialized: Officialized
+            all: Herşey
+            not_officialized: Resmi değil
+            officialized: resmileştirilmiş
+          filter_by: Tarafından filtre
+          name: isim
+          nickname: Takma ad
+          not_officialized: Resmi değil
+          officialize: ', resmiyete'
+          officialized: resmileştirilmiş
           reofficialize: Reofficialize
-          search: Search
-          status: Status
+          search: Arama
+          status: durum
           unofficialize: Unofficialize
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: Resmi görevlendirme rozeti
+          officialize: ', resmiyete'
+          title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
       organization:
         edit:
-          title: Edit organization
-          update: Update
+          title: Kuruluş düzenle
+          update: Güncelleştirme
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
-          twitter: Twitter
-          url: Url
-          youtube: YouTube
+          social_handlers: Sosyal
+          twitter: heyecan
+          url: URL
+          youtube: Youtube
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: Bu kuruluşu güncellerken bir hata oluştu.
+          success: Kuruluş başarıyla güncellendi.
       organization_appearance:
         edit:
-          update: Update
+          update: Güncelleştirme
         form:
-          colors_title: Organization colors
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          colors_title: Organizasyon renkleri
+          cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
+          cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
+          header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
+          homepage_appearance_title: Ana sayfa görünümünü düzenle
+          homepage_highlighted_content_banner_title: Yüksek içerikli banner
+          layout_appearance_title: Düzen görünümünü düzenle
+          omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         edit:
-          active_content_blocks: Active content blocks
-          inactive_content_blocks: Inactive content blocks
+          active_content_blocks: Aktif içerik blokları
+          inactive_content_blocks: Etkin olmayan içerik blokları
       organization_homepage_content_blocks:
         edit:
-          update: Update
+          update: Güncelleştirme
       participatory_space_private_users:
         create:
-          error: There was an error adding a private user for this participatory space.
-          success: Participatory space private user access created successfully.
+          error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
+          success: Katılımcı alan özel kullanıcı erişimi başarıyla oluşturuldu.
         destroy:
-          error: There was an error deleting a private user for this participatory space.
-          success: Participatory space private user access destroyed successfully.
+          error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
+          success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         index:
-          title: Participatory space private user
+          title: Katılımcı alan özel kullanıcısı
         new:
-          create: Create
-          title: New Participatory Space private user.
+          create: yaratmak
+          title: Yeni Katılımcı Uzay özel kullanıcısı.
+      resource_permissions:
+        edit:
+          submit: Gönder
+          title: İzinleri düzenle
+        update:
+          success: İzinler başarıyla güncellendi.
       scope_types:
         create:
-          error: There was an error creating a new scope type.
-          success: Scope type created successfully.
+          error: Yeni kapsam türü oluştururken bir hata oluştu.
+          success: Kapsam türü başarıyla oluşturuldu.
         destroy:
-          success: Scope type successfully destroyed
+          success: Kapsam türü başarıyla yok edildi
         edit:
-          title: Edit scope type
-          update: Update
+          title: Kapsam türünü düzenle
+          update: Güncelleştirme
         new:
-          create: Create scope type
-          title: New scope
+          create: Kapsam türü oluştur
+          title: Yeni kapsam
         update:
-          error: There was an error when updating this scope type.
-          success: Scope type updated successfully
+          error: Bu kapsam türünü güncellerken bir hata oluştu.
+          success: Kapsam türü başarıyla güncellendi
       scopes:
         create:
-          error: There was an error creating a new scope.
-          success: Scope created successfully.
+          error: Yeni kapsam oluştururken bir hata oluştu.
+          success: Kapsam başarıyla oluşturuldu.
         destroy:
-          success: Scope successfully destroyed
+          success: Kapsam başarıyla yok edildi
         edit:
-          title: Edit scope
-          update: Update
+          title: Kapsamı düzenle
+          update: Güncelleştirme
         new:
-          create: Create scope
-          title: New scope
-        no_scopes: No scopes at this level.
+          create: Kapsam oluştur
+          title: Yeni kapsam
+        no_scopes: Bu seviyede hiçbir kapsam yok.
         update:
-          error: There was an error when updating this scope.
-          success: Scope updated successfully
+          error: Bu kapsamı güncellerken bir hata oluştu.
+          success: Kapsam başarıyla güncellendi
       static_page_topics:
         create:
-          error: There was an error creating a new topic.
-          success: Topic created successfully.
+          error: Yeni bir konu oluştururken bir hata oluştu.
+          success: Konu başarıyla oluşturuldu.
         destroy:
-          success: Topic successfully destroyed
+          success: Konu başarıyla yok edildi
         edit:
-          title: Edit topic
-          update: Update topic
+          title: Konuyu düzenle
+          update: Konuyu güncelle
         new:
-          create: Create topic
-          title: New topic
+          create: Konu oluştur
+          title: Yeni Konu
         update:
-          error: There was an error when updating this topic.
-          success: Topic updated successfully
+          error: Bu konu güncellenirken bir hata oluştu.
+          success: Konu başarıyla güncellendi
       static_pages:
         actions:
-          view: View public page
+          view: Genel sayfayı görüntüle
         create:
-          error: There was an error creating a new page.
-          success: Page created successfully.
+          error: Yeni bir sayfa oluşturulurken bir hata oluştu.
+          success: Sayfa başarıyla oluşturuldu.
         destroy:
-          success: Page successfully destroyed
+          success: Sayfa başarıyla yok edildi
         edit:
-          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
-          title: Edit page
-          update: Update
+          changed_notably_help: İşaretlenirse, kullanıcılar yeni şartlar ve koşulları kabul etmek için bilgilendirileceklerdir.
+          title: Sayfayı düzenle
+          update: Güncelleştirme
         form:
-          none: None
+          none: Yok
+          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
-          last_notable_change: Last notable change
+          last_notable_change: Son önemli değişiklik
         new:
-          create: Create page
-          title: New page
+          create: Sayfa oluştur
+          title: Yeni sayfa
         topic:
-          destroy: Remove topic
-          edit: Edit topic
-          empty: There's no page under this topic
-          without_topic: Pages without topic
+          destroy: Konuyu kaldır
+          edit: Konuyu düzenle
+          empty: Bu konunun altında sayfa yok
+          without_topic: Konu olmayan sayfalar
         update:
-          error: There was an error when updating this page.
-          success: Page updated successfully
+          error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi
       titles:
-        admin_log: Admin log
-        area_types: Area types
-        areas: Areas
-        authorization_workflows: Verification methods
-        dashboard: Dashboard
-        impersonatable_users: Manageable users
-        impersonations: Users management
-        managed_users: Managed users
-        navbar_links: Navbar links
-        participants: Users
-        scope_types: Scope types
-        scopes: Scopes
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
-      user:
-        new: New user
+        admin_log: Yönetici günlüğü
+        area_types: Alan türleri
+        areas: alanlar
+        authorization_workflows: Doğrulama yöntemleri
+        dashboard: gösterge paneli
+        impersonatable_users: Yönetilebilir kullanıcılar
+        impersonations: Kullanıcılar yönetimi
+        participants: Kullanıcılar
+        scope_types: Kapsam türleri
+        scopes: kapsamları
+        static_pages: Sayfalar
+        user_groups: Kullanıcı Grupları
+        users: Kullanıcılar
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: CSV dosyasını okurken bir hata oluştu.
+          success: CSV dosyası başarıyla yüklendi, kriterleri karşılayan kullanıcı gruplarını doğrularız. Bu biraz zaman alabilir.
         reject:
-          invalid: There was an error when rejecting this user group.
-          success: User group rejected successfully
+          invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla reddedildi
         verify:
-          invalid: There was an error when verifying this user group.
-          success: User group verified successfully
+          invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
+          success: Kullanıcı grubu başarıyla doğrulandı
       user_groups:
         index:
           filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
+            all: Herşey
+            pending: kadar
+            rejected: Reddedilen
+            verified: Doğrulanmış
+          filter_by: Tarafından filtre
+          search: Arama
           state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          verify_via_csv: Verify via CSV
+            pending: kadar
+            rejected: Reddedilen
+            verified: Doğrulanmış
+          verify_via_csv: CSV ile doğrulayın
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
+          title: CSV dosyanızı yükleyin
+          upload: Yükleme
       users:
         create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
+          error: Bu kullanıcıyı davet ederken bir hata oluştu.
+          success: Kullanıcı başarıyla davet edildi.
         destroy:
-          error: There was an error when trying to delete this user.
-          success: User is no longer an administrator.
+          error: Bu kullanıcıyı silmeye çalışırken bir hata oluştu.
+          success: Kullanıcı artık yönetici değil.
         form:
-          email: Email
-          name: Name
-          role: Role
+          email: E-posta
+          name: isim
+          role: rol
         new:
-          create: Invite
-          title: Invite user as administrator
-      view_public_page: View public page
+          create: Davet et
+          title: Kullanıcıyı yönetici olarak davet et
+      view_public_page: Genel sayfayı görüntüle
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when impersonating a non managed user
+          reason: Yönetilmeyen bir kullanıcıyı taklit ederken bir neden belirtmeniz gerekir
     moderations:
       actions:
-        hidden: Hidden
-        hide: Hide
-        not_hidden: Not hidden
-        title: Actions
-        unhide: Unhide
-        unreport: Unreport
+        hidden: Gizli
+        hide: Saklamak
+        not_hidden: Gizli değil
+        title: Eylemler
+        unhide: unhide
+        unreport: Bildir
       admin:
         reportable:
           hide:
-            invalid: There's been a problem hiding the resource.
-            success: Resource successfully hidden.
+            invalid: Kaynağı gizleyen bir sorun oluştu.
+            success: Kaynak başarıyla gizlendi.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: Kaynağın gizlenmesinde bir sorun var.
+            success: Kaynak başarıyla yasaklandı.
           unreport:
-            invalid: There's been a problem unreporting the resource.
-            success: Resource successfully unreported.
+            invalid: Kaynağı bildirmeyen bir sorun oluştu.
+            success: Kaynak başarıyla bildirilmedi.
       models:
         moderation:
           fields:
-            hidden_at: Hidden at
-            report_count: Count
-            reportable: Reportable
-            reported_content_url: Reported content URL
-            reports: Reports
-            visit_url: Visit URL
+            hidden_at: Gizli
+            report_count: saymak
+            reportable: bildirilmesi zorunlu
+            reported_content_url: Raporlanan içerik URL'si
+            reports: Raporlar
+            visit_url: URL'yi ziyaret et
   errors:
     messages:
-      invalid_json: Invalid JSON
+      invalid_json: Geçersiz JSON
   layouts:
     decidim:
       admin:
         newsletters:
-          title: Newsletters
+          title: Haber bültenleri
         settings:
-          title: Settings
+          title: Ayarlar
         users:
-          title: Users
+          title: Kullanıcılar

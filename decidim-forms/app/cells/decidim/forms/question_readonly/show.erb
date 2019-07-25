@@ -1,0 +1,15 @@
+<li class="questionnaire-question_readonly">
+  <p>
+    <%= translated_attribute(model.body) %>
+    <br />
+    <em>
+      (<%= t(model.question_type, scope: "decidim.forms.question_types") %>)
+    </em>
+  </p>
+
+  <% if model.multiple_choice? %>
+    <ul class="questionnaire-question_readonly-answers <%= model.question_type %>">
+      <%= cell("decidim/forms/answer_readonly", collection: model.answer_options) %>
+    </ul>
+  <% end %>
+</li>

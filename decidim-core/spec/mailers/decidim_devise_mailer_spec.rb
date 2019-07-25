@@ -10,7 +10,7 @@ module Decidim
       let(:subject) { "Instruccions de confirmació" }
       let(:body) { "Pots confirmar el correu electrònic del teu compte" }
       let(:default_subject) { "Confirmation instructions" }
-      let(:default_body) { "You can confirm your account email through the link below" }
+      let(:default_body) { "You can confirm your email account through the link below" }
 
       include_examples "localised email"
     end
@@ -43,7 +43,7 @@ module Decidim
         described_class.invitation_instructions(user, "foo", invitation_instructions: "organization_admin_invitation_instructions")
       end
 
-      let(:subject) { "Has estat convidat a gestionar #{user.organization.name}" }
+      let(:subject) { "Has estat convidada a gestionar #{user.organization.name}" }
       let(:body) { "Acceptar invitaci" }
       let(:default_subject) { "You've been invited to manage #{user.organization.name}" }
       let(:default_body) { "Accept invitation" }

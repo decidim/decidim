@@ -8,6 +8,7 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
+        include Decidim::Paginable
 
         helper ProcessGroupsForSelectHelper
 
@@ -74,14 +75,23 @@ module Decidim
 
         private
 
-        def query
-          @query ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user).ransack(params[:q])
+        def process_group
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: params[:group_id])
         end
 
         def participatory_processes
-          return @participatory_processes = collection if params.empty?
+          @participatory_processes ||= Rectify::Query.merge(
+            ParticipatoryProcessesWithUserRole.for(current_user),
+            ParticipatoryProcessesByGroup.for(process_group)
+          )
+        end
 
-          @participatory_processes = query.result.page(params[:page]).per(15)
+        def query
+          @query ||= participatory_processes.ransack(params[:q])
+        end
+
+        def collection
+          @collection ||= paginate(query.result)
         end
 
         def current_participatory_process
@@ -91,10 +101,6 @@ module Decidim
         end
 
         alias current_participatory_space current_participatory_process
-
-        def collection
-          @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
-        end
 
         def participatory_process_params
           {

@@ -150,7 +150,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Usuários da conferência
+          conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
@@ -357,8 +357,8 @@ pt-BR:
             certificate_of_attendance: Certificado de participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Houve um problema ao enviar os diplomas da conferência.
-          success: Diplomas da Conferência enviados corretamente
+          error: Houve um problema ao enviar os certificados de participação da conferência.
+          success: Certificados de atendimento da conferência enviados corretamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -553,6 +553,7 @@ pt-BR:
           take_part: Participar
       conferences:
         conference:
+          more_info: Mais informações
           take_part: Participar
         index:
           promoted_conferences: Conferências promovidas

@@ -78,3 +78,6 @@ pt:
             title: Questionário fechado
           submit: Enviar
           tos_agreement: Ao participar você aceita seus Termos de Serviço
+      user_answers_serializer:
+        created_at: Respondido em
+        id: ID da resposta

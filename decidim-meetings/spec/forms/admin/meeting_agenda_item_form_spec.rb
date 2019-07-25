@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/dev/test/form_to_param_shared_examples"
 
 module Decidim::Meetings
   describe Admin::MeetingAgendaItemsForm do
@@ -69,5 +70,8 @@ module Decidim::Meetings
 
       it { is_expected.not_to be_valid }
     end
+
+    it_behaves_like "form to param", default_id: "meeting-agenda-item-id"
+    it_behaves_like "form to param", method_name: :to_param_child, default_id: "meeting-agenda-item-child-id"
   end
 end

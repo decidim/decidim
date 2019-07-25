@@ -11,6 +11,8 @@ Decidim.register_component(:budgets) do |component|
 
   component.data_portable_entities = ["Decidim::Budgets::Order"]
 
+  component.newsletter_participant_entities = ["Decidim::Budgets::Order"]
+
   component.actions = %(vote)
 
   component.on(:before_destroy) do |instance|

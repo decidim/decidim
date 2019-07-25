@@ -6,6 +6,13 @@ module Decidim
     # Decorator for debates
     #
     class DebatePresenter < SimpleDelegator
+      include Decidim::SanitizeHelper
+      include Decidim::TranslatableAttributes
+
+      def debate
+        __getobj__
+      end
+
       def author
         @author ||= if official?
                       Decidim::Debates::OfficialAuthorPresenter.new
@@ -14,6 +21,11 @@ module Decidim
                     else
                       Decidim::UserPresenter.new(super)
                     end
+      end
+
+      def title
+        content = translated_attribute(debate.title)
+        decidim_html_escape(content)
       end
     end
   end

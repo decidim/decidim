@@ -19,5 +19,6 @@ module Decidim
 
     scope :approved, -> { where(state: :accepted) }
     scope :non_deleted, -> { includes(:user).where(decidim_users: { deleted_at: nil }) }
+    scope :excluding_author, -> { joins(:initiative).where.not("decidim_users_id = decidim_author_id") }
   end
 end

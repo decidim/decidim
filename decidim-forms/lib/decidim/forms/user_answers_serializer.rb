@@ -15,8 +15,11 @@ module Decidim
       # Public: Exports a hash with the serialized data for the user answers.
       def serialize
         @answers.each_with_index.inject({}) do |serialized, (answer, idx)|
-          serialized.update(date: answer.created_at.strftime("%Y-%m-%d %H:%M:%S"))
-          serialized.update("#{idx + 1}. #{translated_attribute(answer.question.body)}" => normalize_body(answer))
+          serialized.update(
+            answer_translated_attribute_name(:id) => answer.id,
+            answer_translated_attribute_name(:created_at) => answer.created_at.to_s(:db),
+            "#{idx + 1}. #{translated_attribute(answer.question.body)}" => normalize_body(answer)
+          )
         end
       end
 
@@ -30,6 +33,10 @@ module Decidim
         choices.map do |choice|
           choice.try(:custom_body) || choice.try(:body)
         end
+      end
+
+      def answer_translated_attribute_name(attribute)
+        I18n.t(attribute.to_sym, scope: "decidim.forms.user_answers_serializer")
       end
     end
   end

@@ -75,7 +75,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
 
       within ".container" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
-        expect(page).to have_content("STEPS")
+        expect(page).to have_content("PHASES")
         expect(page).to have_content("Introduction")
       end
     end

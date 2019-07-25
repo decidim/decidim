@@ -52,7 +52,7 @@ en:
             name: Timeline entry
         results:
           create:
-            invalid: There's been a problem creating this result
+            invalid: There was a problem creating this result
             success: Result successfully created
           destroy:
             success: Result successfully deleted
@@ -71,14 +71,14 @@ en:
             current_selection: Current selection
             select: Select
           update:
-            invalid: There's been a problem updating this result
+            invalid: There was a problem updating this result
             success: Result successfully updated
         shared:
           subnav:
             statuses: Statuses
         statuses:
           create:
-            invalid: There's been a problem creating this status
+            invalid: There was a problem creating this status
             success: Status successfully created
           destroy:
             success: Status successfully deleted
@@ -91,11 +91,11 @@ en:
             create: Create status
             title: New status
           update:
-            invalid: There's been a problem updating this status
+            invalid: There was a problem updating this status
             success: Status successfully updated
         timeline_entries:
           create:
-            invalid: There's been a problem creating this entry
+            invalid: There was a problem creating this entry
             success: Entry successfully created
           destroy:
             success: Entry successfully deleted
@@ -108,7 +108,7 @@ en:
             create: Create entry
             title: New entry
           update:
-            invalid: There's been a problem updating this entry
+            invalid: There was a problem updating this entry
             success: Entry successfully updated
       admin_log:
         result:

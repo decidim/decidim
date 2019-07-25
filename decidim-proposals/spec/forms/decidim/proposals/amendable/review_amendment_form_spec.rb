@@ -19,7 +19,7 @@ module Decidim
       let(:form_params) do
         {
           id: amendment.id,
-          emendation_fields: emendation_fields
+          emendation_params: emendation_params
         }
       end
 

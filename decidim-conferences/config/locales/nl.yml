@@ -150,7 +150,7 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Components
-          conference_admins: Conferentie gebruikers
+          conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
           conference_speakers: sprekers
           diploma: Certificaat van aanwezigheid
@@ -357,8 +357,8 @@ nl:
             certificate_of_attendance: Certificaat van aanwezigheid
             certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> heeft deelgenomen en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Er is een probleem opgetreden tijdens het verzenden van de conferentiediploma's.
-          success: Conferentiediploma's correct verzonden
+          error: Er is een probleem opgetreden tijdens het verzenden van de aanwezigheidsvergaderingscertificaten.
+          success: Conference certificaten van aanwezigheid correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -553,6 +553,7 @@ nl:
           take_part: Deelnemen
       conferences:
         conference:
+          more_info: Meer informatie
           take_part: Deelnemen
         index:
           promoted_conferences: Gepromoveerde conferenties

@@ -1,764 +1,743 @@
----
-ar-SA:
+ar:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: نوع المنطقة
+        name: الاسم
+        organization: المنظمة
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: الاسم
+        organization: المنظمة
+        plural: الجمع
       attachment:
-        attachment_collection_id: Folder
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: المجلد
+        description: الوصف
+        file: ملف
+        title: العنوان
       attachment_collection:
-        description: Description
-        name: Name
+        description: الوصف
+        name: اسم
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: الوصف
+        name: اسم
+        parent_id: الأبوين
       component:
-        name: Name
-        published_at: Published at
-        weight: Weight
-      id: ID
+        name: اسم
+        published_at: نشرت في
+        weight: وزن
+      id: هوية شخصية
       newsletter:
-        body: Body
-        subject: Subject
+        body: المحتوى
+        subject: الموضوع
       oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        name: الاسم
+        organization_logo: شعار المنظمة (مربع)
+        organization_name: اسم المنظمة
+        organization_url: عنوان URL للمؤسسة
+        redirect_uri: إعادة توجيه URI
       organization:
-        address: SMTP hostname
-        alert_color: Alert
-        badges_enabled: Enable badges
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
-        default_locale: Default locale
-        description: Description
-        enable_omnipresent_banner: Show omnipresent banner
-        facebook_handler: Facebook handler
-        favicon: Icon
-        from: From email address
-        github_handler: GitHub handler
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
-        instagram_handler: Instagram handler
-        logo: Logo
-        name: Name
-        official_img_footer: Official logo footer
-        official_img_header: Official logo header
-        official_url: Official organization URL
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
-        omnipresent_banner_url: URL
-        password: Password
-        port: Port
-        primary_color: Primary
-        reference_prefix: Reference prefix
-        secondary_color: Secondary
-        show_statistics: Show statistics
-        success_color: Success
-        tos_version: Terms of service version
-        twitter_handler: Twitter handler
-        user_groups_enabled: Enable user groups
-        warning_color: Warning
-        youtube_handler: YouTube handler
+        address: خادم SMTP
+        alert_color: تنبيه
+        badges_enabled: تمكين الشارات
+        cta_button_path: دعوة إلى العمل مسار زر
+        cta_button_text: نص زر Call To Action
+        default_locale: اللغة الافتراضية
+        description: الوصف
+        enable_omnipresent_banner: عرض لافتة في كل مكان
+        facebook_handler: مُعرّف حساب فيسبوك
+        favicon: أيقونة
+        from: مِن عنوان البريد الإلكتروني
+        github_handler: مُعرّف حساب غِت هَب
+        header_snippets: قصاصات رأس
+        highlighted_content_banner_action_subtitle: نص زر الإجراء
+        highlighted_content_banner_action_title: عنوان زر الإجراء
+        highlighted_content_banner_action_url: عنوان URL لزر الإجراء
+        highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
+        highlighted_content_banner_image: الصورة
+        highlighted_content_banner_short_description: وصف مختصر
+        highlighted_content_banner_title: العنوان
+        instagram_handler: مُعرّف حساب استجرام
+        logo: الشعار
+        name: اسم
+        official_img_footer: تذييل الشعار الرسمي
+        official_img_header: رأس الشعار الرسمي
+        official_url: عنوان URL الرسمي للمنظمة
+        omnipresent_banner_short_description: وصف قصير
+        omnipresent_banner_title: العنوان
+        omnipresent_banner_url: العنوان الشبكي
+        password: الكلمة السرية
+        port: المَنفذ
+        primary_color: ابتدائي
+        reference_prefix: بادئة المرجع
+        secondary_color: ثانوي
+        show_statistics: عرض الإحصائيات
+        success_color: نجاح
+        tos_version: شروط وأحكام الخدمة
+        twitter_handler: مُعرّف حساب تويتر
+        user_groups_enabled: تمكين المجموعات
+        user_name: اسم المستخدم
+        warning_color: تحذير
+        youtube_handler: مُعرّف حساب يوتيوب
       scope:
-        code: Code
-        name: Name
-        organization: Organization
-        parent_id: Parent
-        scope_type: Scope type
-        scope_type_id: Scope type
+        code: الشفرة
+        name: الاسم
+        organization: المنظمة
+        parent_id: الأبوين
+        scope_type: نوع النطاق
+        scope_type_id: نوع النطاق
       scope_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: الاسم
+        organization: المنظمة
+        plural: جمع
       static_page:
-        changed_notably: There have been noticeable changes.
-        content: Content
-        organization: Organization
-        show_in_footer: Show in the footer
-        slug: URL slug
-        title: Title
-        weight: Weight
+        changed_notably: كانت هناك تغييرات ملحوظة.
+        content: يحتوى
+        organization: المنظمة
+        show_in_footer: تظهر في تذييل الصفحة
+        slug: سبيكة العنوان الشبكي
+        title: العنوان
+        weight: وزن
       static_page_topic:
-        description: Description
-        show_in_footer: Show in the footer
-        title: Title
-        weight: Weight
+        description: وصف
+        show_in_footer: تظهر في تذييل الصفحة
+        title: العنوان
+        weight: وزن
       user_group_csv_verification:
-        file: File
+        file: ملف
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: يجب أن يكون URI لإعادة التوجيه SSL URI
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: ملف صورة غير صالح
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: ملف صورة غير صالح
   activerecord:
     attributes:
       decidim/static_page:
-        content: Content
-        slug: URL slug
-        title: Title
+        content: يحتوى
+        slug: سبيكة العنوان الشبكي
+        title: العنوان
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
-        site: Website
+        authorize_url: تفويض العنوان الشبكي
+        client_id: معرف العميل
+        client_secret: سر العميل
+        organization_name: اسم المنظمة
+        organization_url: العنوان الشبكي للمؤسسة
+        redirect_uri: إعادة توجيه URI
+        site: موقع الويب
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: إضافة
+        browse: تصفح
+        export: تصدير
+        manage: تدبير
+        new: جديد %{name}
+        permissions: تصريحات
+        reject: رفض
+        verify: التحقق
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
+          success: تم إنشاء نوع المنطقة بنجاح.
         destroy:
-          success: Area type successfully destroyed
+          success: نوع المنطقة دمرت بنجاح
         edit:
-          title: Edit area type
-          update: Update
+          title: تحرير نوع المنطقة
+          update: تحديث
         new:
-          create: Create area type
-          title: New area type
+          create: إنشاء نوع المنطقة
+          title: نوع منطقة جديدة
         update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
+          error: حدثت مشكلة أثناء تحديث هذا النوع من المناطق.
+          success: تم تحديث نوع المنطقة بنجاح
       areas:
         create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
+          error: كانت هناك مشكلة في إنشاء منطقة جديدة.
+          success: تم إنشاء المنطقة بنجاح.
         destroy:
-          success: Area successfully destroyed
+          has_spaces: تحتوي المنطقة على مسافات تابعة ، ويجب ألا يكون لها تبعيات لكي يتم حذفها
+          success: تم تدمير المنطقة بنجاح
         edit:
-          title: Edit area
-          update: Update
+          title: تحرير المنطقة
+          update: تحديث
         new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
+          create: إنشاء منطقة
+          title: منطقة جديدة
+        no_areas: لا توجد مناطق
         update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
+          error: حدثت مشكلة أثناء تحديث هذا المجال.
+          success: تم تحديث المنطقة بنجاح
       attachment_collections:
         create:
-          error: There was an error creating a new folder.
-          success: Folder created successfully.
+          error: حدثت مشكلة أثناء إنشاء مجلد جديد.
+          success: تم إنشاء المجلد بنجاح.
         destroy:
-          success: Folder destroyed successfully.
+          success: تم تدمير المجلد بنجاح.
         edit:
-          title: Edit folder
-          update: Update
+          title: تحرير المجلد
+          update: تحديث
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
-          attachment_collections_title: Attachment folders
+          attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
+          attachment_collections_title: مجلدات المرفقات
         new:
-          create: Create
-          title: New folder
+          create: إنشاء
+          title: مجلد جديد
         update:
-          error: There was an error when updating this folder.
-          success: Folder updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذا المجلد.
+          success: تم تحديث المجلد بنجاح.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: حدثت مشكلة أثناء إنشاء مرفق جديد.
+          success: تم إنشاء المرفق بنجاح.
         destroy:
-          success: Attachment destroyed successfully.
+          success: تم تدمير المرفق بنجاح.
         edit:
-          title: Edit attachment
-          update: Update
+          title: تحرير المرفق
+          update: تحديث
         index:
-          attachments_title: Attachments
+          attachments_title: المرفقات
         new:
-          create: Create attachment
-          title: New attachment
+          create: إنشاء مرفق
+          title: مرفق جديد
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذا المرفق.
+          success: تم تحديث المرفق بنجاح.
       autocomplete:
-        no_results: No results found
-        search_prompt: Type at least three characters to search
+        no_results: لا توجد نتائج
+        search_prompt: اكتب ثلاثة أحرف على الأقل للبحث
       categories:
         create:
-          error: There was an error creating this category.
-          success: Category created successfully.
+          error: كانت هناك مشكلة في إنشاء هذه الفئة.
+          success: تم إنشاء الفئة بنجاح.
         destroy:
-          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
+          error: حدثت مشكلة في حذف هذه الفئة. يرجى حذف أي فئة فرعية أولاً ، تأكد من عدم وجود كيان آخر ينتمي إلى هذه الفئة وحاول مرة أخرى.
+          success: تم حذف الفئة بنجاح.
         edit:
-          title: Edit category
-          update: Update
+          title: تحرير الفئة
+          update: تحديث
         index:
-          categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
+          categories_title: الاقسام
+          category_used: لا يمكن إزالة هذه الفئة لأنها قيد الاستخدام.
         new:
-          create: Create category
-          title: New category
+          create: إنشاء فئة
+          title: فئة جديدة
         update:
-          error: There was an error updating this category.
-          success: Category updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذه الفئة.
+          success: تم تحديث الفئة بنجاح.
       component_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
         update:
-          success: Permissions updated successfully.
+          success: تم تحديث الأذونات بنجاح.
       components:
         create:
-          error: There was an error creating this component.
-          success: Component created successfully.
+          error: حدثت مشكلة أثناء إنشاء هذا المكون.
+          success: مكون تم إنشاؤه بنجاح.
         destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
+          error: حدثت مشكلة أثناء تدمير هذا المكون.
+          success: تم حذف المكون بنجاح.
         edit:
-          title: Edit component
-          update: Update
+          title: تحرير المكون
+          update: تحديث
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: إعدادات الخطوة الافتراضية
+          global_settings: الاعدادات العامة
+          participatory_texts_enabled_help: لا يمكن التفاعل مع هذا الإعداد إذا كان هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمه "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
+          step_settings: إعدادات الخطوة
         index:
-          add: Add component
+          add: إضافة عنصر
           headers:
-            actions: Actions
-            name: Component name
-            type: Component type
+            actions: أفعال
+            name: اسم المكون
+            type: نوع المكون
         new:
-          add: Add component
-          title: 'Add component: %{name}'
+          add: إضافة عنصر
+          title: 'إضافة مكون: %{name}'
         publish:
-          success: The component has been successfully published.
-        title: Components
+          success: تم نشر المكون بنجاح.
+        title: المكونات
         unpublish:
-          success: The component has been successfully unpublished.
+          success: تم إلغاء نشر المكون بنجاح.
         update:
-          error: There has been an error updating this component.
-          success: The component was updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذا المكون.
+          success: تم تحديث المكون بنجاح.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: عرض المزيد من السجلات
+          welcome: مرحبًا بكم في لوحة إدارة Decidim.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} ك %{export_format}"
+        notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       help_sections:
-        error: There's been an error updating the help sections
+        error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
-          save: Save
-        success: Help sections updated successfully
+          save: حفظ
+        success: تم تحديث أقسام المساعدة بنجاح
       impersonatable_users:
         index:
           filter:
-            all: All
-            managed: Managed
-            not_managed: Not managed
-          filter_by: Filter by
-          impersonate: Impersonate
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
-          name: Name
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
-          promote: Promote
-          search: Search
-          status: Status
-          view_logs: View logs
+            all: الكل
+            managed: تمكن
+            not_managed: غير مُدار
+          filter_by: مصنف بواسطة
+          impersonate: انتحال
+          impersonate_new_managed_user: إدارة مشارك جديد
+          managed: تمكن
+          name: اسم
+          needs_authorization_warning: تحتاج إلى تمكين تفويض واحد على الأقل لهذه المؤسسة.
+          not_managed: غير مُدار
+          promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
+          search: بحث
+          status: الحالة
+          view_logs: عرض السجلات
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: حدثت مشكلة أثناء إغلاق جلسة إدارة المشاركين الحالية.
+          success: تم إنهاء جلسة التمثيل الحالية بنجاح.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: كانت هناك مشكلة في إدارة المشارك.
+          success: تم إنشاء المشارك المُدار بنجاح.
         form:
-          authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          authorization_method: طريقة التفويض
+          name: اسم
+          reason: السبب
         new:
-          impersonate: Impersonate
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate: انتحال
+          impersonate_existing_managed_user: إدارة المشارك "%{name}"
+          impersonate_existing_user: إدارة المشارك "%{name}"
+          impersonate_new_managed_user: إدارة مشارك جديد
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: لا توجد سجلات حتى الآن
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
-          error: There has been an error promoting the managed user.
-          success: The managed user has been successfully promoted.
+          error: كانت هناك مشكلة في تعزيز المشارك المُدار.
+          success: تمت ترقية المشارك المُدار بنجاح.
         promotions:
           new:
-            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed user promotion
-            promote: Promote
+            explanation: يمكن ترقية المشاركين المدارين إلى مشاركين عاديين. يعني ذلك أنه سيتم دعوتهم إلى التطبيق ولن تتمكن من إدارته مرة أخرى. سيتلقى المشارك المدعو رسالة بريد إلكتروني لقبول دعوتك.
+            new_managed_user_promotion: ترويج مشارك جديد مُدار
+            promote: تروج \ يشجع \ يعزز \ ينمى \ يطور
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
-        area_types: Area types
-        areas: Areas
-        configuration: Configuration
-        dashboard: Dashboard
-        help_sections: Help sections
-        homepage: Homepage
-        impersonations: Impersonations
-        navbar_links: Navbar links
-        newsletters: Newsletters
-        oauth_applications: OAuth applications
-        participants: Participants
-        scope_types: Scope types
-        scopes: Scopes
-        settings: Settings
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        admin_log: سجل نشاط المسؤول
+        admins: المدراء
+        appearance: المظهر
+        area_types: أنواع المناطق
+        areas: المناطق
+        configuration: الإعدادات
+        dashboard: لوحة القيادة
+        help_sections: أقسام المساعدة
+        homepage: الصفحة الرئيسية
+        impersonations: التقليد
+        newsletters: الرسائل الإخبارية
+        oauth_applications: تطبيقات OAuth
+        participants: المشاركون
+        scope_types: أنواع النطاق
+        scopes: نطاقات
+        settings: الإعدادات
+        static_pages: صفحات
+        user_groups: المجموعات
+        users: المشاركون
       models:
         area:
           fields:
-            area_type: Area type
-            name: Name
+            area_type: نوع المنطقة
+            name: اسم
         area_type:
           fields:
-            name: Name
-            plural: Plural
+            name: اسم
+            plural: جمع
         attachment:
           fields:
-            collection: Folder
-            content_type: Type
-            file_size: Size
-            title: Title
-          name: Attachment
+            collection: مجلد
+            content_type: نوع
+            file_size: الحجم
+            title: العنوان
+          name: المرفق
         attachment_collection:
-          name: Folder
+          name: مجلد
         category:
-          name: Category
+          name: الفئة
         impersonation_log:
           fields:
-            admin: Admin
-            ended_at: Ended at
-            expired_at: Expired at
-            reason: Reason
-            started_at: Started at
-            user: User
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
+            admin: المُدير
+            ended_at: انتهى في
+            expired_at: انتهت في
+            reason: السبب
+            started_at: بدأت في
+            user: مشارك
         newsletter:
           fields:
-            created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            created_at: أنشئت في
+            progress: تقدم
+            sent_at: أرسلت في
+            sent_to: أُرسِلت إلى
+            subject: موضوع
+          name: النشرة الإخبارية
         oauth_application:
           fields:
-            created_at: Created at
-            name: Name
-          name: OAuth uygulaması
+            created_at: أنشئت في
+            name: اسم
+          name: تطبيق OAuth
         participatory_space_private_user:
-          name: Participatory space private user
+          name: المشاركة الفضاء المشارك الخاص
         scope:
           fields:
-            name: Name
-            scope_type: Scope type
+            name: اسم
+            scope_type: نوع النطاق
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: اسم
+            plural: جمع
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: أنشئت في
+            title: العنوان
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
-            role: Role
+            created_at: تاريخ الإنشاء
+            email: البريد الإلكتروني
+            last_sign_in_at: تسجيل الدخول الأخير في التاريخ
+            name: اسم
+            role: وظيفة
             roles:
-              admin: Admin
-              user_manager: User manager
-          name: kullanıcı
+              admin: مشرف
+              user_manager: مدير مشارك
+          name: مشارك
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: أفعال
+            created_at: أنشئت في
+            document_number: رقم المستند
+            name: اسم
+            phone: هاتف
+            state: حالة
+            users_count: عدد المشاركين
       moderations:
         index:
-          title: Moderations
+          title: الإشراف
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
-            spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
+            does_not_belong: لا ينتمي
+            offensive: هجومي
+            spam: بريد مؤذي
       newsletters:
         create:
-          error: There's been an error creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
+          success: تم إنشاء النشرة الإخبارية بنجاح. من فضلك ، قم بمراجعته قبل الإرسال.
         deliver:
-          error: There's been an error delivering this newsletter.
-          success: Newsletter delivered successfully.
+          error: كانت هناك مشكلة في توصيل هذه الرسالة الإخبارية.
+          success: تم تسليم النشرة الإخبارية بنجاح.
         destroy:
-          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
-          success: Newsletter destroyed successfully.
+          error_already_sent: 'لا يمكن تدمير الرسالة الإخبارية: لقد تم إرسالها بالفعل.'
+          success: النشرة الإخبارية دمرت بنجاح.
         edit:
-          save_and_preview: Save and preview
-          title: Edit newsletter
+          save_and_preview: حفظ والمعاينة
+          title: تحرير النشرة الإخبارية
         form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+          interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
-          confirm_delete: Are you sure you want to delete this newsletter?
-          title: Newsletters
+          all: الكل
+          all_users: 'كافة المستخدمين '
+          and: 'و '
+          confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
+          followers: 'مُتابِعون '
+          has_been_sent_to: 'تم إرسالها إلى: '
+          not_sent: غير مرسَلة
+          participants: 'مشاركون '
+          segmented_to: 'مقسمه إلى %{subject}: '
+          title: الرسائل الإخبارية
         new:
-          save: Save
-          title: New newsletter
+          save: حفظ
+          title: رسالة إخبارية جديدة
+        select_recipients_to_deliver:
+          all_spaces: الكل
+          confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
+          deliver: تسليم النشرة الإخبارية
+          none: لا شَيْء
+          send_to_all_users: إرسال إلى كافة المستخدمين
+          send_to_followers: إرسال إلى المتابِعين
+          send_to_participants: إرسال إلى المشاركين
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
-          preview: Preview
-          subject: Subject
+          preview: معاينة
+          subject: الموضوع
         update:
-          error: There's been an error updating this newsletter.
-          success: Newsletter updated successfully. Please review it before sending.
-      oauth_application:
-        new: New Oauth application
+          error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
+          success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
       oauth_applications:
         create:
-          error: There's been an error creating this application.
-          success: Application created successfully.
+          error: حدثت مشكلة أثناء إنشاء هذا التطبيق.
+          success: تم إنشاء التطبيق بنجاح.
         destroy:
-          error: There's been an error destroying this application.
-          success: Application destroyed successfully.
+          error: حدثت مشكلة أثناء تدمير هذا التطبيق.
+          success: تم تدمير التطبيق بنجاح.
         edit:
-          save: Save
-          title: Edit application
+          save: حفظ
+          title: تحرير التطبيق
         index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
+          confirm_delete: هل أنت متأكد أنك تريد حذف هذا التطبيق؟
+          title: تطبيقات OAuth
         new:
-          save: Save
-          title: New application
+          save: حفظ
+          title: تطبيق جديد
         update:
-          error: There's been an error updating this application.
-          success: Application updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذا التطبيق.
+          success: تم تحديث التطبيق بنجاح.
       officializations:
         create:
-          success: User officialized successfully
+          success: مشارك رسمي بنجاح
         destroy:
-          success: User unofficialized successfully
+          success: مشارك غير رسمي بنجاح
         index:
-          actions: Actions
-          badge: Badge
-          created_at: Created At
+          actions: أفعال
+          badge: شارة
+          created_at: أنشئت في
           filter:
-            all: All
-            not_officialized: Not officialized
+            all: الكل
+            not_officialized: غير رسمي
             officialized: Officialized
-          filter_by: Filter by
-          name: Name
-          nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
+          filter_by: مصنف بواسطة
+          name: اسم
+          nickname: كنية
+          not_officialized: غير رسمي
+          officialize: الصفة الرسمية
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
-          status: Status
+          search: بحث
+          status: الحالة
           unofficialize: Unofficialize
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: شارة رسمية
+          officialize: الصفة الرسمية
+          title: إضفاء الطابع الرسمي على المشارك "%{name}"
       organization:
         edit:
-          title: Edit organization
-          update: Update
+          title: تحرير المنظمة
+          update: تحديث
         form:
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          social_handlers: Social
-          twitter: Twitter
-          url: Url
-          youtube: YouTube
+          facebook: فيسبوك
+          github: غِت‌ هَب
+          instagram: إينستاجرام
+          social_handlers: التواصل الاجتماعي
+          twitter: تويتر
+          url: العنوان الشبكي
+          youtube: يوتيوب
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
+          success: تم تحديث المنظمة بنجاح.
       organization_appearance:
         edit:
-          update: Update
+          update: تحديث
         form:
-          colors_title: Organization colors
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          colors_title: ألوان المنظمة
+          cta_button_path_help: 'يمكنك الكتابة فوق المكان الذي يرتبط به زر Call To Action في الصفحة الرئيسية. استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف. مثال: %{url}'
+          cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
+          header_snippets_help: استخدم هذا الحقل لإضافة أشياء إلى رأس HTML. الاستخدام الأكثر شيوعًا هو دمج خدمات الجهات الخارجية التي تتطلب بعض JavaScript أو CSS إضافية. أيضًا ، يمكنك استخدامه لإضافة علامات وصفية إضافية إلى HTML. لاحظ أنه سيتم عرض هذا فقط في الصفحات العامة ، وليس في قسم المسؤول.
+          homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
+          homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
+          layout_appearance_title: تحرير مظهر التخطيط
+          omnipresent_banner_appearance_title: تحرير لافتة في كل مكان
       organization_homepage:
         edit:
-          active_content_blocks: Active content blocks
-          inactive_content_blocks: Inactive content blocks
+          active_content_blocks: كتل المحتوى النشط
+          inactive_content_blocks: كتل المحتوى غير النشطة
       organization_homepage_content_blocks:
         edit:
-          update: Update
+          update: تحديث
       participatory_space_private_users:
         create:
-          error: There was an error adding a private user for this participatory space.
-          success: Participatory space private user access created successfully.
+          error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
+          success: المشاركة الفضاء الفضاء المشترك وصول خلق بنجاح.
         destroy:
-          error: There was an error deleting a private user for this participatory space.
-          success: Participatory space private user access destroyed successfully.
+          error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
+          success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
         index:
-          title: Participatory space private user
+          title: المشاركة الفضاء المشارك الخاص
         new:
-          create: Create
-          title: New Participatory Space private user.
+          create: إنشاء
+          title: مشارك جديد الفضاء الخاص المشارك.
+      resource_permissions:
+        edit:
+          submit: خضع
+          title: تعديل الترخيصات
+        update:
+          success: تم تحديث الأذونات بنجاح.
       scope_types:
         create:
-          error: There was an error creating a new scope type.
-          success: Scope type created successfully.
+          error: حدثت مشكلة أثناء إنشاء نوع نطاق جديد.
+          success: تم إنشاء نوع النطاق بنجاح.
         destroy:
-          success: Scope type successfully destroyed
+          success: نوع النطاق دمرت بنجاح
         edit:
-          title: Edit scope type
-          update: Update
+          title: تحرير نوع النطاق
+          update: تحديث
         new:
-          create: Create scope type
-          title: New scope
+          create: إنشاء نوع النطاق
+          title: نطاق جديد
         update:
-          error: There was an error when updating this scope type.
-          success: Scope type updated successfully
+          error: حدثت مشكلة أثناء تحديث نوع النطاق هذا.
+          success: تم تحديث نوع النطاق بنجاح
       scopes:
         create:
-          error: There was an error creating a new scope.
-          success: Scope created successfully.
+          error: كانت هناك مشكلة في إنشاء نطاق جديد.
+          success: تم إنشاء النطاق بنجاح.
         destroy:
-          success: Scope successfully destroyed
+          success: نطاق دمرت بنجاح
         edit:
-          title: Edit scope
-          update: Update
+          title: تحرير النطاق
+          update: تحديث
         new:
-          create: Create scope
-          title: New scope
-        no_scopes: No scopes at this level.
+          create: إنشاء نطاق
+          title: نطاق جديد
+        no_scopes: لا نطاقات على هذا المستوى.
         update:
-          error: There was an error when updating this scope.
-          success: Scope updated successfully
+          error: حدثت مشكلة أثناء تحديث هذا النطاق.
+          success: تم تحديث النطاق بنجاح
       static_page_topics:
         create:
-          error: There was an error creating a new topic.
-          success: Topic created successfully.
+          error: كانت هناك مشكلة في إنشاء موضوع جديد.
+          success: تم إنشاء الموضوع بنجاح.
         destroy:
-          success: Topic successfully destroyed
+          success: الموضوع دمر بنجاح
         edit:
-          title: Edit topic
-          update: Update topic
+          title: تحرير الموضوع
+          update: تحديث الموضوع
         new:
-          create: Create topic
-          title: New topic
+          create: إنشاء موضوع
+          title: موضوع جديد
         update:
-          error: There was an error when updating this topic.
-          success: Topic updated successfully
+          error: حدثت مشكلة أثناء تحديث هذا الموضوع.
+          success: تم تحديث الموضوع بنجاح
       static_pages:
         actions:
-          view: View public page
+          view: عرض الصفحة العامة
         create:
-          error: There was an error creating a new page.
-          success: Page created successfully.
+          error: كانت هناك مشكلة في إنشاء صفحة جديدة.
+          success: تم إنشاء الصفحة بنجاح.
         destroy:
-          success: Page successfully destroyed
+          success: تم تدمير الصفحة بنجاح
         edit:
-          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
-          title: Edit page
-          update: Update
+          changed_notably_help: في حالة تحديده ، سيتم إخطار المشاركين بقبول البنود والشروط الجديدة.
+          title: تعديل الصفحة
+          update: تحديث
         form:
-          none: None
+          none: لا شيء
         index:
-          last_notable_change: Last notable change
+          last_notable_change: آخر تغيير ملحوظ
         new:
-          create: Create page
-          title: New page
+          create: إنشاء صفحة
+          title: صفحة جديدة
         topic:
-          destroy: Remove topic
-          edit: Edit topic
-          empty: There's no page under this topic
-          without_topic: Pages without topic
+          destroy: إزالة الموضوع
+          edit: تحرير الموضوع
+          empty: لا توجد صفحة تحت هذا الموضوع
+          without_topic: صفحات بدون موضوع
         update:
-          error: There was an error when updating this page.
-          success: Page updated successfully
+          error: حدثت مشكلة أثناء تحديث هذه الصفحة.
+          success: تم تحديث الصفحة بنجاح
       titles:
-        admin_log: Admin log
-        area_types: Area types
-        areas: Areas
-        authorization_workflows: Verification methods
-        dashboard: Dashboard
-        impersonatable_users: Manageable users
-        impersonations: Users management
-        managed_users: Managed users
-        navbar_links: Navbar links
-        participants: Users
-        scope_types: Scope types
-        scopes: Scopes
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
-      user:
-        new: New user
+        admin_log: سجل المسؤول
+        area_types: أنواع المناطق
+        areas: المناطق
+        authorization_workflows: طرق التحقق
+        dashboard: لوحة القيادة
+        impersonatable_users: المشاركون في الإدارة
+        impersonations: إدارة المشاركين
+        participants: المشاركين
+        scope_types: أنواع النطاق
+        scopes: نطاقات
+        static_pages: صفحات
+        user_groups: المجموعات
+        users: المشاركين
       user_group:
         csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
+          invalid: حدثت مشكلة في قراءة ملف CSV.
+          success: تم تحميل ملف CSV بنجاح ، نحن نتحقق من مطابقة المجموعات للمعايير. وهذا قد يستغرق بعض الوقت.
         reject:
-          invalid: There was an error when rejecting this user group.
-          success: User group rejected successfully
+          invalid: حدثت مشكلة في رفض هذه المجموعة.
+          success: تم رفض المجموعة بنجاح
         verify:
-          invalid: There was an error when verifying this user group.
-          success: User group verified successfully
+          invalid: حدثت مشكلة أثناء التحقق من هذه المجموعة.
+          success: تم التحقق من المجموعة بنجاح
       user_groups:
         index:
           filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
+            all: الكل
+            pending: قيد الانتظار
+            rejected: مرفوض
+            verified: التحقق
+          filter_by: مصنف بواسطة
+          search: بحث
           state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          verify_via_csv: Verify via CSV
+            pending: قيد الانتظار
+            rejected: مرفوض
+            verified: التحقق
+          verify_via_csv: تحقق عبر CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
+          explanation: قم بتحميل ملف CSV الخاص بك. يجب أن يحتوي على رسائل البريد الإلكتروني الرسمية للمجموعات في مؤسستك في العمود الأول من الملف ، بدون رؤوس. سيتم التحقق من صحة المجموعات التي أكدت بريدها الإلكتروني والتي تحتوي على بريد إلكتروني ظاهر في ملف CSV.
+          title: قم بتحميل ملف CSV الخاص بك
+          upload: رفع
       users:
         create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
+          error: كانت هناك مشكلة في دعوة هذا المشرف.
+          success: تمت دعوة المشارك بنجاح.
         destroy:
-          error: There was an error when trying to delete this user.
-          success: User is no longer an administrator.
+          error: حدثت مشكلة أثناء محاولة حذف هذا المشرف.
+          success: المشارك لم يعد مسؤول.
         form:
-          email: Email
-          name: Name
-          role: Role
+          email: البريد الإلكتروني
+          name: اسم
+          role: وظيفة
         new:
-          create: Invite
-          title: Invite user as administrator
-      view_public_page: View public page
+          create: دعا
+          title: دعوة مشارك كمسؤول
+      view_public_page: عرض الصفحة العامة
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when impersonating a non managed user
+          reason: تحتاج إلى تقديم سبب عند إدارة مشارك غير مُدار
     moderations:
       actions:
-        hidden: Hidden
-        hide: Hide
-        not_hidden: Not hidden
-        title: Actions
-        unhide: Unhide
+        hidden: مخفي
+        hide: إخفاء
+        not_hidden: غير مخفي
+        title: أفعال
+        unhide: إظهار
         unreport: Unreport
       admin:
         reportable:
           hide:
-            invalid: There's been a problem hiding the resource.
-            success: Resource successfully hidden.
+            invalid: حدثت مشكلة في إخفاء المورد.
+            success: الموارد خفية بنجاح.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: حدثت مشكلة أثناء إخفاء المورد.
+            success: المورد غير مخفي بنجاح.
           unreport:
-            invalid: There's been a problem unreporting the resource.
-            success: Resource successfully unreported.
+            invalid: حدثت مشكلة أثناء الإبلاغ عن المورد.
+            success: المورد لم يتم الإبلاغ عنه بنجاح.
       models:
         moderation:
           fields:
-            hidden_at: Hidden at
-            report_count: Count
-            reportable: Reportable
-            reported_content_url: Reported content URL
-            reports: Reports
-            visit_url: Visit URL
+            hidden_at: مخبأة في
+            report_count: عد
+            reportable: الإبلاغ عنها
+            reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
+            reports: تقارير
+            visit_url: زيارة العنوان الشبكي
   errors:
     messages:
-      invalid_json: Invalid JSON
+      invalid_json: JSON غير صالح
   layouts:
     decidim:
       admin:
         newsletters:
-          title: Newsletters
+          title: النشرات الإخبارية
         settings:
-          title: Settings
+          title: الإعدادات
         users:
-          title: Users
+          title: المشاركين

@@ -66,7 +66,7 @@ fi:
             destroy: Peruuta satunnaistaminen
             title: Satunnaistamisen peruuttaminen
           create:
-            error: Uuden satunnaisvalinnan luomisessa tapahtui virhe.
+            error: Uuden satunnaisvalinnan luonti epäonnistui.
             success: Satunnaisvalinta onnistuneesti luotu
           destroy:
             error: Satunnaisvalintaa ei voi peruuttaa.
@@ -87,7 +87,7 @@ fi:
           show:
             selected_proposals: Valintaan valitut ehdotukset
           update:
-            error: Satunnaisvalinnan päivittämisessä tapahtui virhe.
+            error: Satunnaisvalinnan päivitys epäonnistui.
             success: Satunnaisvalinta onnistuneesti päivitetty
       admin_log:
         sortition:

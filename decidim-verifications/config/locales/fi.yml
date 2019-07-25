@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -35,18 +34,25 @@ fi:
         grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta
+            - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä
         id_documents:
           help:
-          - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
-          - Sinä täytät ladatussa kuvassa näkyvät tiedot.
-          - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-          - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
+            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
         postal_letter:
           help:
-          - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
-          - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
-          - Sinä merkitset kirjeen lähetetyksi.
-          - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
+            - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
+            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+            - Sinä merkitset kirjeen lähetetyksi.
+            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
+      csv_census:
+        explanation: Varmenna käyttäjätilisi organisaation rekisteritietojen avulla
+        name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
       id_documents:
@@ -60,12 +66,13 @@ fi:
     verifications:
       authorizations:
         create:
-          error: Vahvistuksen luonnissa tapahtui virhe.
+          error: Vahvistuksen luonti epäonnistui.
           success: Tilisi on onnistuneesti vahvistettu.
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
+            csv_census: Vahvista organisaation rekisteritietojen avulla
             dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
             dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
@@ -77,6 +84,33 @@ fi:
           authorize_with: Vahvista palvelulla %{authorizer}
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: aloittaa palveluun tutustumisen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Rekisteritietojen tuonti epäonnistui.
+              success: Onnistuneesti tuotu %{count} kohdetta (%{errors} virheellistä)
+            destroy_all:
+              success: Kaikki rekisteritiedot on poistettu
+          destroy:
+            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Haluatko varmasti jatkaa?
+            title: Poista kaikki rekisteritiedot
+          index:
+            data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
+            empty: Rekisteritietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi rekisteritiedot järjestelmään CSV-tiedostosta.
+            title: Nykyiset rekisteritiedot
+          instructions:
+            body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
+            title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
+          new:
+            file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
+            info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
+            submit: Lataa tiedosto
+            title: Lataa uusi rekisteri
+        authorizations:
+          new:
+            error: Emme voineet vahvistaa tiliäsi, koska tietojasi ei löytynyt organisaation rekisteristä.
+            success: Tilisi on vahvistettu onnistuneesti.
       dummy_authorization:
         extra_explanation:
           one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
@@ -88,12 +122,12 @@ fi:
               title: Henkilöllisyystodistusten asetukset
               update: Päivitä
             update:
-              error: Asetusten päivittämisessä tapahtui virhe.
+              error: Asetusten päivitys epäonnistui.
               success: Asetukset päivitettiin onnistuneesti
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
-              success: Käyttäjä vahvistettu onnistuneesti
+              success: Käyttäjän vahvistus onnistui
             new:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
               reject: Hylkää
@@ -101,7 +135,7 @@ fi:
           offline_confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai pyydä käyttäjää muuttamaan tietojaan
-              success: Käyttäjä vahvistettu onnistuneesti
+              success: Käyttäjän vahvistus onnistui
             new:
               cancel: Peruuta
               introduce_user_data: Lisää käyttäjän sähköposti ja asiakirjan tiedot
@@ -123,7 +157,7 @@ fi:
             title: Varmista henkilöllisyytesi käyttämällä henkilöllisyystodistusta
           create:
             error: Asiakirjan laatiminen epäonnistui
-            success: Asiakirja ladattu onnistuneesti
+            success: Asiakirjan lataus onnistui
           edit:
             being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
             offline: Käytä offline-vahvistusta
@@ -137,7 +171,7 @@ fi:
             title: Lähetä henkilöllisyystodistuksesi
           update:
             error: Asiakirjan uudelleen lataaminen epäonnistui
-            success: Asiakirjan uudelleen lataaminen onnistui
+            success: Asiakirjan uudelleenlataus onnistui
         dni: Henkilökortti
         nie: HETU
         passport: Passi
@@ -150,7 +184,7 @@ fi:
               mark_as_sent: Merkitse lähetetyksi
               not_yet_sent: Ei vielä lähetetty
               title: Käynnissä olevat vahvistukset
-              username: Käyttäjätunnus
+              username: Nimimerkki
               verification_code: Vahvistuskoodi
           postages:
             create:
@@ -175,7 +209,12 @@ fi:
           create:
             error: Pyynnössäsi oli ongelma
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
+          destroy:
+            success: Uuden vahvistuskoodin luonti onnistui. Kirjoita puhelinnumerosi uudelleen.
           edit:
+            confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
+            destroy: Luo uusi vahvistuskoodi
+            resend: Etkö saanut vahvistuskoodia?
             send: Vahvista
             title: Kirjoita vastaanottamasi vahvistuskoodi
           new:

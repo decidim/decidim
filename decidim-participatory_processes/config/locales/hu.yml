@@ -1,13 +1,14 @@
----
 hu:
   activemodel:
     attributes:
       participatory_process:
         announcement: Közlemény
+        area_id: Terület
         banner_image: Banner kép
         copy_categories: Kategóriák másolása
         copy_components: Elemek másolása
         copy_steps: Lépések másolása
+        decidim_area_id: Terület
         description: Leírás
         developer_group: Kezdeményező csoport
         domain: Domain
@@ -19,7 +20,6 @@ hu:
         participatory_process_group_id: Folyamat csoport
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
-        private_space: Concertation privée
         promoted: Támogatott
         published_at: Közzétéve
         scope_id: Hatáskör
@@ -71,12 +71,13 @@ hu:
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
-        new: New
+        filter:
+          all: Az összes folyamat megjelenítése
+          process_groups: Folyamatcsoportok
+        new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
         new_process_user_role: Új folyamat felhasználó
-        participatory_process:
-          new: New
         preview: Előnézet
         publish: Közzétesz
         resend_invitation: Meghívó újraküldése
@@ -202,14 +203,9 @@ hu:
           success: Részvételi folyamat létrehozása sikeres. Állítsd be a lépéseit.
         edit:
           update: Frissítés
-        form:
-          title: Általános információk
         index:
           not_published: Nincs közzétéve
           private: Privát
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Nyilvános
           published: Közzétéve
         new:
@@ -273,11 +269,6 @@ hu:
         description: A részvételi folyamatok száma ebben a szervezetben
         object: részvételi folyamatok
         title: Részvételi folyamatok
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -303,7 +294,16 @@ hu:
         participatory_processes:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
+            duration: tartam
+            filters: Szűrők
+            images: képek
+            metadata: Metaadatok
+            other: Más
+            select_an_area: Válasszon egy területet
+            select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+            title: Általános információk
+            visbility: Láthatóság
       content_blocks:
         highlighted_processes:
           name: Kiemelt folyamatok
@@ -319,8 +319,6 @@ hu:
             more_information: További információk
             participate: Részvétel
             see_all_processes: Összes folyamat
-      participatory_process_groups:
-        none: Egyik sem
       participatory_processes:
         filters:
           counters:
@@ -349,6 +347,7 @@ hu:
         index:
           loading: Eredmények betöltése...
       show:
+        area: Terület
         developer_group: Kezdeményező csoport
         end_date: Befejezés dátuma
         local_area: Szervezet területe
@@ -390,13 +389,14 @@ hu:
           promoted_processes: Kiemelt folyamatok
         participatory_process:
           active_step: 'Aktuális lépés:'
+          more_info: Több információ
           take_part: Vegyél részt
         promoted_process:
           active_step: 'Aktuális lépés:'
           more_info: További információ
           take_part: Vegyél részt
       process_header_steps:
-        step: "%{current}. lépés ennyiből: %{total}"
+        step: '%{current}. lépés ennyiből: %{total}'
         view_steps: Lépések megtekintése
       process_navigation:
         process_menu_item: A folyamat

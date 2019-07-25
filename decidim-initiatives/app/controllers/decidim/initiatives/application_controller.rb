@@ -4,9 +4,12 @@ module Decidim
   module Initiatives
     # The main admin application controller for initiatives
     class ApplicationController < Decidim::ApplicationController
-      layout "decidim/admin/initiatives"
-
       include NeedsPermission
+
+      register_permissions(::Decidim::Initiatives::ApplicationController,
+                           ::Decidim::Initiatives::Permissions,
+                           ::Decidim::Admin::Permissions,
+                           ::Decidim::Permissions)
 
       def permissions_context
         super.merge(
@@ -15,11 +18,7 @@ module Decidim
       end
 
       def permission_class_chain
-        [
-          Decidim::Initiatives::Permissions,
-          Decidim::Admin::Permissions,
-          Decidim::Permissions
-        ]
+        ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::ApplicationController)
       end
 
       def permission_scope

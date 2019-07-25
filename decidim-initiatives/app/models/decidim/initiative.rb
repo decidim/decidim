@@ -57,6 +57,8 @@ module Decidim
 
     validates :title, :description, :state, presence: true
     validates :signature_type, presence: true
+    validate :signature_type_allowed
+
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
@@ -78,6 +80,7 @@ module Decidim
     scope :with_state, ->(state) { where(state: state) if state.present? }
 
     scope :public_spaces, -> { published }
+    scope :signature_type_updatable, -> { created }
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
@@ -172,10 +175,20 @@ module Decidim
     # RETURNS string
     delegate :banner_image, to: :type
 
+    delegate :document_number_authorization_handler, to: :type
+    delegate :supports_required, to: :scoped_type
+
     def votes_enabled?
       published? &&
         signature_start_date <= Date.current &&
         signature_end_date >= Date.current
+    end
+
+    # Public: Check if the user has voted the question.
+    #
+    # Returns Boolean.
+    def voted_by?(user)
+      votes.where(author: user).any?
     end
 
     # Public: Checks if the organization has given an answer for the initiative.
@@ -241,9 +254,14 @@ module Decidim
 
     # Public: Returns the percentage of required supports reached
     def percentage
-      percentage = supports_count * 100 / scoped_type.supports_required
-      percentage = 100 if percentage > 100
-      percentage
+      return 100 if supports_goal_reached?
+
+      supports_count * 100 / supports_required
+    end
+
+    # Public: Whether the supports required objective has been reached
+    def supports_goal_reached?
+      supports_count >= supports_required
     end
 
     # Public: Overrides slug attribute from participatory processes.
@@ -284,7 +302,40 @@ module Decidim
         published?
     end
 
+    def accepts_online_votes?
+      Decidim::Initiatives.online_voting_allowed &&
+        (online? || any?) &&
+        votes_enabled?
+    end
+
+    def accepts_online_unvotes?
+      accepts_online_votes? && type.undo_online_signatures_enabled?
+    end
+
+    def minimum_committee_members
+      type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
+    end
+
+    def enough_committee_members?
+      committee_members.approved.count >= minimum_committee_members
+    end
+
+    # PUBLIC
+    #
+    # Checks if the type the initiative belongs to enables SMS code
+    # verification step. Tis configuration is ignored if the organization
+    # doesn't have the sms authorization available
+    #
+    # RETURNS boolean
+    def validate_sms_code_on_votes?
+      organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
+    end
+
     private
+
+    def signature_type_allowed
+      errors.add(:signature_type, :invalid) if !published? && type.allowed_signature_types_for_initiatives.exclude?(signature_type)
+    end
 
     def notify_state_change
       return unless saved_change_to_state?

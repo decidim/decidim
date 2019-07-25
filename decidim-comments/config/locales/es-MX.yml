@@ -1,4 +1,3 @@
----
 es-MX:
   activemodel:
     models:
@@ -19,8 +18,6 @@ es-MX:
       comments: Comentarios
       last_activity:
         new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
-      translate: Translate
-      translated: Back to original version
       votes:
         create:
           error: Ha habido errores al votar el comentario.
@@ -30,15 +27,15 @@ es-MX:
         form:
           body:
             label: Comentario
-            placeholder: "¿Qué piensas sobre esto?"
+            placeholder: '¿Qué piensas sobre esto?'
           form_error: El texto es necesario y no puede ser más de caracteres %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar como
         opinion:
           neutral: Neutral
-        remaining_characters: Quedan %{count} caracteres
-        remaining_characters_1: Queda %{count} carácter
+        remaining_characters: "Quedan %{count} caracteres"
+        remaining_characters_1: "Queda %{count} carácter"
         title: Deje su comentario
       comment:
         alignment:
@@ -50,7 +47,7 @@ es-MX:
           action: Denunciar
           already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
           close: Cerrar
-          description: "¿Es inapropiado este contenido?"
+          description: '¿Es inapropiado este contenido?'
           details: Comentarios adicionales
           reasons:
             does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
@@ -67,11 +64,10 @@ es-MX:
       comment_thread:
         title: Conversación con %{authorName}
       comments:
+        blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
-        title_0: There are no comments yet
-        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

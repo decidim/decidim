@@ -15,7 +15,7 @@
       </span>
     </div>
 
-    <% initiative.committee_members.approved.each do |m| %>
+    <% initiative.committee_members.excluding_author.approved.each do |m| %>
       <% unless m.user.deleted? %>
         <div class="author author--inline">
           <span class="author__avatar author__avatar--small">

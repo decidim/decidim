@@ -149,7 +149,7 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
-          conference_admins: Konferenzbenutzer
+          conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
@@ -356,8 +356,8 @@ de:
             certificate_of_attendance: Teilnahmebestätigung
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
-          error: Beim Senden der Konferenzdiplome ist ein Problem aufgetreten.
-          success: Konferenzdiplome korrekt gesendet
+          error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
+          success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
           cancel: Stornieren
@@ -552,6 +552,7 @@ de:
           take_part: Teilnehmen
       conferences:
         conference:
+          more_info: Mehr Info
           take_part: Teilnehmen
         index:
           promoted_conferences: Geförderte Konferenzen

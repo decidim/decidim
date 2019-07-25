@@ -1,13 +1,14 @@
----
 pt-BR:
   activemodel:
     attributes:
       participatory_process:
         announcement: Anúncio
+        area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copie etapas
+        decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
         domain: Domínio
@@ -19,7 +20,6 @@ pt-BR:
         participatory_process_group_id: Grupo de processos
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        private_space: Concertation privée
         promoted: Destacado
         published_at: Publicado em
         scope_id: Âmbito
@@ -71,12 +71,13 @@ pt-BR:
         destroy: Excluir
         duplicate: Duplicar
         edit: Editar
-        new: New
+        filter:
+          all: Mostrar todos os processos
+          process_groups: Grupos de Processos
+        new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
         new_process_user_role: Novo usuário do processo
-        participatory_process:
-          new: New
         preview: Visualização
         publish: Publicar
         resend_invitation: Reenviar convite
@@ -202,14 +203,9 @@ pt-BR:
           success: Processo participativo criado com sucesso. Configure agora seus passos.
         edit:
           update: Atualizar
-        form:
-          title: Informação geral
         index:
           not_published: Não publicado
           private: Privado
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Público
           published: Publicados
         new:
@@ -273,11 +269,6 @@ pt-BR:
         description: Número de processos participativos nesta organização
         object: processos participativos
         title: Processos participativos
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -303,7 +294,16 @@ pt-BR:
         participatory_processes:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
+            duration: Duração
+            filters: Filtros
+            images: Imagens
+            metadata: Metadados
+            other: De outros
+            select_an_area: Selecione uma área
+            select_process_group: Selecione um grupo de processos
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            title: Informação geral
+            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Processos em destaque
@@ -319,8 +319,6 @@ pt-BR:
             more_information: Mais Informações
             participate: Participar
             see_all_processes: Ver todos os processos
-      participatory_process_groups:
-        none: Nenhum
       participatory_processes:
         filters:
           counters:
@@ -349,6 +347,7 @@ pt-BR:
         index:
           loading: Carregando os resultados ...
       show:
+        area: Área
         developer_group: Grupo promotor
         end_date: Data final
         local_area: Área de organização
@@ -390,6 +389,7 @@ pt-BR:
           promoted_processes: Processos destacados
         participatory_process:
           active_step: 'Etapa atual:'
+          more_info: Mais informações
           take_part: Participar
         promoted_process:
           active_step: 'Etapa atual:'

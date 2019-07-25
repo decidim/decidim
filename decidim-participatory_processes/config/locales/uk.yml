@@ -208,8 +208,6 @@ uk:
           success: Рух співучасті успішно створено. Тепер налаштуйте його кроки.
         edit:
           update: Оновити
-        form:
-          title: Загальні відомості
         index:
           not_published: Не оприлюднено
           private: Приватний
@@ -312,6 +310,7 @@ uk:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            title: Загальні відомості
       content_blocks:
         highlighted_processes:
           name: Висвітлені рухи
@@ -327,8 +326,6 @@ uk:
             more_information: Додаткові відомості
             participate: Взяти участь
             see_all_processes: Переглянути всі рухи
-      participatory_process_groups:
-        none: Жоден
       participatory_processes:
         filters:
           counters:

@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -35,18 +34,25 @@ gl:
         grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando unha verificación de documentos de identidade sen conexión"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Os administradores cargan un CSV cos correos electrónicos dos participantes aceptados
+            - Só os participantes cun correo electrónico neste ficheiro CSV poden ser verificados
         id_documents:
           help:
-          - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
-          - Enche a información presente na imaxe cargada.
-          - A información debe coincidir co que o usuario enche.
-          - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
+            - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
+            - Enche a información presente na imaxe cargada.
+            - A información debe coincidir co que o usuario enche.
+            - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
         postal_letter:
           help:
-          - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
-          - Envía a carta ao seu enderezo co código de verificación.
-          - Marca a letra como enviada.
-          - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+            - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
+            - Envía a carta ao seu enderezo co código de verificación.
+            - Marca a letra como enviada.
+            - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+      csv_census:
+        explanation: Verifícase mediante o censo da organización
+        name: Censo da organización
       direct: Directo
       help: Axuda
       id_documents:
@@ -66,6 +72,7 @@ gl:
         first_login:
           actions:
             another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
+            csv_census: Comprobe contra o censo da organización
             dummy_authorization_handler: Verifique contra o controlador de autorización de exemplo
             dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
             id_documents: Verifique a carga do documento de identidade
@@ -77,6 +84,33 @@ gl:
           authorize_with: Verifica con %{authorizer}
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Produciuse un erro ao importar o censo.
+              success: Importado con éxito %{count} elementos (%{errors} erro)
+            destroy_all:
+              success: Todos os datos do censo foron eliminados
+          destroy:
+            confirm: Non se pode desfacer todo o censo. Estás seguro de que queres continuar?
+            title: Elimine todos os datos do censo
+          index:
+            data: Hai %{count} rexistros cargados en total. A última data de carga foi o %{due_date}
+            empty: Non hai datos censuais. Usa o seguinte formulario para importalo usando un ficheiro CSV.
+            title: Datos censuais actuais
+          instructions:
+            body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
+            title: Debe activar o censo de csv para esta organización
+          new:
+            file: "Ficheiro .csv con datos de correo electrónico"
+            info: 'Debe ser un ficheiro con formato CSV cunha columna: correo electrónico'
+            submit: Cargar ficheiro
+            title: Suba un novo censo
+        authorizations:
+          new:
+            error: Non puidemos verificar a túa conta ou non estás no censo da organización.
+            success: Verificouse correctamente a túa conta.
       dummy_authorization:
         extra_explanation:
           one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
@@ -175,7 +209,12 @@ gl:
           create:
             error: Produciuse un problema coa túa solicitude
             success: Grazas Enviamos un SMS ao teu teléfono.
+          destroy:
+            success: Código de verificación restablecido con éxito. Volve ingresar o teu número de teléfono.
           edit:
+            confirm_destroy: '¿Estás seguro de que queres restablecer o código de verificación?'
+            destroy: Restablecer o código de verificación
+            resend: Non recibiches o código de verificación?
             send: Confirmar
             title: Introduce o código de verificación que recibiches
           new:

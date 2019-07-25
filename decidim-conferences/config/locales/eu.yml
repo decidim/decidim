@@ -150,7 +150,7 @@ eu:
           attachments: eranskinak
           categories: Kategoriak
           components: Osagaiak
-          conference_admins: Konferentzia erabiltzaileak
+          conference_admins: Konferentzia-kudeatzaileak
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
           diploma: Asistentzia ziurtagiria
@@ -357,8 +357,8 @@ eu:
             certificate_of_attendance: Asistentzia ziurtagiria
             certificate_of_attendance_description: Hau dela ziurtatzeko <strong>%{user}</strong> parte hartu du eta parte hartu ere <strong>%{title}</strong> etan ospatuko <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Arazo bat izan da konferentzia diploma bidaltzean.
-          success: Kongresuko Diplomak behar bezala bidali dira
+          error: Arazo bat izan da asistentziaren ziurtagiriaren ziurtagiriak bidaltzeko.
+          success: Biltzarrentzako ziurtagiriak zuzen bidali behar dira
       conference:
         registration_confirm:
           cancel: Utzi
@@ -553,6 +553,7 @@ eu:
           take_part: Parte hartu
       conferences:
         conference:
+          more_info: Informazio gehiago
           take_part: Parte hartu
         index:
           promoted_conferences: Sustatutako hitzaldiak

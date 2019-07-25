@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::AcceptedProposalEvent do
-  let(:resource) { create :proposal, :with_answer }
+  let(:resource) { create :proposal, :with_answer, title: "My super proposal" }
   let(:event_name) { "decidim.events.proposals.proposal_accepted" }
 
   include_context "when a simple event"

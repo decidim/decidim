@@ -23,14 +23,14 @@ edit_link(
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
-  <h2 class="heading2" data-translatable-title="<%= @proposal.id %>"><%= present(@proposal).title(links: true) %></h2>
+  <h2 class="heading2" data-translatable-title="<%= @proposal.id %>"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
   <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% unless @proposal.emendation? %>
+    <% if @proposal.amendable? %>
       <div class="card text-center">
         <div class="card__content">
           <div>
@@ -58,20 +58,45 @@ edit_link(
 
     <%= emendation_actions_for @proposal %>
 
+
+      <% if @proposal.withdrawn? %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+          </div>
+
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_settings.votes_weight_enabled? || current_user %>
-      <div class="card">
-        <div class="card__content">
-          <% if current_settings.votes_weight_enabled? %>
-            <%= render partial: "vote_weight", locals: { proposal: @proposal, from_proposals_list: false } %>
-          <% elsif current_settings.votes_enabled? %>
-            <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-          <% end %>
-          <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
-          <br />
-          <%= follow_button_for(@proposal) %>
+      <% if @proposal.withdrawn? %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_weight_enabled? %>
+              <%# TODO : Fix weighted votes count %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% elsif current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <br />
+            <%= follow_button_for(@proposal) %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_weight_enabled? %>
+              <%= render partial: "vote_weight", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% elsif current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <br />
+            <%= follow_button_for(@proposal) %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
     <%= amenders_list_for(@proposal) %>
@@ -87,7 +112,7 @@ edit_link(
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
         <span data-translatable-body="<%= @proposal.id %>">
-          <%= simple_format present(@proposal).body(links: true) %>
+          <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
         </span>
         <% if translatable? %>
           <div class="card__translate">

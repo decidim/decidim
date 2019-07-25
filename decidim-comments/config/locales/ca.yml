@@ -1,29 +1,26 @@
----
 ca:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Comentari
       decidim/comments/comment_created_event: Comentari
       decidim/comments/reply_created_event: Resposta al comentari
-      decidim/comments/user_mentioned_event: Menció
+      decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:
       decidim/comments/comment:
         one: Comentari
         other: Comentaris
       decidim/comments/comment_vote:
-        one: Votació
+        one: Vot
         other: Vots
   decidim:
     comments:
       comments: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
-      translate: Translate
-      translated: Back to original version
       votes:
         create:
-          error: Hi ha hagut errors en votar el comentari.
+          error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Inicia la sessió amb el teu compte</a> o <a href="%{sign_up_url}">registra't</a> per afegir el teu comentari.
@@ -32,31 +29,31 @@ ca:
             label: Comentari
             placeholder: Què en penses d'això?
           form_error: El text és necessari i no pot ser més llarg de %{length}
-          submit: Envia
+          submit: Enviar
           user_group_id:
             label: Comentar com a
         opinion:
           neutral: Neutral
-        remaining_characters: Queden %{count} caràcters
-        remaining_characters_1: Queda %{count} caràcter
+        remaining_characters: "Queden %{count} caràcters"
+        remaining_characters_1: "Queda %{count} caràcter"
         title: Deixa el teu comentari
       comment:
         alignment:
           against: En contra
           in_favor: A favor
-        deleted_user: Usuari eliminat
+        deleted_user: Participant eliminada
         reply: Respondre
         report:
-          action: Denuncia
-          already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
+          action: Denúncia
+          already_reported: Aquest contingut ja ha estat denunciat i serà revisat per una administradora.
           close: Tancar
-          description: Aquest contingut no és apropiat?
+          description: Aquest contingut és inapropiat?
           details: Comentaris addicionals
           reasons:
             does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
-          title: Denuncia un problema
+          title: Denúncia un problema
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -67,21 +64,20 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
-        blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors.
+        blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
+        blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
-        title_0: Il n'y a pas encore de commentaire
-        title_1: "%{count} commentaire"
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
-          email_outro: Hasrebut aquesta notificació perquè estàs seguint %{author_name}. Pots deixar de seguir aquest usuari des de la seva pàgina de perfil.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_name}. Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: 'S''ha comentat %{resource_title}. Pots llegir el comentari d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o el seu autor. Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_intro: "S'ha comentat %{resource_title}. Pots llegir el comentari d'aquesta pàgina:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
           notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
@@ -90,13 +86,13 @@ ca:
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
-          email_intro: Has estat esmentat
-          email_outro: Has rebut aquesta notificació perquè has esmentat a %{resource_title}.
-          email_subject: Has estat esmentat a %{resource_title}
-          notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Has estat esmentada
+          email_outro: Has rebut aquesta notificació perquè has estat esmentada a %{resource_title}.
+          email_subject: Has estat esmentada a %{resource_title}
+          notification_title: Has estat esmentada a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
-        description: Nombre de comentaris generats pels usuaris
+        description: Nombre de comentaris generats per les participants
         object: comentaris
         title: Comentaris
   errors:

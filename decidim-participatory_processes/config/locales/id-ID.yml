@@ -1,402 +1,394 @@
----
-id-ID:
+id:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Announcement
-        banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
-        description: Description
-        developer_group: Promoter group
+        announcement: Pengumuman
+        area_id: Daerah
+        banner_image: Gambar spanduk
+        copy_categories: Salin kategori
+        copy_components: Salin komponen
+        copy_steps: Salin langkah
+        decidim_area_id: Daerah
+        description: Deskripsi
+        developer_group: Grup promotor
         domain: Domain
-        end_date: End date
-        hashtag: Hashtag
-        hero_image: Home image
-        local_area: Organization area
-        meta_scope: Scope metadata
-        participatory_process_group_id: Processes group
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: Concertation privée
-        promoted: Promoted
-        published_at: Published at
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
-        slug: URL slug
-        start_date: Start date
+        end_date: Tanggal akhir
+        hashtag: Tanda pagar
+        hero_image: Gambar rumah
+        local_area: Area organisasi
+        meta_scope: Ruang lingkup metadata
+        participatory_process_group_id: Kelompok proses
+        participatory_scope: Apa yang diputuskan
+        participatory_structure: Bagaimana cara memutuskannya
+        promoted: Dipromosikan
+        published_at: Diterbitkan di
+        scope_id: Cakupan
+        scopes_enabled: Lingkup diaktifkan
+        short_description: Deskripsi Singkat
+        show_statistics: Tampilkan statistik
+        slug: Siput URL
+        start_date: Mulai tanggal
         subtitle: Subtitle
-        target: Who participates
-        title: Title
+        target: Yang berpartisipasi
+        title: Judul
       participatory_process_group:
-        description: Description
-        hero_image: Image
-        name: Name
-        participatory_process_ids: Related processes
+        description: Deskripsi
+        hero_image: Gambar
+        name: Nama
+        participatory_process_ids: Proses terkait
       participatory_process_step:
         cta_path: Call to Action path
-        cta_text: Call to Action text
-        description: Description
-        end_date: End date
-        short_description: Short description
-        start_date: Start date
-        title: Title
+        cta_text: Teks Ajakan Bertindak
+        description: Deskripsi
+        end_date: Tanggal akhir
+        short_description: Deskripsi Singkat
+        start_date: Mulai tanggal
+        title: Judul
       participatory_process_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Nama
+        role: Peran
     models:
-      decidim/participatory_process_step_activated_event: Step activated
-      decidim/participatory_process_step_changed_event: Step changed
+      decidim/participatory_process_step_activated_event: Langkah diaktifkan
+      decidim/participatory_process_step_changed_event: Langkah berubah
   activerecord:
     models:
       decidim/participatory_process:
-        one: Participatory process
-        other: Participatory processes
+        other: Proses partisipatif
       decidim/participatory_process_group:
-        one: Participatory process group
-        other: Participatory process groups
+        other: Kelompok proses partisipatif
       decidim/participatory_process_step:
-        one: Step
-        other: Steps
+        other: Tangga
   decidim:
     admin:
       actions:
-        activate: Activate
-        configure: Configure
-        confirm_destroy: Confirm delete
-        destroy: Delete
-        duplicate: Duplicate
+        activate: Mengaktifkan
+        configure: Konfigurasikan
+        confirm_destroy: Konfirmasikan penghapusan
+        destroy: Menghapus
+        duplicate: Duplikat
         edit: Edit
-        new: New
-        new_process_group: New process group
-        new_process_step: New step
-        new_process_user_role: New process user
-        participatory_process:
-          new: New process
+        filter:
+          all: Tampilkan semua proses
+          process_groups: Kelompok Proses
+        new_process: Proses baru
+        new_process_group: Grup proses baru
+        new_process_step: Langkah baru
+        new_process_user_role: Pengguna proses baru
         preview: Preview
-        publish: Publish
-        resend_invitation: Resend invitation
-        unpublish: Unpublish
+        publish: Menerbitkan
+        resend_invitation: Mengirim kembali undangan
+        unpublish: Batalkan publikasi
       menu:
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
+        participatory_process_groups: Kelompok proses
+        participatory_processes: Proses
         participatory_processes_submenu:
-          attachment_collections: Folders
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
+          attachment_collections: Folder
+          attachment_files: File
+          attachments: Lampiran
+          categories: Kategori
+          components: Komponen
           info: Info
-          moderations: Moderations
-          private_users: Private Users
-          process_admins: Process users
-          steps: Steps
+          moderations: Moderasi
+          private_users: Pengguna Pribadi
+          process_admins: Memproses pengguna
+          steps: Tangga
       models:
         participatory_process:
           fields:
-            created_at: Created at
-            private: Private
-            promoted: Highlighted
-            published: Published
-            title: Title
-          name: Participatory process
+            created_at: Dibuat di
+            private: Pribadi
+            promoted: Disorot
+            published: Diterbitkan
+            title: Judul
+          name: Proses partisipatif
         participatory_process_group:
           fields:
-            name: Name
-          name: Process group
+            name: Nama
+          name: Kelompok proses
         participatory_process_step:
           fields:
-            end_date: End date
-            start_date: Start date
-            title: Title
-          name: Participatory process step
+            end_date: Tanggal akhir
+            start_date: Mulai tanggal
+            title: Judul
+          name: Langkah proses partisipatif
         participatory_process_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Participatory process user
+            email: E-mail
+            name: Nama
+            role: Peran
+          name: Pengguna proses partisipatif
           roles:
             admin: Administrator
-            collaborator: Collaborator
+            collaborator: Kolaborator
             moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: Invitation accepted at
-            invitation_sent_at: Invitation sent at
+            invitation_accepted_at: Undangan diterima di
+            invitation_sent_at: Undangan dikirim pada
       participatory_process_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate participatory process
+          copy: Salinan
+          select: Pilih data mana yang ingin Anda gandakan
+          title: Proses partisipatif duplikat
       participatory_process_groups:
         destroy:
-          success: Participatory process group deleted successfully.
+          success: Kelompok proses partisipatif berhasil dihapus.
         edit:
-          title: Edit process group
-          update: Update
+          title: Edit grup proses
+          update: Memperbarui
         new:
-          create: Create
-          title: New process group
+          create: Membuat
+          title: Grup proses baru
         update:
-          error: There was en error updating this participatory process group.
-          success: Participatory process group updated successfully.
+          error: Terjadi kesalahan saat memutakhirkan grup proses partisipatif ini.
+          success: Kelompok proses partisipatif berhasil diperbarui.
       participatory_process_publications:
         create:
-          error: There was an error publishing this participatory process.
-          success: Participatory process published successfully.
+          error: Terjadi kesalahan saat mempublikasikan proses partisipatif ini.
+          success: Proses partisipatif berhasil diterbitkan.
         destroy:
-          error: There was an error unpublishing this participatory process.
-          success: Participatory process unpublished successfully.
+          error: Terjadi kesalahan saat membatalkan publikasi proses partisipatif ini.
+          success: Proses partisipatif tidak berhasil dipublikasikan.
       participatory_process_step_activations:
         create:
-          error: There was an error activating this participatory process step.
-          success: Participatory process step activated successfully.
+          error: Terjadi kesalahan saat mengaktifkan langkah proses partisipatif ini.
+          success: Langkah proses partisipatif berhasil diaktifkan.
       participatory_process_steps:
         create:
-          error: There was an error creating a new participatory process step.
-          success: Participatory process step created successfully.
-        default_title: Introduction
+          error: Terjadi kesalahan saat membuat langkah proses partisipatif baru.
+          success: Langkah proses partisipatif berhasil dibuat.
+        default_title: pengantar
         destroy:
           error:
-            active_step: Can't delete the active step.
-            last_step: Can't delete the last step of a process.
-          success: Participatory process step deleted successfully.
+            active_step: Tidak dapat menghapus langkah aktif.
+            last_step: Tidak dapat menghapus langkah terakhir dari suatu proses.
+          success: Langkah proses partisipatif berhasil dihapus.
         edit:
-          title: Edit participatory process step
-          update: Update
+          title: Edit langkah proses partisipatif
+          update: Memperbarui
         index:
-          steps_title: Steps
+          steps_title: Tangga
         new:
-          create: Create
-          title: New participatory process step
+          create: Membuat
+          title: Langkah proses partisipatif baru
         ordering:
-          error: There was an error when reordering this participatory process steps.
+          error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
         update:
-          error: There was an error when updating this participatory process step.
-          success: Participatory process step updated successfully.
+          error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
+          success: Langkah proses partisipatif berhasil diperbarui.
       participatory_process_user_roles:
         create:
-          error: There was an error adding a user for this participatory process.
-          success: User added successfully to this participatory process.
+          error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
+          success: Pengguna berhasil ditambahkan ke proses partisipatif ini.
         destroy:
-          success: User removed successfully from this participatory process.
+          success: Pengguna berhasil dihapus dari proses partisipatif ini.
         edit:
-          title: Update participatory process user.
-          update: Update
+          title: Perbarui pengguna proses partisipatif.
+          update: Memperbarui
         index:
-          process_admins_title: Participatory process users
+          process_admins_title: Pengguna proses partisipatif
         new:
-          create: Create
-          title: New participatory process user.
+          create: Membuat
+          title: Pengguna proses partisipatif baru.
         update:
-          error: There was an error updated a user for this participatory process.
-          success: User updated successfully for this participatory process.
+          error: Terjadi kesalahan saat memperbarui pengguna untuk proses partisipatif ini.
+          success: Pengguna berhasil diperbarui untuk proses partisipatif ini.
       participatory_processes:
         create:
-          error: There was an error creating a new participatory process.
-          success: Participatory process created successfully. Configure now its steps.
+          error: Terjadi kesalahan saat membuat proses partisipatif baru.
+          success: Proses partisipatif berhasil dibuat. Konfigurasikan sekarang langkahnya.
         edit:
-          update: Update
-        form:
-          title: General Information
+          update: Memperbarui
         index:
-          not_published: Not published
-          private: Private
-          promoted:
-            'false': 'False'
-            'true': 'True'
-          public: Public
-          published: Published
+          not_published: Tidak diterbitkan
+          private: Pribadi
+          public: Publik
+          published: Diterbitkan
         new:
-          create: Create
-          title: New participatory process
+          create: Membuat
+          title: Proses partisipatif baru
         update:
-          error: There was an error when updating this participatory process.
-          success: Participatory process updated successfully.
+          error: Ada kesalahan saat memperbarui proses partisipatif ini.
+          success: Proses partisipatif berhasil diperbarui.
       participatory_processes_copies:
         create:
-          error: There was an error when duplicating this participatory process.
-          success: Participatory process duplicated successfully.
+          error: Ada kesalahan saat menduplikasi proses partisipatif ini.
+          success: Proses partisipatif berhasil digandakan.
       participatory_processes_group:
         create:
-          error: There was an error creating a new participatory process group.
-          success: Participatory process group created successfully.
+          error: Terjadi kesalahan saat membuat grup proses partisipatif baru.
+          success: Kelompok proses partisipatif berhasil dibuat.
       titles:
-        participatory_process_groups: Participatory process groups
-        participatory_processes: Participatory processes
+        participatory_process_groups: Kelompok proses partisipatif
+        participatory_processes: Proses partisipatif
       users:
         resend_invitation:
-          error: There was an error resending the invitation.
-          success: Invitation resent successfully.
+          error: Terjadi kesalahan saat mengirim ulang undangan.
+          success: Undangan berhasil dikirim.
     admin_log:
       participatory_process:
-        create: "%{user_name} created the %{resource_name} participatory process"
-        publish: "%{user_name} published the %{resource_name} participatory process"
-        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} participatory process"
+        create: "%{user_name} membuat proses %{resource_name} partisipatif"
+        publish: "%{user_name} mempublikasikan %{resource_name} proses partisipatif"
+        unpublish: "%{user_name} tidak mempublikasi %{resource_name} proses partisipatif"
+        update: "%{user_name} memperbarui %{resource_name} proses partisipatif"
       participatory_process_step:
-        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
-        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
-        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
+        activate: "%{user_name} mengaktifkan %{resource_name} langkah dalam %{space_name} proses partisipatif"
+        create: "%{user_name} membuat %{resource_name} langkah dalam %{space_name} proses partisipatif"
+        delete: "%{user_name} menghapus %{resource_name} langkah dalam %{space_name} proses partisipatif"
+        update: "%{user_name} memperbarui %{resource_name} langkah dalam %{space_name} proses partisipatif"
       participatory_process_user_role:
-        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
-        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
+        create: "%{user_name} mengundang pengguna %{resource_name} ke %{space_name} proses partisipatif"
+        delete: "%{user_name} mengeluarkan pengguna %{resource_name} dari %{space_name} proses partisipatif"
+        update: "%{user_name} mengubah peran pengguna %{resource_name} dalam %{space_name} proses partisipatif"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Langkah %{resource_title} sekarang aktif untuk %{participatory_space_title}. Anda dapat melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Pembaruan ke %{participatory_space_title}
+          notification_title: Langkah %{resource_title} sekarang aktif untuk <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+          email_intro: 'Tanggal untuk %{resource_title} langkah pada %{participatory_space_title} telah diperbarui. Anda dapat melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
+          email_subject: Pembaruan ke %{participatory_space_title}
+          notification_title: Tanggal untuk langkah <a href="%{resource_path}">%{resource_title}</a> pada <a href="%{participatory_space_url}">%{participatory_space_title}</a> telah diperbarui.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
-          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
-          title: What is a participatory process?
+          contextual: "<p>A <strong>proses partisipatif</strong> adalah urutan kegiatan partisipatif (misalnya pertama mengisi survei, kemudian membuat proposal, mendiskusikannya dalam pertemuan tatap muka atau virtual, dan akhirnya memprioritaskan mereka) dengan tujuan mendefinisikan dan membuat keputusan pada topik tertentu.</p> <p>Contoh proses partisipatif adalah: proses pemilihan anggota komite (di mana pencalonan pertama kali disajikan, kemudian diperdebatkan dan akhirnya terpilih sebagai kandidat), anggaran partisipatif (di mana proposal dibuat, dihargai secara ekonomi dan dipilih dengan uang yang tersedia), proses perencanaan strategis, penyusunan kolaboratif peraturan atau norma, desain ruang kota atau produksi rencana kebijakan publik.</p>\n"
+          page: "<p>A <strong>proses partisipatif</strong> adalah urutan kegiatan partisipatif (misalnya pertama mengisi survei, kemudian membuat proposal, mendiskusikannya dalam pertemuan tatap muka atau virtual, dan akhirnya memprioritaskan mereka) dengan tujuan mendefinisikan dan membuat keputusan pada topik tertentu.</p> <p>Contoh proses partisipatif adalah: proses pemilihan anggota komite (di mana pencalonan pertama kali disajikan, kemudian diperdebatkan dan akhirnya terpilih sebagai kandidat), anggaran partisipatif (di mana proposal dibuat, dihargai secara ekonomi dan dipilih dengan uang yang tersedia), proses perencanaan strategis, penyusunan kolaboratif peraturan atau norma, desain ruang kota atau produksi rencana kebijakan publik.</p>\n"
+          title: Apa itu proses partisipatif?
     menu:
-      processes: Processes
+      processes: Proses
     metrics:
       participatory_processes:
-        description: Number of participatory processes in this organization
-        object: participatory processes
-        title: Participatory processes
-    pages:
-      participatory_space:
-        metrics:
-          headline: Participation in figures
-          link: Show all statistics
+        description: Jumlah proses partisipatif dalam organisasi ini
+        object: proses partisipatif
+        title: Proses partisipatif
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processes for %{group}
-          other: "%{count} processes for %{group}"
-        title: Participatory process groups
+          other: "%{count} proses untuk %{group}"
+        title: Kelompok proses partisipatif
     participatory_process_steps:
       index:
-        process_steps: Process steps
-        title: Participatory process steps
+        process_steps: Langkah-langkah proses
+        title: Langkah-langkah proses partisipatif
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximum amount of elements to show
+            max_results: Jumlah maksimum elemen untuk ditampilkan
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
-            cta_text_help: If not set, the button will not be shown.
+            cta_path_help: 'Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Jika tidak disetel, tombol tidak akan ditampilkan. Contoh: %{url}'
+            cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
+            duration: Lamanya
+            filters: Filter
+            images: Gambar
+            metadata: Metadata
+            other: Lain
+            select_an_area: Pilih suatu Area
+            select_process_group: Pilih grup proses
+            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
+            title: Informasi Umum
+            visbility: Visibilitas
       content_blocks:
         highlighted_processes:
-          name: Highlighted processes
+          name: Proses yang disorot
       index:
-        title: Participatory processes
+        title: Proses partisipatif
       last_activity:
-        new_participatory_process: New participatory process
+        new_participatory_process: Proses partisipatif baru
       pages:
         home:
           highlighted_processes:
-            active_processes: Active processes
-            active_step: Active step
-            more_information: More information
-            participate: Participate
-            see_all_processes: See all processes
-      participatory_process_groups:
-        none: None
+            active_processes: Proses aktif
+            active_step: Langkah aktif
+            more_information: Informasi lebih lanjut
+            participate: Ikut
+            see_all_processes: Lihat semua proses
       participatory_processes:
         filters:
           counters:
             active:
-              one: 1 active process
-              other: "%{count} active processes"
+              other: "%{count} proses aktif"
             all:
-              one: 1 process
-              other: "%{count} processes"
+              other: "%{count} proses"
             past:
-              one: 1 past process
-              other: "%{count} past processes"
+              other: "%{count} proses sebelumnya"
             upcoming:
-              one: 1 upcoming process
-              other: "%{count} upcoming processes"
+              other: "%{count} proses yang akan datang"
           explanations:
-            no_active: No active processes
-            no_active_nor_upcoming: No active nor upcoming processes
-            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
+            no_active: Tidak ada proses aktif
+            no_active_nor_upcoming: Tidak ada proses aktif atau yang akan datang
+            no_active_nor_upcoming_callout: Tidak ada proses aktif atau yang akan datang. Berikut ini daftar daftar yang lalu.
           names:
-            active: Active
-            all: All
-            past: Past
-            upcoming: Upcoming
-          see: See
+            active: Aktif
+            all: Semua
+            past: Lalu
+            upcoming: Mendatang
+          see: Lihat
         index:
-          loading: Loading results...
+          loading: Memuat hasil ...
       show:
-        developer_group: Promoter group
-        end_date: End date
-        local_area: Organization Area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: This is a private process
-        scope: Scope
-        start_date: Start date
-        target: Who participates
-        unspecified: Not specified
+        area: Daerah
+        developer_group: Grup promotor
+        end_date: Tanggal akhir
+        local_area: Wilayah Organisasi
+        participatory_scope: Apa yang diputuskan
+        participatory_structure: Bagaimana cara memutuskannya
+        private_space: Ini adalah proses pribadi
+        scope: Cakupan
+        start_date: Mulai tanggal
+        target: Yang berpartisipasi
+        unspecified: Tidak ditentukan
       statistics:
-        answers_count: Answers
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
-        pages_count: Pages
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        answers_count: Jawaban
+        comments_count: Komentar
+        debates_count: Perdebatan
+        endorsements_count: Endorsemen
+        headline: Aktivitas
+        meetings_count: Rapat
+        orders_count: Suara
+        pages_count: Halaman
+        processes_count: Proses
+        projects_count: Proyek
+        proposals_count: Proposal
+        results_count: Hasil
+        surveys_count: Survei
+        users_count: Peserta
+        votes_count: Suara
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Browse
-          processes_count: 'Processes:'
+          browse: Jelajahi
+          processes_count: 'Proses:'
       participatory_process_widgets:
         show:
-          active_step: Active step
-          take_part: Take part
+          active_step: Langkah aktif
+          take_part: Ambil bagian
       participatory_processes:
         index:
-          promoted_processes: Highlighted processes
+          promoted_processes: Proses yang disorot
         participatory_process:
-          active_step: 'Current step:'
-          take_part: Take part
+          active_step: 'Langkah saat ini:'
+          more_info: Info lebih lanjut
+          take_part: Ambil bagian
         promoted_process:
-          active_step: 'Current step:'
-          more_info: More info
-          take_part: Take part
+          active_step: 'Langkah saat ini:'
+          more_info: Info lebih lanjut
+          take_part: Ambil bagian
       process_header_steps:
-        step: Step %{current} of %{total}
-        view_steps: View steps
+        step: Langkah %{current} dari %{total}
+        view_steps: Lihat langkah
       process_navigation:
-        process_menu_item: The process
+        process_menu_item: Proses

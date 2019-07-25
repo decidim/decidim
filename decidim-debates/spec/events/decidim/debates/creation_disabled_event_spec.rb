@@ -25,7 +25,7 @@ module Decidim
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("Debate creation is no longer active in #{participatory_space_title}. You can still participate in opened debates from this page:")
+            .to eq("Debate creation is no longer active in #{participatory_space_title}. You can still participate in open debates from this page:")
         end
       end
 

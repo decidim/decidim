@@ -2,9 +2,10 @@
 $order-border: $border;
 
 /* Order by styles */
+.diff-view-by,
 .order-by{
   margin-bottom: 1rem;
-  display: inline-flex;
+  display: flex;
   align-items: baseline;
   flex-wrap: wrap;
 
@@ -19,6 +20,7 @@ $order-border: $border;
   }
 }
 
+.diff-view-by__dropdown,
 .order-by__dropdown{
   display: flex;
   flex-wrap: wrap;

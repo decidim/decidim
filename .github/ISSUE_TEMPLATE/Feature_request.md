@@ -1,20 +1,14 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Feature request creation disabled
+about: Go to MetaDecidim :)
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+We've disabled the feature request's issue creation on this repository. If you want to discuss about a new feature, you can do this through MetaDecidim:
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+* [Feature Request](https://meta.decidim.org/processes/roadmap)
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+We're doing this because we're trying to eat our own dog food. Once your proposal is collaboratively reviewed and accepted by the Product Comitee, we'll create the new issue on GitHub and notify you through MetaDecidim.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Thanks for contributing to Decidim!
 
-**Does this issue could impact on users private data?**
-Ex. issues related with user's sign up/sign in process, verifications, invitations, sensitive data like email, IP addresses, etc.

@@ -7,49 +7,49 @@ sv:
     models:
       decidim/blogs/post:
         one: Inlägg
-        other: inlägg
+        other: Inlägg
   decidim:
     blogs:
       actions:
-        confirm_destroy: Är du säker på att du vill radera det här inlägget?
+        confirm_destroy: Vill du radera inlägget?
         destroy: Radera
         edit: Redigera
-        new: Nytt brev
+        new: Nytt inlägg
         title: Åtgärder
       admin:
         models:
           components:
             body: Innehåll
           post:
-            name: Posta
+            name: Publicera
         posts:
           create:
-            invalid: Det har blivit ett problem att skapa det här inlägget
-            success: Inlägg skapades framgångsrikt
+            invalid: Det gick inte att skapa inlägget
+            success: Inlägget har skapats
           destroy:
-            success: Inlägget har tagits bort
+            success: Inlägget har raderats
           edit:
-            save: Uppdatering
+            save: Uppdatera
           index:
-            title: inlägg
+            title: Inlägg
           new:
             create: Skapa
             title: Skapa inlägg
           update:
-            invalid: Det har blivit fel när du sparar inlägget.
-            success: Inlägget sparades framgångsrikt
+            invalid: Det gick inte att spara inlägget.
+            success: Inlägget har sparats
       last_activity:
-        new_post_at_html: "<span>Ny inlägg på %{link}</span>"
+        new_post_at_html: "<span>Nytt inlägg på %{link}</span>"
       models:
         post:
           fields:
             author: Författare
             body: Innehåll
-            created_at: Skapad vid
+            created_at: Skapad
             title: titel
       posts:
         show:
-          view: Se
+          view: Visa
         sidebar_blog:
           comments: kommentarer
           most_commented_posts: Mest kommenterade inlägg
@@ -59,22 +59,22 @@ sv:
         name: Blogg
         settings:
           global:
-            announcement: Notis
+            announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
           step:
-            announcement: Notis
+            announcement: Meddelande
             comments_blocked: Kommentarer blockerade
     events:
       blogs:
         post_created:
-          email_intro: Posten "%{resource_title}" har publicerats i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det från föregående länken.
-          email_subject: Nytt inlägg publicerat i %{participatory_space_title}
+          email_intro: Inlägget "%{resource_title}" har publicerats i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det från den föregående länken.
+          email_subject: Ett nytt inlägg har publicerats i %{participatory_space_title}
           notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: inlägg
+          posts_count: Inlägg
     participatory_processes:
       statistics:
-        posts_count: inlägg
+        posts_count: Inlägg

@@ -1,80 +1,82 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       answer:
-        body: Answer
+        body: Cevap
       question:
-        max_choices: Maximum number of choices
-        question_type: Type
+        max_choices: Maksimum seçenek sayısı
+        question_type: tip
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: Zorunlu
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: are not complete
-              too_many: are too many
+              missing: tamamlanmadı
+              too_many: çok fazla
   decidim:
     forms:
       admin:
         models:
           components:
-            description: Description
-            tos: Terms of service
+            description: Açıklama
+            tos: Kullanım Şartları
         questionnaires:
           answer_option:
-            answer_option: Answer option
-            free_text: Free text
-            remove: Remove
-            statement: Statement
+            answer_option: Cevap seçeneği
+            free_text: Ücretsiz Metin
+            remove: Kaldır
+            statement: Beyan
           edit:
-            save: Save
-            title: Title
+            save: Kayıt etmek
+            title: Başlık
           form:
-            add_question: Add question
-            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
+            add_question: Soru ekle
+            already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
           question:
-            add_answer_option: Add answer option
-            any: Any
-            description: Description
-            down: Down
-            question: Question
-            remove: Remove
-            statement: Statement
-            up: Up
+            add_answer_option: Cevap seçeneği ekle
+            any: herhangi
+            description: Açıklama
+            down: Aşağı
+            question: Soru
+            remove: Kaldır
+            statement: Beyan
+            up: yukarı
           update:
-            invalid: There's been errors when saving the questionnaire.
-            success: Questionnaires saved successfully.
+            invalid: Formu kaydederken bir sorun oluştu.
+            success: Formlar başarıyla kaydedildi.
       errors:
         answer:
-          body: Body can't be blank
+          body: Vücut boş olamaz
       question_types:
-        long_answer: Long answer
-        multiple_option: Multiple option
-        short_answer: Short answer
-        single_option: Single option
-        sorting: Sorting
+        long_answer: Uzun cevap
+        multiple_option: Çoklu seçenek
+        short_answer: Kısa cevap
+        single_option: Tek seçenek
+        sorting: sınıflandırma
       questionnaires:
         answer:
-          invalid: There's been errors when answering the questionnaire.
-          success: Questionnaire answered successfully.
+          invalid: Formu yanıtlarken bir sorun oluştu.
+          success: Form başarıyla cevaplandı.
         question:
-          max_choices: 'Max choices: %{n}'
+          max_choices: 'Maksimum seçenek: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
-            title: Answer the questionnaire
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+            anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
+            title: Formu cevapla
+          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
           questionnaire_answered:
-            body: You have already answered this questionnaire.
-            title: Already answered
+            body: Bu formu zaten cevapladınız.
+            title: Zaten cevaplandı
           questionnaire_closed:
-            body: The questionnaire is closed and cannot be answered.
-            title: Questionnaire closed
+            body: Form kapalı ve cevaplanamıyor.
+            title: Form kapatıldı
           questionnaire_for_private_users:
-            body: The questionnaire is available only for private users
-            title: Questionnaire closed
-          submit: Submit
-          tos_agreement: By participating you accept its Terms of Service
+            body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
+            title: Form kapatıldı
+          submit: Gönder
+          tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
+      user_answers_serializer:
+        created_at: Yanıtlandı
+        id: Cevap kimliği

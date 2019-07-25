@@ -4,7 +4,6 @@ module Decidim
   module Consultations
     module ContentBlocks
       class HighlightedConsultationsCell < Decidim::ViewModel
-        delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
 
         def show

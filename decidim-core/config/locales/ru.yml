@@ -237,13 +237,12 @@ ru:
         name: Code by SMS
       started_at: 'Начато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Снова подтвердить свою личность с помощью "%{authorization}"
           explanation: Срок действия подтверждения вашей личности истек. Чтобы выполнить это действие, вам необходимо снова подтвердить свою личность с помощью «%{authorization}».
           title: Срок действия подтверждения личности истек
         incomplete:
-          cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
           invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность

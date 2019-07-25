@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
+  include ActionView::Helpers::TextHelper
+
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
@@ -44,7 +46,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           expect(page).to have_css(".success.card__text--status", text: "OPEN")
         end
         within ".filters" do
-          expect(find_field("filter_state_open")).to be_checked
+          expect(find(:css, "input[name='filter[state]'][value='open']")).to be_checked
         end
       end
 
@@ -68,7 +70,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       it "shows category filters" do
         within ".filters" do
-          expect(page).to have_css("#filter_category_id")
+          expect(page).to have_css("select[name='filter[category_id]']")
         end
       end
     end
@@ -85,7 +87,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows the body" do
-        expect(page).to have_content(collaborative_draft.body)
+        expect(page).to have_content(strip_tags(collaborative_draft.body))
       end
 
       it "shows the state" do
@@ -115,7 +117,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the body" do
-          expect(page).to have_content(collaborative_draft.body)
+          expect(page).to have_content(strip_tags(collaborative_draft.body))
         end
 
         it "shows the address" do
@@ -237,7 +239,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           it "renders an flash informing about the request" do
             expect(page).to have_css(".flash.callout.success")
             within ".flash.callout.success" do
-              expect(page).to have_content("Your request to collaborate has been sent successfully")
+              expect(page).to have_content("Your request to collaborate has been successfully sent")
             end
           end
 
@@ -309,7 +311,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
-      context "when is an author" do
+      context "when the author visits the collaborative draft" do
         before do
           sign_in author, scope: :user
           visit current_path
@@ -319,8 +321,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           expect(page).not_to have_css("callout.secondary")
         end
 
-        it "shows a button to publish" do
-          expect(page).to have_css("#collaborative_draft_publish", text: "PUBLISH")
+        it "shows the buttons to publish or withdraw" do
+          expect(page).to have_button("Publish")
+          expect(page).to have_button("withdraw the draft")
         end
 
         it "shows a button to edit" do

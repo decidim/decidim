@@ -1,158 +1,153 @@
----
-id-ID:
+id:
   activemodel:
     attributes:
       debate:
-        category_id: Category
-        decidim_category_id: Category
-        description: Description
-        end_time: Ends at
-        information_updates: Information updates
-        instructions: Instructions to participate
-        start_time: Starts at
-        title: Title
-        user_group_id: Create debate as
+        category_id: Kategori
+        decidim_category_id: Kategori
+        description: Deskripsi
+        end_time: Berakhir pada
+        information_updates: Pembaruan informasi
+        instructions: Instruksi untuk berpartisipasi
+        start_time: Mulai dari
+        title: Judul
+        user_group_id: Buat debat sebagai
     models:
-      decidim/debates/create_debate_event: Debate
-      decidim/debates/creation_disabled_event: Debates disabled
-      decidim/debates/creation_enabled_event: Debates enabled
+      decidim/debates/create_debate_event: Perdebatan
+      decidim/debates/creation_disabled_event: Debat dinonaktifkan
+      decidim/debates/creation_enabled_event: Debat diaktifkan
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: Debates
+        other: Debat
   decidim:
     components:
       debates:
         actions:
-          create: Create
-        name: Debates
+          create: Membuat
+        name: Debat
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: Pengumuman
+            comments_enabled: Komentar diaktifkan
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            creation_enabled: Debate creation by users enabled
+            announcement: Pengumuman
+            comments_blocked: Komentar diblokir
+            creation_enabled: Pembuatan debat oleh peserta diaktifkan
     debates:
       actions:
-        confirm_destroy: Are you sure?
-        destroy: Delete
+        confirm_destroy: Apakah kamu yakin
+        destroy: Menghapus
         edit: Edit
-        new: New %{name}
-        title: Actions
+        new: Baru %{name}
+        title: Tindakan
       admin:
         debates:
           create:
-            invalid: There has been a problem while creating the debate.
-            success: Debate created successfully.
+            invalid: Terjadi masalah saat membuat debat.
+            success: Debat berhasil dibuat.
           destroy:
-            success: Debate deleted successfully.
+            success: Debat berhasil dihapus.
           edit:
-            title: Edit debate
-            update: Update debate
+            title: Edit debat
+            update: Perbarui debat
           index:
-            title: Debates
+            title: Debat
           new:
-            create: Create debate
-            title: New debate
+            create: Buat debat
+            title: Debat baru
           update:
-            invalid: There has been a problem while updating this debate.
-            success: Debate updated successfully.
-        exports:
-          comments: comments
-          debates: debates
+            invalid: Ada masalah saat memperbarui debat ini.
+            success: Debat berhasil diperbarui.
         models:
           debate:
-            name: Debate
+            name: Perdebatan
       admin_log:
         debate:
-          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+          create: "%{user_name} menciptakan debat %{resource_name} pada %{space_name} ruang"
+          update: "%{user_name} memperbarui perdebatan %{resource_name} pada %{space_name} ruang"
       debates:
         count:
           debates_count:
-            one: "%{count} debate"
-            other: "%{count} debates"
+            other: "%{count} debat"
         create:
-          invalid: There has been a problem while creating the debate.
-          success: Debate created successfully.
+          invalid: Terjadi masalah saat membuat debat.
+          success: Debat berhasil dibuat.
         debate:
-          participate: Participate
+          participate: Ikut
         filters:
-          all: All
-          category: Category
-          category_prompt: Select a category
-          citizens: Citizens
-          official: Official
-          origin: Origin
-          search: Search
+          all: Semua
+          category: Kategori
+          category_prompt: Pilih Kategori
+          citizens: Warga
+          official: Resmi
+          origin: Asal
+          search: Pencarian
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Tutup modal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Saring menurut
+          unfold: Membuka
         index:
-          new_debate: New debate
+          new_debate: Debat baru
         new:
-          back: Back
-          create: Create
-          select_a_category: Please select a category
-          title: New debate
+          back: Kembali
+          create: Membuat
+          select_a_category: Silakan pilih kategori
+          title: Debat baru
         share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
+          close_window: Tutup jendela
+          share: Bagikan
+          share_link: Membagikan tautan
       last_activity:
-        new_debate_at_html: "<span>New debate at %{link}</span>"
+        new_debate_at_html: "<span>Debat baru di %{link}</span>"
       models:
         debate:
           fields:
-            end_time: End date
-            official_debate: Official debate
-            start_time: Start date
-            title: Title
+            end_time: Tanggal akhir
+            official_debate: Debat resmi
+            start_time: Mulai tanggal
+            title: Judul
     events:
       debates:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hi,
-              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
-            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" on %{space_title}
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+              Hai,
+              Debat baru "%{resource_title}" telah dibuat di %{space_title} ruang partisipatif, periksa dan berkontribusi:
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{space_title} ruang partisipatif. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+            email_subject: Perdebatan baru "%{resource_title}" pada %{space_title}
+            notification_title: Debat <a href="%{resource_path}">%{resource_title}</a> dibuat pada <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hi,
-              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
-            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" by %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
+              Hai,
+              %{author_name} %{author_nickname}, yang Anda ikuti, telah membuat debat baru "%{resource_title}". Lihat dan berkontribusi:
+            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+            email_subject: Perdebatan baru "%{resource_title}" oleh %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> menciptakan debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Debate creation disabled in %{participatory_space_title}
-          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Pembuatan debat tidak lagi aktif dalam %{participatory_space_title}. Anda masih dapat berpartisipasi dalam debat terbuka dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+          email_subject: Pembuatan debat dinonaktifkan pada %{participatory_space_title}
+          notification_title: Pembuatan debat sekarang dinonaktifkan di <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Debates now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Anda sekarang dapat memulai debat baru dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+          email_subject: Debat sekarang tersedia dalam %{participatory_space_title}
+          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">debat baru</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
-          conditions: '["Choose an open debate to take part in"]'
-          description: This badge is granted when you actively participate in the different debates by leaving your comments.
-          description_another: This user has participated in %{score} debates.
-          description_own: You have participated in %{score} debates.
-          name: Debates
-          next_level_in: Participate in %{score} more debates to reach the next level!
-          unearned_another: This user hasn't participated in any debate yet.
-          unearned_own: You haven't participated in any debates yet.
+          conditions:
+            - Pilih debat terbuka untuk ikut serta
+          description: Lencana ini diberikan ketika Anda berpartisipasi aktif dalam berbagai debat dengan meninggalkan komentar Anda.
+          description_another: Peserta ini telah mengambil bagian dalam %{score} debat.
+          description_own: Anda telah berpartisipasi dalam %{score} debat.
+          name: Debat
+          next_level_in: Berpartisipasi dalam %{score} debat lagi untuk mencapai level selanjutnya!
+          unearned_another: Peserta ini belum ikut serta dalam debat apa pun.
+          unearned_own: Anda belum berpartisipasi dalam debat apa pun.
     metrics:
       debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
+        description: Jumlah perdebatan dibuat
+        object: debat
+        title: Debat

@@ -1,158 +1,155 @@
----
-tr-TR:
+tr:
   activemodel:
     attributes:
       debate:
-        category_id: Category
-        decidim_category_id: Category
-        description: Description
-        end_time: Ends at
-        information_updates: Information updates
-        instructions: Instructions to participate
-        start_time: Starts at
-        title: Title
-        user_group_id: Create debate as
+        category_id: Kategori
+        decidim_category_id: Kategori
+        description: Açıklama
+        end_time: Biter
+        information_updates: Bilgi güncellemeleri
+        instructions: Katılma talimatları
+        start_time: Den başlar
+        title: Başlık
+        user_group_id: Olarak tartışma oluştur
     models:
-      decidim/debates/create_debate_event: Debate
-      decidim/debates/creation_disabled_event: Debates disabled
-      decidim/debates/creation_enabled_event: Debates enabled
+      decidim/debates/create_debate_event: tartışma
+      decidim/debates/creation_disabled_event: Tartışmalar devre dışı bırakıldı
+      decidim/debates/creation_enabled_event: Tartışmalar etkin
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: Debates
+        one: tartışma
+        other: Tartışmalar
   decidim:
     components:
       debates:
         actions:
-          create: Create
-        name: Debates
+          create: yaratmak
+        name: Tartışmalar
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: duyuru
+            comments_enabled: Yorumlar etkin
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            creation_enabled: Debate creation by users enabled
+            announcement: duyuru
+            comments_blocked: Yorumlar engellendi
+            creation_enabled: Katılımcılar tarafından tartışma yaratıldı etkin
     debates:
       actions:
-        confirm_destroy: Are you sure?
-        destroy: Delete
-        edit: Edit
-        new: New %{name}
-        title: Actions
+        confirm_destroy: Emin misiniz?
+        destroy: silmek
+        edit: Düzenle
+        new: Yeni %{name}
+        title: Eylemler
       admin:
         debates:
           create:
-            invalid: There has been a problem while creating the debate.
-            success: Debate created successfully.
+            invalid: Tartışmayı oluştururken bir sorun oluştu.
+            success: Tartışma başarıyla oluşturuldu.
           destroy:
-            success: Debate deleted successfully.
+            success: Tartışma başarıyla silindi.
           edit:
-            title: Edit debate
-            update: Update debate
+            title: Tartışmayı düzenle
+            update: Tartışmayı güncelle
           index:
-            title: Debates
+            title: Tartışmalar
           new:
-            create: Create debate
-            title: New debate
+            create: Tartışma oluştur
+            title: Yeni tartışma
           update:
-            invalid: There has been a problem while updating this debate.
-            success: Debate updated successfully.
-        exports:
-          comments: comments
-          debates: debates
+            invalid: Bu tartışmayı güncellerken bir sorun oluştu.
+            success: Tartışma başarıyla güncellendi.
         models:
           debate:
-            name: Debate
+            name: tartışma
       admin_log:
         debate:
-          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+          create: "%{user_name} , %{space_name} alanda %{resource_name} tartışmasını yarattı"
+          update: "%{user_name} , %{space_name} uzayda %{resource_name} tartışmasını güncelledi"
       debates:
         count:
           debates_count:
-            one: "%{count} debate"
-            other: "%{count} debates"
+            one: "%{count} tartışma"
+            other: "%{count} tartışmalar"
         create:
-          invalid: There has been a problem while creating the debate.
-          success: Debate created successfully.
+          invalid: Tartışmayı oluştururken bir sorun oluştu.
+          success: Tartışma başarıyla oluşturuldu.
         debate:
-          participate: Participate
+          participate: Katıl
         filters:
-          all: All
-          category: Category
-          category_prompt: Select a category
-          citizens: Citizens
-          official: Official
-          origin: Origin
-          search: Search
+          all: Herşey
+          category: Kategori
+          category_prompt: bir kategori seç
+          citizens: Vatandaşlar
+          official: Resmi
+          origin: Menşei
+          search: Arama
         filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          close_modal: Kalıcı modal
+          filter: filtre
+          filter_by: Tarafından filtre
+          unfold: açılmak
         index:
-          new_debate: New debate
+          new_debate: Yeni tartışma
         new:
-          back: Back
-          create: Create
-          select_a_category: Please select a category
-          title: New debate
+          back: Geri
+          create: yaratmak
+          select_a_category: Lütfen bir kategori seçin
+          title: Yeni tartışma
         share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
+          close_window: Pencereyi kapat
+          share: Pay
+          share_link: Linki paylaş
       last_activity:
-        new_debate_at_html: "<span>New debate at %{link}</span>"
+        new_debate_at_html: "<span> %{link}</span>yeni tartışma"
       models:
         debate:
           fields:
-            end_time: End date
-            official_debate: Official debate
-            start_time: Start date
-            title: Title
+            end_time: Bitiş tarihi
+            official_debate: Resmi tartışma
+            start_time: Başlangıç tarihi
+            title: Başlık
     events:
       debates:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hi,
-              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
-            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" on %{space_title}
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+              Merhaba,
+              %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
+            email_outro: '%{space_title} katılımcı alanı takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
+            email_subject: '%{space_title}yeni tartışma "%{resource_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> tartışması <a href="%{space_path}">%{space_title}</a>oluşturuldu.
           user_followers:
             email_intro: |-
-              Hi,
-              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
-            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" by %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
+              Merhaba,
+              %{author_name} %{author_nickname}, takip ettiğiniz, yeni bir "%{resource_title}" tartışması yarattı. Şuna bir bakın ve katkıda bulunun:
+            email_outro: '%{author_nickname}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
+            email_subject: Yeni tartışma "%{resource_title}" ile %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> tartışmasını yarattı.
         creation_disabled:
-          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Debate creation disabled in %{participatory_space_title}
-          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Tartışma oluşturma artık %{participatory_space_title}etkin değil. Bu sayfadaki açık tartışmalara hala katılabilirsiniz:'
+          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
+          email_subject: Tartışma oluşturma %{participatory_space_title}devre dışı
+          notification_title: Tartışma oluşturma şimdi <a href="%{participatory_space_url}">%{participatory_space_title}</a>devre dışı bırakıldı
         creation_enabled:
-          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Debates now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Artık %{participatory_space_title}yeni tartışmalara başlayabilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
+          email_subject: Şimdi tartışmalar %{participatory_space_title}
+          notification_title: Şimdi <a href="%{resource_path}">yeni tartışmaya başlayabilirsiniz.</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
-          conditions: '["Choose an open debate to take part in"]'
-          description: This badge is granted when you actively participate in the different debates by leaving your comments.
-          description_another: This user has participated in %{score} debates.
-          description_own: You have participated in %{score} debates.
-          name: Debates
-          next_level_in: Participate in %{score} more debates to reach the next level!
-          unearned_another: This user hasn't participated in any debate yet.
-          unearned_own: You haven't participated in any debates yet.
+          conditions:
+            - Katılmak için açık bir tartışma seçin
+          description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
+          description_another: Bu katılımcı %{score} tartışmada yer aldı.
+          description_own: '%{score} tartışmaya katıldınız.'
+          name: Tartışmalar
+          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
+          unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
+          unearned_own: Henüz herhangi bir tartışmaya katılamadınız.
     metrics:
       debates:
-        description: Number of debates created
-        object: debates
-        title: Debates
+        description: Oluşturulan tartışmaların sayısı
+        object: tartışmalar
+        title: Tartışmalar

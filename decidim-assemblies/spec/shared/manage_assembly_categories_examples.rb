@@ -104,7 +104,7 @@ shared_examples "manage assembly categories" do
             accept_confirm { click_link "Delete" }
           end
 
-          expect(page).to have_admin_callout("error deleting")
+          expect(page).to have_admin_callout("problem deleting")
 
           within "#categories table" do
             expect(page).to have_content(translated(category2.name))

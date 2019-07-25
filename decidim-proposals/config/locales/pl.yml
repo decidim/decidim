@@ -1,8 +1,8 @@
----
 pl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adres
         body: Ciało
         category_id: Kategoria
         decidim_scope_id: Zakres
@@ -11,7 +11,7 @@ pl:
         title: Tytuł
         user_group_id: Utwórz roboczą wersję roboczą jako
       proposal:
-        address: Address
+        address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziałem na
         automatic_hashtags: Hashtagi zostały automatycznie dodane
@@ -28,12 +28,23 @@ pl:
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent do skopiowania propozycji z
+      proposals_import:
+        import_proposals: Importuj propozycje
+        keep_authors: Zachowaj oryginalnych autorów
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Musi zostać ponownie podłączony
+            body:
+              identical: I tytuł nie może być identyczny
+            title:
+              identical: I ciało nie może być identyczne
     models:
       decidim/proposals/accepted_proposal_event: Wniosek przyjęty
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię oferty
@@ -48,29 +59,29 @@ pl:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
+        one: Wspólny projekt
         few: Wersje robocze współpracy
         many: Wersje robocze współpracy
-        one: Wspólny projekt
         other: Wersje robocze współpracy
       decidim/proposals/proposal:
+        one: Wniosek
         few: Propozycje
         many: Propozycje
-        one: Wniosek
         other: Propozycje
       decidim/proposals/proposal_endorsement:
+        one: Poparcie
         few: Adnotacje
         many: Adnotacje
-        one: Poparcie
         other: Adnotacje
       decidim/proposals/proposal_note:
+        one: Uwaga
         few: Uwagi
         many: Uwagi
-        one: Uwaga
         other: Uwagi
       decidim/proposals/proposal_vote:
+        one: Głosować
         few: Głosy
         many: Głosy
-        one: Głosować
         other: Głosy
   decidim:
     components:
@@ -117,16 +128,7 @@ pl:
             votes_blocked: Głosowanie zablokowane
             votes_enabled: Włączone głosowanie
             votes_hidden: Głosy są ukryte (jeśli głosy są włączone, zaznaczenie tego ukryje liczbę głosów)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
-      proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} zostało zaakceptowane, aby uzyskać dostęp jako współtwórca wspólnego projektu <a href="%{resource_path}">%{resource_title}</a>.'
@@ -174,15 +176,11 @@ pl:
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
             email_subject: Twoja propozycja została zaakceptowana
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
-          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'Wniosek "%{resource_title}" został zaakceptowany. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie poparło propozycję "%{resource_title}" i uważamy, że może być dla ciebie interesujące. Sprawdź i pomóż:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -194,15 +192,11 @@ pl:
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
             email_subject: Twoja propozycja jest oceniana
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> jest oceniana.
-          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
-          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
@@ -224,15 +218,11 @@ pl:
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
             email_subject: Twoja propozycja została odrzucona
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
-          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Propozycja, którą obserwujesz, została odrzucona
             notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została odrzucona.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
@@ -247,8 +237,8 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-          - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
-          - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób są bardziej prawdopodobne, że zostaną zaakceptowani.
+            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób są bardziej prawdopodobne, że zostaną zaakceptowani.
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach i są one akceptowane.
           description_another: Ten użytkownik otrzymał %{score} propozycji zaakceptowanych.
           description_own: Przyjęto %{score} propozycji.
@@ -258,8 +248,8 @@ pl:
           unearned_own: Nie otrzymałeś jeszcze żadnych propozycji.
         proposal_votes:
           conditions:
-          - Przeglądaj i spędzaj trochę czasu czytając propozycje innych osób
-          - Wspieraj propozycje, które lubisz lub które są interesujące
+            - Przeglądaj i spędzaj trochę czasu czytając propozycje innych osób
+            - Wspieraj propozycje, które lubisz lub które są interesujące
           description: Ta odznaka jest przyznawana, gdy wspierasz propozycje innych osób.
           description_another: Ten użytkownik udzielił wsparcia %{score} propozycji.
           description_own: Udzieliłeś wsparcia %{score} propozycji.
@@ -269,8 +259,8 @@ pl:
           unearned_own: Nie udzielałeś już wsparcia żadnym wnioskom.
         proposals:
           conditions:
-          - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
-          - Utwórz nową ofertę
+            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Utwórz nową ofertę
           description: Ta plakietka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
@@ -294,7 +284,7 @@ pl:
       votes:
         description: Liczba głosów uzyskanych w propozycjach przez użytkowników
         object: głosów
-        title: Głosowania
+        title: Głosy
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -336,8 +326,11 @@ pl:
             save_draft: Zapisz Projekt
             title: PREVIEW TEKST UCZESTNIKA
           new_import:
+            accepted_mime_types:
+              md: Obniżka cen
+              odt: Odt
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
-            document_legend: 'Dodaj dokument o wielkości mniejszej niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: Markdown'
+            document_legend: 'Dodaj dokument mniejszy niż 2 MB, a każda sekcja, aż do 3 poziomów, zostanie przeanalizowana w Propozycjach. Suportowane formaty to: %{valid_mime_types}'
             title: DODAJ DOKUMENT
             upload_document: Prześlij dokument
           publish:
@@ -481,9 +474,9 @@ pl:
           title: Uzupełnij swój wspólny projekt
         count:
           drafts_count:
+            one: "%{count} wspólny projekt"
             few: "%{count} wspólny projekt"
             many: "%{count} wspólny projekt"
-            one: "%{count} wspólny projekt"
             other: "%{count} wspólny projekt"
         create:
           error: Podczas tworzenia tych roboczych wersji roboczych wystąpił problem
@@ -540,9 +533,9 @@ pl:
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten projekt jest gotowy. Możesz zobaczyć końcową gotową propozycję
           hidden_authors_count:
+            one: i %{count} więcej osób
             few: i %{count} więcej osób
             many: i %{count} więcej osób
-            one: i %{count} więcej osób
             other: i %{count} więcej osób
           info-message: Jest to <strong>wspólny projekt</strong> dla wniosku. Oznacza to, że możesz pomóc swoim autorom w kształtowaniu propozycji za pomocą poniższej sekcji komentarza lub poprawić ją bezpośrednio, żądając dostępu, aby ją edytować. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tej wersji roboczej.
           of_versions: "(z %{number})"
@@ -624,7 +617,7 @@ pl:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
         compare:
-          continue: Continue
+          continue: dalej
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:
@@ -632,18 +625,13 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
+            one: "%{count} propozycji"
             few: "%{count} propozycji"
             many: "%{count} propozycji"
-            one: "%{count} propozycji"
             other: "%{count} propozycji"
-        dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address (don't forget to specify the city)
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
-          not_geocoded: Not geocoded
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Edytuj propozycję
@@ -678,9 +666,9 @@ pl:
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
+            one: głosować
             few: głosów
             many: głosów
-            one: głosować
             other: głosów
         new:
           send: dalej
@@ -695,20 +683,15 @@ pl:
             document_index: Indeks dokumentów
           view_index:
             see_index: Zobacz indeks
-        placeholder:
-          address: "[n°] [street] [postal] [city]"
         preview:
-          address: 'Address: %{address}'
           modify: Zmodyfikuj propozycję
-          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
-          update_pos: Update the position
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
@@ -717,9 +700,9 @@ pl:
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
+            one: i %{count} więcej osób
             few: i %{count} więcej osób
             many: i %{count} więcej osób
-            one: i %{count} więcej osób
             other: i %{count} więcej osób
           link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego projektu. Przejrzyj historię
           link_to_collaborative_draft_text: Zobacz wersję roboczą
@@ -740,22 +723,14 @@ pl:
           no_votes_remaining: Brak głosów
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
-        vote_weight:
-          maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
-          votes_blocked: Votes blocked
         votes_count:
           count:
+            one: GŁOSOWAĆ
             few: GŁOSOWANIA
             many: GŁOSY
-            one: GŁOSOWAĆ
             other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
-        votes_weight:
-          count: Count
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory
@@ -806,6 +781,9 @@ pl:
           version_number_out_of_total: "%{current_version} z %{total_count}"
         version:
           version_index: Wersja %{index}
+      withdraw:
+        errors:
+          has_supports: Ta propozycja nie może zostać wycofana, ponieważ ma już wsparcie.
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje

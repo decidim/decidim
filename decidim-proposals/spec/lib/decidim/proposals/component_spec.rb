@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
-  let!(:current_user) { create(:user, organization: component.participatory_space.organization) }
+  let!(:current_user) { create(:user, :admin, organization: component.participatory_space.organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
@@ -28,6 +28,47 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         end.to broadcast(:invalid)
 
         expect(component).not_to be_destroyed
+      end
+    end
+  end
+
+  describe "on update" do
+    context "when trying to change the `participatory_texts_enabled` setting" do
+      let(:form) do
+        instance_double(
+          Decidim::Admin::ComponentForm,
+          invalid?: !valid,
+          weight: 0,
+          name: {},
+          default_step_settings: {},
+          step_settings: {},
+          settings: {
+            participatory_texts_enabled: true
+          }
+        )
+      end
+
+      context "when there are no proposals for the component" do
+        let(:valid) { true }
+
+        it "updates the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to change {
+            component.settings.participatory_texts_enabled
+          }.from(false).to(true)
+        end
+      end
+
+      context "when there are proposals for the component" do
+        let(:proposal) { create(:proposal, component: component) }
+        let(:valid) { false }
+
+        it "does not update the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:invalid)
+        end
       end
     end
   end
@@ -102,6 +143,45 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it "counts the comments from visible proposals" do
         expect(Decidim::Comments::Comment.count).to eq 5
         expect(subject).to eq 2
+      end
+    end
+  end
+
+  describe "on edit", type: :system do
+    let(:edit_component_path) do
+      Decidim::EngineRouter.admin_proxy(component.participatory_space).edit_component_path(component.id)
+    end
+    let(:participatory_texts_enabled_checkbox) do
+      page.find("input[name='component[settings][participatory_texts_enabled]']")
+    end
+
+    before do
+      switch_to_host(component.organization.host)
+      login_as current_user, scope: :user
+    end
+
+    context "when there are no proposals for the component" do
+      before do
+        visit edit_component_path
+      end
+
+      it "ALLOWS the admin the enable the Participatory texts feature" do
+        expect(participatory_texts_enabled_checkbox[:class]).not_to include("disabled")
+      end
+    end
+
+    context "when there are proposals for the component" do
+      before do
+        create(:proposal, component: component)
+        visit edit_component_path
+      end
+
+      it "DOES NOT ALLOW the admin the enable the Participatory texts feature" do
+        expect(participatory_texts_enabled_checkbox[:class]).to include("disabled")
+
+        within ".help-text" do
+          expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
+        end
       end
     end
   end

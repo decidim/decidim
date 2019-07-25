@@ -8,6 +8,7 @@ module Decidim
       # Controller used to manage the available initiative types for the current
       # organization.
       class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
+        helper ::Decidim::Admin::ResourcePermissionsHelper
         helper_method :current_initiative_type
 
         # GET /admin/initiatives_types

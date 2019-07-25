@@ -13,6 +13,7 @@ module.exports = env => {
 
   const config = {
     entry: {
+      core: "./decidim-core/app/frontend/entry.ts",
       admin: "./decidim-admin/app/frontend/entry.ts",
       comments: "./decidim-comments/app/frontend/entry.ts",
     },

@@ -1,4 +1,3 @@
----
 es-PY:
   activemodel:
     attributes:
@@ -35,18 +34,25 @@ es-PY:
         grant_id_documents_offline_verification: "%{user_name} ha verificado %{resource_name} utilizando una verificación presencial mediante documentos de identidad"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas
+            - Solo las participantes con un correo electrónico en ese archivo CSV pueden ser verificadas
         id_documents:
           help:
-          - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
-          - Rellenas la información presente en la imagen subida.
-          - La información debe coincidir con lo que el usuario envió.
-          - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+            - Rellenas la información presente en la imagen subida.
+            - La información debe coincidir con lo que el usuario envió.
+            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
           help:
-          - Los usuarios solicitan que se envíe un código de verificación a su dirección.
-          - Envías la carta a su dirección con el código de verificación.
-          - Marcas la carta como enviada.
-          - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+            - Envías la carta a su dirección con el código de verificación.
+            - Marcas la carta como enviada.
+            - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
+      csv_census:
+        explanation: Verifíquese utilizando el censo de la organización.
+        name: Censo de la organización
       direct: Directo
       help: Ayuda
       id_documents:
@@ -66,6 +72,7 @@ es-PY:
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
+            csv_census: Verificar contra el censo de la organización.
             dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
             dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
             id_documents: Verifícate subiendo tu documento de identidad
@@ -77,6 +84,33 @@ es-PY:
           authorize_with: Verificar con %{authorizer}
         skip_verification: Puedes saltarte este paso por ahora y %{link}
         start_exploring: empezar a explorar
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Hubo un error al importar el censo.
+              success: '%{count} artículos importados exitosamente (%{errors} errores)'
+            destroy_all:
+              success: Todos los datos del censo han sido eliminados
+          destroy:
+            confirm: Eliminar todo el censo no se puede deshacer. Estás seguro de que quieres continuar?
+            title: Borrar todos los datos del censo
+          index:
+            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}
+            empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
+            title: Datos actuales del censo
+          instructions:
+            body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
+            title: Necesitas activar el censo csv para esta organización.
+          new:
+            file: "archivo .csv con datos de correos electrónicos"
+            info: 'Debe ser un archivo con formato CSV con una columna: correo electrónico'
+            submit: Subir archivo
+            title: Subir un nuevo censo
+        authorizations:
+          new:
+            error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
+            success: Su cuenta ha sido verificada con éxito.
       dummy_authorization:
         extra_explanation:
           one: La participación está restringida a usuarios con el código postal %{postal_codes}.
@@ -101,7 +135,7 @@ es-PY:
           offline_confirmations:
             create:
               error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
-              success: El usuario ha sido verificado correctamente
+              success: Usuario verificado correctamente
             new:
               cancel: Cancelar
               introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
@@ -159,7 +193,7 @@ es-PY:
         authorizations:
           create:
             error: Hubo un problema con su petición
-            success: "¡Gracias! Te enviaremos un código de verificación a tu dirección"
+            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
             title: Introduce el código de verificación que recibiste
@@ -174,8 +208,13 @@ es-PY:
         authorizations:
           create:
             error: Hubo un problema con tu solicitud
-            success: "¡Gracias! Hemos enviado un SMS a tu teléfono."
+            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+          destroy:
+            success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
           edit:
+            confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
+            destroy: Restablecer código de verificación
+            resend: '¿No has recibido el código de verificación?'
             send: Confirmar
             title: Introduce el código de verificación que has recibido
           new:

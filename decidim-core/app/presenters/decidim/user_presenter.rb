@@ -26,6 +26,8 @@ module Decidim
 
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
+
+      # OSP safety net
       return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
@@ -33,6 +35,8 @@ module Decidim
 
     def profile_path
       return "" if respond_to?(:deleted?) && deleted?
+      
+      # OSP safety net
       return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_path(__getobj__.nickname)

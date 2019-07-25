@@ -3,11 +3,11 @@ ca:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informació sobre el sorteig
-        decidim_category_id: Categories del conjunt de propostes en què voleu aplicar el sorteig
+        additional_info: Informació del sorteig
+        decidim_category_id: Categories del conjunt de propostes en què vols aplicar el sorteig
         decidim_proposals_component_id: Propostes establertes
-        dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de 1 a 6 i introdueix-lo aquí, a diferència de ser testimoni del resultat. Això contribueix en la qualitat de l'aleatorietat
-        target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
+        dice: Resultat de la tirada de daus. Tira un dau de sis cares o busca alguna altra manera de generar un número de l'u al sis i introdueix-lo aquí davant d'algunes testimonies. Això contribueix en la qualitat i garantia de l'aletorietat del resultat
+        target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que vols seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
     models:
@@ -27,9 +27,9 @@ ca:
     events:
       sortitions:
         sortition_created:
-          email_intro: S'ha afegit el sorteig "%{resource_title}" a "%{participatory_space_title}", que segueixes.
+          email_intro: El sorteig "%{resource_title}" s'ha afegit a "%{participatory_space_title}" que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha afegit un nou sorteig a %{participatory_space_title}
+          email_subject: Nou sorteig afegit a %{participatory_space_title}
           notification_title: El sorteig <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
     pages:
       home:
@@ -50,10 +50,10 @@ ca:
             fields:
               category: Categoria
               created_at: Data de creació
-              decidim_proposals_component: Component de propostes
-              dice: Daus
+              decidim_proposals_component: Component de Propostes
+              dice: Dau
               reference: Referència
-              request_timestamp: Temps de dibuixat
+              request_timestamp: Temps de dibuixar
               seed: Llavor
               target_items: Elements a seleccionar
               title: Títol
@@ -62,7 +62,7 @@ ca:
               other: Sortejos
         sortitions:
           confirm_destroy:
-            confirm_destroy: Estàs segur que vols cancel·lar aquest sorteig?
+            confirm_destroy: Estàs segura que vols cancel·lar aquest sorteig?
             destroy: Cancel·lar el sorteig
             title: Cancel·lació del sorteig
           create:
@@ -88,7 +88,7 @@ ca:
             selected_proposals: Propostes seleccionades per al sorteig
           update:
             error: S'ha produït un error en actualitzar el sorteig.
-            success: El sorteig s'ha actualitzat amb èxit
+            success: El sorteig s'ha actualitzat correctament
       admin_log:
         sortition:
           create: "%{user_name} ha creat el sorteig %{resource_name} a %{space_name}"
@@ -102,7 +102,7 @@ ca:
         filters:
           active: Actius
           all: Tots
-          cancelled: Cancel·lats
+          cancelled: Cancel·lat
           category: Categoria
           category_prompt: Selecciona una categoria
           search: Cerca
@@ -115,7 +115,7 @@ ca:
         linked_sortitions:
           selected_proposals: Propostes seleccionades
         orders:
-          label: 'Ordeneu els sortejos per:'
+          label: 'Ordena els sortejos per:'
           random: Aleatori
           recent: Recent
         results_count:
@@ -143,9 +143,9 @@ ca:
             other: "%{count} propostes seleccionades"
           view: Veure
         sortition_author:
-          deleted: Usuari eliminat
+          deleted: Participant eliminada
         sortition_cancel_author:
-          deleted: Usuari eliminat
+          deleted: Participant eliminada
         sortitions_count:
           count:
             one: 1 sorteig

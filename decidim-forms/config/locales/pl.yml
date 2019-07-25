@@ -78,3 +78,6 @@ pl:
             title: Ankieta została zamknięta
           submit: Zatwierdź
           tos_agreement: Biorąc udział w programie, akceptujesz jego Warunki korzystania z usługi
+      user_answers_serializer:
+        created_at: Odpowiedziałem na
+        id: ID odpowiedzi

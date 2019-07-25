@@ -30,8 +30,8 @@ shared_examples "Managing component permissions" do
     it "saves permission settings in the component" do
       within "form.new_component_permissions" do
         within ".foo-permission" do
-          select "Example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-          fill_in "component_permissions_permissions_foo_options_postal_code", with: "08002"
+          check "Example authorization (Direct)"
+          fill_in "Postal code", with: "08002"
         end
         find("*[type=submit]").click
       end
@@ -40,8 +40,11 @@ shared_examples "Managing component permissions" do
 
       expect(component.reload.permissions["foo"]).to(
         include(
-          "authorization_handler_name" => "dummy_authorization_handler",
-          "options" => { "postal_code" => "08002" }
+          "authorization_handlers" => {
+            "dummy_authorization_handler" => {
+              "options" => { "postal_code" => "08002" }
+            }
+          }
         )
       )
     end
@@ -52,8 +55,11 @@ shared_examples "Managing component permissions" do
       component.update!(
         permissions: {
           "foo" => {
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "postal_code" => "08002" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "postal_code" => "08002" }
+              }
+            }
           }
         }
       )
@@ -66,7 +72,8 @@ shared_examples "Managing component permissions" do
     it "removes the action from the permissions hash" do
       within "form.new_component_permissions" do
         within ".foo-permission" do
-          select "Everyone", from: "component_permissions_permissions_foo_authorization_handler_name"
+          uncheck "Example authorization (Direct)"
+          uncheck "Another example authorization (Direct)"
         end
 
         find("*[type=submit]").click
@@ -83,8 +90,11 @@ shared_examples "Managing component permissions" do
       component.update!(
         permissions: {
           "foo" => {
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "postal_code" => "08002" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "postal_code" => "08002" }
+              }
+            }
           }
         }
       )
@@ -97,8 +107,9 @@ shared_examples "Managing component permissions" do
     it "changes the configured action in the permissions hash" do
       within "form.new_component_permissions" do
         within ".foo-permission" do
-          select "Another example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-          fill_in "component_permissions_permissions_foo_options_passport_number", with: "AXXXXXXXX"
+          uncheck "Example authorization (Direct)"
+          check "Another example authorization (Direct)"
+          fill_in "Passport number", with: "AXXXXXXXX"
         end
 
         find("*[type=submit]").click
@@ -108,8 +119,37 @@ shared_examples "Managing component permissions" do
 
       expect(component.reload.permissions["foo"]).to(
         include(
-          "authorization_handler_name" => "another_dummy_authorization_handler",
-          "options" => { "passport_number" => "AXXXXXXXX" }
+          "authorization_handlers" => {
+            "another_dummy_authorization_handler" => {
+              "options" => { "passport_number" => "AXXXXXXXX" }
+            }
+          }
+        )
+      )
+    end
+
+    it "adds an authorization to the configured action in the component permissions hash" do
+      within "form.new_component_permissions" do
+        within ".foo-permission" do
+          check "Another example authorization (Direct)"
+          fill_in "Passport number", with: "AXXXXXXXX"
+        end
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("successfully")
+
+      expect(component.reload.permissions["foo"]).to(
+        include(
+          "authorization_handlers" => {
+            "dummy_authorization_handler" => {
+              "options" => { "postal_code" => "08002" }
+            },
+            "another_dummy_authorization_handler" => {
+              "options" => { "passport_number" => "AXXXXXXXX" }
+            }
+          }
         )
       )
     end
@@ -154,8 +194,8 @@ shared_examples "Managing component permissions" do
       it "saves permission settings for the resource" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
-            select "Example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-            fill_in "component_permissions_permissions_foo_options_postal_code", with: "08002"
+            check "Example authorization (Direct)"
+            fill_in "Postal code", with: "08002"
           end
           find("*[type=submit]").click
         end
@@ -164,8 +204,11 @@ shared_examples "Managing component permissions" do
 
         expect(resource.reload.permissions["foo"]).to(
           include(
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "postal_code" => "08002" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "postal_code" => "08002" }
+              }
+            }
           )
         )
         expect(component.reload.permissions).to be_nil
@@ -177,8 +220,11 @@ shared_examples "Managing component permissions" do
         resource.create_resource_permission(
           permissions: {
             "foo" => {
-              "authorization_handler_name" => "dummy_authorization_handler",
-              "options" => { "postal_code" => "08002" }
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => {
+                  "options" => { "postal_code" => "08002" }
+                }
+              }
             }
           }
         )
@@ -189,7 +235,8 @@ shared_examples "Managing component permissions" do
       it "removes the action from the permissions hash" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
-            select "Everyone", from: "component_permissions_permissions_foo_authorization_handler_name"
+            uncheck "Example authorization (Direct)"
+            uncheck "Another example authorization (Direct)"
           end
 
           find("*[type=submit]").click
@@ -206,8 +253,11 @@ shared_examples "Managing component permissions" do
         resource.create_resource_permission(
           permissions: {
             "foo" => {
-              "authorization_handler_name" => "dummy_authorization_handler",
-              "options" => { "postal_code" => "08002" }
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => {
+                  "options" => { "postal_code" => "08002" }
+                }
+              }
             }
           }
         )
@@ -218,8 +268,9 @@ shared_examples "Managing component permissions" do
       it "changes the configured action in the resource permissions hash" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
-            select "Another example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-            fill_in "component_permissions_permissions_foo_options_passport_number", with: "AXXXXXXXX"
+            uncheck "Example authorization (Direct)"
+            check "Another example authorization (Direct)"
+            fill_in "Passport number", with: "AXXXXXXXX"
           end
 
           find("*[type=submit]").click
@@ -229,8 +280,37 @@ shared_examples "Managing component permissions" do
 
         expect(resource.reload.permissions["foo"]).to(
           include(
-            "authorization_handler_name" => "another_dummy_authorization_handler",
-            "options" => { "passport_number" => "AXXXXXXXX" }
+            "authorization_handlers" => {
+              "another_dummy_authorization_handler" => {
+                "options" => { "passport_number" => "AXXXXXXXX" }
+              }
+            }
+          )
+        )
+      end
+
+      it "adds an authorization to the configured action in the resource permissions hash" do
+        within "form.new_component_permissions" do
+          within ".foo-permission" do
+            check "Another example authorization (Direct)"
+            fill_in "Passport number", with: "AXXXXXXXX"
+          end
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("DUMMY ADMIN ENGINE")
+
+        expect(resource.reload.permissions["foo"]).to(
+          include(
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "postal_code" => "08002" }
+              },
+              "another_dummy_authorization_handler" => {
+                "options" => { "passport_number" => "AXXXXXXXX" }
+              }
+            }
           )
         )
       end
@@ -241,8 +321,11 @@ shared_examples "Managing component permissions" do
         component.update!(
           permissions: {
             "foo" => {
-              "authorization_handler_name" => "dummy_authorization_handler",
-              "options" => { "postal_code" => "08002" }
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => {
+                  "options" => { "postal_code" => "08002" }
+                }
+              }
             }
           }
         )
@@ -253,8 +336,9 @@ shared_examples "Managing component permissions" do
       it "changes the configured action in the resource permissions hash" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
-            select "Another example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-            fill_in "component_permissions_permissions_foo_options_passport_number", with: "AXXXXXXXX"
+            uncheck "Example authorization (Direct)"
+            check "Another example authorization (Direct)"
+            fill_in "Passport number", with: "AXXXXXXXX"
           end
 
           find("*[type=submit]").click
@@ -264,15 +348,37 @@ shared_examples "Managing component permissions" do
 
         expect(resource.reload.permissions["foo"]).to(
           include(
-            "authorization_handler_name" => "another_dummy_authorization_handler",
-            "options" => { "passport_number" => "AXXXXXXXX" }
+            "authorization_handlers" => {
+              "another_dummy_authorization_handler" => {
+                "options" => { "passport_number" => "AXXXXXXXX" }
+              }
+            }
           )
         )
+      end
 
-        expect(component.reload.permissions["foo"]).to(
+      it "adds an authorization to the configured action in the resource permissions hash" do
+        within "form.new_component_permissions" do
+          within ".foo-permission" do
+            check "Another example authorization (Direct)"
+            fill_in "Passport number", with: "AXXXXXXXX"
+          end
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("DUMMY ADMIN ENGINE")
+
+        expect(resource.reload.permissions["foo"]).to(
           include(
-            "authorization_handler_name" => "dummy_authorization_handler",
-            "options" => { "postal_code" => "08002" }
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => {
+                "options" => { "postal_code" => "08002" }
+              },
+              "another_dummy_authorization_handler" => {
+                "options" => { "passport_number" => "AXXXXXXXX" }
+              }
+            }
           )
         )
       end
@@ -283,8 +389,11 @@ shared_examples "Managing component permissions" do
         component.update!(
           permissions: {
             "foo" => {
-              "authorization_handler_name" => "dummy_authorization_handler",
-              "options" => { "postal_code" => "08002" }
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => {
+                  "options" => { "postal_code" => "08002" }
+                }
+              }
             }
           }
         )
@@ -294,7 +403,8 @@ shared_examples "Managing component permissions" do
       it "saves the action from the permissions hash as an empty hash" do
         within "form.new_component_permissions" do
           within ".foo-permission" do
-            select "Everyone", from: "component_permissions_permissions_foo_authorization_handler_name"
+            uncheck "Example authorization (Direct)"
+            uncheck "Another example authorization (Direct)"
           end
 
           find("*[type=submit]").click

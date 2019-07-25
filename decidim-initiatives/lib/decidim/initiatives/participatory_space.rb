@@ -11,7 +11,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::Initiatives::AdminEngine
-    context.layout = "layouts/decidim/admin/initiatives"
+    context.layout = "layouts/decidim/admin/initiative"
   end
 
   participatory_space.participatory_spaces do |organization|
@@ -21,6 +21,11 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.register_resource(:initiative) do |resource|
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"
+  end
+
+  participatory_space.register_resource(:initiatives_type) do |resource|
+    resource.model_class_name = "Decidim::InitiativesType"
+    resource.actions = %w(vote)
   end
 
   participatory_space.model_class_name = "Decidim::Initiative"

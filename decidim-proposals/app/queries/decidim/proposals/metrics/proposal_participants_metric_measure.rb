@@ -34,7 +34,13 @@ module Decidim
         def retrieve_proposals(from_start = false)
           @proposals ||= Decidim::Proposals::Proposal.where(component: @resource).joins(:coauthorships)
                                                      .includes(:votes, :endorsements)
-                                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+                                                     .where(decidim_coauthorships: {
+                                                              decidim_author_type: [
+                                                                "Decidim::UserBaseEntity",
+                                                                "Decidim::Organization",
+                                                                "Decidim::Meetings::Meeting"
+                                                              ]
+                                                            })
                                                      .where("decidim_proposals_proposals.published_at <= ?", end_time)
                                                      .except_withdrawn
 

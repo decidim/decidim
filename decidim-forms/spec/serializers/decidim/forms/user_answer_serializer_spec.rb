@@ -58,6 +58,20 @@ module Decidim
             "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["Free text"]
           )
         end
+
+        context "and includes the attributes" do
+          let!(:an_answer) { create(:answer, questionnaire: questionnaire, question: questions.sample, user: user) }
+
+          it "the id of the answer" do
+            key = I18n.t(:id, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq an_answer.id
+          end
+
+          it "the creation of the answer" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq an_answer.created_at.to_s(:db)
+          end
+        end
       end
     end
   end

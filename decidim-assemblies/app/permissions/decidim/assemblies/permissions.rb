@@ -85,17 +85,18 @@ module Decidim
                       [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
-        return disallow! if cannot_view_private_space
+        return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
 
         toggle_allow(can_manage_assembly?)
       end
 
-      def cannot_view_private_space
-        return unless assembly.private_space && !assembly.is_transparent
+      def can_view_private_space?
+        return true unless assembly.private_space && !assembly.is_transparent?
+        return false unless user
 
-        !user || !user.admin && !assembly.users.include?(user)
+        user.admin || assembly.users.include?(user)
       end
 
       def public_list_members_action?
@@ -176,7 +177,7 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Process admins can eprform everything *inside* that assembly. They cannot
+      # Process admins can perform everything *inside* that assembly. They cannot
       # create a assembly or perform actions on assembly groups or other
       # assemblies.
       def assembly_admin_action?

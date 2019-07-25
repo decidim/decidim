@@ -35,7 +35,7 @@ fi:
             name: Suunnitelma
         projects:
           create:
-            invalid: Suunnitelman luonnissa tapahtui virhe
+            invalid: Suunnitelman luonti epäonnistui
             success: Suunnitelma lisätty onnistuneesti
           destroy:
             success: Suunnitelma poistettu onnistuneesti
@@ -53,11 +53,11 @@ fi:
             create: Luo
             title: Uusi suunnitelma
           update:
-            invalid: Tämän suunnitelman päivityksessä tapahtui virhe
+            invalid: Suunnitelman päivitys epäonnistui
             success: Suunnitelma päivitetty onnistuneesti
         proposals_imports:
           create:
-            invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
+            invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiin"
           new:
             create: Tuo ehdotuksia suunnitelmiin
@@ -90,7 +90,7 @@ fi:
           assigned: 'Varattu:'
           cancel_order: poista äänesi ja aloita alusta
           checked_out:
-            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
           description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
           description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
@@ -180,10 +180,10 @@ fi:
           notification_title: Your vote has been validated
     orders:
       checkout:
-        error: Äänesi käsittelyssä tapahtui virhe
+        error: Äänen käsittely epäonnistui
         success: Äänesi on hyväksytty onnistuneesti
       destroy:
-        error: Äänesi peruutuksen yhteydessä tapahtui virhe
+        error: Äänen peruutus epäonnistui
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:

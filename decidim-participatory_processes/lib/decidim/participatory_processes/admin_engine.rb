@@ -52,7 +52,6 @@ module Decidim
               put :unreport
               put :hide
               put :unhide
-              put :authorize
             end
           end
           resources :participatory_space_private_users, controller: "participatory_space_private_users" do

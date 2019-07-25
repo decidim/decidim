@@ -105,7 +105,7 @@ describe("<Comment />", () => {
       comment.author.deleted = true;
     });
 
-    it("should render 'Deleted user' inside a badge", () => {
+    it("should render 'Deleted participant' inside a badge", () => {
       const wrapper = shallow(
         <Comment
           comment={comment}
@@ -116,7 +116,7 @@ describe("<Comment />", () => {
       );
       expect(
         wrapper.find("span.label.label--small.label--basic").text()
-      ).toEqual("Deleted user");
+      ).toEqual("Deleted participant");
     });
   });
 
@@ -405,6 +405,62 @@ describe("<Comment />", () => {
         />
       );
       expect(wrapper.find(DownVoteButton).prop("comment")).toEqual(comment);
+    });
+  });
+
+  describe("when user is not allowed to comment", () => {
+    beforeEach(() => {
+      comment.userAllowedToComment = false;
+    });
+
+    it("should not render reply button", () => {
+      const wrapper = shallow(
+        <Comment
+          comment={comment}
+          session={session}
+          rootCommentable={rootCommentable}
+          orderBy={orderBy}
+        />
+      );
+      expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
+    });
+
+    it("should not render the flag modal", () => {
+      const wrapper = shallow(
+        <Comment
+          comment={comment}
+          session={session}
+          rootCommentable={rootCommentable}
+          orderBy={orderBy}
+        />
+      );
+      expect(wrapper.find(".flag-modal").exists()).toBeFalsy();
+    });
+
+    it("should not render an UpVoteButton component", () => {
+      const wrapper = shallow(
+        <Comment
+          comment={comment}
+          session={session}
+          votable={true}
+          rootCommentable={rootCommentable}
+          orderBy={orderBy}
+        />
+      );
+      expect(wrapper.find(".comment__votes--up").exists()).toBeFalsy();
+    });
+
+    it("should not render an DownVoteButton component", () => {
+      const wrapper = shallow(
+        <Comment
+          comment={comment}
+          session={session}
+          votable={true}
+          rootCommentable={rootCommentable}
+          orderBy={orderBy}
+        />
+      );
+      expect(wrapper.find(".comment__votes--down").exists()).toBeFalsy();
     });
   });
 });

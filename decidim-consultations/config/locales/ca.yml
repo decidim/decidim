@@ -1,9 +1,8 @@
----
 ca:
   activemodel:
     attributes:
       consultation:
-        banner_image: Imatge del bàner
+        banner_image: Imatge del banner
         decidim_highlighted_scope_id: Abast destacat
         description: Descripció
         end_voting_date: La votació finalitza
@@ -15,12 +14,12 @@ ca:
         subtitle: Subtítol
         title: Títol
       question:
-        banner_image: Imatge del bàner
+        banner_image: Imatge del banner
         decidim_scope_id: Àrea municipal
-        hashtag: Etiqueta
-        hero_image: Imatge inicial
+        hashtag: Hashtag
+        hero_image: Imatge de la pàgina d'inici
         i_frame_url: URL del sistema de votació externa
-        origin_scope: Abast
+        origin_scope: Àmbit
         origin_title: Origen
         origin_url: URL d'origen
         participatory_scope: Àmbit participatiu
@@ -28,15 +27,15 @@ ca:
         question_context: Context
         reference: Referència
         scope: Àrea municipal
-        slug: URL slug
+        slug: Nom curt d'URL
         subtitle: Subtítol
         title: Títol
         vote: Sistema de votació extern
-        what_is_decided: El que es decideix
+        what_is_decided: Què es decideix
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: La resposta no s'ha trobat.
+          not_found: La resposta no trobada.
   activerecord:
     models:
       decidim/consultation:
@@ -49,8 +48,8 @@ ca:
         one: Resposta
         other: Respostes
       decidim/consultations/vote:
-        one: Vot
-        other: Vots
+        one: Suports
+        other: Suports
   decidim:
     admin:
       actions:
@@ -62,28 +61,28 @@ ca:
       consultation_publications:
         create:
           error: S'ha produït un error en publicar aquesta consulta.
-          success: S'ha publicat la consulta amb èxit.
+          success: S'ha publicat la consulta correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta consulta.
-          success: La consulta no s'ha publicat correctament.
+          error: S'ha produït un error en despublicar aquesta consulta.
+          success: La consulta s'ha despublicat correctament.
       consultation_results_publications:
         create:
           error: S'ha produït un error en publicar els resultats d'aquesta consulta.
           success: Els resultats de la consulta s'han publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar els resultats d'aquesta consulta.
-          success: Els resultats de la consulta no s'han publicat correctament.
+          error: S'ha produït un error en despublicar els resultats d'aquesta consulta.
+          success: Els resultats de la consulta s'han despublicat correctament.
       consultations:
         create:
           error: S'ha produït un error en crear una nova consulta.
-          success: S'ha creat la consulta amb èxit.
+          success: S'ha creat la consulta correctament.
         edit:
           update: Actualització
         form:
           slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta consulta. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
           title: Informació general
         index:
-          not_published: No s'ha publicat
+          not_published: No publicat
           published: Publicat
         new:
           create: Crear
@@ -130,8 +129,8 @@ ca:
           error: S'ha produït un error en publicar aquesta pregunta.
           success: La pregunta s'ha publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta pregunta.
-          success: Pregunta despublicada amb èxit.
+          error: S'ha produït un error en despublicar aquesta pregunta.
+          success: La pregunta s'ha despublicat correctament.
       questions:
         create:
           error: S'ha produït un error en crear una pregunta nova.
@@ -143,7 +142,7 @@ ca:
         form:
           title: Informació general
         index:
-          not_published: No s'ha publicat
+          not_published: No publicat
           published: Publicat
         new:
           create: Crear
@@ -153,7 +152,7 @@ ca:
           success: La pregunta s'ha actualitzat correctament.
       responses:
         create:
-          error: S'ha produït un error en crear una resposta nova.
+          error: Se ha producido un error al crear una nueva respuesta.
           success: La resposta s'ha creat correctament.
         destroy:
           error: S'ha produït un error en eliminar la resposta.
@@ -163,7 +162,7 @@ ca:
         form:
           title: Informació general
         new:
-          create: Crea
+          create: Crear
           title: Nova resposta
         update:
           error: S'ha produït un error en actualitzar aquesta resposta.
@@ -196,7 +195,7 @@ ca:
           other: "%{count} consultes"
       filters:
         active: Actiu
-        all: Tots
+        all: Totes
         finished: Acabat
         search: Cerca
         state: Estat
@@ -221,7 +220,7 @@ ca:
             voting_ends_in:
               one: La votació finalitza <strong>demà</strong>
               other: La votació finalitza en <strong>%{count} dies</strong>
-            voting_ends_today: La votació acaba <strong>avui</strong>
+            voting_ends_today: La votació acaba avui <strong>avui</strong>
       question:
         take_part: Participar
         view_results: Veure resultats
@@ -237,19 +236,19 @@ ca:
         badge_name:
           finished: Acabada
           open: Oberta
-          open_votes: Obre els vots
+          open_votes: Vots oberts
           published_results: Resultats publicats
         footer_button_text:
           debate: Debat
           view: Veure
           view_results: Veure resultats
-          vote: Votació
-        unspecified: Sense especificar
+          vote: Votar
+        unspecified: No especificat
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Les consultes són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes pot versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
-          page: "<p>Les consultes són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes pot versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
+          contextual: "<p>Les <strong>consultes</strong> són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes poden versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
+          page: "<p>Les <strong>consultes</strong> són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes poden versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
           title: Què són les consultes?
     menu:
       consultations: Consultes
@@ -258,6 +257,8 @@ ca:
         statistics:
           consultations_count: Consultes
     questions:
+      next_button: Següent qüestió
+      previous_button: Qüestió anterior
       results:
         title: Resultats
       show:
@@ -265,28 +266,28 @@ ca:
       statistics:
         assistants_count_title: Assistents
         comments_count_title: Comentaris
-        meetings_count_title: Reunions
-        supports_count_title: Suports
+        meetings_count_title: Trobades
+        supports_count_title: Vots
       technical_info:
         technical_data: Dades tècniques
       vote_button:
-        already_voted: Ja he votat
-        already_voted_hover: Revoca el suport
+        already_voted: Ja votat
+        already_voted_hover: Revocar el vot
         starting_from: A partir de %{date}
         vote: Votació
       vote_modal:
-        contextual_help: Selecciona una opció.
-        title: 'Consulta: suport a la pregunta'
+        contextual_help: Si us plau, selecciona una opció.
+        title: 'Consulta: votar la pregunta'
       vote_modal_confirm:
-        change: Canvia
+        change: Canvi
         confirm: Confirma
-        contextual_help: Confirmeu l'opció seleccionada.
-        title: 'Consulta: confirma el suport'
+        contextual_help: Si us plau, confirma l'opció seleccionada.
+        title: 'Consulta: confirma el vot'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Fitxers adjunts
+          attachments: Adjunts
           categories: Categories
       consultation_voting_data:
         start_voting_date: Comença la votació

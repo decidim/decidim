@@ -62,10 +62,6 @@
   &.small{
     .sum{
       font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h3'), 'font-size'));
-
-      @include breakpoint(medium down){
-        font-size: rem-calc(map-get(map-get(map-get($header-styles, medium), 'h1'), 'font-size')) * 1.5;
-      }
     }
   }
 }

@@ -45,7 +45,7 @@ describe "User group profile edition", type: :system do
 
       click_button "Update group"
 
-      expect(page).to have_content("Group updated successfully")
+      expect(page).to have_content("Group successfully updated")
       expect(page).to have_content("My super duper group")
       expect(page).to have_content("We are awesome")
     end

@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -67,7 +66,7 @@ fi:
     admin:
       meeting_copies:
         create:
-          error: Tämän tapahtuman monistamisessa tapahtui virhe.
+          error: Tapahtuman monistaminen epäonnistui.
           success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
@@ -96,15 +95,11 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet järjestänyt tapahtuman "%{resource_title}".
             email_subject: Tapahtuma "%{resource_title}" suljettiin
             notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Tapahtuma "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
             email_subject: Tapahtuma "%{resource_title}" suljettiin
             notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Tapahtuma "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
@@ -113,10 +108,10 @@ fi:
         meeting_registration_confirmed:
           notification_title: Ilmoittautumisesi tapahtumaan <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Sinun ilmoittautumiskoodisi on %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%.
+          email_intro: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tapahtuman osallisuustilan ylläpitäjä.
-          email_subject: Tapahtuman "%{resource_title}" varatut paikat ylittävät %{percentage}%
-          notification_title: Tapahtuman <a href="%{resource_path}">%{resource_title}</a> varatut paikat ovat yli %{percentage}%.
+          email_subject: Tapahtumasta "%{resource_title}" on varattu yli %{percentage}% vapaista paikoista
+          notification_title: Tapahtumasta <a href="%{resource_path}">%{resource_title}</a> on varattu yli %{percentage}% vapaista paikoista.
         meeting_updated:
           email_intro: 'Tapahtuma "%{resource_title}" päivitettiin. Voit lukea uuden version sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
@@ -141,7 +136,7 @@ fi:
       badges:
         attended_meetings:
           conditions:
-          - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.
@@ -178,7 +173,7 @@ fi:
             remove: Poista
             up: Ylös
           create:
-            invalid: Tämän esityslistan luomisessa esiintyi ongelma
+            invalid: Esityslistan luonti epäonnistui
             success: Esityslista luotiin onnistuneesti
           edit:
             title: Muokkaa esityslistaa
@@ -192,7 +187,7 @@ fi:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
+            invalid: Esityslistan päivitys epäonnistui
             success: Esityslista päivitettiin onnistuneesti
         exports:
           meetings: Tapahtumat
@@ -204,13 +199,13 @@ fi:
             join: Ilmoittaudu tapahtumaan "%{meeting_title}"
         invites:
           create:
-            error: Käyttäjän kutsumisessa tapahtumaan esiintyi ongelma.
+            error: Käyttäjän kutsuminen tapahtumaan epäonnistui.
             success: Käyttäjä kutsuttiin onnistuneesti tapahtumaan.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
             invite: Kutsu
-            invite_explanation: Käyttäjä tullaan kutsumaan mukaan tapahtumaan. Käyttäjä kutsutaan myös organisaatioon.
+            invite_explanation: Käyttäjä kutsutaan osallistumaan tapahtumaan sekä liittymään organisaatioon.
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
@@ -233,10 +228,10 @@ fi:
             select_organizer: Valitse järjestäjä
         meetings:
           close:
-            invalid: Tapahtuman sulkemisessa tapahtui virhe
+            invalid: Tapahtuman sulkeminen epäonnistui
             success: Tapahtuma onnistuneesti suljettu
           create:
-            invalid: Tapahtuman luonnissa esiintyi ongelma
+            invalid: Tapahtuman luonti epäonnistui
             success: Tapahtuma onnistuneesti luotu
           destroy:
             success: Tapahtuma onnistuneesti luotu
@@ -260,11 +255,11 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           update:
-            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
+            invalid: Tapahtuman päivitys epäonnistui
             success: Tapahtuma luotiin onnistuneesti
         minutes:
           create:
-            invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
+            invalid: Pöytäkirjan luonti epäonnistui
             success: Pöytäkirja luotiin onnistuneesti
           edit:
             update: Päivitä
@@ -272,7 +267,7 @@ fi:
             create: Luo
             title: Luo pöytäkirja
           update:
-            invalid: Tämän pöytäkirjan päivityksessä esiintyi ongelma
+            invalid: Pöytäkirjan päivitys epäonnistui
             success: Pöytäkirja päivitettiin onnistuneesti
         models:
           meeting:
@@ -291,8 +286,9 @@ fi:
               other: Tapahtumaan on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
+            title: Rekisteröitymiset
           update:
-            invalid: Ilmoittautumisasetusten tallentamisessa esiintyi ongelma.
+            invalid: Rekisteröitymisasetusten päivitys epäonnistui.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
           validate_registration_code:
             invalid: Tämä ilmoittautumiskoodi on virheellinen.
@@ -411,13 +407,13 @@ fi:
           registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
-          invalid: Tapahtumaan liittymisessä tapahtui virhe.
+          invalid: Tapahtumaan liittyminen epäonnistui.
           success: Olet liittynyt tapahtumaan onnistuneesti.
         decline_invitation:
-          invalid: Kutsun hyläämisessä esiintyi ongelma.
+          invalid: Kutsun hylkääminen epäonnistui.
           success: Olet hylännyt kutsun onnistuneesti.
         destroy:
-          invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
+          invalid: Tapahtumasta poistuminen epäonnistui.
           success: Olet poistunut tapahtumasta onnistuneesti.
       types:
         private_meeting: Yksityinen tapahtuma

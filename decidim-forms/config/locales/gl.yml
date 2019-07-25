@@ -78,3 +78,6 @@ gl:
             title: Cuestionario pechado
           submit: Enviar
           tos_agreement: Ao participar aceptas as Condicións de servizo
+      user_answers_serializer:
+        created_at: Respondeu
+        id: ID de resposta

@@ -233,7 +233,9 @@ describe "Proposals", type: :system do
           before do
             permissions = {
               create: {
-                authorization_handler_name: "dummy_authorization_handler"
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
+                }
               }
             }
 

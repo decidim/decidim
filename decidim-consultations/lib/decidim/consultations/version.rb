@@ -3,7 +3,7 @@
 module Decidim
   module Consultations
     def self.version
-      "0.16.1"
+      "0.18.0"
     end
   end
 end

@@ -59,6 +59,11 @@ module Decidim
         def get_user_with_process_role(participatory_process_id)
           Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process_id).map(&:user)
         end
+
+        # Public: Whether the object can have new comments or not.
+        def user_allowed_to_comment?(_user)
+          true
+        end
       end
     end
   end

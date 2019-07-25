@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -67,19 +66,19 @@ pl:
   activerecord:
     models:
       decidim/assembly:
+        one: montaż
         few: Złożenia
         many: Złożenia
-        one: montaż
         other: Złożenia
       decidim/assembly_member:
+        one: Członek zespołu
         few: Członkowie zgromadzenia
         many: Członkowie zgromadzenia
-        one: Członek zespołu
         other: Członkowie zgromadzenia
       decidim/assembly_user_role:
+        one: Zbierz rolę użytkownika
         few: Zbierz role użytkowników
         many: Zbierz role użytkowników
-        one: Zbierz rolę użytkownika
         other: Zbierz role użytkowników
   decidim:
     admin:
@@ -91,8 +90,6 @@ pl:
           success: Zgromadzenie zostało utworzone.
         edit:
           update: Aktualizuj
-        form:
-          title: Informacje ogólne
         index:
           not_published: Nie opublikowane
           private: Prywatny
@@ -218,14 +215,21 @@ pl:
       admin:
         assemblies:
           form:
+            duration: Trwanie
             duration_help: Jeśli czas trwania tego zestawu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
+            filters: Filtry
+            images: Obrazy
             included_at_help: Wybierz datę dodania tego zestawu do Decidim. To niekoniecznie musi być takie samo jak data utworzenia.
+            metadata: Metadane
+            other: Inny
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz obszar
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół macierzysty
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Społeczny
+            title: Informacje ogólne
+            visbility: Widoczność
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
@@ -265,16 +269,14 @@ pl:
         others: Inni
         public: Publiczny
       filter:
-        all: Wszystko
+        all: Wszystkie rodzaje złożeń
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
         executive: Wykonawczy
         government: Rząd
         help: 'Pokazać:'
-        label: 'Pokazać:'
         others: Inni
         participatory: Uczestniczy
-        placeholder: Filtruj według typu
         working_group: Grupa robocza
       index:
         title: Zespoły
@@ -360,6 +362,7 @@ pl:
     decidim:
       assemblies:
         assembly:
+          more_info: Więcej informacji
           take_part: Wziąć udział
         index:
           organizational_chart: Schemat organizacyjny
@@ -367,9 +370,9 @@ pl:
           reset_chart: Nastawić
         order_by_assemblies:
           assemblies:
+            one: "%{count} montaż"
             few: "%{count} złożeń"
             many: "%{count} złożeń"
-            one: "%{count} montaż"
             other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji

@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # Exposes CollaborativeDraft versions so users can see how a CollaborativeDraft
+    # Exposes Proposals versions so users can see how a Proposal/CollaborativeDraft
     # has been updated through time.
     class VersionsController < Decidim::Proposals::ApplicationController
       helper Decidim::TraceabilityHelper
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def current_version
-        return nil if params[:id].to_i < 1
+        return nil unless params[:id].to_i.positive?
 
         @current_version ||= item.versions[params[:id].to_i - 1]
       end

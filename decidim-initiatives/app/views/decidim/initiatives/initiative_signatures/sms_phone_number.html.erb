@@ -1,0 +1,22 @@
+<div class="callout secondary mb-sm">
+  <p>
+    <%= t ".help" %>
+  </p>
+</div>
+<h2 class="section-heading"><%= t(step, scope: "layouts.decidim.initiative_signature_creation_header") %></h2>
+
+<%= render partial: "wizard_steps" %>
+
+<div class="card">
+  <div class="card__content">
+    <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form mobile_phone_number" }) do |f| %>
+      <div class="field">
+        <%= f.text_field :mobile_phone_number %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t(".continue"), class: "button expanded" %>
+       </div>
+    <% end %>
+  </div>
+</div>

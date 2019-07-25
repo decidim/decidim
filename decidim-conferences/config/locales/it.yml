@@ -150,7 +150,7 @@ it:
           attachments: allegati
           categories: categorie
           components: componenti
-          conference_admins: Utenti della conferenza
+          conference_admins: Amministratori della conferenza
           conference_invites: Inviti
           conference_speakers: Altoparlanti
           diploma: Certificato di partecipazione
@@ -357,8 +357,8 @@ it:
             certificate_of_attendance: Certificato di partecipazione
             certificate_of_attendance_description: Questo per certificare che <strong>%{user}</strong> ha partecipato e partecipato al <strong>%{title}</strong> tenuto al <strong>%{location}</strong> su <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: C'è stato un problema durante l'invio dei diplomi della conferenza.
-          success: Diplomi di conferenza inviati correttamente
+          error: C'è stato un problema durante l'invio dei certificati di frequenza della conferenza.
+          success: Certificati di frequenza delle conferenze inviati correttamente
       conference:
         registration_confirm:
           cancel: Annulla
@@ -553,6 +553,7 @@ it:
           take_part: Prendere parte
       conferences:
         conference:
+          more_info: Ulteriori informazioni
           take_part: Prendere parte
         index:
           promoted_conferences: Conferenze promosse

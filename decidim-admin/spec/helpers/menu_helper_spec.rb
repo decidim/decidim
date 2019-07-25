@@ -26,7 +26,7 @@ module Decidim
             have_link("Consultations", href: "/admin/consultations") &
             have_link("Initiatives", href: "/admin/initiatives") &
             have_link("Pages", href: "/admin/static_pages") &
-            have_link("Users", href: "/admin/users") &
+            have_link("Participants", href: "/admin/users") &
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
             have_link("Admin activity log", href: "/admin/logs") &

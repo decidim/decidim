@@ -32,7 +32,9 @@ module Decidim
       def create
         enforce_permission_to :join, :meeting, meeting: meeting
 
-        JoinMeeting.call(meeting, current_user) do
+        @form = JoinMeetingForm.from_params(params)
+
+        JoinMeeting.call(meeting, current_user, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
             redirect_after_path
@@ -102,10 +104,13 @@ module Decidim
       end
 
       def redirect_after_path
-        referer = request.headers["Referer"]
-        return redirect_to(meeting_path(meeting)) if referer =~ /invitation_token/
+        redirect_to meeting_path(meeting)
+      end
 
-        redirect_back fallback_location: meeting_path(meeting)
+      def user_has_no_permission_path
+        return meeting_path(meeting) if user_signed_in?
+
+        decidim.new_user_session_path
       end
     end
   end

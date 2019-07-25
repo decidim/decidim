@@ -1,9 +1,8 @@
----
 es-MX:
   decidim:
     system:
       actions:
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Borrar
         edit: Editar
         new: Nuevo
@@ -48,7 +47,7 @@ es-MX:
           fields:
             created_at: Fecha de creación
             name: Nombre
-            smtp_settings: SMTP settings
+            smtp_settings: Configuración de SMTP
           name: Organización
       organizations:
         create:

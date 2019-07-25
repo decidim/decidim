@@ -7,7 +7,8 @@ module Decidim
         def permissions
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
-          return permission_action if consultation && !consultation.is_a?(Decidim::Consultation)
+
+          return permission_action if consultation && (!consultation.is_a?(Decidim::Consultation) && !consultation.is_a?(Decidim::Consultations::Question))
 
           unless user.admin?
             disallow!
@@ -22,6 +23,7 @@ module Decidim
           end
 
           allowed_read_participatory_space?
+          allowed_action_on_component?
           allowed_consultation_action?
           allowed_question_action?
           allowed_response_action?
@@ -41,6 +43,12 @@ module Decidim
 
         def response
           @response ||= context.fetch(:response, nil)
+        end
+
+        def allowed_action_on_component?
+          return unless permission_action.subject == :component
+
+          allow!
         end
 
         def allowed_consultation_action?

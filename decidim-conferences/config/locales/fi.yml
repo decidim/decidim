@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -59,21 +58,21 @@ fi:
           title: Kopioi konferenssi
       conference_publications:
         create:
-          error: Konferenssin julkaisemisesta tapahtui virhe.
-          success: Konferenssi julkaistu onnistuneesti.
+          error: Konferenssin julkaiseminen epäonnistui.
+          success: Konferenssin julkaisu onnistui.
         destroy:
-          error: Tämän konferenssin julkaisun perumisessa tapahtui virhe.
-          success: Konferenssin julkaisu peruutettu onnistuneesti.
+          error: Konferenssin julkaisun peruminen epäonnistui.
+          success: Konferenssin julkaisun peruminen onnistui.
       conference_registration:
         confirm:
-          error: Tapahtui virhe vahvistettaessa tämän konferenssin ilmoittautumista.
-          success: Konferenssi-ilmoittautumisen vahvistaminen onnistui.
+          error: Konferenssin ilmoittautumisen vahvistaminen epäonnistui.
+          success: Konferenssin ilmoittautumisen vahvistaminen onnistui.
       conference_speakers:
         create:
-          error: Puhujan lisääminen tähän konferenssiin ei onnistunut.
-          success: Puhuja lisättiin onnistuneesti konferenssiin.
+          error: Puhujan lisääminen tähän konferenssiin epäonnistui.
+          success: Puhujan lisääminen konferenssiin onnistui.
         destroy:
-          success: Puhuja poistettiin onnistuneesti konferenssista.
+          success: Puhujan poistaminen konferenssista onnistui.
         edit:
           title: Päivitä konferenssin puhuja.
           update: Päivitä
@@ -83,29 +82,29 @@ fi:
           create: Luo
           title: Uusi konferenssin puhuja.
         update:
-          error: Konferenssin puhujan päivittämisessä tapahtui virhe.
-          success: Konferenssin puhuja päivitettiin onnistuneesti.
+          error: Konferenssin puhujan päivittäminen epäonnistui.
+          success: Konferenssin puhujan päivitys onnistui.
       conference_user_roles:
         create:
-          error: Käyttäjän lisääminen tähän konferenssiin ei onnistunut.
-          success: Käyttäjä lisätty onnistuneesti konferenssiin.
+          error: Hallintakäyttäjän lisääminen tähän konferenssiin epäonnistui.
+          success: Hallintakäyttäjän lisääminen konferenssiin onnistui.
         destroy:
-          success: Käyttäjä poistettiin onnistuneesti konferenssista.
+          success: Hallintakäyttäjä poistaminen konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin käyttäjä.
+          title: Päivitä konferenssin hallintakäyttäjä.
           update: Päivitä
         index:
-          conference_admins_title: konferenssin käyttäjät
+          conference_admins_title: konferenssin hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi konferenssin käyttäjä.
+          title: Uusi konferenssin hallintakäyttäjä.
         update:
-          error: Konferenssin käyttäjän päivittämisessä tapahtui virhe.
-          success: Konferenssin käyttäjä päivitettiin onnistuneesti.
+          error: Konferenssin hallintakäyttäjän päivittäminen epäonnistui.
+          success: Konferenssin hallintakäyttäjän päivittäminen onnistui.
       conferences:
         create:
-          error: Uuden konferenssin luomisessa tapahtui virhe.
-          success: Konferenssi luotu onnistuneesti.
+          error: Uuden konferenssin luonti epäonnistui.
+          success: Konferenssin luonti onnistui.
         edit:
           update: Päivitä
         exports:
@@ -119,18 +118,18 @@ fi:
           create: Luo
           title: Konferenssi
         update:
-          error: Konferenssin päivittämisessä tapahtui virhe.
-          success: Konferenssi päivitetty onnistuneesti.
+          error: Konferenssin päivitys epäonnistui.
+          success: Konferenssin päivitys onnistui.
       conferences_copies:
         create:
-          error: Virhe kopioitaessa konferenssia.
-          success: Konferenssi kopioitu onnistuneesti.
+          error: Konferenssin kopiointi epäonnistui.
+          success: Konferenssin kopiointi onnistui.
       media_links:
         create:
-          error: Luotaessa uutta medialinkkiä tapahtui virhe.
-          success: Medialinkki luotu onnistuneesti.
+          error: Uuden medialinkin luonti epäonnistui.
+          success: Medialinkin luonti onnistui.
         destroy:
-          success: Medialinkki poistettiin onnistuneesti.
+          success: Medialinkin poisto onnistui.
         edit:
           title: Päivitä medialinkki.
           update: Päivitä
@@ -140,8 +139,8 @@ fi:
           create: Luo
           title: Medialinkki
         update:
-          error: Medialinkin päivittämisessä esiintyi virhe.
-          success: Medialinkki päivitettiin onnistuneesti.
+          error: Medialinkin päivitys epäonnistui.
+          success: Medialinkin päivitys onnistui.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -150,7 +149,7 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin käyttäjät
+          conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
@@ -179,7 +178,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Konferenssin käyttäjä
+          name: Konferenssin hallintakäyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Työryhmän jäsen
@@ -210,10 +209,10 @@ fi:
           name: Ilmoittautumistyypit
       partners:
         create:
-          error: Tapahtui virhe lisätessä yhteistyökumppania tähän konferenssiin.
-          success: Yhteistyökumppani lisätty onnistuneesti tähän konferenssiin.
+          error: Yhteistyökumppanin lisääminen tähän konferenssiin epäonnistui.
+          success: Yhteistyökumppanin lisääminen tähän konferenssiin onnistui.
         destroy:
-          success: Yhteistyökumppani poistettu onnistuneesti tästä konferenssista.
+          success: Yhteistyökumppanin poisto tästä konferenssista onnistui.
         edit:
           title: Päivitä yhteistyökumppani.
           update: Päivitä
@@ -221,21 +220,21 @@ fi:
           create: Luo
           title: Uusi yhteistyökumppani
         update:
-          error: Tapahtui virhe päivitettäessä tämän konferenssin yhteistyökumppania.
-          success: Konferenssin yhteistyökumppani päivitettiin onnistuneesti.
+          error: Konferenssin yhteistyökumppanin päivitys epäonnistui.
+          success: Konferenssin yhteistyökumppanin päivitys onnistui.
       registration_type_publications:
         create:
-          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
-          success: Ilmoittautumistyyppi julkaistiin onnistuneesti.
+          error: Ilmoittautumistyypin julkaisu epäonnistui.
+          success: Ilmoittautumistyypin julkaisu onnistui.
         destroy:
-          error: Tapahtui virhe julkaistaessa tätä ilmoittautumistyyppiä.
-          success: Ilmoittamistyypin julkaisu lopetettiin onnistuneesti.
+          error: Ilmoittautumistyypin julkaisun peruminen epäonnistui.
+          success: Ilmoittamistyypin julkaisun peruminen onnistui.
       registration_types:
         create:
-          error: Tapahtui virhe lisätessä ilmoittautumistyyppiä tälle konferenssille.
-          success: Ilmoittautumistyyppi lisättiin onnistuneesti tähän konferenssiin.
+          error: Ilmoittautumistyyppin lisääminen tälle konferenssille epäonnistui.
+          success: Ilmoittautumistyypin lisääminen onnistui.
         destroy:
-          success: Ilmoittautumistyyppi poistettiin onnistuneesti tästä konferenssista.
+          success: Ilmoittautumistyypin poistaminen onnistui.
         edit:
           title: Päivitä ilmoittautumistyyppi.
           update: Päivitä
@@ -243,8 +242,8 @@ fi:
           create: Luo
           title: Uusi ilmoittautumistyyppi
         update:
-          error: Tapahtui virhe päivitettäessä tämän konferenssin ilmoittautumistyyppiä.
-          success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
+          error: Tämän konferenssin ilmoittautumistyyppin päivityksessä tapahtui virhe.
+          success: Konferenssin ilmoittautumistyypin päivitys onnistui.
       titles:
         conferences: Konferenssit
     admin_log:
@@ -261,14 +260,14 @@ fi:
         update: "%{user_name} päivitti puhujan %{resource_name} konferenssissa %{space_name}"
       conference_user_role:
         create: "%{user_name} kutsui %{resource_name} konferenssiin %{space_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
+        delete: "%{user_name} poisti hallintakäyttäjän %{resource_name} konferenssista %{space_name}"
         update: "%{user_name} muutti %{resource_name} roolia konferenssissa %{space_name}"
       conferences:
         conference_registration:
           confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
         partner:
           create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
-          delete: "%{user_name} poisti käyttäjän %{resource_name} konferenssista %{space_name}"
+          delete: "%{user_name} poisti hallintakäyttäjän %{resource_name} konferenssista %{space_name}"
           update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
@@ -292,12 +291,12 @@ fi:
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
-            error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
-            success: Käyttäjä kutsuttu onnistuneesti konferenssiin.
+            error: Käyttäjän kutsuminen konferenssiin epäonnistui.
+            success: Käyttäjän kutsuminen konferenssiin onnistui.
           form:
             attendee_type: Osallistujatyyppi
             existing_user: Olemassa oleva käyttäjä
-            invite_explanation: Käyttäjää kutsutaan mukaan konferenssiin ja organisaatioon.
+            invite_explanation: Käyttäjä kutsutaan mukaan konferenssiin ja liittymään organisaatioon.
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
@@ -307,7 +306,7 @@ fi:
               rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Suodata
-            invite_attendee: Kutsu osallistuja
+            invite_attendee: Kutsu käyttäjä
             invites: Kutsut
             search: Hae
           new:
@@ -357,8 +356,8 @@ fi:
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin osallistumistodistusten lähetys epäonnistui.
-          success: Konferenssin osallistumistodistusten lähetys onnistui
+          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          success: Konferenssin läsnäolotodistusten lähetys onnistui
       conference:
         registration_confirm:
           cancel: Peruuta
@@ -388,14 +387,14 @@ fi:
           pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
       conference_registrations:
         create:
-          invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
-          success: Olet ilmoittautunut konferenssiin onnistuneesti.
+          invalid: Konferenssiin ilmoittautuminen epäonnistui.
+          success: Ilmoittautuminen konferenssiin onnistui.
         decline_invitation:
-          invalid: Kutsun hyläämisessä esiintyi ongelma.
-          success: Olet hylännyt kutsun onnistuneesti.
+          invalid: Kutsun hylkääminen epäonnistui.
+          success: Kutsun hylkääminen onnistui.
         destroy:
-          invalid: Konferenssista poistumisessa on tapahtunut virhe.
-          success: Olet poistunut konferenssista onnistuneeksi.
+          invalid: Konferenssista poistuminen epäonnistui.
+          success: Konferenssista poistuminen onnistui.
       conference_speaker:
         go_to_twitter: Siirry Twitteriin
         more_info: lisätietoja
@@ -495,7 +494,7 @@ fi:
         endorsements_count: Suositusta
         headline: Toiminta
         meetings_count: Tapaamista
-        orders_count: Ääntä
+        orders_count: Kannatusta
         pages_count: Sivua
         posts_count: Viestiä
         projects_count: Suunnitelmaa
@@ -503,7 +502,7 @@ fi:
         results_count: Tulosta
         surveys_count: Kyselyä
         users_count: Osallistujaa
-        votes_count: Ääntä
+        votes_count: Kannatusta
     events:
       conferences:
         conference_registration_confirmed:
@@ -553,6 +552,7 @@ fi:
           take_part: Osallistu
       conferences:
         conference:
+          more_info: Lisätietoja
           take_part: Osallistu
         index:
           promoted_conferences: Korostetut konferenssit

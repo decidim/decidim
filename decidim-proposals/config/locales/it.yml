@@ -1,8 +1,8 @@
----
 it:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Indirizzo
         body: Corpo
         category_id: Categoria
         decidim_scope_id: Scopo
@@ -11,7 +11,7 @@ it:
         title: Titolo
         user_group_id: Crea una bozza collaborativa come
       proposal:
-        address: Address
+        address: Indirizzo
         answer: Risposta
         answered_at: Risposto a
         automatic_hashtags: Hashtag aggiunti automaticamente
@@ -28,12 +28,23 @@ it:
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
+      proposals_import:
+        import_proposals: Importa proposte
+        keep_authors: Mantieni gli autori originali
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Ha bisogno di essere ricollegato
+            body:
+              identical: E il titolo non può essere identico
+            title:
+              identical: E il corpo non può essere identico
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
       decidim/proposals/admin/update_proposal_category_event: Categoria proposta modificata
@@ -67,7 +78,7 @@ it:
       proposals:
         actions:
           create: Creare
-          endorse: Approvare
+          endorse: Sostieni
           vote: Votazione
           withdraw: ritirarsi
         name: proposte
@@ -107,16 +118,7 @@ it:
             votes_blocked: Votazione bloccata
             votes_enabled: Voto abilitato
             votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
-      proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} è stato accettato per accedere come collaboratore al progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.'
@@ -164,15 +166,11 @@ it:
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
             email_subject: La tua proposta è stata accettata
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
-          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e dai:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
@@ -184,15 +182,11 @@ it:
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
             email_subject: La tua proposta è in corso di valutazione
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
-          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
-          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: La tua proposta "%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_path}">in questo spazio</a> nei commenti.
           email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
@@ -214,15 +208,11 @@ it:
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
             email_subject: La tua proposta è stata respinta
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
-          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata respinta
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
           email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
@@ -237,8 +227,8 @@ it:
       badges:
         accepted_proposals:
           conditions:
-          - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
-          - Prova a fare proposte che possono essere eseguite. In questo modo è più probabile che vengano accettati.
+            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+            - Prova a fare proposte che possono essere eseguite. In questo modo è più probabile che vengano accettati.
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte e queste sono accettate.
           description_another: Questo utente ha ottenuto %{score} proposte accettate.
           description_own: Hai accettato %{score} proposte.
@@ -248,8 +238,8 @@ it:
           unearned_own: Non hai ancora accettato nessuna proposta.
         proposal_votes:
           conditions:
-          - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
-          - Dare supporto alle proposte che ti piacciono o che ti interessano
+            - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
+            - Dare supporto alle proposte che ti piacciono o che ti interessano
           description: Questo badge è concesso quando supporti le proposte di altre persone.
           description_another: Questo utente ha fornito supporto a %{score} proposte.
           description_own: Hai fornito supporto a %{score} proposte.
@@ -259,8 +249,8 @@ it:
           unearned_own: Non hai ancora fornito supporto a nessuna proposta.
         proposals:
           conditions:
-          - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
-          - Crea una nuova proposta
+            - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
+            - Crea una nuova proposta
           description: Questo badge è concesso quando partecipi attivamente a nuove proposte.
           description_another: Questo utente ha creato %{score} proposte.
           description_own: Hai creato %{score} proposte.
@@ -284,7 +274,7 @@ it:
       votes:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
-        title: Voti
+        title: voti
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -326,8 +316,11 @@ it:
             save_draft: Salva la bozza
             title: ANTEPRIMA DEL TESTO PARTECIPATIVO
           new_import:
+            accepted_mime_types:
+              md: .md
+              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: Markdown'
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:
@@ -532,7 +525,7 @@ it:
             other: e altre %{count} persone
           info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           of_versions: "(di %{number})"
-          publish: Pubblicare
+          publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
@@ -552,7 +545,7 @@ it:
           back: Indietro
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
-          see_steps: vedere i passaggi
+          see_steps: visualizza le fasi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
@@ -592,7 +585,7 @@ it:
           amend: emendare
           comment: Commento
           comments: Commenti
-          endorse: Approvare
+          endorse: Sostieni
       proposal_endorsements:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
@@ -602,15 +595,15 @@ it:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: approvato
-          endorse: Approvare
+          endorse: Sostieni
         render_endorsements_button_card_part:
-          endorse: Approvare
+          endorse: Sostieni
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          continue: Continue
+          continue: Prosegui
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:
@@ -620,14 +613,9 @@ it:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} proposte"
-        dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address (don't forget to specify the city)
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          not_geocoded: Not geocoded
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
@@ -637,7 +625,7 @@ it:
           send: Anteprima
           title: Modifica bozza di proposta
         endorsement_identities_cabin:
-          endorse: Approvare
+          endorse: Sostieni
         endorsements_card_row:
           comments: Commenti
         filters:
@@ -677,18 +665,13 @@ it:
             document_index: Indice del documento
           view_index:
             see_index: Vedi indice
-        placeholder:
-          address: "[n°] [street] [postal] [city]"
         preview:
-          address: 'Address: %{address}'
           modify: Modifica la proposta
-          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
-            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-            other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
-          publish: Pubblicare
+            one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
+            other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
+          publish: Pubblica
           title: Pubblica la tua proposta
-          update_pos: Update the position
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
@@ -710,7 +693,7 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
-          filed_as: Archiviato come
+          filed_as: Classificato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto
@@ -718,20 +701,12 @@ it:
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota
           votes_blocked: Votazioni disabilitate
-        vote_weight:
-          maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
-          votes_blocked: Votes blocked
         votes_count:
           count:
             one: VOTO
             other: VOTI
           most_popular_proposal: La proposta più popolare
           need_more_votes: Hai bisogno di più voti
-        votes_weight:
-          count: Count
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
@@ -754,8 +729,8 @@ it:
         wizard_steps:
           see_steps: vedere i passaggi
           step_1: Crea la tua proposta
-          step_2: Confrontare
-          step_3: Completare
+          step_2: Confronta
+          step_3: Completa
           step_4: Pubblica la tua proposta
           step_of: Step %{current_step_num} di %{total_steps}
       publish:
@@ -777,11 +752,14 @@ it:
           number_of_versions: versioni
           show_all_versions: Mostra tutte le versioni
           version_author: Autore della versione
-          version_created_at: Versione creata a
+          version_created_at: Versione creata il
           version_number: Numero della versione
           version_number_out_of_total: "%{current_version} su %{total_count}"
         version:
           version_index: Versione %{index}
+      withdraw:
+        errors:
+          has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate

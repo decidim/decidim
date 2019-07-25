@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -40,7 +39,7 @@ it:
         promoted: Promosso
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
-        scope_id: Scopi
+        scope_id: Obiettivi
         scopes_enabled: Scopi abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
@@ -49,7 +48,7 @@ it:
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
-        twitter: cinguettio
+        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Compleanno
@@ -85,8 +84,6 @@ it:
           success: L'assemblaggio è stato creato con successo.
         edit:
           update: Aggiorna
-        form:
-          title: Informazioni generali
         index:
           not_published: Non pubblicato
           private: Privato
@@ -212,14 +209,21 @@ it:
       admin:
         assemblies:
           form:
+            duration: Durata
             duration_help: Se la durata di questo assemblaggio è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinito.
+            filters: filtri
+            images: immagini
             included_at_help: Seleziona la data in cui questo assembly è stato aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
+            metadata: Metadati
+            other: Altro
             select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
             select_an_assembly_type: Seleziona un tipo di assieme
             select_parent_assembly: Seleziona il gruppo genitore
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Sociale
+            title: Informazioni generali
+            visbility: Visibilità
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
@@ -259,16 +263,14 @@ it:
         others: Altri
         public: Pubblico
       filter:
-        all: Tutti
+        all: Tutti i tipi di assiemi
         commission: Commissione
         consultative_advisory: Consultivo / Advisory
         executive: Esecutivo
         government: Governo
         help: 'Mostrare:'
-        label: 'Mostrare:'
         others: Altri
         participatory: Participatory
-        placeholder: Filtra per tipo
         working_group: Gruppo di lavoro
       index:
         title: assemblee
@@ -306,7 +308,7 @@ it:
         read_less: Leggi di meno
         read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
-        scope: Objetivos
+        scope: Obiettivi
         social_networks: Social networks
         target: Chi partecipa
       statistics:
@@ -354,8 +356,10 @@ it:
     decidim:
       assemblies:
         assembly:
+          more_info: Ulteriori informazioni
           take_part: Partecipa
         index:
+          children: 'Assemblee: '
           organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
           reset_chart: Reset

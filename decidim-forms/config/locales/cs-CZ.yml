@@ -1,80 +1,79 @@
----
-cs-CZ:
+cs:
   activemodel:
     attributes:
       answer:
-        body: Answer
+        body: Odpovědět
       question:
-        max_choices: Maximum number of choices
-        question_type: Type
+        max_choices: Maximální počet možností
+        question_type: Typ
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: Povinné
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: are not complete
-              too_many: are too many
+              missing: nejsou úplné
+              too_many: jsou příliš mnoho
   decidim:
     forms:
       admin:
         models:
           components:
-            description: Description
-            tos: Terms of service
+            description: Popis
+            tos: Podmínky služby
         questionnaires:
           answer_option:
-            answer_option: Answer option
-            free_text: Free text
-            remove: Remove
-            statement: Statement
+            answer_option: Možnost odpovědi
+            free_text: Volný text
+            remove: Odstranit
+            statement: Prohlášení
           edit:
-            save: Save
-            title: Title
+            save: Uložit
+            title: Titul
           form:
-            add_question: Add question
-            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
+            add_question: Přidat otázku
+            already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
           question:
-            add_answer_option: Add answer option
-            any: Any
-            description: Description
-            down: Down
-            question: Question
-            remove: Remove
-            statement: Statement
-            up: Up
+            add_answer_option: Přidat možnost odpovědi
+            any: Žádný
+            description: Popis
+            down: Dolů
+            question: Otázka
+            remove: Odstranit
+            statement: Prohlášení
+            up: Nahoru
           update:
-            invalid: There's been errors when saving the questionnaire.
-            success: Questionnaires saved successfully.
+            invalid: Při ukládání dotazníku došlo k chybám.
+            success: Dotazníky byly úspěšně uloženy.
       errors:
         answer:
-          body: Body can't be blank
+          body: Tělo nemůže být prázdné
       question_types:
-        long_answer: Long answer
-        multiple_option: Multiple option
-        short_answer: Short answer
-        single_option: Single option
-        sorting: Sorting
+        long_answer: Dlouhá odpověď
+        multiple_option: Více možností
+        short_answer: Stručná odpověď
+        single_option: Jedna možnost
+        sorting: Třídění
       questionnaires:
         answer:
-          invalid: There's been errors when answering the questionnaire.
-          success: Questionnaire answered successfully.
+          invalid: Při odpovědi na dotazník došlo k chybám.
+          success: Dotazník úspěšně odpověděl.
         question:
-          max_choices: 'Max choices: %{n}'
+          max_choices: 'Max možnosti: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
-            title: Answer the questionnaire
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+            anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
+            title: Odpovězte na dotazník
+          are_you_sure: Tato akce nemůže být odvolána a vaše odpovědi nebudete moci upravovat. Jsi si jistá?
           questionnaire_answered:
-            body: You have already answered this questionnaire.
-            title: Already answered
+            body: Již jste odpověděli na tento dotazník.
+            title: Již jste odpověděli
           questionnaire_closed:
-            body: The questionnaire is closed and cannot be answered.
-            title: Questionnaire closed
+            body: Dotazník je uzavřen a nelze jej zodpovědět.
+            title: Dotazník byl uzavřen
           questionnaire_for_private_users:
-            body: The questionnaire is available only for private users
-            title: Questionnaire closed
-          submit: Submit
-          tos_agreement: By participating you accept its Terms of Service
+            body: Dotazník je k dispozici pouze pro soukromé uživatele
+            title: Dotazník byl uzavřen
+          submit: Předložit
+          tos_agreement: Účastí přijímáte jeho smluvní podmínky

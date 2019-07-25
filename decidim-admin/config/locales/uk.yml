@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -37,9 +36,6 @@ uk:
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
       organization:
-        address: SMTP hostname
-        alert_color: Alert
-        badges_enabled: Enable badges
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
         default_locale: Мова за замовчуванням
@@ -47,7 +43,6 @@ uk:
         enable_omnipresent_banner: Показувати всюдисущий банер
         facebook_handler: Адреса Facebook
         favicon: Значок
-        from: From email address
         github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
         highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
@@ -66,17 +61,10 @@ uk:
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адреса
-        password: Password
-        port: Port
-        primary_color: Primary
         reference_prefix: Довідковий префікс
-        secondary_color: Secondary
         show_statistics: Показувати статистику
-        success_color: Success
         tos_version: Версія умов участі
         twitter_handler: Адреса Twitter
-        user_groups_enabled: Enable user groups
-        warning_color: Warning
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -93,29 +81,14 @@ uk:
         changed_notably: Було внесено помітні зміни.
         content: Вміст
         organization: Організація
-        show_in_footer: Show in the footer
         slug: Скорочена веб-адреса
         title: Назва
-        weight: Weight
-      static_page_topic:
-        description: Description
-        show_in_footer: Show in the footer
-        title: Title
-        weight: Weight
-      user_group_csv_verification:
-        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: URI перенаправлення має бути SSL URI
-        organization:
-          attributes:
-            official_img_footer:
-              allowed_file_content_types: Invalid image file
-            official_img_header:
-              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
       decidim/static_page:
@@ -137,6 +110,7 @@ uk:
         browse: Переглянути
         export: Зберегти у вигляді файлу
         manage: Керувати
+        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
@@ -229,10 +203,6 @@ uk:
           error: При спробі оновити цю категорію сталася помилка.
           success: Категорію успішно оновлено.
       component_permissions:
-        edit:
-          everyone: Будь-хто
-          submit: Зберегти права доступу
-          title: Редагувати права доступу
         update:
           success: Права доступу успішно оновлено.
       components:
@@ -273,11 +243,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
-      help_sections:
-        error: There's been an error updating the help sections
-        form:
-          save: Save
-        success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
@@ -315,11 +280,6 @@ uk:
         logs_list:
           no_logs_yet: Ще немає журналів
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: При підвищенні керованого учасника сталася помилка.
           success: Керованого учасника було успішно підвищено.
@@ -336,13 +296,10 @@ uk:
         areas: Дільниці
         configuration: Конфігурація
         dashboard: Приладна дошка
-        help_sections: Help sections
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
-        navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
-        participants: Participants
         scope_types: Різновиди обсягу
         scopes: Обсяги
         settings: Налаштування
@@ -377,13 +334,6 @@ uk:
             reason: Причина
             started_at: Започатковано о
             user: Учасник
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: 'Створено:'
@@ -395,7 +345,7 @@ uk:
           fields:
             created_at: 'Створено:'
             name: Ім'я
-          name: OAuth uygulaması
+          name: Додаток OAuth
         participatory_space_private_user:
           name: Приватний учасник простору співучасті
         scope:
@@ -420,7 +370,7 @@ uk:
             roles:
               admin: Адміністратор
               user_manager: Розпорядник учасників
-          name: kullanıcı
+          name: учасника
         user_group:
           fields:
             actions: Дії
@@ -438,28 +388,6 @@ uk:
             does_not_belong: Неприйнятно
             offensive: Образливе
             spam: Спам
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
@@ -481,16 +409,15 @@ uk:
         new:
           save: Зберегти
           title: Додати розсилання новин
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Ви впевнені, що хочете розіслати цей випуск новин? Цю дію не можна буде скасувати.
           deliver: Розіслати випуск новин
+        show:
           preview: Попередній перегляд
           subject: Тема
         update:
           error: При спробі оновити це розсилання новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: При спробі створити цей додаток сталася помилка.
@@ -556,7 +483,6 @@ uk:
         edit:
           update: Оновити
         form:
-          colors_title: Organization colors
           cta_button_path_help: 'Ви можете змінити те, куди веде натискання кнопки "Закликати до дії" на головній сторінці. Використовуйте тут часткові шляхи, а не повні веб-адреси. Прийнятні літери, цифри, дефіс та скісна риска. Першою має бути літера. Кнопка "Закликати до дії" відображається на головній сторінці між привітальним текстом та описом. Приклад: %{url}'
           cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
           header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
@@ -568,21 +494,20 @@ uk:
         edit:
           active_content_blocks: Блоки діючого вмісту
           inactive_content_blocks: Блоки недіючого вмісту
-      organization_homepage_content_blocks:
-        edit:
-          update: Update
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
           success: Приватним учасникам успішно надано доступ до простору співучасті.
         destroy:
-          error: There was an error deleting a private user for this participatory space.
           success: Успішно скасовано доступ приватних учасників до простору співучасті.
         index:
           title: Приватний учасник простору співучасті
         new:
           create: Додати
           title: Додати приватного учасника простору співучасті.
+      resource_permissions:
+        edit:
+          title: Редагувати права доступу
       scope_types:
         create:
           error: При спробі створити новий різновид обсягу сталася помилка.
@@ -614,21 +539,6 @@ uk:
         update:
           error: При спробі оновити цей обсяг сталася помилка.
           success: Обсяг успішно оновлено
-      static_page_topics:
-        create:
-          error: There was an error creating a new topic.
-          success: Topic created successfully.
-        destroy:
-          success: Topic successfully destroyed
-        edit:
-          title: Edit topic
-          update: Update topic
-        new:
-          create: Create topic
-          title: New topic
-        update:
-          error: There was an error when updating this topic.
-          success: Topic updated successfully
       static_pages:
         actions:
           view: Переглянути загальнодоступну сторінку
@@ -641,18 +551,10 @@ uk:
           changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов участі.
           title: Редагувати сторінку
           update: Оновити
-        form:
-          none: None
         index:
           last_notable_change: Остання помітна зміна
         new:
-          create: Додати
           title: Створити сторінку
-        topic:
-          destroy: Remove topic
-          edit: Edit topic
-          empty: There's no page under this topic
-          without_topic: Pages without topic
         update:
           error: При спробі оновити цю сторінку сталася помилка.
           success: Сторінку успішно оновлено
@@ -662,22 +564,12 @@ uk:
         areas: Дільниці
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
-        impersonatable_users: Учасники, в ролі яких можна виступати
-        impersonations: Виступи в ролі учасника
-        managed_users: Managed users
-        navbar_links: Navbar links
-        participants: Participants
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
         user_groups: Гурти учасників
         users: Учасники
-      user:
-        new: New
       user_group:
-        csv_verify:
-          invalid: There was an error reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: При відхиленні цього гурту учасників сталася помилка.
           success: Гурт учасників успішно відхилено
@@ -697,12 +589,6 @@ uk:
             pending: Очікує на розгляд
             rejected: Відхилено
             verified: Перевірено
-          verify_via_csv: Verify via CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          title: Upload your CSV file
-          upload: Upload
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.
@@ -717,7 +603,6 @@ uk:
         new:
           create: Запросити
           title: Запросити учасника в якості адміністратора
-      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -728,16 +613,12 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
-        unhide: Unhide
         unreport: Скасувати скаргу
       admin:
         reportable:
           hide:
             invalid: При спробі приховати ресурс сталася помилка.
             success: Ресурс успішно приховано.
-          unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
           unreport:
             invalid: При спробі скасувати скаргу щодо ресурсу сталася помилка.
             success: Скаргу на ресурс успішно скасовано.

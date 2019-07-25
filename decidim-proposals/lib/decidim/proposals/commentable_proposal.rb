@@ -34,6 +34,10 @@ module Decidim
 
           followers
         end
+
+        def user_allowed_to_comment?(user)
+          can_participate_in_space?(user)
+        end
       end
     end
   end

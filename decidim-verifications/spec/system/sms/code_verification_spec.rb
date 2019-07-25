@@ -70,5 +70,15 @@ describe "sms code verification", type: :system do
         end
       end
     end
+
+    context "when reseting the code" do
+      it "deletes the verification and asks the user again" do
+        accept_confirm { click_link "Reset verification code" }
+
+        expect(page).to have_content("Verification code sucessfully reset. Please re-enter your phone number")
+
+        expect(Decidim::Authorization.count).to eq(0)
+      end
+    end
   end
 end

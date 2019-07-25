@@ -38,6 +38,7 @@ plugins:
   csslint:
     enabled: true
     exclude_patterns:
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
       - "decidim-admin/app/assets/stylesheets/decidim/admin/bundle.scss"
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
 
@@ -74,6 +75,8 @@ plugins:
       - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
       - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js.map
       - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - .rubocop.yml
 
   grep:
@@ -97,6 +100,7 @@ plugins:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
       - "**/*/*.svg"
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
 
   markdownlint:
     enabled: true
@@ -104,6 +108,7 @@ plugins:
     exclude_patterns:
       - .github/*
       - decidim-dev/lib/decidim/dev/assets/participatory_text.md
+      - decidim-proposals/app/assets/documents/decidim/proposals/participatory_texts/participatory_text.md
 
     issue_override:
       severity: minor

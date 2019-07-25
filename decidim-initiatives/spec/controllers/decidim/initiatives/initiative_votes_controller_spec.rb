@@ -69,6 +69,26 @@ module Decidim
             end.to change { InitiativesVote.where(initiative: initiative).count }.by(-1)
           end
         end
+
+        context "and unvote disabled" do
+          let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization: organization) }
+          let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
+          let(:initiative) { create(:initiative, organization: organization, scoped_type: scope) }
+
+          it "does not remove the vote" do
+            expect do
+              sign_in initiative.author, scope: :user
+              delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
+            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
+          end
+
+          it "raises an exception" do
+            sign_in initiative.author, scope: :user
+            delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(:found)
+          end
+        end
       end
     end
   end

@@ -11,6 +11,11 @@ module Decidim
       module ConsultationAdmin
         extend ActiveSupport::Concern
 
+        RegistersPermissions
+          .register_permissions(::Decidim::Consultations::Admin::ConsultationAdmin,
+                                ::Decidim::Consultations::Permissions,
+                                ::Decidim::Admin::Permissions)
+
         included do
           include NeedsConsultation
 
@@ -19,10 +24,7 @@ module Decidim
           alias_method :current_participatory_space, :current_consultation
 
           def permission_class_chain
-            [
-              Decidim::Consultations::Permissions,
-              Decidim::Admin::Permissions
-            ]
+            PermissionsRegistry.chain_for(ConsultationAdmin)
           end
         end
       end

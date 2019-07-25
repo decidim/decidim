@@ -1,4 +1,3 @@
----
 es-MX:
   activemodel:
     attributes:
@@ -61,7 +60,7 @@ es-MX:
         gender: Género
         position: Posición
       assembly_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
         role: Rol de usuario
   activerecord:
@@ -85,8 +84,6 @@ es-MX:
           success: Asamblea creada correctamente.
         edit:
           update: Actualizar
-        form:
-          title: Información general
         index:
           not_published: No publicado
           private: Privado
@@ -212,14 +209,21 @@ es-MX:
       admin:
         assemblies:
           form:
+            duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            filters: Filtros
+            images: Imágenes
             included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
+            metadata: Metadatos
+            other: Otro
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
             select_parent_assembly: Selecciona asamblea principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
+            title: Información general
+            visbility: Visibilidad
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -259,16 +263,14 @@ es-MX:
         others: Otros
         public: Público
       filter:
-        all: Todas
+        all: Todo tipo de montajes.
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
         government: Gobierno
-        help: 'Show:'
-        label: 'Mostrar:'
+        help: 'Muestra:'
         others: Otros
         participatory: Participativo
-        placeholder: Filtrar por tipo
         working_group: Grupo de trabajo
       index:
         title: Asambleas
@@ -335,7 +337,7 @@ es-MX:
         assemblies:
           contextual: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
           page: "<p>Una asamblea es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p> <p>Las asambleas realizan encuentros, algunas son privadas y otras son abiertas. Si son abiertas se puede participar en ellas (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Una asamblea general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o una órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de asambleas.</p>\n"
-          title: "¿Qué son las asambleas?"
+          title: '¿Qué son las asambleas?'
     log:
       value_types:
         assembly_presenter:
@@ -354,8 +356,10 @@ es-MX:
     decidim:
       assemblies:
         assembly:
+          more_info: Más información
           take_part: Participa
         index:
+          children: 'Asambleas: '
           organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
           reset_chart: Reiniciar

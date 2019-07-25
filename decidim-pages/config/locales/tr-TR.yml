@@ -1,34 +1,30 @@
----
-tr-TR:
+tr:
   activerecord:
     models:
       decidim/pages/page:
-        one: Page
-        other: Pages
+        one: Sayfa
+        other: Sayfalar
   decidim:
     admin_log:
       page:
-        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+        update: "%{user_name} %{resource_name} sayfayı %{space_name}güncelledi"
     components:
       pages:
-        name: Page
+        name: Sayfa
         settings:
           global:
-            announcement: Announcement
+            announcement: duyuru
           step:
-            announcement: Announcement
+            announcement: duyuru
     pages:
       admin:
         models:
           components:
-            body: Body
+            body: Vücut
         pages:
           edit:
-            save: Update
-            title: Edit page
+            save: Güncelleştirme
+            title: Sayfayı düzenle
           update:
-            invalid: There's been errors when saving the page.
-            success: Page saved successfully.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications
+            invalid: Sayfa kaydedilirken bir sorun oluştu.
+            success: Sayfa başarıyla kaydedildi.

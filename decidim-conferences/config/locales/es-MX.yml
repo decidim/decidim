@@ -1,4 +1,3 @@
----
 es-MX:
   activemodel:
     attributes:
@@ -150,7 +149,7 @@ es-MX:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Usuarios de la conferencia
+          conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
@@ -193,7 +192,7 @@ es-MX:
         partner:
           fields:
             link: Enlace
-            logo: Logo
+            logo: Logotipo
             name: Nombre
             partner_type: Tipo
           name: Colaborador
@@ -357,8 +356,8 @@ es-MX:
             certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Ha habido un problema al enviar los certificados de la conferencia.
-          success: Certificados de asistencia enviados correctamente
+          error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.
+          success: Certificados de asistencia a conferencias enviados correctamente.
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -476,8 +475,8 @@ es-MX:
           title: Tipos de inscripción
       shared:
         conference_user_login:
-          already_account: "¿Ya tienes una cuenta en decidim?"
-          new_user: "¿Eres nuevo?"
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Eres nuevo?'
           sign_in: Inicia sesión para inscribirte en la conferencia
           sign_up: Crea una cuenta de usuario para inscribirte en la conferencia
       show:
@@ -528,7 +527,7 @@ es-MX:
         upcoming_conference:
           email_intro: 'La conferencia "%{resource_title}" se lleva a cabo en 2 días. Puedes leer la descripción de su página:'
           email_outro: Ha recibido esta notificación porque está siguiendo la conferencia "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: ¡Se acerca la conferencia "%{resource_title}"!
+          email_subject: '¡Se acerca la conferencia "%{resource_title}"!'
           notification_title: La conferencia <a href="%{resource_path}">%{resource_title}</a> llegará en 2 días.
     log:
       value_types:
@@ -553,6 +552,7 @@ es-MX:
           take_part: Participar
       conferences:
         conference:
+          more_info: Más información
           take_part: Participar
         index:
           promoted_conferences: Conferencias destacadas

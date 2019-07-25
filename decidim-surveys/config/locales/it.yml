@@ -2,12 +2,12 @@
 it:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Sondaggio terminato
-      decidim/surveys/opened_survey_event: Sondaggio iniziato
+      decidim/surveys/closed_survey_event: Questionario concluso
+      decidim/surveys/opened_survey_event: Questionario avviato
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Sondaggio
+        one: Questionario
         other: indagini
       decidim/surveys/survey_answer:
         one: Risposta
@@ -17,7 +17,7 @@ it:
       surveys:
         actions:
           answer: Risposta
-        name: Sondaggio
+        name: Questionario
         settings:
           global:
             announcement: Annuncio
@@ -27,15 +27,15 @@ it:
     events:
       surveys:
         survey_closed:
-          email_intro: Il sondaggio %{resource_title} in %{participatory_space_title} è stato chiuso.
+          email_intro: Il questionario %{resource_title} in %{participatory_space_title} è stato chiuso.
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Un sondaggio è terminato in %{participatory_space_title}
-          notification_title: L'indagine <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è finita.
+          email_subject: Un questionario in %{participatory_space_title} si è concluso
+          notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> si è concluso.
         survey_opened:
-          email_intro: 'Il sondaggio %{resource_title} in %{participatory_space_title} è ora aperto. Puoi partecipare da questa pagina:'
+          email_intro: 'Il questionario %{resource_title} in %{participatory_space_title} è ora aperto. Puoi partecipare da questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Una nuova indagine su %{participatory_space_title}
-          notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
+          email_subject: Un nuovo questionario su %{participatory_space_title}
+          notification_title: Il questionario <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
     metrics:
       survey_answers:
         description: Numero di sondaggi rispondenti dagli utenti

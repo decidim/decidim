@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -37,10 +38,10 @@ fr:
         redirect_uri: Rediriger l'URI
       organization:
         address: Nom d'hôte SMTP
-        alert_color: Couleur d'alerte
-        badges_enabled: Activer les Badges
-        cta_button_path: Chemin du bouton d'appel à l'action
-        cta_button_text: Texte du bouton d'appel à l'action
+        alert_color: Alerte
+        badges_enabled: Activer les badges
+        cta_button_path: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
@@ -73,7 +74,7 @@ fr:
         show_statistics: Afficher les statistiques
         success_color: Couleur de succès
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Gestionnaire Twitter
+        twitter_handler: Compte Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
         warning_color: Couleur d'avertissement
         youtube_handler: Gestionnaire YouTube
@@ -228,10 +229,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
       components:
@@ -467,7 +464,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser
@@ -480,9 +477,10 @@ fr:
         new:
           save: Enregistrer
           title: Nouvelle newsletter
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+        show:
           preview: Aperçu
           subject: Objet
         update:
@@ -582,6 +580,12 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteurs.
@@ -660,7 +664,7 @@ fr:
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Journal d'administration
+        dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
         impersonations: Gestion des utilisateurs
         managed_users: Utilisateurs gérés
@@ -675,8 +679,8 @@ fr:
         new: Nouvel utilisateur
       user_group:
         csv_verify:
-          invalid: Il y a eu une erreur dans la lecture du fichier CSV.
-          success: CSV téléchargé avec succès, nous vérifions que les groupes d'utilisateurs correspondent aux critères. Ça pourrait prendre du temps.
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
@@ -699,7 +703,7 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Téléchargez votre fichier CSV. Il doit contenir les emails officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur email et qui ont un email apparaissant dans le fichier CSV seront validés.
+          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
@@ -735,10 +739,10 @@ fr:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
           unhide:
-            invalid: Il y a eu un problème au moment de masquer le contenu.
-            success: Ressource masquée avec succès.
+            invalid: Il y a eu un problème au moment de publier le contenu.
+            success: Contenu publié avec succès.
           unreport:
-            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
+            invalid: Il y a eu un problème lors de l'annulation du signalement.
             success: Le contenu n'est plus signalé.
       models:
         moderation:

@@ -1,4 +1,3 @@
----
 it:
   decidim:
     system:
@@ -30,14 +29,9 @@ it:
         placeholders:
           content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} sul pannello di amministrazione.
           title: Titolo predefinito per %{page}
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Amministratori
         dashboard: Cruscotto
-        logs: Logs
         organizations: Organizzazioni
       models:
         admin:
@@ -53,7 +47,7 @@ it:
           fields:
             created_at: Data/ora di creazione
             name: Nome
-            smtp_settings: SMTP settings
+            smtp_settings: Impostazioni SMTP
           name: Organizzazione
       organizations:
         create:

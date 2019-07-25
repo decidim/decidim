@@ -56,6 +56,11 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
 
+      # Return registrations of a particular meeting made by users representing a group
+      def user_group_registrations
+        registrations.where.not(decidim_user_group_id: nil)
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
       end
@@ -112,17 +117,14 @@ module Decidim
         followers
       end
 
-      # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
-      def can_participate?(user)
-        return true unless participatory_space.try(:private_space?) || private_meeting?
-        return true if (participatory_space.try(:private_space?) &&
-                        participatory_space.users.include?(user)) ||
-                       (private_meeting? && registrations.exists?(decidim_user_id: user.try(:id)))
-        return false if (participatory_space.try(:private_space?) &&
-                        participatory_space.try(:transparent?)) ||
-                        (private_meeting? && transparent?)
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate?(user)
       end
-      # rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+
+      def can_participate?(user)
+        can_participate_in_space?(user) && can_participate_in_meeting?(user)
+      end
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
@@ -162,6 +164,15 @@ module Decidim
         return false unless pad_is_visible?
 
         (Time.current - end_time) < 72.hours
+      end
+
+      private
+
+      def can_participate_in_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        registrations.exists?(decidim_user_id: user.id)
       end
     end
   end

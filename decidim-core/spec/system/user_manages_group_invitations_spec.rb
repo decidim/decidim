@@ -20,7 +20,7 @@ describe "User manages group invitations", type: :system do
 
       click_link "Accept"
 
-      expect(page).to have_content("Invitation accepted successfully")
+      expect(page).to have_content("Invitation successfully accepted")
 
       expect(page).to have_content(membership.user_group.name)
     end
@@ -32,7 +32,7 @@ describe "User manages group invitations", type: :system do
 
       click_link "Reject"
 
-      expect(page).to have_content("Invitation rejected successfully")
+      expect(page).to have_content("Invitation successfully rejected")
 
       expect(page).not_to have_content(membership.user_group.name)
     end

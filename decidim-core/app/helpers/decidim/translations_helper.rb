@@ -35,12 +35,25 @@ module Decidim
       end
     end
 
-    module_function :multi_translation, :empty_translatable
+    # Public: Creates a translation for each available language in the list with
+    # the given value so empty fields still have the correct format. If the
+    # value is not a hash, an `empty_translatable` will be returned.
+    #
+    # value   - A hash value containing the values for each locale. Those
+    #           locales that do not have a corresponding value in the hash will
+    #           be replaced by an empty string.
+    # locales - A list of locales to scope the translations to. Picks up all the
+    #           available locales by default.
+    #
+    # Returns a Hash with the locales as keys and value strings as values.
+    def ensure_translatable(value, locales = Decidim.available_locales)
+      return empty_translatable(locales) unless value.is_a?(Hash)
 
-    def deepl_target_locale(requested_locale, default_locale)
-      return default_locale.upcase unless %w(EN DE FR ES PT IT NL PL RU).include? requested_locale.upcase
-
-      requested_locale.upcase
+      locales.each_with_object({}) do |locale, result|
+        result[locale.to_s] = value[locale.to_s] || value[locale] || ""
+      end
     end
+
+    module_function :multi_translation, :empty_translatable, :ensure_translatable
   end
 end

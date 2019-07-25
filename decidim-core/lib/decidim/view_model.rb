@@ -11,6 +11,8 @@ module Decidim
     include Decidim::ActionAuthorizationHelper
     include Decidim::ReplaceButtonsHelper
 
+    delegate :current_organization, to: :controller
+
     def current_user
       context[:current_user]
     end

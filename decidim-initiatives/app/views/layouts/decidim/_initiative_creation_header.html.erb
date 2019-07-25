@@ -1,37 +1,27 @@
-<div class="process-header">
-  <div class="process-header__inner">
-    <div class="row column process-header__main">
-    </div>
-    <div class="process-header__container initiative-creation-header__container row collapse column">
-      <div class="columns mediumlarge-8 process-header__info">
-        <% if content_for? :back_link %>
-          <%= content_for :back_link %>
+<div class="columns large-3">
+  <div class="m-bottom">
+    <%= link_to :back do %>
+      <%= icon "chevron-left", class: "icon--small" %> <%= t(".back") %>
+    <% end %>
+  </div>
+  <div class="section">
+    <p>
+      <%= t(".title") %>
+    </p>
+  </div>
+  <div class="show-for-large">
+    <ol class="wizard__steps">
+      <% wizard_steps.each do |wizard_step| %>
+        <% if step == wizard_step %>
+          <li class="step--active">
+            <%= t(".#{wizard_step}") %>
+          </li>
+        <% else %>
+          <li>
+            <%= t(".#{wizard_step}") %>
+          </li>
         <% end %>
-
-        <h1 class="text-highlight heading2"><%= t(".title") %></h1>
-      </div>
-      <div class="columns mediumlarge-4">
-        <div class="process-header__phase initiative-creation-header__phase">
-          <div class="process-header__progress show-for-medium">
-            <ol>
-              <% wizard_steps.each do |wizard_step| %>
-                <% unless future_step? wizard_step %>
-                  <li class="phase-item--past">
-                    <span></span>
-                  </li>
-                <% else %>
-                  <li>
-                    <span></span>
-                  </li>
-                <% end %>
-              <% end %>
-              <% step_index = wizard_steps.index(step) %>
-            </ol>
-            <span class="phase-current"><%= t(".step", current: (step_index + 1), total: wizard_steps.length) %></span>
-            <span class="phase-title"><%= t(".#{step}") %></span>
-          </div>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    </ol>
   </div>
 </div>

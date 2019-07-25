@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -150,7 +149,7 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Alkatrészek
-          conference_admins: Konferencia felhasználók
+          conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
@@ -268,7 +267,7 @@ hu:
           confirm: "%{user_name} megerősítette konferencia regisztrációját a %{resource_name} konferencián"
         partner:
           create: "%{user_name} létrehozta a %{resource_name}-t a %{space_name} konferenciában"
-          delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
+          delete: "%{user_name} eltávolította a %{resource_name} felhasználót a %{space_name} konferenciából"
           update: "%{user_name} frissítette a %{resource_name}-t a %{space_name} konferencián"
         registration_type:
           create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
@@ -330,7 +329,7 @@ hu:
             available_slots_help: Hagyja 0-ra, ha van korlátlan slot.
             registrations_count:
               one: 1 regisztráció volt.
-              other: "%{count} regisztráció volt."
+              other: '%{count} regisztráció volt.'
             slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:
@@ -357,8 +356,8 @@ hu:
             certificate_of_attendance: Tanúsítvány a részvételről
             certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Probléma merült fel a konferencia oklevelek küldésekor.
-          success: Konferencia oklevelek sikeresen elküldve
+          error: Probléma merült fel a konferencia részvételi igazolásainak elküldése közben.
+          success: A konferencia részvételi igazolások helyesen küldtek
       conference:
         registration_confirm:
           cancel: Megszünteti
@@ -381,7 +380,7 @@ hu:
         confirmation:
           confirmed_html: A <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítést nyert.
           details_1: 'A konferenciára a következő típussal vagy regisztrálva %{registration_type}. Az ára %{price} és a következő eseményeken vehetsz részt:'
-          details_2: A konferencia részleteit megtalálja a mellékletben.
+          details_2: A konferencia részleteit megtalálod a mellékletben.
         pending_validation:
           confirmation_pending: Rövidesen megkapod a visszaigazolást
           details: 'A %{registration_type} típussal regisztráltál a konferenciára, melyek költsége %{price} és így részt vehetsz a következő eseményeken:'
@@ -415,7 +414,7 @@ hu:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
-          login_as: "%{name} <%{email}> -ként jelentkeztél be"
+          login_as: '%{name} <%{email}> -ként jelentkeztél be'
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -471,12 +470,12 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: "%{name} <%{email}> -ként jelentkezett be"
+          login_as: '%{name} <%{email}> -ként jelentkezett be'
           register: Regisztráció
           title: Regisztrációs típusok
       shared:
         conference_user_login:
-          already_account: Van már fiókja decidimben?
+          already_account: Van már fiókod a Decidimben?
           new_user: Új felhasználó?
           sign_in: Jelentkezz be a konferenciára való regisztrálásához
           sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
@@ -553,6 +552,7 @@ hu:
           take_part: Részt vesz
       conferences:
         conference:
+          more_info: Több információ
           take_part: Részt vesz
         index:
           promoted_conferences: Támogatott konferenciák

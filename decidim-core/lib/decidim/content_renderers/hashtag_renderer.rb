@@ -9,6 +9,9 @@ module Decidim
     #
     # @see BaseRenderer Examples of how to use a content renderer
     class HashtagRenderer < BaseRenderer
+      include ActionView::Helpers::SanitizeHelper
+      include Decidim::SanitizeHelper
+
       # Matches a global id representing a Decidim::Hashtag
       GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)\/?(_?)([[:alnum:]](?:[[:alnum:]]|_)*)?\b}
 
@@ -18,10 +21,18 @@ module Decidim
       #
       # links - should render hashtags as links?
       # extras - should include extra hashtags?
+      # html_escape - should the content be HTML-escaped before rendering
+      #   hashtags?
+      # strip_tags - should the HTML tags of the content be stripped before
+      #   rendering hashtags?
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(links: true, extras: true)
-        content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
+      def render(links: true, extras: true, html_escape: false, strip_tags: false)
+        text = content
+        text = strip_tags(text) if strip_tags
+        text = decidim_html_escape(text) if html_escape
+
+        text.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
           hashtag = hashtags[id.to_i]
 

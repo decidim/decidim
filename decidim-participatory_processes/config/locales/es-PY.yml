@@ -1,13 +1,14 @@
----
 es-PY:
   activemodel:
     attributes:
       participatory_process:
         announcement: Anuncio
+        area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_steps: Copiar las fases
+        decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -19,7 +20,6 @@ es-PY:
         participatory_process_group_id: Grupo de procesos
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        private_space: Concertation privée
         promoted: Destacado
         published_at: Publicado en
         scope_id: Ámbito
@@ -71,12 +71,13 @@ es-PY:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        new: New
+        filter:
+          all: Mostrar todos los procesos
+          process_groups: Grupos de proceso
+        new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
         new_process_user_role: Nuevo usuario de proceso
-        participatory_process:
-          new: New
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -202,14 +203,9 @@ es-PY:
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         edit:
           update: Actualizar
-        form:
-          title: Información general
         index:
           not_published: No publicado
           private: Privado
-          promoted:
-            'false': 'False'
-            'true': 'True'
           public: Público
           published: Publicada
         new:
@@ -265,7 +261,7 @@ es-PY:
         participatory_processes:
           contextual: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           page: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
-          title: "¿Qué es un proceso participativo?"
+          title: '¿Qué es un proceso participativo?'
     menu:
       processes: Procesos
     metrics:
@@ -273,11 +269,6 @@ es-PY:
         description: Número de procesos participativos en esta organización.
         object: procesos participativos
         title: Procesos participativos
-    pages:
-      participatory_space:
-        metrics:
-          headline: Headline
-          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -303,7 +294,16 @@ es-PY:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            duration: Duración
+            filters: Filtros
+            images: Imágenes
+            metadata: Metadatos
+            other: Otro
+            select_an_area: Seleccione una área
+            select_process_group: Seleccione un grupo de proceso
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Información general
+            visbility: Visibilidad
       content_blocks:
         highlighted_processes:
           name: Procesos destacados
@@ -319,8 +319,6 @@ es-PY:
             more_information: Más información
             participate: Participar
             see_all_processes: Ver todos los procesos
-      participatory_process_groups:
-        none: Ninguna
       participatory_processes:
         filters:
           counters:
@@ -349,6 +347,7 @@ es-PY:
         index:
           loading: Cargando resultados...
       show:
+        area: Área
         developer_group: Grupo promotor
         end_date: Fecha de finalización
         local_area: Área de organización
@@ -390,6 +389,7 @@ es-PY:
           promoted_processes: Procesos destacados
         participatory_process:
           active_step: 'Fase actual:'
+          more_info: Más información
           take_part: Participa
         promoted_process:
           active_step: 'Fase actual:'
