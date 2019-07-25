@@ -9,18 +9,39 @@ module Decidim
       def display_next_previous_button(direction, optional_classes = "")
         css = "card__button button hollow " + optional_classes
 
+        # Do not show anything if is a lonely question
+        return unless previous_published_question || next_published_question
+
         case direction
         when :previous
           i18n_text = t("previous_button", scope: "decidim.questions")
-          question = previous_question || current_question
-          css << " disabled" if previous_question.nil?
+          question = previous_published_question || current_question
+          css << " disabled" if previous_published_question.nil?
         when :next
           i18n_text = t("next_button", scope: "decidim.questions")
-          question = next_question || current_question
-          css << " disabled" if next_question.nil?
+          question = next_published_question || current_question
+          css << " disabled" if next_published_question.nil?
         end
 
         link_to(i18n_text, decidim_consultations.question_path(question), class: css)
+      end
+
+      def authorized_vote_modal_button(question, html_options, &block)
+        return if current_user && action_authorized_to(:vote, resource: nil, permissions_holder: question).ok?
+
+        tag = "button"
+        html_options ||= {}
+
+        if !current_user
+          html_options["data-open"] = "loginModal"
+        else
+          html_options["data-open"] = "authorizationModal"
+          html_options["data-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
+        end
+
+        html_options["onclick"] = "event.preventDefault();"
+
+        send("#{tag}_to", "", html_options, &block)
       end
     end
   end

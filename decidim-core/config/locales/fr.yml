@@ -1121,11 +1121,11 @@ fr:
       update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
       updated: Votre compte a été mis à jour avec succès.
     sessions:
-      already_signed_out: Signé avec succès.
+      already_signed_out: Déconnecté(e) avec succès.
       new:
         sign_in: S'identifier
-      signed_in: Signé avec succès.
-      signed_out: Signé avec succès.
+      signed_in: Connexion réussie.
+      signed_out: Déconnecté(e) avec succès.
     shared:
       links:
         back: Arrière

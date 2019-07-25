@@ -43,25 +43,15 @@ module Decidim
       # Returns a radio buttons collection input for the component's step setting
       # :amendments_visibility; all wrap in a label tag and with help text.
       def amendments_visibility_form_field(form, options)
-        collection = Decidim::Amendment::VisibilityStepSetting.options
-        checked = if @component.step_settings.present?
-                    step_number = options[:tabs_prefix].split("-")[1] # Gets number in String like "step-N-settings"
-                    @component.step_settings[step_number][:amendments_visibility]
-                  else
-                    @component.current_settings[:amendments_visibility]
-                  end
-
-        radio_buttons = form.collection_radio_buttons(:amendments_visibility,
-                                                      collection,
-                                                      :last,
-                                                      :first,
-                                                      { checked: checked },
-                                                      amendments_extra_options) { |b| b.label { b.radio_button + b.text } }
-
         html = label_tag(:amendments_visibility) do
           concat options[:label]
           concat tag(:br)
-          concat radio_buttons
+          concat form.collection_radio_buttons(:amendments_visibility,
+                                               Decidim::Amendment::VisibilityStepSetting.options,
+                                               :last,
+                                               :first,
+                                               { checked: form.object.amendments_visibility },
+                                               amendments_extra_options) { |b| b.label { b.radio_button + b.text } }
         end
         html << content_tag(:p, help_text_for_component_setting(:amendments_visibility, :step, :proposals), class: "help-text")
         html.html_safe

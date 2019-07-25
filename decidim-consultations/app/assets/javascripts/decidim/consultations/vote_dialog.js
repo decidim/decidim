@@ -30,7 +30,20 @@ $(document).ready(function () {
     });
   }
 
+  $("#confirm-vote-form").on("ajax:beforeSend", function() {
+    $("#confirm-vote-form-loader,#confirm-vote-form").toggleClass("hide");
+  });
+
   $("#confirm-vote-form").on("ajax:success", function() {
+    voteConfirmDialog.foundation("close");
+  });
+
+  $("#confirm-vote-form").on("ajax:error", function(event) {
+    const error = event && event.detail && event.detail[0].error;
+    $("#vote-result-callout").addClass("alert").removeClass("hide warning");
+    $("#vote-result-callout .callout-title").text($("#vote-result-callout").data("title-ko"));
+    $("#vote-result-callout .callout-message").text(error || $("#vote-result-callout").data("message-ko"));
+    $("#confirm-vote-form-loader,#confirm-vote-form").toggleClass("hide");
     voteConfirmDialog.foundation("close");
   });
 });

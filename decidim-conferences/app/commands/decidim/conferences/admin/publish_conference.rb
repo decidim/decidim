@@ -28,11 +28,23 @@ module Decidim
           end
 
           broadcast(:ok)
+          send_notification
         end
 
         private
 
         attr_reader :conference, :current_user
+
+        def send_notification
+          return unless conference.registrations_enabled?
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
+            resource: conference,
+            followers: conference.followers
+          )
+        end
       end
     end
   end

@@ -66,13 +66,23 @@ module Decidim
             { class: "amendments_step_settings" }
           ]
         end
+        let(:component) do
+          create(
+            :component,
+            :with_amendments_enabled,
+            manifest_name: "proposals",
+            participatory_space: participatory_process
+          )
+        end
 
         before do
-          @component = create(:component, manifest_name: "proposals", step_settings: step_settings)
+          expect(form).to receive(:object).and_return(settings_manifest)
         end
 
         describe "when the component has step_settings" do
-          let(:step_settings) { { "1": { amendments_visibility: "all" } } }
+          let(:participatory_process) { create(:participatory_process, :with_steps) }
+          let(:step_id) { participatory_process.active_step.id.to_s }
+          let(:settings_manifest) { component.step_settings[step_id] }
 
           it "is supported" do
             expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)
@@ -81,7 +91,8 @@ module Decidim
         end
 
         describe "when the component does NOT have step_settings" do
-          let(:step_settings) { {} }
+          let(:participatory_process) { create(:participatory_process) }
+          let(:settings_manifest) { component.default_step_settings }
 
           it "is supported" do
             expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)

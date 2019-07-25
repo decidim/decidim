@@ -145,9 +145,6 @@ edit_link(
 
 <%= comments_for @proposal %>
 
-<%= javascript_include_tag "decidim/proposals/social_share" %>
-<%= stylesheet_link_tag "decidim/proposals/social_share" %>
-
 <%=
   render partial: "decidim/shared/flag_modal", locals: {
     reportable: @proposal,

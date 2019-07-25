@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateComponent do
-    subject { described_class.new(manifest, form, participatory_process) }
+    subject { described_class.new(form) }
 
     let(:manifest) { Decidim.find_component_manifest(:dummy) }
     let(:form) do
@@ -19,6 +19,8 @@ module Decidim::Admin
         valid?: valid,
         current_user: current_user,
         weight: 2,
+        manifest: manifest,
+        participatory_space: participatory_process,
         settings: {
           dummy_global_attribute_1: true,
           dummy_global_attribute_2: false
