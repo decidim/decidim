@@ -3,6 +3,14 @@ fi-pl:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      group:
+        about: Tietoja
+        avatar: Avatar
+        document_number: Dokumentin numero
+        email: Sähköposti
+        name: Nimi
+        nickname: Nimimerkki
+        phone: Puhelinnumero
       report:
         details: Lisätiedot
       user:
@@ -1279,12 +1287,15 @@ fi-pl:
     qq: Qzone
     reddit: Reddit
     share_to: Jaa palvelussa %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Avaa WeChat, klikkaa "Discover" -nappia ja tämän jälkeen klikkaa "Scan QR Code" -valikkoa.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
