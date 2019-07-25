@@ -10,7 +10,7 @@
           <strong class="text-uppercase"><%= translated_attribute(agenda_item.title) %></strong>&nbsp;
           <span class="text-small"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
         </h5>
-        <hr class="reset m-none mb-s" />
+        <hr class="reset m-none mb-s">
         <p><%= translated_attribute(agenda_item.description).html_safe %></p>
 
         <% if agenda_item.agenda_item_children.presence %>

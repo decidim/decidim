@@ -24,7 +24,7 @@
           <% results.each do |result| %>
             <tr data-id="<%= result.id %>">
               <td>
-                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br />
+                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
               </td>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
