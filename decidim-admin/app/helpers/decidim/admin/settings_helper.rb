@@ -44,8 +44,7 @@ module Decidim
       # :amendments_visibility; all wrap in a label tag and with help text.
       def amendments_visibility_form_field(form, options)
         collection = Decidim::Amendment::VisibilityStepSetting.options
-        step_number = options[:tabs_prefix].split("-")[1] # Gets the number in a String like "step-N-settings"
-        checked = @component.step_settings[step_number].amendments_visibility
+        checked = form.object.amendments_visibility
 
         html = label_tag(:amendments_visibility) do
           concat options[:label]

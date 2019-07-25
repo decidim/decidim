@@ -245,7 +245,7 @@
     "typescript": "^2.5.3",
     "typescript-babel-jest": "^1.0.5",
     "webpack": "^4.6.0",
-    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^2.1.5",
     "webpack-config-utils": "~2.3.0",
     "yaml-jest": "^1.0.5",

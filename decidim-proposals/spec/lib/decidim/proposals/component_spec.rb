@@ -136,6 +136,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
+    describe "proposals_accepted" do
+      let!(:accepted_proposal) { create :proposal, :accepted, component: component }
+      let!(:accepted_hidden_proposal) { create :proposal, :accepted, component: component }
+      let!(:moderation) { create :moderation, reportable: accepted_hidden_proposal, hidden_at: 1.day.ago }
+      let(:stats_name) { :proposals_accepted }
+
+      it "only counts accepted and not hidden proposals" do
+        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 6
+        expect(subject).to eq 1
+      end
+    end
+
     describe "votes_count" do
       let(:stats_name) { :votes_count }
 

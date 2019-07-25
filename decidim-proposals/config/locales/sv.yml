@@ -51,7 +51,7 @@ sv:
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
-      decidim/proposals/proposal_endorsed_event: Förslaget stöttat
+      decidim/proposals/proposal_endorsed_event: Instämt med förslaget
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
       decidim/proposals/publish_proposal_event: Förslag publicerat
       decidim/proposals/rejected_proposal_event: Förslag avvisat
@@ -65,8 +65,8 @@ sv:
         one: Förslag
         other: Förslagen
       decidim/proposals/proposal_endorsement:
-        one: Stöd
-        other: Stöd
+        one: Instämmande
+        other: Instämmanden
       decidim/proposals/proposal_note:
         one: Anteckning
         other: Anteckningar
@@ -79,7 +79,7 @@ sv:
         actions:
           amend: Ändra
           create: Skapa
-          endorse: Stödja
+          endorse: Instäm
           vote: Rösta
           withdraw: Dra tillbaka
         name: Förslag
@@ -117,15 +117,15 @@ sv:
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
             amendments_visibility: Ändringens synlighet
-            amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se vilka ändringar som gjorts.
+            amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
-            endorsements_blocked: Stöd blockerade
-            endorsements_enabled: Stöd aktiverade
+            endorsements_blocked: Instämmanden är blockerade
+            endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
-            suggested_hashtags: Hashtags föreslog användare för nya förslag
+            suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Röstande blockerat
             votes_enabled: Röstning aktiverat
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
@@ -167,7 +167,7 @@ sv:
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
           notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Du kan godkänna förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Förslag till godkännande har startat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -183,10 +183,10 @@ sv:
             email_subject: Ett förslag som du följer har antagits
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har antagits.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just godkänt förslaget "%{resource_title}" och vi tycker att det kan vara intressant för dig. Kolla in det och bidra med:'
+          email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med förslaget "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: "%{endorser_nickname} har godkänt ett nytt förslag"
-          notification_title: '| <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.'
+          email_subject: "%{endorser_nickname} har instämt med ett nytt förslag"
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> har instämt med förslaget <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
@@ -273,13 +273,13 @@ sv:
       accepted_proposals:
         description: Antal förslag accepterade av användarna
         object: förslag
-        title: Godkända Förslag
+        title: Godkända förslag
       endorsements:
-        description: Antal anmärkningar som genereras i förslag
-        object: påskrifter
-        title: påskrifter
+        description: Antal instämmanden med förslag
+        object: instämmanden
+        title: Instämmanden
       proposals:
-        description: Antal förslag som genererats
+        description: Antal förslag
         object: förslag
         title: Förslag
       votes:
@@ -292,14 +292,14 @@ sv:
           proposals: Förslag
     participatory_spaces:
       highlighted_proposals:
-        see_all: Se alla (%{count})
+        see_all: Visa alla (%{count})
     proposals:
       actions:
         answer: Svara
         edit_proposal: Redigera förslag
         import: Importera från en annan komponent
         new: Nytt förslag
-        participatory_texts: Deltagande texter
+        participatory_texts: Deltagartexter
         private_notes: Privata anteckningar
         title: Åtgärder
       admin:
@@ -313,16 +313,16 @@ sv:
             name: Förslag
         participatory_texts:
           bulk-actions:
-            are_you_sure: Är du säker på att kassera hela deltagande textförslaget?
-            discard_all: Kassera allt
+            are_you_sure: Vill du kasta utkastet till deltagartext?
+            discard_all: Kasta alla
             import_doc: Importera dokument
           discard:
-            success: Alla deltagande textförslag har kasseras.
+            success: Alla utkast till deltagartexter har kastats.
           import:
-            invalid: Blanketten är ogiltig!
-            success: Grattis, följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            invalid: Formuläret är ogiltig!
+            success: Grattis, följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
           index:
-            info_1: Följande avsnitt har analyserats från det importerade dokumentet, de har konverterats till förslag. Nu kan du granska och justera vad du behöver innan du publicerar.
+            info_1: Följande avsnitt har omvandlats till förslag. Nu kan du granska och göra ändringar i dem innan de publiceras.
             publish_document: Publicera dokument
             save_draft: Spara utkast
             title: PREVIEW PARTICIPERY TEXT
@@ -342,7 +342,7 @@ sv:
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
             sub-section: "<em>Underavsnitt:</em> %{title}"
           update:
-            success: Deltagande text uppdaterad framgångsrikt.
+            success: Deltagartexten har uppdaterats.
         proposal_answers:
           edit:
             accepted: Godkända
@@ -352,7 +352,7 @@ sv:
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
-            error: Det uppstod ett problem med att skapa denna förslagsnotering
+            error: Det gick inte att skapa anteckningen till förslaget
             success: Förslagsanteckning skapades
           form:
             note: Annteckning
@@ -434,11 +434,11 @@ sv:
         filter_origin_values:
           all: Alla
           citizens: Medborgare
-          meetings: möten
+          meetings: Möten
           official: Officiella
-          user_groups: Användargrupper
+          user_groups: Grupper
         filter_state_values:
-          accepted: Accepterad
+          accepted: Godkända
           all: Alla
           evaluating: utvärdera
           except_rejected: Alla förutom avslagna
@@ -551,7 +551,7 @@ sv:
           withdrawn: Tillbakadraget
         update:
           error: Det har uppstått fel när du sparade samarbetsutkastet.
-          success: Samarbetsutkastet uppdaterat.
+          success: Det gemensamma utkastet har uppdaterats.
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>gemensamt utkast</strong>.
@@ -562,13 +562,13 @@ sv:
           step_3: Färdigställ ditt gemensamma utkast
           step_of: Steg %{current_step_num} av %{total_steps}
       create:
-        error: Det uppstått fel när du sparade förslaget.
-        success: Förslaget skapades. Sparat som ett Utkast.
+        error: Det gick inte att spara förslaget.
+        success: Förslaget har skapats. Det är sparat som ett utkast.
       destroy_draft:
-        error: Det har uppstått fel vid radering av förslagsutkastet.
+        error: Det gick inte att radera det gemensamma utkastet.
         success: Utkastet till förslag har tagits bort.
       last_activity:
-        new_proposal_at_html: "<span>Nytt förslag till %{link}</span>"
+        new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -579,7 +579,7 @@ sv:
           fields:
             category: Kategori
             comments: Kommentarer
-            endorsements: Påskrifter
+            endorsements: Instämmanden
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
@@ -591,30 +591,30 @@ sv:
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
-        alternative_title: Det finns inga deltagande texter just nu
+        alternative_title: Det finns inga deltagartexter just nu
         buttons:
           amend: Ändra
           comment: Kommentar
-          comments: kommentarer
-          endorse: Stödja
+          comments: Kommentarer
+          endorse: Instäm
       proposal_endorsements:
         create:
-          error: Det har blivit fel när man godkände förslaget.
+          error: Det gick inte att instämma med förslaget.
         identities:
           done: Klar
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Stött
-          endorse: Stödja
+          already_endorsed: Instämt
+          endorse: Instäm
         render_endorsements_button_card_part:
-          endorse: Stöd
+          endorse: Instäm
       proposal_votes:
         create:
           error: Det har uppstått fel när man röstade om förslaget.
       proposals:
         compare:
-          continue: Fortsätta
+          continue: Fortsätt
           no_similars_found: Bra gjort! Hittade inga liknande förslag
           title: Liknande förslag
         complete:
@@ -636,7 +636,7 @@ sv:
           send: Förhandsvisa
           title: Redigera utkast till förslag
         endorsement_identities_cabin:
-          endorse: Stödja
+          endorse: Instäm
         endorsements_card_row:
           comments: Kommentarer
         filters:
@@ -675,7 +675,7 @@ sv:
           index:
             document_index: Dokumentindex
           view_index:
-            see_index: Se index
+            see_index: Visa index
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
@@ -690,10 +690,10 @@ sv:
           back_to: Tillbaka till
           changes_at_title: Ändring till %{title}
           edit_proposal: Redigera förslag
-          endorsements_list: Förteckning över Stöd
+          endorsements_list: Lista över instämmanden
           hidden_endorsers_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
+            one: och %{count} till person
+            other: och %{count} till personer
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Se det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
@@ -750,14 +750,14 @@ sv:
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
       publish:
-        error: Det har uppstått fel vid publicering av förslaget.
-        success: Förslag publicerat.
+        error: Det gick inte att publicera förslaget.
+        success: Förslag har publicerats.
       update:
-        error: Det har uppstått fel när du sparade förslaget.
-        success: Förslaget uppdaterades.
+        error: Det gick inte att spara förslaget.
+        success: Förslaget har uppdaterats.
       update_draft:
-        error: Det har uppstått fel när du sparade förslaget.
-        success: Förslagsutkastet uppdaterades.
+        error: Det gick inte att spara det gemensamma utkastet.
+        success: Utkastet till förslag har uppdaterats.
       versions:
         changes_at_title: Ändringar i "%{title}"
         index:
@@ -780,7 +780,7 @@ sv:
       copied_from_component:
         proposal_proposal: Relaterade förslag
       included_projects:
-        project_result: 'Resultat som visas i detta projekt:'
+        project_result: 'Resultat som ingår i detta projekt:'
       included_proposals:
-        proposal_project: 'Förslag som framgår i dessa projekt:'
-        proposal_result: 'Förslag som visas i dessa resultat:'
+        proposal_project: 'Förslag som ingår i dessa projekt:'
+        proposal_result: 'Förslag som ingår i dessa resultat:'
