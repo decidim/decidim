@@ -17,7 +17,7 @@ it:
         banner_image: Immagine banner
         decidim_scope_id: Area comunale
         hashtag: hashtag
-        hero_image: Immagine domestica
+        hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
         origin_scope: Scopo
         origin_title: Origine
