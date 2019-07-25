@@ -24,6 +24,7 @@
 
 **Fixed**:
 
+- **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5267](https://github.com/decidim/decidim/pull/5267)
 - **decidim-core**, **decidim-proposals**: Fix: diffing withdrawn amendments and new lines in body [#5242](https://github.com/decidim/decidim/pull/5242)
 - **decidim-core**: Filter forbidden characters in users invitations. [\#5245](https://github.com/decidim/decidim/pull/5245)
 - **decidim-assemblies**: Don't show private assemblies when becoming childs from another assembly. [#5235](https://github.com/decidim/decidim/pull/5235)
