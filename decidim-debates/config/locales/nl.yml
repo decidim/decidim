@@ -96,10 +96,6 @@ nl:
           create: Aanmaken
           select_a_category: Selecteer een categorie
           title: Nieuw debat
-        share:
-          close_window: Sluit venster
-          share: Delen
-          share_link: Link delen
       last_activity:
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:
