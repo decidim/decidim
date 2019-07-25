@@ -8,7 +8,7 @@ it:
       user:
         about: Di
         email: La tua email
-        name: Nickname
+        name: Nome utente
         nickname: Nome utente
         password: Password
         password_confirmation: Conferma la tua password
@@ -142,6 +142,21 @@ it:
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
         promote_help_text: Puoi promuovere questa emendazione e pubblicarla come %{model_name}indipendente
         section_heading: Modifiche (%{count})
+      compare_draft:
+        continue: Prosegui
+        no_similars_found: Nessun emendamento simile trovato.
+        title: Emendamenti simili
+      created:
+        error: Si è verificato un errore durante la creazione della proposta di emendamento.
+        success: La proposta di emendamento è stata creata con successo.
+      destroy_draft:
+        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        success: La proposta di emendamento è stata eliminata con successo.
+      edit_draft:
+        discard: Scarta questa bozza
+        discard_confirmation: Sei sicuro di voler scartare questa bozza?
+        send: Anteprima
+        title: Modifica progetto di emendamento
       emendation:
         actions:
           button_accept: Accettato
@@ -161,9 +176,18 @@ it:
             è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
+        send: Crea
+        title: Crea proposta di emendamento
+      preview_draft:
+        modify: Modifica
+        publish: Pubblica
+        title: Pubblica la proposta di emendamento
       promoted:
         error: Ci sono stati errori nel promuovere l'emendamento
         success: Emendation promossa con successo
+      publish_draft:
+        error: Si è verificato un errore durante la pubblicazione di questo emendamento.
+        success: Emendamento pubblicato con successo.
       rejected:
         error: Si è verificato un errore durante il rifiuto di questa modifica, riprova più tardi
         success: L'emendamento è stato respinto con successo
@@ -172,15 +196,21 @@ it:
         heading: Rivedi l'emendamento
         help_text: Stai rivedendo un emendamento allo %{model_name}
         send: Accettare l'emendamento
+      update_draft:
+        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        success: Bozza emendamento aggiornata correttamente.
       visibility_options:
         all: Gli emendamenti sono visibili a tutti
         participants: Gli emendamenti sono visibili solo ai loro autori
+      withdraw:
+        error: Si è verificato un errore durante la creazione della proposta di emendamento
+        success: L'emendamento è stato creato con successo
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Confronta il tuo emendamento
+          '3': Completa il tuo emendamento
+          '4': Pubblica il tuo emendamento
     anonymous_user: Anonimo
     application:
       collection:
@@ -319,7 +349,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il tuo nickname (@nickname) in %{organization}
+          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -328,7 +358,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il tuo identificatore univoco breve in %{organization}
+          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -338,7 +368,7 @@ it:
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
           tos_title: Termini di servizio
-          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se non vuoi essere riconoscibile.
+          username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
@@ -832,7 +862,7 @@ it:
           comments_count: Commenti
           conferences_count: conferenze
           debates_count: Dibattiti
-          endorsements_count: Riconoscimenti
+          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
           meetings_count: incontri
           orders_count: Voti
@@ -930,19 +960,19 @@ it:
         choose: Selezionare
         title: Seleziona %{field}
       prompt: Seleziona un ambito
-      scopes: Scopes
+      scopes: Ambiti
     search:
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:
         back: Torna ai risultati
-        jump_to: 'Salta a:'
+        jump_to: 'Filtra per:'
         state:
           active: Attivo
           all: Tutti
           future: Futuro
-          past: Passato
+          past: Conclusi
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
@@ -1009,6 +1039,12 @@ it:
     welcome_notification:
       default_body: <p>Ciao {{name}}, grazie per esserti iscritto a {{organization}} e benvenuto!</p><ul><li>Se vuoi avere una rapida idea di cosa puoi fare qui, dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a> .</li><li>Una volta letto, riceverai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco di tutti i badge</a> è possibile ottenere, come si partecipa a {{organization}}</li><li>Da ultimo, ma non meno importante, uniscono altre persone, condividere con loro l'esperienza di essere impegnati e partecipano a {{organization}}. Fare proposte, commentare, discutere, pensare a come contribuire al bene comune, fornire argomenti per convincere, ascoltare e leggere per essere convinti, esprimere le proprie idee in modo concreto e diretto, rispondere con pazienza e decisione, difendere le proprie idee e mantenere una mente aperta per collaborare e unire le idee degli altri.</li></ul>
       default_subject: Grazie per esserti iscritto a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Indietro
+      wizard_header:
+        see_steps: vedi passi
+        step_of: Passo %{current_step} di %{total_steps}
   devise:
     confirmations:
       confirmed: Il tuo indirizzo email è stato confermato con successo.

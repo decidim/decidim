@@ -19,8 +19,8 @@
                 <%= render partial: "decidim/admin/components/settings_fields",
                            locals: {
                              form: settings_fields,
-                             component: @component,
-                             settings_name: "global",
+                             manifest: form.object.manifest,
+                             settings_name: :global,
                              tabs_prefix: "global-settings"
                            } %>
               <% end %>
@@ -46,8 +46,8 @@
                       <%= render partial: "decidim/admin/components/settings_fields",
                                  locals: {
                                    form: settings_fields,
-                                   component: component,
-                                   settings_name: "step",
+                                   manifest: form.object.manifest,
+                                   settings_name: :step,
                                    tabs_prefix: "step-#{step.id}-settings"
                                  } %>
                     <% end %>
@@ -68,8 +68,8 @@
                 <%= render partial: "decidim/admin/components/settings_fields",
                            locals: {
                              form: settings_fields,
-                             component: @component,
-                             settings_name: "step",
+                             manifest: form.object.manifest,
+                             settings_name: :step,
                              tabs_prefix: "default-step-settings"
                            } %>
               <% end %>

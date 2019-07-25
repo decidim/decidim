@@ -77,6 +77,7 @@ nl:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: creëren
           endorse: Aanbevelen
           vote: Stem
@@ -684,6 +685,7 @@ nl:
             other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk de samenwerkende trekking
+          link_to_proposal_from_emendation_text: Bekijk het voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'

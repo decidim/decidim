@@ -74,7 +74,19 @@ module Decidim::Admin
       it "broadcasts the previous and current settings" do
         expect do
           described_class.call(form, component)
-        end.to broadcast(:ok, true, {}, hash_including("global" => kind_of(Hash), "default_step" => kind_of(Hash), "steps" => kind_of(Hash)))
+        end.to broadcast(
+          :ok,
+          true,
+          hash_including(
+            "global" => kind_of(Hash),
+            "default_step" => kind_of(Hash)
+          ),
+          hash_including(
+            "global" => kind_of(Hash),
+            "default_step" => kind_of(Hash),
+            "steps" => kind_of(Hash)
+          )
+        )
       end
     end
 
