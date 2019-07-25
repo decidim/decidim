@@ -257,6 +257,7 @@ nl:
         statistics:
           consultations_count: overleg
     questions:
+      previous_button: Vorige vraag
       results:
         title: Resultaten
       show:
