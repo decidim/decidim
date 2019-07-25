@@ -828,7 +828,7 @@ sv:
           comments_count: Kommentarer
           conferences_count: Konferenser
           debates_count: Debatter
-          endorsements_count: Underskrifter
+          endorsements_count: Instämmanden
           headline: Aktuellt läge för %{organization}
           meetings_count: Möten
           orders_count: Omröstningar
