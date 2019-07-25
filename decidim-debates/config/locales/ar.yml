@@ -104,10 +104,6 @@ ar:
           create: إنشاء
           select_a_category: الرجاء تحديد الفئة
           title: نقاش جديد
-        share:
-          close_window: أغلق النافذة
-          share: شارك
-          share_link: مشاركة الرابط
       last_activity:
         new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
       models:
