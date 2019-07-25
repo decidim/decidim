@@ -11,7 +11,7 @@ nl:
       admins:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe admin.
-          success: Admin is succesvol gemaakt
+          success: Admin is succesvol aangemaakt
         destroy:
           success: Admin is succesvol verwijderd
         edit:
@@ -51,7 +51,7 @@ nl:
       organizations:
         create:
           error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
-          success: Organisatie is succesvol gemaakt.
+          success: Organisatie is succesvol aangemaakt.
         edit:
           secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
         index:
@@ -64,9 +64,9 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
-          disabled: Alleen toegang is mogelijk met externe accounts
+          disabled: Enkel externe accounts hebben toegang
           enabled: Sta gebruikers toe zich te registreren en in te loggen
-          existing: Sta niet toe dat gebruikers zich registreren, maar staan ​​bestaande gebruikers toe om in te loggen
+          existing: Niet toestaan dat deelnemers zich registreren, maar toestaan dat bestaande deelnemers inloggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
