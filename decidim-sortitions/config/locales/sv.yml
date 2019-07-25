@@ -2,11 +2,11 @@ sv:
   activemodel:
     attributes:
       sortition:
-        additional_info: Fördelningsinformation
-        decidim_category_id: Kategorier av den uppsättning förslag som du vill tillämpa dragningen på
-        decidim_proposals_component_id: Bestämda förslag
-        dice: Resultat av tärningskast. Rulla en 6-sidig tärning eller leta efter ett annat slumpmässigt sätt att generera ett tal från 1 till 6 och skriv in det resulterande numret framför några vittnen. Detta bidrar detta till kvaliteten och garantierna för slumpmässigheten av resultatet
-        target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill välja genom att dra lott från gruppen av förslag du tidigare har valt)
+        additional_info: Information om tilldelningen
+        decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
+        decidim_proposals_component_id: Förslagen
+        dice: Tärningskast. Slå en sexsidig tärning inför vittnen, eller använd ett annat sätt att slumpmässigt skapa ett tal från 1 till 6, och skriv in resultatet. Detta bidrar till kvalitén och garanterar resultatets slumpmässighet
+        target_items: Antal förslag som ska väljas (anger hur många förslag som ska väljas genom lottdragning från den utvalda gruppen av förslag)
         title: Titel
         witnesses: Vittnen
     models:
@@ -26,10 +26,10 @@ sv:
     events:
       sortitions:
         sortition_created:
-          email_intro: Tilldelning "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här notisen eftersom du följer "%{participatory_space_title}". Du kan avfölja den vid föregående länk.
-          email_subject: Ny tilldelning läggs till %{participatory_space_title}
-          notification_title: Tilldelning <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
+          email_intro: Tilldelningen "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det via föregående länk.
+          email_subject: Ny tilldelning har lagts till i %{participatory_space_title}
+          notification_title: Tilldelningen <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
     pages:
       home:
         statistics:
@@ -43,17 +43,17 @@ sv:
           destroy: Avbryt tilldelningen
           edit: Redigera
           new: Ny tilldelning
-          show: Tilldelningsdetaljer
+          show: Detaljer om tilldelningen
         models:
           sortition:
             fields:
               category: Kategori
-              created_at: Datum för skapande
+              created_at: Skapelsedatum
               decidim_proposals_component: Förslagskomponent
               dice: Tärningar
               reference: Referens
-              request_timestamp: Tid för dragning
-              seed: Lott
+              request_timestamp: Lottningstid
+              seed: Frö
               target_items: Objekt att välja
               title: Titel
             name:
@@ -61,38 +61,38 @@ sv:
               other: Tilldelningar
         sortitions:
           confirm_destroy:
-            confirm_destroy: Är du säker på att du vill avbryta denna tilldelning?
+            confirm_destroy: Vill du avbryta tilldelningen?
             destroy: Avbryt tilldelningen
-            title: Annullering av tilldelningen
+            title: Avbryta tilldelningen
           create:
-            error: Det uppstod ett fel vid skapandet av en ny tilldelning.
-            success: Tilldelning skapad
+            error: Det gick inte att skapa en ny tilldelning.
+            success: Tilldelningen har skapats
           destroy:
             error: Kan inte avbryta tilldelningen.
-            success: Tilldelning avbruten
+            success: Tilldelningen har avbrutits
           edit:
             title: Uppdatera informationen om tilldelningen
-            update: Uppdatering
+            update: Uppdatera
           form:
             all_categories: Alla kategorier
-            select_proposal_component: Välj de föreslagna förslagen
-            title: Ny tilldelning för förslag
+            select_proposal_component: Välj förslagen som ska behandlas
+            title: Ny tilldelning av förslag
           index:
             title: Tilldelningar
           new:
-            confirm: Genom att trycka på nästa knapp kommer Decidim registrera datum och tid (med precision i sekunder) och tillsammans med tärningsrullningen används denna information för att generera ett slumpmässigt urval. Åtgärden kommer att vara oåterkallelig, när knappen är klickad kommer resultatet av denna dragning att publiceras, tillsammans med de uppgifter som anges i denna blankett och kan inte ändras, var god kontrollera innehållet noggrant
+            confirm: När du trycker på nästa knapp kommer Decidim att registrera datum och tid (med precision i sekunder) och tillsammans med tärningskastet genereras ett slumpmässigt urval. Åtgärden kan inte ångras eller göras om. När knappen har klickats kommer resultatet av lottningen att publiceras, tillsammans med de uppgifter som anges i formuläret, och kan inte längre ändras. Kontrollera innehållet noggrant
             create: Skapa
             title: Ny tilldelning
           show:
-            selected_proposals: Förslag utvalda för dragning
+            selected_proposals: Förslag som valts för lottning
           update:
-            error: Det uppstod ett fel vid uppdateringen av tilldelningen.
-            success: Tilldelning uppdaterad
+            error: Det gick inte att uppdatera tilldelningen.
+            success: Tilldelningen har uppdaterats
       admin_log:
         sortition:
-          create: "%{user_name} skapade %{resource_name} tilldelningen i %{space_name}"
-          delete: "%{user_name} avbröt %{resource_name} tilldelningen i %{space_name}"
-          update: "%{user_name} uppdaterade %{resource_name} tilldelningen i %{space_name}"
+          create: "%{user_name} skapade tilldelningen %{resource_name} i %{space_name}"
+          delete: "%{user_name} avbröt tilldelningen %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade tilldelningen %{resource_name} i %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -100,51 +100,51 @@ sv:
             other: "%{count} förslag"
         filters:
           active: Aktiva
-          all: Allt
-          cancelled: Avbruten
+          all: Alla
+          cancelled: Avbrutna
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
-          state: Tillstånd
+          state: Status
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
         linked_sortitions:
           selected_proposals: Utvalda förslag
         orders:
-          label: 'Sortera tilldelning genom:'
-          random: Slumpmässig
-          recent: Nyligen
+          label: 'Sortera tilldelningar efter:'
+          random: Slumpmässigt
+          recent: Senaste
         results_count:
           count:
-            one: valda förslaget
-            other: utvalda förslag
+            one: valt förslaget
+            other: valda förslag
         show:
           algorithm: Tilldelningens algoritmkod
           any_category: från alla kategorier
-          cancelled: Annullerad tilldelning
-          candidate_proposal_ids: Tilldelningsförslagens ordning och ID
-          candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de valda förslagen fetstilta)  '
+          cancelled: Avbruten tilldelning
+          candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
+          candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
           category: från kategorin %{category}
-          dice_result: "(1) Tärningsresultat"
-          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av denna sortering har %{target_items} antal resultat valts slumpmässigt och med en lika stor sannolikhetsfördelning från uppsättningen förslag som visas nedan. Tillsammans med resultaten visas informationen på denna sida all information som krävs för att maximera garantier och återskapa resultaten. Nyckeln till kvaliteten på denna tilldelning är den dubbla slumpen som tillhandahålls av rullandet av en tärning (verifierad av vittnen) och den exakta tiden för tilldelningen som ger inmatning för en algoritm som genererar ett slumpmässigt urval. Tidsåtgången för tilldelningen är så exakt (sekunder) att det är omöjligt att kontrollera av människor, vilket ger en dubbel "okontrollerad" ingång för att garantera ett rättvist resultat.  '
+          dice_result: "(1) Tärningskast"
+          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Förslag valda genom tilldelning
           sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
-          time_seed: "(2) Tid för lottning"
+          time_seed: "(2) Tidsfrö"
           witnesses: Vittnen
         sortition:
-          random_seed: Slumpmässig lottning
+          random_seed: Slumpmässigt frö
           selected_proposals:
             one: 1 valt förslag
             other: '%{count} utvalda förslag'
           view: Visa
         sortition_author:
-          deleted: Raderad användare
+          deleted: Raderad deltagare
         sortition_cancel_author:
-          deleted: Raderad användare
+          deleted: Raderad deltagare
         sortitions_count:
           count:
             one: 1 tilldelning
