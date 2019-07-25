@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5277](https://github.com/decidim/decidim/pull/5277)
+
 **Removed**:
 
 ## [0.18.0](https://github.com/decidim/decidim/tree/v0.18.0)
