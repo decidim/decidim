@@ -310,6 +310,10 @@ ca:
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
+            amendment_creation_enabled: Creació d'esmenes habilitada
+            amendment_promotion_enabled: Promoció d'esmenes habilitada
+            amendment_reaction_enabled: Reacció a esmenes habilitada
+            amendments_visibility: Visibilitat de les esmenes
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
