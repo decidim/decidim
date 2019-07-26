@@ -10,7 +10,7 @@ shared_examples "update amendment draft" do
       expect { command.call }
         .to change(form.emendation, :title)
         .and change(form.emendation, :body)
-      expect(amendable.amendable_type.constantize.last.versions.count).to eq(0)
+      expect(amendable.class.last.versions.count).to eq(0)
     end
   end
 

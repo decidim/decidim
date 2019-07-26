@@ -10,7 +10,7 @@ shared_examples "publish amendment draft" do
       command.call
 
       expect(Decidim::Amendment.last.draft?).to eq(false)
-      expect(amendable.amendable_type.constantize.last.published?).to eq(true)
+      expect(amendable.class.last.published?).to eq(true)
     end
 
     it "traces the action", versioning: true do
@@ -18,7 +18,7 @@ shared_examples "publish amendment draft" do
         .to receive(:perform_action!)
         .with(
           "publish",
-          form.amendable.amendable_type.constantize,
+          form.amendable.class,
           form.current_user,
           kind_of(Hash)
         ).and_call_original

@@ -10,11 +10,11 @@ shared_examples "create amendment draft" do
       expect { command.call }
         .to change(Decidim::Amendment, :count)
         .by(1)
-        .and change(amendable.amendable_type.constantize, :count)
+        .and change(amendable.class, :count)
         .by(1)
 
       expect(Decidim::Amendment.last.draft?).to eq(true)
-      expect(amendable.amendable_type.constantize.last.published?).to eq(false)
+      expect(amendable.class.last.published?).to eq(false)
     end
 
     it "traces the action without creating a PaperTrail version for the emendation", versioning: true do
@@ -22,13 +22,13 @@ shared_examples "create amendment draft" do
         .to receive(:perform_action!)
         .with(
           :create,
-          amendable.amendable_type.constantize,
+          amendable.class,
           form.current_user,
           kind_of(Hash)
         ).and_call_original
 
       expect { command.call }.to change(Decidim::ActionLog, :count).by(1)
-      expect(amendable.amendable_type.constantize.last.versions.count).to eq(0)
+      expect(amendable.class.last.versions.count).to eq(0)
     end
   end
 
@@ -43,7 +43,7 @@ shared_examples "create amendment draft" do
       expect { command.call }
         .to change(Decidim::Amendment, :count)
         .by(0)
-        .and change(amendable.amendable_type.constantize, :count)
+        .and change(amendable.class, :count)
         .by(0)
     end
   end

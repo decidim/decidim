@@ -73,6 +73,14 @@ module Decidim
       def participatory_space_type_name
         translated_attribute current_participatory_space.model_name.human
       end
+
+      def visible_emendations
+        @visible_emendations ||= model.visible_emendations_for(current_user)
+      end
+
+      def amend_button_disabled?
+        !(current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?)
+      end
     end
   end
 end

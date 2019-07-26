@@ -45,7 +45,7 @@ module Decidim
           return none unless user
 
           where(id: joins(:amendable).where("decidim_amendments.decidim_user_id = ?", user.id))
-        else # Assume 'all' or wrong value
+        else # Assume 'all'
           only_emendations
         end
       }
@@ -59,7 +59,7 @@ module Decidim
           return only_amendables unless user
 
           where.not(id: joins(:amendable).where.not("decidim_amendments.decidim_user_id = ?", user.id))
-        else # Assume 'all' or wrong value
+        else # Assume 'all'
           all
         end
       }
@@ -89,11 +89,6 @@ module Decidim
     # Returns the form used for the validation and creation of the emendation.
     def amendable_form
       self.class.amendable_options[:form].constantize
-    end
-
-    # Returns the ActiveRecord class name of the resource.
-    def amendable_type
-      resource_manifest.model_class_name
     end
 
     # Returns the polymorphic association.
@@ -126,21 +121,22 @@ module Decidim
     # for the given resource name and link name.
     # See Decidim::Resourceable#link_resources
     def linked_promoted_resource
-      linked_resources(amendable_type, "created_from_rejected_emendation").first
+      linked_resources(self.class, "created_from_rejected_emendation").first
     end
 
     # Returns the emendations of an amendable that are visible to the user
-    # based on the component's amendments settings.
+    # based on the component's amendments settings and filtering out the "drafts".
     def visible_emendations_for(user)
-      return emendations unless component.settings.amendments_enabled
+      pubslished_emendations = emendations.published
+      return pubslished_emendations unless component.settings.amendments_enabled
 
       case component.current_settings.amendments_visibility
       when "participants"
-        return amendable_type.constantize.none unless user
+        return self.class.none unless user
 
-        emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
-      else # Assume 'all' or wrong value
-        emendations
+        pubslished_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
+      else # Assume 'all'
+        pubslished_emendations
       end
     end
 
@@ -148,6 +144,29 @@ module Decidim
     # are visible to the user based on the component's amendments settings.
     def visible_amendments_for(user)
       amendments.where(emendation: visible_emendations_for(user))
+    end
+
+    # Handles the logic to assign an author to the resource, be it Authorable or Coauthorable.
+    def add_author(author, user_group = nil)
+      if is_a?(Decidim::Authorable)
+        if persisted?
+          update(author: user_group || author)
+        else
+          self.author = user_group || author
+        end
+      else # Assume is_a?(Decidim::Coauthorable)
+        coauthorships.clear
+        add_coauthor(author, user_group: user_group)
+      end
+    end
+
+    # Returns an Array of Decidim::User.
+    def notifiable_identities
+      if is_a?(Decidim::Authorable)
+        [author]
+      else # Assume is_a?(Decidim::Coauthorable)
+        super
+      end
     end
   end
 end

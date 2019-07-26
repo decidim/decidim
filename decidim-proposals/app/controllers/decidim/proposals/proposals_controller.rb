@@ -54,7 +54,7 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless set_proposal
+        raise ActionController::RoutingError, "Not Found" unless can_show_proposal?
 
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
@@ -234,6 +234,15 @@ module Decidim
 
       def set_proposal
         @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      # Returns true if the proposal is NOT an emendation or the user IS an admin.
+      # Returns false if the proposal is not found or the proposal IS an emendation
+      # and is NOT visible to the user based on the component's amendments settings.
+      def can_show_proposal?
+        return true if @proposal&.amendable? || current_user&.admin?
+
+        Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
       end
 
       def form_proposal_params

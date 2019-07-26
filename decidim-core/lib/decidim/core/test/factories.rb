@@ -331,6 +331,14 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_amendments_enabled do
+      settings do
+        {
+          amendments_enabled: true
+        }
+      end
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
@@ -378,6 +386,10 @@ FactoryBot.define do
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
