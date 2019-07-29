@@ -91,23 +91,44 @@ shared_examples_for "manage questionnaires" do
     end
 
     it "adds a question with answer options" do
-      question_body = "This is the first question"
-      answer_options_body = ["This is the first option", "This is the second option"]
+      question_body = ["This is the first question", "This is the second question"]
+      answer_options_body = [
+        [
+          "This is the Q1 first option",
+          "This is the Q1 second option",
+          "This is the Q1 third option"
+        ],
+        [
+          "This is the Q2 first option",
+          "This is the Q2 second option",
+          "This is the Q2 third option"
+        ]
+      ]
 
       within "form.edit_questionnaire" do
         click_button "Add question"
+        click_button "Add question"
 
-        within ".questionnaire-question" do
-          fill_in find_nested_form_field_locator("body_en"), with: question_body
+        page.all(".questionnaire-question").each_with_index do |question, idx|
+          within question do
+            fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
+          end
         end
 
         expect(page).to have_no_content "Add answer option"
 
-        select "Single option", from: "Type"
+        page.all(".questionnaire-question").each do |question|
+          within question do
+            select "Single option", from: "Type"
+            click_button "Add answer option"
+          end
+        end
 
-        page.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, idx|
-          within question_answer_option do
-            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx]
+        page.all(".questionnaire-question").each_with_index do |question, idx|
+          question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, aidx|
+            within question_answer_option do
+              fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx][aidx]
+            end
           end
         end
 
@@ -119,8 +140,13 @@ shared_examples_for "manage questionnaires" do
       visit questionnaire_edit_path
 
       expect(page).to have_selector("input[value='This is the first question']")
-      expect(page).to have_selector("input[value='This is the first option']")
-      expect(page).to have_selector("input[value='This is the second option']")
+      expect(page).to have_selector("input[value='This is the Q1 first option']")
+      expect(page).to have_selector("input[value='This is the Q1 second option']")
+      expect(page).to have_selector("input[value='This is the Q1 third option']")
+      expect(page).to have_selector("input[value='This is the second question']")
+      expect(page).to have_selector("input[value='This is the Q2 first option']")
+      expect(page).to have_selector("input[value='This is the Q2 second option']")
+      expect(page).to have_selector("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
