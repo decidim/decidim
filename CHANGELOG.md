@@ -41,6 +41,7 @@
 - **decidim-proposals**: Fix proposals accepted stat when they include hidden proposals [#5276](https://github.com/decidim/decidim/pull/5276)
 - **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
 - **decidim-core**: Add missing locales when creating a new user group [#5262](https://github.com/decidim/decidim/pull/5262)
+- **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5284](https://github.com/decidim/decidim/pull/5284)
 
 
 **Removed**:
