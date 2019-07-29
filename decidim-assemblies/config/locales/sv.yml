@@ -3,22 +3,22 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Sammankomststyp
-        assembly_type_other: Sammankomsttyp annat
+        assembly_type: Typ av församling
+        assembly_type_other: Annan typ av församling
         banner_image: Bannerbild
-        closing_date: Stängningsdatum
-        closing_date_reason: Stängningsdatum orsak
+        closing_date: Slutdatum
+        closing_date_reason: Skäl till slutdatum
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
         created_by: Skapad av
-        created_by_other: Skapat av andra
-        creation_date: Skapat datum
+        created_by_other: Skapad av andra
+        creation_date: Skapad datum
         decidim_area_id: Område
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Omfång
         description: Beskrivning
-        developer_group: Främjandegrupp
+        developer_group: Kampanjgrupp
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
@@ -30,20 +30,20 @@ sv:
         internal_organisation: Intern organisation
         is_transparent: Är transparent
         local_area: Organisationsområde
-        meta_scope: Omfattning metadata
-        parent_id: Föräldrasammankomst
-        participatory_processes_ids: Relaterade deltagandeprocesser
+        meta_scope: Metadata för omfång
+        parent_id: Överordnad församling
+        participatory_processes_ids: Relaterade deltagarprocesser
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
         private_space: Privat utrymme
         promoted: Uppmärksammad
-        published_at: Publicerad på
+        published_at: Publicerad
         purpose_of_action: Syfte med åtgärden
-        scope_id: Omfattning
-        scopes_enabled: Omfattningar aktiverade
+        scope_id: Omfång
+        scopes_enabled: Omfång är aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
-        slug: URL slug
+        slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
         target: Vem deltar
@@ -53,12 +53,12 @@ sv:
       assembly_member:
         birthday: Födelsedag
         birthplace: Födelseort
-        ceased_date: Upphört datum
+        ceased_date: Slutade datum
         designation_date: Utnämningsdatum
         designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
-        position: Position
+        position: Befattning
       assembly_user_role:
         email: E-post
         name: Namn
@@ -66,21 +66,21 @@ sv:
   activerecord:
     models:
       decidim/assembly:
-        one: Sammankomst
-        other: Sammankomster
+        one: Församling
+        other: Församlingar
       decidim/assembly_member:
-        one: Församlingsmedlem
-        other: Församlingsmedlemmar
+        one: Medlem i församlingen
+        other: Medlemmar i församlingen
       decidim/assembly_user_role:
-        one: Församlingsanvändarroll
-        other: Församlingsanvändarroller
+        one: Roll i församlingen
+        other: Roller i församlingen
   decidim:
     admin:
       actions:
         new_assembly: Ny församling
       assemblies:
         create:
-          error: Det uppstod ett fel när ett nytt möte skulle skapas.
+          error: Det gick inte att skapa en ny församling.
           success: Mötet skapades framgångsrikt.
         edit:
           update: Uppdatera
@@ -89,72 +89,72 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
-          public: Offentlig
+          public: Öppen
           published: Publicerad
         new:
           create: Skapa
-          title: Nytt möte
+          title: Ny församling
         update:
-          error: Det uppstod ett fel vid uppdateringen av detta möte.
-          success: Mötet uppdaterades framgångsrikt.
+          error: Det gick inte att uppdatera församlingen.
+          success: Församlingen har uppdaterats.
       assemblies_copies:
         create:
-          error: Det uppstod ett fel vid dupliceringen av detta möte.
-          success: Mötet duplicerades framgångsrikt.
+          error: Det gick inte att duplicera församlingen.
+          success: Församlingen har duplicerats.
       assembly_copies:
         new:
           copy: Kopiera
-          select: Välj vilken data du skulle vilja duplicera
+          select: Välj vilka data som ska dupliceras
           title: Duplicera församling
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem för denna församling.
-          success: Medlem skapades framgångsrikt för denna församling.
+          error: Det gick inte att lägga till en medlem till församlingen.
+          success: Skapade medlem i församlingen.
         destroy:
-          success: Medlemmen har tagits bort för denna församling.
+          success: Medlemmen har raderats från församlingen.
         edit:
-          title: Uppdatera församlingsmedlem.
+          title: Uppdatera medlem i församlingen.
           update: Uppdatera
         index:
-          assembly_members_title: Församlingsmedlemmar
+          assembly_members_title: Medlemmar i församlingen
         new:
           create: Skapa
           title: Ny församlingsmedlem.
         update:
-          error: Det uppstod ett fel vid uppdatering av medlemmen för denna församling.
-          success: Medlem uppdaterad framgångsrikt för denna församling.
+          error: Det gick inte att uppdatera medlemmen i församlingen.
+          success: Medlemmen i församlingen har uppdaterats.
       assembly_publications:
         create:
-          error: Det uppstod ett fel vid publicering av detta möte.
-          success: Mötet publicerades framgångsrikt.
+          error: Det gick inte att publicera församlingen.
+          success: Församlingen har publicerats.
         destroy:
-          error: Ett fel uppstod vid publicering av detta möte.
-          success: Församling avpublicerades framgångsrikt.
+          error: Det gick inte att avpublicera församlingen.
+          success: Församlingen har avpublicerats.
       assembly_user_roles:
         create:
-          error: Ett fel uppstod när en användare skulle läggas till detta möte.
-          success: Användaren har lagts till med framgång till detta möte.
+          error: Det gick inte att lägga till en administratör till församlingen.
+          success: Administratören har lagts till församlingen.
         destroy:
-          success: Användaren avlägsnades framgångsrikt från detta möte.
+          success: Administratören har tagits bort från församlingen.
         edit:
-          title: Uppdatera mötesanvändaren.
+          title: Uppdatera församlingsadministratör.
           update: Uppdatera
         index:
-          assembly_admins_title: Sammanskomstanvändare
+          assembly_admins_title: Församlingsadministratörer
         new:
           create: Skapa
-          title: Ny sammankomstsanvändare.
+          title: Ny församlingsadministratör.
         update:
-          error: Det uppstod ett fel vid uppdatering av en användare för den här sammankomsten.
-          success: Användaren uppdaterades framgångsrikt för denna sammankomst.
+          error: Det gick inte att uppdatera en administratör för församlingen.
+          success: Administratören för församlingen har uppdaterats.
       menu:
-        assemblies: Sammankomst
+        assemblies: Församlingar
         assemblies_submenu:
-          assembly_admins: Mötesanvändare
+          assembly_admins: Administratörer för församlingen
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
-          attachments: Bifogade filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -163,15 +163,15 @@ sv:
       models:
         assembly:
           fields:
-            created_at: Skapad vid
+            created_at: Skapad
             private: Privat
-            promoted: Markerad
+            promoted: Uppmärksammad
             published: Publicerad
             title: Titel
           name: Församling
         assembly_member:
           fields:
-            ceased_date: Upphört datum
+            ceased_date: Slutade datum
             designation_date: Utnämningsdatum
             full_name: Namn
             position: Position
@@ -186,49 +186,49 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Församlingsadministratör
+          name: Administratör för församlingen
           roles:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
       titles:
-        assemblies: Möten
+        assemblies: Församlingar
     admin_log:
       assembly:
-        create: "%{user_name} skapade mötet %{resource_name}"
-        publish: "%{user_name} publicerade mötet %{resource_name}"
-        unpublish: "%{user_name} avpublicerade mötet %{resource_name}"
-        update: "%{user_name} uppdaterade mötet %{resource_name}"
+        create: "%{user_name} skapade församlingen %{resource_name}"
+        publish: "%{user_name} publicerade församlingen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade församlingen %{resource_name}"
+        update: "%{user_name} uppdaterade församlingen %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade %{resource_name} medlem i mötet %{space_name}"
-        delete: "%{user_name} bort %{resource_name} medlem från mötet %{space_name}"
-        update: "%{user_name} uppdaterade %{resource_name} medlem i mötet %{space_name}"
+        create: "%{user_name} skapade medlemmen %{resource_name} i församlingen %{space_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingen %{space_name}"
+        update: "%{user_name} uppdaterade medlemmen %{resource_name} i församlingen %{space_name}"
       assembly_user_role:
-        create: "%{user_name} inbjudna %{resource_name} till mötet %{space_name}"
-        delete: "%{user_name} tog bort användaren %{resource_name} från mötet %{space_name}"
-        update: "%{user_name} ändrade rollen som %{resource_name} i mötet %{space_name}"
+        create: "%{user_name} bjöd in %{resource_name} till församlingen %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från församlingen %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i församlingen %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Om varaktigheten för detta möte är begränsat, välj slutdatum. Annars kommer det att visas som obestämt.
-            included_at_help: Välj datum då denna möte lagts till Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            duration_help: Om varaktigheten för församlingen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
+            included_at_help: Markera det datum då församlingen lades till i Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj en mötestyp
-            select_parent_assembly: Välj överordnat möte
-            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med en bokstav. Exempel: %{url}'
-            social_handlers: Social
+            select_an_assembly_type: Välj typ av församling
+            select_parent_assembly: Välj överordnad församling
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            social_handlers: Socialt
         assembly_copies:
           form:
-            slug_help: 'Rena URL-adresser används för att generera de webbadresser som pekar på den här enheten. Endast bokstäver, siffror och bindestreck accepteras och måste börja med ett bokstav. Exempel: %{url}'
+            slug_help: 'URL-slugs används till att generera de URL:er som pekar på församlingen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
-            existing_user: Existerande användare
-            non_user: Icke-användare
+            existing_user: Befintlig deltagare
+            non_user: Ej deltagande
             select_a_position: Välj en position
-            select_user: Välj en användare
-            user_type: Användartyp
+            select_user: Välj en deltagare
+            user_type: Typ av deltagare
           index:
             filter:
               all: Allt
@@ -244,9 +244,9 @@ sv:
           members: Medlemmar
       assembly_types:
         commission: Kommission
-        consultative_advisory: Rådgivande / rådgivande
+        consultative_advisory: Rådgivande
         executive: Verkställande
-        government: Regering
+        government: Styrande
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
@@ -258,39 +258,39 @@ sv:
         others: Övriga
         public: Offentligt
       filter:
-        all: Alla typer av aggregat
-        commission: Provision
-        consultative_advisory: Rådgivande / rådgivande
+        all: Alla typer av församlingar
+        commission: Kommission
+        consultative_advisory: Rådgivande
         executive: Verkställande
-        government: Regering
-        help: 'Show:'
+        government: Styrande
+        help: 'Visa:'
         others: Övriga
         participatory: Deltagande
         working_group: Arbetsgrupp
       index:
-        title: Möten
+        title: Församlingar
       last_activity:
-        new_assembly: Ny sammankomst
+        new_assembly: Ny församling
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva möten
-            see_all_assemblies: Se alla möten
+            active_assemblies: Aktiva församlingar
+            see_all_assemblies: Visa alla församlingar
         user_profile:
           member_of:
             member_of: Medlem av
       show:
         area: Område
-        assembly_type: Mötestyp
-        children: Möten
+        assembly_type: Typ av församling
+        children: Församlingar
         closing_date: Stängningsdatum
         composition: Sammansättning
         created_by: Skapad av
-        creation_date: Skapat datum
-        developer_group: Främjandegrupp
+        creation_date: Skapelsedatum
+        developer_group: Kampanjgrupp
         duration: Varaktighet
         included_at: Ingår vid
-        indefinite_duration: Obestämd
+        indefinite_duration: Permanent
         internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
@@ -298,17 +298,17 @@ sv:
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
         participatory_structure: Hur det bestäms
-        private_space: Detta är ett privat möte
+        private_space: Detta är en privat församling
         purpose_of_action: Syftet med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
-        related_participatory_processes: Relaterade deltagandeprocesser
-        scope: Omfattning
+        related_participatory_processes: Relaterade deltagarprocesser
+        scope: Omfång
         social_networks: Sociala nätverk
-        target: Vem deltar
+        target: Vilka deltar
       statistics:
         answers_count: Svar
-        assemblies_count: Möten
+        assemblies_count: Församlingar
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Påskrifter
@@ -324,26 +324,26 @@ sv:
         votes_count: Röster
     assembly_members:
       assembly_member:
-        designated_on: Betecknad den
+        designated_on: Utsedd den
       index:
         title: Medlemmar
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
-          page: "<p>En sammansättning är en grupp av medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfattning av organisationen.</p> <p>Församlingar håller möten, vissa är privata och vissa är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att delta om kapaciteten tillåter det, lägga till punkter på dagordningen eller kommentera de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att definiera organisationens huvudlinjer och dess styrande organ genom omröstning), ett jämställdhetsrådgivande råd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra könsrelationer i organisationen) är en utvärderingskommitté (som möter varje månad för att övervaka en process) eller ett garantiorgan (som samlar incidenter, missbruk eller förslag för att förbättra beslutsprocedurerna) alla exempel på sammansättningar.</p>\n"
-          title: Vad är sammansättningar?
+          contextual: "<p>En <strong>församling</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Församlingar håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på sammansättningar.</p>\n"
+          page: "<p>En <strong>församling</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Församlingar håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en process) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på sammansättningar.</p>\n"
+          title: Vad är församlingar?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Mötet hittades inte i databasen (ID: %{id})'
+          not_found: 'Församlingen hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Möten
+      assemblies: Församlingar
     metrics:
       assemblies:
-        description: Antal monterade enheter
-        object: aggregaten
-        title: Assemblies
+        description: Antal skapade församlingar
+        object: församlingar
+        title: Församlingar
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
@@ -354,18 +354,18 @@ sv:
           take_part: Delta
         index:
           organizational_chart: Organisationsschema
-          promoted_assemblies: Markerade möten
+          promoted_assemblies: Uppmärksammade församlingar
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
-            one: "%{count} möte"
-            other: "%{count} möten"
+            one: "%{count} församling"
+            other: "%{count} församlingar"
         promoted_assembly:
           more_info: Mer information
           take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmar
-        assembly_menu_item: Mötet
+        assembly_menu_item: Församlingen
       assembly_widgets:
         show:
           take_part: Delta

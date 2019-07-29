@@ -15,14 +15,14 @@ nl:
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
-      decidim/attachment_created_event: gehechtheid
+      decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je bent genivelleerd
-      decidim/join_request_accepted_event: Aanvragen geaccepteerd
-      decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
-      decidim/profile_updated_event: Profiel geüpdatet
+      decidim/gamification/level_up_event: Je bereikte een hoger niveau
+      decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
+      decidim/join_request_rejected_event: Deelnameverzoek afgewezen
+      decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
   activerecord:
@@ -30,20 +30,20 @@ nl:
       decidim/user:
         current_password: Huidige wachtwoord
         email: E-mailadres
-        name: Gebruikersnaam
+        name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
       decidim/amendment:
         one: Amendement
-        other: wijzigingen
+        other: Amendementen
       decidim/user:
         one: Geen gebruikers
         other: gebruikers
       decidim/user_group:
-        one: Gebruikersgroep
-        other: Gebruikersgroepen
+        one: Groep
+        other: groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -63,7 +63,7 @@ nl:
         file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
+        notice: De download van uw gegevens is momenteel bezig. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -88,7 +88,7 @@ nl:
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
-        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name}"
         delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
         publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
@@ -705,7 +705,7 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
-      help: Helpen
+      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -847,7 +847,7 @@ nl:
         read_more: Lees verder
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
-        title: Helpen
+        title: Help
         topics: Onderwerpen
       participatory_space:
         metrics:
@@ -967,7 +967,7 @@ nl:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
-        help: Helpen
+        help: Help
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:

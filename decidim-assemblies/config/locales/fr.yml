@@ -77,7 +77,7 @@ fr:
   decidim:
     admin:
       actions:
-        new_assembly: Nouvel assemblée
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -164,7 +164,7 @@ fr:
         assembly:
           fields:
             created_at: Créée le
-            private: Privé
+            private: Privée
             promoted: Mise en évidence
             published: Publiée
             title: Titre
