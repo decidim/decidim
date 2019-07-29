@@ -184,7 +184,7 @@ it:
               mark_as_sent: Marca come inviato
               not_yet_sent: Non ancora inviato
               title: Verifiche in corso
-              username: Nome utente
+              username: Nickname
               verification_code: Codice di verifica
           postages:
             create:
