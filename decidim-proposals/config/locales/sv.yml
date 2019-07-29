@@ -97,7 +97,6 @@ sv:
             new_proposal_help_text: Hjälptext om nya förslag
             official_proposals_enabled: Officiella förslag aktiverade
             participatory_texts_enabled: Deltagartexter är aktiverade
-            participatory_texts_enabled_help: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag i menyn `Deltagande texter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
             proposal_length: Maximal längd på förslagets innehåll

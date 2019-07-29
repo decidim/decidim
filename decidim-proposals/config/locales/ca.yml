@@ -95,6 +95,7 @@ ca:
             minimum_votes_per_user: Suports mínims per participant
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
+            participatory_texts_disabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, creeu un nou 'component de propostes' si voleu habilitar aquesta característica o descarteu totes les propostes importades al menú "textos participatius" si voleu deshabilitar-lo.
             participatory_texts_enabled: Texts participatius habilitats
             proposal_answering_enabled: Resposta a propostes habilitada
             proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts

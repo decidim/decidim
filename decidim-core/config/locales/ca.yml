@@ -3,6 +3,14 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      group:
+        about: Quant a
+        avatar: Avatar
+        document_number: Número de document
+        email: Correu electrònic
+        name: Nom
+        nickname: Àlies
+        phone: Telèfon
       report:
         details: Comentaris addicionals
       user:
@@ -298,12 +306,18 @@ ca:
             comments_enabled: Comentaris habilitats
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            dummy_global_translatable_text: Text traduïble de proves
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
+            amendment_creation_enabled: Creació d'esmenes habilitada
+            amendment_promotion_enabled: Promoció d'esmenes habilitada
+            amendment_reaction_enabled: Reacció a esmenes habilitada
+            amendments_visibility: Visibilitat de les esmenes
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
+            dummy_step_translatable_text: Text de passa traduïble de proves
     contact: Contacte
     content_blocks:
       footer_sub_hero:
@@ -1275,12 +1289,15 @@ ca:
     qq: Qzone
     reddit: Reddit
     share_to: Compartir a %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Obre WeChat, fes clic al botó "Discover" i després fes clic al menú "Escanejar codi QR".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:

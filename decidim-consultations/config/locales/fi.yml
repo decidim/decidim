@@ -235,6 +235,9 @@ fi:
       question_votes:
         create:
           error: Kysymyksen äänestäminen epäonnistui
+          success: Voit muuttaa sitä kuulemisen loppuun saakka. Ainoastaan viimeisin ääni hyväksytään.
+          title_error: Virhe äänestettäessä!
+          title_success: Äänestys onnistui
       regular_questions:
         title: Tätä kuulemista koskevat kysymykset
       show:
@@ -279,6 +282,7 @@ fi:
         already_voted: Äänestetty aikaisemmin
         already_voted_hover: Peruuta ääni
         starting_from: Alkaa %{date}
+        verification_required: Varmenna käyttäjätilisi äänestääksesi
         vote: Äänestä
       vote_modal:
         contextual_help: Valitse vaihtoehto.
@@ -288,6 +292,10 @@ fi:
         confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
         title: 'Kuuleminen: vahvista ääni'
+    resources:
+      consultations:
+        actions:
+          vote: Äänestä
   layouts:
     decidim:
       admin:

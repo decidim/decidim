@@ -100,10 +100,6 @@ uk:
           create: Започаткувати
           select_a_category: Будь ласка, виберіть категорію
           title: Додати обговорення
-        share:
-          close_window: Закрити вікно
-          share: Поділитися
-          share_link: Поділитись посиланням
       models:
         debate:
           fields:

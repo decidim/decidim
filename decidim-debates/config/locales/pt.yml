@@ -96,10 +96,6 @@ pt:
           create: Crio
           select_a_category: Por favor, selecione uma categoria
           title: Novo debate
-        share:
-          close_window: Janela fechada
-          share: Compartilhar
-          share_link: Compartilhar link
       last_activity:
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:

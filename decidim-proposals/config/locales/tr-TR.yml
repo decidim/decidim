@@ -97,7 +97,6 @@ tr:
             new_proposal_help_text: Yeni teklif yardım metni
             official_proposals_enabled: Resmi teklifler etkinleştirildi
             participatory_texts_enabled: Katılımcı metinler etkinleştirildi
-            participatory_texts_enabled_help: Mevcut teklifler varsa bu ayarla etkileşime giremezsiniz. Eğer bu özelliği etkinleştirmek istiyorsanız, lütfen, yeni bir 'Teklif bileşeni' oluşturun veya devre dışı bırakmak için, lütfen, 'Katılımcı metinler' içerisindeki bütün dahil edilmiş teklifleri çıkarınız.
             proposal_answering_enabled: Teklif yanıtlama etkin
             proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu

@@ -98,7 +98,6 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             participatory_texts_enabled: Testi di partecipazione abilitati
-            participatory_texts_enabled_help: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o scartare tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Minuti dall'inserimento dopo i quali le proposte non potranno piùessere modificate dagli autori
             proposal_length: Lunghezza massima della proposta
