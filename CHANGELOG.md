@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-admin**, **decidim-forms**: Fix adding answer options to a new form [#5283](https://github.com/decidim/decidim/pull/5283)
 - **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5277](https://github.com/decidim/decidim/pull/5277)
 
 **Removed**:
@@ -21,14 +22,14 @@
 After running the migrations, you can run the following code from the console to recalculate participants metrics (they should increase). It may take a while to complete.
 
 ```ruby
-days = (Date.parse(2.months.ago.to_s)..Date.yesterday).uniq
-Decidim::Organization.find_each do |org|
-  old_metrics = Decidim::Metric.where(organization: org).where(metric_type: "participants")
+days = (Date.parse(2.months.ago.to_s)..Date.yesterday).map(&:to_s)
+Decidim::Organization.find_each do |organization|
+  old_metrics = Decidim::Metric.where(organization: organization, metric_type: "participants")
   days.each do |day|
-    new_metrics = Decidim::Metrics::ParticipantsMetricManage.new(day.to_s, org)
+    new_metric = Decidim::Metrics::ParticipantsMetricManage.new(day, organization)
     ActiveRecord::Base.transaction do
       old_metrics.where(day: day).delete_all
-      new_metrics.save
+      new_metric.save
     end
   end
 end
