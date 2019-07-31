@@ -9,7 +9,7 @@ it:
         about: Di
         email: La tua email
         name: Nome utente
-        nickname: Nome utente
+        nickname: Nickname
         password: Password
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
