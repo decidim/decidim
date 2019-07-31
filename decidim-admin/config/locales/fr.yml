@@ -67,6 +67,7 @@ fr:
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         password: Mot de passe
+        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
