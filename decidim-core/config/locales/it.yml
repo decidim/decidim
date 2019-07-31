@@ -30,7 +30,7 @@ it:
       decidim/user:
         current_password: Password attuale
         email: Email
-        name: Nome Utente
+        name: Nickname
         password: Password
         password_confirmation: Conferma della password
         remember_me: Ricorda la password
