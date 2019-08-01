@@ -842,7 +842,7 @@ it:
           debates: Dibattiti
           debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
           how_to_participate: Come posso partecipare ad un processo?
-          meetings: incontri
+          meetings: Incontri
           meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
           more_info: Maggiori informazioni
           proposals: proposte
@@ -864,7 +864,7 @@ it:
           debates_count: Dibattiti
           endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: incontri
+          meetings_count: Incontri
           orders_count: Voti
           pages_count: Pagine
           processes_count: Processi
