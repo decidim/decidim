@@ -3,6 +3,14 @@ nl:
     attributes:
       account:
         delete_reason: Reden om uw account te verwijderen
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Aanvullende opmerkingen
       user:
@@ -301,9 +309,12 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
             comments_blocked: Reacties geblokkeerd
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
