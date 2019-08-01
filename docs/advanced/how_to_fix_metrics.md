@@ -1,41 +1,41 @@
 # How to fix metrics
 
-At the request of some instances, we have analyzed the problem with the generation of metrics and looking for possible solutions.
+At the request of some instances, we have analyzed the issues related to metrics and looked for possible solutions.
 
-Initially, we saw that it affected the instances deployed in the Heroku environment.
+## Problems
 
-## Analyzing the decidim apps
+We have identified two main problems:
+- Metrics generation crashing, which cause `MetricJob`s to run again and again.
+- Peaks in generated metrics, sudden changes from day to day when displaying metrics.
 
-  - There are some "orphans" records. That is, the component or the participatory space related didn't exists.
-    This is because ParticpatorySpaces could be deleted, but they were not deleted correctly and there were unrelated records.
-  - Also we found comments, which did not have the relation to the participatory spaces either.
-  - Also observed that the peak we had of the metric "Supports" was more than 15 days without executing the job, and the day was restarted, when Redis was updated.
-  - The previous peak was due to the fact that there were duplicate records of support metrics, per day and per proposal (for example). We do not know the reason why there are duplicates in heroku instances, but the assumptions are the following:
-    - The sidekiq worker stays out of memory and executes when the job can be done, making the day change.
-    - Taking the previous assumption into account, we can not find the relationship since the code of metrics should not create new ones if they already exist.
+**Metrics generation crashing**
 
-## Actions to do to delete orphan records
-  - First of all back up the BBDD.
-  - Clean orphan records, manually in console. (Meetings, Proposals, Comments, etc.) [Below there are the queries to destroy the orphan records](#delete-orphan-records)
-  - Calculate manually, supports for example a process, to see which is the total Supports for that process.
-  - Check if there are duplicate records for each process / proposal per day. (there is only one)
-  - If there are duplicate records:
-    - Option 1: Remove individually each record per day.
-    - Option 2: Delete all records and recalculate them. Changelog of decidim version 0.18 has an example for participants. https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#0180
+We have identified only one culprit here: "orphans" records, meaning records whose related component or participatory space cannot be found in the database. This is because in a previous decidim release `PartipatorySpaces` could be deleted but they were not deleted properly. So any application that has deleted a participatory space in the past, will probably have unrelated records that will make some metrics calculation crash.
 
-## Conclusions
-After do all the before actions:
-  - We have seen that it affects instances displayed in other environments, such as AWS, but they work with sidekiq, no with DelayedJob.
-  - By doing a search, we have seen that sidekiq can duplicate the jobs, to do prevent it there are 3 options.
-    More info, can be found here https://blog.francium.tech/avoiding-duplicate-jobs-in-sidekiq-dcbb1aca1e20
-    - Upgrade to Sidekiq Enterprise
-    - Use sidekiq-unique-jobs library
-    - Implement it yourself
+**Peaks in generated metrics**
 
-## Delete orphan records
+If somehow the metrics jobs fail to execute for a period of time, big differences can appear in metrics. So first make sure that you have metrics for every day, if not [generate them](https://github.com/decidim/decidim/blob/master/docs/advanced/metrics.md).
+
+If you have metrics generated for almost everyday and still see drastic changes from day to day, take into account that changing the visibility of a component or participatory space (making them private or unpublishing them) will naturally cause big differences in generated metrics.
+
+Finally, if you see that the differences in some days are multiples of a previous generated metric, meaning suddenly you have exactly the double or the triple of a calculated metric, it's very likely that you have duplicate generated metrics. We have only seen this problem with instances using Sidekiq, not Delayed Job. We do not know the cause of this, but it seems to be a known issue [Avoiding duplicate jobs in Sidekiq](https://blog.francium.tech/avoiding-duplicate-jobs-in-sidekiq-dcbb1aca1e20).
+
+## Solutions
+
+We cannot offer a definitive solution for duplicate metrics, other than to delete old duplicate metrics and generate them again. If this problem persists, however, consider using Delayed Job.
+For a given metric type (`rake decidim:metrics:list`) that has duplicates:
+- Option 1: Remove individually each metric record per day.
+- Option 2: Delete all metric records and recalculate them. [CHANGELOG](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics) of decidim version 0.18 has an example for "participants".
+
+For orphan records, you can do the following:
+- Back up the database.
+- Delete orphan records fromt the console (code is below).
+- Delete "comments" metrics and recalculate them following the [aforementioned example](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics).
+
+### Delete orphan records
 "proposals", "meetings", "accountability", "debates", "pages", "budgets", "surveys"
 
-### Proposals
+#### Proposals
 Delete proposals whose component does not have a participatory space and delete components of a proposal type that do not have a participatory space
 
 ```
@@ -49,12 +49,12 @@ Decidim::Component.where(manifest_name: "proposals").find_each(batch_size: 100) 
 
 Delete proposals that do not have a component
 ```
-Decidim::Proposals::Proposal.find_each(batch_size: 100) { |proposal| 
+Decidim::Proposals::Proposal.find_each(batch_size: 100) { |proposal|
   proposal.delete if proposal.component.blank?
 }
 ````
 
-### Meetings
+#### Meetings
 
 Delete meetings whose component has no participatory space and delete components of meeting type that do not have a participatory space
 
@@ -69,12 +69,12 @@ Decidim::Component.where(manifest_name: "meetings").find_each(batch_size: 100) {
 
 Delete meetings that do not have a component
 ```
-Decidim::Meetings::Meeting.find_each(batch_size: 100) { |meeting| 
+Decidim::Meetings::Meeting.find_each(batch_size: 100) { |meeting|
   meeting.delete if meeting.component.blank?
 }
 ````
 
-### Debates
+#### Debates
 Delete debates that its component has no participatory space and the debate components that do not have a participatory space
 
 ```
@@ -88,12 +88,12 @@ Decidim::Component.where(manifest_name: "debates").find_each(batch_size: 100) { 
 
 Destroy debates that do not have a component
 ```
-Decidim::Debates::Debate.find_each(batch_size: 100) { |debate| 
+Decidim::Debates::Debate.find_each(batch_size: 100) { |debate|
   debate.delete if debate.component.blank?
 }
 ```
 
-### Posts
+#### Posts
 
 Destroy posts whose component has no participatory space and blog components that do not have a participatory space
 ```
@@ -107,12 +107,12 @@ Decidim::Component.where(manifest_name: "blogs").find_each(batch_size: 100) { |c
 
 Destroy posts that do not have a component
 ```
-Decidim::Blogs::Post.find_each(batch_size: 100) { |post| 
+Decidim::Blogs::Post.find_each(batch_size: 100) { |post|
   post.delete if post.component.blank?
 }
 ```
 
-### Accountability
+#### Accountability
 
 Destroy results whose component has no participatory space and components of accountability type that do not have a participatory space
 
@@ -133,7 +133,7 @@ Decidim::Accountability::Result.find_each(batch_size: 100) { |result|
 }
 ```
 
-### Pages
+#### Pages
 
 Destroy page components that do not have a participatory space
 ```
@@ -144,7 +144,7 @@ Decidim::Component.where(manifest_name: "pages").find_each(batch_size: 100) { |c
 }
 ```
 
-### Budgets
+#### Budgets
 
 Destroy projects whose component has no participatory space and budget components that do not have a participatory space
 
@@ -164,7 +164,7 @@ Decidim::Budgets::Project.find_each(batch_size: 100) { |project|
 }
 ```
 
-### Surveys
+#### Surveys
 
 ```
 Decidim::Component.where(manifest_name: "surveys").find_each(batch_size: 100) { |c|
@@ -183,16 +183,14 @@ Decidim::Surveys::Survey.find_each(batch_size: 100) { |survey|
 ```
 
 
-### Comments
+#### Comments
+
+Destroy comments whose commentable root is a proposal that does not have a participatory space.
 
 ```
-# We look for the comments that their commentable root are of type proposals and we make a pluck of the id.
-
 proposal_ids = Decidim::Comments::Comment.where(decidim_root_commentable_type: "Decidim::Proposals::Proposal").pluck(:decidim_root_commentable_id)
 
-# From the previous proposals, we seek those that do not have a participatory space
-
-proposal_ids_without_space = Decidim::Proposals::Proposal.where(id: proposal_ids).find_all{|p| p.participatory_space.blank? }.pluck(:id) 
+proposal_ids_without_space = Decidim::Proposals::Proposal.where(id: proposal_ids).find_all{|p| p.participatory_space.blank? }.pluck(:id)
 
 Decidim::Comments::Comment.where(decidim_root_commentable_type: "Decidim::Proposals::Proposal", decidim_root_commentable_id: proposal_ids_without_space).destroy_all
 ```
