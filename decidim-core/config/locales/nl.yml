@@ -315,9 +315,12 @@ nl:
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Reacties geblokkeerd
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -1290,12 +1293,15 @@ nl:
     qq: Qzone
     reddit: Reddit
     share_to: Delen op %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open uw WeChat, klik op "Ontdekken" en open het menu "QR-Code scannen".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
