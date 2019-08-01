@@ -434,7 +434,7 @@ it:
         filter_origin_values:
           all: Tutti
           citizens: Cittadini
-          meetings: incontri
+          meetings: Incontri
           official: Ufficiale
           user_groups: Gruppi di utenti
         filter_state_values:
