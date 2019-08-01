@@ -76,7 +76,7 @@ it:
       meetings:
         actions:
           join: Iscriviti
-        name: incontri
+        name: Incontri
         settings:
           global:
             announcement: Annuncio
@@ -190,7 +190,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
-          meetings: incontri
+          meetings: Incontri
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
