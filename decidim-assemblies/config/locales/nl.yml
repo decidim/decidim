@@ -18,7 +18,7 @@ nl:
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
-        developer_group: Promotergroep
+        developer_group: Promotorgroep
         domain: Domein
         duration: Looptijd
         facebook: Facebook
@@ -44,7 +44,7 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        special_features: Speciale functies
+        special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
         target: Wie doet mee
         title: Titel
@@ -148,7 +148,7 @@ nl:
       menu:
         assemblies: Events
         assemblies_submenu:
-          assembly_admins: Gebruikersbijeenkomst
+          assembly_admins: Groep-admins
           assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: bestanden
@@ -215,7 +215,7 @@ nl:
             images: Afbeeldingen
             included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
-            other: Anders
+            other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een groepstype
@@ -229,16 +229,16 @@ nl:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
+            existing_user: Bestaande deelnemer
+            non_user: Niet deelnemer
             select_a_position: Selecteer een positie
-            select_user: Selecteer een gebruiker
-            user_type: Gebruikerstype
+            select_user: Selecteer een deelnemer
+            user_type: Type deelnemer
           index:
             filter:
               all: Alle
               ceased: Gestopt
-              not_ceased: Niet opgehouden
+              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:
