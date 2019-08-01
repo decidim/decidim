@@ -579,7 +579,7 @@ it:
           fields:
             category: Categoria
             comments: Commenti
-            endorsements: Riconoscimenti
+            endorsements: Mi piace
             id: ID
             notes: Gli appunti
             official_proposal: Proposta dell'Amministrazione
