@@ -176,7 +176,7 @@ nl:
           name: Lid
           positions:
             other: Overige
-            president: De Voorzitter
+            president: Voorzitter
             secretary: Secretaris
             vice_president: Ondervoorzitter
         assembly_user_role:
@@ -268,7 +268,7 @@ nl:
         consultative_advisory: Adviesgroep
         executive: Uitvoerend
         government: Regering
-        help: 'Laten zien:'
+        help: 'Toon:'
         others: Overige
         participatory: Participatief
         working_group: Werkgroep
