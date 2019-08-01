@@ -986,7 +986,7 @@ it:
     shared:
       embed_modal:
         close_window: Chiudi la finestra
-        embed: Per favore, incolla questo codice nella tua pagina
+        embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
         embed_link: Incorpora
       extended_navigation_bar:
         more: Di Più
