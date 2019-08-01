@@ -271,7 +271,7 @@ it:
       statistics:
         assistants_count_title: assistenti
         comments_count_title: Commenti
-        meetings_count_title: incontri
+        meetings_count_title: Incontri
         supports_count_title: supporti
       technical_info:
         technical_data: Dati tecnici
