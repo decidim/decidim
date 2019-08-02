@@ -18,7 +18,7 @@ it:
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         domain: Dominio
         duration: Durata
         facebook: Facebook
@@ -292,7 +292,7 @@ it:
         composition: Composizione
         created_by: Creato da
         creation_date: Data di creazione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         duration: Durata
         included_at: Incluso a
         indefinite_duration: Indefinito

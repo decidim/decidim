@@ -36,15 +36,18 @@ nl:
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
       organization:
+        address: SMTP Hostnaam
         alert_color: Alarm
         badges_enabled: Schakel badges in
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
         description: Omschrijving
         enable_omnipresent_banner: Toon permanente header
         facebook_handler: Facebook naam
         favicon: Pictogram
+        from: Afzender van de e-mail
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
@@ -68,6 +71,7 @@ nl:
         primary_color: primair
         reference_prefix: Referentievoorvoegsel
         secondary_color: Tweede
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Toon statistieken
         success_color: Succes
         tos_version: Servicevoorwaarden versie
@@ -75,6 +79,8 @@ nl:
         user_groups_enabled: Schakel gebruikersgroepen in
         user_name: Gebruikersnaam
         warning_color: Waarschuwing
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube gebruikersnaam
       scope:
         code: Code
@@ -159,6 +165,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
+          has_spaces: Gebied heeft afhankelijke ruimten, het mag geen afhankelijkheden hebben om te worden verwijderd.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
@@ -371,6 +378,7 @@ nl:
             created_at: Aangemaakt op
             progress: Vooruitgang
             sent_at: Verzonden bij
+            sent_to: Verzonden aan
             subject: Onderwerp
           name: Nieuwsbrief
         oauth_application:
@@ -438,24 +446,40 @@ nl:
         index:
           all: alle
           all_users: 'Alle gebruikers '
+          and: 'en '
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
+          followers: 'volgers '
+          has_been_sent_to: 'Is verzonden naar: '
+          no_scopes: Geen scopes
           not_sent: Niet verzonden
           participants: 'deelnemers '
+          segmented_to: 'Gesplitst naar %{subject}: '
           title: Nieuwsbrieven
         new:
           save: Opslaan
           title: Nieuwe nieuwsbrief
         select_recipients_to_deliver:
           all_spaces: Alle
+          all_users_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers.
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
+          followers_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die de geselecteerde participatieve ruimtes in de lijst volgen.
           none: Geen
+          participants_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die hebben deelgenomen aan een van de geselecteerde participatieve ruimten in de lijst.
+          scopes_help: Verstuurt nieuwsbrief naar gebruikers die de geselecteerde scope geactiveerd hebben in de "Mijn interesses" instellingen van hun account.
+          select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
+          select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
+          select_users: Selecteer welke gebruikers u de nieuwsbrief wilt verzenden
           send_to_all_users: Stuur naar alle gebruikers
           send_to_followers: Stuur naar volgers
           send_to_participants: Stuur naar deelnemers
           title: Selecteer ontvangers
+          warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
+        send:
+          no_recipients: Geen ontvangers voor deze selectie
         show:
           preview: Voorbeeld
+          select_recipients_to_deliver: Selecteer ontvangers
           subject: Onderwerpen
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
@@ -618,6 +642,7 @@ nl:
           update: Bijwerken
         form:
           none: Geen
+          slug_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Voorbeeld: %{url}'
         index:
           last_notable_change: Laatste opvallende verandering
         new:
