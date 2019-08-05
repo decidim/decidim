@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-participatory-processes**: Add: process group presenter [#5289](https://github.com/decidim/decidim/pull/5289)
 - **decidim-consultations**: Allow to restrict voting to a question by adding verifications permissions [#5274](https://github.com/decidim/decidim/pull/5274)
 - **decidim-participatory-processes**: Add: traceability to process groups [#5278](https://github.com/decidim/decidim/pull/5278)
 - **decidim-core**, **decidim-proposals**: Add: amendments Wizard Step Form [#5244](https://github.com/decidim/decidim/pull/5244)
