@@ -3,7 +3,7 @@ nl:
     attributes:
       assembly:
         area_id: Onderwerp
-        assembly_type: Groeptype
+        assembly_type: Groepstype
         assembly_type_other: Ander groeptype
         banner_image: Bannerafbeelding
         closing_date: Einddatum
