@@ -232,6 +232,11 @@ en:
           error: There was a problem resending the invitation.
           success: Invitation successfully resent.
     admin_log:
+      participatory_process_group:
+        create: "%{user_name} created the %{resource_name} participatory process group"
+        publish: "%{user_name} published the %{resource_name} participatory process group"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process group"
+        update: "%{user_name} updated the %{resource_name} participatory process group"
       participatory_process:
         create: "%{user_name} created the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
