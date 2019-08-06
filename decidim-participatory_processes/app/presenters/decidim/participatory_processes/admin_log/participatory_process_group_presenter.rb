@@ -11,7 +11,7 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    ParticipatoryProcessPresenter.new(action_log, view_helpers).present
+      #    ParticipatoryProcessGroupPresenter.new(action_log, view_helpers).present
       class ParticipatoryProcessGroupPresenter < Decidim::Log::BasePresenter
         private
 
