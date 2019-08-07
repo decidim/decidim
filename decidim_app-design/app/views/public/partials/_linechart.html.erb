@@ -1,0 +1,8 @@
+<% tip = true unless local_assigns.has_key?(:tip) %>
+<div id="linechart-<%= SecureRandom.random_number(9999) %>"
+  class="linechart <%= classes ||= "" %>"
+  data-metric="<%= metric ||= "" %>"
+  data-title="<%= title ||= "" %>"
+  data-subtitle="<%= subtitle ||= "" %>"
+  data-ratio="<%= ratio ||= "" %>"
+  data-tip="<%= tip %>"></div>

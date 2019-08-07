@@ -1,0 +1,30 @@
+eu:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: page
+        other: orrialdeak
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} %{resource_name} orrialdea %{space_name} eguneratu du"
+    components:
+      pages:
+        name: Orria
+        settings:
+          global:
+            announcement: Oharra
+          step:
+            announcement: Oharra
+    pages:
+      admin:
+        models:
+          components:
+            body: Testua
+        pages:
+          edit:
+            save: Eguneratu
+            title: Editatu orria
+          update:
+            invalid: Erroreak gertatu dira orria gordetzean.
+            success: Orria zuzen gorde da.

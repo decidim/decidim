@@ -1,0 +1,30 @@
+fr:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Page
+        other: Pages
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} a mis à jour la page %{resource_name} dans %{space_name}"
+    components:
+      pages:
+        name: Page
+        settings:
+          global:
+            announcement: Message d'annonce
+          step:
+            announcement: Message d'annonce
+    pages:
+      admin:
+        models:
+          components:
+            body: Corps du texte
+        pages:
+          edit:
+            save: Mettre à jour
+            title: Modifier la page
+          update:
+            invalid: Erreurs lors de la sauvegarde de la page.
+            success: Page enregistrée avec succès.

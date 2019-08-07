@@ -1,0 +1,10 @@
+<span class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+<div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+  <ul class="vertical menu add-components">
+    <% component.manifest.export_manifests.each do |manifest| %>
+      <% %w{CSV JSON Excel}.each do |format| %>
+        <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase), exports_path(component, id: manifest.name, format: format), method: :post %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,75 @@
+cs:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Opravdu chcete toto smazat?
+        destroy: Odstranit
+        edit: Upravit
+        new: Nový
+        save: Uložit
+        title: Akce
+      admins:
+        create:
+          error: Při vytváření nového administrátora došlo k chybě.
+          success: Správce byl úspěšně vytvořen
+        destroy:
+          success: Správce úspěšně smazán
+        edit:
+          title: Upravit admin
+          update: Aktualizace
+        index:
+          title: Správci
+        new:
+          create: Vytvořit
+          title: Nový admin
+        update:
+          error: Při aktualizaci tohoto administrátora došlo k chybě.
+          success: Správce byl úspěšně aktualizován
+      default_pages:
+        placeholders:
+          content: Přidejte významný obsah na statickou stránku %{page} na řídicím panelu administrátora.
+          title: Výchozí název pro %{page}
+      menu:
+        admins: Správci
+        dashboard: Přístrojová deska
+        organizations: Organizace
+      models:
+        admin:
+          fields:
+            created_at: Vytvořeno u
+            email: E-mailem
+          name: Správce
+          validations:
+            email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
+        organization:
+          actions:
+            save_and_invite: Vytvořit organizaci a pozvat administrátora
+          fields:
+            created_at: Vytvořeno u
+            name: název
+          name: Organizace
+      organizations:
+        create:
+          error: Při vytváření nové organizace došlo k chybě.
+          success: Organizace byla úspěšně vytvořena.
+        edit:
+          secondary_hosts_hint: Zadejte každý z nich do nového řádku
+        index:
+          title: Organizace
+        new:
+          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
+          secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          title: Nová organizace
+        update:
+          error: Při aktualizaci této organizace došlo k chybě.
+          success: Organizace byla úspěšně aktualizována.
+        users_registration_mode:
+          disabled: Přístup lze provádět pouze s externími účty
+          enabled: Umožnit uživatelům registraci a přihlášení
+          existing: Nedovolte, aby se uživatelé registrovali, ale umožněte stávajícím uživatelům přihlášení
+      shared:
+        notices:
+          no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
+          our_getting_started_guide: náš průvodce začínáme
+      titles:
+        dashboard: Přístrojová deska

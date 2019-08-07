@@ -1,0 +1,127 @@
+<%
+@title = "Blog -- Decidim Barcelona"
+@activesection = "blog"
+@activepage = "blog"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+        <%= partial "followme", following: true %>
+        <div class="section">
+          <div class="section-heading">
+            Artículos con más actividad
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor sit amet, consectetur.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem amet, consectetur adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-heading">
+            Categorías
+          </div>
+          <div class="m-bottom">
+            <strong>Medio Ambiente</strong>
+            <div class="author-data author-data--nopadding">12 artículos</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-heading">
+            Archivo
+          </div>
+          <div class="m-bottom">
+            <%= link_to page_path("blog/blog-archives"), class: "card__link" do %>
+            <span class="author-data author-data--nopadding">Ver archivo de artículos</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <article class="card">
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to page_path("blog/blog-view"), class: "card__link" do %>
+              <h5 class="card__title">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione fugit, ipsam ex omnis eos dicta modi adipisci, debitis harum?
+              </h5>
+              <% end %>
+              <div class="card__author">
+                <%= partial "author_data", { extra: true } %>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, accusamus mollitia, vero labore nesciunt facilis fugit doloremque veniam tempore perferendis porro ipsam possimus neque reprehenderit doloribus quam ea pariatur at.
+              </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore aperiam commodi, deserunt labore corporis tenetur repellat debitis unde reprehenderit porro autem non voluptatibus eos vel veritatis vero quam officiis vitae similique quibusdam
+              voluptas cupiditate alias ullam. Eius veritatis cumque, aperiam dolore voluptas dignissimos velit, blanditiis natus, molestiae inventore necessitatibus, repellat sunt beatae? Quisquam cumque neque esse optio accusantium, iusto fugiat enim sunt
+              suscipit ad amet, totam possimus sed eos animi incidunt! Iste aperiam tempora dolore quis iusto incidunt aut adipisci commodi illum quibusdam. Voluptas vitae voluptate esse expedita reprehenderit quisquam?
+            </p>
+            <%= link_to page_path("blog/blog-view") do %>
+              Seguir leyendo
+            <% end %>
+          </div>
+        </article>
+        <article class="card card--blog">
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to page_path("blog/blog-view"), class: "card__link" do %>
+              <h5 class="card__title">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione fugit, ipsam ex omnis eos dicta modi adipisci, debitis harum?
+              </h5>
+              <% end %>
+              <div class="card__author">
+                <%= partial "author_data", { extra: false } %>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…</p>
+              </div>
+            </div>
+          </article>
+
+          <%= partial "pagination" %>
+        </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

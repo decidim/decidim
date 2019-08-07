@@ -1,0 +1,11 @@
+var $meetings = $('#meetings');
+
+$meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $meetings);
+$dropdownMenu.foundation();
+
+window.Decidim.currentMap = window.Decidim.loadMap(
+  'map',
+  JSON.parse('<%= escape_javascript meetings_data_for_map(search.results).to_json.html_safe %>')
+);

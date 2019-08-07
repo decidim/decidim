@@ -1,0 +1,16 @@
+<div class="order-by">
+  <div class="order-by__dropdown">
+    <span class="order-by__text"><%= t("#{i18n_scope}.label") %></span>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent">
+        <a><%= t("#{i18n_scope}.#{order}") %></a>
+
+        <ul class="menu">
+          <% orders.each do |order_name| %>
+          <li><%= order_link order_name, i18n_scope: i18n_scope %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

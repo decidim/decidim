@@ -1,0 +1,26 @@
+<% agenda_item_child = form.object %>
+<div class="card meeting-agenda-item-child" id="<%= tabs_id %>-child-<%= tabs_id_child %>-field">
+  <div class="card-divider agenda-item-child-divider">
+    <h2 class="card-title">
+      <span>
+        <%== "#{icon("move")} #{t(".agenda_item_child")}" %>
+      </span>
+
+      <button class="button small alert hollow move-up-agenda-item-child button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-agenda-item-child button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
+      <button class="button small alert hollow remove-agenda-item-child button--title">
+        <%= t(".remove") %>
+      </button>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <%= render "agenda_item_fields", tabs_id: tabs_id_child, form: form, agenda_item: agenda_item_child %>
+  </div>
+</div>

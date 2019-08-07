@@ -1,0 +1,28 @@
+uk:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Створено:'
+        field: Моє поле
+        start_date: Дата початку
+        title: Назва
+        updated_at: 'Оновлено:'
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Приклади збереження
+    pages:
+      home:
+        statistics:
+          bar: Приклад змінної 1
+          dummies_count_high: Приклад найвищої кількості
+          dummies_count_medium: Приклад середньої кількості
+          foo: Приклад змінної 2
+    participatory_processes:
+      statistics:
+        dummies_count_high: Приклад найвищої кількості
+        dummies_count_medium: Приклад середньої кількості
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Приклад пов'язаного ресурсу

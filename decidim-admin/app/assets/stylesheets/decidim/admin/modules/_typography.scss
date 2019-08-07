@@ -1,0 +1,27 @@
+.text-muted{
+  color: $muted;
+}
+
+.text-success{
+  color: $success-color;
+}
+
+.text-warning{
+  color: $warning-color;
+}
+
+.text-alert{
+  color: $alert-color;
+}
+
+.text-info{
+  color: $secondary;
+}
+
+.text-lowercase{
+  text-transform: lowercase;
+}
+
+.text-uppercase{
+  text-transform: uppercase;
+}

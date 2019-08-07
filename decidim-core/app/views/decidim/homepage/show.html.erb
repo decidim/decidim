@@ -1,0 +1,13 @@
+<%
+  edit_link(
+    decidim_admin.edit_organization_path,
+    :update,
+    :organization,
+    organization: current_organization
+  )
+%>
+
+<% Decidim::ContentBlock.published.for_scope(:homepage, organization: current_organization).each do |content_block| %>
+  <% next unless content_block.manifest %>
+  <%= cell content_block.manifest.cell, content_block %>
+<% end %>

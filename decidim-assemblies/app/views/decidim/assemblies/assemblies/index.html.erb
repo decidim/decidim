@@ -1,0 +1,30 @@
+<% add_decidim_meta_tags(title: t("assemblies.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_assemblies.assemblies_path,
+  :read,
+  :assembly_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
+  <% if promoted_assemblies.any? %>
+    <section id="highlighted-assemblies" class="row section">
+      <h1 class="section-heading"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_assembly", collection: promoted_assemblies, as: :promoted_assembly %>
+    </section>
+  <% end %>
+
+  <%= render partial: "parent_assemblies" %>
+
+  <section id="assemblies-chart" class="row column section">
+    <div class="row column">
+      <h2 class="section-heading"><%= t("assemblies.index.organizational_chart", scope: "layouts.decidim") %></h2>
+      <article id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes" data-url="<%= decidim_assemblies.assemblies_path(format: :json) %>">
+        <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart"><%= t("assemblies.index.reset_chart", scope: "layouts.decidim") %></button>
+      </article>
+    </div>
+  </section>
+<% end %>
+<%= javascript_include_tag "decidim/filters" %>

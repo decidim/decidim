@@ -1,0 +1,228 @@
+hu:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Elérhető módszerek
+        offline: Offline
+        offline_explanation: Az offline ellenőrzésre vonatkozó utasítások
+        online: Online
+      id_document_information:
+        document_number: Dokumentum száma (betűvel)
+        document_type: A dokumentum típusa
+      id_document_upload:
+        document_number: Dokumentum száma (betűvel)
+        document_type: Dokumentumod típusa
+        user: Felhasználó
+        verification_attachment: Dokumentumod szkennelt példánya
+      offline_confirmation:
+        email: Felhasználói e-mail
+      postal_letter_address:
+        full_address: Teljes lakcím
+      postal_letter_confirmation:
+        verification_code: Ellenőrző kód
+      postal_letter_postage:
+        full_address: Teljes lakcím
+        verification_code: Ellenőrző kód
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Ellenőrzések
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Az adminisztrátorok CSV-t töltenek be az elfogadott résztvevők e-mailjeivel
+            - Csak azok a résztvevők kaphatnak igazolást, akik e CSV-fájlban e-mailt tartalmaznak
+        id_documents:
+          help:
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+        postal_letter:
+          help:
+            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+      csv_census:
+        explanation: Ellenőrizze a szervezet népszámlálásával
+        name: A szervezet népszámlálása
+      direct: Közvetlen
+      help: Segítség
+      id_documents:
+        explanation: Töltsd fel személyazonosító okmányaid, hogy ellenőrizzük a személyazonosságod
+        name: Személyazonosító okmányok
+      multistep: Több lépéses
+      name: Név
+      postal_letter:
+        explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
+        name: Kód postai levéllel
+    verifications:
+      authorizations:
+        create:
+          error: Hiba történt az engedélyezés létrehozása során.
+          success: Az engedélyezésed sikeres volt.
+          unconfirmed: Meg kell erősítened az e-mailedet, hogy engedélyezd magad.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
+            csv_census: Ellenőrizze a szervezet népszámlálását
+            dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
+            dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
+            id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
+            postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
+          title: Igazold személyazonosságod
+          verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
+        new:
+          authorize: Küldés
+          authorize_with: 'Ellenőrizd ezzel: %{authorizer}'
+        skip_verification: Most hagyd ki ezt a lépést és %{link}
+        start_exploring: felfedezés indul
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Hiba történt a népszámlálás importálásakor.
+              success: Sikeresen importált %{count} elemet (%{errors} hiba)
+            destroy_all:
+              success: Az összes népszámlálási adatot törölték
+          destroy:
+            confirm: Az összes népszámlálás törlése nem vonható vissza. Biztos vagy benne, hogy folytatni akarod?
+            title: Törölje az összes népszámlálási adatot
+          index:
+            data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
+            empty: Nincsenek népszámlálási adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
+            title: Jelenlegi népszámlálási adatok
+          instructions:
+            body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
+            title: Ennek a szervezetnek aktiválnia kell a csv népszámlálást
+          new:
+            file: ".csv fájl e-mail adatokkal"
+            info: 'CSV formátumú fájlnak kell lennie egy oszlopban: e-mail'
+            submit: Fájl feltöltés
+            title: Töltsön fel egy új népszámlálást
+        authorizations:
+          new:
+            error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet népszámlálásában.
+            success: Fiókját sikeresen ellenőrizték.
+      dummy_authorization:
+        extra_explanation:
+          one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Azonosító dokumentumok konfigurálása
+              update: Frissítés
+            update:
+              error: Hiba történt a konfiguráció frissítése során.
+              success: A konfiguráció sikeresen frissült
+          confirmations:
+            create:
+              error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
+              success: Felhasználó ellenőrzése sikeres
+            new:
+              introduce_user_data: Add meg a képen látható adatokat
+              reject: Elutasít
+              verify: Ellenőrzés
+          offline_confirmations:
+            create:
+              error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
+              success: A felhasználó sikeresen ellenőrizve
+            new:
+              cancel: Mégse
+              introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
+              verify: Ellenőrzés
+          pending_authorizations:
+            index:
+              config: config
+              offline_verification: Offline ellenőrzés
+              title: Folyamatban lévő ellenőrzések
+              verification_number: 'Ellenőrzés #%{n}'
+          rejections:
+            create:
+              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
+        authorizations:
+          choose:
+            choose_a_type: 'Kérjük, adja meg, hogy miként szeretné ellenőrizni:'
+            offline: Offline
+            online: Online
+            title: Ellenőrizze magát személyazonosító okmányával
+          create:
+            error: Hiba történt a dokumentum feltöltése során
+            success: Dokumentum feltöltése sikeres
+          edit:
+            being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
+            offline: Az offline ellenőrzés használata
+            online: Online ellenőrzés használatával
+            rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
+            rejection_correctness: Győződjön meg a megadott adatok helyességéről
+            rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra
+            send: Újbóli ellenőrzés kérése
+          new:
+            send: Ellenőrzés kérelem
+            title: Személyi igazolvány feltöltése
+          update:
+            error: Probléma volt a dokumentum újbóli feltöltésekor
+            success: Dokumentum újbóli feltöltése sikeres
+        dni: Szig.
+        nie: Lakcím kártya
+        passport: Útlevél
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Lakcím
+              letter_sent_at: 'Levél elküldve:'
+              mark_as_sent: Megjelölés elküldöttként
+              not_yet_sent: Még nincs elküldve
+              title: Folyamatban lévő ellenőrzések
+              username: Felhasználónév
+              verification_code: Ellenőrző kód
+          postages:
+            create:
+              error: Hiba a levél megjelölésekor
+              success: Levél megjelölés elküldöttként sikeres
+        authorizations:
+          create:
+            error: Probléma történt a kérésed kapcsán
+            success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
+          edit:
+            send: Megerősítés
+            title: Írd be az ellenőrző kódot
+            waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
+          new:
+            send: Küldjetek levelet
+            title: Kérj ellenőrző kódot magadnak
+          update:
+            error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
+            success: Gratulálunk. Az ellenőrzésed sikeres volt
+      sms:
+        authorizations:
+          create:
+            error: Probléma volt a kéréssel
+            success: Kösz! SMS-t küldtünk telefonjára.
+          destroy:
+            success: A hitelesítési kód sikeresen visszaáll. Kérjük, írja be újra a telefonszámát.
+          edit:
+            confirm_destroy: Biztosan vissza szeretné állítani az ellenőrző kódot?
+            destroy: Ellenőrző kód visszaállítása
+            resend: Nem kapta meg az ellenőrző kódot?
+            send: Megerősítés
+            title: Vigye be a kapott ellenőrző kódot
+          new:
+            send: Küldj nekem SMS-t
+            title: Kérjen ellenőrző kódot
+          update:
+            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze az SMS-t, amit elküldtek.
+            success: Gratulálunk. Sikeresen ellenőrizte.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz

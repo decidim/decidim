@@ -1,0 +1,18 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns medium-9 medium-offset-3">
+      <h5><%= t(".manage_admins") %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-3">
+      <%= cell "decidim/profile_sidebar", user_group %>
+    </div>
+    <div class="columns medium-9">
+      <section class="section">
+        <p><%= t(".current_admins") %></p>
+        <%= cell "decidim/members", user_group, role: "admin", from_admin: true %>
+      </section>
+    </div>
+  </div>
+</main>

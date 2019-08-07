@@ -1,0 +1,19 @@
+.autocomplete-field{
+  margin-bottom: 1.5rem;
+
+  .Select{
+    .Select-control,
+    .Select-input,
+    .Select-placeholder,
+    &.Select--single > .Select-control .Select-value{
+      height: 3rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+.autocomplete-field--results-inline{
+  .Select-menu-outer{
+    position: relative;
+  }
+}

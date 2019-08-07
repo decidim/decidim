@@ -1,0 +1,25 @@
+<figure>
+  <figcaption class="text-uppercase">
+    <strong>
+      <%= t("filed_as", scope: "decidim.proposals.proposals.tags") %>
+    </strong>
+  </figcaption>
+
+  <ul>
+    <% if category.present? %>
+      <li>
+        <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: category.id }) %>
+        <% if previous_category.present? && show_previous_category? %>
+          &nbsp;
+          <small class="text-small">
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_category: "#{previous_category.translated_name}").html_safe %>
+          </small>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if has_visible_scopes?(model) %>
+      <li><%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %></li>
+    <% end %>
+  </ul>
+</figure>

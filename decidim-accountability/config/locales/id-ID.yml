@@ -1,0 +1,224 @@
+id:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        decidim_scope_id: Cakupan
+        description: Deskripsi
+        end_date: Tanggal akhir
+        progress: Kemajuan
+        project_ids: Termasuk proyek
+        proposals: Termasuk proposal
+        start_date: Mulai tanggal
+        title: Judul
+        updated_at: Diperbarui pada
+      status:
+        description: Deskripsi
+        key: Kunci
+        name: Nama
+        progress: Kemajuan
+      timeline_entry:
+        description: Deskripsi
+        entry_date: Tanggal
+    models:
+      decidim/accountability/proposal_linked_event: Proposal termasuk dalam hasil
+      decidim/accountability/result_progress_updated_event: Kemajuan hasil diperbarui
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: Hasil
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Anda yakin ingin menghapus %{name}ini?
+        destroy: Menghapus
+        edit: Edit
+        new: Baru %{name}
+        preview: Pratinjau
+        timeline_entries: Evolusi proyek
+        title: Tindakan
+      admin:
+        exports:
+          results: Hasil
+        models:
+          result:
+            name: Hasil
+          status:
+            name: Status
+          timeline_entry:
+            name: Entri waktu
+        results:
+          create:
+            invalid: Terjadi masalah saat membuat hasil ini
+            success: Hasil berhasil dibuat
+          destroy:
+            success: Hasilnya berhasil dihapus
+          edit:
+            title: Edit hasil
+            update: Perbarui hasil
+          form:
+            add_proposal: Tambahkan proposal
+          index:
+            title: Hasil
+          new:
+            create: Buat hasil
+            title: Hasil baru
+          proposals:
+            close: Dekat
+            current_selection: Pilihan saat ini
+            select: Memilih
+          update:
+            invalid: Terjadi masalah saat memperbarui hasil ini
+            success: Hasilnya berhasil diperbarui
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Terjadi masalah saat membuat status ini
+            success: Status berhasil dibuat
+          destroy:
+            success: Status berhasil dihapus
+          edit:
+            title: Edit status
+            update: Memperbaharui status
+          index:
+            title: Status
+          new:
+            create: Buat status
+            title: Status baru
+          update:
+            invalid: Terjadi masalah saat memperbarui status ini
+            success: Status berhasil diperbarui
+        timeline_entries:
+          create:
+            invalid: Terjadi masalah saat membuat entri ini
+            success: Entri berhasil dibuat
+          destroy:
+            success: Entri berhasil dihapus
+          edit:
+            title: Edit entri
+            update: Perbarui entri
+          index:
+            title: Entri garis waktu proyek
+          new:
+            create: Buat entri
+            title: Masukan baru
+          update:
+            invalid: Terjadi masalah saat memperbarui entri ini
+            success: Entri berhasil diperbarui
+      admin_log:
+        result:
+          create: "%{user_name} hasil yang dibuat %{resource_name} dalam %{space_name}"
+          delete: "%{user_name} menghapus hasil %{resource_name} di %{space_name}"
+          update: "%{user_name} hasil pembaruan %{resource_name} dalam %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Induk tidak ditemukan pada basis data (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Hasil baru di %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Tanggal akhir
+            progress: Kemajuan
+            start_date: Mulai tanggal
+            status: Status
+            title: Judul
+        status:
+          fields:
+            description: Deskripsi
+            key: Kunci
+            name: Nama
+            progress: Kemajuan
+        timeline_entry:
+          fields:
+            description: Deskripsi
+            entry_date: Tanggal
+      results:
+        count:
+          results_count:
+            other: "%{count} hasil"
+        filters:
+          all: Semua
+          scopes: Lingkup
+        home:
+          categories_label: Kategori
+          subcategories_label: Subkategori
+        home_header:
+          global_status: Status eksekusi global
+        nav_breadcrumb:
+          global: Eksekusi global
+        search:
+          search: Cari tindakan
+        show:
+          stats:
+            attendees: Hadirin
+            back_to_result: Kembali ke hasil
+            comments: Komentar
+            contributions: Kontribusi
+            last_edited_by: Terakhir diedit oleh
+            last_updated_at: Terakhir diperbarui pada
+            meetings: Rapat
+            number_of_versions: Versi
+            proposals: Proposal
+            show_all_versions: Tampilkan semua versi
+            version_author: Penulis versi
+            version_created_at: Versi dibuat di
+            version_number: Nomor versi
+            version_number_out_of_total: "%{current_version} dari %{total_count}"
+            votes: Mendukung
+        timeline:
+          title: Evolusi proyek
+      versions:
+        index:
+          changes_at_title: Perubahan pada "%{title}"
+          title: Versi
+        show:
+          changes_at_title: Perubahan pada "%{title}"
+        version:
+          version_index: Versi %{index}
+    components:
+      accountability:
+        name: Akuntabilitas
+        settings:
+          global:
+            categories_label: Nama untuk "Kategori"
+            comments_enabled: Komentar diaktifkan
+            display_progress_enabled: Kemajuan tampilan
+            heading_leaf_level_results: Nama untuk "Proyek"
+            heading_parent_level_results: Nama untuk "Hasil"
+            intro: Intro
+            subcategories_label: Nama untuk "Subkategori"
+          step:
+            comments_blocked: Komentar diblokir
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Proposal "%{proposal_title}" telah dimasukkan dalam hasil. Anda bisa melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{proposal_title}". Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+          email_subject: Pembaruan ke %{proposal_title}
+          notification_title: Proposal <a href="%{proposal_path}">%{proposal_title}</a> telah dimasukkan dalam hasil <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Hasil "%{resource_title}", yang termasuk proposal "%{proposal_title}", sekarang %{progress}% selesai. Anda bisa melihatnya dari halaman ini:'
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{proposal_title}", dan proposal ini termasuk dalam hasil "%{resource_title}". Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
+          email_subject: Pembaruan ke %{resource_title} berlanjut
+          notification_title: Hasilnya <a href="%{resource_path}">%{resource_title}</a>, yang termasuk proposal <a href="%{proposal_path}">%{proposal_title}</a>, sekarang %{progress}% selesai.
+    metrics:
+      results:
+        description: Jumlah hasil yang dihasilkan
+        object: hasil
+        title: Hasil
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Hasil
+    participatory_spaces:
+      highlighted_results:
+        see_all: Lihat semua (%{count})
+    resource_links:
+      included_projects:
+        result_project: Proyek termasuk dalam hasil ini
+      included_proposals:
+        result_proposal: Proposal termasuk dalam hasil ini

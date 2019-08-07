@@ -1,0 +1,14 @@
+<div class="row">
+  <p><%= t(".select_your_interests") %></p>
+  <%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>
+    <p><strong><%= t(".my_interests") %></strong></p>
+    <% if @user_interests.scopes.any? %>
+      <div class="clearfix m-bottom">
+        <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
+      </div>
+      <%= f.submit t(".update_my_interests"), disable_with: true %>
+    <% else %>
+      <p><%= t(".no_scopes") %></p>
+    <% end %>
+  <% end %>
+</div>

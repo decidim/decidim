@@ -1,0 +1,79 @@
+uk:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Створити допис у блозі
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Допис
+        few: Дописи
+        many: Дописів
+        other: Дописів
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
+        destroy: Видалити
+        edit: Редагувати
+        new: Створити новий допис
+        title: Дії
+      admin:
+        models:
+          components:
+            body: Основний текст
+          post:
+            name: Допис
+        posts:
+          create:
+            invalid: При спробі додати цей допис сталася помилка
+            success: Допис успішно додано
+          destroy:
+            success: Допис успішно видалено
+          edit:
+            save: Оновити
+          index:
+            title: Дописи
+          new:
+            create: Створити
+            title: Створити допис
+          update:
+            invalid: При спробі збереження цього допису сталися помилки.
+            success: Допис успішно збережено
+      models:
+        post:
+          fields:
+            author: Автор
+            body: Основний текст
+            created_at: 'Створено:'
+            title: заголовок
+      posts:
+        show:
+          view: Переглянути
+        sidebar_blog:
+          comments: коментарі
+          most_commented_posts: Найбільш коментовані дописи
+      read_more: Читати далі
+    components:
+      blogs:
+        name: Блог
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі ввімкнено
+          step:
+            announcement: Оголошення
+            comments_blocked: Коментарі вимкнено
+    events:
+      blogs:
+        post_created:
+          email_intro: До "%{participatory_space_title}", за яким ви стежите, був доданий допис "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: В %{participatory_space_title} оприлюднено новий допис
+          notification_title: В %{participatory_space_title} було оприлюднено допис <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          posts_count: Дописів
+    participatory_processes:
+      statistics:
+        posts_count: Дописів

@@ -1,0 +1,40 @@
+nl:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Aangemaakt op
+        field: Mijn veld
+        start_date: Begindatum
+        title: Titel
+        updated_at: Bijgewerkt op
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Gebruik een testomgeving voor decidim.
+          description: Gebruikers krijgen deze badge door tests te maken.
+          description_another: Deze gebruiker heeft %{score} tests gemaakt.
+          description_own: U hebt %{score} tests gemaakt.
+          name: Tests
+          next_level_in: Maak %{score} extra tests om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen tests gemaakt.
+          unearned_own: U hebt nog geen tests gemaakt.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies hoog
+          dummies_count_medium: Dummies medium
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies hoog
+        dummies_count_medium: Dummies medium
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Gerelateerde dummy

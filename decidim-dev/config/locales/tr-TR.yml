@@ -1,0 +1,40 @@
+tr:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Adresinde düzenlendi
+        field: Benim alanım
+        start_date: Başlangıç tarihi
+        title: Başlık
+        updated_at: Adresinde güncellendi
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Aptallar
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Decidim için bir test ortamı kullanın.
+          description: Katılımcılar testler oluşturarak bu rozeti alırlar.
+          description_another: Bu katılımcı %{score} test oluşturdu.
+          description_own: '%{score} test oluşturdunuz.'
+          name: Testler
+          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} test daha oluştur!
+          unearned_another: Bu katılımcı henüz bir test oluşturmadı.
+          unearned_own: Henüz bir test oluşturmadınız.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Aptallar yüksek
+          dummies_count_medium: Aptallar orta
+          foo: foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Aptallar yüksek
+        dummies_count_medium: Aptallar orta
+    resource_links:
+      test_link:
+        dummy_resource_dummy: İlgili kukla

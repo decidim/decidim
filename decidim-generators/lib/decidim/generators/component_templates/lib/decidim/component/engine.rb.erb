@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+require "rails"
+require "decidim/core"
+
+module Decidim
+  module <%= component_module_name %>
+    # This is the engine that runs on the public interface of <%= component_name %>.
+    class Engine < ::Rails::Engine
+      isolate_namespace Decidim::<%= component_module_name %>
+
+      routes do
+        # Add engine routes here
+        # resources :<%= component_name %>
+        # root to: "<%= component_name %>#index"
+      end
+
+      initializer "decidim_<%= component_name %>.assets" do |app|
+        app.config.assets.precompile += %w[decidim_<%= component_name %>_manifest.js decidim_<%= component_name %>_manifest.css]
+      end
+    end
+  end
+end

@@ -1,0 +1,11 @@
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to t("decidim.admin.titles.conferences"), decidim_conferences.conferences_path, target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>

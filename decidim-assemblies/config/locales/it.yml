@@ -1,0 +1,378 @@
+it:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: La zona
+        assembly_type: Tipo di assieme
+        assembly_type_other: Tipo di assemblaggio altro
+        banner_image: Immagine del banner
+        closing_date: Data di chiusura
+        closing_date_reason: Motivo della data di chiusura
+        composition: Composizione
+        copy_categories: Copia le categorie
+        copy_components: Copia componenti
+        copy_features: Copia le caratteristiche
+        created_by: Creato da
+        created_by_other: Creato da altri
+        creation_date: Data di creazione
+        decidim_area_id: La zona
+        decidim_scope_id: Scopo
+        description: Descrizione
+        developer_group: Promotore
+        domain: Dominio
+        duration: Durata
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Immagine della home page
+        included_at: Incluso a
+        instagram: Instagram
+        internal_organisation: Organizzazione interna
+        is_transparent: È trasparente
+        local_area: Area organizzativa
+        meta_scope: Metadati di ambito
+        parent_id: Assemblaggio genitore
+        participatory_processes_ids: Processi partecipativi correlati
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
+        private_space: Spazio privato
+        promoted: Promosso
+        published_at: Pubblicato a
+        purpose_of_action: Scopo dell'azione
+        scope_id: Obiettivi
+        scopes_enabled: Ambiti abilitati
+        short_description: Breve descrizione
+        show_statistics: Mostra statistiche
+        slug: URL slug
+        special_features: Caratteristiche speciali
+        subtitle: Sottotitolo
+        target: Chi partecipa
+        title: Titolo
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Compleanno
+        birthplace: luogo di nascita
+        ceased_date: Data di fine
+        designation_date: Data di designazione
+        designation_mode: Modalità di designazione
+        full_name: Nome e cognome
+        gender: Genere
+        position: Posizione
+      assembly_user_role:
+        email: E-mail
+        name: Nome
+        role: Ruolo
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaggio
+        other: assemblee
+      decidim/assembly_member:
+        one: Membro dell'Assemblea
+        other: Membri dell'Assemblea
+      decidim/assembly_user_role:
+        one: Ruolo dell'utente dell'assemblaggio
+        other: Assemblare i ruoli utente
+  decidim:
+    admin:
+      actions:
+        new_assembly: Nuovo assemblaggio
+      assemblies:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo assembly.
+          success: L'assemblaggio è stato creato con successo.
+        edit:
+          update: Aggiorna
+        index:
+          not_published: Non pubblicato
+          private: Privato
+          public: Pubblico
+          published: Pubblicato
+        new:
+          create: Crea
+          title: Nuovo montaggio
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo assembly.
+          success: L'assemblaggio è aggiornato correttamente.
+      assemblies_copies:
+        create:
+          error: Si è verificato un errore durante la duplicazione di questo assembly.
+          success: L'assemblaggio è duplicato con successo.
+      assembly_copies:
+        new:
+          copy: Copia
+          select: Scegli quale quale dato vuoi duplicare
+          title: Duplicare il montaggio
+      assembly_members:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
+          success: Membro creato con successo per questo assembly.
+        destroy:
+          success: Membro cancellato con successo per questo assembly.
+        edit:
+          title: Aggiorna membro dell'assembly.
+          update: Aggiornare
+        index:
+          assembly_members_title: Membri dell'Assemblea
+        new:
+          create: Creare
+          title: Nuovo membro dell'assemblea.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento del membro per questo assembly.
+          success: Membro aggiornato correttamente per questo assembly.
+      assembly_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questo assembly.
+          success: L'Assemblea è pubblicata con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione di questo assembly.
+          success: Assembly non pubblicato con successo.
+      assembly_user_roles:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un utente per questo assembly.
+          success: Utente aggiunto correttamente a questo assembly.
+        destroy:
+          success: Utente rimosso con successo da questo assembly.
+        edit:
+          title: Aggiorna utente dell'assieme.
+          update: Aggiornare
+        index:
+          assembly_admins_title: Utenti dell'assemblaggio
+        new:
+          create: Creare
+          title: Nuovo utente dell'assemblaggio.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di un utente per questo assieme.
+          success: Utente aggiornato correttamente per questo assembly.
+      menu:
+        assemblies: assemblee
+        assemblies_submenu:
+          assembly_admins: Utenti dell'assemblaggio
+          assembly_members: Utenti
+          attachment_collections: Cartelle
+          attachment_files: File
+          attachments: Allegati
+          categories: Categorie
+          components: componenti
+          info: Informazioni
+          moderations: Moderazione
+          private_users: Utenti privati
+      models:
+        assembly:
+          fields:
+            created_at: Data/ora di creazione
+            private: Privato
+            promoted: Evidenziato
+            published: Pubblicato
+            title: Nome
+          name: montaggio
+        assembly_member:
+          fields:
+            ceased_date: Data di fine
+            designation_date: Data di designazione
+            full_name: Nome
+            position: Posizione
+          name: Membro
+          positions:
+            other: Altro
+            president: Presidente
+            secretary: segretario
+            vice_president: Vicepresidente
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nome
+            role: Ruolo
+          name: Utente dell'Assemblea
+          roles:
+            admin: Amministratore
+            collaborator: Collaboratore
+            moderator: Moderatore
+      titles:
+        assemblies: assemblee
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creato l'assemblaggio %{resource_name}"
+        publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
+        unpublish: "%{user_name} non pubblicato l'assembly %{resource_name}"
+        update: "%{user_name} ha aggiornato l'assembly %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creato il membro %{resource_name} nel %{space_name} assembly"
+        delete: "%{user_name} rimosso il membro %{resource_name} dal gruppo %{space_name}"
+        update: "%{user_name} aggiornato il %{resource_name} membro nel %{space_name} assembly"
+      assembly_user_role:
+        create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
+        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Durata
+            duration_help: Se la durata di questo assemblaggio è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinito.
+            filters: filtri
+            images: immagini
+            included_at_help: Seleziona la data in cui questo assembly è stato aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
+            metadata: Metadati
+            other: Altro
+            select_a_created_by: Seleziona un creato da
+            select_an_area: Seleziona un'area
+            select_an_assembly_type: Seleziona un tipo di assieme
+            select_parent_assembly: Seleziona il gruppo genitore
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+            social_handlers: Sociale
+            title: Informazioni generali
+            visbility: Visibilità
+        assembly_copies:
+          form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_members:
+          form:
+            existing_user: Utente esistente
+            non_user: Non utente
+            select_a_position: Seleziona una posizione
+            select_user: Seleziona un utente
+            user_type: Tipologia di utente
+          index:
+            filter:
+              all: Tutti
+              ceased: cessato
+              not_ceased: Non è cessato
+            filter_by: Filtra per
+            search: Ricerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantità massima di elementi da mostrare
+      assembly_members:
+        index:
+          members: Utenti
+      assembly_types:
+        commission: comission
+        consultative_advisory: Consultivo / Advisory
+        executive: Esecutivo
+        government: Governo
+        others: Altri
+        participatory: Participatory
+        working_group: Gruppo di lavoro
+      content_blocks:
+        highlighted_assemblies:
+          name: Assiemi evidenziati
+      created_by:
+        city_council: Consiglio comunale
+        others: Altri
+        public: Pubblico
+      filter:
+        all: Tutti i tipi di assiemi
+        commission: Commissione
+        consultative_advisory: Consultivo / Advisory
+        executive: Esecutivo
+        government: Governo
+        help: 'Mostrare:'
+        others: Altri
+        participatory: Participatory
+        working_group: Gruppo di lavoro
+      index:
+        title: assemblee
+      last_activity:
+        new_assembly: Nuovo assemblaggio
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Assemblee attive
+            see_all_assemblies: Vedere tutti gli assiemi
+        user_profile:
+          member_of:
+            member_of: Membro di
+      show:
+        area: La zona
+        assembly_type: Tipo di assieme
+        children: assemblee
+        closing_date: Data di chiusura
+        composition: Composizione
+        created_by: Creato da
+        creation_date: Data di creazione
+        developer_group: Promotore
+        duration: Durata
+        included_at: Incluso a
+        indefinite_duration: Indefinito
+        internal_organisation: Organizzazione interna
+        is_transparent:
+          'false': opaco
+          'true': trasparente
+        local_area: Area organizzativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
+        private_space: Questo è un assemblaggio privato
+        purpose_of_action: Scopo dell'azione
+        read_less: Leggi di meno
+        read_more: Leggi di più
+        related_participatory_processes: Processi partecipativi correlati
+        scope: Obiettivi
+        social_networks: Social networks
+        target: Chi partecipa
+      statistics:
+        answers_count: risposte
+        assemblies_count: assemblee
+        comments_count: Commenti
+        debates_count: dibattiti
+        endorsements_count: Mi piace
+        headline: Attività
+        meetings_count: Riunioni
+        orders_count: Voti
+        pages_count: Pagine
+        projects_count: Progetti
+        proposals_count: Proposte
+        results_count: Risultati
+        surveys_count: indagini
+        users_count: Partecipanti
+        votes_count: Voti
+    assembly_members:
+      assembly_member:
+        designated_on: Designato su
+      index:
+        title: Utenti
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          page: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          title: Cosa sono gli assiemi?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
+    menu:
+      assemblies: assemblee
+    metrics:
+      assemblies:
+        description: Numero di assiemi creati
+        object: assiemi
+        title: assemblee
+  errors:
+    messages:
+      cannot_be_blank: non può essere vuoto
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Ulteriori informazioni
+          take_part: Partecipa
+        index:
+          children: 'Assemblee: '
+          organizational_chart: Grafico organizzativo
+          promoted_assemblies: Assiemi evidenziati
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaggio"
+            other: "%{count} assemblaggi"
+        promoted_assembly:
+          more_info: Maggiori informazioni
+          take_part: Partecipa
+      assembly_navigation:
+        assembly_member_menu_item: Utenti
+        assembly_menu_item: L'assemblea
+      assembly_widgets:
+        show:
+          take_part: Partecipa

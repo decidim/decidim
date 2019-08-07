@@ -1,0 +1,82 @@
+pl:
+  activemodel:
+    attributes:
+      answer:
+        body: Odpowiedź
+      question:
+        max_choices: Maksymalna liczba opcji
+        question_type: Rodzaj
+      questionnaire_question:
+        mandatory: Obowiązkowy
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nie są kompletne
+              too_many: jest zbyt wiele
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Opis
+            tos: Warunki usługi
+        questionnaires:
+          answer_option:
+            answer_option: Opcja odpowiedzi
+            free_text: Dowolny tekst
+            remove: Usunąć
+            statement: Komunikat
+          edit:
+            save: Zapisać
+            title: Tytuł
+          form:
+            add_question: Dodaj pytanie
+            already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
+          question:
+            add_answer_option: Dodaj opcję odpowiedzi
+            any: Każdy
+            description: Opis
+            down: Na dół
+            question: Pytanie
+            remove: Usunąć
+            statement: Komunikat
+            up: W górę
+          update:
+            invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
+            success: Ankiety zostały pomyślnie zapisane.
+      errors:
+        answer:
+          body: Treść nie może być pusta
+      question_types:
+        long_answer: Długa odpowiedź
+        multiple_option: Wiele opcji
+        short_answer: Krótka odpowiedź
+        single_option: Opcja pojedyncza
+        sorting: Sortowanie
+      questionnaires:
+        answer:
+          invalid: Podczas odpowiadania na kwestionariusz wystąpiły błędy.
+          success: Kwestionariusz odpowiedział pomyślnie.
+        question:
+          max_choices: 'Maksymalne opcje: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
+            title: Odpowiedz na kwestionariusz
+          are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          questionnaire_answered:
+            body: Już odpowiedziałeś na tę ankietę.
+            title: Już odpowiedziałem
+          questionnaire_closed:
+            body: Kwestionariusz jest zamknięty i nie można udzielić na nie odpowiedzi.
+            title: Ankieta została zamknięta
+          questionnaire_for_private_users:
+            body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
+            title: Ankieta została zamknięta
+          submit: Zatwierdź
+          tos_agreement: Biorąc udział w programie, akceptujesz jego Warunki korzystania z usługi
+      user_answers_serializer:
+        created_at: Odpowiedziałem na
+        id: ID odpowiedzi

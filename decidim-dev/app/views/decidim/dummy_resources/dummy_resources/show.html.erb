@@ -1,0 +1,11 @@
+<div class="row">
+  <%= action_authorized_link_to :foo, foo_dummy_resource_path(@commentable) do %>
+    Foo
+  <% end %>
+</div>
+
+<div class="row">
+  <%= render partial: "decidim/shared/share_modal" %>
+</div>
+
+<%= inline_comments_for(@commentable) %>

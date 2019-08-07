@@ -1,0 +1,26 @@
+<%= decidim_form_for(@form, url: { action: :update },
+                            html: { class: "form" }) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <%= t(".title") %>
+      </h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= label_tag(:available_methods, t("activemodel.attributes.config.available_methods")) %>
+        <%= form.check_box :online %>
+        <%= form.check_box :offline %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :offline_explanation, lines: 10 %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".update") %>
+  </div>
+<% end %>

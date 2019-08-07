@@ -1,0 +1,151 @@
+gl:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Información de sorteo
+        decidim_category_id: Categorías do conxunto de propostas nas que desexa aplicar o sorteo
+        decidim_proposals_component_id: Propostas establecidas
+        dice: Resultado da rolda. Move unha morea de 6 caras ou busque outra forma aleatoria de xerar un número do 1 ao 6 e insira aquí o número resultante diante dalgunhas testemuñas. Isto contribúe á calidade e garantías da aleatoriedade do resultado
+        target_items: Número de propostas que se seleccionarán (indica a cantidade de propostas que desexa seleccionar trazando o grupo de propostas que escolleu previamente)
+        title: Título
+        witnesses: Testemuñas
+    models:
+      decidim/sortitions/create_sortition_event: Sortición
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortición
+        other: Edicións
+  decidim:
+    components:
+      sortitions:
+        name: Edicións
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: O sorteo "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: Nova xeración engadida a %{participatory_space_title}
+          notification_title: A clasificación <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Edicións
+    participatory_processes:
+      statistics:
+        sortitions_count: Edicións
+    sortitions:
+      admin:
+        actions:
+          destroy: Cancelar o sorteo
+          edit: Editar
+          new: Nova xeración
+          show: Detalles de clasificación
+        models:
+          sortition:
+            fields:
+              category: Categoría
+              created_at: Data de creación
+              decidim_proposals_component: Componente de propostas
+              dice: Dado
+              reference: Referencia
+              request_timestamp: Gravar tempo
+              seed: Semente
+              target_items: Elementos a seleccionar
+              title: Título
+            name:
+              one: Sortición
+              other: Edicións
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Estás seguro de que queres cancelar este sortition?
+            destroy: Cancelar sortition
+            title: Cancelación do sortition
+          create:
+            error: Produciuse un erro ao crear unha nova xeración.
+            success: Creouse a edición correctamente
+          destroy:
+            error: Non se pode cancelar o sorteo.
+            success: A eliminación cancelouse correctamente
+          edit:
+            title: Actualiza a información sobre a clasificación
+            update: Actualización
+          form:
+            all_categories: Todas as categorías
+            select_proposal_component: Selecciona as propostas definidas
+            title: Nova xeración de propostas
+          index:
+            title: Edicións
+          new:
+            confirm: Ao premer o botón seguinte, Decidim gravará a data e a hora (con precisión de segundos) e xunto co rolo de datos, esta información usarase para xerar unha selección aleatoria. A acción será irreversible, unha vez que se faga clic no botón, o resultado deste sorteo será publicado, xunto cos datos introducidos neste formulario e non se pode modificar, comprobe o contido con atención
+            create: Crear
+            title: Nova xeración
+          show:
+            selected_proposals: Propostas seleccionadas para o sorteo
+          update:
+            error: Produciuse un erro ao actualizar o sorteo.
+            success: A clasificación actualizouse correctamente
+      admin_log:
+        sortition:
+          create: "%{user_name} creou o sorteo %{resource_name} en %{space_name}"
+          delete: "%{user_name} cancelou o sorteo %{resource_name} en %{space_name}"
+          update: "%{user_name} actualizou o sorteo %{resource_name} en %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostas"
+        filters:
+          active: Activo
+          all: Todo
+          cancelled: Cancelada
+          category: Categoría
+          category_prompt: Selecciona unha categoría
+          search: Busca
+          state: Estado
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Despregar
+        linked_sortitions:
+          selected_proposals: Propostas seleccionadas
+        orders:
+          label: 'Solicitar sortións por:'
+          random: Aleatorio
+          recent: Recentes
+        results_count:
+          count:
+            one: proposta seleccionada
+            other: propostas seleccionadas
+        show:
+          algorithm: Codigo de algoritmo de Sortition
+          any_category: de todas as categorías
+          cancelled: Cancelada sortition
+          candidate_proposal_ids: Orde de propostas de clasificación e ID
+          candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '
+          category: da categoría %{category}
+          dice_result: "(1) resultado de dados"
+          introduction: 'Esta páxina contén os resultados da clasificación %{reference}. Mediante esta clasificación, %{target_items} número de resultados foron seleccionados aleatoriamente e cunha distribución de probabilidade igual ao conxunto de propostas que se amosan debaixo. Xunto cos resultados, a información que se mostra nesta páxina proporciona toda a información necesaria para maximizar as garantías e reproducir os resultados. A clave para a calidade desta xeración é a aleatoriedade dobre proporcionada por un rolo dun dado (verificado por testemuñas) eo tempo preciso da xeración que proporciona entrada para un algoritmo que xera unha selección aleatoria. A semente de tempo para a xeración é tan precisa (segundos) que é imposible de controlar por parte dos seres humanos proporcionando así unha entrada dobre "incontrolable" para garantir un resultado xusto.  '
+          mathematical_result: Resultado (1) x (2)
+          proposals_selected_by_sortition: Propostas seleccionadas por sortition
+          sortition_reproducibility_details: Detalles de reproducibilidade de sorteo
+          time_seed: "(2) Semente de tempo"
+          witnesses: Testemuñas
+        sortition:
+          random_seed: Semente aleatoria
+          selected_proposals:
+            one: 1 proposta seleccionada
+            other: '%{count} propostas seleccionadas'
+          view: Ver
+        sortition_author:
+          deleted: Usuario eliminado
+        sortition_cancel_author:
+          deleted: Usuario eliminado
+        sortitions_count:
+          count:
+            one: 1 sortition
+            other: "%{count} sortións"

@@ -1,0 +1,76 @@
+sv:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Vill du radera detta?
+        destroy: Radera
+        edit: Redigera
+        new: Ny
+        save: Spara
+        title: Åtgärder
+      admins:
+        create:
+          error: Det gick inte att skapa en ny administratör.
+          success: Administratören har skapats
+        destroy:
+          success: Administratören har raderats
+        edit:
+          title: Redigera administratören
+          update: Uppdatera
+        index:
+          title: Administratörer
+        new:
+          create: Skapa
+          title: Ny administratör
+        update:
+          error: Det gick inte att uppdatera administratören.
+          success: Administratören har uppdaterats
+      default_pages:
+        placeholders:
+          content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
+          title: Standardtitel för %{page}
+      menu:
+        admins: Administratörer
+        dashboard: Kontrollpanel
+        organizations: Organisationer
+      models:
+        admin:
+          fields:
+            created_at: Skapad
+            email: E-post
+          name: Administratör
+          validations:
+            email_uniqueness: det finns redan en administratör med samma e-postadress
+        organization:
+          actions:
+            save_and_invite: Skapa organisation och bjud in administratör
+          fields:
+            created_at: Skapad
+            name: Namn
+            smtp_settings: SMTP-inställningar
+          name: Organisation
+      organizations:
+        create:
+          error: Det gick inte att skapa en ny organisation.
+          success: Organisationen har skapats.
+        edit:
+          secondary_hosts_hint: Ange var och en av dem på en ny rad
+        index:
+          title: Organisationer
+        new:
+          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
+          secondary_hosts_hint: Ange var och en av dem på en ny rad
+          title: Ny organisation
+        update:
+          error: Det gick inte att uppdatera organisationen.
+          success: Organisationen har uppdaterats.
+        users_registration_mode:
+          disabled: Åtkomst kan endast göras med externa konton
+          enabled: Tillåt deltagare att registrera och logga in
+          existing: Tillåt inte deltagare att registrera sig, men tillåt inloggning från befintliga användare
+      shared:
+        notices:
+          no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
+          our_getting_started_guide: vår startguide
+      titles:
+        dashboard: Kontrollpanel

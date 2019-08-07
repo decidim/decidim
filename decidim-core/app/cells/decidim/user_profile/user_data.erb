@@ -1,0 +1,16 @@
+<div class="author-data author-data--big">
+  <div class="author-data__main">
+    <div class="author author--flex">
+      <%= link_to resource_path, class: "author__avatar" do %>
+        <%= image_tag avatar %>
+      <% end %>
+      <div>
+        <div class="author__name--container">
+          <%= link_to name, resource_path, class: "author__name" %>
+          <%= icon badge, class: "author__verified" if badge.present? %>
+        </div>
+        <%= link_to nickname, resource_path, class: "author__nickname" %>
+      </div>
+    </div>
+  </div>
+</div>

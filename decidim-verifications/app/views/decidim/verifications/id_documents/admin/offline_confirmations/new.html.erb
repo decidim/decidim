@@ -1,0 +1,24 @@
+<%= decidim_form_for(@form, url: offline_confirmation_path,
+                            html: { class: "form" }) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <%= t(".introduce_user_data") %>
+      </h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= form.text_field :email %>
+        <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
+        <%= form.text_field :document_number %>
+        <%= form.hidden_field :verification_type, value: :offline %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".verify") %>
+    <%= link_to t(".cancel"), root_path, class: "button hollow" %>
+  </div>
+<% end %>

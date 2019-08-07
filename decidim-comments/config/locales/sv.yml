@@ -1,0 +1,100 @@
+sv:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+      decidim/comments/reply_created_event: Svarskommentar
+      decidim/comments/user_mentioned_event: Nämn
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentar
+        other: Kommentarer
+      decidim/comments/comment_vote:
+        one: Röst
+        other: Röster
+  decidim:
+    comments:
+      comments: Kommentarer
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
+      votes:
+        create:
+          error: Det gick inte att rösta om kommentaren.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lägga till din kommentar.
+        form:
+          body:
+            label: Kommentera
+            placeholder: Vad tycker du om detta?
+          form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
+          submit: Skicka
+          user_group_id:
+            label: Kommentera som
+        opinion:
+          neutral: Neutral
+        remaining_characters: "%{count} tecken kvar"
+        remaining_characters_1: "%{count} tecken kvar"
+        title: Lägg till din kommentar
+      comment:
+        alignment:
+          against: Mot
+          in_favor: För
+        deleted_user: Raderad deltagare
+        reply: Svara
+        report:
+          action: Rapportera
+          already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
+          close: Stäng
+          description: Är detta innehåll olämpligt?
+          details: Ytterligare kommentarer
+          reasons:
+            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
+            offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
+            spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+          title: Rapportera ett problem
+      comment_order_selector:
+        order:
+          best_rated: Bästa betyg
+          most_discussed: Mest diskuterade
+          older: Äldre
+          recent: Senaste
+        title: 'Sortera efter:'
+      comment_thread:
+        title: Samtal med %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
+        blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
+        loading: Laddar kommentarer...
+        title: "%{count} kommentarer"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
+          email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
+          email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
+          email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
+          email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
+          email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Du har nämnts
+          email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
+          email_subject: Du har nämnts i %{resource_title}
+          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Antal kommentarer från deltagare
+        object: kommentarer
+        title: Kommentarer
+  errors:
+    messages:
+      cannot_have_comments: kan inte ha kommentarer

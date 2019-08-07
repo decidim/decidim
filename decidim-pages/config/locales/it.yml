@@ -1,0 +1,30 @@
+it:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Pagina
+        other: pagine
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} ha aggiornato la pagina %{resource_name} in %{space_name}"
+    components:
+      pages:
+        name: Pagina
+        settings:
+          global:
+            announcement: Avviso
+          step:
+            announcement: Avviso
+    pages:
+      admin:
+        models:
+          components:
+            body: Corpo del testo
+        pages:
+          edit:
+            save: Aggiorna
+            title: Modifica la pagina
+          update:
+            invalid: C'è stato un errore durante il salvataggio della pagina.
+            success: La pagina è stata salvata correttamente.

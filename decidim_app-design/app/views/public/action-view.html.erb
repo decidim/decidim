@@ -1,0 +1,99 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "actions"
+@activepage = "actions"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column view-header">
+      <h2 class="heading2">Millorar i ampliar els carrils bici</h2>
+      <div class="author-data author-data--noavatar">
+        <div class="author-data__main">
+          <div class="author author--inline">
+            1 de agosto de 2016
+          </div>
+        </div>
+        <div class="author-data__extra">
+          <a href="#comments" title="Comentarios">
+            <%= icon("comment-square", class: "icon--small", aria_label: "Comentarios", role: "img") %> 108
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+        large-3 large-push-9">
+        <div class="card extra">
+          <div class="definition-data">
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Suports</span>
+              <span class="definition-data__number">27</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Propostes</span>
+              <span class="definition-data__number">130</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Comentaris</span>
+              <span class="definition-data__number">2567</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Participacions</span>
+              <span class="definition-data__number">130</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Intervencions</span>
+              <span class="definition-data__number">27</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Intervencions totals</span>
+              <span class="definition-data__number">25677</span>
+            </div>
+          </div>
+        </div>
+        <%= partial "share" %>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <div class="section">
+          <p>
+            Garantir la connectivitat de la xarxa de carrils bici i
+            completar-la segons estableix el Pla de mobilitat urbana
+            2013-2018. Promoure l'ús de la bicicleta a la ciutat. Millorar
+            la connexió dels carrils bici que uneixen Barcelona amb els
+            diferents municipis metropolitans, i minimitzar conflictes amb
+            la resta de persones fent servir altres mitjans de transport.
+            Adaptar la coordinació semafòrica a la velocitat de les
+            bicicletes. Valorar carrils bici de passeig de Maragall i
+            avinguda de Vallcarca.
+          </p>
+          <ul class="tags tags--action">
+            <li><a href="">transició ecológica</a></li>
+            <li><a href="">mobilitat sostenible</a></li>
+            <li><a href="">barri de Sarrià</a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <%= partial "related_proposals" %>
+        </div>
+        <div class="section">
+          <%= partial "related_meetings" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

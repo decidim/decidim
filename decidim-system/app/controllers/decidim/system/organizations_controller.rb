@@ -1,17 +1,18 @@
 # frozen_string_literal: true
-require_dependency "decidim/system/application_controller"
 
 module Decidim
   module System
     # Controller to manage Organizations (tenants).
     #
-    class OrganizationsController < ApplicationController
+    class OrganizationsController < Decidim::System::ApplicationController
+      helper_method :current_organization
+
       def new
-        @form = RegisterOrganizationForm.new
+        @form = form(RegisterOrganizationForm).instance
       end
 
       def create
-        @form = RegisterOrganizationForm.from_params(params)
+        @form = form(RegisterOrganizationForm).from_params(params)
 
         RegisterOrganization.call(@form) do
           on(:ok) do
@@ -36,11 +37,11 @@ module Decidim
 
       def edit
         organization = Organization.find(params[:id])
-        @form = UpdateOrganizationForm.from_model(organization)
+        @form = form(UpdateOrganizationForm).from_model(organization)
       end
 
       def update
-        @form = UpdateOrganizationForm.from_params(params)
+        @form = form(UpdateOrganizationForm).from_params(params)
 
         UpdateOrganization.call(params[:id], @form) do
           on(:ok) do
@@ -53,6 +54,13 @@ module Decidim
             render :edit
           end
         end
+      end
+
+      # The current organization for the request.
+      #
+      # Returns an Organization.
+      def current_organization
+        @organization
       end
     end
   end

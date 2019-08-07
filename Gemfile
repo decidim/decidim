@@ -1,12 +1,31 @@
 # frozen_string_literal: true
-eval(File.read(File.dirname(__FILE__) + "/common_gemfile.rb"))
 
-# Specify your gem's dependencies in decidim.gemspec
-gemspec
-gem "rspec_junit_formatter", "0.2.3", group: :test, require: false
-gem "codecov", require: false, group: :test
+source "https://rubygems.org"
 
-gemspec path: "."
-gemspec path: "decidim-core"
+ruby RUBY_VERSION
 
-gem "rubocop"
+gem "decidim", path: "."
+gem "decidim-conferences", path: "."
+gem "decidim-consultations", path: "."
+gem "decidim-initiatives", path: "."
+
+gem "bootsnap", "~> 1.4"
+
+gem "puma", "~> 3.12"
+gem "uglifier", "~> 4.1"
+
+gem "faker", "~> 1.9"
+
+group :development, :test do
+  gem "byebug", "~> 11.0", platform: :mri
+
+  gem "decidim-dev", path: "."
+end
+
+group :development do
+  gem "letter_opener_web", "~> 1.3"
+  gem "listen", "~> 3.1"
+  gem "spring", "~> 2.0"
+  gem "spring-watcher-listen", "~> 2.0"
+  gem "web-console", "~> 3.5"
+end

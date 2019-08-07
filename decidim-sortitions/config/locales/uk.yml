@@ -1,0 +1,163 @@
+uk:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Жеребкування відомостей
+        decidim_category_id: Категорії підбірки пропозицій, серед яких ви хочете провести жеребкування
+        decidim_proposals_component_id: Набір пропозицій
+        dice: Вислід жеребкування. У присутності свідків киньте шостигранну гральну кістку, або знайдіть якийсь інший спосіб одержати випадкове число від 1 до 6, і введіть тут. Це сприяє якості та гарантує випадковість висліду
+        target_items: Кількість пропозицій, що підлягають відбору (вказує кількість пропозицій, які потрібно обрати, кинувши жереб по тій сукупності пропозицій, яку ви обрали раніше)
+        title: Назва
+        witnesses: Свідки
+    models:
+      decidim/sortitions/create_sortition_event: Жеребкування
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Жеребкування
+        few: Жеребкування
+        many: Жеребкувань
+        other: Жеребкувань
+  decidim:
+    components:
+      sortitions:
+        name: Жеребкування
+        settings:
+          global:
+            comments_enabled: Коментарі увімкнено
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: До "%{participatory_space_title}", за яким ви стежите, було додане жеребкування "%{resource_title}".
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: До %{participatory_space_title} додано нове жеребкування
+          notification_title: До %{participatory_space_title} була додано жеребкування <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          sortitions_count: Жеребкувань
+    participatory_processes:
+      statistics:
+        sortitions_count: Жеребкувань
+    sortitions:
+      admin:
+        actions:
+          destroy: Скасувати жеребкування
+          edit: Редагувати
+          new: Додати жеребкування
+          show: Подробиці жеребкування
+        models:
+          sortition:
+            fields:
+              category: Категорія
+              created_at: Дата створення
+              decidim_proposals_component: Складова пропозицій
+              dice: Гральна кістка
+              reference: Посилання на джерело
+              request_timestamp: Час кидання жеребу
+              seed: Початкове число
+              target_items: Наймення до вибору
+              title: Назва
+            name:
+              one: Жеребкування
+              few: Жеребкування
+              many: Жеребкувань
+              other: Жеребкувань
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Ви дійсно бажаєте скасувати це жеребкування?
+            destroy: Скасувати жеребкування
+            title: Скасування жеребкування
+          create:
+            error: При спробі створити нове жеребкування сталася помилка.
+            success: Жеребкування успішно створено
+          destroy:
+            error: Неможливо скасувати це жеребкування.
+            success: Жеребкування успішно скасовано
+          edit:
+            title: Оновити відомості про жеребкування
+            update: Оновити
+          form:
+            all_categories: Усі категорії
+            select_proposal_component: Оберіть набір пропозицій
+            title: Додати нове жеребкування пропозицій
+          index:
+            title: Жеребкування
+          new:
+            confirm: Після натиснення наступної кнопки, Десідім запише дату та час (з точністю до секунд) і разом з вислідом кидання гральної кістки, ці відомості будуть використані для випадкового вибору. Ця дія буде незворотною, після натиснення кнопки вислід кидання жеребу буде оприлюднено разом із даними, введеними в цій формі, і їх неможливо буде змінити. Будь ласка, ретельно перевірте вміст
+            create: Створити
+            title: Додати жеребкування
+          show:
+            selected_proposals: Пропозиції, відібрані для жеребкування
+          update:
+            error: При спробі оновити жеребкування сталася помилка.
+            success: Жеребкування успішно оновлено
+      admin_log:
+        sortition:
+          create: "%{user_name} створив жеребкування %{resource_name} у %{space_name}"
+          delete: "%{user_name} скасував жеребкування %{resource_name} у %{space_name}"
+          update: "%{user_name} оновив жеребкування %{resource_name} у %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 пропозиція
+            few: "%{count} пропозиції"
+            many: "%{count} пропозицій"
+            other: "%{count} пропозицій"
+        filters:
+          active: Діючі
+          all: Усі
+          cancelled: Скасовані
+          category: Категорія
+          category_prompt: Оберіть категорію
+          search: Шукати
+          state: Стан
+        filters_small_view:
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
+        linked_sortitions:
+          selected_proposals: Вибрані пропозиції
+        orders:
+          label: 'Впорядкувати жеребкування за ознакою:'
+          random: Довільно
+          recent: Нещодавні
+        results_count:
+          count:
+            one: вибрана пропозиція
+            few: вибрані пропозиції
+            many: вибраних пропозицій
+            other: вибраних пропозицій
+        show:
+          algorithm: Код алгоритму жеребкування
+          any_category: з усіх категорій
+          cancelled: Скасоване жеребкування
+          candidate_proposal_ids: Порядок та назви жеребкованих пропозицій
+          candidate_proposals_info: 'Жеребкування було проведено серед пропозицій (%{category_label}), з наступними назвами (напівжирним шрифтом виділені обрані пропозиції)  '
+          category: з категорії %{category}
+          dice_result: "(1) Вислід кидання гральної кістки"
+          introduction: 'На цій сторінці показані висліди жеребкування %{reference}. За допомогою цього жеребкування було обрано випадковим чином %{target_items} пропозицій з рівним розподілом імовірності з числа пропозицій, перелічених нижче. Разом з вислідами, відомості, які відображені на цій сторінці, містять все, що необхідно для щонайбільших гарантій та для відтворення вислідів. Ключ до якості цього жеребкування - це подвійна випадковість, забезпечена шляхом кидання гральної кістки (засвідченого свідками) і точного часу жеребкування, введеного до алгоритму, який виробляє випадкову добірку. Задіяний як початкове число час жеребкування настільки точний (секунди), що люди нездатні його контролювати. Таким чином завдяки подвійним "неконтрольованим" входовим даним забезпечується справедливий вислід.  '
+          mathematical_result: Добуток (1) x (2)
+          proposals_selected_by_sortition: Пропозиції, обрані киданням жеребу
+          sortition_reproducibility_details: Подробиці щодо відтворюваності жеребкування
+          time_seed: "(2) Час як початкове число"
+          witnesses: Свідки
+        sortition:
+          random_seed: Випадкове початкове число
+          selected_proposals:
+            one: обрана пропозиція
+            few: обрані пропозиції
+            many: обраних пропозицій
+            other: обраних пропозицій
+          view: Переглянути
+        sortition_author:
+          deleted: Видалений учасник
+        sortition_cancel_author:
+          deleted: Видалений учасник
+        sortitions_count:
+          count:
+            one: 1 жеребкування
+            few: "%{count} жеребкування"
+            many: "%{count} жеребкувань"
+            other: "%{count} жеребкувань"

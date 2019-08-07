@@ -1,0 +1,10 @@
+<% open ||= false %>
+<% random = Random.rand(9999) %>
+<div data-toggle="toggle-<%= random %> toggle-<%= random %>-icon-bottom toggle-<%= random %>-icon-right">
+  <span id="toggle-<%= random %>-icon-bottom" class="<%= "hide" if !open %>" data-toggler="hide"><%= icon "caret-bottom", class: "icon--small" %></span>
+  <span id="toggle-<%= random %>-icon-right" class="<%= "hide" if open %>" data-toggler="hide"><%= icon "caret-right", class: "icon--small" %></span>
+  <%= yield :label %>
+</div>
+<div id="toggle-<%= random %>" class="<%= "hide" if !open %>" data-toggler=".hide">
+  <%= yield %>
+</div>

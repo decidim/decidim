@@ -1,0 +1,24 @@
+<% if conference.registrations_enabled? %>
+  <% if conference.has_registration_for_user_and_registration_type?(current_user, model) %>
+    <% if allowed? %>
+      <%= button_to conference_registration_type_conference_registration_path(conference, model),
+          method: :delete,
+          class: "#{button_classes} secondary light",
+          style: "margin-bottom: 0;",
+          data: { disable: true } do %>
+        <%= icon("check", class: "icon--small") %>
+        <%= t("going", scope: "decidim.conferences.conference.show") %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render :registration_confirm %>
+    <% if allowed? %>
+      <%= button_to i18n_join_text, "",
+          class: button_classes,
+          disabled: !conference.has_available_slots? || conference.has_registration_for?(current_user),
+          style: "margin-bottom: 0;",
+          onclick: "event.preventDefault()",
+          data: { open: current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" } %>
+    <% end %>
+  <% end %>
+<% end %>

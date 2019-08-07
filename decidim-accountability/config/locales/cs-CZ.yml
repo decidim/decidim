@@ -1,0 +1,230 @@
+cs:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Postavení
+        decidim_category_id: Kategorie
+        decidim_scope_id: Rozsah
+        description: Popis
+        end_date: Datum ukončení
+        progress: Pokrok
+        project_ids: Zahrnuté projekty
+        proposals: Zahrnuté návrhy
+        start_date: Počáteční datum
+        title: Titul
+        updated_at: Aktualizováno na
+      status:
+        description: Popis
+        key: Klíč
+        name: název
+        progress: Pokrok
+      timeline_entry:
+        description: Popis
+        entry_date: datum
+    models:
+      decidim/accountability/proposal_linked_event: Návrh je součástí výsledku
+      decidim/accountability/result_progress_updated_event: Výsledek pokroku byl aktualizován
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Výsledek
+        few: Výsledek
+        many: Výsledek
+        other: Výsledek
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Opravdu chcete smazat tento %{name}?
+        destroy: Odstranit
+        edit: Upravit
+        new: Nové %{name}
+        preview: Náhled
+        timeline_entries: Vývoj projektu
+        title: Akce
+      admin:
+        exports:
+          results: Výsledek
+        models:
+          result:
+            name: Výsledek
+          status:
+            name: Postavení
+          timeline_entry:
+            name: Časová položka
+        results:
+          create:
+            invalid: Při vytváření tohoto výsledku došlo k problému
+            success: Výsledek byl úspěšně vytvořen
+          destroy:
+            success: Výsledek byl úspěšně smazán
+          edit:
+            title: Upravit výsledek
+            update: Aktualizovat výsledek
+          form:
+            add_proposal: Přidat návrh
+          index:
+            title: Výsledek
+          new:
+            create: Vytvořte výsledek
+            title: Nový výsledek
+          proposals:
+            close: Zavřít
+            current_selection: Aktuální výběr
+            select: Vybrat
+          update:
+            invalid: Při aktualizaci tohoto výsledku došlo k problému
+            success: Výsledek byl úspěšně aktualizován
+        shared:
+          subnav:
+            statuses: Stavy
+        statuses:
+          create:
+            invalid: Při vytváření tohoto stavu došlo k problému
+            success: Stav byl úspěšně vytvořen
+          destroy:
+            success: Stav byl úspěšně smazán
+          edit:
+            title: Upravit stav
+            update: Aktualizovat status
+          index:
+            title: Stavy
+          new:
+            create: Vytvořit stav
+            title: Nový stav
+          update:
+            invalid: Při aktualizaci tohoto stavu došlo k problému
+            success: Stav byl úspěšně aktualizován
+        timeline_entries:
+          create:
+            invalid: Při vytváření této položky došlo k problému
+            success: Vstup byl úspěšně vytvořen
+          destroy:
+            success: Položka byla úspěšně smazána
+          edit:
+            title: Upravit položku
+            update: Aktualizovat položku
+          index:
+            title: Zadání časové osy projektu
+          new:
+            create: Vytvořte položku
+            title: Nový záznam
+          update:
+            invalid: Došlo k problému při aktualizaci této položky
+            success: Zápis byl úspěšně aktualizován
+      admin_log:
+        result:
+          create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
+          delete: "%{user_name} odstranil %{resource_name} výsledek v %{space_name}"
+          update: "%{user_name} aktualizovaný výsledek %{resource_name} v %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Rodič nebyl nalezen v databázi (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nový výsledek v %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Datum ukončení
+            progress: Pokrok
+            start_date: Počáteční datum
+            status: Postavení
+            title: Titul
+        status:
+          fields:
+            description: Popis
+            key: Klíč
+            name: název
+            progress: Pokrok
+        timeline_entry:
+          fields:
+            description: Popis
+            entry_date: datum
+      results:
+        count:
+          results_count:
+            one: 1 výsledek
+            few: "%{count} výsledků"
+            many: "%{count} výsledků"
+            other: "%{count} výsledků"
+        filters:
+          all: Všechno
+          scopes: Scopes
+        home:
+          categories_label: Kategorie
+          subcategories_label: Podkategorie
+        home_header:
+          global_status: Globální stav provedení
+        nav_breadcrumb:
+          global: Globální provádění
+        search:
+          search: Vyhledání akcí
+        show:
+          stats:
+            attendees: Účastníci
+            back_to_result: Vraťte se k výsledku
+            comments: Komentáře
+            contributions: Příspěvky
+            last_edited_by: Naposledy upravil
+            last_updated_at: Poslední aktualizace na
+            meetings: Setkání
+            number_of_versions: Verze
+            proposals: Návrhy
+            show_all_versions: Zobrazit všechny verze
+            version_author: Autor verze
+            version_created_at: Verze vytvořena v
+            version_number: Číslo verze
+            version_number_out_of_total: "%{current_version} z %{total_count}"
+            votes: Podporuje
+        timeline:
+          title: Vývoj projektu
+      versions:
+        index:
+          changes_at_title: Změny na "%{title}"
+          title: Verze
+        show:
+          changes_at_title: Změny na "%{title}"
+        version:
+          version_index: Verze %{index}
+    components:
+      accountability:
+        name: Odpovědnost
+        settings:
+          global:
+            categories_label: Název pro "Kategorie"
+            comments_enabled: Komentáře povoleny
+            display_progress_enabled: Probíhá zobrazení
+            heading_leaf_level_results: Název pro "Projekty"
+            heading_parent_level_results: Název pro "Výsledky"
+            intro: Intro
+            subcategories_label: Název pro "Podkategorie"
+          step:
+            comments_blocked: Komentáře byly blokovány
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Návrh je „%{proposal_title}“ byla zahrnuta do výsledek. Můžete ji vidět z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{proposal_title}". Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Aktualizace na %{proposal_title}
+          notification_title: Návrh <a href="%{proposal_path}">%{proposal_title}</a> byl zahrnut do výsledku <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Výsledek "%{resource_title}", který zahrnuje návrh "%{proposal_title}", je nyní %{progress}% dokončen. Můžete ji vidět z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{proposal_title}" a tento návrh je zahrnut ve výsledku "%{resource_title}". Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Aktualizace postupu %{resource_title}
+          notification_title: Výsledek <a href="%{resource_path}">%{resource_title}</a>, který zahrnuje návrh <a href="%{proposal_path}">%{proposal_title}</a>, je nyní %{progress}% dokončen.
+    metrics:
+      results:
+        description: Počet vygenerovaných výsledků
+        object: Výsledek
+        title: Výsledek
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Výsledek
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobrazit všechny (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekty zahrnuté v tomto výsledku
+      included_proposals:
+        result_proposal: Návrhy zahrnuté v tomto výsledku

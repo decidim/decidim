@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="user-fields">
+      <div class="row column">
+        <%= form.select :existing_user, [[t(".non_user"), false], [t(".existing_user"), true]], label: t(".user_type") %>
+      </div>
+
+      <div class="row column user-fields--full-name">
+        <%= form.text_field :full_name, autofocus: true %>
+      </div>
+
+      <div class="row column user-fields--user-picker">
+        <% prompt_options = { url: decidim_admin.users_organization_url, placeholder: t(".select_user") } %>
+        <%= form.autocomplete_select(:user_id, form.object.user.presence,  { multiple: false }, prompt_options) do |user|
+          { value: user.id, label: "#{user.name} (@#{user.nickname})" }
+        end %>
+      </div>
+    </div>
+
+    <div class="position-fields">
+      <div class="row column">
+        <%= form.select :position, @form.positions_for_select, { include_blank: t(".select_a_position") }, { multiple: false } %>
+      </div>
+
+      <div class="row column position-fields--position-other">
+        <%= form.text_field :position_other %>
+      </div>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :weight %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :designation_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :designation_mode %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :ceased_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :gender %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :birthday %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :birthplace %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/assemblies/admin/assembly_members" %>

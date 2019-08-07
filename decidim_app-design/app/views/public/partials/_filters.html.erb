@@ -1,0 +1,76 @@
+<div class="filters">
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            Origen
+            <span class="help">
+              <%= icon "info", class: "icon--after" %>
+            </span>
+          </h6>
+        </legend>
+        <label><input id="" type="radio" name="author" checked />Tots</label>
+        <label><input id="" type="radio" name="author" />Ajuntament</label>
+        <label><input id="" type="radio" name="author" />Ciutadania</label>
+        <label><input id="" type="radio" name="author" />Organitzacions</label>
+        <label><input id="" type="radio" name="author" />Cites presencials</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Resultat de la revisió</h6></legend>
+        <label><input id="" type="radio" name="revision" checked />Totes</label>
+        <label><input id="" type="radio" name="revision" />Acceptades</label>
+        <label><input id="" type="radio" name="revision" />Rebutjades</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Tu actividad</h6></legend>
+        <label><input id="" type="checkbox" />Creadas</label>
+        <label><input id="" type="checkbox" />Comentadas</label>
+        <label><input id="" type="checkbox" />Votadas</label>
+        <label><input id="" type="checkbox" />Seguidas</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <%= partial "tags" %>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            Eix
+            <span class="help">
+              <%= icon "info", class: "icon--after" %>
+            </span>
+          </h6>
+        </legend>
+        <label><input id="" type="radio" name="eix" checked />Totes</label>
+        <label><input id="" type="radio" name="eix" />Bon viure</label>
+        <label><input id="" type="radio" name="eix" />Economia plural</label>
+        <label><input id="" type="radio" name="eix" />Transició ecològica</label>
+        <label><input id="" type="radio" name="eix" />Bon govern</label>
+        <label><input id="" type="radio" name="eix" />Justícia global</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Altres</h6></legend>
+        <label><input id="" type="checkbox" />Debatudes a cites presencials</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <%= partial "scope" %>
+  </div>
+</div>

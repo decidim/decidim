@@ -1,0 +1,63 @@
+# frozen_string_literal: true
+
+module Decidim
+  module ContentParsers
+    # A parser that searches user mentions in content.
+    #
+    # A word starting with `@` will be considered as a possible mention if
+    # they only contains letters, numbers or underscores. If the `@` is
+    # followed with an underscore, then it is not considered.
+    #
+    # @see BaseParser Examples of how to use a content parser
+    class UserParser < BaseParser
+      # Class used as a container for metadata
+      #
+      # @!attribute users
+      #   @return [Array] an array of Decidim::User mentioned in content
+      Metadata = Struct.new(:users)
+
+      # Matches a nickname if it starts with a letter or number
+      # and only contains letters, numbers or underscores.
+      MENTION_REGEX = /\B@([a-zA-Z0-9]\w*)\b/.freeze
+
+      # Replaces found mentions matching a nickname of an existing
+      # user in the current organization with a global id. Other
+      # mentions found that doesn't match an existing user are
+      # returned as is.
+      #
+      # @return [String] the content with the valid mentions replaced by a global id
+      def rewrite
+        content.gsub(MENTION_REGEX) do |match|
+          users[match[1..-1]]&.to_global_id&.to_s || match
+        end
+      end
+
+      # (see BaseParser#metadata)
+      def metadata
+        Metadata.new(existing_users)
+      end
+
+      private
+
+      def users
+        @users ||= Hash[
+          existing_users.map do |user|
+            [user.nickname, user]
+          end
+        ]
+      end
+
+      def existing_users
+        @existing_users ||= Decidim::User.where(organization: current_organization, nickname: content_nicknames)
+      end
+
+      def content_nicknames
+        @content_nicknames ||= content.scan(MENTION_REGEX).flatten.uniq
+      end
+
+      def current_organization
+        @current_organization ||= context[:current_organization]
+      end
+    end
+  end
+end

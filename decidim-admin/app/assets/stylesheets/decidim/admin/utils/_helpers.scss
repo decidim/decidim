@@ -1,0 +1,53 @@
+// Helpers
+
+.list-reset{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list-inline{
+  > li{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  > dt{
+    clear: both;
+    margin-right: .3em;
+  }
+
+  > dt,
+  > dd{
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+// Make parent relative to absolute positioning children
+.absolutes{
+  position: relative;
+
+  .left,
+  .right,
+  .top,
+  .bottom{
+    position: absolute;
+  }
+
+  .left{
+    left: 0;
+  }
+
+  .right{
+    right: 0;
+  }
+
+  .top{
+    top: 0;
+  }
+
+  .bottom{
+    bottom: 0;
+  }
+}

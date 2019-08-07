@@ -1,0 +1,10 @@
+<%= cell "decidim/user_group_pending_invitations_list", model %>
+<div class="empty-notifications callout secondary <%= "hide" if user_groups.any? %>">
+  <p><%= t("decidim.groups.no_user_groups") %></p>
+</div>
+<div class="row small-up-1 medium-up-2 card-grid">
+  <% user_groups.each do |user_group| %>
+    <%= card_for user_group %>
+  <% end %>
+</div>
+<%= decidim_paginate user_groups %>

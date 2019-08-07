@@ -1,0 +1,100 @@
+<%
+@title = "Librería de patrones -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns">
+      <h1 class="heading1">Librería de patrones</h1>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="main-container">
+        <div class="row collapse main-container--side-panel">
+          <div class="columns medium-4 large-3">
+            <div class="side-panel">
+              <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
+                data-deep-link="true"
+                data-update-history="true"
+                data-deep-link-smudge="true"
+                data-deep-link-smudge-delay="500"
+                data-tabs>
+                <li class="tabs-title is-active">
+                  <a href="#patternTypography" aria-selected="true">Tipografía</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternButtons">Botones</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternIcons">Iconos</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternCards">Tarjetas y contenedores</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternCardsM">Tarjetas tamaño M</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternMarkers">Marcadores</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternBars">Barras de progreso</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternJavascripts">Tags y menciones <span class="badge"> JS </span></a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternPaginator">Paginador</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternCharts">Gráficas <span class="badge"> JS </span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="columns medium-8 large-9">
+            <div class="main-container__content">
+              <div class="tabs-content vertical"
+                data-tabs-content="pattern-library-tabs">
+                <div class="tabs-panel is-active" id="patternTypography">
+                  <%= render partial: page_path("library") + "/library-typography" %>
+                </div>
+                <div class="tabs-panel" id="patternButtons">
+                  <%= render partial: page_path("library") + "/library-buttons" %>
+                </div>
+                <div class="tabs-panel" id="patternIcons">
+                  <%= render partial: page_path("library") + "/library-icons" %>
+                </div>
+                <div class="tabs-panel" id="patternCards">
+                  <%= render partial: page_path("library") + "/library-cards" %>
+                </div>
+                <div class="tabs-panel" id="patternCardsM">
+                  <%= render partial: page_path("cards") + "/m" %>
+                </div>
+                <div class="tabs-panel" id="patternMarkers">
+                  <%= render partial: page_path("library") + "/library-markers" %>
+                </div>
+                <div class="tabs-panel" id="patternBars">
+                  <%= render partial: page_path("library") + "/library-progressbars" %>
+                </div>
+                <div class="tabs-panel" id="patternJavascripts">
+                  <%= render partial: page_path("library") + "/library-javascripts" %>
+                </div>
+                <div class="tabs-panel" id="patternPaginator">
+                  <%= render partial: page_path("library") + "/library-paginator" %>
+                </div>
+                <div class="tabs-panel" id="patternCharts">
+                  <%= render partial: page_path("library") + "/library-charts" %>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

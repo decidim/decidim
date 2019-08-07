@@ -1,9 +1,13 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     module Devise
-      # A controller so admins can recover their passwords.
-      class PasswordsController < Devise::PasswordsController
+      # Custom Passwords controller for Devise in order to use a custom layout
+      # and views.
+      class PasswordsController < ::Devise::PasswordsController
+        helper Decidim::DecidimFormHelper
+
         layout "decidim/system/login"
       end
     end

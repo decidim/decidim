@@ -1,0 +1,12 @@
+<div class="card extra amender-list">
+  <div class="definition-data__item">
+    <span class="definition-data__title">
+      <%= t("amended_by", scope: "decidim.amendments.amendable") %>
+    </span>
+  </div>
+  <% amenders.each do |amender| %>
+    <div class="definition-data__item expanded" id="amendment_<%= amender.id %>">
+      <%= cell("decidim/author", amender, options: options, has_actions: false) %>
+    </div>
+  <% end %>
+</div>

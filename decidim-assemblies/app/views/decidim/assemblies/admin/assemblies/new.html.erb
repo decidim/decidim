@@ -1,0 +1,11 @@
+<h2 class="assembly-title-summary">
+  <%= t "assemblies.new.title", scope: "decidim.admin" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_assembly assembly_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("assemblies.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

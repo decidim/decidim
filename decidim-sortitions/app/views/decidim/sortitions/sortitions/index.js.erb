@@ -1,0 +1,10 @@
+var $sortitions = $('#sortitions');
+var $sortitionsCount = $('#sortitions-count');
+var $orderFilterInput = $('.order_filter');
+
+$sortitions.html('<%= j(render partial: "sortitions").strip.html_safe %>');
+$sortitionsCount.html('<%= j(render partial: "sortitions_count").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $sortitions);
+$dropdownMenu.foundation();

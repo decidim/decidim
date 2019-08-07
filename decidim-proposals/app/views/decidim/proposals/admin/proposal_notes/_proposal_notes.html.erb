@@ -1,0 +1,45 @@
+<section class="comments">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t("title", scope: "decidim.proposals.admin.proposal_notes") %></h2>
+    </div>
+
+    <div class="card-section">
+      <div class="comment-thread">
+        <% proposal.notes.each do |note| %>
+          <div class="card">
+            <div class="card-divider">
+              <article class="comment">
+                <div class="comment__header">
+                  <div class="author-data">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <strong><span class="author__name"><%= note.author.name %></span></strong>
+                        <span><%= l note.created_at, format: :decidim_short %></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment__content">
+                  <%= simple_format note.body %>
+                </div>
+              </article>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-section">
+      <div class="add-comment">
+        <div class="card">
+          <div class="card-divider">
+            <h2 class="card-title"><%= t("leave_your_note", scope: "decidim.proposals.admin.proposal_notes") %></h2>
+          </div>
+          <div class="card-section">
+            <%= render "form" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

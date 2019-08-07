@@ -1,0 +1,153 @@
+nl:
+  activemodel:
+    attributes:
+      project:
+        budget: Begroting
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        proposal_ids: Verwante voorstellen
+        title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: project
+        other: projecten
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: folders
+        attachments: Bijlagen
+        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerk
+        import: Voorstellen importeren in projecten
+        new: Nieuw project
+        preview: Voorbeeld
+        title: Acties
+      admin:
+        models:
+          project:
+            name: Project
+        projects:
+          create:
+            invalid: Er is een probleem opgetreden met het creëren van dit project
+            success: Voorstel succesvol aangemaakt
+          destroy:
+            success: Project succesvol verwijderd
+          edit:
+            title: Bewerk project
+            update: Bijwerken
+          index:
+            finished_orders: Voltooide stemmen
+            pending_orders: Afwachtende stemmen
+            title: Projecten
+          new:
+            create: Creëren
+            title: Nieuw project
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit project
+            success: Project succesvol bijgewerkt
+        proposals_imports:
+          create:
+            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in projecten
+            success: "%{number} voorstellen succesvol geïmporteerd in projecten"
+          new:
+            create: Voorstellen importeren in projecten
+            no_components: Er zijn geen andere voorstelcomponenten in deze participatieruimte om de voorstellen in projecten te importeren.
+            select_component: Selecteer een component
+      admin_log:
+        project:
+          create: "%{user_name} heeft het project %{resource_name} in de ruimte %{space_name} gemaakt"
+          delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} ruimte"
+          update: "%{user_name} heeft het project %{resource_name} bijgewerkt in de ruimte %{space_name}"
+      models:
+        project:
+          fields:
+            title: Titel
+      projects:
+        budget_confirm:
+          are_you_sure: Bent u het eens? Zodra u uw stem hebt bevestigd, kunt u deze niet meer wijzigen.
+          cancel: Annuleer
+          confirm: Bevestigen
+          description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
+          title: Bevestig de stem
+        budget_excess:
+          close: Sluit
+          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          ok: OK
+          title: Maximum budget overschreden
+        budget_summary:
+          are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
+          assigned: 'Toegewezen:'
+          cancel_order: Verwijder uw stem en begin opnieuw
+          checked_out:
+            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
+            title: Begrotingsstemming voltooid
+          description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          title: U bepaalt het budget
+        count:
+          projects_count:
+            one: 1 project
+            other: "%{count} projecten"
+        filters:
+          category: Categorie
+          category_prompt: Kies een categorie
+          search: Zoeken
+        filters_small_view:
+          close_modal: Dialoogvenster sluiten
+          filter: Filter
+          filter_by: Filteren op
+          unfold: Uitvouwen
+        order_progress:
+          vote: Stem
+        order_selected_projects:
+          remove: Verwijderen
+          selected_projects:
+            one: Geselecteerd project
+            other: Geselecteerde projecten
+          view: Bekijken
+        project:
+          add: Toevoegen
+          count:
+            one: 1 ondersteuning
+            other: "%{count} ondersteuning"
+          remove: Verwijderen
+          view: Uitzicht
+        project_budget_button:
+          add: Toevoegen
+          added: Toegevoegd
+        show:
+          budget: Begroting
+          view_all_projects: Bekijk alle projecten
+    components:
+      budgets:
+        actions:
+          vote: Stemmen
+        name: Budgetten
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+            projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
+            total_budget: Totale budget
+            vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            show_votes: Toon stemmen
+            votes_enabled: Stemmen ingeschakeld
+    orders:
+      checkout:
+        error: Er is een fout opgetreden tijdens het verwerken van uw stem
+        success: Uw stem is succesvol geaccepteerd
+      destroy:
+        error: Er is een fout opgetreden tijdens het annuleren van uw stem
+        success: Uw stem is succesvol geannuleerd
+    resource_links:
+      included_proposals:
+        project_proposal: 'Voorstellen opgenomen in dit project:'
+  index:
+    confirmed_orders_count: Aantal stemmen
+  total_budget: Totale begroting

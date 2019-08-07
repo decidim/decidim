@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="row column">
+    <div class="callout announcement <%= authorization.rejected? ? "alert" : "secondary" %>">
+      <div class="row">
+        <div class="columns medium-8 large-9">
+          <% if authorization.rejected? %>
+            <h3 class="heading3"><%= t(".rejection_notice") %></h3>
+            <ul>
+              <li><%= t(".rejection_correctness") %></li>
+              <li><%= t(".rejection_clarity") %></li>
+            </ul>
+          <% else %>
+            <h3><%= t(".being_reviewed") %></h3>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns large-6 medium-centered">
+      <div class="row column">
+        <div class="card">
+          <div class="card__content">
+            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+            <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+              <%= render partial: "form", locals: { form: form } %>
+
+              <div class="card-section">
+                <div class="actions">
+                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+                  <% if available_methods.count > 1 %>
+                    <%= link_to t(".offline"), { action: :edit, using: :offline }, class: "button expanded hollow" if using_online? %>
+                    <%= link_to t(".online"), { action: :edit, using: :online }, class: "button expanded hollow" if using_offline? %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

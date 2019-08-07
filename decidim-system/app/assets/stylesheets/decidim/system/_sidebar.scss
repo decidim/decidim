@@ -25,46 +25,58 @@
       display: block;
       color: inherit;
       padding: rem-calc(20) $global-padding;
+
       @include menu-title;
     }
 
     @include show-for(large);
   }
 
-  .main-menu{
+  .main-nav{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+
     a{
       padding: $global-padding;
       display: block;
       color: $light-gray;
+    }
+
+    ul{
+      list-style: none;
+      margin-left: 0;
+    }
+
+    li{
       text-transform: uppercase;
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: .9em;
       border-left: 2px solid transparent;
+      transition: all .3s;
 
-      transition: all 0.3s;
-
-      &.active {
+      &.active{
         border-color: map-get($foundation-palette, primary);
-        &, &:hover{
+
+        &,
+        &:hover{
           background-color: #101010;
         }
       }
 
-      &:hover {
+      &:hover{
         background-color: #1a1a1a;
       }
     }
   }
 
-  .session-box {
+  .session-box{
     padding: $global-padding 0;
 
     @include grid-row;
 
-    .admin-email {
+    .admin-email{
       @include grid-column(8);
+
       text-overflow: ellipsis;
       overflow: hidden;
     }

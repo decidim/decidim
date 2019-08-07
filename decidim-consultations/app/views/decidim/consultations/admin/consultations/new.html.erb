@@ -1,0 +1,11 @@
+<h2 class="consultation-title-summary">
+  <%= t "consultations.new.title", scope: "decidim.admin" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_consultation" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("consultations.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+@import "decidim";
+@import "editor";
+
+<% Decidim.component_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
+@import "<%= stylesheet %>";
+<% end %>
+
+<% Decidim.participatory_space_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
+@import "<%= stylesheet %>";
+<% end %>

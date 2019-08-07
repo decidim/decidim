@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     # A command with all the business logic when creating a new organization in
@@ -12,7 +13,7 @@ module Decidim
         @form = form
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the form wasn't valid and we couldn't proceed.
@@ -21,10 +22,18 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
+        @organization = nil
+        invite_form = nil
+
         transaction do
-          organization = create_organization
-          invite_admin(organization)
+          @organization = create_organization
+          CreateDefaultPages.call(@organization)
+          PopulateHelp.call(@organization)
+          CreateDefaultContentBlocks.call(@organization)
+          invite_form = invite_user_form(@organization)
+          return broadcast(:invalid) if invite_form.invalid?
         end
+        Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
@@ -36,14 +45,32 @@ module Decidim
       attr_reader :form
 
       def create_organization
-        Decidim::Organization.create!(name: form.name, host: form.host)
+        Decidim::Organization.create!(
+          name: form.name,
+          host: form.host,
+          secondary_hosts: form.clean_secondary_hosts,
+          reference_prefix: form.reference_prefix,
+          available_locales: form.available_locales,
+          available_authorizations: form.clean_available_authorizations,
+          users_registration_mode: form.users_registration_mode,
+          force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization,
+          badges_enabled: true,
+          user_groups_enabled: true,
+          default_locale: form.default_locale,
+          smtp_settings: form.encrypted_smtp_settings,
+          send_welcome_notification: true
+        )
       end
 
-      def invite_admin(organization)
-        Decidim::User.invite!(
+      def invite_user_form(organization)
+        Decidim::InviteUserForm.from_params(
+          name: form.organization_admin_name,
           email: form.organization_admin_email,
-          organization: organization,
-          roles: ["admin"]
+          role: "admin",
+          invitation_instructions: "organization_admin_invitation_instructions"
+        ).with_context(
+          current_user: form.current_user,
+          current_organization: organization
         )
       end
     end

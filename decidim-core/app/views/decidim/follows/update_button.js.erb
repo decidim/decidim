@@ -1,0 +1,3 @@
+var $followResource = $("#<%= dom_id(resource, :follow) %>");
+
+morphdom($followResource[0], "<%= j((cell "decidim/follow_button", resource, inline: @inline).to_s.strip.html_safe) %>");

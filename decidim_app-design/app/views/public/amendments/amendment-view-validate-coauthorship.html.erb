@@ -1,0 +1,78 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+
+    <div class="row column">
+      <div class="callout secondary mb-sm">
+        <p>This is the proposal with your ammendment taken into account. Please review the changes and accept or reject your co-authorship based on if you see your ammendment reflected in this text. </p>
+      </div>
+    </div>
+    <div class="row column view-header">
+      <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
+      <%= partial "author_data", { extra: true } %>
+    </div>
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+        <div class="card text-center">
+          <div class="card__content">
+            <button class="button success hollow expanded button--icon button--sc">
+              <%= icon "thumb-up" %>
+              <span>Aceptar</span>
+            </button>
+            <button class="button alert hollow expanded button--icon button--sc">
+              <%= icon "thumb-down" %>
+              <span>Rechazar</span>
+            </button>
+            <small>Review the changes and accept or reject this amendment. A notification will be sent to its author.</small>
+          </div>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <div class="section">
+          <span class="success label proposal-status">Acceptada</span>
+          <p>
+            Millores en un conjunt de carrers dels barris del districte que
+            incorporin la renovació integral de les seves infraestructures
+            (voreres, accessibilitat, asfaltat, enllumenat, clavegueram,
+            arbrat, mobiliari urbà...), Interiors de Canyelles, Guineueta
+            i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall,
+            connexió del carrer Pedraforca amb Agudes, accessibilitat i
+            enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la
+            ciutat, Canfranc, Oristà i Almansa, pèrgola del Campillo de la
+            virgen i del parc de Serra Martí, redacció del projecte del
+            passeig de la Peira, reforma de les escales de Matagalls, millores
+            a l'Av. de Borbó i projecte d'intervenció a la Font Pla de
+            Fornells. Millores en el Parc de la Guineueta incloent un espai
+            d'aparells per a la gent gran. Estudi de la viabilitat tècnica
+            d'instal·lar escales mecàniques entre Ciutat Meridiana i Torre
+            Baró per millorar la connectivitat entre els dos barris o millora
+            de l'escala actual. Millores d'accessibilitat, arranjaments i
+            enllumenat en l'àmbit de Renfe Meridiana. Millores en la
+            urbanització per a l'accessibilitat d'acord amb les
+            particularitats orogràfiques al barri de Roquetes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

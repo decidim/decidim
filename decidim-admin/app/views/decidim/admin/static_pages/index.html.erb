@@ -1,0 +1,7 @@
+<% @topics.each do |topic| %>
+  <%= render partial: "topic", locals: { pages: topic.pages, topic: topic } %>
+<% end %>
+
+<% if @orphan_pages.any? %>
+  <%= render partial: "topic", locals: { pages: @orphan_pages, topic: nil } %>
+<% end %>

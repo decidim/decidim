@@ -1,0 +1,8 @@
+
+<%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form edit_participatory_process_step" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("participatory_process_steps.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("participatory_process_steps.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

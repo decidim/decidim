@@ -1,0 +1,27 @@
+<div class="callout warning">
+  Por propósitos de visualización el parámetro <em>metric</em> apunta a varios objetos <em>javascript</em> con datos falsos almacenados en la carpeta <code>decidim_app-design/app/assets/javascripts/vizzs</code>.
+  Dichas métricas deberán ser editadas en <code>decidim-core/app/assets/javascripts/decidim/vizzs/metrics.js.es6</code>.
+</div>
+<ul class="accordion" data-accordion data-allow-all-closed="true">
+  <li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title"><h2 class="section-heading">Areachart</h2></a>
+
+    <div class="accordion-content is-active" data-tab-content>
+      <%= render partial: page_path("vizzs") + "/areacharts" %>
+    </div>
+  </li>
+  <li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title"><h2 class="section-heading">Grouped rowchart</h2></a>
+
+    <div class="accordion-content is-active" data-tab-content>
+      <%= render partial: page_path("vizzs") + "/rowcharts" %>
+    </div>
+  </li>
+  <li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title"><h2 class="section-heading">Multiple linechart</h2></a>
+
+    <div class="accordion-content is-active" data-tab-content>
+      <%= render partial: page_path("vizzs") + "/linecharts" %>
+    </div>
+  </li>
+</ul>

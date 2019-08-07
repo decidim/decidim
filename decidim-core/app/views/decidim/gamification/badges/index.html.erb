@@ -1,0 +1,42 @@
+<main class="wrapper">
+  <div class="row column mb-m">
+    <h1><%= t ".title" %></h1>
+    <p>
+      <%= t ".page_description" %>
+    </p>
+  </div>
+  <% @badges.each do |badge| %>
+    <div class="row column mb-m">
+      <div class="column medium-2">
+        <article class="card card--badge absolutes">
+          <div class="card__content">
+            <div class="card__header">
+              <div class="badge-container">
+                <%= image_tag badge.image %>
+              </div>
+            </div>
+            <div class="card__text text-center">
+              <strong><%= badge.translated_name %></strong>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column medium-10">
+        <h6>
+          <strong><%= t ".badge_title", name: badge.translated_name %></strong>
+        </h6>
+        <p><%= badge.description(current_organization.name) %></p>
+        <h6>
+          <strong><%= t ".how" %></strong>
+        </h6>
+        <p>
+          <ol>
+            <% badge.conditions.each do |condition| %>
+              <li><%= condition %></li>
+            <% end %>
+          </ol>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</main>

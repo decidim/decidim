@@ -1,0 +1,12 @@
+<% if assemblies.any? %>
+  <div class="card__footer card__footer--transparent">
+    <div class="card__support">
+      <div><strong><%= t(".member_of") %></strong></div>
+      <div class="card__text--separated-mid-dot js-read-more">
+        <% assemblies.each do |assembly| %>
+          <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

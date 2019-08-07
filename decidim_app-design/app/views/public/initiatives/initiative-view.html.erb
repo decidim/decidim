@@ -1,0 +1,100 @@
+<%
+@title = "Iniciativa -- Decidim Barcelona"
+@activesection = "initiatives"
+@activepage = "initiatives"
+%>
+
+  <%= partial "template_top" %>
+
+  <main>
+    <%= partial "process_header" %>
+    <div class="wrapper">
+      <div class="row column">
+        <div class="callout secondary mb-sm">
+          <p>La recollida de signatures d'aquesta iniciative és realitza únicamente de manera personal.</p>
+        </div>
+      </div>
+      <div class="row column view-header">
+        <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
+        <%= partial "author_data", { extra: true } %>
+      </div>
+      <div class="row">
+        <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+          <div class="card extra">
+            <div class="card__content">
+              <span class="extra__suport-number">45</span>
+              <span class="extra__suport-text">Apoyos</span>
+              <div class="extra__popularity popularity popularity--level5">
+                <span class="popularity__item"></span>
+                <span class="popularity__item"></span>
+                <span class="popularity__item"></span>
+                <span class="popularity__item"></span>
+                <span class="popularity__item"></span>
+                <span class="popularity__desc">
+                  Proposta molt popular
+                  <%= partial "help" %>
+                </span>
+              </div>
+              <button class="button expanded button--sc">Apoyar</button>
+              <button class="button secondary hollow expanded small button--icon">
+                <%= icon "bell" %>
+                <span>Seguir propuesta</span>
+              </button>
+            </div>
+          </div>
+          <div class="reference">
+            Referencia: BCN-2016-01-173
+          </div>
+          <%= partial "share" %>
+        </div>
+        <div class="columns mediumlarge-8 mediumlarge-pull-4">
+          <div class="section">
+            <span class="success label proposal-status">Acceptada</span>
+            <p>
+              Millores en un conjunt de carrers dels barris del districte que incorporin la renovació integral de les seves infraestructures (voreres, accessibilitat, asfaltat, enllumenat, clavegueram, arbrat, mobiliari urbà...), Interiors de Canyelles, Guineueta
+              i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall, connexió del carrer Pedraforca amb Agudes, accessibilitat i enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la ciutat, Canfranc, Oristà i Almansa, pèrgola del Campillo
+              de la virgen i del parc de Serra Martí, redacció del projecte del passeig de la Peira, reforma de les escales de Matagalls, millores a l'Av. de Borbó i projecte d'intervenció a la Font Pla de Fornells. Millores en el Parc de la Guineueta incloent un
+              espai d'aparells per a la gent gran. Estudi de la viabilitat tècnica d'instal·lar escales mecàniques entre Ciutat Meridiana i Torre Baró per millorar la connectivitat entre els dos barris o millora de l'escala actual. Millores d'accessibilitat,
+              arranjaments i enllumenat en l'àmbit de Renfe Meridiana. Millores en la urbanització per a l'accessibilitat d'acord amb les particularitats orogràfiques al barri de Roquetes.
+            </p>
+            <ul class="tags tags--proposal">
+              <li>
+                <a href="">transició ecológica</a>
+              </li>
+              <li>
+                <a href="">mobilitat sostenible</a>
+              </li>
+              <li>
+                <a href="">barri de Sarrià</a>
+              </li>
+            </ul>
+          </div>
+          <div class="section">
+            <h2 class="section-heading">Llista d'adhesions</h2>
+
+            <!-- locals.text: the number has to match with the hidden ones -->
+            <!-- locals.size: classname. small shows only 8 items -->
+            <!-- locals.classText: classname. default text-small. append to span -->
+            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: 8, classText: "" } do %>
+            <% 12.times do %>
+            <%= partial "author_data", { nick: false } %>
+            <% end %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

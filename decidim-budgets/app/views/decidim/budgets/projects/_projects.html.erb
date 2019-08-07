@@ -1,0 +1,6 @@
+<div class="card card--list budget-list">
+  <% projects.each do |project| %>
+    <%= render partial: "project", locals: { project: project } %>
+  <% end %>
+</div>
+<%= decidim_paginate projects, random_seed: random_seed %>

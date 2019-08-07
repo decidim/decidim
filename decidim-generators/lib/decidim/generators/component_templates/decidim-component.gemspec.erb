@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("lib", __dir__)
+
+require "decidim/<%= component_name %>/version"
+
+Gem::Specification.new do |s|
+  s.version = Decidim::<%= component_module_name %>.version
+  s.authors = ["<%= %x[git config user.name].chomp %>"]
+  s.email = ["<%= %x[git config user.email].chomp %>"]
+  s.license = "AGPL-3.0"
+  s.homepage = "https://github.com/decidim/decidim-module-<%= component_name %>"
+  s.required_ruby_version = ">= 2.5"
+
+  s.name = "decidim-<%= component_name %>"
+  s.summary = "A decidim <%= component_name %> module"
+  s.description = "<%= component_description %>."
+
+  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+
+  s.add_dependency "decidim-core", Decidim::<%= component_module_name %>.version
+end

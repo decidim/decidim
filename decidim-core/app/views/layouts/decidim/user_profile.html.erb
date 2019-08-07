@@ -1,0 +1,29 @@
+<%= render "layouts/decidim/application" do %>
+  <main class="wrapper">
+    <div class="row collapse">
+      <div class="columns">
+        <h1 class="heading1 user-header"><%= t("title", scope: "layouts.decidim.user_profile") %></h1>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="main-container">
+        <div class="row collapse main-container--side-panel">
+          <div class="columns medium-4 large-3">
+            <div class="side-panel">
+              <ul class="tabs vertical side-panel__tabs" id="user-settings-tabs">
+                <%= user_menu.render %>
+              </ul>
+            </div>
+          </div>
+          <div class="columns medium-8 large-9">
+            <div class="main-container__content">
+              <div class="tabs-content vertical" aria-hidden="false">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<% end %>

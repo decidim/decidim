@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "env",
+    "airbnb",
+    "react",
+    "stage-2"
+  ],
+  "plugins": ["transform-decorators-legacy"],
+  "env": {
+    "test": {
+      "plugins": [
+        ["__coverage__", {"ignore": "*.+(test|stub).*"}],
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}

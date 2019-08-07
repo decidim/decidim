@@ -1,0 +1,26 @@
+<%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search") %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t(".search") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% unless @forced_past_meetings %>
+    <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
+  <% end %>
+
+  <% if current_participatory_space.has_subscopes? %>
+    <%= scopes_picker_filter form, :scope_id %>
+  <% end %>
+
+  <% if current_component.categories.any? %>
+    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+  <% end %>
+<% end %>

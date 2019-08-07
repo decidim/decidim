@@ -1,0 +1,43 @@
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center">
+        <h1 class="heading1 page-title">Comença a participar</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns medium-7 large-5 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <div class="callout success">
+              <p>S’ha confirmat el teu compte.</p>
+            </div>
+            <p>Amb el teu compte ja pots:</p>
+            <ul class="list-check">
+              <li class="list-check__ok">
+                <%= icon "check", class: "list-check__icon", aria_label: "Incluye", role: "img" %>
+                Participar en debates</li>
+              <li class="list-check__ok">
+                <%= icon "check", class: "list-check__icon", aria_label: "Incluye", role: "img" %>
+                Crear nuevas propuestas</li>
+              <li class="list-check__ko">
+                <%= icon "x", class: "list-check__icon", aria_label: "No incluye", role: "img" %>
+                Apoyar propuestas*</li>
+            </ul>
+            <p>
+              <strong>* Només usuaris empadronats al municipi de Barcelona.
+              </strong>
+            </p>
+            <a class="button expanded" href="#">Verifica la teva residència</a>
+            <p class="text-center">Si no estàs empadronat a Barcelona o no vols verificar el compte,
+              pots <a href="#">veure els processos oberts</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

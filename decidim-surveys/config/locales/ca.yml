@@ -1,0 +1,56 @@
+ca:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Ha acabat l'enquesta
+      decidim/surveys/opened_survey_event: Ha començat l'enquesta
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquesta
+        other: Enquestes
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostes
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Respondre
+        name: Enquesta
+        settings:
+          global:
+            announcement: Avís
+          step:
+            allow_answers: Permetre respostes
+            announcement: Avís
+    events:
+      surveys:
+        survey_closed:
+          email_intro: L'enquesta %{resource_title} a %{participatory_space_title} ha estat tancada.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha acabat una enquesta a %{participatory_space_title}
+          notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha acabat.
+        survey_opened:
+          email_intro: 'L''enquesta %{resource_title} a %{participatory_space_title} ja està oberta. Pots participar-hi des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una nova enquesta a %{participatory_space_title}
+          notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
+    metrics:
+      survey_answers:
+        description: Nombre d'enquestes contestades per les participants
+        object: respostes a enquestes
+        title: Respostes a enquestes
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Respostes de les participants de l'enquesta
+        surveys:
+          update:
+            invalid: S'ha produït un error en desar l'enquesta.
+            success: Enquesta desada correctament.
+      last_activity:
+        new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
+      surveys:
+        answer:
+          invalid: S'ha produït un error en respondre l'enquesta.
+          success: Enquesta resposta correctament.

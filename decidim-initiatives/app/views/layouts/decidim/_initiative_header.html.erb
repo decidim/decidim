@@ -1,0 +1,46 @@
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="row column process-header__main"
+        style="background-image:url(<%= current_participatory_space.type.banner_image.url %>);">
+    </div>
+    <div class="process-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
+        <div>
+          <h1 class="text-highlight heading2">
+            <%= participatory_space_helpers.translated_attribute(current_participatory_space.title) %>
+          </h1>
+        </div>
+        <div>
+          <h2 class="text-highlight heading-small">
+            <% if current_participatory_space.hashtag.present? %>
+              <span class="process-header__hashtag">
+                <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}" %>
+              </span>
+            <% end %>
+            <%= strip_tags participatory_space_helpers.translated_attribute(current_participatory_space.type.title) %>
+          </h2>
+        </div>
+      </div>
+      <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
+    </div>
+  </div>
+  <%
+    components = current_participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+  %>
+
+  <%=
+    extended_navigation_bar([
+      {
+        name: t(".initiative_menu_item"),
+        url: decidim_initiatives.initiative_path(current_participatory_space),
+        active: is_active_link?(decidim_initiatives.initiative_path(current_participatory_space), :exclusive)
+      }
+    ] + components.map do |component|
+      {
+        name: translated_attribute(component.name),
+        url: main_component_path(component),
+        active: is_active_link?(main_component_path(component), :inclusive)
+      }
+    end)
+  %>
+</div>

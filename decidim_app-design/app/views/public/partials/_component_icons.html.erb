@@ -1,0 +1,16 @@
+<%
+file = Rails.root.join("app/assets/images/icons.svg")
+doc = File.open(file) { |f| Nokogiri::XML(f) }
+titles = doc.css("title").map(&:text)
+%>
+
+<div style="columns: 3;">
+  <% titles.each do |i| %>
+  <div class="m-bottom">
+    <div class="process-nav__link">
+      <%= icon i %>
+      <span><%= i %></span>
+    </div>
+  </div>
+  <% end %>
+</div>

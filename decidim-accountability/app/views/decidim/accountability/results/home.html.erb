@@ -1,0 +1,9 @@
+<div class="row accountability">
+  <div class="small-12 columns">
+    <%= render partial: "home_header" %>
+    <%= render partial: "scope_filters", locals: { url_method: :root_path } %>
+    <%= render partial: "home_categories" %>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/accountability/accountability" %>

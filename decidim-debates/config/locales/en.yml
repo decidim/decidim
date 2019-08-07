@@ -1,0 +1,152 @@
+---
+en:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Category
+        decidim_category_id: Category
+        description: Description
+        end_time: Ends at
+        information_updates: Information updates
+        instructions: Instructions to participate
+        start_time: Starts at
+        title: Title
+        user_group_id: Create debate as
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates disabled
+      decidim/debates/creation_enabled_event: Debates enabled
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Create
+        name: Debates
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            creation_enabled: Debate creation by participants enabled
+    debates:
+      actions:
+        confirm_destroy: Are you sure?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
+      admin:
+        debates:
+          create:
+            invalid: There was a problem creating the debate.
+            success: Debate successfully created.
+          destroy:
+            success: Debate successfully deleted.
+          edit:
+            title: Edit debate
+            update: Update debate
+          index:
+            title: Debates
+          new:
+            create: Create debate
+            title: New debate
+          update:
+            invalid: There was a problem updating this debate.
+            success: Debate successfully updated.
+        models:
+          debate:
+            name: Debate
+      admin_log:
+        debate:
+          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
+        create:
+          invalid: There was a problem creating the debate.
+          success: Debate successfully created.
+        debate:
+          participate: Participate
+        filters:
+          all: All
+          category: Category
+          category_prompt: Select a category
+          citizens: Citizens
+          official: Official
+          origin: Origin
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          new_debate: New debate
+        new:
+          back: Back
+          create: Create
+          select_a_category: Please select a category
+          title: New debate
+      last_activity:
+        new_debate_at_html: "<span>New debate at %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: End date
+            official_debate: Official debate
+            start_time: Start date
+            title: Title
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hi,
+              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
+            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" on %{space_title}
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hi,
+              %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
+            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" by %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
+        creation_disabled:
+          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in open debates from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debate creation disabled in %{participatory_space_title}
+          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debates now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+          - Choose an open debate to take part in
+          description: This badge is granted when you actively participate in the different debates by leaving your comments.
+          description_another: This participant has taken part in %{score} debates.
+          description_own: You have participated in %{score} debates.
+          name: Debates
+          next_level_in: Participate in %{score} more debates to reach the next level!
+          unearned_another: This participant has not yet taken part in any debate.
+          unearned_own: You haven't participated in any debates yet.
+    metrics:
+      debates:
+        description: Number of debates created
+        object: debates
+        title: Debates

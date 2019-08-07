@@ -1,0 +1,13 @@
+<section class="extended" id="metrics">
+  <div class="wrapper-home">
+    <div class="row column text-center mb-sm">
+      <h2 class="heading2"><%= t("decidim.pages.home.metrics.headline", organization: current_organization.name) %></h2>
+    </div>
+    <div class="row mb-sm">
+      <%= metrics.highlighted %>
+    </div>
+    <div class="row collapse section">
+      <%= metrics.not_highlighted %>
+    </div>
+  </div>
+</section>

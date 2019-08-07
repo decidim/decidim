@@ -1,0 +1,119 @@
+<%
+@title = "Blog -- Decidim Barcelona"
+@activesection = "blog"
+@activepage = "blog"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column view-header">
+      <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</h2>
+      <%= partial "author_data", { extra: true } %>
+    </div>
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+        <%= partial "followme", following: true %>
+        <div class="section">
+          <div class="section-heading">
+            Artículos con más actividad
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor sit amet, consectetur.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem amet, consectetur adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <strong>Lorem ipsum dolor adipisicing elit.</strong>
+            <div class="author-data author-data--nopadding">
+              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+              <a href="#comments" title="Comentarios">
+                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-heading">
+            Categorías
+          </div>
+          <div class="m-bottom">
+            <strong>Medio Ambiente</strong>
+            <div class="author-data author-data--nopadding">12 artículos</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-heading">
+            Archivo
+          </div>
+          <div class="m-bottom">
+            <%= link_to page_path("blog/blog-archives"), class: "card__link" do %>
+            <span class="author-data author-data--nopadding">Ver archivo de artículos</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <div class="section">
+          <p>
+            Millores en un conjunt de carrers dels barris del districte que incorporin la renovació integral de les seves infraestructures (voreres, accessibilitat, asfaltat, enllumenat, clavegueram, arbrat, mobiliari urbà...),
+            <b>Interiors de Canyelles</b>, Guineueta i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall, connexió del carrer Pedraforca amb Agudes, accessibilitat i enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la ciutat,
+            Canfranc, Oristà i Almansa, pèrgola del Campillo de la virgen i del parc de Serra Martí, redacció del projecte del passeig de la Peira, reforma de les escales de Matagalls, millores a l'Av. de Borbó i projecte d'intervenció a la Font Pla de Fornells.
+            <em>Millores en el Parc de la Guineueta incloent un espai d'aparells per a la gent gran. Estudi de la viabilitat tècnica d'instal·lar escales mecàniques entre Ciutat Meridiana i Torre Baró per millorar la connectivitat entre els dos barris o millora
+              de l'escala actual</em>. Millores d'accessibilitat, arranjaments i enllumenat en l'àmbit de Renfe Meridiana. Millores en la urbanització per a l'accessibilitat d'acord amb les particularitats orogràfiques al barri de Roquetes.
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <strong>Lorem ipsum dolor sit amet.</strong>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus soluta ipsum ab maiores explicabo, dicta, dolor asperiores, voluptates possimus tenetur vel doloremque aspernatur deleniti ducimus sed. Cum unde omnis, hic architecto itaque facere
+            voluptatem sint. Commodi nam, animi quisquam quaerat. Expedita laboriosam maxime porro optio!
+          </p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae provident veritatis, a hic iusto blanditiis.</li>
+            <li>Sint quam adipisci officiis suscipit deleniti totam atque, eum reprehenderit delectus architecto tenetur,
+              <em>consectetur quasi</em>!</li>
+            <li>In voluptates doloribus, illum, libero, corporis ullam hic blanditiis quisquam, modi iure animi. Temporibus, nisi!</li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ratione corporis, similique.
+            <strong>Deserunt sed neque voluptas a non molestias voluptatibus distinctio suscipit assumenda illo blanditiis dignissimos, laudantium quidem consectetur in dolor voluptatum magnam laborum libero, dolores accusantium praesentium quam asperiores aliquam</strong>. Optio eos sunt officiis minima aut placeat omnis, maiores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

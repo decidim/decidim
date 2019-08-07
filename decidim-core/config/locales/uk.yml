@@ -1,0 +1,710 @@
+uk:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Причина видалення вашого облікового запису
+      report:
+        details: Додаткові коментарі
+      user:
+        about: Про учасника
+        email: Адреса вашої електронної пошти
+        name: Ваше ім’я
+        password: Пароль
+        password_confirmation: Підтвердьте свій пароль
+        personal_url: Особиста веб-адреса
+        remove_avatar: Видалити аватар
+    models:
+      decidim/attachment_created_event: Вкладений файл
+      decidim/component_published_event: Діюча складова
+      decidim/profile_updated_event: Профіль оновлено
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Поточний пароль
+        email: Адреса електронної пошти
+        name: Ім'я учасника
+        password: Пароль
+        password_confirmation: Підтвердження паролю
+        remember_me: Запам'ятати мене
+    models:
+      decidim/user_group:
+        one: Гурт учасників
+        few: Гурти учасників
+        many: Гуртів учасників
+        other: Гуртів учасників
+  booleans:
+    'false': 'Ні'
+    'true': 'Так'
+  carrierwave:
+    errors:
+      image_too_big: Зображення завелике
+  date:
+    formats:
+      decidim_short: "%d.%m.%Y"
+      decidim_with_month_name: "%d %B %Y"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Файл не існує
+        invalid_token: Вказаний токен недійсний.
+        no_token: Не надано жодного токену
+        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
+      delete:
+        alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
+        confirm:
+          close: Закрити вікно
+          ok: Так, я хочу видалити свій обліковий запис
+          question: Ви впевнені, що бажаєте видалити свій обліковий запис?
+          title: Видалити мій обліковий запис
+        explanation: Будь ласка, введіть причину, з якої ви хочете видалити свій обліковий запис (необов'язково).
+      destroy:
+        error: При спробі видалити ваш обліковий запис сталася помилка.
+        success: Ваш обліковий запис успішно видалено.
+      show:
+        change_password: Змінити пароль
+        update_account: Оновити обліковий запис
+      update:
+        error: При спробі оновити ваш обліковий запис сталася помилка.
+        success: Вашу обліковку успішно оновлено.
+        success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
+    admin_log:
+      area:
+        create: "%{user_name} додав дільницю %{resource_name}"
+        delete: "%{user_name} видалив дільницю %{resource_name}"
+        update: "%{user_name} оновив дільницю %{resource_name}"
+      component:
+        create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
+        delete: "%{user_name} видалив складову %{resource_name} з простору %{space_name}"
+        publish: "%{user_name} оприлюднив складову %{resource_name} у просторі %{space_name}"
+        unpublish: "%{user_name} скасував оприлюднення складової %{resource_name} у просторі %{space_name}"
+      moderation:
+        hide: "%{user_name} приховав ресурс різновиду %{resource_type} у просторі %{space_name}"
+        unreport: "%{user_name} відкликав скаргу на ресурс різновиду %{resource_type} у просторі %{space_name}"
+      newsletter:
+        create: "%{user_name} створив розсилання %{resource_name}"
+        delete: "%{user_name} видалив розсилання %{resource_name}"
+        deliver: "%{user_name} надіслав розсилання %{resource_name}"
+        update: "%{user_name} оновив розсилання %{resource_name}"
+      oauth_application:
+        create: "%{user_name} створив додаток OAuth %{resource_name}"
+        delete: "%{user_name} видалив додаток OAuth %{resource_name}"
+        update: "%{user_name} оновив додаток OAuth %{resource_name}"
+      organization:
+        update: "%{user_name} оновив налаштування організації"
+      scope:
+        create: "%{user_name} додав обсяг %{resource_name}"
+        create_with_parent: "%{user_name} створив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+        delete: "%{user_name} видалив обсяг %{resource_name}"
+        delete_with_parent: "%{user_name} видалив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+        update: "%{user_name} оновив обсяг %{resource_name}"
+        update_with_parent: "%{user_name} оновив обсяг %{resource_name} всередині обсягу %{parent_scope}"
+      static_page:
+        create: "%{user_name} створив статичну сторінку %{resource_name}"
+        delete: "%{user_name} видалив статичну сторінку %{resource_name}"
+        update: "%{user_name} оновив статичну сторінку %{resource_name}"
+      user:
+        invite: "%{user_name} запросив учасника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} надав службовий статус учаснику %{resource_name}"
+        remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
+        unofficialize: "%{user_name} скасував службовий статус учасника %{resource_name}"
+      user_group:
+        reject: "%{user_name} відхилив підтвердження гурту учасників %{resource_name}"
+        verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
+    amendments:
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
+    anonymous_user: Анонімний вхід
+    application:
+      collection:
+        documents:
+          one: Документ
+          few: Документи
+          many: Документів
+          other: Документів
+      documents:
+        related_documents: Супутні документи
+      photos:
+        related_photos: Супутні світлини
+    author:
+      comments:
+        one: коментар
+        few: коментаря
+        many: коментарів
+        other: коментарів
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
+        fields:
+          passport_number: Номер паспорта
+        name: Ще один приклад підтвердження особи
+      dummy_authorization_handler:
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
+        fields:
+          document_number: Номер документа
+          postal_code: Поштовий індекс
+        name: Приклад підтвердження своєї особи
+      dummy_authorization_workflow:
+        name: Приклад шляху підтвердження особи
+      errors:
+        duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
+      expired_at: Строк дії закінчився %{timestamp}
+      expires_at: Строк дії закінчується %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад підтвердження своєї особи
+      granted_at: 'Надано: %{timestamp}'
+      started_at: 'Розпочато: %{timestamp}'
+    authorization_modals:
+      content:
+        expired:
+          authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
+          explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
+          title: Строк дії підтвердження особи вичерпався
+        incomplete:
+          explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
+          invalid_field: "Поле %{field}"
+          reauthorize: Заново підтвердити свою особу
+          title: Будь ласка, заново підтвердіть свою особу
+        missing:
+          authorize: Підтвердити свою особу за допомогою "%{authorization}"
+          explanation: Щоб виконати цю дію, потрібно підтвердити свою особу за допомогою "%{authorization}".
+          title: Необхідне підтвердження своєї особи
+        pending:
+          explanation: Щоб виконати цю дію, потрібно підтвердити особу за допомогою "%{authorization}", але ваше підтвердження особи все ще триває
+          resume: Відстежте перебіг підтвердження особи "%{authorization}"
+          title: Підтвердження особи все ще триває
+        unauthorized:
+          explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
+          invalid_field: "Для поля %{field} значення %{value} неприпустиме."
+          ok: Гаразд
+          title: Недостатньо прав через відсутність підтвердження особи
+    collapsible_list:
+      see_less: "(читати менше)"
+      see_more: "(читати далі)"
+    components:
+      dummy:
+        actions:
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад складової
+        settings:
+          global:
+            comments_enabled: Коментарі увімкнено
+            dummy_global_attribute_1: Приклад властивості 1
+            dummy_global_attribute_2: Приклад властивості 2
+            resources_permissions_enabled: Дозволи ресурсів увімкнуто
+          step:
+            comments_blocked: Коментарі вимкнено
+            dummy_step_attribute_1: Приклад 1 властивості кроку
+            dummy_step_attribute_2: Приклад 2 властивості кроку
+    contact: Зв'язатися
+    content_blocks:
+      footer_sub_hero:
+        name: Нижній колонтитул під-багатирського банера
+      hero:
+        name: Багатирський банер
+      highlighted_content_banner:
+        name: Банер висвітленого вмісту
+      how_to_participate:
+        name: Як взяти участь
+      stats:
+        name: Статистика організації
+      sub_hero:
+        name: Під-багатирський банер
+    core:
+      actions:
+        unauthorized: Ви не маєте прав на виконання цієї дії
+    data_portability:
+      export:
+        ready: Готово
+      show:
+        download_data: Завантажити дані
+        download_data_description: Файл із усіма відомостями, пов'язаними з обліковим записом, буде відправлений на <strong>%{user_email}</strong>
+        request_data: Подати запит на дані
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
+        new:
+          complete_profile: Заповнити профіль
+          nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
+          sign_up: Будь ласка, заповніть свій профіль
+          subtitle: Щоб завершити реєстрацію, заповніть наступну форму
+          username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
+      registrations:
+        new:
+          already_have_an_account?: Вже маєте обліковий запис?
+          newsletter: Отримувати іноді розсилання зі свіжими новинами
+          newsletter_title: Дозвіл на зв'язок
+          nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
+          sign_in: Увійти
+          sign_up: Зареєструватися
+          sign_up_as:
+            legend: Зареєструватися як
+          subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
+          terms: умови участі
+          tos_agreement: Реєструючись, ви приймаєте %{link}.
+          tos_title: Умови участі
+          username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
+      sessions:
+        new:
+          are_you_new?: Ви вперше на цьому майданчику?
+          register: Створити обліковий запис
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Поставити галочку та продовжити
+            close_modal: Закрити віконце
+            uncheck: Не ставити галочку
+          notice: |-
+            <p>Привіт, ви впевнені, що не хочете отримувати розсилання новин?<br> Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання.<br> Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень.</p> <p>Якщо ви не поставите цю галочку, ви можете прогледіти доречні відомості щодо свіжих можливостей участі в роботі майданчика.<br> Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення.</p> <p>Дякуємо, що прочитали це!</p>
+          title: Сповіщення про новини
+        omniauth_buttons:
+          or: Або
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Підтвердити додаток
+          by_organization_link_html: <small class="heading-small">через %{link}</small>
+          cancel: Скасувати
+          connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
+          publish_content: Оприлюднювати за вас дописи
+          see_email: Бачити вашу адресу ел-пошти
+          see_name: Бачити ваше ім'я
+          see_username: Бачити ваше ім'я учасника
+          this_application_will_be_able_to: 'Цей додаток зможе:'
+          this_application_will_not_be_able_to: 'Цей додаток не зможе:'
+          update_profile: Оновлювати ваш профіль
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
+    errors:
+      internal_server_error:
+        title: При з'єднанні з нашим сервером сталася помилка
+        try_later: Будь ласка, спробуйте ще раз пізніше.
+      not_found:
+        back_home: Повернутися на головну
+        content_doesnt_exist: Ця адреса невірна або була видалена.
+        title: Не вдалося знайти сторінку, яку ви шукаєте
+    events:
+      attachments:
+        attachment_created:
+          email_intro: 'До %{resource_title} був доданий новий документ. Ви можете переглянути його на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{resource_title}
+          notification_title: До <a href="%{attached_to_url}">%{resource_title}</a> додано <a href="%{resource_path}">новий документ</a>
+      components:
+        component_published:
+          email_intro: 'У %{participatory_space_title} тепер задіяна складова %{resource_title}. Ви можете переглянути її на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
+          notification_title: Приведено в дію складову %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Доброго дня, %{user_name}%!
+        email_intro: '"%{resource_title}" було оновлено. Ви можете переглянути його на сторінці:'
+        email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+        email_subject: Оновлення до %{resource_title}
+      notification_event:
+        notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
+      users:
+        profile_updated:
+          email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: "%{nickname} оновив свій профіль"
+          notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
+    export_mailer:
+      data_portability_export:
+        click_button: Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.
+        download: Завантажити
+      export:
+        ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
+      subject: Ваш збережений файл "%{name}" готовий
+    filters:
+      linked_classes:
+        all: Усі
+        dummy_resource: Приклади ресурсів
+        meeting: Зустрічі
+        project: Проекти
+        proposal: Пропозиції
+        result: Підсумки
+    fingerprint:
+      check: Перевірте контрольний підсумок
+      explanation: Шматок тексту нижче - скорочений, хешований підсумок цього вмісту. Завдяки йому ви можете перевірити, чи не було вміст підмінено, оскільки будь-яка зміна призведе до абсолютно іншого значення підсумку.
+      online_calculator_name: онлайновий калькулятор MD5
+      replicate_help: Цей контрольний підсумок обчислюється за допомогою алгоритму хешування SHA256. Для того, щоб обчислювати його самостійно, ви можете використовувати %{online_calculator_link}.
+      source: Джерело
+      title: Контрольний підсумок
+      value: Значення
+    followers:
+      no_followers: Ще нема тих, хто стежить.
+    following:
+      no_followings: Ще ні за ким та ні за чим не стежить.
+    follows:
+      create:
+        button: Стежити
+        error: При спробі стежити за цим ресурсом сталася помилка.
+      destroy:
+        button: Припинити стежити
+        error: При спробі припинити стежити за цим ресурсом сталася помилка.
+    forms:
+      current_file: Поточний файл
+      current_image: Поточне зображення
+      default_image: Зображення за замовчуванням
+      errors:
+        error: У цьому полі є помилка.
+      remove_this_file: Видалити цей файл
+    log:
+      base_presenter:
+        create: "%{user_name} створив %{resource_name}"
+        create_with_space: "%{user_name} створив %{resource_name} у %{space_name}"
+        delete: "%{user_name} видалив %{resource_name}"
+        delete_with_space: "%{user_name} видалив %{resource_name} у %{space_name}"
+        unknown_action: "%{user_name} виконав якусь дію у %{resource_name}"
+        unknown_action_with_space: "%{user_name} виконав якусь дію з %{resource_name} у %{space_name}"
+        update: "%{user_name} оновив %{resource_name}"
+        update_with_space: "%{user_name} оновив %{resource_name} у %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Цю дільницю не знайдено в базі даних (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Цей різновид дільниці не знайдено в базі даних (ID: %{id})'
+        scope_presenter:
+          not_found: 'Цей обсяг не знайдено в базі даних (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Цей різновид обсягу не знайдено в базі даних (ID: %{id})'
+    managed_users:
+      expired_session: Скінчився поточний сеанс виступу в ролі учасника.
+    menu:
+      home: Головна
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Вітаємо, %{recipient}!
+          intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
+          outro: Насолоджуйтесь Десідім!
+          subject: "%{sender} почав з вами бесіду"
+        new_message:
+          greeting: Доброго дня, %{recipient}!
+          intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
+          outro: Насолоджуйтесь Десідім!
+          subject: Ви отримали нові повідомлення від %{sender}
+      conversations:
+        create:
+          error: Бесіда не розпочата. Спробуйте ще раз пізніше
+        index:
+          no_conversations: У вас ще немає бесід
+        reply:
+          title: Відповісти
+        start:
+          send: Надіслати
+          title: Почати бесіду
+        update:
+          error: Повідомлення не надіслано. Спробуйте ще раз пізніше
+    newsletter_mailer:
+      newsletter:
+        note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
+        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
+        unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
+        error: При спробі скасування підписки сталася помилка
+        success: Ви успішно скасували підписку.
+        token_error: Строк дії посилання закінчився.
+        unsubscribe: Скасувати підписку
+    newsletters_opt_in:
+      unathorized: Вибачте, це посилання вже не доступне
+      update:
+        error: Трапилось щось не те
+        success: Розсилання новин успішно оновлено
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Обробка особистих даних та їх захист стають дедалі важливішими для всіх нас. За новим "Загальним положенням про захист даних" (GDPR) від 25 травня 2018 року люди мають змогу керувати своїми особистими даними. Тому ми потребуємо вашої згоди, щоб продовжувати надсилати вам свіжі новини про діяльність %{organization_name}.
+        body_2: 'Як ви можете дати нам свою згоду? Просто натисніть цю кнопку:'
+        body_3: Погодившись, ви зможете продовжувати отримувати відомості про послуги нашого майданчику. Якщо ж ми не отримаємо вашої згоди, ми припинимо надсилати вам наші повідомлення. Якщо ви підтвердите, що хочете продовжувати отримувати новини, ви зможете потім в будь-який момент від них відмовитись.
+        button: Так, я хочу продовжувати отримувати новини
+        greetings: Добридень,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
+        hello: Вітаємо,
+        subject: Бажаєте продовжити отримувати свіжі новини про %{organization_name}?
+    notifications:
+      no_notifications: Ще немає сповіщень.
+    notifications_settings:
+      show:
+        email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
+        newsletter_notifications: Я хочу отримувати розсилання
+        update_notifications_settings: Зберегти зміни
+      update:
+        error: При спробі оновити налаштування сповіщень сталася помилка.
+        success: Ваші налаштування сповіщень успішно оновлено.
+    own_user_groups:
+      index:
+        pending: Очікує на розгляд
+        rejected: Відхилено
+        verified: Перевірено
+    pages:
+      home:
+        extended:
+          debates: Обговорення
+          debates_explanation: Розглядайте та розбирайте назрілі питання, обмінюйтеся думками та робіть свій внесок в обговорення, що вас цікавлять.
+          how_to_participate: Як я можу взяти участь у русі?
+          meetings: Зустрічі
+          meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
+          more_info: Додаткові відомості
+          proposals: Пропозиції
+          proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
+        footer_sub_hero:
+          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
+          footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
+          register: Зареєструватися
+        hero:
+          participate: Взяти участь
+          welcome: Ласкаво просимо до %{organization}!
+        statistics:
+          answers_count: Пройдених опитувань
+          assemblies_count: Зборів
+          comments_count: Коментарів
+          debates_count: Обговорення
+          endorsements_count: Проявів підтримки
+          headline: Поточний стан %{organization}
+          meetings_count: Зустрічей
+          orders_count: Голосів
+          pages_count: Сторінок
+          processes_count: Рухів
+          projects_count: Проектів
+          proposals_accepted: Прийняті пропозиції
+          proposals_count: Пропозицій
+          results_count: Підсумків
+          surveys_count: Опитувань
+          users_count: Учасників
+          votes_count: Голосів
+        sub_hero:
+          register: Зареєструватися
+      terms_and_conditions:
+        accept:
+          error: Під час прийняття умов участі виникла помилка.
+          success: Чудово! Ви прийняли умови участі.
+        form:
+          agreement: Я погоджуюсь з цими умовами
+          legend: Погодитися з умовами участі
+        refuse:
+          modal_body: Якщо ви відмовитеся, ви не зможете використовувати майданчик, ви можете <a href="%{data_portability_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
+          modal_btn_continue: Прийняти умови та продовжити
+          modal_btn_exit: Я перегляну це пізніше
+          modal_button: Відмовитися від умов участі
+          modal_close: Закрити віконце
+          modal_title: Ви дійсно відмовляєтеся від оновлених "Умов участі"?
+        required_review:
+          alert: Ми оновили наші "Умови участі", будь ласка, перегляньте їх.
+          body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати наш майданчик.
+          title: 'Обов''язково: перегляньте оновлення до наших "Умов участі"'
+    participatory_space_private_users:
+      not_allowed: У вас нема прав на перегляд цього вмісту
+    profile:
+      deleted: Видалений учасник
+      view: Переглянути
+    profiles:
+      default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
+      show:
+        followers: Ті, хто стежить
+        following: 'Стежить за:'
+      user:
+        edit_profile: Редагувати профіль
+    reported_mailer:
+      hide:
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
+        subject: Ресурс було автоматично приховано
+      report:
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>
+        subject: Про цей ресурс було передано скаргу адміністраторам
+    reports:
+      create:
+        error: Під час створення скарги сталася помилка. Будь ласка, спробуйте зробити це знову.
+        success: Скарга була успішно створена, і вона буде розглянута адміністратором.
+    scopes:
+      global: Всеохопний обсяг
+      picker:
+        cancel: Скасувати
+        choose: Оберіть
+        title: Оберіть %{field}
+      prompt: Оберіть обсяг
+      scopes: Обсяги
+    search:
+      results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
+      term_input_placeholder: Шукати
+    searches:
+      filters_small_view:
+        close_modal: Закрити віконце
+        filter: Відібрати
+        filter_by: 'Відібрати за ознакою:'
+        unfold: Розгорнути
+    shared:
+      embed_modal:
+        close_window: Закрити вікно
+        embed: Будь ласка, вставте цей код на свою сторінку
+        embed_link: Вбудувати
+      flag_modal:
+        already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
+        close: Закрити
+        description: Чи цей вміст неприпустимий?
+        does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
+        offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
+        report: Поскаржитись
+        spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
+        title: Поскаржитись на ускладнення
+      follow_button:
+        sign_in_before_follow: Будь ласка, увійдіть, перш ніж виконувати цю дію
+      login_modal:
+        please_sign_in: Будь ласка, увійдіть
+        sign_up: Зареєструватися
+      reference:
+        reference: 'Посилання на джерело: %{reference}'
+      results_per_page:
+        label: 'Результатів на сторінку:'
+      share_modal:
+        close_window: Закрити вікно
+        share: Поділитися
+        share_link: Поділитись посиланням
+      version_author:
+        deleted: Видалений учасник
+  devise:
+    invitations:
+      edit:
+        header: Завершіть створення свого облікового запису
+        nickname_help: Ваш унікальний псевдонім в %{organization}.
+        submit_button: Зберегти
+        subtitle: Якщо ви приймаєте запрошення, встановіть, будь ласка, свій псевдонім та пароль.
+    mailer:
+      invitation_instructions:
+        accept: Прийняти запрошення
+        accept_until: Строк дії цього запрошення закінчується %{due_date}.
+        decline: Відхилити запрошення
+        hello: Доброго дня, %{email}%!
+        ignore: |-
+          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
+        invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+        someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
+        someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
+        someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
+      invite_admin:
+        subject: Вас запросили керувати %{organization}
+      invite_collaborator:
+        subject: Вас запросили співпрацювати на %{organization}
+      invite_private_user:
+        subject: Вас запрошено до приватного руху співучасті від %{organization}
+      organization_admin_invitation_instructions:
+        subject: Вас запросили керувати %{organization}
+      password_change:
+        greeting: Доброго дня, %{recipient}!
+        message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
+        subject: Пароль змінено
+    passwords:
+      edit:
+        new_password: Пароль
+  doorkeeper:
+    scopes:
+      public: Оприлюднені відомості про вас.
+  errors:
+    messages:
+      content_type_whitelist_error: цей тип файлу неприпустимий
+      cycle_detected: батько обсягу не може бути одним з його нащадків
+      file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
+      nesting_too_deep: не може бути всередині підкатегорії
+  forms:
+    required: Обов'язкове поле
+  invisible_captcha:
+    sentence_for_humans: Якщо ви людина, ігноруйте це поле
+    timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, подайте повідомлення знову.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: На цьому сайті використовуються реп'яшки (куки). Продовжуючи переглядати сайт, ви погоджуєтеся з нашим використанням реп'яшків. Дізнайтеся про це більше %{link}.
+        link_label: тут
+        ok: Я погоджуюся
+      edit_link:
+        edit: Редагувати
+      footer:
+        made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
+      header:
+        close_menu: Закрити меню
+        navigation: Навігація
+        sign_in: Увійти
+        sign_up: Зареєструватися
+      impersonation_warning:
+        close_session: Завершити сеанс
+        description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
+        expire_time_html: Строк дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
+      notifications_dashboard:
+        mark_all_as_read: Позначити все як прочитане
+      user_menu:
+        admin_dashboard: Приладна дошка адміністрування
+        conversations: Бесіди
+        notifications: Сповіщення
+        profile: Мій обліковий запис
+        public_profile: Мій загальнодоступний профіль
+        sign_out: Вийти
+      user_profile:
+        account: Обліковий запис
+        authorizations: Підтвердження особи
+        delete_my_account: Видалити мій обліковий запис
+        my_data: Мої дані
+        notifications_settings: Налаштування сповіщень
+        title: Налаштування учасника
+      widget:
+        see_more: Читати далі
+  locale:
+    name: Українська
+  password_validator:
+    domain_included_in_password: занадто схожий на це доменне ім'я
+    email_included_in_password: занадто схожий на вашу електронну пошту
+    fallback: не дійсний
+    name_included_in_password: занадто схожий на ваше ім'я
+    not_enough_unique_characters: не містить достатньої кількості унікальних символів
+    password_not_allowed: неприпустимий
+    password_too_common: занадто поширений
+    password_too_long: занадто довгий
+    password_too_short: занадто короткий
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Адреса електронної пошти
+    facebook: Фейсбук
+    google_bookmark: Гугл закладки
+    google_plus: Google +
+    hacker_news: Хакерські новини
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Поділитися на %{name}
+    tumblr: Tumblr
+    twitter: Твіттер
+    vkontakte: Вконтакте
+    wechat: WeChat
+    wechat_footer: Відкрийте WeChat, натисніть кнопку "Відкрити", а потім натисніть меню "Сканувати QR-код".
+    weibo: Сіна Вайбо
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%H:%M %d.%m.%Y"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Перша"
+      last: Остання &raquo;
+      next: Далі &rsaquo;
+      previous: "Попередня &lsaquo;"
+      truncate: "&hellip;"

@@ -1,0 +1,109 @@
+<%
+@title = "Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns">
+      <h1 class="heading1">Manual de estilo</h1>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="main-container">
+        <div class="row collapse main-container--side-panel">
+          <div class="columns medium-4 large-3">
+            <div class="side-panel">
+              <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
+                data-tabs>
+                <li class="tabs-title is-active">
+                  <a href="#docStyles" aria-selected="true">Manual de estilo</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#docLogos">Logos</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#docElements">Elementos varios</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="columns medium-8 large-9">
+            <div class="main-container__content">
+              <div class="tabs-content vertical"
+                data-tabs-content="pattern-library-tabs">
+                <div class="tabs-panel is-active" id="docStyles">
+                  <h2 class="section-heading">Manual de estilo</h2>
+                  <div class="row">
+                    <div class="card card--list">
+                      <%= partial "doc_item", {
+                        file: "docs/manual-style-web.pdf",
+                        title: "Manual de estilo web",
+                        type: "PDF" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/manual-style-paper.pdf",
+                        title: "Manual de estilo papel",
+                        type: "PDF" } %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tabs-panel" id="docLogos">
+                  <h2 class="section-heading">Logos</h2>
+                  <div class="row">
+                    <div class="card card--list">
+                      <%= partial "doc_item", {
+                        file: "docs/logo-decidim.svg",
+                        title: "Logo",
+                        type: "SVG" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/proposal-logos-01.pdf",
+                        title: "[Histórico] Propuestas de logo 01",
+                        type: "PDF" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/proposal-logos-02.pdf",
+                        title: "[Histórico] Propuestas de logo 02",
+                        type: "PDF" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/proposal-logos-03.pdf",
+                        title: "[Histórico] Propuestas de logo 03",
+                        type: "PDF" } %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tabs-panel" id="docElements">
+                  <h2 class="section-heading">Elementos varios</h2>
+                  <div class="row">
+                    <div class="card card--list">
+                      <%= partial "doc_item", {
+                        file: "docs/icons.pdf",
+                        title: "Iconos",
+                        type: "PDF" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/icons.svg",
+                        title: "Iconos",
+                        type: "SVG" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/timeline-steps.pdf",
+                        title: "Línea temporal",
+                        type: "PDF" } %>
+                      <%= partial "doc_item", {
+                        file: "docs/timeline-steps.svg",
+                        title: "Línea temporal",
+                        type: "SVG" } %>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

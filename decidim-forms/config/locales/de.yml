@@ -1,0 +1,82 @@
+de:
+  activemodel:
+    attributes:
+      answer:
+        body: Antworten
+      question:
+        max_choices: Maximale Anzahl von Auswahlmöglichkeiten
+        question_type: Art
+      questionnaire_question:
+        mandatory: Verpflichtend
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: sind nicht vollständig
+              too_many: sind zu viele
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beschreibung
+            tos: Nutzungsbedingungen
+        questionnaires:
+          answer_option:
+            answer_option: Antwortoption
+            free_text: Freier Text
+            remove: Löschen
+            statement: Aussage
+          edit:
+            save: sparen
+            title: Titel
+          form:
+            add_question: Frage hinzufügen
+            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+          question:
+            add_answer_option: Antwortoption hinzufügen
+            any: Irgendein
+            description: Beschreibung
+            down: Nieder
+            question: Frage
+            remove: Löschen
+            statement: Aussage
+            up: Oben
+          update:
+            invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
+            success: Fragebögen wurden erfolgreich gespeichert.
+      errors:
+        answer:
+          body: Körper kann nicht leer sein
+      question_types:
+        long_answer: Lange Antwort
+        multiple_option: Mehrfachoption
+        short_answer: Kurze Antwort
+        single_option: Einzelne Option
+        sorting: Sortierung
+      questionnaires:
+        answer:
+          invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
+          success: Fragebogen erfolgreich beantwortet.
+        question:
+          max_choices: 'Max Auswahlmöglichkeiten: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
+            title: Beantworten Sie den Fragebogen
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          questionnaire_answered:
+            body: Sie haben diesen Fragebogen bereits beantwortet.
+            title: Schon beantwortet
+          questionnaire_closed:
+            body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
+            title: Fragebogen geschlossen
+          questionnaire_for_private_users:
+            body: Der Fragebogen ist nur für Privatanwender verfügbar
+            title: Fragebogen geschlossen
+          submit: einreichen
+          tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      user_answers_serializer:
+        created_at: Beantwortet am
+        id: ID beantworten

@@ -1,0 +1,16 @@
+
+<ul class="tags tags--sortition">
+  <li>
+    <%= link_to t("filters.active", scope: "decidim.sortitions.sortitions"),
+                sortitions_path(filter: { state: "active" }) unless sortition.cancelled? %>
+
+    <%= link_to t("filters.cancelled", scope: "decidim.sortitions.sortitions"),
+                sortitions_path(filter: { state: "cancelled" }) if sortition.cancelled? %>
+  </li>
+
+  <% if sortition.category.present? %>
+  <li>
+    <%= link_to translated_attribute(sortition.category.name), sortitions_path(filter: { category_id: [sortition.category.id] }) %>
+  </li>
+  <% end %>
+</ul>

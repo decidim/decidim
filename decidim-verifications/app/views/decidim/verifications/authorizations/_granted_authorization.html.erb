@@ -1,0 +1,27 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <%= icon "lock-locked", class: "card--list__icon" %>
+    <div>
+      <h5 class="card--list__heading">
+        <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
+      </h5>
+      <span class="text-small">
+        <% if authorization.expired? %>
+          <%= t("expired_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.expires_at, format: :long)) %>
+        <% else %>
+          <%= t("granted_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.granted_at, format: :long)) %>
+          <% if authorization.expires_at.present? %>
+            <%= t("expires_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.expires_at, format: :long)) %>
+          <% end %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <% if authorization.expired? %>
+    <div class="card--list__data">
+      <span class="card--list__data__icon">
+        <%= icon "reload" %>
+      </span>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,98 @@
+<div class="row small-up-1 medium-up-2 card-grid">
+  <div class="column">
+    <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view-rejected"), class: "card__link" do %>
+            <h5 class="card__title">
+              Creació d'aules ambientals i d'estudi al Parc del Clot
+            </h5>
+          <% end %>
+          <div class="card__author author-data author-data--small">
+            <div class="author-data__main">
+              <div class="author author--inline">
+                <a href="#" class="author__avatar author__avatar--small">
+                  <%= image_tag "demo-avatar.jpg" %>
+                </a>
+                <a href="#" class="author__name">
+                  Ajuntament de Barcelona
+                </a>
+                01/08/2016
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <div class="card__support__data">
+            <span class="card__support__number">27</span>suports
+            <div class="popularity popularity--level3">
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+            </div>
+          </div>
+          <button class="card__button button small success">
+            Donant suport
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              Creació d'aules ambientals al Parc del Clot
+            </h5>
+          <% end %>
+          <div class="card__author author-data author-data--small">
+            <div class="author-data__main">
+              <div class="author author--inline">
+                <a href="#" class="author__avatar author__avatar--small">
+                  <%= image_tag "demo-avatar.jpg" %>
+                </a>
+                <a href="#" class="author__name">
+                  Ajuntament de Barcelona
+                </a>
+                01/08/2016
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <div class="card__support__data">
+            <span class="card__support__number">27</span>suports
+            <div class="popularity popularity--level1">
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+              <span class="popularity__item"></span>
+            </div>
+          </div>
+          <button class="card__button button small">
+            Donar suport
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

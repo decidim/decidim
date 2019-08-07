@@ -1,0 +1,45 @@
+.wizard__steps{
+  list-style-type: none;
+  margin-left: .25rem;
+
+  &.steps-toggle{
+    margin-top: 1rem;
+  }
+
+  li{
+    border: none;
+    color: var(--primary);
+    border-left: 2px solid var(--primary);
+    box-sizing: border-box;
+    border-radius: 0;
+    padding: 1rem 0;
+    font-size: .875rem;
+    cursor: default;
+  }
+
+  li::before{
+    border-radius: 50%;
+    background-color: var(--primary);
+    content: "";
+    display: inline-block;
+    float: left;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    margin: .4rem 4px 0 -6px;
+  }
+
+  .step--active{
+    font-weight: bold;
+
+    & ~ li{
+      color: $muted;
+      border-left: 2px solid $muted;
+
+      &::before{
+        background-color: $muted;
+      }
+    }
+  }
+}

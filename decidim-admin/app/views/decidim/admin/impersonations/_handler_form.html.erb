@@ -1,0 +1,5 @@
+<% if lookup_context.exists?(handler_form.object.to_partial_path, [], true) %>
+  <%= render partial: handler_form.object.to_partial_path, locals: { handler: handler_form.object, form: handler_form } %>
+<% else %>
+  <%= handler_form.all_fields %>
+<% end %>

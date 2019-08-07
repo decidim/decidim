@@ -1,0 +1,11 @@
+<h2 class="process-title-summary">
+  <%= t ".title" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_sortition" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create"), data: { confirm: t(".confirm") } %>
+  </div>
+<% end %>

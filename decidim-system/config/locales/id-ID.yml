@@ -1,0 +1,75 @@
+id:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: apa kamu yakin ingin menghapus ini?
+        destroy: Menghapus
+        edit: Edit
+        new: Baru
+        save: Menyimpan
+        title: Tindakan
+      admins:
+        create:
+          error: Terjadi masalah saat membuat admin baru.
+          success: Admin berhasil dibuat
+        destroy:
+          success: Admin berhasil dihapus
+        edit:
+          title: Edit admin
+          update: Memperbarui
+        index:
+          title: Admin
+        new:
+          create: Membuat
+          title: Admin baru
+        update:
+          error: Terjadi masalah saat memperbarui admin ini.
+          success: Admin berhasil diperbarui
+      default_pages:
+        placeholders:
+          content: Silakan tambahkan konten yang bermakna ke %{page} halaman statis di dasbor admin.
+          title: Judul default untuk %{page}
+      menu:
+        admins: Admin
+        dashboard: Dasbor
+        organizations: Organisasi
+      models:
+        admin:
+          fields:
+            created_at: Dibuat di
+            email: E-mail
+          name: Admin
+          validations:
+            email_uniqueness: admin lain dengan email yang sama sudah ada
+        organization:
+          actions:
+            save_and_invite: Buat organisasi & undang admin
+          fields:
+            created_at: Dibuat di
+            name: Nama
+          name: Organisasi
+      organizations:
+        create:
+          error: Terjadi masalah saat membuat organisasi baru.
+          success: Organisasi berhasil dibuat.
+        edit:
+          secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
+        index:
+          title: Organisasi
+        new:
+          reference_prefix_hint: Awalan referensi digunakan untuk mengidentifikasi sumber daya secara unik di semua organisasi
+          secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
+          title: Organisasi baru
+        update:
+          error: Ada masalah saat memperbarui organisasi ini.
+          success: Organisasi berhasil diperbarui.
+        users_registration_mode:
+          disabled: Akses hanya dapat dilakukan dengan akun eksternal
+          enabled: Izinkan peserta untuk mendaftar dan masuk
+          existing: Jangan izinkan peserta mendaftar, tetapi izinkan peserta yang ada masuk
+      shared:
+        notices:
+          no_organization_warning_html: Anda harus membuat organisasi untuk memulai. Pastikan Anda membaca %{guide} sebelum melanjutkan.
+          our_getting_started_guide: panduan memulai kami
+      titles:
+        dashboard: Dasbor

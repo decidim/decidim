@@ -1,0 +1,40 @@
+<h2><%= t("devise.registrations.edit.title", resource: resource_class.model_name.human) %></h2>
+
+<%= decidim_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= invisible_captcha %>
+
+  <div class="field">
+    <%= f.email_field :email %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>
+      <%= t("devise.registrations.edit.currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %>
+    </p>
+  <% end %>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+
+  <div><%= f.submit t("devise.registrations.edit.update") %></div>
+<% end %>
+
+<h3><%= t("devise.registrations.edit.cancel_my_account") %></h3>
+
+<p><%= t("devise.registrations.edit.unhappy") %> <%= link_to t("devise.registrations.edit.cancel_my_account"), registration_path(resource_name), data: { confirm: t("devise.registrations.edit.are_you_sure") }, method: :delete %>.</p>
+
+<%= link_to t("devise.shared.links.back"), :back %>

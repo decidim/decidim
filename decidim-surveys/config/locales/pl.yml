@@ -1,0 +1,60 @@
+pl:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Ankieta zakończyła się
+      decidim/surveys/opened_survey_event: Rozpoczęto ankietę
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Ankieta
+        few: Ankiety
+        many: Ankiety
+        other: Ankiety
+      decidim/surveys/survey_answer:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Odpowiedź
+        name: Ankieta
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            allow_answers: Pozwól odpowiedzi
+            announcement: Ogłoszenie
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Ankieta %{resource_title} w %{participatory_space_title} została zamknięta.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Ankieta zakończyła się w %{participatory_space_title}
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> została zakończona.
+        survey_opened:
+          email_intro: 'Ankieta %{resource_title} w %{participatory_space_title} jest teraz otwarta. Możesz wziąć w nim udział z tej strony:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa ankieta w %{participatory_space_title}
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
+    metrics:
+      survey_answers:
+        description: Liczba ankiet odebranych przez użytkowników
+        object: odpowiedzi na ankiety
+        title: Odpowiedzi na ankiety
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Odpowiedzi na pytania użytkowników
+        surveys:
+          update:
+            invalid: Podczas zapisywania ankiety wystąpiły błędy.
+            success: Ankieta została zapisana pomyślnie.
+      last_activity:
+        new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
+      surveys:
+        answer:
+          invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
+          success: Ankieta odpowiedziała skutecznie.

@@ -1,0 +1,11 @@
+<% if current_settings.creation_enabled %>
+  <%= action_authorized_link_to :create, new_collaborative_draft_path, class: "title-action__action button small hollow", data: { "redirect_url" => new_collaborative_draft_path } do %>
+    <%= t(".new_collaborative_draft") %>
+    <%= icon "plus" %>
+  <% end %>
+<% else %>
+  <span class="title-action__action button small hollow disabled">
+    <%= t(".new_collaborative_draft") %>
+    <%= icon "plus" %>
+  </span>
+<% end %>

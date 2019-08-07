@@ -1,0 +1,13 @@
+<% if documents.any? %>
+  <div class="section documents">
+    <h4 class="section-heading"><%= t(".related_documents") %></h4>
+    <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
+      <div class="card card--list">
+        <%= render partial: "document", collection: documents_without_collection %>
+      </div>
+    <% end %>
+    <% documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, d| c.weight }.each do |collection, documents| %>
+      <%= render partial: "collection", locals: { attachment_collection: collection, documents: documents } %>
+    <% end %>
+  </div>
+<% end %>

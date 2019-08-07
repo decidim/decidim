@@ -1,0 +1,14 @@
+<p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.name) %></p>
+
+<p>
+  <%= t("decidim.meetings.admin.invite_join_meeting_mailer.invite.invited_you_to_join_a_meeting", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
+</p>
+
+<p><%= link_to t("devise.mailer.invitation_instructions.decline"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:meeting].component).decline_invitation_meeting_registration_path(meeting_id: @opts[:meeting], participatory_space_id: @opts[:meeting].component.participatory_space), host: @resource.organization.host) %></p>
+<p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:meeting].component).meeting_registration_path(meeting_id: @opts[:meeting], participatory_space_id: @opts[:meeting].component.participatory_space), host: @resource.organization.host) %></p>
+
+<% if @resource.invitation_due_at %>
+  <p><%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :long)) %></p>
+<% end %>
+
+<p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>

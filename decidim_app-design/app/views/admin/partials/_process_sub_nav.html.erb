@@ -1,0 +1,75 @@
+<%= partial "main_nav" %>
+<div class="secondary-nav secondary-nav--subnav">
+  <ul>
+    <li
+    <% if @activepage == "process-info" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Información", page_path("process-info") %>
+    </li>
+    <li <% if @activepage == "process-steps" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Fases", page_path("process-steps") %>
+    </li>
+    <li <% if @activepage == "process-components" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Componentes", page_path("process-components") %>
+      <% if @activepage == "process-components" %>
+        <ul>
+          <li <% if @activesubpage == "component-meetings-initial" %>
+           class="is-active"
+          <% end %>>
+            <%= link_to raw("Encuentros <span class='component-counter'>1</span>"), page_path("component-meetings-initial") %>
+          </li>
+          <li <% if @activesubpage == "component-proposals-search" %>
+           class="is-active"
+          <% end %>>
+            <%= link_to raw("Propuestas <span class='component-counter'>1</span>"), page_path("component-proposals-search") %>
+          </li>
+          <li <% if @activesubpage == "component-debates" %>
+           class="is-active"
+          <% end %>>
+            <%= link_to raw("Debates <span class='component-counter component-counter--off'>0</span>"), page_path("component-debates") %>
+          </li>
+          <li <% if @activesubpage == "component-results" %>
+           class="is-active"
+          <% end %>>
+            <%= link_to raw("Resultados <span class='component-counter component-counter--off'>0</span>"), page_path("component-results") %>
+          </li>
+          <li <% if @activesubpage == "component-budgets" %>
+           class="is-active"
+          <% end %>>
+            <%= link_to raw("Presupuestos <span class='component-counter component-counter--off'>0</span>"), page_path("component-budgets") %>
+          </li>
+        </ul>
+      <% end %>
+    </li>
+    <li <% if @activepage == "process-pages" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Páginas", page_path("process-pages") %>
+    </li>
+    <li <% if @activepage == "process-categories" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Categorías", page_path("process-categories") %>
+    </li>
+    <li <% if @activepage == "process-docs" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Documentos", page_path("process-docs") %>
+    </li>
+    <li <% if @activepage == "process-moderations" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Denuncias", page_path("process-moderations") %>
+    </li>
+    <li <% if @activepage == "process-admin" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Administradores", page_path("process-admin") %>
+    </li>
+  </ul>
+</div>

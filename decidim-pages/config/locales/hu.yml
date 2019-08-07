@@ -1,0 +1,30 @@
+hu:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Oldal
+        other: Oldalak
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} frissítette a(z) %{resource_name} oldalt itt: %{space_name}"
+    components:
+      pages:
+        name: Oldal
+        settings:
+          global:
+            announcement: Közlemény
+          step:
+            announcement: Közlemény
+    pages:
+      admin:
+        models:
+          components:
+            body: Szöveg
+        pages:
+          edit:
+            save: Frissítés
+            title: Oldal szerkesztése
+          update:
+            invalid: Hiba történt az oldal mentése során.
+            success: Oldal mentése sikeres.

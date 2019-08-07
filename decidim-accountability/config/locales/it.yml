@@ -1,0 +1,226 @@
+it:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Stato
+        decidim_category_id: Categoria
+        decidim_scope_id: Obiettivi
+        description: Descrizione
+        end_date: Data finale
+        progress: Progresso
+        project_ids: Progetti inclusi
+        proposals: Proposte incluse
+        start_date: Data di inizio
+        title: Nome
+        updated_at: Aggiornato a
+      status:
+        description: Descrizione
+        key: Chiave
+        name: Nome
+        progress: Progresso
+      timeline_entry:
+        description: Descrizione
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
+      decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Risultato
+        other: Risultati
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
+        destroy: Cancella
+        edit: Modifica
+        new: Nuovo %{name}
+        preview: Anteprima
+        timeline_entries: Evoluzione del progetto
+        title: Azioni
+      admin:
+        exports:
+          results: Risultati
+        models:
+          result:
+            name: Risultato
+          status:
+            name: Stato
+          timeline_entry:
+            name: Inserimento della linea temporale
+        results:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo risultato
+            success: Risultato creato con successo
+          destroy:
+            success: Risultato eliminato con successo
+          edit:
+            title: Modifica il risultato
+            update: Aggiorna il risultato
+          form:
+            add_proposal: Aggiungi proposta
+          index:
+            title: Risultati
+          new:
+            create: Crea un risultato
+            title: Nuovo risultato
+          proposals:
+            close: Vicino
+            current_selection: Selezione corrente
+            select: Selezionare
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
+            success: Risultato modificato con successo
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: C'è stato un problema nella creazione di questo stato
+            success: Stato creato con successo
+          destroy:
+            success: Stato eliminato con successo
+          edit:
+            title: Modifica lo stato
+            update: Aggiorna lo stato
+          index:
+            title: Status
+          new:
+            create: Crea uno stato
+            title: Nuovo stato
+          update:
+            invalid: C'è stato un problema nel aggiornamento di questo stato
+            success: Stato aggiornato con successo
+        timeline_entries:
+          create:
+            invalid: C'è stato un problema nella creazione di questa voce
+            success: Voce creata con successo
+          destroy:
+            success: La voce è stata eliminata correttamente
+          edit:
+            title: Modifica la voce
+            update: Aggiorna la voce
+          index:
+            title: Voci della cronologia del progetto
+          new:
+            create: Crea una voce
+            title: Nuova voce
+          update:
+            invalid: C'è stato un problema nel aggiornamento di questa voce
+            success: Voce aggiornata con successo
+      admin_log:
+        result:
+          create: "%{user_name} risultato creato %{resource_name} in %{space_name}"
+          delete: "%{user_name} eliminato il risultato %{resource_name} in %{space_name}"
+          update: "%{user_name} risultato aggiornato %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nuovo risultato a %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Data finale
+            progress: Avanzamento
+            start_date: Data di inizio
+            status: Stato
+            title: Titolo
+        status:
+          fields:
+            description: Descrizione
+            key: Chiave
+            name: Nome
+            progress: Avanzamento
+        timeline_entry:
+          fields:
+            description: Descrizione
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 risultato
+            other: "%{count} risultati"
+        filters:
+          all: Tutto
+          scopes: Ambiti
+        home:
+          categories_label: Categorie
+          subcategories_label: Sotto-categorie
+        home_header:
+          global_status: Stato di esecuzione globale
+        nav_breadcrumb:
+          global: L'esecuzione globale
+        search:
+          search: Cerca azioni
+        show:
+          stats:
+            attendees: Partecipanti
+            back_to_result: Torna al risultato
+            comments: Commenti
+            contributions: Contributi
+            last_edited_by: Ultima modifica di
+            last_updated_at: Ultimo aggiornamento alle
+            meetings: Riunioni
+            number_of_versions: versioni
+            proposals: Proposte
+            show_all_versions: Mostra tutte le versioni
+            version_author: Autore della versione
+            version_created_at: Versione creata il
+            version_number: Numero della versione
+            version_number_out_of_total: "%{current_version} su %{total_count}"
+            votes: Voti
+        timeline:
+          title: Evoluzione del progetto
+      versions:
+        index:
+          changes_at_title: Modifiche a "%{title}"
+          title: versioni
+        show:
+          changes_at_title: Modifiche a "%{title}"
+        version:
+          version_index: Versione %{index}
+    components:
+      accountability:
+        name: Accountability
+        settings:
+          global:
+            categories_label: Nome per "Categorie"
+            comments_enabled: Commenti abilitati
+            display_progress_enabled: Mostra progressi
+            heading_leaf_level_results: Nome per "Progetti"
+            heading_parent_level_results: Nome per "Risultati"
+            intro: Intro
+            subcategories_label: Nome per "Sottocategorie"
+          step:
+            comments_blocked: Commenti bloccati
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" è stata inclusa in un risultato. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{proposal_title}". È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un aggiornamento a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> è stata inclusa nel risultato <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Il risultato "%{resource_title}", che include la proposta "%{proposal_title}", è ora completo al %{progress}%. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{proposal_title}" e questa proposta è inclusa nel risultato "%{resource_title}". È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un aggiornamento a %{resource_title} progressi
+          notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che include la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
+    metrics:
+      results:
+        description: Numero di risultati generati
+        object: risultati
+        title: risultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: risultati
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vedi tutto (%{count})
+    resource_links:
+      included_projects:
+        result_project: Progetti inclusi in questo risultato
+      included_proposals:
+        result_proposal: Proposte incluse in questo risultato

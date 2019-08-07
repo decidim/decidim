@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+      <% if allowed_to?(:create, :oauth_application) %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.oauth_application.name", scope: "decidim.admin").downcase), ["new", "oauth_application"], class: "button tiny button--title new" %>
+      <% end %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.oauth_application.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.oauth_application.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @oauth_applications.each do |oauth_application| %>
+            <tr data-oauth_application-id="<%= oauth_application.id %>">
+              <td><%= link_to oauth_application.name, decidim_admin.oauth_application_path(oauth_application) %></td>
+              <td><%= l oauth_application.created_at, format: :long %></td>
+              <td class="table-list__actions">
+                <% if allowed_to?(:update, :oauth_application, oauth_application: oauth_application) %>
+                  <%= icon_link_to "pencil", decidim_admin.edit_oauth_application_path(oauth_application), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% end %>
+
+                <% if allowed_to?(:destroy, :oauth_application, oauth_application: oauth_application) %>
+                  <%= icon_link_to "circle-x", decidim_admin.oauth_application_path(oauth_application), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="process-nav">
+  <div class="row">
+    <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
+      <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: "Desplegar", role: "img" %>
+      <% if @activepage == "phases" %>
+      <div class="process-nav__link">
+        <%= icon "information" %>
+        <span>Continguts</span>
+      </div>
+      <% end %>
+      <% if @activepage == "info" %>
+      <div class="process-nav__link">
+        <%= icon "process" %>
+        <span>El procès</span>
+      </div>
+      <% end %>
+      <% if @activepage == "meetings" %>
+      <div class="process-nav__link">
+        <%= icon "meetings" %>
+        <span>Trobades</span>
+      </div>
+      <% end %>
+      <% if @activepage == "proposals" %>
+      <div class="process-nav__link">
+        <%= icon "proposals" %>
+        <span>Propostes</span>
+      </div>
+      <% end %>
+      <% if @activepage == "initiatives" %>
+      <div class="process-nav__link">
+        <%= icon "initiatives" %>
+        <span>Initiatives</span>
+      </div>
+      <% end %>
+      <% if @activepage == "debates" %>
+      <div class="process-nav__link">
+        <%= icon "debates" %>
+        <span>Debats</span>
+      </div>
+      <% end %>
+      <% if @activepage == "actions" %>
+      <div class="process-nav__link">
+        <%= icon "actions" %>
+        <span>Resultats</span>
+      </div>
+      <% end %>
+      <% if @activepage == "assemblies" %>
+      <div class="process-nav__link">
+        <%= icon "assemblies" %>
+        <span>Assemblees</span>
+      </div>
+      <% end %>
+      <% if @activepage == "blog" %>
+      <div class="process-nav__link">
+        <%= icon "blog" %>
+        <span>Blog</span>
+      </div>
+      <% end %>
+    </button>
+    <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
+      <ul>
+        <li class="<% if @activepage == "info" %>is-active<% end %>">
+          <%= link_to page_path("info"), class: "process-nav__link #{'is-active' if @activepage == 'info'}" do %>
+          <span>El procés</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "meetings" %>is-active<% end %>">
+          <%= link_to page_path("meetings/meetings"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
+          <span>Trobades</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "proposals" %>is-active<% end %>">
+          <%= link_to page_path("proposals/proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
+          <span>Propostes</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "initiatives" %>is-active<% end %>">
+          <%= link_to page_path("initiatives/initiatives"), class: "process-nav__link #{'is-active' if @activepage == 'initiatives'}" do %>
+          <span>Iniciatives</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "debates" %>is-active<% end %>">
+          <%= link_to page_path("debates"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
+          <span>Debates</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "actions" %>is-active<% end %>">
+          <%= link_to page_path("results"), class: "process-nav__link #{'is-active' if @activepage == 'results'}" do %>
+          <span>Resultados</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "assemblies" %>is-active<% end %>">
+          <%= link_to page_path("assemblies/assemblies"), class: "process-nav__link #{'is-active' if @activepage == 'assemblies'}" do %>
+          <span>Assemblees</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "blog" %>is-active<% end %>">
+          <%= link_to page_path("blog"), class: "process-nav__link #{'is-active' if @activepage == 'blog'}" do %>
+          <span>Blog</span>
+          <% end %>
+        </li>
+        <!--  All hidden items are shown on mobile, appending hide-for-medium for those items -->
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Xarrades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Més xarrades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys trobades</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys perdudes</a></li>
+        <li class="hide-for-medium"><a href="#" class="process-nav__link">Menys xarrades</a></li>
+      </ul>
+      <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
+        Más <i></i><i></i><i></i>
+      </button>
+      <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
+        data-dropdown
+        data-hover="true"
+        data-hover-pane="true"
+        data-v-offset="-25"
+        data-position="bottom"
+        data-alignment="right">
+        <div class="process-nav__hidden-content__more">
+          Más <i></i><i></i><i></i>
+        </div>
+        <ul>
+          <li><a href="#" class="process-nav__link">Trobades</a></li>
+          <li><a href="#" class="process-nav__link">Perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Xarrades</a></li>
+          <li><a href="#" class="process-nav__link">Més trobades</a></li>
+          <li><a href="#" class="process-nav__link">Més perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Més xarrades</a></li>
+          <li><a href="#" class="process-nav__link">Menys trobades</a></li>
+          <li><a href="#" class="process-nav__link">Menys perdudes</a></li>
+          <li><a href="#" class="process-nav__link">Menys xarrades</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

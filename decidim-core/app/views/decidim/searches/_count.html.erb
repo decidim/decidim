@@ -1,0 +1,26 @@
+<div class="columns mediumlarge-4 large-3">
+  <h2 class="section-heading">
+    <%= t("decidim.search.results_found_for_term", count: @results_count, term: term) %>
+  </h2>
+</div>
+<div class="columns mediumlarge-8 large-9">
+  <div>
+    <%= form_tag(decidim.search_path, method: :get) do %>
+      <div class="input-group">
+        <%= text_field_tag(
+          :term,
+          nil,
+          class: "input-group-field",
+          id: "input-search",
+          value: params[:term] || params.dig(:filter, :term),
+          placeholder: t("decidim.search.term_input_placeholder")
+        ) %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img" %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

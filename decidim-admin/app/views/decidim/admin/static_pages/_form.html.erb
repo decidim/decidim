@@ -1,0 +1,29 @@
+<div class="row column">
+  <%= form.translated :text_field, :title, autofocus: true %>
+</div>
+
+<% if allowed_to? :update_slug, :static_page, static_page: form.object %>
+  <%= javascript_include_tag "decidim/slug_form" %>
+  <div class="row column slug">
+    <%= form.text_field :slug %>
+    <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url("", form.object.slug)) %></p>
+  </div>
+<% end %>
+
+<div class="row column">
+  <%= form.translated :editor, :content, toolbar: :full, lines: 25 %>
+</div>
+
+<div class="row column">
+  <%= form.select :topic_id, form.object.topics.map { |topic| [translated_attribute(topic.title), topic.id] }, include_blank: t(".none") %>
+</div>
+
+<%= render partial: "form_notable_changes", locals: { form: form } %>
+
+<div class="row column">
+  <%= form.number_field :weight %>
+</div>
+
+<div class="row column">
+  <%= form.check_box :show_in_footer %>
+</div>

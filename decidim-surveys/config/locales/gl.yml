@@ -1,0 +1,56 @@
+gl:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: A investigación finalizou
+      decidim/surveys/opened_survey_event: Iniciouse a enquisa
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquisa
+        other: Enquisas
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostas
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquisa
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            allow_answers: Permitir respostas
+            announcement: Anuncio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A enquisa %{resource_title} en %{participatory_space_title} foi pechada.
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Acaba unha enquisa en %{participatory_space_title}
+          notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> rematou.
+        survey_opened:
+          email_intro: 'A enquisa %{resource_title} en %{participatory_space_title} está agora aberta. Podes participar nesta páxina dende esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha nova enquisa en %{participatory_space_title}
+          notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    metrics:
+      survey_answers:
+        description: Número de enquisas respondidas polos usuarios
+        object: respostas a enquisas
+        title: Respostas a enquisas
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Enquisas respostas dos usuarios
+        surveys:
+          update:
+            invalid: Houbo erros ao gardar a enquisa.
+            success: A enquisa gardouse correctamente.
+      last_activity:
+        new_survey_at_html: "<span>Nova enquisa en %{link}</span>"
+      surveys:
+        answer:
+          invalid: Houbo erros ao responder a enquisa.
+          success: A enquisa respondeu con éxito.

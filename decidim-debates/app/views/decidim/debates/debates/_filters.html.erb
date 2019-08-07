@@ -1,0 +1,20 @@
+<%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search") %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t(".search") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form.collection_radio_buttons :origin, [["all", t(".all")], ["official", t(".official")], ["citizens", t(".citizens")]], :first, :last, legend_title: t(".origin") %>
+
+  <% if current_component.categories.any? %>
+    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+  <% end %>
+<% end %>

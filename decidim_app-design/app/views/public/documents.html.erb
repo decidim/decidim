@@ -1,0 +1,61 @@
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "info"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <p class="lead">
+            Millores en un conjunt de carrers dels barris del districte que incorporin la renovació integral de les seves infraestructures (voreres, accessibilitat, asfaltat, enllumenat, clavegueram, arbrat, mobiliari urbà...)</p>
+          <p>Interiors de Canyelles, Guineueta i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall, connexió del carrer Pedraforca amb Agudes, accessibilitat i enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la ciutat, Canfranc,
+            Oristà i Almansa, pèrgola del Campillo de la virgen i del parc de Serra Martí, redacció del projecte del passeig de la Peira, reforma de les escales de Matagalls, millores a l'Av. de Borbó i projecte...
+          </p>
+          <div class="show-more">
+            <button class="button button--muted tiny">
+              Leer más
+            </button>
+          </div>
+        </div>
+        <div class="section">
+          <h4 class="section-heading">Documentos relacionados</h4>
+          <%= partial "document_manager" %>
+        </div>
+      </div>
+      <div class="section columns medium-5 mediumlarge-4 large-3">
+        <button class="button secondary hollow expanded button--icon">
+          <%= icon "bell" %>
+          <span>Seguir proceso</span>
+        </button>
+        <div class="card extra definition-data">
+          <div class="definition-data__item">
+            <span class="definition-data__title">Ámbito</span>
+            Districte de Gràcia
+          </div>
+          <div class="definition-data__item">
+            <span class="definition-data__title">Finalización</span>
+            18 septiembre 2016
+          </div>
+          <div class="definition-data__item">
+            <span class="definition-data__title">Grupo promotor</span>
+            Ajuntament de Barcelona
+          </div>
+          <div class="definition-data__item">
+            <span class="definition-data__title">Área</span>
+            Urbanismo
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

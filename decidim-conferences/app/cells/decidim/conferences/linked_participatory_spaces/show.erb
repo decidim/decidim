@@ -1,0 +1,10 @@
+<% conference_spaces.each do |block_space| %>
+  <div class="section">
+    <h4 class="section-heading"><%= t("conferences.show.related_#{title(block_space)}", scope: "decidim") %></h4>
+    <div class="row small-up-1 medium-up-2 card-grid">
+      <% block_space.each do |space| %>
+        <%= card_for space %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

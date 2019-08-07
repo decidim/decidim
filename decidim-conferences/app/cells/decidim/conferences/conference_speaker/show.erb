@@ -1,0 +1,84 @@
+<div class="column conference-speaker js-conference">
+  <div class="speaker-img-wrapper">
+    <div class="speaker-img">
+      <%= image_tag avatar.url %>
+    </div>
+  </div>
+  <div class="speaker-data">
+    <div class="data-name"><%= name %></div>
+    <% if position.presence %>
+      <div class="data-role">
+        <%= position %>
+      </div>
+    <% end %>
+    <div class="data-extra">
+      <% if nickname.present? %>
+        <%= link_to profile_path, class: "card-link" do %>
+          <%= nickname %> <span><u><%= t(".more_info") %></u></span>
+        <% end %>
+      <% else %>
+        <div class="author__nickname">&nbsp;</div>
+      <% end %>
+    </div>
+  </div>
+  <div class="speaker-bio js-bio">
+    <div class="row">
+      <div class="column medium-6">
+        <div class="speaker-img-wrapper">
+          <div class="speaker-img">
+            <%= image_tag avatar.url %>
+          </div>
+        </div>
+        <div class="speaker-data">
+          <div class="data-name"><%= name %></div>
+          <% if position.presence %>
+            <div class="data-role"><%= position %></div>
+          <% end %>
+          <div class="data-extra">
+            <% if nickname.present? %>
+              <%= link_to profile_path, class: "card-link" do %>
+                <%= nickname %> <span><u><%= t(".more_info") %></u></span>
+              <% end %>
+            <% else %>
+              <div class="author__nickname">&nbsp;</div>
+            <% end %>
+          </div>
+          <% if personal_url.presence %>
+            <div>
+              <%= personal_url %>
+            </div>
+          <% end %>
+          <% if twitter_handle.presence %>
+            <div>
+              <%= twitter_handle %>
+            </div>
+          <% end %>
+          <% if affiliation.presence %>
+            <div>
+              <%= affiliation %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <% if short_bio.presence %>
+        <div class="column medium-6 bio-extended">
+          <%= short_bio %>
+        </div>
+      <% end %>
+    </div>
+    <% if meetings.present? %>
+      <hr class="reset mt-none mb-s" />
+      <div class="row">
+        <div class="column medium-12">
+          <div class="bio-acts">Speaking at</div>
+
+          <ul class="list-reset">
+            <% meetings.each do |meeting| %>
+              <%= meeting_title meeting %> <br />
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

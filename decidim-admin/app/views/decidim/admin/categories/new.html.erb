@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: categories_path(current_participatory_space), html: { class: "form new_category" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("categories.new.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("categories.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+hu:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 'Létrehozva:'
+        field: A mezőm
+        start_date: Kezdő dátum
+        title: Cím
+        updated_at: 'Frissítve:'
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummik
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Használjon teszt környezetet a decidim számára.
+          description: A jelvényt tesztek létrehozásával kapod meg.
+          description_another: '%{score} teszt létrehozva.'
+          description_own: Létrehoztad a(z) %{score} teszteket.
+          name: Tesztek
+          next_level_in: Hozz létre még %{score} tesztet a következő szint eléréséhez!
+          unearned_another: Ez a felhasználó még nem hozott létre teszteket.
+          unearned_own: Még nem hoztál létre teszteket.
+    pages:
+      home:
+        statistics:
+          bar: Oszlop
+          dummies_count_high: Dummies high
+          dummies_count_medium: Dummies medium
+          foo: foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies high
+        dummies_count_medium: Dummies medium
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Kapcsolódó dummy

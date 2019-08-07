@@ -1,0 +1,23 @@
+<h2 class="process-title-summary">
+  <% if creating_managed_user? %>
+    <%= t(".impersonate_new_managed_user") %>
+  <% else %>
+    <% if @form.user.managed? %>
+      <%= t(".impersonate_existing_managed_user", name: @form.user.name) %>
+    <% else %>
+      <%= t(".impersonate_existing_user", name: @form.user.name) %>
+    <% end %>
+  <% end %>
+</h2>
+
+<%= decidim_form_for(@form, url: impersonatable_user_impersonations_path, html: { class: "form new_impersonation" }) do |f| %>
+  <div class="card">
+    <div class="card-section">
+      <%= render partial: "form", object: f %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".impersonate") %>
+  </div>
+<% end %>

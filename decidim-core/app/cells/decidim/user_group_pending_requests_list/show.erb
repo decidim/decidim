@@ -1,0 +1,23 @@
+<section class="section list-request">
+  <p><%= t("decidim.groups.members.accept_or_reject_join_requests") %></p>
+  <% requests.each do |request| %>
+    <div class="flex--sbc">
+      <%= cell "decidim/author", present(request.user) %>
+
+      <div>
+        <%= link_to(
+          t("decidim.groups.members.accept_request"),
+          decidim.group_join_request_path(model.nickname, request),
+          method: :patch,
+          class: "card__button button small light success"
+        ) %>
+        <%= link_to(
+          t("decidim.groups.members.reject_request"),
+          decidim.group_join_request_path(model.nickname, request),
+          method: :delete,
+          class: "card__button button small light"
+        ) %>
+      </div>
+    </div>
+  <% end %>
+</section>

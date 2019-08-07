@@ -1,0 +1,173 @@
+<%
+@title = "Decidim Admin"
+%>
+<main class="main">
+  <div class="row collapse">
+    <div class="columns medium-8 large-10">
+      <div class="row column">
+        <div class="container">
+          <h1>Decidim Admin</h1>
+          <h2>Plantillas disponibles</h2>
+          <h3>Páginas principales</h3>
+          <ul>
+            <li>
+              <%= link_to "Inicio", page_path("home") %>
+            </li>
+            <li>
+              <%= link_to "Procesos", page_path("processes") %>
+            </li>
+            <li>
+              <%= link_to "Páginas", page_path("pages") %>
+            </li>
+            <li>
+              <%= link_to "Usuarios", page_path("users") %>
+              <ul>
+                <li>
+                  <%= link_to "Grupos de usuarios", page_path("users-groups") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Configuración", page_path("settings") %>
+              <ul>
+                <li>
+                  <%= link_to "Ámbitos", page_path("settings-scopes") %>
+                </li>
+                <li>
+                  <%= link_to "Tipos de Ámbitos", page_path("settings-scope-types") %>
+                </li>
+                <li>
+                  <%= link_to "Apariencia", page_path("appearance") %>
+                </li>
+                <li>
+                  <%= link_to "Textos participativos - Añadir documento", page_path("participatory-texts") %>
+                  <ul>
+                    <li>
+                      <%= link_to "Textos participativos - Previsualizar", page_path("participatory-texts-preview") %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Admin logs", page_path("logs") %>
+            </li>
+          </ul>
+
+          <h3>Nuevo proceso</h3>
+          <ul>
+            <li>
+              <%= link_to "Nuevo proceso - Información", page_path("processes-new") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Fases", page_path("processes-new-2") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Componentes", page_path("processes-new-3") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Añadir componente y componente completado (plegado)", page_path("processes-new-3-add") %>
+            </li>
+          </ul>
+          <h3>Páginas de proceso</h3>
+          <ul>
+            <li>
+              <%= link_to "Información", page_path("process-info") %>
+            </li>
+            <li>
+              <%= link_to "Fases", page_path("process-steps") %>
+              <ul>
+                <li>
+                  <%= link_to "Nueva fase", page_path("process-steps-new") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Componentes", page_path("process-components") %>
+              <ul>
+                <li>
+                  <%= link_to "Componentes: Encuentros (inicial)", page_path("component-meetings-initial") %>
+                  <ul>
+                    <li>
+                      <%= link_to "Componentes: Encuentros (contenido)", page_path("component-meetings-with-content") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Encuentros (editando un item)", page_path("component-meetings-edit-item") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Encuentros (errores editando)", page_path("component-meetings-edit-errors") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Encuentros (añadiendo item)", page_path("component-meetings-add-item") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Encuentros (items)", page_path("component-meetings-items") %>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Encuentros - Minutos (inicial)", page_path("component-meetings-minutes") %>
+                  <ul>
+                    <li>
+                      <%= link_to "Componentes: Encuentros - Minutos (editando)", page_path("component-meetings-minutes-edit") %>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Propuestas (Búsqueda)", page_path("component-proposals-search") %>
+                  <ul>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Ninguno seleccionado)", page_path("component-proposals-none") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Alguno seleccionado)", page_path("component-proposals-selected") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Acciones)", page_path("component-proposals-actions") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Acción seleccionada)", page_path("component-proposals-apply-action") %>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Debates", page_path("component-results") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Resultados", page_path("component-results") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Presupuestos", page_path("component-budgets") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Páginas", page_path("process-pages") %>
+            </li>
+            <li>
+              <%= link_to "Categorías", page_path("process-categories") %>
+            </li>
+            <li>
+              <%= link_to "Documentos", page_path("process-docs") %>
+            </li>
+            <li>
+              <%= link_to "Denuncias", page_path("process-moderations") %>
+            </li>
+            <li>
+              <%= link_to "Administradores", page_path("process-admin") %>
+            </li>
+          </ul>
+          <h3>Patrones y casos de uso</h3>
+          <ul>
+            <li>
+            <%= link_to "Formulario con validaciones", page_path("form-with-validation") %>
+            </li>
+            <li>
+            <%= link_to "Formulario con calendario/datepicker", page_path("form-with-datepicker") %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

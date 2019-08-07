@@ -1,0 +1,38 @@
+<%= javascript_include_tag "diff.js" %>
+<%= javascript_include_tag "decidim/accountability/accountability" %>
+<div class="row accountability">
+  <div class="small-12 columns">
+    <%= render partial: "decidim/accountability/results/nav_breadcrumb", locals: { category: result.parent.try(:category) || result.try(:category) } %>
+  </div>
+  <div class="small-12 columns">
+    <h2 class="heading2"><%= t(".changes_at_title", title: translated_attribute(result.title)) %></h2>
+    <div class="row">
+      <div class="mediumlarge-8 columns">
+        <div class="section">
+          <%= cell("decidim/diff", current_version) %>
+        </div>
+      </div>
+
+      <div class="columns section mediumlarge-4 large-3">
+        <div class="card extra definition-data">
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
+            <%= t("results.show.stats.version_number_out_of_total", scope: "decidim.accountability", current_version: params[:id], total_count: result.versions_count) %>
+            <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+            <%= link_to t("results.show.stats.back_to_result", scope: "decidim.accountability"), result_path(result), class: "button button--sc hollow secondary small expanded" %>
+          </div>
+          <% if current_version.whodunnit.present? %>
+            <div class="definition-data__item last_revision_by">
+              <span class="definition-data__title"><%= t("results.show.stats.version_author", scope: "decidim.accountability") %></span>
+              <%= render_resource_editor(current_version) %>
+            </div>
+          <% end %>
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("results.show.stats.version_created_at", scope: "decidim.accountability") %></span>
+            <%= l current_version.created_at, format: :decidim_short %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+sv:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Information om tilldelningen
+        decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
+        decidim_proposals_component_id: Förslagen
+        dice: Tärningskast. Slå en sexsidig tärning inför vittnen, eller använd ett annat sätt att slumpmässigt skapa ett tal från 1 till 6, och skriv in resultatet. Detta bidrar till kvalitén och garanterar resultatets slumpmässighet
+        target_items: Antal förslag som ska väljas (anger hur många förslag som ska väljas genom lottdragning från den utvalda gruppen av förslag)
+        title: Titel
+        witnesses: Vittnen
+    models:
+      decidim/sortitions/create_sortition_event: Tilldelning
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Tilldelning
+        other: Tilldelningar
+  decidim:
+    components:
+      sortitions:
+        name: Tilldelningar
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiverade
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Tilldelningen "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det via föregående länk.
+          email_subject: Ny tilldelning har lagts till i %{participatory_space_title}
+          notification_title: Tilldelningen <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Tilldelningar
+    participatory_processes:
+      statistics:
+        sortitions_count: Tilldelningar
+    sortitions:
+      admin:
+        actions:
+          destroy: Avbryt tilldelningen
+          edit: Redigera
+          new: Ny tilldelning
+          show: Detaljer om tilldelningen
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              created_at: Skapelsedatum
+              decidim_proposals_component: Förslagskomponent
+              dice: Tärningar
+              reference: Referens
+              request_timestamp: Lottningstid
+              seed: Frö
+              target_items: Objekt att välja
+              title: Titel
+            name:
+              one: Tilldelning
+              other: Tilldelningar
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Vill du avbryta tilldelningen?
+            destroy: Avbryt tilldelningen
+            title: Avbryta tilldelningen
+          create:
+            error: Det gick inte att skapa en ny tilldelning.
+            success: Tilldelningen har skapats
+          destroy:
+            error: Kan inte avbryta tilldelningen.
+            success: Tilldelningen har avbrutits
+          edit:
+            title: Uppdatera informationen om tilldelningen
+            update: Uppdatera
+          form:
+            all_categories: Alla kategorier
+            select_proposal_component: Välj förslagen som ska behandlas
+            title: Ny tilldelning av förslag
+          index:
+            title: Tilldelningar
+          new:
+            confirm: När du trycker på nästa knapp kommer Decidim att registrera datum och tid (med precision i sekunder) och tillsammans med tärningskastet genereras ett slumpmässigt urval. Åtgärden kan inte ångras eller göras om. När knappen har klickats kommer resultatet av lottningen att publiceras, tillsammans med de uppgifter som anges i formuläret, och kan inte längre ändras. Kontrollera innehållet noggrant
+            create: Skapa
+            title: Ny tilldelning
+          show:
+            selected_proposals: Förslag som valts för lottning
+          update:
+            error: Det gick inte att uppdatera tilldelningen.
+            success: Tilldelningen har uppdaterats
+      admin_log:
+        sortition:
+          create: "%{user_name} skapade tilldelningen %{resource_name} i %{space_name}"
+          delete: "%{user_name} avbröt tilldelningen %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade tilldelningen %{resource_name} i %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 förslag
+            other: "%{count} förslag"
+        filters:
+          active: Aktiva
+          all: Alla
+          cancelled: Avbrutna
+          category: Kategori
+          category_prompt: Välj en kategori
+          search: Sök
+          state: Status
+        filters_small_view:
+          close_modal: Stäng fönster
+          filter: Filtrera
+          filter_by: Filtrera efter
+          unfold: Veckla ut
+        linked_sortitions:
+          selected_proposals: Utvalda förslag
+        orders:
+          label: 'Sortera tilldelningar efter:'
+          random: Slumpmässigt
+          recent: Senaste
+        results_count:
+          count:
+            one: valt förslaget
+            other: valda förslag
+        show:
+          algorithm: Tilldelningens algoritmkod
+          any_category: från alla kategorier
+          cancelled: Avbruten tilldelning
+          candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
+          candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
+          category: från kategorin %{category}
+          dice_result: "(1) Tärningskast"
+          introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
+          mathematical_result: Resultat (1) x (2)
+          proposals_selected_by_sortition: Förslag valda genom tilldelning
+          sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
+          time_seed: "(2) Tidsfrö"
+          witnesses: Vittnen
+        sortition:
+          random_seed: Slumpmässigt frö
+          selected_proposals:
+            one: 1 valt förslag
+            other: '%{count} utvalda förslag'
+          view: Visa
+        sortition_author:
+          deleted: Raderad deltagare
+        sortition_cancel_author:
+          deleted: Raderad deltagare
+        sortitions_count:
+          count:
+            one: 1 tilldelning
+            other: "%{count} tilldelningar"

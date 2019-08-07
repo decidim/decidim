@@ -1,0 +1,12 @@
+<%
+edit_link(
+  resource_locator(current_consultation).edit,
+  :update,
+  :consultation,
+  consultation: current_consultation
+)
+%>
+
+<%= render partial: "consultation_details", locals: { consultation: current_consultation } %>
+<%= render partial: "highlighted_questions", locals: { consultation: current_consultation } %>
+<%= render partial: "regular_questions", locals: { consultation: current_consultation } %>

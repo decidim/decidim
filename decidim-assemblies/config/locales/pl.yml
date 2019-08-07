@@ -1,0 +1,385 @@
+pl:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Powierzchnia
+        assembly_type: Typ zespołu
+        assembly_type_other: Typ zespołu inny
+        banner_image: Obraz baneru
+        closing_date: Data zamknięcia
+        closing_date_reason: Termin zamknięcia terminu
+        composition: Kompozycja
+        copy_categories: Kopiuj kategorie
+        copy_components: Skopiuj komponenty
+        copy_features: Kopiuj funkcje
+        created_by: Stworzone przez
+        created_by_other: Stworzony przez inne
+        creation_date: Data utworzenia
+        decidim_area_id: Powierzchnia
+        decidim_scope_id: Zakres
+        description: Opis
+        developer_group: Grupa promotorów
+        domain: Domena
+        duration: Trwanie
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hasztag
+        hero_image: Obraz w domu
+        included_at: Zawarte w
+        instagram: Instagram
+        internal_organisation: Organizacja wewnętrzna
+        is_transparent: Jest przezroczysty
+        local_area: Obszar organizacji
+        meta_scope: Zakres metadanych
+        parent_id: Montaż rodziców
+        participatory_processes_ids: Powiązane procesy uczestnictwa
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
+        private_space: Prywatna przestrzeń
+        promoted: Lansowany
+        published_at: Opublikowano na
+        purpose_of_action: Cel działania
+        scope_id: Zakres
+        scopes_enabled: Zakresy włączone
+        short_description: Krótki opis
+        show_statistics: Pokaż statystyki
+        slug: Ślimak URL
+        special_features: Cechy szczególne
+        subtitle: Podtytuł
+        target: Kto uczestniczy
+        title: Tytuł
+        twitter: Świergot
+        youtube: Youtube
+      assembly_member:
+        birthday: Urodziny
+        birthplace: Miejsce urodzenia
+        ceased_date: Przerywana data
+        designation_date: Data wyznaczenia
+        designation_mode: Tryb oznaczania
+        full_name: Pełne imię i nazwisko
+        gender: Płeć
+        position: Pozycja
+      assembly_user_role:
+        email: E-mail
+        name: Nazwa
+        role: Rola
+  activerecord:
+    models:
+      decidim/assembly:
+        one: montaż
+        few: Złożenia
+        many: Złożenia
+        other: Złożenia
+      decidim/assembly_member:
+        one: Członek zespołu
+        few: Członkowie zgromadzenia
+        many: Członkowie zgromadzenia
+        other: Członkowie zgromadzenia
+      decidim/assembly_user_role:
+        one: Zbierz rolę użytkownika
+        few: Zbierz role użytkowników
+        many: Zbierz role użytkowników
+        other: Zbierz role użytkowników
+  decidim:
+    admin:
+      actions:
+        new_assembly: Nowy montaż
+      assemblies:
+        create:
+          error: Podczas tworzenia nowego zestawu wystąpił błąd.
+          success: Zgromadzenie zostało utworzone.
+        edit:
+          update: Aktualizuj
+        index:
+          not_published: Nie opublikowane
+          private: Prywatny
+          public: Publiczny
+          published: Opublikowany
+        new:
+          create: Utwórz
+          title: Nowy montaż
+        update:
+          error: Podczas aktualizowania tego zestawu wystąpił błąd.
+          success: Zgromadzenie zostało zaktualizowane.
+      assemblies_copies:
+        create:
+          error: Podczas duplikowania tego zestawu wystąpił błąd.
+          success: Złożenie zostało powielone.
+      assembly_copies:
+        new:
+          copy: Kopiuj
+          select: Wybierz dane, które chcesz zduplikować
+          title: Duplikat montażu
+      assembly_members:
+        create:
+          error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
+          success: Członek utworzony pomyślnie dla tego zespołu.
+        destroy:
+          success: Członek usunięty pomyślnie dla tego zespołu.
+        edit:
+          title: Zaktualizuj element złożenia.
+          update: Aktualizacja
+        index:
+          assembly_members_title: Członkowie zgromadzenia
+        new:
+          create: Stwórz
+          title: Nowy członek zespołu.
+        update:
+          error: Wystąpił błąd podczas aktualizowania elementu dla tego zespołu.
+          success: Członek zaktualizowany pomyślnie dla tego zespołu.
+      assembly_publications:
+        create:
+          error: Podczas publikowania tego wystąpienia wystąpił błąd.
+          success: Zgromadzenie zostało opublikowane pomyślnie.
+        destroy:
+          error: Podczas publikowania tego wystąpienia wystąpił błąd.
+          success: Zgromadzenie nie zostało pomyślnie opublikowane.
+      assembly_user_roles:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
+          success: Użytkownik został pomyślnie dodany do tego zespołu.
+        destroy:
+          success: Użytkownik usunięty pomyślnie z tego zestawu.
+        edit:
+          title: Zaktualizuj użytkownika złożenia.
+          update: Aktualizacja
+        index:
+          assembly_admins_title: Użytkownicy montażu
+        new:
+          create: Stwórz
+          title: Nowy użytkownik złożenia.
+        update:
+          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego zespołu.
+          success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
+      menu:
+        assemblies: Zespoły
+        assemblies_submenu:
+          assembly_admins: Użytkownicy montażu
+          assembly_members: Członkowie
+          attachment_collections: Lornetka składana
+          attachment_files: Akta
+          attachments: Załączniki
+          categories: Kategorie
+          components: składniki
+          info: Informacje
+          moderations: Modernizacje
+          private_users: Prywatni użytkownicy
+      models:
+        assembly:
+          fields:
+            created_at: Utworzono w
+            private: Prywatny
+            promoted: Podświetlony
+            published: Opublikowany
+            title: Tytuł
+          name: Montaż
+        assembly_member:
+          fields:
+            ceased_date: Przerywana data
+            designation_date: Data wyznaczenia
+            full_name: Nazwa
+            position: Pozycja
+          name: Członek
+          positions:
+            other: Inny
+            president: Prezydent
+            secretary: Sekretarz
+            vice_president: Wiceprezydent
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nazwa
+            role: Rola
+          name: Użytkownik złożenia
+          roles:
+            admin: Administrator
+            collaborator: Współpracownik
+            moderator: Moderator
+      titles:
+        assemblies: Zespoły
+    admin_log:
+      assembly:
+        create: "%{user_name} utworzył zespół %{resource_name}"
+        publish: "%{user_name} opublikował montaż %{resource_name}"
+        unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
+        update: "%{user_name} zaktualizował zespół %{resource_name}"
+      assembly_member:
+        create: "%{user_name} utworzył %{resource_name} element w %{space_name} zespole"
+        delete: "%{user_name} usunął %{resource_name} element z %{space_name} zespołu"
+        update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
+      assembly_user_role:
+        create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
+        delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
+        update: "%{user_name} zmienił rolę %{resource_name} w zespole %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Trwanie
+            duration_help: Jeśli czas trwania tego zestawu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
+            filters: Filtry
+            images: Obrazy
+            included_at_help: Wybierz datę dodania tego zestawu do Decidim. To niekoniecznie musi być takie samo jak data utworzenia.
+            metadata: Metadane
+            other: Inny
+            select_a_created_by: Wybierz utworzony przez
+            select_an_area: Wybierz obszar
+            select_an_assembly_type: Wybierz typ zespołu
+            select_parent_assembly: Wybierz zespół macierzysty
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+            social_handlers: Społeczny
+            title: Informacje ogólne
+            visbility: Widoczność
+        assembly_copies:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        assembly_members:
+          form:
+            existing_user: Istniejący użytkownik
+            non_user: Brak użytkownika
+            select_a_position: Wybierz pozycję
+            select_user: Wybierz użytkownika
+            user_type: Rodzaj użytkownika
+          index:
+            filter:
+              all: Wszystko
+              ceased: Przestałem
+              not_ceased: Nie przestał
+            filter_by: Filtruj według
+            search: Szukaj
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksymalna ilość elementów do pokazania
+      assembly_members:
+        index:
+          members: Członkowie
+      assembly_types:
+        commission: Prowizja
+        consultative_advisory: Konsultacyjne / doradcze
+        executive: Wykonawczy
+        government: Rząd
+        others: Inni
+        participatory: Uczestniczy
+        working_group: Grupa robocza
+      content_blocks:
+        highlighted_assemblies:
+          name: Wyróżnione złożenia
+      created_by:
+        city_council: Rada Miejska
+        others: Inni
+        public: Publiczny
+      filter:
+        all: Wszystkie rodzaje złożeń
+        commission: Komisja
+        consultative_advisory: Konsultacyjne / doradcze
+        executive: Wykonawczy
+        government: Rząd
+        help: 'Pokazać:'
+        others: Inni
+        participatory: Uczestniczy
+        working_group: Grupa robocza
+      index:
+        title: Zespoły
+      last_activity:
+        new_assembly: Nowy montaż
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktywne złożenia
+            see_all_assemblies: Zobacz wszystkie zespoły
+        user_profile:
+          member_of:
+            member_of: Członkiem
+      show:
+        area: Powierzchnia
+        assembly_type: Typ zespołu
+        children: Złożenia
+        closing_date: Data zamknięcia
+        composition: Kompozycja
+        created_by: Stworzone przez
+        creation_date: Data utworzenia
+        developer_group: Grupa promotorów
+        duration: Trwanie
+        included_at: Zawarte w
+        indefinite_duration: Nieokreślony
+        internal_organisation: Organizacja wewnętrzna
+        is_transparent:
+          'false': nieprzezroczysty
+          'true': przezroczysty
+        local_area: Obszar organizacji
+        participatory_scope: Co postanowiono
+        participatory_structure: Jak to się decyduje
+        private_space: To jest prywatne zgromadzenie
+        purpose_of_action: Cel działania
+        read_less: Mniej czytać
+        read_more: Czytaj więcej
+        related_participatory_processes: Powiązane procesy uczestnictwa
+        scope: Zakres
+        social_networks: Portale społecznościowe
+        target: Kto uczestniczy
+      statistics:
+        answers_count: Odpowiedzi
+        assemblies_count: Zespoły
+        comments_count: Komentarze
+        debates_count: Debaty
+        endorsements_count: Adnotacje
+        headline: Czynność
+        meetings_count: Spotkania
+        orders_count: Głosowania
+        pages_count: Strony
+        projects_count: Projekty
+        proposals_count: Propozycje
+        results_count: Wyniki
+        surveys_count: Ankiety
+        users_count: Uczestnicy
+        votes_count: Głosowania
+    assembly_members:
+      assembly_member:
+        designated_on: Wyznaczony na
+      index:
+        title: Członkowie
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          page: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          title: Czym są zgromadzenia?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
+    menu:
+      assemblies: Zespoły
+    metrics:
+      assemblies:
+        description: Liczba utworzonych złożeń
+        object: zespoły
+        title: Złożenia
+  errors:
+    messages:
+      cannot_be_blank: nie może być puste
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Więcej informacji
+          take_part: Wziąć udział
+        index:
+          organizational_chart: Schemat organizacyjny
+          promoted_assemblies: Podświetlone zespoły
+          reset_chart: Nastawić
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaż"
+            few: "%{count} złożeń"
+            many: "%{count} złożeń"
+            other: "%{count} złożeń"
+        promoted_assembly:
+          more_info: Więcej informacji
+          take_part: Wziąć udział
+      assembly_navigation:
+        assembly_member_menu_item: Członkowie
+        assembly_menu_item: Zgromadzenie
+      assembly_widgets:
+        show:
+          take_part: Wziąć udział

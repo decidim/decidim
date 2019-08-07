@@ -1,0 +1,30 @@
+ca:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Pàgina
+        other: Pàgines
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} ha actualitzat la pàgina %{resource_name} a l'espai %{space_name}"
+    components:
+      pages:
+        name: Pàgina
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    pages:
+      admin:
+        models:
+          components:
+            body: Cos
+        pages:
+          edit:
+            save: Actualitzar
+            title: Editar pàgina
+          update:
+            invalid: S'ha produït un error en desar la pàgina.
+            success: Pàgina desada correctament.

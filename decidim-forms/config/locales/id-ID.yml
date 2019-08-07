@@ -1,0 +1,82 @@
+id:
+  activemodel:
+    attributes:
+      answer:
+        body: Menjawab
+      question:
+        max_choices: Jumlah pilihan maksimum
+        question_type: Mengetik
+      questionnaire_question:
+        mandatory: Wajib
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: tidak lengkap
+              too_many: terlalu banyak
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Deskripsi
+            tos: Ketentuan layanan
+        questionnaires:
+          answer_option:
+            answer_option: Opsi jawaban
+            free_text: Teks gratis
+            remove: Menghapus
+            statement: Pernyataan
+          edit:
+            save: Menyimpan
+            title: Judul
+          form:
+            add_question: Tambahkan pertanyaan
+            already_answered_warning: Formulir sudah dijawab oleh beberapa pengguna sehingga Anda tidak dapat mengubah pertanyaannya.
+          question:
+            add_answer_option: Tambahkan opsi jawaban
+            any: Apa saja
+            description: Deskripsi
+            down: Turun
+            question: Pertanyaan
+            remove: Menghapus
+            statement: Pernyataan
+            up: Naik
+          update:
+            invalid: Terjadi masalah saat menyimpan formulir.
+            success: Formulir berhasil disimpan.
+      errors:
+        answer:
+          body: Tubuh tidak boleh kosong
+      question_types:
+        long_answer: Jawaban panjang
+        multiple_option: Opsi berganda
+        short_answer: Jawaban singkat
+        single_option: Opsi tunggal
+        sorting: Penyortiran
+      questionnaires:
+        answer:
+          invalid: Ada masalah saat menjawab formulir.
+          success: Formulir berhasil dijawab.
+        question:
+          max_choices: 'Pilihan maksimal: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_link}">mendaftar</a> untuk menjawab formulir.
+            title: Jawab formulirnya
+          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin
+          questionnaire_answered:
+            body: Anda sudah menjawab formulir ini.
+            title: Sudah dijawab
+          questionnaire_closed:
+            body: Formulir ditutup dan tidak dapat dijawab.
+            title: Formulir ditutup
+          questionnaire_for_private_users:
+            body: Formulir ini hanya tersedia untuk pengguna pribadi
+            title: Formulir ditutup
+          submit: Menyerahkan
+          tos_agreement: Dengan berpartisipasi Anda menerima Ketentuan Layanannya
+      user_answers_serializer:
+        created_at: Dijawab pada
+        id: ID jawaban

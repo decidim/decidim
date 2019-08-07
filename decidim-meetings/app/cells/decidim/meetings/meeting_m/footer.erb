@@ -1,0 +1,9 @@
+<div class="card__footer">
+  <div class="card__support">
+    <% if can_join? && show_footer_actions? %>
+      <%= cell "decidim/meetings/join_meeting_button", model %>
+    <% else %>
+      <%= link_to t("view", scope: "decidim.meetings.meetings.show"), resource_path, class: "card__button button secondary button--sc small light" %>
+    <% end %>
+  </div>
+</div>

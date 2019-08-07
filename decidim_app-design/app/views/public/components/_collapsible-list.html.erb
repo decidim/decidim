@@ -1,0 +1,7 @@
+<% random = Random.rand(9999) %>
+<div id="collapsible-list-<%= random %>" class="collapsible-list is-filtered<%= " show-#{size ||= 3}" %><%= " " + classes ||= "" %>" data-toggler=".is-filtered">
+  <%= yield %>
+  <span class="<%= classText ||= "text-small" %>">
+    <a data-toggle="collapsible-list-<%= random %>"><%= text ||= "(veure'n mès)" %></a>
+  </span>
+</div>

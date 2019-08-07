@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :name, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :description %>
+    </div>
+
+    <div class="row column">
+      <%= form.label :parent_id %>
+      <%= select :category, :parent_id, @form.parent_categories.collect { |c| [c.name[current_organization.default_locale], c.id] }, include_blank: true %>
+    </div>
+  </div>
+</div>

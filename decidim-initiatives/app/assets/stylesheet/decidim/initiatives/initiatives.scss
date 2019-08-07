@@ -1,0 +1,61 @@
+@import "popularity_item";
+@import "statistics";
+@import "admin";
+
+.ql-formats{
+  .ql-video{
+    margin: 0;
+  }
+}
+
+.initiative-status{
+  float: left;
+  margin-right: .5rem;
+}
+
+.supports-list{
+  .author{
+    margin-right: 15px;
+
+    .author__name{
+      color: #599aa6;
+    }
+  }
+}
+
+.initiative-authors{
+  padding-left: 0 !important;
+
+  .publish-date{
+    display: inline-block;
+    margin-left: -10px;
+  }
+
+  .author{
+    margin-right: 15px;
+  }
+
+  .author__avatar--small{
+    margin-left: 0 !important;
+  }
+
+  .author__name{
+    margin-left: 25px;
+  }
+}
+
+.pull-left{
+  float: left;
+}
+
+.pull-right{
+  float: right;
+}
+
+.lowercase{
+  text-transform: lowercase !important;
+}
+
+.legal_text{
+  font-size: 8pt;
+}

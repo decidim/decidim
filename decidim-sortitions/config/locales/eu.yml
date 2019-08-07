@@ -1,0 +1,151 @@
+eu:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sortzeko informazioa
+        decidim_category_id: Zozketa aplikatu nahi dituzun proposamenen kategoriak
+        decidim_proposals_component_id: Proposamenak ezarri
+        dice: Errotako emaitza. 6 ataleko hodi bat mugitu edo 1etik 6ra bitarteko zenbaki bat sortzeko ausazko ausazko modua bilatzeko, eta sartu zenbaki horren aurrean zenbait lekukoren aurrean. Horrek emaitzen ausentziaren kalitatearen eta bermearen alde egiten du
+        target_items: Aukeratutako proposamen kopurua (lehenago aukeratu dituzun proposamenen multzoa hautatzeko hautatu dituzun proposamenen kopurua adierazten du)
+        title: Izenburua
+        witnesses: Lekukoak
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: '"%{resource_title}" sortzea ondorengo "%{participatory_space_title}" erantsi zaizu.'
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: Sortze berria %{participatory_space_title}-ra gehitu da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokalekua %{participatory_space_title} gehitu da
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Utzi bertan behera
+          edit: Editatu
+          new: Sortion berria
+          show: Sortatze xehetasunak
+        models:
+          sortition:
+            fields:
+              category: Kategoria
+              created_at: Sortze data
+              decidim_proposals_component: Proposamen osagaia
+              dice: Dado
+              reference: Erreferentzia
+              request_timestamp: Denbora marraztea
+              seed: Seed
+              target_items: Aukeratutako elementuak
+              title: Izenburua
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Ziur al zaude hau sortzea nahi duzula?
+            destroy: Utzi banaketa
+            title: Itzaltzeen baliogabetzea
+          create:
+            error: Errore bat gertatu da sortzapen berri bat sortzean.
+            success: Sortu arrakastaz sortu da
+          destroy:
+            error: Ezin da irtenbidea bertan behera utzi.
+            success: Antolaketa behar bezala bertan behera utzi da
+          edit:
+            title: Eguneratu kokapenari buruzko informazioa
+            update: eguneratzearen
+          form:
+            all_categories: Kategoria guztiak
+            select_proposal_component: Aukeratu proposamenen multzoa
+            title: Proposamenetarako sortze berria
+          index:
+            title: Sortitions
+          new:
+            confirm: Hurrengo botoia sakatuz gero, data eta ordua (segundotan zehaztuta) eta dadoen zerrendarekin batera grabatu egingo dira, informazio hori ausazko hautapena sortzeko erabiliko da. Ekintza atzeraezina izango da, botoia klik egitean zozketaren emaitza argitaratuko da, formulario honetan bildutako datuak eta ezin dira aldatu, egiaztatu edukia arretaz
+            create: Sortu
+            title: Sortion berria
+          show:
+            selected_proposals: Aukeratutako proposamenak zozketan
+          update:
+            error: Errore bat gertatu da sortzapena eguneratzean.
+            success: Antolaketa eguneratu da
+      admin_log:
+        sortition:
+          create: "%{user_name} %{resource_name} sortzea %{space_name} urtean sortu da"
+          delete: "%{user_name} %{resource_name} sortioa %{space_name}-an bertan behera utzi da"
+          update: "%{user_name} %{resource_name} sortzea %{space_name} eguneratu du"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposamen
+            other: "%{count} proposamen"
+        filters:
+          active: Aktiboak
+          all: guztiak
+          cancelled: Bertan behera
+          category: Kategoria
+          category_prompt: Aukeratu kategoria bat
+          search: Search
+          state: Estatu
+        filters_small_view:
+          close_modal: Itxi modal
+          filter: Filter
+          filter_by: Iragazi arabera
+          unfold: Zabaldu
+        linked_sortitions:
+          selected_proposals: Aukeratutako proposamenak
+        orders:
+          label: 'Agindu ordenantzak honela:'
+          random: Random
+          recent: Berriki
+        results_count:
+          count:
+            one: hautatutako proposamena
+            other: hautatutako proposamenak
+        show:
+          algorithm: Sortzeko algoritmoaren kodea
+          any_category: kategoria guztietan
+          cancelled: Ezeztatuta sortzea
+          candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
+          candidate_proposals_info: 'Hurrengo proposamenen artean (%{category_label}) honako idazketa hauek egin dira (hautatutako proposamenetan lodia)  '
+          category: '%{category} kategoriatik'
+          dice_result: "(1) Datuen emaitza"
+          introduction: 'Orrialde honek %{reference}sortzearen emaitzak ditu. Sortzapen honen bidez, %{target_items} emaitza kopurua ausaz aukeratuta eta probabilitate banaketa berdinarekin bat datozen proposamen multzoetatik hautatu dira. Emaitzen arabera, orrialde honetan agertzen den informazioa bermeak maximizatzeko eta emaitzak erreproduzitzeko beharrezko informazio guztia eskaintzen du. Gertakizun honen kalitatearen gakoa dude baten bikoiztasuna (testigantzak egiaztatutakoa) eta ausazko aukeraketa sortzen duen algoritmoaren sarrera ematen duen sortzearen denbora zehatza da. Denbora-hazia sortzea hain zehatza (segundotan) dela gizakientzat ezin da kontrolatu, beraz, "kontrolik gabeko" sarrera bikoitza ematen du arrazoizko emaitza bermatzeko.  '
+          mathematical_result: Emaitza (1) x (2)
+          proposals_selected_by_sortition: Sortition hautatutako proposamenak
+          sortition_reproducibility_details: Sortzeko erreprodukzioaren xehetasunak
+          time_seed: "(2) Denbora hazia"
+          witnesses: Lekukoak
+        sortition:
+          random_seed: Ausazko hazia
+          selected_proposals:
+            one: Aukeratutako 1 proposamena
+            other: '%{count} proposamen hautatuak'
+          view: ikusi
+        sortition_author:
+          deleted: Erabiltzailea ezabatua
+        sortition_cancel_author:
+          deleted: Erabiltzailea ezabatua
+        sortitions_count:
+          count:
+            one: 1 sortion
+            other: "%{count} sortapenak"

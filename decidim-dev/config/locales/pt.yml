@@ -1,0 +1,40 @@
+pt:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Criado em
+        field: Meu campo
+        start_date: Data de início
+        title: Título
+        updated_at: Atualizado em
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Manequim
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Use um ambiente de teste para decidim.
+          description: Os usuários obtêm esse selo criando testes.
+          description_another: Este usuário criou %{score} testes.
+          description_own: Você criou %{score} testes.
+          name: Testes
+          next_level_in: Crie mais %{score} testes para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não criou nenhum teste.
+          unearned_own: Você não criou testes ainda.
+    pages:
+      home:
+        statistics:
+          bar: Barra
+          dummies_count_high: Dummies alta
+          dummies_count_medium: Dummies medium
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies alta
+        dummies_count_medium: Dummies médio
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Manequim relacionado

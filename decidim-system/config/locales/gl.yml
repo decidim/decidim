@@ -1,0 +1,75 @@
+gl:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Estás seguro de que queres eliminar isto?
+        destroy: Eliminar
+        edit: Editar
+        new: Novo
+        save: Gardar
+        title: Accións
+      admins:
+        create:
+          error: Produciuse un erro ao crear un administrador novo.
+          success: O administrador creouse con éxito
+        destroy:
+          success: O administrador eliminouse con éxito
+        edit:
+          title: Editar administrador
+          update: Actualización
+        index:
+          title: Administradores
+        new:
+          create: Crear
+          title: Novo administrador
+        update:
+          error: Houbo un erro ao actualizar este administrador.
+          success: Admin actualizouse con éxito
+      default_pages:
+        placeholders:
+          content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
+          title: Título predeterminado para %{page}
+      menu:
+        admins: Administradores
+        dashboard: Taboleiro de instrumentos
+        organizations: Organizacións
+      models:
+        admin:
+          fields:
+            created_at: Creado en
+            email: Correo electrónico
+          name: Admin
+          validations:
+            email_uniqueness: xa existe outro administrador co mesmo correo electrónico
+        organization:
+          actions:
+            save_and_invite: Crear organización e invitar administrador
+          fields:
+            created_at: Creado en
+            name: Nome
+          name: Organización
+      organizations:
+        create:
+          error: Produciuse un erro ao crear unha nova organización.
+          success: Organización creada con éxito.
+        edit:
+          secondary_hosts_hint: Entre cada unha delas nunha nova liña
+        index:
+          title: Organizacións
+        new:
+          reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
+          secondary_hosts_hint: Entre cada unha delas nunha nova liña
+          title: Nova organización
+        update:
+          error: Produciuse un erro ao actualizar esta organización.
+          success: A organización actualizouse con éxito.
+        users_registration_mode:
+          disabled: O acceso só se pode facer con contas externas
+          enabled: Permitir aos usuarios rexistrarse e iniciar sesión
+          existing: Non permita que os usuarios se rexistren, pero permiten que os usuarios xa teñan acceso
+      shared:
+        notices:
+          no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
+          our_getting_started_guide: a nosa guía de inicio
+      titles:
+        dashboard: Taboleiro de instrumentos

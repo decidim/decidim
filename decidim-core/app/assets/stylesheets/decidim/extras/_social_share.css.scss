@@ -1,0 +1,36 @@
+/*
+ *= require social-share-button
+ */
+
+$size: 45px;
+
+.share-link:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.social-share-button{
+  display: inline-block;
+  vertical-align: top;
+
+  .ssb-icon{
+    margin-right: 5px;
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+a.ssb-icon.ssb-whatsapp_app{
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse){
+  a.ssb-icon.ssb-whatsapp_app{
+    display: inline-block;
+  }
+
+  a.ssb-icon.ssb-whatsapp_web{
+    display: none;
+  }
+}

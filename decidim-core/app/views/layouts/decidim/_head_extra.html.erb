@@ -1,0 +1,14 @@
+<%#
+This file is meant to be overriden by the app developers in order to
+include extra headers like tracking, error handling and such.
+
+Note that thie code you add here will be run for all organizations in
+your instance of Decidim. If you want to add code for a specific
+organization, add it to the organization's `header_snippets` field,
+which can be modified at the organization admin section.
+
+The `header_snippets` organization field will render *after* this file.
+
+Just copy your own version of the file under:
+`app/views/layouts/decidim/_head_extra.html.erb`
+%>

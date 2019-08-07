@@ -1,0 +1,214 @@
+ru:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Состояние
+        decidim_category_id: Категория
+        decidim_scope_id: Охват
+        description: Описание
+        end_date: Дата окончания
+        progress: Продвижение
+        project_ids: Включенные проекты
+        proposals: Включенные предложения
+        start_date: Дата начала
+        title: Заголовок
+        updated_at: 'Обновлено:'
+      status:
+        description: Описание
+        key: Ключ
+        name: Имя
+        progress: Продвижение
+      timeline_entry:
+        description: Описание
+        entry_date: Дата
+    models:
+      decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Итог
+        few: Итога
+        many: Итогов
+        other: Итогов
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Вы действительно хотите удалить %{name}?
+        destroy: Удалить
+        edit: Редактировать
+        new: Добавить %{name}
+        preview: Предварительный просмотр
+        timeline_entries: Развитие проекта
+        title: Действия
+      admin:
+        exports:
+          results: Итоги
+        models:
+          result:
+            name: Итог
+          status:
+            name: Состояние
+          timeline_entry:
+            name: Запись на линии времени
+        results:
+          create:
+            invalid: При попытке добавить этот итог произошла ошибка
+            success: Итог успешно создан
+          destroy:
+            success: Итог успешно удален
+          edit:
+            title: Редактировать итог
+            update: Обновить итог
+          form:
+            add_proposal: Добавить предложение
+          index:
+            title: Итоги
+          new:
+            create: Создать итог
+            title: Добавить итог
+          proposals:
+            close: Закрыть
+            current_selection: Текущий выбор
+            select: Выбрать
+          update:
+            invalid: При попытке обновить этот итог произошла ошибка
+            success: Итог успешно обновлен
+        shared:
+          subnav:
+            statuses: Состояния
+        statuses:
+          create:
+            invalid: При попытке создать это состояние произошла ошибка
+            success: Состояние успешно создано
+          destroy:
+            success: Состояние успешно удалено
+          edit:
+            title: Редактировать состояние
+            update: Обновить состояние
+          index:
+            title: Состояния
+          new:
+            create: Создать состояние
+            title: Добавить состояние
+          update:
+            invalid: При попытке обновить это состояние произошла ошибка
+            success: Состояние успешно обновлено
+        timeline_entries:
+          create:
+            invalid: При попытке создать эту запись произошла ошибка
+            success: Запись успешно создана
+          destroy:
+            success: Запись успешно удалена
+          edit:
+            title: Редактировать запись
+            update: Обновить запись
+          index:
+            title: Записи на линии времени проекта
+          new:
+            create: Создать запись
+            title: Создать запись
+          update:
+            invalid: При попытке обновить эту запись произошла ошибка
+            success: Запись успешно обновлена
+      admin_log:
+        result:
+          create: "%{user_name} создал итог %{resource_name} в %{space_name}"
+          delete: "%{user_name} удалил итог %{resource_name} в %{space_name}"
+          update: "%{user_name} обновил итог %{resource_name} в %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Родительский объект не найден в базе данных (ID: %{id})'
+      models:
+        result:
+          fields:
+            end_date: Дата окончания
+            progress: Продвижение
+            start_date: Дата начала
+            status: Состояние
+            title: Заголовок
+        status:
+          fields:
+            description: Описание
+            key: Ключ
+            name: Имя
+            progress: Продвижение
+        timeline_entry:
+          fields:
+            description: Описание
+            entry_date: Дата
+      results:
+        count:
+          results_count:
+            one: 1 итог
+            few: "%{count} итога"
+            many: "%{count} итогов"
+            other: "%{count} итога"
+        filters:
+          all: Все
+          scopes: Охваты
+        home:
+          categories_label: Категории
+          subcategories_label: Подкатегории
+        home_header:
+          global_status: Состояние общего исполнения
+        nav_breadcrumb:
+          global: Всеобщее исполнение
+        search:
+          search: Поиск действий
+        show:
+          stats:
+            attendees: Участники
+            back_to_result: Вернуться к итогу
+            comments: Комментарии
+            contributions: Внесенные предложения
+            last_edited_by: Последний раз редактировалось
+            last_updated_at: Последнее обновление
+            meetings: Встречи
+            number_of_versions: Версии
+            proposals: Предложения
+            show_all_versions: Показать все версии
+            version_author: Автор версии
+            version_created_at: 'Версия создана:'
+            version_number: Номер версии
+            version_number_out_of_total: "%{current_version} из %{total_count}"
+            votes: Выражений поддержки
+        timeline:
+          title: Развитие проекта
+      versions:
+        index:
+          changes_at_title: Изменения в "%{title}"
+          title: Версии
+        show:
+          changes_at_title: Изменения в «%{title}»
+        version:
+          version_index: Версия %{index}
+    components:
+      accountability:
+        name: Отчетность
+        settings:
+          global:
+            categories_label: Название для "Категории"
+            comments_enabled: Комментарии включены
+            display_progress_enabled: Показывать ход выполнения
+            heading_leaf_level_results: Название для "Проекты"
+            heading_parent_level_results: Название для "Итоги"
+            intro: Вступление
+            subcategories_label: Название для "Подкатегории"
+          step:
+            comments_blocked: Комментарии отключены
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Предложение «%{proposal_title}» было включено в итоги. Вы можете посмотреть его на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}". Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Обновление %{proposal_title}
+          notification_title: Предложение <a href="%{proposal_path}">%{proposal_title}</a> было включено в итог <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Итоги
+    resource_links:
+      included_projects:
+        result_project: Проекты, включенные в эти итоги
+      included_proposals:
+        result_proposal: Предложения, включенные в этот итог

@@ -1,0 +1,16 @@
+<div class="title-bar">
+  <a href="#menu" class="menu-trigger"><%= icon "menu" %></a>
+  <%= link_to page_path("index") do %>
+    <%= image_tag "logo.svg", class: "logo", alt: "Ajuntament" %>
+  <% end %>
+  <div class="user-login">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+      <li class="is-dropdown-submenu-parent">
+        <a href="#">Lorena Ipsum</a>
+        <ul class="menu is-dropdown-submenu">
+          <li><a href="#">Salir</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

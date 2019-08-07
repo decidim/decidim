@@ -1,0 +1,72 @@
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row column">
+    <h1 class="heading1 page-title">Més informació</h1>
+  </div>
+  <div class="row">
+    <div class="columns large-8">
+      <div class="card card--list">
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <div>
+                  <%= link_to page_path("static-with-nav"), class: "card__link" do %>
+                    <h6 class="card--list__heading heading6">
+                      Què és Decidim.barcelona?
+                    </h6>
+                    <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+                      elit.</span>
+                  <% end %>
+                </div>
+              </div>
+              <div class="card--list__data">
+                <a href="" class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </a>
+              </div>
+            </div>
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <div>
+                  <a href="#" class="card__link">
+                    <h6 class="card--list__heading heading6">
+                      Què puc fer a Decidim.barcelona?
+                    </h6>
+                    <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+                      elit.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="card--list__data">
+                <a href="" class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </a>
+              </div>
+            </div>
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <div>
+                  <a href="#" class="card__link">
+                    <h6 class="card--list__heading heading6">
+                      Preguntes freqüents
+                    </h6>
+                    <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+                      elit.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="card--list__data">
+                <a href="" class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

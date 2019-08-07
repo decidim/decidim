@@ -1,0 +1,15 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(@page.body),
+}) %>
+
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row column">
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <%= decidim_sanitize translated_attribute(@page.body) %>
+      </div>
+    </div>
+  </div>
+</div>

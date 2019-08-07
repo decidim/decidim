@@ -1,0 +1,73 @@
+<h2 class="section-heading">Barras de progreso</h2>
+
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Carta de propuesta con barra de progreso</p>
+    <article class="card card--proposal">
+      <div class="card__top">
+        <div class="card__content text-small">
+          <span class="muted">Proceso:</span>&nbsp;<%= link_to Faker::Hipster.sentence, page_path("info"), class: "card__link text-ellipsis" %>
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              Título
+            </h5>
+          <% end %>
+          <div class="card__author author-data author-data--small">
+            <div class="author-data__main">
+              <div class="author author--inline">
+                <a href="#" class="author__avatar author__avatar--small">
+                  <%= image_tag "demo-avatar.jpg" %>
+                </a>
+                <a href="#" class="author__name">
+                  Autor
+                </a>
+                01/08/2016
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam…</p>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <%= partial "progress_bar" %>
+          <button class="card__button button small">
+            Apoyar
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Carta extra con barra de progreso</p>
+    <div class="card extra">
+      <div class="card__content">
+        <%= partial "progress_bar", { vertical: true } %>
+        <button class="button expanded button--sc">Apoyar</button>
+        <button class="button secondary hollow expanded small button--icon">
+          <%= icon "bell" %>
+          <span>Seguir propuesta</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Simple horizontal</p>
+    <%= partial "progress_bar" %>
+    <%= partial "progress_bar" %>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Simple vertical</p>
+    <%= partial "progress_bar", { vertical: true } %>
+  </div>
+</div>

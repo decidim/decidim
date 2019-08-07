@@ -1,0 +1,9 @@
+<div class="empty-notifications callout secondary <%= "hide" if memberships.any? %>">
+  <p><%= t("decidim.members.no_members") %></p>
+</div>
+<div class="row small-up-1 medium-up-2 card-grid">
+  <% memberships.each do |membership| %>
+    <%= cell membership_cell_name, membership %>
+  <% end %>
+</div>
+<%= decidim_paginate memberships %>

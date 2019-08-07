@@ -1,0 +1,10 @@
+<% manifest.settings(settings_name).attributes.each do |field_name, settings_attribute| %>
+  <%= settings_attribute_input(
+    form,
+    settings_attribute,
+    field_name,
+    label: t("decidim.components.#{manifest.name}.settings.#{settings_name}.#{field_name}"),
+    tabs_prefix: tabs_prefix,
+    help_text: help_text_for_component_setting(field_name, settings_name, manifest.name)
+  ) %>
+<% end %>

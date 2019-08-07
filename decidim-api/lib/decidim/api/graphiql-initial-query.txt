@@ -1,0 +1,15 @@
+{
+  participatoryProcesses {
+    id
+    title {
+      translations {
+        locale
+        text
+      }
+    }
+  }
+
+  decidim {
+    version
+  }
+}

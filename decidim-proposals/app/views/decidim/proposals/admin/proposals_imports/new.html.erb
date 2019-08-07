@@ -1,0 +1,31 @@
+<%= decidim_form_for(@form, url: proposals_import_path, html: { class: "form import_proposals" }) do |f| %>
+  <% if @form.origin_components.any? %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= title %></h2>
+      </div>
+
+      <div class="card-section">
+        <div class="row column">
+          <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
+        </div>
+        <div class="row column">
+          <%= f.label t(".select_states") %>
+          <%= f.collection_check_boxes :states, @form.states_collection, :value, :name %>
+        </div>
+        <div class="row column">
+          <%= f.check_box :keep_authors %>
+        </div>
+        <div class="row column">
+          <%= f.check_box :import_proposals %>
+        </div>
+      </div>
+    </div>
+
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".create") %>
+    </div>
+  <% else %>
+      <p><%= t(".no_components") %></p>
+  <% end %>
+<% end %>

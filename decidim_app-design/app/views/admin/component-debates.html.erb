@@ -1,0 +1,26 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+@activepage = "process-components"
+@activesubpage = "component-debates"
+---
+
+<%= partial 'template_top'
+%>
+<div class="layout-nav">
+  <%= partial "process_sub_nav" %>
+</div>
+<div class="layout-content has-process-title">
+  <div class="container">
+    <%= partial "process_title" %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= icon "debates", class: "icon--component" %> Debates <a href="#" class="button tiny button--title">Añadir</a></h2>
+      </div>
+      <div class="card-section">
+        No hay debates abiertos
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

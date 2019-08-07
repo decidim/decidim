@@ -1,0 +1,9 @@
+var $debates = $('#debates');
+var $debatesCount = $('#debates-count');
+var $orderFilterInput = $('.order_filter');
+
+$debates.html('<%= j(render partial: "debates").strip.html_safe %>');
+$debatesCount.html('<%= j(render partial: "count").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $debates);
+$dropdownMenu.foundation();

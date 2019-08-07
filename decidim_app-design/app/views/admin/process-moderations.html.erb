@@ -1,0 +1,54 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+@activepage = "process-moderations"
+%>
+
+<%= partial "template_top" %>
+
+<div class="layout-nav">
+  <%= partial "process_sub_nav" %>
+</div>
+<div class="layout-content has-process-title">
+  <div class="container">
+    <%= partial "process_title" %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Denuncias</h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+          <table class="table-list">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Contenido</th>
+                <th>Denuncias</th>
+                <th>Número</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Proposal </td>
+                <td>OLA K ASE, la democracia es una mierda. Buuuuuuuh</td>
+                <td>
+                  <span data-tooltip title="En serio? Quitad eso de la web ya!">
+                    does_not_belong
+                  </span>
+                </td>
+                <td>1</td>
+
+                <td class="table-list__actions">
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Cancelar denuncia" class="action-icon"><%= icon "action-undo" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Esconder" class="action-icon action-icon--hide"><%= icon "eye" %></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

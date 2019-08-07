@@ -1,0 +1,155 @@
+<%
+@title = "Multiconsulta -- Decidim Barcelona"
+@activesection = "consultations"
+@activepage = "consultations"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+
+  <%= partial "consultations_home_banner" %>
+
+  <div class="row section">
+    <div class="columns medium-6 large-5 large-push-1">
+      <p class="lead">
+        El proceso multiconsulta que abre el Ayuntamiento de Barcelona está
+        enfocado a decidir sobre la remunicipalización del agua, el nombre de
+        la plaza Antonio López y el uso de equipamientos que a commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur.
+      </p>
+    </div>
+    <div class="columns medium-6 large-5 large-pull-1">
+      <div class='embed-container'>
+        <iframe src='https://www.youtube.com/embed/_7gfox2Xcjk'
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="row section">
+    <h2 class="section-heading">Consultas de toda la ciudad</h2>
+    <article class="card consultations-card">
+      <div class="row collapse card--process__row">
+        <div class="columns mediumlarge-8 large-9 card--process__column">
+          <div class="card__content">
+            <a href="/public/consultations-info" class="card__link">
+              <h2 class="heading4">¿Quieres remunicipalizar el agua y que se
+              gestione participativamente?</h2>
+            </a>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris.
+            </p>
+          </div>
+        </div>
+        <div class="columns mediumlarge-8 large-3 card--process__column">
+          <div class="card--full__image consultations-card__image"
+            style="background-image:url(<%= image_path "puntverd.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="columns large-10 large-push-1">
+                <a href="/public/consultations-info" class="button expanded button--sc">
+                  Participa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+    <article class="card consultations-card">
+      <div class="row collapse card--process__row">
+        <div class="columns mediumlarge-8 large-9 card--process__column">
+          <div class="card__content">
+            <a href="/public/consultations-info" class="card__link">
+              <h2 class="heading4">¿Cómo debería llamarse la Plaza Antonio López?</h2>
+            </a>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris.
+            </p>
+          </div>
+        </div>
+        <div class="columns mediumlarge-8 large-3 card--process__column">
+          <div class="card--full__image consultations-card__image"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="columns large-10 large-push-1">
+                <a href="/public/consultations-info" class="button expanded button--sc">
+                  Participa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+  </div>
+
+  <div class="row section">
+    <h2 class="section-heading">Consultas de distrito</h2>
+    <h3 class="heading6">Eixample</h3>
+    <article class="card consultations-card">
+      <div class="row collapse card--process__row">
+        <div class="columns mediumlarge-8 large-9 card--process__column">
+          <div class="card__content">
+            <a href="/public/consultations-info" class="card__link">
+              <h2 class="heading4">¿Quieres remunicipalizar el agua y que se gestione participativamente?</h2>
+            </a>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris.
+            </p>
+          </div>
+        </div>
+        <div class="columns mediumlarge-8 large-3 card--process__column">
+          <div class="card--full__image consultations-card__image"
+            style="background-image:url(<%= image_path "superilles.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="columns large-10 large-push-1">
+                <a href="/public/consultations-info" class="button expanded button--sc">
+                  Participa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+    <h3 class="heading6">Ciutat Vella</h3>
+    <article class="card consultations-card">
+      <div class="row collapse card--process__row">
+        <div class="columns mediumlarge-8 large-9 card--process__column">
+          <div class="card__content">
+            <a href="/public/consultations-info" class="card__link">
+              <h2 class="heading4">¿Cómo debería llamarse la Plaza Antonio López?</h2>
+            </a>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris.
+            </p>
+          </div>
+        </div>
+        <div class="columns mediumlarge-8 large-3 card--process__column">
+          <div class="card--full__image consultations-card__image"
+            style="background-image:url(<%= image_path "puntverd.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="columns large-10 large-push-1">
+                <a href="/public/consultations-info" class="button expanded button--sc">
+                  Participa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+  </div>
+
+  <!-- Only when there are past consultations: -->
+  <div class="text-center">
+    <a href="/public/consultations-choose" class="button hollow button--sc">Ver consultas anteriores</a>
+  </div>
+
+</main>
+
+<%= partial "template_bottom" %>

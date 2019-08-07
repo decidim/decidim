@@ -1,0 +1,60 @@
+.register__separator{
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+  margin: 1rem 0 2rem;
+
+  &::before{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: $medium-gray;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+  }
+}
+
+.register__separator__text{
+  display: inline-block;
+  background: $light-gray;
+  padding: 0 1rem;
+}
+
+.register-form{
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height: 3rem;
+  }
+
+  legend{
+    font-size: 1.25em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  label > [type='checkbox']{
+    margin-bottom: 1rem;
+  }
+
+  .tos-text{
+    padding: .5rem;
+    border: 1px solid #e8e8e8;
+    margin: 1rem 0;
+    max-height: 10rem;
+    overflow: auto;
+    font-size: .8rem;
+    font-style: italic;
+  }
+
+  #card__tos,
+  #card__newsletter{
+    text-align: center;
+  }
+}

@@ -1,0 +1,56 @@
+pt-BR:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Estudo finalizado
+      decidim/surveys/opened_survey_event: Enquete iniciada
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquete
+        other: Enquetes
+      decidim/surveys/survey_answer:
+        one: Resposta
+        other: Respostas
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Responda
+        name: Pesquisa
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            allow_answers: Permitir respostas
+            announcement: Anúncio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A pesquisa %{resource_title} em %{participatory_space_title} foi fechada.
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma pesquisa terminou em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> terminou.
+        survey_opened:
+          email_intro: 'A pesquisa %{resource_title} em %{participatory_space_title} está agora aberta. Você pode participar desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma nova pesquisa em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
+    metrics:
+      survey_answers:
+        description: Número de pesquisas respondidas por usuários
+        object: respostas para pesquisas
+        title: Respostas para pesquisas
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Avalie as respostas dos usuários
+        surveys:
+          update:
+            invalid: Houve erros ao salvar a pesquisa.
+            success: Pesquisa salva com sucesso.
+      last_activity:
+        new_survey_at_html: "<span>Nova pesquisa em %{link}</span>"
+      surveys:
+        answer:
+          invalid: Houve erros ao responder a pesquisa.
+          success: Pesquisa respondida com sucesso.

@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form, html: { class: "form edit_participatory_process" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("participatory_processes.edit.update", scope: "decidim.admin"), class: "button" %>
+
+    <% if allowed_to? :publish, :process, process: current_participatory_process %>
+      <% if current_participatory_process.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :post, class: "button hollow" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

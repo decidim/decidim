@@ -1,0 +1,104 @@
+pl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentarz
+      decidim/comments/comment_created_event: Komentarz
+      decidim/comments/reply_created_event: Odpowiedź na komentarz
+      decidim/comments/user_mentioned_event: Wzmianka
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Komentarz
+        few: Komentarze
+        many: Komentarze
+        other: Komentarze
+      decidim/comments/comment_vote:
+        one: Głosować
+        few: Głosy
+        many: Głosy
+        other: Głosy
+  decidim:
+    comments:
+      comments: Komentarze
+      last_activity:
+        new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
+      votes:
+        create:
+          error: Podczas głosowania komentarza wystąpiły błędy.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać komentarz.
+        form:
+          body:
+            label: Komentarz
+            placeholder: Co o tym myślisz?
+          form_error: Tekst jest wymagany i nie może dłużej niż %{length} znaków.
+          submit: Wysłać
+          user_group_id:
+            label: Komentarz jako
+        opinion:
+          neutral: Neutralny
+        remaining_characters: "Pozostało %{count} znaków"
+        remaining_characters_1: "Pozostało znaków %{count}"
+        title: Dodaj swój komentarz
+      comment:
+        alignment:
+          against: Przeciwko
+          in_favor: Na korzyść
+        deleted_user: Usunięty użytkownik
+        reply: Odpowiadać
+        report:
+          action: Raport
+          already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
+          close: Blisko
+          description: Czy ta treść jest nieodpowiednia?
+          details: Dodatkowe komentarze
+          reasons:
+            does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
+            offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
+            spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
+          title: Zgłoś problem
+      comment_order_selector:
+        order:
+          best_rated: Najlepsza ocena
+          most_discussed: Najbardziej dyskutowane
+          older: Starsze
+          recent: Niedawny
+        title: 'Zamów przez:'
+      comment_thread:
+        title: Rozmowa z %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie.
+        blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
+        loading: Ładowanie komentarzy ...
+        title: "%{count} komentarzy"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} dodał (a) komentarz w %{resource_title}. Możesz przeczytać na tej stronie:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tego użytkownika na swojej stronie profilu.
+          email_subject: Jest nowy komentarz autor %{author_name} w %{resource_title}
+          notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} został skomentowany. Możesz przeczytać komentarz na tej stronie:"
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Jest nowy komentarz od %{author_name} w %{resource_title}
+          notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} odpowiedział na Twój komentarz w %{resource_title}. Możesz przeczytać na tej stronie:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twój komentarz został wysłany.
+          email_subject: "%{author_name} odpowiedział na Twój komentarz w %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział na Twój komentarz w <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Zostałeś wspomniany
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o nim w %{resource_title}.
+          email_subject: Wspomnieliś cie w %{resource_title}
+          notification_title: Wspomniałeś w <a href="%{resource_path}">%{resource_title}</a> przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Liczba komentarzy wygenerowanych przez użytkowników
+        object: komentarze
+        title: Komentarze
+  errors:
+    messages:
+      cannot_have_comments: Nie może mieć komentarzy

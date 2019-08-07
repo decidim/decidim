@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form, html: { class: "form edit_conference conference_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button" %>
+
+    <% if allowed_to? :publish, :conference, conference: current_conference %>
+      <% if current_conference.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button hollow" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

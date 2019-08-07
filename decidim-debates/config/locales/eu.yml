@@ -1,0 +1,151 @@
+eu:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategoria
+        decidim_category_id: Kategoria
+        description: deskribapena
+        end_time: Amaitzen du
+        information_updates: Informazioaren eguneratzeak
+        instructions: Parte hartzeko argibideak
+        start_time: Hasi da
+        title: Izenburua
+        user_group_id: Sortu eztabaida gisa
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debateak desgaituta daude
+      decidim/debates/creation_enabled_event: Debateak gaituta
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: eztabaidak
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Sortu
+        name: eztabaidak
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea
+    debates:
+      actions:
+        confirm_destroy: Ziur zaude?
+        destroy: ezabatu
+        edit: Editatu
+        new: '%{name} berria'
+        title: Ekintzak
+      admin:
+        debates:
+          create:
+            invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
+            success: Debate sortu da behar bezala.
+          destroy:
+            success: Debata zuzen ezabatu da.
+          edit:
+            title: Editatu eztabaida
+            update: Eguneratu eztabaida
+          index:
+            title: eztabaidak
+          new:
+            create: Sortu eztabaida
+            title: Berri eztabaida
+          update:
+            invalid: Arazo bat izan da eztabaida hau eguneratzean.
+            success: Debate arrakastaz eguneratu da.
+        models:
+          debate:
+            name: Debate
+      admin_log:
+        debate:
+          create: "%{user_name} %{resource_name} eztabaida sortu zen %{space_name} espazioan"
+          update: "%{user_name} %{resource_name} eztabaida eguneratu zen %{space_name} espazioan"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} eztabaida"
+            other: "%{count} eztabaidak"
+        create:
+          invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
+          success: Debate sortu da behar bezala.
+        debate:
+          participate: Parte hartu
+        filters:
+          all: guztiak
+          category: Kategoria
+          category_prompt: Aukeratu kategoria bat
+          citizens: Hiritarrak
+          official: Ofiziala
+          origin: Origin
+          search: Search
+        filters_small_view:
+          close_modal: Itxi modal
+          filter: Filter
+          filter_by: Iragazi arabera
+          unfold: Zabaldu
+        index:
+          new_debate: Berri eztabaida
+        new:
+          back: Back
+          create: Sortu
+          select_a_category: Hautatu kategoria bat
+          title: Berri eztabaida
+      last_activity:
+        new_debate_at_html: "<span> %{link}</span>eztabaida berria"
+      models:
+        debate:
+          fields:
+            end_time: Amaiera data
+            official_debate: Ofizial eztabaida
+            start_time: Hasiera data
+            title: Izenburua
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Kaixo,
+              "%{resource_title}" eztabaida berri bat sortu da %{space_title} partehartze espazioan, begiratu eta lagundu:
+            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Eztabaida berriak "%{resource_title}" on %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Kaixo,
+              %{author_name} %{author_nickname}, jarraitzen ari zarenak, "%{resource_title}" eztabaida berri bat sortu du. Begiratu eta lagundu:
+            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: '"%{resource_title}" eztabaida berria %{author_nickname}'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortutako <a href="%{resource_path}">%{resource_title}</a> eztabaida.
+        creation_disabled:
+          email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Debate sortzea desgaituta %{participatory_space_title}
+          notification_title: Debateen sorrera desaktibatuta dago orain <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Orain %{participatory_space_title}hizketaldi berriak hasi ditzakezu! Hasi orri honetan parte hartzea:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Debates orain eskuragarri %{participatory_space_title}
+          notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Aukeratu eztabaida irekia parte hartzeko
+          description: Txartel hau debekuei parte hartzeko modu aktiboan parte hartuz ematen da, zure iruzkinak utziz.
+          description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
+          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          name: eztabaidak
+          next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_own: Oraindik eztabaidetan parte hartu duzu.
+    metrics:
+      debates:
+        description: Sortutako eztabaida kopurua
+        object: eztabaidak
+        title: eztabaidak

@@ -1,0 +1,67 @@
+<div class="row programme-header">
+  <div class="column medium-2 programme-time">
+    <%= start_time.to_s(:time) %> - <%= end_time.to_s(:time) %>
+  </div>
+  <div class="column medium-10 programme-title">
+      <%= link_to present(meeting).title, resource_locator(meeting).path %>
+  </div>
+</div>
+<div class="row">
+  <div class="column medium-10 medium-push-2">
+    <% attribute = present(meeting).description %>
+    <div class="programme-extra">
+      <% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting) %>
+      <% speakers = conference_meeting.conference_speakers %>
+      <% if speakers.any? %>
+        <div class="row speakers-list">
+          <div class="column medium-2">
+            <strong><%= t(".speakers") %></strong>
+          </div>
+          <div class="column medium-10">
+            <%= cell("decidim/conferences/conference_speaker", meeting, list: speakers, size: 3).(:speakers_list) %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="column medium-2">
+          <strong><%= t(".location") %></strong>
+        </div>
+        <div class="column medium-10">
+          <% if meeting.respond_to? :location %>
+            <u><%= translated_attribute meeting.location %></u>&nbsp;
+          <% end %>
+          <span><%= meeting.address %></span>
+          <% if meeting.respond_to? :location_hints %>
+            <span>&nbsp;<%= translated_attribute meeting.location_hints %></span>
+          <% end %>
+        </div>
+      </div>
+      <% if meeting.description.present? %>
+        <div class="row">
+          <div class="column medium-2">
+            <strong><%= t(".content") %></strong>
+          </div>
+          <div class="column medium-10">
+            <%= decidim_sanitize(present(meeting).description(links: true)) %>
+          </div>
+        </div>
+      <% end %>
+      <% if meeting.minutes.present? && meeting.minutes.visible? && (meeting.minutes.video_url.presence || meeting.minutes.audio_url.presence) %>
+        <div class="row">
+          <div class="column medium-2">
+            <strong><%= t(".streaming") %></strong>
+          </div>
+          <div class="column medium-10">
+            <% if meeting.minutes.video_url.presence %>
+              <u><%= link_to meeting.minutes.video_url, meeting.minutes.video_url, target: "_blank" %></u>
+            <% end %>
+            <% if meeting.minutes.audio_url.presence %>
+              <u><%= link_to meeting.minutes.audio_url, meeting.minutes.audio_url, target: "_blank" %></u>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

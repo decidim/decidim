@@ -1,0 +1,173 @@
+// Mixins
+
+// Media queries, based on: http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+
+@mixin mq($point, $query1: min, $query2: width){
+  @media (#{$query1}-#{$query2}: $point){
+    @content;
+  }
+}
+
+// Centered elements
+
+@mixin centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Drop Overlays
+
+@mixin drop-overlay{
+  content: "";
+  position: absolute;
+  z-index: $z2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(#27353b, .6);
+}
+
+/// Slightly lighten a color
+@function tint($color, $percentage){
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+@function shade($color, $percentage){
+  @return mix(black, $color, $percentage);
+}
+
+// Status modifier mixin
+$palette: (
+  primary: var(--primary),
+  secondary: var(--secondary),
+  success: var(--success),
+  warning: var(--warning),
+  alert: var(--alert),
+);
+
+@mixin modifiers($vars, $colors: $palette){
+  $map: map-merge($palette, $colors);
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @content;
+
+      @each $property in $vars{
+        #{$property}: map-get($map, $key);
+      }
+    }
+  }
+}
+
+@mixin flexgap($gap: 0, $dir: row){
+  display: flex;
+  flex-direction: $dir;
+
+  @if $dir == row{
+    & > *{
+      margin: 0 $gap/2;
+    }
+
+    & > :first-child{
+      margin-left: 0;
+    }
+
+    & > :last-child{
+      margin-right: 0;
+    }
+  }
+
+  @else if $dir == column{
+    & > *{
+      margin: $gap/2 0;
+    }
+
+    & > :first-child{
+      margin-top: 0;
+    }
+
+    & > :last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  @else if $dir == row-reverse{
+    & > *{
+      margin: 0 $gap/2;
+    }
+
+    & > :last-child{
+      margin-left: 0;
+    }
+
+    & > :first-child{
+      margin-right: 0;
+    }
+  }
+
+  @else if $dir == column-reverse{
+    & > *{
+      margin: $gap/2 0;
+    }
+
+    & > :last-child{
+      margin-top: 0;
+    }
+
+    & > :first-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin ellipsis(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: $global-lineheight;
+}
+
+@mixin inline-separator($char: ' '){
+  > *:not(:last-child)::after{
+    content: $char;
+  }
+}
+
+@mixin animation($animation){
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin spinner($size, $orbit, $satellite, $time){
+  @include animation( animation-spin $time infinite linear );
+  @include square($size);
+
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: floor(($size / 8)) solid $orbit;
+  border-right-color: $satellite;
+  display: inline-block;
+  position: relative;
+}
+
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size){
+  @include size($size, $size);
+}
+
+@keyframes animation-spin{
+  to{ transform: rotate(1turn); }
+}
+
+@-webkit-keyframes animation-spin{
+  to{ -webkit-transform: rotate(1turn); }
+}

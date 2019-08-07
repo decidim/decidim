@@ -1,0 +1,96 @@
+uk:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Коментар
+      decidim/comments/comment_created_event: Коментар
+      decidim/comments/reply_created_event: Відповідь на коментар
+      decidim/comments/user_mentioned_event: Згадка
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Коментар
+        few: Коментаря
+        many: Коментарів
+        other: Коментарів
+      decidim/comments/comment_vote:
+        one: Голос
+        few: Голоси
+        many: Голосів
+        other: Голосів
+  decidim:
+    comments:
+      comments: Коментарі
+      votes:
+        create:
+          error: При голосуванні щодо коментаря сталися помилки.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
+        form:
+          body:
+            label: Коментар
+            placeholder: Що ви думаєте з цього приводу?
+          form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
+          submit: Надіслати
+          user_group_id:
+            label: Коментувати як
+        opinion:
+          neutral: Безсторонньо
+        remaining_characters: "Залишилось %{count} символів"
+        remaining_characters_1: "Залишився %{count} символ"
+        title: Додати свій коментар
+      comment:
+        alignment:
+          against: Проти
+          in_favor: На підтримку
+        deleted_user: Видалений учасник
+        reply: Відповісти
+        report:
+          action: Поскаржитись
+          already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
+          close: Закрити
+          description: Чи цей вміст неприпустимий?
+          details: Додаткові коментарі
+          reasons:
+            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
+            offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
+            spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
+          title: Поскаржитись на ускладнення
+      comment_order_selector:
+        order:
+          best_rated: З найкращим рейтингом
+          most_discussed: Найбільш обговорюване
+          older: Давніші
+          recent: Нещодавнє
+        title: 'Впорядкувати за:'
+      comment_thread:
+        title: Бесіда з %{authorName}
+      comments:
+        blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
+        loading: Завантаження коментарів...
+        title: "%{count} коментарів"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} залишив коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_created:
+          email_intro: "%{resource_title} прокоментували. Ви можете прочитати коментар на сторінці:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
+          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+        reply_created:
+          email_intro: "%{author_name} відповів на ваш коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
+          email_outro: Ви отримали це сповіщення, оскільки на ваш коментар відповіли.
+          email_subject: "%{author_name} відповів на ваш коментар у %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> відповів на ваш коментар у <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Вас згадали
+          email_outro: Ви отримали це сповіщення, оскільки вас згадали в %{resource_title}.
+          email_subject: Вас згадали у %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
+  errors:
+    messages:
+      cannot_have_comments: не підлягає коментуванню

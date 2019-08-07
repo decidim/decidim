@@ -1,0 +1,40 @@
+pl:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Utworzono w
+        field: Moja dziedzina
+        start_date: Data rozpoczęcia
+        title: Tytuł
+        updated_at: Zaktualizowano na
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Manekiny
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Użyj środowiska testowego dla decidim.
+          description: Użytkownicy otrzymują tę odznakę, tworząc testy.
+          description_another: Ten użytkownik utworzył %{score} testów.
+          description_own: Stworzyłeś %{score} testów.
+          name: Testy
+          next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych testów.
+          unearned_own: Nie stworzyłeś jeszcze żadnych testów.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Atrapy wysokie
+          dummies_count_medium: Średni manekin
+          foo: bla
+    participatory_processes:
+      statistics:
+        dummies_count_high: Atrapy wysokie
+        dummies_count_medium: Średni manekin
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Podobne manekina

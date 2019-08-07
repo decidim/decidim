@@ -1,0 +1,83 @@
+.budget-summary__total{
+  margin-bottom: .5rem;
+}
+
+.budget-summary__progressbox{
+  align-items: stretch;
+  margin-bottom: .5rem;
+
+  @include breakpoint(smallmedium down){
+    text-align: center;
+  }
+
+  @include breakpoint(medium){
+    display: flex;
+  }
+
+  .button{
+    margin-bottom: 0;
+  }
+}
+
+.progressbox-fixed-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: $white;
+  box-shadow: 0 2px 7px rgba(black, .1);
+  display: none;
+
+  &.is-progressbox-visible{
+    display: block;
+  }
+}
+
+.budget-summary__progressbox--fixed{
+  margin: auto;
+  max-width: $global-width;
+  padding: 1rem 2rem;
+
+  @include breakpoint(mediumlarge){
+    padding: 1rem 4rem;
+  }
+
+  display: flex;
+}
+
+.budget-progress{
+  flex-grow: 1;
+  margin-bottom: .5rem;
+  min-height: 1.5rem;
+
+  @include breakpoint(medium){
+    min-height: 2rem;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+
+.budget-progress--fixed{
+  min-height: 2rem;
+  margin-bottom: 0;
+  margin-right: 1rem;
+}
+
+.budget-progress__meter{
+  min-width: .1%;
+}
+
+.budget-summary__selected{
+  border-top: $border;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.budget-summary__selected-list{
+  margin-top: 2rem;
+}
+
+.budget-summary__selected-number{
+  margin: 0 .5rem;
+}

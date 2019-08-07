@@ -1,0 +1,7 @@
+<div class="row column">
+  <%= scopes_picker_field form, :decidim_scopes_id, root: nil %>
+</div>
+
+<div class="row column">
+  <%= form.number_field :supports_required, min: 1, step: 1 %>
+</div>

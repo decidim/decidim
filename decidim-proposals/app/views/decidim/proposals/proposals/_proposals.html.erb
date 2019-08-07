@@ -1,0 +1,14 @@
+<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
+  <div class="column">
+    <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+  </div>
+
+  <div class="column">
+    <%= render partial: "decidim/shared/results_per_page" %>
+  </div>
+</div>
+
+<div class="row small-up-1 medium-up-2 card-grid">
+  <%= render @proposals %>
+</div>
+<%= decidim_paginate @proposals, random_seed: random_seed %>

@@ -1,9 +1,9 @@
-<% content_for :title do %>
+<% provide :title do %>
   <h2><%= t ".title" %></h2>
 <% end %>
 
 <div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.organization.name", scope: "decidim.system")), ['new', 'organization'], class: 'new' %>
+  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.organization.name", scope: "decidim.system")), ["new", "organization"], class: "new" %>
 </div>
 
 <table class="stack">
@@ -25,8 +25,7 @@
           <%= l organization.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.system"), ['edit', organization] %>
-          <%= link_to t("actions.destroy", scope: "decidim.system"), organization, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
+          <%= link_to t("actions.edit", scope: "decidim.system"), ["edit", organization] %>
         </td>
       </tr>
     <% end %>

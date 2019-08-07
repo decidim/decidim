@@ -1,0 +1,19 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns medium-9 medium-offset-3">
+      <%= profile_tabs %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-3">
+      <%= cell "decidim/profile_sidebar", profile_holder %>
+    </div>
+    <div class="columns medium-9">
+      <div class="tabs-content" data-tabs-content="profile-tabs">
+        <div class="tabs-panel is-active">
+          <%= cell content_cell, profile_holder, context %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

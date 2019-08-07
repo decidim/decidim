@@ -1,0 +1,21 @@
+<section class="section row collapse highlighted_results">
+  <h4 class="section-heading">
+    <%= translated_attribute(model.name) %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_results.see_all", count: results_count) %></a>
+  </h4>
+
+  <div class="row">
+    <div class="columns accountability">
+      <div class="card card--action card--list">
+        <% results_to_render.each do |result| %>
+          <%= render partial: "decidim/participatory_spaces/result.html", locals: { result: result } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to(
+    t("decidim.participatory_spaces.highlighted_results.see_all", count: results_count),
+    main_component_path(model),
+    class: "button button--sc light secondary button--right"
+  ) %>
+</section>

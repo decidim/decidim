@@ -1,0 +1,75 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
+      </div>
+      <%= render partial: "bulk-actions" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
+            </th>
+            <th>
+              <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
+            </th>
+
+            <% if current_participatory_space.scopes_enabled? %>
+              <th>
+                <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <th>
+              <%= sort_link(query, :state, t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
+            </th>
+
+            <% if current_settings.votes_enabled? %>
+              <th>
+                <%= sort_link(query, :proposal_votes_count, t("models.proposal.fields.votes", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
+              <th>
+                <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <% if allowed_to? :create, :proposal_note %>
+              <th>
+                <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <th>
+              <%= sort_link(query, :published_at, t("models.proposal.fields.published_at", scope: "decidim.proposals") ) %>
+            </th>
+
+            <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% proposals.each do |proposal| %>
+            <%= render partial: "proposal-tr", locals: { proposal: proposal } %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate proposals, theme: "decidim" %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/admin/proposals" %>

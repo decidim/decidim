@@ -1,0 +1,220 @@
+# i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
+
+# The "main" locale.
+base_locale: en
+
+## Reporting locale, default: en. Available: en, ru.
+# internal_locale: en
+
+# Read and write translations.
+data:
+  ## Translations are read from the file system. Supported format: YAML, JSON.
+  ## Provide a custom adapter:
+  # adapter: I18n::Tasks::Data::FileSystem
+
+  # Locale files or `File.find` patterns where translations are read from:
+  read:
+    - decidim-*/config/locales/%{locale}.yml
+
+  # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
+  # `i18n-tasks normalize -p` will force move the keys according to these rules
+  write:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- ['#{path.sub('-', '.')}.*', '#{path}/config/locales/%{locale}.yml']" %>
+    <% end -%>
+      - 'decidim-core/config/locales/%{locale}.yml'
+
+  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
+  # router: convervative_router
+
+  yaml:
+    write:
+      # do not wrap lines at 80 characters
+      line_width: -1
+
+  ## Pretty-print JSON:
+  # json:
+  #   write:
+  #     indent: '  '
+  #     space: ' '
+  #     object_nl: "\n"
+  #     array_nl: "\n"
+
+# Find translate calls
+search:
+  ## Paths or `File.find` patterns to search in:
+  paths:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app\n" %>
+      <%= "- #{path}/lib\n" %>
+    <% end -%>
+
+  # Root directories for relative keys resolution.
+  relative_roots:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app/controllers\n" %>
+      <%= "- #{path}/app/helpers\n" %>
+      <%= "- #{path}/app/mailers\n" %>
+      <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/services\n" %>
+      <%= "- #{path}/app/views\n" %>
+      <%= "- #{path}/app/cells\n" %>
+    <% end -%>
+
+  ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
+  ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
+  exclude:
+    - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - "*.jpeg"
+    - "*.odt"
+    - "*.docx"
+
+  ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
+  ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
+  # only: ["*.rb", "*.html.slim"]
+
+  ## If `strict` is `false`, guess usages such as t("categories.#{category}.title"). The default is `true`.
+  strict: false
+
+  ## Multiple scanners can be used. Their results are merged.
+  ## The options specified above are passed down to each scanner. Per-scanner options can be specified as well.
+  ## See this example of a custom scanner: https://github.com/glebm/i18n-tasks/wiki/A-custom-scanner-example
+
+## Google Translate
+# translation:
+#   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
+#   api_key: "AbC-dEf5"
+
+# Do not consider these keys missing:
+ignore_missing:
+  - components.*
+  - email_subject
+  - email_intro
+  - email_outro
+  - notification_title
+  - decidim.wizard_step_form_cell.*
+
+# Consider these keys used:
+ignore_unused:
+  - devise.*
+  - activemodel.attributes.*
+  - activemodel.errors.*
+  - activemodel.models.*
+  - activerecord.attributes.*
+  - activerecord.models.*
+  - booleans.*
+  - '{date,time.formats}.*'
+  - decidim.admin.participatory_process_steps.default_title
+  - decidim.authorization_handlers.{direct,multistep}
+  - decidim.admin.models.assembly_member.positions.*
+  - decidim.assemblies.statistics.*
+  - decidim.components.*
+  - decidim.filters.linked_classes.*
+  - decidim.forms.errors.*
+  - decidim.forms.user_answers_serializer.*
+  - decidim.participatory_processes.statistics.*
+  - decidim.proposals.answers.*
+  - decidim.proposals.proposals.orders.*
+  - decidim.resource_links.*
+  - decidim.system.default_pages.placeholders.*
+  - decidim.verifications.id_documents.{dni,nie,passport}
+  - errors.messages.*
+  - invisible_captcha.*
+  - decidim.pages.home.statistics.*
+  - social_share_button.*
+  - decidim.features.accountability.name
+  - decidim.features.accountability.settings.*
+  - decidim.accountability.models.project.valid_statuses.*
+  - decidim.accountability.admin_log.*
+  - decidim.proposals.admin_log.*
+  - decidim.log.base_presenter.*
+  - decidim.admin_log.*
+  - decidim.debates.debates.filters.*
+  - decidim.debates.admin_log.*
+  - decidim.meetings.admin_log.*
+  - decidim.budgets.admin_log.*
+  - decidim.budgets.admin.models.project.name
+  - decidim.sortitions.admin_log.*
+  - decidim.sortitions.sortitions.orders.*
+  - decidim.consultations.admin_log.*
+  - decidim.consultations.consultations.orders.*
+  - decidim.consultations.show.badge_name.*
+  - decidim.initiatives.admin_log.*
+  - decidim.initiatives.initiatives.orders.*
+  - decidim.initiatives.states.*
+  - decidim.initiatives.admin_states.*
+  - decidim.initiatives.events.*
+  - decidim.initiatives.initiatives.author_list.hidden_authors_count.*
+  - decidim.initiatives.initiatives.signatures_count.*
+  - decidim.collapsible_list.hidden_elements_count.*
+  - decidim.events.*
+  - doorkeeper.scopes.*
+  - decidim.proposals.proposals.votes_count.count.*
+  - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.models.*.name
+  - decidim.admin.models.*.name.*
+  - password_validator.*
+  - decidim.participatory_processes.participatory_processes.filters.*
+  - decidim.participatory_processes.pages.home.highlighted_processes.*
+  - decidim.consultations.pages.home.highlighted_consultations.*
+  - decidim.assemblies.pages.home.highlighted_assemblies.*
+  - decidim.initiatives.pages.home.highlighted_initiatives.*
+  - decidim.content_blocks.*.name
+  - decidim.participatory_processes.content_blocks.*.name
+  - decidim.assemblies.content_blocks.*.name
+  - decidim.initiatives.content_blocks.*.name
+  - decidim.consultations.content_blocks.*.name
+  - decidim.meetings.content_blocks.*.name
+  - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
+  - decidim.proposals.collaborative_drafts.orders*
+  - decidim.proposals.collaborative_drafts.filters*
+  - decidim.proposals.collaborative_drafts.show.withdraw
+  - decidim.proposals.collaborative_drafts.show.publish
+  - decidim.conferences.content_blocks.*.name
+  - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.conference_speaker.*
+  - decidim.conferences.statistics.*
+  - decidim.conferences.show.*
+  - decidim.conferences.models.conference_registration.fields.states.*
+  - decidim.proposals.admin.participatory_texts.sections.*
+  - decidim.gamification.badges.*
+  - decidim.surveys.surveys.answer.*
+  - decidim.surveys.admin.surveys.update.*
+  - decidim.groups.roles.*
+  - decidim.welcome_notification.*
+  - decidim.help.*
+  - decidim.amendments.amendable.error
+  - decidim.amendments.emendation.announcement.*
+  - decidim.amendments.accept.error
+  - decidim.searches.filters.state.*
+  - decidim.assemblies.filter.*
+  - decidim.initiatives.initiatives.votes_count.count.*
+  - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.amendments.visibility_options.*
+  - decidim.wizard_step_form.*
+
+## Exclude these keys from the `i18n-tasks eq-base' report:
+# ignore_eq_base:
+#   all:
+#     - common.ok
+#   fr,es:
+#     - common.brand
+
+## Ignore these keys completely:
+# ignore:
+#   - kaminari.*
+
+## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
+## e.g. in case of a relative key defined in a helper method.
+## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
+#
+# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#        only: %w(*.html.haml *.html.slim),
+#        patterns: [['= title\b', '.page_title']] %>
+#
+# The PatternMapper can also match key literals via a special %{key} interpolation, e.g.:
+#
+# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#        patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>

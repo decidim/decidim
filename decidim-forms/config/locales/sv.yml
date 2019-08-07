@@ -1,0 +1,82 @@
+sv:
+  activemodel:
+    attributes:
+      answer:
+        body: Svar
+      question:
+        max_choices: Högst antal val
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Obligatorisk
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: är inte fullständiga
+              too_many: är för många
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beskrivning
+            tos: Användarvillkor
+        questionnaires:
+          answer_option:
+            answer_option: Svarsalternativ
+            free_text: Fritext
+            remove: Ta bort
+            statement: Påstående
+          edit:
+            save: Spara
+            title: Titel
+          form:
+            add_question: Lägg till fråga
+            already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+          question:
+            add_answer_option: Lägg till svarsalternativ
+            any: Någon
+            description: Beskrivning
+            down: Ned
+            question: Fråga
+            remove: Ta bort
+            statement: Påstående
+            up: Upp
+          update:
+            invalid: Det gick inte att spara formuläret.
+            success: Formuläret har sparats.
+      errors:
+        answer:
+          body: Kroppen kan inte vara to
+      question_types:
+        long_answer: Långt svar
+        multiple_option: Flera alternativ
+        short_answer: Kort svar
+        single_option: Ett alternativ
+        sorting: Sortering
+      questionnaires:
+        answer:
+          invalid: Det gick inte att besvara formuläret.
+          success: Formuläret har besvarats.
+        question:
+          max_choices: 'Högst antal val: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> om du vill svara på formuläret.
+            title: Besvara formuläret
+          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
+          questionnaire_answered:
+            body: Du har redan besvarat det här formuläret.
+            title: Redan svarat
+          questionnaire_closed:
+            body: Formuläret är stängt och kan inte besvaras.
+            title: Formuläret är stängt
+          questionnaire_for_private_users:
+            body: Formuläret är endast tillgängligt för privata användare
+            title: Formuläret är stängt
+          submit: Skicka in
+          tos_agreement: Genom att delta godkänner du användarvillkoren
+      user_answers_serializer:
+        created_at: Besvarad
+        id: Svars-ID

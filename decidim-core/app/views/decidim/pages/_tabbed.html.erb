@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="row column">
+    <div class="text-center">
+      <h1 class="heading1 page-title">
+        <%= title %>
+      </h1>
+      <p class="intro--text subheading1">
+        <%= description %>
+      </p>
+    </div>
+
+    <main class="main-container tabbed-container">
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <div class="row collapse main-container--side-panel">
+        <div class="columns medium-4 large-3">
+          <div class="side-panel">
+            <ul class="tabs vertical side-panel__tabs">
+              <% pages.each do |sibling| %>
+                <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
+                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), 'aria-selected': page == sibling %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="columns medium-8 large-9">
+          <div class="main-container__content">
+            <div class="tabs-content vertical">
+              <div class="static__content">
+                <h2 class="section-heading">
+                  <%= translated_attribute page.title %>
+                </h2>
+                <%= decidim_sanitize translated_attribute page.content %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= cell "decidim/tos_page", :sticky_form %>
+    </main>
+  </div>
+</div>

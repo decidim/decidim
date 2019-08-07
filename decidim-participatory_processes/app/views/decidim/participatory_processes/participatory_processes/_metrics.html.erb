@@ -1,0 +1,10 @@
+<div class="section" id="metrics">
+  <h4 class="section-heading"><%= t("decidim.pages.participatory_space.metrics.headline", name: translated_attribute(current_participatory_space.title)) %></h4>
+  <%= metrics.params %>
+  <div class="row mb-sm">
+    <%= metrics.highlighted %>
+  </div>
+  <div class="row column text-center">
+    <%= link_to t("decidim.pages.participatory_space.metrics.link"), statistics_participatory_process_path(current_participatory_space) %>
+  </div>
+</div>

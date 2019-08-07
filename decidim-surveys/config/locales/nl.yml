@@ -1,0 +1,56 @@
+nl:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Enquête beëindigd
+      decidim/surveys/opened_survey_event: Enquête is gestart
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Enquête
+        other: onderzoeken
+      decidim/surveys/survey_answer:
+        one: Antwoord
+        other: antwoorden
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Antwoorden
+        name: Enquête
+        settings:
+          global:
+            announcement: Aankondiging
+          step:
+            allow_answers: Antwoorden toestaan
+            announcement: Aankondiging
+    events:
+      surveys:
+        survey_closed:
+          email_intro: De enquête %{resource_title} in %{participatory_space_title} is gesloten.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
+          email_subject: Een enquête is voltooid in %{participatory_space_title}
+          notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is voltooid.
+        survey_opened:
+          email_intro: 'De enquête %{resource_title} in %{participatory_space_title} is nu gestart. Je kan deelnemen op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
+          email_subject: Een nieuwe enquête in %{participatory_space_title}
+          notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
+    metrics:
+      survey_answers:
+        description: Aantal enquêtes beantwoord door gebruikers
+        object: antwoorden op enquêtes
+        title: Antwoorden op enquêtes
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Enquête gebruikersantwoorden
+        surveys:
+          update:
+            invalid: Er zijn fouten geweest bij het opslaan van de enquête.
+            success: Enquête succesvol opgeslagen.
+      last_activity:
+        new_survey_at_html: "<span>Nieuwe enquête op %{link}</span>"
+      surveys:
+        answer:
+          invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
+          success: Enquête met succes beantwoord.

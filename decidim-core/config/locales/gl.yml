@@ -1,0 +1,1265 @@
+gl:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Motivo para eliminar a túa conta
+      report:
+        details: Comentarios adicionais
+      user:
+        about: Acerca de
+        email: O teu correo electrónico
+        name: O teu nome
+        nickname: Alcume
+        password: Contrasinal
+        password_confirmation: Confirma o teu contrasinal
+        personal_url: URL persoal
+        remove_avatar: Eliminar avatar
+    models:
+      decidim/attachment_created_event: Anexo
+      decidim/component_published_event: Compoñente activo
+      decidim/demoted_membership: Xa non é un administrador de grupo
+      decidim/gamification/badge_earned_event: Insignia obtida
+      decidim/gamification/level_up_event: Has nivelado
+      decidim/join_request_accepted_event: Solicitude de adhesión aceptada
+      decidim/join_request_rejected_event: Solicitude de adhesión rexeitada
+      decidim/profile_updated_event: Perfil actualizado
+      decidim/promote_to_admin: Ascendido ao administrador do grupo
+      decidim/removed_from_group: Eliminouse do grupo
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasinal actual
+        email: Correo electrónico
+        name: Nome da usuaria
+        password: Contrasinal
+        password_confirmation: Confirmación por contrasinal
+        remember_me: Lémbrame
+    models:
+      decidim/amendment:
+        one: Modificación
+        other: Enmendas
+      decidim/user:
+        one: Non hai usuarios
+        other: Usuarios
+      decidim/user_group:
+        one: Grupo de usuarios
+        other: Grupos de usuarios
+  booleans:
+    'false': 'Non'
+    'true': 'Si'
+  carrierwave:
+    errors:
+      image_too_big: A imaxe é demasiado grande
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: O ficheiro non existe
+        invalid_token: O token fornecido non é válido.
+        no_token: Sen token fornecido
+        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
+      delete:
+        alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
+        confirm:
+          close: Pechar xanela
+          ok: Si, quero eliminar a miña conta
+          question: Estás segura de que queres eliminar a túa conta?
+          title: Eliminar a miña conta
+        explanation: Por favor, anota o motivo polo que quere eliminar a súa conta (opcional).
+      destroy:
+        error: Produciuse un erro ao eliminar a túa conta.
+        success: A túa conta eliminouse correctamente.
+      show:
+        change_password: Cambie o contrasinal
+        update_account: Actualizar a conta
+      update:
+        error: Produciuse un erro ao actualizar a túa conta.
+        success: A túa conta foi actualizada correctamente.
+        success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
+    admin_log:
+      area:
+        create: "%{user_name} creou a área %{resource_name}"
+        delete: "%{user_name} eliminou a área %{resource_name}"
+        update: "%{user_name} actualizou a área %{resource_name}"
+      component:
+        create: "%{user_name} engadiu o compoñente %{resource_name} ao espazo %{space_name}"
+        delete: "%{user_name} eliminaron o %{resource_name} compoñente do espazo %{space_name}"
+        publish: "%{user_name} publicou o %{resource_name} compoñente no espazo %{space_name}"
+        unpublish: "%{user_name} non se publicou o compoñente %{resource_name} do espazo %{space_name}"
+      moderation:
+        hide: "%{user_name} agochar un recurso do tipo %{resource_type} no espazo %{space_name}"
+        unreport: "%{user_name} Non se informou un recurso do tipo %{resource_type} no espazo %{space_name}"
+      newsletter:
+        create: "%{user_name} creou o boletín informativo %{resource_name}"
+        delete: "%{user_name} eliminou o boletín informativo %{resource_name}"
+        deliver: "%{user_name} entregou o boletín informativo %{resource_name}"
+        update: "%{user_name} actualizou o boletín informativo %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creou a aplicación %{resource_name} OAuth"
+        delete: "%{user_name} eliminou a aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
+      organization:
+        update: "%{user_name} actualizou a configuración da organización"
+      participatory_space_private_user:
+        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
+      scope:
+        create: "O %{user_name} creou o alcance %{resource_name}"
+        create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
+        delete: "%{user_name} eliminou o alcance %{resource_name}"
+        delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
+        update: "%{user_name} actualizou o alcance %{resource_name}"
+        update_with_parent: "%{user_name} actualizou o alcance %{resource_name} no ámbito %{parent_scope}"
+      static_page:
+        create: "%{user_name} creou a páxina estática %{resource_name}"
+        delete: "%{user_name} eliminou a páxina estática %{resource_name}"
+        update: "%{user_name} actualizou a páxina estática %{resource_name}"
+      user:
+        invite: "%{user_name} convidou ao usuario %{resource_name} co rol: %{role}"
+        officialize: "%{user_name} oficializou ao usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminou o usuario %{resource_name} co rol: %{role}"
+        unofficialize: "%{user_name} non oficializou ao usuario %{resource_name}"
+      user_group:
+        reject: "%{user_name} rexeitou a verificación do grupo de usuarios %{resource_name}"
+        verify: "%{user_name} verificou o grupo de usuarios %{resource_name}"
+        verify_via_csv: "%{user_name} verificar a %{resource_name} grupo de usuarios a través dun ficheiro CSV"
+    amendments:
+      accepted:
+        error: Produciuse un erro ao aceptar a emenda.
+        success: A modificación foi aceptada con éxito.
+      amendable:
+        amended_by: Modificado por
+        button: Modificar %{model_name}
+        error: Produciuse un erro ao modificar este recurso.
+        help_text: Mellora este %{model_name} modificando o seu %{amendable_fields}
+        promote_button: Promoción a %{model_name}
+        promote_confirm_text: '¿Está seguro de que quere promocionar esta enmienda?'
+        promote_help_text: Pode promover esta modificación e publicala como un %{model_name}independente
+        section_heading: Enmendas (%{count})
+      emendation:
+        actions:
+          button_accept: Aceptar
+          button_reject: Rexeitar
+          help_text: Revisa os cambios e acepta ou rexeita esta modificación. Enviarase unha notificación aos seus autores.
+        announcement:
+          accepted: |-
+            Este cambio ao %{amendable_type} %{amendable_link} foi
+            aceptado en <strong>%{announcement_date}</strong>.
+          evaluating: |-
+            Esta enquisa para o %{amendable_type} %{amendable_link}
+            está sendo avaliada.
+          rejected: "Esta modificación do %{amendable_type} %{amendable_link}\nfoi rexeitada en <strong>%{announcement_date}</strong>."
+          withdrawn: |-
+            Esta autorización foi retirada esta enmenda do %{amendable_type} %{amendable_link}
+            .
+      new:
+        amendment_author: Autor da emenda
+      promoted:
+        error: Houbo erros ao promover a modificación
+        success: Emendación promovida con éxito
+      rejected:
+        error: Produciuse un erro ao rexeitar esta emenda, téntao de novo máis tarde
+        success: A emenda foi rexeitada con éxito
+      review:
+        back: De volta
+        heading: Revisa a modificación
+        help_text: Estás revisando unha modificación no %{model_name}
+        send: Aceptar a emenda
+      wizard_step_form:
+        steps:
+          '1': Crea a túa emenda
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
+    anonymous_user: Anónimo
+    application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
+      documents:
+        related_documents: Documentos relacionados
+      photos:
+        related_photos: Fotos relacionadas
+    author:
+      comments:
+        one: comentario
+        other: comentarios
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Verifique a introdución dun número de pasaporte que comeza con "A"
+        fields:
+          passport_number: Número de pasaporte
+        name: Outra autorización de exemplo
+      dummy_authorization_handler:
+        explanation: Verifique a introdución dun número de documento que acabe con "X"
+        fields:
+          document_number: Número de documento
+          postal_code: Código postal
+        name: Autorización de exemplo
+      dummy_authorization_workflow:
+        name: Fluxo de traballo de autorización dummy
+      errors:
+        duplicate_authorization: Un usuario xa está autorizado cos mesmos datos.
+      expired_at: Caducou en %{timestamp}
+      expires_at: Caduca no %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Autorización de Foo
+      granted_at: Concedido en %{timestamp}
+      sms:
+        explanation: Envía o teu número de teléfono móbil para que poidamos consultar a túa identidade.
+        name: Código por SMS
+      started_at: Comezou en %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Reautorizar con "%{authorization}"
+          explanation: A túa autorización caducou. Para realizar esta acción, necesitas ser autorizado de novo con "%{authorization}".
+          title: A autorización caducou
+        incomplete:
+          cancel: Cancelar
+          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
+          invalid_field: "%{field}"
+          reauthorize: Reautorizar
+          title: Reautoralizar
+        missing:
+          authorize: Autorízase con "%{authorization}"
+          explanation: Para realizar esta acción, necesitas estar autorizado con "%{authorization}".
+          title: Requírese a autorización
+        pending:
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero a túa autorización aínda está en progreso.
+          resume: Verifica o progreso da túa autorización "%{authorization}"
+          title: A autorización aínda está en progreso
+        unauthorized:
+          explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
+          invalid_field: "O %{field} valor %{value} non é válido."
+          ok: Ok
+          title: Non autorizado
+        unconfirmed:
+          confirmation_instructions: 'Se non recibiu as instrucións de confirmación, pode solicitalas de novo:'
+          explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
+          request_confirmation_instructions: Solicitar instrucións de confirmación
+          title: Confirma o teu correo electrónico
+    collapsible_list:
+      hidden_elements_count:
+        one: e %{count} máis
+        other: e %{count} máis
+      see_less: "(ver menos)"
+      see_more: "(Ver máis)"
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Compoñente manequim
+        settings:
+          global:
+            amendments_enabled: Modificacións habilitadas
+            comments_enabled: Comentarios habilitados
+            dummy_global_attribute_1: Atributo maniquí 1
+            dummy_global_attribute_2: Atributo maniquí 2
+            enable_pads_creation: Habilita a creación de pastillas
+            resources_permissions_enabled: Permisos de recursos habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
+    contact: Contacto
+    content_blocks:
+      footer_sub_hero:
+        name: Banner de sub-heroes de pés
+      hero:
+        name: Imaxe de heroe
+      highlighted_content_banner:
+        name: Banner de contido destacado
+      how_to_participate:
+        name: Como participar
+      html:
+        html_content: Contido HTML
+        name: Bloque HTML
+      last_activity:
+        name: Última actividade
+        title: Última actividade
+        view_all: Ver todo
+      metrics:
+        name: Métricas da organización
+      stats:
+        name: Estatísticas da organización
+      sub_hero:
+        name: Banner sub-heroe
+    core:
+      actions:
+        unauthorized: Non estás autorizado para realizar esta acción
+    data_portability:
+      export:
+        ready: Listo
+      show:
+        download_data: Descarga os datos
+        download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
+        request_data: Solicitar datos
+    datepicker:
+      help_text: 'Formato esperado: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
+        new:
+          complete_profile: Perfil completo
+          nickname_help: O teu identificador breve e único en %{organization}
+          sign_up: Completa o teu perfil
+          subtitle: Encha o seguinte formulario para completar o rexistro
+          username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
+      registrations:
+        new:
+          already_have_an_account?: Xa ten unha conta?
+          newsletter: Recibir un boletín ocasional con información relevante
+          newsletter_title: Permiso de contacto
+          nickname_help: O teu identificador breve e único en %{organization}
+          sign_in: Iniciar sesión
+          sign_up: Rexistrarse
+          sign_up_as:
+            legend: Rexístrate como
+          subtitle: Rexístrate para participar en discusións e propostas de apoio.
+          terms: os termos e condicións de uso
+          tos_agreement: Ao rexistrarte, aceptas %{link}.
+          tos_title: Condicións de servicio
+          username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
+      sessions:
+        new:
+          are_you_new?: Novo para a plataforma?
+          register: Crear unha conta
+          sign_in_disabled: Pode acceder cunha conta externa
+          sign_up_disabled: A inscrición está desactivada, pode utilizar un usuario existente para acceder
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Comprobar e continuar
+            close_modal: Pechar modal
+            uncheck: Mantente desmarcada
+          notice: |-
+            <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
+            Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
+            É moi importante para nós que podes recibir correos electrónicos ocasionais para facer anuncios importantes, sempre podes cambiar isto na túa páxina de configuración das notificacións.</p>
+            <p>Se non marca a caixa, falla a información relevante sobre novas oportunidades participativas dentro da plataforma.<br>
+            Se aínda queres evitar recibir boletíns, entendemos perfectamente a túa decisión.</p>
+            <p>Grazas por ler isto!</p>
+          title: Notificacións de boletín informativo
+        omniauth_buttons:
+          or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorizar a aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecta a túa conta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publica contido por ti
+          see_email: Vexa o teu correo electrónico
+          see_name: Vexa o seu nome
+          see_username: Vexa o seu nome de usuario
+          this_application_will_be_able_to: 'Esta aplicación poderá:'
+          this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
+          update_profile: Actualiza o teu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    errors:
+      internal_server_error:
+        title: Produciuse un problema co noso servidor
+        try_later: Por favor inténtao de novo máis tarde.
+      not_found:
+        back_home: Volver a casa
+        content_doesnt_exist: Este enderezo non é correcto ou se eliminou.
+        title: Non se pode atopar a páxina que buscas
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'A emenda foi aceptada para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Unha enmenda aceptada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'A emenda foi aceptada para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Unha enmenda aceptada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Nova modificación de %{amendable_title}
+            notification_title: Creouse unha nova modificación para <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Creouse unha nova emenda para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Nova modificación de %{amendable_title}
+            notification_title: Creouse unha nova modificación para <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Unha emenda de %{emendation_author_nickname} publicouse como un novo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rexeitado cambio</a> para <a href="%{amendable_path}">%{amendable_title}</a> publicouse como unha nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Unha enmenda rexeitada para %{amendable_title} foi promovida a unha independente %{amendable_type}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Unha emenda de %{emendation_author_nickname} publicouse como un novo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rexeitado cambio</a> para <a href="%{amendable_path}">%{amendable_title}</a> publicouse como unha nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque es un autor de %{amendable_title}.
+            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Rexeitouse unha modificación para %{amendable_title}. Podes velo desde esta páxina:'
+            email_outro: Recibiches esta notificación porque estás seguindo %{amendable_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Unha enmenda rexeitada para %{amendable_title} de %{emendation_author_nickname}
+            notification_title: A <a href="%{emendation_path}">cambio</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rexeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{resource_title}
+          notification_title: Un <a href="%{resource_path}"> novo documento</a> foi engadido a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'O compoñente %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: O compoñente %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Ola %{user_name},
+        email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
+        email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
+        email_subject: Unha actualización a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: 'Xa obtivo unha insignia nova: %{badge_name}.'
+          notification_title: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
+        level_up:
+          email_intro: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+          email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
+          email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
+          notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
+      groups:
+        demoted_membership:
+          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> eliminou os dereitos de administrador dese grupo.
+          email_outro: Recibiches esta notificación porque es membro dese grupo.
+          email_subject: Xa non es administrador do grupo %{user_group_name}.
+          notification_title: Xa non es administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> convidoute a unirse a este.
+          email_outro: Recibiches esta notificación porque estivo convidado a un grupo. Verifica a pestana Grupos no teu perfil para aprobar.
+          email_subject: Invitaches a unirte ao grupo %{user_group_name}.
+          notification_title: Invitabades a unirte ao grupo <a href="%{resource_path}">%{user_group_name}</a> . Comprobe a páxina <a href="%{groups_profile_tab_path}">Grupos</a> seu perfil para aprobarla.
+        join_request_accepted:
+          email_intro: Parabéns! Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> aceptou a túa solicitude para unirte.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: Recibiches o grupo %{user_group_name}.
+          notification_title: Recibiches o grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Alguén solicitou unirse ao grupo %{user_group_name} . Podes aceptalo ou rexeitalo desde a <a href="%{resource_url}">páxina de membros do grupo</a>.
+          email_outro: Recibiches esta notificación porque podes xestionar o grupo %{user_group_name}.
+          email_subject: Alguén solicitou unirse ao grupo %{user_group_name}.
+          notification_title: Alguén solicitou unirse ao grupo %{user_group_name} . Podes aceptalo ou rexeitalo desde a <a href="%{resource_path}">páxina de membros do grupo</a>.
+        join_request_rejected:
+          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> rexeitou a solicitude para unirse a ela.
+          email_outro: Recibiches esta notificación porque se actualizou a túa solicitude de unión.
+          email_subject: A túa solicitude para unirse ao grupo %{user_group_name} foi rexeitada!
+          notification_title: A súa solicitude para unirse ao grupo <a href="%{resource_path}">%{user_group_name}</a> foi rexeitada.
+        promoted_to_admin:
+          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> deulle dereitos de administrador a ese grupo.
+          email_outro: Recibiches esta notificación porque es membro dese grupo.
+          email_subject: Agora es un administrador do grupo %{user_group_name}.
+          notification_title: Agora es un administrador do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> eliminouno.
+          email_outro: Recibiches esta notificación porque ti es membro dese grupo.
+          email_subject: Eliminaches do grupo %{user_group_name}.
+          notification_title: Elimineches do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+      notification_event:
+        notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+          email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: "%{nickname} actualizou o seu perfil"
+          notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+    export_mailer:
+      data_portability_export:
+        click_button: Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.
+        download: Descarga
+      export:
+        ready: Atopa unha versión comprimida da túa exportación.
+      subject: A exportación "%{name}" está lista
+    filters:
+      linked_classes:
+        all: Todo
+        collaborative_draft: Proxecto colaborativo
+        dummy_resource: Recursos maniquís
+        meeting: Reunións
+        project: Proxectos
+        proposal: Propostas
+        result: Resultados
+    fingerprint:
+      check: Verifique a pegada dixital
+      explanation: A parte de texto a continuación é unha representación reducida e enxurrada deste contido. É útil asegurar que o contido non foi manipulado, xa que unha modificación única resultaría nun valor totalmente diferente.
+      online_calculator_name: Calculadora MD5 en liña
+      replicate_help: Esta pegada calcúlase usando un algoritmo de hash SHA256. Para replicalo por si mesmo, pode usar un %{online_calculator_link} e copiar e pegar os datos fonte.
+      source: Fonte
+      title: Impresión dixital
+      value: Valor
+    followers:
+      no_followers: Aínda non hai seguidores.
+    following:
+      no_followings: Aínda non segue a ninguén nin a nada.
+    follows:
+      create:
+        button: Segue
+        error: Produciuse un erro tras este recurso.
+      destroy:
+        button: Deixar de seguir
+        error: Houbo un erro ao seguir este recurso.
+    forms:
+      current_file: Arquivo actual
+      current_image: Imaxe actual
+      default_image: Imaxe predeterminada
+      errors:
+        error: Hai un erro neste campo.
+      remove_this_file: Elimina este ficheiro
+    gamification:
+      all_badges_link: Consulta todas as insignias dispoñibles.
+      badges:
+        continuity:
+          conditions:
+            - Veña aquí a miúdo
+          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
+          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
+          description_own: Conectado por %{score} días consecutivos nalgún momento.
+          name: Continuidade
+          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
+          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
+          unearned_own: Non estás conectado por máis dun día consecutivo.
+        followers:
+          conditions:
+            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+          description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
+          description_another: Este usuario ten %{score} seguidores.
+          description_own: "%{score} seguidores están seguindo."
+          name: Seguidores
+          next_level_in: Obteña máis de %{score} usuarios que che sigan para chegar ao seguinte nivel.
+          unearned_another: Este usuario aínda non ten ningún seguidor.
+          unearned_own: Aínda non tes followers.
+        index:
+          badge_title: "%{name} insignia"
+          how: Como podes gañalo
+          page_description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias. Aquí está a lista de emblemas e algunhas formas de gaña-los.
+          title: Insignias
+        invitations:
+          conditions:
+            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
+            - Personaliza, se queres, a mensaxe que estás enviando
+            - Subirás ao enviar invitacións e obtelos rexistrados.
+          description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
+          description_another: Este usuario invitou a %{score} usuarios.
+          description_own: Invitaches %{score} usuarios.
+          name: Invitacións
+          next_level_in: Invita %{score} usuarios máis para chegar ao seguinte nivel!
+          unearned_another: Este usuario aínda non invitou ningún usuario.
+          unearned_own: Aínda non invitaches usuarios.
+      description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
+      level: Nivel %{level}
+      reached_top: Alcanzou o nivel superior desta placa.
+    group_admins:
+      actions:
+        are_you_sure: Estás seguro? Isto non eliminará o usuario do grupo.
+        demote_admin: Eliminar administrador
+      demote:
+        error: Produciuse un erro ao eliminar este usuario da lista de administradores
+        success: Usuario eliminado do administrador con éxito
+      index:
+        current_admins: 'Administradores actuais:'
+        manage_admins: Xestionar os administradores
+    group_invites:
+      accept:
+        error: Houbo un erro ao aceptar esta invitación
+        success: Invitación aceptada con éxito
+      accept_invitation: Aceptar
+      accept_or_reject_group_invitations: 'Os seguintes grupos convidáronlle a unirse a eles. Aceptar ou rexeitar as súas solicitudes:'
+      index:
+        invite: Invitar
+        invite_user: Convidar un usuario
+      invite:
+        error: Produciuse un erro ao invitar a este usuario
+        success: Usuario convidado con éxito
+      reject:
+        error: Produciuse un erro ao rexeitar esta invitación
+        success: Invitación rexeitada con éxito
+      reject_invitation: Rexeitar
+    group_members:
+      accept:
+        error: Houbo un erro ao aceptar esta solicitude de unirse
+        success: A solicitude de adhesión aceptouse con éxito
+      actions:
+        are_you_sure: Estás seguro?
+        promote_to_admin: Facer admin
+        remove_from_group: Eliminar o usuario
+      index:
+        current_members_without_admins: 'Membros actuais (sen admins):'
+        manage_members: Xestionar membros
+      promote:
+        error: Produciuse un erro ao promover este usuario
+        success: Usuario promocionado con éxito
+      reject:
+        error: Produciuse un erro ao rexeitar esta solicitude de unirse
+        success: A solicitude de adhesión rexeitou con éxito
+      remove:
+        error: Produciuse un erro ao eliminar este usuario do grupo
+        success: Usuario eliminado do grupo correctamente
+    groups:
+      actions:
+        are_you_sure: Estás seguro?
+      create:
+        error: Produciuse un problema ao crear o grupo
+        success: Grupo creouse con éxito
+      edit:
+        edit_user_group: Editar grupo
+        update_user_group: Grupo de actualización
+      form:
+        document_number_help: Non empregue guións nin espazos
+        email_help: Correo electrónico da súa organización, asociación, colectivo, grupo, etc.
+        fill_in_for_verification: 'Encha estes campos se quere verificar o teu grupo:'
+        name_help: Nome da súa organización, asociación, colectivo, grupo, etc.
+        nickname_help: Nome de usuario da túa organización, asociación, colectivo, grupo, etc. Non uses espazos nin acentos.
+        phone_help: Non empregue guións nin espazos
+      join:
+        error: Produciuse un problema ao unirse ao grupo
+        success: A solicitude de unirse creouse con éxito. Un administrador revisará a túa solicitude antes de aceptarche no grupo.
+      leave:
+        error: Produciuse un problema ao deixar o grupo
+        success: O grupo saíu con éxito.
+      members:
+        accept_or_reject_join_requests: 'Os seguintes usuarios solicitaron unirse a este grupo. Aceptar ou rexeitar as súas solicitudes:'
+        accept_request: Aceptar
+        reject_request: Rexeitar
+      new:
+        create_user_group: Crear grupo
+        new_user_group: Novo grupo
+        subtitle: Crea un grupo e invita a outros usuarios a participar para participar a nivel colectivo.
+      no_user_groups: Aínda non pertence a ningún grupo.
+      roles:
+        admin: Administrador
+        creator: Creador
+        member: Membro
+      update:
+        error: Produciuse un problema ao actualizar o grupo
+        success: Grupo actualizado con éxito
+    help:
+      main_topic:
+        default_page:
+          content: "<p>En %{organization} podes participar e decidir sobre diferentes temas, a través dos espazos que ves no menú superior: Procesos, Asembleas, Iniciativas, Consultas.</p> <p>Dentro de cada unha, atoparás diferentes opcións para participar: facer propostas, individualmente ou con outras persoas, participar nos debates, priorizar os proxectos a implementar, asistir a reunións cara a cara e outras accións.</p>\n"
+          title: Que podo facer en %{organization}?
+        description: Ler máis sobre %{organization}
+        title: Axuda xeral
+    last_activities:
+      activities:
+        no_activities_warning: Non hai actividade
+      all: Todos os tipos de actividade
+      index:
+        last_activity: Última actividade
+        resource_type: Tipo
+    log:
+      base_presenter:
+        create: "%{user_name} creouse %{resource_name}"
+        create_with_space: "%{user_name} creou %{resource_name} en %{space_name}"
+        delete: "%{user_name} eliminado %{resource_name}"
+        delete_with_space: "%{user_name} eliminado %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizou algunha acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizou algunha acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizouse %{resource_name}"
+        update_with_space: "%{user_name} actualizouse %{resource_name} en %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'A área non se atopou na base de datos (ID: %{id})'
+        area_type_presenter:
+          not_found: 'O tipo de área non se atopou na base de datos (ID: %{id})'
+        scope_presenter:
+          not_found: 'O alcance non se atopou na base de datos (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Non se atopou o tipo de alcance na base de datos (ID: %{id})'
+    managed_users:
+      expired_session: A sesión de suplantación actual caducou.
+    members:
+      no_members: Este grupo de usuarios aínda non ten ningún membro.
+    menu:
+      help: Axuda
+      home: Inicio
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Ola, %{recipient}!
+          intro: "%{sender} comezou unha nova conversa contigo. Prema aquí para velo:"
+          outro: Goza de decisión!
+          subject: "%{sender} comezou unha conversa contigo"
+        new_message:
+          greeting: Ola, %{recipient}!
+          intro: "%{sender} publicou novas mensaxes na túa conversa. Prema aquí para velas:"
+          outro: Goza de decisión!
+          subject: Tes novas mensaxes de %{sender}
+      conversations:
+        create:
+          error: Non se iniciou a conversa. Téntao de novo máis tarde
+        index:
+          no_conversations: Aínda non tes conversas
+          title: Conversas
+        reply:
+          send: Enviar
+          title: Responder
+        show:
+          title: Conversa con %{usernames}
+        start:
+          send: Enviar
+          title: Comezar unha conversa
+        update:
+          error: Mensaxe non enviada. Téntao de novo máis tarde
+    metrics:
+      download:
+        csv: Descargar datos (csv)
+      followers:
+        description: Número de usuarios que seguen este espazo de participación
+        object: seguidores
+        title: Seguidores
+      participants:
+        description: Número de usuarios activos na organización
+        object: participantes
+        title: Participantes
+      users:
+        description: Número de usuarios da organización
+        object: usuarios
+        title: Usuarios
+    newsletter_mailer:
+      newsletter:
+        note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
+        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
+        unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se queres cambiar as túas preferencias, podes facelo na <a href="%{link}" target="_blank">configuración páxina</a>
+        error: Produciuse un erro ao cancelar a subscrición
+        success: Estás desubscrito con éxito.
+        token_error: A ligazón caducou.
+        unsubscribe: Anular a suscripción
+    newsletters_opt_in:
+      unathorized: Esta ligazón xa non está dispoñible
+      update:
+        error: Aconteceu algo mal
+        success: Configuracións do boletín informativo actualizáronse con éxito
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
+        body_2: 'Como nos pode dar o seu consentimento? Só tes que premer no seguinte botón:'
+        body_3: Con este consentimento poderás seguir recibindo información sobre os servizos da plataforma. Se, pola contra, non recibimos unha confirmación positiva da súa parte, deixaremos de enviarlle as nosas mensaxes. Se confirma que quere manter informado, sempre terá a opción de cancelar en calquera momento.
+        button: Si, quero seguir recibindo información relevante
+        greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ola,
+        subject: Queres seguir recibindo información relevante sobre %{organization_name}?
+    notifications:
+      no_notifications: Aínda non hai notificacións.
+    notifications_settings:
+      show:
+        email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
+        everything_followed: Todo o que segue
+        newsletter_notifications: Quero recibir boletíns
+        newsletters: Boletíns informativos
+        own_activity: A miña propia actividade, como cando alguén comenta na miña proposta ou me menciona
+        receive_notifications_about: Quero recibir notificacións sobre
+        send_notifications_by_email: Envíe notificacións por correo electrónico
+        update_notifications_settings: Gardar cambios
+      update:
+        error: Produciuse un erro ao actualizar a configuración das notificacións.
+        success: A configuración das notificacións actualizouse correctamente.
+    open_data:
+      not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
+    own_user_groups:
+      index:
+        pending: Pendente
+        rejected: Rexeitado
+        verified: Verificado
+    pad_iframe:
+      disclaimer: Os contidos deste pad son escritos por usuarios rexistrados e expresan as súas opinións. %{organization} non se responsabiliza dos seus contidos.
+      explanation: Use esta almofada para tomar notas de xeito colaborativo durante a reunión, polo que é máis fácil escribir un minuto despois.
+      pad: Pad
+    pages:
+      home:
+        extended:
+          debates: Debates
+          debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
+          how_to_participate: '¿Como participo nun proceso?'
+          meetings: Reunións
+          meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
+          more_info: Máis información
+          proposals: Propostas
+          proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
+        footer_sub_hero:
+          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
+          footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
+          register: Rexistrarse
+        hero:
+          participate: Participar
+          welcome: Benvido a %{organization}.
+        metrics:
+          headline: Participación en números
+        statistics:
+          answers_count: Enquisas concluídas
+          assemblies_count: Asembleas
+          comments_count: Comentarios
+          conferences_count: Conferencias
+          debates_count: Debates
+          endorsements_count: Aprobacións
+          headline: Estado actual de %{organization}
+          meetings_count: Reunións
+          orders_count: Votos
+          pages_count: Páxinas
+          processes_count: Procesos
+          projects_count: Proxectos
+          proposals_accepted: Propostas aceptadas
+          proposals_count: Propostas
+          results_count: Resultados
+          surveys_count: Enquisas
+          users_count: Participantes
+          votes_count: Votos
+        sub_hero:
+          register: Rexistrarse
+      index:
+        read_more: Le máis
+        standalone_pages: Páxinas
+        subheading: Navega polas páxinas de axuda de %{name}
+        title: Axuda
+        topics: Temas
+      participatory_space:
+        metrics:
+          headline: Participación en números
+          link: Mostrar todas as estatísticas
+      terms_and_conditions:
+        accept:
+          error: Produciuse un erro ao aceptar os termos e condicións.
+          success: Grande! Aceptou os termos e condicións.
+        form:
+          agreement: Acepto estes termos
+          legend: Concorda cos termos e condicións de uso
+        refuse:
+          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
+          modal_btn_continue: Aceptar termos e continuar
+          modal_btn_exit: Vou revisalo máis tarde
+          modal_button: Rexeitar os termos
+          modal_close: Pechar modal
+          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
+        required_review:
+          alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
+          body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
+          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
+    participatory_space_private_users:
+      not_allowed: Non tes permiso para ver este contido
+    profile:
+      deleted: Usuario eliminado
+      view: Ver
+    profiles:
+      default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
+      default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
+      show:
+        activity: Actividade
+        badges: Insignias
+        followers: Seguidores
+        following: Segue
+        groups: Grupos
+        members: Membros
+        timeline: Cronoloxía
+        view_full_profile: Ver o perfil completo
+      sidebar:
+        badges:
+          info: As insignias obtéñense realizando actividades específicas na plataforma.
+          title: Insignias
+      user:
+        confirmation_instructions_sent: Instrucións de confirmación de correo enviadas
+        create_user_group: Crear grupo
+        edit_profile: Editar perfil
+        edit_user_group: Editar o perfil do grupo
+        fill_in_email_to_confirm_it: Por favor, enche o correo electrónico do teu grupo para confirmalo
+        invite_user: Invitar ao usuario
+        join_user_group: Solicitude para unirse ao grupo
+        leave_user_group: Deixar de grupo
+        manage_user_group_admins: Xestionar os administradores
+        manage_user_group_users: Xestionar membros
+        resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
+    reported_mailer:
+      hide:
+        hello: Ola %{name},
+        manage_moderations: Xestionar moderacións
+        report_html: <p> O seguinte <a href="%{url}">content</a> ocultouse automaticamente.</p>
+        subject: Ocultouse un recurso automaticamente
+      report:
+        hello: Ola %{name},
+        manage_moderations: Xestionar moderacións
+        report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
+        subject: Informouse un recurso
+    reports:
+      create:
+        error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
+        success: O informe foi creado con éxito e será revisado por un administrador.
+    scopes:
+      global: Alcance global
+      picker:
+        cancel: Cancelar
+        choose: Seleccionar
+        title: Selecciona %{field}
+      prompt: Seleccione un alcance
+      scopes: Ámbitos
+    search:
+      results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
+      term_input_placeholder: Busca
+    searches:
+      filters:
+        back: Voltar aos resultados
+        jump_to: 'Ir a:'
+        state:
+          active: Activo
+          all: Todo
+          future: Futuro
+          past: Pasado
+      filters_small_view:
+        close_modal: Pechar modal
+        filter: Filtro
+        filter_by: Filtrar por
+        unfold: Despregar
+      results:
+        results:
+          one: "%{count} resultado"
+          other: "%{count} resultados"
+        view_all: Ver todos (%{count})
+    shared:
+      embed_modal:
+        close_window: Pechar ventá
+        embed: Pega este código na túa páxina
+        embed_link: Inserir
+      extended_navigation_bar:
+        more: Máis
+        unfold: Despregar
+      flag_modal:
+        already_reported: Este contido xa se informou e será revisado por un administrador.
+        close: Pechar
+        description: Este contido é inapropiado?
+        does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
+        offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
+        report: Informe
+        spam: Contén clic, publicidade, fraudes ou bots de script.
+        title: Informar dun problema
+      floating_help:
+        help: Axuda
+      follow_button:
+        sign_in_before_follow: Inicia sesión antes de realizar esta acción
+      login_modal:
+        please_sign_in: Inicia sesión
+        sign_up: Rexistrarse
+      participatory_space_filters:
+        filters:
+          areas: Ámbitos
+          select_an_area: Seleccione unha área
+      reference:
+        reference: 'Referencia: %{reference}'
+      represent_user_group:
+        represent_user_group: Represento a un grupo
+        select_user_group: Seleccione un grupo
+      results_per_page:
+        label: 'Resultados por páxina:'
+      share_modal:
+        close_window: Pechar ventá
+        share: Comparte
+        share_link: Compartir a ligazón
+      version_author:
+        deleted: Usuario eliminado
+    user_activity:
+      index:
+        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
+    user_interests:
+      show:
+        my_interests: Os meus intereses
+        no_scopes: Esta organización aínda non ten ningún alcance.
+        select_your_interests: Selecciona os temas que che interesan para recibir eventos relacionados con eles na pestana Timeline do teu perfil.
+        update_my_interests: Actualiza os meus intereses
+      update:
+        error: Produciuse un erro ao actualizar os teus intereses.
+        success: Os teus intereses foron actualizados correctamente.
+    welcome_notification:
+      default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
+      default_subject: Grazas por unirte a {{organization}}!
+  devise:
+    confirmations:
+      confirmed: O seu enderezo de correo electrónico confirmouse con éxito.
+      new:
+        resend_confirmation_instructions: Reenvía as instrucións de confirmación
+      send_instructions: Recibirás un correo electrónico con instrucións para confirmar o teu enderezo de correo electrónico en poucos minutos.
+      send_paranoid_instructions: Se o enderezo de correo electrónico existe na nosa base de datos, recibirá un correo electrónico con instrucións para confirmar o seu enderezo de correo electrónico en poucos minutos.
+    failure:
+      already_authenticated: Xa estás conectado.
+      inactive: A túa conta aínda non está activada.
+      invalid: O %{authentication_keys} ou o contrasinal non son válidos.
+      invited: Tes unha invitación pendente, acepta-la para finalizar a creación da túa conta.
+      last_attempt: Tes unha tentativa máis antes de que a túa conta estea bloqueada.
+      locked: A túa conta está bloqueada.
+      not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
+      timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
+      unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
+    invitations:
+      edit:
+        header: Acaba de crear a túa conta
+        nickname_help: O teu identificador único en %{organization}.
+        submit_button: Gardar
+        subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
+      invitation_removed: A túa invitación foi eliminada.
+      invitation_token_invalid: O token de invitación proporcionado non é válido.
+      new:
+        header: Enviar invitación
+        submit_button: Enviar unha invitación
+      no_invitations_remaining: Non hai invitacións restantes
+      send_instructions: Enviouse un correo electrónico de invitación a %{email}.
+      updated: O seu contrasinal configurouse con éxito. Agora iniciaches sesión.
+      updated_not_active: O seu contrasinal configurouse con éxito.
+    mailer:
+      confirmation_instructions:
+        action: Confirme a miña conta
+        greeting: Benvidos %{recipient}.
+        instruction: 'Pode confirmar a súa conta por correo electrónico a través da seguinte ligazón:'
+        subject: Instrucións de confirmación
+      email_changed:
+        greeting: Ola %{recipient}
+        message: Estamos a contactar con vostede para notificarlle que o seu correo electrónico está a ser modificado a %{email}.
+        subject: Cambiouse o correo electrónico
+      invitation_instructions:
+        accept: Aceptar invitación
+        accept_until: Esta invitación farase en %{due_date}.
+        decline: Declina a invitación
+        hello: Ola %{email},
+        ignore: |-
+          Se non queres aceptar a invitación, ignora este correo electrónico.<br />
+          súa conta non se creará ata que acceda á ligazón anterior e configure o seu alcume e contrasinal.
+        invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
+        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
+        someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
+        someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
+        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
+        subject: Instrucións de invitación
+      invite_admin:
+        subject: Invitaboute a xestionar %{organization}
+      invite_collaborator:
+        subject: Invitoute a colaborar en %{organization}
+      invite_private_user:
+        subject: Invitouse a un proceso participativo privado en %{organization}
+      organization_admin_invitation_instructions:
+        subject: Invitaboute a xestionar %{organization}
+      password_change:
+        greeting: Ola %{recipient}!
+        message: Estamos a contactar con vostede para notificarlle que se cambiou o seu contrasinal.
+        subject: Contrasinal modificado
+      reset_password_instructions:
+        action: Cambiar o meu contrasinal
+        greeting: Ola %{recipient}
+        instruction: Alguén solicitou unha ligazón para cambiar o teu contrasinal e podes facelo a través da seguinte ligazón.
+        instruction_2: Se non solicitou isto, ignore este correo electrónico.
+        instruction_3: O seu contrasinal non cambiará ata que acceda á ligazón anterior e cree unha nova.
+        subject: Restablecer as instrucións do contrasinal
+      unlock_instructions:
+        action: Desbloquea a miña conta
+        greeting: Ola %{recipient}
+        instruction: 'Fai clic na seguinte ligazón para desbloquear a túa conta:'
+        message: A túa conta foi bloqueada debido a unha cantidade excesiva de intentos de inicio de sesión incorrectos.
+        subject: Desbloquear instrucións
+    omniauth_callbacks:
+      failure: Non puiden autenticarme desde %{kind} porque "%{reason}".
+      success: Autenticado con éxito a partir de %{kind} contas.
+    passwords:
+      edit:
+        change_my_password: Cambiar o meu contrasinal
+        change_your_password: Cambia o teu contrasinal
+        confirm_new_password: Confirma o contrasinal novo
+        new_password: Novo contrasinal
+      new:
+        forgot_your_password: Esqueceu o contrasinal?
+        send_me_reset_password_instructions: Envíame a restablecer as instrucións do contrasinal
+      no_token: Non podes acceder a esta páxina sen necesidade dun correo electrónico de restablecemento de contrasinal. Se provén dun correo electrónico de restablecemento de contrasinal, asegúrese de utilizar a URL completa proporcionada.
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como restablecer a túa contrasinal en poucos minutos.
+      send_paranoid_instructions: Se o seu enderezo de correo electrónico existe na nosa base de datos, recibirá unha ligazón de recuperación de contrasinal no seu enderezo de correo electrónico en poucos minutos.
+      updated: O seu contrasinal modificouse con éxito. Agora iniciaches sesión.
+      updated_not_active: O seu contrasinal modificouse con éxito.
+    registrations:
+      destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
+      edit:
+        are_you_sure: Estás seguro?
+        cancel_my_account: Cancelar a miña conta
+        currently_waiting_confirmation_for_email: 'Actualmente está a espera de confirmación para: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: Deixar en branco se non o quere cambiar
+        title: Editar %{resource}
+        unhappy: Infeliz
+        update: Actualización
+        we_need_your_current_password_to_confirm_your_changes: necesitamos o seu contrasinal actual para confirmar os seus cambios
+      new:
+        sign_up: Rexistrarse
+      signed_up: Benvido! Rexistráches con éxito.
+      signed_up_but_inactive: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta aínda non está activada.
+      signed_up_but_locked: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta está bloqueada.
+      signed_up_but_unconfirmed: Enviouse unha mensaxe cunha ligazón de confirmación ao seu enderezo de correo electrónico. Sigue a ligazón para activar a túa conta.
+      update_needs_confirmation: Actualizou a súa conta correctamente, pero necesitamos verificar o seu novo enderezo de correo electrónico. Verifique o seu correo electrónico e siga a ligazón de confirmación para confirmar o seu novo enderezo de correo electrónico.
+      updated: A túa conta foi actualizada correctamente.
+    sessions:
+      already_signed_out: Saíu con éxito.
+      new:
+        sign_in: Iniciar sesión
+      signed_in: Iniciar sesión con éxito.
+      signed_out: Saíu con éxito.
+    shared:
+      links:
+        back: De volta
+        didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
+        didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
+        forgot_your_password: Esqueceu o contrasinal?
+        sign_in: Iniciar sesión
+        sign_in_with_provider: Inicia sesión con %{provider}
+        sign_up: Rexistrarse
+      minimum_password_length:
+        one: "(Mínimo de%{count} caracteres)"
+        other: "(Mínimo de%{count} caracteres)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenvía instrucións de desbloqueo
+      send_instructions: Recibirás un correo electrónico con instrucións sobre como desbloquear a túa conta nuns minutos.
+      send_paranoid_instructions: Se a túa conta existe, recibirás un correo electrónico con instrucións sobre como desbloquearlo en poucos minutos.
+      unlocked: A túa conta foi desbloqueada con éxito. Inicia sesión para continuar.
+  doorkeeper:
+    scopes:
+      public: A túa información pública.
+  errors:
+    messages:
+      already_confirmed: xa se confirmou, intente iniciar sesión
+      confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
+      content_type_whitelist_error: o tipo de ficheiro non é válido
+      cycle_detected: un pai do alcance non pode ser un dos seus descendentes
+      expired: caducou, por favor solicita unha nova
+      file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
+      long_words: contén palabras que son demasiado longas (máis de 35 caracteres)
+      must_start_with_caps: debe comezar cunha letra maiúscula
+      nesting_too_deep: non pode estar dentro dunha subcategoría
+      not_found: non atopado
+      not_locked: Non estaba bloqueado
+      not_saved:
+        one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
+        other: "%{count} erros prohibidos de gardar este %{resource}:"
+      too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
+      too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
+      too_short: é demasiado curto (menos de 15 caracteres)
+  forms:
+    required: Requerido
+  invisible_captcha:
+    sentence_for_humans: Se es humano, ignore este campo
+    timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Este sitio usa cookies. Ao continuar navegando polo sitio, acepta o noso uso das cookies. Máis información %{link}.
+        link_label: aquí
+        ok: Estou de acordo
+      edit_link:
+        edit: Editar
+      footer:
+        download_open_data: Descargar ficheiros Open Data
+        made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
+      header:
+        close_menu: Pechar o menú
+        navigation: Navegación
+        sign_in: Rexístrate
+        sign_up: Rexistrarse
+      impersonation_warning:
+        close_session: Pechar sesión
+        description_html: Estás a suplantar o usuario <b>%{user_name}</b>.
+        expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
+      notifications_dashboard:
+        mark_all_as_read: Marca todo como lido
+      user_menu:
+        admin_dashboard: Taboleiro de administración
+        conversations: Conversas
+        notifications: Notificacións
+        profile: A miña conta
+        public_profile: O meu perfil público
+        sign_out: Saír
+      user_profile:
+        account: Conta
+        authorizations: Autorizacións
+        delete_my_account: Eliminar a miña conta
+        my_data: Os meus datos
+        my_interests: Os meus intereses
+        notifications_settings: Configuración de notificacións
+        title: Configuración do usuario
+        user_groups: Grupos
+      widget:
+        see_more: Ver máis
+  locale:
+    name: Galego
+  password_validator:
+    domain_included_in_password: é moi similar a este nome de dominio
+    email_included_in_password: é demasiado semellante ao teu correo electrónico
+    fallback: non é válido
+    name_included_in_password: é moi similar ao teu nome
+    not_enough_unique_characters: non ten suficientes caracteres únicos
+    password_not_allowed: non está permitido
+    password_too_common: é moi común
+    password_too_long: é demasiado longo
+    password_too_short: é demasiado curto
+  social_share_button:
+    delicious: Delicioso
+    douban: Douban
+    email: Correo electrónico
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Novas de hackers
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartir a %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Abre o noso WeChat, faga clic no botón "Descubrir" e prema no menú "Escanear código QR".
+    weibo: Sina Weibo
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
+      decidim_short: "%d/%m/%Y %H:%M"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: Último &raquo;
+      next: Seguinte &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

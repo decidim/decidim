@@ -1,0 +1,33 @@
+<% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
+
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-7 large-5 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= decidim_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit t("devise.confirmations.new.resend_confirmation_instructions"), class: "button expanded" %>
+            </div>
+          <% end %>
+
+          <%= render "decidim/devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

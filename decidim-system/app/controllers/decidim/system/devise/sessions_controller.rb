@@ -1,11 +1,20 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     module Devise
-      # A controller so admins can log-in and use their backend.
+      # Custom Sessions controller for Devise in order to use a custom layout
+      # and views.
       class SessionsController < ::Devise::SessionsController
-        helper Decidim::System::ApplicationHelper
+        include Decidim::LocaleSwitcher
+
+        helper Decidim::DecidimFormHelper
+
         layout "decidim/system/login"
+
+        private
+
+        def current_organization; end
       end
     end
   end

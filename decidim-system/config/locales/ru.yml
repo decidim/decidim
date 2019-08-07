@@ -1,0 +1,71 @@
+ru:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Вы действительно хотите удалить это?
+        destroy: Удалить
+        edit: Редактировать
+        new: Добавить
+        save: Сохранить
+        title: Действия
+      admins:
+        create:
+          error: При попытке создать нового администратора произошла ошибка.
+          success: Администратор успешно добавлен
+        destroy:
+          success: Администратор успешно удален
+        edit:
+          title: Редактировать администратора
+          update: Обновить
+        index:
+          title: Администраторы
+        new:
+          create: Добавить
+          title: Добавить администратора
+        update:
+          error: При попытке обновить этого администратора произошла ошибка.
+          success: Администратор успешно обновлен
+      default_pages:
+        placeholders:
+          content: Пожалуйста, добавьте осмысленное содержание на статическую страницу %{page} через панель администратора.
+          title: Заголовок по умолчанию для %{page}
+      menu:
+        admins: Администраторы
+        dashboard: Панель управления
+        organizations: Организации
+      models:
+        admin:
+          fields:
+            created_at: 'Добавлено:'
+            email: Эл. адрес
+          name: Администратор
+          validations:
+            email_uniqueness: уже есть другой администратор с тем же эл-адресом
+        organization:
+          actions:
+            save_and_invite: Добавить организацию и пригласить администратора
+          fields:
+            created_at: 'Добавлено:'
+            name: Имя
+          name: Организация
+      organizations:
+        create:
+          error: При попытке добавить новую организацию произошла ошибка.
+          success: Организация успешно добавлена.
+        edit:
+          secondary_hosts_hint: Введите каждый из них в новой строке
+        index:
+          title: Организации
+        new:
+          reference_prefix_hint: Справочный префикс используется для однозначной идентификации ресурсов во всех организациях
+          secondary_hosts_hint: Введите каждый из них в новой строке
+          title: Добавить организацию
+        update:
+          error: При попытке обновить эту организацию произошла ошибка.
+          success: Организация успешно обновлена.
+      shared:
+        notices:
+          no_organization_warning_html: Для начала определите организацию. Обязательно почитайте %{guide}, прежде чем продолжать дальше.
+          our_getting_started_guide: наше руководство для начинающих
+      titles:
+        dashboard: Панель управления

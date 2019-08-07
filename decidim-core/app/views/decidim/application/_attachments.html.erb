@@ -1,0 +1,12 @@
+<% if attached_to.attachments.any? %>
+  <div class="row attachments">
+    <div class="columns large-12">
+      <%= render partial: "documents", locals: { documents: attached_to.documents } %>
+    </div>
+  </div>
+  <div class="row attachments">
+    <div class="columns large-12">
+      <%= render partial: "photos", locals: { photos: attached_to.photos } %>
+    </div>
+  </div>
+<% end %>

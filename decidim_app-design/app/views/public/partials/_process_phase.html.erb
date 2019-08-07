@@ -1,0 +1,27 @@
+<div class="process-header__phase">
+  <div class="process-header__progress">
+    <ol>
+      <!--
+        Maximum number of items: 20
+        If a process has >20 phases,
+        render 20 and apply .phase-item--past proportionally.
+        If number of items = number of phases, current phase gets the class too.
+      -->
+      <%
+        length = Random.rand(2..20)
+        current = Random.rand(1..length)
+        length.times do |i|
+      %>
+        <li class="<%= "phase-item--past" if ((i + 1) <= current) %><%= " phase-item--current" if ((i + 1) == current) %>"><span></span></li>
+      <% end %>
+    </ol>
+    <span class="phase-current">Fase <%= current %> de <%= length %></span>
+  </div>
+  <div>
+    <!-- if the process is finished, display "Completed process"
+    instead of the last phase name-->
+    <span class="phase-title">Priorització de propostes</span>
+  </div>
+  <!-- display this link only if phase log is enabled -->
+  <a href="/phases" class="button small button--sc show-for-medium">Ver fases</a>
+</div>

@@ -1,0 +1,34 @@
+<button class="clear button secondary button--nomargin small" type="button" data-open="tos-refuse-modal">
+  <%= t("refuse.modal_button", scope: "decidim.pages.terms_and_conditions") %>
+</button>
+
+<div id="tos-refuse-modal" class="reveal" data-reveal aria-labelledby="<%= t("refuse.modal_title", scope: "decidim.pages.terms_and_conditions") %>" aria-hidden="true" role="dialog">
+  <div class="reveal__header">
+    <h3 class="reveal__title">
+      <%= t("refuse.modal_title", scope: "decidim.pages.terms_and_conditions") %>
+    </h3>
+
+    <button class="close-button" data-close aria-label="<%= t("refuse.modal_close", scope: "decidim.pages.terms_and_conditions") %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row">
+    <p>
+      <%= t("refuse.modal_body", scope: "decidim.pages.terms_and_conditions", data_portability_path: decidim.data_portability_path, delete_path: decidim.delete_account_path) %>
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="column flex-center">
+      <%= button_to decidim.destroy_user_session_path, method: :delete, class: "clear button secondary expanded" do %>
+        <%= t("refuse.modal_btn_exit", scope: "decidim.pages.terms_and_conditions") %>
+      <% end %>
+
+      <%= button_to decidim.accept_tos_path, method: :put, class: "button expanded" do %>
+        <%= t("refuse.modal_btn_continue", scope: "decidim.pages.terms_and_conditions") %>
+      <% end %>
+    </div>
+  </div>
+</div>

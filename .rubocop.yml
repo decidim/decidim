@@ -1,37 +1,26 @@
+require: rubocop-rspec
+
 # Common configuration.
 AllCops:
-  # Include common Ruby source files.
   Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
-    - '**/Fastfile'
-    - '**/*Fastfile'
+    - .simplecov
+    - "**/*.rb"
+    - "**/*.rake"
+    - "**/*.gemspec"
+    - "**/*.ru"
+    - "**/Gemfile"
+    - "**/Rakefile"
   Exclude:
-    - '**/Gemfile'
-    - 'vendor/**/*'
-    - 'spec/*'
-    - 'decidim-*/spec/**/*'
-    - 'decidim-*/test/**/*'
-    - 'decidim-*/db/**/*'
+    - "**/vendor/**/*"
+    - "development_app/**/*"
+    - "spec/decidim_dummy_app/**/*"
+    - "node_modules/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
   # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
   # option.
-  DisplayCopNames: false
+  DisplayCopNames: true
   # Style guide URLs are not displayed in offense messages by default. Change
   # behavior by overriding DisplayStyleGuide, or by giving the
   # -S/--display-style-guide option.
@@ -69,16 +58,21 @@ AllCops:
   # unintended files, or read malicious input. If you are certain that your
   # cache location is secure from this kind of attack, and wish to use a
   # symlinked cache location, set this value to "true".
-  AllowSymlinksInCacheRootDirectory: false
+  AllowSymlinksInCacheRootDirectory: true
   # What MRI version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: ~
+  TargetRubyVersion: 2.5
+
+  RSpec:
+    Patterns:
+      - "(?:^|/)spec/"
+      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   EnforcedStyle: indent
   SupportedStyles:
     - outdent
@@ -93,23 +87,19 @@ Style/Alias:
     - prefer_alias
     - prefer_alias_method
 
-Style/AccessorMethodName:
-  Exclude:
-    - "lib/generators/decidim/app_generator.rb"
-
 # Align the elements of a hash literal if they span more than one line.
-Style/AlignHash:
+Layout/AlignHash:
   # Alignment of entries using hash rocket as separator. Valid values are:
   #
   # key - left alignment of keys
-  #   'a' => 2
-  #   'bb' => 3
+  #   "a" => 2
+  #   "bb" => 3
   # separator - alignment of hash rockets, keys are right aligned
-  #    'a' => 2
-  #   'bb' => 3
+  #    "a" => 2
+  #   "bb" => 3
   # table - left alignment of keys, hash rockets, and values
-  #   'a'  => 2
-  #   'bb' => 3
+  #   "a"  => 2
+  #   "bb" => 3
   EnforcedHashRocketStyle: key
   # Alignment of entries using colon as separator. Valid values are:
   #
@@ -161,7 +151,7 @@ Style/AlignHash:
     - ignore_implicit
     - ignore_explicit
 
-Style/AlignParameters:
+Layout/AlignParameters:
   # Alignment of parameters in multi-line method calls.
   #
   # The `with_first_parameter` style aligns the following lines along the same
@@ -191,6 +181,8 @@ Style/AndOr:
     - always
     - conditionals
 
+Style/AsciiComments:
+  Enabled: false
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
@@ -285,8 +277,8 @@ Style/BracesAroundHashParameters:
     - context_dependent
 
 # Indentation of `when`.
-Style/CaseIndentation:
-  IndentWhenRelativeTo: case
+Layout/CaseIndentation:
+  EnforcedStyle: case
   SupportedStyles:
     - case
     - end
@@ -333,11 +325,11 @@ Style/CollectionMethods:
   #   PreferredMethods:
   #     find: detect
   PreferredMethods:
-    collect: 'map'
-    collect!: 'map!'
-    inject: 'reduce'
-    detect: 'find'
-    find_all: 'select'
+    collect: "map"
+    collect!: "map!"
+    inject: "reduce"
+    detect: "find"
+    find_all: "select"
 
 # Use ` or %x around command literals.
 Style/CommandLiteral:
@@ -391,17 +383,17 @@ Style/ConditionalAssignment:
 # Style/Copyright:
 #   Enabled: true
 #   Notice: 'Copyright (\(c\) )?2015 Yahoo! Inc'
-#   AutocorrectNotice: '# Copyright (c) 2015 Yahoo! Inc.'
+#   AutocorrectNotice: "# Copyright (c) 2015 Yahoo! Inc."
 #
 Style/Copyright:
   Notice: '^Copyright (\(c\) )?2[0-9]{3} .+'
-  AutocorrectNotice: ''
+  AutocorrectNotice: ""
 
 Style/DocumentationMethod:
   RequireForNonPublicMethods: false
 
 # Multi-line method chaining should be done with leading dots.
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
   SupportedStyles:
     - leading
@@ -419,24 +411,24 @@ Style/EmptyElse:
     - both
 
 # Use empty lines between defs.
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   # If true, this parameter means that single line method definitions don't
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
@@ -446,25 +438,21 @@ Style/EmptyLinesAroundModuleBody:
 # AutoCorrectEncodingComment must match the regex
 # /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
 Style/Encoding:
-  EnforcedStyle: never
-  SupportedStyles:
-    - when_needed
-    - always
-    - never
-  AutoCorrectEncodingComment: '# encoding: utf-8'
+  Enabled: true
 
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
-  AllowForAlignment: true
+  AllowForAlignment: false
   # When true, forces the alignment of = in assignments on consecutive lines.
   ForceEqualSignAlignment: false
 
-Style/FileName:
-  # File names listed in AllCops:Include are excluded by default. Add extra
-  # excludes here.
-  Exclude: []
+Naming/FileName:
+  Exclude:
+    - "**/Gemfile"
+    - "**/Rakefile"
+    - "**/*.gemspec"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -480,7 +468,7 @@ Style/FileName:
   # files with a shebang in the first line).
   IgnoreExecutableScripts: true
 
-Style/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: special_for_inner_method_call_in_parentheses
   SupportedStyles:
     # The first parameter should always be indented one step more than the
@@ -513,12 +501,13 @@ Style/FormatString:
     - sprintf
     - percent
 
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: when_needed
+  EnforcedStyle: always
   SupportedStyles:
-    # `when_needed` will add the frozen string literal comment to files
-    # only when the `TargetRubyVersion` is set to 2.3+.
-    - when_needed
+    - never
     # `always` will always add the frozen string literal comment to a file
     # regardless of the Ruby version or if `freeze` or `<<` are called on a
     # string literal. If you run code against multiple versions of Ruby, it is
@@ -532,7 +521,7 @@ Style/GlobalVars:
 # `MinBodyLength` defines the number of lines of the a body of an if / unless
 # needs to have to trigger this cop
 Style/GuardClause:
-  MinBodyLength: 1
+  MinBodyLength: 6
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
@@ -550,10 +539,7 @@ Style/HashSyntax:
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
   PreferHashRocketsForNonAlnumEndingSymbols: false
 
-Style/IfUnlessModifier:
-  MaxLineLength: 80
-
-Style/IndentationConsistency:
+Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
   # prescribes that in classes and modules the `protected` and `private`
   # modifier keywords shall be indented the same as public methods and that
@@ -565,12 +551,12 @@ Style/IndentationConsistency:
     - normal
     - rails
 
-Style/IndentationWidth:
+Layout/IndentationWidth:
   # Number of spaces for each indentation level.
   Width: 2
 
 # Checks the indentation of the first element in an array literal.
-Style/IndentArray:
+Layout/IndentFirstArrayElement:
   # The value `special_inside_parentheses` means that array literals with
   # brackets that have their opening bracket on the same line as a surrounding
   # opening round parenthesis, shall have their first element indented relative
@@ -592,13 +578,13 @@ Style/IndentArray:
   IndentationWidth: ~
 
 # Checks the indentation of assignment RHS, when on a different line from LHS
-Style/IndentAssignment:
+Layout/IndentAssignment:
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
 # Checks the indentation of the first key in a hash literal.
-Style/IndentHash:
+Layout/IndentFirstHashElement:
   # The value `special_inside_parentheses` means that hash literals with braces
   # that have their opening brace on the same line as a surrounding opening
   # round parenthesis, shall have their first key indented relative to the
@@ -625,6 +611,9 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
+  Exclude:
+    - "**/types/**/*"
+    - "**/*_interface.rb"
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -635,7 +624,7 @@ Style/LambdaCall:
 Style/Next:
   # With `always` all conditions at the end of an iteration needs to be
   # replaced by next - with `skip_modifier_ifs` the modifier if like this one
-  # are ignored: [1, 2].each { |a| return 'yes' if a == 1 }
+  # are ignored: [1, 2].each { |a| return "yes" if a == 1 }
   EnforcedStyle: skip_modifier_ifs
   # `MinBodyLength` defines the number of lines of the a body of an if / unless
   # needs to have to trigger this cop
@@ -658,10 +647,6 @@ Style/NumericPredicate:
   SupportedStyles:
     - predicate
     - comparison
-  # Exclude RSpec specs because assertions like `expect(1).to be > 0` cause
-  # false positives.
-  Exclude:
-    - 'spec/**/*'
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
@@ -670,7 +655,7 @@ Style/MethodDefParentheses:
     - require_no_parentheses
     - require_no_parentheses_except_multiline
 
-Style/MethodName:
+Naming/MethodName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
@@ -682,7 +667,7 @@ Style/ModuleFunction:
     - module_function
     - extend_self
 
-Style/MultilineArrayBraceLayout:
+Layout/MultilineArrayBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -692,7 +677,7 @@ Style/MultilineArrayBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineAssignmentLayout:
+Layout/MultilineAssignmentLayout:
   # The types of assignments which are subject to this rule.
   SupportedTypes:
     - block
@@ -710,7 +695,7 @@ Style/MultilineAssignmentLayout:
     # for the set of supported types.
     - new_line
 
-Style/MultilineHashBraceLayout:
+Layout/MultilineHashBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -720,7 +705,7 @@ Style/MultilineHashBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -730,7 +715,7 @@ Style/MultilineMethodCallBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -740,7 +725,7 @@ Style/MultilineMethodCallIndentation:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
-Style/MultilineMethodDefinitionBraceLayout:
+Layout/MultilineMethodDefinitionBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -750,7 +735,7 @@ Style/MultilineMethodDefinitionBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -783,15 +768,15 @@ Style/ParenthesesAroundCondition:
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%':  ()
-    '%i': ()
-    '%q': ()
-    '%Q': ()
-    '%r': '{}'
-    '%s': ()
-    '%w': ()
-    '%W': ()
-    '%x': ()
+    "%":  ()
+    "%i": ()
+    "%q": ()
+    "%Q": ()
+    "%r": "{}"
+    "%s": ()
+    "%w": ()
+    "%W": ()
+    "%x": ()
 
 Style/PercentQLiterals:
   EnforcedStyle: lower_case_q
@@ -799,7 +784,7 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
-Style/PredicateName:
+Naming/PredicateName:
   # Predicate name prefixes.
   NamePrefix:
     - is_
@@ -808,7 +793,6 @@ Style/PredicateName:
   # Predicate name prefixes that should be removed.
   NamePrefixBlacklist:
     - is_
-    - has_
     - have_
   # Predicate names which, despite having a blacklisted prefix, or no ?,
   # should still be accepted
@@ -817,11 +801,18 @@ Style/PredicateName:
   # Exclude Rspec specs because there is a strong convetion to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
-    - 'spec/**/*'
+    - "**/spec/**/*"
+    - "**/test/**/*"
+
+Style/PreferredHashMethods:
+  Enabled: true
+  EnforcedStyle: verbose
+
+Style/DateTime:
+  Enabled: true
 
 Style/Documentation:
-  Exclude:
-    - '**/*/spec/**/*_spec.rb'
+  Enabled: false
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
@@ -847,6 +838,9 @@ Style/RegexpLiteral:
   # are found in the regexp string.
   AllowInnerSlashes: false
 
+Style/SafeNavigation:
+  Enabled: false
+
 Style/Semicolon:
   # Allow ; to separate several expressions on the same line.
   AllowAsExpressionSeparator: false
@@ -870,7 +864,7 @@ Style/SingleLineBlockParams:
 Style/SingleLineMethods:
   AllowIfMethodIsEmpty: true
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
@@ -913,31 +907,28 @@ Style/StringMethods:
   PreferredMethods:
     intern: to_sym
 
-Style/SpaceAroundBlockParameters:
+Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   # When true, allows most uses of extra spacing if the intent is to align
   # with an operator on the previous or next line, not counting empty lines
   # or comment lines.
   AllowForAlignment: true
 
-Style/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
@@ -947,24 +938,27 @@ Style/SpaceInsideBlockBraces:
   # Space between { and |. Overrides EnforcedStyle if there is a conflict.
   SpaceBeforeBlockParameters: true
 
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
     - space
     - no_space
-    # 'compact' normally requires a space inside hash braces, with the exception
+    # "compact" normally requires a space inside hash braces, with the exception
     # that successive left braces or right braces are collapsed together
     - compact
 
-Style/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: no_space
   SupportedStyles:
     - space
     - no_space
 
+Style/AccessModifierDeclarations:
+  Enabled: false
+
 Style/SymbolArray:
-  EnforcedStyle: percent
+  EnforcedStyle: brackets
   SupportedStyles:
     - percent
     - brackets
@@ -983,7 +977,7 @@ Style/TernaryParentheses:
     - require_no_parentheses
   AllowSafeAssignment: true
 
-Style/TrailingBlankLines:
+Layout/TrailingBlankLines:
   EnforcedStyle: final_newline
   SupportedStyles:
     - final_newline
@@ -995,21 +989,20 @@ Style/TrailingCommaInArguments:
   # If `consistent_comma`, the cop requires a comma after the last argument,
   # for all parenthesized method calls with arguments.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
-    - comma
-    - consistent_comma
-    - no_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   # If `comma`, the cop requires a comma after the last item in an array or
   # hash, but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
   # non-empty array and hash literals.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
-    - comma
-    - consistent_comma
-    - no_comma
+
+Style/TrailingCommaInHashLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
 
 # TrivialAccessors requires exact name matches and doesn't allow
 # predicated methods by default.
@@ -1053,21 +1046,18 @@ Style/TrivialAccessors:
     - to_s
     - to_sym
 
-Style/VariableName:
+Naming/VariableName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
     - camelCase
 
-Style/VariableNumber:
+Naming/VariableNumber:
   EnforcedStyle: normalcase
   SupportedStyles:
     - snake_case
     - normalcase
     - non_integer
-
-Style/WhileUntilModifier:
-  MaxLineLength: 80
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
@@ -1075,12 +1065,12 @@ Style/WordArray:
   SupportedStyles:
     # percent style: %w(word1 word2)
     - percent
-    # bracket style: ['word1', 'word2']
+    # bracket style: ["word1", "word2"]
     - brackets
   # The MinSize option causes the WordArray rule to be ignored for arrays
   # smaller than a certain size.  The rule is only applied to arrays
   # whose element count is greater than or equal to MinSize.
-  MinSize: 0
+  MinSize: 2
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
 
@@ -1098,14 +1088,18 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
   Max: 100
+  Enabled: false
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
   Max: 100
+  Enabled: false
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
-  Max: 6
+  Max: 9
+  Exclude:
+    - "**/*/permissions.rb"
 
 Metrics/LineLength:
   Max: 180
@@ -1116,39 +1110,47 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
+  Exclude:
+    - "**/spec/**/*"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 15
+  Enabled: false
 
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
+  Exclude:
+    - "decidim-core/lib/decidim/filter_form_builder.rb"
 
 Metrics/PerceivedComplexity:
-  Max: 7
+  Max: 10
+  Exclude:
+    - "**/*/permissions.rb"
 
 ##################### Lint ##################################
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+  Exclude:
+    - "**/abilities/**/*"
 
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
   AllowSafeAssignment: true
 
 # checks whether the end keywords are aligned properly for `do` `end` blocks.
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   # The value `start_of_block` means that the `end` should be aligned with line
   # where the `do` keyword appears.
   # The value `start_of_line` means it should be aligned with the whole
   # expression's starting line.
   # The value `either` means both are allowed.
-  AlignWith: either
-  SupportedStyles:
-    - either
-    - start_of_block
-    - start_of_line
+  EnforcedStyleAlignWith: either
 
 # Align ends correctly.
-Lint/EndAlignment:
+Layout/EndAlignment:
   # The value `keyword` means that `end` should be aligned with the matching
   # keyword (if, while, etc.).
   # The value `variable` means that in assignments, `end` should be aligned
@@ -1156,22 +1158,15 @@ Lint/EndAlignment:
   # situations, `end` should still be aligned with the keyword.
   # The value `start_of_line` means that `end` should be aligned with the start
   # of the line which the matching keyword appears on.
-  AlignWith: keyword
-  SupportedStyles:
-    - keyword
-    - variable
-    - start_of_line
+  EnforcedStyleAlignWith: keyword
   AutoCorrect: false
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
-  AlignWith: start_of_line
-  SupportedStyles:
-    - start_of_line
-    - def
+  EnforcedStyleAlignWith: start_of_line
   AutoCorrect: false
 
 Lint/InheritException:
@@ -1193,98 +1188,58 @@ Lint/UnusedMethodArgument:
 
 ##################### Performance ############################
 
-Performance/RedundantMerge:
-  # Max number of key-value pairs to consider an offense
-  MaxKeyValuePairs: 2
+Metrics/BlockLength:
+  Enabled: false
 
-##################### Rails ##################################
+RSpec/BeforeAfterAll:
+  Enabled: true
 
-Rails/ActionFilter:
-  EnforcedStyle: action
-  SupportedStyles:
-    - action
-    - filter
-  Include:
-    - app/controllers/**/*.rb
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
 
-Rails/Date:
-  # The value `strict` disallows usage of `Date.today`, `Date.current`,
-  # `Date#to_time` etc.
-  # The value `flexible` allows usage of `Date.current`, `Date.yesterday`, etc
-  # (but not `Date.today`) which are overridden by ActiveSupport to handle current
-  # time zone.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/Exit:
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - lib/**/*.rb
+RSpec/DescribeClass:
   Exclude:
-    - lib/**/*.rake
+    - spec/gemfiles_spec.rb
+    - spec/js_bundles_spec.rb
+    - spec/i18n_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
+    - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
 
-Rails/FindBy:
-  Include:
-    - app/models/**/*.rb
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
 
-Rails/FindEach:
-  Include:
-    - app/models/**/*.rb
+RSpec/ExampleLength:
+  Max: 49
 
-Rails/HasAndBelongsToMany:
-  Include:
-    - app/models/**/*.rb
+RSpec/ExpectInHook:
+  Enabled: false
 
-Rails/NotNullColumn:
-  Include:
-    - db/migrate/*.rb
+RSpec/IteratedExpectation:
+  Enabled: true
 
-Rails/Output:
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
+RSpec/LetSetup:
+  Enabled: false
 
-Rails/ReadWriteAttribute:
-  Include:
-    - app/models/**/*.rb
+RSpec/MessageSpies:
+  Enabled: false
 
-Rails/RequestReferer:
-  EnforcedStyle: referer
-  SupportedStyles:
-    - referer
-    - referrer
+RSpec/MultipleExpectations:
+  Max: 17
 
-Rails/SafeNavigation:
-  # This will convert usages of `try` to use safe navigation as well as `try!`.
-  # `try` and `try!` work slighly differently. `try!` and safe navigation will
-  # both raise a `NoMethodError` if the receiver of the method call does not
-  # implement the intended method. `try` will not raise an exception for this.
-  ConvertTry: false
+RSpec/NestedGroups:
+  Max: 7
 
-Rails/ScopeArgs:
-  Include:
-    - app/models/**/*.rb
+RSpec/NamedSubject:
+  Enabled: false
 
-Rails/TimeZone:
-  # The value `strict` means that `Time` should be used with `zone`.
-  # The value `flexible` allows usage of `in_time_zone` instead of `zone`.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
+RSpec/VerifiedDoubles:
+  Enabled: false
 
-Rails/UniqBeforePluck:
-  EnforcedMode: conservative
-  SupportedModes:
-    - conservative
-    - aggressive
-  AutoCorrect: false
-
-Rails/Validation:
-  Include:
-    - app/models/**/*.rb
+inherit_from: .rubocop_rails.yml

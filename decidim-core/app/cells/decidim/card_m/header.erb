@@ -1,0 +1,17 @@
+<div class="card__header">
+  <% if has_link_to_resource? %>
+    <%= link_to resource_path, class: "card__link" do %>
+      <h5 class="card__title">
+        <%= title %>
+      </h5>
+    <% end %>
+  <% else %>
+    <div class="card__link">
+      <h5 class="card__title">
+        <%= title %>
+      </h5>
+    </div>
+  <% end %>
+
+  <%= render_authorship if has_authors? %>
+</div>

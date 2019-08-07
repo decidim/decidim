@@ -1,0 +1,10 @@
+<% tip = true unless local_assigns.has_key?(:tip) %>
+<% agg = true unless local_assigns.has_key?(:agg) %>
+<div id="areachart-<%= SecureRandom.random_number(9999) %>"
+  class="areachart <%= classes ||= "" %><%= " small" if axis ||= false %>"
+  data-metric="<%= metric ||= "" %>"
+  data-title="<%= title ||= "" %>"
+  data-axis="<%= axis ||= false %>"
+  data-ratio="<%= ratio ||= "" %>"
+  data-agg="<%= agg %>"
+  data-tip="<%= tip %>"></div>

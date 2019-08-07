@@ -1,0 +1,22 @@
+<%= render "decidim/proposals/admin/shared/info_proposal" %>
+<%= decidim_form_for(@form, url: proposal_proposal_answer_path(proposal, @form), html: { class: "form edit_proposal_answer" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= f.collection_radio_buttons :state, [["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true %>
+      </div>
+
+      <div class="row column">
+        <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".answer_proposal") %>
+  </div>
+<% end %>

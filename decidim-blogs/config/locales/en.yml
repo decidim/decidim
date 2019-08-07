@@ -1,0 +1,80 @@
+---
+en:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: New blog post
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Posts
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Edit
+        new: New post
+        title: Actions
+      admin:
+        models:
+          components:
+            body: Body
+          post:
+            name: Post
+        posts:
+          create:
+            invalid: There was a problem creating this post
+            success: Post successfully created
+          destroy:
+            success: Post successfully deleted
+          edit:
+            save: Update
+          index:
+            title: Posts
+          new:
+            create: Create
+            title: Create post
+          update:
+            invalid: There was a problem saving the post.
+            success: Post successfully saved
+      last_activity:
+        new_post_at_html: "<span>New post at %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
+      posts:
+        show:
+          view: View
+        sidebar_blog:
+          comments: comments
+          most_commented_posts: Most commented posts
+      read_more: Read more
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+    events:
+      blogs:
+        post_created:
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posts
+    participatory_processes:
+      statistics:
+        posts_count: Posts

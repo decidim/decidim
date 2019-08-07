@@ -1,0 +1,33 @@
+<%= decidim_form_for @form,
+                     url: question_path(current_question),
+                     method: :patch,
+                     html: { class: "form edit_question" } do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("questions.edit.update", scope: "decidim.admin"),
+                 class: "button",
+                 data: { disable_with: true } %>
+
+    <% if allowed_to? :publish, :question, question: current_question %>
+      <% if current_question.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"),
+                    question_publish_path(current_question),
+                    method: :delete,
+                    class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"),
+                    question_publish_path(current_question),
+                    method: :post,
+                    class: "button hollow" %>
+      <% end %>
+    <% end %>
+
+    <% if allowed_to? :destroy, :question, question: current_question %>
+      <%= link_to t("decidim.admin.actions.destroy"),
+                  question_path(current_question),
+                  method: :delete,
+                  class: "alert button",
+                  data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+    <% end %>
+  </div>
+<% end %>

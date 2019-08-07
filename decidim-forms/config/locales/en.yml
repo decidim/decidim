@@ -1,0 +1,83 @@
+---
+en:
+  activemodel:
+    attributes:
+      answer:
+        body: Answer
+      question:
+        max_choices: Maximum number of choices
+        question_type: Type
+      questionnaire_question:
+        mandatory: Mandatory
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: are not complete
+              too_many: are too many
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Description
+            tos: Terms of service
+        questionnaires:
+          answer_option:
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
+          edit:
+            save: Save
+            title: Title
+          form:
+            add_question: Add question
+            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+          question:
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
+          update:
+            invalid: There was a problem saving the form.
+            success: Forms successfully saved.
+      errors:
+        answer:
+          body: Body can't be blank
+      question_types:
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
+        sorting: Sorting
+      questionnaires:
+        answer:
+          invalid: There was a problem answering the form.
+          success: Form successfully answered.
+        question:
+          max_choices: 'Max choices: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
+            title: Answer the form
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          questionnaire_answered:
+            body: You have already answered this form.
+            title: Already answered
+          questionnaire_closed:
+            body: The form is closed and cannot be answered.
+            title: Form closed
+          questionnaire_for_private_users:
+            body: The form is available only for private users
+            title: Form closed
+          submit: Submit
+          tos_agreement: By participating you accept its Terms of Service
+      user_answers_serializer:
+        created_at: Answered on
+        id: Answer ID

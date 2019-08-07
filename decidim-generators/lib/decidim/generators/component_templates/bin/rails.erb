@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# This command will automatically be run when you run "rails" with Rails gems
+# installed from the root of your application.
+
+ENGINE_ROOT = File.expand_path("..", __dir__)
+ENGINE_PATH = File.expand_path("../lib/decidim/<%= component_name %>/engine", __dir__)
+
+# Set up gems listed in the Gemfile.
+<%- if options[:external] -%>
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
+<% else %>
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __dir__)
+<%- end -%>
+
+require "bundler/setup"
+
+require "rails/all"
+require "rails/engine/commands"

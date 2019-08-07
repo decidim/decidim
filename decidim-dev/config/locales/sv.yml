@@ -1,0 +1,40 @@
+sv:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Skapad
+        field: Mitt fält
+        start_date: Startdatum
+        title: Titel
+        updated_at: Uppdaterad
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Använd en testmiljö för decidim.
+          description: Deltagare får detta märke genom att skapa tester.
+          description_another: Deltagaren har skapat %{score} tester.
+          description_own: Du har skapat %{score} tester.
+          name: Tester
+          next_level_in: Skapa %{score} till tester för att nå nästa nivå!
+          unearned_another: Deltagaren har inte skapat några tester än.
+          unearned_own: Du har inte skapat några tester än.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies höga
+          dummies_count_medium: Dummies medium
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies höga
+        dummies_count_medium: Dummies medium
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Relaterad dummy

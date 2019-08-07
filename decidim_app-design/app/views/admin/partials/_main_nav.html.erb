@@ -1,0 +1,53 @@
+<div class="main-nav">
+  <ul>
+    <li <% if @activesection == "home" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("home") do %>
+        <%= icon "dashboard" %>
+        Inicio
+      <% end %>
+    </li>
+    <li <% if @activesection == "processes" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("processes") do %>
+        <%= icon "target" %>
+        Procesos
+      <% end %>
+    </li>
+    <li <% if @activesection == "pages" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("pages") do %>
+        <%= icon "book" %>
+        Páginas
+      <% end %>
+    </li>
+    <li
+    <% if @activesection == "users" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("users") do %>
+        <%= icon "person" %>
+        Usuarios
+      <% end %>
+    </li>
+    <li <% if @activesection == "settings" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("settings") do %>
+        <%= icon "wrench" %>
+        Configuración
+      <% end %>
+    </li>
+    <li <% if @activesection == "logs" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to page_path("logs") do %>
+        <%= icon "list" %>
+        Logs
+      <% end %>
+    </li>
+  </ul>
+</div>

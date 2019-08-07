@@ -1,0 +1,20 @@
+<div class="row small-12">
+  <% paginate_posts.each do |post| %>
+    <article class="card card--post">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to post, class: "card__link" do %>
+          <h5 class="card__title">
+            <%= translated_attribute post.title %>
+          </h5>
+          <% end %>
+          <div class="card__author">
+            <%= cell "decidim/author", present(post.author), from: post %>
+          </div>
+        </div>
+        <%= decidim_sanitize post_description(post) %>
+      </div>
+    </article>
+  <% end %>
+</div>
+<%= decidim_paginate paginate_posts %>

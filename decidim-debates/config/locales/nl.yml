@@ -1,0 +1,151 @@
+nl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categorie
+        decidim_category_id: Categorie
+        description: Omschrijving
+        end_time: Eindigt op
+        information_updates: Informatie updates
+        instructions: Instructies om deel te nemen
+        start_time: Begint om
+        title: Titel
+        user_group_id: Maak een debat als
+    models:
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debatten uitgeschakeld
+      decidim/debates/creation_enabled_event: Debatten ingeschakeld
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: debatten
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Aanmaken
+        name: Debatten
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Gebruikers kunnen geen debat aanmaken
+    debates:
+      actions:
+        confirm_destroy: Ben je zeker?
+        destroy: Verwijder
+        edit: Bewerk
+        new: Nieuwe %{name}
+        title: acties
+      admin:
+        debates:
+          create:
+            invalid: Er is een probleem opgetreden tijdens het maken van het debat.
+            success: Debat succesvol aangemaakt.
+          destroy:
+            success: Debat succesvol verwijderd.
+          edit:
+            title: Bewerk debat
+            update: Update debat
+          index:
+            title: Debatten
+          new:
+            create: Maak een debat aan
+            title: Nieuw debat
+          update:
+            invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
+            success: Debat succesvol bijgewerkt.
+        models:
+          debate:
+            name: Debat
+      admin_log:
+        debate:
+          create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
+          update: "%{user_name} heeft het %{resource_name} debat bijgewerkt in de %{space_name} ruimte"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debatten"
+        create:
+          invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
+          success: Debat succesvol aangemaakt.
+        debate:
+          participate: Deelnemen
+        filters:
+          all: Alle
+          category: Categorie
+          category_prompt: Selecteer een categorie
+          citizens: Burgers
+          official: Officieel
+          origin: Oorsprong
+          search: Zoeken
+        filters_small_view:
+          close_modal: Sluit venster
+          filter: Sorteren
+          filter_by: Sorteren op
+          unfold: Uitvouwen
+        index:
+          new_debate: Nieuw debat
+        new:
+          back: Terug
+          create: Aanmaken
+          select_a_category: Selecteer een categorie
+          title: Nieuw debat
+      last_activity:
+        new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Einddatum
+            official_debate: Officieel debat
+            start_time: Startdatum
+            title: Titel
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hallo,
+              Een nieuw debat "%{resource_title}" is opgezet op de %{space_title} participatieruimte, bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kan de meldingen deactiveren door te klikken op de voorgaande link.
+            email_subject: Nieuw debat "%{resource_title}" op %{space_title}
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hallo,
+              %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat "%{resource_title}" gemaakt. Bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kan deze meldingen uitschakelen door te klikken op de voorgaande link.
+            email_subject: Nieuw debat "%{resource_title}" met %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> creëerde het debat <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Het is niet langer mogelijk een debat aan te maken in %{participatory_space_title}. Je kan nog steeds deelnemen aan lopende debatten op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Het aanmaken van een debat is gedeactiveerd %{participatory_space_title}
+          notification_title: Je kan niet langer een debat aanmaken in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Je kan nu nieuwe debatten aanmaken in %{participatory_space_title}! Start jouw deelname op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
+          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Kies een open debat om deel te nemen
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: Je hebt deelgenomen aan %{score} debatten.
+          name: debatten
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
+          unearned_own: Je hebt nog deelgenomen aan debatten.
+    metrics:
+      debates:
+        description: Aantal debatten gemaakt
+        object: debatten
+        title: debatten

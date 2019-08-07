@@ -1,0 +1,73 @@
+<div class="columns section mediumlarge-4 large-3">
+
+  <% if result.children.any? && component_settings.display_progress_enabled? && result.progress.present? %>
+    <div class="progress-level section">
+      <div class="progress-label">
+        <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
+        <span class="progress-figure">
+          <%= display_percentage result.progress %>
+        </span>
+      </div>
+
+      <div class="progress">
+        <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if result.versions.any? || result.linked_resources(:proposals, "included_proposals").any? %>
+    <div class="card extra line-stats">
+      <div class="definition-data">
+        <% if result.versions.any? %>
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
+            <%= result.versions.count %>
+            <div class="pr-s pl-s">
+              <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+            </div>
+          </div>
+          <% if result.last_editor.present? %>
+            <div class="definition-data__item last_revision_by">
+              <span class="definition-data__title"><%= t("results.show.stats.last_edited_by", scope: "decidim.accountability") %></span>
+              <%= render_resource_last_editor(result) %>
+            </div>
+          <% end %>
+          <div class="definition-data__item last_updated_at">
+            <span class="definition-data__title"><%= t("results.show.stats.last_updated_at", scope: "decidim.accountability") %></span>
+            <%= l result.versions.last.created_at, format: :decidim_short %>
+          </div>
+        <% end %>
+        <% if result.linked_resources(:proposals, "included_proposals").any? %>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.proposals", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.proposals_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.meetings", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.meetings_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.comments", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.comments_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.attendees", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.attendees_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.votes", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.votes_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t("results.show.stats.contributions", scope: "decidim.accountability") %></span>
+            <span class="definition-data__number"><%= stats_calculator.contributions_count %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= resource_reference(result) %>
+  <%= render partial: "decidim/shared/share_modal" %>
+  <%= embed_modal_for result_result_widget_url(result, format: :js) %>
+</div>

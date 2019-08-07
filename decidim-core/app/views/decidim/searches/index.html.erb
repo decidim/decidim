@@ -1,0 +1,15 @@
+<main class="wrapper">
+  <div class="row" id="search-count">
+    <%= render partial: "count" %>
+  </div>
+  <div class="row">
+    <div class="columns mediumlarge-4 large-3 search-filters">
+      <%= render partial: "filters" %>
+    </div>
+    <div id="results" class="columns mediumlarge-8 large-9">
+      <%= cell "decidim/search_results", @sections, params: params %>
+    </div>
+  </div>
+</main>
+<%= javascript_include_tag("decidim/filters") %>
+<%= javascript_include_tag "decidim/orders" %>

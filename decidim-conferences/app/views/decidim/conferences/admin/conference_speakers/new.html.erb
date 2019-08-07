@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, html: { class: "form new_conference_speaker" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("conference_speakers.new.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("conference_speakers.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

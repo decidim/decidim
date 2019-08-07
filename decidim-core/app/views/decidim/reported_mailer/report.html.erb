@@ -1,0 +1,9 @@
+<p><%= t(".hello", name: @user.name) %></p>
+
+<p>
+  <%= t(".report_html", { url: reported_content_url }) %>
+</p>
+
+<p>
+  <%= link_to t(".manage_moderations"), manage_moderations_url %>
+</p>

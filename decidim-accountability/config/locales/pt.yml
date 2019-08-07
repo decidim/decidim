@@ -1,0 +1,226 @@
+pt:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Categoria
+        decidim_scope_id: Âmbito
+        description: Descrição
+        end_date: Data final
+        progress: Progresso
+        project_ids: Projetos incluídos
+        proposals: Propostas incluídas
+        start_date: Data de início
+        title: Título
+        updated_at: Atualizado em
+      status:
+        description: Descrição
+        key: Chave
+        name: Nome
+        progress: Progresso
+      timeline_entry:
+        description: Descrição
+        entry_date: Encontro
+    models:
+      decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
+      decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultado
+        other: Resultados
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Tem certeza de que deseja excluir este %{name}?
+        destroy: Excluir
+        edit: Editar
+        new: Novo %{name}
+        preview: Visualização
+        timeline_entries: Evolução do projeto
+        title: Ações
+      admin:
+        exports:
+          results: Resultados
+        models:
+          result:
+            name: Resultado
+          status:
+            name: Status
+          timeline_entry:
+            name: Entrada da linha de tempo
+        results:
+          create:
+            invalid: Tem havido um problema ao criar esse resultado
+            success: Resultado criado com sucesso
+          destroy:
+            success: Resultado eliminado com êxito
+          edit:
+            title: Editar resultado
+            update: Atualizar resultado
+          form:
+            add_proposal: Adicionar proposta
+          index:
+            title: Resultados
+          new:
+            create: Criar resultado
+            title: Novo resultado
+          proposals:
+            close: Fechar
+            current_selection: Seleção atual
+            select: Selecione
+          update:
+            invalid: Ocorreu um problema ao atualizar este resultado
+            success: Resultado atualizado com sucesso
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Tem havido um problema ao criar esse status
+            success: Status criado com sucesso
+          destroy:
+            success: Status excluído com êxito
+          edit:
+            title: Editar status
+            update: Atualizar o status
+          index:
+            title: Status
+          new:
+            create: Criar status
+            title: Novo status
+          update:
+            invalid: Ocorreu um problema ao atualizar esse status
+            success: Status atualizado com sucesso
+        timeline_entries:
+          create:
+            invalid: Tem havido um problema ao criar esta entrada
+            success: Entrada criada com sucesso
+          destroy:
+            success: Entrada excluída com êxito
+          edit:
+            title: Editar entrada
+            update: Atualizar entrada
+          index:
+            title: Entradas da linha de tempo do projeto
+          new:
+            create: Criar entrada
+            title: Nova entrada
+          update:
+            invalid: Ocorreu um problema ao atualizar esta entrada
+            success: Entrada atualizada com sucesso
+      admin_log:
+        result:
+          create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
+          delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
+          update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Novo resultado em %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Data final
+            progress: Progresso
+            start_date: Data de início
+            status: Status
+            title: Título
+        status:
+          fields:
+            description: Descrição
+            key: Chave
+            name: Nome
+            progress: Progresso
+        timeline_entry:
+          fields:
+            description: Descrição
+            entry_date: Encontro
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          all: Todos
+          scopes: Âmbitos
+        home:
+          categories_label: Categorias
+          subcategories_label: Subcategorias
+        home_header:
+          global_status: Status de execução global
+        nav_breadcrumb:
+          global: Execução global
+        search:
+          search: Procure ações
+        show:
+          stats:
+            attendees: Participantes
+            back_to_result: Volte ao resultado
+            comments: Comentários
+            contributions: Contribuições
+            last_edited_by: Última edição por
+            last_updated_at: Última atualização em
+            meetings: Reuniões
+            number_of_versions: Versões
+            proposals: Propostas
+            show_all_versions: Mostrar todas as versões
+            version_author: Autor da versão
+            version_created_at: Versão criada em
+            version_number: Número da versão
+            version_number_out_of_total: "%{current_version} de %{total_count}"
+            votes: Suporta
+        timeline:
+          title: Evolução do projeto
+      versions:
+        index:
+          changes_at_title: Alterações em "%{title}"
+          title: Versões
+        show:
+          changes_at_title: Alterações em "%{title}"
+        version:
+          version_index: Versão %{index}
+    components:
+      accountability:
+        name: Prestação de contas
+        settings:
+          global:
+            categories_label: Nome para "Categorias"
+            comments_enabled: Comentários ativados
+            display_progress_enabled: Mostrar progresso
+            heading_leaf_level_results: Nome para "Projetos"
+            heading_parent_level_results: Nome para "Resultados"
+            intro: Introdução
+            subcategories_label: Nome para "Subcategorias"
+          step:
+            comments_blocked: Comentários bloqueados
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída em um resultado. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}". Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no resultado <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'O resultado "%{resource_title}", que inclui a proposta "%{proposal_title}", está agora com %{progress}% de conclusão. Você pode ver a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{resource_title} progresso
+          notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
+    metrics:
+      results:
+        description: Número de resultados gerados
+        object: resultados
+        title: Resultados
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projetos incluídos neste resultado
+      included_proposals:
+        result_proposal: Propostas incluídas neste resultado

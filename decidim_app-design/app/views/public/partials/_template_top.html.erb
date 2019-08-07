@@ -1,0 +1,22 @@
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <div class="off-canvas position-right" data-position="right"
+           id="offCanvas" data-off-canvas>
+        <!-- Close button -->
+        <button class="close-button"
+                aria-label="Close menu" type="button"
+                data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- Menu -->
+        <div class="hide-for-medium" data-set="nav-holder"></div>
+        <div class="hide-for-medium usermenu-off-canvas-holder"
+             data-set="nav-login-holder"></div>
+        <div class="hide-for-medium mt-s ml-s mr-s" data-set="nav-search-holder"></div>
+      </div>
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="footer-separator">
+            <!--separates the footer from the rest of the page,
+            creates a sticky footer-->
+          <%= partial "topbar" %>
+          <%= partial "main_nav" %>

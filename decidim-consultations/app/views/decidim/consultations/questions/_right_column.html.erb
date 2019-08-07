@@ -1,0 +1,20 @@
+<% add_decidim_meta_tags({
+  image_url: current_participatory_space.hero_image_url,
+  description: translated_attribute(current_participatory_space.question_context),
+  title: strip_tags(translated_attribute(current_participatory_space.title)),
+  url: decidim_consultations.question_url(current_participatory_space),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<div class="section columns medium-5 mediumlarge-4 large-3">
+  <% if user_signed_in? %>
+    <div class="card extra">
+      <div class="card__content">
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: question, large: false  } %>
+      </div>
+    </div>
+  <% end %>
+  <%= resource_reference(current_question) %>
+  <%= render partial: "decidim/consultations/questions/statistics" %>
+  <%= render partial: "decidim/shared/share_modal" %>
+</div>

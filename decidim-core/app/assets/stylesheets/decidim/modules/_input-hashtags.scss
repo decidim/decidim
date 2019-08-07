@@ -1,0 +1,124 @@
+@import "tribute";
+
+.hashtags__container{
+  width: 100%;
+
+  span{
+    color: $secondary;
+  }
+
+  [type=text]{
+    white-space: nowrap;
+    overflow: hidden;
+
+    br{
+      display: none;
+    }
+
+    *{
+      display: inline;
+      white-space: nowrap;
+    }
+  }
+
+  [contenteditable=true]:empty::before{
+    color: $input-placeholder-color;
+    content: attr(placeholder);
+    display: block; // firefox
+  }
+
+  &.hashtags__container--textarea{
+    [contenteditable=true]{
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield-multiline;
+      appearance: textfield;
+
+      // foundation defaults
+      @include form-element();
+
+      max-width: 100%;
+      // Min size, 3 times input textfield
+      min-height: 3 * (($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')));
+      height: auto;
+
+      // Placeholder text
+      &::placeholder{
+        color: $input-placeholder-color;
+      }
+
+      // Disabled/readonly state
+      &:disabled,
+      &[readonly]{
+        background-color: $input-background-disabled;
+        cursor: $input-cursor-disabled;
+      }
+    }
+  }
+
+  // Override defaults
+  .tribute-container{
+    position: relative;
+    min-width: 100%;
+    top: -1rem - rem-calc(1);
+
+    ul{
+      //reset list
+      margin: 0;
+      list-style: none;
+      // input defaults
+      outline: none;
+      border: $input-border-focus;
+      border-radius: $input-radius;
+      background-color: $input-background-focus;
+      box-shadow: $input-shadow-focus;
+
+      @if has-value($input-transition){
+        transition: $input-transition;
+      }
+
+      li{
+        padding: $input-padding;
+        border-top: $border;
+      }
+    }
+
+    .highlight{
+      background-color: $input-prefix-background;
+    }
+  }
+
+  &.is-active{
+    [contenteditable=true],
+    input,
+    textarea{
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .tribute-container{
+      ul{
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    // Quill.js
+    &.editor{
+      > :first-child{
+        border-top-left-radius: $input-radius;
+        border-top-right-radius: $input-radius;
+        border-top: $input-border-focus;
+        border-right: $input-border-focus;
+        border-left: $input-border-focus;
+      }
+
+      .editor-container{
+        border-right: $input-border-focus;
+        border-left: $input-border-focus;
+        margin-bottom: 1rem;
+        outline: none;
+      }
+    }
+  }
+}

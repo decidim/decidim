@@ -1,0 +1,31 @@
+<% if translated_attribute(component_settings.new_proposal_help_text).present? && @step != :step_4 %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.new_proposal_help_text } %>
+<% elsif @step == :step_4 %>
+  <%
+    locals = {
+      callout_class: "warning",
+      announcement: t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+    }
+  %>
+  <%= render partial: "decidim/shared/announcement", locals: locals %>
+<% end %>
+
+<% if proposal_wizard_step_help_text?(@step) %>
+  <div class="proposal_wizard_help_text">
+    <% callout_step_help_text_class ||= nil %>
+    <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.try("proposal_wizard_#{@step}_help_text"), callout_class: callout_step_help_text_class } %>
+  </div>
+<% end %>
+
+<h2 class="section-heading">
+  <%= proposal_wizard_step_title action_name %>
+  <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
+</h2>
+
+<div class="hide-for-large m-bottom">
+  <%= proposal_wizard_current_step_of(@step) %>
+
+  <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+    <%= proposal_wizard_stepper(@step) %>
+  </ol>
+</div>

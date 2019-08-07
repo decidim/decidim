@@ -1,0 +1,26 @@
+.top-banner{
+  background-color: $primary;
+  color: $white;
+  text-align: center;
+  padding: 1rem;
+
+  a{
+    color: $white;
+  }
+
+  a:hover,
+  a:focus{
+    color: rgba($white, .8);
+  }
+}
+
+.top-banner__action{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: inline-block;
+
+  .icon{
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,0 +1,127 @@
+ru:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Категория
+        decidim_category_id: Категория
+        description: Описание
+        end_time: 'Заканчивается:'
+        information_updates: Обновления сведений
+        instructions: Указания для участия
+        start_time: 'Начинается:'
+        title: Название
+        user_group_id: Начать обсуждение в качестве
+    models:
+      decidim/debates/create_debate_event: Обсуждение
+      decidim/debates/creation_disabled_event: Обсуждения отключены
+      decidim/debates/creation_enabled_event: Обсуждения включены
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Обсуждение
+        few: Обсуждения
+        many: Обсуждений
+        other: Обсуждений
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Добавить
+        name: Обсуждения
+        settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии отключены
+            creation_enabled: Создание обсуждений участниками включено
+    debates:
+      actions:
+        confirm_destroy: Вы уверены?
+        destroy: Удалить
+        edit: Редактировать
+        new: Добавить %{name}
+        title: Действия
+      admin:
+        debates:
+          create:
+            invalid: При попытке создать это обсуждение произошла ошибка.
+            success: Обсуждение успешно создано.
+          destroy:
+            success: Обсуждение успешно удалено.
+          edit:
+            title: Редактировать обсуждение
+            update: Обновить обсуждение
+          index:
+            title: Обсуждения
+          new:
+            create: Начать обсуждение
+            title: Начать новое обсуждение
+          update:
+            invalid: При попытке обновить это обсуждение произошла ошибка.
+            success: Обсуждение успешно обновлено.
+        models:
+          debate:
+            name: Обсуждение
+      admin_log:
+        debate:
+          create: "%{user_name} создал обсуждение %{resource_name} в пространстве %{space_name}"
+          update: "%{user_name} обновил обсуждение %{resource_name} в пространстве %{space_name}"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} обсуждение"
+            few: "%{count} обсуждения"
+            many: "%{count} обсуждений"
+            other: "%{count} обсуждений"
+        create:
+          invalid: При попытке создать это обсуждение произошла ошибка.
+          success: Обсуждение успешно создано.
+        debate:
+          participate: Принять участие
+        filters:
+          all: Все
+          category: Категория
+          category_prompt: Выберите категорию
+          citizens: Граждане
+          official: Служебные
+          origin: Источник
+          search: Поиск
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        index:
+          new_debate: Начать новое обсуждение
+        new:
+          back: Вернуться
+          create: Создать
+          select_a_category: Пожалуйста, выберите категорию
+          title: Начать новое обсуждение
+      models:
+        debate:
+          fields:
+            end_time: Дата окончания
+            official_debate: Служебное обсуждение
+            start_time: Дата начала
+            title: Заголовок
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_outro: Вы получили это уведомление, потому что вы следите за пространством соучастия %{space_title}. Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+            notification_title: В <a href="%{space_path}">%{space_title}</a> началось обсуждение <a href="%{resource_path}">%{resource_title}</a>.
+          user_followers:
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+        creation_disabled:
+          email_intro: 'В %{participatory_space_title} уже нельзя начинать обсуждения. Вы можете принять участие в уже начатых обсуждениях на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} отключено создание обсуждений
+          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> отключено создание обсуждений
+        creation_enabled:
+          email_intro: 'Теперь вы можете начинать новые обсуждения в %{participatory_space_title}! Начните со страницы:'
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
+          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность начинать <a href="%{resource_path}">новые обсуждения</a>

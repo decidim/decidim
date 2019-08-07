@@ -1,0 +1,214 @@
+uk:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Стан
+        decidim_category_id: Категорія
+        decidim_scope_id: Обсяг
+        description: Опис
+        end_date: Дата закінчення
+        progress: Перебіг
+        project_ids: Включені проекти
+        proposals: Включені пропозиції
+        start_date: Дата початку
+        title: Назва
+        updated_at: 'Оновлено:'
+      status:
+        description: Опис
+        key: Ключ
+        name: Ім'я
+        progress: Перебіг
+      timeline_entry:
+        description: Опис
+        entry_date: Дата
+    models:
+      decidim/accountability/proposal_linked_event: Пропозиція, включена до підсумку
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Підсумок
+        few: Підсумки
+        many: Підсумків
+        other: Підсумків
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Ви впевнені, що хочете видалити %{name}?
+        destroy: Видалити
+        edit: Редагувати
+        new: Додати %{name}
+        preview: Попередній перегляд
+        timeline_entries: Розвиток проекту
+        title: Дії
+      admin:
+        exports:
+          results: Підсумки
+        models:
+          result:
+            name: Підсумки
+          status:
+            name: Стан
+          timeline_entry:
+            name: Запис на лінії часу
+        results:
+          create:
+            invalid: При спробі створити ці підсумки сталася помилка
+            success: Підсумки успішно створено
+          destroy:
+            success: Підсумки успішно видалено
+          edit:
+            title: Редагувати підсумки
+            update: Оновити підсумки
+          form:
+            add_proposal: Додати пропозицію
+          index:
+            title: Підсумки
+          new:
+            create: Створити підсумки
+            title: Додати підсумки
+          proposals:
+            close: Закрити
+            current_selection: Поточний вибір
+            select: Оберіть
+          update:
+            invalid: При спробі оновити ці підсумки сталася помилка
+            success: Підсумки успішно оновлено
+        shared:
+          subnav:
+            statuses: Стани
+        statuses:
+          create:
+            invalid: При спробі створити цей стан сталася помилка
+            success: Стан успішно створено
+          destroy:
+            success: Стан успішно видалено
+          edit:
+            title: Редагувати стан
+            update: Оновити стан
+          index:
+            title: Стани
+          new:
+            create: Створити стан
+            title: Додати стан
+          update:
+            invalid: При спробі оновити цей стан сталася помилка
+            success: Стан успішно оновлено
+        timeline_entries:
+          create:
+            invalid: При спробі створити цей запис сталася помилка
+            success: Запис успішно створено
+          destroy:
+            success: Запис успішно видалено
+          edit:
+            title: Редагувати запис
+            update: Оновити запис
+          index:
+            title: Записи на лінії часу проекту
+          new:
+            create: Створити запис
+            title: Додати запис
+          update:
+            invalid: Під час оновлення цього запису сталася помилка
+            success: Запис успішно оновлено
+      admin_log:
+        result:
+          create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
+          delete: "%{user_name} видалив підсумок %{resource_name} у %{space_name}"
+          update: "%{user_name} оновив підсумок %{resource_name} у %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Батьківський об''єкт не знайдено в базі даних (ID: %{id})'
+      models:
+        result:
+          fields:
+            end_date: Дата закінчення
+            progress: Перебіг
+            start_date: Дата початку
+            status: Стан
+            title: Назва
+        status:
+          fields:
+            description: Опис
+            key: Ключ
+            name: Назва
+            progress: Перебіг
+        timeline_entry:
+          fields:
+            description: Опис
+            entry_date: Дата
+      results:
+        count:
+          results_count:
+            one: 1 підсумок
+            few: "%{count} підсумків"
+            many: "%{count} підсумків"
+            other: "%{count} підсумків"
+        filters:
+          all: Усі
+          scopes: Обсяги
+        home:
+          categories_label: Категорії
+          subcategories_label: Підкатегорії
+        home_header:
+          global_status: Загальний стан виконання
+        nav_breadcrumb:
+          global: Загальне виконання
+        search:
+          search: Пошук дій
+        show:
+          stats:
+            attendees: Учасники
+            back_to_result: Повернутися до підсумків
+            comments: Коментарів
+            contributions: Внесені пропозиції
+            last_edited_by: Останній раз редагувалося
+            last_updated_at: Останній раз оновлювалося
+            meetings: Зустрічі
+            number_of_versions: Версії
+            proposals: Пропозиції
+            show_all_versions: Показати всі версії
+            version_author: Автор версії
+            version_created_at: 'Версію створено:'
+            version_number: Номер версії
+            version_number_out_of_total: "%{current_version} з %{total_count}"
+            votes: Підтримує
+        timeline:
+          title: Розвиток проекту
+      versions:
+        index:
+          changes_at_title: Зміни в "%{title}"
+          title: Версії
+        show:
+          changes_at_title: Зміни в "%{title}"
+        version:
+          version_index: Версія %{index}
+    components:
+      accountability:
+        name: Звітність
+        settings:
+          global:
+            categories_label: Назва для "Категорії"
+            comments_enabled: Коментарі увімкнено
+            display_progress_enabled: Показувати перебіг
+            heading_leaf_level_results: Назва для "Проекти"
+            heading_parent_level_results: Назва для "Підсумки"
+            intro: Вступ
+            subcategories_label: Назва для "Підкатегорії"
+          step:
+            comments_blocked: Коментарі вимкнено
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Пропозиція "%{proposal_title}" була включена до підсумку. Ви можете переглянути її на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{proposal_title}". Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{proposal_title}
+          notification_title: Пропозиція <a href="%{proposal_path}">%{proposal_title}</a> була включена до підсумку <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Підсумки
+    resource_links:
+      included_projects:
+        result_project: Проекти, включені до цих підсумків
+      included_proposals:
+        result_proposal: Пропозиції, включені до цих підсумків

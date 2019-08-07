@@ -1,0 +1,17 @@
+<h3><%= translated_attribute(@participatory_process_step.title) %></h3>
+
+<div class="actions">
+  <hr />
+  <%= link_to t("decidim.admin.actions.edit"), edit_participatory_process_step_path(participatory_process, @participatory_process_step) if allowed_to? :update, :process_step, process_step: @participatory_process_step %>
+  <%= link_to t("decidim.admin.actions.destroy"), participatory_process_step_path(participatory_process, @participatory_process_step), method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if allowed_to? :destroy, :process_step, process_step: @participatory_process_step %>
+</div>
+
+<dl>
+  <%= display_for @participatory_process_step,
+    :title,
+    :description %>
+  <dt><%= display_label(@participatory_process_step, :start_date) %></dt>
+  <dd><%= l @participatory_process_step.start_date, format: :short if @participatory_process_step.start_date.present? %></dd>
+  <dt><%= display_label(@participatory_process_step, :end_date) %></dt>
+  <dd><%= l @participatory_process_step.end_date, format: :short if @participatory_process_step.end_date.present? %></dd>
+</dl>

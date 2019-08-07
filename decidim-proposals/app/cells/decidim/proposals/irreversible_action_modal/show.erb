@@ -1,0 +1,27 @@
+<%= button_reveal_modal %>
+
+<div id="<%= modal_id %>" class="reveal" data-reveal aria-labelledby="<%= modal_title %>" aria-hidden="true" role="dialog">
+  <div class="reveal__header">
+    <h3 class="reveal__title">
+      <%= modal_title %>
+    </h3>
+
+    <button class="close-button" data-close aria-label="<%= close_label %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row">
+    <div>
+      <p>
+        <%= modal_body %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= button_cancel %>
+
+    <%= button_continue %>
+  </div>
+</div>

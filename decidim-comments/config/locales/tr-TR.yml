@@ -1,0 +1,100 @@
+tr:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Yorum Yap
+      decidim/comments/comment_created_event: Yorum Yap
+      decidim/comments/reply_created_event: Yorum cevabı
+      decidim/comments/user_mentioned_event: Anma
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Yorum Yap
+        other: Yorumlar
+      decidim/comments/comment_vote:
+        one: Oy
+        other: oy
+  decidim:
+    comments:
+      comments: Yorumlar
+      last_activity:
+        new_comment_at_html: "<span> %{link}</span>yeni yorum"
+      votes:
+        create:
+          error: Yorum oylanırken bir sorun oluştu.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Yorumunuzu eklemek için</a> veya <a href="%{sign_up_url}">hesabınızla giriş yapın</a>.
+        form:
+          body:
+            label: Yorum Yap
+            placeholder: Bunun hakkında ne düşünüyorsun?
+          form_error: Metin gereklidir ve %{length} karakterden uzun olamaz.
+          submit: göndermek
+          user_group_id:
+            label: Olarak yorum yap
+        opinion:
+          neutral: nötr
+        remaining_characters: "%{count} karakter kaldı"
+        remaining_characters_1: "%{count} karakter kaldı"
+        title: yorumunu ekle
+      comment:
+        alignment:
+          against: Karşısında
+          in_favor: Lehine
+        deleted_user: Silinmiş katılımcı
+        reply: cevap
+        report:
+          action: Rapor
+          already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
+          close: Kapat
+          description: Bu içerik uygunsuz mu?
+          details: Ek Yorumlar
+          reasons:
+            does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name}ait olmadığını düşündüğünüz başka bir şey içerir.
+            offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya herhangi bir nefret söylemi içerir.
+            spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
+          title: Sorun bildir
+      comment_order_selector:
+        order:
+          best_rated: En çok oy alan
+          most_discussed: En çok tartışılan
+          older: Daha eski
+          recent: Son
+        title: 'Tarafından sipariş:'
+      comment_thread:
+        title: '%{authorName}ile sohbet'
+      comments:
+        blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
+        blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
+        loading: Yorumlar yükleniyor ...
+        title: "%{count} yorum"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} , %{resource_title}yorum yaptı. Bu sayfada okuyabilirsiniz:"
+          email_outro: '%{author_name}takip ettiğiniz için bu bildirimi aldınız. Bu kullanıcıyı profil sayfasından takip edebilirsiniz.'
+          email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
+        comment_created:
+          email_intro: "%{resource_title} yorum yapıldı. Bu sayfadaki yorumu okuyabilirsiniz:"
+          email_outro: '"%{resource_title}" veya yazarı takip ettiğiniz için bu bildirimi aldınız. Bunu önceki linkten takip edebilirsiniz.'
+          email_subject: '%{author_name} %{resource_title}yeni bir yorum var'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var
+        reply_created:
+          email_intro: "%{author_name} , yorumunuzu %{resource_title}yanıtladı. Bu sayfada okuyabilirsiniz:"
+          email_outro: Yorumunuz yanıtlandığı için bu bildirimi aldınız.
+          email_subject: "%{author_name} Yorumunuzu %{resource_title}yanıtladı."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>yorumunuzu yanıtladı.
+        user_mentioned:
+          email_intro: Sen bahsettin
+          email_outro: Bu bildirimi, %{resource_title}belirtildiğiniz için aldınız.
+          email_subject: '%{resource_title}bahsettiniz'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> tarafından <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Katılımcılar tarafından oluşturulan yorum sayısı
+        object: yorumlar
+        title: Yorumlar
+  errors:
+    messages:
+      cannot_have_comments: yorum yapamam

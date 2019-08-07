@@ -1,0 +1,24 @@
+var $orderTotalBudget = $('#order-total-budget');
+var $orderSelectedProjects = $('#order-selected-projects');
+var $orderProgress = $('#order-progress');
+var $projectItem = $('#project-<%= project.id %>-item');
+var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
+var $budgetConfirm = $('#budget-confirm');
+
+morphdom($orderTotalBudget[0], '<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
+morphdom($orderSelectedProjects[0], '<%= j(render partial: "decidim/budgets/projects/order_selected_projects").strip.html_safe %>');
+morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress").strip.html_safe %>');
+morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
+
+$("#order-progress").foundation();
+$(".budget-summary__selected").foundation();
+
+if ($projectItem.length > 0) {
+  morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: project }).strip.html_safe %>');
+}
+
+if ($projectBudgetButton.length > 0) {
+  morphdom($projectBudgetButton[0], '<%= j(render partial: "decidim/budgets/projects/project_budget_button", locals: { project: project }).strip.html_safe %>');
+}
+
+window.DecidimBudgets.checkProgressPosition();

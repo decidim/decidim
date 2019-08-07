@@ -1,0 +1,9 @@
+<%= decidim_form_for(@form, html: { class: "form new_result" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "decidim/accountability/admin/accountability_admin" %>

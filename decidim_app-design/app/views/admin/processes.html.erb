@@ -1,0 +1,91 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "process_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Procesos participativos <%= link_to "Añadir", page_path("processes-new"), class: "Añadir" %></h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+          <table class="table-list">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th class="table-list__actions">Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="Destacado"><%= icon "star" %></span>
+                  <%= link_to page_path("process-info") do %>
+                    Proposa, prioritza i decideix sobre el pressupost del districte de l’Eixample
+                  <% end %>
+                </td>
+                <td class="table-list__state">
+                  <strong class="text-success">Publicado</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Previsualizar"><%= icon "eye" %></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= link_to page_path("process-info") do %>
+                    Proposa, prioritza i decideix sobre el pressupost del districte de l’Eixample
+                  <% end %>
+                </td>
+                <td class="table-list__state">
+                  <strong class="text-alert">Sin publicar</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Previsualizar"><%= icon "eye" %></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= link_to page_path("process-info") do %>
+                    Proposa, prioritza i decideix sobre el pressupost del districte de l’Eixample
+                  <% end %>
+                </td>
+                <td class="table-list__state">
+                  <strong class="text-muted">Borrador</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Previsualizar"><%= icon "eye" %></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= link_to page_path("process-info") do %>
+                    Proposa, prioritza i decideix sobre el pressupost del districte de l’Eixample
+                  <% end %>
+                </td>
+                <td class="table-list__state">
+                  <strong class="text-success">Publicado</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Previsualizar"><%= icon "eye" %></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

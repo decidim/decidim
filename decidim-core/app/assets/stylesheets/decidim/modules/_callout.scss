@@ -1,0 +1,33 @@
+/* Callout foundation overwrites */
+
+.callout{
+  &.primary{
+    background: $light-gray;
+    border-color: $medium-gray;
+    border-left: 8px solid var(--primary);
+  }
+
+  &.secondary{
+    border-color: $medium-gray;
+    border-left: 8px solid var(--secondary);
+  }
+
+  &.success{
+    border-color: $medium-gray;
+    border-left: 8px solid var(--success);
+  }
+
+  &.warning{
+    border-color: $medium-gray;
+    border-left: 8px solid var(--warning);
+  }
+
+  &.alert{
+    border-color: $medium-gray;
+    border-left: 8px solid var(--alert);
+  }
+}
+
+.callout.flash{
+  margin-bottom: 0;
+}

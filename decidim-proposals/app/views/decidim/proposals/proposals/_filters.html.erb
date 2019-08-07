@@ -1,0 +1,44 @@
+<%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search") %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t(".search") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if @proposals.only_emendations.any? %>
+    <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, legend_title: t(".amendment_type") %>
+  <% end %>
+
+  <% if component_settings.official_proposals_enabled %>
+    <%= form.collection_radio_buttons :origin, filter_origin_values, :first, :last, legend_title: t(".origin") %>
+  <% end %>
+
+  <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
+    <%= form.collection_radio_buttons :state, filter_state_values, :first, :last, legend_title: t(".state") %>
+  <% end %>
+
+  <% if linked_classes_for(Decidim::Proposals::Proposal).any? %>
+    <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, legend_title: t(".related_to") %>
+  <% end %>
+
+  <% if current_user && current_settings.votes_enabled? %>
+    <%= form.collection_check_boxes :activity, [["voted", t(".voted")]], :first, :last, legend_title: t(".activity") %>
+  <% end %>
+
+  <% if current_participatory_space.has_subscopes? %>
+    <%= scopes_picker_filter form, :scope_id %>
+  <% end %>
+
+  <% if current_component.categories.any? %>
+    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+  <% end %>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+<% end %>

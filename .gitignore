@@ -1,3 +1,24 @@
-**/spec/*_dummy
+spec/decidim_dummy_app/
 .byebug_history
 pkg/
+.DS_Store
+node_modules/
+.vscode
+development_app/
+.projectile
+npm-debug.log
+karma-*
+coverage
+webpack.report.html
+.bundle
+.cache
+.bash_history
+.local
+.pki
+.graphqlconfig
+schema.json
+.yardoc
+.rspec-failures
+.rbenv-vars
+# Sublime Text 3 indexing file: .tags
+.tags

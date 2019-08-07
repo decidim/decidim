@@ -1,0 +1,113 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "debates"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column view-header">
+      <h2 class="heading2">
+        Decidim amb Janet Sanz una Barcelona més humana i en transició
+        ecològica
+      </h2>
+      <div class="author-data">
+        <div class="author-data__main">
+          <div class="author author--inline">
+            <a href="#" class="author__avatar">
+              <%= image_tag "demo-avatar.jpg" %>
+            </a>
+            1 de agosto de 2016 por
+            <a href="#" class="author__name">
+              Janet Sanz
+              <span class="label label--small label--basic">
+                Regidora</span>
+            </a>
+          </div>
+        </div>
+        <div class="author-data__extra">
+          <a href="#comments" title="Comentarios">
+            <%= icon "comment-square", class: "icon--small" %> 108
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+        large-3 large-push-9">
+        <div class="card extra">
+          <div class="card__content">
+            <div class="extra__date">
+              20 <span class="extra__month">Agosto</span>
+            </div>
+            <div class="extra__time">
+              16:00 - 18:00
+            </div>
+          </div>
+        </div>
+        <button class="button expanded" data-open="debate-info">
+          Com participo al debat?</button>
+        <%= partial "share" %>
+      </div>
+      <div class="reveal" id="debate-info" data-reveal>
+        <div class="reveal__header">
+          <h3 class="reveal__title">Com participo al debat?</h3>
+          <button class="close-button" data-close aria-label="Close modal"
+            type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <p><strong>Dijous 7 d'abril de les 16.00 h a les 17.00h</strong>,
+            la Janet Sanz anirà responent a les preguntes que realitzeu,
+            prioritzant aquelles que tinguin més vots. Per tant és important
+            participar activament en la decisió col·laborativa de quines
+            preguntes són més prioritàries i quines menys abans de dijous
+            a les 16.00h. És important fer les preguntes amb suficient
+            antelació i formulades de la manera més clara i raonada possible
+            perquè estigui ben posicionada quan es comencin a respondre les
+            preguntes.</p>
+          <p><strong>Deixeu les vostres preguntes a continuació a l'apartat
+            de comentaris i allà mateix s'anirà responent.</strong></p>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <div class="section">
+          <p>
+            El  procés participatiu del Pla Municipal 2016-2019 s'ha basat
+            en una  proposta inicial de l'actual equip de govern de
+            l'Ajuntament de  Barcelona i d'algunes propostes ja fetes per la
+            societat civil. Estableix les línies prioritàries, els objectius
+            i les actuacions que el  Govern de la ciutat desplegarà durant
+            el mandat. L'objectiu de fons és  l'impuls d'un model socioeconòmic
+            que contribueixi a revertir les  dinàmiques que han accentuat les
+            desigualtats entre persones i barris,  iniciant alhora la transició
+            cap a una ciutat que afronti els grans  reptes ambientals i
+            energètics del nou segle.</p>
+          <div class="callout success">
+            <p><strong>Actualització dijous 7 d'abril a les 17:24h:</strong>
+              moltes gràcies a tothom per participar i per fer-nos arribar
+              preguntes i propostes que ens seran molt útils per anar
+              construint la Barcelona per viure-hi que volem!</p>
+          </div>
+          <ul class="tags tags--debate">
+            <li><a href="">Pla Municipal</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

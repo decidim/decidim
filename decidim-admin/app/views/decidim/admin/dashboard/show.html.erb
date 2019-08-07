@@ -1,0 +1,16 @@
+<h2 class="card-title">
+  <%= t "decidim.admin.titles.dashboard" %>
+</h2>
+<div class="content">
+  <p><%= t ".welcome" %></p>
+  <% if allowed_to? :read, :admin_log %>
+    <div class="row">
+      <h3 class="card-title">
+      </h3>
+      <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
+      <% if latest_action_logs.any? %>
+        <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

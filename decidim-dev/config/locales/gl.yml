@@ -1,0 +1,40 @@
+gl:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Creado en
+        field: O meu campo
+        start_date: Data de inicio
+        title: Título
+        updated_at: Actualizado en
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Use un entorno de proba para decidir.
+          description: Os usuarios obtén esta insignia creando probas.
+          description_another: Este usuario creou %{score} probas.
+          description_own: Creaches %{score} probas.
+          name: Probas
+          next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
+          unearned_another: Este usuario aínda non creou ningunha proba.
+          unearned_own: Non creaches probas aínda.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Maniquís de alta
+          dummies_count_medium: Dummies medio
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Maniquís de alta
+        dummies_count_medium: Dummies medio
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Dummy relacionado

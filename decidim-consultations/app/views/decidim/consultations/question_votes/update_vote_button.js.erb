@@ -1,0 +1,21 @@
+(function () {
+  'use strict';
+
+  $('#question-vote-modal').foundation("close");
+  $('#question-vote-confirm-modal').foundation("close");
+  $('#question-vote-modal, #question-vote-confirm-modal').remove()
+  var voteButton = $('#question-<%= current_question.id %>-vote-button');
+  voteButton.html('<%= j(render partial: "decidim/consultations/questions/vote_button", locals: { question: current_question }) %>');
+
+  $('#question-vote-modal').foundation();
+  $('#question-vote-confirm-modal').foundation();
+
+  <% if signed_in? && current_question.voted_by?(current_user) %>
+    $('#vote-result-callout').addClass('warning').removeClass('hide danger');
+    $('#vote-result-callout .callout-title').text($('#vote-result-callout').data('title-ok'));
+    $('#vote-result-callout .callout-message').text($('#vote-result-callout').data('message-ok'));
+    $('#confirm-vote-form-loader').addClass('hide');
+    $('#confirm-vote-form').removeClass('hide');
+  <% end %>
+
+}());

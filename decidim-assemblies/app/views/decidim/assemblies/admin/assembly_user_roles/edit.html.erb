@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: assembly_user_role_path(@user_role.assembly, @user_role), html: { class: "form edit_assembly_user_roles" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("assembly_user_roles.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("assembly_user_roles.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

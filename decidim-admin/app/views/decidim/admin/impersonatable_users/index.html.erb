@@ -1,0 +1,86 @@
+<% if current_organization.available_authorizations.empty? %>
+  <div class="section">
+    <div class="callout warning">
+      <p><%= t(".needs_authorization_warning") %></p>
+    </div>
+  </div>
+<% end %>
+
+<div class="filters row">
+  <div class="column medium-3">
+    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
+    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
+      <li class="is-dropdown-submenu-parent">
+        <a href="#">
+        <% if @state.present? %>
+          <%= t(".filter.#{@state}") %>
+        <% else %>
+          <%= t(".filter.all") %>
+        <% end %>
+        </a>
+        <ul class="menu is-dropdown-submenu">
+          <li><%= link_to t(".filter.managed"), url_for(state: "managed", q: @query) %></li>
+          <li><%= link_to t(".filter.not_managed"), url_for(state: "not_managed", q: @query) %></li>
+          <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="column medium-4">
+    <%= form_tag "", method: :get do %>
+      <div class="filters__search">
+        <div class="input-group">
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+          <%= hidden_field_tag :state, @state %>
+          <div class="input-group-button">
+            <button type="submit" class="button button--muted">
+              <%= icon "magnifying-glass", aria_label: t(".search") %>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.impersonatable_users" %>
+      <% if allowed_to? :impersonate, :impersonatable_user, user: new_managed_user %>
+        <%= link_to t(".impersonate_new_managed_user"), new_impersonatable_user_impersonation_path(:new_managed_user), class: "button tiny button--title #{'disabled' if current_organization.available_authorizations.empty?}" %>
+      <% end %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".name") %></th>
+            <th><%= t(".status") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr data-user-id="<%= user.id %>">
+              <td><%= user.name %></td>
+              <td><%= user.managed? ? t(".managed") : t(".not_managed") %></td>
+              <td class="table-list__actions">
+                <% if allowed_to? :impersonate, :impersonatable_user, user: user %>
+                  <%= icon_link_to "account-login", new_impersonatable_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
+                <% end %>
+                <%= icon_link_to "clock", impersonatable_user_impersonation_logs_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
+                <% if allowed_to? :promote, :impersonatable_user, user: user %>
+                  <%= icon_link_to "badge", new_impersonatable_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users, theme: "decidim" %>
+    </div>
+  </div>
+</div>

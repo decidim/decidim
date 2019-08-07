@@ -1,0 +1,227 @@
+---
+en:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_date: End date
+        progress: Progress
+        project_ids: Included projects
+        proposals: Included proposals
+        start_date: Start date
+        title: Title
+        updated_at: Updated at
+      status:
+        description: Description
+        key: Key
+        name: Name
+        progress: Progress
+      timeline_entry:
+        description: Description
+        entry_date: Date
+    models:
+      decidim/accountability/proposal_linked_event: Proposal included in a result
+      decidim/accountability/result_progress_updated_event: Result progress updated
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Result
+        other: Results
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Are you sure you want to delete this %{name}?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        preview: Preview
+        timeline_entries: Project evolution
+        title: Actions
+      admin:
+        exports:
+          results: Results
+        models:
+          result:
+            name: Result
+          status:
+            name: Status
+          timeline_entry:
+            name: Timeline entry
+        results:
+          create:
+            invalid: There was a problem creating this result
+            success: Result successfully created
+          destroy:
+            success: Result successfully deleted
+          edit:
+            title: Edit result
+            update: Update result
+          form:
+            add_proposal: Add proposal
+          index:
+            title: Results
+          new:
+            create: Create result
+            title: New result
+          proposals:
+            close: Close
+            current_selection: Current selection
+            select: Select
+          update:
+            invalid: There was a problem updating this result
+            success: Result successfully updated
+        shared:
+          subnav:
+            statuses: Statuses
+        statuses:
+          create:
+            invalid: There was a problem creating this status
+            success: Status successfully created
+          destroy:
+            success: Status successfully deleted
+          edit:
+            title: Edit status
+            update: Update status
+          index:
+            title: Statuses
+          new:
+            create: Create status
+            title: New status
+          update:
+            invalid: There was a problem updating this status
+            success: Status successfully updated
+        timeline_entries:
+          create:
+            invalid: There was a problem creating this entry
+            success: Entry successfully created
+          destroy:
+            success: Entry successfully deleted
+          edit:
+            title: Edit entry
+            update: Update entry
+          index:
+            title: Project timeline entries
+          new:
+            create: Create entry
+            title: New entry
+          update:
+            invalid: There was a problem updating this entry
+            success: Entry successfully updated
+      admin_log:
+        result:
+          create: "%{user_name} created result %{resource_name} in %{space_name}"
+          delete: "%{user_name} deleted the %{resource_name} result in %{space_name}"
+          update: "%{user_name} updated result %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'The parent was not found on the database (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>New result at %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: End date
+            progress: Progress
+            start_date: Start date
+            status: Status
+            title: Title
+        status:
+          fields:
+            description: Description
+            key: Key
+            name: Name
+            progress: Progress
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
+        filters:
+          all: All
+          scopes: Scopes
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
+        home_header:
+          global_status: Global execution status
+        nav_breadcrumb:
+          global: Global execution
+        search:
+          search: Search for actions
+        show:
+          stats:
+            attendees: Attendees
+            back_to_result: Go back to result
+            comments: Comments
+            contributions: Contributions
+            last_edited_by: Last edited by
+            last_updated_at: Last updated at
+            meetings: Meetings
+            number_of_versions: Versions
+            proposals: Proposals
+            show_all_versions: Show all versions
+            version_author: Version author
+            version_created_at: Version created at
+            version_number: Version number
+            version_number_out_of_total: "%{current_version} out of %{total_count}"
+            votes: Supports
+        timeline:
+          title: Project evolution
+      versions:
+        index:
+          changes_at_title: Changes at "%{title}"
+          title: Versions
+        show:
+          changes_at_title: Changes at "%{title}"
+        version:
+          version_index: Version %{index}
+    components:
+      accountability:
+        name: Accountability
+        settings:
+          global:
+            categories_label: Name for "Categories"
+            comments_enabled: Comments enabled
+            display_progress_enabled: Display progress
+            heading_leaf_level_results: Name for "Projects"
+            heading_parent_level_results: Name for "Results"
+            intro: Intro
+            subcategories_label: Name for "Subcategories"
+          step:
+            comments_blocked: Comments blocked
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'The proposal "%{proposal_title}" has been included in a result. You can see it from this page:'
+          email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
+          email_subject: An update to %{proposal_title}
+          notification_title: The proposal <a href="%{proposal_path}">%{proposal_title}</a> has been included in the <a href="%{resource_path}">%{resource_title}</a> result.
+        result_progress_updated:
+          email_intro: 'The result "%{resource_title}", which includes the proposal "%{proposal_title}", is now %{progress}% complete. You can see it from this page:'
+          email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title} progress
+          notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
+    metrics:
+      results:
+        description: Number of results generated
+        object: results
+        title: Results
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Results
+    participatory_spaces:
+      highlighted_results:
+        see_all: See all (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projects included in this result
+      included_proposals:
+        result_proposal: Proposals included in this result

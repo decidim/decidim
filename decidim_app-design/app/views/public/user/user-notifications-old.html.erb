@@ -1,0 +1,181 @@
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row column">
+    <h1 class="heading1 user-header">Notificacions</h1>
+  </div>
+  <div class="row">
+    <div class="columns mediumlarge-4 large-3">
+      <%= partial "filters_wrapper" %>
+    </div>
+    <div class="columns mediumlarge-8 large-9">
+      <section class="section">
+        <h2 class="section-heading">Últimes notificacions</h2>
+        <div class="card card--list">
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "chat", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  3 nous comentaris a
+                  <a href="#">Creació d'aules ambientals al Parc del Clot</a>
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "clock", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  <a href="#">Superilles</a> ha passat a la Fase 3: Diagnòstic
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section-heading">Totes les notificacions</h2>
+        <div class="card card--list">
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "bolt", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  3 noves propostes a
+                  <a href="#">Pla Urbanístic de Gràcia</a>
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "chat", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  <a href="#">Maria Martinez</a> ha contestat el teu comentari a
+                  <a href="">Decidim amb Janet Sanz una Barcelona més humana i
+                    en transició ecològica</a>
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "circle-check", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  La proposta
+                  <a href="#">Garantir un habitatge estable a llarg termini</a>
+                  ha estat aprovada
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "circle-x", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  La proposta
+                  <a href="#">Millora de la movilitat a l'Illa Diagonal</a>
+                  ha estat rebutjada
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "thumb-up", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  <a href="#">Millora de la movilitat a l'Illa Diagonal</a>
+                  té 15 nous suports
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "map-marker", removeIconClass: true, class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  Falten 3 dies per la trobada
+                  <a href="#">Ús de l'espai públic a Badal
+                </h5>
+                <span class="text-small">20 Agost 2016</span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <a href="" class="card--list__data__icon">
+                <%= icon "chevron-right" %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%= partial "pagination" %>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

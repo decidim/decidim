@@ -1,0 +1,9 @@
+<div class="card__status">
+  <ul class="card-data">
+    <% statuses.each do |status_name| %>
+      <li class="card-data__item <%= status_name %>_status">
+        <%= send("#{status_name}_status") %>
+      </li>
+    <% end %>
+  </ul>
+</div>

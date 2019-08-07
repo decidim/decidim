@@ -1,0 +1,15 @@
+<p><%= t(".greeting", recipient: @recipient) %></p>
+
+<p><%= t(".intro", sender: @sender) %></p>
+
+<blockquote>
+  <p>
+    <em><%= @message %></em>
+  </p>
+</blockquote>
+
+<p>
+  <%= link_to decidim.conversation_url(@conversation, host: @host), decidim.conversation_url(@conversation, host: @host) %>
+</p>
+
+<p><%= t(".outro") %></p>

@@ -1,0 +1,25 @@
+<% if @forced_past_meetings %>
+  <div class="callout warning">
+    <%= t ".upcoming_meetings_warning" %>
+  </div>
+<% elsif meetings.length == 0 %>
+  <div class="callout warning">
+    <%= t ".no_meetings_warning" %>
+  </div>
+<% end %>
+
+<div class="row medium-up-2">
+  <div class="column">
+    <%= render partial: "decidim/shared/results_per_page" %>
+  </div>
+  <div class="column">
+    <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url } %>
+  </div>
+</div>
+
+<div class="row small-up-1 medium-up-2 card-grid">
+  <% meetings.each do |meeting| %>
+    <%= card_for meeting %>
+  <% end %>
+</div>
+<%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>

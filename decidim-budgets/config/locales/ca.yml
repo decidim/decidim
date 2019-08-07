@@ -1,0 +1,153 @@
+ca:
+  activemodel:
+    attributes:
+      project:
+        budget: Pressupost
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        proposal_ids: Propostes relacionades
+        title: Títol
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projecte
+        other: Projectes
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Carpetes
+        attachments: Adjunts
+        confirm_destroy: Estàs segura que vols eliminar aquest projecte?
+        destroy: Esborrar
+        edit: Editar
+        import: Importa propostes a projectes
+        new: Nou projecte
+        preview: Previsualitzar
+        title: Accions
+      admin:
+        models:
+          project:
+            name: Projecte
+        projects:
+          create:
+            invalid: S'ha produït un error en crear aquest projecte
+            success: Projecte creat correctament
+          destroy:
+            success: El projecte s'ha eliminat correctament
+          edit:
+            title: Editar projecte
+            update: Actualitzar
+          index:
+            finished_orders: Vots finalitzats
+            pending_orders: Vots en procés
+            title: Projectes
+          new:
+            create: Crear
+            title: Nou projecte
+          update:
+            invalid: S'ha produït un error en actualitzar aquest projecte
+            success: Projecte actualitzat correctament
+        proposals_imports:
+          create:
+            invalid: S'ha produït un error en importar les propostes en projectes
+            success: "S'ha importat amb èxit %{number} propostes en projectes"
+          new:
+            create: Importa propostes a projectes
+            no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            select_component: Selecciona un component
+      admin_log:
+        project:
+          create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
+      models:
+        project:
+          fields:
+            title: Títol
+      projects:
+        budget_confirm:
+          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
+          cancel: Cancel·lar
+          confirm: Confirmar
+          description: Aquests són els projectes que has seleccionat per formar part del pressupost.
+          title: Confirmar vot
+        budget_excess:
+          close: Tancar
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport amb les seves preferències.
+          ok: D'acord
+          title: Pressupost excedit
+        budget_summary:
+          are_you_sure: Segur que vols cancel·lar el teu vot?
+          assigned: 'Assignat:'
+          cancel_order: eliminar el teu vot i començar de nou
+          checked_out:
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
+            title: Vot pels pressupostos completat
+          description: En quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que desitges i vota per definir el pressupost.
+          title: Tu decideixes el pressupost
+        count:
+          projects_count:
+            one: 1 projecte
+            other: "%{count} projectes"
+        filters:
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          search: Cerca
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplegar
+        order_progress:
+          vote: Vota
+        order_selected_projects:
+          remove: Esborrar
+          selected_projects:
+            one: projecte seleccionat
+            other: projectes seleccionats
+          view: Veure
+        project:
+          add: Afegir
+          count:
+            one: 1 suport
+            other: "%{count} suports"
+          remove: Esborrar
+          view: Veure
+        project_budget_button:
+          add: Afegir
+          added: Afegit
+        show:
+          budget: Pressupost
+          view_all_projects: Veure tots els projectes
+    components:
+      budgets:
+        actions:
+          vote: Vota
+        name: Pressupostos
+        settings:
+          global:
+            announcement: Avís
+            comments_enabled: Comentaris habilitats
+            projects_per_page: Projectes per pàgina
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
+            total_budget: Pressupost total
+            vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
+          step:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+            show_votes: Mostra els suports
+            votes_enabled: S'ha habilitat la votació
+    orders:
+      checkout:
+        error: S'ha produït un error en processar el teu vot
+        success: El teu vot s'ha tramitat correctament
+      destroy:
+        error: S'ha produït un error en cancel·lar el teu vot
+        success: El teu vot ha estat cancel·lat correctament
+    resource_links:
+      included_proposals:
+        project_proposal: 'Propostes incloses en aquest projecte:'
+  index:
+    confirmed_orders_count: Recompte de vots
+  total_budget: Pressupost total

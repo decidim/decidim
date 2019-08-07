@@ -1,0 +1,50 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "process_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <form class="form">
+      <h2 class="process-title-summary">Nuevo proceso - Componentes <span class="text-muted float-right">Paso 3 de 3</span></h2>
+
+      <div class="callout primary">
+        <p>
+          Aún no existen componentes asociados a este proceso.
+        </p>
+        <a class="button small dropdown" data-toggle="new-component-1">Nuevo componente</a>
+        <div class="dropdown-pane" id="new-component-1" data-dropdown data-auto-focus="true">
+          <ul class="menu vertical">
+            <li>
+              <%= link_to "Encuentros", page_path("processes-new-3-add") %>
+            </li>
+            <li>
+              <%= link_to "Propuestas", page_path("processes-new-3-add") %>
+            </li>
+            <li>
+              <%= link_to "Debates", page_path("processes-new-3-add") %>
+            </li>
+            <li>
+              <%= link_to "Resultados", page_path("processes-new-3-add") %>
+            </li>
+            <li>
+              <%= link_to "Presupuestos", page_path("processes-new-3-add") %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="button--double form-general-submit">
+        <a href="#" class="button">Guardar y publicar</a>
+        <button type="submit" class="button hollow">Guardar borrador</button>
+        <%= link_to "Cancelar", page_path("settings"), class: "Cancelar" %>
+      </div>
+
+    </form>
+  </div>
+</div>
+<%= partial "template_bottom" %>

@@ -1,0 +1,378 @@
+hu:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Terület
+        assembly_type: Gyűlés típusa
+        assembly_type_other: Más típusú gyűlés
+        banner_image: Banner kép
+        closing_date: Határidő
+        closing_date_reason: Határidő indoklás
+        composition: Összetétel
+        copy_categories: Kategóriák másolása
+        copy_components: Elemek másolása
+        copy_features: Másolási funkciók
+        created_by: Készítette
+        created_by_other: Más által létrehozott
+        creation_date: Létrehozás dátuma
+        decidim_area_id: Terület
+        decidim_scope_id: Hatáskör
+        description: Leírás
+        developer_group: Kezdeményező csoport
+        domain: Domain
+        duration: Időtartam
+        facebook: Facebook
+        github: GitHub
+        hashtag: Kettőskereszt
+        hero_image: Kezdő kép
+        included_at: 'Tartalmazza:'
+        instagram: Instagram
+        internal_organisation: Belső szervezet
+        is_transparent: Átlátható
+        local_area: Szervezet területe
+        meta_scope: Hatókör-metaadatok
+        parent_id: Parent gyűlés
+        participatory_processes_ids: Kapcsolódó részvételi folyamatok
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek
+        private_space: Privát tér
+        promoted: Kiemelt
+        published_at: Közzétéve
+        purpose_of_action: A fellépés célja
+        scope_id: Hatáskör
+        scopes_enabled: Hatáskörök engedélyezve
+        short_description: Rövid leírás
+        show_statistics: Statisztikák megjelenítése
+        slug: URL slug
+        special_features: Speciális funkciók
+        subtitle: Felirat
+        target: Ki részt vesz benne
+        title: Cím
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Születésnap
+        birthplace: Születési hely
+        ceased_date: Megszűnés dátuma
+        designation_date: Kijelölés dátuma
+        designation_mode: Kijelölés módszere
+        full_name: Teljes név
+        gender: Neme
+        position: Pozíció
+      assembly_user_role:
+        email: Email
+        name: Név
+        role: Szerep
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Gyűlés
+        other: Gyűlések
+      decidim/assembly_member:
+        one: Gyűlés tagja
+        other: Gyűlés tagjai
+      decidim/assembly_user_role:
+        one: Gyűlés felhasználójának szerepe
+        other: Gyűlés felhasználóinak szerepe
+  decidim:
+    admin:
+      actions:
+        new_assembly: Új gyűlés
+      assemblies:
+        create:
+          error: Hiba történt az új gyűlés létrehozása során.
+          success: Gyűlés létrehozása sikeres.
+        edit:
+          update: Frissítés
+        index:
+          not_published: Nincs közzétéve
+          private: Privát
+          public: Nyilvános
+          published: Közzétéve
+        new:
+          create: Létrehozás
+          title: Új gyűlés
+        update:
+          error: Hiba történt a gyűlés frissítése során.
+          success: Gyűlés frissítése sikeres.
+      assemblies_copies:
+        create:
+          error: Hiba történt a gyűlés duplikációja során.
+          success: Gyűlés duplikációja sikeres.
+      assembly_copies:
+        new:
+          copy: Másolás
+          select: Válaszd ki, mely adatokat szeretnéd duplikálni
+          title: Gyűlés duplikálása
+      assembly_members:
+        create:
+          error: Hiba történt a tag gyűléshez való hozzáadása során.
+          success: A tag létrehozása a gyűléshez sikeres volt.
+        destroy:
+          success: A tag eltávolítása a gyűlésből sikeres volt.
+        edit:
+          title: Gyűlés tagjának frissítése.
+          update: Frissítés
+        index:
+          assembly_members_title: Gyűlés tagjai
+        new:
+          create: Létrehozás
+          title: Új gyűlés tag.
+        update:
+          error: Hiba történt a gyűlés tagjának frissítése során.
+          success: Gyűlés tagjának frissítése sikeres.
+      assembly_publications:
+        create:
+          error: Hiba történt a gyűlés közzététele során.
+          success: Gyűlés közzététele sikeres.
+        destroy:
+          error: Hiba történt a gyűlés közzétételének visszavonásakor.
+          success: Gyűlés közzétételének visszavonása sikeres.
+      assembly_user_roles:
+        create:
+          error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
+          success: Admin hozzáadása a gyűléshez sikeres.
+        destroy:
+          success: Admin eltávolítása a gyűlésből sikeres.
+        edit:
+          title: Gyűlés adminjának frissítése.
+          update: Frissítés
+        index:
+          assembly_admins_title: Gyűlés adminjai
+        new:
+          create: Létrehozás
+          title: Új gyűlés admin.
+        update:
+          error: Hiba történt a gyűlés adminjának frissítése során.
+          success: Gyűlés adminjának frissítése sikeres.
+      menu:
+        assemblies: Gyűlések
+        assemblies_submenu:
+          assembly_admins: Gyűlés adminjai
+          assembly_members: Tagok
+          attachment_collections: Mappák
+          attachment_files: Fájlok
+          attachments: Mellékletek
+          categories: Kategóriák
+          components: Elemek
+          info: Info
+          moderations: Moderálás
+          private_users: Privát felhasználók
+      models:
+        assembly:
+          fields:
+            created_at: 'Létrehozva:'
+            private: Privát
+            promoted: Kiemelt
+            published: Közzétéve
+            title: Cím
+          name: Gyűlés
+        assembly_member:
+          fields:
+            ceased_date: Megszűnés dátuma
+            designation_date: Kijelölés dátuma
+            full_name: Név
+            position: Pozíció
+          name: Tag
+          positions:
+            other: Egyéb
+            president: Elnök
+            secretary: Titkár
+            vice_president: Alelnök
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Név
+            role: Szerep
+          name: Gyűlés adminja
+          roles:
+            admin: Adminisztrátor
+            collaborator: Közreműködő
+            moderator: Moderátor
+      titles:
+        assemblies: Gyűlések
+    admin_log:
+      assembly:
+        create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
+        publish: "%{user_name} közzétette a(z) %{resource_name} gyűlést"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} gyűlést"
+      assembly_member:
+        create: "%{user_name} létrehozta a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+        delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésből"
+        update: "%{user_name} frissítette a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+      assembly_user_role:
+        create: "%{user_name} meghívta a(z) %{resource_name} nevű tagot ide: %{space_name}"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} nevű felhasználót innen: %{space_name}"
+        update: "%{user_name} megváltoztatta a(z) %{resource_name} nevű felhasználó szerepét itt: %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Időtartam
+            duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
+            filters: Szűrők
+            images: képek
+            included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
+            metadata: Metaadatok
+            other: Egyéb
+            select_a_created_by: Válassz alapítót
+            select_an_area: Válassz területet
+            select_an_assembly_type: Válassz gyűlés típust
+            select_parent_assembly: Szülői összeállítás kiválasztása
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+            social_handlers: Social
+            title: Általános információ
+            visbility: Láthatóság
+        assembly_copies:
+          form:
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        assembly_members:
+          form:
+            existing_user: Meglévő résztvevő
+            non_user: Nem résztvevő
+            select_a_position: Válassz pozíciót
+            select_user: Válasszon ki egy résztvevőt
+            user_type: Résztvevő típusa
+          index:
+            filter:
+              all: Összes
+              ceased: Megszűnt
+              not_ceased: Nem szűnt meg
+            filter_by: 'Szűrés ez alapján:'
+            search: Keresés
+        content_blocks:
+          highlighted_assemblies:
+            max_results: A megjelenítendő elemek maximális száma
+      assembly_members:
+        index:
+          members: Tagok
+      assembly_types:
+        commission: Bizottság
+        consultative_advisory: Konzulens/tanácsadó
+        executive: Végrehajtó
+        government: Kormány
+        others: Egyéb
+        participatory: Részvételi
+        working_group: Munkacsoport
+      content_blocks:
+        highlighted_assemblies:
+          name: Kiemelt gyűlések
+      created_by:
+        city_council: Városi közgyűlés
+        others: Egyéb
+        public: Nyilvános
+      filter:
+        all: Minden típusú gyűlés
+        commission: Bizottság
+        consultative_advisory: Konzultatív / tanácsadó
+        executive: Végrehajtó
+        government: Kormány
+        help: 'Mutat:'
+        others: Egyéb
+        participatory: Részvételi
+        working_group: Munkacsoport
+      index:
+        title: Gyűlések
+      last_activity:
+        new_assembly: Új összeszerelés
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktív gyűlések
+            see_all_assemblies: Összes gyűlés
+        user_profile:
+          member_of:
+            member_of: 'Tagja következőnek:'
+      show:
+        area: Terület
+        assembly_type: Gyűlés típusa
+        children: Gyűlések
+        closing_date: Határidő
+        composition: Összetétel
+        created_by: Készítette
+        creation_date: Létrehozás dátuma
+        developer_group: Kezdeményező csoport
+        duration: Időtartam
+        included_at: 'Tartalmazza:'
+        indefinite_duration: Határozatlan
+        internal_organisation: Belső szervezet
+        is_transparent:
+          'false': áttetsző
+          'true': átlátszó
+        local_area: Szervezet területe
+        participatory_scope: Mi a döntés
+        participatory_structure: Hogyan döntenek
+        private_space: Ez egy privát gyűlés
+        purpose_of_action: Fellépés célja
+        read_less: Kevesebb
+        read_more: Bővebben
+        related_participatory_processes: Kapcsolódó részvételi folyamatok
+        scope: Hatáskör
+        social_networks: Közösségi háló
+        target: Ki vesz részt benne
+      statistics:
+        answers_count: Válaszok
+        assemblies_count: Gyűlések
+        comments_count: Hozzászólások
+        debates_count: Viták
+        endorsements_count: Jóváhagyások
+        headline: Tevékenység
+        meetings_count: Találkozók
+        orders_count: Támogatja
+        pages_count: Oldalak
+        projects_count: Projektek
+        proposals_count: Javaslatok
+        results_count: Eredmények
+        surveys_count: Felmérések
+        users_count: Résztvevők
+        votes_count: Támogatók
+    assembly_members:
+      assembly_member:
+        designated_on: Kijelölt
+      index:
+        title: Tagok
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Egy gyűlés szervezet olyan csoportjának tagjait takarja, akik rendszeresen találkoznak azért, hogy döntéseket hozzanak a szervezet életét érintő kérdésekben.</p> <p>Ezek a gyűlések üléseket tartanak, egyesek privátok és néhányan nyitottak. Ha nyitottak, akkor nyitott a lehetőség a rérszvételre tagjaik előtt (például: a szervezetet érintő napirendi pontok javaslatával, vagy meglévő előterjesztésekhez, döntésekhez való vélemények fűzésével).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányait tisztázandó és végrehajtó testületei szavazással hoznak döntéseket), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezetben) egy értékelő bizottság (amely minden hónapban találkozik az adott folyamat nyomonkövetése érdekében) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik a gyűléseknek jó példája.</p>\n"
+          page: "<p><strong>A gyűlés </strong>egy szervezet olyan csoportját takarja, mely rendszeresen ülésezik azért, hogy döntéseket hozzon a szervezet életét érintő kérdésekben.</p> <p>Ezek a gyűlések (bizottságok, közgyűlések stb) üléseket tartanak, egyesek zártak és némelyek nyitottak. Ha nyitottak, akkor nyitott a lehetőség a részvételre a tagjaik, vagy tagjaik csoportjai előtt (például: a szervezetet érintő napirendi pontok javaslatával, vagy meglévő előterjesztésekhez, döntésekhez való vélemények fűzésével).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányait tisztázandó és végrehajtó testületei szavazással hoznak döntéseket), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezetben) egy értékelő bizottság (amely minden hónapban találkozik az adott folyamat nyomonkövetése érdekében) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik a gyűléseknek jó példája.</p>\n"
+          title: Mi az a gyűlés?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
+    menu:
+      assemblies: Gyűlések
+    metrics:
+      assemblies:
+        description: A létrehozott gyűlések száma
+        object: gyűlések
+        title: Gyűlések
+  errors:
+    messages:
+      cannot_be_blank: nem lehet üres
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Több információ
+          take_part: Vegyél részt
+        index:
+          children: 'Gyűlések: '
+          organizational_chart: Szervezési táblázat
+          promoted_assemblies: Kiemelt gyűlések
+          reset_chart: Visszaállítás
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} gyűlés"
+            other: "%{count} gyűlés"
+        promoted_assembly:
+          more_info: További információ
+          take_part: Vegyél részt
+      assembly_navigation:
+        assembly_member_menu_item: Tagok
+        assembly_menu_item: A gyűlés
+      assembly_widgets:
+        show:
+          take_part: Vegyél részt

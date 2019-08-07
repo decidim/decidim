@@ -1,0 +1,10 @@
+var $proposals = $('#proposals');
+var $proposalsCount = $('#proposals-count');
+var $orderFilterInput = $('.order_filter');
+
+$proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
+$proposalsCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $proposals);
+$dropdownMenu.foundation();

@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+module Decidim
+  module <%= component_module_name %>
+    # This is the engine that runs on the public interface of `<%= component_module_name %>`.
+    class AdminEngine < ::Rails::Engine
+      isolate_namespace Decidim::<%= component_module_name %>::Admin
+
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
+      routes do
+        # Add admin engine routes here
+        # resources :<%= component_name %> do
+        #   collection do
+        #     resources :exports, only: [:create]
+        #   end
+        # end
+        # root to: "<%= component_name %>#index"
+      end
+
+      def load_seed
+        nil
+      end
+    end
+  end
+end

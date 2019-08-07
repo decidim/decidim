@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     # A command with all the business logic when updating an admin in
@@ -12,7 +13,7 @@ module Decidim
         @form = form
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the form wasn't valid and we couldn't proceed.
@@ -30,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def update_admin
-        @admin.update_attributes!(attributes)
+        @admin.update!(attributes)
       end
 
       def attributes

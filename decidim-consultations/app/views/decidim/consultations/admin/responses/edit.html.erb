@@ -1,0 +1,18 @@
+<%= decidim_form_for @form,
+                     url: response_path(current_question, current_response),
+                     html: { class: "form edit_response" } do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("responses.edit.update", scope: "decidim.admin"),
+                 class: "button",
+                 data: { disable_with: true } %>
+
+    <% if allowed_to? :destroy, :response, response: current_response %>
+      <%= link_to t("decidim.admin.actions.destroy"),
+                  response_path(current_question, current_response),
+                  method: :delete,
+                  class: "alert button",
+                  data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+    <% end %>
+  </div>
+<% end %>

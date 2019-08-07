@@ -1,0 +1,18 @@
+<% if !current_settings.votes_hidden? && current_component.participatory_space.can_participate?(current_user) %>
+  <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
+    <%= render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
+  <% else %>
+    <% progress ||= proposal.proposal_votes_count || 0 %>
+    <% total ||= proposal.maximum_votes || 0 %>
+    <% subtitle_text = progress >= total ? t("decidim.proposals.proposals.votes_count.most_popular_proposal") : t("decidim.proposals.proposals.votes_count.need_more_votes") %>
+    <%= cell(
+      "decidim/progress_bar",
+      progress,
+      total: total,
+      units_name: "decidim.proposals.proposals.votes_count.count",
+      element_id: "proposal-#{proposal.id}-votes-count",
+      subtitle_text: subtitle_text,
+      small: from_proposals_list
+    ) %>
+  <% end %>
+<% end %>

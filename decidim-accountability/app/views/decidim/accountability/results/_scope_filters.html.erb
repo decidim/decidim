@@ -1,0 +1,18 @@
+<div class="scope-filters section">
+  <% if current_participatory_space.has_subscopes? %>
+    <div><%= t("results.filters.scopes", scope: "decidim.accountability") %></div>
+
+    <ul class="tags tags--action">
+      <li <%= active_class_if_current(nil) %>><%= link_to t("results.filters.all", scope: "decidim.accountability"), url_for(filter: { category_id: category.try(:id) }) %></li>
+
+      <% if current_participatory_space.scope %>
+        <li <%= active_class_if_current(current_participatory_space.scope.id) %>>
+          <%= link_to translated_attribute(current_participatory_space.scope.name), url_for(filter: { scope_id: current_participatory_space.scope.id, category_id: category.try(:id) }) %>
+        </li>
+      <% end %>
+      <% current_participatory_space.subscopes.each do |scope| %>
+        <li <%= active_class_if_current(scope.id) %>><%= link_to translated_attribute(scope.name), url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

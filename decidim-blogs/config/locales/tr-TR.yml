@@ -1,0 +1,79 @@
+tr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Yeni blog yazısı
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: posta
+        other: Mesajlar
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Bu yayını silmek istediğinize emin misiniz?
+        destroy: silmek
+        edit: Düzenle
+        new: Yeni posta
+        title: Eylemler
+      admin:
+        models:
+          components:
+            body: Vücut
+          post:
+            name: posta
+        posts:
+          create:
+            invalid: Bu yayını oluştururken bir sorun oluştu
+            success: Yayın başarıyla oluşturuldu
+          destroy:
+            success: Yayın başarıyla silindi
+          edit:
+            save: Güncelleştirme
+          index:
+            title: Mesajlar
+          new:
+            create: yaratmak
+            title: Gönderi oluştur
+          update:
+            invalid: Gönderiyi kaydederken bir sorun oluştu.
+            success: Yayın başarıyla kaydedildi
+      last_activity:
+        new_post_at_html: "<span> %{link}</span>yeni gönderi"
+      models:
+        post:
+          fields:
+            author: Yazar
+            body: Vücut
+            created_at: Adresinde düzenlendi
+            title: Başlık
+      posts:
+        show:
+          view: Görünüm
+        sidebar_blog:
+          comments: yorumlar
+          most_commented_posts: En çok yorum yapılan yazılar
+      read_more: Daha fazla oku
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: duyuru
+            comments_enabled: Yorumlar etkin
+          step:
+            announcement: duyuru
+            comments_blocked: Yorumlar engellendi
+    events:
+      blogs:
+        post_created:
+          email_intro: '"%{resource_title}" yazısı, takip ettiğiniz "%{participatory_space_title}" harfinde yayınlandı.'
+          email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
+          email_subject: '%{participatory_space_title}yayınlanan yeni gönderi'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> sonrası %{participatory_space_title}olarak yayınlandı.
+    pages:
+      home:
+        statistics:
+          posts_count: Mesajlar
+    participatory_processes:
+      statistics:
+        posts_count: Mesajlar

@@ -1,0 +1,75 @@
+eu:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        destroy: ezabatu
+        edit: Editatu
+        new: Berria
+        save: Gorde
+        title: Ekintzak
+      admins:
+        create:
+          error: Errorea gertatu da administratzaile berri bat sortzean.
+          success: Administratzailea zuzen sortu da
+        destroy:
+          success: Admin ezabatu da
+        edit:
+          title: Editatu administratzailea
+          update: Eguneratu
+        index:
+          title: Administratzaileak
+        new:
+          create: Sortu
+          title: Administratzaile berria
+        update:
+          error: Errorea gertatu da administratzaile hau eguneratzean.
+          success: Administratzailea zuzen eguneratu da
+      default_pages:
+        placeholders:
+          content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
+          title: 'Izenburu lehenetsia orri honetarako: %{page}'
+      menu:
+        admins: Administratzaileak
+        dashboard: Kontrol-panela
+        organizations: Erakundeak
+      models:
+        admin:
+          fields:
+            created_at: Tan sortua
+            email: Helbide elektronikoa
+          name: Administratzailea
+          validations:
+            email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        organization:
+          actions:
+            save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
+          fields:
+            created_at: Tan sortua
+            name: Izena
+          name: Erakundea
+      organizations:
+        create:
+          error: Errorea gertatu da erakunde berri bat sortzean.
+          success: Erakundea zuzen sortu da.
+        edit:
+          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+        index:
+          title: Erakundeak
+        new:
+          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
+          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          title: Erakunde berria
+        update:
+          error: Errorea gertatu da erakunde hau eguneratzean.
+          success: Erakundea zuzen eguneratu da.
+        users_registration_mode:
+          disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
+          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
+          existing: Ez utzi erabiltzaileek erregistratu, baizik eta existitzen diren erabiltzaileei saioa hasteko
+      shared:
+        notices:
+          no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
+          our_getting_started_guide: gure ongi etorri gida
+      titles:
+        dashboard: Kontrol-panela

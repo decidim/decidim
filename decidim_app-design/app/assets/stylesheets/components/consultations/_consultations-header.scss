@@ -1,0 +1,115 @@
+.consultations-header{
+  margin-bottom: $margin-sm;
+
+  @include breakpoint(medium){
+    margin-bottom: $margin-m;
+  }
+
+  .heading2{
+    font-weight: bold;
+  }
+}
+
+.consultations-header__main{
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+
+  &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, .6);
+  }
+}
+
+.consultations-header__container{
+  position: relative;
+  z-index: 1;
+  padding: 0 0 0 1rem;
+
+  @include breakpoint(mediumlarge){
+    display: flex;
+    align-items: stretch;
+
+    .columns{
+      > *{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.consultations-header__info{
+  padding: 1rem 1.5rem 1rem 1rem;
+  text-align: center;
+
+  @include breakpoint(medium){
+    padding: 1rem 1.5rem 1rem 1rem;
+  }
+
+  @include breakpoint(mediumlarge){
+    padding-left: 2rem;
+    text-align: left;
+  }
+}
+
+.consultations-header__link{
+  font-weight: 600;
+  color: $white;
+
+  &:hover,
+  &:focus{
+    color: $primary;
+  }
+
+  .icon{
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.consultations-header__extra{
+  background: rgba($dark-gray, .8);
+  color: $white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 16rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint(medium){
+    margin-left: -1rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    max-width: 150%;
+    padding: 2rem 1rem;
+  }
+}
+
+.consultations-header__extra-title{
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+
+  @include breakpoint(medium){
+    font-size: 1.1rem;
+  }
+
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.consultations-header__extra-date{
+  font-weight: 900;
+}

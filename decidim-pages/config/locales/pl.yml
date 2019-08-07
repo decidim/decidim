@@ -1,0 +1,32 @@
+pl:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Strona
+        few: Strony
+        many: Strony
+        other: Strony
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} zaktualizował stronę %{resource_name} w %{space_name}"
+    components:
+      pages:
+        name: Strona
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    pages:
+      admin:
+        models:
+          components:
+            body: Treść
+        pages:
+          edit:
+            save: Aktualizuj
+            title: Edytuj stronę
+          update:
+            invalid: Podczas zapisywania strony wystąpiły błędy.
+            success: Strona została zapisana pomyślnie.

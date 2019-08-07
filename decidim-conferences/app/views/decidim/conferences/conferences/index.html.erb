@@ -1,0 +1,25 @@
+<% add_decidim_meta_tags(title: t("conferences.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_conferences.conferences_path,
+  :read,
+  :conference_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
+  <% if promoted_conferences.any? %>
+    <section id="highlighted-conferences" class="row section">
+      <h1 class="section-heading"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_conference", collection: promoted_conferences, as: :promoted_conference %>
+    </section>
+  <% end %>
+
+  <section id="conferences-grid" class="section row collapse">
+    <%= render partial: "decidim/conferences/order_by_conferences" %>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <%= render(collection) %>
+    </div>
+  </section>
+<% end %>

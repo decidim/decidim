@@ -1,0 +1,18 @@
+<%= partial "main_nav" %>
+<div class="secondary-nav">
+  <div class="secondary-nav__title">
+    Usuarios
+  </div>
+  <ul>
+    <li <% if @activepage == "users" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Administradores", page_path("users") %>
+    </li>
+    <li <% if @activepage == "users-groups" %>
+     class="is-active"
+    <% end %>>
+      <%= link_to "Grupos de usuarios", page_path("users-groups") %>
+    </li>
+  </ul>
+</div>

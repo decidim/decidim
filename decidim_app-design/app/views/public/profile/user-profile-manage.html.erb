@@ -1,0 +1,81 @@
+<%
+@title = "Decidim Barcelona"
+@activeuser = "logged"
+@activepage = "group"
+@files = Dir.glob("app/assets/images/badges/*.svg")
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns medium-9 medium-offset-3">
+      <h5>Manage members</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-3">
+      <%= render partial: page_path("profile") + "/user-card" %>
+    </div>
+    <div class="columns medium-9">
+      <section class="section list-request">
+        <p>The following users have applied to join this group. Accept or reject their requests:</p>
+        <% 4.times do %>
+        <div class="flex--sbc">
+          <%= partial "author_data" %>
+          <div>
+            <button class="card__button button small light success">
+              Accept
+            </button>
+            <button class="card__button button small light">
+              Reject
+            </button>
+          </div>
+        </div>
+        <% end %>
+      </section>
+      <section class="section">
+        <p>Current members:</p>
+        <div class="row small-up-1 medium-up-2 card-grid">
+          <% 4.times do %>
+          <div class="column">
+            <article class="card card--member">
+              <div class="card__content">
+                <div class="card__header collapse">
+                  <%= partial "author_data", { big: true, verified: false } %>
+                </div>
+              </div>
+              <div class="card__status">
+                <ul class="card-data">
+                  <li class="card-data__item">
+                    <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                  </li>
+                  <li class="card-data__item">
+                    <a href="">
+                      <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card__footer">
+                <div class="card__support">
+                  <button class="card__button button secondary button--sc small light">
+                    Leave group
+                  </button>
+                  <button class="card__button button secondary button--sc small light">
+                    Become admin
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <% end %>
+        </div>
+
+        <%= partial "pagination" %>
+      </section>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

@@ -1,0 +1,6 @@
+#import "../fragments/comment.fragment.graphql"
+
+fragment CommentThread on Comment {
+  hasComments
+  ...Comment
+}

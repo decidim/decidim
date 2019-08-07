@@ -1,0 +1,14 @@
+<% add_decidim_page_title(t("participatory_process_steps.index.title", scope: "decidim")) %>
+
+<main class="steps">
+  <div class="row column">
+    <div class="row">
+      <div class="columns mediumlarge-9 large-7">
+        <div class="section">
+          <h4 class="section-heading"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h4>
+          <%= render partial: "timeline" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

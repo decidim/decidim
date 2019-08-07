@@ -1,0 +1,760 @@
+ca:
+  activemodel:
+    attributes:
+      area:
+        area_type: Tipus d'àrea
+        name: Nom
+        organization: Organització
+      area_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
+      attachment:
+        attachment_collection_id: Carpeta
+        description: Descripció
+        file: Arxiu
+        title: Títol
+      attachment_collection:
+        description: Descripció
+        name: Nom
+      category:
+        description: Descripció
+        name: Nom
+        parent_id: Pare
+      component:
+        name: Nom
+        published_at: Publicat el
+        weight: Pes
+      id: ID
+      newsletter:
+        body: Cos
+        subject: Assumpte
+      oauth_application:
+        name: Nom
+        organization_logo: Logotip de l'organització (quadrat)
+        organization_name: Nom de l'organització
+        organization_url: URL de l'organització
+        redirect_uri: URL de redirecció
+      organization:
+        address: Nom del servidor SMTP
+        alert_color: Alerta
+        badges_enabled: Habilitar insígnies
+        cta_button_path: URL del botó d'acció
+        cta_button_text: Text del botó d'acció
+        customize_welcome_notification: Adaptar la notificació de benvinguda
+        default_locale: Idioma per defecte
+        description: Descripció
+        enable_omnipresent_banner: Mostrar banner omnipresent
+        facebook_handler: Nom d'usuari de Facebook
+        favicon: Icona
+        from: De la direcció de correu electrònic
+        github_handler: Nom d'usuari de GitHub
+        header_snippets: Codi personalitzat a la capçalera
+        highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
+        highlighted_content_banner_action_title: Títol del botó d'acció
+        highlighted_content_banner_action_url: URL del botó d'acció
+        highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
+        highlighted_content_banner_image: Imatge
+        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_title: Títol
+        instagram_handler: Nom d'usuari a Instagram
+        logo: Logotip
+        name: Nom
+        official_img_footer: Logotip oficial al peu de pàgina
+        official_img_header: Logotip oficial a la capçalera
+        official_url: Pàgina web oficial de l'organització
+        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_title: Títol
+        omnipresent_banner_url: URL
+        password: Contrasenya
+        port: Port
+        primary_color: Primària
+        reference_prefix: Prefix de referència
+        secondary_color: Secundari
+        send_welcome_notification: Envia la notificació de benvinguda
+        show_statistics: Mostrar estadístiques
+        success_color: Èxit
+        tos_version: Versió del Termes de Servei
+        twitter_handler: Nom d'usuari de Twitter
+        user_groups_enabled: Habilitar grups
+        user_name: Àlies
+        warning_color: Avís
+        welcome_notification_body: Cos de la notificació de benvinguda
+        welcome_notification_subject: Assumpte de la notificació de benvinguda
+        youtube_handler: Nom d'usuari de YouTube
+      scope:
+        code: Codi
+        name: Nom
+        organization: Organització
+        parent_id: Pare
+        scope_type: Tipus d'àmbit
+        scope_type_id: Tipus d'àmbit
+      scope_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
+      static_page:
+        changed_notably: S'han produït canvis notables.
+        content: Contingut
+        organization: Organització
+        show_in_footer: Mostra al peu de pàgina
+        slug: Nom curt d'URL
+        title: Títol
+        weight: Pes
+      static_page_topic:
+        description: Descripció
+        show_in_footer: Mostra al peu de pàgina
+        title: Títol
+        weight: Pes
+      user_group_csv_verification:
+        file: Fitxer
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URL de redirecció ha de ser SSL
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
+            official_img_header:
+              allowed_file_content_types: Fitxer d'imatge no vàlid
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Contingut
+        slug: Nom curt d'URL
+        title: Títol
+      doorkeeper/application:
+        authorize_url: URL d'autorització
+        client_id: Identificador de client
+        client_secret: Secret del client
+        organization_name: Nom de l'organització
+        organization_url: URL de l'organització
+        redirect_uri: URL de redirecció
+        site: Lloc web
+  decidim:
+    admin:
+      actions:
+        add: Afegir
+        browse: Explorar
+        export: Exporta
+        manage: Gestionar
+        new: Nou %{name}
+        permissions: Permisos
+        reject: Rebutjar
+        verify: Verificar
+      area_types:
+        create:
+          error: S'ha produït un error en crear un tipus d'àrea nova.
+          success: El tipus d'àrea ha estat creat correctament.
+        destroy:
+          success: El tipus d'àrea s'ha eliminat correctament
+        edit:
+          title: Editar el tipus d'àrea
+          update: Actualitzar
+        new:
+          create: Crea un tipus d'àrea
+          title: Nou tipus d'àrea
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àrea.
+          success: El tipus d'àrea s'ha actualitzat correctament
+      areas:
+        create:
+          error: S'ha produït un error en crear una nova àrea.
+          success: Àrea creada correctament.
+        destroy:
+          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
+          success: Àrea eliminada correctament
+        edit:
+          title: Editar àrea
+          update: Actualitzar
+        new:
+          create: Crear àrea
+          title: Nova àrea
+        no_areas: Sense àrees
+        update:
+          error: S'ha produït un error en actualitzar aquesta àrea.
+          success: Àrea actualitzada correctament
+      attachment_collections:
+        create:
+          error: S'ha produït un error en crear una nova carpeta.
+          success: S'ha creat la carpeta correctament.
+        destroy:
+          success: S'ha eliminat la carpeta correctament.
+        edit:
+          title: Edita la carpeta
+          update: Actualitzar
+        index:
+          attachment_collection_used: Aquesta carpeta no es pot eliminar perquè està en ús.
+          attachment_collections_title: Carpetes de fitxers adjunts
+        new:
+          create: Crear
+          title: Carpeta nova
+        update:
+          error: S'ha produït un error en actualitzar aquesta carpeta.
+          success: S'ha actualitzat la carpeta correctament.
+      attachments:
+        create:
+          error: S'ha produït un error en crear un nou adjunt.
+          success: Adjunt creat correctament.
+        destroy:
+          success: L'adjunt s'ha eliminat correctament.
+        edit:
+          title: Edita adjunt
+          update: Actualitza
+        index:
+          attachments_title: Adjunts
+        new:
+          create: Crea adjunt
+          title: Nou adjunt
+        update:
+          error: S'ha produït un error en actualitzar aquest adjunt.
+          success: Adjunt actualitzat correctament.
+      autocomplete:
+        no_results: No s'han trobat resultats
+        search_prompt: Escriu com a mínim tres caràcters per cercar
+      categories:
+        create:
+          error: S'ha produït un error en crear aquesta categoria.
+          success: Categoria creada correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
+          success: Categoria eliminada correctament.
+        edit:
+          title: Edita categoria
+          update: Actualitzar
+        index:
+          categories_title: Categories
+          category_used: Aquesta categoria no es pot suprimir perquè està en ús.
+        new:
+          create: Crear categoria
+          title: Nova categoria
+        update:
+          error: S'ha produït un error en actualitzar aquesta categoria.
+          success: Categoria actualitzada correctament.
+      component_permissions:
+        update:
+          success: Permisos actualitzats correctament.
+      components:
+        create:
+          error: S'ha produït un error en crear aquest component.
+          success: El component s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquest component.
+          success: El component s'ha eliminat correctament.
+        edit:
+          title: Edita el component
+          update: Actualitzar
+        form:
+          default_step_settings: Configuració per defecte
+          global_settings: Configuració global
+          step_settings: Configuració de fase
+        index:
+          add: Afegeix un component
+          headers:
+            actions: Accions
+            name: Nom del component
+            type: Tipus de component
+        new:
+          add: Afegeix un component
+          title: 'Afegir component: %{name}'
+        publish:
+          success: El component s'ha publicat correctament.
+        title: Components
+        unpublish:
+          success: El component s'ha despublicat correctament.
+        update:
+          error: S'ha produït un error en actualitzar aquest component.
+          success: El component s'ha actualitzat correctament.
+      dashboard:
+        show:
+          view_more_logs: Veure més registres
+          welcome: Benvinguda al tauler d'administració de Decidim.
+      exports:
+        export_as: "%{name} com a %{export_format}"
+        notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      help_sections:
+        error: S'ha produït un error en actualitzar les seccions d'ajuda
+        form:
+          save: Desa
+        success: Les seccions d'ajuda s'han actualitzat correctament
+      impersonatable_users:
+        index:
+          filter:
+            all: Totes
+            managed: Gestionat
+            not_managed: No gestionat
+          filter_by: Filtra per
+          impersonate: Impersonar
+          impersonate_new_managed_user: Gestiona una nova participant
+          managed: Gestionat
+          name: Nom
+          needs_authorization_warning: Necessites almenys una autorització habilitada per a aquesta organització.
+          not_managed: No gestionat
+          promote: Promocionar
+          search: Cercar
+          status: Estat
+          view_logs: Veure els registres
+      impersonations:
+        close_session:
+          error: S'ha produït un error en tancar la sessió actual de gestió de participants.
+          success: S'ha finalitzat correctament la sessió d'impersonalització actual.
+        create:
+          error: S'ha produït un error en gestionar la participant.
+          success: La participant gestionada s'ha creat correctament.
+        form:
+          authorization_method: Mètode d'autorització
+          name: Nom
+          reason: Raó
+        new:
+          impersonate: Impersonar
+          impersonate_existing_managed_user: Gestionar la participant "%{name}"
+          impersonate_existing_user: Gestionar la participant "%{name}"
+          impersonate_new_managed_user: Gestionar una nova participant
+      logs:
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat
+      managed_users:
+        promotion:
+          error: S'ha produït un error en promoure aquesta participant.
+          success: La participant s'ha promogut correctament.
+        promotions:
+          new:
+            explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
+            new_managed_user_promotion: Nova promoció de participant
+            promote: Promocionar
+      menu:
+        admin_log: Registre d'activitat d'administració
+        admins: Administradores
+        appearance: Aparença
+        area_types: Tipus d'àrees
+        areas: Àrees
+        configuration: Configuració
+        dashboard: Tauler de control
+        help_sections: Seccions d'ajuda
+        homepage: Pàgina d'inici
+        impersonations: Impersonacions
+        newsletters: Butlletins
+        oauth_applications: Aplicacions OAuth
+        participants: Participants
+        scope_types: Tipus d'àmbit
+        scopes: Àmbits
+        settings: Configuració
+        static_pages: Pàgines
+        user_groups: Grups
+        users: Participants
+      models:
+        area:
+          fields:
+            area_type: Tipus d'àrea
+            name: Nom
+        area_type:
+          fields:
+            name: Nom
+            plural: Plural
+        attachment:
+          fields:
+            collection: Carpeta
+            content_type: Tipus
+            file_size: Mida
+            title: Títol
+          name: Arxiu adjunt
+        attachment_collection:
+          name: Carpeta
+        category:
+          name: Categoria
+        impersonation_log:
+          fields:
+            admin: Administradora
+            ended_at: Va acabar el
+            expired_at: Vençut el
+            reason: Raó
+            started_at: Va començar el
+            user: Participant
+        newsletter:
+          fields:
+            created_at: Data de creació
+            progress: Progrés
+            sent_at: Enviat el
+            sent_to: Enviat a
+            subject: Assumpte
+          name: Butlletí
+        oauth_application:
+          fields:
+            created_at: Creat el
+            name: Nom
+          name: Aplicació OAuth
+        participatory_space_private_user:
+          name: Participant d'espai de participació privat
+        scope:
+          fields:
+            name: Nom
+            scope_type: Tipus d'àmbit
+        scope_type:
+          fields:
+            name: Nom
+            plural: Plural
+        static_page:
+          fields:
+            created_at: Data de creació
+            title: Títol
+        user:
+          fields:
+            created_at: Data de creació
+            email: Correu electrònic
+            last_sign_in_at: Darrera data d'identificació
+            name: Nom
+            role: Rol
+            roles:
+              admin: Administradora
+              user_manager: Administradora de participants
+          name: Participant
+        user_group:
+          fields:
+            actions: Accions
+            created_at: Data de creació
+            document_number: Número de document
+            name: Nom
+            phone: Telèfon
+            state: Estat
+            users_count: Nombre de participants
+      moderations:
+        index:
+          title: Moderacions
+        report:
+          reasons:
+            does_not_belong: No pertany
+            offensive: Ofensiu
+            spam: Contingut no desitjat
+      newsletters:
+        create:
+          error: S'ha produït un error en crear aquest butlletí.
+          success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
+        deliver:
+          error: S'ha produït un error en enviar aquest butlletí.
+          success: Butlletí enviat correctament.
+        destroy:
+          error_already_sent: 'No es pot eliminar butlletí de notícies: ja s''ha enviat.'
+          success: Butlletí eliminat correctament.
+        edit:
+          save_and_preview: Desar i vista prèvia
+          title: Editar butlletí
+        form:
+          interpolations_hint: 'Pista: Pots utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
+        index:
+          all: totes
+          all_users: 'Totes les participants '
+          and: 'i '
+          confirm_delete: Segur que vols suprimir aquest butlletí?
+          followers: 'seguidores '
+          has_been_sent_to: 'Ha estat enviat a: '
+          no_scopes: Sense àmbits
+          not_sent: No enviat
+          participants: 'participants '
+          segmented_to: 'Segmentat a %{subject}: '
+          title: Butlletins
+        new:
+          save: Desar
+          title: Nou butlletí
+        select_recipients_to_deliver:
+          all_spaces: Totes
+          all_users_help: Envia el butlletí a tots els usuaris confimats.
+          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          deliver: Enviar butlletí
+          followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          none: Cap
+          participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
+          select_spaces: Selecciona espais per segmentar el butlletí
+          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
+          send_to_all_users: Envia a totes les participants
+          send_to_followers: Envia a totes les seguidores
+          send_to_participants: Envia a totes les participants
+          title: Selecciona les destinatàries a lliurar
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+        send:
+          no_recipients: No hi ha destinatàries per a aquesta selecció
+        show:
+          preview: Previsualitzar
+          select_recipients_to_deliver: Selecciona les destinatàries a lliurar
+          subject: Assumpte
+        update:
+          error: S'ha produït un error en actualitzar aquest butlletí.
+          success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
+      oauth_applications:
+        create:
+          error: S'ha produït un error en crear aquesta aplicació.
+          success: L'aplicació s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta aplicació.
+          success: S'ha eliminat l'aplicació correctament.
+        edit:
+          save: Desa
+          title: Edita l'aplicació
+        index:
+          confirm_delete: Estàs segura que vols eliminar aquesta aplicació?
+          title: Aplicacions OAuth
+        new:
+          save: Desa
+          title: Nova aplicació
+        update:
+          error: S'ha produït un error en actualitzar aquesta aplicació.
+          success: S'ha actualitzat l'aplicació correctament.
+      officializations:
+        create:
+          success: La participant s'ha oficialitzat correctament
+        destroy:
+          success: L'oficialització de la participant ha estat inhabilitada correctament
+        index:
+          actions: Accions
+          badge: Insígnia
+          created_at: Creat el
+          filter:
+            all: Todas
+            not_officialized: No oficialitzada
+            officialized: Oficialitzada
+          filter_by: Filtra per
+          name: Nom
+          nickname: Àlies
+          not_officialized: No oficialitzada
+          officialize: Oficialitza
+          officialized: Oficialitzada
+          reofficialize: Torna a oficialitzar
+          search: Cerca
+          status: Estat
+          unofficialize: Des-oficialitzar
+        new:
+          badge: Insígnia d'oficialització
+          officialize: Oficialitza
+          title: Oficialitza la participant "%{name}"
+      organization:
+        edit:
+          title: Edita organització
+          update: Actualitzar
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
+        update:
+          error: S'ha produït un error en actualitzar aquesta organització.
+          success: Organització actualitzada correctament.
+      organization_appearance:
+        edit:
+          update: Actualitzar
+        form:
+          colors_title: Colors de l'organització
+          cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
+          cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
+          header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
+          homepage_appearance_title: Edita l'aparença de la pàgina d'inici
+          homepage_highlighted_content_banner_title: Banner de contingut ressaltat
+          layout_appearance_title: Edita l'aparença del disseny global
+          omnipresent_banner_appearance_title: Edita banner omnipresent
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contingut actiu
+          inactive_content_blocks: Blocs de contingut inactiu
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualitza
+      participatory_space_private_users:
+        create:
+          error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
+          success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
+          success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
+        index:
+          title: Participant de l'espai participatiu privat
+        new:
+          create: Crear
+          title: Nova participant de l'espai de participació privat.
+      resource_permissions:
+        edit:
+          submit: Enviar
+          title: Edita els permisos
+        update:
+          success: Els permisos s'han actualitzat correctament.
+      scope_types:
+        create:
+          error: S'ha produït un error en crear un nou tipus d'àmbit.
+          success: Tipus d'àmbit creat amb èxit.
+        destroy:
+          success: Tipus d'àmbit eliminat correctament
+        edit:
+          title: Editar tipus d'àmbit
+          update: Actualitzar
+        new:
+          create: Crea tipus d'àmbit
+          title: Nou àmbit
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
+          success: Tipus d'àmbit actualitzat correctament
+      scopes:
+        create:
+          error: S'ha produït un error en crear un nou àmbit.
+          success: Àmbit creat correctament.
+        destroy:
+          success: Àmbit eliminat correctament
+        edit:
+          title: Edita àmbit
+          update: Actualitzar
+        new:
+          create: Crea àmbit
+          title: Nou àmbit
+        no_scopes: No hi ha àmbits a aquest nivell.
+        update:
+          error: S'ha produït un error en actualitzar aquest àmbit.
+          success: Àmbit actualitzat correctament
+      static_page_topics:
+        create:
+          error: S'ha produït un error en crear un tema nou.
+          success: S'ha creat el tema correctament.
+        destroy:
+          success: S'ha destruït el tema amb èxit
+        edit:
+          title: Edita el tema
+          update: Actualitza el tema
+        new:
+          create: Crea un tema
+          title: Nou tema
+        update:
+          error: S'ha produït un error en actualitzar aquest tema.
+          success: S'ha actualitzat el tema correctament
+      static_pages:
+        actions:
+          view: Visualitzar la pàgina pública
+        create:
+          error: S'ha produït un error en crear una nova pàgina.
+          success: La pàgina s'ha creat correctament.
+        destroy:
+          success: La pàgina s'ha eliminat correctament.
+        edit:
+          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous Termes i Condicions.
+          title: Editar pàgina
+          update: Actualitzar
+        form:
+          none: Cap
+          slug_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
+        index:
+          last_notable_change: Últims canvis notables
+        new:
+          create: Crea una pàgina
+          title: Nova pàgina
+        topic:
+          destroy: Elimina el tema
+          edit: Edita el tema
+          empty: No hi ha cap pàgina sobre aquest tema
+          without_topic: Pàgines sense tema
+        update:
+          error: S'ha produït un error en l'actualització d'aquesta pàgina.
+          success: La pàgina s'ha actualitzat correctament.
+      titles:
+        admin_log: Registre d'administració
+        area_types: Tipus d'àrees
+        areas: Àrees
+        authorization_workflows: Mètodes de verificació
+        dashboard: Tauler de control
+        impersonatable_users: Participants que es poden gestionar
+        impersonations: Gestió de participants
+        participants: Participants
+        scope_types: Tipus d'àmbit
+        scopes: Àmbits
+        static_pages: Pàgines
+        user_groups: Grups
+        users: Participants
+      user_group:
+        csv_verify:
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
+        reject:
+          invalid: S'ha produït un error en rebutjar aquest grup.
+          success: El grup s'ha rebutjat correctament
+        verify:
+          invalid: S'ha produït un error en rebutjar aquest grup.
+          success: Grup verificat correctament
+      user_groups:
+        index:
+          filter:
+            all: Tots
+            pending: Pendents
+            rejected: Rebutjats
+            verified: Verificats
+          filter_by: Filtra per
+          search: Cerca
+          state:
+            pending: Pendent
+            rejected: Rebutjat
+            verified: Verificat
+          verify_via_csv: Verifica mitjançant CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          title: Puja el fitxer CSV
+          upload: Pujar
+      users:
+        create:
+          error: S'ha produït un error en convidar aquesta participant.
+          success: Participant convidada correctament.
+        destroy:
+          error: S'ha produït un error en intentar eliminar aquesta participant.
+          success: La participant ja no és una administradora.
+        form:
+          email: Correu electrònic
+          name: Nom
+          role: Rol
+        new:
+          create: Convidar
+          title: Convidar una participant com a administradora
+      view_public_page: Mostra la pàgina pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
+    moderations:
+      actions:
+        hidden: Ocults
+        hide: Amagar
+        not_hidden: No ocult
+        title: Accions
+        unhide: Tornar a mostrar
+        unreport: Desfer denúncia
+      admin:
+        reportable:
+          hide:
+            invalid: S'ha produït un error en ocultar el contingut.
+            success: Contingut amagat correctament.
+          unhide:
+            invalid: S'ha produït un error en tornar a mostrar el contingut.
+            success: S'ha tornat a mostrar el recurs correctament.
+          unreport:
+            invalid: S'ha produït un error en cancel·lar la denúncia.
+            success: Denúncia cancel·lada correctament.
+      models:
+        moderation:
+          fields:
+            hidden_at: Data d'ocultació
+            report_count: Recompte
+            reportable: Tipus
+            reported_content_url: URL contingut del contingut reportat
+            reports: Denúncies
+            visit_url: Visiteu l'URL
+  errors:
+    messages:
+      invalid_json: JSON no vàlid
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Butlletins
+        settings:
+          title: Configuració
+        users:
+          title: Participants

@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: category_path(@category.participatory_space, @category), html: { class: "form edit_category" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("categories.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

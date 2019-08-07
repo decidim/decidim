@@ -1,0 +1,4 @@
+// Convert deg to rad
+@function deg-to-rad ($deg, $unit: true) {
+    @return strip-unit($deg) * $PI / 180 * if($unit, 1rad, 1);
+}

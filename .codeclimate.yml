@@ -1,33 +1,130 @@
----
-engines:
+version: "2"
+
+checks:
+  argument-count:
+    enabled: false
+
+  complex-logic:
+    enabled: false
+
+  file-lines:
+    enabled: false
+
+  identical-code:
+    enabled: false
+
+  method-complexity:
+    enabled: false
+
+  method-count:
+    enabled: false
+
+  method-lines:
+    enabled: false
+
+  nested-control-flow:
+    enabled: false
+
+  return-statements:
+    enabled: false
+
+  similar-code:
+    enabled: false
+
+plugins:
   bundler-audit:
     enabled: true
+
   csslint:
     enabled: true
+    exclude_patterns:
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
+      - "decidim-admin/app/assets/stylesheets/decidim/admin/bundle.scss"
+      - "decidim-core/app/assets/stylesheets/decidim/email.css"
+
   duplication:
     enabled: true
+
     config:
       languages:
-      - ruby
-      - javascript
+        javascript:
+          mass_threshold: 1000
+
+        ruby:
+          mass_threshold: 80
+
+    exclude_fingerprints:
+      - 3806e0c6847f506e683c8bc4133b22e5
+      - ae2cee64fca2a95102d03e03b9ffb54f
+      - 6f035938f647907520c4828322745f06
+      - 54a2aa506daf27744a0c0d51712f11b5
+      - 335702a6e9817ff54c4e6deb16b6663a
+      - 4cd229a46c20efb3b58249cd528bc66c
+
+    exclude_patterns:
+      - "decidim-*/spec/**/*"
+
   eslint:
-    enabled: true
+    enabled: false
+
   fixme:
     enabled: true
-  rubocop:
+
+    exclude_patterns:
+      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+      - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js.map
+      - decidim-admin/app/assets/javascripts/decidim/admin/bundle.js
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
+      - decidim-core/app/assets/javascripts/decidim/core/bundle.js
+      - .rubocop.yml
+
+  grep:
     enabled: true
-ratings:
-  paths:
-  - Gemfile.lock
-  - "**.css"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
-exclude_paths:
-- spec/
-- decidim-core/spec/
-- .rubocop.yml
+
+    config:
+      patterns:
+        no-trailing-whitespace:
+          pattern: \s*$
+          annotation: "Don't leave trailing whitespace"
+          severity: minor
+          categories: Style
+
+        no-tabs:
+          pattern: "	"
+          annotation: "Don't use hard tabs"
+          severity: minor
+          categories: Style
+
+    exclude_patterns:
+      - "decidim_app-design/**/*"
+      - "**/*/locales/*.yml"
+      - "**/*/*.svg"
+      - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
+
+  markdownlint:
+    enabled: true
+
+    exclude_patterns:
+      - .github/*
+      - decidim-dev/lib/decidim/dev/assets/participatory_text.md
+      - decidim-proposals/app/assets/documents/decidim/proposals/participatory_texts/participatory_text.md
+
+    issue_override:
+      severity: minor
+
+  stylelint:
+    enabled: true
+    exclude_patterns:
+      - "decidim-admin/app/assets/stylesheets/decidim/admin/bundle.scss"
+      - "decidim-core/app/assets/stylesheets/decidim/email.css"
+
+exclude_patterns:
+  - "**/vendor/"
+  - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"
+  - "decidim-comments/app/frontend/support/schema.ts"
+  - "node_modules/"
+  - "development_app/"
+  - "spec/decidim_dummy_app/"
+  - "coverage/"
+  - "webpack.report.html"

@@ -1,0 +1,153 @@
+it:
+  activemodel:
+    attributes:
+      project:
+        budget: Budget
+        decidim_category_id: Categoria
+        decidim_scope_id: Ambito tematico
+        description: Descrizione
+        proposal_ids: Proposte correlate
+        title: Titolo
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Progetto
+        other: progetti
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Cartelle
+        attachments: Allegati
+        confirm_destroy: Sei certo di voler cancellare questo progetto?
+        destroy: Cancella
+        edit: Modifica
+        import: Importa proposte per progetti
+        new: Nuovo progetto
+        preview: Anteprima
+        title: Azioni
+      admin:
+        models:
+          project:
+            name: Progetto
+        projects:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo progetto.
+            success: OK, progetto creato.
+          destroy:
+            success: Progetto eliminato con successo
+          edit:
+            title: Modifica il progetto
+            update: Aggiorna
+          index:
+            finished_orders: Votazione finale
+            pending_orders: Votazione pendente
+            title: Progetti
+          new:
+            create: Crea
+            title: Nuovo progetto
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
+            success: OK, progetto aggiornato.
+        proposals_imports:
+          create:
+            invalid: C'è stato un problema nell'importazione delle proposte nei progetti
+            success: "%{number} proposte importate con successo nei progetti"
+          new:
+            create: Importa proposte per progetti
+            no_components: Non ci sono altri componenti della proposta in questo spazio partecipativo per importare le proposte in progetti.
+            select_component: Si prega di selezionare un componente
+      admin_log:
+        project:
+          create: "%{user_name} ha creato il progetto %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} eliminato il progetto %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il progetto %{resource_name} nello spazio %{space_name}"
+      models:
+        project:
+          fields:
+            title: Titolo
+      projects:
+        budget_confirm:
+          are_you_sure: Sei d'accordo? Dopo che avrai confermato il tuo voto non potrai più modificarlo
+          cancel: Annulla
+          confirm: Conferma
+          description: Questi sono i progetti per i quali hai scelto di partecipare al budget.
+          title: Conferma il voto
+        budget_excess:
+          close: Chiudi
+          description: Questo progetto supera il budget e non può essere aggiunto. Se vuoi puoi cancellare un progetto che hai già scelto di aggiungere, oppure votare in base alle tue preferenze.
+          ok: Ok
+          title: Budget superato
+        budget_summary:
+          are_you_sure: Sei certo di voler cancellare il tuo voto?
+          assigned: 'Assegnato:'
+          cancel_order: Cancella il tuo voto e ricomincia.
+          checked_out:
+            description: Hai già votato per il budget. Se hai cambiato idea puoi %{cancel_link}.
+            title: Voto di budget completato.
+          description: Per quali progetti pensi che dovremmo allocare del budget? Indica un budget minimo di %{minimum_budget} ai progetti che vuoi votare e vota con le tue preferenze per definire il budget.
+          title: Tu decidi il budget
+        count:
+          projects_count:
+            one: 1 progetto
+            other: "%{count} progetti"
+        filters:
+          category: Categoria
+          category_prompt: Scegli una categoria
+          search: Cerca
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        order_progress:
+          vote: Vota
+        order_selected_projects:
+          remove: Rimuovi
+          selected_projects:
+            one: Progetto scelto
+            other: Progetti scelti
+          view: Visualizza
+        project:
+          add: Aggiungi
+          count:
+            one: 1 supporto/voto
+            other: "%{count} supportati/voti"
+          remove: Elimina
+          view: vista
+        project_budget_button:
+          add: Aggiungi
+          added: Aggiunto
+        show:
+          budget: Budget
+          view_all_projects: Visualizza tutti i progetti
+    components:
+      budgets:
+        actions:
+          vote: Votazione
+        name: i bilanci
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+            projects_per_page: Progetti per pagina
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
+            total_budget: Budget totale
+            vote_threshold_percent: Vota la percentuale di soglia
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            show_votes: Mostra voti
+            votes_enabled: Voto abilitato
+    orders:
+      checkout:
+        error: C'è stato un errore durante l'acquisizione del voto.
+        success: OK, il tuo voto è stato acquisito.
+      destroy:
+        error: C'è stato un errore durante la cancellazione del voto.
+        success: OK, il tuo voto è stato cancellato.
+    resource_links:
+      included_proposals:
+        project_proposal: 'Proposte incluse in questo progetto:'
+  index:
+    confirmed_orders_count: Computo dei voti
+  total_budget: Budget totale

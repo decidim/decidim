@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form, html: { class: "form edit_assembly assembly_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
+
+    <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
+      <% if current_assembly.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :post, class: "button hollow" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

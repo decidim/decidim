@@ -1,0 +1,20 @@
+<% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
+update_main_page_button();
+<% end %>
+update_identities_rows();
+
+function update_main_page_button() {
+  var $proposalEndorsementButton = $('#proposal-<%= proposal.id %>-endorsement-button');
+  morphdom($proposalEndorsementButton[0], '<%= j(endorsement_button(proposal, false)).strip.html_safe %>');
+}
+function update_identities_rows() {
+  <% fully_endorsed= fully_endorsed?(proposal, current_user) %>
+  var $proposalEndorsementsRowCount = $('#proposal-<%= proposal.id %>-endorsements-count');
+  morphdom($proposalEndorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(proposal, fully_endorsed)).strip.html_safe %>');
+  var $proposalEndorsementsRowButton = $($('#select-identity-button')[0]);
+  <% if fully_endorsed %>
+    $proposalEndorsementsRowButton.addClass('success')
+  <% else %>
+    $proposalEndorsementsRowButton.removeClass('success')
+  <% end %>
+}

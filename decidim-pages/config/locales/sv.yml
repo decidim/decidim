@@ -1,0 +1,30 @@
+sv:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Sida
+        other: Sidor
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} uppdaterade sidan %{resource_name} i %{space_name}"
+    components:
+      pages:
+        name: Sida
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            announcement: Meddelande
+    pages:
+      admin:
+        models:
+          components:
+            body: Innehåll
+        pages:
+          edit:
+            save: Uppdatera
+            title: Redigera sida
+          update:
+            invalid: Det gick inte att spara sidan.
+            success: Sidan sparades framgångsrikt.

@@ -1,0 +1,82 @@
+<div class="process-nav consultations-nav">
+  <button class="process-nav__trigger hide-for-medium"
+          data-toggle="process-nav-content">
+    <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: "Desplegar", role: "img" %>
+    <% if @activepage == "info" %>
+      <div class="process-nav__link">
+        <%= icon "information" %>
+        <span>Presentació</span>
+      </div>
+    <% end %>
+    <% if @activepage == "moreinfo" %>
+      <div class="process-nav__link">
+        <%= icon "information" %>
+        <span>Més informació</span>
+      </div>
+    <% end %>
+    <% if @activepage == "meetings" %>
+      <div class="process-nav__link">
+        <%= icon "meetings" %>
+        <span>Trobades</span>
+      </div>
+    <% end %>
+    <% if @activepage == "entities" %>
+      <div class="process-nav__link">
+        <%= icon "debates" %>
+        <span>Entitats interesades</span>
+      </div>
+    <% end %>
+    <% if @activepage == "voting-places" %>
+      <div class="process-nav__link">
+        <%= icon "meetings" %>
+        <span>On votar</span>
+      </div>
+    <% end %>
+  </button>
+  <div class="row column process-nav__content" id="process-nav-content"
+       data-toggler=".is-active">
+    <ul>
+      <li class="<% if @activepage == "info" %>is-active
+                 <% end %>">
+        <a href="/public/consultations-info" class="process-nav__link
+          <% if @activepage == "info" %>is-active<% end %>">
+          <%= icon "information" %>
+          <span>Presentació</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "moreinfo" %>is-active
+                 <% end %>">
+        <a href="/public/consultations-moreinfo" class="process-nav__link
+          <% if @activepage == "moreinfo" %>is-active<% end %>">
+          <%= icon "information" %>
+          <span>Més informació</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "meetings" %>is-active
+                 <% end %>">
+        <a href="/public/consultations-meetings" class="process-nav__link
+          <% if @activepage == "meetings" %>is-active<% end %>">
+          <%= icon "meetings" %>
+          <span>Trobades</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "entities" %>is-active
+                 <% end %>">
+        <a href="/public/consultations-entities" class="process-nav__link
+          <% if @activepage == "entities" %>is-active<% end %>">
+          <%= icon "debates" %>
+          <span>Entitats interesades</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "vote-places" %>is-active
+                 <% end %>">
+        <a href="/public/consultations-voting-places" class="process-nav__link
+          <% if @activepage == "voting-places" %>is-active<% end %>">
+          <%= icon "meetings" %>
+          <span>On votar</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<% agenda_item = form.object %>
+<div class="card meeting-agenda-item" id="<%= tabs_id %>-field">
+  <div class="card-divider agenda-item-divider">
+    <h2 class="card-title">
+      <span>
+        <%== "#{icon("move")} #{t(".agenda_item")}" %>
+      </span>
+
+      <button class="button small alert hollow move-up-agenda-item button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-agenda-item button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
+      <button class="button small alert hollow remove-agenda-item button--title">
+        <%= t(".remove") %>
+      </button>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <%= render "agenda_item_fields", tabs_id: tabs_id, form: form, agenda_item: agenda_item %>
+
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= t(".agenda_item_children") %></h2>
+      </div>
+      <div class="card-section">
+        <div class="meeting-agenda-item-childs" data-template="<%= child_template_selector %>">
+          <div class="meeting-agenda-item-childs-list">
+            <% agenda_item.agenda_item_children.each do |agenda_item_child| %>
+              <%= fields_for "meeting_agenda[agenda_items][#{agenda_item.to_param}][agenda_item_children][]", agenda_item_child do |agenda_item_child_form| %>
+                <%= render "agenda_item_child", form: agenda_item_child_form, tabs_id: tabs_id, tabs_id_child: tabs_id_for_agenda_item_child(agenda_item_child), editable: true %>
+              <% end %>
+            <% end %>
+          </div>
+          <button class="button add-agenda-item-child"><%= t(".add_agenda_item_child") %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

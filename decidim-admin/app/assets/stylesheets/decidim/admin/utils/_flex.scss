@@ -1,0 +1,60 @@
+// Flex layout utilities
+// require foundation
+$space: $global-margin;
+$spaces: $space ($space * 2);
+
+@mixin flexgap($gap: 0, $dir: row){
+  display: flex;
+  flex-direction: $dir;
+
+  @if $dir == row{
+    & > *{
+      margin: 0 $gap/2;
+    }
+
+    & > :first-child{
+      margin-left: 0;
+    }
+
+    & > :last-child{
+      margin-right: 0;
+    }
+  }
+
+  @else if $dir == column{
+    & > *{
+      margin: $gap/2 0;
+    }
+
+    & > :first-child{
+      margin-top: 0;
+    }
+
+    & > :last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
+// generates a gap simple and a double
+@each $gap in $spaces{
+  .flex-gap--#{strip-unit($gap)}{
+    @include flexgap($gap: $gap);
+  }
+}
+
+// flex--cc:
+// justify-content: center;
+// align-items: center;
+.flex--cc{
+  @include flex;
+  @include flex-align($x: center, $y: middle);
+}
+
+// flex--sbc:
+// justify-content: space-between;
+// align-items: center;
+.flex--sbc{
+  @include flex;
+  @include flex-align($x: justify, $y: middle);
+}

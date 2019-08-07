@@ -1,0 +1,30 @@
+fi:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Sivu
+        other: Sivut
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} päivitti %{resource_name} sivun kohdassa %{space_name}"
+    components:
+      pages:
+        name: Sivu
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            announcement: Ilmoitus
+    pages:
+      admin:
+        models:
+          components:
+            body: Sisältöteksti
+        pages:
+          edit:
+            save: Päivitä
+            title: Muokkaa sivua
+          update:
+            invalid: Sivun tallennus epäonnistui.
+            success: Sivun tallentaminen onnistui.

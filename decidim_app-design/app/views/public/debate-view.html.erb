@@ -1,0 +1,99 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "debates"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row column view-header">
+      <h2 class="heading2">
+        La proposta inicial del Pla Municipal elaborat per l'Ajuntament de Barcelona
+      </h2>
+      <div class="author-data">
+        <div class="author-data__main">
+          <div class="author author--inline">
+            <a href="#" class="author__avatar">
+              <%= image_tag "demo-avatar.jpg", alt: "" %>
+            </a>
+            1 de agosto de 2016 por
+            <a href="#" class="author__name">
+              Ajuntament de Barcelona
+            </a>
+          </div>
+        </div>
+        <div class="author-data__extra">
+          <a href="#comments" title="Comentarios">
+            <%= icon "comment-square", aria_label: "Comentarios", role: "img" %> 108
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+        large-3 large-push-9">
+        <%= partial "share" %>
+      </div>
+      <div class="columns mediumlarge-8 mediumlarge-pull-4">
+        <div class="section">
+          <p>
+            El  procés participatiu del Pla Municipal 2016-2019 s'ha basat
+            en una  proposta inicial de l'actual equip de govern de
+            l'Ajuntament de  Barcelona i d'algunes propostes ja fetes per la
+            societat civil.  Estableix les línies prioritàries, els objectius
+            i les actuacions que el  Govern de la ciutat desplegarà durant
+            el mandat. L'objectiu de fons és  l'impuls d'un model socioeconòmic
+            que contribueixi a revertir les  dinàmiques que han accentuat les
+            desigualtats entre persones i barris,  iniciant alhora la transició
+            cap a una ciutat que afronti els grans  reptes ambientals i
+            energètics del nou segle.</p>
+          <p>El PAM, doncs,  inclou mesures urgents, que no admeten espera,
+            però també està fet amb  una mirada estratègica, de mitjà i llarg
+            termini incloent mesures  relacionades amb el desenvolupament
+            socioeconòmic, la cultura, la  innovació tecnològica, la igualtat
+            de gènere, l'aprofundiment  democràtic, la lluita contra la
+            contaminació i el canvi climàtic&hellip; En  resum, en tots aquells
+            àmbits que han de contribuir a fer de Barcelona  una ciutat de
+            drets i d'oportunitats.</p>
+          <p><strong>Que  opines de la proposta inicial de Pla Municipal
+            presentada per l'equip  de govern de l'Ajuntament de Barcelona?
+            Creus que ha estat un bon punt  de partida des d'on iniciar el
+            debat? Com creus que s'haurien  d'incorporar les propostes
+            ciutadanes al Pla Municipal? Creus que els  eixos i línies
+            estratègiques recollides al Pla Municipal són les  adients? N'has
+            trobat a faltar alguna?</strong></p>
+          <div class="callout secondary">
+            <p>Aquest debat forma part de l'avaluació del procés de participació
+              per al Pla Municipal 2016-2019 i de la plataforma de participaciò
+              decidim.barcelona. Després del tancament de la fase de debat i
+              recollida de propostes, suports i comentaris al Pla Municipal,
+              obrim un nou espai de debat online perquè puguis dir quins
+              aspectes milloraries del procés realitzat. Des de la Regidoria
+              de Participació i Districtes es tindran en compte les aportacions
+              per tal de millorar els futurs processos de participació.</p>
+            <p><strong>A continuació pots deixar per escrit els comentaris,
+              reflexions o respostes a les preguntes plantejades en el debat
+              i pots votar cadascun dels comentaris.</strong></p>
+          </div>
+          <ul class="tags tags--debate">
+            <li><a href="">Pla Municipal</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

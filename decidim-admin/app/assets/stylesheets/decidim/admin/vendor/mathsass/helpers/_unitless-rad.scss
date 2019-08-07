@@ -1,0 +1,13 @@
+// Convert to unitless rad
+@function unitless-rad ($angle) {
+    @if unitless($angle) {
+        @return $angle;
+    } @else if unit($angle) == rad {
+        @return $angle / 1rad;
+    } @else if unit($angle) == deg {
+        @return deg-to-rad($angle, false);
+    } @else if type-of($angle) != number or not unitless($angle) {
+        @warn "#{ $angle } is not a valid number.";
+        @return $angle;
+    }
+}

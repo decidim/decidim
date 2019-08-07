@@ -1,0 +1,228 @@
+nl:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Beschikbare methoden
+        offline: offline
+        offline_explanation: Instructies voor offline verificatie
+        online: Online
+      id_document_information:
+        document_number: Documentnummer (met letter)
+        document_type: Type van het document
+      id_document_upload:
+        document_number: Documentnummer (met letter)
+        document_type: Type van uw document
+        user: Gebruiker
+        verification_attachment: Gescande kopie van uw document
+      offline_confirmation:
+        email: E-mailadres gebruiker
+      postal_letter_address:
+        full_address: Volledig adres
+      postal_letter_confirmation:
+        verification_code: Verificatiecode
+      postal_letter_postage:
+        full_address: Volledig adres
+        verification_code: Verificatiecode
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: keuringen
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} heeft de verificatieconfiguratie Identity Documents bijgewerkt"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} geverifieerd %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Beheerders uploaden een CSV met de e-mails van de geaccepteerde deelnemers
+            - Alleen deelnemers met een e-mail in dat CSV-bestand kunnen worden geverifieerd
+        id_documents:
+          help:
+            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+            - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
+        postal_letter:
+          help:
+            - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
+            - U stuurt de brief naar hun adres met de verificatiecode.
+            - U markeert de brief zoals verzonden.
+            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+      csv_census:
+        explanation: Wordt geverifieerd aan de hand van de volkstelling van de organisatie
+        name: De volkstelling van de organisatie
+      direct: direct
+      help: Helpen
+      id_documents:
+        explanation: Upload uw identiteitsdocumenten zodat we uw identiteit kunnen controleren
+        name: Identiteitsdocumenten
+      multistep: Multi-Step
+      name: Naam
+      postal_letter:
+        explanation: We sturen u een post brief met een code die u zult moeten invoeren, zodat we uw adres kunnen verifiëren
+        name: Code per post brief
+    verifications:
+      authorizations:
+        create:
+          error: Er is een fout opgetreden bij het maken van de autorisatie.
+          success: U bent geautoriseerd.
+          unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
+            csv_census: Controleer tegen de volkstelling van de organisatie
+            dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
+            dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
+            id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
+            postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
+          title: Verifieer uw identiteit
+          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
+        new:
+          authorize: Verzenden
+          authorize_with: Verifieer met %{authorizer}
+        skip_verification: U kunt dit overslaan voor nu en %{link}
+        start_exploring: begin met verkennen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Er is een fout opgetreden bij het importeren van census.
+              success: '%{count} items succesvol geïmporteerd (%{errors} fouten)'
+            destroy_all:
+              success: Alle censusgegevens zijn verwijderd
+          destroy:
+            confirm: Verwijder alle volkstelling kan niet ongedaan worden gemaakt. Weet je zeker dat je door wilt gaan?
+            title: Verwijder alle tellingsgegevens
+          index:
+            data: Er zijn %{count} records in totaal geladen. De laatste uploaddatum was op %{due_date}
+            empty: Er zijn geen censusgegevens. Gebruik het onderstaande formulier om het te importeren met behulp van een CSV-bestand.
+            title: Huidige censusgegevens
+          instructions:
+            body: Hiervoor moet u het systeembeheer invoeren en de csv_census-autorisaties toevoegen aan de organisatie
+            title: U moet de csv-telling voor deze organisatie activeren
+          new:
+            file: ".csv-bestand met e-mailgegevens"
+            info: 'Moet een bestand zijn met CSV-indeling met één kolom: e-mail'
+            submit: Upload bestand
+            title: Upload een nieuwe telling
+        authorizations:
+          new:
+            error: We kunnen uw account niet verifiëren of u staat niet in de volkstelling van de organisatie.
+            success: Uw account is succesvol geverifieerd.
+      dummy_authorization:
+        extra_explanation:
+          one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
+          other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configuratie van identiteitsdocumenten
+              update: Bijwerken
+            update:
+              error: Er is een fout opgetreden bij het bijwerken van de configuratie.
+              success: Configuratie succesvol bijgewerkt
+          confirmations:
+            create:
+              error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
+              success: Gebruiker succesvol geverifieerd
+            new:
+              introduce_user_data: Introduceer de gegevens in de afbeelding
+              reject: Weigeren
+              verify: Verifiëren
+          offline_confirmations:
+            create:
+              error: Verificatie komt niet overeen. Probeer het opnieuw of laat de gebruiker het wijzigen
+              success: Gebruiker succesvol geverifieerd
+            new:
+              cancel: annuleren
+              introduce_user_data: Voer de e-mail van de gebruiker en de documentgegevens in
+              verify: Verifiëren
+          pending_authorizations:
+            index:
+              config: config
+              offline_verification: Offline verificatie
+              title: In afwachting van verificaties
+              verification_number: 'Verificatie # %{n}'
+          rejections:
+            create:
+              success: Verificatie gewijgerd. De gebruiker wordt gevraagd om haar documenten te wijzigen
+        authorizations:
+          choose:
+            choose_a_type: 'Selecteer alstublieft hoe u wilt worden geverifieerd:'
+            offline: offline
+            online: Online
+            title: Verifieer jezelf met je identiteitsdocument
+          create:
+            error: Er is een probleem opgetreden bij het uploaden van uw document
+            success: Document met succes geüpload
+          edit:
+            being_reviewed: We beoordelen uw documenten. U wordt binnenkort geverifieerd
+            offline: Gebruik offline verificatie
+            online: Gebruik online verificatie
+            rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
+            rejection_correctness: Zorg ervoor dat de ingevoerde informatie juist is
+            rejection_notice: Er is een probleem met uw verificatie. Probeer het opnieuw
+            send: Vraag opnieuw verificatie aan
+          new:
+            send: Verzoek om verificatie
+            title: Upload uw identiteitsdocument
+          update:
+            error: Er is een probleem opgetreden bij het opnieuw uploaden van uw document
+            success: Document opnieuw succesvol geladen
+        dni: DNI
+        nie: NIE
+        passport: Paspoort
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adres
+              letter_sent_at: Brief verzonden op
+              mark_as_sent: Markeren als verzonden
+              not_yet_sent: nog niet verstuurd
+              title: Doorlopende verificaties
+              username: Gebruikersnaam
+              verification_code: Verificatie code
+          postages:
+            create:
+              error: Fout bij het markeren van brief als verzonden
+              success: Brief succesvol gemarkeerd als verzonden
+        authorizations:
+          create:
+            error: Er was een probleem met uw verzoek
+            success: Bedankt! We sturen een verificatiecode naar uw adres
+          edit:
+            send: Bevestigen
+            title: Voer de verificatiecode in die u heeft ontvangen
+            waiting_for_letter: We sturen binnenkort een brief naar uw adres met uw verificatiecode
+          new:
+            send: Stuur me een brief
+            title: Vraag uw verificatiecode aan
+          update:
+            error: Uw verificatiecode komt niet overeen met de onze. Controleer alstublieft de brief die we u hebben gestuurd
+            success: Hartelijk gefeliciteerd. U bent succesvol geverifieerd
+      sms:
+        authorizations:
+          create:
+            error: Er was een probleem met je verzoek
+            success: Bedankt! We hebben een sms naar je telefoon gestuurd.
+          destroy:
+            success: Verificatiecode succesvol gereset. Voer uw telefoonnummer opnieuw in.
+          edit:
+            confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
+            destroy: Verificatiecode opnieuw instellen
+            resend: Geen verificatiecode ontvangen?
+            send: Bevestigen
+            title: Voer de verificatiecode in die u heeft ontvangen
+          new:
+            send: Stuur me een sms
+            title: Vraag uw verificatiecode aan
+          update:
+            error: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
+            success: Gefeliciteerd. U bent succesvol geverifieerd.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: moet allemaal in hoofdletters zijn en alleen letters en / of cijfers bevatten

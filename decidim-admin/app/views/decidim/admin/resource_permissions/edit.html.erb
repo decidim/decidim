@@ -1,0 +1,58 @@
+<section id="components">
+  <div class="row">
+    <div class="columns">
+      <h3>
+        <%= t(".title") %>
+        <% if resource %>
+          -
+          <% if resource.is_a?(Decidim::Resourceable) %>
+            <%= link_to(resource_title(resource), resource_locator(resource).path) %>
+          <% else %>
+            <%= strip_tags resource_title(resource) %>
+          <% end %>
+        <% end %>
+      </h3>
+    </div>
+  </div>
+  <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), method: "put" do |permissions_form| %>
+    <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
+      <% action_permission_form.object.permissions.each do |action, permission| %>
+        <fieldset class="card <%= action %>-permission">
+          <% if @component %>
+            <div class="card-divider"><%= t("#{@component.manifest.name}.actions.#{action}", scope: "decidim.components") %></div>
+          <% else %>
+            <div class="card-divider"><%= t("#{resource.manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
+          <% end %>
+
+          <div class="card-section">
+            <%= action_permission_form.fields_for(action, permission) do |permission_form| %>
+              <%= permission_form.collection_check_boxes :authorization_handlers,
+                                                         authorizations,
+                                                         :name,
+                                                         :description do |b| %>
+                <div>
+                  <%= b.label { b.check_box + b.text } %>
+                  <% if permission.authorization_handlers_names.include? b.value %>
+                    <div id="authorization-handler-<%= b.value %>" class="authorization-handler">
+                      <%= render "options_form", form: permission_form, handler_name: b.value %>
+                    </div>
+                  <% else %>
+                    <% missing_permission = Decidim::Admin::PermissionForm.new(authorization_handlers: { b.value => {} }) %>
+                    <%= action_permission_form.fields_for(action, missing_permission) do |missing_permission_form| %>
+                      <div id="authorization-handler-<%= b.value %>" class="authorization-handler" style="display:none">
+                        <%= render "options_form", form: missing_permission_form, handler_name: b.value %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </fieldset>
+      <% end %>
+    <% end %>
+    <%= permissions_form.submit t(".submit") %>
+  <% end %>
+</section>
+
+<%= javascript_include_tag "decidim/admin/resources_permissions" %>

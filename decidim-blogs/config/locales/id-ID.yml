@@ -1,0 +1,78 @@
+id:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Posting blog baru
+  activerecord:
+    models:
+      decidim/blogs/post:
+        other: Posting
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Anda yakin ingin menghapus posting ini?
+        destroy: Menghapus
+        edit: Edit
+        new: Berita Baru
+        title: Tindakan
+      admin:
+        models:
+          components:
+            body: Tubuh
+          post:
+            name: Pos
+        posts:
+          create:
+            invalid: Terjadi masalah saat membuat pos ini
+            success: Pos berhasil dibuat
+          destroy:
+            success: Posting berhasil dihapus
+          edit:
+            save: Memperbarui
+          index:
+            title: Posting
+          new:
+            create: Membuat
+            title: Buat posting
+          update:
+            invalid: Terjadi masalah saat menyimpan pos.
+            success: Posting berhasil disimpan
+      last_activity:
+        new_post_at_html: "<span>Posting baru di %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Penulis
+            body: Tubuh
+            created_at: Dibuat di
+            title: judul
+      posts:
+        show:
+          view: Melihat
+        sidebar_blog:
+          comments: komentar
+          most_commented_posts: Posting yang paling banyak dikomentari
+      read_more: Baca lebih lajut
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Pengumuman
+            comments_enabled: Komentar diaktifkan
+          step:
+            announcement: Pengumuman
+            comments_blocked: Komentar diblokir
+    events:
+      blogs:
+        post_created:
+          email_intro: Posting "%{resource_title}" telah dipublikasikan di "%{participatory_space_title}" yang Anda ikuti.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Posting baru diterbitkan pada %{participatory_space_title}
+          notification_title: Posting <a href="%{resource_path}">%{resource_title}</a> telah diterbitkan dalam %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posting
+    participatory_processes:
+      statistics:
+        posts_count: Posting

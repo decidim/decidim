@@ -1,0 +1,42 @@
+<div class="process-phase">
+  <div class="process-header__progress">
+    <ol>
+      <!--
+        Maximum number of items: 20
+        If a process has >20 phases,
+        render 20 and apply .phase-item--past proportionally.
+        If number of items = number of phases, current phase gets the class too.
+      -->
+      <li class="phase-item--past"><span></span></li>
+      <li class="phase-item--past"><span></span></li>
+      <li class="phase-item--past"><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+    </ol>
+    <span class="phase-current">Fase 3 de 9</span>
+  </div>
+  <div class="process-header__body">
+    <div>
+      <!-- if the process is finished, display "Completed process"
+      instead of the last phase name-->
+      <span class="phase-title">Priorització de propostes</span>
+      <!-- if the process is finished, display "Completed:" + finishing date
+      instead of the last phase date interval-->
+      <span class="phase-date">02/06/2016 - 15/02/2016</span>
+    </div>
+    <div class="process-header__button">
+      <button type="button" class="button button--sc" name="button">Haz una propuesta</button>
+    </div>
+    <!-- display this link only if phase log is enabled -->
+    <div class="process-header__link">
+      <a href="/phases" class="
+        <% if @activepage == "phases" %>
+        is-active
+        <% end %>">Ver todas las fases</a>
+    </div>
+  </div>
+</div>

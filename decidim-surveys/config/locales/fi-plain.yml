@@ -1,0 +1,56 @@
+fi-pl:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Kysely päättyi
+      decidim/surveys/opened_survey_event: Kysely alkoi
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Kysely
+        other: Kyselyt
+      decidim/surveys/survey_answer:
+        one: Vastaus
+        other: Vastaukset
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Vastaus
+        name: Kysely
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            allow_answers: Salli vastaukset
+            announcement: Ilmoitus
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Kysely %{resource_title} kohteessa %{participatory_space_title} on suljettu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Kysely on päättynyt kohteessa %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
+        survey_opened:
+          email_intro: 'Kysely %{resource_title} kohteessa %{participatory_space_title} on nyt auki. Voit osallistua siihen tällä sivulla:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Uusi kysely kohteessa %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    metrics:
+      survey_answers:
+        description: Kyselyvastausten määrä
+        object: kyselyvastaukset
+        title: Kyselyvastaukset
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Kyselyn vastaukset
+        surveys:
+          update:
+            invalid: Kyselyn tallennus epäonnistui.
+            success: Kysely tallennettu onnistuneesti.
+      last_activity:
+        new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
+      surveys:
+        answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          success: Kyselyyn vastattu onnistuneesti.

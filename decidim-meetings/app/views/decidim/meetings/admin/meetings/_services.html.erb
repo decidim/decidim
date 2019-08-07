@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".services") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="meeting-services">
+      <script type="text/template" class="decidim-template">
+        <%= fields_for "meeting[services][#{blank_service.to_param}]", blank_service do |service_form| %>
+          <%= render "decidim/meetings/admin/meetings/service", form: service_form, id: tabs_id_for_service(blank_service) %>
+        <% end %>
+      </script>
+
+      <div class="meeting-services-list">
+        <% form.object.services.each do |service| %>
+          <%= fields_for "meeting[services][]", service do |service_form| %>
+            <%= render "decidim/meetings/admin/meetings/service", form: service_form, id: tabs_id_for_service(service) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <button class="button add-service"><%= t(".add_service") %></button>
+    </div>
+  </div>
+</div>

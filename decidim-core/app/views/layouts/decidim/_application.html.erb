@@ -1,0 +1,33 @@
+<% add_decidim_meta_tags({
+  description: strip_tags(translated_attribute(current_organization.description)),
+  title: current_organization.name,
+  url: request.original_url,
+  twitter_handler: current_organization.twitter_handler,
+  image_url: Decidim::ContentBlock.published.find_by(
+    organization: current_organization,
+    scope: :homepage,
+    manifest_name: :hero
+  ).try(:images_container).try(:background_image).try(:url)
+}) %>
+
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/head" %>
+  </head>
+
+  <body>
+    <%= render partial: "layouts/decidim/impersonation_warning" %>
+    <%= render partial: "layouts/decidim/cookie_warning" %>
+    <%= render partial: "layouts/decidim/omnipresent_banner" %>
+
+    <%= render "layouts/decidim/wrapper" do %>
+      <%= yield %>
+    <% end %>
+
+    <%= render partial: "decidim/shared/login_modal" %>
+    <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= organization_colors %>
+  </body>
+</html>

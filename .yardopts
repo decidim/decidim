@@ -1,0 +1,8 @@
+decidim-*/app/**/*.rb
+decidim-*/lib/**/*.rb
+decidim-*/README.md
+app/**/*.rb
+lib/**/*.rb
+docs/*.md
+README.md
+LICENSE-AGPLv3.txt

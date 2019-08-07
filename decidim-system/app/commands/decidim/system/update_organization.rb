@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     # A command with all the business logic when creating a new organization in
@@ -13,7 +14,7 @@ module Decidim
         @form = form
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the form wasn't valid and we couldn't proceed.
@@ -42,6 +43,12 @@ module Decidim
       def save_organization
         organization.name = form.name
         organization.host = form.host
+        organization.secondary_hosts = form.clean_secondary_hosts
+        organization.force_users_to_authenticate_before_access_organization = form.force_users_to_authenticate_before_access_organization
+        organization.available_authorizations = form.clean_available_authorizations
+        organization.users_registration_mode = form.users_registration_mode
+        organization.smtp_settings = form.encrypted_smtp_settings
+
         organization.save!
       end
     end

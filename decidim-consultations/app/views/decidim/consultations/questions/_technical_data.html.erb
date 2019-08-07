@@ -1,0 +1,38 @@
+<div class="section">
+  <h2 class=section-heading>
+    <%= t "questions.technical_info.technical_data", scope: "decidim" %>
+  </h2>
+
+  <% unless translated_attribute(current_question.origin_scope).blank? %>
+    <h3 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h3>
+    <p><%= translated_attribute current_question.origin_scope %></p>
+  <% end %>
+
+  <h3 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h3>
+  <p><%= translated_attribute current_question.promoter_group %></p>
+
+  <% unless translated_attribute(current_question.origin_title).blank? %>
+    <h3 class="heading6"><%= t "question.origin_title", scope: "activemodel.attributes" %></h3>
+    <p>
+      <% if current_question.origin_url.blank? %>
+        <%= translated_attribute current_question.origin_title %>
+      <% else %>
+        <%= link_to translated_attribute(current_question.origin_title),
+                   current_question.origin_url,
+                   target: "_blank" %>
+      <% end %>
+    </p>
+  <% end %>
+
+  <h3 class="heading6"><%= t "question.scope", scope: "activemodel.attributes" %></h3>
+  <p><%= translated_attribute current_question.scope.name %></p>
+
+  <h3 class="heading6"><%= t "question.participatory_scope", scope: "activemodel.attributes" %></h3>
+  <p><%= translated_attribute current_question.participatory_scope %></p>
+
+  <h3 class="heading6"><%= t "consultation.start_voting_date", scope: "activemodel.attributes" %></h3>
+  <p><%= l current_question.start_voting_date, format: :long %></p>
+
+  <h3 class="heading6"><%= t "consultation.end_voting_date", scope: "activemodel.attributes" %></h3>
+  <p><%= l current_question.end_voting_date, format: :long %></p>
+</div>

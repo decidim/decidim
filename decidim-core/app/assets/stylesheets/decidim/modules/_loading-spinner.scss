@@ -1,0 +1,12 @@
+.loading-spinner{
+  margin: 25px !important;
+  height: 25px;
+  text-align: center;
+
+  &::before{
+    @include spinner(25px, $medium-gray, var(--primary), 800ms);
+
+    content: "";
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
+  <div class="column">
+    <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
+  </div>
+
+  <div class="column">
+    <%= render partial: "decidim/shared/results_per_page" %>
+  </div>
+</div>
+
+<div class="row small-up-1 medium-up-2 card-grid">
+  <% @collaborative_drafts.each do |draft| %>
+    <%= card_for draft, context: { label: true } %>
+  <% end %>
+</div>
+<%= decidim_paginate @collaborative_drafts, random_seed: random_seed %>

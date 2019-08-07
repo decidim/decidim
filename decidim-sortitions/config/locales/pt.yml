@@ -1,0 +1,151 @@
+pt:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informação de classificação
+        decidim_category_id: Categorias do conjunto de propostas em que você deseja aplicar o sorteio
+        decidim_proposals_component_id: Conjunto de propostas
+        dice: Resultado do rolo de matriz Role um dado de 6 lados, ou procure outro modo aleatório de gerar um número de 1 a 6, e insira aqui o número resultante na frente de algumas testemunhas. Isto contribui para a qualidade e garantias da aleatoriedade do resultado
+        target_items: Número de propostas a serem selecionadas (indica o número de propostas que você deseja selecionar sorteando o grupo de propostas que você escolheu anteriormente)
+        title: Título
+        witnesses: Testemunhas
+    models:
+      decidim/sortitions/create_sortition_event: Sorteio
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteio
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Comentários ativados
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: A classificação "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você está seguindo.
+          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
+          email_subject: Nova classificação adicionada a %{participatory_space_title}
+          notification_title: A classificação <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Cancelar a classificação
+          edit: Editar
+          new: Nova classificação
+          show: Detalhes da classificação
+        models:
+          sortition:
+            fields:
+              category: Categoria
+              created_at: Data de criação
+              decidim_proposals_component: Componente de propostas
+              dice: Dados
+              reference: Referência
+              request_timestamp: Tempo de sorteio
+              seed: Semente
+              target_items: Itens para selecionar
+              title: Título
+            name:
+              one: Sorteio
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Tem certeza de que deseja cancelar essa classificação?
+            destroy: Cancelar ordenação
+            title: Cancelamento da classificação
+          create:
+            error: Ocorreu um erro ao criar uma nova classificação.
+            success: Ordenação criada com sucesso
+          destroy:
+            error: Não é possível cancelar a classificação.
+            success: Classificação cancelada com sucesso
+          edit:
+            title: Atualizar as informações sobre a classificação
+            update: Atualizar
+          form:
+            all_categories: Todas as categorias
+            select_proposal_component: Selecione o conjunto de propostas
+            title: Nova classificação para propostas
+          index:
+            title: Sortitions
+          new:
+            confirm: Ao pressionar o botão seguinte, o Decidim registrará a data e a hora (com precisão de segundos) e, junto com o lançamento de dados, essa informação será usada para gerar uma seleção aleatória. A ação será irreversível, uma vez que o botão é clicado o resultado deste sorteio será publicado, juntamente com os dados inseridos neste formulário e não podem ser modificados, por favor, verifique o conteúdo cuidadosamente
+            create: Crio
+            title: Nova classificação
+          show:
+            selected_proposals: Propostas selecionadas para sorteio
+          update:
+            error: Houve um erro ao atualizar a classificação.
+            success: Ordenação atualizada com sucesso
+      admin_log:
+        sortition:
+          create: "%{user_name} criou a classificação %{resource_name} em %{space_name}"
+          delete: "%{user_name} cancelou a classificação %{resource_name} em %{space_name}"
+          update: "%{user_name} atualizou a classificação %{resource_name} em %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostas"
+        filters:
+          active: Ativo
+          all: Todos
+          cancelled: Cancelado
+          category: Categoria
+          category_prompt: Selecione uma categoria
+          search: Pesquisa
+          state: Estado
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        linked_sortitions:
+          selected_proposals: Propostas selecionadas
+        orders:
+          label: 'Ordenar ordenações por:'
+          random: Aleatória
+          recent: Recente
+        results_count:
+          count:
+            one: proposta selecionada
+            other: propostas selecionadas
+        show:
+          algorithm: Código de Algoritmo da Classificação
+          any_category: de todas as categorias
+          cancelled: Sortição cancelada
+          candidate_proposal_ids: Ordem de propostas de classificação e IDs
+          candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{category_label}), com os seguintes IDs (em negrito as propostas selecionadas)  '
+          category: da categoria %{category}
+          dice_result: "(1) resultado dado"
+          introduction: 'Esta página contém os resultados da ordenação %{reference}. Por meio dessa classificação, %{target_items} número de resultados foram selecionados aleatoriamente e com uma distribuição de probabilidade igual ao conjunto de propostas exibidas abaixo. Juntamente com os resultados, as informações exibidas nesta página fornecem todas as informações necessárias para maximizar as garantias e reproduzir os resultados. A chave para a qualidade dessa classificação é a dupla aleatoriedade fornecida pela rolagem de dados (verificada por testemunhas) e o tempo preciso da classificação que fornece dados para um algoritmo que gera uma seleção aleatória. A semente do tempo para a classificação é tão precisa (segundos) que é impossível controlar pelos humanos, fornecendo assim uma entrada dupla "incontrolável" para garantir um resultado justo.  '
+          mathematical_result: Resultado (1) x (2)
+          proposals_selected_by_sortition: Propostas selecionadas por classificação
+          sortition_reproducibility_details: Detalhes de reprodutibilidade de ordenação
+          time_seed: "(2) semente do tempo"
+          witnesses: Testemunhas
+        sortition:
+          random_seed: Semente aleatória
+          selected_proposals:
+            one: 1 proposta selecionada
+            other: '%{count} propostas selecionadas'
+          view: Visão
+        sortition_author:
+          deleted: Usuário deletado
+        sortition_cancel_author:
+          deleted: Usuário deletado
+        sortitions_count:
+          count:
+            one: 1 ordenação
+            other: "%{count} ordenações"

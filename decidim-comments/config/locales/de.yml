@@ -1,0 +1,100 @@
+de:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+      decidim/comments/reply_created_event: Kommentarantwort
+      decidim/comments/user_mentioned_event: Erwähnen
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentar
+        other: Bemerkungen
+      decidim/comments/comment_vote:
+        one: Abstimmung
+        other: Stimmen
+  decidim:
+    comments:
+      comments: Bemerkungen
+      last_activity:
+        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
+      votes:
+        create:
+          error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">Melden Sie sich</a> an, um Ihren Kommentar hinzuzufügen.
+        form:
+          body:
+            label: Kommentar
+            placeholder: Was denkst du darüber?
+          form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
+          submit: Senden
+          user_group_id:
+            label: Kommentar als
+        opinion:
+          neutral: Neutral
+        remaining_characters: "%{count} Zeichen übrig"
+        remaining_characters_1: "%{count} Zeichen übrig"
+        title: Füge deinen Kommentar hinzu
+      comment:
+        alignment:
+          against: Gegen
+          in_favor: Zugunsten
+        deleted_user: Gelöschter Benutzer
+        reply: Antworten
+        report:
+          action: Bericht
+          already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+          close: Schließen
+          description: Ist dieser Inhalt unangemessen?
+          details: Zusätzliche Kommentare
+          reasons:
+            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
+            offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+            spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+          title: Ein Problem melden
+      comment_order_selector:
+        order:
+          best_rated: Am besten bewertet
+          most_discussed: Meist diskutiert
+          older: Älter
+          recent: Kürzlich
+        title: 'Sortieren nach:'
+      comment_thread:
+        title: Konversation mit %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
+        blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
+        loading: Kommentare werden geladen ...
+        title: "%{count} Kommentare"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} hat einen Kommentar in %{resource_title}hinterlassen. Sie können es auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name}. Sie können diesen Benutzer von seiner Profilseite aus nicht mehr anzeigen.
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} wurde kommentiert. Sie können den Kommentar auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Sie können es aus dem vorherigen Link entfernen.
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} hat Ihren Kommentar in %{resource_title}geantwortet. Sie können es auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
+          email_subject: "%{author_name} hat Ihren Kommentar in %{resource_title}geantwortet"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a>geantwortet
+        user_mentioned:
+          email_intro: Du wurdest erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title}.
+          email_subject: Du wurdest in %{resource_title}
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Anzahl der von Benutzern generierten Kommentare
+        object: Bemerkungen
+        title: Bemerkungen
+  errors:
+    messages:
+      cannot_have_comments: kann keine Kommentare haben

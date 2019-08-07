@@ -1,0 +1,82 @@
+// Custom mixins and functions
+
+/// Slightly lighten a color
+@function tint($color, $percentage){
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+@function shade($color, $percentage){
+  @return mix(black, $color, $percentage);
+}
+
+//Small caps
+@mixin smallcaps{
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .1em;
+  font-size: .9em;
+}
+
+// Status modifier mixin
+$palette: $foundation-palette;
+
+@mixin modifiers($vars, $colors: $palette){
+  $map: map-merge($palette, $colors);
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @content;
+
+      @each $property in $vars{
+        #{$property}: map-get($map, $key);
+      }
+    }
+  }
+}
+
+// helpers
+$margin-xs: .5rem;
+$margin-s: 1rem;
+$margin-sm: 2rem;
+$margin-m: 3rem;
+$margin-l: 5rem;
+
+$size:(
+  none: 0,
+  xs: $margin-xs,
+  s: $margin-s,
+  sm: $margin-sm,
+  m: $margin-m,
+  l: $margin-l
+) !default;
+
+$property:(
+  p: padding,
+  m: margin
+) !default;
+
+$side:(
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+) !default;
+
+@mixin make-spaces(){
+  @each $p-key, $prop in $property{
+    @each $v-key, $value in $size{
+      .#{$p-key}-#{$v-key}{
+        #{$prop}: #{$value} !important;
+      }
+
+      @each $s-key, $side in $side{
+        .#{$p-key}#{$s-key}-#{$v-key}{
+          #{$prop}-#{$side}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+@include make-spaces()

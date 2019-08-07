@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: conference_partner_path(@partner.conference, @partner), html: { class: "form edit_partner" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("partners.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("partners.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

@@ -1,0 +1,152 @@
+---
+en:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sortition information
+        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
+        decidim_proposals_component_id: Proposals set
+        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
+        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        title: Title
+        witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Sortition
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortition
+        other: Sortitions
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Comments enabled
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New sortition added to %{participatory_space_title}
+          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Cancel the sortition
+          edit: Edit
+          new: New sortition
+          show: Sortition details
+        models:
+          sortition:
+            fields:
+              category: Category
+              created_at: Creation date
+              decidim_proposals_component: Proposals component
+              dice: Dice
+              reference: Reference
+              request_timestamp: Draw time
+              seed: Seed
+              target_items: Items to select
+              title: Title
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Are you sure you want to cancel this sortition?
+            destroy: Cancel sortition
+            title: Cancellation of the sortition
+          create:
+            error: There was a problem creating a new sortition.
+            success: Sortition successfully created
+          destroy:
+            error: Can not cancel the sortition.
+            success: Sortition successfully cancelled
+          edit:
+            title: Update the information about the sortition
+            update: Update
+          form:
+            all_categories: All categories
+            select_proposal_component: Select the proposals set
+            title: New sortition for proposals
+          index:
+            title: Sortitions
+          new:
+            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            create: Create
+            title: New sortition
+          show:
+            selected_proposals: Proposals selected for draw
+          update:
+            error: There was a problem updating the sortition.
+            success: Sortition successfully updated
+      admin_log:
+        sortition:
+          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
+          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
+        filters:
+          active: Active
+          all: All
+          cancelled: Cancelled
+          category: Category
+          category_prompt: Select a category
+          search: Search
+          state: Status
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        linked_sortitions:
+          selected_proposals: Selected proposals
+        orders:
+          label: 'Order sortitions by:'
+          random: Random
+          recent: Recent
+        results_count:
+          count:
+            one: selected proposal
+            other: selected proposals
+        show:
+          algorithm: Sortition's algorithm code
+          any_category: from all categories
+          cancelled: Cancelled sortition
+          candidate_proposal_ids: Sortition proposals order and IDs
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
+          category: from the %{category} category
+          dice_result: "(1) Dice result"
+          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
+          mathematical_result: Result (1) x (2)
+          proposals_selected_by_sortition: Proposals selected by sortition
+          sortition_reproducibility_details: Sortition reproducibility details
+          time_seed: "(2) Time seed"
+          witnesses: Witnesses
+        sortition:
+          random_seed: Random seed
+          selected_proposals:
+            one: proposal selected
+            other: proposals selected
+          view: View
+        sortition_author:
+          deleted: Deleted participant
+        sortition_cancel_author:
+          deleted: Deleted participant
+        sortitions_count:
+          count:
+            one: 1 sortition
+            other: "%{count} sortitions"

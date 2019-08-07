@@ -1,0 +1,169 @@
+<%
+@title = "Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns">
+      <div class="user-header">
+        <div class="user-header__avatar">
+          <%= image_tag "demo-avatar.jpg" %>
+        </div>
+        <h1 class="heading1 user-header__heading">
+          <span>Ecologistes en Acció</span>
+          <span class="label">Organització</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="main-container">
+        <div class="row collapse main-container--side-panel">
+          <div class="columns medium-4 large-3">
+            <div class="side-panel">
+              <ul class="tabs vertical side-panel__tabs" id="user-profile-tabs"
+                data-tabs>
+                <li class="tabs-title is-active">
+                  <a href="#userProposals" aria-selected="true">11 propostes</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#userComments">125 comentaris</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#userMeetings">3 trobades</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="columns medium-8 large-9">
+            <div class="main-container__content">
+              <div class="tabs-content vertical"
+                data-tabs-content="user-profile-tabs">
+                <div class="tabs-panel is-active" id="userProposals">
+                  <div class="card card--list">
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Creació d'aules ambientals al Parc del Clot
+                            </h5>
+                          </a>
+                          <span class="text-small">Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. Suspendisse ut semper
+                            mi, et ullamcorper elit.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Creació d'aules ambientals al Parc del Clot
+                            </h5>
+                          </a>
+                          <span class="text-small">Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit. Suspendisse ut semper
+                            mi, et ullamcorper elit.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tabs-panel" id="userComments">
+                  <div class="card card--list">
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Cubriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón
+                            </h5>
+                          </a>
+                          <span class="text-small">Quan sento parlar de contaminació acústica, penso que no
+                        hi ha veïns en tota la ciutat més perjudicats que
+                        nosaltres, els que vivim al Pg de la Vall d'Hebron des
+                        del 198 al 208. Per no parlar de la contaminació
+                        atmosfèrica, els tubs d'escapament dels vehicles gairabé
+                        s'evacuarien directament al nostre menjador si no fos
+                        que mantenim les finestres i terrasses tencades de
+                        manera permanent.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Decidim amb Ada Colau sobre el futur de la ciutat
+                            </h5>
+                          </a>
+                          <span class="text-small">Excelente la herramienta de participación decidim.barcelona mas de 4500 propuestas y miles de participantes. Ya sabemos que solo es uno de los muchos foros abiertos de participación pero sin ser garantia de nada recuerde que la propuesta más votada con diferencia a fecha de hoy es "Cubriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón" .Para cuando la Mesa de trabajo y su reunión con las entidades vecinales y los medios de comunicación, comprometida personalmente para febrero y todavia pendiente ???</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tabs-panel" id="userMeetings">
+                  <div class="card card--list">
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "meetings", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Cooperatives i economia solidària
+                            </h5>
+                          </a>
+                          <span class="text-small">20 Agost 2015</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card--list__item">
+                      <div class="card--list__text">
+                        <a href="#">
+                          <%= icon "meetings", removeIconClass: true, class: "card--list__icon" %>
+                        </a>
+                        <div>
+                          <a href="#" class="card__link">
+                            <h5 class="card--list__heading">
+                              Ús de l'espai públic a Badal
+                            </h5>
+                          </a>
+                          <span class="text-small">20 Agost 2015</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

@@ -1,0 +1,228 @@
+de:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Verfügbare Methoden
+        offline: Offline
+        offline_explanation: Anweisungen zur Offline-Verifizierung
+        online: Online
+      id_document_information:
+        document_number: Dokumentennummer (mit Buchstaben)
+        document_type: Art des Dokuments
+      id_document_upload:
+        document_number: Dokumentennummer (mit Buchstaben)
+        document_type: Art Ihres Dokuments
+        user: Benutzer
+        verification_attachment: Gescannte Kopie Ihres Dokuments
+      offline_confirmation:
+        email: Benutzer Email
+      postal_letter_address:
+        full_address: Vollständige Adresse
+      postal_letter_confirmation:
+        verification_code: Bestätigungscode
+      postal_letter_postage:
+        full_address: Vollständige Adresse
+        verification_code: Bestätigungscode
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Überprüfungen
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} hat die Überprüfungskonfiguration für Identitätsdokumente aktualisiert"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifiziert %{resource_name} über eine Offline-Verifizierung von Identitätsdokumenten"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch
+            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden
+        id_documents:
+          help:
+            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+        postal_letter:
+          help:
+            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+            - Sie markieren den Brief als gesendet.
+            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+      csv_census:
+        explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen
+        name: Zensus der Organisation
+      direct: Direkte
+      help: Hilfe
+      id_documents:
+        explanation: Laden Sie Ihre Identitätsdokumente hoch, damit wir Ihre Identität überprüfen können
+        name: Identitätsdokumente
+      multistep: Mehrschritt
+      name: Name
+      postal_letter:
+        explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
+        name: Code per Post
+    verifications:
+      authorizations:
+        create:
+          error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
+          success: Sie wurden erfolgreich autorisiert.
+          unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
+            csv_census: Vergewissern Sie sich anhand der Volkszählung der Organisation
+            dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
+            dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
+            id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
+            postal_letter: Bestätigen Sie, indem Sie einen Bestätigungscode per Post erhalten
+          title: Bestätigen Sie Ihre Identität
+          verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
+        new:
+          authorize: Senden
+          authorize_with: Bestätigen Sie mit %{authorizer}
+        skip_verification: Sie können dies für jetzt und %{link}überspringen
+        start_exploring: Fang an zu erforschen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Beim Import der Volkszählung ist ein Fehler aufgetreten.
+              success: Erfolgreich importiert %{count} Artikel (%{errors} Fehler)
+            destroy_all:
+              success: Alle Volkszählungsdaten wurden gelöscht
+          destroy:
+            confirm: Alles löschen Die Zählung kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            title: Löschen Sie alle Volkszählungsdaten
+          index:
+            data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}
+            empty: Es gibt keine Zensusdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
+            title: Aktuelle Volkszählungsdaten
+          instructions:
+            body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
+            title: Sie müssen die csv-Zählung für diese Organisation aktivieren
+          new:
+            file: "CSV-Datei mit E-Mail-Daten"
+            info: 'Muss eine Datei im CSV-Format mit einer Spalte sein: E-Mail'
+            submit: Datei hochladen
+            title: Laden Sie eine neue Volkszählung hoch
+        authorizations:
+          new:
+            error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Zählung der Organisation.
+            success: Ihr Konto wurde erfolgreich verifiziert.
+      dummy_authorization:
+        extra_explanation:
+          one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
+          other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfiguration der Identitätsdokumente
+              update: Aktualisieren
+            update:
+              error: Beim Aktualisieren der Konfiguration ist ein Fehler aufgetreten.
+              success: Konfiguration erfolgreich aktualisiert
+          confirmations:
+            create:
+              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
+              success: Benutzer erfolgreich verifiziert
+            new:
+              introduce_user_data: Stellen Sie die Daten in das Bild ein
+              reject: Ablehnen
+              verify: Überprüfen
+          offline_confirmations:
+            create:
+              error: Die Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Benutzer mit, es zu ändern
+              success: Benutzer erfolgreich verifiziert
+            new:
+              cancel: Stornieren
+              introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
+              verify: Überprüfen
+          pending_authorizations:
+            index:
+              config: Konfig
+              offline_verification: Offline-Überprüfung
+              title: Ausstehende Überprüfungen
+              verification_number: 'Überprüfung #%{n}'
+          rejections:
+            create:
+              success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
+        authorizations:
+          choose:
+            choose_a_type: 'Bitte wählen Sie aus, wie Sie verifiziert werden möchten:'
+            offline: Offline
+            online: Online
+            title: Überprüfen Sie sich anhand Ihres Ausweisdokuments
+          create:
+            error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten
+            success: Dokument erfolgreich hochgeladen
+          edit:
+            being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt
+            offline: Offline-Bestätigung verwenden
+            online: Online-Bestätigung verwenden
+            rejection_clarity: Stellen Sie sicher, dass die Informationen im hochgeladenen Bild deutlich sichtbar sind
+            rejection_correctness: Stellen Sie sicher, dass die eingegebenen Informationen korrekt sind
+            rejection_notice: Bei der Überprüfung ist ein Problem aufgetreten. Bitte versuche es erneut
+            send: Überprüfung erneut anfordern
+          new:
+            send: Überprüfung anfordern
+            title: Laden Sie Ihr Identitätsdokument hoch
+          update:
+            error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
+            success: Das Dokument wurde erfolgreich neu geladen
+        dni: DNI
+        nie: NIE
+        passport: Reisepass
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
+              letter_sent_at: Brief an gesendet
+              mark_as_sent: Als gesendet markieren
+              not_yet_sent: Noch nicht gesendet
+              title: Laufende Überprüfungen
+              username: Nutzername
+              verification_code: Bestätigungscode
+          postages:
+            create:
+              error: Fehler beim Markieren des Briefes als gesendet
+              success: Brief erfolgreich als gesendet markiert
+        authorizations:
+          create:
+            error: Es gab ein Problem mit ihrer Anfrage
+            success: Vielen Dank! Wir senden einen Bestätigungscode an Ihre Adresse
+          edit:
+            send: Bestätigen
+            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+            waiting_for_letter: Wir senden Ihnen bald einen Brief mit Ihrem Bestätigungscode an Ihre Adresse
+          new:
+            send: Schick mir einen Brief
+            title: Fordern Sie Ihren Bestätigungscode an
+          update:
+            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben
+            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert
+      sms:
+        authorizations:
+          create:
+            error: Es gab ein Problem mit ihrer Anfrage
+            success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
+          destroy:
+            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
+          edit:
+            confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
+            destroy: Bestätigungscode zurücksetzen
+            resend: Sie haben den Bestätigungscode nicht erhalten?
+            send: Bestätigen
+            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
+          new:
+            send: Senden Sie mir eine SMS
+            title: Fordern Sie Ihren Bestätigungscode an
+          update:
+            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
+            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: muss groß geschrieben sein und darf nur Buchstaben und / oder Zahlen enthalten

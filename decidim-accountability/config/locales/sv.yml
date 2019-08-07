@@ -1,0 +1,226 @@
+sv:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfattning
+        description: Beskrivning
+        end_date: Slutdatum
+        progress: Behandling
+        project_ids: Projekt som omfattas
+        proposals: Förslag som omfattas
+        start_date: Startdatum
+        title: Titel
+        updated_at: Uppdaterad
+      status:
+        description: Beskrivning
+        key: Nyckel
+        name: Namn
+        progress: Behandling
+      timeline_entry:
+        description: Beskrivning
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
+      decidim/accountability/result_progress_updated_event: Uppdaterat resultatutvecklingen
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultat
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Vill du radera detta %{name}?
+        destroy: Radera
+        edit: Redigera
+        new: Ny %{name}
+        preview: Förhandsvisa
+        timeline_entries: Projektutveckling
+        title: Åtgärder
+      admin:
+        exports:
+          results: Resultat
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Status
+          timeline_entry:
+            name: Post i tidslinje
+        results:
+          create:
+            invalid: Det gick inte att skapa det här resultatet
+            success: Resultatet har skapats
+          destroy:
+            success: Resultatet har raderats
+          edit:
+            title: Redigera resultat
+            update: Uppdatera resultat
+          form:
+            add_proposal: Lägg till förslag
+          index:
+            title: Resultat
+          new:
+            create: Skapa resultat
+            title: Nytt resultat
+          proposals:
+            close: Stäng
+            current_selection: Aktuellt urval
+            select: Välj
+          update:
+            invalid: Det gick inte att uppdatera det här resultatet
+            success: Resultatet har uppdaterats
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Det gick inte att skapa denna status
+            success: Skapat status
+          destroy:
+            success: Raderat status
+          edit:
+            title: Redigera status
+            update: Uppdatera status
+          index:
+            title: Status
+          new:
+            create: Skapa status
+            title: Ny status
+          update:
+            invalid: Det gick inte att uppdatera denna status
+            success: Uppdaterat status
+        timeline_entries:
+          create:
+            invalid: Det gick inte att skapa den här posten
+            success: Skapade post
+          destroy:
+            success: Posten har raderats
+          edit:
+            title: Redigera post
+            update: Uppdatera post
+          index:
+            title: Poster i projekttidslinjen
+          new:
+            create: Skapa post
+            title: Ny post
+          update:
+            invalid: Det gick inte att uppdatera den här posten
+            success: Posten har uppdaterats
+      admin_log:
+        result:
+          create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade resultatet %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nytt resultat på %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Slutdatum
+            progress: Behandling
+            start_date: Startdatum
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Beskrivning
+            key: Nyckel
+            name: Namn
+            progress: Behandling
+        timeline_entry:
+          fields:
+            description: Beskrivning
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: Ett resultat
+            other: "%{count} resultat"
+        filters:
+          all: Alla
+          scopes: Omfattningar
+        home:
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
+        home_header:
+          global_status: Global genomförandestatus
+        nav_breadcrumb:
+          global: Globalt genomförande
+        search:
+          search: Sök efter åtgärder
+        show:
+          stats:
+            attendees: Deltagare
+            back_to_result: Gå tillbaka till resultatet
+            comments: Kommentarer
+            contributions: Bidrag
+            last_edited_by: Senast ändrad av
+            last_updated_at: Senast uppdaterad den
+            meetings: Möten
+            number_of_versions: Versioner
+            proposals: Förslag
+            show_all_versions: Visa alla versioner
+            version_author: Versionsförfattare
+            version_created_at: Version skapad
+            version_number: Versionsnummer
+            version_number_out_of_total: "%{current_version} av %{total_count}"
+            votes: Stöder
+        timeline:
+          title: Projektutveckling
+      versions:
+        index:
+          changes_at_title: Ändringar vid "%{title}"
+          title: Versioner
+        show:
+          changes_at_title: Ändringar vid "%{title}"
+        version:
+          version_index: Version %{index}
+    components:
+      accountability:
+        name: Ansvarsskyldighet
+        settings:
+          global:
+            categories_label: Namn för "Kategorier"
+            comments_enabled: Kommentarer på
+            display_progress_enabled: Visa behandling
+            heading_leaf_level_results: Namn för "Projekt"
+            heading_parent_level_results: Namn för "Resultat"
+            intro: Intro
+            subcategories_label: Namn för "Underkategorier"
+          step:
+            comments_blocked: Kommentarer blockerade
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Förslaget "%{proposal_title}" har tagits med i ett resultat. Visa det från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_subject: En uppdatering till %{proposal_title}
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har tagits med i resultatet <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Resultatet "%{resource_title}", som omfattar förslaget "%{proposal_title}", är nu %{progress}% färdigt. Du kan se det från den här sidan:'
+          email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
+          email_subject: En uppdatering till behandlingen av %{resource_title}
+          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som ingår i förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
+    metrics:
+      results:
+        description: Antal genererade resultat
+        object: resultat
+        title: Resultat
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultat
+    participatory_spaces:
+      highlighted_results:
+        see_all: Visa alla (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekt som ingår i detta resultat
+      included_proposals:
+        result_proposal: Förslag som ingår i detta resultat

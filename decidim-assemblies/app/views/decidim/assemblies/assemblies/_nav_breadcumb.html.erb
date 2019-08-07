@@ -1,0 +1,11 @@
+<div class="lines-breadcrumb">
+  <% root = assemblies.shift %>
+  <%= link_to translated_attribute(root.title), assembly_path(root) %>
+
+  <% assemblies.each do |assembly| %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(assembly.title), assembly_path(assembly) %>
+    </div>
+  <% end %>
+</div>

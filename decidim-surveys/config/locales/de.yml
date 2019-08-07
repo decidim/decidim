@@ -1,0 +1,56 @@
+de:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Umfrage beendet
+      decidim/surveys/opened_survey_event: Umfrage gestartet
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Umfrage
+        other: Umfragen
+      decidim/surveys/survey_answer:
+        one: Antworten
+        other: Antworten
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Antworten
+        name: Umfrage
+        settings:
+          global:
+            announcement: Ankündigung
+          step:
+            allow_answers: Erlaube Antworten
+            announcement: Ankündigung
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Eine Umfrage ist in %{participatory_space_title}
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
+        survey_opened:
+          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können von dieser Seite aus teilnehmen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_subject: Eine neue Umfrage in %{participatory_space_title}
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    metrics:
+      survey_answers:
+        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
+        object: Antworten auf Umfragen
+        title: Antworten zu Umfragen
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Umfrage Benutzer Antworten
+        surveys:
+          update:
+            invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
+            success: Umfrage wurde erfolgreich gespeichert.
+      last_activity:
+        new_survey_at_html: "<span>Neue Umfrage bei %{link}</span>"
+      surveys:
+        answer:
+          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
+          success: Umfrage erfolgreich beantwortet.

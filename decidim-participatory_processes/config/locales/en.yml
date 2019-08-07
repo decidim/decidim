@@ -1,0 +1,404 @@
+---
+en:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Announcement
+        area_id: Area
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_steps: Copy steps
+        decidim_area_id: Area
+        description: Description
+        developer_group: Promoter group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Organization area
+        meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        start_date: Start date
+        subtitle: Subtitle
+        target: Who participates
+        title: Title
+      participatory_process_group:
+        description: Description
+        hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
+      participatory_process_step:
+        cta_path: Call to Action path
+        cta_text: Call to Action text
+        description: Description
+        end_date: End date
+        short_description: Short description
+        start_date: Start date
+        title: Title
+      participatory_process_user_role:
+        email: Email
+        name: Name
+        role: Role
+    models:
+      decidim/participatory_process_step_activated_event: Phase activated
+      decidim/participatory_process_step_changed_event: Phase changed
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participatory process
+        other: Participatory processes
+      decidim/participatory_process_group:
+        one: Participatory process group
+        other: Participatory process groups
+      decidim/participatory_process_step:
+        one: Phase
+        other: Phases
+  decidim:
+    admin:
+      actions:
+        activate: Activate
+        configure: Configure
+        confirm_destroy: Confirm delete
+        destroy: Delete
+        duplicate: Duplicate
+        edit: Edit
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
+        new_process: New process
+        new_process_group: New process group
+        new_process_step: New phase
+        new_process_user_role: New process admin
+        preview: Preview
+        publish: Publish
+        resend_invitation: Resend invitation
+        unpublish: Unpublish
+      menu:
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
+        participatory_processes_submenu:
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          info: Info
+          moderations: Moderations
+          private_users: Private participants
+          process_admins: Process admins
+          steps: Phases
+      models:
+        participatory_process:
+          fields:
+            created_at: Created at
+            private: Private
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Participatory process
+        participatory_process_group:
+          fields:
+            name: Name
+          name: Process group
+        participatory_process_step:
+          fields:
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process phase
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          name: Participatory process admin
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Invitation accepted at
+            invitation_sent_at: Invitation sent at
+      participatory_process_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory process
+      participatory_process_groups:
+        destroy:
+          error: There was an error while destroying the Participatory process group.
+          success: Participatory process group successfully deleted.
+        edit:
+          title: Edit process group
+          update: Update
+        new:
+          create: Create
+          title: New process group
+        update:
+          error: There was a problem updating this participatory process group.
+          success: Participatory process group successfully updated.
+      participatory_process_publications:
+        create:
+          error: There was a problem publishing this participatory process.
+          success: Participatory process successfully published.
+        destroy:
+          error: There was a problem unpublishing this participatory process.
+          success: Participatory process successfully unpublished.
+      participatory_process_step_activations:
+        create:
+          error: There was a problem activating this participatory process phase.
+          success: Participatory process phase successfully activated.
+      participatory_process_steps:
+        create:
+          error: There was a problem creating a new participatory process phase.
+          success: Participatory process phase successfully created.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Can't delete the active phase.
+            last_step: Can't delete the last phase of a process.
+          success: Participatory process phase successfully deleted.
+        edit:
+          title: Edit participatory process phase
+          update: Update
+        index:
+          steps_title: Phases
+        new:
+          create: Create
+          title: New participatory process phase
+        ordering:
+          error: There was a problem in reordering these phases of the participatory process.
+        update:
+          error: There was a problem updating this phase of the participatory process.
+          success: Participatory phase successfully updated.
+      participatory_process_user_roles:
+        create:
+          error: There was a problem adding a participant for this participatory process.
+          success: Admin successfully added to this participatory process.
+        destroy:
+          success: Admin successfully removed from this participatory process.
+        edit:
+          title: Update participatory process admin.
+          update: Update
+        index:
+          process_admins_title: Participatory process admins
+        new:
+          create: Create
+          title: New participatory process admin.
+        update:
+          error: There was a problem updating an admin for this participatory process.
+          success: Admin successfully updated for this participatory process.
+      participatory_processes:
+        create:
+          error: There was a problem creating a new participatory process.
+          success: Participatory process successfully created. Configure now its phases.
+        edit:
+          update: Update
+        index:
+          not_published: Not published
+          private: Private
+          public: Public
+          published: Published
+        new:
+          create: Create
+          title: New participatory process
+        update:
+          error: There was a problem updating this participatory process.
+          success: Participatory process successfully updated.
+      participatory_processes_copies:
+        create:
+          error: There was a problem duplicating this participatory process.
+          success: Participatory process successfully duplicated.
+      participatory_processes_group:
+        create:
+          error: There was a problem creating a new participatory process group.
+          success: Participatory process group successfully created.
+      titles:
+        participatory_process_groups: Participatory process groups
+        participatory_processes: Participatory processes
+      users:
+        resend_invitation:
+          error: There was a problem resending the invitation.
+          success: Invitation successfully resent.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_step:
+        activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
+        create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
+        delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
+      participatory_process_user_role:
+        create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the participant %{resource_name} in the %{space_name} participatory process"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} phase is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'The dates for the %{resource_title} phase at %{participatory_space_title} have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> phase at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          title: What is a participatory process?
+    menu:
+      processes: Processes
+    metrics:
+      participatory_processes:
+        description: Number of participatory processes in this organization
+        object: participatory processes
+        title: Participatory processes
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 process for %{group}
+          other: "%{count} processes for %{group}"
+        title: Participatory process groups
+    participatory_process_steps:
+      index:
+        process_steps: Process phases
+        title: Participatory process phases
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum amount of elements to show
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
+        participatory_processes:
+          form:
+            announcement_help: The text you enter here will be shown to the user right below the process information.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: General Information
+            visbility: Visibility
+      content_blocks:
+        highlighted_processes:
+          name: Highlighted processes
+      index:
+        title: Participatory processes
+      last_activity:
+        new_participatory_process: New participatory process
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Active processes
+            active_step: Active phase
+            more_information: More information
+            participate: Participate
+            see_all_processes: See all processes
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 active process
+              other: "%{count} active processes"
+            all:
+              one: 1 process
+              other: "%{count} processes"
+            past:
+              one: 1 past process
+              other: "%{count} past processes"
+            upcoming:
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
+          explanations:
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
+          names:
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
+        index:
+          loading: Loading results...
+      show:
+        area: Area
+        developer_group: Promoter group
+        end_date: End date
+        local_area: Organization Area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private process
+        scope: Scope
+        start_date: Start date
+        target: Who participates
+        unspecified: Not specified
+      statistics:
+        answers_count: Answers
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Supports
+        pages_count: Pages
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Supports
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Browse
+          processes_count: 'Processes:'
+      participatory_process_widgets:
+        show:
+          active_step: Active phase
+          take_part: Take part
+      participatory_processes:
+        index:
+          promoted_processes: Highlighted processes
+        participatory_process:
+          active_step: 'Current phase:'
+          more_info: More info
+          take_part: Take part
+        promoted_process:
+          active_step: 'Current phase:'
+          more_info: More info
+          take_part: Take part
+      process_header_steps:
+        step: Phase %{current} of %{total}
+        view_steps: View phases
+      process_navigation:
+        process_menu_item: The process

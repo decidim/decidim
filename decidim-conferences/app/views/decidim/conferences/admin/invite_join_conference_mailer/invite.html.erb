@@ -1,0 +1,12 @@
+<p><%= t("devise.mailer.invitation_instructions.hello", email: @user.name) %></p>
+
+<p>
+  <%= t ".invited_you_to_join_a_conference", invited_by: @invited_by.name, application: @user.organization.name %>
+</p>
+
+<p>
+  <%= link_to t(".decline", conference_title: translated_attribute(@conference.title)),routes.decline_invitation_conference_registration_type_conference_registration_path(conference_slug: @conference.slug, registration_type_id: @registration_type.id) %>
+</p>
+<p>
+  <%= link_to t(".registration", conference_title: translated_attribute(@conference.title)),routes.conference_registration_type_conference_registration_url(conference_slug: @conference.slug, registration_type_id: @registration_type.id) %>
+</p>

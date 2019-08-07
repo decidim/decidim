@@ -1,0 +1,55 @@
+@import "tagsinput";
+
+$tag-padding: .25rem;
+$tag-margin: .2rem;
+
+.input__tag{
+  background-color: rgba($medium-gray, .5);
+  border-radius: $input-radius;
+  padding: $tag-padding;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  span{
+    color: $secondary;
+  }
+}
+
+// Override defaults
+.bootstrap-tagsinput{
+  // Use foundation precalculated methods to get accurate form css properties
+  $height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom'));
+  $tag-line-height: rem-calc(22);
+  $span-height: ($input-font-size * unitless-calc($tag-line-height)) + (get-side($tag-padding, 'top') + get-side($tag-padding, 'bottom')) - rem-calc(1);
+
+  width: 100%;
+  border: $border;
+  min-height: $height;
+  padding-bottom: $tag-margin / 4;
+
+  &.focus{
+    outline: none;
+    border: $input-border-focus;
+    background-color: $input-background-focus;
+    box-shadow: $input-shadow-focus;
+
+    @if has-value($input-transition){
+      transition: $input-transition;
+    }
+  }
+
+  input{
+    height: $span-height;
+    display: inline-block;
+  }
+
+  .tag{
+    color: inherit;
+    margin-right: 0; // fix whitespace
+    margin-bottom: $tag-margin;
+  }
+}

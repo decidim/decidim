@@ -1,0 +1,82 @@
+es:
+  activemodel:
+    attributes:
+      answer:
+        body: Responder
+      question:
+        max_choices: Número máximo de opciones
+        question_type: Tipo
+      questionnaire_question:
+        mandatory: Obligatorio
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: no están completos
+              too_many: son demasiados
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descripción
+            tos: Términos y condiciones de uso
+        questionnaires:
+          answer_option:
+            answer_option: Opción de respuesta
+            free_text: Texto libre
+            remove: Eliminar
+            statement: Declaración
+          edit:
+            save: Guardar
+            title: Título
+          form:
+            add_question: Añadir pregunta
+            already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
+          question:
+            add_answer_option: Añadir una opción de respuesta
+            any: Alguna
+            description: Descripción
+            down: Abajo
+            question: Pregunta
+            remove: Eliminar
+            statement: Declaración
+            up: Arriba
+          update:
+            invalid: Se ha producido un error al guardar el formulario.
+            success: Formularios guardados correctamente.
+      errors:
+        answer:
+          body: El campo no puede estar en blanco
+      question_types:
+        long_answer: Respuesta larga
+        multiple_option: Opción múltiple
+        short_answer: Respuesta corta
+        single_option: Opción única
+        sorting: Ordenación
+      questionnaires:
+        answer:
+          invalid: Se ha producido un error al responder el formulario.
+          success: Has respondido al formulario correctamente.
+        question:
+          max_choices: 'Opciones máximas: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
+            title: Responde el formulario
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          questionnaire_answered:
+            body: Ya has respondido a este formulario.
+            title: Ya has respondido
+          questionnaire_closed:
+            body: El formulario está cerrado y no puedes responder.
+            title: Formulario cerrado
+          questionnaire_for_private_users:
+            body: El formulario está disponible solo para participantes privadas
+            title: Formulario cerrado
+          submit: Enviar respuestas
+          tos_agreement: Al participar aceptas los Términos y condiciones de uso
+      user_answers_serializer:
+        created_at: Respondido el
+        id: Identificador de respuesta

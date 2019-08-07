@@ -1,0 +1,153 @@
+eu:
+  activemodel:
+    attributes:
+      project:
+        budget: Aurrekontua
+        decidim_category_id: Kategoria
+        decidim_scope_id: Esparrua
+        description: Descripción
+        proposal_ids: Honekin lotutako proposamenak
+        title: Titulua
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proiektua
+        other: Proiektuak
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Karpetak
+        attachments: Fitxategi erantsiak
+        confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
+        destroy: Ezabatu
+        edit: Editatu
+        import: Inportatu proposamenak proiektuetarako
+        new: Proiektu berria
+        preview: Aurreikusi
+        title: Ekintzak
+      admin:
+        models:
+          project:
+            name: Proiektua
+        projects:
+          create:
+            invalid: Arazo bat izan da proiektu hau sortzean
+            success: Proiektua ongi sortu da
+          destroy:
+            success: Proiektua behar bezala ezabatu da
+          edit:
+            title: Editatu proiektua
+            update: Eguneratu
+          index:
+            finished_orders: Bukatutako botoak
+            pending_orders: Zain dauden botoei
+            title: Proiektuak
+          new:
+            create: Sortu
+            title: Proiektu berria
+          update:
+            invalid: Arazo bat izan da proiektu hau eguneratzean
+            success: Proiektua zuzen eguneratu da
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
+            success: "%{number} proposamen arrakastaz proiektuak inportatu"
+          new:
+            create: Inportatu proposamenak proiektuetarako
+            no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_component: Hautatu osagaia
+      admin_log:
+        project:
+          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+      models:
+        project:
+          fields:
+            title: Titulua
+      projects:
+        budget_confirm:
+          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.
+          cancel: Utzi
+          confirm: Baieztatu
+          description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
+          title: Baieztatu botoa
+        budget_excess:
+          close: Itxi
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
+          ok: Ados
+          title: Aurrekontua gainditu da
+        budget_summary:
+          are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
+          assigned: 'Esleituta:'
+          cancel_order: ezabatu ezazu botoa eta hasi berriro
+          checked_out:
+            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
+            title: Botoa zuzen bidali da
+          description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Gutxienez, %{minimum_budget} esleitu nahi dituzun proiektuei, eta bozkatu aurrekontua zehazteko.
+          title: Zure esku dago aurrekontua erabakitzea
+        count:
+          projects_count:
+            one: Proiektu bat
+            other: "%{count} proiektu"
+        filters:
+          category: Kategoria
+          category_prompt: Aukeratu kategoria bat
+          search: Bilatu
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: 'Iragazi honen arabera:'
+          unfold: Zabaldu
+        order_progress:
+          vote: Proiektuaren alde egin
+        order_selected_projects:
+          remove: Kendu
+          selected_projects:
+            one: hautatutako proiektua
+            other: hautatutako proiektuak
+          view: Ikusi
+        project:
+          add: Gehitu
+          count:
+            one: 1 sostengu 
+            other: "%{count} sostengu"
+          remove: Kendu
+          view: ikusi
+        project_budget_button:
+          add: Gehitu
+          added: Erantsita
+        show:
+          budget: Aurrekontua
+          view_all_projects: Ikusi proiektu guztiak
+    components:
+      budgets:
+        actions:
+          vote: Bozkatu
+        name: Aurrekontuak
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+            projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
+            total_budget: Aurrekontu osoa
+            vote_threshold_percent: Votuen ehuneko atalasea
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+            show_votes: Erakutsi botoak
+            votes_enabled: Botoak gaituta
+    orders:
+      checkout:
+        error: Errorea gertatu da zure botoa prozesatzean
+        success: Zure botoa ongi bideratu da
+      destroy:
+        error: Errorea gertatu da zure botoa ezeztatzean
+        success: Zure botua zuzen ezeztatu da
+    resource_links:
+      included_proposals:
+        project_proposal: 'Proiektu honetan jasotako proposamenak:'
+  index:
+    confirmed_orders_count: Botoen zenbaketa
+  total_budget: Guztizko aurrekontua

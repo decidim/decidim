@@ -1,0 +1,9 @@
+<% if allowed_to? :update_notable_changes, :static_page, static_page: form.object %>
+  <div class="row column">
+    <%= form.check_box :changed_notably, value: false, help_text: t("changed_notably_help", scope: "decidim.admin.static_pages.edit") %>
+
+    <div class="callout secondary">
+      <%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %>: <%= @tos_version_formatted %>
+    </div>
+  </div>
+<% end %>

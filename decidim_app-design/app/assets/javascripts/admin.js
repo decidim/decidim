@@ -1,0 +1,1 @@
+// = require decidim/admin/application

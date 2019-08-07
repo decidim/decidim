@@ -1,0 +1,81 @@
+pl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nowy wpis na blogu
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Stanowisko
+        few: Posty
+        many: Posty
+        other: Posty
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Czy na pewno chcesz usunąć ten wpis?
+        destroy: Kasować
+        edit: Edytować
+        new: Nowy post
+        title: działania
+      admin:
+        models:
+          components:
+            body: Ciało
+          post:
+            name: Stanowisko
+        posts:
+          create:
+            invalid: Podczas tworzenia tego posta wystąpił problem
+            success: Po pomyślnym utworzeniu
+          destroy:
+            success: Wpis został pomyślnie usunięty
+          edit:
+            save: Aktualizacja
+          index:
+            title: Posty
+          new:
+            create: Stwórz
+            title: Utwórz wpis
+          update:
+            invalid: Podczas zapisywania posta wystąpiły błędy.
+            success: Zapis został pomyślnie zapisany
+      last_activity:
+        new_post_at_html: "<span>Nowy post na %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Ciało
+            created_at: Utworzono w
+            title: tytuł
+      posts:
+        show:
+          view: Widok
+        sidebar_blog:
+          comments: komentarze
+          most_commented_posts: Najczęściej komentowane posty
+      read_more: Czytaj więcej
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Komentarze włączone
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+    events:
+      blogs:
+        post_created:
+          email_intro: Post "%{resource_title}" został opublikowany w "%{participatory_space_title}", którego obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Nowy wpis opublikowany w %{participatory_space_title}
+          notification_title: Post <a href="%{resource_path}">%{resource_title}</a> został opublikowany w %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posty
+    participatory_processes:
+      statistics:
+        posts_count: Posty

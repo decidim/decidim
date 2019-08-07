@@ -1,0 +1,31 @@
+<% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_participatory_processes.participatory_processes_path,
+  :read,
+  :process_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
+  <% if promoted_participatory_processes.any? %>
+    <section id="highlighted-processes" class="row section">
+      <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_process", collection: promoted_participatory_processes, as: :promoted_process %>
+    </section>
+  <% end %>
+
+  <section id="processes-grid" class="section row collapse">
+    <div class="processes-grid-order-by">
+      <%= render partial: "order_by_processes" %>
+    </div>
+    <%= render partial: "decidim/shared/participatory_space_filters/show" %>
+    <p class="loading"><%= t(".loading") %></p>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <%= render(collection) %>
+    </div>
+  </section>
+<% end %>
+<%= javascript_include_tag "decidim/participatory_processes/filters" %>
+<%= javascript_include_tag "decidim/filters" %>

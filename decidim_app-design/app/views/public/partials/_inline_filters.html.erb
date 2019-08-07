@@ -1,0 +1,32 @@
+<% sort = true unless local_assigns.has_key?(:sort) %>
+<% order = true unless local_assigns.has_key?(:order) %>
+<% sort_text ||= "All types of assemblies" %>
+<% order_text ||= "Upcoming assemblies" %>
+<% random = Random.rand(9999) %>
+
+<div class="inline-filters">
+  <% if sort %>
+    <label>
+      <span>Show:</span>
+      <button data-toggle="inline-filter-sort-<%= random %>"><%= sort_text %></button>
+      <div id="inline-filter-sort-<%= random %>" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+        <ul class="list-reset">
+          <li><a href=""><%= sort_text %></a></li>
+          <% 6.times do %><li><a href=""><%= Faker::Ancient.hero %></a></li><% end %>
+        </ul>
+      </div>
+    </label>
+  <% end %>
+  <% if order %>
+    <label>
+      <span>Order by:</span>
+      <button data-toggle="inline-filter-order-<%= random %>"><%= order_text %></button>
+      <div id="inline-filter-order-<%= random %>" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+        <ul class="list-reset">
+          <li><a href=""><%= order_text %></a></li>
+          <% 6.times do %><li><a href=""><%= Faker::Ancient.hero %></a></li><% end %>
+        </ul>
+      </div>
+    </label>
+  <% end %>
+</div>

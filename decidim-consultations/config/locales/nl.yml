@@ -1,0 +1,311 @@
+nl:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner afbeelding
+        decidim_highlighted_scope_id: Gemarkeerde scope
+        description: Omschrijving
+        end_voting_date: Stemmen eindigt
+        introductory_image: Introductie afbeelding
+        introductory_video_url: Introductievideo-URL
+        questions: Vragen
+        slug: URL pad
+        start_voting_date: Stemmen begint
+        subtitle: Ondertitel
+        title: Titel
+      question:
+        banner_image: Banner afbeelding
+        decidim_scope_id: Gemeentelijk thema
+        hashtag: Hashtag
+        hero_image: Home afbeelding
+        i_frame_url: URL van het externe stemsysteem
+        origin_scope: Scope
+        origin_title: Oorsprong
+        origin_url: Origin URL
+        participatory_scope: Doelstelling
+        promoter_group: Promotorgroep
+        question_context: Context
+        reference: Referentie
+        scope: Gemeentelijk thema
+        slug: URL pad
+        subtitle: Ondertitel
+        title: Titel
+        vote: Extern stemsysteem
+        what_is_decided: Wat besloten werd
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Reactie niet gevonden.
+  activerecord:
+    models:
+      decidim/consultation:
+        one: Raadpleging
+        other: Raadplegingen
+      decidim/consultations/question:
+        one: Vraag
+        other: Vragen
+      decidim/consultations/response:
+        one: Antwoord
+        other: Antwoorden
+      decidim/consultations/vote:
+        one: Stem
+        other: Stemmen
+  decidim:
+    admin:
+      actions:
+        new_consultation: Nieuwe raadpleging
+        new_question: Nieuwe vraag
+        new_response: Nieuw antwoord
+        publish_results: Publiceer resultaten
+        unpublish_results: Publicatie van resultaten ongedaan maken
+      consultation_publications:
+        create:
+          error: Er was een probleem bij het publiceren van deze raadpleging.
+          success: Raadpleging succesvol gepubliceerd.
+        destroy:
+          error: Er was een probleem bij het depubliceren van deze raadpleging.
+          success: Raadpleging succesvol gedepubliceerd.
+      consultation_results_publications:
+        create:
+          error: Er was een probleem bij het publiceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
+      consultations:
+        create:
+          error: Er was een probleem bij het creëren van een nieuwe raadpleging.
+          success: Overleg succesvol aangemaakt.
+        edit:
+          update: Bijwerken
+        form:
+          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit overleg verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: Aanmaken
+          title: Nieuwe burgerinspraak
+        results:
+          not_visible: Resultaten zijn beschikbaar wanneer raadpleging wordt gesloten
+          total_votes: 'Totaal: %{count} stemmen'
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit overleg.
+          success: Overleg succesvol bijgewerkt.
+      menu:
+        consultations: burgerinspraak
+        consultations_submenu:
+          info: Informatie
+          questions: vragen
+          results: Resultaten
+        questions_submenu:
+          components: Onderdelen
+          consultation: Raadpleging
+          info: Informatie
+          responses: Antwoorden
+      models:
+        consultation:
+          fields:
+            created_at: Aangemaakt op
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Raadpleging
+            other: Raadplegingen
+        question:
+          fields:
+            created_at: Aangemaakt op
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Vraag
+            other: Vragen
+        response:
+          fields:
+            created_at: Aangemaakt op
+            title: Titel
+          name:
+            one: Antwoord
+            other: antwoorden
+      question_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van deze vraag.
+          success: Vraag met succes gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze vraag.
+          success: Publicatie van de vraag succesvol ongedaan gemaakt.
+      questions:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe vraag.
+          success: Vraag met succes gemaakt.
+        destroy:
+          success: Vraag succesvol verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: Aanmaken
+          title: Nieuwe vraag
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze vraag.
+          success: Vraag is succesvol bijgewerkt.
+      responses:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
+          success: Reactie succesvol aangemaakt.
+        destroy:
+          error: Er is een fout opgetreden bij het verwijderen van het antwoord.
+          success: Reactie succesvol verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        new:
+          create: Aanmaken
+          title: Nieuwe reactie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
+          success: Reactie is bijgewerkt.
+      titles:
+        consultations: Burgerinspraak
+        questions: vragen
+        responses: Antwoorden
+        results: Resultaten
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
+      consultation:
+        start_voting_date: Stemmen begint
+        view_results: Bekijk resultaten
+      consultation_card:
+        view_results: Bekijk resultaten
+      consultations:
+        orders:
+          label: 'Sorteer door:'
+          random: Willekeurig
+          recent: Meest recent
+      content_blocks:
+        highlighted_consultations:
+          name: Gemarkeerde raadplegingen
+      count:
+        title:
+          one: "%{count} overleg"
+          other: "%{count} overleg"
+      filters:
+        active: Actief
+        all: Alle
+        finished: Voltooid
+        search: Zoeken
+        state: Staat
+        upcoming: Toekomstige
+      filters_small_view:
+        close_modal: Sluit venster
+        filter: Sorteer
+        filter_by: Sorteren op
+        unfold: Uitklappen
+      highlighted_questions:
+        title: Vragen vanaf %{scope_name}
+      index:
+        title: Burgerinspraak
+      last_activity:
+        new_consultation: Nieuw overleg
+        new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Huidige burgerinspraak
+            see_all_consultations: Zie alle raadplegingen
+            voting_ends_in:
+              one: Stemmen eindigt morgen <strong></strong>
+              other: Stemmen eindigt over <strong>%{count} dagen</strong>
+            voting_ends_today: Stemmen eindigt <strong>vandaag</strong>
+      question:
+        take_part: Neem deel
+        view_results: Bekijk resultaten
+        votes_out_of:
+          one: stem uit
+          other: stemmen uit
+      question_votes:
+        create:
+          error: Er zijn fouten opgetreden bij het stemmen op de vraag
+          success: U kunt uw stem wijzigen tot het einde van de raadpleging, maar alleen de laatste keuze zal worden aangenomen.
+          title_error: Stemfout!
+          title_success: Stem succesvol geregistreerd
+      regular_questions:
+        title: Vragen voor dit consult
+      show:
+        badge_name:
+          finished: Voltooid
+          open: Open
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
+        footer_button_text:
+          debate: Debat
+          view: Bekijk
+          view_results: Bekijk resultaten
+          vote: Stemmen
+        unspecified: Niet gespecificeerd
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Raadplegingen</strong> is een ruimte die u toelaat om een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging en het debat voor of tegen een reactie te faciliteren. Wanneer de raadplegingsdatum bereikt wordt, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: de raadplegingen kunnen bijna elk aspect van een organisatie betreffen: bijvoorbeeld een discussie over het veranderen van naam of het logo van de organisatie met verschillende alternatieven; beslissen Ja of Nee om deel uit te maken van een grotere organisatie; een nieuwe strategische plan; het resultaat van een werkgroep valideren; ...</p>\n"
+          page: "<p>Overleg is een ruimte waarin u een duidelijke vraag kunt stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk kunt opzetten en het debat voor of tegen een reactie kunt bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: sommige voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten in de organisatie moeten blijven.</p>\n"
+          title: Wat zijn raadplegingen?
+    menu:
+      consultations: Burgerinspraak
+    pages:
+      home:
+        statistics:
+          consultations_count: Raadplegingen
+    questions:
+      next_button: Volgende vraag
+      previous_button: Vorige vraag
+      results:
+        title: Resultaten
+      show:
+        read_more: Lees verder
+      statistics:
+        assistants_count_title: assistenten
+        comments_count_title: Reacties
+        meetings_count_title: Events
+        supports_count_title: Stemmen
+      technical_info:
+        technical_data: Technische data
+      vote_button:
+        already_voted: Reeds gestemd
+        already_voted_hover: Herroep stem
+        starting_from: Te beginnen op %{date}
+        verification_required: Verifieer je account om te kunnen stemmen
+        vote: Stem
+      vote_modal:
+        contextual_help: Maak een keuze a.u.b.
+        title: 'Raadpleging: vraag stemming'
+      vote_modal_confirm:
+        change: Wijzigen
+        confirm: Bevestig
+        contextual_help: Bevestig de geselecteerde optie.
+        title: 'Raadpleging: bevestig stem'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Bijlagen
+          categories: Categorieën
+      consultation_voting_data:
+        start_voting_date: Stemmen begint
+      question_components:
+        question_menu_item: De vraag
+        unfold: Uitklappen
+      question_header:
+        back_to_consultation: Bekijk alle burgerinspraken

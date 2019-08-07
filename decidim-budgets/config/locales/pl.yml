@@ -1,0 +1,161 @@
+pl:
+  activemodel:
+    attributes:
+      project:
+        budget: Budżet
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        proposal_ids: Proponowane propozycje
+        title: Tytuł
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        few: Projektowanie
+        many: Projektowanie
+        other: Projektowanie
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Lornetka składana
+        attachments: Załączniki
+        confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
+        destroy: Kasować
+        edit: Edytować
+        import: Importuj propozycje do projektów
+        new: Nowy projekt
+        preview: Zapowiedź
+        title: działania
+      admin:
+        models:
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Podczas tworzenia tego projektu wystąpił problem
+            success: Projekt został pomyślnie utworzony
+          destroy:
+            success: Projekt został pomyślnie usunięty
+          edit:
+            title: Edytuj projekt
+            update: Aktualizacja
+          index:
+            finished_orders: Ukończone głosy
+            pending_orders: Głosowanie oczekujące
+            title: Projektowanie
+          new:
+            create: Stwórz
+            title: Nowy projekt
+          update:
+            invalid: Wystąpił problem z aktualizacją tego projektu
+            success: Zaktualizowano projekt
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do projektów
+            success: "%{number} propozycji pomyślnie zaimportowanych do projektów"
+          new:
+            create: Importuj propozycje do projektów
+            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
+            select_component: Wybierz komponent
+      admin_log:
+        project:
+          create: "%{user_name} utworzył projekt %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} usunął projekt %{resource_name} z przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował projekt %{resource_name} w przestrzeni %{space_name}"
+      models:
+        project:
+          fields:
+            title: Tytuł
+      projects:
+        budget_confirm:
+          are_you_sure: Czy sie zgadzasz? Po zatwierdzeniu swojego głosu nie możesz go zmienić.
+          cancel: Anuluj
+          confirm: Potwierdzać
+          description: Są to projekty, które wybrałeś jako część budżetu.
+          title: Potwierdź głosowanie
+        budget_excess:
+          close: Blisko
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który został już wybrany, aby dodać lub sprawić, aby głosował z Twoimi preferencjami.
+          ok: ok
+          title: Przekroczono maksymalny budżet
+        budget_summary:
+          are_you_sure: Czy na pewno chcesz anulować swój głos?
+          assigned: 'Przydzielony:'
+          cancel_order: Usuń głos i zacznij od nowa
+          checked_out:
+            description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
+            title: Ukończono budżet budżetowy
+          description: Jakie projekty myślisz, powinniśmy przeznaczyć budżet? Przyznaj co najmniej %{minimum_budget} projekty, które chcesz i głosuj zgodnie z Twoimi preferencjami, aby określić budżet.
+          title: Ty decydujesz budżet
+        count:
+          projects_count:
+            one: 1 projekt
+            few: "%{count} projektów"
+            many: "%{count} projektowanie"
+            other: "%{count} projektów"
+        filters:
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          search: Szukanie
+        filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwijać się
+        order_progress:
+          vote: Głosować
+        order_selected_projects:
+          remove: Usunąć
+          selected_projects:
+            one: Wybrany projekt
+            few: Wybranych projektów
+            many: wybrane projekty
+            other: Wybranych projektów
+          view: Widok
+        project:
+          add: Dodaj
+          count:
+            one: 1
+            few: "%{count} obsługuje"
+            many: "%{count} obsługuje"
+            other: "%{count} obsługuje"
+          remove: Usunąć
+          view: Widok
+        project_budget_button:
+          add: Dodaj
+          added: W dodatku
+        show:
+          budget: Budżet
+          view_all_projects: Wyświetl wszystkie projekty
+    components:
+      budgets:
+        actions:
+          vote: Głosować
+        name: Budżety
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Komentarze włączone
+            projects_per_page: Projekty na stronę
+            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
+            total_budget: Cały budżet
+            vote_threshold_percent: Procent progu głosowania
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+            show_votes: Pokaż głosy
+            votes_enabled: Włączone głosowanie
+    orders:
+      checkout:
+        error: Podczas przetwarzania Twojego głosu wystąpił błąd
+        success: Twój głos został pomyślnie przyjęty
+      destroy:
+        error: Podczas anulowania Twojego głosu wystąpił błąd
+        success: Twój głos został pomyślnie zakończony
+    resource_links:
+      included_proposals:
+        project_proposal: 'Propozycje zawarte w tym projekcie:'
+  index:
+    confirmed_orders_count: Liczba głosów
+  total_budget: Cały budżet

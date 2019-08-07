@@ -1,0 +1,40 @@
+id:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Dibuat di
+        field: Bidang saya
+        start_date: Mulai tanggal
+        title: Judul
+        updated_at: Diperbarui pada
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Gunakan lingkungan uji untuk decidim.
+          description: Peserta mendapatkan lencana ini dengan membuat tes.
+          description_another: Peserta ini telah membuat %{score} tes.
+          description_own: Anda telah membuat %{score} tes.
+          name: Tes
+          next_level_in: Buat %{score} tes lagi untuk mencapai level selanjutnya!
+          unearned_another: Peserta ini belum membuat tes apa pun.
+          unearned_own: Anda belum membuat tes.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Dummies tinggi
+          dummies_count_medium: Media Dummies
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies tinggi
+        dummies_count_medium: Media Dummies
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Boneka terkait

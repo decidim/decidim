@@ -1,0 +1,154 @@
+<% add_decidim_meta_tags({
+  description: present(@proposal).body,
+  title: present(@proposal).title,
+  url: proposal_url(@proposal.id)
+}) %>
+
+<%
+edit_link(
+  resource_locator(@proposal).edit,
+  :edit,
+  :proposal,
+  proposal: @proposal
+)
+%>
+
+<%= render partial: "voting_rules" %>
+<% if component_settings.participatory_texts_enabled? %>
+  <div class="row column">
+    <div class="section text-medium">
+      <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
+    </div>
+  </div>
+<% end %>
+<%= emendation_announcement_for @proposal %>
+<div class="row column view-header">
+  <% if @proposal.emendation? %>
+    <h2 class="heading2"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
+  <% else %>
+    <h2 class="heading2"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+  <% end %>
+  <% unless component_settings.participatory_texts_enabled? %>
+    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
+  <% end %>
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if @proposal.amendable? %>
+      <div class="card text-center">
+        <div class="card__content">
+          <div>
+            <strong class="text-large text-uppercase">
+              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
+            </strong>
+            <small class="text-medium">
+              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
+            </small>
+          </div>
+
+          <div>
+            <span class="text-medium">
+              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), proposal_versions_path(@proposal) %>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+      <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% else %>
+      <%= amend_button_for @proposal %>
+    <% end %>
+
+    <%= emendation_actions_for @proposal %>
+
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+      <% if @proposal.withdrawn? %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <br />
+            <%= follow_button_for(@proposal) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= amenders_list_for(@proposal) %>
+
+    <%= resource_reference(@proposal) %>
+    <%= cell("decidim/fingerprint", @proposal) %>
+    <%= render partial: "decidim/shared/share_modal" %>
+    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
+    <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <% if @proposal.emendation? %>
+        <%= cell("decidim/diff", @proposal.versions.last) %>
+      <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
+        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+        <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
+      <% end %>
+      <% if component_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% end %>
+      <%= cell "decidim/proposals/proposal_tags", @proposal %>
+    </div>
+    <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
+      <% if @proposal.accepted? %>
+        <div class="section">
+          <div class="callout success">
+            <h5><%= t(".proposal_accepted_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% elsif @proposal.rejected? %>
+        <div class="section">
+          <div class="callout warning">
+            <h5><%= t(".proposal_rejected_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="section">
+          <div class="callout secondary">
+            <h5><%= t(".proposal_in_evaluation_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= linked_resources_for @proposal, :results, "included_proposals" %>
+    <%= linked_resources_for @proposal, :projects, "included_proposals" %>
+    <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
+    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
+
+    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= amendments_for @proposal %>
+  </div>
+</div>
+<%= attachments_for @proposal %>
+
+<%= comments_for @proposal %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: @proposal,
+    form: @report_form,
+    url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
+  }
+%>

@@ -1,0 +1,108 @@
+<%
+@title = "Multiconsulta -- Decidim Barcelona"
+@activesection = "consultations"
+@activepage = "info"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <%= partial "consultations_header_home" %>
+  <div class="row column">
+    <%= partial "consultations_nav" %>
+  </div>
+  <div class="row column">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <p class="lead">
+            Millores en un conjunt de carrers dels barris del districte que
+            incorporin la renovació integral de les seves infraestructures
+            (voreres, accessibilitat, asfaltat, enllumenat, clavegueram,
+            arbrat, mobiliari urbà...)</p>
+          <p>Interiors de Canyelles, Guineueta
+            i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall,
+            connexió del carrer Pedraforca amb Agudes, accessibilitat i
+            enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de
+            la ciutat, Canfranc, Oristà i Almansa, pèrgola del Campillo de la
+            virgen i del parc de Serra Martí, redacció del projecte del
+            passeig de la Peira, reforma de les escales de Matagalls, millores
+            a l'Av. de Borbó i projecte d'intervenció a la Font Pla de
+            Fornells. Millores en el Parc de la Guineueta incloent un espai
+            d'aparells per a la gent gran. Estudi de la viabilitat tècnica
+            d'instal·lar escales mecàniques entre Ciutat Meridiana i Torre
+            Baró per millorar la connectivitat entre els dos barris o millora
+            de l'escala actual. Millores d'accessibilitat, arranjaments i
+            enllumenat en l'àmbit de Renfe Meridiana. Millores en la
+            urbanització per a l'accessibilitat d'acord amb les
+            particularitats orogràfiques al barri de Roquetes.
+          </p>
+          <p>Interiors de Canyelles, Guineueta
+            i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall,
+            connexió del carrer Pedraforca amb Agudes, accessibilitat i
+            enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la
+            ciutat, Canfranc, Oristà i Almansa, pèrgola del Campillo de la
+            virgen i del parc de Serra Martí, redacció del projecte del
+            passeig de la Peira, reforma de les escales de Matagalls, millores
+            a l'Av. de Borbó i projecte...
+          </p>
+        </div>
+        <%= partial "documents" %>
+      </div>
+      <div class="section columns medium-5 mediumlarge-4 large-3">
+        <div class="card extra">
+          <div class="card__content">
+            <button class="button secondary hollow expanded button--icon">
+              <%= icon "bell" %>
+              <span>Seguir</span>
+            </button>
+          </div>
+        </div>
+        <div class="reference">
+          Referencia: BCN-2016-01-173
+        </div>
+        <div class="card extra">
+          <div class="definition-data">
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Adhesiones</span>
+              <span class="definition-data__number">57</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Comentarios</span>
+              <span class="definition-data__number">30</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Encuentros</span>
+              <span class="definition-data__number">2</span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title">Asistentes</span>
+              <span class="definition-data__number">130</span>
+            </div>
+          </div>
+        </div>
+        <%= partial "share" %>
+
+      </div>
+    </div>
+  </div>
+</main>
+<div class="expanded">
+  <div class="wrapper wrapper--inner">
+    <div class="row">
+      <div class="columns large-9" id="comments">
+        <%= partial "comments" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= partial "template_bottom" %>
+
+<%= partial "consultations_vote_modal" %>
+<script>
+/* Inline script for demo purposes */
+window.addEventListener("load", function(event) {
+  $('#consultations-vote-modal').foundation('open');
+});
+</script>

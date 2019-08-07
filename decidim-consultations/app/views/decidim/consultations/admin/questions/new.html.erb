@@ -1,0 +1,13 @@
+<h2 class="questions-title-summary">
+  <%= t "questions.new.title", scope: "decidim.admin" %>
+</h2>
+
+<%= decidim_form_for @form,
+                     url: consultation_questions_path(current_consultation),
+                     html: { class: "form new_question" } do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("questions.new.create", scope: "decidim.admin"), data: { disable_with: true } %>
+  </div>
+<% end %>

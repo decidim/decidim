@@ -1,0 +1,4 @@
+fragment AddCommentFormCommentable on Commentable {
+  id
+  type
+}

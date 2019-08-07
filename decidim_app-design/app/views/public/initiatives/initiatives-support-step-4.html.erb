@@ -1,0 +1,90 @@
+<%
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          Estás creando una <strong>consulta ciudadana.</strong>
+        </p>
+        <p>
+          <a href="#">Más información</a>.
+        </p>
+      </div>
+      <div class="show-for-large">
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol class="wizard__steps">
+          <li>Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li class="step--active">Crea la comisión promotora</li>
+        </ol>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="callout secondary mb-sm">
+        <p>
+          Las iniciativas ciudadanas requieren una <strong>Comisión Promotora</strong> formada por, al menos, tres personas (fedatarias).
+        </p>
+        <p>
+          <strong>Comparte el siguiente enlace con el resto de los promotores de esta iniciativa.</strong> Cuando tus contactos reciban el enlace, deberán seguir los pasos indicados.
+        </p>
+      </div>
+      <h2 class="section-heading">Crea la comisión promotora</h2>
+      <div class="hide-for-large m-bottom">
+        <span class="text-small">Paso 1 de 3 (<a data-toggle="steps">ver pasos</a>)</span>
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+          <li class="step--active">Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <form>
+            <div>
+              <p>Copia este enlace y compártelo con los integrantes de la comisión promotora:</p>
+            </div>
+            <div class="m-bottom">
+              <div class="card card--list card--nomargin">
+                <div class="card--list__item">
+                  <div class="card--list__text">
+                    <%= link_to page_path("static-with-nav"), class: "card__link" do %>
+                    <strong>
+                      https://barcelona-decidim.dev.aspgems.com/initiatives/i-85/commitee_requests/new
+                    </strong>
+                    <% end %>
+                  </div>
+                  <div class="card--list__data">
+                    <a href="" class="card--list__data__icon--lg">
+                      <%= icon "clipboard" %>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pb-s">
+              <small class="text-small">Si pierdes el enlace, siempre podrás encontrarlo en el área de iniciativas de tu panel de administración.</small>
+            </div>
+            <%= link_to page_path("initiatives/initiatives-support-step-5") do %>
+              <button type="button" class="button expanded mt-s mb-none">Continuar</button>
+            <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

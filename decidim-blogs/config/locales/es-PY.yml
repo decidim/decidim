@@ -1,0 +1,79 @@
+es-PY:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nueva publicación del blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicación
+        other: Publicaciones
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
+        destroy: Borrar
+        edit: Editar
+        new: Nueva publicación
+        title: Comportamiento
+      admin:
+        models:
+          components:
+            body: Cuerpo
+          post:
+            name: Enviar
+        posts:
+          create:
+            invalid: Ha habido un problema al crear esta publicación
+            success: Publicación creada con éxito
+          destroy:
+            success: Publicación eliminada con éxito
+          edit:
+            save: Actualizar
+          index:
+            title: Publicaciones
+          new:
+            create: Crear
+            title: Crear publicación
+          update:
+            invalid: Ha habido errores al guardar la publicación.
+            success: Publicación guardada con éxito
+      last_activity:
+        new_post_at_html: "<span>Nueva publicación en %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autoría
+            body: Cuerpo
+            created_at: Creado en
+            title: título
+      posts:
+        show:
+          view: Ver
+        sidebar_blog:
+          comments: comentarios
+          most_commented_posts: Publicaciones más comentadas
+      read_more: Leer más
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+    events:
+      blogs:
+        post_created:
+          email_intro: La publicación "%{resource_title}" se publicó en "%{participatory_space_title}" que estás siguiendo.
+          email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Nueva publicación publicada en %{participatory_space_title}
+          notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          posts_count: Publicaciones
+    participatory_processes:
+      statistics:
+        posts_count: Publicaciones

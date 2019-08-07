@@ -1,0 +1,35 @@
+<% if @activepage == "meetings" %>
+   <h3 class="section-heading">Propuestas tratadas</h3>
+<% elsif @activepage == "actions" %>
+   <h3 class="section-heading">Propuestas incluídas en esta actuación</h3>
+<% elsif %>
+   <h3 class="section-heading">Propuestas relacionadas</h3>
+<% end %>
+
+<div class="card card--action card--list">
+  <div class="card--list__item">
+    <div class="card--list__text">
+      <a href="#">
+        <%= icon "proposals", class: "card--list__icon", removeIconClass: true %>
+      </a>
+      <div>
+        <a href="#" class="card__link">
+          <h5 class="card--list__heading">
+            Creació d'aules ambientals al Parc del Clot
+          </h5>
+        </a>
+        <div class="author">
+          <a href="#" class="author__avatar">
+            <%= image_tag "demo-avatar.jpg" %>
+          </a>
+          <a href="#" class="author__name">
+            Ricard Pujol
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card--list__data">
+      <span class="card--list__data__number">130</span>apoyos
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".preview" %></h2>
+  </div>
+  <div class="card-section">
+    <dl>
+      <dt><%= t ".subject" %></dt>
+      <dd><%= @email.subject %></dd>
+      <dt><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></dt>
+      <dd><%= selective_newsletter_to newsletter %></dd>
+    </dl>
+
+    <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
+    </iframe>
+  </div>
+</div>
+<div class="button--double form-general-submit">
+  <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
+    <% if  !@newsletter.sent? %>
+      <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
+    <% end %>
+    <% unless @newsletter.sent? %>
+      <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button alert" %>
+    <% end %>
+  <% end %>
+</div>

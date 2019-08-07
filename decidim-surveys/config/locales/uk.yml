@@ -1,0 +1,53 @@
+uk:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Опитування закінчилося
+      decidim/surveys/opened_survey_event: Опитування почалося
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Опитування
+        few: Опитування
+        many: Опитувань
+        other: Опитувань
+      decidim/surveys/survey_answer:
+        one: Відповідь
+        few: Відповіді
+        many: Відповідей
+        other: Відповідей
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Відповідь
+        name: Опитування
+        settings:
+          global:
+            announcement: Оголошення
+          step:
+            allow_answers: Дозволити відповіді
+            announcement: Оголошення
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Опитування %{resource_title} в %{participatory_space_title} закрите.
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: В %{participatory_space_title} завершилось опитування
+          notification_title: Опитування <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> закінчилося.
+        survey_opened:
+          email_intro: 'В %{participatory_space_title} почалось опитування %{resource_title}. Ви можете взяти участь в ньому на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Нове опитування в %{participatory_space_title}
+          notification_title: В <a href="%{participatory_space_url}">%{participatory_space_title}</a> почалось опитування <a href="%{resource_path}">%{resource_title}</a>.
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Відповіді учасників на опитування
+        surveys:
+          update:
+            invalid: При спробі збереження цього опитування сталися помилки.
+            success: Опитування успішно збережено.
+      surveys:
+        answer:
+          invalid: При відповідях на опитування сталися помилки.
+          success: Опитування успішно пройдено.

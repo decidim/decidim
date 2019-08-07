@@ -1,0 +1,59 @@
+<%
+@title = "Decidim Admin"
+@activesection = "settings"
+@activepage = "settings-scopes"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "settings_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          <%= link_to "Barcelona", page_path("scope-browse") %> - Gràcia <a href="#" class="button tiny button--title">Añadir</a> <%= link_to "Modificar", page_path("scope-edit"), class: "button tiny button--title" %>
+        </h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+           <table class="table-list">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Tipo de ámbito</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to "Zona 1", page_path("scope-sub-browse") %>
+                </td>
+                <td>
+                  subdistrito
+                </td>
+                <td class="table-list__actions">
+                  <%= link_to page_path("scope-edit"), class: "action-icon", data: { :tooltip => true, :'aria-haspopup' => "true", :'disable-hover' => "false" }, title: "Editar" do %><%= icon "pencil" %><% end %>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= link_to "Zona 2", page_path("scope-sub-browse") %>
+                </td>
+                <td>
+                  subdistrito
+                </td>
+                <td class="table-list__actions">
+                  <%= link_to page_path("scope-edit"), class: "action-icon", data: { :tooltip => true, :haspopup => true, :'disable-hover' => false }, title: "Editar" do %><%= icon "pencil" %><% end %>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

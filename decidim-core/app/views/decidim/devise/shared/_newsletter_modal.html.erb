@@ -1,0 +1,25 @@
+<div class="reveal" id="sign-up-newsletter-modal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="<%= t(".buttons.close_modal") %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row">
+    <%= t(".notice").html_safe %>
+  </div>
+
+  <div class="row">
+    <div class="column flex-center">
+      <button type="buton" class="check-newsletter clear button secondary expanded" data-check=false>
+        <%= t(".buttons.uncheck") %>
+      </button>
+
+      <button type="buton" class="check-newsletter button expanded" data-check=true>
+        <%= t(".buttons.check") %>
+      </button>
+    </div>
+  </div>
+</div>

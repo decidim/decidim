@@ -1,0 +1,24 @@
+<div class="small-12 columns">
+  <div class="section">
+    <h4 class="section-heading"><%= t(".title") %></h4>
+    <ol class="timeline">
+      <% result.timeline_entries.each_with_index do |timeline_entry, i| %>
+        <li class="timeline__item ">
+          <div class="timeline__phase">
+            <span class="timeline__phase__number"><%= i + 1 %></span>
+          </div>
+          <div class="timeline__info">
+            <div class="timeline__description">
+              <span class="timeline__date text-small">
+                <%= timeline_entry.entry_date %>
+              </span>
+              <h6 class="timeline__title">
+                <%= translated_attribute timeline_entry.description %>
+              </h6>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>

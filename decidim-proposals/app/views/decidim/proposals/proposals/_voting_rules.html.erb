@@ -1,0 +1,50 @@
+<% if show_voting_rules? %>
+  <div class="row column voting-rules">
+    <div class="callout secondary">
+      <div class="row">
+        <div class="columns medium-8 large-9">
+          <h3 class="heading3"><%= t(".title") %></h3>
+          <ul>
+            <% if vote_limit_enabled? %>
+              <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
+            <% end %>
+
+            <% if proposal_limit_enabled? %>
+              <li><%= t(".proposal_limit.description", limit: proposal_limit) %></li>
+            <% end %>
+
+            <% if threshold_per_proposal_enabled? %>
+              <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
+            <% end %>
+
+            <% if can_accumulate_supports_beyond_threshold? %>
+              <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+            <% end %>
+
+            <% if minimum_votes_per_user_enabled? %>
+              <li>
+                <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+                <% if votes_given >= minimum_votes_per_user %>
+                  <%= t(".minimum_votes_per_user.given_enough_votes") %>
+                <% else %>
+                  <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <% if current_user_can_vote? %>
+          <div class="columns medium-4 large-3">
+            <div class="card card--nomargin text-center remaining-votes-counter">
+              <div class="card__content">
+                <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
+                <%= render partial: "decidim/proposals/proposals/remaining_votes_count" %>
+                <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

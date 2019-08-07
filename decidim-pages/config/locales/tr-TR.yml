@@ -1,0 +1,30 @@
+tr:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Sayfa
+        other: Sayfalar
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} %{resource_name} sayfayı %{space_name}güncelledi"
+    components:
+      pages:
+        name: Sayfa
+        settings:
+          global:
+            announcement: duyuru
+          step:
+            announcement: duyuru
+    pages:
+      admin:
+        models:
+          components:
+            body: Vücut
+        pages:
+          edit:
+            save: Güncelleştirme
+            title: Sayfayı düzenle
+          update:
+            invalid: Sayfa kaydedilirken bir sorun oluştu.
+            success: Sayfa başarıyla kaydedildi.

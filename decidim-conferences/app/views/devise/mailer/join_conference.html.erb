@@ -1,0 +1,13 @@
+<p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.name) %></p>
+
+<p>
+  <%= t("decidim.conferences.admin.invite_join_conference_mailer.invite.invited_you_to_join_a_conference", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
+</p>
+
+<p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:conference]).conference_conference_registration_path(conference_slug: @opts[:conference]), host: @resource.organization.host) %></p>
+
+<% if @resource.invitation_due_at %>
+  <p><%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :long)) %></p>
+<% end %>
+
+<p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>

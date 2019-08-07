@@ -1,0 +1,46 @@
+<section class="extended hero"
+  style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns large-10 text-left">
+        <h1 class="text-highlight hero-heading mb-none">
+          <%= translated_attribute(current_participatory_space.title) %>
+        </h1>
+        <h3 class="text-highlight">
+          <% if current_participatory_space.hashtag.present? %>
+            <span class="process-header__hashtag card__link">
+              <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}", target: "_blank" %>
+            </span>
+          <% end %>
+          <%= translated_attribute(current_participatory_space.slogan) %>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row column medium-8 text-left mt-m">
+        <div class="column medium-6">
+          <button type="button" class="button hollow light expanded">
+            <%= participatory_space_helpers.render_date(current_participatory_space) %>
+            <%= current_participatory_space.location %>
+          </button>
+        </div>
+        <% if current_participatory_space.registrations_enabled? %>
+          <div class="column medium-3 end">
+            <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>
+              <button type="button" class="button button--sc light expanded"><%= t(".register") %></button>
+            <% end %>
+          </div>
+        <% end %>
+        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+            <div class="column medium-3 end">
+              <%= link_to decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id) do %>
+                <button type="button" class="button button--sc secondary light expanded"><%= translated_attribute(component_meeting.name) %></button>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

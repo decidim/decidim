@@ -1,0 +1,73 @@
+<div class="row column authorizations-list">
+  <section class="section">
+    <% if @granted_authorizations.any? %>
+      <div class="card card--list">
+        <% @granted_authorizations.each do |authorization| %>
+          <% if authorization.expired? %>
+            <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
+            <%= link_to authorization_method.root_path do %>
+              <% render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <% end %>
+          <% else %>
+            <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @pending_authorizations.any? %>
+      <div class="card card--list">
+        <% @pending_authorizations.each do |authorization| %>
+          <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
+          <%= link_to authorization_method.resume_authorization_path do %>
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <%= icon "reload", class: "card--list__icon" %>
+                <div>
+                  <h5 class="card--list__heading">
+                    <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
+                  </h5>
+                  <span class="text-small">
+                    <%= t("started_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.updated_at, format: :long)) %>
+                  </span>
+                </div>
+              </div>
+              <div class="card--list__data">
+                <span class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if unauthorized_methods.any? %>
+      <div class="card card--list">
+        <% unauthorized_methods.each do |unauthorized_method| %>
+          <%= link_to unauthorized_method.root_path do %>
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <%= icon "lock-unlocked", class: "card--list__icon" %>
+                <div>
+                  <h5 class="card--list__heading">
+                    <%= t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers") %>
+                  </h5>
+                  <span class="text-small">
+                    <%= t("#{unauthorized_method.key}.explanation", scope: "decidim.authorization_handlers") %>
+                  </span>
+                </div>
+              </div>
+              <div class="card--list__data">
+                <span class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>

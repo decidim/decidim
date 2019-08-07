@@ -1,0 +1,8 @@
+<%= decidim_form_for(@form, url: proposal_proposal_notes_path(proposal, @form), html: { class: "form new_proposal_note" }) do |f| %>
+  <div class="row column">
+    <%= f.text_area :body, rows: 10, label: t(".note") %>
+  </div>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".submit") %>
+  </div>
+<% end %>

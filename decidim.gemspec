@@ -1,32 +1,53 @@
-# coding: utf-8
 # frozen_string_literal: true
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require_relative "decidim-core/lib/decidim/core/version"
 
-Gem::Specification.new do |spec|
-  spec.name          = "decidim"
-  spec.version       = Decidim.version
-  spec.authors       = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
-  spec.email         = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
+$LOAD_PATH.push File.expand_path("lib", __dir__)
 
-  spec.summary       = "Citizen participation framework for Ruby on Rails."
-  spec.description   = "Citizen participation framework for Ruby on Rails."
-  spec.homepage      = "https://github.com/codegram/decidim"
-  spec.license       = "MIT"
+# Maintain your gem's version:
+require "decidim/version"
 
-  spec.required_ruby_version = ">= 2.3.1"
+Gem::Specification.new do |s|
+  s.version = Decidim.version
+  s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
+  s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
+  s.license = "AGPL-3.0"
+  s.homepage = "https://github.com/decidim/decidim"
+  s.required_ruby_version = ">= 2.5"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
-  spec.bindir        = "bin"
-  spec.executables   = ["decidim"]
-  spec.require_paths = ["lib"]
+  s.name = "decidim"
 
-  spec.add_dependency "decidim-core", Decidim.version
-  spec.add_dependency "decidim-system", Decidim.version
-  spec.add_dependency "rails", Decidim.rails_version
+  s.summary = "Citizen participation framework for Ruby on Rails."
+  s.description = "A generator and multiple gems made with Ruby on Rails."
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 11.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  s.files = Dir[
+    "{docs,lib}/**/*",
+    "LICENSE-AGPLv3.txt",
+    "Rakefile",
+    "README.md"
+  ]
+
+  s.require_paths = ["lib"]
+
+  s.add_dependency "decidim-accountability", Decidim.version
+  s.add_dependency "decidim-admin", Decidim.version
+  s.add_dependency "decidim-api", Decidim.version
+  s.add_dependency "decidim-assemblies", Decidim.version
+  s.add_dependency "decidim-blogs", Decidim.version
+  s.add_dependency "decidim-budgets", Decidim.version
+  s.add_dependency "decidim-comments", Decidim.version
+  s.add_dependency "decidim-core", Decidim.version
+  s.add_dependency "decidim-debates", Decidim.version
+  s.add_dependency "decidim-forms", Decidim.version
+  s.add_dependency "decidim-generators", Decidim.version
+  s.add_dependency "decidim-meetings", Decidim.version
+  s.add_dependency "decidim-pages", Decidim.version
+  s.add_dependency "decidim-participatory_processes", Decidim.version
+  s.add_dependency "decidim-proposals", Decidim.version
+  s.add_dependency "decidim-sortitions", Decidim.version
+  s.add_dependency "decidim-surveys", Decidim.version
+  s.add_dependency "decidim-system", Decidim.version
+  s.add_dependency "decidim-verifications", Decidim.version
+
+  s.add_development_dependency "bundler", "~> 1.12"
+  s.add_development_dependency "rake", "~> 12.0"
+  s.add_development_dependency "rspec", "~> 3.0"
 end

@@ -1,0 +1,25 @@
+<div class="reveal" data-reveal id="meeting-registration-confirm-<%= model.id %>">
+  <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :post) do |form| %>
+    <div class="row">
+      <div class="columns medium-10 medium-offset-1">
+        <%= cell("decidim/represent_user_group", form) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns medium-10 medium-offset-1 help-text">
+        <%= registration_terms_text %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns medium-8 medium-offset-2">
+        <%= form.submit i18n_confirm_text, class: "button expanded", data: { disable: true } %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <button class="link" data-close><%= i18n_cancel_text %></button>
+  </div>
+</div>

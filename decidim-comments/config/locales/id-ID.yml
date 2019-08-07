@@ -1,0 +1,98 @@
+id:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentar
+      decidim/comments/comment_created_event: Komentar
+      decidim/comments/reply_created_event: Balasan komentar
+      decidim/comments/user_mentioned_event: Menyebut
+  activerecord:
+    models:
+      decidim/comments/comment:
+        other: Komentar
+      decidim/comments/comment_vote:
+        other: Voting
+  decidim:
+    comments:
+      comments: Komentar
+      last_activity:
+        new_comment_at_html: "<span>Komentar baru di %{link}</span>"
+      votes:
+        create:
+          error: Terjadi masalah saat memilih komentar.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_url}">mendaftar</a> untuk menambahkan komentar Anda.
+        form:
+          body:
+            label: Komentar
+            placeholder: Apa yang Anda pikirkan tentang ini?
+          form_error: Teks diperlukan dan tidak boleh lebih dari %{length} karakter.
+          submit: Kirim
+          user_group_id:
+            label: Beri komentar sebagai
+        opinion:
+          neutral: Netral
+        remaining_characters: "%{count} karakter tersisa"
+        remaining_characters_1: "%{count} karakter tersisa"
+        title: Tambahkan komentar Anda
+      comment:
+        alignment:
+          against: Melawan
+          in_favor: Mendukung
+        deleted_user: Peserta yang dihapus
+        reply: Balasan
+        report:
+          action: Melaporkan
+          already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
+          close: Dekat
+          description: Apakah konten ini tidak pantas?
+          details: Komentar tambahan
+          reasons:
+            does_not_belong: Berisi aktivitas ilegal, ancaman bunuh diri, informasi pribadi, atau sesuatu yang menurut Anda bukan milik %{organization_name}
+            offensive: Berisi rasisme, seksisme, penghinaan, serangan pribadi, ancaman kematian, permintaan bunuh diri atau segala bentuk pidato kebencian.
+            spam: Berisi clickbait, iklan, penipuan atau bot skrip.
+          title: Laporkan masalah
+      comment_order_selector:
+        order:
+          best_rated: Nilai terbaik
+          most_discussed: Paling banyak dibicarakan
+          older: Lebih tua
+          recent: Baru
+        title: 'Dipesan oleh:'
+      comment_thread:
+        title: Percakapan dengan %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
+        blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.
+        loading: Memuat komentar ...
+        title: "%{count} komentar"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} telah menulis komentar dalam %{resource_title}. Anda dapat membacanya di halaman ini:"
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_name}. Anda dapat berhenti mengikuti pengguna ini dari halaman profil mereka.
+          email_subject: Ada komentar baru dengan %{author_name} in %{resource_title}
+          notification_title: Ada komentar baru oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a> di <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} telah dikomentari. Anda dapat membaca komentar di halaman ini:"
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}" atau penulisnya. Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Ada komentar baru dari %{author_name} in %{resource_title}
+          notification_title: Ada komentar baru dari <a href="%{author_path}">%{author_name} %{author_nickname}</a> di <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} telah membalas komentar Anda dalam %{resource_title}. Anda dapat membacanya di halaman ini:"
+          email_outro: Anda telah menerima pemberitahuan ini karena komentar Anda dijawab.
+          email_subject: "%{author_name} telah membalas komentar Anda dalam %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> telah menjawab komentar Anda di <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Anda telah disebutkan
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda telah disebutkan dalam %{resource_title}.
+          email_subject: Anda telah disebutkan dalam %{resource_title}
+          notification_title: Anda telah disebutkan dalam <a href="%{resource_path}">%{resource_title}</a> oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Jumlah komentar yang dihasilkan oleh peserta
+        object: komentar
+        title: Komentar
+  errors:
+    messages:
+      cannot_have_comments: tidak dapat memiliki komentar

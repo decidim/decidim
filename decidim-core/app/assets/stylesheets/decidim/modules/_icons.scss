@@ -1,0 +1,56 @@
+// font type based on parent container
+$icon-size: .875em;
+$icon-size-sm: .625em;
+$icon-size-l: 1.5em;
+$icon-size-xl: 1.875em;
+
+.icon{
+  width: $icon-size;
+  height: $icon-size;
+  fill: currentColor;
+
+  @include modifiers(color, (muted: $muted));
+}
+
+.icon--small{
+  width: $icon-size-sm;
+  height: $icon-size-sm;
+}
+
+.icon--big{
+  width: $icon-size-l;
+  height: $icon-size-l;
+}
+
+.icon--large{
+  width: $icon-size-xl;
+  height: $icon-size-xl;
+}
+
+.icon--action{
+  fill: rgba(black, .2);
+}
+
+.icon--container{
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon--action:hover,
+a:hover .icon--action{
+  fill: currentColor;
+}
+
+.icon--after{
+  margin-left: .3rem;
+}
+
+.icon--before{
+  margin-right: .3rem;
+}
+
+.icon--share{
+  margin-bottom: -2px;
+  width: 12px;
+  height: 12px;
+}

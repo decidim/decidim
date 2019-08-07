@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <div class="flex--sbc">
+        <div class="grid-x align-middle">
+          <u> <%= present(@meeting).title %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
+        </div>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="grid-x card-title">
+      <div class="cell small-2"><strong><%= t(".start_date") %></strong></div>
+      <div class="cell small-2"><strong><%= t(".end_date") %></strong></div>
+    </div>
+    <div class="grid-x text-muted">
+      <div class="cell small-2"><%= meeting.start_time.strftime("%m/%d/%Y %R") %></div>
+      <div class="cell small-2"><%= meeting.end_time.strftime("%m/%d/%Y %R") %></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :visible %>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".agenda_items") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="meeting-agenda-items">
+      <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
+        <script type="text/template" class="decidim-template">
+          <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(blank_agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-dummy" %>
+        </script>
+        <%= render "agenda_item_child_template", form: agenda_item_form, editable: true, template_id: "agenda-item-child-template-dummy" %>
+      <% end %>
+
+      <div class="meeting-agenda-items-list">
+        <% @form.agenda_items.each_with_index do |agenda_item, index| %>
+          <%= fields_for "meeting_agenda[agenda_items][]", agenda_item do |agenda_item_form| %>
+            <%= render "agenda_item", form: agenda_item_form, tabs_id: tabs_id_for_agenda_item(agenda_item), editable: true, child_template_selector: "#agenda-item-child-template-#{index}" %>
+            <%= render "agenda_item_child_template", form: agenda_item_form, editable: true, template_id: "agenda-item-child-template-#{index}" %>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="button add-agenda-item"><%= t(".add_agenda_item") %></button>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/meetings/admin/agendas" %>

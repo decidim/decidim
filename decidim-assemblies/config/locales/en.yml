@@ -1,0 +1,379 @@
+---
+en:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Area
+        assembly_type: Assembly type
+        assembly_type_other: Assembly type other
+        banner_image: Banner image
+        closing_date: Closing date
+        closing_date_reason: Closing date reason
+        composition: Composition
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_features: Copy features
+        created_by: Created by
+        created_by_other: Created by other
+        creation_date: Date created
+        decidim_area_id: Area
+        decidim_scope_id: Scope
+        description: Description
+        developer_group: Promoter group
+        domain: Domain
+        duration: Duration
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Home image
+        included_at: Included at
+        instagram: Instagram
+        internal_organisation: Internal organisation
+        is_transparent: Is transparent
+        local_area: Organization area
+        meta_scope: Scope metadata
+        parent_id: Parent assembly
+        participatory_processes_ids: Related participatory processes
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: Private space
+        promoted: Highlighted
+        published_at: Published at
+        purpose_of_action: Purpose of action
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        special_features: Special features
+        subtitle: Subtitle
+        target: Who participates
+        title: Title
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Birthday
+        birthplace: Birthplace
+        ceased_date: Ceased date
+        designation_date: Designation date
+        designation_mode: Designation mode
+        full_name: Full name
+        gender: Gender
+        position: Position
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Role
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assembly
+        other: Assemblies
+      decidim/assembly_member:
+        one: Assembly member
+        other: Assembly members
+      decidim/assembly_user_role:
+        one: Assembly user role
+        other: Assembly user roles
+  decidim:
+    admin:
+      actions:
+        new_assembly: New assembly
+      assemblies:
+        create:
+          error: There was a problem creating a new assembly.
+          success: Assembly created successfully.
+        edit:
+          update: Update
+        index:
+          not_published: Not published
+          private: Private
+          public: Public
+          published: Published
+        new:
+          create: Create
+          title: New assembly
+        update:
+          error: There was a problem updating this assembly.
+          success: Assembly successfully updated.
+      assemblies_copies:
+        create:
+          error: There was a problem duplicating this assembly.
+          success: Assembly successfully duplicated.
+      assembly_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate assembly
+      assembly_members:
+        create:
+          error: There was a problem adding a member for this assembly.
+          success: Member successfully created for this assembly.
+        destroy:
+          success: Member successfully deleted for this assembly.
+        edit:
+          title: Update assembly member.
+          update: Update
+        index:
+          assembly_members_title: Assembly members
+        new:
+          create: Create
+          title: New assembly member.
+        update:
+          error: There was a problem updating the member for this assembly.
+          success: Member successfully updated for this assembly.
+      assembly_publications:
+        create:
+          error: There was a problem publishing this assembly.
+          success: Assembly successfully published.
+        destroy:
+          error: There was a problem unpublishing this assembly.
+          success: Assembly successfully unpublished.
+      assembly_user_roles:
+        create:
+          error: There was a problem adding an admin for this assembly.
+          success: Admin successfully added to this assembly.
+        destroy:
+          success: Admin successfully removed from this assembly.
+        edit:
+          title: Update assembly admin.
+          update: Update
+        index:
+          assembly_admins_title: Assembly admins
+        new:
+          create: Create
+          title: New assembly admin.
+        update:
+          error: There was a problem updating an admin for this assembly.
+          success: Admin updated successfully for this assembly.
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          assembly_admins: Assembly admins
+          assembly_members: Members
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
+          info: Info
+          moderations: Moderations
+          private_users: Private users
+      models:
+        assembly:
+          fields:
+            created_at: Created at
+            private: Private
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Assembly
+        assembly_member:
+          fields:
+            ceased_date: Ceased date
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          name: Member
+          positions:
+            other: Other
+            president: President
+            secretary: Secretary
+            vice_president: Vice president
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          name: Assembly admin
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
+      titles:
+        assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} created the %{resource_name} assembly"
+        publish: "%{user_name} published the %{resource_name} assembly"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_member:
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+      assembly_user_role:
+        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
+        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Duration
+            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            filters: Filters
+            images: Images
+            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
+            metadata: Metadata
+            other: Other
+            select_a_created_by: Select a created by
+            select_an_area: Select an Area
+            select_an_assembly_type: Select an assembly type
+            select_parent_assembly: Select parent assembly
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            social_handlers: Social
+            title: General Information
+            visbility: Visibility
+        assembly_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existing participant
+            non_user: Non participant
+            select_a_position: Select a position
+            select_user: Select a participant
+            user_type: Participant type
+          index:
+            filter:
+              all: All
+              ceased: Ceased
+              not_ceased: Not ceased
+            filter_by: Filter by
+            search: Search
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum amount of elements to show
+      assembly_members:
+        index:
+          members: Members
+      assembly_types:
+        commission: Comission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        others: Others
+        participatory: Participatory
+        working_group: Working group
+      content_blocks:
+        highlighted_assemblies:
+          name: Highlighted assemblies
+      created_by:
+        city_council: City Council
+        others: Others
+        public: Public
+      filter:
+        all: All types of assemblies
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        help: 'Show:'
+        others: Others
+        participatory: Participatory
+        working_group: Working group
+      index:
+        title: Assemblies
+      last_activity:
+        new_assembly: New assembly
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Active assemblies
+            see_all_assemblies: See all assemblies
+        user_profile:
+          member_of:
+            member_of: Member of
+      show:
+        area: Area
+        assembly_type: Assembly type
+        children: Assemblies
+        closing_date: Closing date
+        composition: Composition
+        created_by: Created by
+        creation_date: Date created
+        developer_group: Promoter group
+        duration: Duration
+        included_at: Included at
+        indefinite_duration: Indefinite
+        internal_organisation: Internal organisation
+        is_transparent:
+          'false': opaque
+          'true': transparent
+        local_area: Organization area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private assembly
+        purpose_of_action: Purpose of action
+        read_less: Read less
+        read_more: Read more
+        related_participatory_processes: Related participatory processes
+        scope: Scope
+        social_networks: Social Networks
+        target: Who participates
+      statistics:
+        answers_count: Answers
+        assemblies_count: Assemblies
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Supports
+        pages_count: Pages
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Supports
+    assembly_members:
+      assembly_member:
+        designated_on: Designated on
+      index:
+        title: Members
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>An <strong>assembly</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          page: "<p>An <strong>assembly</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          title: What are assemblies?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'The assembly was not found on the database (ID: %{id})'
+    menu:
+      assemblies: Assemblies
+    metrics:
+      assemblies:
+        description: Number of assemblies created
+        object: assemblies
+        title: Assemblies
+  errors:
+    messages:
+      cannot_be_blank: can not be blank
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: More info
+          take_part: Take part
+        index:
+          children: 'Assemblies: '
+          organizational_chart: Organizational chart
+          promoted_assemblies: Highlighted assemblies
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblies"
+            other: "%{count} assemblies"
+        promoted_assembly:
+          more_info: More info
+          take_part: Take part
+      assembly_navigation:
+        assembly_member_menu_item: Members
+        assembly_menu_item: The assembly
+      assembly_widgets:
+        show:
+          take_part: Take part

@@ -1,0 +1,109 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">Admin logs</h2>
+  </div>
+  <div class="table-scroll">
+    <ul class="logs table">
+      <% 5.times do |index| %>
+        <li class="logs__log" id="log-<%= (index + 1) * 3 - 2 %>" data-toggler=".logs__log--expanded">
+          <div class="logs__log__content">
+            <div class="logs__log__date">10/10/2018 08:24</div>
+            <div class="logs__log__explanation">
+              <a class="logs__log__author" data-tooltip aria-hashpopup="true" data-disable-hover="false" title="@mmills">Matthew Mills </a>
+              created
+              <a class="logs__log__resource">Regular meetup</a>
+              in
+              <a class="logs__log__space">Book Cycle</a>
+            </div>
+            <div class="logs__log__actions">
+              <a class="logs__log__actions-dropdown" data-toggle="log-<%= (index + 1) * 3 - 2 %>"></a>
+            </div>
+          </div>
+          <div class="logs__log__diff">
+            <div class="logs__log__diff-row logs__log__diff-row--new-value">
+              <div class="logs__log__diff-title">
+                Title
+              </div>
+              <div class="logs__log__diff-value">
+                My new title is uber-awesome
+              </div>
+            </div>
+            <div class="logs__log__diff-row logs__log__diff-row--new-value">
+              <div class="logs__log__diff-title">
+                Description
+              </div>
+              <div class="logs__log__diff-value">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vulputate mi eu enim vulputate, et dignissim justo ultrices. Aliquam sodales scelerisque tincidunt. Praesent gravida iaculis iaculis. Curabitur arcu libero, hendrerit eu mi id, aliquet aliquam nisl. Etiam ullamcorper, metus non mollis egestas, massa sapien dictum magna, quis venenatis eros leo sit amet arcu. Fusce at accumsan nisi, ut cursus velit. Quisque urna tellus, rhoncus vitae ex ut, dictum eleifend nibh. Pellentesque ut blandit purus, id feugiat lectus. Fusce vehicula nisi odio. In vel laoreet lorem. Maecenas sed iaculis nibh, a semper eros. Aliquam a congue lacus. Donec maximus tincidunt purus, sed sagittis felis porttitor eu. Maecenas finibus, mi quis lacinia gravida, metus eros sagittis ligula, commodo ultricies neque libero sed sapien.
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="logs__log logs__log--deletion">
+          <div class="logs__log__content">
+            <div class="logs__log__date">10/10/2018 08:24</div>
+            <div class="logs__log__explanation">
+              <a class="logs__log__author" data-tooltip aria-hashpopup="true" data-disable-hover="false" title="@mmills">Matthew Mills </a>
+              deleted
+              <span class="logs__log__resource">Regular meetup with a really, reeeeeaaaallyyyyy loooooooooong name because why not</span>
+              in
+              <a class="logs__log__space">Book Cycle with another reeeeeaaaaally long name to see how it scales</a>
+            </div>
+            <div class="logs__log__actions">
+            </div>
+          </div>
+        </li>
+
+        <li class="logs__log" id="log-<%= (index + 1) * 3 %>" data-toggler=".logs__log--expanded">
+          <div class="logs__log__content">
+            <div class="logs__log__date">10/10/2018 08:24</div>
+            <div class="logs__log__explanation">
+              <a class="logs__log__author" data-tooltip aria-hashpopup="true" data-disable-hover="false" title="@mmills">Matthew Mills </a>
+              updated
+              <a class="logs__log__resource">Regular meetup</a>
+              in
+              <a class="logs__log__space">Book Cycle</a>
+            </div>
+            <div class="logs__log__actions">
+              <a class="logs__log__actions-dropdown" data-toggle="log-<%= (index + 1) * 3 %>"></a>
+            </div>
+          </div>
+          <div class="logs__log__diff">
+            <div class="logs__log__diff-row logs__log__diff-row--new-value">
+              <div class="logs__log__diff-title">
+                Title
+              </div>
+              <div class="logs__log__diff-value">
+                My new title is uber-awesome
+              </div>
+            </div>
+            <div class="logs__log__diff-row logs__log__diff-row--previous-value">
+              <div class="logs__log__diff-title">
+                Before
+              </div>
+              <div class="logs__log__diff-value">
+                Boring title
+              </div>
+            </div>
+            <div class="logs__log__diff-row logs__log__diff-row--new-value">
+              <div class="logs__log__diff-title">
+                Description
+              </div>
+              <div class="logs__log__diff-value">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vulputate mi eu enim vulputate, et dignissim justo ultrices. Aliquam sodales scelerisque tincidunt. Praesent gravida iaculis iaculis. Curabitur arcu libero, hendrerit eu mi id, aliquet aliquam nisl. Etiam ullamcorper, metus non mollis egestas, massa sapien dictum magna, quis venenatis eros leo sit amet arcu. Fusce at accumsan nisi, ut cursus velit. Quisque urna tellus, rhoncus vitae ex ut, dictum eleifend nibh. Pellentesque ut blandit purus, id feugiat lectus. Fusce vehicula nisi odio. In vel laoreet lorem. Maecenas sed iaculis nibh, a semper eros. Aliquam a congue lacus. Donec maximus tincidunt purus, sed sagittis felis porttitor eu. Maecenas finibus, mi quis lacinia gravida, metus eros sagittis ligula, commodo ultricies neque libero sed sapien.
+              </div>
+            </div>
+            <div class="logs__log__diff-row logs__log__diff-row--previous-value">
+              <div class="logs__log__diff-title">
+                Before
+              </div>
+              <div class="logs__log__diff-value">
+                Boring description
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

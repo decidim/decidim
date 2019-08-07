@@ -1,0 +1,9 @@
+#import "../fragments/comment_thread.fragment.graphql"
+
+mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
+  commentable(id: $commentableId, type: $commentableType) {
+    addComment(body: $body, alignment: $alignment, userGroupId: $userGroupId) {
+      ...CommentThread
+    }
+  }
+}

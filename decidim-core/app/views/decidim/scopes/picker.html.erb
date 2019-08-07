@@ -1,0 +1,36 @@
+  <div class="scope-picker picker-header">
+    <h2 id="data_picker-title"><%= title %></h2>
+    <ul>
+      <% unless root %>
+        <li><a href="<%= scopes_picker_path(**context) %>"><%= t("decidim.scopes.global") %></a></li>
+      <% end %>
+      <% parent_scopes.each do |scope| %>
+        <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="scope-picker picker-content">
+    <div class="picker-scrollable-content">
+      <% if scopes.any? %>
+        <ul>
+          <% scopes.each do |scope| %>
+            <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="scope-picker picker-footer">
+    <div class="buttons button--double">
+      <% if current || !required %>
+        <a class="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" data-picker-value="<%= current&.id || global_value %>" data-picker-text="<%= scope_name_for_picker(current, t("decidim.scopes.global")) %>" data-picker-choose>
+      <% else %>
+        <a class="button muted">
+      <% end %>
+          <%= t("decidim.scopes.picker.choose") %>
+        </a>
+      <a class="button clear" data-close aria-label="<%= t("decidim.scopes.picker.cancel") %>"><%= t("decidim.scopes.picker.cancel") %></a>
+    </div>
+  </div>

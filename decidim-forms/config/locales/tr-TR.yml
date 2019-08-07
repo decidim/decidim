@@ -1,0 +1,82 @@
+tr:
+  activemodel:
+    attributes:
+      answer:
+        body: Cevap
+      question:
+        max_choices: Maksimum seçenek sayısı
+        question_type: tip
+      questionnaire_question:
+        mandatory: Zorunlu
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: tamamlanmadı
+              too_many: çok fazla
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Açıklama
+            tos: Kullanım Şartları
+        questionnaires:
+          answer_option:
+            answer_option: Cevap seçeneği
+            free_text: Ücretsiz Metin
+            remove: Kaldır
+            statement: Beyan
+          edit:
+            save: Kayıt etmek
+            title: Başlık
+          form:
+            add_question: Soru ekle
+            already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
+          question:
+            add_answer_option: Cevap seçeneği ekle
+            any: herhangi
+            description: Açıklama
+            down: Aşağı
+            question: Soru
+            remove: Kaldır
+            statement: Beyan
+            up: yukarı
+          update:
+            invalid: Formu kaydederken bir sorun oluştu.
+            success: Formlar başarıyla kaydedildi.
+      errors:
+        answer:
+          body: Vücut boş olamaz
+      question_types:
+        long_answer: Uzun cevap
+        multiple_option: Çoklu seçenek
+        short_answer: Kısa cevap
+        single_option: Tek seçenek
+        sorting: sınıflandırma
+      questionnaires:
+        answer:
+          invalid: Formu yanıtlarken bir sorun oluştu.
+          success: Form başarıyla cevaplandı.
+        question:
+          max_choices: 'Maksimum seçenek: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
+            title: Formu cevapla
+          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+          questionnaire_answered:
+            body: Bu formu zaten cevapladınız.
+            title: Zaten cevaplandı
+          questionnaire_closed:
+            body: Form kapalı ve cevaplanamıyor.
+            title: Form kapatıldı
+          questionnaire_for_private_users:
+            body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
+            title: Form kapatıldı
+          submit: Gönder
+          tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
+      user_answers_serializer:
+        created_at: Yanıtlandı
+        id: Cevap kimliği

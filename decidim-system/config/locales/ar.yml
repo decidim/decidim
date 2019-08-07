@@ -1,0 +1,76 @@
+ar:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا؟
+        destroy: حذف
+        edit: تعديل
+        new: الجديد
+        save: حفظ
+        title: أفعال
+      admins:
+        create:
+          error: كانت هناك مشكلة في إنشاء مسؤول جديد.
+          success: تم إنشاء المشرف بنجاح
+        destroy:
+          success: تم حذف المشرف بنجاح
+        edit:
+          title: تحرير المشرف
+          update: تحديث
+        index:
+          title: مدراء
+        new:
+          create: إنشاء
+          title: المشرف الجديد
+        update:
+          error: حدثت مشكلة أثناء تحديث هذا المشرف.
+          success: تم تحديث المشرف بنجاح
+      default_pages:
+        placeholders:
+          content: يرجى إضافة محتوى ذي معنى إلى الصفحة الثابتة %{page} في لوحة تحكم المشرف.
+          title: العنوان الافتراضي ل %{page}
+      menu:
+        admins: مدراء
+        dashboard: لوحة القيادة
+        organizations: المنظمات
+      models:
+        admin:
+          fields:
+            created_at: أنشئت في
+            email: البريد الإلكتروني
+          name: مشرف
+          validations:
+            email_uniqueness: يوجد مشرف آخر بنفس البريد الإلكتروني بالفعل
+        organization:
+          actions:
+            save_and_invite: إنشاء منظمة ودعوة المشرف
+          fields:
+            created_at: أنشئت في
+            name: اسم
+            smtp_settings: إعدادات الـ SMTP
+          name: منظمة
+      organizations:
+        create:
+          error: كانت هناك مشكلة في إنشاء منظمة جديدة.
+          success: تم إنشاء المنظمة بنجاح.
+        edit:
+          secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
+        index:
+          title: المنظمات
+        new:
+          reference_prefix_hint: يتم استخدام بادئة المرجع لتعريف الموارد بشكل فريد في كل المؤسسة
+          secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
+          title: منظمة جديدة
+        update:
+          error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
+          success: تم تحديث المنظمة بنجاح.
+        users_registration_mode:
+          disabled: يمكن فقط الوصول باستخدام الحسابات الخارجية
+          enabled: السماح للمشاركين بالتسجيل والدخول
+          existing: لا تسمح للمشاركين بالتسجيل ، لكن اسمح للمشاركين الحاليين بتسجيل الدخول
+      shared:
+        notices:
+          no_organization_warning_html: يجب عليك إنشاء منظمة للبدء. تأكد من قراءة %{guide} قبل المتابعة.
+          our_getting_started_guide: لدينا دليل البدء
+      titles:
+        dashboard: لوحة القيادة

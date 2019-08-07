@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Decidim - System</title>
-<%= render partial: 'layouts/decidim/system/header' %>
+<%= render partial: "layouts/decidim/system/header" %>
 </head>
 
 <body>
@@ -10,7 +10,7 @@
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
       <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
         <div class="sidebar">
-          <%= render partial: 'layouts/decidim/system/sidebar' %>
+          <%= render partial: "layouts/decidim/system/sidebar" %>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
               </section>
             <% end %>
 
-            <%= display_flash_messages %>
+            <%= render "decidim/system/shared/notices" %>
             <%= yield %>
           </div>
         </div>

@@ -1,0 +1,57 @@
+<%
+@title = "Decidim Admin"
+@activesection = "settings"
+@activepage = "settings-scope-types"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "settings_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Tipos de ámbito <a href="#" class="button tiny button--title">Añadir</a></h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+           <table class="table-list">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Plural</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  provincia
+                </td>
+                <td>
+                  provincias
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>                </td>
+              </tr>
+              <tr>
+                <td>
+                  distrito
+                </td>
+                <td>
+                  distritos
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" class="action-icon" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

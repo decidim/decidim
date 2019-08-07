@@ -1,0 +1,79 @@
+pt:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova postagem no blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postar
+        other: Postagens
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Tem certeza de que deseja excluir esta postagem?
+        destroy: Excluir
+        edit: Editar
+        new: Nova postagem
+        title: Ações
+      admin:
+        models:
+          components:
+            body: Corpo
+          post:
+            name: Postar
+        posts:
+          create:
+            invalid: Houve um problema ao criar esta postagem
+            success: Post criado com sucesso
+          destroy:
+            success: Postagem excluída com sucesso
+          edit:
+            save: Atualizar
+          index:
+            title: Postagens
+          new:
+            create: Crio
+            title: Criar post
+          update:
+            invalid: Houve erros ao salvar a postagem.
+            success: Post salvo com sucesso
+      last_activity:
+        new_post_at_html: "<span>Novo post em %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Corpo
+            created_at: Criado em
+            title: título
+      posts:
+        show:
+          view: Visão
+        sidebar_blog:
+          comments: comentários
+          most_commented_posts: Posts mais comentados
+      read_more: Consulte Mais informação
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+    events:
+      blogs:
+        post_created:
+          email_intro: A postagem "%{resource_title}" foi publicada em "%{participatory_space_title}" que você está seguindo.
+          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
+          email_subject: Nova postagem publicada em %{participatory_space_title}
+          notification_title: A postagem <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Postagens
+    participatory_processes:
+      statistics:
+        posts_count: Postagens

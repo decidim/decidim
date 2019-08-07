@@ -1,0 +1,145 @@
+id:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informasi penyortiran
+        decidim_category_id: Kategori set proposal tempat Anda ingin menerapkan undian
+        decidim_proposals_component_id: Proposal ditetapkan
+        dice: Hasil die roll. Gulung dadu 6 sisi, atau cari cara acak lain untuk menghasilkan angka dari 1 hingga 6, dan masukkan di sini angka yang dihasilkan di depan beberapa saksi. Ini berkontribusi pada kualitas dan jaminan keacakan hasil
+        target_items: Jumlah proposal yang akan dipilih (menunjukkan jumlah proposal yang ingin Anda pilih dengan menggambar banyak kelompok proposal yang telah Anda pilih sebelumnya)
+        title: Judul
+        witnesses: Saksi
+    models:
+      decidim/sortitions/create_sortition_event: Undian
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        other: Sortasi
+  decidim:
+    components:
+      sortitions:
+        name: Sortasi
+        settings:
+          global:
+            comments_enabled: Komentar diaktifkan
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Sortasi "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
+          email_subject: Sortasi baru ditambahkan ke %{participatory_space_title}
+          notification_title: Sortasi <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortasi
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortasi
+    sortitions:
+      admin:
+        actions:
+          destroy: Batalkan penyortiran
+          edit: Edit
+          new: Pemilahan baru
+          show: Detail penyortiran
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              created_at: Tanggal pembuatan
+              decidim_proposals_component: Komponen proposal
+              dice: Dadu
+              reference: Referensi
+              request_timestamp: Luangkan waktu
+              seed: Benih
+              target_items: Item untuk dipilih
+              title: Judul
+            name:
+              other: Sortasi
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Apakah Anda yakin ingin membatalkan penyortiran ini?
+            destroy: Batalkan penyortiran
+            title: Pembatalan penyortiran
+          create:
+            error: Terjadi masalah saat membuat penyortiran baru.
+            success: Sortasi berhasil dibuat
+          destroy:
+            error: Tidak dapat membatalkan penyortiran.
+            success: Penyortiran berhasil dibatalkan
+          edit:
+            title: Perbarui informasi tentang penyortiran
+            update: Memperbarui
+          form:
+            all_categories: Semua Kategori
+            select_proposal_component: Pilih set proposal
+            title: Sortasi baru untuk proposal
+          index:
+            title: Sortasi
+          new:
+            confirm: Dengan menekan tombol berikutnya, Decidim akan merekam tanggal dan waktu (dengan ketepatan detik) dan bersama dengan gulungan dadu, informasi ini akan digunakan untuk menghasilkan pilihan acak. Tindakan ini tidak akan dapat dikembalikan, setelah tombol diklik, hasil undian ini akan dipublikasikan, bersama dengan data yang dimasukkan dalam formulir ini dan tidak dapat dimodifikasi, silakan periksa konten dengan cermat
+            create: Membuat
+            title: Pemilahan baru
+          show:
+            selected_proposals: Proposal dipilih untuk pengundian
+          update:
+            error: Terjadi masalah saat memperbarui penyortiran.
+            success: Penyortiran berhasil diperbarui
+      admin_log:
+        sortition:
+          create: "%{user_name} menciptakan %{resource_name} sortasi dalam %{space_name}"
+          delete: "%{user_name} membatalkan %{resource_name} penyortiran dalam %{space_name}"
+          update: "%{user_name} memperbarui penyortiran %{resource_name} dalam %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            other: "%{count} proposal"
+        filters:
+          active: Aktif
+          all: Semua
+          cancelled: Dibatalkan
+          category: Kategori
+          category_prompt: Pilih Kategori
+          search: Pencarian
+          state: Status
+        filters_small_view:
+          close_modal: Tutup modal
+          filter: Filter
+          filter_by: Saring menurut
+          unfold: Membuka
+        linked_sortitions:
+          selected_proposals: Usulan yang dipilih
+        orders:
+          label: 'Urutkan penyortiran menurut:'
+          random: Acak
+          recent: Baru
+        results_count:
+          count:
+            other: proposal yang dipilih
+        show:
+          algorithm: Kode algoritma penyortiran
+          any_category: dari semua kategori
+          cancelled: Pengurutan yang dibatalkan
+          candidate_proposal_ids: Urutan proposal pengurutan dan ID
+          candidate_proposals_info: 'Penyortiran dilakukan di antara proposal berikut (%{category_label}), dengan ID berikut (dalam huruf tebal proposal yang dipilih)  '
+          category: dari kategori %{category}
+          dice_result: "(1) Hasil dadu"
+          introduction: 'Halaman ini berisi hasil sortasi %{reference}. Melalui penyortiran ini, %{target_items} jumlah hasil telah dipilih secara acak dan dengan distribusi probabilitas yang sama dari sekumpulan proposal yang ditampilkan di bawah. Bersama dengan hasilnya, informasi yang ditampilkan pada halaman ini memberikan semua informasi yang diperlukan untuk memaksimalkan jaminan dan mereproduksi hasil. Kunci kualitas penyortiran ini adalah keacakan ganda yang diberikan oleh pengguliran dadu (diverifikasi oleh saksi) dan waktu penyisihan yang tepat yang memberikan input untuk suatu algoritma yang menghasilkan seleksi acak. Benih waktu untuk penyortiran sangat akurat (detik) sehingga tidak mungkin dikendalikan oleh manusia sehingga memberikan input ganda "tidak terkendali" untuk menjamin hasil yang adil.  '
+          mathematical_result: Hasil (1) x (2)
+          proposals_selected_by_sortition: Proposal dipilih berdasarkan penyortiran
+          sortition_reproducibility_details: Rincian reproduksibilitas penyortiran
+          time_seed: "(2) Benih waktu"
+          witnesses: Saksi
+        sortition:
+          random_seed: Benih acak
+          selected_proposals:
+            other: proposal yang dipilih
+          view: Melihat
+        sortition_author:
+          deleted: Peserta yang dihapus
+        sortition_cancel_author:
+          deleted: Peserta yang dihapus
+        sortitions_count:
+          count:
+            other: "%{count} penyortiran"

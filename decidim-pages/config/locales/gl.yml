@@ -1,0 +1,30 @@
+gl:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Páxina
+        other: Páxinas
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} actualizou a páxina %{resource_name} en %{space_name}"
+    components:
+      pages:
+        name: Páxina
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            announcement: Anuncio
+    pages:
+      admin:
+        models:
+          components:
+            body: Corpo
+        pages:
+          edit:
+            save: Actualización
+            title: Editar páxina
+          update:
+            invalid: Produciuse un erro ao gardar a páxina.
+            success: A páxina gardouse correctamente.

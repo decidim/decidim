@@ -1,0 +1,82 @@
+gl:
+  activemodel:
+    attributes:
+      answer:
+        body: Resposta
+      question:
+        max_choices: Número máximo de opcións
+        question_type: Tipo
+      questionnaire_question:
+        mandatory: Obrigatorio
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: non están completos
+              too_many: son demasiados
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descrición
+            tos: Condicións de servicio
+        questionnaires:
+          answer_option:
+            answer_option: Opción de resposta
+            free_text: Texto libre
+            remove: Quitar
+            statement: Declaración
+          edit:
+            save: Gardar
+            title: Título
+          form:
+            add_question: Engadir pregunta
+            already_answered_warning: Algúns usuarios xa responderon o cuestionario para que non poida modificar as súas preguntas.
+          question:
+            add_answer_option: Engadir unha opción de resposta
+            any: Calquera
+            description: Descrición
+            down: Baixo
+            question: Pregunta
+            remove: Quitar
+            statement: Declaración
+            up: Arriba
+          update:
+            invalid: Produciuse un erro ao gardar o cuestionario.
+            success: Os cuestionarios gardáronse con éxito.
+      errors:
+        answer:
+          body: O corpo non pode estar en branco
+      question_types:
+        long_answer: Resposta longa
+        multiple_option: Múltipla opción
+        short_answer: Resposta curta
+        single_option: Opción única
+        sorting: Clasificación
+      questionnaires:
+        answer:
+          invalid: Houbo erros ao responder ao cuestionario.
+          success: O cuestionario respondeu con éxito.
+        question:
+          max_choices: 'Opcións máximas: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicie sesión coa súa conta</a> ou <a href="%{sign_up_link}">rexístrese</a> para responder ao cuestionario.
+            title: Responde o cuestionario
+          are_you_sure: Non se pode desfacer esta acción e non poderá editar as túas respostas. Estás seguro?
+          questionnaire_answered:
+            body: Xa contestou este cuestionario.
+            title: Xa respondeu
+          questionnaire_closed:
+            body: O cuestionario está pechado e non se pode responder.
+            title: Cuestionario pechado
+          questionnaire_for_private_users:
+            body: O cuestionario só está dispoñible para usuarios privados
+            title: Cuestionario pechado
+          submit: Enviar
+          tos_agreement: Ao participar aceptas as Condicións de servizo
+      user_answers_serializer:
+        created_at: Respondeu
+        id: ID de resposta

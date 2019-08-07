@@ -1,0 +1,21 @@
+<%
+@title = "Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="large-8 large-centered">
+      <div class="static__message">
+        <h1 class="heading1 page-title">No s'ha trobat la pàgina que busques!</h1>
+        <p>Aquesta adreça és incorrecta o ha estat eliminada.</p>
+        <div class="static__message__cta">
+          <%= link_to "Tornar a l'inici", page_path(""), class: "button" %>
+        </div>
+      </div>
+  </div>
+</div>
+</main>
+
+<%= partial "template_bottom" %>

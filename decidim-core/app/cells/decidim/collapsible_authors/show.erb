@@ -1,0 +1,17 @@
+<div class="author--inline">
+  <%= cell(
+    "decidim/collapsible_list",
+    list,
+    cell_name: cell_name,
+    cell_options: options.merge(has_actions: false),
+    size: size
+    ) %>
+</div>
+<% if actionable? %>
+  <div class="author-data__extra">
+    <% author_cell= cell("decidim/author", model, from: from_context) %>
+    <%= author_cell.(:date) %>
+    <%= author_cell.(:flag) %>
+    <%= author_cell.(:withdraw) %>
+  </div>
+<% end %>

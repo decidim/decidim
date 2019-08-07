@@ -1,0 +1,53 @@
+<div class="show-for-medium" data-set="nav-holder">
+  <nav class="navbar js-append">
+    <div class="row column">
+      <nav class="main-nav">
+      <ul>
+        <li class="main-nav__link
+          <% if @activesection == "home" %>
+           main-nav__link--active
+          <% end %>
+          "><%= link_to "Inici", page_path("home") %></li>
+        <li class="main-nav__link
+          <% if @activesection == "consultations" %>
+           main-nav__link--active
+          <% end %>
+          "><%= link_to "Multiconsulta", page_path("consultations") %>
+        </li>
+        <li class="main-nav__link
+          <% if @activesection == "processes" %>
+           main-nav__link--active
+          <% end %>
+          ">
+          <%= link_to "Processos", page_path("processes/processes") %>
+        </li>
+       <!-- <li>
+          <a class="main-nav__link
+          <% if @activesection == "spaces" %>
+           main-nav__link--active
+          <% end %>
+          " href="">Espais</a></li>-->
+        <!--<li><a class="main-nav__link
+          <% if @activesection == "data" %>
+           main-nav__link--active
+          <% end %>
+          " href="">Datos</a></li>-->
+        <li class="main-nav__link
+          <% if @activesection == "more-info" %>
+             main-nav__link--active
+          <% end %>
+          "><%= link_to "Més informació", page_path("more-information") %>
+        </li>
+        <li class="main-nav__link
+          <% if @activesection == "news" %>
+           main-nav__link--active
+          <% end %>
+          "><a href="http://eldigital.barcelona.cat/pambcn" target="_blank">
+            Noticies
+          </a>
+        </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+</div>

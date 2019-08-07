@@ -1,0 +1,6 @@
+fragment DownVoteButton on Comment {
+  id
+  downVotes
+  downVoted
+  upVoted
+}

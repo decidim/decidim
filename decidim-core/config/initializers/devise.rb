@@ -1,8 +1,7 @@
 # frozen_string_literal: true
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-
-require "decidim/devise_failure_app"
 
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
@@ -16,15 +15,15 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = Decidim.config.mailer_sender
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = "Decidim::DecidimDeviseMailer"
 
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = "Decidim::ApplicationMailer"
 
-  config.parent_controller = "Decidim::ApplicationController"
+  config.parent_controller = "ActionController::Base"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -165,7 +164,7 @@ Devise.setup do |config|
   # Auto-login after the user accepts the invite. If this is false,
   # the user will need to manually log in after accepting the invite.
   # Default: true
-  # config.allow_insecure_sign_in_after_accept = false
+  config.allow_insecure_sign_in_after_accept = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -173,7 +172,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -218,7 +217,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 1.week
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -301,15 +300,32 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :developer, fields: [:name, :nickname, :email] if Rails.application.secrets.dig(:omniauth, :developer).present?
+  if Rails.application.secrets.dig(:omniauth, :facebook).present?
+    config.omniauth :facebook,
+                    Rails.application.secrets.omniauth[:facebook][:app_id],
+                    Rails.application.secrets.omniauth[:facebook][:app_secret],
+                    scope: :email,
+                    info_fields: "name,email,verified"
+  end
+  if Rails.application.secrets.dig(:omniauth, :twitter).present?
+    config.omniauth :twitter,
+                    Rails.application.secrets.omniauth[:twitter][:api_key],
+                    Rails.application.secrets.omniauth[:twitter][:api_secret]
+  end
+  if Rails.application.secrets.dig(:omniauth, :google_oauth2).present?
+    config.omniauth :google_oauth2,
+                    Rails.application.secrets.omniauth[:google_oauth2][:client_id],
+                    Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = Decidim::DeviseFailureApp
-  end
+  # config.warden do |manager|
+  #   manager.failure_app = Decidim::DeviseFailureApp
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

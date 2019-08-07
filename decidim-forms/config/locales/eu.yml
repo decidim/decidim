@@ -1,0 +1,82 @@
+eu:
+  activemodel:
+    attributes:
+      answer:
+        body: Erantzuna
+      question:
+        max_choices: Gehienezko aukera kopurua
+        question_type: Mota
+      questionnaire_question:
+        mandatory: derrigorrezko
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: ez dira osatu
+              too_many: gehiegi dira
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: deskribapena
+            tos: Zerbitzu-baldintzak
+        questionnaires:
+          answer_option:
+            answer_option: Erantzun aukera
+            free_text: Testu librea
+            remove: Kendu
+            statement: adierazpena
+          edit:
+            save: Save
+            title: Izenburua
+          form:
+            add_question: Galdera gehitu
+            already_answered_warning: Galdetegia dagoeneko erantzun dio erabiltzaile batzuek, beraz, ezin dituzu bere galderak aldatu.
+          question:
+            add_answer_option: Gehitu erantzun aukera
+            any: Edozein
+            description: deskribapena
+            down: Down
+            question: Galdera
+            remove: Kendu
+            statement: adierazpena
+            up: up
+          update:
+            invalid: Akatsik egon da galdeketa gordetzean.
+            success: Galdeketak arrakastaz gorde dira.
+      errors:
+        answer:
+          body: Gorputza ezin da hutsik egon
+      question_types:
+        long_answer: Erantzun luzea
+        multiple_option: Hainbat aukera
+        short_answer: Erantzun laburra
+        single_option: Aukera bakarra
+        sorting: Lazcoz
+      questionnaires:
+        answer:
+          invalid: Akatsik egon da galdeketa erantzutean.
+          success: Galdesortaz erantzun ona.
+        question:
+          max_choices: 'Gehienezko aukerak: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
+            title: Erantzun galdetegia
+          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          questionnaire_answered:
+            body: Galdeketa honi erantzun dio.
+            title: Dagoeneko erantzun
+          questionnaire_closed:
+            body: Galdetegia itxita dago eta ezin da erantzun.
+            title: Galdeketa itxia
+          questionnaire_for_private_users:
+            body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
+            title: Galdeketa itxia
+          submit: Bidali
+          tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
+      user_answers_serializer:
+        created_at: Erantzuna
+        id: Erantzun IDa

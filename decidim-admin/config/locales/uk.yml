@@ -1,0 +1,645 @@
+uk:
+  activemodel:
+    attributes:
+      area:
+        area_type: Різновид дільниці
+        name: Назва
+        organization: Організація
+      area_type:
+        name: Назва
+        organization: Організація
+        plural: Множина
+      attachment:
+        attachment_collection_id: Тека
+        description: Опис
+        file: Файл
+        title: Назва
+      attachment_collection:
+        description: Опис
+        name: Назва
+      category:
+        description: Опис
+        name: Ім'я
+        parent_id: Батьківський об'єкт
+      component:
+        name: Ім'я
+        published_at: 'Оприлюднено:'
+        weight: Вага
+      id: Псевдонім
+      newsletter:
+        body: Основний текст
+        subject: Тема
+      oauth_application:
+        name: Ім'я
+        organization_logo: Логотип організації (квадрат)
+        organization_name: Назва організації
+        organization_url: Адреса сайту організації
+        redirect_uri: URI перенаправлення
+      organization:
+        cta_button_path: Шлях до кнопки "Закликати до дії"
+        cta_button_text: Текст кнопки "Закликати до дії"
+        default_locale: Мова за замовчуванням
+        description: Опис
+        enable_omnipresent_banner: Показувати всюдисущий банер
+        facebook_handler: Адреса Facebook
+        favicon: Значок
+        github_handler: Адреса GitHub
+        header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
+        highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
+        highlighted_content_banner_action_title: Заголовок кнопки дії
+        highlighted_content_banner_action_url: Веб-адреса кнопки заклику до дії
+        highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
+        highlighted_content_banner_image: Зображення
+        highlighted_content_banner_short_description: Стислий опис
+        highlighted_content_banner_title: Назва
+        instagram_handler: Адреса Instagram
+        logo: Логотип
+        name: Назва
+        official_img_footer: Нижній колонтитул офіційного логотипу
+        official_img_header: Заголовок офіційного логотипу
+        official_url: Офіційна веб-адреса організації
+        omnipresent_banner_short_description: Стислий опис
+        omnipresent_banner_title: Заголовок
+        omnipresent_banner_url: Веб-адреса
+        reference_prefix: Довідковий префікс
+        show_statistics: Показувати статистику
+        tos_version: Версія умов участі
+        twitter_handler: Адреса Twitter
+        youtube_handler: Адреса YouTube
+      scope:
+        code: Код
+        name: Назва
+        organization: Організація
+        parent_id: Батьківський об'єкт
+        scope_type: Різновид обсягу
+        scope_type_id: Різновид обсягу
+      scope_type:
+        name: Назва
+        organization: Організація
+        plural: Множина
+      static_page:
+        changed_notably: Було внесено помітні зміни.
+        content: Вміст
+        organization: Організація
+        slug: Скорочена веб-адреса
+        title: Назва
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI перенаправлення має бути SSL URI
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Вміст
+        slug: Скорочена веб-адреса
+        title: Назва
+      doorkeeper/application:
+        authorize_url: Підтвердити веб-адресу
+        client_id: Ідентифікатор клієнта
+        client_secret: Таємниця клієнта
+        organization_name: Назва організації
+        organization_url: Адреса сайту організації
+        redirect_uri: URI перенаправлення
+        site: Веб-сайт
+  decidim:
+    admin:
+      actions:
+        add: Додати
+        browse: Переглянути
+        export: Зберегти у вигляді файлу
+        manage: Керувати
+        new: Додати %{name}
+        permissions: Права
+        reject: Відхилити
+        verify: Підтвердити
+      area_types:
+        create:
+          error: При спробі додати новий різновид дільниці сталася помилка.
+          success: Різновид дільниці успішно створено.
+        destroy:
+          success: Різновид дільниці успішно видалено
+        edit:
+          title: Редагувати різновид дільниці
+          update: Оновити
+        new:
+          create: Додати різновид дільниці
+          title: Додати різновид дільниці
+        update:
+          error: При спробі оновити цей різновид дільниці сталася помилка.
+          success: Різновид дільниці успішно оновлено
+      areas:
+        create:
+          error: При спробі створити нову дільницю сталася помилка.
+          success: Дільницю успішно додано.
+        destroy:
+          success: Дільницю успішно видалено
+        edit:
+          title: Редагувати дільницю
+          update: Оновити
+        new:
+          create: Додати дільницю
+          title: Додати дільницю
+        no_areas: Немає дільниць
+        update:
+          error: При спробі оновити цю дільницю сталася помилка.
+          success: Дільницю успішно оновлено
+      attachment_collections:
+        create:
+          error: При спробі створити нову теку сталася помилка.
+          success: Теку успішно створено.
+        destroy:
+          success: Теку успішно видалено.
+        edit:
+          title: Редагувати теку
+          update: Оновити
+        index:
+          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
+          attachment_collections_title: Теки вкладень
+        new:
+          create: Додати
+          title: Додати теку
+        update:
+          error: При спробі оновити цю теку сталася помилка.
+          success: Теку успішно оновлено.
+      attachments:
+        create:
+          error: При спробі додати новий вкладений файл сталася помилка.
+          success: Вкладений файл успішно додано.
+        destroy:
+          success: Вкладений файл успішно видалено.
+        edit:
+          title: Редагувати вкладення
+          update: Оновити
+        index:
+          attachments_title: Вкладені файли
+        new:
+          create: Додати вкладений файл
+          title: Додати вкладений файл
+        update:
+          error: При спробі оновити цей вкладений файл сталася помилка.
+          success: Вкладений файл успішно оновлено.
+      autocomplete:
+        no_results: Нічого не знайдено
+        search_prompt: Введіть принаймні три символи для пошуку
+      categories:
+        create:
+          error: При спробі створити цю категорію сталася помилка.
+          success: Категорію успішно створено.
+        destroy:
+          error: При спробі видалити цю категорію сталася помилка. Спочатку видаліть всі підкатегорії, а потім переконайтеся, що ніщо не належить до цієї категорії, і повторіть спробу.
+          success: Категорію успішно видалено.
+        edit:
+          title: Редагувати категорію
+          update: Оновити
+        index:
+          categories_title: Категорії
+          category_used: Цю категорію не можна видалити, оскільки вона використовується.
+        new:
+          create: Створити категорію
+          title: Додати категорію
+        update:
+          error: При спробі оновити цю категорію сталася помилка.
+          success: Категорію успішно оновлено.
+      component_permissions:
+        update:
+          success: Права доступу успішно оновлено.
+      components:
+        create:
+          error: При спробі створити цю складову сталася помилка.
+          success: Складову успішно створено.
+        destroy:
+          error: При спробі видалити цю складову сталася помилка.
+          success: Складову успішно видалено.
+        edit:
+          title: Редагувати складову
+          update: Оновити
+        form:
+          default_step_settings: Налаштування за замовчуванням для кроків
+          global_settings: Загальні налаштування
+          step_settings: Налаштування кроку
+        index:
+          add: Додати складову
+          headers:
+            actions: Дії
+            name: Назва складової
+            type: Різновид складової
+        new:
+          add: Додати складову
+          title: 'Додати складову: %{name}'
+        publish:
+          success: Складову було успішно оприлюднено.
+        title: Складові
+        unpublish:
+          success: Оприлюднення складової було успішно скасовано.
+        update:
+          error: При спробі оновити цю складову сталася помилка.
+          success: Цю складову було успішно оновлено.
+      dashboard:
+        show:
+          view_more_logs: Переглянути інші журнали
+          welcome: Ласкаво просимо до адмін-панелі Десідім!
+      exports:
+        export_as: "%{name} як %{export_format}"
+        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
+      impersonatable_users:
+        index:
+          filter:
+            all: Усі
+            managed: Керовані
+            not_managed: Не керовані
+          filter_by: 'Відібрати за ознакою:'
+          impersonate: Виступити в ролі учасника
+          impersonate_new_managed_user: Виступити в ролі нового керованого учасника
+          managed: Керовані
+          name: Ім'я
+          needs_authorization_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
+          not_managed: Не керовані
+          promote: Підвищити в статусі
+          search: Шукати
+          status: Статус
+          view_logs: Переглянути журнали
+      impersonations:
+        close_session:
+          error: При закритті поточного сеансу уособлення сталася помилка.
+          success: Поточний сеанс виступу в ролі учасника успішно завершено.
+        create:
+          error: При виступі в ролі цього учасника сталася помилка.
+          success: Керованого учасника було успішно створено.
+        form:
+          authorization_method: Метод підтвердження особи
+          name: Ім'я
+          reason: Причина
+        new:
+          impersonate: Виступити в ролі учасника
+          impersonate_existing_managed_user: Виступити в ролі керованого учасника "%{name}"
+          impersonate_existing_user: Виступити в ролі учасника "%{name}"
+          impersonate_new_managed_user: Виступити в ролі нового керованого учасника
+      logs:
+        logs_list:
+          no_logs_yet: Ще немає журналів
+      managed_users:
+        promotion:
+          error: При підвищенні керованого учасника сталася помилка.
+          success: Керованого учасника було успішно підвищено.
+        promotions:
+          new:
+            explanation: Керованих учасників можна підвищувати до звичайних учасників. Це означає, що вони будуть запрошені до додатку, і ви не зможете більше виступати в їх ролі. Запрошений учасник отримає електронного листа з проханням прийняти ваше запрошення.
+            new_managed_user_promotion: Підвищити керованого учасника в статусі
+            promote: Підвищити в статусі
+      menu:
+        admin_log: Журнал діяльності адміністратора
+        admins: Адміністратори
+        appearance: Зовнішній вигляд
+        area_types: Різновиди дільниць
+        areas: Дільниці
+        configuration: Конфігурація
+        dashboard: Приладна дошка
+        homepage: Домашня сторінка
+        impersonations: Виступи в ролі учасника
+        newsletters: Розсилання новин
+        oauth_applications: Додатки OAuth
+        scope_types: Різновиди обсягу
+        scopes: Обсяги
+        settings: Налаштування
+        static_pages: Сторінки
+        user_groups: Гурти учасників
+        users: Учасники
+      models:
+        area:
+          fields:
+            area_type: Різновид дільниці
+            name: Назва
+        area_type:
+          fields:
+            name: Назва
+            plural: Множина
+        attachment:
+          fields:
+            collection: Тека
+            content_type: Різновид
+            file_size: Розмір
+            title: Назва
+          name: Вкладений файл
+        attachment_collection:
+          name: теку
+        category:
+          name: Категорія
+        impersonation_log:
+          fields:
+            admin: Адміністратор
+            ended_at: 'Завершено:'
+            expired_at: 'Строк дії закінчився:'
+            reason: Причина
+            started_at: Започатковано о
+            user: Учасник
+        newsletter:
+          fields:
+            created_at: 'Створено:'
+            progress: Перебіг
+            sent_at: 'Надіслане:'
+            subject: Тема
+          name: Розсилання новин
+        oauth_application:
+          fields:
+            created_at: 'Створено:'
+            name: Ім'я
+          name: Додаток OAuth
+        participatory_space_private_user:
+          name: Приватний учасник простору співучасті
+        scope:
+          fields:
+            name: Ім'я
+            scope_type: Різновид обсягу
+        scope_type:
+          fields:
+            name: Ім'я
+            plural: Множина
+        static_page:
+          fields:
+            created_at: 'Створено:'
+            title: Заголовок
+        user:
+          fields:
+            created_at: Дата створення
+            email: Адреса електронної пошти
+            last_sign_in_at: Дата останнього входу
+            name: Ім'я
+            role: Роль
+            roles:
+              admin: Адміністратор
+              user_manager: Розпорядник учасників
+          name: учасника
+        user_group:
+          fields:
+            actions: Дії
+            created_at: 'Створено:'
+            document_number: Номер документа
+            name: Ім'я
+            phone: Телефон
+            state: Стан
+            users_count: Кількість учасників
+      moderations:
+        index:
+          title: Дії з модерації
+        report:
+          reasons:
+            does_not_belong: Неприйнятно
+            offensive: Образливе
+            spam: Спам
+      newsletters:
+        create:
+          error: При спробі створити це розсилання новин сталася помилка.
+          success: Випуск новин успішно створено. Будь ласка, перегляньте його перед відправленням.
+        deliver:
+          error: При розсиланні цього випуску новин сталася помилка.
+          success: Випуск новин успішно доставлено.
+        destroy:
+          error_already_sent: 'Неможливо видалити цей випуск новин: його вже надіслано.'
+          success: Розсилання новин успішно видалено.
+        edit:
+          save_and_preview: Зберегти та попередньо переглянути
+          title: Редагувати розсилання новин
+        form:
+          interpolations_hint: 'Підказка: Ви можете використовувати "%{name}" будь-де в основному тексті або темі, і воно буде замінене на ім''я одержувача.'
+        index:
+          confirm_delete: Ви дійсно бажаєте видалити це розсилання новин?
+          title: Розсилання новин
+        new:
+          save: Зберегти
+          title: Додати розсилання новин
+        select_recipients_to_deliver:
+          confirm_deliver: Ви впевнені, що хочете розіслати цей випуск новин? Цю дію не можна буде скасувати.
+          deliver: Розіслати випуск новин
+        show:
+          preview: Попередній перегляд
+          subject: Тема
+        update:
+          error: При спробі оновити це розсилання новин сталася помилка.
+          success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
+      oauth_applications:
+        create:
+          error: При спробі створити цей додаток сталася помилка.
+          success: Додаток успішно створено.
+        destroy:
+          error: При спробі видалити цей додаток сталася помилка.
+          success: Додаток успішно видалено.
+        edit:
+          save: Зберегти
+          title: Редагувати додаток
+        index:
+          confirm_delete: Ви дійсно бажаєте видалити цей додаток?
+          title: Додатки OAuth
+        new:
+          save: Зберегти
+          title: Додати додаток
+        update:
+          error: При спробі оновити цей додаток сталася помилка.
+          success: Додаток успішно оновлено.
+      officializations:
+        create:
+          success: Учаснику успішно надано службовий статус
+        destroy:
+          success: Службовий статус учасника успішно скасовано
+        index:
+          actions: Дії
+          badge: Відзнака
+          created_at: 'Створено:'
+          filter:
+            all: Усі
+            not_officialized: Не має службового статусу
+            officialized: Має службовий статус
+          filter_by: 'Відібрати за ознакою:'
+          name: Ім'я
+          nickname: Псевдонім
+          not_officialized: Не має службового статусу
+          officialize: Надати службовий статус
+          officialized: Має службовий статус
+          reofficialize: Знову надати службовий статус
+          search: Шукати
+          status: Стан
+          unofficialize: Скасувати службовий статус
+        new:
+          badge: Відзнака надання службового статусу
+          officialize: Надати службовий статус
+          title: Надати службовий статус учаснику "%{name}"
+      organization:
+        edit:
+          title: Редагувати організацію
+          update: Оновити
+        form:
+          facebook: Фейсбук
+          github: ГітХаб
+          instagram: Інстаграм
+          social_handlers: Соціальні мережі
+          twitter: Твіттер
+          url: Веб-адреса
+          youtube: ЮТуб
+        update:
+          error: При спробі оновити цю організацію сталася помилка.
+          success: Організацію успішно оновлено.
+      organization_appearance:
+        edit:
+          update: Оновити
+        form:
+          cta_button_path_help: 'Ви можете змінити те, куди веде натискання кнопки "Закликати до дії" на головній сторінці. Використовуйте тут часткові шляхи, а не повні веб-адреси. Прийнятні літери, цифри, дефіс та скісна риска. Першою має бути літера. Кнопка "Закликати до дії" відображається на головній сторінці між привітальним текстом та описом. Приклад: %{url}'
+          cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
+          header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
+          homepage_appearance_title: Редагувати вигляд головної сторінки
+          homepage_highlighted_content_banner_title: Банер висвітленого вмісту
+          layout_appearance_title: Редагувати зовнішній вигляд шаблону
+          omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      organization_homepage:
+        edit:
+          active_content_blocks: Блоки діючого вмісту
+          inactive_content_blocks: Блоки недіючого вмісту
+      participatory_space_private_users:
+        create:
+          error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
+          success: Приватним учасникам успішно надано доступ до простору співучасті.
+        destroy:
+          success: Успішно скасовано доступ приватних учасників до простору співучасті.
+        index:
+          title: Приватний учасник простору співучасті
+        new:
+          create: Додати
+          title: Додати приватного учасника простору співучасті.
+      resource_permissions:
+        edit:
+          title: Редагувати права доступу
+      scope_types:
+        create:
+          error: При спробі створити новий різновид обсягу сталася помилка.
+          success: Різновид обсягу успішно створено.
+        destroy:
+          success: Різновид обсягу успішно видалено
+        edit:
+          title: Редагувати різновид обсягу
+          update: Оновити
+        new:
+          create: Створити різновид обсягу
+          title: Додати обсяг
+        update:
+          error: При спробі оновити цей різновид обсягу сталася помилка.
+          success: Різновид обсягу успішно оновлено
+      scopes:
+        create:
+          error: При спробі створити новий обсяг сталася помилка.
+          success: Обсяг успішно створено.
+        destroy:
+          success: Обсяг успішно видалено
+        edit:
+          title: Редагувати обсяг
+          update: Оновити
+        new:
+          create: Створити обсяг
+          title: Додати обсяг
+        no_scopes: На цьому рівні немає обсягів.
+        update:
+          error: При спробі оновити цей обсяг сталася помилка.
+          success: Обсяг успішно оновлено
+      static_pages:
+        actions:
+          view: Переглянути загальнодоступну сторінку
+        create:
+          error: При спробі створити нову сторінку сталася помилка.
+          success: Сторінку успішно створено.
+        destroy:
+          success: Сторінку успішно видалено
+        edit:
+          changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов участі.
+          title: Редагувати сторінку
+          update: Оновити
+        index:
+          last_notable_change: Остання помітна зміна
+        new:
+          title: Створити сторінку
+        update:
+          error: При спробі оновити цю сторінку сталася помилка.
+          success: Сторінку успішно оновлено
+      titles:
+        admin_log: Журнал адміністратора
+        area_types: Різновиди дільниць
+        areas: Дільниці
+        authorization_workflows: Методи підтвердження особи
+        dashboard: Приладна дошка
+        scope_types: Різновиди обсягу
+        scopes: Обсяги
+        static_pages: Сторінки
+        user_groups: Гурти учасників
+        users: Учасники
+      user_group:
+        reject:
+          invalid: При відхиленні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно відхилено
+        verify:
+          invalid: При підтвердженні цього гурту учасників сталася помилка.
+          success: Гурт учасників успішно підтверджено
+      user_groups:
+        index:
+          filter:
+            all: Усі
+            pending: Очікує на розгляд
+            rejected: Відхилено
+            verified: Перевірено
+          filter_by: 'Відібрати за ознакою:'
+          search: Шукати
+          state:
+            pending: Очікує на розгляд
+            rejected: Відхилено
+            verified: Перевірено
+      users:
+        create:
+          error: Під час запрошення цього учасника сталася помилка.
+          success: Учасника успішно запрошено.
+        destroy:
+          error: При спробі видалити цього учасника сталася помилка.
+          success: Учасник більше не є адміністратором.
+        form:
+          email: Адреса електронної пошти
+          name: Ім'я
+          role: Роль
+        new:
+          create: Запросити
+          title: Запросити учасника в якості адміністратора
+    forms:
+      errors:
+        impersonate_user:
+          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
+    moderations:
+      actions:
+        hidden: Приховано
+        hide: Приховати
+        not_hidden: Не приховано
+        title: Дії
+        unreport: Скасувати скаргу
+      admin:
+        reportable:
+          hide:
+            invalid: При спробі приховати ресурс сталася помилка.
+            success: Ресурс успішно приховано.
+          unreport:
+            invalid: При спробі скасувати скаргу щодо ресурсу сталася помилка.
+            success: Скаргу на ресурс успішно скасовано.
+      models:
+        moderation:
+          fields:
+            hidden_at: 'Приховано:'
+            report_count: Кількість
+            reportable: Різновид скарги
+            reported_content_url: Веб-адреса оскарженого вмісту
+            reports: Скарги
+            visit_url: Відвідайте веб-адресу
+  errors:
+    messages:
+      invalid_json: Неприпустимий JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Розсилання новин
+        settings:
+          title: Налаштування
+        users:
+          title: Учасники

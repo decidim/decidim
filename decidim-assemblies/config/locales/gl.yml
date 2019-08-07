@@ -1,0 +1,377 @@
+gl:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Área
+        assembly_type: Tipo de montaxe
+        assembly_type_other: Tipo de montaxe outro
+        banner_image: Imaxe do banner
+        closing_date: Data de peche
+        closing_date_reason: Razón da data de peche
+        composition: Composición
+        copy_categories: Copiar categorías
+        copy_components: Copiar compoñentes
+        copy_features: Copiar funcións
+        created_by: Creado por
+        created_by_other: Creado por outro
+        creation_date: Data creada
+        decidim_area_id: Área
+        decidim_scope_id: Alcance
+        description: Descrición
+        developer_group: Grupo promotor
+        domain: Dominio
+        duration: Duración
+        facebook: Facebook
+        github: GitHub
+        hashtag: Etiqueta
+        hero_image: Imaxe na casa
+        included_at: Incluído en
+        instagram: Instagram
+        internal_organisation: Organización interna
+        is_transparent: É transparente
+        local_area: Área de organización
+        meta_scope: Metadatos de ámbito
+        parent_id: Asemblea primaria
+        participatory_processes_ids: Procesos participativos relacionados
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
+        private_space: Espazo privado
+        promoted: Promocionado
+        published_at: Publicado en
+        purpose_of_action: Propósito da acción
+        scope_id: Alcance
+        scopes_enabled: Ámbitos habilitados
+        short_description: Descrición curta
+        show_statistics: Amosar estatísticas
+        slug: URL slug
+        special_features: Características especiais
+        subtitle: Subtítulo
+        target: Quen participa
+        title: Título
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Aniversario
+        birthplace: Lugar de nacemento
+        ceased_date: Data de suspensión
+        designation_date: Data de designación
+        designation_mode: Modo de designación
+        full_name: Nome completo
+        gender: Xénero
+        position: Posición
+      assembly_user_role:
+        email: Correo electrónico
+        name: Nome
+        role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Asemblea
+        other: Asembleas
+      decidim/assembly_member:
+        one: Membro da asemblea
+        other: Membros da asemblea
+      decidim/assembly_user_role:
+        one: Reproducir rol de usuario
+        other: Asignar roles de usuario
+  decidim:
+    admin:
+      actions:
+        new_assembly: Nova montaxe
+      assemblies:
+        create:
+          error: Produciuse un erro ao crear un novo conxunto.
+          success: Asemblea creada con éxito.
+        edit:
+          update: Actualización
+        index:
+          not_published: Non publicado
+          private: Privado
+          public: Público
+          published: Publicado
+        new:
+          create: Crear
+          title: Nova montaxe
+        update:
+          error: Produciuse un erro ao actualizar este conxunto.
+          success: Asemblea actualizouse con éxito.
+      assemblies_copies:
+        create:
+          error: Produciuse un erro ao duplicar este conxunto.
+          success: Asemblea duplicouse con éxito.
+      assembly_copies:
+        new:
+          copy: Copiar
+          select: Seleccione os datos que desexa duplicar
+          title: Conxunto duplicado
+      assembly_members:
+        create:
+          error: Produciuse un erro ao engadir un membro para este conxunto.
+          success: Membro creado con éxito para este conxunto.
+        destroy:
+          success: O membro eliminouse con éxito por este conxunto.
+        edit:
+          title: Actualiza o membro da montaxe.
+          update: Actualización
+        index:
+          assembly_members_title: Membros da asemblea
+        new:
+          create: Crear
+          title: Novo membro da montaxe.
+        update:
+          error: Produciuse un erro ao actualizar o membro para este conxunto.
+          success: Membro actualizado correctamente para este conxunto.
+      assembly_publications:
+        create:
+          error: Produciuse un erro ao publicar esta asemblea.
+          success: Asemblea publicouse con éxito.
+        destroy:
+          error: Produciuse un erro ao publicar esta asemblea.
+          success: Asemblea non publicada con éxito.
+      assembly_user_roles:
+        create:
+          error: Produciuse un erro engadindo un usuario a este conxunto.
+          success: O usuario engadiuse con éxito a esta montaxe.
+        destroy:
+          success: O usuario eliminouse con éxito deste conxunto.
+        edit:
+          title: Actualiza o usuario de montaxe.
+          update: Actualización
+        index:
+          assembly_admins_title: Usuarios da asemblea
+        new:
+          create: Crear
+          title: Novo usuario de montaxe.
+        update:
+          error: Houbo un erro actualizado por un usuario para este conxunto.
+          success: O usuario actualizouse con éxito para este conxunto.
+      menu:
+        assemblies: Asembleas
+        assemblies_submenu:
+          assembly_admins: Usuarios da asemblea
+          assembly_members: Membros
+          attachment_collections: Carpetas
+          attachment_files: Arquivos
+          attachments: Anexos
+          categories: Categorías
+          components: Compoñentes
+          info: Información
+          moderations: Moderacións
+          private_users: Usuarios privados
+      models:
+        assembly:
+          fields:
+            created_at: Creado en
+            private: Privado
+            promoted: Destacado
+            published: Publicado
+            title: Título
+          name: Asemblea
+        assembly_member:
+          fields:
+            ceased_date: Data de suspensión
+            designation_date: Data de designación
+            full_name: Nome
+            position: Posición
+          name: Membro
+          positions:
+            other: Outra
+            president: Presidente
+            secretary: Secretario
+            vice_president: Vicepresidente
+        assembly_user_role:
+          fields:
+            email: Correo electrónico
+            name: Nome
+            role: Rol
+          name: Usuario da asemblea
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
+            moderator: Moderador
+      titles:
+        assemblies: Asembleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creou o conxunto %{resource_name}"
+        publish: "%{user_name} publicou o conxunto %{resource_name}"
+        unpublish: "%{user_name} inédita a montaxe %{resource_name}"
+        update: "%{user_name} actualizou o conxunto %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
+        delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
+        update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
+      assembly_user_role:
+        create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
+        update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Duración
+            duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            filters: Filtros
+            images: Imaxes
+            included_at_help: Seleccione a data en que se engadiu este conxunto a Decidim. Non ten que ser necesariamente o mesmo que a data de creación.
+            metadata: Metadatos
+            other: Outra
+            select_a_created_by: Seleccione un creado por
+            select_an_area: Seleccione unha área
+            select_an_assembly_type: Seleccione un tipo de conxunto
+            select_parent_assembly: Seleccione o conxunto primario
+            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+            social_handlers: Social
+            title: Información xeral
+            visbility: Visibilidade
+        assembly_copies:
+          form:
+            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuario existente
+            non_user: Non usuario
+            select_a_position: Seleccione unha posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
+          index:
+            filter:
+              all: Todo
+              ceased: Cesado
+              not_ceased: Non cesou
+            filter_by: Filtrar por
+            search: Busca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidade máxima de elementos para mostrar
+      assembly_members:
+        index:
+          members: Membros
+      assembly_types:
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        others: Outros
+        participatory: Participativa
+        working_group: Grupo de traballo
+      content_blocks:
+        highlighted_assemblies:
+          name: Asembleas destacadas
+      created_by:
+        city_council: Concello
+        others: Outros
+        public: Público
+      filter:
+        all: Todo tipo de montaxes
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        help: 'Amosar:'
+        others: Outros
+        participatory: Participativa
+        working_group: Grupo de traballo
+      index:
+        title: Asembleas
+      last_activity:
+        new_assembly: Nova montaxe
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Asembleas activas
+            see_all_assemblies: Ver todos os conxuntos
+        user_profile:
+          member_of:
+            member_of: Membro de
+      show:
+        area: Área
+        assembly_type: Tipo de montaxe
+        children: Asembleas
+        closing_date: Data de peche
+        composition: Composición
+        created_by: Creado por
+        creation_date: Data creada
+        developer_group: Grupo promotor
+        duration: Duración
+        included_at: Incluído en
+        indefinite_duration: Indefinido
+        internal_organisation: Organización interna
+        is_transparent:
+          'false': opaco
+          'true': transparente
+        local_area: Área de organización
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
+        private_space: Esta é unha asemblea privada
+        purpose_of_action: Propósito da acción
+        read_less: Ler menos
+        read_more: Le máis
+        related_participatory_processes: Procesos participativos relacionados
+        scope: Alcance
+        social_networks: Redes Sociais
+        target: Quen participa
+      statistics:
+        answers_count: Respostas
+        assemblies_count: Asembleas
+        comments_count: Comentarios
+        debates_count: Debates
+        endorsements_count: Aprobacións
+        headline: Actividade
+        meetings_count: Reunións
+        orders_count: Votos
+        pages_count: Páxinas
+        projects_count: Proxectos
+        proposals_count: Propostas
+        results_count: Resultados
+        surveys_count: Enquisas
+        users_count: Participantes
+        votes_count: Votos
+    assembly_members:
+      assembly_member:
+        designated_on: Designado en
+      index:
+        title: Membros
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
+          title: Que son asembleas?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
+    menu:
+      assemblies: Asembleas
+    metrics:
+      assemblies:
+        description: Número de conxuntos creados
+        object: asembleas
+        title: Asembleas
+  errors:
+    messages:
+      cannot_be_blank: non pode estar en branco
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Máis información
+          take_part: Tomar parte en
+        index:
+          organizational_chart: Organigrama
+          promoted_assemblies: Asembleas destacadas
+          reset_chart: Restablecer
+        order_by_assemblies:
+          assemblies:
+            one: "Asemblea %{count}"
+            other: "Asembleas %{count}"
+        promoted_assembly:
+          more_info: Máis información
+          take_part: Tomar parte en
+      assembly_navigation:
+        assembly_member_menu_item: Membros
+        assembly_menu_item: A asemblea
+      assembly_widgets:
+        show:
+          take_part: Tomar parte en

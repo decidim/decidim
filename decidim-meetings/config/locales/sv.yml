@@ -1,0 +1,448 @@
+sv:
+  activemodel:
+    attributes:
+      agenda:
+        description: Beskrivning
+        duration: Varaktighet
+        title: Titel
+      close_meeting:
+        attendees_count: Antal deltagare
+        attending_organizations: Lista över organisationer som deltog
+        closing_report: Rapport
+        contributions_count: Antal bidrag
+        proposal_ids: Förslag som skapades på mötet
+      meeting:
+        address: Adress
+        available_slots: Tillgängliga platser för detta möte
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfång
+        description: Beskrivning
+        end_time: Sluttid
+        location: Plats
+        location_hints: Detaljer om platsen
+        organizer_id: Organisatör
+        private_meeting: Privat möte
+        registration_form_enabled: Registreringsformulär aktiverat
+        registration_terms: Registreringsvillkor
+        registrations_enabled: Registreringar aktiverade
+        start_time: Starttid
+        title: Titel
+        transparent: Transparent
+      minutes:
+        audio_url: Ljud-URL
+        description: Beskrivning
+        video_url: Video-URL
+        visible: Är synlig
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Varaktigheten av objekten överstiger mötestiden med %{count} minuter
+              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendaobjektet "%{parent_title}" med %{count} minuter
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: E-postkontot har redan bjudits in
+    models:
+      decidim/meetings/close_meeting_event: Möte avslutat
+      decidim/meetings/create_meeting_event: Möte
+      decidim/meetings/meeting_registrations_enabled_event: Registreringar aktiverade
+      decidim/meetings/meeting_registrations_over_percentage_event: Registreringar över gränsen
+      decidim/meetings/upcoming_meeting_event: Kommande möte
+      decidim/meetings/update_meeting_event: Möte uppdaterat
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Möte
+        other: Möten
+      decidim/meetings/minutes:
+        one: Anteckning
+        other: Anteckningar
+      decidim/meetings/registration:
+        one: Registrering
+        other: Registreringar
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Det gick inte att duplicera mötet.
+          success: Mötet har duplicerats.
+        new:
+          copy: Kopiera
+          select: Välj vilken data du vill duplicera
+          title: Duplicera möte
+    components:
+      meetings:
+        actions:
+          join: Gå med
+        name: Möten
+        settings:
+          global:
+            announcement: Meddelande
+            comments_enabled: Kommentarer aktiverade
+            default_registration_terms: Villkor för standardregistrering
+            enable_pads_creation: Aktivera skapande av memo
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerade
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Ditt möte "%{resource_title}" har stängts. Läs slutsatserna på dess sida:'
+            email_outro: Du har fått det här meddelandet eftersom du organiserade mötet "%{resource_title}".
+            email_subject: Mötet "%{resource_title}" stängdes
+            notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          follower:
+            email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
+            email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta att följa det via föregående länk.
+            email_subject: Mötet "%{resource_title}" stängdes
+            notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+        meeting_created:
+          email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
+          email_subject: Nytt möte har lagts till i %{participatory_space_title}
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Din anmälan till mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din anmälningskod är %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%.
+          email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
+          email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
+          notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
+        meeting_updated:
+          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
+          email_subject: Mötet "%{resource_title}" uppdaterades
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
+        registration_code_validated:
+          email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
+          email_outro: Du har fått den här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
+          email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
+          notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
+        registrations_enabled:
+          email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
+          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_subject: Mötet "%{resource_title}" har aktiverat registreringar.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
+        upcoming_meeting:
+          email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
+          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Anmäl dig till de möten som du vill delta i
+          description: Du får detta märke när du har deltagit i flera fysiska möten.
+          description_another: Deltagaren har deltagit i %{score} möten.
+          description_own: Du har deltagit i %{score} möten.
+          name: Deltog i möten
+          next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
+          unearned_another: Deltagaren har inte deltagit i något möte än.
+          unearned_own: Du har inte deltagit i något möte än.
+    meetings:
+      actions:
+        agenda: Dagordning
+        attachment_collections: Mappar
+        attachments: Bifogade filer
+        close: Stäng
+        confirm_destroy: Är du säker på att du vill radera detta möte?
+        destroy: Radera
+        edit: Redigera
+        minutes: Anteckningar
+        new: Nytt möte
+        preview: Förhandsvisa
+        registrations: Registreringar
+        title: Handlingar
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lägg till delpunkt på dagordningen
+            agenda_item: Dagordningspunkt
+            agenda_item_children: Delpunkter på dagordningen
+            down: Ned
+            remove: Ta bort
+            up: Upp
+          agenda_item_child:
+            agenda_item_child: Delpunkt på dagordningen
+            down: Ned
+            remove: Ta bort
+            up: Upp
+          create:
+            invalid: Det gick inte att skapa dagordningen
+            success: Dagordning skapades
+          edit:
+            title: Redigera dagordning
+            update: Uppdatering
+          form:
+            add_agenda_item: Lägg till punkt på dagordning
+            agenda_items: Dagordningspunkter
+            end_date: Slutdatum
+            start_date: Startdatum
+          new:
+            create: Skapa
+            title: Ny dagordning
+          update:
+            invalid: Det gick inte att uppdatera dagordningen
+            success: Dagordning uppdaterad
+        exports:
+          meetings: Möten
+          registrations: Registreringar
+        invite_join_meeting_mailer:
+          invite:
+            decline: Avvisa inbjudan
+            invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
+            join: Gå med i mötet "%{meeting_title}"
+        invites:
+          create:
+            error: Det gick inte att bjuda in deltagaren till mötet.
+            success: Deltagaren har bjudits in att delta i mötet.
+          form:
+            attendee_type: Deltagartyp
+            existing_user: Befintlig deltagare
+            invite: Bjuda in
+            invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
+            non_user: Icke befintlig deltagare
+            select_user: Välj deltagare
+          index:
+            filter:
+              accepted: Accepterad
+              all: Allt
+              rejected: Avvisade
+              sent: Skickat
+            filter_by: Filtrera efter
+            invite_attendee: Bjud in deltagare
+            invites: Inbjudningar
+            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
+            search: Sök
+        meeting_closes:
+          edit:
+            close: Stäng
+            title: Stäng mötet
+        meeting_copies:
+          form:
+            select_organizer: Välj arrangören
+        meetings:
+          close:
+            invalid: Det gick inte att stänga mötet
+            success: Mötet avslutades
+          create:
+            invalid: Det gick inte att skapa mötet
+            success: Möte skapades
+          destroy:
+            success: Mötet har tagits bort
+          edit:
+            update: Uppdatera
+          form:
+            select_organizer: Välj arrangören
+          index:
+            title: Möten
+          new:
+            create: Skapa
+            title: Skapa möte
+          service:
+            description: Beskrivning
+            down: Ned
+            remove: Ta bort
+            service: Service
+            title: Titel
+            up: Upp
+          services:
+            add_service: Lägg till service
+            services: Tjänster
+          update:
+            invalid: Det gick inte att uppdatera mötet
+            success: Mötet har uppdaterats
+        minutes:
+          create:
+            invalid: Det gick inte att skapa protokollet
+            success: Protokollet skapades
+          edit:
+            update: Uppdatering
+          new:
+            create: Skapa
+            title: Skapa protokoll
+          update:
+            invalid: Det gick inte att uppdatera protokollet
+            success: Protokollet uppdaterades
+        models:
+          meeting:
+            name: Möte
+        registrations:
+          edit:
+            save: Spara
+            validate: Bekräfta
+            validate_registration_code: Bekräfta registreringskod
+          form:
+            available_slots_help: Lämna det till 0 om du har obegränsade platser.
+            invites: Inbjudningar
+            registration_form: Anmälningsformulär
+            registrations_count:
+              one: Det har gjorts %{count} anmälan.
+              other: Det har gjorts %{count} anmälningar.
+            reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
+            reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
+            title: Anmälningar
+          update:
+            invalid: Det gick inte att spara inställningarna för anmälan.
+            success: Mötesregistreringsinställningarna har sparats.
+          validate_registration_code:
+            invalid: Denna registreringskod är ogiltig.
+            success: Registreringskoden validerades.
+      admin_log:
+        invite:
+          create: "%{user_name} uppmanade %{attendee_name} att gå med mötet %{resource_name} på platsen %{space_name}"
+          deleted: "%{user_name} objudna %{attendee_name} från att gå med möte %{resource_name} på platsen %{space_name}"
+          update: "%{user_name} uppmanade %{attendee_name} att gå med möte %{resource_name} på platsen %{space_name}"
+        meeting:
+          close: "%{user_name} stängde %{resource_name} mötet på platsen %{space_name}"
+          create: "%{user_name} skapade %{resource_name} mötet på platsen %{space_name}"
+          delete: "%{user_name} raderade mötet %{resource_name} på platsen %{space_name}"
+          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på platsen %{space_name}"
+          update: "%{user_name} uppdaterade mötet %{resource_name} på platsen %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
+        minutes:
+          create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
+          update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
+      calendar_modal:
+        calendar_url: Kalender-URL
+        close_window: Stäng fönster
+        export_calendar: Exportera kalender
+      conference_venues: Konferenslokaler
+      content_blocks:
+        upcoming_events:
+          name: Kommande händelser
+          upcoming_events: Kommande möten
+          view_all_events: Visa alla
+      directory:
+        meetings:
+          index:
+            all: Alla
+            date: Datum
+            meetings: Möten
+            past: Tidigare
+            search: Sök
+            space_type: Deltagarutrymme
+            upcoming: Kommande
+      last_activity:
+        new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Inbjudan för att delta i ett möte
+        registration_mailer:
+          confirmation:
+            subject: Din mötesregistrering har bekräftats
+      meeting:
+        not_allowed: Du får inte se det här mötet
+      meetings:
+        filters:
+          category: Kategori
+          category_prompt: Välj en kategori
+          date: Datum
+          past: Tidigare
+          search: Sök
+          upcoming: Kommande
+        filters_small_view:
+          close_modal: Stäng fönstret
+          filter: Filtrera
+          filter_by: Filtrera efter
+          unfold: Veckla ut
+        meeting_minutes:
+          meeting_minutes: Mötesprotokoll
+          related_information: Relaterad information
+        meetings:
+          no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
+          upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
+        registration_confirm:
+          cancel: Avbryt
+          confirm: Bekräfta
+        show:
+          attendees: Antal deltagare
+          contributions: Antal bidrag
+          going: Jag kommer
+          join: Gå med i mötet
+          meeting_report: Mötesrapport
+          no_slots_available: Inga platser kvar
+          organizations: Delta i organisationer
+          registration_code_help_text: Din registreringskod
+          registration_state:
+            validated: VALIDERAD
+            validation_pending: VALIDERING PÅGÅR
+          remaining_slots:
+            one: "%{count} plats kvar"
+            other: "%{count} platser kvar"
+          view: Visa
+      meetings_map:
+        view_meeting: Visa möte
+      models:
+        invite:
+          fields:
+            email: E-post
+            name: Namn
+            sent_at: Skickat på
+            status: Status
+          status:
+            accepted: Accepterad (%{at})
+            rejected: Avvisad (%{at})
+            sent: Skickat
+        meeting:
+          fields:
+            closed: Stängd
+            end_time: Slutdatum
+            map: Karta
+            start_time: Startdatum
+            title: Titel
+      read_more: "(läs mer)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
+          details: Du hittar mötesuppgifterna i bilagan.
+          registration_code: Din registreringskod är %{code}.
+      registrations:
+        create:
+          invalid: Det gick inte att ansluta till mötet.
+          success: Du har gått med på mötet.
+        decline_invitation:
+          invalid: Det gick inte att avböja inbjudan.
+          success: Du har avböjt inbjudan.
+        destroy:
+          invalid: Det gick inte att lämna mötet.
+          success: Du har lämnat mötet.
+      types:
+        private_meeting: Privat möte
+        transparent: Transparent
+    metrics:
+      meetings:
+        description: Antal skapade möten
+        object: möten
+        title: Möten
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Tidigare möten
+        see_all: Visa alla (%{count})
+        upcoming_meetings: Kommande möten
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommande möte
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Relaterade resultat:'
+        result_meeting: 'Relaterade möten:'
+      proposals_from_meeting:
+        meeting_proposal: 'Relaterade förslag:'
+        proposal_meeting: 'Relaterade möten:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Inbjudan att delta i ett möte

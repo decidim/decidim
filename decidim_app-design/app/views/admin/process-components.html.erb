@@ -1,0 +1,185 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+@activepage = "process-components"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "process_sub_nav" %>
+</div>
+<div class="layout-content has-process-title">
+  <div class="container">
+    <%= partial "process_title" %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">Componentes activos por fases</h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+          <table class="table-list table-list--lastcenter">
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th class="text-center">Fase 1</th>
+                <th class="text-center">Fase 2</th>
+                <th class="text-center">Fase 3</th>
+                <th class="text-center">Fase 4</th>
+                <th class="text-center">Fase 5</th>
+                <th class="text-center">Fase 6</th>
+                <th class="text-center">Fase 7</th>
+                <th class="text-center">Fase 8</th>
+                <th class="text-center">Fase 9</th>
+                <th class="text-center">Fase 10</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Encuentros
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Propuestas
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Debates
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Resultados
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Presupuestos
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                  <span class="text-success"><%= icon "check" %></span>
+                </td>
+                <td class="text-center">
+                </td>
+                <td class="text-center">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

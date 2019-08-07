@@ -1,4 +1,4 @@
-<%= form_for(@form) do |f| %>
+<%= decidim_form_for(@form) do |f| %>
   <div class="field">
     <%= f.text_field :name, autofocus: true %>
   </div>
@@ -6,6 +6,31 @@
   <div class="field">
     <%= f.text_field :host %>
   </div>
+
+  <div class="field">
+    <%= f.text_area :secondary_hosts %>
+    <p class="help-text"><%= t(".secondary_hosts_hint") %></p>
+  </div>
+
+  <div class="field">
+    <%= f.label :force_authentication %>
+    <%= f.check_box :force_users_to_authenticate_before_access_organization %>
+  </div>
+
+  <div class="field">
+    <%= f.label :users_registration_mode %>
+    <%= f.collection_radio_buttons :users_registration_mode,
+                                   Decidim::Organization.users_registration_modes,
+                                   :first,
+                                   ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :available_authorizations %>
+    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
+  </div>
+
+  <%= render partial: "smtp_settings", locals: { f: f } %>
 
   <div class="actions">
     <%= f.submit t("decidim.system.actions.save") %>

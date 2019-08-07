@@ -1,0 +1,41 @@
+<% if proposal.rejected? %>
+  <div></div>
+<% else %>
+  <% if !current_user %>
+    <% if current_settings.votes_blocked? %>
+      <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow disabled" disabled id="proposal-<%= proposal.id %>-votes-count">
+        <%= proposal.proposal_votes_count || 0 %>
+      </button>
+    <% else %>
+      <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow" id="proposal-<%= proposal.id %>-votes-count">
+        <%= proposal.proposal_votes_count || 0 %>
+      </button>
+    <% end %>
+  <% else %>
+    <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+      <button type="button" name="button" class="column medium-4 button success button--sc button--shadow" id="proposal-<%= proposal.id %>-votes-count">
+        <%= proposal.proposal_votes_count || 0 %>
+      </button>
+    <% else %>
+      <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
+        <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow disabled" disabled id="proposal-<%= proposal.id %>-votes-count">
+          <%= proposal.proposal_votes_count || 0 %>
+        </button>
+      <% else %>
+        <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
+          <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow" disabled id="proposal-<%= proposal.id %>-votes-count">
+            <%= proposal.proposal_votes_count || 0 %>
+          </button>
+        <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
+          <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow disabled" disabled id="proposal-<%= proposal.id %>-votes-count">
+            <%= proposal.proposal_votes_count || 0 %>
+          </button>
+        <% else %>
+          <button type="button" name="button" class="column medium-4 button primary button--sc button--shadow" id="proposal-<%= proposal.id %>-votes-count">
+            <%= proposal.proposal_votes_count || 0 %>
+          </button>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,14 @@
+<% unless attachment_collection.unused? %>
+  <div class="docs__container">
+    <h6 data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small" %>&nbsp
+      <strong><%= translated_attribute(attachment_collection.name) %></strong>
+      <small>(<%= attachment_collection.attachments.count %> <%= t(".documents", count: attachment_collection.attachments.count) %>)</small>
+    </h6>
+    <div id="docs-collection-<%= attachment_collection.id %>" class="docs__content hide" data-toggler=".hide">
+      <p><%= translated_attribute(attachment_collection.description) %></p>
+      <div class="card card--list">
+        <%= render partial: "document", collection: documents %>
+      </div>
+    </div>
+  </div>
+<% end %>

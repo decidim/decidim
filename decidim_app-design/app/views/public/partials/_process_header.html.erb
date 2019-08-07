@@ -1,0 +1,26 @@
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="process-header__main" style="background-image:url(<%= image_path "barcelona-hero.jpg" %>);"></div>
+    <div class="process-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
+        <div>
+          <h1 class="text-highlight heading2">
+            <%= link_to "Plan urbanístico de Gracia", page_path("info") %>
+          </h1>
+        </div>
+        <div class="show-for-medium">
+          <h2 class="text-highlight heading-small">
+            <span class="process-header__hashtag">#urbaGracia</span>
+            Proceso de mejoras del barrio de Gracia
+          </h2>
+        </div>
+      </div>
+      <div class="columns mediumlarge-4">
+        <%= partial "process_phase" %>
+      </div>
+    </div>
+  </div>
+  <div class="row expanded">
+    <%= partial "process_nav" %>
+  </div>
+</div>

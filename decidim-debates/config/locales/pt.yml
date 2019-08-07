@@ -1,0 +1,151 @@
+pt:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categoria
+        decidim_category_id: Categoria
+        description: Descrição
+        end_time: Termina em
+        information_updates: Atualizações de informações
+        instructions: Instruções para participar
+        start_time: Começa em
+        title: Título
+        user_group_id: Criar debate como
+    models:
+      decidim/debates/create_debate_event: Debate
+      decidim/debates/creation_disabled_event: Debates desativados
+      decidim/debates/creation_enabled_event: Debates habilitados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Crio
+        name: Debates
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+            creation_enabled: Criação de debate por usuários habilitado
+    debates:
+      actions:
+        confirm_destroy: Você tem certeza?
+        destroy: Excluir
+        edit: Editar
+        new: Novo %{name}
+        title: Ações
+      admin:
+        debates:
+          create:
+            invalid: Houve um problema ao criar o debate.
+            success: Debate criado com sucesso.
+          destroy:
+            success: Debate excluído com sucesso.
+          edit:
+            title: Editar debate
+            update: Atualização do debate
+          index:
+            title: Debates
+          new:
+            create: Criar debate
+            title: Novo debate
+          update:
+            invalid: Ocorreu um problema ao atualizar esse debate.
+            success: Debate atualizado com sucesso.
+        models:
+          debate:
+            name: Debate
+      admin_log:
+        debate:
+          create: "%{user_name} criou o debate %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou o debate %{resource_name} no espaço %{space_name}"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
+        create:
+          invalid: Houve um problema ao criar o debate.
+          success: Debate criado com sucesso.
+        debate:
+          participate: Participar
+        filters:
+          all: Todos
+          category: Categoria
+          category_prompt: Selecione uma categoria
+          citizens: Cidadãos
+          official: Oficial
+          origin: Origem
+          search: Pesquisa
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        index:
+          new_debate: Novo debate
+        new:
+          back: Costas
+          create: Crio
+          select_a_category: Por favor, selecione uma categoria
+          title: Novo debate
+      last_activity:
+        new_debate_at_html: "<span>Novo debate em %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Data final
+            official_debate: Debate oficial
+            start_time: Data de início
+            title: Título
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Oi,
+              Um novo debate "%{resource_title}" foi criado no espaço participativo %{space_title} , confira e contribua:
+            email_outro: Você recebeu esta notificação porque está seguindo o espaço participativo %{space_title}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo debate "%{resource_title}" em %{space_title}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado em <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Olá,
+              %{author_name} %{author_nickname}, quem você está seguindo, criou um novo debate "%{resource_title}". Confira e contribua:
+            email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo debate "%{resource_title}" por %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> criou o debate <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'A criação do debate não está mais ativa em %{participatory_space_title}. Você ainda pode participar de debates abertos nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Criação de debate desativada em %{participatory_space_title}
+          notification_title: A criação do debate agora está desativada em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Agora você pode iniciar novos debates em %{participatory_space_title}! Comece a participar nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Debates agora disponíveis em %{participatory_space_title}
+          notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Escolha um debate aberto para participar
+          description: Este crachá é concedido quando você participa ativamente dos diferentes debates deixando seus comentários.
+          description_another: Este usuário participou em %{score} debates.
+          description_own: Você participou de %{score} debates.
+          name: Debates
+          next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não participou de nenhum debate.
+          unearned_own: Você participou de algum debate ainda.
+    metrics:
+      debates:
+        description: Número de debates criados
+        object: debates
+        title: Debates

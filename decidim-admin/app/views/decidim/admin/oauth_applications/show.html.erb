@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= @oauth_application.name %></h2>
+  </div>
+  <div class="card-section">
+    <dl>
+      <%= display_for @oauth_application,
+            { uid: :client_id },
+            { secret: :client_secret },
+            :organization_name,
+            :organization_url,
+            :redirect_uri %>
+
+      <dt><%= display_label(@oauth_application, :authorize_url) %></dt>
+      <dd><%= decidim.oauth_authorization_url(host: @oauth_application.owner.host) %></dd>
+
+      <dt><%= display_label(@oauth_application, :site) %></dt>
+      <dd><%= decidim.root_url(host: @oauth_application.owner.host) %></dd>
+
+      <dt><%= display_label(@oauth_application, :authorized_tokens) %></dt>
+      <dd><%= @oauth_application.authorized_tokens.count %></dd>
+
+      <dt><%= display_label(@oauth_application, :authorization_url) %></dt>
+      <dd><%= decidim.oauth_authorization_url(host: @oauth_application.owner.host, client_id: @oauth_application.uid, redirect_uri: @oauth_application.redirect_uri, response_type: "code") %></dd>
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="floating-helper-container" data-help-id="floating-help-<%= id %>">
+  <div class="floating-helper" id="floating-helper-tip" data-toggler=".hide">
+    <div class="floating-helper__layout">
+      <div class="floating-helper__trigger" data-toggle="floating-helper-block floating-helper-tip">
+        <div class="floating-helper__text">
+          <%= t ".help" %>
+        </div>
+        <div class="floating-helper__icon">
+          <%= icon "question-mark", class: "icon--small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="floating-helper-block" class="floating-helper__wrapper row column hide" data-toggler=".hide">
+    <div class="floating-helper__content">
+      <div class="floating-helper__content-inner">
+        <div class="floating-helper__icon-big show-for-medium">
+          <%= icon "question-mark", class: "icon--large" %>
+        </div>
+        <div class="mb-s">
+          <%= content %>
+        </div>
+      </div>
+    </div>
+    <div class="floating-helper__content-close" data-toggle="floating-helper-block floating-helper-tip">
+      <%= icon "x", class: "icon--small" %>
+    </div>
+  </div>
+</div>

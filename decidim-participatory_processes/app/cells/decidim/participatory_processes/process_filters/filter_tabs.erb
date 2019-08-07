@@ -1,0 +1,15 @@
+<span class="order-by__tabs ml-s">
+  <% if should_show_tabs? %>
+    <%= explanation %>
+    <span class="muted mr-xs"><%= t("decidim.participatory_processes.participatory_processes.filters.see") %></span>
+    <% other_filters_with_value.each do |filter| %>
+      <%= link_to filter_link(filter), remote: true, class: "order-by__tab" do %>
+        <strong>
+          <%= filter_name(filter) %>
+        </strong>&nbsp;<span>(<%= process_count_by_filter[filter] %>)</span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= explanation %>
+  <% end %>
+</span>

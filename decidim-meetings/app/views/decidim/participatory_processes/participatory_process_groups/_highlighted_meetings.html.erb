@@ -1,0 +1,15 @@
+<% if upcoming_meetings.any? %>
+  <section class="section row collapse upcoming_meetings">
+    <h2 class="section-heading"><%= t(".upcoming_meetings") %></h2>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <%= render partial: "decidim/participatory_processes/participatory_process_groups/meeting", collection: upcoming_meetings %>
+    </div>
+  </section>
+<% elsif past_meetings.any? %>
+  <section class="section row collapse past_meetings">
+    <h2 class="section-heading"><%= t(".past_meetings") %></h2>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <%= render partial: "decidim/participatory_processes/participatory_process_groups/meeting", collection: past_meetings %>
+    </div>
+  </section>
+<% end %>

@@ -1,0 +1,163 @@
+ru:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Сведения о жеребьевке
+        decidim_category_id: Категории подборки предложений, среди которых вы хотите провести жеребьевку
+        decidim_proposals_component_id: Набор предложений
+        dice: Результат броска кубика. В присутствии свидетелей бросьте шестигранный кубик, или найдите еще какой-нибудь способ получить случайное число от 1 до 6, и введите его здесь. Это способствует качеству и гарантирует случайность результата
+        target_items: Количество предложений, которые нужно выбрать (указывает количество предложений, которые вы хотите выбрать жеребьевкой из набора предложений, который вы отобрали до этого)
+        title: Название
+        witnesses: Свидетели
+    models:
+      decidim/sortitions/create_sortition_event: Жеребьевка
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Жеребьевка
+        few: Жеребьевки
+        many: Жеребьевок
+        other: Жеребьевок
+  decidim:
+    components:
+      sortitions:
+        name: Жеребьевки
+        settings:
+          global:
+            comments_enabled: Комментарии включены
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: В "%{participatory_space_title}", за которым вы следите, добавлена жеребьевка "%{resource_title}".
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+          email_subject: В %{participatory_space_title} добавлена новая жеребьевка
+          notification_title: В %{participatory_space_title} была добавлена жеребьевка <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          sortitions_count: Жеребьевок
+    participatory_processes:
+      statistics:
+        sortitions_count: Жеребьевок
+    sortitions:
+      admin:
+        actions:
+          destroy: Отменить жеребьевку
+          edit: Редактировать
+          new: Добавить жеребьевку
+          show: Подробности жеребьевки
+        models:
+          sortition:
+            fields:
+              category: Категория
+              created_at: Дата создания
+              decidim_proposals_component: Составляющая предложений
+              dice: Игральный кубик
+              reference: Ссылка на источник
+              request_timestamp: Время жеребьевки
+              seed: Начальное число
+              target_items: Элементы для выбора
+              title: Название
+            name:
+              one: Жеребьевка
+              few: Жеребьевки
+              many: Жеребьевок
+              other: Жеребьевок
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Вы действительно хотите отменить эту жеребьевку?
+            destroy: Отменить жеребьевку
+            title: Отмена жеребьевки
+          create:
+            error: При попытке создать новую жеребьевку произошла ошибка.
+            success: Жеребьевка успешно создана
+          destroy:
+            error: Невозможно отменить жеребьевку.
+            success: Жеребьевка успешно отменена
+          edit:
+            title: Обновить сведения о жеребьевке
+            update: Обновить
+          form:
+            all_categories: Все категории
+            select_proposal_component: Выберите набор предложений
+            title: Добавить новую жеребьевку предложений
+          index:
+            title: Жеребьевки
+          new:
+            confirm: После нажатия следующей кнопки, Десидим запишет дату и время (с точностью до секунд) и вместе с результатом броска игрального кубика, эти сведения будут использованы для случайного выбора. Это действие будет необратимым, после нажатия кнопки исход бросания жребия будет обнародован вместе с данными, введенными в этой форме, и их невозможно будет изменить. Пожалуйста, тщательно проверьте содержимое
+            create: Создать
+            title: Добавить жеребьевку
+          show:
+            selected_proposals: Предложения, выбранные для жеребьевки
+          update:
+            error: При попытке обновить эту жеребьевку произошла ошибка.
+            success: Жеребьевка успешно обновлена
+      admin_log:
+        sortition:
+          create: "%{user_name} создал жеребьевку %{resource_name} в %{space_name}"
+          delete: "%{user_name} отменил жеребьевку %{resource_name} в %{space_name}"
+          update: "%{user_name} обновил жеребьевку %{resource_name} в %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 предложение
+            few: "%{count} предложения"
+            many: "%{count} предложений"
+            other: "%{count} предложений"
+        filters:
+          active: Действующие
+          all: Все
+          cancelled: Отмененные
+          category: Категория
+          category_prompt: Выберите категорию
+          search: Поиск
+          state: Cостояние
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        linked_sortitions:
+          selected_proposals: Выбранные предложения
+        orders:
+          label: 'Упорядочить жеребьевки по:'
+          random: Произвольно
+          recent: Недавние
+        results_count:
+          count:
+            one: выбранное предложение
+            few: выбранных предложения
+            many: выбранных предложений
+            other: выбранных предложений
+        show:
+          algorithm: Код алгоритма жеребьевки
+          any_category: из всех категорий
+          cancelled: Отмененная жеребьевка
+          candidate_proposal_ids: Порядок и названия предложений для жеребьевки
+          candidate_proposals_info: 'Жеребьевка была проведена среди следующих предложений (%{category_label}) со следующими названиями (выделены жирным шрифтом выбранные предложения)  '
+          category: из категории %{category}
+          dice_result: "(1) Результат броска кубика"
+          introduction: 'На этой странице показан итог жеребьевки %{reference}. С помощью этой жеребьевки было выбрано случайным образом %{target_items} предложений с равным распределением вероятности из числа предложений, перечисленных ниже. Вместе с итогом, сведения, которые отражены на этой странице, содержат все, что необходимо для наибольших гарантий и для воспроизведения итога. Ключ к качеству этой жеребьевки - это двойная случайность, обеспеченная путем бросания игрального кубика (проверенного свидетелями) и точного времени жеребьевки, введенного в алгоритм, который производит случайную подборку. Задействованное в качестве начального числа жеребьевки время настолько точно (секунды), что люди его не способны контролировать. Таким образом благодаря двойному "неконтролируемому" введениюу данных обеспечивается справедливый итог.  '
+          mathematical_result: Произведение (1) x (2)
+          proposals_selected_by_sortition: Предложения, отобранные жеребьевкой
+          sortition_reproducibility_details: Сведения о воспроизводимости жеребьевки
+          time_seed: "(2) Время как начальное число"
+          witnesses: Свидетели
+        sortition:
+          random_seed: Случайное начальное число
+          selected_proposals:
+            one: предложение выбрано
+            few: предложения выбрано
+            many: предложений выбрано
+            other: предложений выбрано
+          view: Посмотреть
+        sortition_author:
+          deleted: Удаленный участник
+        sortition_cancel_author:
+          deleted: Удаленный участник
+        sortitions_count:
+          count:
+            one: 1 жеребьевка
+            few: "%{count} жеребьевки"
+            many: "%{count} жеребьевок"
+            other: "%{count} жеребьевок"

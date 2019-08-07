@@ -1,0 +1,19 @@
+<div class="row accountability">
+  <div class="small-12 columns">
+    <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
+  </div>
+
+  <div class="small-12 columns">
+    <%= render partial: "nav_breadcrumb", locals: { category: category, result: nil } %>
+  </div>
+
+  <div class="small-12 columns end">
+    <% if results.any?{|r| r.children_count > 0 } %>
+      <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
+    <% else %>
+      <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag("decidim/filters") %>

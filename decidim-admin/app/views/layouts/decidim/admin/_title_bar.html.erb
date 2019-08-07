@@ -1,0 +1,37 @@
+<div class="title-bar">
+  <a href="#menu" class="menu-trigger"><%= icon "menu" %></a>
+  <%= link_to decidim.root_path, class: "logo", target: "_blank" do %>
+    <% if current_organization.logo.present? %>
+      <%= image_tag current_organization.logo.url, alt: title %>
+    <% else %>
+      <%= title %>
+    <% end %>
+  <% end %>
+  <div class='tool-bar'>
+    <% if available_locales.length > 1 %>
+    <div class="topbar__dropmenu language-choose">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="is-dropdown-submenu-parent">
+            <%= link_to t("name", scope: "locale"), "#" %>
+            <ul class="menu is-dropdown-submenu">
+              <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
+                <li><%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="user-login">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="is-dropdown-submenu-parent">
+          <a href="#"><%= current_user.email %></a>
+          <ul class="menu is-dropdown-submenu">
+            <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete) %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

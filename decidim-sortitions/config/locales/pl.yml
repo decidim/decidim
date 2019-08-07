@@ -1,0 +1,163 @@
+pl:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informacje o sortowaniu
+        decidim_category_id: Kategorie zestawu propozycji, w których chcesz zastosować losowanie
+        decidim_proposals_component_id: Ustalono wnioski
+        dice: Wynik rzutu kostką. Rzuć kostką 6-stronną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź wynikową liczbę przed niektórymi świadkami. Przyczynia się to do jakości i gwarancji losowości wyniku
+        target_items: Liczba wniosków, które należy wybrać (wskazuje liczbę wniosków, które chcesz wybrać, losując wybraną wcześniej grupę propozycji)
+        title: Tytuł
+        witnesses: Świadkowie
+    models:
+      decidim/sortitions/create_sortition_event: Sortowanie
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortowanie
+        few: Sortowanie
+        many: Sortowanie
+        other: Sortowanie
+  decidim:
+    components:
+      sortitions:
+        name: Sortowanie
+        settings:
+          global:
+            comments_enabled: Komentarze włączone
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Sortowanie "%{resource_title}" zostało dodane do "%{participatory_space_title}", którego obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Dodano nowe sortowanie do %{participatory_space_title}
+          notification_title: Sortowanie <a href="%{resource_path}">%{resource_title}</a> zostało dodane do %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortowanie
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortowanie
+    sortitions:
+      admin:
+        actions:
+          destroy: Anuluj sortowanie
+          edit: Edytować
+          new: Nowe sortowanie
+          show: Szczegóły dotyczące podziału
+        models:
+          sortition:
+            fields:
+              category: Kategoria
+              created_at: Data utworzenia
+              decidim_proposals_component: Składnik propozycji
+              dice: Kostka do gry
+              reference: Odniesienie
+              request_timestamp: Czas rysowania
+              seed: Nasionko
+              target_items: Elementy do wyboru
+              title: Tytuł
+            name:
+              one: Sortowanie
+              few: Sortowanie
+              many: Sortowanie
+              other: Sortowanie
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Czy na pewno chcesz anulować to sortowanie?
+            destroy: Anuluj sortowanie
+            title: Anulowanie sortowania
+          create:
+            error: Wystąpił błąd podczas tworzenia nowego sortowania.
+            success: Utworzono pomyślne utworzenie grupy
+          destroy:
+            error: Nie można anulować sortowania.
+            success: Sortowanie zostało anulowane
+          edit:
+            title: Zaktualizuj informacje o sortowaniu
+            update: Aktualizacja
+          form:
+            all_categories: Wszystkie kategorie
+            select_proposal_component: Wybierz zestaw propozycji
+            title: Nowa sortownia dla propozycji
+          index:
+            title: Sortowanie
+          new:
+            confirm: Po naciśnięciu następnego przycisku Decidim zapisze datę i godzinę (z dokładnością do sekund), a wraz z rzutem kości informacje te zostaną wykorzystane do wygenerowania losowego wyboru. Działanie będzie nieodwracalne, po kliknięciu przycisku wynik tego losowania zostanie opublikowany wraz z danymi wprowadzonymi w tym formularzu i nie można go zmienić, należy dokładnie sprawdzić zawartość
+            create: Stwórz
+            title: Nowe sortowanie
+          show:
+            selected_proposals: Propozycje wybrane do losowania
+          update:
+            error: Wystąpił błąd podczas aktualizacji sortowania.
+            success: Sortowanie zostało pomyślnie zaktualizowane
+      admin_log:
+        sortition:
+          create: "%{user_name} utworzył porządek %{resource_name} w %{space_name}"
+          delete: "%{user_name} anulował sortowanie %{resource_name} w %{space_name}"
+          update: "%{user_name} zaktualizował sortowanie %{resource_name} w %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 propozycja
+            few: "%{count} propozycji"
+            many: "%{count} propozycji"
+            other: "%{count} propozycji"
+        filters:
+          active: Aktywny
+          all: Wszystko
+          cancelled: Anulowany
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          search: Szukaj
+          state: Stan
+        filters_small_view:
+          close_modal: Zamknij modalne
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwijać się
+        linked_sortitions:
+          selected_proposals: Wybrane propozycje
+        orders:
+          label: 'Zamów sortowanie według:'
+          random: Losowy
+          recent: Niedawny
+        results_count:
+          count:
+            one: wybrana propozycja
+            few: wybrane propozycje
+            many: wybrane propozycje
+            other: wybrane propozycje
+        show:
+          algorithm: Kod algorytmu rozdziału
+          any_category: ze wszystkich kategorii
+          cancelled: Anulowane sortowanie
+          candidate_proposal_ids: Porządek i porządek sortowania
+          candidate_proposals_info: 'Sortowanie zostało przeprowadzone wśród następujących propozycji (%{category_label}), z następującymi identyfikatorami (pogrubione wybrane propozycje)  '
+          category: z kategorii %{category}
+          dice_result: "(1) Wynik kości"
+          introduction: 'Ta strona zawiera wyniki sortowania %{reference}. Za pomocą tego sortowania %{target_items} liczba wyników została wybrana losowo i z równym rozkładem prawdopodobieństwa z zestawu propozycji wyświetlonych poniżej. Wraz z wynikami, informacje wyświetlane na tej stronie zawierają wszystkie informacje wymagane do zmaksymalizowania gwarancji i do odtworzenia wyników. Kluczem do jakości tego sortowania jest podwójna losowość zapewniona przez rzucanie kostką (weryfikowaną przez świadków) i dokładny czas sortowania, który zapewnia dane wejściowe dla algorytmu generującego losową selekcję. Nasycenie czasowe dla sortowania jest tak dokładne (sekundy), że niemożliwe jest kontrolowanie przez ludzi, zapewniając w ten sposób podwójny "niekontrolowany" wkład w celu zagwarantowania sprawiedliwego wyniku.  '
+          mathematical_result: Wynik (1) x (2)
+          proposals_selected_by_sortition: Propozycje wybrane według sortowania
+          sortition_reproducibility_details: Szczegóły odtwarzalności pokrycia
+          time_seed: "(2) Nasienie czasu"
+          witnesses: Świadkowie
+        sortition:
+          random_seed: Losowe ziarno
+          selected_proposals:
+            one: 1 wybrana propozycja
+            few: '%{count} wybranych wniosków'
+            many: '%{count} wybranych wniosków'
+            other: '%{count} wybranych wniosków'
+          view: Widok
+        sortition_author:
+          deleted: Usunięty użytkownik
+        sortition_cancel_author:
+          deleted: Usunięty użytkownik
+        sortitions_count:
+          count:
+            one: 1 sortowanie
+            few: "%{count} sortowania"
+            many: "%{count} sortowania"
+            other: "%{count} sortowania"

@@ -1,0 +1,73 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(debate.description),
+  title: present(debate).title,
+  url: debate_url(debate.id)
+}) %>
+
+<%
+edit_link(
+  resource_locator(debate).edit,
+  :update,
+  :debate,
+  debate: debate
+)
+%>
+
+<div class="row column view-header">
+  <h2 class="heading2">
+    <%== present(debate).title %>
+  </h2>
+
+  <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>
+
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+    large-3 large-push-9">
+    <div class="card extra">
+      <div class="card__content">
+        <% if debate.start_time.present? && debate.end_time.present? %>
+          <div class="extra__date">
+            <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
+          </div>
+          <div class="extra__time">
+            <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
+          </div>
+        <% end %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate, large: false } %>
+      </div>
+    </div>
+    <%= resource_reference(debate) %>
+    <%= render partial: "decidim/shared/share_modal" %>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <p><%= decidim_sanitize(simple_format(translated_attribute(debate.description))) %></p>
+      <% if translated_attribute(debate.instructions).present? %>
+        <div class="callout secondary">
+          <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>
+        </div>
+      <% end %>
+      <% if translated_attribute(debate.information_updates).present? %>
+        <div class="callout success">
+          <%= simple_format(translated_attribute(debate.information_updates)) %>
+        </div>
+      <% end %>
+      <% if debate.category %>
+        <ul class="tags tags--debate">
+          <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= comments_for debate %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: debate,
+    form: report_form,
+    url: decidim.report_path(sgid: debate.to_sgid.to_s)
+  }
+%>

@@ -1,0 +1,40 @@
+it:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Creato a
+        field: Il mio campo
+        start_date: Data d'inizio
+        title: Titolo
+        updated_at: Aggiornato a
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Risorse Fittizie
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Utilizzare un ambiente di prova per decidim.
+          description: Gli utenti ottengono questo badge creando test.
+          description_another: Questo utente ha creato %{score} test.
+          description_own: Hai creato %{score} test.
+          name: test
+          next_level_in: Crea altri %{score} test per raggiungere il livello successivo!
+          unearned_another: Questo utente non ha ancora creato alcun test.
+          unearned_own: Non hai ancora creato alcun test.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Manichini in alto
+          dummies_count_medium: Manichino medio
+          foo: foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Manichini in alto
+        dummies_count_medium: Manichino medio
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Risorse fittizie correlate

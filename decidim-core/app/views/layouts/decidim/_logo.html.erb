@@ -1,0 +1,31 @@
+<% if organization %>
+  <%= link_to decidim.root_url(host: organization.host) do %>
+    <% if organization.logo.present? %>
+      <%= image_tag organization.logo.medium.url %>
+    <% else %>
+      <span><%= organization.name %></span>
+      <style>
+       .logo-wrapper span{
+         color: white;
+         font-weight: 600;
+         font-size: 1.4em;
+         display: inline-block;
+         text-align: left;
+         padding-left: 8px;
+         line-height: 1;
+         position: relative;
+       }
+       .logo-wrapper span:before{
+         content: "";
+         display: block;
+         position: absolute;
+         border-left: 4px solid white;
+         height: 88%;
+         top: 6%; left: 0;
+       }
+      </style>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= Decidim.application_name %>
+<% end %>
