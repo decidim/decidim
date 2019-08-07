@@ -9,7 +9,7 @@ it:
         about: Di
         email: La tua email
         name: Nome utente
-        nickname: Nome utente
+        nickname: Nickname
         password: Password
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
@@ -30,7 +30,7 @@ it:
       decidim/user:
         current_password: Password attuale
         email: Email
-        name: Nome Utente
+        name: Nickname
         password: Password
         password_confirmation: Conferma della password
         remember_me: Ricorda la password
@@ -842,7 +842,7 @@ it:
           debates: Dibattiti
           debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
           how_to_participate: Come posso partecipare ad un processo?
-          meetings: incontri
+          meetings: Incontri
           meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
           more_info: Maggiori informazioni
           proposals: proposte
@@ -864,7 +864,7 @@ it:
           debates_count: Dibattiti
           endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: incontri
+          meetings_count: Incontri
           orders_count: Voti
           pages_count: Pagine
           processes_count: Processi
@@ -986,7 +986,7 @@ it:
     shared:
       embed_modal:
         close_window: Chiudi la finestra
-        embed: Per favore, incolla questo codice nella tua pagina
+        embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
         embed_link: Incorpora
       extended_navigation_bar:
         more: Di Più

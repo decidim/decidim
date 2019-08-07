@@ -36,15 +36,18 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
+        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
+        customize_welcome_notification: Personnalise tes notifications
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
+        from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
@@ -64,6 +67,7 @@ fr:
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
         password: Mot de passe
+        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
