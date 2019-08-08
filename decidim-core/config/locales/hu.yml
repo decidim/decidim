@@ -151,7 +151,7 @@ hu:
           accepted: |-
             A %{amendable_type}% %{proposal_link} előterjesztésre vonatkozó módosító javaslat ekkor <strong>%{date}</strong> elfogadásra került.
           evaluating: |-
-            Ezt a %{amendable_type} %{amendable_link}
+            Ezt a %{amendable_type} %{proposal_link}
             módosító javaslat értékelés alatt van.
           rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították."
           withdrawn: |-
