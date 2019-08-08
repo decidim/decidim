@@ -39,8 +39,8 @@ hu:
         one: Módosítás
         other: Módosítások
       decidim/user:
-        one: Nincsenek résztvevők
-        other: Felhasználók
+        one: Résztvevő
+        other: Résztvevők
       decidim/user_group:
         one: Felhasználói csoport
         other: csoportok
@@ -149,8 +149,7 @@ hu:
           help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
         announcement:
           accepted: |-
-            A %{amendable_type} %{amendable_link}
-            re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
+            A %{amendable_type}% %{proposal_link} előterjesztésre vonatkozó módosító javaslat ekkor <strong>%{date}</strong> elfogadásra került.
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
             módosító javaslat értékelés alatt van.
