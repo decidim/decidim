@@ -10,7 +10,7 @@ nl:
         closing_date_reason: Reden sluitingsdatum
         composition: Samenstelling
         copy_categories: Categorieën kopiëren
-        copy_components: Onderdelen tekst
+        copy_components: Kopieer onderdelen
         copy_features: Functionaliteiten kopiëren
         created_by: Aangemaakt door
         created_by_other: Aangemaakt door iemand anders
@@ -146,7 +146,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Events
+        assemblies: Groepen
         assemblies_submenu:
           assembly_admins: Groep-admins
           assembly_members: Leden
