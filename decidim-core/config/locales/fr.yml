@@ -3,6 +3,12 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      group:
+        about: A Propos
+        avatar: Avatar
+        email: Courriel
+        name: Nom
+        phone: Téléphone
       report:
         details: Commentaires supplémentaires
       user:
@@ -142,6 +148,8 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
+      edit_draft:
+        send: Aperçu
       emendation:
         actions:
           button_accept: Acceptez
