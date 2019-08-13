@@ -166,7 +166,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Bijeenkomst
+          name: Groep
         assembly_member:
           fields:
             ceased_date: Sluitingsdatum
