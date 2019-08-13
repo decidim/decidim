@@ -190,7 +190,7 @@ nl:
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Events
+        assemblies: Groepen
     admin_log:
       assembly:
         create: "%{user_name} heeft de groep %{resource_name} gemaakt"
