@@ -185,7 +185,7 @@ fr:
             moderator: Modérateur
         media_link:
           fields:
-            date: Rendez-vous amoureux
+            date: Date
             link: Lien
             title: Titre
           name: Lien média
