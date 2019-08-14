@@ -3,14 +3,14 @@ nl:
     attributes:
       assembly:
         area_id: Onderwerp
-        assembly_type: Groeptype
+        assembly_type: Groepstype
         assembly_type_other: Ander groeptype
         banner_image: Bannerafbeelding
         closing_date: Einddatum
         closing_date_reason: Reden sluitingsdatum
         composition: Samenstelling
         copy_categories: Categorieën kopiëren
-        copy_components: Onderdelen tekst
+        copy_components: Kopieer onderdelen
         copy_features: Functionaliteiten kopiëren
         created_by: Aangemaakt door
         created_by_other: Aangemaakt door iemand anders
@@ -18,7 +18,7 @@ nl:
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
-        developer_group: Promotergroep
+        developer_group: Promotorgroep
         domain: Domein
         duration: Looptijd
         facebook: Facebook
@@ -44,7 +44,7 @@ nl:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        special_features: Speciale functies
+        special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
         target: Wie doet mee
         title: Titel
@@ -146,9 +146,9 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Events
+        assemblies: Groepen
         assemblies_submenu:
-          assembly_admins: Gebruikersbijeenkomst
+          assembly_admins: Groep-admins
           assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: bestanden
@@ -166,7 +166,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Bijeenkomst
+          name: Groep
         assembly_member:
           fields:
             ceased_date: Sluitingsdatum
@@ -176,7 +176,7 @@ nl:
           name: Lid
           positions:
             other: Overige
-            president: De Voorzitter
+            president: Voorzitter
             secretary: Secretaris
             vice_president: Ondervoorzitter
         assembly_user_role:
@@ -190,7 +190,7 @@ nl:
             collaborator: Medewerker
             moderator: Moderator
       titles:
-        assemblies: Events
+        assemblies: Groepen
     admin_log:
       assembly:
         create: "%{user_name} heeft de groep %{resource_name} gemaakt"
@@ -215,7 +215,7 @@ nl:
             images: Afbeeldingen
             included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
-            other: Anders
+            other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een groepstype
@@ -229,16 +229,16 @@ nl:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
+            existing_user: Bestaande deelnemer
+            non_user: Niet deelnemer
             select_a_position: Selecteer een positie
-            select_user: Selecteer een gebruiker
-            user_type: Gebruikerstype
+            select_user: Selecteer een deelnemer
+            user_type: Type deelnemer
           index:
             filter:
               all: Alle
               ceased: Gestopt
-              not_ceased: Niet opgehouden
+              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:
@@ -268,7 +268,7 @@ nl:
         consultative_advisory: Adviesgroep
         executive: Uitvoerend
         government: Regering
-        help: 'Laten zien:'
+        help: 'Toon:'
         others: Overige
         participatory: Participatief
         working_group: Werkgroep
