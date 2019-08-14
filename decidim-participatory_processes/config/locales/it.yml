@@ -10,7 +10,7 @@ it:
         copy_steps: Copia le fasi
         decidim_area_id: Area
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
@@ -348,7 +348,7 @@ it:
           loading: Caricamento risultati...
       show:
         area: Area
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         end_date: Data di fine
         local_area: Area Organizzazione
         participatory_scope: Che cosa si decide
