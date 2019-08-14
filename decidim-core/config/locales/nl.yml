@@ -670,7 +670,7 @@ nl:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} kunt u deelnemen aan en beslissen over verschillende onderwerpen, via de spaties die u ziet in het bovenste menu: Processen, Assemblies, Initiatieven, Consultaties.</p> <p>Binnen elk daarvan vindt u verschillende mogelijkheden om deel te nemen: voorstellen doen - individueel of met andere mensen -, deelnemen aan debatten, prioriteit geven aan te implementeren projecten, persoonlijke vergaderingen bijwonen en andere acties.</p>\n"
+          content: "<p>In %{organization} kunt u deelnemen en besluiten over verschillende onderwerpen, via de ruimten die u ziet in het top menu: Processen, Groepen, Initiatieven, Raadplegingen.</p> <p>Binnen elke ruimte vindt u verschillende opties om deel te nemen: doe voorstellen - individueel of met andere mensen - neem deel aan debatten, wijs prioriteiten toe aan projecten, woon vergaderingen bij en andere acties.</p>\n \n"
           title: Wat kan ik doen in %{organization}?
         description: Lees meer over %{organization}
         title: Algemene hulp
@@ -824,7 +824,7 @@ nl:
           headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
-          assemblies_count: Events
+          assemblies_count: Groepen
           comments_count: Reacties
           conferences_count: conferenties
           debates_count: Debatten
