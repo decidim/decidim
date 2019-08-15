@@ -288,6 +288,10 @@ sv:
         confirm: Bekräfta
         contextual_help: Bekräfta det valda alternativet.
         title: 'Samråd: bekräfta röst'
+    resources:
+      consultations:
+        actions:
+          vote: Rösta
   layouts:
     decidim:
       admin:
