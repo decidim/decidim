@@ -6,7 +6,6 @@ en:
         delete_reason: Reason to delete your account
       group:
         about: About
-        avatar: Avatar
         document_number: Document number
         email: Email
         name: Name
@@ -231,6 +230,7 @@ en:
       photos:
         related_photos: Related images
     author:
+      avatar: avatar
       comments:
         one: comment
         other: comments
