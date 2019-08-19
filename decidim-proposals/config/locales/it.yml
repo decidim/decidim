@@ -419,7 +419,7 @@ it:
         filter_origin_values:
           all: Tutti
           citizens: Cittadini
-          meetings: incontri
+          meetings: Incontri
           official: Ufficiale
           user_groups: Gruppi di utenti
         filter_state_values:
@@ -564,10 +564,10 @@ it:
           fields:
             category: Categoria
             comments: Commenti
-            endorsements: Riconoscimenti
+            endorsements: Mi piace
             id: ID
             notes: Gli appunti
-            official_proposal: Proposta ufficiale
+            official_proposal: Proposta dell'Amministrazione
             published_at: Pubblicato a
             scope: Visibilità
             state: Stato

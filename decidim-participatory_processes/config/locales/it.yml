@@ -8,7 +8,7 @@ it:
         copy_components: Copia le componenti
         copy_steps: Copia le fasi
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
@@ -337,7 +337,7 @@ it:
         index:
           loading: Caricamento risultati...
       show:
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         end_date: Data di fine
         local_area: Area Organizzazione
         participatory_scope: Che cosa si decide

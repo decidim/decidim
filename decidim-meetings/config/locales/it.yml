@@ -76,7 +76,7 @@ it:
       meetings:
         actions:
           join: Iscriviti
-        name: incontri
+        name: Incontri
         settings:
           global:
             announcement: Annuncio
@@ -136,8 +136,8 @@ it:
       badges:
         attended_meetings:
           conditions:
-            - Registrati negli incontri a cui vuoi partecipare
-          description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
+            - Registrati agli incontri a cui vuoi partecipare
+          description: Questo badge è concesso quando si partecipano a numerosi incontri in presenza.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.
           name: Riunioni frequentate
@@ -190,7 +190,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
-          meetings: incontri
+          meetings: Incontri
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
@@ -240,7 +240,7 @@ it:
           form:
             select_organizer: Seleziona l'organizzatore
           index:
-            title: Riunioni
+            title: Incontri
           new:
             create: Crea
             title: Crea meeting
@@ -324,7 +324,7 @@ it:
           index:
             all: Tutti
             date: Quando
-            meetings: incontri
+            meetings: Incontri
             past: Conclusi
             search: Ricerca
             space_type: Spazio partecipativo
@@ -421,7 +421,7 @@ it:
       meetings:
         description: Numero di riunioni create
         object: incontri
-        title: incontri
+        title: Incontri
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
