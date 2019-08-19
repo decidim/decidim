@@ -86,6 +86,8 @@ ca:
         settings:
           global:
             amendments_enabled: Esmenes habilitades
+            amendments_enabled_help: Si l'actives, configura les funcionalitats de l'esmena per cada fase.
+            amendments_wizard_help_text: Text d'ajuda al crear una nova esmena
             announcement: Avís
             attachments_allowed: Permetre adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
@@ -109,6 +111,10 @@ ca:
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
+            amendment_creation_enabled: Creació d'esmenes habilitada
+            amendment_creation_enabled_help: Les participants poden esmenar les propostes.
+            amendment_promotion_enabled: Promoció d'esmenes rebutjades a propostes habilitada
+            amendment_promotion_enabled_help: Les autores de les esmenes rebutjades poden promocionar-les a propostes.
             amendments_visibility: Visibilitat de les esmenes
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
