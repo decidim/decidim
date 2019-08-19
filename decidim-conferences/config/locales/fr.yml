@@ -476,7 +476,7 @@ fr:
       shared:
         conference_user_login:
           already_account: Avez-vous déjà un compte dans decidim?
-          new_user: Nouvel utilisateur?
+          new_user: Nouvel utilisateur ?
           sign_in: Connectez-vous pour vous inscrire à la conférence
           sign_up: Créez un compte dans decidim pour vous inscrire à la conférence
       show:
