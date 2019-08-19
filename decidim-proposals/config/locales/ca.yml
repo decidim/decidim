@@ -698,6 +698,9 @@ ca:
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
+          link_to_promoted_emendation_text: Veure l'esmena rebutjada.
+          link_to_proposal_from_emendation_help_text: Això és una esmena rebutjada
+          link_to_proposal_from_emendation_text: Veure la proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
