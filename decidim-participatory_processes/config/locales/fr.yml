@@ -77,7 +77,7 @@ fr:
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur de la concertation
+        new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
