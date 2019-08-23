@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+-
 **Removed**:
 
 ## [0.16.1](https://github.com/decidim/decidim/tree/v0.16.1)
