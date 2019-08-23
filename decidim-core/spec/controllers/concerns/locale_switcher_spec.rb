@@ -15,15 +15,22 @@ module Decidim
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
     end
 
-    describe "current locale" do
-      it "matches default language" do
-        expect(controller.detect_locale.to_s).to eq(default_locale)
+    describe "no locale is passed" do
+      it "detected locale is empty" do
+        expect(controller.detect_locale.to_s).to be_empty
+      end
+      it "application uses default language" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq(default_locale)
+        end
       end
       context "with alternate default locale" do
         let(:default_locale) { alt_locale }
 
-        it "matches organization's default language" do
-          expect(controller.detect_locale.to_s).to eq(alt_locale)
+        it "application uses organization's default language" do
+          controller.switch_locale do
+            expect(I18n.locale.to_s).to eq(alt_locale)
+          end
         end
       end
     end
@@ -64,8 +71,8 @@ module Decidim
         request.headers["Accept-Language"] = "zz"
       end
 
-      it "locale matches default language" do
-        expect(controller.detect_locale.to_s).to eq(default_locale)
+      it "locale is empty" do
+        expect(controller.detect_locale.to_s).to be_empty
       end
     end
 
@@ -106,20 +113,37 @@ module Decidim
         controller.params[:locale] = "foo"
       end
 
-      it "locale matches GET language" do
-        expect(controller.detect_locale.to_s).to eq(default_locale)
+      it "application uses default locale" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq(default_locale)
+        end
       end
     end
 
-    describe "request with user session defined language" do
-      let(:user) { create(:user, :confirmed, locale: "ca", organization: organization) }
-
+    describe "request with session defined language" do
       before do
         controller.session[:user_locale] = "ca"
       end
 
-      it "locale matches user language" do
-        expect(controller.detect_locale.to_s).to eq("ca")
+      it "application uses session language" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq("ca")
+        end
+      end
+    end
+
+    describe "request with user session" do
+      let(:user) { create(:user, :confirmed, locale: "de", organization: organization) }
+
+      before do
+        allow(controller).to receive(:current_user) { user }
+        controller.session[:user_locale] = "ca"
+      end
+
+      it "application uses user language" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq("de")
+        end
       end
     end
   end
