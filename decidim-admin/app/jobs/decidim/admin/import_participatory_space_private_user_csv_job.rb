@@ -9,6 +9,7 @@ module Decidim
 
       def perform(email, user_name, privatable_to, current_user)
         return if email.blank? && user_name.blank?
+
         params = {
           name: user_name,
           email: email.downcase.strip
