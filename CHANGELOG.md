@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
 - **decidim-admin**, **decidim-forms**: Fix adding answer options to a new form [#5283](https://github.com/decidim/decidim/pull/5283)
 - **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5277](https://github.com/decidim/decidim/pull/5277)
 - **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5287](https://github.com/decidim/decidim/pull/5287)
