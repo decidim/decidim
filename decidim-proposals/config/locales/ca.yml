@@ -86,6 +86,8 @@ ca:
         settings:
           global:
             amendments_enabled: Esmenes habilitades
+            amendments_enabled_help: Si l'actives, configura les funcionalitats de l'esmena per cada fase.
+            amendments_wizard_help_text: Text d'ajuda al crear una nova esmena
             announcement: Avís
             attachments_allowed: Permetre adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
@@ -109,6 +111,12 @@ ca:
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
+            amendment_creation_enabled: Creació d'esmenes habilitada
+            amendment_creation_enabled_help: Les participants poden esmenar les propostes.
+            amendment_promotion_enabled: Promoció d'esmenes rebutjades a propostes habilitada
+            amendment_promotion_enabled_help: Les autores de les esmenes rebutjades poden promocionar-les a propostes.
+            amendment_reaction_enabled: Reacció a les esmenes habilitada
+            amendment_reaction_enabled_help: Les autores de les propostes poden acceptar o rebutjar les esmenes proposades pels participants.
             amendments_visibility: Visibilitat de les esmenes
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
@@ -689,6 +697,10 @@ ca:
             other: i %{count} persones més
           link_to_collaborative_draft_help_text: Aquesta proposta és el resultat d'un esborrany col·laboratiu. Revisa l'historial
           link_to_collaborative_draft_text: Veure l'esborrany col·laboratiu
+          link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
+          link_to_promoted_emendation_text: Veure l'esmena rebutjada.
+          link_to_proposal_from_emendation_help_text: Això és una esmena rebutjada
+          link_to_proposal_from_emendation_text: Veure la proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
