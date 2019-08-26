@@ -75,6 +75,7 @@ fr:
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
         warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
@@ -244,6 +245,7 @@ fr:
         form:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
+          participatory_texts_enabled_help: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité 'Propositions' si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans le menu `Textes participatifs` si vous voulez la désactiver.
           step_settings: Paramètres de l'étape
         index:
           add: Ajouter une fonctionnalité
