@@ -1,7 +1,7 @@
 <div class="columns mediumlarge-4 hidden-section p-sm">
   <div class="medium-8">
     <%= follow_button_for(model, true) %>
-    <% if visible_emendations.any? %>
+    <% if amendmendment_creation_enabled? || visible_emendations.any? %>
       <div class="button-group button-group--collapse mb-s row collapse amend-buttons">
         <%= link_to resource_amendments_path, class: "column medium-4 button light secondary" do %>
           <%= visible_emendations.count %>

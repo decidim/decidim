@@ -14,7 +14,7 @@ nl:
         subtitle: Ondertitel
         title: Titel
       question:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_scope_id: Gemeentelijk thema
         hashtag: Hashtag
         hero_image: Home afbeelding
@@ -127,7 +127,7 @@ nl:
             title: Titel
           name:
             one: Antwoord
-            other: antwoorden
+            other: Antwoorden
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
