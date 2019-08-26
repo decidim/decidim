@@ -10,6 +10,7 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
 - **decidim-assemblies**: Fix: admin assemblies form. [#5211](https://github.com/decidim/decidim/pull/5211)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
