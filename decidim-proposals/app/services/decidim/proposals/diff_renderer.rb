@@ -2,15 +2,8 @@
 
 module Decidim
   module Proposals
-    class DiffRenderer
-      def initialize(version)
-        @version = version
-      end
-
-      # Renders the diff of the given changeset. Doesn't take into account translatable fields.
-      #
-      # Returns a Hash, where keys are the fields that have changed and values are an
-      # array, the first element being the previous value and the last being the new one.
+    class DiffRenderer < BaseDiffRenderer
+      # Overrides the public method to parse the values before parsing the changeset.
       def diff
         version.changeset.inject({}) do |diff, (attribute, values)|
           attribute = attribute.to_sym
@@ -26,10 +19,7 @@ module Decidim
 
       private
 
-      attr_reader :version
-
-      # Lists which attributes will be diffable and how
-      # they should be rendered.
+      # Lists which attributes will be diffable and how they should be rendered.
       def attribute_types
         {
           title: :string,
@@ -41,17 +31,6 @@ module Decidim
           longitude: :string,
           state: :string
         }
-      end
-
-      def parse_changeset(attribute, values, type, diff)
-        diff.update(
-          attribute => {
-            type: type,
-            label: I18n.t(attribute, scope: "activemodel.attributes.collaborative_draft"),
-            old_value: values[0],
-            new_value: values[1]
-          }
-        )
       end
 
       # Handles which values to use when diffing emendations and
