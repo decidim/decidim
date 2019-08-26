@@ -14,7 +14,11 @@ module Decidim
           name: user_name,
           email: email.downcase.strip
         }
-        private_user_form = ParticipatorySpacePrivateUserForm.from_params(params, privatable_to: privatable_to).with_context(current_user: current_user, current_particiaptory_space: privatable_to)
+        private_user_form = ParticipatorySpacePrivateUserForm.from_params(params, privatable_to: privatable_to)
+                                                             .with_context(
+                                                               current_user: current_user,
+                                                               current_particiaptory_space: privatable_to
+                                                             )
 
         Decidim::Admin::CreateParticipatorySpacePrivateUser.call(private_user_form, current_user, privatable_to, true)
       end
