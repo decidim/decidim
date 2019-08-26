@@ -3,6 +3,14 @@ nl:
     attributes:
       account:
         delete_reason: Reden om uw account te verwijderen
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Aanvullende opmerkingen
       user:
@@ -15,14 +23,14 @@ nl:
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
-      decidim/attachment_created_event: gehechtheid
+      decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je bent genivelleerd
-      decidim/join_request_accepted_event: Aanvragen geaccepteerd
-      decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
-      decidim/profile_updated_event: Profiel geüpdatet
+      decidim/gamification/level_up_event: Je bereikte een hoger niveau
+      decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
+      decidim/join_request_rejected_event: Deelnameverzoek afgewezen
+      decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
   activerecord:
@@ -30,20 +38,20 @@ nl:
       decidim/user:
         current_password: Huidige wachtwoord
         email: E-mailadres
-        name: Gebruikersnaam
+        name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
       decidim/amendment:
         one: Amendement
-        other: wijzigingen
+        other: Amendementen
       decidim/user:
-        one: Geen gebruikers
-        other: gebruikers
+        one: Deelnemer
+        other: Deelnemers
       decidim/user_group:
-        one: Gebruikersgroep
-        other: Gebruikersgroepen
+        one: Groep
+        other: groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -63,7 +71,7 @@ nl:
         file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
+        notice: De download van uw gegevens is momenteel bezig. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -88,7 +96,7 @@ nl:
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
-        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name}"
         delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
         publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
@@ -142,6 +150,21 @@ nl:
         promote_confirm_text: Weet je zeker dat je deze emendatie wilt promoten?
         promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
         section_heading: Wijzigingen (%{count})
+      compare_draft:
+        continue: Volgende
+        no_similars_found: Geen gelijkaardige amendementen gevonden.
+        title: Gelijkaardige amendementen
+      created:
+        error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
+        success: Het amendement werd met succes aangemaakt.
+      destroy_draft:
+        error: Er was een probleem bij het verwijderen van het amendement.
+        success: Amendement ontwerp is succesvol verwijderd.
+      edit_draft:
+        discard: Verwijder dit concept
+        discard_confirmation: Weet u zeker dat u dit amendementsontwerp wilt verwijderen?
+        send: Voorbeeld
+        title: Wijzig amendement concept
       emendation:
         actions:
           button_accept: Aanvaarden
@@ -154,15 +177,25 @@ nl:
           evaluating: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
       new:
         amendment_author: Amendement auteur
+        send: Aanmaken
+        title: Maak een amendement
+      preview_draft:
+        modify: Aanpassen
+        publish: Publiceren
+        title: Publiceer het ontwerpdocument van amendement
       promoted:
         error: Er zijn fouten opgetreden bij het promoten van de emendation
         success: Emendation met succes gepromoot
+      publish_draft:
+        error: Er is een fout opgetreden bij het publiceren van dit amendement.
+        success: Amendement succesvol gepubliceerd.
       rejected:
         error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
         success: De emendation is met succes afgewezen
@@ -171,12 +204,21 @@ nl:
         heading: Bekijk het amendement
         help_text: U bekijkt een amendement op de %{model_name}
         send: Accepteer het amendement
+      update_draft:
+        error: Er is een fout opgetreden bij het bijwerken van dit amendement.
+        success: Amendement ontwerp is succesvol bijgewerkt.
+      visibility_options:
+        all: Amendementen zijn zichtbaar voor iedereen
+        participants: Amendementen zijn alleen zichtbaar voor hun auteurs
+      withdraw:
+        error: Er is een fout opgetreden tijdens het intrekken van het amendement
+        success: Het amendement is met succes ingetrokken
       wizard_step_form:
         steps:
           '1': Maak uw amendement
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Vergelijk uw amendement
+          '3': Voltooi uw amendement
+          '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
       collection:
@@ -267,12 +309,18 @@ nl:
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Reacties geblokkeerd
             dummy_step_attribute_1: Voorbeeld-kenmerk 1
             dummy_step_attribute_2: Voorbeeld-kenmerk 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -298,6 +346,7 @@ nl:
         name: Sub held banner
     core:
       actions:
+        login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
     data_portability:
       export:
@@ -324,6 +373,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw korte, unieke ID op %{organization}
+          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -668,7 +718,7 @@ nl:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} kunt u deelnemen aan en beslissen over verschillende onderwerpen, via de spaties die u ziet in het bovenste menu: Processen, Assemblies, Initiatieven, Consultaties.</p> <p>Binnen elk daarvan vindt u verschillende mogelijkheden om deel te nemen: voorstellen doen - individueel of met andere mensen -, deelnemen aan debatten, prioriteit geven aan te implementeren projecten, persoonlijke vergaderingen bijwonen en andere acties.</p>\n"
+          content: "<p>In %{organization} kunt u deelnemen en besluiten over verschillende onderwerpen, via de ruimten die u ziet in het top menu: Processen, Groepen, Initiatieven, Raadplegingen.</p> <p>Binnen elke ruimte vindt u verschillende opties om deel te nemen: doe voorstellen - individueel of met andere mensen - neem deel aan debatten, wijs prioriteiten toe aan projecten, woon vergaderingen bij en andere acties.</p>\n \n"
           title: Wat kan ik doen in %{organization}?
         description: Lees meer over %{organization}
         title: Algemene hulp
@@ -703,7 +753,7 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
-      help: Helpen
+      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -822,7 +872,7 @@ nl:
           headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
-          assemblies_count: Events
+          assemblies_count: Groepen
           comments_count: Reacties
           conferences_count: conferenties
           debates_count: Debatten
@@ -845,7 +895,7 @@ nl:
         read_more: Lees verder
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
-        title: Helpen
+        title: Help
         topics: Onderwerpen
       participatory_space:
         metrics:
@@ -965,7 +1015,7 @@ nl:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
-        help: Helpen
+        help: Help
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
@@ -1003,6 +1053,12 @@ nl:
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Terug
+      wizard_header:
+        see_steps: bekijk stappen
+        step_of: Stap %{current_step} van %{total_steps}
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -1093,6 +1149,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
+        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
@@ -1236,12 +1293,15 @@ nl:
     qq: Qzone
     reddit: Reddit
     share_to: Delen op %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open uw WeChat, klik op "Ontdekken" en open het menu "QR-Code scannen".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1256,6 +1316,14 @@ nl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Verwijderingen
+      right: Toevoegingen
+    dropdown:
+      choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_split: Naast elkaar
+      option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"

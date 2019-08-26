@@ -17,13 +17,13 @@ it:
         banner_image: Immagine banner
         decidim_scope_id: Area comunale
         hashtag: hashtag
-        hero_image: Immagine domestica
+        hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
         origin_scope: Scopo
         origin_title: Origine
         origin_url: URL di origine
         participatory_scope: Scopo partecipativo
-        promoter_group: Gruppo promotore
+        promoter_group: Promotore
         question_context: Contesto
         reference: Riferimento
         scope: Area comunale
@@ -271,7 +271,7 @@ it:
       statistics:
         assistants_count_title: assistenti
         comments_count_title: Commenti
-        meetings_count_title: incontri
+        meetings_count_title: Incontri
         supports_count_title: supporti
       technical_info:
         technical_data: Dati tecnici

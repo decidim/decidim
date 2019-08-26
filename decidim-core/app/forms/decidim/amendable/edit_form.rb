@@ -15,7 +15,7 @@ module Decidim
       validate :amendable_form_must_be_valid
 
       def map_model(model)
-        self.emendation_params = model.emendation.attributes.slice(*emendation.amendable_fields.map(&:to_s))
+        self.emendation_params = model.emendation.attributes.slice(*amendable_fields_as_string)
       end
     end
   end

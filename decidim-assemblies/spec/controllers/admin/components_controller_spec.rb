@@ -36,10 +36,12 @@ module Decidim
             {
               name_en: "Dummy component",
               settings: {
-                comments_enabled: true
+                comments_enabled: true,
+                dummy_global_translatable_text_en: "Dummy text"
               },
               default_step_settings: {
-                comments_blocked: true
+                comments_blocked: true,
+                dummy_step_translatable_text_en: "Dummy text"
               }
             }
           end
@@ -47,7 +49,7 @@ module Decidim
           it "publishes the default step settings change" do
             expect(Decidim::SettingsChange).to receive(:publish).with(
               component,
-              {},
+              hash_including("comments_blocked" => false),
               hash_including("comments_blocked" => true)
             )
 

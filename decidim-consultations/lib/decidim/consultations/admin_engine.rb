@@ -20,6 +20,7 @@ module Decidim
           resource :publish_results, controller: "consultation_results_publications", only: [:create, :destroy]
           resources :questions, param: :slug, except: :show, shallow: true do
             resource :publish, controller: "question_publications", only: [:create, :destroy]
+            resource :permissions, controller: "question_permissions"
           end
         end
 

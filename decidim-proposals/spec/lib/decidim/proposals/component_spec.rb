@@ -136,6 +136,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
+    describe "proposals_accepted" do
+      let!(:accepted_proposal) { create :proposal, :accepted, component: component }
+      let!(:accepted_hidden_proposal) { create :proposal, :accepted, component: component }
+      let!(:moderation) { create :moderation, reportable: accepted_hidden_proposal, hidden_at: 1.day.ago }
+      let(:stats_name) { :proposals_accepted }
+
+      it "only counts accepted and not hidden proposals" do
+        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 6
+        expect(subject).to eq 1
+      end
+    end
+
     describe "votes_count" do
       let(:stats_name) { :votes_count }
 
@@ -199,6 +211,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       context "when there are no proposals for the component" do
         it "allows to check the setting" do
           expect(participatory_texts_enabled[:class]).not_to include("disabled")
+          expect(page).not_to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
         it "changes the setting value after updating" do
@@ -218,7 +231,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT allow to check the setting" do
           expect(participatory_texts_enabled[:class]).to include("disabled")
-
           expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 

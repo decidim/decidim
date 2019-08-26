@@ -41,6 +41,7 @@ ca:
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
+        customize_welcome_notification: Adaptar la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar banner omnipresent
@@ -70,6 +71,7 @@ ca:
         primary_color: Primària
         reference_prefix: Prefix de referència
         secondary_color: Secundari
+        send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
         tos_version: Versió del Termes de Servei
@@ -77,6 +79,8 @@ ca:
         user_groups_enabled: Habilitar grups
         user_name: Àlies
         warning_color: Avís
+        welcome_notification_body: Cos de la notificació de benvinguda
+        welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi

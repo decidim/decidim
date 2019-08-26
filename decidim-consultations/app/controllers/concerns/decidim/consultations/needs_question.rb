@@ -7,8 +7,8 @@ module Decidim
     module NeedsQuestion
       def self.enhance_controller(instance_or_module)
         instance_or_module.class_eval do
-          helper_method :current_question, :previous_question, :next_question, :current_consultation, :current_participatory_space, :stats,
-                        :sorted_results
+          helper_method :current_question, :previous_question, :next_question, :previous_published_question, :next_published_question,
+                        :current_consultation, :current_participatory_space, :stats, :sorted_results
 
           helper Decidim::WidgetUrlsHelper
         end
@@ -55,6 +55,20 @@ module Decidim
           current_consultation_questions.at(current_question_index + 1)
         end
 
+        # same as next_question but for published questions only
+        def next_published_question
+          return nil if current_published_question_index + 1 >= current_consultation_published_questions.size
+
+          current_consultation_published_questions.at(current_published_question_index + 1)
+        end
+
+        # same as previous_question but for published questions only
+        def previous_published_question
+          return nil if (current_published_question_index - 1).negative?
+
+          current_consultation_published_questions.at(current_published_question_index - 1)
+        end
+
         # Public: Finds the current Consultation given this controller's
         # context.
         #
@@ -89,8 +103,16 @@ module Decidim
           @current_consultation_questions ||= current_question.consultation.questions.to_a
         end
 
+        def current_consultation_published_questions
+          @current_consultation_published_questions ||= current_question.consultation.questions.published.to_a
+        end
+
         def current_question_index
           current_consultation_questions.find_index(current_question)
+        end
+
+        def current_published_question_index
+          current_consultation_published_questions.find_index(current_question)
         end
       end
     end

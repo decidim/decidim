@@ -7,7 +7,7 @@ shared_examples "promote amendment" do
     end
 
     it "creates an amendable type resource" do
-      expect { command.call }.to change(amendable.amendable_type.constantize, :count).by(1)
+      expect { command.call }.to change(amendable.class, :count).by(1)
     end
 
     it "traces the action", versioning: true do

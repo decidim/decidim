@@ -235,6 +235,9 @@ fi-pl:
       question_votes:
         create:
           error: Kysymystä äänestäessä tapahtui virheitä
+          success: Voit muuttaa sitä kuulemisen loppuun saakka. Ainoastaan viimeisin ääni hyväksytään.
+          title_error: Virhe äänestettäessä!
+          title_success: Äänestys onnistui
       regular_questions:
         title: Tätä kuulemista koskevat kysymykset
       show:
@@ -279,6 +282,7 @@ fi-pl:
         already_voted: Äänestetty aikaisemmin
         already_voted_hover: Peruuta kannatus
         starting_from: Alkaa %{date}
+        verification_required: Varmenna käyttäjätilisi äänestääksesi
         vote: Äänestä
       vote_modal:
         contextual_help: Valitse vaihtoehto.
@@ -288,6 +292,10 @@ fi-pl:
         confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
         title: 'Kuuleminen: vahvista kannatus'
+    resources:
+      consultations:
+        actions:
+          vote: Äänestä
   layouts:
     decidim:
       admin:

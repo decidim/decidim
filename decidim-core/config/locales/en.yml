@@ -4,6 +4,14 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      group:
+        about: About
+        avatar: Avatar
+        document_number: Document number
+        email: Email
+        name: Name
+        nickname: Nickname
+        phone: Phone
       report:
         details: Additional comments
       user:
@@ -302,12 +310,18 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
+            amendment_creation_enabled: Amendment creation enabled
+            amendment_promotion_enabled: Amendment promotion enabled
+            amendment_reaction_enabled: Amendment reaction enabled
+            amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -1284,12 +1298,15 @@ en:
     qq: Qzone
     reddit: Reddit
     share_to: Share to %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:

@@ -18,13 +18,13 @@ it:
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         domain: Dominio
         duration: Durata
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Immagine della Home
+        hero_image: Immagine della home page
         included_at: Incluso a
         instagram: Instagram
         internal_organisation: Organizzazione interna
@@ -40,7 +40,7 @@ it:
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
         scope_id: Obiettivi
-        scopes_enabled: Scopi abilitati
+        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
         slug: URL slug
@@ -292,7 +292,7 @@ it:
         composition: Composizione
         created_by: Creato da
         creation_date: Data di creazione
-        developer_group: Gruppo promotore
+        developer_group: Promotore
         duration: Durata
         included_at: Incluso a
         indefinite_duration: Indefinito
@@ -316,7 +316,7 @@ it:
         assemblies_count: assemblee
         comments_count: Commenti
         debates_count: dibattiti
-        endorsements_count: Riconoscimenti
+        endorsements_count: Mi piace
         headline: Attività
         meetings_count: Riunioni
         orders_count: Voti

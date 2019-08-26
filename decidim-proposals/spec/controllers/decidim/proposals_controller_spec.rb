@@ -19,7 +19,6 @@ module Decidim
         request.env["decidim.current_organization"] = component.organization
         request.env["decidim.current_participatory_space"] = component.participatory_space
         request.env["decidim.current_component"] = component
-        sign_in user
       end
 
       describe "GET index" do
@@ -62,6 +61,8 @@ module Decidim
       describe "GET new" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
+        before { sign_in user }
+
         context "when NO draft proposals exist" do
           it "renders the empty form" do
             get :new, params: params
@@ -82,6 +83,8 @@ module Decidim
       end
 
       describe "POST create" do
+        before { sign_in user }
+
         context "when creation is not enabled" do
           let(:component) { create(:proposal_component) }
 
@@ -109,6 +112,8 @@ module Decidim
 
       describe "withdraw a proposal" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
+
+        before { sign_in user }
 
         context "when an authorized user is withdrawing a proposal" do
           let(:proposal) { create(:proposal, component: component, users: [user]) }
@@ -150,6 +155,104 @@ module Decidim
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false
+            end
+          end
+        end
+      end
+
+      describe "GET show" do
+        let!(:component) { create(:proposal_component, :with_amendments_enabled) }
+        let!(:amendable) { create(:proposal, component: component) }
+        let!(:emendation) { create(:proposal, component: component) }
+        let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
+        let(:active_step_id) { component.participatory_space.active_step.id }
+
+        context "when the proposal is an amendable" do
+          it "shows the proposal" do
+            get :show, params: params.merge(id: amendable.id)
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:show)
+          end
+
+          context "and the user is not logged in" do
+            it "shows the proposal" do
+              get :show, params: params.merge(id: amendable.id)
+              expect(response).to have_http_status(:ok)
+              expect(subject).to render_template(:show)
+            end
+          end
+        end
+
+        context "when the proposal is an emendation" do
+          context "and amendments VISIBILITY is set to 'participants'" do
+            before do
+              component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
+            end
+
+            context "when the user is not logged in" do
+              it "redirects to 404" do
+                expect do
+                  get :show, params: params.merge(id: emendation.id)
+                end.to raise_error(ActionController::RoutingError)
+              end
+            end
+
+            context "when the user is logged in" do
+              before { sign_in user }
+
+              context "and the user is the author of the emendation" do
+                let(:user) { amendment.amender }
+
+                it "shows the proposal" do
+                  get :show, params: params.merge(id: emendation.id)
+                  expect(response).to have_http_status(:ok)
+                  expect(subject).to render_template(:show)
+                end
+              end
+
+              context "and is NOT the author of the emendation" do
+                it "redirects to 404" do
+                  expect do
+                    get :show, params: params.merge(id: emendation.id)
+                  end.to raise_error(ActionController::RoutingError)
+                end
+
+                context "when the user is an admin" do
+                  let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+                  it "shows the proposal" do
+                    get :show, params: params.merge(id: emendation.id)
+                    expect(response).to have_http_status(:ok)
+                    expect(subject).to render_template(:show)
+                  end
+                end
+              end
+            end
+          end
+
+          context "and amendments VISIBILITY is set to 'all'" do
+            before do
+              component.update!(step_settings: { active_step_id => { amendments_visibility: "all" } })
+            end
+
+            context "when the user is not logged in" do
+              it "shows the proposal" do
+                get :show, params: params.merge(id: emendation.id)
+                expect(response).to have_http_status(:ok)
+                expect(subject).to render_template(:show)
+              end
+            end
+
+            context "when the user is logged in" do
+              before { sign_in user }
+
+              context "and is NOT the author of the emendation" do
+                it "shows the proposal" do
+                  get :show, params: params.merge(id: emendation.id)
+                  expect(response).to have_http_status(:ok)
+                  expect(subject).to render_template(:show)
+                end
+              end
             end
           end
         end

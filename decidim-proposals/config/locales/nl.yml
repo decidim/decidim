@@ -77,6 +77,7 @@ nl:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: creëren
           endorse: Aanbevelen
           vote: Stem
@@ -85,6 +86,8 @@ nl:
         settings:
           global:
             amendments_enabled: Wijzigingen ingeschakeld
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: Aankondiging
             attachments_allowed: Bijlagen toestaan
             can_accumulate_supports_beyond_threshold: Kan stemmen verzamelen die de limiet overschrijden
@@ -94,6 +97,7 @@ nl:
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
             official_proposals_enabled: Officiële voorstellen zijn ingeschakeld
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Participatieve teksten ingeschakeld
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
@@ -107,6 +111,10 @@ nl:
             threshold_per_proposal: Limiet per voorstel
             vote_limit: Limiet van het aantal stemmen per gebruiker
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
             announcement: Aankondiging
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
@@ -684,6 +692,7 @@ nl:
             other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk de samenwerkende trekking
+          link_to_proposal_from_emendation_text: Bekijk het voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'

@@ -44,13 +44,13 @@ module Decidim
         PaperTrail.request(enabled: false) do
           @emendation = Decidim.traceability.perform_action!(
             :create,
-            amendable.amendable_type.constantize,
+            amendable.class,
             current_user,
             visibility: "public-only"
           ) do
-            emendation = amendable.amendable_type.constantize.new(form.emendation_params)
+            emendation = amendable.class.new(form.emendation_params)
             emendation.component = amendable.component
-            emendation.add_coauthor(current_user, user_group: user_group)
+            emendation.add_author(current_user, user_group)
             emendation.save!
             emendation
           end

@@ -10,6 +10,16 @@ module Decidim
   end
 
   module DummyResources
+    include ActiveSupport::Configurable
+
+    # Settings needed to compare emendations in Decidim::SimilarEmendations
+    config_accessor :similarity_threshold do
+      0.25
+    end
+    config_accessor :similarity_limit do
+      10
+    end
+
     # Dummy engine to be able to test components.
     class DummyEngine < Rails::Engine
       engine_name "dummy"
@@ -53,6 +63,7 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
+      include Hashtaggable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -123,12 +134,18 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_attribute_2, type: :boolean
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
+    settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
   end
 
   component.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :dummy_step_attribute_1, type: :boolean
     settings.attribute :dummy_step_attribute_2, type: :boolean
+    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
+    settings.attribute :amendment_creation_enabled, type: :boolean, default: true
+    settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
+    settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
+    settings.attribute :amendments_visibility, type: :string, default: "all"
   end
 
   component.register_resource(:dummy_resource) do |resource|

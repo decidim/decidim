@@ -96,10 +96,6 @@ sv:
           create: Skapa
           select_a_category: Välj en kategori
           title: Ny debatt
-        share:
-          close_window: Stäng fönster
-          share: Dela
-          share_link: Dela länk
       last_activity:
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:

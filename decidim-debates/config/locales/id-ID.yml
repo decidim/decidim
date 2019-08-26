@@ -94,10 +94,6 @@ id:
           create: Membuat
           select_a_category: Silakan pilih kategori
           title: Debat baru
-        share:
-          close_window: Tutup jendela
-          share: Bagikan
-          share_link: Membagikan tautan
       last_activity:
         new_debate_at_html: "<span>Debat baru di %{link}</span>"
       models:

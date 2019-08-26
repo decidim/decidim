@@ -136,6 +136,7 @@ fi:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
+          error: Osallisuusprosessien ryhmän poisto epäonnistui.
           success: Osallisuusprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
@@ -235,6 +236,9 @@ fi:
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
+        update: "%{user_name} päivitti osallisuusprosessien ryhmää %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
