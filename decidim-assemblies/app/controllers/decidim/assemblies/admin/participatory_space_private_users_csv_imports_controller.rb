@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
+  module Assemblies
     module Admin
       # Controller that allows importing assembly private users
       # on assembies
       class ParticipatorySpacePrivateUsersCsvImportsController < Decidim::Admin::ApplicationController
-        include Concerns::ParticipatoryProcessAdmin
+        include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasPrivateUsersCsvImport
 
         def after_import_path
@@ -14,7 +14,7 @@ module Decidim
         end
 
         def privatable_to
-          current_participatory_process
+          current_assembly
         end
       end
     end
