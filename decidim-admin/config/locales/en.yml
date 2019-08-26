@@ -583,7 +583,7 @@ en:
           invalid: There was a problem reading the CSV file.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
-          explanation: Upload your CSV file. It must have two columns with name in the first column of the file and email in the last column of the file (name, email) of the users that you want to add to the participatory space, without headers.
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers.
           title: Upload your CSV file
           upload: Upload
       resource_permissions:
