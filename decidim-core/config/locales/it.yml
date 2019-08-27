@@ -8,8 +8,8 @@ it:
       user:
         about: Di
         email: La tua email
-        name: Nickname
-        nickname: Nome utente
+        name: Nome utente
+        nickname: Nickname
         password: Password
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
@@ -30,7 +30,7 @@ it:
       decidim/user:
         current_password: Password attuale
         email: Email
-        name: Nome Utente
+        name: Nickname
         password: Password
         password_confirmation: Conferma della password
         remember_me: Ricorda la password
@@ -315,7 +315,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il tuo nickname (@nickname) in %{organization}
+          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -324,7 +324,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il tuo identificatore univoco breve in %{organization}
+          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -334,7 +334,7 @@ it:
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti le %{link}.
           tos_title: Termini di servizio
-          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se non vuoi essere riconoscibile.
+          username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
@@ -808,7 +808,7 @@ it:
           debates: Dibattiti
           debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
           how_to_participate: Come posso partecipare ad un processo?
-          meetings: incontri
+          meetings: Incontri
           meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
           more_info: Maggiori informazioni
           proposals: proposte
@@ -828,9 +828,9 @@ it:
           comments_count: Commenti
           conferences_count: conferenze
           debates_count: Dibattiti
-          endorsements_count: Riconoscimenti
+          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: incontri
+          meetings_count: Incontri
           orders_count: Voti
           pages_count: Pagine
           processes_count: Processi
@@ -926,19 +926,19 @@ it:
         choose: Selezionare
         title: Seleziona %{field}
       prompt: Seleziona un ambito
-      scopes: Scopes
+      scopes: Ambiti
     search:
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:
         back: Torna ai risultati
-        jump_to: 'Salta a:'
+        jump_to: 'Filtra per:'
         state:
           active: Attivo
           all: Tutti
           future: Futuro
-          past: Passato
+          past: Conclusi
       filters_small_view:
         close_modal: Chiudi modale
         filter: Filtro
@@ -952,7 +952,7 @@ it:
     shared:
       embed_modal:
         close_window: Chiudi la finestra
-        embed: Per favore, incolla questo codice nella tua pagina
+        embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
         embed_link: Incorpora
       extended_navigation_bar:
         more: Di Più

@@ -172,7 +172,7 @@ describe "Participatory Processes", type: :system do
 
             within find("#processes-grid .column", text: translated(promoted_process.title)) do
               within ".card__footer .card__button " do
-                expect(page).to have_content("TAKE PART")
+                expect(page).to have_content("MORE INFO")
               end
             end
           end
@@ -203,7 +203,7 @@ describe "Participatory Processes", type: :system do
                 visit decidim_participatory_processes.participatory_processes_path
                 within find("#processes-grid .column", text: translated(promoted_process.title)) do
                   within ".card__footer .card__button" do
-                    expect(page).to have_content("TAKE PART")
+                    expect(page).to have_content("MORE INFO")
                   end
                 end
               end
@@ -216,7 +216,7 @@ describe "Participatory Processes", type: :system do
                 visit decidim_participatory_processes.participatory_processes_path
                 within find("#processes-grid .column", text: translated(promoted_process.title)) do
                   within ".card__footer .card__button" do
-                    expect(page).to have_content("TAKE PART")
+                    expect(page).to have_content("MORE INFO")
                   end
                 end
               end

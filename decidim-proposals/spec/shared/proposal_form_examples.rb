@@ -150,6 +150,10 @@ shared_examples "a proposal form" do |options|
         end
 
         context "when the has address checkbox is unchecked" do
+          before do
+            stub_geocoding(address, [latitude, longitude])
+          end
+
           let(:has_address) { false }
 
           it "is valid" do
@@ -160,6 +164,10 @@ shared_examples "a proposal form" do |options|
         end
 
         context "when the proposal is unchanged" do
+          before do
+            stub_geocoding(address, [latitude, longitude])
+          end
+
           let(:previous_proposal) { create(:proposal, address: address) }
 
           let(:params) do

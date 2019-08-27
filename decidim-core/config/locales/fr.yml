@@ -1194,7 +1194,7 @@ fr:
         edit: Modifier
       footer:
         download_open_data: Télécharger les fichiers Open Data
-        made_with_open_source: Site réalisé grâce au logiciel libre <a target="_blank" href="https://decidim.org">Decidim</a>.
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation

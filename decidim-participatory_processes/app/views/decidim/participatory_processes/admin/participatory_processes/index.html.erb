@@ -30,6 +30,7 @@
           <% end %>
         </ul>
       </div>
+    </h2>
   </div>
   <div class="card-section">
     <div class="table-scroll">
@@ -69,9 +70,6 @@
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>
-              </td>
-              <td>
-                <%= process.promoted? ? t("participatory_processes.index.promoted.true", scope: "decidim.admin") : t("participatory_processes.index.promoted.false", scope: "decidim.admin") %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

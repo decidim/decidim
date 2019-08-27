@@ -163,8 +163,8 @@ fr:
         assembly:
           fields:
             created_at: Créée le
-            private: Assemblée privée
-            promoted: Mise en avant
+            private: Privée
+            promoted: Mise en évidence
             published: Publiée
             title: Titre
           name: Assemblée
@@ -362,6 +362,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
         index:
+          children: 'Assemblées : '
           organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
           reset_chart: Réinitialiser

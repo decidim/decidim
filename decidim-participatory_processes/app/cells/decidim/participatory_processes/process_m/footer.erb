@@ -6,10 +6,11 @@
         <div class="text-ellipsis"><strong><%= step_title %></strong></div>
       </div>
     <% end %>
+
     <%= link_to(
-      t(model.cta_button_text_key, scope: "layouts.decidim.participatory_processes.participatory_process"),
-      resource_path,
-      class: "card__button button button--sc secondary light small"
-    ) %>
+          step_cta_text,
+          step_cta_path,
+          class: "card__button button button--sc secondary light small"
+        ) %>
   </div>
 </div>

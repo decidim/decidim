@@ -37,7 +37,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
-        address: Nom d'hôte SMTP
+        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
@@ -46,7 +46,7 @@ fr:
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
-        favicon: Favicon
+        favicon: Icône
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
@@ -68,15 +68,15 @@ fr:
         omnipresent_banner_url: URL
         password: Mot de passe
         port: Port
-        primary_color: Couleur primaire
+        primary_color: Primaire
         reference_prefix: Préfixe de référence
-        secondary_color: Couleur secondaire
-        show_statistics: Afficher les statistiques
-        success_color: Couleur de succès
+        secondary_color: Secondaire
+        show_statistics: Montrer les statistiques
+        success_color: Succès
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Compte Twitter
+        twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
-        warning_color: Couleur d'avertissement
+        warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -383,8 +383,9 @@ fr:
         newsletter:
           fields:
             created_at: Créée le
-            progress: Progression
-            sent_at: Envoyée à
+            progress: Avancement
+            sent_at: Envoyée le
+            sent_to: Envoyée à
             subject: Objet
           name: Newsletter
         oauth_application:
@@ -478,10 +479,13 @@ fr:
           save: Enregistrer
           title: Nouvelle newsletter
         select_recipients_to_deliver:
+          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          title: Sélectionner les destinataires
         show:
           preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.

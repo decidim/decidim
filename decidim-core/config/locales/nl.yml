@@ -15,14 +15,14 @@ nl:
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
-      decidim/attachment_created_event: gehechtheid
+      decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je bent genivelleerd
-      decidim/join_request_accepted_event: Aanvragen geaccepteerd
-      decidim/join_request_rejected_event: Deelnemen aan verzoek afgewezen
-      decidim/profile_updated_event: Profiel geüpdatet
+      decidim/gamification/level_up_event: Je bereikte een hoger niveau
+      decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
+      decidim/join_request_rejected_event: Deelnameverzoek afgewezen
+      decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
   activerecord:
@@ -30,20 +30,20 @@ nl:
       decidim/user:
         current_password: Huidige wachtwoord
         email: E-mailadres
-        name: Gebruikersnaam
+        name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
         remember_me: Blijf ingelogd
     models:
       decidim/amendment:
         one: Amendement
-        other: wijzigingen
+        other: Amendementen
       decidim/user:
-        one: Geen gebruikers
-        other: gebruikers
+        one: Deelnemer
+        other: Deelnemers
       decidim/user_group:
-        one: Gebruikersgroep
-        other: Gebruikersgroepen
+        one: Groep
+        other: groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -63,7 +63,7 @@ nl:
         file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
+        notice: De download van uw gegevens is momenteel bezig. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -88,7 +88,7 @@ nl:
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
-        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name} "
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name}"
         delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
         publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
@@ -325,6 +325,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw korte, unieke ID op %{organization}
+          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -669,7 +670,7 @@ nl:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} kunt u deelnemen aan en beslissen over verschillende onderwerpen, via de spaties die u ziet in het bovenste menu: Processen, Assemblies, Initiatieven, Consultaties.</p> <p>Binnen elk daarvan vindt u verschillende mogelijkheden om deel te nemen: voorstellen doen - individueel of met andere mensen -, deelnemen aan debatten, prioriteit geven aan te implementeren projecten, persoonlijke vergaderingen bijwonen en andere acties.</p>\n"
+          content: "<p>In %{organization} kunt u deelnemen en besluiten over verschillende onderwerpen, via de ruimten die u ziet in het top menu: Processen, Groepen, Initiatieven, Raadplegingen.</p> <p>Binnen elke ruimte vindt u verschillende opties om deel te nemen: doe voorstellen - individueel of met andere mensen - neem deel aan debatten, wijs prioriteiten toe aan projecten, woon vergaderingen bij en andere acties.</p>\n \n"
           title: Wat kan ik doen in %{organization}?
         description: Lees meer over %{organization}
         title: Algemene hulp
@@ -704,7 +705,7 @@ nl:
     members:
       no_members: Deze gebruikersgroepen hebben nog geen leden.
     menu:
-      help: Helpen
+      help: Help
       home: Home
     messaging:
       conversation_mailer:
@@ -823,7 +824,7 @@ nl:
           headline: Deelname aan cijfers
         statistics:
           answers_count: Voltooide enquêtes
-          assemblies_count: Events
+          assemblies_count: Groepen
           comments_count: Reacties
           conferences_count: conferenties
           debates_count: Debatten
@@ -846,7 +847,7 @@ nl:
         read_more: Lees verder
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
-        title: Helpen
+        title: Help
         topics: Onderwerpen
       participatory_space:
         metrics:
@@ -966,7 +967,7 @@ nl:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
-        help: Helpen
+        help: Help
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
@@ -1094,6 +1095,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
+        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
@@ -1257,6 +1259,14 @@ nl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Verwijderingen
+      right: Toevoegingen
+    dropdown:
+      choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_split: Naast elkaar
+      option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"

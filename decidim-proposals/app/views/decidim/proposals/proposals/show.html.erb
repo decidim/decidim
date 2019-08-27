@@ -1,8 +1,17 @@
 <% add_decidim_meta_tags({
-  description: present(@proposal).body,
-  title: present(@proposal).title,
-  url: proposal_url(@proposal.id)
-}) %>
+                           description: present(@proposal).body,
+                           title: present(@proposal).title,
+                           url: proposal_url(@proposal.id)
+                         }) %>
+
+<%
+  edit_link(
+    resource_locator(@proposal).edit,
+    :edit,
+    :proposal,
+    proposal: @proposal
+  )
+%>
 
 <%
 edit_link(
@@ -17,7 +26,8 @@ edit_link(
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
     <div class="section text-medium">
-      <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
+      <%= t(".back_to") %>
+      <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
     </div>
   </div>
 <% end %>
@@ -35,16 +45,16 @@ edit_link(
         <div class="card__content">
           <div>
             <strong class="text-large text-uppercase">
-              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
+              <%= t("version", scope: "decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
             </strong>
             <small class="text-medium">
-              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
+              <%= t("of_versions", scope: "decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
             </small>
           </div>
 
           <div>
             <span class="text-medium">
-              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), proposal_versions_path(@proposal) %>
+              <%= link_to t("see_other_versions", scope: "decidim.proposals.collaborative_drafts.show"), proposal_versions_path(@proposal) %>
             </span>
           </div>
         </div>
@@ -57,14 +67,6 @@ edit_link(
     <% end %>
 
     <%= emendation_actions_for @proposal %>
-
-      <% if @proposal.withdrawn? %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-          </div>
 
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_settings.votes_weight_enabled? || current_user %>
       <% if @proposal.withdrawn? %>

@@ -37,8 +37,8 @@ fr:
       admin:
         csv_census:
           help:
-          - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
-          - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
+            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
+            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
         id_documents:
           help:
           - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -47,10 +47,10 @@ fr:
           - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-          - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
-          - Vous envoyez la lettre à leur adresse avec le code de vérification.
-          - Vous marquez la lettre comme envoyée.
-          - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+            - Vous envoyez la lettre à leur adresse avec le code de vérification.
+            - Vous marquez la lettre comme envoyée.
+            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
         name: Recensement de l'organisation
@@ -104,7 +104,7 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
-            file: Fichier .csv avec données de courrier électronique
+            file: Fichier CSV avec données de courrier électronique
             info: 'Doit être un fichier au format CSV avec une colonne: email'
             submit: Téléverser un fichier
             title: Télécharger un nouveau recensement
@@ -132,6 +132,14 @@ fr:
             new:
               introduce_user_data: Introduire les données dans l'image
               reject: Refuser
+              verify: Vérifier
+          offline_confirmations:
+            create:
+              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
+              success: Utilisateur vérifié avec succès
+            new:
+              cancel: Annuler
+              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           offline_confirmations:
             create:

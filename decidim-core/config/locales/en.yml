@@ -885,7 +885,7 @@ en:
       deleted: Participant deleted
       view: View
     profiles:
-      default_officialization_text: Rationale
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:

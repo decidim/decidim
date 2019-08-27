@@ -179,6 +179,12 @@ describe "Explore debates", type: :system do
     it_behaves_like "an uncommentable component"
   end
 
+  context "when component is not commentable" do
+    let(:ressources) { create_list(:debate, 3, component: current_component) }
+
+    it_behaves_like "an uncommentable component"
+  end
+
   describe "show" do
     let(:path) do
       decidim_participatory_process_debates.debate_path(

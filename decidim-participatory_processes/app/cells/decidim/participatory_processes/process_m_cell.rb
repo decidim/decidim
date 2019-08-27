@@ -41,7 +41,7 @@ module Decidim
         if translated_in_current_locale(model.active_step&.cta_text)
           translated_attribute(model.active_step.cta_text)
         else
-          t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
+          t(model.cta_button_text_key, scope: "layouts.decidim.participatory_processes.participatory_process")
         end
       end
 

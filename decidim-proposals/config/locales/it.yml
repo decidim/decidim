@@ -65,8 +65,8 @@ it:
         one: Proposta
         other: proposte
       decidim/proposals/proposal_endorsement:
-        one: Approvazione
-        other: Riconoscimenti
+        one: Mi piace
+        other: Mi piace
       decidim/proposals/proposal_note:
         one: Nota
         other: Gli appunti
@@ -96,15 +96,15 @@ it:
             official_proposals_enabled: Proposte ufficiali abilitate
             participatory_texts_enabled: Testi di partecipazione abilitati
             proposal_answering_enabled: Risposta alla proposta abilitata
-            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
+            proposal_edit_before_minutes: Minuti dall'inserimento dopo i quali le proposte non potranno piùessere modificate dagli autori
             proposal_length: Lunghezza massima della proposta
-            proposal_limit: Limite della proposta per utente
+            proposal_limit: Numero di proposte che possono essere create da ciascun utente
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
             proposal_wizard_step_4_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
-            threshold_per_proposal: Soglia per proposta
+            threshold_per_proposal: Voti necessari per l'approvazione della proposta
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
@@ -172,7 +172,7 @@ it:
             email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e dai:'
+          email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: "%{endorser_nickname} ha approvato una nuova proposta"
           notification_title: Il <a href="%{resource_path}">%{resource_title}</a> la proposta è stata approvata da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -265,8 +265,8 @@ it:
         title: Proposte accettate
       endorsements:
         description: Numero di approvazioni generate nelle proposte
-        object: approvazioni
-        title: Riconoscimenti
+        object: Mi piace
+        title: Mi piace
       proposals:
         description: Numero di proposte generate
         object: proposte
@@ -345,7 +345,7 @@ it:
             success: Nota della proposta creata con successo
           form:
             note: Nota
-            submit: Sottoscrivi
+            submit: Invia
           leave_your_note: Lascia il tuo messaggio
           title: Note private
         proposals:
@@ -423,7 +423,7 @@ it:
         filter_origin_values:
           all: Tutti
           citizens: Cittadini
-          meetings: incontri
+          meetings: Incontri
           official: Ufficiale
           user_groups: Gruppi di utenti
         filter_state_values:
@@ -568,10 +568,10 @@ it:
           fields:
             category: Categoria
             comments: Commenti
-            endorsements: Riconoscimenti
+            endorsements: Mi piace
             id: ID
             notes: Gli appunti
-            official_proposal: Proposta ufficiale
+            official_proposal: Proposta dell'Amministrazione
             published_at: Pubblicato a
             scope: Visibilità
             state: Stato
@@ -594,7 +594,7 @@ it:
           select_identity: Seleziona identità
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: approvato
+          already_endorsed: Mi piace
           endorse: Sostieni
         render_endorsements_button_card_part:
           endorse: Sostieni
@@ -678,7 +678,7 @@ it:
         show:
           back_to: Torna a
           edit_proposal: Modifica la proposta
-          endorsements_list: Elenco di approvazioni
+          endorsements_list: Elenco dei sostenitori
           hidden_endorsers_count:
             one: e %{count} altra persona
             other: e altre %{count} persone

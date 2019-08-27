@@ -186,7 +186,7 @@ fr:
             moderator: Modérateur
         media_link:
           fields:
-            date: Rendez-vous amoureux
+            date: Date
             link: Lien
             title: Titre
           name: Lien média
@@ -251,7 +251,7 @@ fr:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
         publish: "%{user_name} publication la %{resource_name} conférence"
-        send_conference_diplomas: "%{user_name} a envoyé les certificats de présence aux participants de la conférence %{resource_name}"
+        send_conference_diplomas: "%{user_name} a envoyé les certificats de participation de la conférence %{resource_name}"
         unpublish: "%{user_name} non publié la %{resource_name} conférence"
         update: "%{user_name} mis à jour le %{resource_name} conférence"
         update_diploma: "%{user_name} mis à jour la configuration des certificats de participation pour %{resource_name} conférence"

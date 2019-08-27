@@ -110,7 +110,7 @@ it:
         debate:
           fields:
             end_time: Data di fine
-            official_debate: Dibattito ufficiale
+            official_debate: Dibattito proposto dall'Amministrazione
             start_time: Data d'inizio
             title: Titolo
     events:

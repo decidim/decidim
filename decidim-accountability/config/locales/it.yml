@@ -11,7 +11,7 @@ it:
         progress: Progresso
         project_ids: Progetti inclusi
         proposals: Proposte incluse
-        start_date: Date di inizio
+        start_date: Data di inizio
         title: Nome
         updated_at: Aggiornato a
       status:

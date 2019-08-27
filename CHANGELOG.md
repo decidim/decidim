@@ -740,6 +740,45 @@ end
 - **decidim-initiatives**: Add `Decidim::HasReference` concern to initiatives model, display reference in front and id in admin [\#4665](https://github.com/decidim/decidim/pull/4665)
 - **decidim-core**: Let users choose what kind of notifications they want to erceive [\#4663](https://github.com/decidim/decidim/pull/4663)
 - **decidim-core**: User groups can now be disabled per organization. [\#4681](https://github.com/decidim/decidim/pull/4681/)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.18-stable)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+- **decidim-admin**, **decidim-forms**: Fix adding answer options to a new form [#5283](https://github.com/decidim/decidim/pull/5283)
+- **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5277](https://github.com/decidim/decidim/pull/5277)
+- **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5287](https://github.com/decidim/decidim/pull/5287)
+
+**Removed**:
+
+## [0.18.0](https://github.com/decidim/decidim/tree/v0.18.0)
+
+### Upgrade notes
+
+#### Participants metrics
+
+After running the migrations, you can run the following code from the console to recalculate participants metrics (they should increase). It may take a while to complete.
+
+```ruby
+days = (Date.parse(2.months.ago.to_s)..Date.yesterday).map(&:to_s)
+Decidim::Organization.find_each do |organization|
+  old_metrics = Decidim::Metric.where(organization: organization, metric_type: "participants")
+  days.each do |day|
+    new_metric = Decidim::Metrics::ParticipantsMetricManage.new(day, organization)
+    ActiveRecord::Base.transaction do
+      old_metrics.where(day: day).delete_all
+      new_metric.save
+    end
+  end
+end
+```
+
+**Added**:
+
 - **decidim-consultations**, Add buttons fot better Questions navigation. [#5112](https://github.com/decidim/decidim/pull/5112)
 - **decidim-core**, Add rake task to recalculate all metrics since some specific date. [#5117](https://github.com/decidim/decidim/pull/5117)
 - **decidim-core**, Add instructions to recalculate participants metrics. [#5110](https://github.com/decidim/decidim/pull/5110)
@@ -910,6 +949,7 @@ end
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-core**: Fix user names migration [#5210](https://github.com/decidim/decidim/pull/5210)
+- **decidim-core**: Fix empty sender SMTP settings [#5260](https://github.com/decidim/decidim/pull/5260)
 
 **Removed**:
 

@@ -39,8 +39,8 @@ hu:
         one: Módosítás
         other: Módosítások
       decidim/user:
-        one: Nincsenek résztvevők
-        other: Felhasználók
+        one: Résztvevő
+        other: Résztvevők
       decidim/user_group:
         one: Felhasználói csoport
         other: csoportok

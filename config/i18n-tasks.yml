@@ -195,15 +195,18 @@ ignore_unused:
   - decidim.amendments.accept.error
   - decidim.searches.filters.state.*
   - decidim.assemblies.filter.*
-  # OSP CUSTO START HERE
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  # OSP CUSTO START HERE
+  - decidim.admin.participatory_processes.index.promoted.*
   - decidim.proposals.proposals.edit.address
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address
   - devise.invitations.*
   - decidim.comments.translat*
   - decidim.system.organizations.smtp_settings.*
+  - layouts.decidim.participatory_processes.participatory_process.more_info
+  - layouts.decidim.participatory_processes.participatory_process.take_part
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
