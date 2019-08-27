@@ -3,20 +3,6 @@
 module Decidim
   module Proposals
     class DiffRenderer < BaseDiffRenderer
-      # Overrides the public method to parse the values before parsing the changeset.
-      def diff
-        version.changeset.inject({}) do |diff, (attribute, values)|
-          attribute = attribute.to_sym
-          type = attribute_types[attribute]
-
-          if type.blank?
-            diff
-          else
-            parse_changeset(attribute, parse_values(attribute, values), type, diff)
-          end
-        end
-      end
-
       private
 
       # Lists which attributes will be diffable and how they should be rendered.
@@ -31,6 +17,20 @@ module Decidim
           longitude: :string,
           state: :string
         }
+      end
+
+      # Parses the values before parsing the changeset.
+      def parse_changeset(attribute, values, type, diff)
+        values = parse_values(attribute, values)
+
+        diff.update(
+          attribute => {
+            type: type,
+            label: I18n.t(attribute, scope: i18n_scope),
+            old_value: values[0],
+            new_value: values[1]
+          }
+        )
       end
 
       # Handles which values to use when diffing emendations and
