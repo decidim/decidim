@@ -30,7 +30,7 @@ module Decidim
 
       return if cumulative.zero?
 
-      @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
+      @registry = Decidim::Metric.find_or_create_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
       @registry.save!
       @registry

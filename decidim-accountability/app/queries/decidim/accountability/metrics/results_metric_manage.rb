@@ -17,7 +17,7 @@ module Decidim
 
             quantity_value = quantity[key] || 0
             category_id, space_type, space_id, related_object_id = key
-            record = Decidim::Metric.find_or_initialize_by(day: @day.to_s,
+            record = Decidim::Metric.find_or_create_by(day: @day.to_s,
                                                            metric_type: @metric_name,
                                                            organization: @organization,
                                                            decidim_category_id: category_id,

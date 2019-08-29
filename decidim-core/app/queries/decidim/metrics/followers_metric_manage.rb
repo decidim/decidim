@@ -19,7 +19,7 @@ module Decidim
 
           quantity_value = results[:quantity_users].count || 0
           space_type, space_id = key
-          record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
+          record = Decidim::Metric.find_or_create_by(day: @day.to_s, metric_type: @metric_name,
                                                          participatory_space_type: space_type, participatory_space_id: space_id,
                                                          organization: @organization)
           record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
