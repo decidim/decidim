@@ -18,9 +18,9 @@ module Decidim
             quantity_value = quantity[key] || 0
             category_id, space_type, space_id, proposal_id = key
             record = Decidim::Metric.find_or_create_by(day: @day.to_s, metric_type: @metric_name,
-                                                           organization: @organization, decidim_category_id: category_id,
-                                                           participatory_space_type: space_type, participatory_space_id: space_id,
-                                                           related_object_type: "Decidim::Proposals::Proposal", related_object_id: proposal_id)
+                                                       organization: @organization, decidim_category_id: category_id,
+                                                       participatory_space_type: space_type, participatory_space_id: space_id,
+                                                       related_object_type: "Decidim::Proposals::Proposal", related_object_id: proposal_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
             @registry << record
           end
