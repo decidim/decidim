@@ -371,8 +371,8 @@ fr:
             merge_button: Fusionner
             select_component: Sélectionnez un composant
             selected: choisi
-            split: Propositions fractionnées
-            split_button: Divisé
+            split: Fractionner la proposition
+            split_button: Scinder
             title: Propositions
             update: Mettre à jour
           new:
@@ -435,7 +435,7 @@ fr:
         filter_type_values:
           all: Tout
           amendments: Amendements
-          proposals: Les propositions
+          proposals: Propositions
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -445,16 +445,16 @@ fr:
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
-            success: Projet collaboratif publié avec succès en tant que proposition.
+            success: Brouillon collaboratif publié avec succès en tant que proposition.
           view_collaborative_draft: Afficher le brouillon collaboratif
           withdraw:
-            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
               body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
-            success: Projet de collaboration retiré avec succès.
+            success: Brouillon collaboratif retiré avec succès.
         compare:
           mine_is_different: Mon projet de collaboration est différent
           no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
@@ -749,7 +749,7 @@ fr:
         stats:
           back_to_collaborative_draft: Revenir au brouillon collaboratif
           back_to_proposal: Retourner à la proposition
-          number_of_versions: Des versions
+          number_of_versions: Versions
           show_all_versions: Afficher toutes les versions
           version_author: Auteur de la version
           version_created_at: Version créée à
