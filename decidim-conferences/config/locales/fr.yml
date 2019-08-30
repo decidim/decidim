@@ -127,9 +127,9 @@ fr:
       media_links:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau lien multimédia.
-          success: Media Link créé avec succès.
+          success: Lien média créé avec succès.
         destroy:
-          success: Media Link supprimé avec succès.
+          success: Lien média supprimé avec succès.
         edit:
           title: Mettre à jour le lien avec le média.
           update: Mettre à jour
@@ -140,7 +140,7 @@ fr:
           title: Lien média
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
-          success: Media Link mis à jour avec succès.
+          success: Lien média mis à jour avec succès.
       menu:
         conferences: Conférences
         conferences_submenu:
@@ -150,13 +150,13 @@ fr:
           categories: Catégories
           components: Composants
           conference_admins: Administrateurs de conférence
-          conference_invites: Invite
+          conference_invites: Invitations
           conference_speakers: Haut-parleurs
           diploma: Certificat de participation
           info: Info
           media_links: Liens médias
           moderations: Modération
-          partners: Les partenaires
+          partners: Partenaires
           registration_types: Types d'inscription
           registrations: Inscriptions
           user_registrations: Inscriptions d'utilisateurs
@@ -164,7 +164,7 @@ fr:
         conference:
           fields:
             created_at: Créé à
-            promoted: Promu
+            promoted: Mise en avant
             published: Publié
             title: Titre
         conference_speaker:
@@ -176,9 +176,9 @@ fr:
         conference_user_role:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             role: Rôle
-          name: Utilisateur de la conférence
+          name: Administrateur de la conférence
           roles:
             admin: Administrateur
             collaborator: Collaborateur
