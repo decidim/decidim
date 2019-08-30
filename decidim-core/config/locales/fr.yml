@@ -152,7 +152,7 @@ fr:
         send: Aperçu
       emendation:
         actions:
-          button_accept: Acceptez
+          button_accept: Accepter
           button_reject: Rejeter
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
@@ -162,15 +162,15 @@ fr:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
       promoted:
-        error: Il y a eu des erreurs lors de la promotion de l'amendation
-        success: Amendation promue avec succès
+        error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition
+        success: L'amendement a été publié avec succès en tant que nouvelle proposition
       rejected:
         error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
@@ -764,7 +764,7 @@ fr:
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Il y a eu une erreur lors de votre désabonnement
+        error: Un problème est survenu lors de la désinscription
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
@@ -789,7 +789,7 @@ fr:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
-        newsletters: Lettres d'information
+        newsletters: Newsletters
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
         send_notifications_by_email: Envoyer des notifications par email
@@ -807,7 +807,7 @@ fr:
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
       explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
-      pad: Tampon
+      pad: Pad
     pages:
       home:
         extended:
