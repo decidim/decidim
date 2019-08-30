@@ -157,14 +157,14 @@ fr:
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
           accepted: |-
-            Cette modification du %{amendable_type} %{amendable_link} a été
-            accepté sur <strong>%{announcement_date}</strong>.
+            L'amendement pour %{amendable_type} %{proposal_link} a été accepté
+            le <strong>%{date}</strong>.
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
           rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
-            Cet amendement pour le %{amendable_type} %{amendable_link}
+            L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
@@ -172,11 +172,11 @@ fr:
         error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition
         success: L'amendement a été publié avec succès en tant que nouvelle proposition
       rejected:
-        error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
+        error: Un problème est survenu lors du rejet de cet amendement. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
       review:
         back: Retour
-        heading: Revoir l'amendement
+        heading: Examiner l'amendement
         help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
       wizard_step_form:
@@ -851,10 +851,10 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
-        topics: Les sujets
+        topics: Thématiques
       participatory_space:
         metrics:
           headline: Participation en chiffres
@@ -905,7 +905,7 @@ fr:
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
-        join_user_group: Demande de rejoindre un groupe
+        join_user_group: Demander à rejoindre ce groupe
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
@@ -939,10 +939,10 @@ fr:
     searches:
       filters:
         back: Retour aux résultats
-        jump_to: 'Sauter à:'
+        jump_to: 'Aller à:'
         state:
           active: actif
-          all: Tout
+          all: Tous
           future: Futur
           past: Passé
       filters_small_view:
@@ -962,7 +962,7 @@ fr:
         embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
-        unfold: Se dérouler
+        unfold: Afficher
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -981,8 +981,8 @@ fr:
         sign_up: S'inscrire
       participatory_space_filters:
         filters:
-          areas: Zones
-          select_an_area: Sélectionnez une région
+          areas: Zones d'application
+          select_an_area: Sélectionnez une zone d'application
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
@@ -1002,7 +1002,7 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de portée!
+        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
@@ -1100,7 +1100,7 @@ fr:
         change_my_password: Changer mon mot de passe
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Votre mot de passe
+        new_password: Nouveau mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1113,11 +1113,11 @@ fr:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
       edit:
         are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Annuler mon compte
+        cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Malheureux?
+        unhappy: Pas satisfait ? 
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
