@@ -266,9 +266,9 @@ fr:
       processes: Concertations
     metrics:
       participatory_processes:
-        description: Nombre de processus participatifs dans cette organisation
-        object: processus participatifs
-        title: Processus participatifs
+        description: Nombre de concertations dans cette organisation
+        object: concertations
+        title: Concertations
     participatory_process_groups:
       show:
         group_participatory_processes:
