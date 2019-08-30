@@ -456,19 +456,19 @@ fr:
               title: L'action suivante est irréversible
             success: Brouillon collaboratif retiré avec succès.
         compare:
-          mine_is_different: Mon projet de collaboration est différent
-          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
-          title: Projets collaboratifs similaires
+          mine_is_different: Mon brouillon collaboratif est différent
+          no_similars_found: Bien joué! Aucun brouillon collaboratif similaire n'a été trouvé
+          title: Brouillons collaboratifs similaires
         complete:
           send: Envoyer
-          title: Complétez votre projet collaboratif
+          title: Complétez votre brouillon collaboratif
         count:
           drafts_count:
-            one: "%{count} projet collaboratif"
-            other: "%{count} projet collaboratif"
+            one: "%{count} brouillon collaboratif"
+            other: "%{count} brouillons collaboratifs"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
-          success: Projet collaboratif créé avec succès.
+          success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
@@ -493,9 +493,9 @@ fr:
           unfold: Se dérouler
         new:
           send: Continuer
-          title: Créez votre projet collaboratif
+          title: Créez votre brouillon collaboratif
         new_collaborative_draft_button:
-          new_collaborative_draft: Nouveau projet de collaboration
+          new_collaborative_draft: Nouveau brouillon collaboratif
         orders:
           label: 'Ordre des brouillons par:'
           most_contributed: La plupart ont contribué
