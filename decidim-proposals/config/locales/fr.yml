@@ -243,7 +243,7 @@ fr:
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
-          name: Supports de proposition
+          name: Soutiens de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
@@ -261,16 +261,16 @@ fr:
     metrics:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
-        object: les propositions
+        object: propositions
         title: Propositions Acceptées
       endorsements:
         description: Nombre d'avenants générés dans les propositions
-        object: avenants
+        object: soutiens
         title: Soutiens
       proposals:
         description: Nombre de propositions générées
-        object: les propositions
-        title: Les propositions
+        object: propositions
+        title: Propositions
       votes:
         description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
@@ -317,7 +317,7 @@ fr:
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
             accepted_mime_types:
-              md: Réduction
+              md: Markdown
               odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
@@ -540,7 +540,7 @@ fr:
           withdrawn: Retiré
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
-          success: Projet de collaboration mis à jour avec succès.
+          success: Brouillon collaboratif mis à jour avec succès.
         wizard_aside:
           back: Arrière
           info: Vous créez un <strong>projet collaboratif</strong>.
