@@ -59,7 +59,7 @@ fr:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Projet de collaboration
+        one: Brouillon collaboratif
         other: Brouillons collaboratifs
       decidim/proposals/proposal:
         one: Proposition
