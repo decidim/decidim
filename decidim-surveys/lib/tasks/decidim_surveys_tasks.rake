@@ -84,7 +84,7 @@ namespace :decidim_surveys do
                 )
               end
 
-              answer.save!
+              answer.save! unless question.mandatory_choices? && answer.choices.empty?
             end
           end
         end
