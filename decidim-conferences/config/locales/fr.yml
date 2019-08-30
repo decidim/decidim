@@ -364,17 +364,17 @@ fr:
           confirm: Confirmer
         show:
           free: Libre
-          going: Aller
-          no_slots_available: Aucun emplacement disponible
-          registration: enregistrement
+          going: Assister
+          no_slots_available: Il ne reste plus de place
+          registration: Inscription
       conference_program:
         program_meeting:
           content: Contenu
-          location: Emplacement
-          speakers: Haut-parleurs
+          location: Lieu
+          speakers: Conférenciers
           streaming: Diffusion
         show:
-          day: journée
+          day: Jour
           program: Programme
       conference_registration_mailer:
         confirmation:
@@ -408,15 +408,15 @@ fr:
           go_to_twitter: Aller sur Twitter
       conference_speakers:
         index:
-          speakers: Haut-parleurs
+          speakers: Conférenciers
       conferences:
         partners:
-          collaborators: Les partenaires
+          collaborators: Partenaires
           main_promotors: Les organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: 'Faites votre inscription à la conférence:'
-          register: registre
+          register: S'inscrire
       content_blocks:
         highlighted_conferences:
           name: Des conférences surlignées
@@ -454,7 +454,7 @@ fr:
             state: Etat
             states:
               confirmed: Confirmé
-              pending: en attendant
+              pending: En attente
       pages:
         home:
           highlighted_conferences:
@@ -471,7 +471,7 @@ fr:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          register: registre
+          register: S'inscrire
           title: Types d'inscription
       shared:
         conference_user_login:
