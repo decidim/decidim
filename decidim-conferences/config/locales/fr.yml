@@ -2,11 +2,11 @@ fr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblées connexes
+        assemblies_ids: Assemblées associées
         banner_image: Image de bannière
-        consultations_ids: Consultations connexes
-        copy_categories: Copier des catégories
-        copy_components: Copier des composants
+        consultations_ids: Consultations associées
+        copy_categories: Copier les catégories
+        copy_components: Copier les fonctionnalités
         copy_features: Fonctions de copie
         decidim_scope_id: Portée
         description: La description
@@ -94,7 +94,7 @@ fr:
           title: Mettre à jour l'utilisateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: utilisateurs de la conférence
+          conference_admins_title: administrateurs de la conférence
         new:
           create: Créer
           title: Nouvel utilisateur de conférence
