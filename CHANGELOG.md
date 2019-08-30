@@ -29,6 +29,7 @@
 - **decidim-core**: Fix: saving default language to session if choosen by the user [#5308](https://github.com/decidim/decidim/pull/5308)
 - **decidim-proposals**: Fix: show amend button in `ParticipatoryText` when `amendment_creation` is enabled and there are no visible emendations [#5300](https://github.com/decidim/decidim/pull/5300)
 - **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+- **decidim-core**: Fix: Add uniq index to `decidim_metrics` table [#5314](https://github.com/decidim/decidim/pull/5314)
 - **decidim-admin**, **decidim-core**, **decidim-dev**, **decidim-proposals**: Fix: multiple items related to amendments step settings and wizard [#5263](https://github.com/decidim/decidim/pull/5263)
 - **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-dev**, **decidim-initiatives**, **decidim-participatory_processes**: Fix: `Decidim::Admin::ComponentForm` validations [#5269](https://github.com/decidim/decidim/pull/5269)
 - **decidim-core**: Fix: `Accept-Language` header language detection and uses language default from the organization [#5272](https://github.com/decidim/decidim/pull/5272)
