@@ -420,8 +420,8 @@ fr:
     metrics:
       meetings:
         description: Nombre de réunions créées
-        object: des réunions
-        title: Des réunions
+        object: réunions
+        title: Rencontres
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
