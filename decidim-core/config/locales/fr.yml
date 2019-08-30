@@ -1136,9 +1136,9 @@ fr:
       signed_out: Déconnecté(e) avec succès.
     shared:
       links:
-        back: Arrière
+        back: Retour
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
+        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
