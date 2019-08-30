@@ -15,10 +15,10 @@ fr:
         participatory_processes_ids: Processus participatifs associés
         promoted: Promu
         published_at: Publié à
-        scope_id: Portée
-        scopes_enabled: Scopes activés
+        scope_id: Périmètre
+        scopes_enabled: Périmètres d'application activés
         short_description: Brève description
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         slogan: Slogan
         slug: Slug URL
         title: Titre
@@ -491,7 +491,7 @@ fr:
         comments_count: commentaires
         conference_count: Conférences
         debates_count: Des débats
-        endorsements_count: Avenants
+        endorsements_count: Soutiens
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes
