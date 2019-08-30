@@ -36,7 +36,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Nom d'utilisateur
+        name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -45,8 +45,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: Participant
+        other: Participants
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
@@ -284,7 +284,7 @@ fr:
     contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: Bannière sous-héros footer
+        name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
         name: Image principale (hero)
       highlighted_content_banner:
@@ -299,7 +299,7 @@ fr:
         title: Dernière Activité
         view_all: Voir tout
       metrics:
-        name: Mesures d'organisation
+        name: Historique des statistiques de participation
       stats:
         name: Statistiques de l'organisation
       sub_hero:
@@ -571,7 +571,7 @@ fr:
           unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
-          how: Comment pouvez-vous le gagner
+          how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
         invitations:
