@@ -265,7 +265,7 @@ fr:
       filter:
         all: Tous types de montages
         commission: Commission
-        consultative_advisory: Consultatif / consultatif
+        consultative_advisory: Consultatif
         executive: Exécutif
         government: Gouvernement
         help: 'Spectacle:'
@@ -300,7 +300,7 @@ fr:
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'organisation
+        local_area: Périmètre d'assemblée
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
         private_space: Ceci est une assemblée privée
