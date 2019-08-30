@@ -730,7 +730,7 @@ fr:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
           no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          title: Conversations
         reply:
           send: Envoyer
           title: Répondre
