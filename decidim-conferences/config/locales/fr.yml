@@ -510,7 +510,7 @@ fr:
         conference_registration_validation_pending:
           notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registrations_over_percentage:
-          email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
+          email_intro: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
           email_subject: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%
           notification_title: Les créneaux occupés par la conférence <a href="%{resource_path}">%{resource_title}</a> sont supérieurs à %{percentage}%.
