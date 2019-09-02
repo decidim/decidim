@@ -39,8 +39,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: Aucun participant
+        other: Participants
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
