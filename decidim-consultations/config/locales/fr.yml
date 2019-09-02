@@ -87,6 +87,9 @@ fr:
         new:
           create: Créer
           title: Nouvelle votation
+        results:
+          not_visible: Les résultats seront disponibles lorsque la consultation sera close
+          total_votes: 'Total : %{count} votes'
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette votation.
           success: Votation mise à jour avec succès.
@@ -95,6 +98,7 @@ fr:
         consultations_submenu:
           info: Informations
           questions: Questions
+          results: Résultats
         questions_submenu:
           components: Fonctionnalités
           consultation: Votation
@@ -171,6 +175,7 @@ fr:
         consultations: Votations
         questions: Questions
         responses: Réponses
+        results: Résultats
     consultations:
       admin:
         content_blocks:
@@ -230,6 +235,9 @@ fr:
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
+          success: Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le dernier vote sera accepté.
+          title_error: Erreur de vote !
+          title_success: Vote enregistré avec succès
       regular_questions:
         title: Questions pour cette votation
       show:
@@ -257,6 +265,8 @@ fr:
         statistics:
           consultations_count: Votations
     questions:
+      next_button: Question suivante
+      previous_button: Question précédente
       results:
         title: Résultats
       show:
