@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Statut
+        decidim_accountability_status_id: Progression
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -46,7 +46,7 @@ fr:
           result:
             name: Réalisation
           status:
-            name: Statut
+            name: Progression
           timeline_entry:
             name: Élément de chronologie
         results:
@@ -74,7 +74,7 @@ fr:
             success: Réalisation mise à jour avec succès
         shared:
           subnav:
-            statuses: Statuts
+            statuses: Progrès
         statuses:
           create:
             invalid: Un problème est survenu lors de la création de ce statut
@@ -118,7 +118,7 @@ fr:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Nouveau résultat à %{link}</span>"
+        new_result_at_html: "<span>Nouvelle réalisation %{link}</span>"
       models:
         result:
           fields:
