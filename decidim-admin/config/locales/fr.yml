@@ -41,7 +41,7 @@ fr:
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
-        customize_welcome_notification: Personnalise tes notifications
+        customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
