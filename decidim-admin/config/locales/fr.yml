@@ -76,6 +76,7 @@ fr:
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
         warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
@@ -160,6 +161,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Périmètre d'assemblée créé avec succès.
         destroy:
+          has_spaces: Le périmètre d'assemblée n'est pas vide, il ne doit pas avoir de dépendances pour être supprimé.
           success: Le périmètre d'assemblée a bien été supprimé
         edit:
           title: Modifier le périmètre d'assemblée
@@ -244,6 +246,7 @@ fr:
         form:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
+          participatory_texts_enabled_help: Ce paramètre n'est pas disponible s'il existe des propositions existantes. Veuillez créer un nouveau composant 'Propositions' si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans le menu'Textes participatifs' si vous voulez le désactiver.
           step_settings: Paramètres de l'étape
         index:
           add: Ajouter une fonctionnalité
@@ -473,16 +476,39 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
+          all: tous
+          all_users: Tous les utilisateurs
+          and: et
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: abonnés
+          has_been_sent_to: 'A été envoyé à '
+          no_scopes: Pas de périmètre
+          not_sent: Non envoyé
+          participants: participants
+          segmented_to: 'Limité à %{sujet} '
           title: Newsletters
         new:
           save: Enregistrer
           title: Nouvelle newsletter
         select_recipients_to_deliver:
-          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
+          all_spaces: Tous
+          all_users_help: Envoie d'une newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoi d'une newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          scopes_help: Envoi d' la newsletter aux utilisateurs dont l'un des champs d'application sélectionnés est activé dans les paramètres "Mes centres d'intérêt" de leur compte.
+          select_scopes: Filtre pour les utilisateurs ayant activé une portée sélectionnée dans les paramètres de leur compte Mes Intérêts.
+          select_spaces: Sélectionner les espaces concernés par la newsletter
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous les utilisateurs
+          send_to_followers: Envoyer aux abonnés
+          send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
+          warning: "<strong>Attention:</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir les newsletters</em> dans leurs paramètres de notification."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
@@ -650,6 +676,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URLs complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Exemple : %{url}>%{url}N'
         index:
           last_notable_change: Dernier changement notable
         new:

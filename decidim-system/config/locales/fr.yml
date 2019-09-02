@@ -67,6 +67,13 @@ fr:
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
+        smtp_settings:
+          address: Adresse du serveur
+          from_email: De l'email
+          from_label: De l'étiquette
+          password: Mot de passe
+          port: Port serveur
+          user_name: Nom d'utilisateur
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.

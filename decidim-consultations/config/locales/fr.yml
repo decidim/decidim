@@ -258,6 +258,8 @@ fr:
         statistics:
           consultations_count: Votations
     questions:
+      next_button: Question suivante
+      previous_button: Question précédente
       results:
         title: Résultats
       show:

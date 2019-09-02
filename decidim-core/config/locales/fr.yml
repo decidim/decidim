@@ -144,6 +144,7 @@ fr:
         error: Il y a eu une erreur en modifiant cette ressource.
         help_text: 'Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}'
         promote_button: Transformer en %{model_name}
+        promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification ?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant que %{model_name} indépendante
         section_heading: Modifications (%{count})
       created:
@@ -329,6 +330,7 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -1094,6 +1096,7 @@ fr:
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Votre mot de passe
+        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1269,6 +1272,14 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M:%p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Suppressions
+      right: Ajouts
+    dropdown:
+      choose_diff_view_mode: 'Comparer le mode d''affichage :'
+      option_split: Côte à côte
+      option_unified: Unifié
   views:
     pagination:
       first: "&laquo; Première"
