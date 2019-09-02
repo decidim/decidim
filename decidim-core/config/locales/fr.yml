@@ -6,8 +6,10 @@ fr:
       group:
         about: A Propos
         avatar: Avatar
+        document_number: Numéro de document
         email: Courriel
         name: Nom
+        nickname: Nom d'utilisateur
         phone: Téléphone
       report:
         details: Commentaires supplémentaires
@@ -148,8 +150,21 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
+      compare_draft:
+        continue: Continuer
+        no_similars_found: Aucune modification similaire trouvé.
+        title: Modifications similaires
+      created:
+        error: Une erreur s’est produite lors de la création du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
+      destroy_draft:
+        error: Il y a eu un problème de suppression du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
       edit_draft:
+        discard: Supprimer ce brouillon
+        discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet d'amendement ?
         send: Aperçu
+        title: Modifier le projet d'amendement
       emendation:
         actions:
           button_accept: Accepter
@@ -162,15 +177,25 @@ fr:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
+          promoted: Promouvé à un %{amendable_type}.
           rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
+        send: Créer
+        title: Créer un projet d'amendement
+      preview_draft:
+        modify: Modifier
+        publish: Publier
+        title: Publier le projet d'amendement
       promoted:
         error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition
         success: L'amendement a été publié avec succès en tant que nouvelle proposition
+      publish_draft:
+        error: Une erreur s'est produite lors de la publication de cet amendement.
+        success: Amendement publié avec succès.
       rejected:
         error: Un problème est survenu lors du rejet de cet amendement. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
@@ -179,6 +204,9 @@ fr:
         heading: Examiner l'amendement
         help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
+      update_draft:
+        error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
+        success: Le projet d'amendement a été mis à jour avec succès.
       wizard_step_form:
         steps:
           '1': Créez votre amendement
