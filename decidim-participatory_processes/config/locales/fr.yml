@@ -136,6 +136,7 @@ fr:
           title: Dupliquer la concertation
       participatory_process_groups:
         destroy:
+          error: Une erreur s'est produite lors de la suppression du groupe de concertations.
           success: Groupe de concertations supprimé avec succès.
         edit:
           title: Modifier le groupe de concertations
@@ -235,6 +236,9 @@ fr:
         publish: "%{user_name} a publié la concertation %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} a créé le groupe de concertations %{resource_name}"
+        update: "%{user_name} a mis à jour le groupe de concertations %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
