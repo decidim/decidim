@@ -751,7 +751,7 @@ fr:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
