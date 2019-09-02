@@ -449,15 +449,33 @@ fr:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
           followers: 'abonnés '
           has_been_sent_to: 'A été envoyé à : '
+          no_scopes: Aucun secteur
+          not_sent: Envoi non effectué
+          participants: 'participants '
+          segmented_to: 'Segmenté à %{subject}: '
           title: Newsletters
         new:
           save: Enregistrer
           title: Nouvelle newsletter
         select_recipients_to_deliver:
+          all_spaces: Tous
           all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
+          select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
+          select_spaces: Sélectionnez les espaces pour segmenter la newsletter
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous
+          send_to_followers: Envoyer aux abonnés
+          send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
+          warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir des bulletins d'information</em> dans leurs paramètres de notifications."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
@@ -623,6 +641,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
         index:
           last_notable_change: Dernier changement notable
         new:
