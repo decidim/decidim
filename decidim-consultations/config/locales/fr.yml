@@ -282,6 +282,7 @@ fr:
         already_voted: Déjà voté
         already_voted_hover: Retirer le vote
         starting_from: À partir de %{date}
+        verification_required: Vérifier votre compte pour voter
         vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
@@ -291,6 +292,10 @@ fr:
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
         title: 'Consultation : confirmer le soutien'
+    resources:
+      consultations:
+        actions:
+          vote: Voter
   layouts:
     decidim:
       admin:
