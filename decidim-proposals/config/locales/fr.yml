@@ -609,7 +609,7 @@ fr:
           already_endorsed: Soutenue
           endorse: Soutenir
         render_endorsements_button_card_part:
-          endorse: Endosser
+          endorse: Soutenir
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
