@@ -287,7 +287,7 @@ fr:
       show:
         area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Assemblées
+        children: Sous-assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
