@@ -77,6 +77,7 @@ fr:
     components:
       proposals:
         actions:
+          amend: Amender
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -85,6 +86,8 @@ fr:
         settings:
           global:
             amendments_enabled: Modifications activées
+            amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
+            amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -94,6 +97,7 @@ fr:
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
+            participatory_texts_disabled_help: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             participatory_texts_enabled: Textes participatifs activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
@@ -107,6 +111,14 @@ fr:
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
+            amendment_creation_enabled: Création d'amendement activée
+            amendment_creation_enabled_help: Le participant peut amender les propositions.
+            amendment_promotion_enabled: Promotion d'amendement activée
+            amendment_promotion_enabled_help: Les auteurs de modifications pourront promouvoir la proposition de la modification rejetée.
+            amendment_reaction_enabled: Réaction aux amendements activée
+            amendment_reaction_enabled_help: Les auteurs de la proposition pourront accepter ou rejeter les modifications des participants.
+            amendments_visibility: Visibilité des amendements
+            amendments_visibility_help: Si l'option "Les amendements ne sont visibles que pour leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les amendements apportés.
             announcement: Annonce
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -677,6 +689,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           back_to: Retour à
+          changes_at_title: Modification de "%{title}"
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
@@ -684,6 +697,10 @@ fr:
             other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
+          link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
+          link_to_promoted_emendation_text: Voir les demandes de modification rejetées.
+          link_to_proposal_from_emendation_help_text: C'est une demande de modification rejetée
+          link_to_proposal_from_emendation_text: Voir la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
