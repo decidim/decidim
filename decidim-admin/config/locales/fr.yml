@@ -71,12 +71,16 @@ fr:
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
+        send_welcome_notification: Envoyer un mail de bienvenue
         show_statistics: Montrer les statistiques
         success_color: Succès
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
         warning_color: Attention
+        welcome_notification_body: Corps du mail de bienvenue
+        welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -439,7 +443,12 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
+          all: tous
+          all_users: 'Tous les utilisateurs '
+          and: 'et '
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: 'abonnés '
+          has_been_sent_to: 'A été envoyé à : '
           title: Newsletters
         new:
           save: Enregistrer
