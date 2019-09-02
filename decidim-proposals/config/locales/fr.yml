@@ -29,7 +29,7 @@ fr:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
-        import_proposals: Propositions d'importation
+        import_proposals: Importer des propositions
         keep_authors: Gardez les auteurs originaux
     errors:
       models:
@@ -316,7 +316,7 @@ fr:
           bulk-actions:
             are_you_sure: Etes-vous sûr de supprimer le brouillon du texte participatif?
             discard_all: Jeter tout
-            import_doc: Document d'importation
+            import_doc: Importer le document
           discard:
             success: Tous les brouillons de texte participatifs ont été rejetés.
           import:
