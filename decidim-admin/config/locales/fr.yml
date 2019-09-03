@@ -141,7 +141,7 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouveau %{name}
+        new: Nouvelle %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
