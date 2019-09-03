@@ -210,7 +210,7 @@ fr:
             select_user: Sélectionner un utilisateur
           index:
             filter:
-              accepted: Accepté
+              accepted: Acceptée
               all: Tout
               rejected: Rejeté
               sent: Envoyé
@@ -389,7 +389,7 @@ fr:
             sent_at: Envoyé à
             status: Statut
           status:
-            accepted: Accepté (%{at})
+            accepted: Acceptée (%{at})
             rejected: Rejeté (%{at})
             sent: Envoyé
         meeting:
