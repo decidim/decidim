@@ -278,7 +278,7 @@ fr:
             validate: Valider
             validate_registration_code: Valider le code d'enregistrement
           form:
-            available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
+            available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
             registration_form: Formulaire d'inscription
             registrations_count:
