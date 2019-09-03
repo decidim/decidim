@@ -410,15 +410,15 @@ hu:
             email_intro: 'A %{amendable_title} című elutasított módosítást önálló %{amendable_type} módosításra emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert a %{amendable_title} követi. Leállíthatja az értesítések fogadását az előző link segítségével.
             email_subject: A %{emendation_author_nickname} tól származó módosítást új szövegként tették közzé %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">elutasított</a> módosítás <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan új %{amendable_type} ösként került közzétételre <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: A <a href="%{emendation_path}">elutasított módosítása </a> a <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan újként került közzétételre %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
+            email_outro: Ezt az értesítést azért kapta, mert Ön szerzője a %{amendable_title} dokumentumnak.
+            email_subject: Egy módosítás elutasítva %{amendable_title} melynek szerzője %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Látható ezt az oldalról:'
+            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Látható ez az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
