@@ -394,7 +394,7 @@ fr:
             sent: Envoyé
         meeting:
           fields:
-            closed: Close
+            closed: Fermé
             end_time: Heure de fin
             map: Carte
             start_time: Date de début
