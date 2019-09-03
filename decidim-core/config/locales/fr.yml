@@ -154,11 +154,11 @@ fr:
         announcement:
           accepted: |-
             Cette modification du %{amendable_type} %{amendable_link} a été
-            accepté sur <strong>%{announcement_date}</strong>.
+            acceptée sur <strong>%{announcement_date}</strong>.
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\na été rejetée le <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             a été retiré par l'auteur.
@@ -409,23 +409,23 @@ fr:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
             email_subject: Une modification de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejeté émendation</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Un <a href="%{emendation_path}">amendement rejeté</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été publié en tant que nouvelle proposition par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Une modification de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejeté émendation</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Un <a href="%{emendation_path}">amendement rejeté</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été publié en tant que nouvelle proposition par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: L' <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: L' <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
