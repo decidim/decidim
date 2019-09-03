@@ -4,7 +4,7 @@ fr:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       group:
-        about: A Propos
+        about: A propos
         avatar: Avatar
         document_number: Numéro de document
         email: Courriel
