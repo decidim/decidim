@@ -42,7 +42,6 @@
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
-- **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
 - **decidim-proposals**: Fix proposals accepted stat when they include hidden proposals [#5276](https://github.com/decidim/decidim/pull/5276)
 - **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
 - **decidim-core**: Add missing locales when creating a new user group [#5262](https://github.com/decidim/decidim/pull/5262)
