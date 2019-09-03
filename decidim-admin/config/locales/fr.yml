@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone d'application
+        area_type: Périmètre d'assemblée
         name: Titre
         organization: Organisation
       area_type:
@@ -147,19 +147,19 @@ fr:
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Le type de zone d'application a été créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de zone d'application a bien été supprimé.
+          success: Le type de périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouveau type de zone d'application
+          create: Créer un type de périmètre d'assemblée
+          title: Nouveau type de périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: Le type de zone d'application a été mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
@@ -329,7 +329,7 @@ fr:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zone d'application
+        area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
@@ -348,7 +348,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone d'application
+            area_type: Type de périmètre d'assemblée
             name: Titre
         area_type:
           fields:
@@ -658,7 +658,7 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zone d'application
+        area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
