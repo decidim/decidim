@@ -685,13 +685,13 @@ fr:
           filter:
             all: Tous
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
           state:
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
