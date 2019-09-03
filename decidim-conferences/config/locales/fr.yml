@@ -7,7 +7,7 @@ fr:
         consultations_ids: Consultations associées
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
-        copy_features: Fonctions de copie
+        copy_features: Copier les fonctionnalités
         decidim_scope_id: Portée
         description: La description
         hashtag: Hashtag
@@ -53,7 +53,7 @@ fr:
         send_diplomas: Envoyer des certificats de présence
       conference_copies:
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Conférence en double
       conference_publications:
