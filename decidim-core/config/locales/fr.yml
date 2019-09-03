@@ -743,9 +743,9 @@ fr:
         area_type_presenter:
           not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
