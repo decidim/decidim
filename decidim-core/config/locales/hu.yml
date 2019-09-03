@@ -266,7 +266,7 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
-            enable_pads_creation: A párna létrehozásának engedélyezése
+            enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             comments_blocked: Megjegyzések letiltva
@@ -418,7 +418,7 @@ hu:
             email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
+            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Látható ezt az oldalról:'
             email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
             email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
