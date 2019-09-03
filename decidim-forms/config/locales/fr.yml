@@ -37,7 +37,7 @@ fr:
           question:
             add_answer_option: Ajouter une option de réponse
             any: Tout
-            description: La description
+            description: Description
             down: Descendre
             question: Question
             remove: Retirer
