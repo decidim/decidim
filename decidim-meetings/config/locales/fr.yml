@@ -17,7 +17,7 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
-        end_time: Heure de fin
+        end_time: Date de fin
         location: Lieu
         location_hints: Données de localisation
         organizer_id: Organisateur
@@ -69,7 +69,7 @@ fr:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
           success: Cette rencontre a été dupliquée avec succès.
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer une rencontre
     components:
@@ -394,8 +394,8 @@ fr:
             sent: Envoyé
         meeting:
           fields:
-            closed: Fermé
-            end_time: Heure de fin
+            closed: Fermée
+            end_time: Date de fin
             map: Carte
             start_time: Date de début
             title: Titre
