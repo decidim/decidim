@@ -295,7 +295,7 @@ fr:
         developer_group: Groupe initiateur
         duration: Durée
         included_at: Inclus à
-        indefinite_duration: Indéfini
+        indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
