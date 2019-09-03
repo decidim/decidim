@@ -1319,7 +1319,7 @@ fr:
       left: Suppressions
       right: Ajouts
     dropdown:
-      choose_diff_view_mode: 'Comparer le mode de vue :'
+      choose_diff_view_mode: 'Sélectionner le mode de vue :'
       option_split: Côte à côte
       option_unified: Unifié
   views:
