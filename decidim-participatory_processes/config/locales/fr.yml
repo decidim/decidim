@@ -3,12 +3,12 @@ fr:
     attributes:
       participatory_process:
         announcement: Annonce
-        area_id: Surface
+        area_id: Périmètre d'assemblée
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
-        decidim_area_id: Surface
+        decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
         domain: Domaine
@@ -351,7 +351,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        area: Zone d'application
+        area: Périmètre d'assemblée
         developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
