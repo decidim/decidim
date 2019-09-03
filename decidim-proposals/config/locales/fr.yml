@@ -689,7 +689,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           back_to: Retour à
-          changes_at_title: Modification de "%{title}"
+          changes_at_title: Amendement de (%{title}"
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
@@ -762,7 +762,7 @@ fr:
       versions:
         changes_at_title: Changements à "%{title}"
         index:
-          title: Des versions
+          title: Versions
         stats:
           back_to_collaborative_draft: Revenir au brouillon collaboratif
           back_to_proposal: Retourner à la proposition
