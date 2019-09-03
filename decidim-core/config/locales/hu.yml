@@ -3,6 +3,14 @@ hu:
     attributes:
       account:
         delete_reason: Fiók törlésének oka
+      group:
+        about: Rólunk
+        avatar: Profilkép
+        document_number: Dokumentum száma
+        email: Email
+        name: Név
+        nickname: Becenév
+        phone: Telefonszám
       report:
         details: További megjegyzések
       user:
@@ -42,7 +50,7 @@ hu:
         one: Résztvevő
         other: Résztvevők
       decidim/user_group:
-        one: Felhasználói csoport
+        one: Csoport
         other: csoportok
   booleans:
     'false': 'Nem'
@@ -142,6 +150,20 @@ hu:
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
+      compare_draft:
+        continue: Tovább
+        no_similars_found: Nem találtunk hasonló szövegjavítást.
+        title: Hasonló szövegjavítások
+      created:
+        error: A módosító javaslat tervezet létrehozása során hiba történt.
+        success: A módosító javaslat tervezet sikeresen létrejött.
+      destroy_draft:
+        error: Hiba történt a módosító javaslat tervezetének törlésekor.
+        success: A módosító javaslat sikeresen törlésre került.
+      edit_draft:
+        discard: Vázlat elvetése
+        discard_confirmation: Biztos vagy benne, hogy elveted ezt a módosító javaslatot?
+        send: Előnézet
       emendation:
         actions:
           button_accept: Elfogad
@@ -159,9 +181,16 @@ hu:
             módosítást a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
+        send: Létrehozás
+      preview_draft:
+        modify: Szerkeszt
+        publish: Közzétesz
       promoted:
         error: Problémát történt a módosító javaslat új javaslatként való közzététele során
         success: A módosító javaslat új javaslatként sikeresen megjelent
+      publish_draft:
+        error: Hiba történt a módosító javaslat közzététele során.
+        success: A módosító javaslat közzététele sikeres.
       rejected:
         error: Hiba történt a módosító javaslat elutasításakor, próbálkozz később
         success: A módosító javaslat sikeresen elutasításra került
@@ -797,7 +826,7 @@ hu:
     pad_iframe:
       disclaimer: A közös dokumentum tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
       explanation: Ebben a közös dokumentumban együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a jegyzeteket.
-      pad: Párna
+      pad: Közös dokumentum
     pages:
       home:
         extended:
@@ -1001,6 +1030,11 @@ hu:
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}}</li><li> szervezetben. Végül, de nem utolsósorban, kapcsolódj más emberekhez is, oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához, gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</li></ul>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
+    wizard_step_form:
+      wizard_aside:
+        back: Vissza
+      wizard_header:
+        see_steps: lépések megtekintése
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.
@@ -1234,12 +1268,15 @@ hu:
     qq: QZone
     reddit: Reddit
     share_to: 'Oszd meg vele: %{name}'
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Nyisd meg a WeChat alkalmazsát, kattints a "Discover", majd a "Scan QR Code" gombra.
     weibo: Sina Weibo
+    whatsapp_app: Whatsapp
+    whatsapp_web: Whatsapp
     xing: Xing
   time:
     formats:
