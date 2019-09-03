@@ -441,7 +441,7 @@ fr:
         filter_state_values:
           accepted: Accepté
           all: Tout
-          evaluating: Évaluer
+          evaluating: En cours d'évaluation
           except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
         filter_type_values:
@@ -699,7 +699,7 @@ fr:
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
           link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
           link_to_promoted_emendation_text: Voir les demandes de modification rejetées.
-          link_to_proposal_from_emendation_help_text: C'est une demande de modification rejetée
+          link_to_proposal_from_emendation_help_text: Ceci est une demande de modification rejetée
           link_to_proposal_from_emendation_text: Voir la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
