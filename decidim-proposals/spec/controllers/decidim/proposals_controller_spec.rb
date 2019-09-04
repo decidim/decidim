@@ -56,6 +56,19 @@ module Decidim
               expect(emendations).to be_empty
             end
           end
+
+          context "when emendations exist" do
+            let!(:amendable) { create(:proposal, component: component) }
+            let!(:emendation) { create(:proposal, component: component) }
+            let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, state: "accepted") }
+
+            it "does not include emendations" do
+              get :index
+              expect(response).to have_http_status(:ok)
+              emendations = assigns(:proposals).select(&:emendation?)
+              expect(emendations).to be_empty
+            end
+          end
         end
       end
 

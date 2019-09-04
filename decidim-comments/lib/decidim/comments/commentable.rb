@@ -69,6 +69,11 @@ module Decidim
         def user_allowed_to_comment?(_user)
           true
         end
+
+        # Public: Whether the object can have new comments or not.
+        def user_allowed_to_comment?(_user)
+          true
+        end
       end
     end
   end
