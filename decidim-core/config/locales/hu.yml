@@ -1126,6 +1126,7 @@ hu:
         change_your_password: változtasd meg a jelszavadat
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
+        password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
       new:
         forgot_your_password: Elfelejtette a jelszavát?
         send_me_reset_password_instructions: Küldje el a jelszavas utasítások visszaállítását
