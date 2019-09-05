@@ -352,6 +352,7 @@ hu:
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
           nickname_help: A te beceneved (@nickname) ebben a szervezetben %{organization}
+          password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
