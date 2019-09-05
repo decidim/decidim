@@ -1175,7 +1175,7 @@ hu:
     unlocks:
       new:
         resend_unlock_instructions: Feloldási utasítások újraküldése
-      send_instructions: Néhány perc múlva megkapja az e-mailt, és útmutatást ad a fiók feloldásához.
+      send_instructions: Perceken belül kap egy e-mailt a fiók feloldásához szükséges útmutatásokkal.
       send_paranoid_instructions: Ha fiókod létezik, néhány perc múlva kapsz egy e-mailt, amely leírja, hogyan kell feloldani.
       unlocked: A fiókot sikeresen feloldottuk. Kérjük, jelentkezzen be a folytatáshoz.
   doorkeeper:
@@ -1246,7 +1246,7 @@ hu:
       widget:
         see_more: Tovább
   locale:
-    name: Angol
+    name: Magyar
   password_validator:
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
