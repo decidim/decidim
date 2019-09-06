@@ -26,7 +26,7 @@ fr:
         full_name: Nom complet
       conference_user_role:
         email: Email
-        name: prénom
+        name: Nom
         role: Rôle
     errors:
       models:
@@ -131,7 +131,7 @@ fr:
         destroy:
           success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien avec le média.
+          title: Mettre à jour le lien média.
           update: Mettre à jour
         index:
           media_links_title: Liens médias
