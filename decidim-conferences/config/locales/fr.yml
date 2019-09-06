@@ -169,7 +169,7 @@ fr:
             title: Titre
         conference_speaker:
           fields:
-            affiliation: Affiliation
+            affiliation: Organisme
             full_name: Nom complet
             position: Profession
           name: Conférencier
