@@ -415,7 +415,7 @@ fr:
           main_promotors: Les organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          make_conference_registration: 'Faites votre inscription à la conférence:'
+          make_conference_registration: 'Inscrivez-vous à la conférence:'
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
@@ -520,7 +520,7 @@ fr:
           email_subject: La conférence "%{resource_title}" a été mise à jour
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> été mise à jour.
         registrations_enabled:
-          email_intro: 'La conférence "%{resource_title}" a permis les enregistrements. Vous pouvez vous inscrire sur sa page:'
+          email_intro: 'La conférence "%{resource_title}" a autorisé les inscriptions. Vous pouvez vous inscrire sur sa page:'
           email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
@@ -546,7 +546,7 @@ fr:
   layouts:
     decidim:
       conference_hero:
-        register: registre
+        register: S'inscrire
       conference_widgets:
         show:
           take_part: Prendre part
