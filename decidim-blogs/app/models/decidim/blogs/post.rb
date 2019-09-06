@@ -6,6 +6,8 @@ module Decidim
     # title, description and any other useful information to render a blog.
     class Post < Blogs::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::Authorable
       include Decidim::Comments::Commentable
