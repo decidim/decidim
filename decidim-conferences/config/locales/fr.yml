@@ -11,9 +11,9 @@ fr:
         decidim_scope_id: Portée
         description: La description
         hashtag: Hashtag
-        hero_image: Image de la maison
-        participatory_processes_ids: Processus participatifs associés
-        promoted: Promu
+        hero_image: Image de la page d'accueil
+        participatory_processes_ids: Concertations associées
+        promoted: Mise en avant
         published_at: Publié à
         scope_id: Périmètre
         scopes_enabled: Périmètres d'application activés
@@ -328,7 +328,7 @@ fr:
           form:
             available_slots_help: Laissez-le à 0 si vous avez un nombre illimité d'emplacements disponibles.
             registrations_count:
-              one: Il y a eu 1 enregistrement.
+              one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
         diplomas:
@@ -485,7 +485,7 @@ fr:
         objectives: Objectifs
         related_assemblies: Assemblées connexes
         related_consultations: Consultations connexes
-        related_participatory_processes: Processus participatifs associés
+        related_participatory_processes: Concertations associées
       statistics:
         answers_count: Réponses
         comments_count: commentaires
@@ -555,14 +555,14 @@ fr:
           more_info: Plus d'informations
           take_part: Prendre part
         index:
-          promoted_conferences: Conférences promues
+          promoted_conferences: Conférences mises en avant
         order_by_conferences:
           conferences:
             one: "%{count} conférence"
             other: "%{count} conférences"
         promoted_conference:
           more_info: Plus d'informations
-          take_part: Prendre part
+          take_part: Participer
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Les partenaires
