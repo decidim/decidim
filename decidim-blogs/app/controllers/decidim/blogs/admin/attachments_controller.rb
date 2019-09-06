@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachments
 
         def after_destroy_path
-          post_path
+          post_attachments_path
         end
 
         def attached_to
