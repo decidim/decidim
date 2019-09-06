@@ -69,10 +69,10 @@ fr:
           success: Inscription à la conférence confirmée avec succès.
       conference_speakers:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un haut-parleur pour cette conférence.
+          error: Une erreur s'est produite lors de l'ajout d'un conférencier pour cette conférence.
           success: Conférencier créé avec succès pour cette conférence.
         destroy:
-          success: Haut-parleur supprimé avec succès pour cette conférence.
+          success: Conférencier supprimé avec succès pour cette conférence.
         edit:
           title: Mettre à jour le conférencier.
           update: Mettre à jour
@@ -82,8 +82,8 @@ fr:
           create: Créer
           title: Nouveau conférencier
         update:
-          error: Une erreur s'est produite lors de la mise à jour du haut-parleur pour cette conférence.
-          success: Président mis à jour avec succès pour cette conférence.
+          error: Une erreur s'est produite lors de la mise à jour du conférencier pour cette conférence.
+          success: Conférencier mis à jour avec succès pour cette conférence.
       conference_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette conférence.
@@ -151,7 +151,7 @@ fr:
           components: Composants
           conference_admins: Administrateurs de conférence
           conference_invites: Invitations
-          conference_speakers: Haut-parleurs
+          conference_speakers: Conférenciers
           diploma: Certificat de participation
           info: Info
           media_links: Liens médias
@@ -171,7 +171,7 @@ fr:
           fields:
             affiliation: Affiliation
             full_name: Nom complet
-            position: Position
+            position: Profession
           name: Conférencier
         conference_user_role:
           fields:
@@ -193,7 +193,7 @@ fr:
           fields:
             link: Lien
             logo: Logo
-            name: prénom
+            name: Nom
             partner_type: Type
           name: Partenaire
           types:
@@ -283,7 +283,7 @@ fr:
         title: Programme
     conference_speakers:
       index:
-        title: Haut-parleurs
+        title: Conférenciers
     conferences:
       admin:
         conference_copies:
@@ -419,7 +419,7 @@ fr:
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
-          name: Des conférences surlignées
+          name: Conférences mises en avant
       index:
         title: Conférences
       mailer:
@@ -438,7 +438,7 @@ fr:
         conference_invite:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             registration_type: Type d'inscription
             sent_at: Envoyé à
             status: Statut
@@ -449,7 +449,7 @@ fr:
         conference_registration:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             registration_type: Type d'inscription
             state: Etat
             states:
@@ -498,7 +498,7 @@ fr:
         pages_count: Pages
         posts_count: Des postes
         projects_count: Projets
-        proposals_count: Les propositions
+        proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
@@ -566,6 +566,6 @@ fr:
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partenaires
-        conference_speaker_menu_item: Haut-parleurs
+        conference_speaker_menu_item: Conférenciers
         media: Médias
         venues: Lieux
