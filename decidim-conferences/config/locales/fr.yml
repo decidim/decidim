@@ -145,7 +145,7 @@ fr:
         conferences: Conférences
         conferences_submenu:
           attachment_collections: Dossiers
-          attachment_files: Des dossiers
+          attachment_files: Fichiers
           attachments: Pièces jointes
           categories: Catégories
           components: Composants
@@ -342,7 +342,7 @@ fr:
             registration: Inscription pour '%{conference_title}'
         partners:
           index:
-            title: Les partenaires
+            title: Partenaires
         registration_types:
           form:
             select_conference_meetings: Sélectionner des réunions de conférence
@@ -565,7 +565,7 @@ fr:
           take_part: Participer
       conferences_nav:
         conference_menu_item: Information
-        conference_partners_menu_item: Les partenaires
+        conference_partners_menu_item: Partenaires
         conference_speaker_menu_item: Haut-parleurs
         media: Médias
         venues: Lieux
