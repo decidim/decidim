@@ -364,7 +364,7 @@ fr:
           confirm: Confirmer
         show:
           free: Libre
-          going: Assister
+          going: Participe
           no_slots_available: Il ne reste plus de place
           registration: Inscription
       conference_program:
