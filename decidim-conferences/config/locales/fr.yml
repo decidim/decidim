@@ -462,7 +462,7 @@ fr:
             see_all_conferences: Voir toutes les conférences
       photo:
         show:
-          close_modal: Fermer modal
+          close_modal: Fermer la fenêtre
           photo: Photo
       photos_list:
         show:
