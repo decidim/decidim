@@ -77,6 +77,7 @@ hu:
     components:
       proposals:
         actions:
+          amend: Módosítás
           create: Létrehozás
           endorse: Támogatás
           vote: Szavazás
@@ -684,6 +685,7 @@ hu:
             other: és még %{count} ember
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
+          link_to_proposal_from_emendation_text: Indítvány megtekintése
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
