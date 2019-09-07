@@ -41,6 +41,7 @@ hu:
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
+        customize_welcome_notification: Értesítések testre szabása
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
@@ -70,6 +71,7 @@ hu:
         primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
         secondary_color: Másodlagos
+        send_welcome_notification: Üdvözlő értesítés küldése
         show_statistics: Statisztikák megjelenítése
         success_color: Siker
         tos_version: Használati feltételek
