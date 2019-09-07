@@ -1293,6 +1293,12 @@ hu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Törlések
+    dropdown:
+      option_split: Egymás mellet
+      option_unified: Egyesített
   views:
     pagination:
       first: "&laquo; Első"
