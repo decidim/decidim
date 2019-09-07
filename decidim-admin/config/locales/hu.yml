@@ -79,6 +79,8 @@ hu:
         user_groups_enabled: Csoportok engedélyezése
         user_name: Felhasználónév
         warning_color: Figyelmeztetés
+        welcome_notification_body: Üdvözlő értesítés dokumentumtörzs
+        welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -163,6 +165,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A terület függő terekkel rendelkezik, a törléshez meg kell szüntetni ezen függőségeket.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
