@@ -205,7 +205,7 @@ hu:
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
-          '2': Compare your amendment
+          '2': Módosításod összehasonlítása
           '3': Módosításod befejezése
           '4': Módosításod publikálása
     anonymous_user: Névtelen
