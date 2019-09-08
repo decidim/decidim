@@ -10,7 +10,7 @@ hu:
         title: Műveletek
       admins:
         create:
-          error: Hiba történt egy új rendszergazda létrehozásakor.
+          error: Hiba történt egy új admin létrehozásakor.
           success: Admin létrehozása sikeres
         destroy:
           success: Admin törlése sikeres
@@ -24,7 +24,7 @@ hu:
           title: Új admin
         update:
           error: Hiba történt az admin frissítése során.
-          success: Admin frissítése sikeres
+          success: Admin sikeresen frissítve
       default_pages:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
@@ -52,7 +52,7 @@ hu:
       organizations:
         create:
           error: Hiba történt egy új szervezet létrehozása során.
-          success: Szervezet létrehozása sikeres.
+          success: Szervezet sikeresen létrehozva.
         edit:
           secondary_hosts_hint: Mindegyiket új sorba írd be
         index:
@@ -63,11 +63,11 @@ hu:
           title: Új szervezet
         update:
           error: Hiba történt a szervezet frissítése során.
-          success: Szervezet frissítése sikeres.
+          success: Szervezet sikeresen frissítve.
         users_registration_mode:
           disabled: A hozzáférés csak külső fiókokkal végezhető el
-          enabled: Engedélyezze a felhasználók regisztrálását és bejelentkezését
-          existing: Ne engedélyezze a felhasználók regisztrációját, hanem engedélyezze a meglévő felhasználók számára a bejelentkezést
+          enabled: Engedélyezi a felhasználók regisztrálását és bejelentkezését
+          existing: A felhasználók regisztrációját nem, hanem a meglévő felhasználók bejelentkezését engedélyezi
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'
