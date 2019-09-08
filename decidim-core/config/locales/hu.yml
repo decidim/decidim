@@ -164,6 +164,7 @@ hu:
         discard: Vázlat elvetése
         discard_confirmation: Biztos vagy benne, hogy elveted ezt a módosító javaslatot?
         send: Előnézet
+        title: Módosító javaslat szerkesztése
       emendation:
         actions:
           button_accept: Elfogad
@@ -182,9 +183,11 @@ hu:
       new:
         amendment_author: Módosítás szerző
         send: Létrehozás
+        title: Módosító javaslat létrehozása
       preview_draft:
         modify: Szerkeszt
         publish: Közzétesz
+        title: Módosító javaslat publikálása
       promoted:
         error: Problémát történt a módosító javaslat új javaslatként való közzététele során
         success: A módosító javaslat új javaslatként sikeresen megjelent
@@ -203,8 +206,8 @@ hu:
         steps:
           '1': Készítse el a módosítását
           '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '3': Módosításod befejezése
+          '4': Módosításod publikálása
     anonymous_user: Névtelen
     application:
       collection:
@@ -1296,7 +1299,9 @@ hu:
   versions:
     directions:
       left: Törlések
+      right: Kiegészítések
     dropdown:
+      choose_diff_view_mode: 'Összehasonlító nézet mód:'
       option_split: Egymás mellet
       option_unified: Egyesített
   views:
