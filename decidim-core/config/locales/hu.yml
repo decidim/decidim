@@ -202,6 +202,11 @@ hu:
         heading: Tekintse át a módosítást
         help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
+      visibility_options:
+        all: A módosítások mindenki számára láthatóak
+        participants: A módosítások csak a szerzőik számára láthatóak
+      withdraw:
+        success: A módosítást sikeresen visszavonták
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
@@ -298,9 +303,14 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
+            dummy_global_translatable_text: Hamis Fordítható Szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
+            amendment_creation_enabled: A módosítás létrehozása engedélyezett
+            amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_reaction_enabled: A módosító reakció engedélyezett
+            amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
             dummy_step_attribute_1: Dummy Lépés tulajdonság 1
             dummy_step_attribute_2: Dummy Lépés tulajdonság 2
@@ -329,6 +339,7 @@ hu:
         name: Sub hero banner
     core:
       actions:
+        login_before_access: Kérlek jelentkez be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
     data_portability:
       export:
@@ -1039,6 +1050,7 @@ hu:
         back: Vissza
       wizard_header:
         see_steps: lépések megtekintése
+        step_of: '%{current_step} a(z) %{total_steps} lépésből'
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.
