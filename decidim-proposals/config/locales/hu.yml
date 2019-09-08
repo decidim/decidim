@@ -678,6 +678,7 @@ hu:
           view_proposal: Javaslat megtekintése
         show:
           back_to: Vissza a
+          changes_at_title: A (z) "%{title}" módosítása
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
@@ -685,6 +686,9 @@ hu:
             other: és még %{count} ember
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
+          link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás
+          link_to_promoted_emendation_text: Elutasított helyreigazítás megtekintése.
+          link_to_proposal_from_emendation_help_text: Ez egy elutasított helyreigazítás
           link_to_proposal_from_emendation_text: Indítvány megtekintése
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
