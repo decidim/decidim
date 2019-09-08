@@ -202,10 +202,14 @@ hu:
         heading: Tekintse át a módosítást
         help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
+      update_draft:
+        error: Probléma merült fel a módosító tervezet frissítésével.
+        success: A módosító tervezet sikeresen frissítve.
       visibility_options:
         all: A módosítások mindenki számára láthatóak
         participants: A módosítások csak a szerzőik számára láthatóak
       withdraw:
+        error: A módosítás létrehozásának visszavonása során hiba történt
         success: A módosítást sikeresen visszavonták
       wizard_step_form:
         steps:
@@ -314,6 +318,7 @@ hu:
             comments_blocked: Megjegyzések letiltva
             dummy_step_attribute_1: Dummy Lépés tulajdonság 1
             dummy_step_attribute_2: Dummy Lépés tulajdonság 2
+            dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
       footer_sub_hero:
