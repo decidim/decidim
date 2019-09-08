@@ -108,6 +108,12 @@ hu:
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Szavazási limit felhasználónként
           step:
+            amendment_creation_enabled: A módosítás létrehozása engedélyezett
+            amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
+            amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_reaction_enabled: A módosító reakció engedélyezett
+            amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
+            amendments_visibility: A módosítás láthatósága
             announcement: Közlemény
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
