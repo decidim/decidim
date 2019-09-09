@@ -19,7 +19,7 @@ fr:
         description: Description
         end_time: Date de fin
         location: Lieu
-        location_hints: Données de localisation
+        location_hints: Indicateurs d’emplacement
         organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_form_enabled: Formulaire d'inscription activé
