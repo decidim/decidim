@@ -163,7 +163,7 @@ fr:
           fields:
             created_at: Créée le
             private: Privée
-            promoted: Mise en évidence
+            promoted: Mise en avant
             published: Publiée
             title: Titre
           name: Assemblée
