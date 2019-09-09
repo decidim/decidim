@@ -276,7 +276,7 @@ fr:
           edit:
             save: Sauvegarder
             validate: Valider
-            validate_registration_code: Valider le code d'enregistrement
+            validate_registration_code: Valider le code d'inscription
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
@@ -291,8 +291,8 @@ fr:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscription ont été enregistrés avec succès.
           validate_registration_code:
-            invalid: Ce code d'enregistrement est invalide.
-            success: Le code d'enregistrement a été validé avec succès.
+            invalid: Ce code d'inscription est invalide.
+            success: Le code d'inscription a été validé avec succès.
       admin_log:
         invite:
           create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
@@ -371,7 +371,7 @@ fr:
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
-          registration_code_help_text: Votre code d'enregistrement
+          registration_code_help_text: Votre code d'inscription
           registration_state:
             validated: Validé
             validation_pending: EN ATTENTE DE VALIDATION
@@ -404,7 +404,7 @@ fr:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
-          registration_code: Votre code d'enregistrement est %{code}.
+          registration_code: Votre code d'inscription est %{code}.
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
