@@ -595,18 +595,18 @@ nl:
           conditions:
             - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
-          description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
-          description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
+          description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
           name: Continuïteit
-          next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te gaan!
+          next_level_in: Meld je %{score} opeenvolgende dagen aan om naar het volgende niveau te gaan!
           unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
-          unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
+          unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
-          description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
+          description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
-          description_own: "%{score} gebruikers volgen u."
+          description_own: "%{score} gebruikers volgen jou."
           name: Volgers
           next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen volgers.
@@ -788,7 +788,7 @@ nl:
         csv: Gegevens downloaden (csv)
       followers:
         description: Aantal gebruikers dat deze participatieruimte volgt
-        object: volgelingen
+        object: volgers
         title: Volgers
       participants:
         description: Aantal actieve gebruikers in de organisatie
@@ -931,7 +931,7 @@ nl:
         activity: Activiteit
         badges: badges
         followers: Volgers
-        following: volgt
+        following: Aan het volgen
         groups: groepen
         members: leden
         timeline: Tijdlijn
@@ -1174,7 +1174,7 @@ nl:
       signed_up: Welkom! Je hebt je succesvol aangemeld.
       signed_up_but_inactive: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet is geactiveerd.
       signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
-      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Volg de link om uw account te activeren.
+      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar je e-mailadres. Volg de link om je account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
       updated: Uw account is succesvol bijgewerkt.
     sessions:
