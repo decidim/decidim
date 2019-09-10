@@ -26,6 +26,7 @@
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix: ParticipatoryProcessSearch#search_date [#5319](https://github.com/decidim/decidim/pull/5319)
 - **decidim-proposals**: Fix: Show error when upload a file with the correct extension but with an error in the content [#5320](https://github.com/decidim/decidim/pull/5320)
 - **decidim-core**: Fix: saving default language to session if choosen by the user [#5308](https://github.com/decidim/decidim/pull/5308)
 - **decidim-proposals**: Fix: show amend button in `ParticipatoryText` when `amendment_creation` is enabled and there are no visible emendations [#5300](https://github.com/decidim/decidim/pull/5300)
