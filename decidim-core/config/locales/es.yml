@@ -3,6 +3,14 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      group:
+        about: Acerca de
+        avatar: Avatar
+        document_number: Número de documento
+        email: Correo electrónico
+        name: Nombre
+        nickname: Alias
+        phone: Teléfono
       report:
         details: Comentarios adicionales
       user:
@@ -142,6 +150,9 @@ es:
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente
         section_heading: Enmiendas (%{count})
+      compare_draft:
+        continue: Continuar
+        no_similars_found: No se encontraron enmiendas similares.
       emendation:
         actions:
           button_accept: Aceptar
