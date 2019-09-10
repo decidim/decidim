@@ -32,7 +32,7 @@ module Decidim
       private
 
       def process_csv
-        CSV.foreach(@form.file.path) do |row|
+        CSV.foreach(@form.file.path) do |email, user_name|
           email = row[0]
           user_name = row[1]
 
