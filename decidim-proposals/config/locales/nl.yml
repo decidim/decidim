@@ -317,6 +317,7 @@ nl:
             success: Alle participatieve tekstconcepten zijn genegeerd.
           import:
             invalid: Het formulier is ongeldig!
+            invalid_file: Het bestand bevat een fout, probeer de inhoud van het bestand te bewerken en opnieuw te uploaden.
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
