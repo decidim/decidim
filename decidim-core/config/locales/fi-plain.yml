@@ -313,6 +313,10 @@ fi-pl:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
+            amendment_creation_enabled: Muutosten luonti on käytössä
+            amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
+            amendment_reaction_enabled: Reaktiot käytössä muutoksille
+            amendments_visibility: Muutosten näkyvyys
             comments_blocked: Kommentit estetty
             dummy_step_attribute_1: Esimerkkivaiheen tietue 1
             dummy_step_attribute_2: Esimerkkivaiheen tietue 2
