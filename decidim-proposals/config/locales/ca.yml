@@ -321,6 +321,7 @@ ca:
             success: S'han descartat tots els esborranys de textos participatius.
           import:
             invalid: El formulari no és vàlid!
+            invalid_file: L'arxiu conté algun error. Siusplau, intenteu editar-ne el contingut i torneu-lo a enviar.
             success: Enhorabona, les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.
           index:
             info_1: Les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.
