@@ -51,7 +51,7 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def output_unified_diff(data)
-      return if data[:new_value].blank?
+      return unless data && data[:new_value].present?
 
       Diffy::Diff.new(
         data[:old_value],
@@ -67,7 +67,7 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def output_split_diff(data, direction)
-      return unless direction && data[:new_value].present?
+      return unless direction && data && data[:new_value].present?
 
       Diffy::SplitDiff.new(
         data[:old_value],
