@@ -4,7 +4,7 @@ fr:
       conference:
         assemblies_ids: Assemblées associées
         banner_image: Image de bannière
-        consultations_ids: Consultations associées
+        consultations_ids: Votations associées
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
