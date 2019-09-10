@@ -548,7 +548,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.
+        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> Het bestand blijft beschikbaar tot %{date}.
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -573,7 +573,7 @@ nl:
     followers:
       no_followers: Nog geen volgers.
     following:
-      no_followings: Volgt nog niemand of wat dan ook.
+      no_followings: Volgt nog niets of niemand.
     follows:
       create:
         button: Volgen
