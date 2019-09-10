@@ -4,10 +4,12 @@ fr:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       group:
-        about: A Propos
+        about: A propos
         avatar: Avatar
+        document_number: Numéro de document
         email: Courriel
         name: Nom
+        nickname: Nom d'utilisateur
         phone: Téléphone
       report:
         details: Commentaires supplémentaires
@@ -36,7 +38,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Nom d'utilisateur
+        name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -45,8 +47,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: Participant
+        other: Participants
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
@@ -148,43 +150,75 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
+      compare_draft:
+        continue: Continuer
+        no_similars_found: Aucune modification similaire trouvé.
+        title: Modifications similaires
+      created:
+        error: Une erreur s’est produite lors de la création du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
+      destroy_draft:
+        error: Il y a eu un problème de suppression du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
       edit_draft:
+        discard: Supprimer ce brouillon
+        discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet d'amendement ?
         send: Aperçu
+        title: Modifier le projet d'amendement
       emendation:
         actions:
-          button_accept: Acceptez
+          button_accept: Accepter
           button_reject: Rejeter
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
           accepted: |-
-            Cette modification du %{amendable_type} %{amendable_link} a été
-            accepté sur <strong>%{announcement_date}</strong>.
+            L'amendement pour %{amendable_type} %{proposal_link} a été accepté
+            le <strong>%{date}</strong>.
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          promoted: Promouvé à un %{amendable_type}.
+          rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
-            Cet amendement pour le %{amendable_type} %{amendable_link}
+            L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
+        send: Créer
+        title: Créer un projet d'amendement
+      preview_draft:
+        modify: Modifier
+        publish: Publier
+        title: Publier le projet d'amendement
       promoted:
-        error: Il y a eu des erreurs lors de la promotion de l'amendation
-        success: Amendation promue avec succès
+        error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition
+        success: L'amendement a été publié avec succès en tant que nouvelle proposition
+      publish_draft:
+        error: Une erreur s'est produite lors de la publication de cet amendement.
+        success: Amendement publié avec succès.
       rejected:
-        error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
+        error: Un problème est survenu lors du rejet de cet amendement. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
       review:
         back: Retour
-        heading: Revoir l'amendement
+        heading: Examiner l'amendement
         help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
+      update_draft:
+        error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
+        success: Le projet d'amendement a été mis à jour avec succès.
+      visibility_options:
+        all: Les amendements sont visibles par tous
+        participants: Les amendements ne sont visibles que par leurs auteurs
+      withdraw:
+        error: Une erreur s'est produite lors du retrait de l'amendement
+        success: L'amendement a été retiré avec succès
       wizard_step_form:
         steps:
           '1': Créez votre amendement
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Comparez votre amendement
+          '3': Complétez votre amendement
+          '4': Publier votre amendement
     anonymous_user: Anonyme
     application:
       collection:
@@ -278,13 +312,17 @@ fr:
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
+            amendment_creation_enabled: Création d'amendement activée
+            amendment_promotion_enabled: Promotion d'amendement activée
+            amendment_reaction_enabled: Réaction d'amendement activée
+            amendments_visibility: Visibilité des amendements
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: Bannière sous-héros footer
+        name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
         name: Image principale (hero)
       highlighted_content_banner:
@@ -299,13 +337,14 @@ fr:
         title: Dernière Activité
         view_all: Voir tout
       metrics:
-        name: Mesures d'organisation
+        name: Historique des statistiques de participation
       stats:
         name: Statistiques de l'organisation
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
     core:
       actions:
+        login_before_access: Veuillez vous connecter avec votre compte avant de réaliser cette action
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
     data_portability:
       export:
@@ -332,6 +371,7 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
@@ -571,7 +611,7 @@ fr:
           unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
-          how: Comment pouvez-vous le gagner
+          how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
         invitations:
@@ -699,19 +739,19 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -730,7 +770,7 @@ fr:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
           no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          title: Conversations
         reply:
           send: Envoyer
           title: Répondre
@@ -764,7 +804,7 @@ fr:
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Il y a eu une erreur lors de votre désabonnement
+        error: Un problème est survenu lors de la désinscription
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
@@ -789,7 +829,7 @@ fr:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
-        newsletters: Lettres d'information
+        newsletters: Newsletters
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
         send_notifications_by_email: Envoyer des notifications par email
@@ -807,7 +847,7 @@ fr:
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
       explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
-      pad: Tampon
+      pad: Pad
     pages:
       home:
         extended:
@@ -851,10 +891,10 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
-        topics: Les sujets
+        topics: Thématiques
       participatory_space:
         metrics:
           headline: Participation en chiffres
@@ -905,7 +945,7 @@ fr:
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
-        join_user_group: Demande de rejoindre un groupe
+        join_user_group: Demander à rejoindre ce groupe
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
@@ -939,10 +979,10 @@ fr:
     searches:
       filters:
         back: Retour aux résultats
-        jump_to: 'Sauter à:'
+        jump_to: 'Aller à:'
         state:
           active: actif
-          all: Tout
+          all: Tous
           future: Futur
           past: Passé
       filters_small_view:
@@ -962,7 +1002,7 @@ fr:
         embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
-        unfold: Se dérouler
+        unfold: Afficher
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -981,8 +1021,8 @@ fr:
         sign_up: S'inscrire
       participatory_space_filters:
         filters:
-          areas: Zones
-          select_an_area: Sélectionnez une région
+          areas: Zones d'application
+          select_an_area: Sélectionnez une zone d'application
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
@@ -1002,7 +1042,7 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de portée!
+        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
@@ -1011,6 +1051,12 @@ fr:
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Retour
+      wizard_header:
+        see_steps: voir les étapes
+        step_of: Étape %{current_step} sur %{total_steps}
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -1100,7 +1146,8 @@ fr:
         change_my_password: Changer mon mot de passe
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Votre mot de passe
+        new_password: Nouveau mot de passe
+        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1113,11 +1160,11 @@ fr:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
       edit:
         are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Annuler mon compte
+        cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Malheureux?
+        unhappy: Pas satisfait ? 
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1136,9 +1183,9 @@ fr:
       signed_out: Déconnecté(e) avec succès.
     shared:
       links:
-        back: Arrière
+        back: Retour
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
+        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
@@ -1244,12 +1291,15 @@ fr:
     qq: Qzone
     reddit: Reddit
     share_to: Partager sur %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1264,6 +1314,14 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Suppressions
+      right: Ajouts
+    dropdown:
+      choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      option_split: Côte à côte
+      option_unified: Unifié
   views:
     pagination:
       first: "&laquo; Première"
