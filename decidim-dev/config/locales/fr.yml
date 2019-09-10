@@ -30,7 +30,7 @@ fr:
           bar: Seuil
           dummies_count_high: Référence de test haute
           dummies_count_medium: Référence de test moyenne
-          foo: Truc
+          foo: Foo
     participatory_processes:
       statistics:
         dummies_count_high: Référence de test haute
