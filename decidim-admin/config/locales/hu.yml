@@ -70,8 +70,8 @@ hu:
         success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        user_groups_enabled: Felhasználói csoportok engedélyezése
-        warning_color: Figyelem
+        user_groups_enabled: Csoportok engedélyezése
+        warning_color: Figyelmeztetés
         youtube_handler: YouTube handler
       scope:
         code: Kód
