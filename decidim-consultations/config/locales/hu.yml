@@ -87,6 +87,9 @@ hu:
         new:
           create: Létrehozás
           title: Új konzultáció
+        results:
+          not_visible: Az eredmények a konzultáció lezárásakor lesznek elérhetőek
+          total_votes: 'Összes: %{count} szavazat'
         update:
           error: Hiba történt a konzultáció frissítése során.
           success: A konzultáció frissítése sikeres.
@@ -95,6 +98,7 @@ hu:
         consultations_submenu:
           info: Információ
           questions: Kérdések
+          results: Eredmények
         questions_submenu:
           components: Elemek
           consultation: Konzultáció
@@ -171,6 +175,7 @@ hu:
         consultations: Konzultációk
         questions: Kérdések
         responses: Válaszok
+        results: Eredmények
     consultations:
       admin:
         content_blocks:
@@ -230,6 +235,9 @@ hu:
       question_votes:
         create:
           error: Hiba történt a kérdésre való szavazás során
+          success: Megváltoztathatod a konzultáció végéig. Csak az utolsó szavazás kerül elfogadásra.
+          title_error: Szavazati hiba!
+          title_success: Sikeres szavazat regisztráció
       regular_questions:
         title: Konzultációra vonatkozó kérdések
       show:
@@ -274,6 +282,7 @@ hu:
         already_voted: Már szavaztál
         already_voted_hover: A szavazás visszavonása
         starting_from: '%{date} óta'
+        verification_required: Ellenőrizd fiókod a szavazáshoz
         vote: Szavazás
       vote_modal:
         contextual_help: Válassz az opciók közül.
@@ -283,6 +292,10 @@ hu:
         confirm: Megerősítés
         contextual_help: Erősítsd meg a kiválasztott opciót.
         title: 'Konzultáció: erősítsd meg a szavazatot'
+    resources:
+      consultations:
+        actions:
+          vote: Szavazás
   layouts:
     decidim:
       admin:

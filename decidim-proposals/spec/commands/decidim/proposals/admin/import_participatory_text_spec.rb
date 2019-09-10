@@ -81,6 +81,16 @@ module Decidim
 
               it_behaves_like "import participatory_text succeeds"
             end
+
+            context "with invalid odt document" do
+              let(:document_name) { "participatory_text_wrong.odt" }
+              let(:document_type) { "application/vnd.oasis.opendocument.text" }
+              let(:articles) { 15 }
+
+              it "broadcasts invalid_file" do
+                expect { command.call }.to broadcast(:invalid_file)
+              end
+            end
           end
         end
       end

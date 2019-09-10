@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Statut
+        decidim_accountability_status_id: Progression
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -37,7 +37,7 @@ fr:
         edit: Modifier
         new: Nouveau %{name}
         preview: Aperçu
-        timeline_entries: Évolution du projet
+        timeline_entries: Évolution de la réalisation
         title: Actions
       admin:
         exports:
@@ -46,7 +46,7 @@ fr:
           result:
             name: Réalisation
           status:
-            name: Statut
+            name: Progression
           timeline_entry:
             name: Élément de chronologie
         results:
@@ -74,7 +74,7 @@ fr:
             success: Réalisation mise à jour avec succès
         shared:
           subnav:
-            statuses: Statuts
+            statuses: Progrès
         statuses:
           create:
             invalid: Un problème est survenu lors de la création de ce statut
@@ -94,21 +94,21 @@ fr:
             success: Statut mis à jour avec succès
         timeline_entries:
           create:
-            invalid: Un problème est survenu lors de la création de cette entrée
-            success: Entrée créée avec succès
+            invalid: Un problème est survenu lors de la création de cette élément de chronologie
+            success: Élément de chronologie créé avec succès
           destroy:
-            success: Entrée supprimée avec succès
+            success: Élément de chronologie supprimé avec succès
           edit:
-            title: Modifier l'entrée
-            update: Mise à jour de l'entrée
+            title: Modifier l'élément de chronologie
+            update: Mise à jour de l'élément de chronologie
           index:
-            title: Entrées de la chronologie du projet
+            title: Étapes-clés de la réalisation
           new:
-            create: Créer une entrée
-            title: Nouvelle entrée
+            create: Créer un élément de chronologie
+            title: Nouvel élément de chronologie
           update:
-            invalid: Un problème est survenu lors de la mise à jour de cette entrée
-            success: Entrée mise à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de cet élément de chronologie
+            success: Élément de chronologie mis à jour avec succès
       admin_log:
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
@@ -118,7 +118,7 @@ fr:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>Nouveau résultat à %{link}</span>"
+        new_result_at_html: "<span>Nouvelle réalisation %{link}</span>"
       models:
         result:
           fields:
@@ -153,7 +153,7 @@ fr:
         nav_breadcrumb:
           global: Exécution globale
         search:
-          search: Rechercher des actions
+          search: Rechercher des réalisations
         show:
           stats:
             attendees: Participants
