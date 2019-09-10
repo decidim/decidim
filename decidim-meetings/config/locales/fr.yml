@@ -17,9 +17,9 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
-        end_time: Heure de fin
+        end_time: Date de fin
         location: Lieu
-        location_hints: Données de localisation
+        location_hints: Indicateurs d’emplacement
         organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_form_enabled: Formulaire d'inscription activé
@@ -69,7 +69,7 @@ fr:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
           success: Cette rencontre a été dupliquée avec succès.
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer une rencontre
     components:
@@ -91,7 +91,7 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Votre réunion "%{resource_title}" était fermée. Vous pouvez lire les conclusions de sa page:'
+            email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez lire les conclusions de la rencontre sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
@@ -108,10 +108,10 @@ fr:
         meeting_registration_confirmed:
           notification_title: Votre inscription à la réunion <a href="%{resource_url}">%{resource_title}</a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
+          email_intro: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
-          notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de rencontre sont occupées à plus de %{percentage}%.
+          notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
           email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
@@ -136,12 +136,12 @@ fr:
       badges:
         attended_meetings:
           conditions:
-            - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
-          description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
-          description_another: Cet utilisateur a participé à %{score} réunions.
-          description_own: Vous avez assisté à %{score} réunions.
-          name: Assister aux réunions
-          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
+            - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
+          description: Ce badge est attribué lorsque vous participez à plusieurs rencontres en face à face.
+          description_another: Cet utilisateur a participé à %{score} rencontres.
+          description_own: Vous avez assisté à %{score} rencontres.
+          name: Assister aux rencontres
+          next_level_in: Assister à %{score} rencontres supplémentaires pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
           unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
@@ -164,14 +164,14 @@ fr:
             add_agenda_item_child: Ajouter un point d'ordre du jour
             agenda_item: Point d'ordre du jour
             agenda_item_children: Points de l'ordre du jour
-            down: Vers le bas
-            remove: Retirer
-            up: Vers le haut
+            down: Décaler en bas
+            remove: Supprimer
+            up: Décaler en haut
           agenda_item_child:
             agenda_item_child: Point de l'ordre du jour
-            down: Vers le bas
-            remove: Retirer
-            up: Vers le haut
+            down: Décaler en bas
+            remove: Supprimer
+            up: Décaler en haut
           create:
             invalid: Un problème est survenu lors de la création de cet ordre du jour
             success: Ordre du jour créé avec succès
@@ -190,7 +190,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
-          meetings: Des réunions
+          meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
@@ -210,7 +210,7 @@ fr:
             select_user: Sélectionner un utilisateur
           index:
             filter:
-              accepted: Accepté
+              accepted: Acceptée
               all: Tout
               rejected: Rejeté
               sent: Envoyé
@@ -276,9 +276,9 @@ fr:
           edit:
             save: Sauvegarder
             validate: Valider
-            validate_registration_code: Valider le code d'enregistrement
+            validate_registration_code: Valider le code d'inscription
           form:
-            available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
+            available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
             registration_form: Formulaire d'inscription
             registrations_count:
@@ -290,8 +290,8 @@ fr:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscription ont été enregistrés avec succès.
           validate_registration_code:
-            invalid: Ce code d'enregistrement est invalide.
-            success: Le code d'enregistrement a été validé avec succès.
+            invalid: Ce code d'inscription est invalide.
+            success: Le code d'inscription a été validé avec succès.
       admin_log:
         invite:
           create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
@@ -370,13 +370,13 @@ fr:
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
-          registration_code_help_text: Votre code d'enregistrement
+          registration_code_help_text: Votre code d'inscription
           registration_state:
             validated: Validé
             validation_pending: EN ATTENTE DE VALIDATION
           remaining_slots:
-            one: "%{count} emplacement disponible"
-            other: "%{count} places disponibles"
+            one: "Il reste %{count} place"
+            other: "Il reste %{count} places"
           view: Voir
       meetings_map:
         view_meeting: Voir la réunion
@@ -388,13 +388,13 @@ fr:
             sent_at: Envoyé à
             status: Statut
           status:
-            accepted: Accepté (%{at})
+            accepted: Acceptée (%{at})
             rejected: Rejeté (%{at})
             sent: Envoyé
         meeting:
           fields:
-            closed: Close
-            end_time: Heure de fin
+            closed: Fermée
+            end_time: Date de fin
             map: Carte
             start_time: Date de début
             title: Titre
@@ -403,7 +403,7 @@ fr:
         confirmation:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
-          registration_code: Votre code d'enregistrement est %{code}.
+          registration_code: Votre code d'inscription est %{code}.
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
@@ -419,9 +419,9 @@ fr:
         transparent: Visible par les non-membres
     metrics:
       meetings:
-        description: Nombre de réunions créées
-        object: des réunions
-        title: Des réunions
+        description: Nombre de rencontres créées
+        object: rencontres
+        title: Rencontres
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
