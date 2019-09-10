@@ -322,6 +322,7 @@ en:
             success: All participatory text drafts have been discarded.
           import:
             invalid: The form is invalid!
+            invalid_file: The file contains some error, please try to edit the content of the file and re-upload it again.
             success: Congratulations, the following sections have been converted to proposals. Now you can review and adjust them before publishing.
           index:
             info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.

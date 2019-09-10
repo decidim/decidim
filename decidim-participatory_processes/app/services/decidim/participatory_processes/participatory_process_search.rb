@@ -17,8 +17,7 @@ module Decidim
         when "upcoming"
           query.upcoming.order(start_date: :asc)
         else # Assume 'all'
-          current_zone = Time.zone.name
-          query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{current_zone}')::date)"))
+          query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{Time.zone}')::date)"))
         end
       end
     end
