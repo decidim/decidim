@@ -33,9 +33,6 @@ module Decidim
 
       def process_csv
         CSV.foreach(@form.file.path) do |email, user_name|
-          email = row[0]
-          user_name = row[1]
-
           ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, @current_user) if email.present? && user_name.present?
         end
       end
