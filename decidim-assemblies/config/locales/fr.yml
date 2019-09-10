@@ -31,7 +31,7 @@ fr:
         is_transparent: Visible par les non-membres
         local_area: Zone d'organisation
         meta_scope: Échelle
-        parent_id: Assemblée parentale
+        parent_id: Assemblée parente
         participatory_processes_ids: Concertations associées
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
@@ -165,7 +165,7 @@ fr:
           fields:
             created_at: Créée le
             private: Privée
-            promoted: Mise en évidence
+            promoted: Mise en avant
             published: Publiée
             title: Titre
           name: Assemblée
@@ -260,7 +260,7 @@ fr:
       filter:
         all: Tous types de montages
         commission: Commission
-        consultative_advisory: Consultatif / consultatif
+        consultative_advisory: Consultatif
         executive: Exécutif
         government: Gouvernement
         help: 'Spectacle:'
@@ -282,7 +282,7 @@ fr:
       show:
         area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Assemblées
+        children: Sous-assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
@@ -290,12 +290,12 @@ fr:
         developer_group: Groupe initiateur
         duration: Durée
         included_at: Inclus à
-        indefinite_duration: Indéfini
+        indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'organisation
+        local_area: Périmètre d'assemblée
         participatory_scope: Ce qui est décidé
         participatory_structure: Comment est-il décidé
         private_space: Ceci est une assemblée privée
@@ -332,7 +332,7 @@ fr:
         assemblies:
           contextual: "<p>Une <strong>assemblée</strong> est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>Les assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. Si elles sont ouvertes, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
           page: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
-          title: Que sont les assemblées ?
+          title: Qu'est-ce qu'une assemblée ?
     log:
       value_types:
         assembly_presenter:
