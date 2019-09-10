@@ -72,8 +72,8 @@ ca:
         one: Membre de l'assemblea
         other: Membres de l'assemblea
       decidim/assembly_user_role:
-        one: Rol de participant de l'assemblea
-        other: Rol de participants de l'assemblea
+        one: Rol d'administració de l'assemblea
+        other: Rol d'administradores de l'assemblea
   decidim:
     admin:
       actions:
