@@ -706,6 +706,7 @@ cs:
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
+          link_to_proposal_from_emendation_text: Zobrazit nabídky
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
