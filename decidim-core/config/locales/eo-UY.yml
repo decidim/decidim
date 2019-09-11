@@ -9,6 +9,23 @@ eo:
         document_number: Dokumento Nombro
         email: retpoŝta adreso
         name: Nomo
+        nickname: Kaŝnomo
+        phone: telefonnumero
+      report:
+        details: Pliaj komentoj
+      user:
+        about: Pri
+        email: Via Retpoŝto
+        name: Via nomo
+        nickname: Kaŝnomo
+        password: Pasvorto
+        password_confirmation: Konfirmu vian pasvorton
+        personal_url: Persona URL
+        remove_avatar: Forigi avataron
+    models:
+      decidim/attachment_created_event: Ligiteco
+      decidim/component_published_event: Aktiva komponanto
+      decidim/demoted_membership: Ne plu grupa administranto
   decidim:
     amendments:
       wizard_step_form:
