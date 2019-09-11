@@ -47,6 +47,7 @@ cs:
           fields:
             created_at: Vytvořeno u
             name: název
+            smtp_settings: SMTP nastavení
           name: Organizace
       organizations:
         create:
