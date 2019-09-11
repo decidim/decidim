@@ -1,4 +1,14 @@
 eo:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Kialo forigi vian konton
+      group:
+        about: Pri
+        avatar: Avataro
+        document_number: Dokumento Nombro
+        email: retpoŝta adreso
+        name: Nomo
   decidim:
     amendments:
       wizard_step_form:
@@ -11,3 +21,14 @@ eo:
       badges:
         continuity:
           next_level_in: Konekti por %{score} sinsekvaj tagoj por atingi la sekvan nivelon!
+    group_admins:
+      demote:
+        success: Partoprenanto sukcese forigita de administranto
+  devise:
+    sessions:
+      new:
+        sign_in: Ensaluti
+    unlocks:
+      send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
+  locale:
+    name: Angla
