@@ -464,6 +464,7 @@ cs:
           followers_help: Poslat newsletter všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
           send_to_all_users: Odeslat všem uživatelům
           send_to_followers: Odeslat sledujícím
         send:
