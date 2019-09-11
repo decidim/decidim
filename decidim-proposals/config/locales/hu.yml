@@ -29,8 +29,8 @@ hu:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
       proposals_import:
-        import_proposals: Import-javaslatok
-        keep_authors: Tartsa meg az eredeti szerzőket
+        import_proposals: Javaslatok importálása
+        keep_authors: Eredeti szerzők megtartása
     errors:
       models:
         participatory_text:
@@ -267,11 +267,11 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
-        description: A felhasználók által elfogadott javaslatok száma
+        description: Az elfogadott javaslatok száma
         object: javaslatok
         title: Elfogadott javaslatok
       endorsements:
-        description: A pályázatok során keletkezett támogatások száma
+        description: A javaslatokhoz kapcsolódó jóváhagyások száma
         object: kiterjesztések
         title: Elismerések
       proposals:
