@@ -36,15 +36,18 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
+        address: Název hostitele SMTP
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka volat na akci
         cta_button_text: Text tlačítka Volat na akci
+        customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí nastavení
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         facebook_handler: Facebook handler
         favicon: Ikona
+        from: Z e-mailové adresy
         github_handler: Manipulátor GitHub
         header_snippets: Úryvky záhlaví
         highlighted_content_banner_action_subtitle: Tlačítko Akce tlačítka
@@ -63,15 +66,21 @@ cs:
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Titul
         omnipresent_banner_url: URL
+        password: Heslo
+        port: Port
         primary_color: Hlavní
         reference_prefix: Referenční předpona
         secondary_color: Sekundární
+        send_welcome_notification: Odeslat uvítací oznámení
         show_statistics: Zobrazit statistiky
         success_color: Úspěch
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny uživatelů
+        user_name: Uživatelské jméno
         warning_color: Varování
+        welcome_notification_body: Tělo uvítacího oznámení
+        welcome_notification_subject: Předmět uvítacího oznámení
         youtube_handler: Obslužný program YouTube
       scope:
         code: Kód
