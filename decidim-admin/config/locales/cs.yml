@@ -462,7 +462,11 @@ cs:
           confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručte informační bulletin
           followers_help: Poslat newsletter všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          none: Žádný
           send_to_all_users: Odeslat všem uživatelům
+          send_to_followers: Odeslat sledujícím
+        send:
+          no_recipients: Žádný příjemce pro tento výběr
         show:
           preview: Náhled
           subject: Předmět
