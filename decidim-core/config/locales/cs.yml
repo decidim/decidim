@@ -1234,7 +1234,7 @@ cs:
       widget:
         see_more: Vidět víc
   locale:
-    name: Angličtina
+    name: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobná e-mailu
