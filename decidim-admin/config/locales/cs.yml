@@ -8,7 +8,7 @@ cs:
       area_type:
         name: název
         organization: Organizace
-        plural: Množný
+        plural: Množné číslo
       attachment:
         attachment_collection_id: Složka
         description: Popis
@@ -165,6 +165,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
+          has_spaces: Oblast má závislá místa, nesmí mít závislosti, aby mohla být odstraněna.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -377,6 +378,7 @@ cs:
             created_at: Vytvořeno u
             progress: Pokrok
             sent_at: Odeslané
+            sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
         oauth_application:
@@ -442,14 +444,25 @@ cs:
         form:
           interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
         index:
+          all: vše
+          all_users: 'Všichni uživatelé'
+          and: 'a '
           confirm_delete: Opravdu chcete tento newsletter smazat?
+          followers: 'sledující '
+          has_been_sent_to: 'Byl poslán: '
+          not_sent: Neodesláno
+          participants: 'uživatelé '
           title: Zprávy
         new:
           save: Uložit
           title: Nový informační bulletin
         select_recipients_to_deliver:
+          all_spaces: Vše
+          all_users_help: Poslat newsletter všem potvrzeným uživatelům.
           confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručte informační bulletin
+          followers_help: Poslat newsletter všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          send_to_all_users: Odeslat všem uživatelům
         show:
           preview: Náhled
           subject: Předmět
