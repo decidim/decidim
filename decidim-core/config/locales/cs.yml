@@ -3,6 +3,14 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění účtu
+      group:
+        about: O nás
+        avatar: Avatar
+        document_number: Číslo dokumentu
+        email: E-mail
+        name: Jméno
+        nickname: Přezdívka
+        phone: Telefon
       report:
         details: Další komentáře
       user:
@@ -148,6 +156,11 @@ cs:
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
         promote_help_text: Tuto změnu můžete propagovat a publikovat ji jako nezávislou %{model_name}
         section_heading: Změny (%{count})
+      compare_draft:
+        continue: Pokračovat
+      edit_draft:
+        discard: Zahodit koncept
+        send: Náhled
       emendation:
         actions:
           button_accept: Akceptovat
@@ -166,6 +179,10 @@ cs:
             byla autorem stažena.
       new:
         amendment_author: Autor změn
+        send: Vytvořit
+      preview_draft:
+        modify: Změnit
+        publish: Publikovat
       promoted:
         error: Došlo k chybě při propagování emendace
         success: Úprava byla úspěšně podporována
@@ -1021,6 +1038,11 @@ cs:
     welcome_notification:
       default_body: <p>Hi {{name}}, díky za připojení {{organization}} a vítám!</p><ul><li>Chcete-li získat rychlou představu o tom, co můžete udělat zde, podívejte se na sekci <a href="{{help_url}}">Nápověda</a> .</li><li>Jakmile jste si ji přečetli, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému blahu, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, otevřenou mysl spolupracovat a připojit se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Zpět
+      wizard_header:
+        see_steps: viz kroky
   devise:
     confirmations:
       confirmed: Vaše e-mailová adresa byla úspěšně potvrzena.
@@ -1258,12 +1280,15 @@ cs:
     qq: Qzone
     reddit: Reddit
     share_to: Sdílet na %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Cvrlikání
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Otevřete WeChat, klikněte na tlačítko "Objevte" a poté klikněte na nabídku "Skenovat QR kód".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1278,6 +1303,13 @@ cs:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Smazané
+      right: Dodatky
+    dropdown:
+      option_split: Vedle sebe (Sbs)
+      option_unified: Sjednocené
   views:
     pagination:
       first: "&laquo; Nejprve"
