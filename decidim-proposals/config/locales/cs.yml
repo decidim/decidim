@@ -121,6 +121,8 @@ cs:
             vote_limit: Počet hlasů na uživatele
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
+            amendment_promotion_enabled: Propagace pozměňování byla povolena
+            amendment_reaction_enabled: Reakce na pozměnění byla povolena
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
@@ -701,6 +703,7 @@ cs:
           view_proposal: Zobrazit návrh
         show:
           back_to: Zpět k
+          changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           hidden_endorsers_count:
