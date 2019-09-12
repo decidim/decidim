@@ -466,14 +466,14 @@ cs:
             notification_title: Byl vytvořen nový pozměňovací návrh pro <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
             email_subject: Nový pozměňovací návrh pro. \ %{amendable_title}
             notification_title: Byl vytvořen nový pozměňovací návrh pro <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
+            email_intro: 'Zamítnutý pozměňovací návrh pro %{amendable_title} byl publikován jako nový %{amendable_type}. Můžete ho vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Změna z %{emendation_author_nickname} byla zveřejněna jako nová %{amendable_type}
+            email_subject: Pozměňovací návrh z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
             notification_title: <a href="%{emendation_path}">zamítnout změnu</a> pro <a href="%{amendable_path}">%{amendable_title}</a> byla publikována jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
