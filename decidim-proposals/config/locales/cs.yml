@@ -121,6 +121,7 @@ cs:
             vote_limit: Počet hlasů na uživatele
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
+            amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
             amendment_promotion_enabled: Propagace pozměňování byla povolena
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
             announcement: Oznámení
@@ -713,6 +714,7 @@ cs:
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
+          link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
           link_to_proposal_from_emendation_text: Zobrazit nabídky
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
