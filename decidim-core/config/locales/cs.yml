@@ -184,6 +184,7 @@ cs:
           evaluating: |-
             Tato změna pro hodnocení %{amendable_type} %{amendable_link}
             se hodnotí.
+          promoted: Prosazováno jako %{amendable_type}.
           rejected: "Tato změna pro %{amendable_type} %{amendable_link}\nbyla zamítnuta na <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Tato změna pro číslo %{amendable_type} %{amendable_link}
