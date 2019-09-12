@@ -243,9 +243,9 @@ cs:
           success: Komponenta byla úspěšně vytvořena.
         destroy:
           error: Došlo k chybě při poškození této komponenty.
-          success: Složka byla úspěšně smazána.
+          success: Komponenta byla úspěšně smazána.
         edit:
-          title: Upravit součást
+          title: Upravit komponentu
           update: Aktualizace
         form:
           default_step_settings: Výchozí nastavení kroku
@@ -255,11 +255,11 @@ cs:
           add: Přidat komponentu
           headers:
             actions: Akce
-            name: Název součásti
+            name: Název komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu
-          title: 'Přidat součást: %{name}'
+          title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
         title: Komponenty
@@ -274,7 +274,7 @@ cs:
           welcome: Vítejte v administrátorském panelu Decidim.
       exports:
         export_as: "%{name} jako %{export_format}"
-        notice: Váš export právě probíhá. Po dokončení e-mailu obdržíte e-mail.
+        notice: Váš export právě probíhá. Po jeho dokončení obdržíte e-mail.
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
@@ -283,42 +283,42 @@ cs:
       impersonatable_users:
         index:
           filter:
-            all: Všechno
+            all: Vše
             managed: Spravované
             not_managed: Není spravováno
           filter_by: Filtrovat podle
           impersonate: Vydávat se za uživatele
           impersonate_new_managed_user: Spravovat nového účastníka
-          managed: Podařilo se
-          name: název
+          managed: Spravované
+          name: Jméno
           needs_authorization_warning: Pro tuto organizaci je zapotřebí alespoň jedna autorizace.
           not_managed: Není spravováno
           promote: Podporovat
           search: Vyhledávání
-          status: Postavení
+          status: Stav
           view_logs: Zobrazení protokolů
       impersonations:
         close_session:
-          error: Došlo k chybě při zavření aktuální relace zosobnění.
+          error: Při zavírání aktuální relace správy účastníků došlo k potížím.
           success: Aktuální relace zosobnění byla úspěšně ukončena.
         create:
-          error: Došlo k chybě, která se vyskytuje u uživatele.
-          success: Spravovaný uživatel byl úspěšně vytvořen.
+          error: Došlo k chybě, která se vyskytuje u účastníka.
+          success: Spravovaný účastník byl úspěšně vytvořen.
         form:
           authorization_method: Metoda autorizace
-          name: název
+          name: Jméno
           reason: Důvod
         new:
-          impersonate: Vyděsit
-          impersonate_existing_managed_user: Odcestujte ke spravovanému uživateli "%{name}"
-          impersonate_existing_user: Odsudzovat uživatele "%{name}"
-          impersonate_new_managed_user: Vyděsit nového spravovaného uživatele
+          impersonate: Vydávat se za uživatele
+          impersonate_existing_managed_user: Spravovat účastníka "%{name}"
+          impersonate_existing_user: Spravovat účastníka "%{name}"
+          impersonate_new_managed_user: Spravovat nového účastníka
       logs:
         logs_list:
           no_logs_yet: Dosud nejsou žádné protokoly
       managed_users:
         promotion:
-          error: Při správě spravovaného uživatele došlo k chybě.
+          error: Při propagaci spravovaného účastníka se vyskytl problém.
           success: Spravovaný uživatel byl úspěšně podporován.
         promotions:
           new:
@@ -327,24 +327,24 @@ cs:
             promote: Podporovat
       menu:
         admin_log: Protokol aktivity správce
-        admins: Správci
+        admins: Administrátoři
         appearance: Vzhled
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurace
-        dashboard: Přístrojová deska
-        help_sections: Části nápovědy
+        dashboard: Ovládací panel
+        help_sections: Sekce nápovědy
         homepage: Domovská stránka
-        impersonations: Odhalení
-        newsletters: Zprávy
+        impersonations: Vydávání se za uživatele
+        newsletters: Zpravodaje
         oauth_applications: Aplikace OAuth
         participants: Účastníci
         scope_types: Typy rozsahu
-        scopes: Scopes
+        scopes: Rozsahy
         settings: Nastavení
         static_pages: Stránky
-        user_groups: Skupiny uživatelů
-        users: Uživatelé
+        user_groups: Skupiny
+        users: Účastníci
       models:
         area:
           fields:
@@ -353,7 +353,7 @@ cs:
         area_type:
           fields:
             name: název
-            plural: Množný
+            plural: Množné číslo
         attachment:
           fields:
             collection: Složka
@@ -367,12 +367,12 @@ cs:
           name: Kategorie
         impersonation_log:
           fields:
-            admin: Správce
-            ended_at: Ukončeno
-            expired_at: Platnost vypršela na
+            admin: Administrátor
+            ended_at: Skončilo v
+            expired_at: Vypršelo v
             reason: Důvod
-            started_at: Začal u
-            user: Uživatel
+            started_at: Začalo v
+            user: Účastník
         newsletter:
           fields:
             created_at: Vytvořeno u
