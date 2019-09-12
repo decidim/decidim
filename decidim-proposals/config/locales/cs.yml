@@ -97,6 +97,7 @@ cs:
           global:
             amendments_enabled: Změny povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
+            amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
@@ -124,6 +125,7 @@ cs:
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
             amendment_promotion_enabled: Propagace pozměňování byla povolena
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
+            amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
@@ -326,6 +328,7 @@ cs:
             success: Všechny textové texty s účastí byly zrušeny.
           import:
             invalid: Formulář je neplatný!
+            invalid_file: Soubor obsahuje určitou chybu, zkuste jej prosím upravit a znovu jej nahrát.
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
           index:
             info_1: Následující oddíly byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
@@ -715,6 +718,7 @@ cs:
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
           link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
+          link_to_proposal_from_emendation_help_text: Toto je zamítnuté vylepšení
           link_to_proposal_from_emendation_text: Zobrazit nabídky
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
