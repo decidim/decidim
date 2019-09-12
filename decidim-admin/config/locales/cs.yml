@@ -450,6 +450,7 @@ cs:
           confirm_delete: Opravdu chcete tento newsletter smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
+          no_scopes: Žádné možnosti
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -635,13 +636,13 @@ cs:
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
-          success: Téma byla úspěšně aktualizována
+          success: Téma bylo úspěšně aktualizováno
       static_pages:
         actions:
           view: Zobrazit veřejnou stránku
         create:
           error: Při vytváření nové stránky došlo k chybě.
-          success: Stránka byla úspěšně vytvořena.
+          success: Stránka úspěšně vytvořena.
         destroy:
           success: Stránka byla úspěšně zničena
         edit:
@@ -669,30 +670,30 @@ cs:
         area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
-        dashboard: Přístrojová deska
-        impersonatable_users: Spravovatelní uživatelé
-        impersonations: Správa uživatelů
+        dashboard: Ovládací panel
+        impersonatable_users: Spravovatelní účastníci
+        impersonations: Správa účastníků
         participants: Uživatelé
         scope_types: Typy rozsahu
-        scopes: Scopes
+        scopes: Rozsahy
         static_pages: Stránky
-        user_groups: Skupiny uživatelů
-        users: Uživatelé
+        user_groups: Skupiny
+        users: Účastníci
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
-          success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny uživatelů, které odpovídají kritériím. To může chvíli trvat.
+          success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny, které odpovídají kritériím. To může chvíli trvat.
         reject:
-          invalid: Při odmítnutí této skupiny uživatelů došlo k chybě.
-          success: Uživatelská skupina byla úspěšně odmítnuta
+          invalid: Při odmítnutí této skupiny došlo k chybě.
+          success: Skupina byla úspěšně odmítnuta
         verify:
-          invalid: Při ověřování této skupiny uživatelů došlo k chybě.
-          success: Uživatelská skupina byla úspěšně ověřena
+          invalid: Při ověřování této skupiny došlo k chybě.
+          success: Skupina byla úspěšně ověřena
       user_groups:
         index:
           filter:
-            all: Všechno
-            pending: čekající
+            all: Vše
+            pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
           filter_by: Filtrovat podle
@@ -701,26 +702,26 @@ cs:
             pending: čekající
             rejected: Odmítnuto
             verified: Ověřeno
-          verify_via_csv: Ověřte pomocí CSV
+          verify_via_csv: Ověřit pomocí CSV
       user_groups_csv_verifications:
         new:
-          explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin uživatelů ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny uživatelů, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
-          title: Nahrajte soubor CSV
+          explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
+          title: Nahrát soubor CSV
           upload: nahrát
       users:
         create:
-          error: Při pozvání tohoto uživatele došlo k chybě.
-          success: Uživatel pozván úspěšně.
+          error: Při pozvání tohoto administrátora došlo k chybě.
+          success: Účastník pozván úspěšně.
         destroy:
-          error: Při pokusu o odstranění tohoto uživatele došlo k chybě.
-          success: Uživatel již není správcem.
+          error: Při pokusu o odstranění tohoto administrátora došlo k chybě.
+          success: Účastník již není administrátorem.
         form:
-          email: E-mailem
-          name: název
+          email: E-mail
+          name: Jméno
           role: Role
         new:
           create: Pozvat
-          title: Pozvat uživatele jako správce
+          title: Pozvat účastníka jako administrátora
       view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:
