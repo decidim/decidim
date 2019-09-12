@@ -122,6 +122,7 @@ cs:
         update: "%{user_name} aktualizovala nastavení organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
+        create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořilo %{resource_name} rozsah"
@@ -158,6 +159,7 @@ cs:
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
+        no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
       edit_draft:
         discard: Zahodit koncept
         send: Náhled
