@@ -174,7 +174,7 @@ cs:
         title: Upravit pozměňovací návrh
       emendation:
         actions:
-          button_accept: Akceptovat
+          button_accept: Přijmout
           button_reject: Odmítnout
           help_text: Zkontrolujte změny a přijměte nebo zamítněte tuto změnu. Oznámení bude zasláno jeho autorovi (autorům).
         announcement:
