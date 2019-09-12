@@ -8,7 +8,7 @@ cs:
       area_type:
         name: název
         organization: Organizace
-        plural: Množný
+        plural: Množné číslo
       attachment:
         attachment_collection_id: Složka
         description: Popis
@@ -40,7 +40,7 @@ cs:
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka volat na akci
         cta_button_text: Text tlačítka Volat na akci
-        default_locale: Výchozí nastavení
+        default_locale: Výchozí jazyk
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         facebook_handler: Facebook handler
@@ -242,13 +242,13 @@ cs:
           global_settings: Globální nastavení
           step_settings: Nastavení kroku
         index:
-          add: Přidat součást
+          add: Přidat komponentu
           headers:
             actions: Akce
             name: Název součásti
             type: Typ komponenty
         new:
-          add: Přidat součást
+          add: Přidat komponentu
           title: 'Přidat součást: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
@@ -274,11 +274,11 @@ cs:
         index:
           filter:
             all: Všechno
-            managed: Podařilo se
+            managed: Spravované
             not_managed: Není spravováno
           filter_by: Filtrovat podle
-          impersonate: Vyděsit
-          impersonate_new_managed_user: Vyděsit nového spravovaného uživatele
+          impersonate: Vydávat se za uživatele
+          impersonate_new_managed_user: Spravovat nového účastníka
           managed: Podařilo se
           name: název
           needs_authorization_warning: Pro tuto organizaci je zapotřebí alespoň jedna autorizace.
