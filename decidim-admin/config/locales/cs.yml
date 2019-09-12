@@ -431,30 +431,30 @@ cs:
       newsletters:
         create:
           error: Při vytváření tohoto zpraodaje došlo k chybě.
-          success: Newsletter byl úspěšně vytvořen. Před odesláním si je přečtěte.
+          success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
         deliver:
           error: Došlo k chybě při zasílání tohoto zpravodaje.
-          success: Newsletter byl úspěšně doručen.
+          success: Zpravodaj byl úspěšně doručen.
         destroy:
-          error_already_sent: 'Nelze zničit informační bulletin: Už byl odeslán.'
-          success: Newsletter byl úspěšně zlikvidován.
+          error_already_sent: 'Nelze zničit informační zpravodaj: Už byl odeslán.'
+          success: Zpravodaj byl úspěšně zlikvidován.
         edit:
           save_and_preview: Uložit a zobrazit náhled
-          title: Upravit informační bulletin
+          title: Upravit zpravodaj
         form:
-          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
+          interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu zprávy a bude nahrazeno jménem příjemce.'
         index:
           all: vše
           all_users: 'Všichni uživatelé'
           and: 'a '
-          confirm_delete: Opravdu chcete tento newsletter smazat?
+          confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
           no_scopes: Žádné možnosti
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
-          title: Zprávy
+          title: Zpravodaje
         new:
           save: Uložit
           title: Nový informační bulletin
