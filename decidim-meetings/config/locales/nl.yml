@@ -97,7 +97,7 @@ nl:
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
           follower:
             email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
-            email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+            email_outro: Je hebt deze melding ontvangen omdat je de bijeenkomst "%{resource_title}" volgt. Je kan stoppen met deze te volgen via vorige link.
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
