@@ -8,7 +8,7 @@ cs:
       area_type:
         name: název
         organization: Organizace
-        plural: Množný
+        plural: Množné číslo
       attachment:
         attachment_collection_id: Složka
         description: Popis
@@ -36,15 +36,17 @@ cs:
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
       organization:
+        address: Název hostitele SMTP
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         cta_button_path: Cesta tlačítka volat na akci
         cta_button_text: Text tlačítka Volat na akci
-        default_locale: Výchozí nastavení
+        default_locale: Výchozí jazyk
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         facebook_handler: Facebook handler
         favicon: Ikona
+        from: Z e-mailové adresy
         github_handler: Manipulátor GitHub
         header_snippets: Úryvky záhlaví
         highlighted_content_banner_action_subtitle: Tlačítko Akce tlačítka
@@ -63,6 +65,8 @@ cs:
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Titul
         omnipresent_banner_url: URL
+        password: Heslo
+        port: Port
         primary_color: Hlavní
         reference_prefix: Referenční předpona
         secondary_color: Sekundární
@@ -71,6 +75,7 @@ cs:
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny uživatelů
+        user_name: Uživatelské jméno
         warning_color: Varování
         youtube_handler: Obslužný program YouTube
       scope:
@@ -156,6 +161,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
+          has_spaces: Oblast má závislá místa, nesmí mít závislosti, aby mohla být odstraněna.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -242,13 +248,13 @@ cs:
           global_settings: Globální nastavení
           step_settings: Nastavení kroku
         index:
-          add: Přidat součást
+          add: Přidat komponentu
           headers:
             actions: Akce
             name: Název součásti
             type: Typ komponenty
         new:
-          add: Přidat součást
+          add: Přidat komponentu
           title: 'Přidat součást: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
@@ -274,11 +280,11 @@ cs:
         index:
           filter:
             all: Všechno
-            managed: Podařilo se
+            managed: Spravované
             not_managed: Není spravováno
           filter_by: Filtrovat podle
-          impersonate: Vyděsit
-          impersonate_new_managed_user: Vyděsit nového spravovaného uživatele
+          impersonate: Vydávat se za uživatele
+          impersonate_new_managed_user: Spravovat nového účastníka
           managed: Podařilo se
           name: název
           needs_authorization_warning: Pro tuto organizaci je zapotřebí alespoň jedna autorizace.
@@ -368,6 +374,7 @@ cs:
             created_at: Vytvořeno u
             progress: Pokrok
             sent_at: Odeslané
+            sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
         oauth_application:
@@ -433,14 +440,31 @@ cs:
         form:
           interpolations_hint: 'Tip: Můžete použít "%{name}" kdekoli v těle nebo předmětu a bude nahrazeno jménem příjemce.'
         index:
+          all: vše
+          all_users: 'Všichni uživatelé'
+          and: 'a '
           confirm_delete: Opravdu chcete tento newsletter smazat?
+          followers: 'sledující '
+          has_been_sent_to: 'Byl poslán: '
+          not_sent: Neodesláno
+          participants: 'uživatelé '
           title: Zprávy
         new:
           save: Uložit
           title: Nový informační bulletin
         select_recipients_to_deliver:
+          all_spaces: Vše
+          all_users_help: Poslat newsletter všem potvrzeným uživatelům.
           confirm_deliver: Opravdu chcete tento newsletter doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručte informační bulletin
+          followers_help: Poslat newsletter všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
+          none: Žádný
+          participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
+          send_to_all_users: Odeslat všem uživatelům
+          send_to_followers: Odeslat sledujícím
+        send:
+          no_recipients: Žádný příjemce pro tento výběr
         show:
           preview: Náhled
           subject: Předmět
