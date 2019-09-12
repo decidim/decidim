@@ -170,6 +170,7 @@ cs:
       edit_draft:
         discard: Zahodit koncept
         send: Náhled
+        title: Upravit pozměňovací návrh
       emendation:
         actions:
           button_accept: Akceptovat
@@ -189,9 +190,11 @@ cs:
       new:
         amendment_author: Autor změn
         send: Vytvořit
+        title: Vytvořit pozměňovací návrh
       preview_draft:
         modify: Změnit
         publish: Publikovat
+        title: Publikovat pozměňovací návrh
       promoted:
         error: Došlo k chybě při propagování emendace
         success: Úprava byla úspěšně podporována
