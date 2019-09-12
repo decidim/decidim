@@ -97,6 +97,7 @@ cs:
           title: Nová konzultace
         results:
           not_visible: Výsledky budou k dispozici při uzavírání konzultací
+          total_votes: 'Celkem: %{count} hlasů'
         update:
           error: Při aktualizaci této konzultace došlo k chybě.
           success: Konzultace byla úspěšně aktualizována.
@@ -254,6 +255,8 @@ cs:
       question_votes:
         create:
           error: Během hlasování se vyskytly chyby
+          success: Můžete to změnit až do konce konzultace, pouze poslední hlasování bude přijato.
+          title_error: Chyba hlasování!
           title_success: Hlas úspěšně zapsán
       regular_questions:
         title: Otázky pro tuto konzultaci
