@@ -316,7 +316,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
+          nickname_help: Il nickname che ti identifica su %{organization} e che sarà visibile agli altri utenti
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.

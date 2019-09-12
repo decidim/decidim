@@ -268,7 +268,7 @@ nl:
         participatory: Participatief
         working_group: Werkgroep
       index:
-        title: Events
+        title: Groepen
       last_activity:
         new_assembly: Nieuwe groep
       pages:
@@ -282,7 +282,7 @@ nl:
       show:
         area: onderwerp
         assembly_type: Groepstype
-        children: Events
+        children: Groepen
         closing_date: Einddatum
         composition: Samenstelling
         created_by: Aangemaakt door
@@ -308,7 +308,7 @@ nl:
         target: Wie doet mee
       statistics:
         answers_count: Antwoorden
-        assemblies_count: Bijeenkomsten
+        assemblies_count: Groepen
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Aanbevelingen
@@ -338,7 +338,7 @@ nl:
         assembly_presenter:
           not_found: 'De groep is niet gevonden in de database (ID: %{id})'
     menu:
-      assemblies: Events
+      assemblies: Groepen
     metrics:
       assemblies:
         description: Aantal aangemaakte groepen
