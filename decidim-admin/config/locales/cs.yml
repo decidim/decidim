@@ -39,8 +39,8 @@ cs:
         address: Název hostitele SMTP
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
-        cta_button_path: Cesta tlačítka volat na akci
-        cta_button_text: Text tlačítka Volat na akci
+        cta_button_path: Cesta tlačítka Výzvy k akci
+        cta_button_text: Text tlačítka Výzvy k akci
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
@@ -48,23 +48,23 @@ cs:
         facebook_handler: Facebook handler
         favicon: Ikona
         from: Z e-mailové adresy
-        github_handler: Manipulátor GitHub
+        github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
-        highlighted_content_banner_action_subtitle: Tlačítko Akce tlačítka
+        highlighted_content_banner_action_subtitle: Podnadpis Tlačítka Akce
         highlighted_content_banner_action_title: Název tlačítka akce
         highlighted_content_banner_action_url: Adresa URL tlačítka akce
         highlighted_content_banner_enabled: Zobrazit zvýrazněný banner obsahu
-        highlighted_content_banner_image: obraz
+        highlighted_content_banner_image: Obrázek
         highlighted_content_banner_short_description: Stručný popis
         highlighted_content_banner_title: Titul
-        instagram_handler: Manipulátor Instagram
+        instagram_handler: Instagram handler
         logo: Logo
-        name: název
+        name: Název
         official_img_footer: Oficiální zápatí loga
         official_img_header: Oficiální záhlaví loga
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
-        omnipresent_banner_title: Titul
+        omnipresent_banner_title: Název
         omnipresent_banner_url: URL
         password: Heslo
         port: Port
@@ -76,23 +76,23 @@ cs:
         success_color: Úspěch
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
-        user_groups_enabled: Povolit skupiny uživatelů
+        user_groups_enabled: Povolit skupiny
         user_name: Uživatelské jméno
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
-        youtube_handler: Obslužný program YouTube
+        youtube_handler: YouTube handler
       scope:
         code: Kód
         name: název
         organization: Organizace
-        parent_id: Rodič
+        parent_id: Nadřazený prvek
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
         name: název
         organization: Organizace
-        plural: Množný
+        plural: Množné číslo
       static_page:
         changed_notably: Došlo ke znatelným změnám.
         content: Obsah
@@ -127,7 +127,7 @@ cs:
         slug: URL slug
         title: Titul
       doorkeeper/application:
-        authorize_url: Autorizujte URL
+        authorize_url: Autorizovat URL
         client_id: ID klienta
         client_secret: Klientské tajemství
         organization_name: Název organizace
@@ -139,12 +139,12 @@ cs:
       actions:
         add: Přidat
         browse: Procházet
-        export: Vývozní
+        export: Exportovat
         manage: Spravovat
-        new: Nové %{name}
+        new: Nový %{name}
         permissions: Oprávnění
         reject: Odmítnout
-        verify: Ověřte
+        verify: Ověřit
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -171,7 +171,7 @@ cs:
           title: Upravit oblast
           update: Aktualizace
         new:
-          create: Vytvořte oblast
+          create: Vytvořit oblast
           title: Nová oblast
         no_areas: Žádné oblasti
         update:
@@ -187,8 +187,8 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collection_used: Tento adresář nelze odstranit, protože je používán.
-          attachment_collections_title: Přílohy složky
+          attachment_collection_used: Tuto složku nelze odstranit, protože je používána.
+          attachment_collections_title: Složky přílohy
         new:
           create: Vytvořit
           title: Nová složka
@@ -213,7 +213,7 @@ cs:
           error: Při aktualizaci této přílohy došlo k chybě.
           success: Příloha byla úspěšně aktualizována.
       autocomplete:
-        no_results: Nebyly nalezeny žádné výsledky
+        no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
       categories:
         create:
@@ -221,7 +221,7 @@ cs:
           success: Kategorie byla úspěšně vytvořena.
         destroy:
           error: Při odstraňování této kategorie došlo k chybě. Vymažte nejprve podkategorie, ujistěte se, že do této kategorie nepatří žádná další entita a zkuste to znovu.
-          success: Kategorie byla úspěšně smazána.
+          success: Kategorie úspěšně smazána.
         edit:
           title: Upravit kategorii
           update: Aktualizace
@@ -229,7 +229,7 @@ cs:
           categories_title: Kategorie
           category_used: Tuto kategorii nelze odstranit, protože se používá.
         new:
-          create: Vytvořte kategorii
+          create: Vytvořit kategorii
           title: Nová kategorie
         update:
           error: Při aktualizaci této kategorie došlo k chybě.
@@ -240,7 +240,7 @@ cs:
       components:
         create:
           error: Při vytváření této komponenty došlo k chybě.
-          success: Složka byla úspěšně vytvořena.
+          success: Komponenta byla úspěšně vytvořena.
         destroy:
           error: Došlo k chybě při poškození této součásti.
           success: Složka byla úspěšně smazána.
