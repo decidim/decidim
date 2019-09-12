@@ -384,10 +384,10 @@ cs:
         oauth_application:
           fields:
             created_at: Vytvořeno v
-            name: název
+            name: Jméno
           name: Aplikace OAuth
         participatory_space_private_user:
-          name: Účastní prostor soukromý uživatel
+          name: Účastnický prostor soukromého účastníka
         scope:
           fields:
             name: název
@@ -395,31 +395,31 @@ cs:
         scope_type:
           fields:
             name: název
-            plural: Množný
+            plural: Množné číslo
         static_page:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             title: Titul
         user:
           fields:
             created_at: Datum vzniku
-            email: E-mailem
-            last_sign_in_at: Poslední datum přihlášení
+            email: E-mail
+            last_sign_in_at: Datum posledního přihlášení
             name: název
             role: Role
             roles:
               admin: Správce
-              user_manager: Správce uživatelů
-          name: Uživatel
+              user_manager: Správce účastníků
+          name: Účastník
         user_group:
           fields:
             actions: Akce
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             document_number: Číslo dokumentu
             name: název
             phone: Telefon
             state: Stát
-            users_count: Uživatelé se počítají
+            users_count: Počet účastníků
       moderations:
         index:
           title: Moderování
@@ -430,7 +430,7 @@ cs:
             spam: Spam
       newsletters:
         create:
-          error: Při vytváření tohoto bulletinu došlo k chybě.
+          error: Při vytváření tohoto zpraodaje došlo k chybě.
           success: Newsletter byl úspěšně vytvořen. Před odesláním si je přečtěte.
         deliver:
           error: Došlo k chybě při zasílání tohoto zpravodaje.
