@@ -87,6 +87,7 @@ cs:
     components:
       proposals:
         actions:
+          amend: Pozměnit
           create: Vytvořit
           endorse: Potvrďte
           vote: Hlasování
@@ -119,6 +120,7 @@ cs:
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
           step:
+            amendment_creation_enabled: Umožnit pozměnění a doplnění
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
