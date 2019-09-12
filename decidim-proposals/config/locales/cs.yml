@@ -95,6 +95,7 @@ cs:
         settings:
           global:
             amendments_enabled: Změny povoleny
+            amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
