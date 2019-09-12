@@ -103,12 +103,12 @@ describe "Filter Participatory Processes", type: :system do
       end
 
       it_behaves_like "listing all processes"
-      
+
       context "when the configured time_zone is not UTC" do
         let(:time_zone) { ActiveSupport::TimeZone.new("Madrid") }
 
         it_behaves_like "listing all processes"
-      end  
+      end
     end
   end
 
