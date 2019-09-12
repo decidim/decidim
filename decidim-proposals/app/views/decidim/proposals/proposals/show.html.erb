@@ -94,8 +94,7 @@ edit_link(
     <div class="section">
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
-      <%#raise%>
-        <%= simple_format present(@proposal).body(links: true, strip_tags: false) %>
+        <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
