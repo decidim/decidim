@@ -124,7 +124,10 @@ cs:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
             amendment_promotion_enabled: Propagace pozměňování byla povolena
+            amendment_promotion_enabled_help: Autoři vylepšení budou moci podpořit návrh zamítnutého vylepšení.
             amendment_reaction_enabled: Reakce na pozměnění byla povolena
+            amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
+            amendments_visibility: Viditelnost pozměňovacího návrhu
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
@@ -717,6 +720,7 @@ cs:
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
+          link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
           link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
           link_to_proposal_from_emendation_help_text: Toto je zamítnuté vylepšení
           link_to_proposal_from_emendation_text: Zobrazit nabídky
