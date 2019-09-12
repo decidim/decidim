@@ -570,10 +570,19 @@ cs:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
           success: Úspěšně zničen soukromý uživatelský prostor účastníka.
         index:
+          import_via_csv: Importovat přes csv
           title: Účastní prostor soukromý uživatel
         new:
           create: Vytvořit
           title: Nový účastník soukromého prostoru.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Při čtení souboru CSV došlo k chybě.
+          success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
+        new:
+          explanation: 'Nahrávejte soubor CSV bez záhlaví, který musí mít dva sloupce: email v prvním sloupci a jméno uživatele v posledním sloupci (e-mail, jméno), které chcete přidat do participačního prostoru.'
+          title: Nahrajte Váš CSV soubor
+          upload: Nahrát
       resource_permissions:
         edit:
           submit: Předložit
@@ -640,6 +649,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
+          slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední pozoruhodná změna
         new:
