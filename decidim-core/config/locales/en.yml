@@ -117,6 +117,7 @@ en:
         update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
+        create_via_csv: "%{user_name} invited %{resource_name} via csv to be a private participant"
         delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
