@@ -199,6 +199,7 @@ cs:
         error: Došlo k chybě při propagování emendace
         success: Úprava byla úspěšně podporována
       publish_draft:
+        error: Při publikování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh úspěšně publikován
       rejected:
         error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
@@ -214,12 +215,15 @@ cs:
       visibility_options:
         all: Pozměňovací návrhy jsou pro všechny viditelné
         participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
+      withdraw:
+        error: Při stažení pozměňovacího návrhu došlo k chybě
+        success: Pozměňovací návrh byl úspěšně stažen
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Srovnejte váš pozměňovací návrh
+          '3': Dokončete váš pozměňovací návrh
+          '4': Zveřejnit svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:
@@ -319,6 +323,9 @@ cs:
             enable_pads_creation: Povolit vytvoření podložky
             resources_permissions_enabled: Povolení zdrojů byla povolena
           step:
+            amendment_creation_enabled: Umožnit změnu a doplnění
+            amendment_promotion_enabled: Propagace změn byla povolena
+            amendment_reaction_enabled: Reakce na změnu byla povolena
             comments_blocked: Komentáře byly blokovány
             dummy_step_attribute_1: Atribut kroku dummy 1
             dummy_step_attribute_2: Atribut kroku dummy 2
@@ -347,6 +354,7 @@ cs:
         name: Podmanilý banner
     core:
       actions:
+        login_before_access: Prosím přihlašte se k účtu před přístupem
         unauthorized: Nemáte oprávnění k provedení této akce
     data_portability:
       export:
@@ -373,6 +381,7 @@ cs:
           newsletter: Příjemný informační bulletin s příslušnými informacemi
           newsletter_title: Povolení kontaktu
           nickname_help: Váš krátký jedinečný identifikátor v %{organization}
+          password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
           sign_in: Přihlásit se
           sign_up: Přihlásit se
           sign_up_as:
@@ -1328,6 +1337,7 @@ cs:
       left: Smazané
       right: Dodatky
     dropdown:
+      choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
       option_split: Vedle sebe (Sbs)
       option_unified: Sjednocené
   views:
