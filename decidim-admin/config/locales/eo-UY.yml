@@ -8,6 +8,7 @@ eo:
       area_type:
         name: Nomo
         organization: Organizo
+        plural: Multnombro
       attachment:
         attachment_collection_id: Dosierujo
         description: Priskribo
@@ -34,3 +35,21 @@ eo:
         organization_name: Nomo de la organizo
         organization_url: Organizo URL
         redirect_uri: Adresado URL
+  decidim:
+    admin:
+      actions:
+        new: Nova %{name}
+      managed_users:
+        promotions:
+          new:
+            explanation: Administritaj partoprenantoj povas esti promociitaj al normaj partoprenantoj. Ĝi signifas, ke ili estos invititaj al la sistemo kaj vi ne povos administri ilin denove. La invitita partoprenanto ricevos retpoŝton por akcepti vian inviton.
+            new_managed_user_promotion: Nova administrita partoprenanto-promocio
+      models:
+        impersonation_log:
+          fields:
+            ended_at: Finita je
+        participatory_space_private_user:
+          name: Privata partoprenanto
+        user_group:
+          fields:
+            document_number: Dokumento Nombro
