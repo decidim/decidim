@@ -198,6 +198,8 @@ cs:
       promoted:
         error: Došlo k chybě při propagování emendace
         success: Úprava byla úspěšně podporována
+      publish_draft:
+        success: Pozměňovací návrh úspěšně publikován
       rejected:
         error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
         success: Emenda byla úspěšně odmítnuta
@@ -206,6 +208,12 @@ cs:
         heading: Přezkoumejte pozměňovací návrh
         help_text: Přezkoumáváte změnu %{model_name}
         send: Přijmout pozměňovací návrh
+      update_draft:
+        error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
+        success: Pozměňovací návrh byl úspěšně aktualizován.
+      visibility_options:
+        all: Pozměňovací návrhy jsou pro všechny viditelné
+        participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
