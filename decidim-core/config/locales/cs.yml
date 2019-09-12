@@ -321,12 +321,14 @@ cs:
             comments_enabled: Komentáře povoleny
             dummy_global_attribute_1: Dummy atribut 1
             dummy_global_attribute_2: Dummy atribut 2
+            dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření podložky
             resources_permissions_enabled: Povolení zdrojů byla povolena
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
             amendment_reaction_enabled: Reakce na změnu byla povolena
+            amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře byly blokovány
             dummy_step_attribute_1: Atribut kroku dummy 1
             dummy_step_attribute_2: Atribut kroku dummy 2
@@ -1073,6 +1075,7 @@ cs:
         back: Zpět
       wizard_header:
         see_steps: viz kroky
+        step_of: Krok %{current_step} z %{total_steps}
   devise:
     confirmations:
       confirmed: Vaše e-mailová adresa byla úspěšně potvrzena.
@@ -1163,6 +1166,7 @@ cs:
         change_your_password: Změňte si své heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
+        password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
       new:
         forgot_your_password: Zapomněli jste heslo?
         send_me_reset_password_instructions: Pošlete mi pokyny k resetování hesla
