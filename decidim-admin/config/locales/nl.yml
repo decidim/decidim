@@ -583,6 +583,7 @@ nl:
           success: Het CSV-bestand is succesvol geüpload. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
           explanation: Upload uw CSV-bestand zonder headers. Het moet twee kolommen hebben met e-mail in de eerste kolom en de naam in de laatste kolom (e-mail, naam) van de gebruikers die u wilt toevoegen aan het proces.
+          title: Upload het CSV-bestand
           upload: Upload
       resource_permissions:
         edit:
