@@ -169,6 +169,7 @@ cs:
         success: Pozměňovací návrh byl úspěšně smazán.
       edit_draft:
         discard: Zahodit koncept
+        discard_confirmation: Opravdu chcete zahodit tento pozměňovací návrh?
         send: Náhled
         title: Upravit pozměňovací návrh
       emendation:
@@ -607,7 +608,7 @@ cs:
           conditions:
             - Choďte sem často
           description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
-          description_another: Tento uživatel se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
+          description_another: Tento účastník se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
           description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
           name: Kontinuita
           next_level_in: Připojte se na %{score} po sobě jdoucích dní, abyste se dostali na další úroveň!
@@ -619,7 +620,7 @@ cs:
           description: Tento odznak je udělen, když dosáhnete určitého počtu následovníků. %{organization_name} je společenská a politická síť, tkát váš web komunikovat s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
           description_own: "Uživatelé vás sledují %{score} uživatelů."
-          name: Následovníci
+          name: Sledující
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
           unearned_another: Tento uživatel ještě nemá žádné sledujících.
           unearned_own: Už nemáte žádné následovníky.
