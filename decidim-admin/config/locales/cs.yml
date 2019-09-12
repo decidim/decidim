@@ -465,12 +465,19 @@ cs:
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
+          select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
+          select_spaces: Vybrat mezery pro rozdělení zpravodaje
+          select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
           send_to_all_users: Odeslat všem uživatelům
           send_to_followers: Odeslat sledujícím
+          send_to_participants: Odeslat účastníkům
+          title: Vybrat příjemce k doručení
+          warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádný příjemce pro tento výběr
         show:
           preview: Náhled
+          select_recipients_to_deliver: Vybrat příjemce k doručení
           subject: Předmět
         update:
           error: Při aktualizaci tohoto bulletinu došlo k chybě.
