@@ -242,7 +242,7 @@ cs:
           error: Při vytváření této komponenty došlo k chybě.
           success: Komponenta byla úspěšně vytvořena.
         destroy:
-          error: Došlo k chybě při poškození této součásti.
+          error: Došlo k chybě při poškození této komponenty.
           success: Složka byla úspěšně smazána.
         edit:
           title: Upravit součást
