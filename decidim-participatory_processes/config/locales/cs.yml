@@ -142,6 +142,7 @@ cs:
           title: Duplicitní participační proces
       participatory_process_groups:
         destroy:
+          error: Došlo k chybě při zrušení skupiny účastnických procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
           title: Upravit skupinu procesů
