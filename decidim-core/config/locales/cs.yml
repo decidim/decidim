@@ -251,41 +251,41 @@ cs:
           passport_number: Číslo pasu
         name: Další příklad oprávnění
       dummy_authorization_handler:
-        explanation: Ověřte se zavedením čísla dokumentu končící "X"
+        explanation: Ověřte se zavedením čísla dokumentu končícího "X"
         fields:
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
         name: Příklad autorizace
       dummy_authorization_workflow:
-        name: Pracovní postup autorizace autorských práv
+        name: Pracovní postup autorizace
       errors:
-        duplicate_authorization: Uživateli je již povoleno stejná data.
-      expired_at: Platnost vypršela v roce %{timestamp}
-      expires_at: Platnost vyprší na %{timestamp}
+        duplicate_authorization: Účastník je již autorizován se stejnými daty.
+      expired_at: Platnost vypršela v %{timestamp}
+      expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Sloupec
           foo: Foo
         name: Foo autorizace
-      granted_at: Udělené na %{timestamp}
+      granted_at: Udělené v %{timestamp}
       sms:
         explanation: Pošlete číslo mobilního telefonu, abychom mohli ověřit vaši totožnost.
-        name: Kód SMS
-      started_at: Začal na %{timestamp}
+        name: Kód přes SMS
+      started_at: Začal v %{timestamp}
     authorization_modals:
       content:
         expired:
-          authorize: Znovu udělejte "%{authorization}"
-          explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být reauthorized s "%{authorization}".
+          authorize: Znovu autorizujte s "%{authorization}"
+          explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být znovu autorizován s "%{authorization}".
           title: Platnost oprávnění vypršela
         incomplete:
-          cancel: zrušení
-          explanation: 'Ačkoli jste v současné době autorizováni s "%{authorization}", potřebujeme, abyste znovu autorizovali, protože chybí následující údaje:'
+          cancel: Zrušit
+          explanation: 'Ačkoli jste v současné době autorizováni s "%{authorization}", potřebujeme, abyste se znovu autorizovali, protože chybí následující údaje:'
           invalid_field: "%{field}"
           reauthorize: Znovu autorizovat
-          title: Znovu udělejte oprávnění
+          title: Znovu autorizujte
         missing:
-          authorize: Povolení s "%{authorization}"
+          authorize: Autorizujte s "%{authorization}"
           explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}".
           title: Je potřebná autorizace
         pending:
@@ -294,14 +294,14 @@ cs:
           title: Autorizace stále probíhá
         unauthorized:
           explanation: Je nám líto, nemůžete tuto akci provést, protože některé vaše údaje o autorizaci neodpovídají.
-          invalid_field: "%{field} hodnota %{value} není platný."
+          invalid_field: "%{field} hodnota %{value} není platná."
           ok: OK
           title: Neautorizovaný
         unconfirmed:
           confirmation_instructions: 'Pokud jste neobdrželi pokyny k potvrzení, můžete je požádat znovu:'
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
-          title: potvrďte svůj email
+          title: Potvrdit svůj email
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
