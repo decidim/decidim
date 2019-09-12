@@ -572,10 +572,18 @@ nl:
           error: Er is een fout opgetreden bij het verwijderen van een privégebruiker voor deze deelruimte.
           success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
+          import_via_csv: Importeren via csv
           title: Privégebruiker van de burgerinspraak
         new:
           create: creëren
           title: Nieuwe privégebruiker van de burgerinspraak.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
+          success: Het CSV-bestand is succesvol geüpload. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
+        new:
+          explanation: Upload uw CSV-bestand zonder headers. Het moet twee kolommen hebben met e-mail in de eerste kolom en de naam in de laatste kolom (e-mail, naam) van de gebruikers die u wilt toevoegen aan het proces.
+          upload: Upload
       resource_permissions:
         edit:
           submit: voorleggen
