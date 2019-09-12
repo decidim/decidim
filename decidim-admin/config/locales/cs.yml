@@ -726,26 +726,26 @@ cs:
     forms:
       errors:
         impersonate_user:
-          reason: Musíte uvést důvod, proč se vydáte za nezúčastněného uživatele
+          reason: Při správě nespravovaného účastníka musíte uvést důvod
     moderations:
       actions:
         hidden: Skrytý
         hide: Skrýt
-        not_hidden: Ne ukryté
+        not_hidden: Neskrytý
         title: Akce
-        unhide: Odkryjte
-        unreport: Unreport
+        unhide: Odkrýt
+        unreport: Zrušit nahlášení
       admin:
         reportable:
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.
           unhide:
-            invalid: Došlo k potížím s vynecháním zdroje.
-            success: Zdroj byl úspěšně vyloučen.
+            invalid: Došlo k potížím s odkrytím zdroje.
+            success: Zdroj byl úspěšně odkryt.
           unreport:
-            invalid: Došlo k problému, že zdroj nebyl hlášen.
-            success: Úspěšně nehlášený zdroj.
+            invalid: Při oznamování zdroje došlo k problému.
+            success: Zdroj byl úspěšně ohlášen.
       models:
         moderation:
           fields:
