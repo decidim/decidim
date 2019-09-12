@@ -153,11 +153,11 @@ fr:
         announcement:
           accepted: |-
             Cette modification du %{amendable_type} %{amendable_link} a été
-            accepté sur <strong>%{announcement_date}</strong>.
+            acceptée sur <strong>%{announcement_date}</strong>.
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\na été rejetée le <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             a été retiré par l'auteur.
@@ -693,19 +693,19 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -1264,7 +1264,7 @@ fr:
       left: Suppressions
       right: Ajouts
     dropdown:
-      choose_diff_view_mode: 'Comparer le mode de vue :'
+      choose_diff_view_mode: 'Sélectionner le mode de vue :'
       option_split: Côte à côte
       option_unified: Unifié
   views:

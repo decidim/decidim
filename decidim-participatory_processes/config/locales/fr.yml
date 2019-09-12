@@ -3,12 +3,12 @@ fr:
     attributes:
       participatory_process:
         announcement: Annonce
-        area_id: Surface
+        area_id: Périmètre d'assemblée
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
-        decidim_area_id: Surface
+        decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
         domain: Domaine
@@ -57,8 +57,8 @@ fr:
         one: Processus participatif
         other: Processus participatifs
       decidim/participatory_process_group:
-        one: Groupe de processus participatifs
-        other: Groupes de processus participatifs
+        one: Groupe de concertations
+        other: Groupes de concertations
       decidim/participatory_process_step:
         one: Étape
         other: Étapes
@@ -77,7 +77,7 @@ fr:
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
-        new_process_user_role: Nouvel utilisateur de la concertation
+        new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -142,7 +142,7 @@ fr:
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de concertation
+          title: Nouveau groupe de concertations
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
           success: Groupe de concertations mis à jour avec succès.
@@ -261,14 +261,14 @@ fr:
         participatory_processes:
           contextual: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           page: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
-          title: Qu'est-ce qu'un processus participatif?
+          title: Qu'est-ce qu'une concertation ?
     menu:
       processes: Concertations
     metrics:
       participatory_processes:
-        description: Nombre de processus participatifs dans cette organisation
-        object: processus participatifs
-        title: Processus participatifs
+        description: Nombre de concertations dans cette organisation
+        object: concertations
+        title: Concertations
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -295,12 +295,12 @@ fr:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             duration: Durée
-            filters: Les filtres
+            filters: Filtres
             images: Images
             metadata: Métadonnées
             other: Autre
-            select_an_area: Sélectionnez une région
-            select_process_group: Sélectionnez un groupe de processus
+            select_an_area: Sélectionnez un secteur
+            select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Informations générales
             visbility: Visibilité
@@ -310,7 +310,7 @@ fr:
       index:
         title: Concertations
       last_activity:
-        new_participatory_process: Nouveau processus participatif
+        new_participatory_process: Nouvelle concertation
       pages:
         home:
           highlighted_processes:
@@ -347,7 +347,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        area: Surface
+        area: Périmètre d'assemblée
         developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation

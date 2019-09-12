@@ -74,9 +74,9 @@ hu:
         success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        user_groups_enabled: Felhasználói csoportok engedélyezése
+        user_groups_enabled: Csoportok engedélyezése
         user_name: Felhasználónév
-        warning_color: Figyelem
+        warning_color: Figyelmeztetés
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -161,6 +161,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A terület függő terekkel rendelkezik, a törléshez meg kell szüntetni ezen függőségeket.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
