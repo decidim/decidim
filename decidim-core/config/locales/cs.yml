@@ -309,39 +309,39 @@ cs:
         many: a %{count} dalších
         other: a %{count} dalších
       see_less: "(viz níže)"
-      see_more: "(vidět víc)"
+      see_more: "(viz další)"
     components:
       dummy:
         actions:
-          bar: Bar
+          bar: Lišta
           foo: Foo
-        name: Dummy Component
+        name: Zástupná část
         settings:
           global:
             amendments_enabled: Změny povoleny
             comments_enabled: Komentáře povoleny
-            dummy_global_attribute_1: Dummy atribut 1
-            dummy_global_attribute_2: Dummy atribut 2
+            dummy_global_attribute_1: Zástupný atribut 1
+            dummy_global_attribute_2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
-            enable_pads_creation: Povolit vytvoření podložky
-            resources_permissions_enabled: Povolení zdrojů byla povolena
+            enable_pads_creation: Povolit vytvoření sdíleného textu
+            resources_permissions_enabled: Oprávnění zdrojů povoleno
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
-            comments_blocked: Komentáře byly blokovány
+            comments_blocked: Komentáře blokovány
             dummy_step_attribute_1: Atribut kroku dummy 1
-            dummy_step_attribute_2: Atribut kroku dummy 2
+            dummy_step_attribute_2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
-        name: Footer sub hero banner
+        name: Zápatí pod hlavním pruhem
       hero:
-        name: Hero image
+        name: Hlavní obrázek
       highlighted_content_banner:
-        name: Zvýrazněný banner obsahu
+        name: Zvýrazněný obsahový pruh
       how_to_participate:
         name: Jak se zapojit
       html:
@@ -356,18 +356,18 @@ cs:
       stats:
         name: Statistika organizace
       sub_hero:
-        name: Podmanilý banner
+        name: Pruh pod hlavním pruhem
     core:
       actions:
         login_before_access: Prosím přihlašte se k účtu před přístupem
         unauthorized: Nemáte oprávnění k provedení této akce
     data_portability:
       export:
-        ready: Připraveno
+        ready: Připraven
       show:
-        download_data: Stáhněte data
+        download_data: Stáhnout data
         download_data_description: Soubor se všemi informacemi přidruženými k účtu bude odeslán na <strong>%{user_email}</strong>
-        request_data: Vyžádejte si údaje
+        request_data: Vyžádat data
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
@@ -376,14 +376,14 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Váš krátký jedinečný identifikátor v %{organization}
+          nickname_help: Váš alias (@nickname) v %{organization}
           sign_up: Prosím, vyplňte svůj profil
-          subtitle: Pro dokončení registrace zaregistrujte prosím následující formulář
-          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakýkoliv název.
+          subtitle: Pro dokončení registrace vyplňte prosím následující formulář
+          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
         new:
           already_have_an_account?: Máte již účet?
-          newsletter: Příjemný informační bulletin s příslušnými informacemi
+          newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
           nickname_help: Váš krátký jedinečný identifikátor v %{organization}
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
