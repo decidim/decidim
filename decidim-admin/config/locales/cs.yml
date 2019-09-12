@@ -452,6 +452,7 @@ cs:
           has_been_sent_to: 'Byl poslán: '
           not_sent: Neodesláno
           participants: 'uživatelé '
+          segmented_to: 'Rozděleno na %{subject}: '
           title: Zprávy
         new:
           save: Uložit
