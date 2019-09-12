@@ -3,10 +3,10 @@ cs:
     attributes:
       area:
         area_type: Typ oblasti
-        name: název
+        name: Název
         organization: Organizace
       area_type:
-        name: název
+        name: Název
         organization: Organizace
         plural: Množné číslo
       attachment:
@@ -20,7 +20,7 @@ cs:
       category:
         description: Popis
         name: název
-        parent_id: Rodič
+        parent_id: Nadřazený prvek
       component:
         name: název
         published_at: Publikováno v
