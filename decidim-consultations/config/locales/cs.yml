@@ -277,6 +277,8 @@ cs:
         statistics:
           consultations_count: Konzultace
     questions:
+      next_button: Další otázka
+      previous_button: Předchozí otázka
       results:
         title: Výsledek
       show:
