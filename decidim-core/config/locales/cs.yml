@@ -160,6 +160,9 @@ cs:
       compare_draft:
         continue: Pokračovat
         no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
+        title: Podobná vylepšení
+      created:
+        success: Koncept změny byl úspěšně vytvořen.
       edit_draft:
         discard: Zahodit koncept
         send: Náhled
