@@ -375,15 +375,15 @@ cs:
             user: Účastník
         newsletter:
           fields:
-            created_at: Vytvořeno u
-            progress: Pokrok
-            sent_at: Odeslané
+            created_at: Vytvořeno v
+            progress: Průběh
+            sent_at: Odesláno v
             sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
         oauth_application:
           fields:
-            created_at: Vytvořeno u
+            created_at: Vytvořeno v
             name: název
           name: Aplikace OAuth
         participatory_space_private_user:
