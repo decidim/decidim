@@ -246,6 +246,7 @@ cs:
         form:
           default_step_settings: Výchozí nastavení kroku
           global_settings: Globální nastavení
+          participatory_texts_enabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
           step_settings: Nastavení kroku
         index:
           add: Přidat komponentu
@@ -448,6 +449,7 @@ cs:
           has_been_sent_to: 'Byl poslán: '
           not_sent: Neodesláno
           participants: 'uživatelé '
+          segmented_to: 'Rozděleno na %{subject}: '
           title: Zprávy
         new:
           save: Uložit
@@ -461,12 +463,19 @@ cs:
           none: Žádný
           participants_help: Odešle newsletter všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           scopes_help: Poslat newsletter uživatelům, kteří mají některé z vybraných oblastí aktivovaných v nastavení svého účtu "Moje zájmy".
+          select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
+          select_spaces: Vybrat mezery pro rozdělení zpravodaje
+          select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
           send_to_all_users: Odeslat všem uživatelům
           send_to_followers: Odeslat sledujícím
+          send_to_participants: Odeslat účastníkům
+          title: Vybrat příjemce k doručení
+          warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádný příjemce pro tento výběr
         show:
           preview: Náhled
+          select_recipients_to_deliver: Vybrat příjemce k doručení
           subject: Předmět
         update:
           error: Při aktualizaci tohoto bulletinu došlo k chybě.
@@ -629,6 +638,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
+          slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední pozoruhodná změna
         new:
