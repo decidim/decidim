@@ -162,7 +162,11 @@ cs:
         no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
         title: Podobná vylepšení
       created:
-        success: Koncept změny byl úspěšně vytvořen.
+        error: Při vytváření pozměňovacího návrhu došlo k chybě.
+        success: Pozměňovací návrh byl úspěšně vytvořen.
+      destroy_draft:
+        error: Při mazání pozměňovacího návrhu došlo k potížím.
+        success: Pozměňovací návrh byl úspěšně smazán.
       edit_draft:
         discard: Zahodit koncept
         send: Náhled
