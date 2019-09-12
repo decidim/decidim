@@ -365,6 +365,7 @@ cs:
           more_info: Více informací
           take_part: Zúčastnit se
         index:
+          children: 'Shromáždění: '
           organizational_chart: Organizační schéma
           promoted_assemblies: Zvýrazněné sestavy
           reset_chart: Resetovat
