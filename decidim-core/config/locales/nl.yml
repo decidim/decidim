@@ -116,6 +116,7 @@ nl:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
         delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
