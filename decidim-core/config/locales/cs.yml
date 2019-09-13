@@ -1235,7 +1235,7 @@ cs:
       widget:
         see_more: Vidět víc
   locale:
-    name: Angličtina
+    name: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobná e-mailu
@@ -1279,6 +1279,13 @@ cs:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Smazané
+      right: Dodatky
+    dropdown:
+      option_split: Vedle sebe (Sbs)
+      option_unified: Sjednocené
   views:
     pagination:
       first: "&laquo; Nejprve"
