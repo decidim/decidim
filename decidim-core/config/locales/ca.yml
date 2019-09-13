@@ -116,6 +116,7 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
+        create_via_csv: "%{user_name} ha convidat %{resource_name} via csv per a ser un participant privat"
         delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"

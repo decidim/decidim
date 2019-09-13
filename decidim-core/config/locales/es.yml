@@ -3,6 +3,14 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      group:
+        about: Acerca de
+        avatar: Avatar
+        document_number: Número de documento
+        email: Correo electrónico
+        name: Nombre
+        nickname: Alias
+        phone: Teléfono
       report:
         details: Comentarios adicionales
       user:
@@ -142,6 +150,21 @@ es:
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente
         section_heading: Enmiendas (%{count})
+      compare_draft:
+        continue: Continuar
+        no_similars_found: No se encontraron enmiendas similares.
+        title: Enmiendas similares
+      created:
+        error: Se ha producido un error al crear la enmienda.
+        success: La enmienda se ha creado correctamente.
+      destroy_draft:
+        error: Hubo un problema al eliminar el borrador de enmienda.
+        success: El borrador de la propuesta fue eliminado correctamente.
+      edit_draft:
+        discard: Descartar este borrador
+        discard_confirmation: '¿Está seguro de que desea descartar este borrador de enmienda?'
+        send: Vista previa
+        title: Editar borrador de enmienda
       emendation:
         actions:
           button_accept: Aceptar
@@ -152,14 +175,23 @@ es:
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido aceptada el <strong>%{announcement_date}</strong>.
           evaluating: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} está siendo evaluada.
+          promoted: Promocionar a %{amendable_type}.
           rejected: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido rechazada el <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link} ha sido retirada por su autora.
       new:
         amendment_author: Autora de la enmienda
+        send: Crear
+        title: Crear borrador de enmienda
+      preview_draft:
+        modify: Modificar
+        publish: Publicar
+        title: Publicar borrador de enmienda
       promoted:
         error: Se ha producido un error al publicar la enmienda como una nueva propuesta
         success: La enmienda se ha publicado como una nueva propuesta correctamente
+      publish_draft:
+        error: Hubo un problema al publicar la enmienda.
       rejected:
         error: Se ha producido un error al rechazar esta enmienda, por favor inténtalo de nuevo más tarde
         success: La enmienda se ha rechazado correctamente
