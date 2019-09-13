@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ cs:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Rozprava
         few: Debaty
         many: Debaty
+        one: Rozprava
         other: Debaty
   decidim:
     components:
@@ -71,9 +72,9 @@ cs:
       debates:
         count:
           debates_count:
-            one: "%{count} debata"
             few: "%{count} debat"
             many: "%{count} debat"
+            one: "%{count} debata"
             other: "%{count} debat"
         create:
           invalid: Během debaty vznikl problém.
@@ -144,7 +145,7 @@ cs:
       badges:
         commented_debates:
           conditions:
-            - Vyberte si otevřenou rozpravu, do které se můžete zapojit
+          - Vyberte si otevřenou rozpravu, do které se můžete zapojit
           description: Tento odznak se uděluje, když se aktivně účastníte různých debat tím, že ponecháte své komentáře.
           description_another: Tento uživatel se zúčastnil %{score} debat.
           description_own: Zúčastnili jste se %{score} debat.

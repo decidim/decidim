@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -66,19 +67,19 @@ cs:
   activerecord:
     models:
       decidim/assembly:
-        one: Shromáždění
         few: Sestavy
         many: Sestavy
+        one: Shromáždění
         other: Sestavy
       decidim/assembly_member:
-        one: Montážní člen
         few: Členové shromáždění
         many: Členové shromáždění
+        one: Montážní člen
         other: Členové shromáždění
       decidim/assembly_user_role:
-        one: Sestavení role uživatele
         few: Sestavení uživatelských rolí
         many: Sestavení uživatelských rolí
+        one: Sestavení role uživatele
         other: Sestavení uživatelských rolí
   decidim:
     admin:
@@ -370,9 +371,9 @@ cs:
           reset_chart: Resetovat
         order_by_assemblies:
           assemblies:
-            one: "%{count} sestav"
             few: "%{count} sestav"
             many: "%{count} sestav"
+            one: "%{count} sestav"
             other: "%{count} sestav"
         promoted_assembly:
           more_info: Více informací

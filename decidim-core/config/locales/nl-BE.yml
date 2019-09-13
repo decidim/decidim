@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -142,8 +143,6 @@ nl-BE:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
@@ -227,36 +226,6 @@ nl-BE:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
       started_at: Started at %{timestamp}
-    authorization_modals:
-      show:
-        expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
-          title: Authorization has expired
-        incomplete:
-          cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
-          invalid_field: "%{field}"
-          reauthorize: Reauthorize
-          title: Please reauthorize
-        missing:
-          authorize: Authorize with "%{authorization}"
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
-          title: Authorization required
-        pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
-          title: Authorization is still in progress
-        unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
-          ok: Ok
-          title: Not authorized
-        unconfirmed:
-          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
-          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
-          request_confirmation_instructions: Request confirmation instructions
-          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
@@ -555,7 +524,7 @@ nl-BE:
       badges:
         continuity:
           conditions:
-            - Come here often
+          - Come here often
           description: This badge is granted when you visit the platform in a regular way. We like having you around here!
           description_another: This user has connected for %{score} consecutive days at some point.
           description_own: You have connected for %{score} consecutive days at some point.
@@ -565,7 +534,7 @@ nl-BE:
           unearned_own: You haven't connected for more than one consecutive day.
         followers:
           conditions:
-            - Being active and following other people will surely make other people follow you.
+          - Being active and following other people will surely make other people follow you.
           description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
           description_another: This user has %{score} followers.
           description_own: "%{score} users are following you."
@@ -580,9 +549,9 @@ nl-BE:
           title: Badges
         invitations:
           conditions:
-            - Use the “invite friends” link on your user page to invite your friends
-            - Customize, if you want, the message you are sending
-            - You’ll level up by sending invitations and getting them registered.
+          - Use the “invite friends” link on your user page to invite your friends
+          - Customize, if you want, the message you are sending
+          - You’ll level up by sending invitations and getting them registered.
           description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.

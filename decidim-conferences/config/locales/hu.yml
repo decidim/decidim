@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -329,7 +330,7 @@ hu:
             available_slots_help: Hagyja 0-ra, ha van korlátlan slot.
             registrations_count:
               one: 1 regisztráció volt.
-              other: '%{count} regisztráció volt.'
+              other: "%{count} regisztráció volt."
             slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:
@@ -414,7 +415,7 @@ hu:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
-          login_as: '%{name} <%{email}> -ként jelentkeztél be'
+          login_as: "%{name} <%{email}> -ként jelentkeztél be"
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -470,7 +471,7 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: "%{name} <%{email}> -ként jelentkezett be"
           register: Regisztráció
           title: Regisztrációs típusok
       shared:

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ sv:
       admin:
         csv_census:
           help:
-            - Administratörer kan skicka in CSV-fil med e-postadresserna till de godkända deltagarna
-            - Endast deltagare med en e-postadress i CSV-filen kan verifieras
+          - Administratörer kan skicka in CSV-fil med e-postadresserna till de godkända deltagarna
+          - Endast deltagare med en e-postadress i CSV-filen kan verifieras
         id_documents:
           help:
-            - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
-            - Du fyller i informationen som visas i den inskickade bilden.
-            - Informationen ska stämma överens med vad användaren fyllde i.
-            - Om informationen inte visas tydligt, eller om du inte kan verifiera den, kan du avvisa förfrågan och användaren kommer att kunna åtgärda den.
+          - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
+          - Du fyller i informationen som visas i den inskickade bilden.
+          - Informationen ska stämma överens med vad användaren fyllde i.
+          - Om informationen inte visas tydligt, eller om du inte kan verifiera den, kan du avvisa förfrågan och användaren kommer att kunna åtgärda den.
         postal_letter:
           help:
-            - Deltagare begär en verifieringskod som ska skickas till deras adress.
-            - Skicka brevet med verifieringskoden till deras adress.
-            - Du markerar brevet som skickat.
-            - När du markerat brevet som skickat kommer användaren att kunna föra in koden och bli verifierad.
+          - Deltagare begär en verifieringskod som ska skickas till deras adress.
+          - Skicka brevet med verifieringskoden till deras adress.
+          - Du markerar brevet som skickat.
+          - När du markerat brevet som skickat kommer användaren att kunna föra in koden och bli verifierad.
       csv_census:
         explanation: Bli verifierad med hjälp av organisationens medlemslista
         name: Organisationens medlemslista

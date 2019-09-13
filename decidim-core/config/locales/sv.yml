@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -45,8 +46,8 @@ sv:
         one: Grupp
         other: Grupper
   booleans:
-    'false': 'Nej'
-    'true': 'Ja'
+    'false': Nej
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
@@ -157,7 +158,9 @@ sv:
           evaluating: |-
             Detta ändringsförslag för %{amendable_type} %{amendable_link}
             utvärderas just nu.
-          rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navslogs <strong>%{announcement_date}</strong>."
+          rejected: |-
+            Detta ändringsförslag till %{amendable_type} %{amendable_link}
+            avslogs <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Detta ändringsförslag till %{amendable_type} %{amendable_link}
             har dragits tillbaka av författaren.
@@ -325,7 +328,7 @@ sv:
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias (@användarnamn) i %{organization}
-          password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+          password_help: Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress.
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -545,7 +548,7 @@ sv:
       badges:
         continuity:
           conditions:
-            - Kommer ofta hit
+          - Kommer ofta hit
           description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
           description_another: Deltagaren har någon gång varit ansluten %{score} på dagar i följd.
           description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
@@ -555,7 +558,7 @@ sv:
           unearned_own: Du har inte anslutit dig mer än en dag i följd.
         followers:
           conditions:
-            - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
+          - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
           description: Du får detta märke när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, spinn ditt nät genom att kommunicera med andra personer på plattformen.
           description_another: Deltagaren har %{score} följare.
           description_own: "%{score} personer följer dig."
@@ -570,9 +573,9 @@ sv:
           title: Märken
         invitations:
           conditions:
-            - Bjud in dina vänner med länken "bjud in vänner" på din användarsida
-            - Om du vill kan du anpassa meddelandet som du skickar
-            - Nå nästa nivå genom att skicka inbjudningar till andra och få dem att registrera sig.
+          - Bjud in dina vänner med länken "bjud in vänner" på din användarsida
+          - Om du vill kan du anpassa meddelandet som du skickar
+          - Nå nästa nivå genom att skicka inbjudningar till andra och få dem att registrera sig.
           description: Du får detta märke när när du har bjudit in några personer, de har registrerat sig i %{organization_name} och blivit deltagare. Tack för att du gör %{organization_name} mer välkänt och gör vår gemenskap större!
           description_another: Den här deltagaren har bjudit in %{score} personer.
           description_own: Du har bjudit in %{score} personer.
@@ -1095,7 +1098,7 @@ sv:
         change_your_password: Ändra ditt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
-        password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+        password_help: Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress.
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord

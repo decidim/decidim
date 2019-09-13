@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ de:
       admin:
         csv_census:
           help:
-            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch
-            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden
+          - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch
+          - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden
         id_documents:
           help:
-            - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
-            - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
-            - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
-            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
+          - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
+          - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
+          - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
+          - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
-            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
-            - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
-            - Sie markieren den Brief als gesendet.
-            - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+          - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+          - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
+          - Sie markieren den Brief als gesendet.
+          - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       csv_census:
         explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen
         name: Zensus der Organisation
@@ -103,7 +104,7 @@ de:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
             title: Sie müssen die csv-Zählung für diese Organisation aktivieren
           new:
-            file: "CSV-Datei mit E-Mail-Daten"
+            file: CSV-Datei mit E-Mail-Daten
             info: 'Muss eine Datei im CSV-Format mit einer Spalte sein: E-Mail'
             submit: Datei hochladen
             title: Laden Sie eine neue Volkszählung hoch

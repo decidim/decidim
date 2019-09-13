@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -136,7 +137,7 @@ sv:
       badges:
         attended_meetings:
           conditions:
-            - Anmäl dig till de möten som du vill delta i
+          - Anmäl dig till de möten som du vill delta i
           description: Du får detta märke när du har deltagit i flera fysiska möten.
           description_another: Deltagaren har deltagit i %{score} möten.
           description_own: Du har deltagit i %{score} möten.

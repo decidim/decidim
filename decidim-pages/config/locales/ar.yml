@@ -1,13 +1,14 @@
+---
 ar:
   activerecord:
     models:
       decidim/pages/page:
-        zero: صفحات
-        one: صفحة
-        two: صفحات
         few: صفحات
         many: صفحات
+        one: صفحة
         other: صفحات
+        two: صفحات
+        zero: صفحات
   decidim:
     admin_log:
       page:

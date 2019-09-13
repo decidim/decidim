@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -11,12 +12,12 @@ ar:
   activerecord:
     models:
       decidim/budgets/project:
-        zero: مشاريع
-        one: مشروع
-        two: مشاريع
         few: مشاريع
         many: مشاريع
+        one: مشروع
         other: مشاريع
+        two: مشاريع
+        zero: مشاريع
   decidim:
     budgets:
       actions:
@@ -88,16 +89,15 @@ ar:
           checked_out:
             description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
             title: اكتمال التصويت في الميزانية
-          description: ما هي المشاريع التي تعتقد أنه يجب علينا تخصيص ميزانية لها؟ قم بتعيين %{minimum_budget} على الأقل للمشروعات التي تريدها وقم بالتصويت مع تفضيلاتك لتحديد الميزانية.
           title: عليك أن تقرر الميزانية
         count:
           projects_count:
-            zero: "%{count} مشاريع"
-            one: 1 مشروع
-            two: "%{count} مشاريع"
             few: "%{count} مشاريع"
             many: "%{count} مشاريع"
+            one: 1 مشروع
             other: "%{count} مشاريع"
+            two: "%{count} مشاريع"
+            zero: "%{count} مشاريع"
         filters:
           category: الفئة
           category_prompt: اختر تصنيف
@@ -112,22 +112,22 @@ ar:
         order_selected_projects:
           remove: إزالة
           selected_projects:
-            zero: المشاريع المختارة
-            one: المشروع المحدد
-            two: المشاريع المختارة
             few: المشاريع المختارة
             many: المشاريع المختارة
+            one: المشروع المحدد
             other: المشاريع المختارة
+            two: المشاريع المختارة
+            zero: المشاريع المختارة
           view: رأي
         project:
           add: إضافة
           count:
-            zero: "%{count} يدعم"
-            one: 1 الدعم
-            two: "%{count} يدعم"
             few: "%{count} يدعم"
             many: "%{count} يدعم"
+            one: 1 الدعم
             other: "%{count} يدعم"
+            two: "%{count} يدعم"
+            zero: "%{count} يدعم"
           remove: إزالة
           view: رأي
         project_budget_button:

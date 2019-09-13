@@ -29,6 +29,3 @@ gl:
           update:
             invalid: Produciuse un erro ao gardar a páxina.
             success: A páxina gardouse correctamente.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications

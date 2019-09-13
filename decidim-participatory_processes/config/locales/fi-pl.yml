@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -198,8 +199,6 @@ fi-pl:
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
-        form:
-          title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -307,8 +306,6 @@ fi-pl:
             more_information: Lisätietoja
             participate: Osallistu
             see_all_processes: Näytä kaikki prosessit
-      participatory_process_groups:
-        none: Ei ryhmää
       participatory_processes:
         filters:
           counters:

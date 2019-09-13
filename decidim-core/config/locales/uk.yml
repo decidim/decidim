@@ -147,8 +147,6 @@ uk:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})

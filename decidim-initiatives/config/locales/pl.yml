@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -48,19 +49,19 @@ pl:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
         few: Inicjatywy
         many: Inicjatywy
+        one: Initative
         other: Inicjatywy
       decidim/initiative_comittee:
-        one: Komitet
         few: Komitety
         many: Komitety
+        one: Komitet
         other: Komitety
       decidim/initiative_vote:
-        one: Podpis
         few: Podpisy
         many: Podpisy
+        one: Podpis
         other: Podpisy
   decidim:
     admin:
@@ -126,8 +127,8 @@ pl:
       badges:
         initiatives:
           conditions:
-            - Idź do miejsca uczestnictwa Intiatives
-            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          - Idź do miejsca uczestnictwa Intiatives
+          - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy uruchamiasz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik otrzymał %{score} opublikowanych inicjatyw.
           description_own: Masz opublikowanych %{score} inicjatyw.
@@ -348,15 +349,15 @@ pl:
           deleted: Usunięto
         author_list:
           hidden_authors_count:
-            one: i jeszcze 1 osoba
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i jeszcze 1 osoba
             other: i %{count} więcej osób
         count:
           title:
-            one: "%{count} inicjatywa"
             few: "%{count} inicjatyw"
             many: "%{count} inicjatyw"
+            one: "%{count} inicjatywa"
             other: "%{count} inicjatyw"
         filters:
           any: Każdy
@@ -378,9 +379,9 @@ pl:
         interactions:
           comments_count:
             count:
-              one: Komentarz
               few: Komentarze
               many: Komentarze
+              one: Komentarz
               other: Komentarze
         orders:
           label: 'Sortuj inicjatywy według:'
@@ -404,23 +405,23 @@ pl:
         signature_identities:
           select_identity: Wybierz identyfikator użytkownika
         signatures_count:
-          one: " podpis"
           few: " podpisy"
           many: " podpisy"
+          one: " podpis"
           other: " podpisy"
         supports:
           title: Lista podpisów
         vote_cabin:
           already_voted: Już podpisane
-          supports_required: "Wymagane %{total_supports} podpisów"
+          supports_required: Wymagane %{total_supports} podpisów
           verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Znak
           votes_blocked: Podpisywanie wyłączone
         votes_count:
           count:
-            one: PODPIS
             few: PODPISY
             many: PODPISY
+            one: PODPIS
             other: PODPISY
           most_popular_initiative: Najbardziej popularna inicjatywa
           need_more_votes: Potrzebujesz więcej podpisów

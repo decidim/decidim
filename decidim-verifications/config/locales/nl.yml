@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ nl:
       admin:
         csv_census:
           help:
-            - Beheerders uploaden een CSV met de e-mails van de geaccepteerde deelnemers
-            - Alleen deelnemers met een e-mail in dat CSV-bestand kunnen worden geverifieerd
+          - Beheerders uploaden een CSV met de e-mails van de geaccepteerde deelnemers
+          - Alleen deelnemers met een e-mail in dat CSV-bestand kunnen worden geverifieerd
         id_documents:
           help:
-            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
-            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
-            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-            - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
+          - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+          - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+          - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+          - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
         postal_letter:
           help:
-            - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
-            - U stuurt de brief naar hun adres met de verificatiecode.
-            - U markeert de brief zoals verzonden.
-            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+          - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
+          - U stuurt de brief naar hun adres met de verificatiecode.
+          - U markeert de brief zoals verzonden.
+          - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
       csv_census:
         explanation: Wordt geverifieerd aan de hand van de volkstelling van de organisatie
         name: De volkstelling van de organisatie
@@ -89,7 +90,7 @@ nl:
           census:
             create:
               error: Er is een fout opgetreden bij het importeren van census.
-              success: '%{count} items succesvol geïmporteerd (%{errors} fouten)'
+              success: "%{count} items succesvol geïmporteerd (%{errors} fouten)"
             destroy_all:
               success: Alle censusgegevens zijn verwijderd
           destroy:

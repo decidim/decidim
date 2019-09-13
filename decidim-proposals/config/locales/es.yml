@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -151,12 +152,12 @@ es:
           email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Las propuestas ya estan disponibles en %{participatory_space_title}
           notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión a las propuestas de %{participatory_space_title} ha empezado
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -219,7 +220,7 @@ es:
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por una administradora.
         voting_enabled:
-          email_intro: '¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: "¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:"
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: El apoyo a propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -227,35 +228,35 @@ es:
       badges:
         accepted_proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
+          - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y éstas sean aceptadas.
           description_another: Esta participante ha conseguido %{score} propuestas aceptadas.
-          description_own: '%{score} de tus propuestas han sido aceptadas.'
+          description_own: "%{score} de tus propuestas han sido aceptadas."
           name: Propuestas aceptadas
-          next_level_in: '¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Consigue que se aprueben %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante aún no ha conseguido que se acepte ninguna de sus propuestas.
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
+          - Navega y dedica un tiempo leyendo las propuestas de otras personas
+          - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
           description_another: Esta participante ha apoyado %{score} propuestas.
           description_own: Has dado apoyo a %{score} propuestas.
           name: Apoyos a propuestas
-          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante aún no ha apoyado ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
-            - Crear una nueva propuesta
+          - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
+          - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Esta participante ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.
           name: Propuestas
-          next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Crea %{score} propuestas más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado ninguna propuestas.
     metrics:
@@ -302,13 +303,13 @@ es:
             name: Propuesta
         participatory_texts:
           bulk-actions:
-            are_you_sure: '¿Seguro que quieres descartar todo el borrador de texto participativo?'
+            are_you_sure: "¿Seguro que quieres descartar todo el borrador de texto participativo?"
             discard_all: Descartar todo
             import_doc: Importar documento
           discard:
             success: Todos los borradores de textos participativos han sido descartados.
           import:
-            invalid: '¡El formulario no es válido!'
+            invalid: "¡El formulario no es válido!"
             success: Enhorabuena, las secciones siguientes se han convertido en propuestas. Ahora puedes revisarlas y ajustarlas antes de publicar.
           index:
             info_1: Las secciones siguientes se han convertido en propuestas. Ahora puedes revisarlas y ajustarlas antes de publicar.
@@ -457,7 +458,7 @@ es:
             success: Borrador colaborativo retirado correctamente.
         compare:
           mine_is_different: Mi borrador colaborativo es diferente
-          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
+          no_similars_found: "¡Enhorabuena! No se encontraron borradores colaborativos similares"
           title: Borradores colaborativos similares
         complete:
           send: Enviar
@@ -604,7 +605,7 @@ es:
       proposals:
         compare:
           continue: Continuar
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:
           send: Enviar
@@ -621,7 +622,7 @@ es:
           title: Editar propuesta
         edit_draft:
           discard: Descartar este borrador
-          discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
+          discard_confirmation: "¿Estás seguro que quieres descartar este borrador de propuesta?"
           send: Previsualizar
           title: Editar el borrador de la propuesta
         endorsement_identities_cabin:
@@ -689,7 +690,7 @@ es:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_confirmation: "¿Seguro que quieres retirar esta propuesta?"
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por una administradora)"

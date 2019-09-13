@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -54,19 +55,19 @@ cs:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Participační proces
         few: Participativní procesy
         many: Participativní procesy
+        one: Participační proces
         other: Participativní procesy
       decidim/participatory_process_group:
-        one: Skupina účastnických procesů
         few: Skupiny zúčastněných procesů
         many: Skupiny zúčastněných procesů
+        one: Skupina účastnických procesů
         other: Skupiny zúčastněných procesů
       decidim/participatory_process_step:
-        one: Krok
         few: Kroky
         many: Kroky
+        one: Krok
         other: Kroky
   decidim:
     admin:
@@ -278,9 +279,9 @@ cs:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 pro %{group}
           few: "%{count} procesů pro %{group}"
           many: "%{count} procesů pro %{group}"
+          one: 1 pro %{group}
           other: "%{count} procesů pro %{group}"
         title: Skupiny zúčastněných procesů
     participatory_process_steps:
@@ -331,24 +332,24 @@ cs:
         filters:
           counters:
             active:
-              one: 1 aktivní proces
               few: "%{count} aktivních procesů"
               many: "%{count} aktivních procesů"
+              one: 1 aktivní proces
               other: "%{count} aktivních procesů"
             all:
-              one: 1
               few: "%{count} procesů"
               many: "%{count} procesů"
+              one: 1
               other: "%{count} procesů"
             past:
-              one: 1 minulý proces
               few: "%{count} minulých procesů"
               many: "%{count} minulých procesů"
+              one: 1 minulý proces
               other: "%{count} minulých procesů"
             upcoming:
-              one: 1 nadcházející proces
               few: "%{count} nadcházejících procesů"
               many: "%{count} nadcházejících procesů"
+              one: 1 nadcházející proces
               other: "%{count} nadcházejících procesů"
           explanations:
             no_active: Žádné aktivní procesy

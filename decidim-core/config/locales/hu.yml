@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -45,8 +46,8 @@ hu:
         one: Felhasználói csoport
         other: csoportok
   booleans:
-    'false': 'Nem'
-    'true': 'Igen'
+    'false': Nem
+    'true': Igen
   carrierwave:
     errors:
       image_too_big: A kép mérete túl nagy
@@ -157,7 +158,9 @@ hu:
           evaluating: |-
             Ezt a %{amendable_type} %{amendable_link}
             módosító javaslat értékelés alatt van.
-          rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították."
+          rejected: |-
+            A %{amendable_type} %{amendable_link}
+            re vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították.
           withdrawn: |-
             Ezt a %{amendable_type} %{amendable_link}
             módosító javaslatot a szerző visszavonta.
@@ -242,7 +245,7 @@ hu:
           title: Engedélyezés folyamatban
         unauthorized:
           explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
+          invalid_field: A(z) %{field} %{value} érték nem érvényes.
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -543,7 +546,7 @@ hu:
       badges:
         continuity:
           conditions:
-            - Gyere ide gyakran
+          - Gyere ide gyakran
           description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
           description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
           description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
@@ -553,7 +556,7 @@ hu:
           unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
-            - Az aktív és más emberek követése biztosan másokat követni fog.
+          - Az aktív és más emberek követése biztosan másokat követni fog.
           description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
@@ -568,9 +571,9 @@ hu:
           title: Kitűzők
         invitations:
           conditions:
-            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
-            - Testreszabása, ha szeretné, az elküldött üzenetet
-            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
+          - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
+          - Testreszabása, ha szeretné, az elküldött üzenetet
+          - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
           description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: Meghívtál %{score} felhasználótkat.
@@ -579,7 +582,7 @@ hu:
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
           unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
-      level: '%{level} szint'
+      level: "%{level} szint"
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
@@ -922,7 +925,7 @@ hu:
       picker:
         cancel: Mégse
         choose: Kijelölés
-        title: '%{field} kijelölése'
+        title: "%{field} kijelölése"
       prompt: Válassz hatáskört
       scopes: Hatáskörök
     search:
@@ -1189,7 +1192,7 @@ hu:
         sign_up: Regisztráció
       impersonation_warning:
         close_session: Munkamenet bezárása
-        description_html: <b>%{user_name}</b> felhasználó menedzselése.
+        description_html: "<b>%{user_name}</b> felhasználó menedzselése."
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként

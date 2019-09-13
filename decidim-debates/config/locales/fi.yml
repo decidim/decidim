@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -140,7 +141,7 @@ fi:
       badges:
         commented_debates:
           conditions:
-            - Valitse avoin keskustelu ja osallistu siihen
+          - Valitse avoin keskustelu ja osallistu siihen
           description: Tämä kunniamerkki myönnetään, kun osallistut aktiivisesti eri keskusteluihin.
           description_another: Tämä käyttäjä on osallistunut %{score} keskusteluun.
           description_own: Olet osallistunut %{score} keskusteluun.

@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -136,12 +137,12 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Inscríbete en los encuentros a los que quieres asistir
+          - Inscríbete en los encuentros a los que quieres asistir
           description: Este distintivo se consigue asistiendo a varios encuentros presenciales.
           description_another: Esta participante asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
           name: Encuentros a los que has asistido
-          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante aún no ha asistido a ningún encuentro.
           unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
@@ -150,7 +151,7 @@ es:
         attachment_collections: Carpetas
         attachments: Adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
+        confirm_destroy: "¿Está seguro de que quiere eliminar este encuentro?"
         destroy: Elimina
         edit: Editar
         minutes: Acta
@@ -376,7 +377,7 @@ es:
             validated: VALIDADO
             validation_pending: VALIDACIÓN PENDIENTE
           remaining_slots:
-            one: "Queda %{count} plaza"
+            one: Queda %{count} plaza
             other: "%{count} plazas restantes"
           view: Ver
       meetings_map:

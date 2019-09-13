@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -54,19 +55,19 @@ cs:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Setkání
         few: Setkání
         many: Setkání
+        one: Setkání
         other: Setkání
       decidim/meetings/minutes:
-        one: Minut
         few: Minut
         many: Minut
+        one: Minut
         other: Minut
       decidim/meetings/registration:
-        one: Registrace
         few: Registrace
         many: Registrace
+        one: Registrace
         other: Registrace
   decidim:
     admin:
@@ -142,7 +143,7 @@ cs:
       badges:
         attended_meetings:
           conditions:
-            - Zaregistrujte se na schůzkách, které chcete navštívit
+          - Zaregistrujte se na schůzkách, které chcete navštívit
           description: Tento odznak je udělen, když se účastníte několika osobních setkání.
           description_another: Tento uživatel se zúčastnil %{score} setkání.
           description_own: Zúčastnili jste se %{score} setkání.
@@ -288,9 +289,9 @@ cs:
             invites: Pozvánky
             registration_form: Registrační formulář
             registrations_count:
-              one: Byla zde registrace %{count}.
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
+              one: Byla zde registrace %{count}.
               other: Bylo zde %{count} registrací.
             reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
@@ -383,9 +384,9 @@ cs:
             validated: VALIDOVANÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
           remaining_slots:
-            one: "%{count} zbývajícího slotu"
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
+            one: "%{count} zbývajícího slotu"
             other: "%{count} zbývajících bloků"
           view: Pohled
       meetings_map:

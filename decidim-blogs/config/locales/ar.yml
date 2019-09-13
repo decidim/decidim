@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     models:
@@ -5,12 +6,12 @@ ar:
   activerecord:
     models:
       decidim/blogs/post:
-        zero: المشاركات
-        one: بريد
-        two: المشاركات
         few: المشاركات
         many: المشاركات
+        one: بريد
         other: المشاركات
+        two: المشاركات
+        zero: المشاركات
   decidim:
     blogs:
       actions:

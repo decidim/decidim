@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -48,26 +49,26 @@ ar:
   activerecord:
     models:
       decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
         few: بعض المبادرات
         many: بعض المبادرات
+        one: بالمبادرة
         other: بعض المبادرات
+        two: بعض المبادرات
+        zero: بعض المبادرات
       decidim/initiative_comittee:
-        zero: Comittees
-        one: إحداث الهيئة
-        two: Comittees
         few: Comittees
         many: Comittees
+        one: إحداث الهيئة
         other: Comittees
+        two: Comittees
+        zero: Comittees
       decidim/initiative_vote:
-        zero: التوقيعات
-        one: التوقيع
-        two: التوقيعات
         few: التوقيعات
         many: التوقيعات
+        one: التوقيع
         other: التوقيعات
+        two: التوقيعات
+        zero: التوقيعات
   decidim:
     admin:
       actions:
@@ -128,8 +129,8 @@ ar:
       badges:
         initiatives:
           conditions:
-            - انتقل إلى مساحة مشاركة المبادرات
-            - اتبع الخطوات لإنشاء مبادرة جديدة
+          - انتقل إلى مساحة مشاركة المبادرات
+          - اتبع الخطوات لإنشاء مبادرة جديدة
           description: تُمنح هذه الشارة عند إطلاق مبادرات جديدة ، وإقامة شراكة مع الآخرين لتنفيذها.
           description_another: حصل هذا المشارك على %{score} مبادرة تم نشرها.
           description_own: لديك %{score} مبادرات تم نشرها.
@@ -242,8 +243,8 @@ ar:
       admin_log:
         initiative:
           publish: "%{user_name} نشرت المبادرة %{resource_name}"
-          send_to_technical_validation: "أرسل %{user_name} المبادرة %{resource_name} إلى التحقق الفني"
-          unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
+          send_to_technical_validation: أرسل %{user_name} المبادرة %{resource_name} إلى التحقق الفني
+          unpublish: تجاهل %{user_name} المبادرة %{resource_name}
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
         accepted: وافقت
@@ -312,7 +313,7 @@ ar:
           email_subject: مبادرة جديدة بنسبة %{author_nickname}
           notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "أيد %{author_name} %{author_nickname}، الذي تتابعه ، المبادرة التالية ، ربما تريد المساهمة في المحادثة:"
+          email_intro: 'أيد %{author_name} %{author_nickname}، الذي تتابعه ، المبادرة التالية ، ربما تريد المساهمة في المحادثة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
@@ -350,20 +351,20 @@ ar:
           deleted: تم الحذف
         author_list:
           hidden_authors_count:
-            zero: و %{count} المزيد من الناس
-            one: وشخص آخر
-            two: و %{count} المزيد من الناس
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
+            one: وشخص آخر
             other: و %{count} المزيد من الناس
+            two: و %{count} المزيد من الناس
+            zero: و %{count} المزيد من الناس
         count:
           title:
-            zero: "%{count} مبادرات"
-            one: "%{count} مبادرة"
-            two: "%{count} مبادرات"
             few: "%{count} مبادرات"
             many: "%{count} مبادرات"
+            one: "%{count} مبادرة"
             other: "%{count} مبادرات"
+            two: "%{count} مبادرات"
+            zero: "%{count} مبادرات"
         filters:
           any: أي
           author: مؤلف
@@ -384,12 +385,12 @@ ar:
         interactions:
           comments_count:
             count:
-              zero: تعليق
-              one: تعليق
-              two: تعليق
               few: تعليق
               many: تعليق
+              one: تعليق
               other: تعليق
+              two: تعليق
+              zero: تعليق
         orders:
           label: 'فرز المبادرات حسب:'
           most_commented: الأكثر تعليقا
@@ -412,12 +413,12 @@ ar:
         signature_identities:
           select_identity: حدد معرف المشارك
         signatures_count:
-          zero: " التوقيعات"
-          one: " التوقيع"
-          two: " التوقيعات"
           few: " التوقيعات"
           many: " التوقيعات"
+          one: " التوقيع"
           other: " التوقيعات"
+          two: " التوقيعات"
+          zero: " التوقيعات"
         supports:
           title: قائمة التوقيعات
         vote_cabin:
@@ -428,12 +429,12 @@ ar:
           votes_blocked: توقيع المعوقين
         votes_count:
           count:
-            zero: التوقيعات
-            one: التوقيع
-            two: التوقيعات
             few: التوقيعات
             many: التوقيعات
+            one: التوقيع
             other: التوقيعات
+            two: التوقيعات
+            zero: التوقيعات
           most_popular_initiative: المبادرة الأكثر شعبية
           need_more_votes: بحاجة الى مزيد من التوقيعات
       initiatives_mailer:

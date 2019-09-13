@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -14,12 +15,12 @@ ar:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        zero: Sortitions
-        one: Sortition
-        two: Sortitions
         few: Sortitions
         many: Sortitions
+        one: Sortition
         other: Sortitions
+        two: Sortitions
+        zero: Sortitions
   decidim:
     components:
       sortitions:
@@ -61,12 +62,12 @@ ar:
               target_items: عناصر للاختيار
               title: عنوان
             name:
-              zero: Sortitions
-              one: Sortition
-              two: Sortitions
               few: Sortitions
               many: Sortitions
+              one: Sortition
               other: Sortitions
+              two: Sortitions
+              zero: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: هل أنت متأكد أنك تريد إلغاء هذا التصنيف؟
@@ -104,12 +105,12 @@ ar:
       sortitions:
         count:
           proposals_count:
-            zero: "%{count} مقترحات"
-            one: اقتراح واحد
-            two: "%{count} مقترحات"
             few: "%{count} مقترحات"
             many: "%{count} مقترحات"
+            one: اقتراح واحد
             other: "%{count} مقترحات"
+            two: "%{count} مقترحات"
+            zero: "%{count} مقترحات"
         filters:
           active: نشيط
           all: الكل
@@ -131,12 +132,12 @@ ar:
           recent: الأخيرة
         results_count:
           count:
-            zero: مقترحات مختارة
-            one: الاقتراح المحدد
-            two: مقترحات مختارة
             few: مقترحات مختارة
             many: مقترحات مختارة
+            one: الاقتراح المحدد
             other: مقترحات مختارة
+            two: مقترحات مختارة
+            zero: مقترحات مختارة
         show:
           algorithm: رمز خوارزمية التصنيف
           any_category: من جميع الفئات
@@ -154,12 +155,12 @@ ar:
         sortition:
           random_seed: البذور عشوائي
           selected_proposals:
-            zero: مقترحات مختارة
-            one: تم اختيار الاقتراح
-            two: مقترحات مختارة
             few: مقترحات مختارة
             many: مقترحات مختارة
+            one: تم اختيار الاقتراح
             other: مقترحات مختارة
+            two: مقترحات مختارة
+            zero: مقترحات مختارة
           view: رأي
         sortition_author:
           deleted: مشارك محذوف
@@ -167,9 +168,9 @@ ar:
           deleted: مشارك محذوف
         sortitions_count:
           count:
-            zero: "%{count} التصنيف"
-            one: 1 التصنيف
-            two: "%{count} التصنيف"
             few: "%{count} التصنيف"
             many: "%{count} التصنيف"
+            one: 1 التصنيف
             other: "%{count} التصنيف"
+            two: "%{count} التصنيف"
+            zero: "%{count} التصنيف"

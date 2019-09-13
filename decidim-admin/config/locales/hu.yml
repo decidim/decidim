@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -255,7 +256,7 @@ hu:
             type: Elem típusa
         new:
           add: Elem hozzáadása
-          title: '%{name} nevű elem hozzáadása'
+          title: "%{name} nevű elem hozzáadása"
         publish:
           success: Az elem közzététele sikeres volt.
         title: Elemek
@@ -441,7 +442,7 @@ hu:
           interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
           all: mind
-          all_users: 'Minden felhasználó'
+          all_users: Minden felhasználó
           and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -53,19 +54,19 @@ uk:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Зустріч
         few: Зустрічі
         many: Зустрічей
+        one: Зустріч
         other: Зустрічей
       decidim/meetings/minutes:
-        one: Протокол
         few: Протоколи
         many: Протоколів
+        one: Протокол
         other: Протоколів
       decidim/meetings/registration:
-        one: Зареєстрований
         few: Зареєстрованих
         many: Зареєстрованих
+        one: Зареєстрований
         other: Зареєстрованих
   decidim:
     admin:

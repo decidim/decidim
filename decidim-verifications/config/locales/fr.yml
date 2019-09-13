@@ -141,14 +141,6 @@ fr:
               cancel: Annuler
               introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
-          offline_confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
-              success: Utilisateur vérifié avec succès
-            new:
-              cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
-              verify: Vérifier
           pending_authorizations:
             index:
               config: Configuration

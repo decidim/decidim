@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -180,7 +181,7 @@ hu:
         show:
           changes_at_title: 'Változások itt: "%{title}"'
         version:
-          version_index: '%{index} verzió'
+          version_index: "%{index} verzió"
     components:
       accountability:
         name: Elszámoltathatóság
@@ -205,7 +206,7 @@ hu:
         result_progress_updated:
           email_intro: 'A "%{resource_title}" eredmény, amely magában foglalja a "%{proposal_title}" javaslatot, most már %{progress}% -ban teljes. Láthatod ezt erről oldalról:'
           email_outro: Ezt az értesítést azért kaptad, mert "%{proposal_title}" -t követed, és ez a javaslat szerepel a "%{resource_title}" eredményben. Leállíthatoa az értesítések fogadását követve az előző linket.
-          email_subject: '%{resource_title} frissítése'
+          email_subject: "%{resource_title} frissítése"
           notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%-ban teljes.
     metrics:
       results:

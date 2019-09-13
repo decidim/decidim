@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -39,33 +40,33 @@ ar:
   activerecord:
     models:
       decidim/consultation:
-        zero: المشاورات
-        one: تشاور
-        two: المشاورات
         few: المشاورات
         many: المشاورات
+        one: تشاور
         other: المشاورات
+        two: المشاورات
+        zero: المشاورات
       decidim/consultations/question:
-        zero: الأسئلة
-        one: سؤال
-        two: الأسئلة
         few: الأسئلة
         many: الأسئلة
+        one: سؤال
         other: الأسئلة
+        two: الأسئلة
+        zero: الأسئلة
       decidim/consultations/response:
-        zero: استجابات
-        one: استجابة
-        two: استجابات
         few: استجابات
         many: استجابات
+        one: استجابة
         other: استجابات
+        two: استجابات
+        zero: استجابات
       decidim/consultations/vote:
-        zero: الأصوات
-        one: تصويت
-        two: الأصوات
         few: الأصوات
         many: الأصوات
+        one: تصويت
         other: الأصوات
+        two: الأصوات
+        zero: الأصوات
   decidim:
     admin:
       actions:
@@ -123,35 +124,35 @@ ar:
             published: نشرت
             title: عنوان
           name:
-            zero: المشاورات
-            one: تشاور
-            two: المشاورات
             few: المشاورات
             many: المشاورات
+            one: تشاور
             other: المشاورات
+            two: المشاورات
+            zero: المشاورات
         question:
           fields:
             created_at: أنشئت في
             published: نشرت
             title: عنوان
           name:
-            zero: الأسئلة
-            one: سؤال
-            two: الأسئلة
             few: الأسئلة
             many: الأسئلة
+            one: سؤال
             other: الأسئلة
+            two: الأسئلة
+            zero: الأسئلة
         response:
           fields:
             created_at: أنشئت في
             title: عنوان
           name:
-            zero: استجابات
-            one: استجابة
-            two: استجابات
             few: استجابات
             many: استجابات
+            one: استجابة
             other: استجابات
+            two: استجابات
+            zero: استجابات
       question_publications:
         create:
           error: حدثت مشكلة في نشر هذا السؤال.
@@ -219,12 +220,12 @@ ar:
           name: مشاورات أبرزت
       count:
         title:
-          zero: "%{count} مشاورات"
-          one: "%{count} التشاور"
-          two: "%{count} مشاورات"
           few: "%{count} مشاورات"
           many: "%{count} مشاورات"
+          one: "%{count} التشاور"
           other: "%{count} مشاورات"
+          two: "%{count} مشاورات"
+          zero: "%{count} مشاورات"
       filters:
         active: نشيط
         all: الكل
@@ -250,23 +251,23 @@ ar:
             active_consultations: مشاورات نشطة
             see_all_consultations: انظر جميع المشاورات
             voting_ends_in:
-              zero: ينتهي التصويت في <strong>%{count} يوم</strong>
-              one: ينتهي التصويت <strong>غدا</strong>
-              two: ينتهي التصويت في <strong>%{count} يوم</strong>
               few: ينتهي التصويت في <strong>%{count} يوم</strong>
               many: ينتهي التصويت في <strong>%{count} يوم</strong>
+              one: ينتهي التصويت <strong>غدا</strong>
               other: ينتهي التصويت في <strong>%{count} يوم</strong>
+              two: ينتهي التصويت في <strong>%{count} يوم</strong>
+              zero: ينتهي التصويت في <strong>%{count} يوم</strong>
             voting_ends_today: ينتهي التصويت <strong>اليوم</strong>
       question:
         take_part: خذ جزء
         view_results: عرض النتائج
         votes_out_of:
-          zero: يصوت من
-          one: التصويت خارج
-          two: يصوت من
           few: يصوت من
           many: يصوت من
+          one: التصويت خارج
           other: يصوت من
+          two: يصوت من
+          zero: يصوت من
       question_votes:
         create:
           error: كانت هناك مشكلة في التصويت على السؤال

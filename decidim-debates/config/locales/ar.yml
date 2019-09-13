@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -18,12 +19,12 @@ ar:
   activerecord:
     models:
       decidim/debates/debate:
-        zero: المناقشات
-        one: النقاش
-        two: المناقشات
         few: المناقشات
         many: المناقشات
+        one: النقاش
         other: المناقشات
+        two: المناقشات
+        zero: المناقشات
   decidim:
     components:
       debates:
@@ -73,12 +74,12 @@ ar:
       debates:
         count:
           debates_count:
-            zero: "%{count} النقاشات"
-            one: "%{count} النقاش"
-            two: "%{count} النقاشات"
             few: "%{count} النقاشات"
             many: "%{count} النقاشات"
+            one: "%{count} النقاش"
             other: "%{count} النقاشات"
+            two: "%{count} النقاشات"
+            zero: "%{count} النقاشات"
         create:
           invalid: كانت هناك مشكلة في خلق النقاش.
           success: تم إنشاء النقاش بنجاح.
@@ -148,7 +149,7 @@ ar:
       badges:
         commented_debates:
           conditions:
-            - اختر نقاشًا مفتوحًا للمشاركة فيه
+          - اختر نقاشًا مفتوحًا للمشاركة فيه
           description: تُمنح هذه الشارة عندما تشارك بنشاط في المناقشات المختلفة من خلال ترك تعليقاتك.
           description_another: شارك هذا المشارك في %{score} مناقشات.
           description_own: لقد شاركت في %{score} مناقشات.

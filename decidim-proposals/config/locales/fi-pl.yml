@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -36,7 +37,7 @@ fi-pl:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: "Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}"
+              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -122,7 +123,7 @@ fi-pl:
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: 'Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.'
+          email_intro: Käyttäjän %{requester_name} osallistuminen kohteeseen <a href="%{resource_path}">%{resource_title} </a>on estetty.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistuja kohteessa <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
@@ -223,8 +224,8 @@ fi-pl:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tämä käyttäjä on saanut %{score} ehdotusta hyväksytyksi.
           description_own: Olet saanut %{score} ehdotusta hyväksyksi.
@@ -234,8 +235,8 @@ fi-pl:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           conditions:
-            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
-            - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
+          - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+          - Tue ehdotuksia, joita pidät tai jotka kiinnostavat sinua
           description: Tämä kunniamerkki myönnetään, kun tuet muiden ihmisten ehdotuksia.
           description_another: Tämä käyttäjä on kannattanut %{score} ehdotusta.
           description_own: Olet kannattanut %{score} ehdotusta.
@@ -245,8 +246,8 @@ fi-pl:
           unearned_own: Et ole vielä kannattanut ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
-            - Luo uusi ehdotus
+          - Valitse kiinnostuksesi mukaan osallisuustila, jossa ehdotusten jättäminen on mahdollista
+          - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.
@@ -299,8 +300,10 @@ fi-pl:
         participatory_texts:
           bulk-actions:
             are_you_sure: Haluatko varmasti hylätä koko ehdotusaineiston luonnoksen?
-            import_doc: Tuo aineisto
             discard_all: Hylkää kaikki
+            import_doc: Tuo aineisto
+          discard:
+            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
             success: Onnittelut, seuraavat osat on tuotu aineistosta ja ne on muunnettu ehdotuksiksi. Voit tarkistaa ja muuttaa mitä haluat ennen julkaisua.
@@ -320,8 +323,6 @@ fi-pl:
           publish:
             invalid: Ehdotuksia ei voitu julkaista
             success: Kaikki ehdotukset on julkaistu
-          discard:
-            success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
@@ -599,7 +600,6 @@ fi-pl:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
         compare:
-          mine_is_different: Ehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
@@ -626,6 +626,7 @@ fi-pl:
           comments: Kommentit
         filters:
           activity: Aktiivisuus
+          amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
           origin: Alkuperä
@@ -633,7 +634,6 @@ fi-pl:
           search: Haku
           state: Tila
           voted: Äänestetty
-          amendment_type: Tyyppi
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata

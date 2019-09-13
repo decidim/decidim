@@ -29,6 +29,3 @@ es:
           update:
             invalid: Se ha producido un error al guardar la página.
             success: Página guardada correctamente.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications

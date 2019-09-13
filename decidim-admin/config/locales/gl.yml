@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -433,13 +434,13 @@ gl:
         form:
           interpolations_hint: 'Consello: podes usar "%{name}" en calquera parte do corpo ou asunto e será substituído polo nome do destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
+          confirm_delete: "¿Estás seguro de que queres eliminar este boletín informativo?"
           title: Boletíns informativos
         new:
           save: Gardar
           title: Novo boletín informativo
         select_recipients_to_deliver:
-          confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
+          confirm_deliver: "¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción."
           deliver: Enviar boletín informativo
         show:
           preview: Vista previa

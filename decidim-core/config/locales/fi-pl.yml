@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -45,8 +46,8 @@ fi-pl:
         one: Käyttäjäryhmä
         other: Käyttäjäryhmät
   booleans:
-    'false': 'Ei'
-    'true': 'Kyllä'
+    'false': Ei
+    'true': Kyllä
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -136,12 +137,10 @@ fi-pl:
       amendable:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
-        promote_button: Korosta kohteeksi %{model_name}
         error: Tämän resurssin muuttamisessa tapahtui virhe.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
+        promote_button: Korosta kohteeksi %{model_name}
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
-        no_amenders: Ei muutoksia tehneitä
-        no_amendments: Ei muutoksia
         section_heading: Muutokset (%{count})
       created:
         error: Virhe luotaessa muutosta, yritä myöhemmin uudelleen
@@ -170,12 +169,12 @@ fi-pl:
         heading: Luo muutos
         help_text: Olet muuttamassa kohdetta %{model_name}
         send: Lähetä muutos
+      promoted:
+        error: Muutoksen korostamisessa tapahtui virheitä
+        success: Muutos korostettu onnistuneesti
       rejected:
         error: Tämän muutoksen, hylkäämisessä tapahtui virhe, yritä myöhemmin uudelleen
         success: Muutos on hylätty onnistuneesti
-      promoted:
-        success: Muutos korostettu onnistuneesti
-        error: Muutoksen korostamisessa tapahtui virheitä
       review:
         back: Takaisin
         heading: Tarkastele muutosta
@@ -223,36 +222,6 @@ fi-pl:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
         name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
-    authorization_modals:
-      show:
-        expired:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
-          title: Varmennus on vanhentunut
-        incomplete:
-          cancel: Peruuta
-          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
-          invalid_field: "%{field}"
-          reauthorize: Varmenna uudestaan
-          title: Varmenna uudestaan
-        missing:
-          authorize: Varmenna varmennustavalla "%{authorization}"
-          explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
-          title: Varmennus vaaditaan
-        pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" varmennuksen eteneminen
-          title: Varmennus on edelleen kesken
-        unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
-          ok: Ok
-          title: Ei varmennettu
-        unconfirmed:
-          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
-          explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
-          request_confirmation_instructions: Pyydä vahvistusohjeita
-          title: Vahvista sähköpostiosoitteesi
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -384,39 +353,6 @@ fi-pl:
         title: Etsimääsi sivua ei löydy
     events:
       amendments:
-        amendment_created:
-          affected_user:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
-            email_subject: Uusi muutos kohteelle %{amendable_title} käyttäjältä %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uuden muutoksen</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-            email_subject: Uusi muutos kohteelle %{amendable_title} käyttäjältä %{emendation_author_nickname}
-            notification_title: Käyttäjä <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uuden muutoksen</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
-            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
-            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
-            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-          follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
-            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
-        amendment_promoted:
-          affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on korostettu omaksi %{amendable_type} -kohteeksi. Näet sen tältä sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
-            email_subject: Käyttäjän %{emendation_author_nickname} tekemä muutos on korostettu
-            notification_title: <a href="%{emendation_path}">Hylätty ehdotus</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on korostettu käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
-          follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on korostettu omaksi %{amendable_type} -kohteeksi. Näet sen tältä sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-            email_subject: Käyttäjän %{emendation_author_nickname} luoma muutos on korostettu
-            notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on korostettu käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
         amendment_accepted:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Näet sen tältä sivulta:'
@@ -428,6 +364,39 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hyväksytty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_created:
+          affected_user:
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_subject: Uusi muutos kohteelle %{amendable_title} käyttäjältä %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uuden muutoksen</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi muutos kohteelle %{amendable_title} käyttäjältä %{emendation_author_nickname}
+            notification_title: Käyttäjä <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> on luotu <a href="%{emendation_path}">uuden muutoksen</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on korostettu omaksi %{amendable_type} -kohteeksi. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_subject: Käyttäjän %{emendation_author_nickname} tekemä muutos on korostettu
+            notification_title: <a href="%{emendation_path}">Hylätty ehdotus</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on korostettu käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
+          follower:
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on korostettu omaksi %{amendable_type} -kohteeksi. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Käyttäjän %{emendation_author_nickname} luoma muutos on korostettu
+            notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} on korostettu käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
+            email_outro: Olet saanut tämän ilmoituksen, koska olet kirjailija %{amendable_title}.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+          follower:
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> on hylätty kohteelle <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
@@ -436,7 +405,7 @@ fi-pl:
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:'
+          email_intro: "%{resource_title} -komponentti on nyt käytössä kohteessa %{participatory_space_title}. Näet sen tältä sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Komponentti %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -547,7 +516,7 @@ fi-pl:
       badges:
         continuity:
           conditions:
-            - Käy täällä usein
+          - Käy täällä usein
           description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
           description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
           description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
@@ -557,7 +526,7 @@ fi-pl:
           unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
-            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
+          - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."
@@ -572,9 +541,9 @@ fi-pl:
           title: Kunniamerkit
         invitations:
           conditions:
-            - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
-            - Muokkaa lähetettävää viestiä halutessasi
-            - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
+          - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
+          - Muokkaa lähetettävää viestiä halutessasi
+          - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
           description: Tämä kunniamerkki myönnetään, kun olet kutsunut ihmisiä %{organization_name} -palveluun ja nämä ihmiset rekisteröityvät palvelun käyttäjiksi. Kiitos, että autat tekemään %{organization_name} -palvelusta tunnetumpaa ja laajentamaan yhteisöä!
           description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
           description_own: Olet kutsunut %{score} käyttäjää.
@@ -784,8 +753,8 @@ fi-pl:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
-        newsletters: Uutiskirjeet
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
+        newsletters: Uutiskirjeet
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         receive_notifications_about: Haluan saada ilmoituksia
         send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
@@ -831,7 +800,7 @@ fi-pl:
           conferences_count: Konferenssit
           debates_count: Keskustelua
           endorsements_count: Suosituksia
-          headline: '%{organization} numeroina'
+          headline: "%{organization} numeroina"
           meetings_count: Tapahtumat
           orders_count: Ääntä
           pages_count: Sivua
@@ -990,8 +959,8 @@ fi-pl:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
     user_interests:
       show:
-        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
         my_interests: Omat kiinnostuksen kohteet
+        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
         select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tapahtumia profiilisi aikajana-välilehdellä.
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
@@ -1036,7 +1005,7 @@ fi-pl:
       confirmation_instructions:
         action: Vahvista käyttäjätilini
         greeting: Tervetuloa %{recipient}!
-        instruction: 'Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.'
+        instruction: Voit vahvistaa käyttäjätiliisi kytketyn sähköpostiosoitteen alla olevan linkin kautta.
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!

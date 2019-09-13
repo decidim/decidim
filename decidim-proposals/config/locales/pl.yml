@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -59,29 +60,29 @@ pl:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Wspólny projekt
         few: Wersje robocze współpracy
         many: Wersje robocze współpracy
+        one: Wspólny projekt
         other: Wersje robocze współpracy
       decidim/proposals/proposal:
-        one: Wniosek
         few: Propozycje
         many: Propozycje
+        one: Wniosek
         other: Propozycje
       decidim/proposals/proposal_endorsement:
-        one: Poparcie
         few: Adnotacje
         many: Adnotacje
+        one: Poparcie
         other: Adnotacje
       decidim/proposals/proposal_note:
-        one: Uwaga
         few: Uwagi
         many: Uwagi
+        one: Uwaga
         other: Uwagi
       decidim/proposals/proposal_vote:
-        one: Głosować
         few: Głosy
         many: Głosy
+        one: Głosować
         other: Głosy
   decidim:
     components:
@@ -237,8 +238,8 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
-            - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób są bardziej prawdopodobne, że zostaną zaakceptowani.
+          - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+          - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób są bardziej prawdopodobne, że zostaną zaakceptowani.
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach i są one akceptowane.
           description_another: Ten użytkownik otrzymał %{score} propozycji zaakceptowanych.
           description_own: Przyjęto %{score} propozycji.
@@ -248,8 +249,8 @@ pl:
           unearned_own: Nie otrzymałeś jeszcze żadnych propozycji.
         proposal_votes:
           conditions:
-            - Przeglądaj i spędzaj trochę czasu czytając propozycje innych osób
-            - Wspieraj propozycje, które lubisz lub które są interesujące
+          - Przeglądaj i spędzaj trochę czasu czytając propozycje innych osób
+          - Wspieraj propozycje, które lubisz lub które są interesujące
           description: Ta odznaka jest przyznawana, gdy wspierasz propozycje innych osób.
           description_another: Ten użytkownik udzielił wsparcia %{score} propozycji.
           description_own: Udzieliłeś wsparcia %{score} propozycji.
@@ -259,8 +260,8 @@ pl:
           unearned_own: Nie udzielałeś już wsparcia żadnym wnioskom.
         proposals:
           conditions:
-            - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
-            - Utwórz nową ofertę
+          - Wybierz przestrzeń zainteresowań, która Cię interesuje, z włączoną obsługą zgłoszeń
+          - Utwórz nową ofertę
           description: Ta plakietka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
@@ -474,9 +475,9 @@ pl:
           title: Uzupełnij swój wspólny projekt
         count:
           drafts_count:
-            one: "%{count} wspólny projekt"
             few: "%{count} wspólny projekt"
             many: "%{count} wspólny projekt"
+            one: "%{count} wspólny projekt"
             other: "%{count} wspólny projekt"
         create:
           error: Podczas tworzenia tych roboczych wersji roboczych wystąpił problem
@@ -533,9 +534,9 @@ pl:
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten projekt jest gotowy. Możesz zobaczyć końcową gotową propozycję
           hidden_authors_count:
-            one: i %{count} więcej osób
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i %{count} więcej osób
             other: i %{count} więcej osób
           info-message: Jest to <strong>wspólny projekt</strong> dla wniosku. Oznacza to, że możesz pomóc swoim autorom w kształtowaniu propozycji za pomocą poniższej sekcji komentarza lub poprawić ją bezpośrednio, żądając dostępu, aby ją edytować. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tej wersji roboczej.
           of_versions: "(z %{number})"
@@ -625,9 +626,9 @@ pl:
           title: Uzupełnij swoją propozycję
         count:
           proposals_count:
-            one: "%{count} propozycji"
             few: "%{count} propozycji"
             many: "%{count} propozycji"
+            one: "%{count} propozycji"
             other: "%{count} propozycji"
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
@@ -666,9 +667,9 @@ pl:
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
-            one: głosować
             few: głosów
             many: głosów
+            one: głosować
             other: głosów
         new:
           send: dalej
@@ -686,9 +687,9 @@ pl:
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
@@ -700,9 +701,9 @@ pl:
           edit_proposal: Edytuj propozycję
           endorsements_list: Lista rekomendacji
           hidden_endorsers_count:
-            one: i %{count} więcej osób
             few: i %{count} więcej osób
             many: i %{count} więcej osób
+            one: i %{count} więcej osób
             other: i %{count} więcej osób
           link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego projektu. Przejrzyj historię
           link_to_collaborative_draft_text: Zobacz wersję roboczą
@@ -725,9 +726,9 @@ pl:
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
           count:
-            one: GŁOSOWAĆ
             few: GŁOSOWANIA
             many: GŁOSY
+            one: GŁOSOWAĆ
             other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów

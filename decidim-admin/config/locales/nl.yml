@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -516,7 +517,9 @@ nl:
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd
-          officialize: "Valideren\n"
+          officialize: 'Valideren
+
+            '
           officialized: Gevalideerd
           reofficialize: Hervalideren
           search: Zoeken

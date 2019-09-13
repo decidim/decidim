@@ -1,10 +1,11 @@
+---
 cs:
   activerecord:
     models:
       decidim/pages/page:
-        one: Stránka
         few: Stránky
         many: Stránky
+        one: Stránka
         other: Stránky
   decidim:
     admin_log:

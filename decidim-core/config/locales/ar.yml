@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -36,29 +37,29 @@ ar:
         remember_me: تذكرنى
     models:
       decidim/amendment:
-        zero: تعديلات
-        one: تعديل
-        two: تعديلات
         few: تعديلات
         many: تعديلات
+        one: تعديل
         other: تعديلات
+        two: تعديلات
+        zero: تعديلات
       decidim/user:
-        zero: المشاركين
-        one: لا مشاركين
-        two: المشاركين
         few: المشاركين
         many: المشاركين
+        one: لا مشاركين
         other: المشاركين
+        two: المشاركين
+        zero: المشاركين
       decidim/user_group:
-        zero: المجموعات
-        one: مجموعة
-        two: المجموعات
         few: المجموعات
         many: المجموعات
+        one: مجموعة
         other: المجموعات
+        two: المجموعات
+        zero: المجموعات
   booleans:
-    'false': 'لا'
-    'true': 'نعم'
+    'false': لا
+    'true': نعم
   carrierwave:
     errors:
       image_too_big: الصورة كبيرة جدا
@@ -117,13 +118,13 @@ ar:
         delete: "%{user_name} حذف تطبيق %{resource_name} OAuth"
         update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
       organization:
-        update: "قام %{user_name} بتحديث إعدادات المنظمة"
+        update: قام %{user_name} بتحديث إعدادات المنظمة
       participatory_space_private_user:
         create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
         delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
-        create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
+        create_with_parent: إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}
         delete: "%{user_name} حذف النطاق %{resource_name}"
         delete_with_parent: "%{user_name} حذف النطاق %{resource_name} داخل النطاق %{parent_scope}"
         update: "%{user_name} تحديث النطاق %{resource_name}"
@@ -138,7 +139,7 @@ ar:
         remove_from_admin: "%{user_name} إزالة المشارك %{resource_name} مع الدور: %{role}"
         unofficialize: "%{user_name} غير رسمي المشارك %{resource_name}"
       user_group:
-        reject: "رفض %{user_name} التحقق من المجموعة %{resource_name}"
+        reject: رفض %{user_name} التحقق من المجموعة %{resource_name}
         verify: "%{user_name} التحقق من المجموعة %{resource_name}"
         verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
     amendments:
@@ -191,24 +192,24 @@ ar:
     application:
       collection:
         documents:
-          zero: مستندات
-          one: وثيقة
-          two: مستندات
           few: مستندات
           many: مستندات
+          one: وثيقة
           other: مستندات
+          two: مستندات
+          zero: مستندات
       documents:
         related_documents: الوثائق ذات الصلة
       photos:
         related_photos: الصور ذات الصلة
     author:
       comments:
-        zero: تعليقات
-        one: تعليق
-        two: تعليقات
         few: تعليقات
         many: تعليقات
+        one: تعليق
         other: تعليقات
+        two: تعليقات
+        zero: تعليقات
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
@@ -248,12 +249,12 @@ ar:
           title: تأكيد البريد الإلكتروني
     collapsible_list:
       hidden_elements_count:
-        zero: و %{count} أخرى
-        one: و %{count} أخرى
-        two: و %{count} أخرى
         few: و %{count} أخرى
         many: و %{count} أخرى
+        one: و %{count} أخرى
         other: و %{count} أخرى
+        two: و %{count} أخرى
+        zero: و %{count} أخرى
       see_less: "(انظر أقل)"
       see_more: "(شاهد المزيد)"
     components:
@@ -548,7 +549,7 @@ ar:
       badges:
         continuity:
           conditions:
-            - تعال هنا في كثير من الأحيان
+          - تعال هنا في كثير من الأحيان
           description: تُمنح هذه الشارة عند زيارة المنصة بطريقة منتظمة. نود وجودك هنا!
           description_another: تم توصيل هذا المشارك لمدة %{score} أيام متتالية في وقت ما
           description_own: لقد قمت بالاتصال لمدة %{score} أيام متتالية في مرحلة ما.
@@ -558,7 +559,7 @@ ar:
           unearned_own: أنت غير متصل لأكثر من يوم واحد على التوالي.
         followers:
           conditions:
-            - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
+          - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
           description: تُمنح هذه الشارة عندما تصل إلى عدد معين من المتابعين. %{organization_name} هي شبكة اجتماعية وسياسية ، نسج الويب الخاص بك للتواصل مع أشخاص آخرين في المنصة.
           description_another: هذا المشارك لديه %{score} متابعين.
           description_own: "%{score} أشخاص يتابعونك."
@@ -573,9 +574,9 @@ ar:
           title: شارات
         invitations:
           conditions:
-            - استخدم رابط "دعوة الأصدقاء" في صفحة المستخدم الخاصة بك لدعوة أصدقائك
-            - تخصيص ، إذا كنت تريد ، الرسالة التي ترسلها
-            - ستصل إلى أعلى مستوى عن طريق إرسال الدعوات وتسجيلها.
+          - استخدم رابط "دعوة الأصدقاء" في صفحة المستخدم الخاصة بك لدعوة أصدقائك
+          - تخصيص ، إذا كنت تريد ، الرسالة التي ترسلها
+          - ستصل إلى أعلى مستوى عن طريق إرسال الدعوات وتسجيلها.
           description: تُمنح هذه الشارة عند قيامك بدعوة بعض الأشخاص وقضاء بعض الوقت للتسجيل في %{organization_name} وتصبح مشاركًا. شكرًا لك على تعريف شخص %{organization_name} للآخرين والمساعدة في توسيع نطاق المجتمع!
           description_another: قام هذا المشارك بدعوة %{score} شخصًا.
           description_own: لقد قمت بدعوة %{score} شخصًا.
@@ -719,7 +720,7 @@ ar:
           subject: "%{sender} بدأ محادثة معك"
         new_message:
           greeting: مرحبًا ، %{recipient}!
-          intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
+          intro: 'نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:'
           outro: استمتع ديسيديم!
           subject: لديك رسائل جديدة من %{sender}
       conversations:
@@ -949,12 +950,12 @@ ar:
         unfold: كشف
       results:
         results:
-          zero: "%{count} النتائج"
-          one: "%{count} النتيجة"
-          two: "%{count} النتائج"
           few: "%{count} النتائج"
           many: "%{count} النتائج"
+          one: "%{count} النتيجة"
           other: "%{count} النتائج"
+          two: "%{count} النتائج"
+          zero: "%{count} النتائج"
         view_all: عرض الكل (%{count})
     shared:
       embed_modal:
@@ -1063,7 +1064,7 @@ ar:
           إذا كنت لا تريد قبول الدعوة ، فيرجى تجاهل هذا البريد الإلكتروني.<br />
           لن يتم إنشاء حسابك حتى تصل إلى الرابط أعلاه وتعيين اللقب وكلمة المرور.
         invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
-        invited_you_as_private_user: "تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه."
+        invited_you_as_private_user: تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه.
         someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
         someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
         someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
@@ -1145,12 +1146,12 @@ ar:
         sign_in_with_provider: تسجيل الدخول مع %{provider}
         sign_up: سجل
       minimum_password_length:
-        zero: "(%{count} حرف كحد أدنى)"
-        one: "(%{count} حرف كحد أدنى)"
-        two: "(%{count} حرف كحد أدنى)"
         few: "(%{count} حرف كحد أدنى)"
         many: "(%{count} حرف كحد أدنى)"
+        one: "(%{count} حرف كحد أدنى)"
         other: "(%{count} حرف كحد أدنى)"
+        two: "(%{count} حرف كحد أدنى)"
+        zero: "(%{count} حرف كحد أدنى)"
     unlocks:
       new:
         resend_unlock_instructions: إعادة إرسال تعليمات فتح
@@ -1174,12 +1175,12 @@ ar:
       not_found: غير معثور عليه
       not_locked: لم يكن مغلقا
       not_saved:
-        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        one: '1 خطأ يحظر حفظ هذا %{resource}:'
-        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
         few: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
         many: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        one: '1 خطأ يحظر حفظ هذا %{resource}:'
         other: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
+        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
       too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
       too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
       too_short: قصير جدًا (أقل من 15 حرفًا)

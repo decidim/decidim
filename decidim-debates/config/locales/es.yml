@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -36,7 +37,7 @@ es:
             creation_enabled: Creación de debates por parte de las participantes habilitada
     debates:
       actions:
-        confirm_destroy: '¿Estás segura?'
+        confirm_destroy: "¿Estás segura?"
         destroy: Elimina
         edit: Editar
         new: Nuevo %{name}
@@ -64,8 +65,8 @@ es:
             name: Debate
       admin_log:
         debate:
-          create: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
-          update: "La participante %{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}"
+          create: La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}
+          update: La participante %{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}
       debates:
         count:
           debates_count:
@@ -132,7 +133,7 @@ es:
           email_subject: Se ha desactivado la creación de debates en %{participatory_space_title}
           notification_title: La creación de debates ahora está deshabilitada en el espacio <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: '¡Ya puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_intro: "¡Ya puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:"
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Los debates ya estan disponibles en %{participatory_space_title}
           notification_title: Ya puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -140,12 +141,12 @@ es:
       badges:
         commented_debates:
           conditions:
-            - Elige un debate abierto para participar
+          - Elige un debate abierto para participar
           description: Este distintivo se otorga cuando participes activamente en los diferentes debates dejando tus comentarios.
           description_another: Esta participante ha tomado parte en %{score} debates.
           description_own: Has participado en %{score} debates.
           name: Debates
-          next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
+          next_level_in: "¡Participa en %{score} debates más para alcanzar el siguiente nivel!"
           unearned_another: Esta participante aún no ha participado en ningún debate.
           unearned_own: Aún no has participado en ningún debate.
     metrics:

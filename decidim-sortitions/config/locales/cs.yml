@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -14,9 +15,9 @@ cs:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortiment
         few: Sortitions
         many: Sortitions
+        one: Sortiment
         other: Sortitions
   decidim:
     components:
@@ -59,9 +60,9 @@ cs:
               target_items: Položky, které chcete vybrat
               title: Titul
             name:
-              one: Sortiment
               few: Sortitions
               many: Sortitions
+              one: Sortiment
               other: Sortitions
         sortitions:
           confirm_destroy:
@@ -100,9 +101,9 @@ cs:
       sortitions:
         count:
           proposals_count:
-            one: 1
             few: "%{count} návrhů"
             many: "%{count} návrhů"
+            one: 1
             other: "%{count} návrhů"
         filters:
           active: Aktivní
@@ -125,9 +126,9 @@ cs:
           recent: Nedávno
         results_count:
           count:
-            one: vybraný návrh
             few: vybrané návrhy
             many: vybrané návrhy
+            one: vybraný návrh
             other: vybrané návrhy
         show:
           algorithm: Kód algoritmu Sortition
@@ -146,9 +147,9 @@ cs:
         sortition:
           random_seed: Náhodné osivo
           selected_proposals:
-            one: vybraný návrh
             few: vybraných návrhů
             many: vybraných návrhů
+            one: vybraný návrh
             other: vybraných návrhů
           view: Pohled
         sortition_author:
@@ -157,7 +158,7 @@ cs:
           deleted: Vymazaný uživatel
         sortitions_count:
           count:
-            one: 1 sortie
             few: "%{count} sortitions"
             many: "%{count} sortitions"
+            one: 1 sortie
             other: "%{count} sortitions"

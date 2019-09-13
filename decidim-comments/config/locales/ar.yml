@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     models:
@@ -8,19 +9,19 @@ ar:
   activerecord:
     models:
       decidim/comments/comment:
-        zero: تعليقات
-        one: تعليق
-        two: تعليقات
         few: تعليقات
         many: تعليقات
+        one: تعليق
         other: تعليقات
+        two: تعليقات
+        zero: تعليقات
       decidim/comments/comment_vote:
-        zero: الأصوات
-        one: تصويت
-        two: الأصوات
         few: الأصوات
         many: الأصوات
+        one: تصويت
         other: الأصوات
+        two: الأصوات
+        zero: الأصوات
   decidim:
     comments:
       comments: تعليقات
