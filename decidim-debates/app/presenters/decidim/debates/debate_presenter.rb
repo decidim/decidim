@@ -27,6 +27,11 @@ module Decidim
         content = translated_attribute(debate.title)
         decidim_html_escape(content)
       end
+
+      def description
+        content = translated_attribute(debate.description)
+        decidim_html_escape(content)
+      end
     end
   end
 end

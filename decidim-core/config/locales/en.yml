@@ -999,8 +999,10 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
-    translate: Translate
-    translated: Back to the original version
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.

@@ -1,21 +1,23 @@
 let translate = function (originalText, targetLang, callback) {
-  $.ajax({
-    url: "/api/translate",
-    type: "POST",
-    // data: `target=${targetLang}&original=${originalText}`,
-    data: {
-      target: targetLang,
-      original: originalText,
-      "authenticity_token": window.$('meta[name="csrf-token"]').attr("content")
-    },
-    dataType: "json",
-    success: function (body) {
-      callback([body.translations[0].detected_source_language, body.translations[0].text]);
-    },
-    error: function (body, status, error) {
-      throw error;
-    }
-  });
+  if (originalText !== "" && targetLang !== "") {
+    $.ajax({
+      url: "/api/translate",
+      type: "POST",
+      // data: `target=${targetLang}&original=${originalText}`,
+      data: {
+        target: targetLang,
+        original: originalText,
+        "authenticity_token": window.$('meta[name="csrf-token"]').attr("content")
+      },
+      dataType: "json",
+      success: function (body) {
+        callback([body.translations[0].detected_source_language, body.translations[0].text]);
+      },
+      error: function (body, status, error) {
+        throw error;
+      }
+    });
+  }
 };
 
 
@@ -26,41 +28,27 @@ $(() => {
     const $spinner = $item.children(".loading-spinner");
     const $btn = $item.children("span");
 
-    let $title = null;
-    let $body = null;
-
     const original = $item.data("original");
     const translated = $item.data("translated");
-    const translatableId = $item.data("translatable-id");
     const targetLang = $item.data("targetlang");
-    const tranlatableType = $item.data("translatabletype");
+    const targetelement = $item.data("targetelem");
 
     let translatable = $item.data("translatable");
     let originalTitle = $item.data("title");
     let originalBody = $item.data("body");
 
-    switch (tranlatableType) {
-    case "card-m":
-      $title = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-title]");
-      $body = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-body]");
-      break;
-    case "proposal-show":
-      $title = $(document).find(`[data-translatable-title=${translatableId}]`);
-      $body = $(document).find(`[data-translatable-body=${translatableId}]`);
-      break;
-    default:
-      throw new Error("No translatable type");
-    }
+    const $title = $(`#${targetelement}_title`);
+    const $body = $(`#${targetelement}_body`);
 
     if (translatable) {
       $spinner.removeClass("loading-spinner--hidden");
 
-      translate($title.text(), targetLang, (response) => {
+      translate(originalTitle, targetLang, (response) => {
         $item.data("title", $title.text());
         $title.text(response[1]);
       });
 
-      translate($body.html(), targetLang, (response) => {
+      translate(originalBody, targetLang, (response) => {
         $item.data("body", $body.html());
         $body.html(response[1]);
 
