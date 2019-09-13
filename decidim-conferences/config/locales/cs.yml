@@ -289,7 +289,7 @@ cs:
         title: Program
     conference_speakers:
       index:
-        title: Reproduktory
+        title: Řečníci
     conferences:
       admin:
         conference_copies:
