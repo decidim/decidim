@@ -97,6 +97,7 @@ hu:
             minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
+            participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             participatory_texts_enabled: Engedélyezett részvételi szövegek
             proposal_answering_enabled: Javaslat válasz engedélyezve
             proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
@@ -116,6 +117,7 @@ hu:
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
+            amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
