@@ -86,6 +86,8 @@ hu:
         settings:
           global:
             amendments_enabled: A módosítások engedélyezve vannak
+            amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
+            amendments_wizard_help_text: Módosítások Varázsló súgószöveg
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
