@@ -576,6 +576,10 @@ hu:
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: Töltse fel a CSV fájlod
+          upload: Feltölt
       resource_permissions:
         edit:
           submit: Beküldés
