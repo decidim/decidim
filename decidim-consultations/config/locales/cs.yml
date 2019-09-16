@@ -95,6 +95,9 @@ cs:
         new:
           create: Vytvořit
           title: Nová konzultace
+        results:
+          not_visible: Výsledky budou k dispozici při uzavírání konzultací
+          total_votes: 'Celkem: %{count} hlasů'
         update:
           error: Při aktualizaci této konzultace došlo k chybě.
           success: Konzultace byla úspěšně aktualizována.
@@ -103,6 +106,7 @@ cs:
         consultations_submenu:
           info: Informace
           questions: Otázky
+          results: Výsledky
         questions_submenu:
           components: Komponenty
           consultation: Konzultace
@@ -185,6 +189,7 @@ cs:
         consultations: Konzultace
         questions: Otázky
         responses: Odpovědi
+        results: Výsledky
     consultations:
       admin:
         content_blocks:
@@ -250,6 +255,9 @@ cs:
       question_votes:
         create:
           error: Během hlasování se vyskytly chyby
+          success: Můžete to změnit až do konce konzultace, pouze poslední hlasování bude přijato.
+          title_error: Chyba hlasování!
+          title_success: Hlas úspěšně zapsán
       regular_questions:
         title: Otázky pro tuto konzultaci
       show:
@@ -277,6 +285,8 @@ cs:
         statistics:
           consultations_count: Konzultace
     questions:
+      next_button: Další otázka
+      previous_button: Předchozí otázka
       results:
         title: Výsledek
       show:
@@ -292,6 +302,7 @@ cs:
         already_voted: Již bylo hlasováno
         already_voted_hover: Odvolání podpory
         starting_from: Počínaje %{date}
+        verification_required: Potvrdit svůj účet pro hlasování
         vote: Hlasování
       vote_modal:
         contextual_help: Prosím vyberte možnost.
@@ -301,6 +312,10 @@ cs:
         confirm: Potvrdit
         contextual_help: Potvrďte vybranou možnost.
         title: 'Konzultace: potvrďte podporu'
+    resources:
+      consultations:
+        actions:
+          vote: Hlasovat
   layouts:
     decidim:
       admin:

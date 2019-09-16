@@ -87,6 +87,7 @@ cs:
     components:
       proposals:
         actions:
+          amend: Pozměnit
           create: Vytvořit
           endorse: Potvrďte
           vote: Hlasování
@@ -95,6 +96,8 @@ cs:
         settings:
           global:
             amendments_enabled: Změny povoleny
+            amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
+            amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
@@ -104,6 +107,7 @@ cs:
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_help_text: Nový text nápovědy návrhu
             official_proposals_enabled: Byly povoleny oficiální návrhy
+            participatory_texts_disabled_help: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             participatory_texts_enabled: Povolené účastnické texty
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
@@ -117,6 +121,14 @@ cs:
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
           step:
+            amendment_creation_enabled: Umožnit pozměnění a doplnění
+            amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
+            amendment_promotion_enabled: Propagace pozměňování byla povolena
+            amendment_promotion_enabled_help: Autoři vylepšení budou moci podpořit návrh zamítnutého vylepšení.
+            amendment_reaction_enabled: Reakce na pozměnění byla povolena
+            amendment_reaction_enabled_help: Autoři návrhů budou moci přijmout nebo zamítnout vylepšení účastníků.
+            amendments_visibility: Viditelnost pozměňovacího návrhu
+            amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
@@ -319,6 +331,7 @@ cs:
             success: Všechny textové texty s účastí byly zrušeny.
           import:
             invalid: Formulář je neplatný!
+            invalid_file: Soubor obsahuje určitou chybu, zkuste jej prosím upravit a znovu jej nahrát.
             success: Gratulujeme, následující části byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
           index:
             info_1: Následující oddíly byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
@@ -697,6 +710,7 @@ cs:
           view_proposal: Zobrazit návrh
         show:
           back_to: Zpět k
+          changes_at_title: Pozměňovací návrh k "%{title}"
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           hidden_endorsers_count:
@@ -706,6 +720,10 @@ cs:
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
+          link_to_promoted_emendation_help_text: Tento návrh je podporované vylepšení
+          link_to_promoted_emendation_text: Podívejte se na zamítnuté vylepšení.
+          link_to_proposal_from_emendation_help_text: Toto je zamítnuté vylepšení
+          link_to_proposal_from_emendation_text: Zobrazit nabídky
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'

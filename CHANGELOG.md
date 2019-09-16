@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-admin**, **decidim-assemblies**, **decidim-participatory-processes**: Add CSV Import to Participatory Space Private Users. [\#5304](https://github.com/decidim/decidim/pull/5304)
 - **decidim-participatory-processes**: Add: process group presenter [#5289](https://github.com/decidim/decidim/pull/5289)
 - **decidim-consultations**: Allow to restrict voting to a question by adding verifications permissions [#5274](https://github.com/decidim/decidim/pull/5274)
 - **decidim-participatory-processes**: Add: traceability to process groups [#5278](https://github.com/decidim/decidim/pull/5278)
@@ -27,9 +28,14 @@
 **Fixed**:
 
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5312](https://github.com/decidim/decidim/pull/5312)
+- **decidim-core**: Fix: WhatsApp url button [#5317](https://github.com/decidim/decidim/pull/5317)
+- **decidim-core**: Fix: AuthorizationFormBuilder does not detect attribute types [#5315](https://github.com/decidim/decidim/pull/5315)
+- **decidim-participatory_processes**: Fix: ParticipatoryProcessSearch#search_date [#5319](https://github.com/decidim/decidim/pull/5319)
+- **decidim-proposals**: Fix: Show error when upload a file with the correct extension but with an error in the content [#5320](https://github.com/decidim/decidim/pull/5320)
 - **decidim-core**: Fix: saving default language to session if choosen by the user [#5308](https://github.com/decidim/decidim/pull/5308)
 - **decidim-proposals**: Fix: show amend button in `ParticipatoryText` when `amendment_creation` is enabled and there are no visible emendations [#5300](https://github.com/decidim/decidim/pull/5300)
 - **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+- **decidim-core**: Fix: Add uniq index to `decidim_metrics` table [#5314](https://github.com/decidim/decidim/pull/5314)
 - **decidim-admin**, **decidim-core**, **decidim-dev**, **decidim-proposals**: Fix: multiple items related to amendments step settings and wizard [#5263](https://github.com/decidim/decidim/pull/5263)
 - **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-dev**, **decidim-initiatives**, **decidim-participatory_processes**: Fix: `Decidim::Admin::ComponentForm` validations [#5269](https://github.com/decidim/decidim/pull/5269)
 - **decidim-core**: Fix: `Accept-Language` header language detection and uses language default from the organization [#5272](https://github.com/decidim/decidim/pull/5272)
@@ -48,7 +54,9 @@
 - **decidim-core**: Add missing locales when creating a new user group [#5262](https://github.com/decidim/decidim/pull/5262)
 - **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5284](https://github.com/decidim/decidim/pull/5284)
 - **decidim-comments**, **decidim-core**, **decidim-verifications**, **decidim-initiatives**: Bugfixing [#5213](https://github.com/decidim/decidim/pull/5213)
-
+- **decidim-core**: Fix forgotten redirect page in case TOS is not yet agreed on [#5313](https://github.com/decidim/decidim/pull/5313)
+- **decidim-admin**: Fix managed users stolen identities with users having the same name [#5318](https://github.com/decidim/decidim/pull/5318)
+- **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
 
 **Removed**:
 

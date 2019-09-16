@@ -31,7 +31,7 @@ cs:
         is_transparent: Je průhledná
         local_area: Oblast organizace
         meta_scope: Rozsah metadat
-        parent_id: Sestavení rodičů
+        parent_id: Nadřazené shromáždění
         participatory_processes_ids: Související procesy účasti
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
@@ -83,7 +83,7 @@ cs:
   decidim:
     admin:
       actions:
-        new_assembly: Nová montáž
+        new_assembly: Nové shromáždění
       assemblies:
         create:
           error: Při vytváření nové sestavy došlo k chybě.
@@ -97,7 +97,7 @@ cs:
           published: Publikováno
         new:
           create: Vytvořit
-          title: Nová montáž
+          title: Nové shromáždění
         update:
           error: Při aktualizaci této sestavy došlo k chybě.
           success: Sestavení se úspěšně aktualizovalo.
@@ -365,6 +365,7 @@ cs:
           more_info: Více informací
           take_part: Zúčastnit se
         index:
+          children: 'Shromáždění: '
           organizational_chart: Organizační schéma
           promoted_assemblies: Zvýrazněné sestavy
           reset_chart: Resetovat

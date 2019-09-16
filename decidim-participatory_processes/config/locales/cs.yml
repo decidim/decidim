@@ -142,6 +142,7 @@ cs:
           title: Duplicitní participační proces
       participatory_process_groups:
         destroy:
+          error: Došlo k chybě při zrušení skupiny účastnických procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
           title: Upravit skupinu procesů
@@ -241,6 +242,9 @@ cs:
         publish: "%{user_name} publikoval %{resource_name} participační proces"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
+      participatory_process_group:
+        create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
+        update: "%{user_name} aktualizoval skupinu %{resource_name} na participační proces"
       participatory_process_step:
         activate: "%{user_name} aktivoval %{resource_name} krok %{space_name} participaci"
         create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"

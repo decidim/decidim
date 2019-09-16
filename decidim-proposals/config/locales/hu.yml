@@ -29,8 +29,8 @@ hu:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
       proposals_import:
-        import_proposals: Import-javaslatok
-        keep_authors: Tartsa meg az eredeti szerzőket
+        import_proposals: Javaslatok importálása
+        keep_authors: Eredeti szerzők megtartása
     errors:
       models:
         participatory_text:
@@ -77,6 +77,7 @@ hu:
     components:
       proposals:
         actions:
+          amend: Módosítás
           create: Létrehozás
           endorse: Támogatás
           vote: Szavazás
@@ -107,6 +108,12 @@ hu:
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Szavazási limit felhasználónként
           step:
+            amendment_creation_enabled: A módosítás létrehozása engedélyezett
+            amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
+            amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_reaction_enabled: A módosító reakció engedélyezett
+            amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
+            amendments_visibility: A módosítás láthatósága
             announcement: Közlemény
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
@@ -260,11 +267,11 @@ hu:
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
-        description: A felhasználók által elfogadott javaslatok száma
+        description: Az elfogadott javaslatok száma
         object: javaslatok
         title: Elfogadott javaslatok
       endorsements:
-        description: A pályázatok során keletkezett támogatások száma
+        description: A javaslatokhoz kapcsolódó jóváhagyások száma
         object: kiterjesztések
         title: Elismerések
       proposals:
@@ -309,6 +316,7 @@ hu:
             success: Az összes résztvevő szövegtervezetet elvetették.
           import:
             invalid: Az űrlap érvénytelen!
+            invalid_file: A fájl hibákat tartalmaz, kérjük javítsa a fájl tartalmát és töltse föl újra.
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
           index:
             info_1: Az importált dokumentumból az alábbi részek kerültek feldolgozásra, amelyek javaslatokká lettek alakítva. Mostantól megtekintheted és módosíthatod, amire szükséged van a közzététel előtt.
@@ -677,6 +685,7 @@ hu:
           view_proposal: Javaslat megtekintése
         show:
           back_to: Vissza a
+          changes_at_title: A (z) "%{title}" módosítása
           edit_proposal: Javaslat szerkesztése
           endorsements_list: Jóváhagyások listája
           hidden_endorsers_count:
@@ -684,6 +693,10 @@ hu:
             other: és még %{count} ember
           link_to_collaborative_draft_help_text: Ez a javaslat egy közös vázlat eredménye. Nézd át az előzményeket
           link_to_collaborative_draft_text: Közös vázlat megtekintése
+          link_to_promoted_emendation_help_text: Ez a javaslat egy támogatott helyreigazítás
+          link_to_promoted_emendation_text: Elutasított helyreigazítás megtekintése.
+          link_to_proposal_from_emendation_help_text: Ez egy elutasított helyreigazítás
+          link_to_proposal_from_emendation_text: Indítvány megtekintése
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'

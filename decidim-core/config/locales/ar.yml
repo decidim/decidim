@@ -3,6 +3,13 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      group:
+        about: عن
+        document_number: رقم المستند
+        email: البريد الإلكتروني
+        name: الإسم
+        nickname: الاسم المستعار
+        phone: الهاتف
       report:
         details: تعليقات إضافية
       user:
@@ -151,6 +158,8 @@ ar:
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
+      compare_draft:
+        continue: متابعة
       emendation:
         actions:
           button_accept: قبول
@@ -169,6 +178,8 @@ ar:
             من قبل المؤلف.
       new:
         amendment_author: مؤلف التعديل
+      preview_draft:
+        publish: انشر
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
         success: تم نشر التعديل بنجاح كمقترح جديد
@@ -1012,6 +1023,12 @@ ar:
     welcome_notification:
       default_body: <p>مرحبا {{name}}، شكرا لانضمامك {{organization}} ومرحبا بكم!</p><ul><li>إذا كنت ترغب في الحصول على فكرة سريعة عما يمكنك القيام به هنا ، ألق نظرة على قسم <a href="{{help_url}}">Help</a> .</li><li>بمجرد قراءتها ، ستحصل على أول شارة. فيما يلي قائمة تضم <a href="{{badges_url}}">الشارات</a> التي يمكنك الحصول عليها وأنت تشارك في {{organization}}</li><li>أخيرًا وليس آخرًا ، انضم إلى أشخاص آخرين ، وشارك معهم تجربة المشاركة والمشاركة في {{organization}}. قم بتقديم مقترحات وتعليقات ومناقشات وفكر في كيفية المساهمة في الصالح العام وتقديم حجج للإقناع والاستماع والقراءة حتى تقتنع ، والتعبير عن أفكارك بطريقة ملموسة ومباشرة ، والاستجابة بصبر وقرار ، والدفاع عن أفكارك والحفاظ عليها بعقل متفتح للتعاون والانضمام إلى أفكار الآخرين.</li></ul>
       default_subject: شكرا لانضمامك {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: العودة
+      wizard_header:
+        see_steps: عرض الخطوات
+        step_of: الخطوة %{current_step} مِن %{total_steps}
   devise:
     confirmations:
       confirmed: تم تأكيد عنوان بريدك الإلكتروني بنجاح.
@@ -1253,12 +1270,15 @@ ar:
     qq: Qzone
     reddit: رديت
     share_to: شارك في %{name}
+    telegram: تلغرام
     tumblr: نعرفكم
     twitter: تويتر
     vkontakte: فكونتاكتي
     wechat: WeChat
     wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
     weibo: سينا ويبو
+    whatsapp_app: واتساب
+    whatsapp_web: واتساب
     xing: شينغ
   time:
     formats:

@@ -294,6 +294,7 @@ cs:
               other: Bylo zde %{count} registrací.
             reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
+            title: Registrace
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
