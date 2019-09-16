@@ -444,13 +444,13 @@ cs:
             notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Do dokumentu %{resource_title}byl přidán nový dokument. Můžete ji vidět z této stránky:'
+          email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{resource_title}
           notification_title: Do <a href="%{attached_to_url}">%{resource_title}</a>byl přidán <a href="%{resource_path}">nový dokument</a>
       components:
         component_published:
-          email_intro: 'Součást %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
+          email_intro: 'Komponenta %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Součást %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
