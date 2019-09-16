@@ -25,9 +25,11 @@ module Decidim
       model
     end
 
-    # DiffRenderer class for the current_version's item.
+    # DiffRenderer class for the current_version's item; falls back to `BaseDiffRenderer`.
     def diff_renderer_class
       "#{current_version.item_type.deconstantize}::DiffRenderer".constantize
+    rescue NameError
+      Decidim::BaseDiffRenderer
     end
 
     # Caches a DiffRenderer instance for the current_version.
@@ -49,7 +51,7 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def output_unified_diff(data)
-      return unless data
+      return unless data && data[:new_value].present?
 
       Diffy::Diff.new(
         data[:old_value],
@@ -65,7 +67,7 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def output_split_diff(data, direction)
-      return unless data && direction
+      return unless direction && data && data[:new_value].present?
 
       Diffy::SplitDiff.new(
         data[:old_value],

@@ -27,6 +27,7 @@
 
 **Fixed**:
 
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5312](https://github.com/decidim/decidim/pull/5312)
 - **decidim-core**: Fix: WhatsApp url button [#5317](https://github.com/decidim/decidim/pull/5317)
 - **decidim-core**: Fix: AuthorizationFormBuilder does not detect attribute types [#5315](https://github.com/decidim/decidim/pull/5315)
 - **decidim-participatory_processes**: Fix: ParticipatoryProcessSearch#search_date [#5319](https://github.com/decidim/decidim/pull/5319)
