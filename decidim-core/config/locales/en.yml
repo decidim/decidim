@@ -592,6 +592,9 @@ en:
       current_image: Current image
       default_image: Default image
       errors:
+        decidim/user:
+          password: The password is too short.
+          password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
