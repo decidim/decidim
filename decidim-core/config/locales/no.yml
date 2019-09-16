@@ -1,4 +1,8 @@
 "no":
+  activemodel:
+    attributes:
+      group:
+        about: Om
   decidim:
     amendments:
       wizard_step_form:
