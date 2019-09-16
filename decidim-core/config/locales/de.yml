@@ -824,7 +824,7 @@ de:
           headline: Teilnahme an Zahlen
         statistics:
           answers_count: Abgeschlossene Umfragen
-          assemblies_count: Baugruppen
+          assemblies_count: Versammlungen
           comments_count: Kommentare
           conferences_count: Konferenzen
           debates_count: Diskussionen
@@ -972,7 +972,7 @@ de:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
         please_sign_in: Bitte einloggen
-        sign_up: Anmelden
+        sign_up: Registrieren
       reference:
         reference: 'Referenz: %{reference}'
       results_per_page:
@@ -1108,7 +1108,7 @@ de:
         update: Aktualisieren
         we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen
       new:
-        sign_up: Anmelden
+        sign_up: Registrieren
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
       signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto noch nicht aktiviert ist.
       signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto gesperrt ist.
