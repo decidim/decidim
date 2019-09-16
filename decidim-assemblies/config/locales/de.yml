@@ -80,7 +80,7 @@ de:
         new_assembly: Neue Montage
       assemblies:
         create:
-          error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
+          error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
@@ -100,7 +100,7 @@ de:
       assemblies_copies:
         create:
           error: Beim Duplizieren dieser Assembly ist ein Fehler aufgetreten.
-          success: Die Baugruppe wurde erfolgreich dupliziert.
+          success: Die Versammlung wurde erfolgreich dupliziert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -113,7 +113,7 @@ de:
         destroy:
           success: Mitglied wurde für diese Assembly erfolgreich gelöscht.
         edit:
-          title: Aktualisieren Sie das Baugruppenelement.
+          title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
         index:
           assembly_members_title: Mitglieder der Versammlung
@@ -133,7 +133,7 @@ de:
       assembly_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
-          success: Der Benutzer wurde dieser Baugruppe erfolgreich hinzugefügt.
+          success: Der Administrator wurde dieser Versammlung erfolgreich hinzugefügt.
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
@@ -343,7 +343,7 @@ de:
       assemblies:
         description: Anzahl der erstellten Baugruppen
         object: Baugruppen
-        title: Baugruppen
+        title: Versammlungen
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -354,7 +354,7 @@ de:
           take_part: Teilnehmen
         index:
           organizational_chart: Organigramm
-          promoted_assemblies: Hervorgehobene Baugruppen
+          promoted_assemblies: Hervorgehobene Versammlungen
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
