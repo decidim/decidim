@@ -11,23 +11,23 @@ de:
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
-        domain: Domain
-        end_date: Endtermin
+        domain: Domäne
+        end_date: Enddatum
         hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
-        promoted: Gefördert
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
+        promoted: Hervorgehoben
         published_at: Veröffentlicht unter
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
-        short_description: Kurze Beschreibung
-        show_statistics: Zeige Statistiken
-        slug: URL-Block
-        start_date: Anfangsdatum
+        scope_id: Themenbereich
+        scopes_enabled: Themenbereiche aktiviert
+        short_description: Kurzbeschreibung
+        show_statistics: Statistiken anzeigen
+        slug: URL-Slug
+        start_date: Startdatum
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
