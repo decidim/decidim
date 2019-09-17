@@ -2,7 +2,7 @@ de:
   activemodel:
     attributes:
       account:
-        delete_reason: Grund, dein Konto zu löschen
+        delete_reason: Grund, Ihr Konto zu löschen
       group:
         about: Über
         avatar: Profilbild
@@ -31,7 +31,7 @@ de:
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
-      decidim/promote_to_admin: Wird zum Gruppenadministrator hochgestuft
+      decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
   activerecord:
     attributes:
