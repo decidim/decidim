@@ -152,6 +152,14 @@ de:
         section_heading: Änderungen (%{count})
       compare_draft:
         continue: Fortfahren
+        no_similars_found: Keine ähnlichen Entwürfe gefunden.
+        title: Ähnliche Entwürfe
+      created:
+        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
+        success: Der Änderungsvorschlag wurde erfolgreich erstellt.
+      destroy_draft:
+        error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
+        success: Der Änderungsvorschlag wurde erfolgreich gelöscht.
       emendation:
         actions:
           button_accept: Akzeptieren
