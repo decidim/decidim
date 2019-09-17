@@ -32,7 +32,7 @@ de:
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         parent_id: Elternversammlung
-        participatory_processes_ids: Related Partizipative Prozesse
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was ist entschieden?
         participatory_structure: Wie ist es entschieden?
         private_space: Privatsphäre
@@ -307,7 +307,7 @@ de:
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger
         read_more: Weiterlesen
-        related_participatory_processes: In Verbindung stehende partizipative Prozesse
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
         target: Wer nimmt teil?
