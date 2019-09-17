@@ -27,24 +27,27 @@ de:
         weight: Gewicht
       id: ICH WÜRDE
       newsletter:
-        body: Karosserie
-        subject: Gegenstand
+        body: Haupttext
+        subject: Betreff
       oauth_application:
         name: Name
-        organization_logo: Organisationslogo (Quadrat)
+        organization_logo: Organisationslogo (quadratisch)
         organization_name: Name der Organisation
-        organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        organization_url: URL der Organisation
+        redirect_uri: Weiterleitungs-URI
       organization:
-        alert_color: Warnen
+        address: SMTP Hostname
+        alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
+        customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
-        enable_omnipresent_banner: Zeige allgegenwärtige Banner
+        enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         facebook_handler: Facebook-Handler
-        favicon: Symbol
+        favicon: Icon
+        from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
         highlighted_content_banner_action_subtitle: Aktion Schaltfläche Untertitel
@@ -63,15 +66,20 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        password: Passwort
+        port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
         secondary_color: Sekundär
+        send_welcome_notification: Willkommens-Benachrichtigung senden
         show_statistics: Zeige Statistiken
         success_color: Erfolg
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
+        user_name: Benutzername
         warning_color: Warnung
+        welcome_notification_body: Text der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
       scope:
         code: Code
