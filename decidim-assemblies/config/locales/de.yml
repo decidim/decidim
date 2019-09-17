@@ -69,7 +69,7 @@ de:
         one: Versammlung
         other: Baugruppen
       decidim/assembly_member:
-        one: Assembly Mitglied
+        one: Mitglieder der Versammlung
         other: Mitglieder der Versammlung
       decidim/assembly_user_role:
         one: Assembly-Benutzerrolle
@@ -81,7 +81,7 @@ de:
       assemblies:
         create:
           error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
-          success: Assembly wurde erfolgreich erstellt.
+          success: Die Versammlung wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -93,11 +93,11 @@ de:
           create: Erstellen
           title: Neue Montage
         update:
-          error: Beim Aktualisieren dieser Assembly ist ein Fehler aufgetreten.
-          success: Die Baugruppe wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieser Versammlung ist ein Fehler aufgetreten.
+          success: Die Versammlung wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
-          error: Beim Duplizieren dieser Assembly ist ein Fehler aufgetreten.
+          error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich dupliziert.
       assembly_copies:
         new:
@@ -106,10 +106,10 @@ de:
           title: Doppelte Montage
       assembly_members:
         create:
-          error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Fehler aufgetreten.
-          success: Mitglied wurde erfolgreich für diese Assembly erstellt.
+          error: Beim Hinzufügen eines Mitglieds zu dieser Versammlung ist ein Fehler aufgetreten.
+          success: Mitglied wurde dieser Versammlung erfolgreich hinzugefügt.
         destroy:
-          success: Mitglied wurde für diese Assembly erfolgreich gelöscht.
+          success: Mitglied wurde erfolgreich von dieser Versammlung entfernt.
         edit:
           title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
