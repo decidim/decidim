@@ -41,13 +41,13 @@ de:
         name: Benutzername
         password: Passwort
         password_confirmation: Bestätigung des Passworts
-        remember_me: Erinneren Sie mich
+        remember_me: Angemeldet bleiben
     models:
       decidim/amendment:
         one: Änderung
         other: Änderungen
       decidim/user:
-        one: Keine Benutzer
+        one: Benutzer
         other: Benutzer
       decidim/user_group:
         one: Benutzergruppe
