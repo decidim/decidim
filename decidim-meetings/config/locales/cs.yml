@@ -88,11 +88,11 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             default_registration_terms: Výchozí podmínky registrace
-            enable_pads_creation: Povolit vytvoření podložky
+            enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
           step:
             announcement: Oznámení
-            comments_blocked: Komentáře byly blokovány
+            comments_blocked: Komentáře blokovány
     events:
       meetings:
         meeting_closed:
