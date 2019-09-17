@@ -64,6 +64,18 @@ describe "Last activity", type: :system do
         expect(page).to have_no_content(resource.title)
         expect(page).to have_css("article.card", count: 1)
       end
+
+      context "when there are activities from private spaces" do
+        before do
+          component.participatory_space.update(private_space: true)
+          comment.participatory_space.update(private_space: true)
+          visit current_path
+        end
+
+        it "doesn't show the activities" do
+          expect(page).to have_css("article.card", count: 0)
+        end
+      end
     end
   end
 end
