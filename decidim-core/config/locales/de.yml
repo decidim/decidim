@@ -38,14 +38,14 @@ de:
       decidim/user:
         current_password: Aktuelles Passwort
         email: E-Mail
-        name: Benutzername
+        name: Spitzname
         password: Passwort
         password_confirmation: Bestätigung des Passworts
         remember_me: Angemeldet bleiben
     models:
       decidim/amendment:
-        one: Änderung
-        other: Änderungen
+        one: Änderungsantrag
+        other: Änderungsanträge
       decidim/user:
         one: Benutzer
         other: Benutzer
@@ -69,7 +69,7 @@ de:
     account:
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
-        invalid_token: Das angegebene Token ist ungültig.
+        invalid_token: Der angegebene Token ist ungültig.
         no_token: Kein Token zur Verfügung gestellt
         notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
@@ -1144,7 +1144,7 @@ de:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
         sign_in_with_provider: Melde dich mit %{provider}
-        sign_up: Anmelden
+        sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
         other: "(%{count} Zeichen Minimum)"
@@ -1196,7 +1196,7 @@ de:
         close_menu: Menü schließen
         navigation: Navigation
         sign_in: Anmelden
-        sign_up: Anmelden
+        sign_up: Registrieren
       impersonation_warning:
         close_session: Sitzung schließen
         description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
