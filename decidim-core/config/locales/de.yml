@@ -70,8 +70,8 @@ de:
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
         invalid_token: Der angegebene Token ist ungültig.
-        no_token: Kein Token zur Verfügung gestellt
-        notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
+        no_token: Kein Token angegeben
+        notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
         alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden.
         confirm:
@@ -160,6 +160,11 @@ de:
       destroy_draft:
         error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
         success: Der Änderungsvorschlag wurde erfolgreich gelöscht.
+      edit_draft:
+        discard: Änderungsvorschlag verwerfen
+        discard_confirmation: Sind Sie sicher, dass Sie diesen Änderungsvorschlag verwerfen möchten?
+        send: Vorschau
+        title: Änderungsvorschlag bearbeiten
       emendation:
         actions:
           button_accept: Akzeptieren
@@ -178,9 +183,18 @@ de:
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
+        send: Erstellen
+        title: Änderungsvorschlag erstellen
+      preview_draft:
+        modify: Bearbeiten
+        publish: Veröffentlichen
+        title: Änderungsvorschlag veröffentlichen
       promoted:
         error: Es gab Fehler bei der Förderung der Emendation
         success: Die Emendation wurde erfolgreich gefördert
+      publish_draft:
+        error: Es gab ein Problem bei der Veröffentlichung des Änderungsvorschlags.
+        success: Änderungsvorschlag erfolgreich veröffentlicht.
       rejected:
         error: Beim Ablehnen dieser Änderung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut
         success: Die Emendation wurde erfolgreich abgelehnt
@@ -189,12 +203,21 @@ de:
         heading: Überprüfen Sie die Änderung
         help_text: Sie überprüfen eine Änderung der %{model_name}
         send: Akzeptieren Sie den Änderungsantrag
+      update_draft:
+        error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
+        success: Änderungsvorschlag erfolgreich aktualisiert.
+      visibility_options:
+        all: Änderungsvorschlag ist für alle sichtbar
+        participants: Änderungen sind nur für ihre Autoren sichtbar
+      withdraw:
+        error: Ein Fehler ist beim Zurückziehen des Änderungsvorschlags aufgetreten
+        success: Der Änderungsvorschlag wurde erfolgreich zurückgezogen
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Vergleichen Sie Ihren Änderungsvorschlag
+          '3': Vervollständigen Sie Ihren Änderungsvorschlag
+          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
     anonymous_user: Anonym
     application:
       collection:
@@ -288,6 +311,10 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
           step:
+            amendment_creation_enabled: Änderungserstellung aktiviert
+            amendment_promotion_enabled: Hervorheben von Änderungen aktiviert
+            amendment_reaction_enabled: Reaktionen auf Änderungen aktiviert
+            amendments_visibility: Sichtbarkeit der Änderungsvorschläge
             comments_blocked: Kommentare blockiert
             dummy_step_attribute_1: Dummy-Schritt-Attribut 1
             dummy_step_attribute_2: Dummy-Schritt-Attribut 2
@@ -316,6 +343,7 @@ de:
         name: Sub hero Banner
     core:
       actions:
+        login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
     data_portability:
       export:
@@ -1021,6 +1049,12 @@ de:
     welcome_notification:
       default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
+    wizard_step_form:
+      wizard_aside:
+        back: Zurück
+      wizard_header:
+        see_steps: siehe Schritte
+        step_of: Schritt %{current_step} von %{total_steps}
   devise:
     confirmations:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
@@ -1254,12 +1288,15 @@ de:
     qq: Qzone
     reddit: Reddit
     share_to: Teilen mit %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Öffnen Sie Ihr WeChat, klicken Sie auf "Discover" und dann auf das "Scan QR Code" Menü.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1274,6 +1311,14 @@ de:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Löschungen
+      right: Ergänzungen
+    dropdown:
+      choose_diff_view_mode: 'Vergleichsansicht:'
+      option_split: Nebeneinander
+      option_unified: Zusammengefasst
   views:
     pagination:
       first: "&laquo; zuerst"
