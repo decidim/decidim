@@ -10,7 +10,7 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Mappe
+        attachment_collection_id: Verzeichnis
         description: Beschreibung
         file: Datei
         title: Titel
@@ -20,12 +20,12 @@ de:
       category:
         description: Beschreibung
         name: Name
-        parent_id: Elternteil
+        parent_id: Übergeordnete Kategorie
       component:
         name: Name
         published_at: Veröffentlicht unter
-        weight: Gewicht
-      id: ICH WÜRDE
+        weight: Reihenfolge
+      id: ID
       newsletter:
         body: Haupttext
         subject: Betreff
@@ -80,6 +80,7 @@ de:
         user_name: Benutzername
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
+        welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -376,6 +377,7 @@ de:
             created_at: Hergestellt in
             progress: Fortschritt
             sent_at: Gesendet um
+            sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
         oauth_application:
@@ -441,14 +443,27 @@ de:
         form:
           interpolations_hint: 'Tipp: Sie können "%{name}" an beliebiger Stelle im Hauptteil oder Betreff verwenden und sie wird durch den Namen des Empfängers ersetzt.'
         index:
+          all: Alle
+          all_users: 'Alle Benutzer'
+          and: 'und '
           confirm_delete: Möchten Sie diesen Newsletter wirklich löschen?
+          followers: 'Follower '
+          has_been_sent_to: 'Wurde gesendet an: '
+          participants: 'Teilnehmer: '
           title: Newsletter
         new:
           save: sparen
           title: Neuer Newsletter
         select_recipients_to_deliver:
+          all_spaces: Alle
+          all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
           confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
           deliver: Liefern Newsletter
+          none: Niemand
+          send_to_all_users: An alle Benutzer senden
+          send_to_followers: An Follower senden
+          send_to_participants: An Teilnehmer senden
+          title: Empfänger auswählen
         show:
           preview: Vorschau
           subject: Gegenstand
@@ -543,10 +558,15 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
+          import_via_csv: Import via CSV
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: CSV-Datei hochladen
+          upload: Hochladen
       resource_permissions:
         edit:
           submit: einreichen
