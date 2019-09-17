@@ -6,6 +6,7 @@ module Decidim
       # A command with all the business logic when a user updates a proposal.
       class UpdateProposal < Rectify::Command
         include AttachmentMethods
+        include GalleryMethods
         include HashtagsMethods
 
         # Public: Initializes the command.
@@ -34,10 +35,17 @@ module Decidim
             return broadcast(:invalid) if attachment_invalid?
           end
 
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
+          end
+
           transaction do
             update_proposal
             update_proposal_author
             create_attachment if process_attachments?
+            create_gallery if process_gallery?
+            photo_cleanup!
           end
 
           broadcast(:ok, proposal)
@@ -45,7 +53,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :proposal, :attachment
+        attr_reader :form, :proposal, :attachment, :gallery
 
         def update_proposal
           Decidim.traceability.update!(
