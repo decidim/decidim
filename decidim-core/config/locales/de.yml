@@ -3,6 +3,14 @@ de:
     attributes:
       account:
         delete_reason: Grund, dein Konto zu löschen
+      group:
+        about: Über
+        avatar: Profilbild
+        document_number: Dokumentennummer
+        email: E-Mail
+        name: Name
+        nickname: Spitzname
+        phone: Telefonnummer
       report:
         details: Zusätzliche Kommentare
       user:
@@ -142,6 +150,8 @@ de:
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
+      compare_draft:
+        continue: Fortfahren
       emendation:
         actions:
           button_accept: Akzeptieren
@@ -831,7 +841,7 @@ de:
           meetings_count: Meetings
           orders_count: Stimmen
           pages_count: Seiten
-          processes_count: Prozesse
+          processes_count: Beteiligungsprozesse
           projects_count: Projekte
           proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
