@@ -12,7 +12,7 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
-        participatory_processes_ids: Related Partizipative Prozesse
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -485,7 +485,7 @@ de:
         objectives: Ziele
         related_assemblies: Ähnliche Assemblies
         related_consultations: Verwandte Konsultationen
-        related_participatory_processes: In Verbindung stehende partizipative Prozesse
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen

@@ -572,10 +572,19 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
+          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Hiba történt a CSV fájl olvasásakor.
+          success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
+        new:
+          explanation: Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában a névvel (e-mail, név) azoknak a felhasználóknak, akiket fel akar venni a részvételi térbe, fejlécek nélkül.
+          title: Töltse fel a CSV fájlod
+          upload: Feltölt
       resource_permissions:
         edit:
           submit: Beküldés

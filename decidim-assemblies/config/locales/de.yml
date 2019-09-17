@@ -32,7 +32,7 @@ de:
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         parent_id: Elternversammlung
-        participatory_processes_ids: Related Partizipative Prozesse
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
         participatory_scope: Was ist entschieden?
         participatory_structure: Wie ist es entschieden?
         private_space: Privatsphäre
@@ -69,7 +69,7 @@ de:
         one: Versammlung
         other: Baugruppen
       decidim/assembly_member:
-        one: Assembly Mitglied
+        one: Mitglieder der Versammlung
         other: Mitglieder der Versammlung
       decidim/assembly_user_role:
         one: Assembly-Benutzerrolle
@@ -80,8 +80,8 @@ de:
         new_assembly: Neue Montage
       assemblies:
         create:
-          error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
-          success: Assembly wurde erfolgreich erstellt.
+          error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
+          success: Die Versammlung wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -93,12 +93,12 @@ de:
           create: Erstellen
           title: Neue Montage
         update:
-          error: Beim Aktualisieren dieser Assembly ist ein Fehler aufgetreten.
-          success: Die Baugruppe wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieser Versammlung ist ein Fehler aufgetreten.
+          success: Die Versammlung wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
-          error: Beim Duplizieren dieser Assembly ist ein Fehler aufgetreten.
-          success: Die Baugruppe wurde erfolgreich dupliziert.
+          error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
+          success: Die Versammlung wurde erfolgreich dupliziert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -106,12 +106,12 @@ de:
           title: Doppelte Montage
       assembly_members:
         create:
-          error: Beim Hinzufügen eines Mitglieds für diese Assembly ist ein Fehler aufgetreten.
-          success: Mitglied wurde erfolgreich für diese Assembly erstellt.
+          error: Beim Hinzufügen eines Mitglieds zu dieser Versammlung ist ein Fehler aufgetreten.
+          success: Mitglied wurde dieser Versammlung erfolgreich hinzugefügt.
         destroy:
-          success: Mitglied wurde für diese Assembly erfolgreich gelöscht.
+          success: Mitglied wurde erfolgreich von dieser Versammlung entfernt.
         edit:
-          title: Aktualisieren Sie das Baugruppenelement.
+          title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
         index:
           assembly_members_title: Mitglieder der Versammlung
@@ -131,7 +131,7 @@ de:
       assembly_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
-          success: Der Benutzer wurde dieser Baugruppe erfolgreich hinzugefügt.
+          success: Der Administrator wurde dieser Versammlung erfolgreich hinzugefügt.
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
@@ -307,7 +307,7 @@ de:
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger
         read_more: Weiterlesen
-        related_participatory_processes: In Verbindung stehende partizipative Prozesse
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
         target: Wer nimmt teil?
@@ -348,7 +348,7 @@ de:
       assemblies:
         description: Anzahl der erstellten Baugruppen
         object: Baugruppen
-        title: Baugruppen
+        title: Versammlungen
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -360,7 +360,7 @@ de:
           take_part: Teilnehmen
         index:
           organizational_chart: Organigramm
-          promoted_assemblies: Hervorgehobene Baugruppen
+          promoted_assemblies: Hervorgehobene Versammlungen
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
