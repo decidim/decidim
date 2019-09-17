@@ -1053,13 +1053,13 @@ cs:
         label: 'Výsledky na stránku:'
       share_modal:
         close_window: Zavřete okno
-        share: Podíl
+        share: Sdílet
         share_link: Sdílet odkaz
       version_author:
-        deleted: Vymazaný uživatel
+        deleted: Vymazaný účastník
     user_activity:
       index:
-        no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
+        no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
     user_interests:
       show:
         my_interests: Mé zájmy
