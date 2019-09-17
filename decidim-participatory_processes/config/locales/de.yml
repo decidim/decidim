@@ -4,10 +4,10 @@ de:
       participatory_process:
         announcement: Ankündigung
         area_id: Bereich
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
-        copy_steps: Schritte kopieren
+        copy_components: Komponenten kopieren
+        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -40,47 +40,47 @@ de:
         cta_path: Aufruf zum Aktionspfad
         cta_text: Call to Action-Text
         description: Beschreibung
-        end_date: Endtermin
-        short_description: Kurze Beschreibung
-        start_date: Anfangsdatum
+        end_date: Enddatum
+        short_description: Kurzbeschreibung
+        start_date: Startdatum
         title: Titel
       participatory_process_user_role:
-        email: Email
+        email: E-Mail
         name: Name
         role: Rolle
     models:
-      decidim/participatory_process_step_activated_event: Schritt aktiviert
-      decidim/participatory_process_step_changed_event: Schritt geändert
+      decidim/participatory_process_step_activated_event: Phase aktiviert
+      decidim/participatory_process_step_changed_event: Phase geändert
   activerecord:
     models:
       decidim/participatory_process:
         one: Beteiligungsprozess
         other: Beteiligungsprozesse
       decidim/participatory_process_group:
-        one: Partizipative Prozessgruppe
-        other: Partizipative Prozessgruppen
+        one: Prozessgruppe
+        other: Prozessgruppen
       decidim/participatory_process_step:
-        one: Schritt
-        other: Schritte
+        one: Phase
+        other: Phasen
   decidim:
     admin:
       actions:
-        activate: aktivieren Sie
+        activate: Aktivieren
         configure: Konfigurieren
         confirm_destroy: Löschen bestätigen
         destroy: Löschen
-        duplicate: Duplikat
+        duplicate: Duplizieren
         edit: Bearbeiten
         filter:
           all: Alle Beteiligungsprozesse anzeigen
           process_groups: Prozessgruppen
-        new_process: Neuer Prozess
+        new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
-        new_process_step: Neuer Schritt
-        new_process_user_role: Neuer Prozessbenutzer
+        new_process_step: Neue Phase
+        new_process_user_role: Neuer Prozess-Administrator
         preview: Vorschau
         publish: Veröffentlichen
-        resend_invitation: Einladung erneut versenden
+        resend_invitation: Einladung erneut senden
         unpublish: Veröffentlichung rückgängig machen
       menu:
         participatory_process_groups: Prozessgruppen
@@ -104,14 +104,14 @@ de:
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
-          name: Partizipationsprozess
+          name: Beteiligungsprozess
         participatory_process_group:
           fields:
             name: Name
           name: Prozessgruppe
         participatory_process_step:
           fields:
-            end_date: Endtermin
+            end_date: Enddatum
             start_date: Anfangsdatum
             title: Titel
           name: Partizipativer Prozessschritt
@@ -127,16 +127,16 @@ de:
             moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: Einladung angenommen bei
-            invitation_sent_at: Einladung gesendet an
+            invitation_accepted_at: Einladung akzeptiert am
+            invitation_sent_at: Einladung gesendet am
       participatory_process_copies:
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelter partizipativer Prozess
+          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
+          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
-          success: Participatory Prozessgruppe erfolgreich gelöscht.
+          success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
           title: Prozessgruppe bearbeiten
           update: Aktualisieren
