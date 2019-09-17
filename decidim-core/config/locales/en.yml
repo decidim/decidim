@@ -1227,8 +1227,8 @@ en:
       not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:
-        one: "There's been an error processing your request:"
-        other: "There were multiple errors when processing your request:"
+        one: 'There''s been an error processing your request:'
+        other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
