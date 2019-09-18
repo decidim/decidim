@@ -69,7 +69,7 @@ de:
         one: Versammlung
         other: Baugruppen
       decidim/assembly_member:
-        one: Mitglieder der Versammlung
+        one: Gremienmitglieder
         other: Mitglieder der Versammlung
       decidim/assembly_user_role:
         one: Assembly-Benutzerrolle
@@ -80,8 +80,8 @@ de:
         new_assembly: Neue Montage
       assemblies:
         create:
-          error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich erstellt.
+          error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -93,8 +93,8 @@ de:
           create: Erstellen
           title: Neue Montage
         update:
-          error: Beim Aktualisieren dieser Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
           error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
