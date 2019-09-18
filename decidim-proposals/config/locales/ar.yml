@@ -429,6 +429,7 @@ ar:
           all: الكل
           citizens: المواطنون
           meetings: اجتماعات
+          official: الرسمية
           user_groups: المجموعات
         filter_state_values:
           accepted: وافقت
