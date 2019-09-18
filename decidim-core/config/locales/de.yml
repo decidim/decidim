@@ -25,7 +25,7 @@ de:
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
-      decidim/demoted_membership: Nicht mehr ein Gruppenadministrator
+      decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
