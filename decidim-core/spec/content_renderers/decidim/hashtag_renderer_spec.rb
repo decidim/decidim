@@ -94,5 +94,14 @@ module Decidim
         it { is_expected.to eq([hashtag]) }
       end
     end
+
+    describe "when content contains urls" do
+      let(:content) { %(Content with <a href="http://urls.net" onmouseover="alert(document.cookies)">URLs</a> of anchor type and text urls like https://decidim.org.) }
+      let(:result) { %(Content with URLs of anchor type and text urls like <a href="https://decidim.org">https://decidim.org</a>.) }
+
+      it "converts all URLs to links and strips attributes in anchors" do
+        expect(renderer.render(strip_tags: true)).to eq(result)
+      end
+    end
   end
 end

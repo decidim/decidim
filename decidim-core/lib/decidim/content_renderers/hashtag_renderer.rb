@@ -31,6 +31,7 @@ module Decidim
         text = content
         text = strip_tags(text) if strip_tags
         text = decidim_html_escape(text) if html_escape
+        text = Anchored::Linker.auto_link(strip_tags(text))
 
         text.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
