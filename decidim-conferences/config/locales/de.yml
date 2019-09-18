@@ -3,7 +3,7 @@ de:
     attributes:
       conference:
         assemblies_ids: Ähnliche Assemblies
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
@@ -463,10 +463,10 @@ de:
       photo:
         show:
           close_modal: Modal schließen
-          photo: Foto
+          photo: Bild
       photos_list:
         show:
-          related_photos: Fotos
+          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
