@@ -24,10 +24,12 @@
 
 **Changed**:
 
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5341](https://github.com/decidim/decidim/pull/5341)
 - **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
 - **decidim-core**: Changes default format date [#5330](https://github.com/decidim/decidim/pull/5330)
 
 **Fixed**:
+
 
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5312](https://github.com/decidim/decidim/pull/5312)
 - **decidim-core**: Fix: WhatsApp url button [#5317](https://github.com/decidim/decidim/pull/5317)
