@@ -22,7 +22,7 @@ de:
         state: Zustand
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
-        user_group_id: Erstellen Sie ein Angebot als
+        user_group_id: Vorschlag erstellen als
       proposal_answer:
         answer: Antworten
       proposals_copy:
@@ -47,15 +47,15 @@ de:
               identical: Der UND-Körper kann nicht identisch sein
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
-      decidim/proposals/admin/update_proposal_category_event: Angebotskategorie geändert
-      decidim/proposals/creation_enabled_event: Angebotserstellung aktiviert
-      decidim/proposals/endorsing_enabled_event: Angebotsunterstützung aktiviert
-      decidim/proposals/evaluating_proposal_event: Das Angebot wird evaluiert
+      decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
+      decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
+      decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
+      decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
       decidim/proposals/proposal_endorsed_event: Vorschlag gebilligt
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
-      decidim/proposals/voting_enabled_event: Angebotsabstimmung aktiviert
+      decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
@@ -95,10 +95,10 @@ de:
             new_proposal_help_text: Neuer Vorschlagstext
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
-            proposal_answering_enabled: Angebotsantworten aktiviert
+            proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
             proposal_length: Maximale Länge des Vorschlagskörpers
-            proposal_limit: Angebotslimit pro Benutzer
+            proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Angebotsassistent "Create" -Schritt-Hilfetext
             proposal_wizard_step_2_help_text: Angebotsassistent "Vergleichen" Schritt-Hilfetext
             proposal_wizard_step_3_help_text: Angebotsassistent "Schritt" - Hilfetext "Fertig"
