@@ -21,8 +21,8 @@ module Decidim
     # Public: Zips the file.
     #
     # Returns a String with the zipped version of the file.
-    def make_zip
-      Zip::OutputStream.open(file_path) do |zos|
+    def make_zip!
+      Zip::OutputStream.open(tmp_path) do |zos|
         @export_data.each do |element|
           filename_file = element.last.filename(element.first.parameterize)
 
@@ -35,7 +35,7 @@ module Decidim
         end
       end
 
-      zipfile = Zip::File.open(file_path)
+      zipfile = Zip::File.open(tmp_path)
       @export_images.each do |image_block|
         next if image_block.last.nil?
 

@@ -26,15 +26,19 @@ module Decidim
       end
     end
 
-    def data_portability_export(user, export_data, export_images)
+    # Public: Sends a notification email with a token to retrieve
+    # the result of a data_portability export in a zipped file.
+    #
+    # user  - The user to be notified.
+    # token - The token of the export.
+    #
+    # Returns nothing.
+    def data_portability_export(user, token)
       @user = user
       @organization = user.organization
-
-      file_zipper = Decidim::DataPortabilityFileZipper.new(@user, export_data, export_images)
-      file_zipper.make_zip
+      @token = token
 
       with_user(user) do
-        @token = file_zipper.token
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))
       end
     end

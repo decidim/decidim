@@ -27,11 +27,10 @@ module Decidim
       enforce_permission_to :download, :user, current_user: current_user
 
       if params[:token].present?
-        file_reader = Decidim::DataPortabilityFileReader.new(current_user, params[:token])
+        file_reader = DataPortabilityFileReader.new(current_user, params[:token])
         if file_reader.valid_token?
-          file = File.open(file_reader.file_path)
-          if File.exist?(file)
-            send_file file, type: "application/zip", disposition: "attachment"
+          if file_reader.uploader.file.exists?
+            redirect_to file_reader.uploader.url
           else
             flash[:error] = t("decidim.account.data_portability_export.file_no_exists")
             redirect_to data_portability_path

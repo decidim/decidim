@@ -26,15 +26,19 @@ module Decidim
       name + ".zip"
     end
 
-    # Returns a String with the absolute file_path to be read or generate.
-    def file_path
-      directory_name = Rails.root.join(Decidim::DataPortabilityUploader.new.store_dir)
+    # Returns a String with the absolute file_path to write the temp file.
+    def tmp_path
+      directory_name = Rails.root.join("tmp", "data-portability")
       FileUtils.mkdir_p(directory_name) unless File.exist?(directory_name)
       directory_name + file_name
     end
 
-    def file_path_reader
-      Decidim::DataPortabilityUploader.new.retrieve_from_store!(file_name)
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    def uploader
+      Decidim::DataPortabilityUploader.new.tap do |uploader|
+        uploader.retrieve_from_store!(file_name)
+        uploader.cache!(file_name)
+      end
     end
 
     # Check if token is present and length equal 10
