@@ -29,9 +29,9 @@ module Decidim
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true, html_escape: false, strip_tags: false)
         text = content
-        text = strip_tags(text) if strip_tags
+        text = sanitize(text, tags: %w(strong em a)) if strip_tags
         text = decidim_html_escape(text) if html_escape
-        text = Anchored::Linker.auto_link(strip_tags(text))
+        text = Anchored::Linker.auto_link(text)
 
         text.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
