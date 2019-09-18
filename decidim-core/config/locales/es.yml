@@ -155,14 +155,14 @@ es:
         no_similars_found: No se encontraron enmiendas similares.
         title: Enmiendas similares
       created:
-        error: Se ha producido un error al crear la enmienda.
-        success: La enmienda se ha creado correctamente.
+        error: Se ha producido un error al crear el borrador de enmienda.
+        success: El borrador de enmienda se ha creado correctamente.
       destroy_draft:
         error: Hubo un problema al eliminar el borrador de enmienda.
-        success: El borrador de la propuesta fue eliminado correctamente.
+        success: El borrador de enmienda fue eliminado correctamente.
       edit_draft:
         discard: Descartar este borrador
-        discard_confirmation: '¿Está seguro de que desea descartar este borrador de enmienda?'
+        discard_confirmation: '¿Seguro que quieres descartar este borrador de enmienda?'
         send: Vista previa
         title: Editar borrador de enmienda
       emendation:
@@ -172,13 +172,13 @@ es:
           help_text: Revisa los cambios y acepta o rechaza esta enmienda. Se enviará una notificación a su autora(as).
         announcement:
           accepted: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido aceptada el <strong>%{announcement_date}</strong>.
+            Esta enmienda para la %{amendable_type} %{proposal_link} ha sido aceptada el <strong>%{date}</strong>.
           evaluating: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link} está siendo evaluada.
+            Esta enmienda para la %{amendable_type} %{proposal_link} está siendo evaluada.
           promoted: Promocionar a %{amendable_type}.
-          rejected: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido rechazada el <strong>%{announcement_date}</strong>.
+          rejected: Esta enmienda para la %{amendable_type} %{proposal_link} ha sido rechazada el <strong>%{date}</strong>.
           withdrawn: |-
-            Esta enmienda para el %{amendable_type} %{amendable_link} ha sido retirada por su autora.
+            Esta enmienda para la %{amendable_type} %{proposal_link} ha sido retirada por su autora.
       new:
         amendment_author: Autora de la enmienda
         send: Crear
@@ -191,7 +191,7 @@ es:
         error: Se ha producido un error al publicar la enmienda como una nueva propuesta
         success: La enmienda se ha publicado como una nueva propuesta correctamente
       publish_draft:
-        error: Hubo un problema al publicar la enmienda.
+        error: Se ha producido un error al publicar la enmienda.
       rejected:
         error: Se ha producido un error al rechazar esta enmienda, por favor inténtalo de nuevo más tarde
         success: La enmienda se ha rechazado correctamente
