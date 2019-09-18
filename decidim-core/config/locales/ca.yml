@@ -179,15 +179,15 @@ ca:
           promoted: Promocionar a %{amendable_type}.
           rejected: L' esmena de la %{amendable_type} %{proposal_link} ha estat rebutjada el <strong>%{date}</strong>.
           withdrawn: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
+            L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
-        send: Crea
+        send: Crear
         title: Crear esborrany d'esmena
       preview_draft:
         modify: Modificar
-        publish: Publica
-        title: Publica l'esmena del projecte
+        publish: Publicar
+        title: Publicar l'esborrany d'esmena
       promoted:
         error: S'ha produït un error en publicar l'esmena com una nova proposta
         success: L'esmena s'ha publicat com una nova proposta correctament
@@ -203,19 +203,19 @@ ca:
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
       update_draft:
-        error: Hi va haver un problema en actualitzar el projecte d'esmena.
-        success: Projecte d'esmena actualitzat amb èxit.
+        error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
+        success: Esborrany d'esmena actualitzat correctament.
       visibility_options:
         all: Les esmenes són visibles per a tothom
         participants: Les esmenes són visibles únicament per als seus autors
       withdraw:
         error: S'ha produït un error en retirar l'esmena
-        success: L'esmena ha estat retirada amb èxit
+        success: L'esmena s'ha retirat correctament
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compareu la vostra esmena
-          '3': Completeu la vostra esmena
+          '2': Compara la teva esmena
+          '3': Completa la teva esmena
           '4': Publiqueu la vostra esmena
     anonymous_user: Anònim
     application:
