@@ -154,7 +154,7 @@ cs:
         success: Novela byla úspěšně vytvořena
       emendation:
         actions:
-          button_accept: Akceptovat
+          button_accept: Přijmout
           button_reject: Odmítnout
           help_text: Zkontrolujte změny a přijměte nebo zamítněte tuto změnu. Oznámení bude zasláno jeho autorovi (autorům).
         announcement:
@@ -210,41 +210,41 @@ cs:
           passport_number: Číslo pasu
         name: Další příklad oprávnění
       dummy_authorization_handler:
-        explanation: Ověřte se zavedením čísla dokumentu končící "X"
+        explanation: Ověřte se zavedením čísla dokumentu končícího "X"
         fields:
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
         name: Příklad autorizace
       dummy_authorization_workflow:
-        name: Pracovní postup autorizace autorských práv
+        name: Pracovní postup autorizace
       errors:
-        duplicate_authorization: Uživateli je již povoleno stejná data.
-      expired_at: Platnost vypršela v roce %{timestamp}
-      expires_at: Platnost vyprší na %{timestamp}
+        duplicate_authorization: Účastník je již autorizován se stejnými daty.
+      expired_at: Platnost vypršela v %{timestamp}
+      expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Sloupec
           foo: Foo
         name: Foo autorizace
-      granted_at: Udělené na %{timestamp}
+      granted_at: Udělené v %{timestamp}
       sms:
         explanation: Pošlete číslo mobilního telefonu, abychom mohli ověřit vaši totožnost.
-        name: Kód SMS
-      started_at: Začal na %{timestamp}
+        name: Kód přes SMS
+      started_at: Začal v %{timestamp}
     authorization_modals:
       content:
         expired:
-          authorize: Znovu udělejte "%{authorization}"
-          explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být reauthorized s "%{authorization}".
+          authorize: Znovu autorizujte s "%{authorization}"
+          explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být znovu autorizován s "%{authorization}".
           title: Platnost oprávnění vypršela
         incomplete:
-          cancel: zrušení
-          explanation: 'Ačkoli jste v současné době autorizováni s "%{authorization}", potřebujeme, abyste znovu autorizovali, protože chybí následující údaje:'
+          cancel: Zrušit
+          explanation: 'Ačkoli jste v současné době autorizováni s "%{authorization}", potřebujeme, abyste se znovu autorizovali, protože chybí následující údaje:'
           invalid_field: "%{field}"
           reauthorize: Znovu autorizovat
-          title: Znovu udělejte oprávnění
+          title: Znovu autorizujte
         missing:
-          authorize: Povolení s "%{authorization}"
+          authorize: Autorizujte s "%{authorization}"
           explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}".
           title: Je potřebná autorizace
         pending:
@@ -253,14 +253,14 @@ cs:
           title: Autorizace stále probíhá
         unauthorized:
           explanation: Je nám líto, nemůžete tuto akci provést, protože některé vaše údaje o autorizaci neodpovídají.
-          invalid_field: "%{field} hodnota %{value} není platný."
+          invalid_field: "%{field} hodnota %{value} není platná."
           ok: OK
           title: Neautorizovaný
         unconfirmed:
           confirmation_instructions: 'Pokud jste neobdrželi pokyny k potvrzení, můžete je požádat znovu:'
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
-          title: potvrďte svůj email
+          title: Potvrdit svůj email
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -268,33 +268,33 @@ cs:
         many: a %{count} dalších
         other: a %{count} dalších
       see_less: "(viz níže)"
-      see_more: "(vidět víc)"
+      see_more: "(viz další)"
     components:
       dummy:
         actions:
-          bar: Bar
+          bar: Lišta
           foo: Foo
-        name: Dummy Component
+        name: Zástupná část
         settings:
           global:
             amendments_enabled: Změny povoleny
             comments_enabled: Komentáře povoleny
-            dummy_global_attribute_1: Dummy atribut 1
-            dummy_global_attribute_2: Dummy atribut 2
-            enable_pads_creation: Povolit vytvoření podložky
-            resources_permissions_enabled: Povolení zdrojů byla povolena
+            dummy_global_attribute_1: Zástupný atribut 1
+            dummy_global_attribute_2: Zástupný atribut 2
+            enable_pads_creation: Povolit vytvoření sdíleného textu
+            resources_permissions_enabled: Oprávnění zdrojů povoleno
           step:
-            comments_blocked: Komentáře byly blokovány
+            comments_blocked: Komentáře blokovány
             dummy_step_attribute_1: Atribut kroku dummy 1
-            dummy_step_attribute_2: Atribut kroku dummy 2
+            dummy_step_attribute_2: Atribut 2 zástupného kroku
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
-        name: Footer sub hero banner
+        name: Zápatí pod hlavním pruhem
       hero:
-        name: Hero image
+        name: Hlavní obrázek
       highlighted_content_banner:
-        name: Zvýrazněný banner obsahu
+        name: Zvýrazněný obsahový pruh
       how_to_participate:
         name: Jak se zapojit
       html:
@@ -309,17 +309,17 @@ cs:
       stats:
         name: Statistika organizace
       sub_hero:
-        name: Podmanilý banner
+        name: Pruh pod hlavním pruhem
     core:
       actions:
         unauthorized: Nemáte oprávnění k provedení této akce
     data_portability:
       export:
-        ready: Připraveno
+        ready: Připraven
       show:
-        download_data: Stáhněte data
+        download_data: Stáhnout data
         download_data_description: Soubor se všemi informacemi přidruženými k účtu bude odeslán na <strong>%{user_email}</strong>
-        request_data: Vyžádejte si údaje
+        request_data: Vyžádat data
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
@@ -328,58 +328,58 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Váš krátký jedinečný identifikátor v %{organization}
+          nickname_help: Váš alias (@nickname) v %{organization}
           sign_up: Prosím, vyplňte svůj profil
-          subtitle: Pro dokončení registrace zaregistrujte prosím následující formulář
-          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakýkoliv název.
+          subtitle: Pro dokončení registrace vyplňte prosím následující formulář
+          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
         new:
           already_have_an_account?: Máte již účet?
-          newsletter: Příjemný informační bulletin s příslušnými informacemi
+          newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Váš krátký jedinečný identifikátor v %{organization}
+          nickname_help: Váš alias (@nickname) v %{organization}
           sign_in: Přihlásit se
-          sign_up: Přihlásit se
+          sign_up: Zaregistrovat se
           sign_up_as:
-            legend: Přihlaste se jako
-          subtitle: Přihlaste se, abyste se účastnili diskusí a návrhů podpory.
+            legend: Zaregistrovat se jako
+          subtitle: Registrujte se, abyste se účastnili diskusí a návrhů podpory.
           terms: podmínky používání
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
-          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakýkoliv název.
+          username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       sessions:
         new:
-          are_you_new?: Nová platforma?
+          are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
-          sign_in_disabled: Máte přístup k externímu účtu
-          sign_up_disabled: Registrace je zakázána, můžete k přístupu přistupovat k existujícímu uživateli
+          sign_in_disabled: Můžete přistupovat pomocí externího účtu
+          sign_up_disabled: Registrace je zakázána, k přístupu můžete použít existující účet
       shared:
         newsletter_modal:
           buttons:
             check: Zkontrolujte a pokračujte
-            close_modal: Zavřít modální
-            uncheck: Zrušte zaškrtnutí
+            close_modal: Zavřít okno
+            uncheck: Zrušit zaškrtnutí
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat newsletter?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
             Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
-            abyste dali důležitá oznámení, můžete to vždy změnit na
+            abyste dostali důležitá oznámení, můžete to vždy změnit v 
             nastavení oznámení.</p>
-            <p>Pokud nezadáte zaškrtávací políčko, může vám chybět relevantní informace
+            <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
             o nových příležitostech pro účast v rámci platformy.<br>
-            Pokud se chcete i nadále vyhýbat přijímání informačních bulletinů, dokonale
+            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, dokonale
             rozumíme vašemu rozhodnutí.</p>
-            <p>Děkujeme, že jste si přečetli toto!</p>
+            <p>Děkujeme, že jste si to přečetli!</p>
           title: Upozornění na bulletin
         omniauth_buttons:
           or: Nebo
     doorkeeper:
       authorizations:
         new:
-          authorize: Autorizujte aplikaci
+          authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
-          cancel: zrušení
-          connect_your_account_html: Připojte svůj účet přihlášením na <strong>%{organization}</strong>
+          cancel: Zrušit
+          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -390,23 +390,23 @@ cs:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     errors:
       internal_server_error:
-        title: Při našem serveru došlo k potížím
+        title: Vyskytl se problém s naším serverem
         try_later: Prosím zkuste to znovu později.
       not_found:
-        back_home: Zpět doma
+        back_home: Zpět na úvodní stránku
         content_doesnt_exist: Tato adresa je nesprávná nebo byla odstraněna.
-        title: Stránka, kterou hledáte, nelze nalézt
+        title: Stránku, kterou hledáte, nelze nalézt
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Změna byla přijata pro číslo %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Změna byla přijata pro číslo %{amendable_title}. Můžete ji vidět z této stránky:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+            email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
             email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
@@ -416,13 +416,13 @@ cs:
             email_subject: Nová změna pro %{amendable_title} od %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nová změna</a> byla vytvořena <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'Nová změna byla vytvořena pro hodnotu %{amendable_title}. Můžete ji vidět z této stránky:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+            email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
             email_subject: Nová změna pro %{amendable_title} od %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_path}">nová změna</a> byla vytvořena <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
+            email_intro: 'Zamítnutý pozměňovací návrh pro %{amendable_title} byl publikován jako nový %{amendable_type}. Můžete ho vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Byla podporována změna od %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">zamítnout korektura</a> pro <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} byl podporován <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
@@ -444,13 +444,13 @@ cs:
             notification_title: <a href="%{emendation_path}">korektura</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'Do dokumentu %{resource_title}byl přidán nový dokument. Můžete ji vidět z této stránky:'
+          email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{resource_title}
           notification_title: Do <a href="%{attached_to_url}">%{resource_title}</a>byl přidán <a href="%{resource_path}">nový dokument</a>
       components:
         component_published:
-          email_intro: 'Součást %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
+          email_intro: 'Komponenta %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Součást %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -513,7 +513,7 @@ cs:
           email_intro: <a href="%{resource_url}">profilová stránka</a> ze %{name} (%{nickname}), kterou sledujete, byla aktualizována.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: "%{nickname} aktualizoval svůj profil"
-          notification_title: <a href="%{resource_path}">profilová stránka</a> ze %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+          notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
         click_button: Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.
@@ -529,25 +529,25 @@ cs:
         meeting: Setkání
         project: Projekty
         proposal: Návrhy
-        result: Výsledek
+        result: Výsledky
     fingerprint:
-      check: Zkontrolujte otisk prstu
+      check: Kontrola otisků prstů
       explanation: Níže uvedený text je zkráceným, rušivým znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl narušován, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tento otisk prstu se vypočítá algoritmem SHA256. Abyste je mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
-      title: Otisk prstu
+      title: Digitální otisk
       value: Hodnota
     followers:
-      no_followers: Zatím žádní následovníci.
+      no_followers: Zatím žádní sledující.
     following:
-      no_followings: Nenásleduje nikoho ani nic.
+      no_followings: Nesleduje nikoho ani nic.
     follows:
       create:
         button: Následovat
         error: Při sledování tohoto zdroje došlo k chybě.
       destroy:
-        button: Zastavte následující
+        button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
       current_file: Aktuální soubor
@@ -555,15 +555,15 @@ cs:
       default_image: Výchozí obrázek
       errors:
         error: V tomto poli je chyba.
-      remove_this_file: Odstraňte tento soubor
+      remove_this_file: Odstranit tento soubor
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
         continuity:
           conditions:
-            - Přijďte sem často
+            - Choďte sem často
           description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
-          description_another: Tento uživatel se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
+          description_another: Tento účastník se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
           description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
           name: Kontinuita
           next_level_in: Připojte se na %{score} po sobě jdoucích dní, abyste se dostali na další úroveň!
@@ -575,7 +575,7 @@ cs:
           description: Tento odznak je udělen, když dosáhnete určitého počtu následovníků. %{organization_name} je společenská a politická síť, tkát váš web komunikovat s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
           description_own: "Uživatelé vás sledují %{score} uživatelů."
-          name: Následovníci
+          name: Sledující
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
           unearned_another: Tento uživatel ještě nemá žádné sledujících.
           unearned_own: Už nemáte žádné následovníky.

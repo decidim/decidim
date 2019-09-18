@@ -489,6 +489,7 @@ ar:
           title: أنواع التسجيل
       shared:
         conference_user_login:
+          already_account: هل تمتلك حسابًا مِن قبلُ على ديسيديم؟
           new_user: مستخدم جديد؟
           sign_in: تسجيل الدخول للتسجيل في المؤتمر
           sign_up: إنشاء حساب في decidim للتسجيل في المؤتمر
