@@ -9,13 +9,13 @@
           <%= "Capitol " + (i + 1).to_s + ". " + Faker::Lorem.sentence %>
         </u>
         <% end %>
-        <br />
+        <br>
         <% Faker::Number.between(5, 10).times do |j| %>
         <%= link_to page_path("participatory/participatory-texts-view") do %>
         <u>
           <%= "Article " + (j + 1).to_s + ". " + Faker::Lorem.sentence %>
         </u>
-        <br />
+        <br>
         <% end %>
         <% end %>
       </p>
