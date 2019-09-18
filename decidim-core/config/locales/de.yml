@@ -227,7 +227,7 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Zugehörige Fotos
+        related_photos: Ähnliche Bilder
     author:
       comments:
         one: Kommentar
@@ -323,7 +323,7 @@ de:
       footer_sub_hero:
         name: Fußzeile sub hero Banner
       hero:
-        name: Heldenbild
+        name: Hauptbild
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
       how_to_participate:
