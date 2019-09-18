@@ -216,7 +216,7 @@ ca:
           '1': Crea la teva esmena
           '2': Compara la teva esmena
           '3': Completa la teva esmena
-          '4': Publiqueu la vostra esmena
+          '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -318,7 +318,7 @@ ca:
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
-            dummy_step_translatable_text: Text de passa traduïble de proves
+            dummy_step_translatable_text: Text de pas traduïble de proves
     contact: Contacte
     content_blocks:
       footer_sub_hero:
@@ -1055,8 +1055,8 @@ ca:
       wizard_aside:
         back: Enrere
       wizard_header:
-        see_steps: veure les fases
-        step_of: Fase %{current_step} de %{total_steps}
+        see_steps: veure els passos
+        step_of: Pas %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
