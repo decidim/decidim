@@ -97,8 +97,8 @@ de:
           success: Das Gremium wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
-          error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich dupliziert.
+          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich dupliziert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -106,10 +106,10 @@ de:
           title: Doppelte Montage
       assembly_members:
         create:
-          error: Beim Hinzufügen eines Mitglieds zu dieser Versammlung ist ein Fehler aufgetreten.
-          success: Mitglied wurde dieser Versammlung erfolgreich hinzugefügt.
+          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
+          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
         destroy:
-          success: Mitglied wurde erfolgreich von dieser Versammlung entfernt.
+          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
         edit:
           title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
@@ -119,11 +119,11 @@ de:
           create: Erstellen
           title: Neues Montageelement
         update:
-          error: Beim Aktualisieren des Elements für diese Assembly ist ein Fehler aufgetreten.
-          success: Mitglied wurde für diese Assembly erfolgreich aktualisiert.
+          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
+          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
-          error: Beim Veröffentlichen dieser Assembly ist ein Fehler aufgetreten.
+          error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
           success: Assembly erfolgreich veröffentlicht.
         destroy:
           error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
