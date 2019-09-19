@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5343](https://github.com/decidim/decidim/pull/5343)
 - **decidim-participatory_processes**: BACKPORT Fix: ParticipatoryProcessSearch#search_date [#5326](https://github.com/decidim/decidim/pull/5326)
 - **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
 - **decidim-admin**, **decidim-forms**: Fix adding answer options to a new form [#5283](https://github.com/decidim/decidim/pull/5283)
