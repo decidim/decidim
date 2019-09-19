@@ -31,7 +31,7 @@ module Decidim
         text = content
         text = sanitize(text, tags: %w(strong em a)) if strip_tags
         text = decidim_html_escape(text) if html_escape
-        text = Anchored::Linker.auto_link(text)
+        text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
 
         text.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
