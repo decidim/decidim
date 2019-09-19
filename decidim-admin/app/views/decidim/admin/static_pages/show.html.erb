@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="actions">
-  <hr />
+  <hr>
   <% if allowed_to? :update, :static_page, static_page: @page %>
     <%= link_to t("decidim.admin.actions.edit"), ["edit", @page] %>
   <% end %>

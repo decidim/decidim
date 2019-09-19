@@ -11,7 +11,7 @@
   </pre>
   <small><code>key</code> ha de ser una fecha en formato ISO</small>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión simple</h4>
   <code>partial "areachart"</code>
@@ -21,7 +21,7 @@
     <%= partial "areachart" %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión simple con título dentro</h4>
   <code>partial "areachart", title: "Lorem ipsum"</code>
@@ -34,7 +34,7 @@
     <%= partial "areachart", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero harum natus ipsa, eum sunt fuga repudiandae necessitatibus deleniti enim atque" %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión simple con letra pequeña (poco espacio)</h4>
   <code>partial "areachart", classes: "small"</code>
@@ -46,7 +46,7 @@
   </div>
   <% end %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con ejes</h4>
   <code>partial "areachart", axis: true</code>
@@ -58,7 +58,7 @@
   </div>
   <% end %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con ejes y letra pequeña (axis: <code>true</code> activa la letra pequeña)</h4>
   <code>partial "areachart", axis: true</code>
@@ -70,7 +70,7 @@
   </div>
   <% end %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
   <code>partial "areachart", tip: false</code>
@@ -83,7 +83,7 @@
     <%= partial "areachart", title: Faker::Commerce.department(1), axis: true, tip: false %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con diferentes ratios</h4>
   <div class="callout warning">
@@ -99,7 +99,7 @@
   </div>
   <% end %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>11:4</h4>
   <code>partial "areachart", ratio: "11:4"</code>
@@ -109,7 +109,7 @@
     <%= partial "areachart", ratio: "11:4", title: Faker::Commerce.department(1) %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Adaptables al contenedor</h4>
   <h5>Dos columnas</h5>
@@ -131,7 +131,7 @@
   </div>
   <% end %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Diferentes colores según su status</h4>
   <code>partial "areachart", classes: "secondary|warning|success|alert", url: "..."</code>
@@ -147,7 +147,7 @@
     <%= partial "areachart", classes: "success", title: Faker::Commerce.department(1) %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Datos sin agregar (por defecto <code>agg: true</code>)</h4>
   <code>partial "areachart", agg: false, url: "..."</code>
