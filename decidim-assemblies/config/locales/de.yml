@@ -5,7 +5,7 @@ de:
         area_id: Bereich
         assembly_type: Montageart
         assembly_type_other: Montageart andere
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         closing_date: Einsendeschluss
         closing_date_reason: Schlussdatum Grund
         composition: Zusammensetzung
@@ -69,7 +69,7 @@ de:
         one: Versammlung
         other: Baugruppen
       decidim/assembly_member:
-        one: Mitglieder der Versammlung
+        one: Gremienmitglieder
         other: Mitglieder der Versammlung
       decidim/assembly_user_role:
         one: Assembly-Benutzerrolle
@@ -80,8 +80,8 @@ de:
         new_assembly: Neue Montage
       assemblies:
         create:
-          error: Beim Erstellen einer neuen Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich erstellt.
+          error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -93,12 +93,12 @@ de:
           create: Erstellen
           title: Neue Montage
         update:
-          error: Beim Aktualisieren dieser Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
-          error: Beim Duplizieren dieser Versammlung ist ein Fehler aufgetreten.
-          success: Die Versammlung wurde erfolgreich dupliziert.
+          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich dupliziert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -106,25 +106,25 @@ de:
           title: Doppelte Montage
       assembly_members:
         create:
-          error: Beim Hinzufügen eines Mitglieds zu dieser Versammlung ist ein Fehler aufgetreten.
-          success: Mitglied wurde dieser Versammlung erfolgreich hinzugefügt.
+          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
+          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
         destroy:
-          success: Mitglied wurde erfolgreich von dieser Versammlung entfernt.
+          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
         edit:
           title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
         index:
-          assembly_members_title: Mitglieder der Versammlung
+          assembly_members_title: Gremienmitglieder
         new:
           create: Erstellen
-          title: Neues Montageelement
+          title: Neues Gremienmitglied.
         update:
-          error: Beim Aktualisieren des Elements für diese Assembly ist ein Fehler aufgetreten.
-          success: Mitglied wurde für diese Assembly erfolgreich aktualisiert.
+          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
+          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
-          error: Beim Veröffentlichen dieser Assembly ist ein Fehler aufgetreten.
-          success: Assembly erfolgreich veröffentlicht.
+          error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
+          success: Gremium erfolgreich veröffentlicht.
         destroy:
           error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
           success: Die Assembly wurde nicht veröffentlicht.
@@ -146,7 +146,7 @@ de:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
       menu:
-        assemblies: Baugruppen
+        assemblies: Gremien
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
           assembly_members: Mitglieder
@@ -166,7 +166,7 @@ de:
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
-          name: Versammlung
+          name: Gremium
         assembly_member:
           fields:
             ceased_date: Aufgegebenes Datum
@@ -190,16 +190,16 @@ de:
             collaborator: Mitarbeiter
             moderator: Moderator
       titles:
-        assemblies: Baugruppen
+        assemblies: Gremien
     admin_log:
       assembly:
         create: "%{user_name} erstellt die %{resource_name} Assembly"
-        publish: "%{user_name} veröffentlichte die %{resource_name} Versammlung"
+        publish: "%{user_name} veröffentlichte das Gremium %{resource_name}"
         unpublish: "%{user_name} unveröffentlicht die %{resource_name} Assembly"
         update: "%{user_name} aktualisierte die %{resource_name} Assembly"
       assembly_member:
         create: "%{user_name} erstellt das %{resource_name} Mitglied in der %{space_name} Assembly"
-        delete: "%{user_name} entfernte das %{resource_name} Mitglied von der %{space_name} Versammlung"
+        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Gremium %{space_name}"
         update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
       assembly_user_role:
         create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
@@ -337,18 +337,18 @@ de:
         assemblies:
           contextual: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
           page: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
-          title: Was sind Baugruppen?
+          title: Was sind Gremien?
     log:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
-      assemblies: Baugruppen
+      assemblies: Gremien
     metrics:
       assemblies:
-        description: Anzahl der erstellten Baugruppen
-        object: Baugruppen
-        title: Versammlungen
+        description: Anzahl der erstellten Gremien
+        object: Gremien
+        title: Gremien
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -360,18 +360,18 @@ de:
           take_part: Teilnehmen
         index:
           organizational_chart: Organigramm
-          promoted_assemblies: Hervorgehobene Versammlungen
+          promoted_assemblies: Hervorgehobene Gremien
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Versammlung"
-            other: "%{count} Baugruppen"
+            one: "%{count} Gremium"
+            other: "%{count} Gremien"
         promoted_assembly:
           more_info: Mehr Info
           take_part: Teilnehmen
       assembly_navigation:
         assembly_member_menu_item: Mitglieder
-        assembly_menu_item: Die Versammlung
+        assembly_menu_item: Das Gremium
       assembly_widgets:
         show:
           take_part: Teilnehmen
