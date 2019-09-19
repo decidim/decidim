@@ -114,6 +114,7 @@ hu:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
             amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_promotion_enabled_help: A Módosítás szerzői képesek Javaslattá promotálni az elutasított módosítást.
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
