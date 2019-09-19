@@ -161,6 +161,7 @@ RSpec.configure do |config|
     ActiveRecord::Migration.suppress_messages do
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
+          t.jsonb :translatable_text
           t.string :title
           t.string :body
           t.text :address
