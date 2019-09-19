@@ -25,10 +25,10 @@
           <% @conference_user_roles.each do |role| %>
             <tr>
               <td>
-                <%= role.user.name %><br />
+                <%= role.user.name %><br>
               </td>
               <td>
-                <%= role.user.email %><br />
+                <%= role.user.email %><br>
               </td>
               <td>
                 <% if role.user.invitation_sent_at %>
@@ -41,7 +41,7 @@
                 <% end %>
               </td>
               <td>
-                <%= t("#{role.role}", scope: "decidim.admin.models.conference_user_role.roles") %><br />
+                <%= t("#{role.role}", scope: "decidim.admin.models.conference_user_role.roles") %><br>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to?(:invite, :conference_user_role, user_role: role) && role.user.invited_to_sign_up? %>
