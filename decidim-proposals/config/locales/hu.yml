@@ -277,7 +277,7 @@ hu:
         title: Elfogadott javaslatok
       endorsements:
         description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: kiterjesztések
+        object: elismerések
         title: Elismerések
       proposals:
         description: A létrehozott javaslatok száma
