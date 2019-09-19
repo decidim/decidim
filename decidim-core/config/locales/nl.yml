@@ -821,7 +821,7 @@ nl:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
         metrics:
-          headline: Deelname aan cijfers
+          headline: Deelname in cijfers
         statistics:
           answers_count: Voltooide enquêtes
           assemblies_count: Groepen
@@ -851,7 +851,7 @@ nl:
         topics: Onderwerpen
       participatory_space:
         metrics:
-          headline: Deelname aan cijfers
+          headline: Deelname in cijfers
           link: Toon alle statistieken
       terms_and_conditions:
         accept:
