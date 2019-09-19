@@ -29,7 +29,7 @@ module Decidim
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true, html_escape: false, strip_tags: false)
         text = content
-        text = sanitize(text, tags: %w(strong em a)) if strip_tags
+        text = strip_tags(text) if strip_tags
         text = decidim_html_escape(text) if html_escape
         text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
 

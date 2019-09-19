@@ -96,8 +96,14 @@ module Decidim
     end
 
     describe "when content contains urls" do
-      let(:content) { %(Content with <a href="http://urls.net" onmouseover="alert(document.cookies)">URLs</a> of anchor type and text urls like https://decidim.org.) }
-      let(:result) { %(Content with <a href="http://urls.net">URLs</a> of anchor type and text urls like <a href="https://decidim.org">https://decidim.org</a>.) }
+      let(:content) { <<~EOCONTENT }
+        Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org.
+        And a malicous <a href="javascript:document.cookies">click me</a>
+      EOCONTENT
+      let(:result) { <<~EORESULT }
+        Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="noopener">https://decidim.org</a>.
+        And a malicous click me
+      EORESULT
 
       it "converts all URLs to links and strips attributes in anchors" do
         expect(renderer.render(strip_tags: true)).to eq(result)
