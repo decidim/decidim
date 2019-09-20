@@ -1210,11 +1210,7 @@ de:
       long_words: enthält zu lange Wörter (über 35 Zeichen)
       must_start_with_caps: muss mit einem Großbuchstaben beginnen
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
-      not_found: nicht gefunden
       not_locked: war nicht gesperrt
-      not_saved:
-        one: '1 Fehler hat das Speichern dieser %{resource}:'
-        other: "%{count} Fehler verboten, dass %{resource} gespeichert wird:"
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
       too_short: ist zu kurz (unter 15 Zeichen)
