@@ -62,6 +62,7 @@
 - **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**, **decidim-admin**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Multiple bugfixes [\#5329](https://github.com/decidim/decidim/pull/5329)
 - **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
+- **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
 
 **Removed**:
 
