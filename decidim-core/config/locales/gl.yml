@@ -1158,11 +1158,7 @@ gl:
       long_words: contén palabras que son demasiado longas (máis de 35 caracteres)
       must_start_with_caps: debe comezar cunha letra maiúscula
       nesting_too_deep: non pode estar dentro dunha subcategoría
-      not_found: non atopado
       not_locked: Non estaba bloqueado
-      not_saved:
-        one: 'O erro 1 prohibiuse que este %{resource} se gardase:'
-        other: "%{count} erros prohibidos de gardar este %{resource}:"
       too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
       too_short: é demasiado curto (menos de 15 caracteres)
