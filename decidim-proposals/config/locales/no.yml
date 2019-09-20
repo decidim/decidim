@@ -1,1 +1,5 @@
-no:
+"no":
+  activemodel:
+    attributes:
+      proposal:
+        title: Tittel
