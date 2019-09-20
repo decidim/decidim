@@ -1236,13 +1236,7 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
-      not_found: nenalezeno
       not_locked: nebyla zamčená
-      not_saved:
-        one: '1 chyba zakázala uložení tohoto %{resource}:'
-        few: "%{count} chybám bylo zakázáno %{resource} uloženo:"
-        many: "%{count} chybám bylo zakázáno %{resource} uloženo:"
-        other: "%{count} chybám bylo zakázáno %{resource} uloženo:"
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod 15 znaků)
