@@ -75,17 +75,15 @@
           <legend><%= t(".gallery_legend") %></legend>
 
           <% if @form.photos.any? %>
-            <!-- <div class="gallery row"> -->
-              <% @form.photos.each do |photo| %>
-                <div class="callout gallery__item" data-closable>
-                  <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
-                  <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-                  <button class="close-button" aria-label="Close" type="button" data-close>
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              <% end %>
-            <!-- </div> -->
+            <% @form.photos.each do |photo| %>
+              <div class="callout gallery__item" data-closable>
+                <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+                <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+                <button class="close-button" aria-label="Close" type="button" data-close>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <% end %>
           <% end %>
 
           <div class="row column">
