@@ -1,1 +1,7 @@
-no:
+"no":
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          edit:
+            title: Tittel
