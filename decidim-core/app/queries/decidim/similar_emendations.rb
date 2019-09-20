@@ -23,7 +23,7 @@ module Decidim
 
     # Retrieves similar emendations
     def query
-      emendation.amendable_type.constantize
+      emendation.class
                 .where(component: component)
                 .only_visible_emendations_for(amender, component)
                 .published
@@ -42,7 +42,7 @@ module Decidim
     attr_reader :component, :emendation, :amender
 
     def amendable_module
-      emendation.amendable_type.deconstantize.constantize
+      emendation.class.parent
     end
 
     def title_similarity

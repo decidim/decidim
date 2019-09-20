@@ -8,7 +8,7 @@ module Decidim
 
     before_action :authenticate_user!
     helper_method :amendment, :amendable, :emendation, :similar_emendations
-    before_action :ensure_is_draft, only: [:compare_draft, :edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
+    before_action :ensure_is_draft_from_user, only: [:compare_draft, :edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
 
     def new
       raise ActionController::RoutingError, "Not Found" unless amendable
@@ -209,8 +209,12 @@ module Decidim
       @emendation ||= amendment&.emendation
     end
 
-    def ensure_is_draft
-      redirect_to Decidim::ResourceLocatorPresenter.new(emendation).path unless amendment.draft?
+    def amender
+      @amender ||= amendment&.amender
+    end
+
+    def ensure_is_draft_from_user
+      raise ActionController::RoutingError, "Not Found" unless amendment.draft? && amender == current_user
     end
 
     def similar_emendations

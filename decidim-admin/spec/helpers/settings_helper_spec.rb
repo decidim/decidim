@@ -53,6 +53,53 @@ module Decidim
           render_input
         end
       end
+
+      describe "amendments_visibility_form_field" do
+        let(:name) { :amendments_visibility }
+        let(:collection_radio_buttons_arguments) do
+          [
+            :amendments_visibility,
+            [["Amendments are visible to all", "all"], ["Amendments are visible only to their authors", "participants"]],
+            :last,
+            :first,
+            { checked: "all" },
+            { class: "amendments_step_settings" }
+          ]
+        end
+        let(:component) do
+          create(
+            :component,
+            :with_amendments_enabled,
+            manifest_name: "proposals",
+            participatory_space: participatory_process
+          )
+        end
+
+        before do
+          expect(form).to receive(:object).and_return(settings_manifest)
+        end
+
+        describe "when the component has step_settings" do
+          let(:participatory_process) { create(:participatory_process, :with_steps) }
+          let(:step_id) { participatory_process.active_step.id.to_s }
+          let(:settings_manifest) { component.step_settings[step_id] }
+
+          it "is supported" do
+            expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)
+            render_input
+          end
+        end
+
+        describe "when the component does NOT have step_settings" do
+          let(:participatory_process) { create(:participatory_process) }
+          let(:settings_manifest) { component.default_step_settings }
+
+          it "is supported" do
+            expect(form).to receive(:collection_radio_buttons).with(*collection_radio_buttons_arguments)
+            render_input
+          end
+        end
+      end
     end
   end
 end

@@ -6,6 +6,7 @@ hu:
         field: A mezőm
         start_date: Kezdő dátum
         title: Cím
+        translatable_text: Lefordítható szöveg
         updated_at: 'Frissítve:'
   decidim:
     dummy:

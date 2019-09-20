@@ -4,6 +4,7 @@ module Decidim
   module Consultations
     # The data store for Consultation questions in the Decidim::Consultations component.
     class Question < ApplicationRecord
+      include Decidim::HasResourcePermission
       include Decidim::Participable
       include Decidim::Publicable
       include Decidim::Scopable
@@ -189,6 +190,11 @@ module Decidim
 
       def resource_description
         subtitle
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
       end
     end
   end

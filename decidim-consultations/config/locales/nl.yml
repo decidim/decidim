@@ -3,27 +3,27 @@ nl:
     attributes:
       consultation:
         banner_image: Banner afbeelding
-        decidim_highlighted_scope_id: Opvallend bereik
+        decidim_highlighted_scope_id: Gemarkeerde scope
         description: Omschrijving
         end_voting_date: Stemmen eindigt
         introductory_image: Introductie afbeelding
         introductory_video_url: Introductievideo-URL
-        questions: vragen
+        questions: Vragen
         slug: URL pad
         start_voting_date: Stemmen begint
         subtitle: Ondertitel
         title: Titel
       question:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_scope_id: Gemeentelijk thema
         hashtag: Hashtag
         hero_image: Home afbeelding
         i_frame_url: URL van het externe stemsysteem
-        origin_scope: Bereik
+        origin_scope: Scope
         origin_title: Oorsprong
         origin_url: Origin URL
         participatory_scope: Doelstelling
-        promoter_group: Promotergroep
+        promoter_group: Promotorgroep
         question_context: Context
         reference: Referentie
         scope: Gemeentelijk thema
@@ -39,42 +39,42 @@ nl:
   activerecord:
     models:
       decidim/consultation:
-        one: Overleg
-        other: overleg
+        one: Raadpleging
+        other: Raadplegingen
       decidim/consultations/question:
         one: Vraag
-        other: vragen
+        other: Vragen
       decidim/consultations/response:
-        one: antwoord
+        one: Antwoord
         other: Antwoorden
       decidim/consultations/vote:
-        one: Stemmen
+        one: Stem
         other: Stemmen
   decidim:
     admin:
       actions:
-        new_consultation: Nieuw overleg
+        new_consultation: Nieuwe raadpleging
         new_question: Nieuwe vraag
         new_response: Nieuw antwoord
         publish_results: Publiceer resultaten
         unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit overleg.
-          success: Overleg succesvol gepubliceerd.
+          error: Er was een probleem bij het publiceren van deze raadpleging.
+          success: Raadpleging succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van dit overleg.
-          success: Publicatie van overleg succesvol ongedaan gemaakt.
+          error: Er was een probleem bij het depubliceren van deze raadpleging.
+          success: Raadpleging succesvol gedepubliceerd.
       consultation_results_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit overleg.
-          success: Overlegresultaten met succes gepubliceerd.
+          error: Er was een probleem bij het publiceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van publicatie van de resultaten voor dit overleg.
-          success: Overlegresultaten niet gepubliceerd.
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
       consultations:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw overleg.
+          error: Er was een probleem bij het creëren van een nieuwe raadpleging.
           success: Overleg succesvol aangemaakt.
         edit:
           update: Bijwerken
@@ -87,6 +87,9 @@ nl:
         new:
           create: Aanmaken
           title: Nieuwe burgerinspraak
+        results:
+          not_visible: Resultaten zijn beschikbaar wanneer raadpleging wordt gesloten
+          total_votes: 'Totaal: %{count} stemmen'
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
           success: Overleg succesvol bijgewerkt.
@@ -95,6 +98,7 @@ nl:
         consultations_submenu:
           info: Informatie
           questions: vragen
+          results: Resultaten
         questions_submenu:
           components: Onderdelen
           consultation: Raadpleging
@@ -107,8 +111,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Burgerinspraak
-            other: Burgerinspraken
+            one: Raadpleging
+            other: Raadplegingen
         question:
           fields:
             created_at: Aangemaakt op
@@ -116,14 +120,14 @@ nl:
             title: Titel
           name:
             one: Vraag
-            other: vragen
+            other: Vragen
         response:
           fields:
             created_at: Aangemaakt op
             title: Titel
           name:
-            one: antwoord
-            other: antwoorden
+            one: Antwoord
+            other: Antwoorden
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
@@ -171,6 +175,7 @@ nl:
         consultations: Burgerinspraak
         questions: vragen
         responses: Antwoorden
+        results: Resultaten
     consultations:
       admin:
         content_blocks:
@@ -188,7 +193,7 @@ nl:
           recent: Meest recent
       content_blocks:
         highlighted_consultations:
-          name: Gemarkeerd consulten
+          name: Gemarkeerde raadplegingen
       count:
         title:
           one: "%{count} overleg"
@@ -225,38 +230,43 @@ nl:
         take_part: Neem deel
         view_results: Bekijk resultaten
         votes_out_of:
-          one: Stemmen over
-          other: Stemmen over
+          one: stem uit
+          other: stemmen uit
       question_votes:
         create:
           error: Er zijn fouten opgetreden bij het stemmen op de vraag
+          success: U kunt uw stem wijzigen tot het einde van de raadpleging, maar alleen de laatste keuze zal worden aangenomen.
+          title_error: Stemfout!
+          title_success: Stem succesvol geregistreerd
       regular_questions:
         title: Vragen voor dit consult
       show:
         badge_name:
-          finished: Afgewerkt
+          finished: Voltooid
           open: Open
           open_votes: Open stemmen
           published_results: Resultaten gepubliceerd
         footer_button_text:
           debate: Debat
-          view: Uitzicht
+          view: Bekijk
           view_results: Bekijk resultaten
           vote: Stemmen
         unspecified: Niet gespecificeerd
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Overleg is een ruimte die u toelaat om een ​​duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk te geven en het debat voor of tegen een reactie te bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: enkele voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
+          contextual: "<p><strong>Raadplegingen</strong> is een ruimte die u toelaat om een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging en het debat voor of tegen een reactie te faciliteren. Wanneer de raadplegingsdatum bereikt wordt, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: de raadplegingen kunnen bijna elk aspect van een organisatie betreffen: bijvoorbeeld een discussie over het veranderen van naam of het logo van de organisatie met verschillende alternatieven; beslissen Ja of Nee om deel uit te maken van een grotere organisatie; een nieuwe strategische plan; het resultaat van een werkgroep valideren; ...</p>\n"
           page: "<p>Overleg is een ruimte waarin u een duidelijke vraag kunt stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk kunt opzetten en het debat voor of tegen een reactie kunt bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: sommige voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten in de organisatie moeten blijven.</p>\n"
-          title: Wat zijn consulten?
+          title: Wat zijn raadplegingen?
     menu:
       consultations: Burgerinspraak
     pages:
       home:
         statistics:
-          consultations_count: overleg
+          consultations_count: Raadplegingen
     questions:
+      next_button: Volgende vraag
+      previous_button: Vorige vraag
       results:
         title: Resultaten
       show:
@@ -265,22 +275,27 @@ nl:
         assistants_count_title: assistenten
         comments_count_title: Reacties
         meetings_count_title: Events
-        supports_count_title: steunen
+        supports_count_title: Stemmen
       technical_info:
         technical_data: Technische data
       vote_button:
         already_voted: Reeds gestemd
-        already_voted_hover: Steun intrekken
+        already_voted_hover: Herroep stem
         starting_from: Te beginnen op %{date}
+        verification_required: Verifieer je account om te kunnen stemmen
         vote: Stem
       vote_modal:
         contextual_help: Maak een keuze a.u.b.
-        title: 'Overleg: vraagondersteuning'
+        title: 'Raadpleging: vraag stemming'
       vote_modal_confirm:
         change: Wijzigen
         confirm: Bevestig
         contextual_help: Bevestig de geselecteerde optie.
-        title: 'Raadpleging: steun bevestigen'
+        title: 'Raadpleging: bevestig stem'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
   layouts:
     decidim:
       admin:

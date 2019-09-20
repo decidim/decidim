@@ -41,6 +41,7 @@ hu:
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
+        customize_welcome_notification: Értesítések testre szabása
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
@@ -70,13 +71,16 @@ hu:
         primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
         secondary_color: Másodlagos
+        send_welcome_notification: Üdvözlő értesítés küldése
         show_statistics: Statisztikák megjelenítése
         success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        user_groups_enabled: Felhasználói csoportok engedélyezése
+        user_groups_enabled: Csoportok engedélyezése
         user_name: Felhasználónév
-        warning_color: Figyelem
+        warning_color: Figyelmeztetés
+        welcome_notification_body: Üdvözlő értesítés dokumentumtörzs
+        welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -161,6 +165,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A terület függő terekkel rendelkezik, a törléshez meg kell szüntetni ezen függőségeket.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -567,10 +572,19 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
+          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
           title: Új privát felhasználó a részvételi térben.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Hiba történt a CSV fájl olvasásakor.
+          success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
+        new:
+          explanation: Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában a névvel (e-mail, név) azoknak a felhasználóknak, akiket fel akar venni a részvételi térbe, fejlécek nélkül.
+          title: Töltse fel a CSV fájlod
+          upload: Feltölt
       resource_permissions:
         edit:
           submit: Beküldés

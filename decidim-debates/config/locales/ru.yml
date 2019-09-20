@@ -100,10 +100,6 @@ ru:
           create: Создать
           select_a_category: Пожалуйста, выберите категорию
           title: Начать новое обсуждение
-        share:
-          close_window: Закрыть окно
-          share: Поделиться
-          share_link: Поделиться ссылкой
       models:
         debate:
           fields:

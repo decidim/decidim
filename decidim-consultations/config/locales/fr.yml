@@ -49,7 +49,7 @@ fr:
         other: Réponses
       decidim/consultations/vote:
         one: Vote
-        other: Vote
+        other: Votes
   decidim:
     admin:
       actions:
@@ -87,6 +87,9 @@ fr:
         new:
           create: Créer
           title: Nouvelle votation
+        results:
+          not_visible: Les résultats seront disponibles lorsque la consultation sera close
+          total_votes: 'Total : %{count} votes'
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette votation.
           success: Votation mise à jour avec succès.
@@ -95,6 +98,7 @@ fr:
         consultations_submenu:
           info: Informations
           questions: Questions
+          results: Résultats
         questions_submenu:
           components: Fonctionnalités
           consultation: Votation
@@ -171,6 +175,7 @@ fr:
         consultations: Votations
         questions: Questions
         responses: Réponses
+        results: Résultats
     consultations:
       admin:
         content_blocks:
@@ -188,7 +193,7 @@ fr:
           recent: Les plus récentes
       content_blocks:
         highlighted_consultations:
-          name: Consultations surlignées
+          name: Votations mises en avant
       count:
         title:
           one: "%{count} votation"
@@ -215,8 +220,8 @@ fr:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Consultations actives
-            see_all_consultations: Voir toutes les consultations
+            active_consultations: Votations actives
+            see_all_consultations: Voir toutes les votations
             voting_ends_in:
               one: Le vote se termine <strong>demain</strong>
               other: Le vote prend fin à <strong>%{count} jour</strong>
@@ -230,6 +235,9 @@ fr:
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
+          success: Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le dernier vote sera accepté.
+          title_error: Erreur de vote !
+          title_success: Vote enregistré avec succès
       regular_questions:
         title: Questions pour cette votation
       show:
@@ -247,8 +255,8 @@ fr:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
-          page: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant Oui ou Non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie plan ou le résultat d’un groupe de travail, ou définir si les postes doivent rester au maximum d’un, deux ou trois mandats dans l’organisation.</p>\n"
+          contextual: "<p> Les <strong>Consultations</strong> sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
+          page: "<p> Les <strong>Consultations</strong> sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats dans l'organisation.</p>\n"
           title: Que sont les consultations?
     menu:
       consultations: Votations
@@ -257,6 +265,8 @@ fr:
         statistics:
           consultations_count: Votations
     questions:
+      next_button: Question suivante
+      previous_button: Question précédente
       results:
         title: Résultats
       show:
@@ -272,6 +282,7 @@ fr:
         already_voted: Déjà voté
         already_voted_hover: Retirer le vote
         starting_from: À partir de %{date}
+        verification_required: Vérifier votre compte pour voter
         vote: Voter
       vote_modal:
         contextual_help: Veuillez sélectionner une option.
@@ -281,6 +292,10 @@ fr:
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
         title: 'Consultation : confirmer le soutien'
+    resources:
+      consultations:
+        actions:
+          vote: Voter
   layouts:
     decidim:
       admin:

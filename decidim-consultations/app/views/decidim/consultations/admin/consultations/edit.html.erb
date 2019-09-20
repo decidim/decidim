@@ -1,4 +1,7 @@
-<%= decidim_form_for(@form, html: { class: "form edit_consultation" }) do |f| %>
+<%= decidim_form_for @form,
+                     method: :patch,
+                     url: consultation_path(current_consultation),
+                     html: { class: "form edit_consultation" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button" %>

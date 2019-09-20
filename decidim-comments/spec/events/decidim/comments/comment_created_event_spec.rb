@@ -3,17 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Comments::CommentCreatedEvent do
-  include Decidim::SanitizeHelper
-  include_context "when a simple event"
-
-  let(:resource) { comment.commentable }
-  let(:comment) { create :comment }
-  let(:comment_author) { comment.author }
+  include_context "when it's a comment event"
   let(:event_name) { "decidim.events.comments.comment_created" }
-  let(:extra) { { comment_id: comment.id } }
-  let(:resource_title) { decidim_html_escape resource.title }
 
-  it_behaves_like "a simple event"
+  it_behaves_like "a comment event"
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -41,12 +34,6 @@ describe Decidim::Comments::CommentCreatedEvent do
 
       expect(subject.notification_title)
         .to include(" in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource_title}</a>")
-    end
-  end
-
-  describe "resource_text" do
-    it "outputs the comment body" do
-      expect(subject.resource_text).to eq comment.body
     end
   end
 end

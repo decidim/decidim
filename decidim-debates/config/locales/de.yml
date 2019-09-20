@@ -96,10 +96,6 @@ de:
           create: Erstellen
           select_a_category: Bitte wählen sie eine Kategorie
           title: Neue Debatte
-        share:
-          close_window: Fenster schließen
-          share: Aktie
-          share_link: Einen Link teilen
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:

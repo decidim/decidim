@@ -36,10 +36,12 @@ module Decidim
             {
               name_en: "Dummy component",
               settings: {
-                comments_enabled: true
+                comments_enabled: true,
+                dummy_global_translatable_text_en: "Dummy text"
               },
               default_step_settings: {
-                comments_blocked: true
+                comments_blocked: true,
+                dummy_step_translatable_text_en: "Dummy text"
               }
             }
           end

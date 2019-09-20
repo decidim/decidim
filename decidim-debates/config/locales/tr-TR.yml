@@ -96,10 +96,6 @@ tr:
           create: yaratmak
           select_a_category: Lütfen bir kategori seçin
           title: Yeni tartışma
-        share:
-          close_window: Pencereyi kapat
-          share: Pay
-          share_link: Linki paylaş
       last_activity:
         new_debate_at_html: "<span> %{link}</span>yeni tartışma"
       models:

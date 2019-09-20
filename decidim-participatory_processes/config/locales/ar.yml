@@ -430,3 +430,5 @@ ar:
       process_header_steps:
         step: المرحلة %{current} من %{total}
         view_steps: عرض المراحل
+      process_navigation:
+        process_menu_item: المسار

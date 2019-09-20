@@ -9,6 +9,15 @@ describe "Participatory texts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
+  def update_step_settings(new_step_settings)
+    active_step_id = participatory_process.active_step.id.to_s
+    step_settings = component.step_settings[active_step_id].to_h.merge(new_step_settings)
+    component.update!(
+      settings: component.settings.to_h.merge(amendments_enabled: true),
+      step_settings: { active_step_id => step_settings }
+    )
+  end
+
   def should_have_proposal(selector, proposal)
     expect(page).to have_tag(selector, text: proposal.title)
     prop_block = page.find(selector)
@@ -16,8 +25,6 @@ describe "Participatory texts", type: :system do
     clean_proposal_body = strip_tags(proposal.body)
 
     expect(prop_block).to have_button("Follow")
-    expect(prop_block).to have_link("Amend") if component.settings.amendments_enabled
-    expect(prop_block).to have_link(proposal.emendations.count.to_s) if component.settings.amendments_enabled
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments.count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
@@ -26,13 +33,11 @@ describe "Participatory texts", type: :system do
 
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
-      expect(component.settings.participatory_texts_enabled).to be true
       visit_component
-      count = proposals.count
-      expect(page).to have_css(".hover-section", count: count)
-      should_have_proposal("#proposals div.hover-section:first-child", proposals.first)
-      should_have_proposal("#proposals div.hover-section:nth-child(2)", proposals[1])
-      should_have_proposal("#proposals div.hover-section:last-child", proposals.last)
+      expect(page).to have_css(".hover-section", count: proposals.count)
+      proposals.each_with_index do |proposal, index|
+        should_have_proposal("#proposals div.hover-section:nth-child(#{index + 1})", proposal)
+      end
     end
 
     context " when participatory text level is not article" do
@@ -52,6 +57,32 @@ describe "Participatory texts", type: :system do
         proposal_article.save!
         visit_component
         should_have_proposal("#proposals div.hover-section:last-child", proposal_article)
+      end
+    end
+  end
+
+  shared_examples "showing the Amend buttton and amendments counter when hovered" do
+    let(:amend_button_disabled?) { page.find("a", text: "AMEND")[:disabled].present? }
+
+    it "shows the Amend buttton and amendments counter inside the proposal div" do
+      visit_component
+      find("#proposals div.hover-section", text: proposals.first.title).hover
+      within all("#proposals div.hover-section").first, visible: true do
+        within ".amend-buttons" do
+          expect(page).to have_link("Amend")
+          expect(amend_button_disabled?).to eq(disabled_value)
+          expect(page).to have_link(amendments_count)
+        end
+      end
+    end
+  end
+
+  shared_examples "hiding the Amend buttton and amendments counter when hovered" do
+    it "hides the Amend buttton and amendments counter inside the proposal div" do
+      visit_component
+      find("#proposals div.hover-section", text: proposals.first.title).hover
+      within all("#proposals div.hover-section").first, visible: true do
+        expect(page).not_to have_css(".amend-buttons")
       end
     end
   end
@@ -84,34 +115,126 @@ describe "Participatory texts", type: :system do
                participatory_space: participatory_process)
       end
 
-      before do
-        visit_component
-      end
+      it_behaves_like "lists all the proposals ordered"
 
       it "renders the participatory text title" do
+        visit_component
+
         expect(page).to have_content(participatory_text.title)
       end
 
-      context "when amendments are enabled" do
-        let!(:component) do
-          create(:proposal_component,
-                 :with_amendments_and_participatory_texts_enabled,
-                 manifest: manifest,
-                 participatory_space: participatory_process)
+      context "without existing amendments" do
+        context "when amendment CREATION is enabled" do
+          before { update_step_settings(amendment_creation_enabled: true) }
+
+          it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+            let(:amendments_count) { 0 }
+            let(:disabled_value) { false }
+          end
         end
 
-        it_behaves_like "lists all the proposals ordered"
+        context "when amendment CREATION is disabled" do
+          before { update_step_settings(amendment_creation_enabled: false) }
+
+          it_behaves_like "hiding the Amend buttton and amendments counter when hovered"
+        end
       end
 
-      context "when amendments are disabled" do
-        let(:component) do
-          create(:proposal_component,
-                 :with_participatory_texts_enabled,
-                 manifest: manifest,
-                 participatory_space: participatory_process)
+      context "with existing amendments" do
+        let!(:emendation_1) { create(:proposal, :published, component: component) }
+        let!(:amendment_1) { create :amendment, amendable: proposals.first, emendation: emendation_1 }
+        let!(:emendation_2) { create(:proposal, component: component) }
+        let!(:amendment_2) { create(:amendment, amendable: proposals.first, emendation: emendation_2) }
+        let(:user) { amendment_1.amender }
+
+        context "when amendment CREATION is enabled" do
+          before { update_step_settings(amendment_creation_enabled: true) }
+
+          context "and amendments VISIBILITY is set to 'all'" do
+            before { update_step_settings(amendments_visibility: "all") }
+
+            context "when the user is logged in" do
+              before { login_as user, scope: :user }
+
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 2 }
+                let(:disabled_value) { false }
+              end
+            end
+
+            context "when the user is NOT logged in" do
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 2 }
+                let(:disabled_value) { false }
+              end
+            end
+          end
+
+          context "and amendments VISIBILITY is set to 'participants'" do
+            before { update_step_settings(amendments_visibility: "participants") }
+
+            context "when the user is logged in" do
+              before { login_as user, scope: :user }
+
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 1 }
+                let(:disabled_value) { false }
+              end
+            end
+
+            context "when the user is NOT logged in" do
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 0 }
+                let(:disabled_value) { false }
+              end
+            end
+          end
         end
 
-        it_behaves_like "lists all the proposals ordered"
+        context "when amendment CREATION is disabled" do
+          before { update_step_settings(amendment_creation_enabled: false) }
+
+          context "and amendments VISIBILITY is set to 'all'" do
+            before { update_step_settings(amendments_visibility: "all") }
+
+            context "when the user is logged in" do
+              let(:user) { amendment_1.amender }
+
+              before { login_as user, scope: :user }
+
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 2 }
+                let(:disabled_value) { true }
+              end
+            end
+
+            context "when the user is NOT logged in" do
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 2 }
+                let(:disabled_value) { true }
+              end
+            end
+          end
+
+          context "and amendments VISIBILITY is set to 'participants'" do
+            before { update_step_settings(amendments_visibility: "participants") }
+
+            context "when the user is logged in" do
+              let(:user) { amendment_1.amender }
+
+              before { login_as user, scope: :user }
+
+              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+                let(:amendments_count) { 1 }
+                let(:disabled_value) { true }
+              end
+            end
+
+            context "when the user is NOT logged in" do
+              it_behaves_like "hiding the Amend buttton and amendments counter when hovered"
+            end
+          end
+        end
       end
 
       context "when comments are enabled" do

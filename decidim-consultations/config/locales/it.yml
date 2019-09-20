@@ -17,13 +17,13 @@ it:
         banner_image: Immagine banner
         decidim_scope_id: Area comunale
         hashtag: hashtag
-        hero_image: Immagine domestica
+        hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
         origin_scope: Scopo
         origin_title: Origine
         origin_url: URL di origine
         participatory_scope: Scopo partecipativo
-        promoter_group: Gruppo promotore
+        promoter_group: Promotore
         question_context: Contesto
         reference: Riferimento
         scope: Area comunale
@@ -235,6 +235,9 @@ it:
       question_votes:
         create:
           error: Ci sono stati errori nel votare la domanda
+          success: La modifica può essere effettuata fino al termine della consultazione. Solo l'ultimo voto sarà accettato.
+          title_error: Errore di voto!
+          title_success: Voto registrato con successo
       regular_questions:
         title: Domande per questa consultazione
       show:
@@ -271,7 +274,7 @@ it:
       statistics:
         assistants_count_title: assistenti
         comments_count_title: Commenti
-        meetings_count_title: incontri
+        meetings_count_title: Incontri
         supports_count_title: supporti
       technical_info:
         technical_data: Dati tecnici
@@ -279,6 +282,7 @@ it:
         already_voted: Già votato
         already_voted_hover: Revoca il supporto
         starting_from: A partire da %{date}
+        verification_required: Verifica il tuo account per votare
         vote: Votazione
       vote_modal:
         contextual_help: Per favore selezionate un'opzione.
@@ -288,6 +292,10 @@ it:
         confirm: Confermare
         contextual_help: Si prega di confermare l'opzione selezionata.
         title: 'Consultazione: conferma il supporto'
+    resources:
+      consultations:
+        actions:
+          vote: Vota
   layouts:
     decidim:
       admin:

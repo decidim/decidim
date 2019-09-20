@@ -8,7 +8,7 @@
           <% if resource.is_a?(Decidim::Resourceable) %>
             <%= link_to(resource_title(resource), resource_locator(resource).path) %>
           <% else %>
-            <%= resource_title(resource) %>
+            <%= strip_tags resource_title(resource) %>
           <% end %>
         <% end %>
       </h3>

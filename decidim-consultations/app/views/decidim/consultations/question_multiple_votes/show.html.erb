@@ -35,9 +35,8 @@
     </div>
   </div>
 
-
 <% end %>
 
 <%= content_for :question_header_instructions do %>
-  <%= render partial: "decidim/consultations/question_multiple_votes/voting_rules", locals: {question: current_participatory_space} %>
+  <%= render partial: "decidim/consultations/question_multiple_votes/voting_rules", locals: { question: current_participatory_space } %>
 <% end %>
