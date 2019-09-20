@@ -3,6 +3,7 @@
 require "spec_helper"
 
 shared_context "when a simple event" do
+  include Decidim::SanitizeHelper
   subject { event_instance }
 
   let(:event_instance) do
@@ -40,6 +41,9 @@ shared_context "when a simple event" do
     end
   end
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
+  let(:author_name) { decidim_html_escape author.name }
+  let(:author_path) { author_presenter&.profile_path.to_s }
+  let(:author_nickname) { author_presenter&.nickname.to_s }
   let(:i18n_scope) { event_name }
 end
 

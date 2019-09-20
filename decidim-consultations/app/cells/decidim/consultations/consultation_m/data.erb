@@ -6,14 +6,14 @@
     <li class="card-data__item">
       <div class="card-data__item--centerblock">
         <strong><%= t("activemodel.attributes.consultation.start_voting_date") %></strong>
-        <br />
+        <br>
         <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.consultations.show.unspecified") %>
       </div>
     </li>
     <li class="card-data__item">
       <div class="card-data__item--centerblock">
         <strong><%= t("activemodel.attributes.consultation.end_voting_date") %></strong>
-        <br />
+        <br>
         <%= end_date ? l(end_date, format: :decidim_short) : t("decidim.consultations.show.unspecified") %>
       </div>
     </li>

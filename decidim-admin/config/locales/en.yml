@@ -42,6 +42,7 @@ en:
         badges_enabled: Enable badges
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
@@ -71,6 +72,7 @@ en:
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
+        send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
         tos_version: Terms of service version
@@ -78,6 +80,8 @@ en:
         user_groups_enabled: Enable groups
         user_name: Username
         warning_color: Warning
+        welcome_notification_body: Welcome notification body
+        welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -569,10 +573,19 @@ en:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
         index:
+          import_via_csv: Import via csv
           title: Participatory space private participant
         new:
           create: Create
           title: New Participatory Space private participant.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: There was a problem reading the CSV file.
+          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
+        new:
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers.
+          title: Upload your CSV file
+          upload: Upload
       resource_permissions:
         edit:
           submit: Submit

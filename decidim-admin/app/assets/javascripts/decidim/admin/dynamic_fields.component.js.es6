@@ -45,7 +45,17 @@
           $subtemplateParents.each((_i, elem) => {
             const $self = $(elem);
             const $tpl = $($self.data("template"));
-            $tpl.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
+
+            // Duplicate the sub-template with a unique ID as there may be
+            // multiple parent templates referring to the same sub-template.
+            const $subtpl = $($tpl[0].outerHTML);
+            const subtemplateId = `${$tpl.attr("id")}-${value}`;
+            const subtemplateSelector = `#${subtemplateId}`;
+            $subtpl.attr("id", subtemplateId);
+            $self.attr("data-template", subtemplateSelector).data("template", subtemplateSelector);
+            $tpl.after($subtpl);
+
+            $subtpl.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
           });
         }
 

@@ -6,8 +6,10 @@ module Decidim
       mimic :dummy_resource
 
       attribute :title, String
+      attribute :body, String
 
-      validate :title, presence: true
+      validates :title, :body, presence: true, etiquette: true
+      validates :title, length: { maximum: 150 }
     end
   end
 end

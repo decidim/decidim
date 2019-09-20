@@ -1242,4 +1242,10 @@ RSpec/NamedSubject:
 RSpec/VerifiedDoubles:
   Enabled: false
 
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
 inherit_from: .rubocop_rails.yml

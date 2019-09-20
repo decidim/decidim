@@ -41,6 +41,7 @@ it:
         badges_enabled: Abilita badge
         cta_button_path: Percorso del pulsante Call To Action
         cta_button_text: Testo del pulsante Chiamata all'azione
+        customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
         enable_omnipresent_banner: Mostra banner onnipresente
@@ -70,6 +71,7 @@ it:
         primary_color: Primario
         reference_prefix: Prefisso
         secondary_color: Secondario
+        send_welcome_notification: Invia notifica di benvenuto
         show_statistics: Mostra statistiche
         success_color: Successo
         tos_version: Termini di versione del servizio
@@ -446,7 +448,7 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stato inviato a: '
-          no_scopes: Nessuno scope
+          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
@@ -514,7 +516,7 @@ it:
             officialized: ufficializzato
           filter_by: Filtra per
           name: Nome
-          nickname: soprannome
+          nickname: Nickname
           not_officialized: Non ufficializzato
           officialize: ufficializzare
           officialized: ufficializzato
@@ -547,7 +549,7 @@ it:
         form:
           colors_title: Colori dell'organizzazione
           cta_button_path_help: 'Puoi sovrascrivere dove il pulsante Call To Action nella home page è collegato. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante Chiamata all''azione è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
-          cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata a azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
+          cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
@@ -568,13 +570,21 @@ it:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
+          import_via_csv: Importa tramite csv
           title: Utente privato dello spazio partecipativo
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
+        new:
+          title: Carica il tuo file CSV
+          upload: Carica File
       resource_permissions:
         edit:
-          submit: Sottoscrivi
+          submit: Invia
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.

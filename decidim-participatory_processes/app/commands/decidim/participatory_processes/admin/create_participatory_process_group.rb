@@ -39,13 +39,19 @@ module Decidim
 
         def create_participatory_process_group
           transaction do
-            ParticipatoryProcessGroup.create(
-              name: form.name,
-              description: form.description,
-              hero_image: form.hero_image,
-              participatory_processes: participatory_processes,
-              organization: form.current_organization
-            )
+            Decidim.traceability.perform_action!(
+              "create",
+              ParticipatoryProcessGroup,
+              form.current_user
+            ) do
+              ParticipatoryProcessGroup.create(
+                name: form.name,
+                description: form.description,
+                hero_image: form.hero_image,
+                participatory_processes: participatory_processes,
+                organization: form.current_organization
+              )
+            end
           end
         end
 

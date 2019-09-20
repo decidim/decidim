@@ -8,13 +8,10 @@ module Decidim
 
       # Public: Initializes the command.
       #
-      # manifest            - The component's manifest to create a component from.
-      # form                - The form from which the data in this component comes from.
-      # participatory_space - The participatory space that will hold this component.
-      def initialize(manifest, form, participatory_space)
-        @manifest = manifest
+      # form - The form from which the data in this component comes from.
+      def initialize(form)
         @form = form
-        @participatory_space = participatory_space
+        @manifest = form.manifest
       end
 
       # Public: Creates the Component.
@@ -39,7 +36,7 @@ module Decidim
           form.current_user,
           manifest_name: manifest.name,
           name: form.name,
-          participatory_space: participatory_space,
+          participatory_space: form.participatory_space,
           weight: form.weight,
           settings: form.settings,
           default_step_settings: form.default_step_settings,

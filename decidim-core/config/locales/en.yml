@@ -4,6 +4,14 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      group:
+        about: About
+        avatar: Avatar
+        document_number: Document number
+        email: Email
+        name: Name
+        nickname: Nickname
+        phone: Phone
       report:
         details: Additional comments
       user:
@@ -109,6 +117,7 @@ en:
         update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
+        create_via_csv: "%{user_name} invited %{resource_name} via csv to be a private participant"
         delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
@@ -302,12 +311,18 @@ en:
             comments_enabled: Comments enabled
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
+            amendment_creation_enabled: Amendment creation enabled
+            amendment_promotion_enabled: Amendment promotion enabled
+            amendment_reaction_enabled: Amendment reaction enabled
+            amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -1284,12 +1299,15 @@ en:
     qq: Qzone
     reddit: Reddit
     share_to: Share to %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1299,10 +1317,13 @@ en:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

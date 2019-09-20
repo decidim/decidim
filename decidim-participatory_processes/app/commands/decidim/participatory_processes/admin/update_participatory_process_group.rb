@@ -39,8 +39,14 @@ module Decidim
         attr_reader :form
 
         def update_participatory_process_group
-          @participatory_process_group.assign_attributes(attributes)
-          @participatory_process_group.save! if @participatory_process_group.valid?
+          Decidim.traceability.perform_action!(
+            "update",
+            @participatory_process_group,
+            form.current_user
+          ) do
+            @participatory_process_group.assign_attributes(attributes)
+            @participatory_process_group.save! if @participatory_process_group.valid?
+          end
         end
 
         def attributes

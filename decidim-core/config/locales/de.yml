@@ -2,7 +2,15 @@ de:
   activemodel:
     attributes:
       account:
-        delete_reason: Grund, dein Konto zu löschen
+        delete_reason: Grund, Ihr Konto zu löschen
+      group:
+        about: Über
+        avatar: Profilbild
+        document_number: Dokumentennummer
+        email: E-Mail
+        name: Name
+        nickname: Spitzname
+        phone: Telefonnummer
       report:
         details: Zusätzliche Kommentare
       user:
@@ -17,29 +25,29 @@ de:
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
-      decidim/demoted_membership: Nicht mehr ein Gruppenadministrator
+      decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
-      decidim/promote_to_admin: Wird zum Gruppenadministrator hochgestuft
+      decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
   activerecord:
     attributes:
       decidim/user:
         current_password: Aktuelles Passwort
         email: E-Mail
-        name: Benutzername
+        name: Spitzname
         password: Passwort
         password_confirmation: Bestätigung des Passworts
-        remember_me: Erinneren Sie mich
+        remember_me: Angemeldet bleiben
     models:
       decidim/amendment:
-        one: Änderung
-        other: Änderungen
+        one: Änderungsantrag
+        other: Änderungsanträge
       decidim/user:
-        one: Keine Benutzer
+        one: Benutzer
         other: Benutzer
       decidim/user_group:
         one: Benutzergruppe
@@ -61,9 +69,9 @@ de:
     account:
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
-        invalid_token: Das angegebene Token ist ungültig.
-        no_token: Kein Token zur Verfügung gestellt
-        notice: Ihre Daten werden gerade bearbeitet. Sie erhalten nach Fertigstellung eine E-Mail.
+        invalid_token: Der angegebene Token ist ungültig.
+        no_token: Kein Token angegeben
+        notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
         alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden.
         confirm:
@@ -142,6 +150,21 @@ de:
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
+      compare_draft:
+        continue: Fortfahren
+        no_similars_found: Keine ähnlichen Entwürfe gefunden.
+        title: Ähnliche Entwürfe
+      created:
+        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
+        success: Der Änderungsvorschlag wurde erfolgreich erstellt.
+      destroy_draft:
+        error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
+        success: Der Änderungsvorschlag wurde erfolgreich gelöscht.
+      edit_draft:
+        discard: Änderungsvorschlag verwerfen
+        discard_confirmation: Sind Sie sicher, dass Sie diesen Änderungsvorschlag verwerfen möchten?
+        send: Vorschau
+        title: Änderungsvorschlag bearbeiten
       emendation:
         actions:
           button_accept: Akzeptieren
@@ -160,9 +183,18 @@ de:
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
+        send: Erstellen
+        title: Änderungsvorschlag erstellen
+      preview_draft:
+        modify: Bearbeiten
+        publish: Veröffentlichen
+        title: Änderungsvorschlag veröffentlichen
       promoted:
         error: Es gab Fehler bei der Förderung der Emendation
         success: Die Emendation wurde erfolgreich gefördert
+      publish_draft:
+        error: Es gab ein Problem bei der Veröffentlichung des Änderungsvorschlags.
+        success: Änderungsvorschlag erfolgreich veröffentlicht.
       rejected:
         error: Beim Ablehnen dieser Änderung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut
         success: Die Emendation wurde erfolgreich abgelehnt
@@ -171,12 +203,21 @@ de:
         heading: Überprüfen Sie die Änderung
         help_text: Sie überprüfen eine Änderung der %{model_name}
         send: Akzeptieren Sie den Änderungsantrag
+      update_draft:
+        error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
+        success: Änderungsvorschlag erfolgreich aktualisiert.
+      visibility_options:
+        all: Änderungsvorschlag ist für alle sichtbar
+        participants: Änderungen sind nur für ihre Autoren sichtbar
+      withdraw:
+        error: Ein Fehler ist beim Zurückziehen des Änderungsvorschlags aufgetreten
+        success: Der Änderungsvorschlag wurde erfolgreich zurückgezogen
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Vergleichen Sie Ihren Änderungsvorschlag
+          '3': Vervollständigen Sie Ihren Änderungsvorschlag
+          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
     anonymous_user: Anonym
     application:
       collection:
@@ -186,7 +227,7 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Zugehörige Fotos
+        related_photos: Ähnliche Bilder
     author:
       comments:
         one: Kommentar
@@ -270,6 +311,10 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
           step:
+            amendment_creation_enabled: Änderungserstellung aktiviert
+            amendment_promotion_enabled: Hervorheben von Änderungen aktiviert
+            amendment_reaction_enabled: Reaktionen auf Änderungen aktiviert
+            amendments_visibility: Sichtbarkeit der Änderungsvorschläge
             comments_blocked: Kommentare blockiert
             dummy_step_attribute_1: Dummy-Schritt-Attribut 1
             dummy_step_attribute_2: Dummy-Schritt-Attribut 2
@@ -278,7 +323,7 @@ de:
       footer_sub_hero:
         name: Fußzeile sub hero Banner
       hero:
-        name: Heldenbild
+        name: Hauptbild
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
       how_to_participate:
@@ -298,6 +343,7 @@ de:
         name: Sub hero Banner
     core:
       actions:
+        login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
     data_portability:
       export:
@@ -804,7 +850,7 @@ de:
       home:
         extended:
           debates: Diskussionen
-          debates_explanation: Debate und diskutieren, teilen Sie Ihre Ansichten und bereichern Sie die relevanten Themen.
+          debates_explanation: Teilen Sie Ihre Ansichten und bereichern Sie die aus Ihrer Sicht relevanten Themen.
           how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
@@ -813,7 +859,7 @@ de:
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
           footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
-          footer_sub_hero_headline: Willkommen bei %{organization} partizipativen Plattform.
+          footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
           register: Registrieren
         hero:
           participate: Teilnehmen
@@ -822,7 +868,7 @@ de:
           headline: Teilnahme an Zahlen
         statistics:
           answers_count: Abgeschlossene Umfragen
-          assemblies_count: Baugruppen
+          assemblies_count: Versammlungen
           comments_count: Kommentare
           conferences_count: Konferenzen
           debates_count: Diskussionen
@@ -831,7 +877,7 @@ de:
           meetings_count: Meetings
           orders_count: Stimmen
           pages_count: Seiten
-          processes_count: Prozesse
+          processes_count: Beteiligungsprozesse
           projects_count: Projekte
           proposals_accepted: Akzeptierte Vorschläge
           proposals_count: Vorschläge
@@ -970,7 +1016,7 @@ de:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
         please_sign_in: Bitte einloggen
-        sign_up: Anmelden
+        sign_up: Registrieren
       participatory_space_filters:
         filters:
           areas: Bereiche
@@ -1003,6 +1049,12 @@ de:
     welcome_notification:
       default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
+    wizard_step_form:
+      wizard_aside:
+        back: Zurück
+      wizard_header:
+        see_steps: siehe Schritte
+        step_of: Schritt %{current_step} von %{total_steps}
   devise:
     confirmations:
       confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
@@ -1113,7 +1165,7 @@ de:
         update: Aktualisieren
         we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen
       new:
-        sign_up: Anmelden
+        sign_up: Registrieren
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
       signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto noch nicht aktiviert ist.
       signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto gesperrt ist.
@@ -1134,7 +1186,7 @@ de:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
         sign_in_with_provider: Melde dich mit %{provider}
-        sign_up: Anmelden
+        sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
         other: "(%{count} Zeichen Minimum)"
@@ -1186,7 +1238,7 @@ de:
         close_menu: Menü schließen
         navigation: Navigation
         sign_in: Anmelden
-        sign_up: Anmelden
+        sign_up: Registrieren
       impersonation_warning:
         close_session: Sitzung schließen
         description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
@@ -1236,12 +1288,15 @@ de:
     qq: Qzone
     reddit: Reddit
     share_to: Teilen mit %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Öffnen Sie Ihr WeChat, klicken Sie auf "Discover" und dann auf das "Scan QR Code" Menü.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1256,6 +1311,14 @@ de:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Löschungen
+      right: Ergänzungen
+    dropdown:
+      choose_diff_view_mode: 'Vergleichsansicht:'
+      option_split: Nebeneinander
+      option_unified: Zusammengefasst
   views:
     pagination:
       first: "&laquo; zuerst"

@@ -312,6 +312,17 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    settings do
+      {
+        dummy_global_translatable_text: generate_localized_title
+      }
+    end
+
+    default_step_settings do
+      {
+        dummy_step_translatable_text: generate_localized_title
+      }
+    end
 
     trait :unpublished do
       published_at { nil }
@@ -319,6 +330,14 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_amendments_enabled do
+      settings do
+        {
+          amendments_enabled: true
+        }
+      end
     end
   end
 
@@ -367,6 +386,10 @@ FactoryBot.define do
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do

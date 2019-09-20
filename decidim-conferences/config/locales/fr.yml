@@ -2,23 +2,23 @@ fr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblées connexes
+        assemblies_ids: Assemblées associées
         banner_image: Image de bannière
-        consultations_ids: Consultations connexes
-        copy_categories: Copier des catégories
-        copy_components: Copier des composants
-        copy_features: Fonctions de copie
+        consultations_ids: Votations associées
+        copy_categories: Copier les catégories
+        copy_components: Copier les fonctionnalités
+        copy_features: Copier les fonctionnalités
         decidim_scope_id: Portée
         description: La description
         hashtag: Hashtag
-        hero_image: Image de la maison
-        participatory_processes_ids: Processus participatifs associés
-        promoted: Promu
+        hero_image: Image de la page d'accueil
+        participatory_processes_ids: Concertations associées
+        promoted: Mise en avant
         published_at: Publié à
-        scope_id: Portée
-        scopes_enabled: Scopes activés
+        scope_id: Périmètre
+        scopes_enabled: Périmètres d'application activés
         short_description: Brève description
-        show_statistics: Montrez les statistiques
+        show_statistics: Montrer les statistiques
         slogan: Slogan
         slug: Slug URL
         title: Titre
@@ -26,7 +26,7 @@ fr:
         full_name: Nom complet
       conference_user_role:
         email: Email
-        name: prénom
+        name: Nom
         role: Rôle
     errors:
       models:
@@ -53,7 +53,7 @@ fr:
         send_diplomas: Envoyer des certificats de présence
       conference_copies:
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Conférence en double
       conference_publications:
@@ -69,10 +69,10 @@ fr:
           success: Inscription à la conférence confirmée avec succès.
       conference_speakers:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un haut-parleur pour cette conférence.
+          error: Une erreur s'est produite lors de l'ajout d'un conférencier pour cette conférence.
           success: Conférencier créé avec succès pour cette conférence.
         destroy:
-          success: Haut-parleur supprimé avec succès pour cette conférence.
+          success: Conférencier supprimé avec succès pour cette conférence.
         edit:
           title: Mettre à jour le conférencier.
           update: Mettre à jour
@@ -82,8 +82,8 @@ fr:
           create: Créer
           title: Nouveau conférencier
         update:
-          error: Une erreur s'est produite lors de la mise à jour du haut-parleur pour cette conférence.
-          success: Président mis à jour avec succès pour cette conférence.
+          error: Une erreur s'est produite lors de la mise à jour du conférencier pour cette conférence.
+          success: Conférencier mis à jour avec succès pour cette conférence.
       conference_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette conférence.
@@ -94,7 +94,7 @@ fr:
           title: Mettre à jour l'utilisateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: utilisateurs de la conférence
+          conference_admins_title: administrateurs de la conférence
         new:
           create: Créer
           title: Nouvel utilisateur de conférence
@@ -127,11 +127,11 @@ fr:
       media_links:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau lien multimédia.
-          success: Media Link créé avec succès.
+          success: Lien média créé avec succès.
         destroy:
-          success: Media Link supprimé avec succès.
+          success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien avec le média.
+          title: Mettre à jour le lien média.
           update: Mettre à jour
         index:
           media_links_title: Liens médias
@@ -140,52 +140,52 @@ fr:
           title: Lien média
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
-          success: Media Link mis à jour avec succès.
+          success: Lien média mis à jour avec succès.
       menu:
         conferences: Conférences
         conferences_submenu:
           attachment_collections: Dossiers
-          attachment_files: Des dossiers
+          attachment_files: Fichiers
           attachments: Pièces jointes
           categories: Catégories
           components: Composants
           conference_admins: Administrateurs de conférence
-          conference_invites: Invite
-          conference_speakers: Haut-parleurs
+          conference_invites: Invitations
+          conference_speakers: Conférenciers
           diploma: Certificat de participation
           info: Info
           media_links: Liens médias
           moderations: Modération
-          partners: Les partenaires
+          partners: Partenaires
           registration_types: Types d'inscription
           registrations: Inscriptions
-          user_registrations: Inscriptions d'utilisateurs
+          user_registrations: Utilisateurs inscrits
       models:
         conference:
           fields:
             created_at: Créé à
-            promoted: Promu
+            promoted: Mise en avant
             published: Publié
             title: Titre
         conference_speaker:
           fields:
-            affiliation: Affiliation
+            affiliation: Organisme
             full_name: Nom complet
-            position: Position
+            position: Profession
           name: Conférencier
         conference_user_role:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             role: Rôle
-          name: Utilisateur de la conférence
+          name: Administrateur de la conférence
           roles:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
         media_link:
           fields:
-            date: Rendez-vous amoureux
+            date: Date
             link: Lien
             title: Titre
           name: Lien média
@@ -193,7 +193,7 @@ fr:
           fields:
             link: Lien
             logo: Logo
-            name: prénom
+            name: Nom
             partner_type: Type
           name: Partenaire
           types:
@@ -205,7 +205,7 @@ fr:
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
-            weight: Poids
+            weight: Rang d'affichage
           name: Type d'inscription
       partners:
         create:
@@ -283,7 +283,7 @@ fr:
         title: Programme
     conference_speakers:
       index:
-        title: Haut-parleurs
+        title: Conférenciers
     conferences:
       admin:
         conference_copies:
@@ -328,7 +328,7 @@ fr:
           form:
             available_slots_help: Laissez-le à 0 si vous avez un nombre illimité d'emplacements disponibles.
             registrations_count:
-              one: Il y a eu 1 enregistrement.
+              one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
         diplomas:
@@ -342,7 +342,7 @@ fr:
             registration: Inscription pour '%{conference_title}'
         partners:
           index:
-            title: Les partenaires
+            title: Partenaires
         registration_types:
           form:
             select_conference_meetings: Sélectionner des réunions de conférence
@@ -364,17 +364,17 @@ fr:
           confirm: Confirmer
         show:
           free: Libre
-          going: Aller
-          no_slots_available: Aucun emplacement disponible
-          registration: enregistrement
+          going: Participe
+          no_slots_available: Il ne reste plus de place
+          registration: Inscription
       conference_program:
         program_meeting:
           content: Contenu
-          location: Emplacement
-          speakers: Haut-parleurs
+          location: Lieu
+          speakers: Conférenciers
           streaming: Diffusion
         show:
-          day: journée
+          day: Jour
           program: Programme
       conference_registration_mailer:
         confirmation:
@@ -408,18 +408,18 @@ fr:
           go_to_twitter: Aller sur Twitter
       conference_speakers:
         index:
-          speakers: Haut-parleurs
+          speakers: Conférenciers
       conferences:
         partners:
-          collaborators: Les partenaires
+          collaborators: Partenaires
           main_promotors: Les organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          make_conference_registration: 'Faites votre inscription à la conférence:'
-          register: registre
+          make_conference_registration: 'Inscrivez-vous à la conférence:'
+          register: S'inscrire
       content_blocks:
         highlighted_conferences:
-          name: Des conférences surlignées
+          name: Conférences mises en avant
       index:
         title: Conférences
       mailer:
@@ -438,7 +438,7 @@ fr:
         conference_invite:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             registration_type: Type d'inscription
             sent_at: Envoyé à
             status: Statut
@@ -449,12 +449,12 @@ fr:
         conference_registration:
           fields:
             email: Email
-            name: prénom
+            name: Nom
             registration_type: Type d'inscription
             state: Etat
             states:
               confirmed: Confirmé
-              pending: en attendant
+              pending: En attente
       pages:
         home:
           highlighted_conferences:
@@ -462,7 +462,7 @@ fr:
             see_all_conferences: Voir toutes les conférences
       photo:
         show:
-          close_modal: Fermer modal
+          close_modal: Fermer la fenêtre
           photo: Photo
       photos_list:
         show:
@@ -471,12 +471,12 @@ fr:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          register: registre
+          register: S'inscrire
           title: Types d'inscription
       shared:
         conference_user_login:
           already_account: Avez-vous déjà un compte dans decidim?
-          new_user: Nouvel utilisateur?
+          new_user: Nouvel utilisateur ?
           sign_in: Connectez-vous pour vous inscrire à la conférence
           sign_up: Créez un compte dans decidim pour vous inscrire à la conférence
       show:
@@ -485,21 +485,21 @@ fr:
         objectives: Objectifs
         related_assemblies: Assemblées connexes
         related_consultations: Consultations connexes
-        related_participatory_processes: Processus participatifs associés
+        related_participatory_processes: Concertations associées
       statistics:
         answers_count: Réponses
-        comments_count: commentaires
+        comments_count: Commentaires
         conference_count: Conférences
-        debates_count: Des débats
-        endorsements_count: Avenants
+        debates_count: Débats
+        endorsements_count: Soutiens
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes
         pages_count: Pages
-        posts_count: Des postes
+        posts_count: Articles
         projects_count: Projets
-        proposals_count: Les propositions
-        results_count: Résultats
+        proposals_count: Propositions
+        results_count: Réalisations
         surveys_count: Enquêtes
         users_count: Participants
         votes_count: Votes
@@ -510,17 +510,17 @@ fr:
         conference_registration_validation_pending:
           notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registrations_over_percentage:
-          email_intro: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%.
+          email_intro: Les places réservées pour la conférence "%{resource_title}" dépassent %{percentage}%.
           email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
-          email_subject: Les créneaux occupés par la conférence "%{resource_title}" sont supérieurs à %{percentage}%
-          notification_title: Les créneaux occupés par la conférence <a href="%{resource_path}">%{resource_title}</a> sont supérieurs à %{percentage}%.
+          email_subject: Les places réservées pour la conférence "%{resource_title}" dépassent %{percentage}%
+          notification_title: Les places réservées pour la conférence <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         conference_updated:
           email_intro: 'La conférence "%{resource_title}" a été mise à jour. Vous pouvez lire la nouvelle version depuis sa page:'
           email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La conférence "%{resource_title}" a été mise à jour
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> été mise à jour.
         registrations_enabled:
-          email_intro: 'La conférence "%{resource_title}" a permis les enregistrements. Vous pouvez vous inscrire sur sa page:'
+          email_intro: 'La conférence "%{resource_title}" a autorisé les inscriptions. Vous pouvez vous inscrire sur sa page:'
           email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
@@ -546,7 +546,7 @@ fr:
   layouts:
     decidim:
       conference_hero:
-        register: registre
+        register: S'inscrire
       conference_widgets:
         show:
           take_part: Prendre part
@@ -555,17 +555,17 @@ fr:
           more_info: Plus d'informations
           take_part: Prendre part
         index:
-          promoted_conferences: Conférences promues
+          promoted_conferences: Conférences mises en avant
         order_by_conferences:
           conferences:
             one: "%{count} conférence"
             other: "%{count} conférences"
         promoted_conference:
           more_info: Plus d'informations
-          take_part: Prendre part
+          take_part: Participer
       conferences_nav:
         conference_menu_item: Information
-        conference_partners_menu_item: Les partenaires
-        conference_speaker_menu_item: Haut-parleurs
+        conference_partners_menu_item: Partenaires
+        conference_speaker_menu_item: Conférenciers
         media: Médias
         venues: Lieux

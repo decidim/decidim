@@ -96,10 +96,6 @@ ca:
           create: Crear
           select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
-        share:
-          close_window: Tanca la finestra
-          share: Compartir
-          share_link: Comparteix l'enllaç
       last_activity:
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:

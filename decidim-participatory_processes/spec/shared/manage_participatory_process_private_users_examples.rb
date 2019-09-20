@@ -35,6 +35,20 @@ shared_examples "manage participatory process private users examples" do
     end
   end
 
+  describe "when import a batch of private users from csv" do
+    it "import a batch of participatory space private users" do
+      find(".card-title a.import").click
+
+      # The CSV has no headers
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_user@example.org", "My User Name", participatory_process, user)
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_private_user@example.org", "My Private User Name", participatory_process, user)
+      attach_file "File", Decidim::Dev.asset("import_participatory_space_private_users.csv")
+      perform_enqueued_jobs { click_button "Upload" }
+
+      expect(page).to have_content("CSV file uploaded successfully")
+    end
+  end
+
   describe "when managing different users" do
     before do
       create :participatory_space_private_user, user: other_user, privatable_to: participatory_process

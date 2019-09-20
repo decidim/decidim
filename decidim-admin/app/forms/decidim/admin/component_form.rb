@@ -13,16 +13,18 @@ module Decidim
       translatable_attribute :name, String
       validates :name, translatable_presence: true
 
-      attribute :settings, Object
-      attribute :default_step_settings, Object
-      attribute :manifest
       attribute :weight, Integer, default: 0
 
-      attribute :step_settings, Hash[String => Object]
-      attribute :participatory_space
+      attribute :manifest, Object
+      attribute :participatory_space, Object
+      validates :manifest, :participatory_space, presence: true
 
-      validate :must_be_able_to_change_participatory_texts_setting, if: :proposal_component?
-      validate :amendments_visibility_options_must_be_valid, if: :proposal_component?
+      attribute :settings, Object
+      attribute :default_step_settings, Object
+      attribute :step_settings, Hash[String => Object]
+
+      validate :must_be_able_to_change_participatory_texts_setting
+      validate :amendments_visibility_options_must_be_valid
 
       def settings?
         settings.manifest.attributes.any?
@@ -32,32 +34,45 @@ module Decidim
         default_step_settings.manifest.attributes.any?
       end
 
-      def component
-        @component ||= Component.find_by(id: id)
+      private
+
+      # Overwrites Rectify::Form#form_attributes_valid? to validate nested `step_settings` attributes.
+      def form_attributes_valid?
+        return false unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
+
+        attributes_that_respond_to(:valid?).concat(
+          step_settings.each_value.select { |attribute| attribute.respond_to?(:valid?) }
+        ).all?(&:valid?)
       end
 
-      def proposal_component?
-        component&.manifest_name == "proposals"
+      def settings_errors_empty?
+        validations = [settings.errors.empty?]
+        validations << if default_step_settings.present?
+                         default_step_settings.errors.empty?
+                       else
+                         step_settings.each_value.map(&:errors).all?(&:empty?)
+                       end
+        validations.all?
       end
 
-      # Validation for `Proposals` components. Prevents changing the global
-      # setting `participatory_texts_enabled` when there are proposals.
-      # Does not add a custom error message as it would be unused, because
-      # the setting's checkbox is automatically being disabled on the frontend.
+      # Validates setting `participatory_texts_enabled` is not changed when there are proposals for the component.
       def must_be_able_to_change_participatory_texts_setting
-        form_setting_value = settings[:participatory_texts_enabled].to_i == 1 # Convert "1"/"0" to true/false
-        return if form_setting_value == component.settings.participatory_texts_enabled
+        return unless manifest&.name == :proposals && (component = Component.find_by(id: id))
+        return unless settings.participatory_texts_enabled != component.settings.participatory_texts_enabled
 
-        errors.add(:settings) if Decidim::Proposals::Proposal.where(component: component).any?
+        settings.errors.add(:participatory_texts_enabled) if Decidim::Proposals::Proposal.where(component: component).any?
       end
 
+      # Validates setting `amendments_visibility` is included in Decidim::Amendment::VisibilityStepSetting.options.
       def amendments_visibility_options_must_be_valid
-        return unless component.settings.amendments_enabled
-        return unless step_settings.any? do |_step, settings|
-          Decidim::Amendment::VisibilityStepSetting.options.map(&:last).exclude? settings[:amendments_visibility]
-        end
+        return unless manifest&.name == :proposals && settings.amendments_enabled
 
-        errors.add(:settings)
+        visibility_options = Decidim::Amendment::VisibilityStepSetting.options.map(&:last)
+        step_settings.each do |step, settings|
+          next unless visibility_options.exclude? settings[:amendments_visibility]
+
+          step_settings[step].errors.add(:amendments_visibility, :inclusion)
+        end
       end
     end
   end

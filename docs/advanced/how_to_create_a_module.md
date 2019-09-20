@@ -1,6 +1,6 @@
 # How to create a Decidim component
 
-Use [decidim-generators](https://github.com/decidim/decidim-generators) to
+Use [decidim-generators](https://github.com/decidim/decidim/tree/master/decidim-generators) to
 automatically generate a decidim component skeleton, or copy the basic structure
 of an existing mantained plugin.
 

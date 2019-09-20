@@ -257,6 +257,9 @@ en:
       question_votes:
         create:
           error: There was a problem voting the question
+          success: You can change it until the end of the consultation. Only the last vote will be accepted.
+          title_error: Vote error!
+          title_success: Vote successfully registered
       question_multiple_votes:
         results_rules:
           title: In this question multiple choices where allowed
@@ -317,6 +320,7 @@ en:
         already_voted: Already voted
         already_voted_hover: Revoke vote
         starting_from: Starting from %{date}
+        verification_required: Verify your account to vote
         vote: Vote
       vote_modal:
         contextual_help: Please, select an option.
@@ -326,6 +330,10 @@ en:
         confirm: Confirm
         contextual_help: Please confirm the selected option.
         title: 'Consultation: confirm vote'
+    resources:
+      consultations:
+        actions:
+          vote: Vote
   layouts:
     decidim:
       admin:

@@ -123,6 +123,7 @@ Releasing new versions is quite easy, it's the same process whether it's a new v
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Update `CHANGELOG.MD` and change the `Unreleased` title to the current version and link to previous versions if needed.
+1. Update `SECURITY.md` and change the supported version to the new version.
 1. Commit all the changes: `git add . && git commit -m "Bump version"`
 1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 

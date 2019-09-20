@@ -41,6 +41,7 @@ ca:
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
+        customize_welcome_notification: Adaptar la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar banner omnipresent
@@ -70,6 +71,7 @@ ca:
         primary_color: Primària
         reference_prefix: Prefix de referència
         secondary_color: Secundari
+        send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
         tos_version: Versió del Termes de Servei
@@ -77,6 +79,8 @@ ca:
         user_groups_enabled: Habilitar grups
         user_name: Àlies
         warning_color: Avís
+        welcome_notification_body: Cos de la notificació de benvinguda
+        welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
@@ -568,10 +572,19 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
+          import_via_csv: Importar via csv
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
           title: Nova participant de l'espai de participació privat.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
+        new:
+          explanation: Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l'adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l'espai de participació, sense capçaleres.
+          title: Puja el fitxer CSV
+          upload: Carrega
       resource_permissions:
         edit:
           submit: Enviar

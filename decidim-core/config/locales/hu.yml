@@ -3,6 +3,14 @@ hu:
     attributes:
       account:
         delete_reason: Fiók törlésének oka
+      group:
+        about: Rólunk
+        avatar: Profilkép
+        document_number: Dokumentum száma
+        email: Email
+        name: Név
+        nickname: Becenév
+        phone: Telefonszám
       report:
         details: További megjegyzések
       user:
@@ -39,10 +47,10 @@ hu:
         one: Módosítás
         other: Módosítások
       decidim/user:
-        one: Nincsenek résztvevők
-        other: Felhasználók
+        one: Résztvevő
+        other: Résztvevők
       decidim/user_group:
-        one: Felhasználói csoport
+        one: Csoport
         other: csoportok
   booleans:
     'false': 'Nem'
@@ -108,6 +116,7 @@ hu:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
         create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
+        create_via_csv: "%{user_name} meghívota %{resource_name} CSV -vel, hogy privát résztvevő legyen"
         delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
@@ -142,6 +151,21 @@ hu:
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
+      compare_draft:
+        continue: Tovább
+        no_similars_found: Nem találtunk hasonló szövegjavítást.
+        title: Hasonló szövegjavítások
+      created:
+        error: A módosító javaslat tervezet létrehozása során hiba történt.
+        success: A módosító javaslat tervezet sikeresen létrejött.
+      destroy_draft:
+        error: Hiba történt a módosító javaslat tervezetének törlésekor.
+        success: A módosító javaslat sikeresen törlésre került.
+      edit_draft:
+        discard: Vázlat elvetése
+        discard_confirmation: Biztos vagy benne, hogy elveted ezt a módosító javaslatot?
+        send: Előnézet
+        title: Módosító javaslat szerkesztése
       emendation:
         actions:
           button_accept: Elfogad
@@ -149,20 +173,28 @@ hu:
           help_text: Tekintse át a módosításokat, és fogadja el, vagy utasítsa el ezt a módosítást. Értesítést küld a szerző (k) nek.
         announcement:
           accepted: |-
-            A %{amendable_type} %{amendable_link}
-            re vonatkozó módosító javaslat <strong>%{announcement_date}</strong>én elfogadásra került.
+            A %{amendable_type}% %{proposal_link} előterjesztésre vonatkozó módosító javaslat ekkor <strong>%{date}</strong> elfogadásra került.
           evaluating: |-
-            Ezt a %{amendable_type} %{amendable_link}
+            Ezt a %{amendable_type} %{proposal_link}
             módosító javaslat értékelés alatt van.
-          rejected: "A %{amendable_type} %{amendable_link}\nre vonatkozó módosító javaslatot <strong>%{announcement_date}</strong>én elutasították."
+          rejected: "A %{amendable_type} %{proposal_link}\nre vonatkozó módosítást <strong>%{date}</strong>én elutasították."
           withdrawn: |-
-            Ezt a %{amendable_type} %{amendable_link}
-            módosító javaslatot a szerző visszavonta.
+            Ezt a %{amendable_type} %{proposal_link}
+            módosítást a szerző visszavonta.
       new:
         amendment_author: Módosítás szerző
+        send: Létrehozás
+        title: Módosító javaslat létrehozása
+      preview_draft:
+        modify: Szerkeszt
+        publish: Közzétesz
+        title: Módosító javaslat publikálása
       promoted:
         error: Problémát történt a módosító javaslat új javaslatként való közzététele során
         success: A módosító javaslat új javaslatként sikeresen megjelent
+      publish_draft:
+        error: Hiba történt a módosító javaslat közzététele során.
+        success: A módosító javaslat közzététele sikeres.
       rejected:
         error: Hiba történt a módosító javaslat elutasításakor, próbálkozz később
         success: A módosító javaslat sikeresen elutasításra került
@@ -171,12 +203,21 @@ hu:
         heading: Tekintse át a módosítást
         help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
+      update_draft:
+        error: Probléma merült fel a módosító tervezet frissítésével.
+        success: A módosító tervezet sikeresen frissítve.
+      visibility_options:
+        all: A módosítások mindenki számára láthatóak
+        participants: A módosítások csak a szerzőik számára láthatóak
+      withdraw:
+        error: A módosítás létrehozásának visszavonása során hiba történt
+        success: A módosítást sikeresen visszavonták
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Módosításod összehasonlítása
+          '3': Módosításod befejezése
+          '4': Módosításod publikálása
     anonymous_user: Névtelen
     application:
       collection:
@@ -267,12 +308,18 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
-            enable_pads_creation: A párna létrehozásának engedélyezése
+            dummy_global_translatable_text: Hamis Fordítható Szöveg
+            enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
+            amendment_creation_enabled: A módosítás létrehozása engedélyezett
+            amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_reaction_enabled: A módosító reakció engedélyezett
+            amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
             dummy_step_attribute_1: Dummy Lépés tulajdonság 1
             dummy_step_attribute_2: Dummy Lépés tulajdonság 2
+            dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
       footer_sub_hero:
@@ -298,6 +345,7 @@ hu:
         name: Sub hero banner
     core:
       actions:
+        login_before_access: Kérlek jelentkez be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
     data_portability:
       export:
@@ -324,6 +372,7 @@ hu:
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
           nickname_help: A te beceneved (@nickname) ebben a szervezetben %{organization}
+          password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
@@ -411,18 +460,18 @@ hu:
             email_intro: 'A %{amendable_title} című elutasított módosítást önálló %{amendable_type} módosításra emelték. Láthatja ezt az oldalról:'
             email_outro: Ezt az értesítést azért kapta, mert a %{amendable_title} követi. Leállíthatja az értesítések fogadását az előző link segítségével.
             email_subject: A %{emendation_author_nickname} tól származó módosítást új szövegként tették közzé %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">elutasított</a> módosítás <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan új %{amendable_type} ösként került közzétételre <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: A <a href="%{emendation_path}">elutasított módosítása </a> a <a href="%{amendable_path}">%{amendable_title}</a> re vonatkozóan újként került közzétételre %{amendable_type} <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkaptuk, mert Ön szerzője a %{amendable_title}.
-            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
+            email_outro: Ezt az értesítést azért kapta, mert Ön szerzője a %{amendable_title} dokumentumnak.
+            email_subject: Egy módosítás elutasítva %{amendable_title} melynek szerzője %{emendation_author_nickname}
             notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Láthatja ezt az oldalról:'
-            email_outro: Ezt az értesítést megkapta, mert %{amendable_title}követ. Leállíthatja az értesítések fogadását az előző link után.
-            email_subject: Egy módosítás elutasítva %{amendable_title} -ra %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítást elutasították <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_intro: 'Egy módosítást elutasítottunk %{amendable_title}. Látható ez az oldalról:'
+            email_outro: Ezt az értesítést azért kapta, mert a %{amendable_title}-t követi. Leállíthatja az értesítések fogadását az előző link segítségével.
+            email_subject: "A %{emendation_author_nickname} által létrehozott módosítás itt \n%{amendable_title} elutasításra került"
+            notification_title: A <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> által létrehozott <a href="%{emendation_path}"></a> módosítás elutasításra került <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Új dokumentumot adtak hozzá a következőhöz: %{resource_title}. Innen érheted el:'
@@ -544,11 +593,11 @@ hu:
           conditions:
             - Gyere ide gyakran
           description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
-          description_another: Ez a felhasználó egy adott napon %{score} egymást követő napon keresztül kapcsolódott.
+          description_another: Ez a résztvevő egy bizonyos időpontban %{score} egymást követő napon keresztül csatlakozott.
           description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
           name: Folytonosság
           next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
-          unearned_another: Ez a felhasználó több mint egymást követő napon nem jelentkezett be.
+          unearned_another: Ez a résztvevő nem lépett be több mint egy egymást követő napon.
           unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
@@ -557,7 +606,7 @@ hu:
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
           name: Követő
-          next_level_in: Get %{score} több felhasználó követni, hogy a következő szintre!
+          next_level_in: Szerezzen %{score} további embert, hogy kövesse Önt, így érheti el a következő szintet!
           unearned_another: Ennek a felhasználónak még nincsenek követői.
           unearned_own: Még nincsenek követői.
         index:
@@ -572,9 +621,9 @@ hu:
             - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
           description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
           description_another: Felhasználó meghívott %{score} felhasználókat.
-          description_own: Meghívtál %{score} felhasználótkat.
+          description_own: '%{score} embert hívott meg.'
           name: Meghívók
-          next_level_in: Hívj meg több %{score} felhasználót a következő szint eléréséhez!
+          next_level_in: Hívjon meg %{score} felhasználót a következő szint eléréséhez!
           unearned_another: Ez a felhasználó még nem hívott meg senkit.
           unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
@@ -586,22 +635,22 @@ hu:
         demote_admin: Admin eltávolítása
       demote:
         error: Hiba történt a felhasználó eltávolításakor az adminisztrátorok listáján
-        success: A felhasználó az admin-ból sikeresen eltávolítva
+        success: A felhasználó az admin-ból sikeresen eltávolításra került
       index:
         current_admins: 'Jelenlegi adminisztrátorok:'
         manage_admins: Adminisztrátorok kezelése
     group_invites:
       accept:
         error: Hiba történt a meghívás elfogadásakor
-        success: A meghívó sikeresen elfogadott
+        success: A meghívó sikeresen elfogadva
       accept_invitation: Elfogad
       accept_or_reject_group_invitations: 'A következő csoportok meghívtak, hogy csatlakozz hozzájuk. A kérelmek elfogadása vagy elutasítása:'
       index:
         invite: Meghívás
-        invite_user: Hívja meg a felhasználót
+        invite_user: Résztvevő meghívása
       invite:
-        error: Hiba történt a felhasználót meghívva
-        success: A felhasználó sikeresen meghívott
+        error: Hiba történt a résztvevő meghívása során
+        success: A résztvevő sikeresen meghívásra került
       reject:
         error: Hiba történt a meghívás elutasításakor
         success: A meghívó sikeresen elutasítva
@@ -609,11 +658,11 @@ hu:
     group_members:
       accept:
         error: Hiba történt a csatlakozási kérelem elfogadásakor
-        success: A csatlakozási kérelem sikeresen elfogadott
+        success: A csatlakozási kérelem sikeresen elfogadva
       actions:
         are_you_sure: biztos vagy ebben?
         promote_to_admin: Tedd rendszergazdává
-        remove_from_group: Felhasználó eltávolítása
+        remove_from_group: A résztvevő eltávolítása
       index:
         current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
         manage_members: Tagok kezelése
@@ -624,7 +673,7 @@ hu:
         error: Hiba történt a csatlakozási kérelem elutasításakor
         success: Csatlakozási kérelem sikeresen elutasítva
       remove:
-        error: Hiba történt a felhasználó eltávolításakor a csoportból
+        error: Probléma adódott a résztvevő csoportból való eltávolítása során
         success: A felhasználó sikeresen eltávolításra került a csoportból
     groups:
       actions:
@@ -796,9 +845,9 @@ hu:
         rejected: Elutasítva
         verified: Megerősítve
     pad_iframe:
-      disclaimer: A pad tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
-      explanation: Ezzel a párnával együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a percet.
-      pad: Párna
+      disclaimer: A közös dokumentum tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
+      explanation: Ebben a közös dokumentumban együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a jegyzeteket.
+      pad: Közös dokumentum
     pages:
       home:
         extended:
@@ -1002,6 +1051,12 @@ hu:
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}}</li><li> szervezetben. Végül, de nem utolsósorban, kapcsolódj más emberekhez is, oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához, gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</li></ul>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
+    wizard_step_form:
+      wizard_aside:
+        back: Vissza
+      wizard_header:
+        see_steps: lépések megtekintése
+        step_of: '%{current_step} a(z) %{total_steps} lépésből'
   devise:
     confirmations:
       confirmed: E-mail címed sikeresen meg lett erősítve.
@@ -1092,6 +1147,7 @@ hu:
         change_your_password: változtasd meg a jelszavadat
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
+        password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
       new:
         forgot_your_password: Elfelejtette a jelszavát?
         send_me_reset_password_instructions: Küldje el a jelszavas utasítások visszaállítását
@@ -1140,7 +1196,7 @@ hu:
     unlocks:
       new:
         resend_unlock_instructions: Feloldási utasítások újraküldése
-      send_instructions: Néhány perc múlva megkapja az e-mailt, és útmutatást ad a fiók feloldásához.
+      send_instructions: Perceken belül kap egy e-mailt a fiók feloldásához szükséges útmutatásokkal.
       send_paranoid_instructions: Ha fiókod létezik, néhány perc múlva kapsz egy e-mailt, amely leírja, hogyan kell feloldani.
       unlocked: A fiókot sikeresen feloldottuk. Kérjük, jelentkezzen be a folytatáshoz.
   doorkeeper:
@@ -1211,7 +1267,7 @@ hu:
       widget:
         see_more: Tovább
   locale:
-    name: Angol
+    name: Magyar
   password_validator:
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
@@ -1235,12 +1291,15 @@ hu:
     qq: QZone
     reddit: Reddit
     share_to: 'Oszd meg vele: %{name}'
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Nyisd meg a WeChat alkalmazsát, kattints a "Discover", majd a "Scan QR Code" gombra.
     weibo: Sina Weibo
+    whatsapp_app: Whatsapp
+    whatsapp_web: Whatsapp
     xing: Xing
   time:
     formats:
@@ -1255,6 +1314,14 @@ hu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Törlések
+      right: Kiegészítések
+    dropdown:
+      choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      option_split: Egymás mellet
+      option_unified: Egyesített
   views:
     pagination:
       first: "&laquo; Első"

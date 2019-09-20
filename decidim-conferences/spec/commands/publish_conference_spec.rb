@@ -6,7 +6,7 @@ module Decidim::Conferences
   describe Admin::PublishConference do
     subject { described_class.new(my_conference, user) }
 
-    let(:my_conference) { create :conference, :unpublished, organization: user.organization }
+    let!(:my_conference) { create :conference, :unpublished, organization: user.organization, registrations_enabled: true }
     let(:user) { create :user }
 
     context "when the conference is nil" do
@@ -26,6 +26,8 @@ module Decidim::Conferences
     end
 
     context "when the conference is not published" do
+      let(:follow) { create :follow, followable: my_conference, user: user }
+
       it "is valid" do
         expect { subject.call }.to broadcast(:ok)
       end
@@ -47,6 +49,19 @@ module Decidim::Conferences
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "update"
+      end
+
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.conferences.registrations_enabled",
+            event_class: ConferenceRegistrationsEnabledEvent,
+            resource: kind_of(Decidim::Conference),
+            followers: [follow.user]
+          )
+
+        subject.call
       end
     end
   end
