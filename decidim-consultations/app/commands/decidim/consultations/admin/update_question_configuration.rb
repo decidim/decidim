@@ -3,8 +3,7 @@
 module Decidim
   module Consultations
     module Admin
-      # A command with all the business logic when updating an existing participatory
-      # question in the system.
+      # A command that configures how many and how much questions can be voted.
       class UpdateQuestionConfiguration < Rectify::Command
         # Public: Initializes the command.
         #
