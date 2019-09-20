@@ -3,6 +3,7 @@
     attributes:
       group:
         about: Om
+        email: Epost
   decidim:
     amendments:
       wizard_step_form:
