@@ -26,6 +26,7 @@
 
 - **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
 - **decidim-core**: Changes default format date [#5330](https://github.com/decidim/decidim/pull/5330)
+- **decidim-verifications**: Change CSV census validations [#5346](https://github.com/decidim/decidim/pull/5346)
 
 **Fixed**:
 
