@@ -1192,11 +1192,7 @@ es-MX:
       long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: Debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: No encontrado
       not_locked: No estaba bloqueado
-      not_saved:
-        one: '1 error ha impedido que se guarde este %{resource}:'
-        other: "%{count} errores impidieron que se guarde este %{resource}:"
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: Es demasiado corto (menos de 15 caracteres)
