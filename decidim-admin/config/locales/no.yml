@@ -1,1 +1,5 @@
-no:
+"no":
+  activemodel:
+    attributes:
+      area:
+        name: Navn
