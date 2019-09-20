@@ -46,6 +46,7 @@ module Decidim
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.title)
         text = renderer.render(links: links, extras: extras).html_safe
         text = decidim_html_escape(text) if html_escape
+        text
       end
 
       def body(links: false, extras: true, strip_tags: false)
