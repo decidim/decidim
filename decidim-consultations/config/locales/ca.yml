@@ -235,6 +235,9 @@ ca:
       question_votes:
         create:
           error: Hi ha hagut errors en votar la pregunta
+          success: Pots canviar-lo fins a la finalització de la consulta. Només l'última vot serà acceptat.
+          title_error: S'ha produit un error al votar
+          title_success: Vot enregistrat correctament
       regular_questions:
         title: Preguntes per a aquesta consulta
       show:
@@ -279,6 +282,7 @@ ca:
         already_voted: Ja votat
         already_voted_hover: Revocar el vot
         starting_from: A partir de %{date}
+        verification_required: Verifica el teu compte per votar
         vote: Votació
       vote_modal:
         contextual_help: Si us plau, selecciona una opció.
@@ -288,6 +292,10 @@ ca:
         confirm: Confirma
         contextual_help: Si us plau, confirma l'opció seleccionada.
         title: 'Consulta: confirma el vot'
+    resources:
+      consultations:
+        actions:
+          vote: Vota
   layouts:
     decidim:
       admin:
