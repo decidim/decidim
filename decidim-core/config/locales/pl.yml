@@ -1174,13 +1174,7 @@ pl:
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
-      not_found: nie znaleziono
       not_locked: nie był zablokowany
-      not_saved:
-        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
-        few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-        many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
-        other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
