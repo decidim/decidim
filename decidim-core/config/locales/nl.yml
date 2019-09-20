@@ -587,6 +587,9 @@ nl:
       current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort
+          password_confirmation: Uw wachtwoord bevestiging moet overeenkomen met uw wachtwoord.
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
