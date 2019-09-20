@@ -87,6 +87,9 @@ ca:
         new:
           create: Crear
           title: Nova consulta
+        results:
+          not_visible: Els resultats estaran disponibles quan la consulta hagi acabat
+          total_votes: 'Total: %{count} vots'
         update:
           error: S'ha produït un error en actualitzar aquesta consulta.
           success: La consulta s'ha actualitzat correctament.
@@ -95,6 +98,7 @@ ca:
         consultations_submenu:
           info: Informació
           questions: Preguntes
+          results: Resultats
         questions_submenu:
           components: Components
           consultation: Consulta
@@ -171,6 +175,7 @@ ca:
         consultations: Consultes
         questions: Preguntes
         responses: Respostes
+        results: Resultats
     consultations:
       admin:
         content_blocks:
