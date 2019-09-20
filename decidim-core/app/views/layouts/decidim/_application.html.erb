@@ -35,6 +35,5 @@
       window.Decidim.translatable = <%= (!current_organization.deepl_api_key.blank? && current_organization.translatable_locales.count > 1).to_s %>;
       window.Decidim.translatable_locales = <%= current_organization.translatable_locales.to_json.html_safe %>;
     </script>
-    <%= organization_colors %>
   </body>
 </html>
