@@ -60,6 +60,7 @@
 - **decidim-core**: Fix forgotten redirect page in case TOS is not yet agreed on [#5313](https://github.com/decidim/decidim/pull/5313)
 - **decidim-admin**: Fix managed users stolen identities with users having the same name [#5318](https://github.com/decidim/decidim/pull/5318)
 - **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**, **decidim-admin**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Multiple bugfixes [\#5329](https://github.com/decidim/decidim/pull/5329)
 
 **Removed**:
 
