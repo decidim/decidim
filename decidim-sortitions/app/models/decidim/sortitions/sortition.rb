@@ -12,6 +12,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Comments::Commentable
+      include Decidim::Randomable
 
       component_manifest_name "sortitions"
 
@@ -74,13 +75,6 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
-      end
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
       end
 
       # Public: Whether the object can have new comments or not.

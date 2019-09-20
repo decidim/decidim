@@ -33,11 +33,11 @@ module Decidim
     private
 
     def email_unique_in_organization
-      errors.add :email, :taken if User.find_by(email: email, organization: current_organization).present?
+      errors.add :email, :taken if User.no_active_invitation.find_by(email: email, organization: current_organization).present?
     end
 
     def nickname_unique_in_organization
-      errors.add :nickname, :taken if User.find_by(nickname: nickname, organization: current_organization).present?
+      errors.add :nickname, :taken if User.no_active_invitation.find_by(nickname: nickname, organization: current_organization).present?
     end
   end
 end

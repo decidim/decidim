@@ -79,6 +79,7 @@ module Decidim
   autoload :IoEncoder, "decidim/io_encoder"
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
+  autoload :Randomable, "decidim/randomable"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

@@ -54,7 +54,7 @@ module Decidim
       return unless data && data[:new_value].present?
 
       Diffy::Diff.new(
-        data[:old_value],
+        data[:old_value].to_s,
         data[:new_value],
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true

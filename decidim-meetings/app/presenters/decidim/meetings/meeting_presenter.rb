@@ -8,6 +8,7 @@ module Decidim
     class MeetingPresenter < SimpleDelegator
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
+      include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
@@ -18,7 +19,8 @@ module Decidim
 
         handle_locales(meeting.title, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          renderer.render(links: links).html_safe
+          content = renderer.render(links: links).html_safe
+          decidim_html_escape(content)
         end
       end
 
