@@ -1,1 +1,7 @@
-no:
+"no":
+  decidim:
+    system:
+      models:
+        admin:
+          fields:
+            email: Epost
