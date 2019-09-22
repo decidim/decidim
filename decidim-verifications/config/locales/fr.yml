@@ -104,7 +104,6 @@ fr:
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
             file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une colonne: email'
             submit: Téléverser un fichier
             title: Télécharger un nouveau recensement
         authorizations:
