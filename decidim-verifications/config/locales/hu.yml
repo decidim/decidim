@@ -104,7 +104,6 @@ hu:
             title: Ennek a szervezetnek aktiválnia kell a csv népszámlálást
           new:
             file: ".csv fájl e-mail adatokkal"
-            info: 'CSV formátumú fájlnak kell lennie egy oszlopban: e-mail'
             submit: Fájl feltöltés
             title: Töltsön fel egy új népszámlálást
         authorizations:
