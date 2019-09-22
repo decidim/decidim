@@ -584,6 +584,9 @@ hu:
       current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
+        decidim/user:
+          password: A jelszó túl rövid.
+          password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
         error: Hiba van ebben a mezőben.
       remove_this_file: Töröld ezt a fájlt
     gamification:
@@ -1213,6 +1216,7 @@ hu:
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
+      not_found: nem található. Regisztráltál már korábban?
       not_locked: nem volt zárva
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
