@@ -104,7 +104,6 @@ cs:
             title: Pro tuto organizaci musíte aktivovat csv sčítání
           new:
             file: ".csv soubor s daty e-mailů"
-            info: 'Musí být soubor ve formátu CSV s jedním sloupcem: e-mail'
             submit: Nahrát soubor
             title: Nahrajte nové sčítání
         authorizations:
