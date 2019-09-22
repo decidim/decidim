@@ -104,7 +104,6 @@ ca:
             title: Necessites activar el cens csv d'aquesta organització
           new:
             file: "fitxer .csv amb dades de correus electrònics"
-            info: 'Ha de ser un fitxer amb format CSV amb una columna: correu electrònic'
             submit: Puja un document
             title: Puja un nou cens
         authorizations:
