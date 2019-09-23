@@ -582,6 +582,8 @@ de:
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
+        decidim/user:
+          password: Das Passwort ist zu kurz.
         error: In diesem Feld ist ein Fehler aufgetreten.
       remove_this_file: Diese Datei entfernen
     gamification:

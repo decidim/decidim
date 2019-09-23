@@ -572,10 +572,19 @@ fi:
           error: Osallisuustilan yksityisen käyttäjän poistaminen epäonnistui.
           success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
         index:
+          import_via_csv: Tuo CSV-tiedostosta
           title: Osallisuustilan yksityinen käyttäjä
         new:
           create: Luo
           title: Uusi osallisuustilan yksityinen käyttäjä.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV-tiedostossa on ongelma.
+          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+        new:
+          explanation: 'Lataa CSV-tiedosto osallisuustilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). '
+          title: Lataa CSV-tiedosto
+          upload: Lataa
       resource_permissions:
         edit:
           submit: Lähetä
