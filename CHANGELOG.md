@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-consultations**: Allow multi-choice answers to questions in consultations. [#5356](https://github.com/decidim/decidim/pull/5356)
 - **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
 - **decidim-admin**, **decidim-assemblies**, **decidim-participatory-processes**: Add CSV Import to Participatory Space Private Users. [\#5304](https://github.com/decidim/decidim/pull/5304)
 - **decidim-participatory-processes**: Add: process group presenter [#5289](https://github.com/decidim/decidim/pull/5289)
