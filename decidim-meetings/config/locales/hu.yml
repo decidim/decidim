@@ -43,7 +43,7 @@ hu:
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Ezt az email címet már meghívták
+              already_invited: Felhasználót ezzel az emailcímmel már meghívták
     models:
       decidim/meetings/close_meeting_event: Találkozó lezárva
       decidim/meetings/create_meeting_event: Találkozó
@@ -82,7 +82,7 @@ hu:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             default_registration_terms: Alapértelmezett regisztrációs feltételek
-            enable_pads_creation: A párna létrehozásának engedélyezése
+            enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
           step:
             announcement: Közlemény
