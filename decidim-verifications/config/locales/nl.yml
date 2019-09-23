@@ -104,6 +104,7 @@ nl:
             title: U moet de csv-telling voor deze organisatie activeren
           new:
             file: ".csv-bestand met e-mailgegevens"
+            info: 'Moet een bestand zijn in CSV formaat met slechts één kolom met het e-mailadres:'
             submit: Upload bestand
             title: Upload een nieuwe telling
         authorizations:
