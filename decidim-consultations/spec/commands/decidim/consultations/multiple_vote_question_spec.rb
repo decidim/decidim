@@ -45,6 +45,7 @@ module Decidim
         let(:forms) do
           [form1]
         end
+
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
         end
@@ -54,13 +55,13 @@ module Decidim
         before do
           question.max_votes = 2
         end
+
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
         end
       end
 
       context "when user votes the right number of options" do
-
         it "broadcasts ok" do
           expect { subject.call }.to broadcast :ok
         end

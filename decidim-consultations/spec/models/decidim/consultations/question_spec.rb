@@ -36,7 +36,7 @@ module Decidim
       describe ".multiple?" do
         let(:question) { create(:question) }
 
-        context "when max_votes is not defined"  do
+        context "when max_votes is not defined" do
           it "returns false" do
             expect(question.multiple?).to be(false)
           end
@@ -44,6 +44,7 @@ module Decidim
 
         context "when max_votes is defined" do
           let(:max_votes) { 2 }
+
           it "returns true" do
             expect(question.multiple?).not_to be(true)
           end

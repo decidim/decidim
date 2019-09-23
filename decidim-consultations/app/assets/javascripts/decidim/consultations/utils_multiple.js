@@ -14,6 +14,8 @@ $(document).ready(function () {
       $(this).attr("checked", false);
       event.preventDefault();
     }
-    $remainingVotesCount.text(max);
+    else {
+      $remainingVotesCount.text(max);
+    }
   });
 });

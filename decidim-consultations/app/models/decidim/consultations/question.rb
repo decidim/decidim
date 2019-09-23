@@ -82,8 +82,9 @@ module Decidim
       # Multiple answers allowed?
       def multiple?
         return false if external_voting
+        return false if max_votes.blank?
 
-        !!(max_votes&.> 1)
+        max_votes > 1
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
