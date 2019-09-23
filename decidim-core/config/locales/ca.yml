@@ -584,6 +584,9 @@ ca:
       current_image: Imatge actual
       default_image: Imatge predeterminada
       errors:
+        decidim/user:
+          password: La contrasenya és massa curta.
+          password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
@@ -1212,6 +1215,7 @@ ca:
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
+      not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
