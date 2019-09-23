@@ -136,7 +136,7 @@ hu:
       badges:
         attended_meetings:
           conditions:
-            - Regisztráljon a résztvevő találkozókon
+            - Regisztráljon a találkozóra, amelyen részt szeretne venni
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
           description_own: '%{score} találkozóra vett részt.'
@@ -161,7 +161,7 @@ hu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Napirendi pont hozzáadása altételekhez
+            add_agenda_item_child: Napirendi alpont hozzáadása
             agenda_item: Napirendi pont
             agenda_item_children: Napirendi alpont
             down: Le
@@ -205,8 +205,8 @@ hu:
             attendee_type: Résztvevő típusa
             existing_user: Létező felhasználó
             invite: Meghívás
-            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethet csatlakozásra.
-            non_user: Nem létező felhasználó
+            invite_explanation: A felhasználó meghívást kap a találkozóra és a szervezethez való csatlakozásra.
+            non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
             filter:
