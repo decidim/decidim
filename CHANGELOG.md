@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-core**: Adds new language: Norwegian [#5334](https://github.com/decidim/decidim/pull/5334)
+
 **Changed**:
 
 **Fixed**:
