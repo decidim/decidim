@@ -14,7 +14,7 @@
     <code class="fingerprint-source"><%= decidim_html_escape model.fingerprint.source %></code>
   </p>
 
-  <p><%= t "decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank") %>
+  <p><%= t "decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener") %>
 
   <button class="close-button" data-close type="button">
     <span aria-hidden="true">&times;</span>
