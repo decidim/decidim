@@ -31,13 +31,13 @@ hu:
       organization:
         update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
       user:
-        grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
+        grant_id_documents_offline_verification: "%{user_name} hitelesítve %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         csv_census:
           help:
             - Az adminisztrátorok CSV-t töltenek fel az elfogadott résztvevők emailcímeivel
-            - Csak azok a résztvevők kaphatnak igazolást, akik e CSV-fájlban e-mailt tartalmaznak
+            - Csak azok a résztvevők kaphatnak igazolást, akiknek az emailje megtalálható a CSV-fájlban
         id_documents:
           help:
             - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
@@ -46,7 +46,7 @@ hu:
             - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-            - A felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - Felhasználók a lakcímükre kérik az ellenőrző kódot.
             - A kódot tartalmazó levelet a lakcímükre küldöd el.
             - Levél elküldöttként megjelölve.
             - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
