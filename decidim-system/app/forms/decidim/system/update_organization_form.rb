@@ -12,22 +12,13 @@ module Decidim
 
       mimic :organization
 
+      include HasSmtpSettings
+
       attribute :name, String
       attribute :host, String
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
-      jsonb_attribute :smtp_settings, [
-        [:from, String],
-        [:from_email, String],
-        [:from_label, String],
-        [:user_name, String],
-        [:encrypted_password, String],
-        [:address, String],
-        [:port, Integer],
-        [:authentication, String],
-        [:enable_starttls_auto, Boolean]
-      ]
 
       attr_writer :password
 
@@ -53,23 +44,6 @@ module Decidim
 
       def password
         Decidim::AttributeEncryptor.decrypt(encrypted_password) unless encrypted_password.nil?
-      end
-
-      def encrypted_smtp_settings
-        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
-      end
-
-      def set_from
-        if smtp_settings[:from_label].blank?
-          smtp_settings.merge(from: "#{smtp_settings[:from_email]} <#{smtp_settings[:from_email]}>")
-        else
-          smtp_settings.merge(from: "#{smtp_settings[:from_label]} <#{smtp_settings[:from_email]}>")
-        end
-      end
-
-      def set_smtp_settings
-        encrypted_smtp_settings
-        set_from
       end
 
       private

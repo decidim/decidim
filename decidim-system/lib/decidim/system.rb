@@ -9,5 +9,6 @@ module Decidim
   # eye view of the whole system.
   #
   module System
+    autoload :HasSmtpSettings, "decidim/has_smtp_settings"
   end
 end
