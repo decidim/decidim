@@ -1217,6 +1217,9 @@ ca:
       nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
+      not_saved:
+        one: 'S''ha produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: És massa curt (menys de 15 caràcters)
