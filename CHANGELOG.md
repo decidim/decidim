@@ -6,7 +6,7 @@
 
 **Changed**:
 
-- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#????](https://github.com/decidim/decidim/pull/????)
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5355](https://github.com/decidim/decidim/pull/5355)
 
 **Fixed**:
 
