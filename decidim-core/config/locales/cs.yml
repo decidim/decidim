@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -36,23 +37,23 @@ cs:
         remember_me: Zapamatuj si mě
     models:
       decidim/amendment:
-        one: Pozměňovací návrh
         few: Změny
         many: Změny
+        one: Pozměňovací návrh
         other: Změny
       decidim/user:
-        one: Žádní uživatelé
         few: Uživatelé
         many: Uživatelé
+        one: Žádní uživatelé
         other: Uživatelé
       decidim/user_group:
-        one: Uživatelská skupina
         few: Skupiny uživatelů
         many: Skupiny uživatelů
+        one: Uživatelská skupina
         other: Skupiny uživatelů
   booleans:
-    'false': 'Ne'
-    'true': 'Ano'
+    'false': Ne
+    'true': Ano
   carrierwave:
     errors:
       image_too_big: Obraz je příliš velký
@@ -163,7 +164,9 @@ cs:
           evaluating: |-
             Tato změna pro hodnocení %{amendable_type} %{amendable_link}
             se hodnotí.
-          rejected: "Tato změna pro %{amendable_type} %{amendable_link}\nbyla zamítnuta na <strong>%{announcement_date}</strong>."
+          rejected: |-
+            Tato změna pro %{amendable_type} %{amendable_link}
+            byla zamítnuta na <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Tato změna pro číslo %{amendable_type} %{amendable_link}
             byla autorem stažena.
@@ -188,9 +191,9 @@ cs:
     application:
       collection:
         documents:
-          one: Dokument
           few: Dokumenty
           many: Dokumenty
+          one: Dokument
           other: Dokumenty
       documents:
         related_documents: Související dokumenty
@@ -198,9 +201,9 @@ cs:
         related_photos: Související fotografie
     author:
       comments:
-        one: komentář
         few: komentáře
         many: komentáře
+        one: komentář
         other: komentáře
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -262,9 +265,9 @@ cs:
           title: potvrďte svůj email
     collapsible_list:
       hidden_elements_count:
-        one: a %{count} dalších
         few: a %{count} dalších
         many: a %{count} dalších
+        one: a %{count} dalších
         other: a %{count} dalších
       see_less: "(viz níže)"
       see_more: "(vidět víc)"
@@ -560,7 +563,7 @@ cs:
       badges:
         continuity:
           conditions:
-            - Přijďte sem často
+          - Přijďte sem často
           description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
           description_another: Tento uživatel se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
           description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
@@ -570,10 +573,10 @@ cs:
           unearned_own: Nejste připojeni více než jeden po sobě následující den.
         followers:
           conditions:
-            - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
+          - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
           description: Tento odznak je udělen, když dosáhnete určitého počtu následovníků. %{organization_name} je společenská a politická síť, tkát váš web komunikovat s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
-          description_own: "Uživatelé vás sledují %{score} uživatelů."
+          description_own: Uživatelé vás sledují %{score} uživatelů.
           name: Následovníci
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
           unearned_another: Tento uživatel ještě nemá žádné sledujících.
@@ -585,9 +588,9 @@ cs:
           title: Odznaky
         invitations:
           conditions:
-            - Pomocí odkazu "pozvat přátele" na své uživatelské stránce můžete pozvat své přátele
-            - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
-            - Vyrovnáváte tím, že posíláte pozvánky a získáte je.
+          - Pomocí odkazu "pozvat přátele" na své uživatelské stránce můžete pozvat své přátele
+          - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
+          - Vyrovnáváte tím, že posíláte pozvánky a získáte je.
           description: Tento odznak je udělen, když jste pozvali některé lidi a tráví čas, aby se zaregistrovali v %{organization_name} a stali se účastníky. Děkujeme za %{organization_name} je známo, že ostatní a pomáhá rozšířit komunitu!
           description_another: Tento uživatel pozval %{score} uživatelů.
           description_own: Pozvali jste %{score} uživatelů.
@@ -961,9 +964,9 @@ cs:
         unfold: Rozvinout
       results:
         results:
-          one: "%{count} výsledek"
           few: "%{count} výsledků"
           many: "%{count} výsledků"
+          one: "%{count} výsledek"
           other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
     shared:
@@ -1155,9 +1158,9 @@ cs:
         sign_in_with_provider: Přihlaste se pomocí %{provider}
         sign_up: Přihlásit se
       minimum_password_length:
-        one: "(Minimálně%{count} znaků)"
         few: "(Minimálně%{count} znaků)"
         many: "(Minimálně%{count} znaků)"
+        one: "(Minimálně%{count} znaků)"
         other: "(Minimálně%{count} znaků)"
     unlocks:
       new:
@@ -1182,9 +1185,9 @@ cs:
       not_found: nenalezeno
       not_locked: nebyla zamčená
       not_saved:
-        one: '1 chyba zakázala uložení tohoto %{resource}:'
         few: "%{count} chybám bylo zakázáno %{resource} uloženo:"
         many: "%{count} chybám bylo zakázáno %{resource} uloženo:"
+        one: '1 chyba zakázala uložení tohoto %{resource}:'
         other: "%{count} chybám bylo zakázáno %{resource} uloženo:"
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)

@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -136,7 +137,7 @@ fi-pl:
       badges:
         attended_meetings:
           conditions:
-            - Ilmoittaudu tapahtumiin, joihin haluat osallistua
+          - Ilmoittaudu tapahtumiin, joihin haluat osallistua
           description: Tämä kunniamerkki myönnetään, kun osallistut useisiin tapahtumiin.
           description_another: Tämä käyttäjä on osallistunut %{score} tapahtumaan.
           description_own: Olet osallistunut %{score} tapahtumaan.

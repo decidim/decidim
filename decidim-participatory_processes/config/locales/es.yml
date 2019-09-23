@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -261,7 +262,7 @@ es:
         participatory_processes:
           contextual: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
           page: "<p>Un <strong>proceso participativo</strong> es una secuencia de actividades participativas (p.e. primero rellenar una encuesta, luego realizar propuestas, debatirlas en encuentros presenciales o virtuales, y finalmente priorizarlas) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros de un comité (donde primero se presentan unas candidaturas, luego se debate y finalmente se elige una candidatura), presupuestos participativos (donde se realizan propuestas, se valoran económicamente y se vota con el dinero disponible), un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de políticas públicas.</p>\n"
-          title: '¿Qué es un proceso participativo?'
+          title: "¿Qué es un proceso participativo?"
     menu:
       processes: Procesos
     metrics:

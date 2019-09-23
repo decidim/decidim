@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -121,14 +122,14 @@ ca:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: S'ha acceptat %{requester_name} per accedir com a contribuidora de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}."
+          email_subject: S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}.
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: S'ha rebutjat %{requester_name} per accedir com a contribuidora de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}."
+          email_subject: S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}.
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
@@ -227,19 +228,19 @@ ca:
       badges:
         accepted_proposals:
           conditions:
-            - Tria l'espai de participació del teu interès amb la creació de propostes activada
-            - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
+          - Tria l'espai de participació del teu interès amb la creació de propostes activada
+          - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
-          description_own: '%{score} de les teves propostes han estat acceptades.'
+          description_own: "%{score} de les teves propostes han estat acceptades."
           name: Propostes acceptades
           next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha aconseguit que s'accepti cap de les seves propostes.
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
-            - Navega i passa un temps llegint les propostes d'altres persones
-            - Dóna suport a les propostes amb les que estiguis d'acord o trobis interessants
+          - Navega i passa un temps llegint les propostes d'altres persones
+          - Dóna suport a les propostes amb les que estiguis d'acord o trobis interessants
           description: Aquest distintiu es concedeix quan dones suport a propostes d'altres persones.
           description_another: Aquesta participant ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
@@ -249,8 +250,8 @@ ca:
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
-            - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
-            - Crea una proposta nova
+          - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
+          - Crea una proposta nova
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
@@ -504,7 +505,7 @@ ca:
         requests:
           accepted_request:
             error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
-            success: "S'ha acceptat amb èxit @%{user} com a contribuïdora"
+            success: S'ha acceptat amb èxit @%{user} com a contribuïdora
           access_requested:
             error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
             success: La teva sol·licitud de col·laboració s'ha enviat correctament

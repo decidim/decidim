@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -54,26 +55,26 @@ ar:
   activerecord:
     models:
       decidim/meetings/meeting:
-        zero: اجتماعات
-        one: لقاء
-        two: اجتماعات
         few: اجتماعات
         many: اجتماعات
+        one: لقاء
         other: اجتماعات
+        two: اجتماعات
+        zero: اجتماعات
       decidim/meetings/minutes:
-        zero: الدقائق
-        one: الدقائق
-        two: الدقائق
         few: الدقائق
         many: الدقائق
+        one: الدقائق
         other: الدقائق
+        two: الدقائق
+        zero: الدقائق
       decidim/meetings/registration:
-        zero: التسجيلات
-        one: التسجيل
-        two: التسجيلات
         few: التسجيلات
         many: التسجيلات
+        one: التسجيل
         other: التسجيلات
+        two: التسجيلات
+        zero: التسجيلات
   decidim:
     admin:
       meeting_copies:
@@ -143,7 +144,7 @@ ar:
       badges:
         attended_meetings:
           conditions:
-            - سجل للاجتماعات التي تريد حضورها
+          - سجل للاجتماعات التي تريد حضورها
           description: تُمنح هذه الشارة عند حضور العديد من الاجتماعات المباشرة.
           description_another: حضر هذا المشارك %{score} جلسة.
           description_own: لقد حضرت %{score} اجتماع.
@@ -289,12 +290,12 @@ ar:
             invites: دعوات
             registration_form: إستمارة تسجيل
             registrations_count:
-              zero: كان هناك %{count} التسجيلات.
-              one: كان هناك %{count} تسجيل.
-              two: كان هناك %{count} التسجيلات.
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
+              one: كان هناك %{count} تسجيل.
               other: كان هناك %{count} التسجيلات.
+              two: كان هناك %{count} التسجيلات.
+              zero: كان هناك %{count} التسجيلات.
             reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
             reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
             title: التسجيلات
@@ -387,12 +388,12 @@ ar:
             validated: التحقق من صحة
             validation_pending: جاري التأكد
           remaining_slots:
-            zero: "%{count} فتحات المتبقية"
-            one: "%{count} فتحة المتبقية"
-            two: "%{count} فتحات المتبقية"
             few: "%{count} فتحات المتبقية"
             many: "%{count} فتحات المتبقية"
+            one: "%{count} فتحة المتبقية"
             other: "%{count} فتحات المتبقية"
+            two: "%{count} فتحات المتبقية"
+            zero: "%{count} فتحات المتبقية"
           view: رأي
       meetings_map:
         view_meeting: عرض الاجتماع

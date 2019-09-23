@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -74,8 +75,6 @@ nl-BE:
         new_process_group: New process group
         new_process_step: New step
         new_process_user_role: New process user
-        participatory_process:
-          new: New process
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
@@ -201,8 +200,6 @@ nl-BE:
           success: Participatory process created successfully. Configure now its steps.
         edit:
           update: Update
-        form:
-          title: General Information
         index:
           not_published: Not published
           private: Private
@@ -318,8 +315,6 @@ nl-BE:
             more_information: More information
             participate: Participate
             see_all_processes: See all processes
-      participatory_process_groups:
-        none: None
       participatory_processes:
         filters:
           counters:

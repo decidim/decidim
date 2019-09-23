@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ cs:
       admin:
         csv_census:
           help:
-            - Správci nahrají CSV s e-maily přijatých účastníků
-            - Ověřit se mohou pouze účastníci s e-mailem v tomto souboru CSV
+          - Správci nahrají CSV s e-maily přijatých účastníků
+          - Ověřit se mohou pouze účastníci s e-mailem v tomto souboru CSV
         id_documents:
           help:
-            - Uživatelé vyplní informace o své identitě a nahrají kopii dokumentu.
-            - Vyplníte informace obsažené v nahraném obrázku.
-            - Informace by měly odpovídat uživateli, který vyplnil.
-            - Pokud nemůžete informace zřetelně vidět nebo ji nelze ověřit, můžete žádost odmítnout a uživatel ji bude moci opravit.
+          - Uživatelé vyplní informace o své identitě a nahrají kopii dokumentu.
+          - Vyplníte informace obsažené v nahraném obrázku.
+          - Informace by měly odpovídat uživateli, který vyplnil.
+          - Pokud nemůžete informace zřetelně vidět nebo ji nelze ověřit, můžete žádost odmítnout a uživatel ji bude moci opravit.
         postal_letter:
           help:
-            - Uživatelé požadují, aby jejich adresa byla odeslána ověřovacímu kódu.
-            - Na adresu zasíláte dopis s ověřovacím kódem.
-            - Označte písmeno jako odesláno.
-            - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
+          - Uživatelé požadují, aby jejich adresa byla odeslána ověřovacímu kódu.
+          - Na adresu zasíláte dopis s ověřovacím kódem.
+          - Označte písmeno jako odesláno.
+          - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
       csv_census:
         explanation: Získejte ověření pomocí sčítání organizace
         name: Sčítání organizace
@@ -113,9 +114,9 @@ cs:
             success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
-          one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
           few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
           many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
           other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
       id_documents:
         admin:

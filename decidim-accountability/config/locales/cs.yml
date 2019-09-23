@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -27,9 +28,9 @@ cs:
   activerecord:
     models:
       decidim/accountability/result:
-        one: Výsledek
         few: Výsledek
         many: Výsledek
+        one: Výsledek
         other: Výsledek
   decidim:
     accountability:
@@ -142,9 +143,9 @@ cs:
       results:
         count:
           results_count:
-            one: 1 výsledek
             few: "%{count} výsledků"
             many: "%{count} výsledků"
+            one: 1 výsledek
             other: "%{count} výsledků"
         filters:
           all: Všechno

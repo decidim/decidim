@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -37,26 +38,26 @@ ar:
   activerecord:
     models:
       decidim/conference:
-        zero: المؤتمرات
-        one: مؤتمر
-        two: المؤتمرات
         few: المؤتمرات
         many: المؤتمرات
+        one: مؤتمر
         other: المؤتمرات
+        two: المؤتمرات
+        zero: المؤتمرات
       decidim/conference_speaker:
-        zero: المتحدثون في المؤتمر
-        one: رئيس المؤتمر
-        two: المتحدثون في المؤتمر
         few: المتحدثون في المؤتمر
         many: المتحدثون في المؤتمر
+        one: رئيس المؤتمر
         other: المتحدثون في المؤتمر
+        two: المتحدثون في المؤتمر
+        zero: المتحدثون في المؤتمر
       decidim/conference_user_role:
-        zero: أدوار مستخدم المؤتمر
-        one: دور مستخدم المؤتمر
-        two: أدوار مستخدم المؤتمر
         few: أدوار مستخدم المؤتمر
         many: أدوار مستخدم المؤتمر
+        one: دور مستخدم المؤتمر
         other: أدوار مستخدم المؤتمر
+        two: أدوار مستخدم المؤتمر
+        zero: أدوار مستخدم المؤتمر
   decidim:
     admin:
       actions:
@@ -261,7 +262,7 @@ ar:
       conference:
         create: "%{user_name} أنشأ المؤتمر %{resource_name}"
         publish: "%{user_name} نشر المؤتمر %{resource_name}"
-        send_conference_diplomas: "أرسلت %{user_name} شهادات حضور إلى %{resource_name} atendees المؤتمر"
+        send_conference_diplomas: أرسلت %{user_name} شهادات حضور إلى %{resource_name} atendees المؤتمر
         unpublish: "%{user_name} غير منشور في المؤتمر %{resource_name}"
         update: "%{user_name} تحديث المؤتمر %{resource_name}"
         update_diploma: "%{user_name} تحديث شهادات تكوين الحضور لمؤتمر %{resource_name}"
@@ -339,12 +340,12 @@ ar:
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             registrations_count:
-              zero: كان هناك %{count} التسجيلات.
-              one: كان هناك 1 تسجيل.
-              two: كان هناك %{count} التسجيلات.
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
+              one: كان هناك 1 تسجيل.
               other: كان هناك %{count} التسجيلات.
+              two: كان هناك %{count} التسجيلات.
+              zero: كان هناك %{count} التسجيلات.
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         diplomas:
           edit:
@@ -571,12 +572,12 @@ ar:
           promoted_conferences: المؤتمرات البارزة
         order_by_conferences:
           conferences:
-            zero: "%{count} مؤتمرات"
-            one: "%{count} مؤتمر"
-            two: "%{count} مؤتمرات"
             few: "%{count} مؤتمرات"
             many: "%{count} مؤتمرات"
+            one: "%{count} مؤتمر"
             other: "%{count} مؤتمرات"
+            two: "%{count} مؤتمرات"
+            zero: "%{count} مؤتمرات"
         promoted_conference:
           more_info: مزيد من المعلومات
           take_part: خذ جزء

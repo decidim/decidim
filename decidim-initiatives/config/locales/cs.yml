@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -48,19 +49,19 @@ cs:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativní
         few: Iniciativy
         many: Iniciativy
+        one: Initativní
         other: Iniciativy
       decidim/initiative_comittee:
-        one: Výbor
         few: Výbory
         many: Výbory
+        one: Výbor
         other: Výbory
       decidim/initiative_vote:
-        one: Podpis
         few: Podpisy
         many: Podpisy
+        one: Podpis
         other: Podpisy
   decidim:
     admin:
@@ -126,8 +127,8 @@ cs:
       badges:
         initiatives:
           conditions:
-            - Jděte do prostoru účasti iniciativ
-            - Postupujte podle kroků k vytvoření nové iniciativy
+          - Jděte do prostoru účasti iniciativ
+          - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
           description_own: Máte k dispozici %{score} iniciativ.
@@ -348,15 +349,15 @@ cs:
           deleted: Vymazáno
         author_list:
           hidden_authors_count:
-            one: a 1 další osobou
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
+            one: a 1 další osobou
             other: a %{count} dalších lidí
         count:
           title:
-            one: "%{count}"
             few: "%{count} iniciativ"
             many: "%{count} iniciativ"
+            one: "%{count}"
             other: "%{count} iniciativ"
         filters:
           any: Žádný
@@ -378,9 +379,9 @@ cs:
         interactions:
           comments_count:
             count:
-              one: Komentář
               few: Komentáře
               many: Komentáře
+              one: Komentář
               other: Komentáře
         orders:
           label: 'Třídit iniciativy podle:'
@@ -404,23 +405,23 @@ cs:
         signature_identities:
           select_identity: Vyberte identifikátor uživatele
         signatures_count:
-          one: " podpis"
           few: " podpisy"
           many: " podpisy"
+          one: " podpis"
           other: " podpisy"
         supports:
           title: Výpis podpisů
         vote_cabin:
           already_voted: Již jste podepsal
-          supports_required: "Vyžaduje se %{total_supports} podpisů"
+          supports_required: Vyžaduje se %{total_supports} podpisů
           verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
         votes_count:
           count:
-            one: PODPIS
             few: PODPISY
             many: PODPISY
+            one: PODPIS
             other: PODPISY
           most_popular_initiative: Nejoblíbenější iniciativa
           need_more_votes: Potřebujete další podpisy

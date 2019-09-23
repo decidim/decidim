@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -228,10 +229,6 @@ nl-BE:
           error: There was an error updating this category.
           success: Category updated successfully.
       component_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
         update:
           success: Permissions updated successfully.
       components:
@@ -481,8 +478,6 @@ nl-BE:
           save: Save
           title: New newsletter
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
           preview: Preview
           subject: Subject
         update:

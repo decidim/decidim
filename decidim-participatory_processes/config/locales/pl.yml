@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -54,19 +55,19 @@ pl:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Proces partycypacyjny
         few: Procesy partycypacyjne
         many: Procesy partycypacyjne
+        one: Proces partycypacyjny
         other: Procesy partycypacyjne
       decidim/participatory_process_group:
-        one: Uczestnicza grupa procesowa
         few: Uczestniczące grupy procesów
         many: Uczestniczące grupy procesów
+        one: Uczestnicza grupa procesowa
         other: Uczestniczące grupy procesów
       decidim/participatory_process_step:
-        one: Krok
         few: Kroki
         many: Kroki
+        one: Krok
         other: Kroki
   decidim:
     admin:
@@ -278,9 +279,9 @@ pl:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 procesy dla %{group}
           few: "%{count} procesów dla %{group}"
           many: "%{count} procesów dla %{group}"
+          one: 1 procesy dla %{group}
           other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -331,24 +332,24 @@ pl:
         filters:
           counters:
             active:
-              one: 1 aktywny proces
               few: "%{count} aktywnych procesów"
               many: "%{count} aktywnych procesów"
+              one: 1 aktywny proces
               other: "%{count} aktywnych procesów"
             all:
-              one: 1 proces
               few: "%{count} procesów"
               many: "%{count} procesów"
+              one: 1 proces
               other: "%{count} procesów"
             past:
-              one: 1 przeszły proces
               few: "%{count} przeszłych procesów"
               many: "%{count} przeszłych procesów"
+              one: 1 przeszły proces
               other: "%{count} przeszłych procesów"
             upcoming:
-              one: 1 nadchodzący proces
               few: "%{count} nadchodzących procesów"
               many: "%{count} nadchodzących procesów"
+              one: 1 nadchodzący proces
               other: "%{count} nadchodzących procesów"
           explanations:
             no_active: Brak aktywnych procesów

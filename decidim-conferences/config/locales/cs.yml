@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -37,19 +38,19 @@ cs:
   activerecord:
     models:
       decidim/conference:
-        one: Konference
         few: Konference
         many: Konference
+        one: Konference
         other: Konference
       decidim/conference_speaker:
-        one: Konferenční reproduktor
         few: Konferenční reproduktory
         many: Konferenční reproduktory
+        one: Konferenční reproduktor
         other: Konferenční reproduktory
       decidim/conference_user_role:
-        one: Uživatelská role konference
         few: Konference uživatelských rolí
         many: Konference uživatelských rolí
+        one: Uživatelská role konference
         other: Konference uživatelských rolí
   decidim:
     admin:
@@ -334,9 +335,9 @@ cs:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             registrations_count:
-              one: Došlo k 1 registraci.
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
+              one: Došlo k 1 registraci.
               other: Bylo zde %{count} registrací.
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         diplomas:
@@ -566,9 +567,9 @@ cs:
           promoted_conferences: Propagované konference
         order_by_conferences:
           conferences:
-            one: "%{count} konference"
             few: "%{count} konferencí"
             many: "%{count} konferencí"
+            one: "%{count} konference"
             other: "%{count} konferencí"
         promoted_conference:
           more_info: Více informací

@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -54,19 +55,19 @@ pl:
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Spotkanie
         few: Spotkania
         many: Spotkania
+        one: Spotkanie
         other: Spotkania
       decidim/meetings/minutes:
-        one: Minuty
         few: Minuty
         many: Minuty
+        one: Minuty
         other: Minuty
       decidim/meetings/registration:
-        one: Rejestracja
         few: Rejestracje
         many: Rejestracje
+        one: Rejestracja
         other: Rejestracje
   decidim:
     admin:
@@ -142,7 +143,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkaniach, które chcesz wziąć udział
+          - Zarejestruj się na spotkaniach, które chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy bierzesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Brałeś udział w %{score} spotkaniach.
@@ -288,9 +289,9 @@ pl:
             invites: Zaprasza
             registration_form: Formularz rejestracyjny
             registrations_count:
-              one: Nie było rejestracji %{count}.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
+              one: Nie było rejestracji %{count}.
               other: Zarejestrowano %{count} rejestracji.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
@@ -383,10 +384,10 @@ pl:
             validated: WALIDACJA
             validation_pending: OCZEKUJE WERYFIKACJI
           remaining_slots:
-            one: "Pozostało %{count} szczelin"
-            few: "Pozostało %{count} gniazd"
-            many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count} gniazd"
+            few: Pozostało %{count} gniazd
+            many: Pozostało %{count} gniazd
+            one: Pozostało %{count} szczelin
+            other: Pozostało %{count} gniazd
           view: Widok
       meetings_map:
         view_meeting: Zobacz spotkanie

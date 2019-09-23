@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -59,29 +60,29 @@ cs:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Návrh spolupráce
         few: Společné návrhy
         many: Společné návrhy
+        one: Návrh spolupráce
         other: Společné návrhy
       decidim/proposals/proposal:
-        one: Návrh
         few: Návrhy
         many: Návrhy
+        one: Návrh
         other: Návrhy
       decidim/proposals/proposal_endorsement:
-        one: Schválení
         few: Potvrzení
         many: Potvrzení
+        one: Schválení
         other: Potvrzení
       decidim/proposals/proposal_note:
-        one: Poznámka
         few: Poznámky
         many: Poznámky
+        one: Poznámka
         other: Poznámky
       decidim/proposals/proposal_vote:
-        one: Hlasování
         few: Hlasy
         many: Hlasy
+        one: Hlasování
         other: Hlasy
   decidim:
     components:
@@ -237,8 +238,8 @@ cs:
       badges:
         accepted_proposals:
           conditions:
-            - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
-            - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
+          - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
+          - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
           description: Tento odznak se uděluje, když se aktivně účastníte nových návrhů a jsou přijaty.
           description_another: Uživatel obdržel %{score} přijatých návrhů.
           description_own: Bylo přijato %{score} návrhů.
@@ -248,8 +249,8 @@ cs:
           unearned_own: Dosud jste žádné návrhy nepřijali.
         proposal_votes:
           conditions:
-            - Procházet a strávit nějaký čas čtením návrhů jiných lidí
-            - Podpořte návrhy, které se vám líbí nebo které jsou zajímavé
+          - Procházet a strávit nějaký čas čtením návrhů jiných lidí
+          - Podpořte návrhy, které se vám líbí nebo které jsou zajímavé
           description: Tento odznak je udělen při podpoře návrhů jiných lidí.
           description_another: Tento uživatel podpořil %{score} návrhů.
           description_own: Podporili jste %{score} návrhů.
@@ -259,8 +260,8 @@ cs:
           unearned_own: Podporili jste ještě žádné návrhy.
         proposals:
           conditions:
-            - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
-            - Vytvořte nový návrh
+          - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
+          - Vytvořte nový návrh
           description: Tento odznak je udělen, když se aktivně podílíte na nových návrzích.
           description_another: Tento uživatel vytvořil %{score} návrhů.
           description_own: Vytvořili jste %{score} návrhů.
@@ -474,9 +475,9 @@ cs:
           title: Dokončete návrh spolupráce
         count:
           drafts_count:
-            one: "%{count} návrh spolupráce"
             few: "%{count} návrh spolupráce"
             many: "%{count} návrh spolupráce"
+            one: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
           error: Při vytváření tohoto konceptu spolupráce došlo k potížím
@@ -533,9 +534,9 @@ cs:
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
-            one: a %{count} další osoba
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
+            one: a %{count} další osoba
             other: a %{count} dalších lidí
           info-message: Jedná se o <strong>kolaborativní návrh</strong> k návrhu. To znamená, že můžete pomoci jejich autorům formovat návrh pomocí níže uvedené poznámky nebo je vylepšit přímo tím, že požádáte o přístup k jeho úpravám. Jakmile vám autoři udělí přístup, budete moci tento návrh provést.
           of_versions: "(z %{number})"
@@ -625,9 +626,9 @@ cs:
           title: Dokončete svůj návrh
         count:
           proposals_count:
-            one: "%{count} návrh"
             few: "%{count} návrhů"
             many: "%{count} návrhů"
+            one: "%{count} návrh"
             other: "%{count} návrhů"
         edit:
           attachment_legend: "(Volitelné) Přidání přílohy"
@@ -666,9 +667,9 @@ cs:
           view_proposal: Zobrazit návrh
         linked_proposals:
           proposal_votes:
-            one: hlasování
             few: hlasů
             many: hlasů
+            one: hlasování
             other: hlasů
         new:
           send: Pokračovat
@@ -686,9 +687,9 @@ cs:
         preview:
           modify: Upravte návrh
           proposal_edit_before_minutes:
-            one: Tento návrh budete moci upravit během první minuty po zveřejnění návrhu. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
             few: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
             many: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
+            one: Tento návrh budete moci upravit během první minuty po zveřejnění návrhu. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
             other: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
           publish: Publikovat
           title: Publikujte svůj návrh
@@ -700,9 +701,9 @@ cs:
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
           hidden_endorsers_count:
-            one: a %{count} další osoba
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
+            one: a %{count} další osoba
             other: a %{count} dalších lidí
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného návrhu. Zkontrolujte historii
           link_to_collaborative_draft_text: Viz schéma spolupráce
@@ -725,9 +726,9 @@ cs:
           votes_blocked: Hlasování je zakázáno
         votes_count:
           count:
-            one: HLASOVÁNÍ
             few: HLASOVÁNÍ
             many: HLASOVÁNÍ
+            one: HLASOVÁNÍ
             other: HLASOVÁNÍ
           most_popular_proposal: Nejoblíbenější návrh
           need_more_votes: Potřebujete více hlasů

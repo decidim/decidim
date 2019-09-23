@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -54,26 +55,26 @@ ar:
   activerecord:
     models:
       decidim/participatory_process:
-        zero: العمليات التشاركية
-        one: عملية المشاركة
-        two: العمليات التشاركية
         few: العمليات التشاركية
         many: العمليات التشاركية
+        one: عملية المشاركة
         other: العمليات التشاركية
+        two: العمليات التشاركية
+        zero: العمليات التشاركية
       decidim/participatory_process_group:
-        zero: مجموعات العملية التشاركية
-        one: مجموعة عملية المشاركة
-        two: مجموعات العملية التشاركية
         few: مجموعات العملية التشاركية
         many: مجموعات العملية التشاركية
+        one: مجموعة عملية المشاركة
         other: مجموعات العملية التشاركية
+        two: مجموعات العملية التشاركية
+        zero: مجموعات العملية التشاركية
       decidim/participatory_process_step:
-        zero: المراحل
-        one: مرحلة
-        two: المراحل
         few: المراحل
         many: المراحل
+        one: مرحلة
         other: المراحل
+        two: المراحل
+        zero: المراحل
   decidim:
     admin:
       actions:
@@ -255,7 +256,7 @@ ar:
       participatory_process_user_role:
         create: "%{user_name} دعا المشارك %{resource_name} إلى العملية التشاركية %{space_name}"
         delete: "%{user_name} أزال المشارك %{resource_name} من العملية التشاركية %{space_name}"
-        update: "غير %{user_name} دور المشارك %{resource_name} في العملية التشاركية %{space_name}"
+        update: غير %{user_name} دور المشارك %{resource_name} في العملية التشاركية %{space_name}
     events:
       participatory_process:
         step_activated:
@@ -284,12 +285,12 @@ ar:
     participatory_process_groups:
       show:
         group_participatory_processes:
-          zero: "%{count} عمليات ل %{group}"
-          one: 1 عملية ل %{group}
-          two: "%{count} عمليات ل %{group}"
           few: "%{count} عمليات ل %{group}"
           many: "%{count} عمليات ل %{group}"
+          one: 1 عملية ل %{group}
           other: "%{count} عمليات ل %{group}"
+          two: "%{count} عمليات ل %{group}"
+          zero: "%{count} عمليات ل %{group}"
         title: مجموعات العملية التشاركية
     participatory_process_steps:
       index:
@@ -339,33 +340,33 @@ ar:
         filters:
           counters:
             active:
-              zero: "%{count} عمليات نشطة"
-              one: 1 عملية نشطة
-              two: "%{count} عمليات نشطة"
               few: "%{count} عمليات نشطة"
               many: "%{count} عمليات نشطة"
+              one: 1 عملية نشطة
               other: "%{count} عمليات نشطة"
+              two: "%{count} عمليات نشطة"
+              zero: "%{count} عمليات نشطة"
             all:
-              zero: "%{count} عمليات"
-              one: 1 عملية
-              two: "%{count} عمليات"
               few: "%{count} عمليات"
               many: "%{count} عمليات"
+              one: 1 عملية
               other: "%{count} عمليات"
+              two: "%{count} عمليات"
+              zero: "%{count} عمليات"
             past:
-              zero: "%{count} العمليات الماضية"
-              one: 1 عملية الماضي
-              two: "%{count} العمليات الماضية"
               few: "%{count} العمليات الماضية"
               many: "%{count} العمليات الماضية"
+              one: 1 عملية الماضي
               other: "%{count} العمليات الماضية"
+              two: "%{count} العمليات الماضية"
+              zero: "%{count} العمليات الماضية"
             upcoming:
-              zero: "%{count} العمليات القادمة"
-              one: 1 العملية القادمة
-              two: "%{count} العمليات القادمة"
               few: "%{count} العمليات القادمة"
               many: "%{count} العمليات القادمة"
+              one: 1 العملية القادمة
               other: "%{count} العمليات القادمة"
+              two: "%{count} العمليات القادمة"
+              zero: "%{count} العمليات القادمة"
           explanations:
             no_active: لا توجد عمليات نشطة
             no_active_nor_upcoming: لا توجد عمليات نشطة ولا قادمة

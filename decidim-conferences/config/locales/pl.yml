@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -37,19 +38,19 @@ pl:
   activerecord:
     models:
       decidim/conference:
-        one: Konferencja
         few: Konferencje
         many: Konferencje
+        one: Konferencja
         other: Konferencje
       decidim/conference_speaker:
-        one: Głośnik konferencyjny
         few: Głośniki konferencyjne
         many: Głośniki konferencyjne
+        one: Głośnik konferencyjny
         other: Głośniki konferencyjne
       decidim/conference_user_role:
-        one: Rola użytkownika konferencyjnego
         few: Rola użytkownika konferencyjnego
         many: Rola użytkownika konferencyjnego
+        one: Rola użytkownika konferencyjnego
         other: Rola użytkownika konferencyjnego
   decidim:
     admin:
@@ -334,9 +335,9 @@ pl:
           form:
             available_slots_help: Pozostaw to 0, jeśli masz dostęp do nieograniczonej liczby miejsc.
             registrations_count:
-              one: Nie było rejestracji 1.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
+              one: Nie było rejestracji 1.
               other: Zarejestrowano %{count} rejestracji.
             slug_help: 'Strumienie adresów URL służą do generowania adresów URL wskazujących na tę konferencję. Akceptuje tylko litery, cyfry i łączniki i musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
@@ -565,9 +566,9 @@ pl:
           promoted_conferences: Promowane konferencje
         order_by_conferences:
           conferences:
-            one: "%{count} konferencji"
             few: "%{count} konferencji"
             many: "%{count} konferencji"
+            one: "%{count} konferencji"
             other: "%{count} konferencji"
         promoted_conference:
           more_info: Więcej informacji

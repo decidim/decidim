@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ ca:
       admin:
         csv_census:
           help:
-            - Els administradors carreguen un CSV amb els correus electrònics de les participants acceptades
-            - Només es poden verificar les participants amb un correu electrònic que figuri en aquest fitxer CSV
+          - Els administradors carreguen un CSV amb els correus electrònics de les participants acceptades
+          - Només es poden verificar les participants amb un correu electrònic que figuri en aquest fitxer CSV
         id_documents:
           help:
-            - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
-            - Completa la informació que es mostra a la imatge pujada.
-            - La informació ha de coincidir amb el que hagi omplert la persona participant.
-            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
+          - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
+          - Completa la informació que es mostra a la imatge pujada.
+          - La informació ha de coincidir amb el que hagi omplert la persona participant.
+          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-            - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-            - Enviar la carta a la seva adreça amb el codi de verificació.
-            - Marcar la carta com a enviada.
-            - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
+          - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+          - Enviar la carta a la seva adreça amb el codi de verificació.
+          - Marcar la carta com a enviada.
+          - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
       csv_census:
         explanation: Verifica't mitjançant el cens de l'organització
         name: Cens de l'organització
@@ -103,7 +104,7 @@ ca:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
           new:
-            file: "fitxer .csv amb dades de correus electrònics"
+            file: fitxer .csv amb dades de correus electrònics
             info: 'Ha de ser un fitxer amb format CSV amb una columna: correu electrònic'
             submit: Puja un document
             title: Puja un nou cens

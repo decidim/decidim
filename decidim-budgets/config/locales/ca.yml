@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -51,7 +52,7 @@ ca:
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
-            success: "S'ha importat amb èxit %{number} propostes en projectes"
+            success: S'ha importat amb èxit %{number} propostes en projectes
           new:
             create: Importa propostes a projectes
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
@@ -84,7 +85,6 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: En quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que desitges i vota per definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -112,7 +113,9 @@ nl:
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Creatie nieuw voorstel toegestaan
             endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: "Aanbevelingen toegestaan\n"
+            endorsements_enabled: 'Aanbevelingen toegestaan
+
+              '
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             suggested_hashtags: Hashtags stelde gebruikers voor nieuwe voorstellen voor
             votes_blocked: Stemmen geblokkeerd
@@ -172,7 +175,7 @@ nl:
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het ''%{resource_title}voorstel goedgekeurd en we denken dat het misschien interessant voor je is. Bekijk het en draag bij:'
+          email_intro: "%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het '%{resource_title}voorstel goedgekeurd en we denken dat het misschien interessant voor je is. Bekijk het en draag bij:"
           email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Meldingen uitschakelen kan door te klikken op de voorgaande link.
           email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel is goedgekeurd door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -227,8 +230,8 @@ nl:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze worden geaccepteerd.
           description_another: Deze gebruiker heeft %{score} voorstellen geaccepteerd gekregen.
           description_own: Je hebt %{score} voorstellen geaccepteerd.
@@ -238,8 +241,8 @@ nl:
           unearned_own: Je hebt nog geen voorstellen geaccepteerd.
         proposal_votes:
           conditions:
-            - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
-            - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
+          - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
+          - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van andere mensen steunt.
           description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
           description_own: U hebt %{score} voorstellen ondersteund.
@@ -249,8 +252,8 @@ nl:
           unearned_own: Je hebt nog geen steun gegeven aan nog geen voorstellen.
         proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Maak een nieuw voorstel
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Maak een nieuw voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.

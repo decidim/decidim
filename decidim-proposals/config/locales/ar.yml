@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -59,40 +60,40 @@ ar:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        zero: المسودات التعاونية
-        one: مشروع تعاوني
-        two: المسودات التعاونية
         few: المسودات التعاونية
         many: المسودات التعاونية
+        one: مشروع تعاوني
         other: المسودات التعاونية
+        two: المسودات التعاونية
+        zero: المسودات التعاونية
       decidim/proposals/proposal:
-        zero: اقتراحات
-        one: اقتراح
-        two: اقتراحات
         few: اقتراحات
         many: اقتراحات
+        one: اقتراح
         other: اقتراحات
+        two: اقتراحات
+        zero: اقتراحات
       decidim/proposals/proposal_endorsement:
-        zero: موافقات
-        one: المصادقة
-        two: موافقات
         few: موافقات
         many: موافقات
+        one: المصادقة
         other: موافقات
+        two: موافقات
+        zero: موافقات
       decidim/proposals/proposal_note:
-        zero: ملاحظات
-        one: ملحوظة
-        two: ملاحظات
         few: ملاحظات
         many: ملاحظات
+        one: ملحوظة
         other: ملاحظات
+        two: ملاحظات
+        zero: ملاحظات
       decidim/proposals/proposal_vote:
-        zero: الدعم
-        one: الدعم
-        two: الدعم
         few: الدعم
         many: الدعم
+        one: الدعم
         other: الدعم
+        two: الدعم
+        zero: الدعم
   decidim:
     components:
       proposals:
@@ -141,14 +142,14 @@ ar:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: 'تم قبول %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: تم قبول %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "تم قبول %{requester_name} للوصول كمساهم في %{resource_title}."
+          email_subject: تم قبول %{requester_name} للوصول كمساهم في %{resource_title}.
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> كان <strong>مقبولة للوصول كمساهم</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع تعاوني.
         collaborative_draft_access_rejected:
-          email_intro: 'تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: لقد تلقيت هذا الإشعار لأنك متعاون مع <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية %{resource_title}."
+          email_subject: تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية %{resource_title}.
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> تم رفض الوصول إلى <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} طلب الوصول كمساهم. يمكنك <strong>قبول أو رفض طلب</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع الصفحة التعاونية.'
@@ -232,8 +233,8 @@ ar:
       badges:
         accepted_proposals:
           conditions:
-            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
-            - حاول تقديم مقترحات يمكن تنفيذها. بهذه الطريقة هم أكثر عرضة للقبول.
+          - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+          - حاول تقديم مقترحات يمكن تنفيذها. بهذه الطريقة هم أكثر عرضة للقبول.
           description: تُمنح هذه الشارة عندما تشارك بفعالية في المقترحات الجديدة ويتم قبولها.
           description_another: هذا المشارك لديه %{score} مقترحات مقبولة.
           description_own: حصلت على %{score} مقترحات مقبولة.
@@ -243,8 +244,8 @@ ar:
           unearned_own: لم تحصل على اقتراحات مقبولة حتى الآن.
         proposal_votes:
           conditions:
-            - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
-            - قدم الدعم للمقترحات التي تحبها أو تجدها مثيرة للاهتمام
+          - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
+          - قدم الدعم للمقترحات التي تحبها أو تجدها مثيرة للاهتمام
           description: تُمنح هذه الشارة عند دعم اقتراحات الآخرين.
           description_another: قدم هذا المشارك الدعم إلى %{score} مقترحات.
           description_own: لقد قدمت الدعم إلى %{score} مقترحات.
@@ -254,8 +255,8 @@ ar:
           unearned_own: لقد قدمت الدعم لأية مقترحات حتى الآن.
         proposals:
           conditions:
-            - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
-            - إنشاء اقتراح جديد
+          - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
+          - إنشاء اقتراح جديد
           description: تُمنح هذه الشارة عندما تشارك بنشاط في مقترحات جديدة.
           description_another: قام هذا المشارك بإنشاء %{score} مقترحات.
           description_own: لقد قمت بإنشاء %{score} مقترحات.
@@ -417,7 +418,7 @@ ar:
           create: "%{user_name} بإنشاء الاقتراح %{resource_name} على الحيز %{space_name} كمقترح رسمي"
           update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
         proposal_note:
-          create: "غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء"
+          create: غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء
       answers:
         accepted: وافقت
         evaluating: تقييم
@@ -467,12 +468,12 @@ ar:
           title: أكمل مسودتك التعاونية
         count:
           drafts_count:
-            zero: "%{count} مسودات تعاونية"
-            one: "%{count} مشروع تعاوني"
-            two: "%{count} مسودات تعاونية"
             few: "%{count} مسودات تعاونية"
             many: "%{count} مسودات تعاونية"
+            one: "%{count} مشروع تعاوني"
             other: "%{count} مسودات تعاونية"
+            two: "%{count} مسودات تعاونية"
+            zero: "%{count} مسودات تعاونية"
         create:
           error: كانت هناك مشكلة في إنشاء هذه المسودات التعاونية
           success: تم إنشاء مشروع تعاوني بنجاح.
@@ -511,7 +512,7 @@ ar:
         requests:
           accepted_request:
             error: لا يمكن قبول كمتعاون ، يرجى المحاولة مرة أخرى في وقت لاحق.
-            success: "تم قبول @%{user} كمتعاون بنجاح"
+            success: تم قبول @%{user} كمتعاون بنجاح
           access_requested:
             error: تعذر إكمال طلبك ، يرجى إعادة المحاولة لاحقًا.
             success: تم إرسال طلبك للتعاون بنجاح
@@ -521,19 +522,19 @@ ar:
             title: طلبات التعاون
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
-            success: "تم رفض @%{user} بنجاح كمتعاون"
+            success: تم رفض @%{user} بنجاح كمتعاون
         show:
           back: الى الخلف
           edit: تحرير المسودة التعاونية
           final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
-            zero: و %{count} المزيد من الناس
-            one: و %{count} شخص آخر
-            two: و %{count} المزيد من الناس
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
             other: و %{count} المزيد من الناس
+            two: و %{count} المزيد من الناس
+            zero: و %{count} المزيد من الناس
           info-message: هذا هو <strong>مشروع تعاوني</strong> لاقتراح. هذا يعني أنه يمكنك مساعدة مؤلفيها في صياغة الاقتراح باستخدام قسم التعليقات أدناه أو تحسينه مباشرةً من خلال طلب الوصول لتحريره. بمجرد أن يمنحك المؤلفون حق الوصول ، ستتمكن من إجراء تغييرات على هذه المسودة.
           of_versions: "(من %{number})"
           publish: نشر
@@ -622,12 +623,12 @@ ar:
           title: أكمل اقتراحك
         count:
           proposals_count:
-            zero: "%{count} مقترحات"
-            one: "%{count} اقتراح"
-            two: "%{count} مقترحات"
             few: "%{count} مقترحات"
             many: "%{count} مقترحات"
+            one: "%{count} اقتراح"
             other: "%{count} مقترحات"
+            two: "%{count} مقترحات"
+            zero: "%{count} مقترحات"
         edit:
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
@@ -665,12 +666,12 @@ ar:
           view_proposal: عرض الاقتراح
         linked_proposals:
           proposal_votes:
-            zero: الدعم
-            one: الدعم
-            two: الدعم
             few: الدعم
             many: الدعم
+            one: الدعم
             other: الدعم
+            two: الدعم
+            zero: الدعم
         new:
           send: استمر
           title: إنشاء اقتراحك
@@ -687,12 +688,12 @@ ar:
         preview:
           modify: تعديل الاقتراح
           proposal_edit_before_minutes:
-            zero: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
-            one: ستتمكن من تعديل هذا الاقتراح خلال الدقيقة الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
-            two: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
             few: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
             many: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            one: ستتمكن من تعديل هذا الاقتراح خلال الدقيقة الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
             other: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            two: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
+            zero: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
           publish: نشر
           title: نشر اقتراحك
         proposal:
@@ -703,12 +704,12 @@ ar:
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
           hidden_endorsers_count:
-            zero: و %{count} المزيد من الناس
-            one: و %{count} شخص آخر
-            two: و %{count} المزيد من الناس
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
+            one: و %{count} شخص آخر
             other: و %{count} المزيد من الناس
+            two: و %{count} المزيد من الناس
+            zero: و %{count} المزيد من الناس
           link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
           link_to_collaborative_draft_text: انظر المسودة التعاونية
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
@@ -730,12 +731,12 @@ ar:
           votes_blocked: يدعم المعوقين
         votes_count:
           count:
-            zero: يدعم
-            one: الدعم
-            two: يدعم
             few: يدعم
             many: يدعم
+            one: الدعم
             other: يدعم
+            two: يدعم
+            zero: يدعم
           most_popular_proposal: الاقتراح الأكثر شعبية
           need_more_votes: بحاجة الى مزيد من الدعم
         voting_rules:

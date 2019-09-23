@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     models:
@@ -8,14 +9,14 @@ cs:
   activerecord:
     models:
       decidim/comments/comment:
-        one: Komentář
         few: Komentáře
         many: Komentáře
+        one: Komentář
         other: Komentáře
       decidim/comments/comment_vote:
-        one: Hlasování
         few: Hlasy
         many: Hlasy
+        one: Hlasování
         other: Hlasy
   decidim:
     comments:
@@ -38,8 +39,8 @@ cs:
             label: Komentovat jako
         opinion:
           neutral: Neutrální
-        remaining_characters: "Zbývá %{count} znaků"
-        remaining_characters_1: "Zbývá %{count} znaků"
+        remaining_characters: Zbývá %{count} znaků
+        remaining_characters_1: Zbývá %{count} znaků
         title: Přidejte svůj komentář
       comment:
         alignment:

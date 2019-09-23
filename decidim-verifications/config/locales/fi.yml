@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -36,20 +37,20 @@ fi:
       admin:
         csv_census:
           help:
-            - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta
-            - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä
+          - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta
+          - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä
         id_documents:
           help:
-            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
-            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
-            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
+          - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+          - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+          - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
+          - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
         postal_letter:
           help:
-            - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
-            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
-            - Sinä merkitset kirjeen lähetetyksi.
-            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
+          - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
+          - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+          - Sinä merkitset kirjeen lähetetyksi.
+          - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation rekisteritietojen avulla
         name: Organisaation rekisteritiedot
@@ -103,7 +104,7 @@ fi:
             body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
-            file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
+            file: sähköpostiosoitteet sisältävä .csv-tiedosto
             info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
             submit: Lataa tiedosto
             title: Lataa uusi rekisteri

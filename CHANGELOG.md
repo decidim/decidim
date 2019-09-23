@@ -104,6 +104,14 @@ end
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-core**: Fix user names migration [#5210](https://github.com/decidim/decidim/pull/5210)
 - **decidim-core**: Fix empty sender SMTP settings [#5260](https://github.com/decidim/decidim/pull/5260)
+- **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
+- **decidim-proposals**: Fix proposals accepted stat when they include hidden proposals [#5276](https://github.com/decidim/decidim/pull/5276)
+- **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
+- **decidim-core**: Add missing locales when creating a new user group [#5262](https://github.com/decidim/decidim/pull/5262)
+- **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5284](https://github.com/decidim/decidim/pull/5284)
+- **decidim-comments**, **decidim-core**, **decidim-verifications**, **decidim-initiatives**: Bugfixing [#5213](https://github.com/decidim/decidim/pull/5213)
+- **decidim-admin**: Fix managed users stolen identities with users having the same name [#5318](https://github.com/decidim/decidim/pull/5318)
+- **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
 
 **Removed**:
 

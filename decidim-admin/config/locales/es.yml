@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -443,7 +444,7 @@ es:
           all: todos
           all_users: 'Todos los usuarios '
           and: 'y '
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
           no_scopes: Sin ámbitos
@@ -457,7 +458,7 @@ es:
         select_recipients_to_deliver:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
-          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
@@ -491,7 +492,7 @@ es:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás segura que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás segura que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar

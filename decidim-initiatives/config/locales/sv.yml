@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -120,8 +121,8 @@ sv:
       badges:
         initiatives:
           conditions:
-            - Gå till deltagarutrymmet för initiativ
-            - Följ stegen för att skapa ett nytt initiativ
+          - Gå till deltagarutrymmet för initiativ
+          - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
           description_another: Användaren har publicerat %{score} initiativ.
           description_own: Du har publicerat %{score} initiativ.

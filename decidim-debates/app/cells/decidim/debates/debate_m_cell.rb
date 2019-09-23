@@ -13,6 +13,10 @@ module Decidim
 
       private
 
+      def translatable?
+        true
+      end
+
       def title
         present(model).title
       end

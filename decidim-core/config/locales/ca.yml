@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -46,7 +47,7 @@ ca:
         other: Grups
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
@@ -151,13 +152,10 @@ ca:
           button_reject: Rebutjar
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació a la seva autora(es).
         announcement:
-          accepted: |-
-            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
-          evaluating: |-
-            Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
+          accepted: Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
+          evaluating: Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
           rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
-          withdrawn: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
+          withdrawn: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
         back: Torna
@@ -239,7 +237,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
+          invalid_field: El valor %{field} %{value} no és vàlid.
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
@@ -542,7 +540,7 @@ ca:
       badges:
         continuity:
           conditions:
-            - Ve aquí sovint
+          - Ve aquí sovint
           description: Aquesta insígnia es concedeix al visitar la plataforma de forma regular. Ens encanta tenir-te per aquí!
           description_another: Aquesta participant s'ha connectat durant %{score} dies consecutius en algun moment.
           description_own: T'has connectat durant %{score} dies consecutius en algun moment.
@@ -552,7 +550,7 @@ ca:
           unearned_own: No t'has connectat més d'un dia consecutiu.
         followers:
           conditions:
-            - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
+          - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta participant té %{score} seguidores.
           description_own: "%{score} participants et segueixen."
@@ -561,15 +559,15 @@ ca:
           unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no tens seguidors.
         index:
-          badge_title: "Insígnia %{name}"
+          badge_title: Insígnia %{name}
           how: Com pots aconseguir-la
           page_description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
           title: Insígnies
         invitations:
           conditions:
-            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
-            - Personalitza, si vols, el missatge que estàs enviant
-            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
+          - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
+          - Personalitza, si vols, el missatge que estàs enviant
+          - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
           description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
           description_another: Aquesta participant ha convidat a %{score} persones.
           description_own: Has convidat %{score} persones.
@@ -1049,8 +1047,7 @@ ca:
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         decline: Declina la invitació
         hello: Hola %{email},
-        ignore: |-
-          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
+        ignore: Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.

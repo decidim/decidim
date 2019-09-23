@@ -7,6 +7,7 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
+    include Decidim::DeeplHelper
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
@@ -20,7 +21,7 @@ module Decidim
     private
 
     def default_locale
-      current_component.organization.default_locale
+      current_organization.default_locale
     end
 
     def current_locale

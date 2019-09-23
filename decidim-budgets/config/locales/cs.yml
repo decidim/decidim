@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -11,9 +12,9 @@ cs:
   activerecord:
     models:
       decidim/budgets/project:
-        one: Projekt
         few: Projekty
         many: Projekty
+        one: Projekt
         other: Projekty
   decidim:
     budgets:
@@ -86,13 +87,12 @@ cs:
           checked_out:
             description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Rozpočet byl dokončen
-          description: Jaké projekty by podle vás měly přidělit rozpočet? Přidejte nejméně %{minimum_budget} projektům, které chcete, a hlasujte podle svých preferencí a definujte rozpočet.
           title: Rozhodnete se pro rozpočet
         count:
           projects_count:
-            one: 1 projekt
             few: "%{count} projektů"
             many: "%{count} projektů"
+            one: 1 projekt
             other: "%{count} projektů"
         filters:
           category: Kategorie
@@ -108,17 +108,17 @@ cs:
         order_selected_projects:
           remove: Odstranit
           selected_projects:
-            one: vybraný projekt
             few: vybraných projektů
             many: vybraných projektů
+            one: vybraný projekt
             other: vybraných projektů
           view: Pohled
         project:
           add: Přidat
           count:
-            one: 1 podpory
             few: "%{count} podporuje"
             many: "%{count} podporuje"
+            one: 1 podpory
             other: "%{count} podporuje"
           remove: Odstranit
           view: Pohled

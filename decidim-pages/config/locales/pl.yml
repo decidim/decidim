@@ -31,6 +31,3 @@ pl:
           update:
             invalid: Podczas zapisywania strony wystąpiły błędy.
             success: Strona została zapisana pomyślnie.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications

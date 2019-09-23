@@ -85,8 +85,6 @@ de-DE:
           success: Assembly created successfully.
         edit:
           update: Update
-        form:
-          title: General Information
         index:
           not_published: Not published
           private: Private

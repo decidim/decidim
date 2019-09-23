@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -27,12 +28,12 @@ ar:
   activerecord:
     models:
       decidim/accountability/result:
-        zero: النتائج
-        one: نتيجة
-        two: النتائج
         few: النتائج
         many: النتائج
+        one: نتيجة
         other: النتائج
+        two: النتائج
+        zero: النتائج
   decidim:
     accountability:
       actions:
@@ -144,12 +145,12 @@ ar:
       results:
         count:
           results_count:
-            zero: "%{count} النتائج"
-            one: نتيجة واحدة
-            two: "%{count} النتائج"
             few: "%{count} النتائج"
             many: "%{count} النتائج"
+            one: نتيجة واحدة
             other: "%{count} النتائج"
+            two: "%{count} النتائج"
+            zero: "%{count} النتائج"
         filters:
           all: الكل
           scopes: نطاقات

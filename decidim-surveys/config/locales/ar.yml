@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     models:
@@ -6,19 +7,19 @@ ar:
   activerecord:
     models:
       decidim/surveys/survey:
-        zero: الدراسات الاستقصائية
-        one: الدراسة الاستقصائية
-        two: الدراسات الاستقصائية
         few: الدراسات الاستقصائية
         many: الدراسات الاستقصائية
+        one: الدراسة الاستقصائية
         other: الدراسات الاستقصائية
+        two: الدراسات الاستقصائية
+        zero: الدراسات الاستقصائية
       decidim/surveys/survey_answer:
-        zero: الأجوبة
-        one: إجابة
-        two: الأجوبة
         few: الأجوبة
         many: الأجوبة
+        one: إجابة
         other: الأجوبة
+        two: الأجوبة
+        zero: الأجوبة
   decidim:
     components:
       surveys:

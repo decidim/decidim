@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -107,9 +108,9 @@ fi-pl:
               must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
         organization:
           attributes:
-            official_img_header:
-              allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_footer:
+              allowed_file_content_types: Virheellinen kuvatiedosto
+            official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
   activerecord:
     attributes:
@@ -439,8 +440,6 @@ fi-pl:
           save: Tallenna
           title: Uusi uutiskirje
         show:
-          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
-          deliver: Toimita uutiskirje
           preview: Esikatsele
           subject: Otsikko
         update:

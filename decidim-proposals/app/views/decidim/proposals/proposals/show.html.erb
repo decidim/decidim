@@ -14,12 +14,12 @@
 %>
 
 <%
-edit_link(
-  resource_locator(@proposal).edit,
-  :edit,
-  :proposal,
-  proposal: @proposal
-)
+  edit_link(
+    resource_locator(@proposal).edit,
+    :edit,
+    :proposal,
+    proposal: @proposal
+  )
 %>
 
 <%= render partial: "voting_rules" %>
@@ -33,9 +33,19 @@ edit_link(
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
-  <h2 class="heading2" data-translatable-title="<%= @proposal.id %>"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+  <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: @proposal)}" %>>
+    <%= present(@proposal).title(links: true, html_escape: true) %></h2>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
+  <% end %>
+
+  <% if translatable? %>
+    <%= translate_button_helper_for(
+          title: @proposal.title,
+          body: @proposal.body,
+          model: @proposal,
+          options: { class: "hide-for-small-only" }
+        ) %>
   <% end %>
 </div>
 <div class="row">
@@ -112,26 +122,20 @@ edit_link(
     <div class="section">
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
-        <span data-translatable-body="<%= @proposal.id %>">
+        <span <%= "id=#{translate_helper_for(element: :body, model: @proposal)}" %>>
           <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
         </span>
-        <% if translatable? %>
-          <div class="card__translate">
-            <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
-              translatabletype: "proposal-show",
-              "translatable-id": @proposal.id,
-              targetlang: deepl_target_locale(current_locale, default_locale),
-              translatable: true,
-              translated: t("decidim.translated"),
-              original: t("decidim.translate")
-            } do %>
-              <%= icon "globe", class: "action-icon action-icon--disabled" %>
-              <span><%= t("decidim.translate") %></span>
-              <div class="loading-spinner loading-spinner--hidden"></div>
-            <% end %>
-          </div>
-        <% end %>
       <% end %>
+
+      <% if translatable? %>
+        <%= translate_button_helper_for(
+              title: @proposal.title,
+              body: @proposal.body,
+              model: @proposal,
+              options: { class: "show-for-small-only" }
+            ) %>
+      <% end %>
+
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "map-marker", geolocalizable: @proposal } %>
       <% end %>
