@@ -588,8 +588,8 @@ nl:
       default_image: Standaard afbeelding
       errors:
         decidim/user:
-          password: Het wachtwoord is te kort
-          password_confirmation: Uw wachtwoord bevestiging moet overeenkomen met uw wachtwoord.
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
@@ -1219,6 +1219,7 @@ nl:
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
+      not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
       not_locked: was niet op slot
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
