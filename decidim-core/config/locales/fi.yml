@@ -116,6 +116,7 @@ fi:
         update: "%{user_name} päivitti organisaation asetuksia"
       participatory_space_private_user:
         create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
+        create_via_csv: "%{user_name} kutsui yksityisen osallistujan %{resource_name} CSV-tuonnin kautta"
         delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
@@ -586,6 +587,9 @@ fi:
       current_image: Nykyinen kuva
       default_image: Oletuskuva
       errors:
+        decidim/user:
+          password: Salasana on liian lyhyt.
+          password_confirmation: Salasanan vahvistuksen on oltava sama kuin salasanan.
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
@@ -1215,7 +1219,11 @@ fi:
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
+      not_found: ei löydetty. Oletko jo rekisteröitynyt?
       not_locked: ei lukittu
+      not_saved:
+        one: 'Virhe käsiteltäessä pyyntöä:'
+        other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)
