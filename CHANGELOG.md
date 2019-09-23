@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#????](https://github.com/decidim/decidim/pull/????)
+
 **Fixed**:
 
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5343](https://github.com/decidim/decidim/pull/5343)
