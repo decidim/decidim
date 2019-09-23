@@ -36,7 +36,7 @@ hu:
       admin:
         csv_census:
           help:
-            - Az adminisztrátorok CSV-t töltenek be az elfogadott résztvevők e-mailjeivel
+            - Az adminisztrátorok CSV-t töltenek fel az elfogadott résztvevők emailcímeivel
             - Csak azok a résztvevők kaphatnak igazolást, akik e CSV-fájlban e-mailt tartalmaznak
         id_documents:
           help:
