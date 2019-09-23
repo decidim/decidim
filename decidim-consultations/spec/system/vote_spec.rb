@@ -87,6 +87,7 @@ describe "Question vote", type: :system do
       end
 
       it "Page contains a vote button" do
+        expect(page).to have_button(id: "vote_button")
         expect(page).not_to have_link(id: "vote_button")
       end
 
