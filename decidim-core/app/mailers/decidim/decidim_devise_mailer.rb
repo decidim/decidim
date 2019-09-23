@@ -1,11 +1,8 @@
-# frozen_string_literal: true
-
 module Decidim
   # A custom mailer for Devise so we can tweak the invitation instructions for
   # each role and use a localised version.
   class DecidimDeviseMailer < ::Devise::Mailer
     include LocalisedMailer
-    include OrganizationSmtpSettings
 
     layout "decidim/mailer"
 
@@ -28,16 +25,10 @@ module Decidim
 
     private
 
-    def custom_sender
-      return Decidim.config.mailer_sender if @organization.nil? || @organization.smtp_settings.blank? || @organization.smtp_settings["from"].blank?
-      @organization.smtp_settings["from"]
-    end
-
     # Overwrite devise_mail so we can inject the organization from the user.
     def devise_mail(user, action, opts = {}, &block)
       with_user(user) do
         @organization = user.organization
-        opts[:from] = custom_sender unless opts[:from]
         super
       end
     end
