@@ -2,12 +2,12 @@ cs:
   activemodel:
     attributes:
       assembly:
-        area_id: Plocha
+        area_id: Oblast
         assembly_type: Typ sestavy
         assembly_type_other: Typ sestavy jiná
         banner_image: Obrázek banneru
         closing_date: Uzávěrka
-        closing_date_reason: Datum ukončení
+        closing_date_reason: Důvod data ukončení
         composition: Složení
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
