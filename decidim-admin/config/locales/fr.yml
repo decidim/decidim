@@ -485,7 +485,7 @@ fr:
           no_scopes: Pas de périmètre
           not_sent: Non envoyé
           participants: participants
-          segmented_to: 'Limité à %{sujet} '
+          segmented_to: 'Limité à %{subject} '
           title: Newsletters
         new:
           save: Enregistrer
