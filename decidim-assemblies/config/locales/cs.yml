@@ -3,8 +3,8 @@ cs:
     attributes:
       assembly:
         area_id: Oblast
-        assembly_type: Typ sestavy
-        assembly_type_other: Typ sestavy jiná
+        assembly_type: Typ shromáždění
+        assembly_type_other: Typ shromáždění jiné
         banner_image: Obrázek banneru
         closing_date: Uzávěrka
         closing_date_reason: Důvod data ukončení
@@ -27,8 +27,8 @@ cs:
         hero_image: Obrázek na hlavní stránce
         included_at: Zahrnuty v
         instagram: Instagram
-        internal_organisation: Interní organizace
-        is_transparent: Je průhledná
+        internal_organisation: Vnitřní organizace
+        is_transparent: Transparentní
         local_area: Oblast organizace
         meta_scope: Rozsah metadat
         parent_id: Nadřazené shromáždění
@@ -71,12 +71,12 @@ cs:
         many: Sestavy
         other: Sestavy
       decidim/assembly_member:
-        one: Montážní člen
+        one: Člen shromáždění
         few: Členové shromáždění
         many: Členové shromáždění
         other: Členové shromáždění
       decidim/assembly_user_role:
-        one: Sestavení role uživatele
+        one: Uživatelská role shromáždění
         few: Sestavení uživatelských rolí
         many: Sestavení uživatelských rolí
         other: Sestavení uživatelských rolí
@@ -109,34 +109,34 @@ cs:
         new:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplicitní sestavení
+          title: Zduplikovat shromáždění
       assembly_members:
         create:
-          error: Při přidávání člena této sestavy došlo k chybě.
-          success: Člen vytvořen úspěšně pro tuto sestavu.
+          error: Při přidávání člena tohoto shromáždění došlo k chybě.
+          success: Člen úspěšně vytvořen pro toto shromáždění.
         destroy:
-          success: Člen byl úspěšně smazán pro tuto sestavu.
+          success: Člen byl úspěšně smazán pro toto shromáždění.
         edit:
-          title: Aktualizovat člen sestavení.
+          title: Aktualizovat člena shromáždění.
           update: Aktualizace
         index:
           assembly_members_title: Členové shromáždění
         new:
           create: Vytvořit
-          title: Nový montážní člen.
+          title: Nový člen shromáždění.
         update:
           error: Při aktualizaci člena této sestavy došlo k chybě.
-          success: Člen byl úspěšně aktualizován pro tuto sestavu.
+          success: Člen byl úspěšně aktualizován pro toto shromáždění.
       assembly_publications:
         create:
           error: Při publikování této sestavy došlo k chybě.
           success: Shromáždění bylo úspěšně zveřejněno.
         destroy:
-          error: Při odebrání této sestavy došlo k chybě.
+          error: Při odebrání tohoto shromáždění došlo k chybě.
           success: Shromáždění bylo nepublikováno úspěšně.
       assembly_user_roles:
         create:
-          error: Při přidávání uživatele této sestavy došlo k chybě.
+          error: Při přidávání administrátora pro toto shromáždění došlo k chybě.
           success: Uživatel byl úspěšně přidán do této sestavy.
         destroy:
           success: Uživatel byl z této sestavy úspěšně odstraněn.
