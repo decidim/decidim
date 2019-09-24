@@ -102,7 +102,7 @@ FactoryBot.define do
   end
 
   factory :response_group, class: "Decidim::Consultations::ResponseGroup" do
-    question
+    question { create(:question, :multiple) }
     title { generate_localized_title }
   end
 

@@ -4,7 +4,7 @@
       <%= t "decidim.admin.titles.response_groups" %>
       <%= link_to t("actions.new_response_group", scope: "decidim.admin"),
                   new_response_group_path(current_question),
-                  class: "button tiny button--title" if allowed_to? :create_group, :response, question: current_question %>
+                  class: "button tiny button--title" if allowed_to? :create, :response_group, question: current_question %>
       <%= link_to t("actions.back_to_responses", scope: "decidim.admin"),
                   responses_path(current_question),
                   class: "button tiny button--title" if allowed_to? :read, :response %>
@@ -29,7 +29,7 @@
           <% current_question.response_groups.each do |group| %>
             <tr>
               <td>
-                <% if allowed_to? :create_group, :response, question: current_question %>
+                <% if allowed_to? :create, :response_group, question: current_question %>
                   <%= link_to translated_attribute(group.title),
                               edit_response_group_path(current_question, current_question) %>
                 <% else %>
@@ -40,7 +40,7 @@
                 <%= l group.created_at, format: :short %>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to? :create_group, :response, question: current_question %>
+                <% if allowed_to? :create, :response_group, question: current_question %>
                   <%= icon_link_to "pencil",
                                    edit_response_group_path(current_question, group),
                                    t("actions.configure", scope: "decidim.admin"),

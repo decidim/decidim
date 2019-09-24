@@ -241,6 +241,53 @@ describe Decidim::Consultations::Admin::Permissions do
     end
   end
 
+  describe "response_groups" do
+    let(:action_subject) { :response_group }
+    let(:question) { create :question, :multiple, consultation: consultation }
+    let!(:response_group) { create :response_group, question: question }
+    let(:extra_context) { { response_group: response_group } }
+
+    context "when creating a response_group" do
+      let(:action_name) { :create }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when reading a response_group" do
+      let(:action_name) { :read }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when updating a response_group" do
+      let(:action_name) { :update }
+
+      context "when response_group is present" do
+        it { is_expected.to eq true }
+      end
+
+      context "when response_group is not present" do
+        let(:response_group) { nil }
+
+        it { is_expected.to eq false }
+      end
+    end
+
+    context "when destroying a response_group" do
+      let(:action_name) { :destroy }
+
+      context "when response_group is present" do
+        it { is_expected.to eq true }
+      end
+
+      context "when response_group is not present" do
+        let(:response_group) { nil }
+
+        it { is_expected.to eq false }
+      end
+    end
+  end
+
   describe "participatory spaces" do
     let(:action_subject) { :participatory_space }
     let(:action_name) { :read }

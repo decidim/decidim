@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # Helper for questions controller
       module QuestionsHelper
+        include Decidim::TranslationsHelper
+
         Option = Struct.new(:id, :title)
 
         def question_example_slug

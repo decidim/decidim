@@ -3,12 +3,14 @@
 module Decidim
   module Consultations
     module Admin
-      # A command with all the business logic when creating a new response group
-      class CreateResponseGroup < Rectify::Command
+      # A command with all the business logic when updating a new response group
+      class UpdateResponseGroup < Rectify::Command
         # Public: Initializes the command.
         #
+        # response_group - the response group to update
         # form - A form object with the params.
-        def initialize(form)
+        def initialize(response_group, form)
+          @response_group = response_group
           @form = form
         end
 
@@ -21,18 +23,22 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          broadcast(:ok, create_response_group)
+          broadcast(:ok, update_response_group)
         end
 
         private
 
-        attr_reader :form
+        attr_reader :form, :response_group
 
-        def create_response_group
-          ResponseGroup.create(
-            question: form.context.current_question,
+        def update_response_group
+          response_group.assign_attributes(attributes)
+          response_group.save!
+        end
+
+        def attributes
+          {
             title: form.title
-          )
+          }
         end
       end
     end

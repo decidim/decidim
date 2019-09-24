@@ -7,19 +7,19 @@ module Decidim
       class ResponseGroupsController < Decidim::Consultations::Admin::ApplicationController
         include QuestionAdmin
 
-        helper_method :current_group
+        helper_method :current_response_group
 
         def index
-          enforce_permission_to :read, :response
+          enforce_permission_to :read, :response_group, question: current_question
         end
 
         def new
-          enforce_permission_to :create_group, :response, question: current_question
+          enforce_permission_to :create, :response_group, question: current_question
           @form = response_group_form.instance
         end
 
         def create
-          enforce_permission_to :create_group, :response, question: current_question
+          enforce_permission_to :create, :response_group, question: current_question, response_group: current_response_group
           @form = response_group_form.from_params(params, current_question: current_question)
 
           CreateResponseGroup.call(@form) do
@@ -36,15 +36,15 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :create_group, :response, question: current_question
-          @form = response_group_form.from_model(current_group, current_question: current_question)
+          enforce_permission_to :update, :response_group, question: current_question, response_group: current_response_group
+          @form = response_group_form.from_model(current_response_group, current_question: current_question)
         end
 
         def update
-          enforce_permission_to :create_group, :response, question: current_question
+          enforce_permission_to :update, :response_group, question: current_question, response_group: current_response_group
 
           @form = response_group_form.from_params(params, current_question: current_question)
-          UpdateResponse.call(current_group, @form) do
+          UpdateResponseGroup.call(current_response_group, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("responses.update.success", scope: "decidim.admin")
               redirect_to response_groups_path(current_question)
@@ -58,10 +58,10 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :create_group, :response, question: current_question
+          enforce_permission_to :destroy, :response_group, question: current_question, response_group: current_response_group
 
-          current_group.destroy
-          if current_group.valid?
+          current_response_group.destroy
+          if current_response_group.valid?
             flash[:notice] = I18n.t("responses.destroy.success", scope: "decidim.admin")
             redirect_to response_groups_path(current_question)
           else
@@ -72,8 +72,8 @@ module Decidim
 
         private
 
-        def current_group
-          @current_group ||= ResponseGroup.find_by(id: params[:id])
+        def current_response_group
+          @current_response_group ||= ResponseGroup.find_by(id: params[:id])
         end
 
         def response_group_form
