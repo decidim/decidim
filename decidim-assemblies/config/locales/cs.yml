@@ -150,11 +150,11 @@ cs:
           title: Nový administrátor shromáždění.
         update:
           error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
-          success: Uživatel úspěšně aktualizován pro tuto sestavu.
+          success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
         assemblies: Sestavy
         assemblies_submenu:
-          assembly_admins: Uživatelé sestav
+          assembly_admins: Administrátoři shromáždění
           assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
@@ -190,7 +190,7 @@ cs:
             email: E-mailem
             name: název
             role: Role
-          name: Uspořádání uživatele
+          name: Správce shromáždění
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -199,9 +199,9 @@ cs:
         assemblies: Sestavy
     admin_log:
       assembly:
-        create: "%{user_name} vytvořila %{resource_name} sestavu"
+        create: "%{user_name} vytvořil %{resource_name} shromáždění"
         publish: "%{user_name} publikoval %{resource_name} sestavu"
-        unpublish: "%{user_name} nepublikováno %{resource_name} sestavu"
+        unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizovala sestavu %{resource_name}"
       assembly_member:
         create: "%{user_name} vytvořil %{resource_name} člen v sestavě %{space_name}"
