@@ -21,7 +21,7 @@ module Decidim
       # extras - should include extra hashtags?
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(links: true, extras: true, html_escape: false, strip_tags: false)
+      def render(links: true, extras: true)
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
           hashtag = hashtags[id.to_i]
