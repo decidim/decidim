@@ -86,7 +86,7 @@ cs:
         new_assembly: Nové shromáždění
       assemblies:
         create:
-          error: Při vytváření nové sestavy došlo k chybě.
+          error: Při vytváření nového shromáždění došlo k chybě.
           success: Shromáždění bylo úspěšně vytvořeno.
         edit:
           update: Aktualizace
@@ -99,8 +99,8 @@ cs:
           create: Vytvořit
           title: Nové shromáždění
         update:
-          error: Při aktualizaci této sestavy došlo k chybě.
-          success: Sestavení se úspěšně aktualizovalo.
+          error: Při aktualizaci tohoto shromáždění došlo k chybě.
+          success: Shromáždění úspěšně aktualizováno.
       assemblies_copies:
         create:
           error: Při kopírování této sestavy došlo k chybě.
@@ -224,7 +224,7 @@ cs:
             other: jiný
             select_a_created_by: Vyberte vytvořenou službu
             select_an_area: Vyberte oblast
-            select_an_assembly_type: Vyberte typ sestavy
+            select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vyberte sestavu rodiče
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
@@ -232,7 +232,7 @@ cs:
             visbility: Viditelnost
         assembly_copies:
           form:
-            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
             existing_user: Existující uživatel
@@ -281,7 +281,7 @@ cs:
       index:
         title: Sestavy
       last_activity:
-        new_assembly: Nová montáž
+        new_assembly: Nové shromáždění
       pages:
         home:
           highlighted_assemblies:
@@ -292,7 +292,7 @@ cs:
             member_of: Člen
       show:
         area: Plocha
-        assembly_type: Typ sestavy
+        assembly_type: Typ shromáždění
         children: Sestavy
         closing_date: Uzávěrka
         composition: Složení
@@ -347,7 +347,7 @@ cs:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Sestava nebyla nalezena v databázi (ID: %{id})'
+          not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
     menu:
       assemblies: Sestavy
     metrics:
