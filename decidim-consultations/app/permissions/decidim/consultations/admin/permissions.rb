@@ -98,11 +98,9 @@ module Decidim
         def allowed_response_group_action?
           return unless permission_action.subject == :response_group
 
-          return disallow! unless question&.multiple?
-
           case permission_action.action
           when :create, :read
-            allow!
+            toggle_allow(question&.multiple?)
           when :update, :destroy
             toggle_allow(response_group.present?)
           end

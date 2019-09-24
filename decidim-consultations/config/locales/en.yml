@@ -183,7 +183,23 @@ en:
           error: There was a problem updating this question.
           success: Question successfully updated.
       response_groups:
+        create:
+          error: There was a problem creating a new response group.
+          success: Response group successfully created.
+        destroy:
+          error: There was a problem removing the response group. Check that no responses depend on it.
+          success: Response group successfully deleted.
+        edit:
+          update: Update
+        form:
+          title: General information
         help: Use groups to organize multiple choices questions in packages.
+        new:
+          create: Create
+          title: New response group
+        update:
+          error: There was a problem updating this response.
+          success: Response successfully updated.
       responses:
         create:
           error: There was a problem creating a new response.

@@ -29,9 +29,9 @@
           <% current_question.response_groups.each do |group| %>
             <tr>
               <td>
-                <% if allowed_to? :create, :response_group, question: current_question %>
+                <% if allowed_to? :update, :response_group, response_group: group %>
                   <%= link_to translated_attribute(group.title),
-                              edit_response_group_path(current_question, current_question) %>
+                              edit_response_group_path(current_question, group) %>
                 <% else %>
                   <%= translated_attribute(group.title) %>
                 <% end %>
@@ -40,7 +40,7 @@
                 <%= l group.created_at, format: :short %>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to? :create, :response_group, question: current_question %>
+                <% if allowed_to? :update, :response_group, response_group: group %>
                   <%= icon_link_to "pencil",
                                    edit_response_group_path(current_question, group),
                                    t("actions.configure", scope: "decidim.admin"),

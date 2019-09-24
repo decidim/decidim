@@ -1,5 +1,5 @@
 <h2 class="questions-title-summary">
-  <%= t "responses.new.title", scope: "decidim.admin" %>
+  <%= t "response_groups.new.title", scope: "decidim.admin" %>
 </h2>
 
 <%= decidim_form_for @form,
@@ -8,6 +8,6 @@
   <%= render partial: "form", object: f %>
 
   <div class="button--double form-general-submit">
-    <%= f.submit t("responses.new.create", scope: "decidim.admin"), data: { disable_with: true } %>
+    <%= f.submit t("response_groups.new.create", scope: "decidim.admin"), data: { disable_with: true } %>
   </div>
 <% end %>

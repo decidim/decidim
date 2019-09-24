@@ -19,54 +19,57 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :create, :response_group, question: current_question, response_group: current_response_group
+          enforce_permission_to :create, :response_group, question: current_question
           @form = response_group_form.from_params(params, current_question: current_question)
 
           CreateResponseGroup.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t("responses.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("response_groups.create.success", scope: "decidim.admin")
               redirect_to response_groups_path(current_question)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("responses.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("response_groups.create.error", scope: "decidim.admin")
               render :new
             end
           end
         end
 
         def edit
-          enforce_permission_to :update, :response_group, question: current_question, response_group: current_response_group
-          @form = response_group_form.from_model(current_response_group, current_question: current_question)
+          enforce_permission_to :update, :response_group, response_group: current_response_group
+          @form = response_group_form.from_model(current_response_group)
         end
 
         def update
-          enforce_permission_to :update, :response_group, question: current_question, response_group: current_response_group
+          enforce_permission_to :update, :response_group, response_group: current_response_group
 
-          @form = response_group_form.from_params(params, current_question: current_question)
+          @form = response_group_form.from_params(params)
           UpdateResponseGroup.call(current_response_group, @form) do
             on(:ok) do
-              flash[:notice] = I18n.t("responses.update.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("response_groups.update.success", scope: "decidim.admin")
               redirect_to response_groups_path(current_question)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("responses.update.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("response_groups.update.error", scope: "decidim.admin")
               render :edit
             end
           end
         end
 
         def destroy
-          enforce_permission_to :destroy, :response_group, question: current_question, response_group: current_response_group
+          enforce_permission_to :destroy, :response_group, response_group: current_response_group
 
-          current_response_group.destroy
-          if current_response_group.valid?
-            flash[:notice] = I18n.t("responses.destroy.success", scope: "decidim.admin")
+          DestroyResponseGroup.call(current_response_group) do
+            on(:ok) do
+              flash[:notice] = I18n.t("response_groups.destroy.success", scope: "decidim.admin")
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("response_groups.destroy.error", scope: "decidim.admin")
+            end
+
             redirect_to response_groups_path(current_question)
-          else
-            flash.now[:alert] = I18n.t("responses.destroy.error", scope: "decidim.admin")
-            render :edit
           end
         end
 

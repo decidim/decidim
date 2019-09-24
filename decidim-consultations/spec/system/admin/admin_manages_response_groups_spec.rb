@@ -19,99 +19,55 @@ describe "Admin manages response groups", type: :system do
 
   context "when question is multiple" do
     let!(:question) { create :question, :multiple, consultation: consultation }
-    let!(:response_group) { create :response_group, question: question }
-    let(:extra_context) { { current_response_group: response_group } }
 
-    it "have response groups link" do
+    it "have groups link" do
       expect(page).to have_link("Manage response groups", href: decidim_admin_consultations.response_groups_path(question))
     end
+  end
 
-    context "when in response_group admin page" do
+  context "when in groups admin page" do
+    let!(:question) { create :question, :multiple, consultation: consultation }
+    let!(:response_group) { create :response_group, question: question }
+    # let(:extra_context) { { current_response_group: response_group } }
+
+    before do
+      visit decidim_admin_consultations.response_groups_path(question)
+    end
+
+    describe "creating a response group" do
       before do
-       visit decidim_admin_consultations.response_groups_path(question)
+        click_link("New group")
       end
 
-      describe "creating a response group" do
-        before do
-          click_link("New group")
-        end
-
-        it "creates a new response group" do
-          within ".new_response_group" do
-            fill_in_i18n(
-              :response_group_title,
-              "#response_group-title-tabs",
-              en: "My response group",
-              es: "Mi grupo de respuestas",
-              ca: "El meu grup de respostes"
-            )
-
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_admin_callout("successfully")
-
-          within ".container" do
-            expect(page).to have_current_path decidim_admin_consultations.response_groups_path(question)
-            expect(page).to have_content("My response group")
-          end
-        end
-      end
-
-      describe "trying to create a response with invalid data" do
-        before do
-          click_link("New group")
-        end
-
-        it "fails to create a new response" do
-          within ".new_response_group" do
-            fill_in_i18n(
-              :response_group_title,
-              "#response_group-title-tabs",
-              en: "",
-              es: "",
-              ca: ""
-            )
-
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_admin_callout("problem")
-        end
-      end
-
-      describe "updating a response group" do
-        before do
-          click_link translated(response_group.title)
-        end
-
-        it "updates a response group" do
+      it "creates a new response group" do
+        within ".new_response_group" do
           fill_in_i18n(
             :response_group_title,
             "#response_group-title-tabs",
-            en: "My new title",
-            es: "Mi nuevo título",
-            ca: "El meu nou títol"
+            en: "My response group",
+            es: "Mi grupo de respuestas",
+            ca: "El meu grup de respostes"
           )
 
-          within ".edit_response_group" do
-            find("*[type=submit]").click
-          end
+          find("*[type=submit]").click
+        end
 
-          expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("successfully")
 
-          within ".container" do
-            expect(page).to have_current_path decidim_admin_consultations.response_groups_path(question)
-          end
+        within ".container" do
+          expect(page).to have_current_path decidim_admin_consultations.response_groups_path(question)
+          expect(page).to have_content("My response group")
         end
       end
+    end
 
-      describe "updating a response group with invalid values" do
-        before do
-          click_link translated(response_group.title)
-        end
+    describe "trying to create a response with invalid data" do
+      before do
+        click_link("New group")
+      end
 
-        it "do not updates the response group" do
+      it "fails to create a new response" do
+        within ".new_response_group" do
           fill_in_i18n(
             :response_group_title,
             "#response_group-title-tabs",
@@ -120,27 +76,92 @@ describe "Admin manages response groups", type: :system do
             ca: ""
           )
 
-          within ".edit_response_group" do
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_admin_callout("problem")
+          find("*[type=submit]").click
         end
+
+        expect(page).to have_admin_callout("problem")
+      end
+    end
+
+    describe "updating a group" do
+      before do
+        click_link translated(response_group.title)
       end
 
-      describe "deleting a response group" do
-        before do
-          click_link translated(response_group.title)
+      it "updates a group" do
+        fill_in_i18n(
+          :response_group_title,
+          "#response_group-title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+
+        within ".edit_response_group" do
+          find("*[type=submit]").click
         end
 
-        it "deletes the response group" do
-          accept_confirm { click_link "Delete" }
+        expect(page).to have_admin_callout("successfully")
 
-          expect(page).to have_admin_callout("successfully")
+        within ".container" do
+          expect(page).to have_current_path decidim_admin_consultations.response_groups_path(question)
+        end
+      end
+    end
 
-          within "table" do
-            expect(page).not_to have_content(translated(response_group.title))
-          end
+    describe "updating a response group with invalid values" do
+      before do
+        click_link translated(response_group.title)
+      end
+
+      it "do not updates the response group" do
+        fill_in_i18n(
+          :response_group_title,
+          "#response_group-title-tabs",
+          en: "",
+          es: "",
+          ca: ""
+        )
+
+        within ".edit_response_group" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("problem")
+      end
+    end
+  end
+
+  describe "deleting a response group" do
+    let!(:question) { create :question, :multiple, consultation: consultation }
+    let!(:response_group) { create :response_group, question: question }
+
+    before do
+      visit decidim_admin_consultations.edit_response_group_path(question, response_group)
+    end
+
+    context "when no responses attached" do
+      it "deletes group" do
+        accept_confirm { click_link "Delete" }
+
+        expect(page).to have_admin_callout("successfully")
+
+        within "table" do
+          expect(page).not_to have_content(translated(response_group.title))
+        end
+      end
+    end
+
+    context "when has responses" do
+      let!(:response) { create :response, response_group: response_group }
+
+      it "deletes group" do
+        accept_confirm { click_link "Delete" }
+
+        expect(page).to have_admin_callout("problem")
+
+        within "table" do
+          expect(page).to have_content(translated(response_group.title))
         end
       end
     end
