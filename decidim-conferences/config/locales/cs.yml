@@ -279,7 +279,7 @@ cs:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
-          update: "%{user_name} aktualizoval %{resource_name} typ registrace na %{space_name} konferenci"
+          update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
       media_link:
         create: "%{user_name} vytvořilo %{resource_name} mediální odkaz na konferenci %{space_name}"
         delete: "%{user_name} odstranilo %{resource_name} odkaz na média z %{space_name} konferencí"
@@ -294,7 +294,7 @@ cs:
       admin:
         conference_copies:
           form:
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugs se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
