@@ -101,6 +101,11 @@ FactoryBot.define do
     title { generate_localized_title }
   end
 
+  factory :response_group, class: "Decidim::Consultations::ResponseGroup" do
+    question
+    title { generate_localized_title }
+  end
+
   factory :vote, class: "Decidim::Consultations::Vote" do
     question
     response
