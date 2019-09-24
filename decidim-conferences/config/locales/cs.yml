@@ -310,7 +310,7 @@ cs:
               accepted: Přijato
               all: Všechno
               rejected: Odmítnuto
-              sent: Odeslaná
+              sent: Odesláno
             filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
@@ -324,9 +324,9 @@ cs:
             registrations: Registrace
         conference_speakers:
           form:
-            existing_user: Existující uživatel
-            non_user: Není uživatel
-            select_user: Vyberte uživatele
+            existing_user: Existující účastník
+            non_user: Není účastníkem
+            select_user: Vybrat účastníka
             user_type: Typ uživatele
           index:
             search: Vyhledávání
