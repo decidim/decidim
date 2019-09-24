@@ -6,14 +6,14 @@ cs:
         assembly_type: Typ shromáždění
         assembly_type_other: Typ shromáždění jiné
         banner_image: Obrázek banneru
-        closing_date: Uzávěrka
+        closing_date: Ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
         copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
-        copy_features: Funkce kopírování
+        copy_components: Kopírovat komponenty
+        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
-        created_by_other: Vytvořil jiný
+        created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
         decidim_area_id: Plocha
         decidim_scope_id: Rozsah
@@ -216,10 +216,10 @@ cs:
         assemblies:
           form:
             duration: Doba trvání
-            duration_help: Je-li trvání této sestavy omezené, vyberte datum ukončení. V opačném případě se bude zobrazovat jako neurčitá.
+            duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
             images: snímky
-            included_at_help: Vyberte datum, kdy byla tato sestava přidána do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
+            included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
             metadata: Metadata
             other: jiný
             select_a_created_by: Vyberte vytvořenou službu
@@ -341,7 +341,7 @@ cs:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           title: Co jsou shromáždění?
     log:
