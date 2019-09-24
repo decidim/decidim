@@ -22,7 +22,7 @@ cs:
         name: Jméno a příjmení
         phone_number: Telefonní číslo
         post_code: PSČ
-        province: Provincie
+        province: Okres
       initiatives_committee_member:
         user: člen komise
       initiatives_type:
@@ -108,7 +108,7 @@ cs:
       initiatives:
         initiative_extended:
           email_intro: Podpisový termín pro iniciativu %{resource_title} byl rozšířen!
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Na následujícím odkazu můžete přestat odebírat oznámení.
           email_subject: Datum ukončení podpisů iniciativy bylo rozšířeno!
           notification_title: Konec konce podpisu iniciativy <a href="%{resource_path}">%{resource_title}</a> byl prodloužen.
         milestone_completed:
@@ -126,7 +126,7 @@ cs:
       badges:
         initiatives:
           conditions:
-            - Jděte do prostoru účasti iniciativ
+            - Jít do prostoru účasti iniciativ
             - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
@@ -158,7 +158,7 @@ cs:
         committee_requests:
           index:
             approve: Schvalovat
-            confirm_revoke: Jsi si jistá?
+            confirm_revoke: Jsi si jist?
             invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
             no_members_yet: V komisi promotérů nejsou žádní členové
             revoke: Zrušit
@@ -168,9 +168,9 @@ cs:
             max_results: Maximální množství prvků, které chcete zobrazit
         initiatives:
           edit:
-            accept: Přijměte iniciativu
+            accept: Přijmout iniciativu
             confirm: Jsi si jistá?
-            discard: Zrušte iniciativu
+            discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
             reject: Odmítnout iniciativu
