@@ -139,15 +139,15 @@ cs:
           error: Při přidávání administrátora pro toto shromáždění došlo k chybě.
           success: Uživatel byl úspěšně přidán do této sestavy.
         destroy:
-          success: Uživatel byl z této sestavy úspěšně odstraněn.
+          success: Uživatel byl z tohoto shromáždění úspěšně odstraněn.
         edit:
           title: Aktualizovat uživatele sestavy.
           update: Aktualizace
         index:
-          assembly_admins_title: Uživatelé sestav
+          assembly_admins_title: Administrátoři shromáždění
         new:
           create: Vytvořit
-          title: Nový uživatel sestavení.
+          title: Nový administrátor shromáždění.
         update:
           error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
           success: Uživatel úspěšně aktualizován pro tuto sestavu.
