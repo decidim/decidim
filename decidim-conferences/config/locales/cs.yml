@@ -45,7 +45,7 @@ cs:
         one: Konferenční reproduktor
         few: Konferenční reproduktory
         many: Konferenční reproduktory
-        other: Konferenční reproduktory
+        other: Mluvčí Konference
       decidim/conference_user_role:
         one: Uživatelská role konference
         few: Konference uživatelských rolí
@@ -61,13 +61,13 @@ cs:
         new:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplicitní konference
+          title: Duplikovat konferenci
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
           success: Konference byla úspěšně publikována.
         destroy:
-          error: Při otevírání této konference došlo k chybě.
+          error: Při odebrání této konference došlo k chybě.
           success: Konference byla nepublikována úspěšně.
       conference_registration:
         confirm:
