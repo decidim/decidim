@@ -32,7 +32,7 @@ cs:
         survey_closed:
           email_intro: Průzkum %{resource_title} v %{participatory_space_title} byl uzavřen.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Průzkum skončil v roce %{participatory_space_title}
+          email_subject: Průzkum skončil v %{participatory_space_title}
           notification_title: Průzkum <a href="%{resource_path}">%{resource_title}</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a> skončil.
         survey_opened:
           email_intro: 'Průzkum %{resource_title} v %{participatory_space_title} je nyní otevřený. Můžete se na ní podílet:'
