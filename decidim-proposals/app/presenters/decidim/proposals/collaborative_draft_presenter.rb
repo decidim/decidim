@@ -30,7 +30,6 @@ module Decidim
 
       def title(links: false, extras: true, html_escape: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
-        renderer.render(links: links, extras: extras, html_escape: html_escape).html_safe
         text = renderer.render(links: links, extras: extras).html_safe
         text = decidim_html_escape(text) if html_escape
         text
@@ -38,7 +37,6 @@ module Decidim
 
       def body(links: false, extras: true, strip_tags: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
-        renderer.render(links: links, extras: extras, strip_tags: strip_tags).html_safe
         text = renderer.render(links: links, extras: extras).html_safe
         text = strip_tags(text) if strip_tags
         Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
