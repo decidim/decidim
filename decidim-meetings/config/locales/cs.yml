@@ -366,13 +366,13 @@ cs:
           meeting_minutes: Zápis z porady
           related_information: Související informace
         meetings:
-          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo není naplánováno žádné schůzky.
+          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
         registration_confirm:
-          cancel: zrušení
+          cancel: Zrušit
           confirm: Potvrdit
         show:
-          attendees: Účastníci se počítají
+          attendees: Počet účastníků
           contributions: Počet příspěvků
           going: Chystáte se
           join: Připojte se k setkání
