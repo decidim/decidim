@@ -176,14 +176,14 @@ cs:
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
             success: Iniciativa byla odeslána k technickému ověření
-            update: Aktualizace
+            update: Aktualizovat
           form:
             title: Obecná informace
           index:
             actions_title: Akce
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               created: Vytvořeno
               discarded: Vyřazeno
               published: Publikováno
@@ -191,7 +191,7 @@ cs:
               validating: Technická validace
             filter_by: Filtrovat podle
             preview: Náhled
-            print: Vytisknout
+            print: Tisk
             search: Vyhledávání
           show:
             print: Vytisknout
@@ -205,13 +205,13 @@ cs:
           destroy:
             success: Rozsah byl úspěšně odstraněn
           edit:
-            back: Zadní
-            confirm_destroy: Jsi si jistá?
+            back: Zpět
+            confirm_destroy: Jsi si jist?
             destroy: Odstranit
             title: Upravit rozsah typu iniciativy
-            update: Aktualizace
+            update: Aktualizovat
           new:
-            back: Zadní
+            back: Zpět
             create: Vytvořit
             title: Vytvoření rozsahu typů iniciativy
           update:
