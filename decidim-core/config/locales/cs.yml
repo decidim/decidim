@@ -603,6 +603,9 @@ cs:
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
       errors:
+        decidim/user:
+          password: Heslo je příliš krátké.
+          password_confirmation: Potvrzení hesla se musí shodovat s heslem.
         error: V tomto poli je chyba.
       remove_this_file: Odstranit tento soubor
     gamification:
@@ -1236,6 +1239,7 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
+      not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyla zamčená
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
