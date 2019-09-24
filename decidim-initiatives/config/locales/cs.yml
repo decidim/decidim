@@ -392,8 +392,8 @@ cs:
           answer_title:
             accepted: Tento návrh byl přijat, protože
             created: Tento návrh byl vytvořen
-            discarded: Tento návrh byl zlikvidován, protože
-            published: Tento návrh je zveřejněn proto, že
+            discarded: Tento návrh byl odstraněn, protože
+            published: Tento návrh je zveřejněn protože
             rejected: Tento návrh byl zamítnut, protože
             validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
@@ -428,22 +428,22 @@ cs:
         creation_subject: Vaše občanská iniciativa "%{title}" byla vytvořena
         initiative_link:
           check_initiative_details: Můžete vidět podrobnosti o iniciativě
-          here: tady
+          here: zde
         more_information: Zde naleznete další informace o procesu vytváření iniciativ.
         progress_report_body_for: Iniciativa %{title} dosáhla %{percentage}% požadované podpory.
         progress_report_for: 'Pokračujte v iniciativě: %{title}'
         promotal_committee_help: Nezapomeňte, že musíte vyzvat nejméně %{member_count} lidí na organizační výbor. Předání následujícího odkazu na pozvání osob do výboru předkladatelů
         status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
         status_change_for: Iniciativa %{title} změnila svůj stav
-        technical_validation_body_for: Iniciativa %{title} požádala o jeho technickou validaci.
-        technical_validation_for: Iniciativa %{title} požádala o jeho technickou validaci.
+        technical_validation_body_for: Iniciativa %{title} požádala o svou technickou validaci.
+        technical_validation_for: Iniciativa %{title} požádala o svou technickou validaci.
       last_activity:
         new_initiative: Nová iniciativa
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Aktivní iniciativy
-            see_all_initiatives: Podívejte se na všechny iniciativy
+            see_all_initiatives: Zobrazit všechny iniciativy
       states:
         accepted: Přijato
         expired: Platnost vypršela
@@ -464,31 +464,31 @@ cs:
           components: Komponenty
           information: Informace
       initiative_creation_header:
-        back: Zadní
+        back: Zpět
         fill_data: Vytvořit
         finish: Dokončit
         previous_form: Start
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
-        show_similar_initiatives: Porovnejte
+        show_similar_initiatives: Porovnat
         step: Krok %{current} z %{total}
-        title: Vytvořte novou iniciativu
+        title: Vytvořit novou iniciativu
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Zadní
-        fill_personal_data: Dokončete své údaje
+        back: Zpět
+        fill_personal_data: Dokončit své údaje
         finish: Dokončit
         finished: Vytvoření podpisu iniciativy
         see_steps: viz kroky
-        select_identity: Vyberte identitu
+        select_identity: Vybrat identitu
         sms_code: Ověření kódu SMS
         sms_phone_number: Číslo mobilního telefonu
         step: Krok %{current} z %{total}
-        title: Přihlásit %{initiative_title}
+        title: Podepsat %{initiative_title}
       initiatives:
         initiative:
           check: Koukni na to
-          check_and_support: Podívejte se na to a podepište
+          check_and_support: Podívat se na to a podepsat
         no_initiatives_yet:
           no_initiatives_yet: Zatím žádné iniciativy!
