@@ -381,14 +381,14 @@ cs:
           organizations: Účastnické organizace
           registration_code_help_text: Váš registrační kód
           registration_state:
-            validated: VALIDOVANÝ
+            validated: OVĚŘENÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
           remaining_slots:
             one: "%{count} zbývajícího slotu"
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Pohled
+          view: Zobrazení
       meetings_map:
         view_meeting: Zobrazit schůzku
       models:
@@ -396,8 +396,8 @@ cs:
           fields:
             email: E-mailem
             name: název
-            sent_at: Odeslané
-            status: Postavení
+            sent_at: Odesláno v
+            status: Stav
           status:
             accepted: Přijato (%{at})
             rejected: Odmítnuto (%{at})
