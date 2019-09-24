@@ -15,7 +15,7 @@ cs:
         created_by: Vytvořil
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
-        decidim_area_id: Plocha
+        decidim_area_id: Oblast
         decidim_scope_id: Rozsah
         description: Popis
         developer_group: Skupina promotérů
@@ -171,7 +171,7 @@ cs:
             private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
-            title: Titul
+            title: Název
           name: Shromáždění
         assembly_member:
           fields:
@@ -235,15 +235,15 @@ cs:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
-            existing_user: Existující uživatel
-            non_user: Není uživatel
+            existing_user: Existující účastník
+            non_user: Není účastník
             select_a_position: Vyberte pozici
-            select_user: Vyberte uživatele
-            user_type: Typ uživatele
+            select_user: Vybrat účastníka
+            user_type: Typ účastníka
           index:
             filter:
-              all: Všechno
-              ceased: Přestala
+              all: Vše
+              ceased: Ukončit
               not_ceased: Nekončí
             filter_by: Filtrovat podle
             search: Vyhledávání
@@ -255,11 +255,11 @@ cs:
           members: Členové
       assembly_types:
         commission: Komise
-        consultative_advisory: Poradní / poradní
+        consultative_advisory: Konzultační / poradní
         executive: Výkonný
         government: Vláda
         others: Ostatní
-        participatory: Účastní se
+        participatory: Účast
         working_group: Pracovní skupina
       content_blocks:
         highlighted_assemblies:
