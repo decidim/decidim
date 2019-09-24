@@ -204,12 +204,12 @@ cs:
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizovala sestavu %{resource_name}"
       assembly_member:
-        create: "%{user_name} vytvořil %{resource_name} člen v sestavě %{space_name}"
-        delete: "%{user_name} odstranila %{resource_name} člen ze sestavy %{space_name}"
+        create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} člen v sestavě %{space_name}"
       assembly_user_role:
-        create: "%{user_name} pozváno %{resource_name} do sestavy %{space_name}"
-        delete: "%{user_name} odstranil uživatele %{resource_name} ze sestavy %{space_name}"
+        create: "%{user_name} pozval %{resource_name} do shromáždění %{space_name}"
+        delete: "%{user_name} odstranil účastníka %{resource_name} ze shromáždění %{space_name}"
         update: "%{user_name} změnila roli %{resource_name} v sestavě %{space_name}"
     assemblies:
       admin:
