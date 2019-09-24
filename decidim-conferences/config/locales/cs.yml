@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Související sestavy
+        assemblies_ids: Související shromáždění
         banner_image: Obrázek banneru
         consultations_ids: Související konzultace
         copy_categories: Kopírovat kategorie
@@ -11,7 +11,7 @@ cs:
         decidim_scope_id: Rozsah
         description: Popis
         hashtag: Hashtag
-        hero_image: Domácí obrázek
+        hero_image: Obrázek na hlavní stránce
         participatory_processes_ids: Související procesy účasti
         promoted: Propagováno
         published_at: Publikováno v
@@ -25,7 +25,7 @@ cs:
       conference_speaker:
         full_name: Celé jméno
       conference_user_role:
-        email: E-mailem
+        email: E-mail
         name: název
         role: Role
     errors:
