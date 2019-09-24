@@ -287,32 +287,32 @@ cs:
           more_information: "(Více informací)"
         promotal_committee:
           back: Zpět
-          individual_help_text: Tento druh občanské iniciativy vyžaduje provizorní komisi skládající se z nejméně %{committee_size} lidí (atestujících). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
+          individual_help_text: Tento druh občanské iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
           more_information: "(Více informací)"
         select_initiative_type:
-          back: Zadní
+          back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
-          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Která iniciativa chcete spustit?
+          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Kterou iniciativu chcete spustit?
         share_committee_link:
           continue: Pokračovat
-          invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí promotorového výboru
+          invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
         show_similar_initiatives:
-          back: Zadní
+          back: Zpět
           compare_help: Pokud je některá z následujících iniciativ podobná vašim, doporučujeme vám ji podpořit. Váš návrh bude mít více možností, jak to udělat.
           continue: Moje iniciativa je jiná
           more_information: "(Více informací)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, který sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
+          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Nová iniciativa %{author_nickname}
+          email_subject: Nová iniciativa od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla vytvořena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, který sledujete, schválil následující iniciativu, možná chcete přispět k rozhovoru:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Iniciativa byla potvrzena číslem %{author_nickname}
+          email_subject: Iniciativa byla potvrzena od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativy
@@ -354,14 +354,14 @@ cs:
             other: a %{count} dalších lidí
         count:
           title:
-            one: "%{count}"
+            one: "%{count} iniciativa"
             few: "%{count} iniciativ"
             many: "%{count} iniciativ"
             other: "%{count} iniciativ"
         filters:
-          any: Žádný
+          any: Jakýkoli
           author: Autor
-          closed: Zavřeno
+          closed: Uzavřeno
           myself: Moje iniciativy
           open: otevřeno
           search: Vyhledávání
@@ -369,7 +369,7 @@ cs:
           type: Typ
           type_prompt: Vyberte typ
         filters_small_view:
-          close_modal: Zavřete okno
+          close_modal: Zavřít okno
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozvinout
@@ -386,7 +386,7 @@ cs:
           label: 'Třídit iniciativy podle:'
           most_commented: Nejvíce komentované
           most_voted: Nejvíce podepsané
-          random: Náhodný
+          random: Náhodné
           recent: Nejnovější
         result:
           answer_title:
