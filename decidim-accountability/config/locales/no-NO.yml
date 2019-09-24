@@ -1,5 +1,0 @@
-"no":
-  activemodel:
-    attributes:
-      result:
-        decidim_accountability_status_id: Status

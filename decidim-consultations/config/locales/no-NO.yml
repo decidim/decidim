@@ -1,7 +1,0 @@
-"no":
-  activemodel:
-    attributes:
-      consultation:
-        title: Tittel
-      question:
-        banner_image: Bannerafbeelding

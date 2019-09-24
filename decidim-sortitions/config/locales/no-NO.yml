@@ -1,8 +1,0 @@
-"no":
-  decidim:
-    sortitions:
-      admin:
-        models:
-          sortition:
-            fields:
-              title: Tittel
