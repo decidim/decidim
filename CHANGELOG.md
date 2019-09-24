@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-core**: Adds new language: Norwegian [#5334](https://github.com/decidim/decidim/pull/5334)
+
 **Changed**:
 
 - **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5355](https://github.com/decidim/decidim/pull/5355)

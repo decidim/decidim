@@ -6,6 +6,7 @@ nl:
         field: Mijn veld
         start_date: Begindatum
         title: Titel
+        translatable_text: Vertaal mijn tekst
         updated_at: Bijgewerkt op
   decidim:
     dummy:

@@ -1004,13 +1004,13 @@ cs:
         label: 'Výsledky na stránku:'
       share_modal:
         close_window: Zavřete okno
-        share: Podíl
+        share: Sdílet
         share_link: Sdílet odkaz
       version_author:
-        deleted: Vymazaný uživatel
+        deleted: Vymazaný účastník
     user_activity:
       index:
-        no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
+        no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
     user_interests:
       show:
         my_interests: Mé zájmy
@@ -1021,35 +1021,35 @@ cs:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
     welcome_notification:
-      default_body: <p>Hi {{name}}, díky za připojení {{organization}} a vítám!</p><ul><li>Chcete-li získat rychlou představu o tom, co můžete udělat zde, podívejte se na sekci <a href="{{help_url}}">Nápověda</a> .</li><li>Jakmile jste si ji přečetli, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému blahu, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, otevřenou mysl spolupracovat a připojit se k jiným lidem.</li></ul>
+      default_body: <p>Dobrý den, {{name}}, díky za připojení {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
   devise:
     confirmations:
       confirmed: Vaše e-mailová adresa byla úspěšně potvrzena.
       new:
-        resend_confirmation_instructions: Opakujte pokyny pro potvrzení
-      send_instructions: Obdržíte e-mail s pokyny pro potvrzení vaší e-mailové adresy během několika minut.
-      send_paranoid_instructions: Pokud vaše e-mailová adresa existuje v naší databázi, obdržíte e-mail s pokyny pro potvrzení vaší e-mailové adresy během několika minut.
+        resend_confirmation_instructions: Znovu odešlete potvrzovací instrukce
+      send_instructions: Během několika minut obdržíte e-mail s pokyny, jak potvrdit e-mailovou adresu.
+      send_paranoid_instructions: Pokud vaše e-mailová adresa existuje v naší databázi, během několika obdržíte e-mail s instrukcemi, jak potvrdit vaši e-mailovou adresu.
     failure:
-      already_authenticated: Jste již přihlášeni.
-      inactive: Váš účet ještě není aktivován.
-      invalid: Neplatné číslo %{authentication_keys} nebo heslo.
-      invited: Máte pozvánku na pozvání, přijměte ji k dokončení vytváření účtu.
-      last_attempt: Máte ještě jeden pokus před uzamčením účtu.
+      already_authenticated: Jste již přihlášen.
+      inactive: Váš účet zatím nebyl aktivován.
+      invalid: Neplatný %{authentication_keys} nebo heslo.
+      invited: Máte pozvání, přijměte jej k dokončení tvorby účtu.
+      last_attempt: Máte poslední pokus, pak dojde k uzamčení účtu.
       locked: Váš účet je uzamčen.
-      not_found_in_database: Neplatné číslo %{authentication_keys} nebo heslo.
-      timeout: Platnost vaší relace vypršela. Chcete-li pokračovat, přihlaste se znovu.
+      not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
+      timeout: Vaše relace vypršela. Pro pokračování se prosím přihlašte.
       unauthenticated: Před pokračováním se musíte přihlásit nebo zaregistrovat.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
-        nickname_help: Váš jedinečný identifikátor v %{organization}.
+        nickname_help: Vaše přezdívka v %{organization}.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
       invitation_removed: Vaše pozvánka byla odstraněna.
       invitation_token_invalid: Předložený token je neplatný!
       new:
-        header: Poslat pozvánku
+        header: Odeslat pozvánku
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
@@ -1067,9 +1067,9 @@ cs:
         subject: E-mail byl změněn
       invitation_instructions:
         accept: Přijmout pozvání
-        accept_until: Tato pozvánka bude splatná v %{due_date}.
+        accept_until: Této pozvánce vyprší platnost v %{due_date}.
         decline: Odmítnout pozvánku
-        hello: Zdravím %{email},
+        hello: Dobrý den %{email},
         ignore: |-
           Pokud nechcete přijmout pozvánku, ignorujte tento e-mail.<br />
           Váš účet nebude vytvořen, dokud nevstoupíte do výše uvedeného odkazu a nastavíte přezdívku a heslo.
