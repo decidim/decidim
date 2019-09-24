@@ -26,6 +26,26 @@ module Decidim
       end
     end
 
+    describe "redirect_url" do
+      it "allows relative paths" do
+        get :show, params: { redirect_url: "/my/account" }
+
+        expect(controller.helpers.redirect_url).to eq("/my/account")
+      end
+
+      it "allows absolute URLs within the organization" do
+        get :show, params: { redirect_url: "http://#{organization.host}/my/account" }
+
+        expect(controller.helpers.redirect_url).to eq("http://#{organization.host}/my/account")
+      end
+
+      it "doesn't allow other URLs" do
+        get :show, params: { redirect_url: "http://www.example.org" }
+
+        expect(controller.helpers.redirect_url).to eq(nil)
+      end
+    end
+
     describe "#show" do
       context "when authenticated" do
         before do

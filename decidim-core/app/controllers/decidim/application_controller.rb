@@ -12,6 +12,7 @@ module Decidim
     include HttpCachingDisabler
     include ActionAuthorization
     include ForceAuthentication
+    include SafeRedirect
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -53,13 +54,13 @@ module Decidim
     def store_current_location
       return if skip_store_location?
 
-      value = params[:redirect_url] || request.url
+      value = redirect_url || request.url
       store_location_for(:user, value)
     end
 
     def skip_store_location?
       # Skip if Devise already handles the redirection
-      return true if devise_controller? && params[:redirect_url].blank?
+      return true if devise_controller? && redirect_url.blank?
       # Skip for all non-HTML requests"
       return true unless request.format.html?
       # Skip if a signed in user requests the TOS page without having agreed to
