@@ -213,7 +213,7 @@ cs:
           new:
             back: Zpět
             create: Vytvořit
-            title: Vytvoření rozsahu typů iniciativy
+            title: Vytvořit rozsah typů iniciativy
           update:
             error: Došlo k chybě
             success: Rozsah byl úspěšně aktualizován
@@ -224,9 +224,9 @@ cs:
           destroy:
             success: Typ iniciativy byl úspěšně odstraněn
           edit:
-            confirm_destroy: Jsi si jistá?
+            confirm_destroy: Jste si jist?
             destroy: Odstranit
-            update: Aktualizace
+            update: Aktualizovat
           form:
             title: Obecná informace
           initiative_type_scopes:
@@ -239,10 +239,10 @@ cs:
             success: Typ iniciativy byl úspěšně aktualizován
       admin_log:
         initiative:
-          publish: "%{user_name} zveřejnila %{resource_name} iniciativu"
+          publish: "%{user_name} zveřejnil iniciativu %{resource_name}"
           send_to_technical_validation: "%{user_name} zaslala %{resource_name} iniciativu k technickému ověření"
-          unpublish: "%{user_name} odhodil %{resource_name} iniciativu"
-          update: "%{user_name} aktualizovala iniciativu %{resource_name}"
+          unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
+          update: "%{user_name} aktualizoval iniciativu %{resource_name}"
       admin_states:
         accepted: Přijato
         created: Vytvořeno
@@ -253,7 +253,7 @@ cs:
       committee_requests:
         new:
           continue: Pokračovat
-          help_text: Chystáte se požádat o členství v iniciativě této iniciativy
+          help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy
         spawn:
           success: Vaše žádost byla zaslána autorovi iniciativy.
       content_blocks:
@@ -261,17 +261,17 @@ cs:
           name: Zdůrazněné iniciativy
       create_initiative:
         fill_data:
-          back: Zadní
+          back: Zpět
           continue: Pokračovat
           fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
           initiative_type: Typ iniciativy
           more_information: "(Více informací)"
-          select_scope: Vyberte oblast
+          select_scope: Zvolte rozsah
         finish:
-          back: Zadní
+          back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
-          go_to_my_initiatives: Jděte na mé iniciativy
+          go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
         finish_help:
           access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
