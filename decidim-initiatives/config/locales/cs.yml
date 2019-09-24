@@ -275,7 +275,7 @@ cs:
           more_information: "(Více informací)"
         finish_help:
           access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
-          help_for_organizations: Pokud jste sdružení, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
+          help_for_organizations: Pokud jste asociace, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
           help_in_person_signatures: Pokud jste se rozhodli vyzvednout podpisy osobně nebo v kombinaci s online, budete muset nahrát požadované informace.
           help_text: Nezapomeňte, že pro správné zpracování iniciativy musíte přistupovat k administračnímu panelu, kde naleznete uživatelské menu, nahrát požadované informace a odeslat je ke zpracování.
           initiatives_page_link: Můžete si prohlédnout všechny tyto informace o %{link} určeny k informování o iniciativách.
