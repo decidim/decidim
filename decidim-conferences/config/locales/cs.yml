@@ -161,7 +161,7 @@ cs:
           diploma: Potvrzení o účasti
           info: Info
           media_links: Odkazy na média
-          moderations: Moderování
+          moderations: Moderátoři
           partners: Partneři
           registration_types: Typy registrace
           registrations: Registrace
@@ -172,19 +172,19 @@ cs:
             created_at: Vytvořeno u
             promoted: Propagováno
             published: Publikováno
-            title: Titul
+            title: Název
         conference_speaker:
           fields:
             affiliation: Přidružení
             full_name: Celé jméno
             position: Pozice
-          name: Konferenční reproduktor
+          name: Řečník Konference
         conference_user_role:
           fields:
-            email: E-mailem
+            email: E-mail
             name: název
             role: Role
-          name: Uživatel konference
+          name: Administrátor konference
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -193,7 +193,7 @@ cs:
           fields:
             date: datum
             link: Odkaz
-            title: Titul
+            title: Název
           name: Media Link
         partner:
           fields:
@@ -204,19 +204,19 @@ cs:
           name: Partner
           types:
             collaborator: Spolupracovník
-            main_promotor: Hlavní promotor
+            main_promotor: Hlavní podporovatel
         registration_type:
           fields:
             conference_meetings: Setkání konference
             price: Cena
             registrations_count: Registrace se počítají
-            title: Titul
+            title: Název
             weight: Hmotnost
           name: Typ registrace
       partners:
         create:
           error: Při přidávání partnera pro tuto konferenci došlo k chybě.
-          success: Partner úspěšně přidal na tuto konferenci.
+          success: Konferenční partner byl úspěšně přidán.
         destroy:
           success: Partner byl úspěšně odstraněn z této konference.
         edit:
@@ -233,12 +233,12 @@ cs:
           error: Při publikování tohoto typu registrace došlo k chybě.
           success: Typ registrace byl úspěšně publikován.
         destroy:
-          error: Došlo k chybě zrušením publikování tohoto typu registrace.
-          success: Typ registrace byl nepublikován úspěšně.
+          error: Při zrušení publikování tohoto typu registrace došlo k potížím.
+          success: Typ registrace byl úspěšně nezveřejněn.
       registration_types:
         create:
           error: Při přidávání typu registrace pro tuto konferenci došlo k chybě.
-          success: Typ zápisu byl úspěšně přidán na tuto konferenci.
+          success: Typ registrace byl úspěšně přidán na tuto konferenci.
         destroy:
           success: Typ registrace byl z této konference úspěšně odstraněn.
         edit:
@@ -254,16 +254,16 @@ cs:
         conferences: Konference
     admin_log:
       conference:
-        create: "%{user_name} vytvořila %{resource_name} konferenci"
+        create: "%{user_name} vytvořil konferenci %{resource_name}"
         publish: "%{user_name} zveřejnila %{resource_name} konferenci"
-        send_conference_diplomas: "%{user_name} zaslali certifikáty o účasti na %{resource_name} konferenci"
+        send_conference_diplomas: "%{user_name} zaslal certifikaci o účasti na konferenci %{resource_name}"
         unpublish: "%{user_name} nepublikováno %{resource_name} konferenci"
-        update: "%{user_name} aktualizovala %{resource_name} konferenci"
+        update: "%{user_name} aktualizoval konferenci %{resource_name}"
         update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
       conference_speaker:
-        create: "%{user_name} vytvořila %{resource_name} reproduktor na %{space_name} konferencích"
+        create: "%{user_name} vytvořil %{resource_name} řečníka na konferenci %{space_name}"
         delete: "%{user_name} odstranila %{resource_name} reproduktor z %{space_name} konferencí"
-        update: "%{user_name} aktualizoval %{resource_name} reproduktor na %{space_name} konferenci"
+        update: "%{user_name} aktualizoval %{resource_name} řečníka na konferenci %{space_name}"
       conference_user_role:
         create: "%{user_name} pozváno %{resource_name} na %{space_name} konference"
         delete: "%{user_name} odstranil uživatele %{resource_name} z %{space_name} konference"
