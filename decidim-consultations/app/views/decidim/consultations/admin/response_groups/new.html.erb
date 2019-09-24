@@ -4,7 +4,7 @@
 
 <%= decidim_form_for @form,
                      url: response_groups_path(current_question),
-                     html: { class: "form new_response" } do |f| %>
+                     html: { class: "form new_response_group" } do |f| %>
   <%= render partial: "form", object: f %>
 
   <div class="button--double form-general-submit">

@@ -286,6 +286,13 @@ describe Decidim::Consultations::Admin::Permissions do
         it { is_expected.to eq false }
       end
     end
+
+    context "when question is not multiple" do
+      let(:question) { create :question, consultation: consultation }
+      let(:action_name) { :create }
+
+      it { is_expected.to eq false }
+    end
   end
 
   describe "participatory spaces" do

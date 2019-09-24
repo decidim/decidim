@@ -96,8 +96,9 @@ module Decidim
         end
 
         def allowed_response_group_action?
-          return unless permission_action.subject == :response_group &&
-                        question&.multiple?
+          return unless permission_action.subject == :response_group
+
+          return disallow! unless question&.multiple?
 
           case permission_action.action
           when :create, :read
