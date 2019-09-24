@@ -42,10 +42,10 @@ cs:
         many: Konference
         other: Konference
       decidim/conference_speaker:
-        one: Konferenční reproduktor
-        few: Konferenční reproduktory
-        many: Konferenční reproduktory
-        other: Mluvčí Konference
+        one: Řečník Konference
+        few: Řečnící Konference
+        many: Řečníci Konference
+        other: Řečníci Konference
       decidim/conference_user_role:
         one: Uživatelská role konference
         few: Konference uživatelských rolí
@@ -80,32 +80,32 @@ cs:
         destroy:
           success: Reproduktor byl úspěšně smazán pro tuto konferenci.
         edit:
-          title: Aktualizovat konferenční reproduktor.
+          title: Aktualizovat řečníka konference.
           update: Aktualizace
         index:
-          conference_speakers_title: Konferenční reproduktory
+          conference_speakers_title: Řečnící konference
         new:
           create: Vytvořit
-          title: Nový konferenční reproduktor.
+          title: Nový řečník konference.
         update:
-          error: Při této konferenci došlo k chybě při aktualizaci reproduktoru.
+          error: Při této konferenci došlo k chybě při aktualizaci řečníka.
           success: Speaker se úspěšně pro tuto konferenci úspěšně aktualizoval.
       conference_user_roles:
         create:
-          error: Při přidávání uživatele této konference došlo k chybě.
+          error: Při přidávání administrátora této konference došlo k chybě.
           success: Uživatel úspěšně přidal tuto konferenci.
         destroy:
-          success: Uživatel byl z této konference úspěšně odstraněn.
+          success: Administrátor konference byl úspěšně odstraněn.
         edit:
           title: Aktualizovat uživatele konference.
           update: Aktualizace
         index:
-          conference_admins_title: uživatelů konferencí
+          conference_admins_title: administrátoři konference
         new:
           create: Vytvořit
-          title: Nový uživatel konference.
+          title: Nový administrátor konference.
         update:
-          error: Došlo k chybě uživatele aktualizované pro tuto konferenci.
+          error: Při aktualizaci tohoto administrátora konference došlo k potížím.
           success: Uživatel úspěšně aktualizován pro tuto konferenci.
       conferences:
         create:
@@ -133,17 +133,17 @@ cs:
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
-          success: Media Link byl úspěšně vytvořen.
+          success: Odkaz na media byl úspěšně vytvořen.
         destroy:
-          success: Media Link byl úspěšně smazán.
+          success: Odkaz na media byl úspěšně smazán.
         edit:
-          title: Aktualizovat mediální odkaz.
+          title: Aktualizovat odkaz na media.
           update: Aktualizace
         index:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Media Link
+          title: Odkaz na media
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
           success: Media Link byl úspěšně aktualizován.
@@ -155,9 +155,9 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          conference_admins: Správci konferencí
+          conference_admins: Administrátoři konference
           conference_invites: Pozvánky
-          conference_speakers: Reproduktory
+          conference_speakers: Řečníci
           diploma: Potvrzení o účasti
           info: Info
           media_links: Odkazy na média
