@@ -335,7 +335,7 @@ cs:
         votes_count: Hlasy
     assembly_members:
       assembly_member:
-        designated_on: Určeno pro
+        designated_on: Určen pro
       index:
         title: Členové
     help:
