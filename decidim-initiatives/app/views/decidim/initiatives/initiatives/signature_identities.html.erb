@@ -12,7 +12,7 @@
            } unless current_initiative.offline? %>
 
 <% Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.each do |g| %>
-  <br />
+  <br>
   <% if @voted_groups.include? g.id %>
     <%= button_to(
       g.name,

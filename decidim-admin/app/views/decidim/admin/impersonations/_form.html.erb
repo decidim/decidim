@@ -1,7 +1,5 @@
 <div class="row column">
-  <% unless form.object.user.managed? %>
-    <%= form.text_field :reason, label: t(".reason") %>
-  <% end %>
+  <%= form.text_field :reason, label: t(".reason") %>
 
   <% if creating_managed_user? %>
     <%= form.text_field :name, label: t(".name") %>

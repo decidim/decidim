@@ -1192,11 +1192,7 @@ es-PY:
       long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: extraviado
       not_locked: no estaba bloqueado
-      not_saved:
-        one: '1 error ha impedido que se guarde este %{resource}:'
-        other: "%{count} errores prohibieron que se guarde este %{resource}:"
       too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos de 15 caracteres)

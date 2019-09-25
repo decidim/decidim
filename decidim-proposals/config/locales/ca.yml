@@ -97,7 +97,7 @@ ca:
             minimum_votes_per_user: Suports mínims per participant
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
-            participatory_texts_disabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, creeu un nou 'component de propostes' si voleu habilitar aquesta característica o descarteu totes les propostes importades al menú "textos participatius" si voleu deshabilitar-lo.
+            participatory_texts_disabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             participatory_texts_enabled: Texts participatius habilitats
             proposal_answering_enabled: Resposta a propostes habilitada
             proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
@@ -113,7 +113,7 @@ ca:
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_creation_enabled_help: Les participants poden esmenar les propostes.
-            amendment_promotion_enabled: Promoció d'esmenes rebutjades a propostes habilitada
+            amendment_promotion_enabled: Promoció d'esmenes habilitada
             amendment_promotion_enabled_help: Les autores de les esmenes rebutjades poden promocionar-les a propostes.
             amendment_reaction_enabled: Reacció a les esmenes habilitada
             amendment_reaction_enabled_help: Les autores de les propostes poden acceptar o rebutjar les esmenes proposades pels participants.
@@ -321,7 +321,7 @@ ca:
             success: S'han descartat tots els esborranys de textos participatius.
           import:
             invalid: El formulari no és vàlid!
-            invalid_file: L'arxiu conté algun error. Siusplau, intenteu editar-ne el contingut i torneu-lo a enviar.
+            invalid_file: L'arxiu conté algun error. Si us plau, intenta editar-ne el contingut i torna'l a enviar.
             success: Enhorabona, les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.
           index:
             info_1: Les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.

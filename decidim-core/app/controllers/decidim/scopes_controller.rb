@@ -12,6 +12,7 @@ module Decidim
       root = current_organization.scopes.find(params[:root]) if params[:root]
       context = root ? { root: root.id, title: title } : { title: title }
       required = params[:required] && params[:required] != "false"
+
       if params[:current]
         current = (root&.descendants || current_organization.scopes).find_by(id: params[:current]) || root
         scopes = current.children
@@ -21,6 +22,7 @@ module Decidim
         scopes = root&.children || current_organization.scopes.top_level
         parent_scopes = [root].compact
       end
+
       render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),
                                              parent_scopes: parent_scopes, global_value: params[:global_value], context: context }
     end

@@ -86,6 +86,18 @@ module Decidim
               end.to change(User, :count).by(1)
             end
           end
+
+          context "when a user was invited but never accepted" do
+            let!(:pending_user) do
+              create(:user, email: email, organization: organization, invitation_token: "foobar", invitation_accepted_at: nil)
+            end
+
+            it "deletes the previous user and creates a new one" do
+              command.call
+
+              expect(Decidim::User.exists?(id: pending_user.id)).to be false
+            end
+          end
         end
       end
     end

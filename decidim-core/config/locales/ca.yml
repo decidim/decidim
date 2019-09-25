@@ -157,15 +157,15 @@ ca:
         title: Esmenes similars
       created:
         error: S'ha produït un error durant la creació de l’esmena.
-        success: El projecte d’esmena ha estat creat amb èxit.
+        success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
-        error: S'ha produït un error en suprimir l'esborrany de la proposta.
-        success: L'esborrany de proposta s'ha eliminat correctament.
+        error: S'ha produït un error en suprimir l'esborrany de l'esmena.
+        success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
-        title: Edita l'esmena del Projecte
+        title: Edita l'esborrany d'esmena
       emendation:
         actions:
           button_accept: Acceptar
@@ -173,21 +173,21 @@ ca:
           help_text: Revisa els canvis i accepta o rebutja aquesta esmena. S'enviarà una notificació a la seva autora(es).
         announcement:
           accepted: |-
-            Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
+            Aquesta esmena per la %{amendable_type} %{proposal_link} ha estat acceptada el <strong>%{date}</strong>.
           evaluating: |-
-            Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
+            L' esmena per a %{amendable_type} %{proposal_link} está essent avaluada.
           promoted: Promocionar a %{amendable_type}.
-          rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
+          rejected: L' esmena de la %{amendable_type} %{proposal_link} ha estat rebutjada el <strong>%{date}</strong>.
           withdrawn: |-
-            Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
+            L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
       new:
         amendment_author: Autora de l'esmena
-        send: Crea
+        send: Crear
         title: Crear esborrany d'esmena
       preview_draft:
         modify: Modificar
-        publish: Publica
-        title: Publica l'esmena del projecte
+        publish: Publicar
+        title: Publicar l'esborrany d'esmena
       promoted:
         error: S'ha produït un error en publicar l'esmena com una nova proposta
         success: L'esmena s'ha publicat com una nova proposta correctament
@@ -203,20 +203,20 @@ ca:
         help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
       update_draft:
-        error: Hi va haver un problema en actualitzar el projecte d'esmena.
-        success: Projecte d'esmena actualitzat amb èxit.
+        error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
+        success: Esborrany d'esmena actualitzat correctament.
       visibility_options:
         all: Les esmenes són visibles per a tothom
         participants: Les esmenes són visibles únicament per als seus autors
       withdraw:
         error: S'ha produït un error en retirar l'esmena
-        success: L'esmena ha estat retirada amb èxit
+        success: L'esmena s'ha retirat correctament
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compareu la vostra esmena
-          '3': Completeu la vostra esmena
-          '4': Publiqueu la vostra esmena
+          '2': Compara la teva esmena
+          '3': Completa la teva esmena
+          '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
       collection:
@@ -318,7 +318,7 @@ ca:
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
-            dummy_step_translatable_text: Text de passa traduïble de proves
+            dummy_step_translatable_text: Text de fase traduïble de proves
     contact: Contacte
     content_blocks:
       footer_sub_hero:
@@ -584,6 +584,9 @@ ca:
       current_image: Imatge actual
       default_image: Imatge predeterminada
       errors:
+        decidim/user:
+          password: La contrasenya és massa curta.
+          password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
@@ -1055,8 +1058,8 @@ ca:
       wizard_aside:
         back: Enrere
       wizard_header:
-        see_steps: veure les fases
-        step_of: Fase %{current_step} de %{total_steps}
+        see_steps: veure els passos
+        step_of: Pas %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: La teva adreça de correu electrònic s'ha confirmat correctament.
@@ -1212,11 +1215,11 @@ ca:
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      not_found: No trobat
+      not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       not_saved:
-        one: 'Un error ha impedit que es guardés aquest %{resource}:'
-        other: "%{count} errors han impedit que es guardés aquest %{resource}:"
+        one: 'S''ha produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: És massa curt (menys de 15 caràcters)
@@ -1308,10 +1311,13 @@ ca:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

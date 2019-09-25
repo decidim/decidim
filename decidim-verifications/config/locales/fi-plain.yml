@@ -104,7 +104,6 @@ fi-pl:
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
             file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
-            info: 'On oltava CSV-muotoinen tiedosto, jossa on yksi sarake: sähköposti (sarakenimi "email")'
             submit: Lataa tiedosto
             title: Lataa uusi rekisteri
         authorizations:

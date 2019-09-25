@@ -4,7 +4,7 @@ cs:
       agenda:
         description: Popis
         duration: Doba trvání
-        title: Titul
+        title: Název
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -21,25 +21,25 @@ cs:
         location: Umístění
         location_hints: Tipy pro umístění
         organizer_id: Organizátor
-        private_meeting: Privátní setkání
+        private_meeting: Soukromá schůzka
         registration_form_enabled: Registrační formulář je povolen
         registration_terms: Podmínky registrace
         registrations_enabled: Registrace povoleny
-        start_time: Doba spuštění
-        title: Titul
-        transparent: Průhledný
+        start_time: Čas zahájení
+        title: Název
+        transparent: Transparentní
       minutes:
         audio_url: Audio url
         description: Popis
         video_url: Video url
-        visible: Je vidět
+        visible: Viditelný
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
               too_many_minutes: Doba trvání položek přesahuje dobu trvání konference o %{count} minut
-              too_many_minutes_child: Délka položky dítěte přesahuje po dobu %{count} minuty položku programu "%{parent_title}"
+              too_many_minutes_child: Délka podřazené položky přesahuje dobu o %{count} minut z nadřazené položku programu "%{parent_title}"
         meeting_registration_invite:
           attributes:
             email:
@@ -48,7 +48,7 @@ cs:
       decidim/meetings/close_meeting_event: Setkání bylo uzavřeno
       decidim/meetings/create_meeting_event: Setkání
       decidim/meetings/meeting_registrations_enabled_event: Registrace povoleny
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrace nad limit
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrace přes limit
       decidim/meetings/upcoming_meeting_event: Nadcházející schůzka
       decidim/meetings/update_meeting_event: Setkání bylo aktualizováno
   activerecord:
@@ -81,18 +81,18 @@ cs:
     components:
       meetings:
         actions:
-          join: Připojit
+          join: Přidat se
         name: Setkání
         settings:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             default_registration_terms: Výchozí podmínky registrace
-            enable_pads_creation: Povolit vytvoření podložky
+            enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
           step:
             announcement: Oznámení
-            comments_blocked: Komentáře byly blokovány
+            comments_blocked: Komentáře blokovány
     events:
       meetings:
         meeting_closed:
@@ -366,13 +366,13 @@ cs:
           meeting_minutes: Zápis z porady
           related_information: Související informace
         meetings:
-          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo není naplánováno žádné schůzky.
+          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
         registration_confirm:
-          cancel: zrušení
+          cancel: Zrušit
           confirm: Potvrdit
         show:
-          attendees: Účastníci se počítají
+          attendees: Počet účastníků
           contributions: Počet příspěvků
           going: Chystáte se
           join: Připojte se k setkání
@@ -381,14 +381,14 @@ cs:
           organizations: Účastnické organizace
           registration_code_help_text: Váš registrační kód
           registration_state:
-            validated: VALIDOVANÝ
+            validated: OVĚŘENÝ
             validation_pending: OVĚŘENÍ ČEKÁ NA SCHVÁLENÍ
           remaining_slots:
             one: "%{count} zbývajícího slotu"
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Pohled
+          view: Zobrazení
       meetings_map:
         view_meeting: Zobrazit schůzku
       models:
@@ -396,8 +396,8 @@ cs:
           fields:
             email: E-mailem
             name: název
-            sent_at: Odeslané
-            status: Postavení
+            sent_at: Odesláno v
+            status: Stav
           status:
             accepted: Přijato (%{at})
             rejected: Odmítnuto (%{at})

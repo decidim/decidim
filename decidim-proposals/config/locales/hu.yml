@@ -86,6 +86,8 @@ hu:
         settings:
           global:
             amendments_enabled: A módosítások engedélyezve vannak
+            amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
+            amendments_wizard_help_text: Módosítások Varázsló súgószöveg
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
             can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
@@ -95,6 +97,7 @@ hu:
             minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
+            participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
             participatory_texts_enabled: Engedélyezett részvételi szövegek
             proposal_answering_enabled: Javaslat válasz engedélyezve
             proposal_edit_before_minutes: A javaslatokat a szerzők az ülés lezárásáig szerkeszthetik
@@ -111,9 +114,11 @@ hu:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
             amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_promotion_enabled_help: A Módosítás szerzői képesek Javaslattá promotálni az elutasított módosítást.
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
+            amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
             announcement: Közlemény
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
@@ -272,7 +277,7 @@ hu:
         title: Elfogadott javaslatok
       endorsements:
         description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: kiterjesztések
+        object: elismerések
         title: Elismerések
       proposals:
         description: A létrehozott javaslatok száma
@@ -280,8 +285,8 @@ hu:
         title: javaslatok
       votes:
         description: A felhasználók által benyújtott szavazatok száma
-        object: szavazat
-        title: szavazatok
+        object: szavazatok
+        title: Szavazatok
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:

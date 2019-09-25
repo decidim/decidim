@@ -116,6 +116,7 @@ hu:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
         create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
+        create_via_csv: "%{user_name} meghívota %{resource_name} CSV -vel, hogy privát résztvevő legyen"
         delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
@@ -583,6 +584,9 @@ hu:
       current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
+        decidim/user:
+          password: A jelszó túl rövid.
+          password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
         error: Hiba van ebben a mezőben.
       remove_this_file: Töröld ezt a fájlt
     gamification:
@@ -1212,11 +1216,8 @@ hu:
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
-      not_found: nem található
+      not_found: nem található. Regisztráltál már korábban?
       not_locked: nem volt zárva
-      not_saved:
-        one: '1 hiba tiltotta, hogy ez a %{resource} mentése:'
-        other: "%{count} hiba tiltotta, hogy ez az %{resource} mentése:"
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
       too_short: túl rövid (15 karakterig)
@@ -1312,6 +1313,8 @@ hu:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%é. %h %n., %A, %ó:%p"
+      short: "%n%h%é%ó:%p"
       time_of_day: "%H:%M"
   versions:
     directions:

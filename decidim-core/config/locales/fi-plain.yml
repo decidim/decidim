@@ -1215,11 +1215,7 @@ fi-pl:
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      not_found: ei löydy
       not_locked: ei lukittu
-      not_saved:
-        one: '1 virhe esti %{resource} tallentamisen:'
-        other: "%{count} virhettä esti %{resource} tallentamisen:"
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)

@@ -592,6 +592,9 @@ en:
       current_image: Current image
       default_image: Default image
       errors:
+        decidim/user:
+          password: The password is too short.
+          password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
@@ -1221,11 +1224,11 @@ en:
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
-      not_found: not found
+      not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: 'There''s been an error processing your request:'
+        other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
@@ -1317,10 +1320,13 @@ en:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

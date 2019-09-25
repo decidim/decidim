@@ -51,7 +51,7 @@ hu:
           name: Szervezet
       organizations:
         create:
-          error: Hiba történt egy új szervezet létrehozása során.
+          error: Hiba történt az új szervezet létrehozása során.
           success: Szervezet sikeresen létrehozva.
         edit:
           secondary_hosts_hint: Mindegyiket új sorba írd be

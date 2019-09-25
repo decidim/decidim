@@ -104,7 +104,6 @@ it:
             title: È necessario attivare il censimento CSV per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
-            info: 'Deve essere un file con formato CSV con una colonna: email'
             submit: Caricare un file
             title: Carica un nuovo censimento
         authorizations:

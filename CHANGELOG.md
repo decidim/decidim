@@ -6,6 +6,7 @@
 **Added**:
 
 - **decidim-proposals**: Allow admins to create image galleries in proposals if attachments are enabled. [\#5339](https://github.com/decidim/decidim/pull/5339)
+- **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
 - **decidim-admin**, **decidim-assemblies**, **decidim-participatory-processes**: Add CSV Import to Participatory Space Private Users. [\#5304](https://github.com/decidim/decidim/pull/5304)
 - **decidim-participatory-processes**: Add: process group presenter [#5289](https://github.com/decidim/decidim/pull/5289)
 - **decidim-consultations**: Allow to restrict voting to a question by adding verifications permissions [#5274](https://github.com/decidim/decidim/pull/5274)
@@ -25,10 +26,14 @@
 
 **Changed**:
 
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5341](https://github.com/decidim/decidim/pull/5341)
 - **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
+- **decidim-core**: Changes default format date [#5330](https://github.com/decidim/decidim/pull/5330)
+- **decidim-verifications**: Change CSV census validations [#5346](https://github.com/decidim/decidim/pull/5346)
 
 **Fixed**:
 
+- **decidim-admin**: Fix: Remove first `:header_snippets` field on organization admin apparence form. [#5352](https://github.com/decidim/decidim/pull/5352)
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5312](https://github.com/decidim/decidim/pull/5312)
 - **decidim-core**: Fix: WhatsApp url button [#5317](https://github.com/decidim/decidim/pull/5317)
 - **decidim-core**: Fix: AuthorizationFormBuilder does not detect attribute types [#5315](https://github.com/decidim/decidim/pull/5315)
@@ -59,6 +64,9 @@
 - **decidim-core**: Fix forgotten redirect page in case TOS is not yet agreed on [#5313](https://github.com/decidim/decidim/pull/5313)
 - **decidim-admin**: Fix managed users stolen identities with users having the same name [#5318](https://github.com/decidim/decidim/pull/5318)
 - **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**, **decidim-admin**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Multiple bugfixes [\#5329](https://github.com/decidim/decidim/pull/5329)
+- **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
+- **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
 
 **Removed**:
 
