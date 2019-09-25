@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-core**: Add image upload to Quill editor. [\#5364](https://github.com/decidim/decidim/pull/5364)
 - **decidim-proposals**: Allow admins to create image galleries in proposals if attachments are enabled. [\#5339](https://github.com/decidim/decidim/pull/5339)
 - **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
 - **decidim-admin**, **decidim-assemblies**, **decidim-participatory-processes**: Add CSV Import to Participatory Space Private Users. [\#5304](https://github.com/decidim/decidim/pull/5304)
