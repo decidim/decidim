@@ -33,7 +33,9 @@
     const quill = new Quill(container, {
       modules: {
         toolbar: quillToolbar,
-        imageResize: {},
+        imageResize: {
+          modules: ["Resize", "DisplaySize"]
+        },
         imageDrop: true
       },
       formats: quillFormats,
