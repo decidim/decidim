@@ -8,7 +8,6 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-
         jsonb_attribute :smtp_settings, [
           [:from, String],
           [:from_email, String],
@@ -22,9 +21,9 @@ module Decidim
         ]
 
         def encrypted_smtp_settings
-          smtp_label = smtp_settings[:from_label].blank? ? smtp_settings[:from_email] : smtp_settings[:from_label]
-          smtp_settings.merge!({from: "#{smtp_label} <#{smtp_settings[:from_email]}>"})
-          smtp_settings.merge({encrypted_password: Decidim::AttributeEncryptor.encrypt(@password)})
+          smtp_label = smtp_settings[:from_label].presence || smtp_settings[:from_email]
+          smtp_settings[:from] = "#{smtp_label} <#{smtp_settings[:from_email]}>"
+          smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
         end
       end
     end
