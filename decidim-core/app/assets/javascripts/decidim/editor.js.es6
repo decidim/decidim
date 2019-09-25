@@ -1,8 +1,9 @@
 // = require quill.min
+// = require image-resize.min
 // = require_self
 
 ((exports) => {
-  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video"];
+  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image"];
 
   const createQuillEditor = (container) => {
     const toolbar = $(container).data("toolbar");
@@ -18,19 +19,21 @@
       quillToolbar = [
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
         ...quillToolbar,
-        ["video"]
+        ["video", "image"]
       ];
     } else if (toolbar === "basic") {
       quillToolbar = [
         ...quillToolbar,
-        ["video"]
+        ["video", "image"]
       ];
     }
 
     const $input = $(container).siblings('input[type="hidden"]');
     const quill = new Quill(container, {
       modules: {
-        toolbar: quillToolbar
+        toolbar: quillToolbar,
+        imageResize: {
+        }
       },
       formats: quillFormats,
       theme: "snow"
