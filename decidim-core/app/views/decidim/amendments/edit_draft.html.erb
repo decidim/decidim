@@ -1,0 +1,31 @@
+<main class="wrapper">
+  <div class="row">
+    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
+
+    <div class="columns large-6">
+      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header ) %>
+
+      <div class="card">
+        <div class="card__content">
+          <%= decidim_form_for(@form, url: update_draft_amend_path(amendment), method: :patch) do |form| %>
+            <%= render partial: "edit_form_fields", locals: { form: form, original: :emendation } %>
+
+            <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+              <div class="field">
+                <%= user_group_select_field form, :user_group_id %>
+              </div>
+            <% end %>
+
+            <div class="row column flex-center">
+              <%= link_to t(".discard"), destroy_draft_amend_path(amendment), method: :delete, data: { confirm: t(".discard_confirmation") } %>
+
+              <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns large-3"></div>
+  </div>
+</main>

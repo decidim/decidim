@@ -42,7 +42,7 @@ FactoryBot.define do
       closing_report { generate_localized_title }
       attendees_count { rand(50) }
       contributions_count { rand(50) }
-      attending_organizations { Array.new(3) { Faker::GameOfThrones.house }.join(", ") }
+      attending_organizations { Array.new(3) { Faker::TvShows::GameOfThrones.house }.join(", ") }
       closed_at { Time.current }
     end
 

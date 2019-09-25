@@ -32,11 +32,11 @@ hu:
         local_area: Szervezet területe
         meta_scope: Hatókör-metaadatok
         parent_id: Parent gyűlés
-        participatory_processes_ids: Társuló részvételi folyamatok
+        participatory_processes_ids: Kapcsolódó részvételi folyamatok
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
-        promoted: Promotált
+        promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
         scope_id: Hatáskör
@@ -84,8 +84,6 @@ hu:
           success: Gyűlés létrehozása sikeres.
         edit:
           update: Frissítés
-        form:
-          title: Általános információ
         index:
           not_published: Nincs közzétéve
           private: Privát
@@ -133,24 +131,24 @@ hu:
       assembly_user_roles:
         create:
           error: Hiba történt a felhasználó gyűléshez való hozzáadása során.
-          success: Felhasználó hozzáadása a gyűléshez sikeres.
+          success: Admin hozzáadása a gyűléshez sikeres.
         destroy:
-          success: Felhasználó eltávolítása a gyűlésből sikeres.
+          success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés felhasználójának frissítése.
+          title: Gyűlés adminjának frissítése.
           update: Frissítés
         index:
-          assembly_admins_title: Gyűlés felhasználói
+          assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés felhasználó.
+          title: Új gyűlés admin.
         update:
-          error: Hiba történt a gyűlés felhasználójának frissítése során.
-          success: Gyűlés felhasználójának frissítése sikeres.
+          error: Hiba történt a gyűlés adminjának frissítése során.
+          success: Gyűlés adminjának frissítése sikeres.
       menu:
         assemblies: Gyűlések
         assemblies_submenu:
-          assembly_admins: Gyűlés felhasználói
+          assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
           attachment_collections: Mappák
           attachment_files: Fájlok
@@ -186,7 +184,7 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Gyűlés felhasználói
+          name: Gyűlés adminja
           roles:
             admin: Adminisztrátor
             collaborator: Közreműködő
@@ -211,24 +209,31 @@ hu:
       admin:
         assemblies:
           form:
+            duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
+            filters: Szűrők
+            images: képek
             included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
+            metadata: Metaadatok
+            other: Egyéb
             select_a_created_by: Válassz alapítót
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             social_handlers: Social
+            title: Általános információ
+            visbility: Láthatóság
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
         assembly_members:
           form:
-            existing_user: Létező felhasználó
-            non_user: Nem felhasználó
+            existing_user: Meglévő résztvevő
+            non_user: Nem résztvevő
             select_a_position: Válassz pozíciót
-            select_user: Válassz felhasználót
-            user_type: Felhasználó típusa
+            select_user: Válasszon ki egy résztvevőt
+            user_type: Résztvevő típusa
           index:
             filter:
               all: Összes
@@ -263,7 +268,7 @@ hu:
         consultative_advisory: Konzultatív / tanácsadó
         executive: Végrehajtó
         government: Kormány
-        help: 'Előadás:'
+        help: 'Mutat:'
         others: Egyéb
         participatory: Részvételi
         working_group: Munkacsoport
@@ -314,14 +319,14 @@ hu:
         endorsements_count: Jóváhagyások
         headline: Tevékenység
         meetings_count: Találkozók
-        orders_count: Szavazatok
+        orders_count: Támogatja
         pages_count: Oldalak
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
         surveys_count: Felmérések
         users_count: Résztvevők
-        votes_count: Szavazatok
+        votes_count: Támogatók
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
@@ -331,7 +336,7 @@ hu:
       participatory_spaces:
         assemblies:
           contextual: "<p>Egy gyűlés szervezet olyan csoportjának tagjait takarja, akik rendszeresen találkoznak azért, hogy döntéseket hozzanak a szervezet életét érintő kérdésekben.</p> <p>Ezek a gyűlések üléseket tartanak, egyesek privátok és néhányan nyitottak. Ha nyitottak, akkor nyitott a lehetőség a rérszvételre tagjaik előtt (például: a szervezetet érintő napirendi pontok javaslatával, vagy meglévő előterjesztésekhez, döntésekhez való vélemények fűzésével).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányait tisztázandó és végrehajtó testületei szavazással hoznak döntéseket), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezetben) egy értékelő bizottság (amely minden hónapban találkozik az adott folyamat nyomonkövetése érdekében) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik a gyűléseknek jó példája.</p>\n"
-          page: "<p>A gyűlés egy szervezet olyan csoportját takarja, mely rendszeresen ülésezik azért, hogy döntéseket hozzon a szervezet életét érintő kérdésekben.</p> <p>Ezek a gyűlések (bizottságok, közgyűlések stb) üléseket tartanak, egyesek zártak és néhányan nyitottak. Ha nyitottak, akkor nyitott a lehetőség a részvételre a tagjaik, vagy tagjaik csoportjai előtt (például: a szervezetet érintő napirendi pontok javaslatával, vagy meglévő előterjesztésekhez, döntésekhez való vélemények fűzésével).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányait tisztázandó és végrehajtó testületei szavazással hoznak döntéseket), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezetben) egy értékelő bizottság (amely minden hónapban találkozik az adott folyamat nyomonkövetése érdekében) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik a gyűléseknek jó példája.</p>\n"
+          page: "<p><strong>A gyűlés </strong>egy szervezet olyan csoportját takarja, mely rendszeresen ülésezik azért, hogy döntéseket hozzon a szervezet életét érintő kérdésekben.</p> <p>Ezek a gyűlések (bizottságok, közgyűlések stb) üléseket tartanak, egyesek zártak és némelyek nyitottak. Ha nyitottak, akkor nyitott a lehetőség a részvételre a tagjaik, vagy tagjaik csoportjai előtt (például: a szervezetet érintő napirendi pontok javaslatával, vagy meglévő előterjesztésekhez, döntésekhez való vélemények fűzésével).</p> <p>Példák: A közgyűlés (amely évente egyszer ülésezik a szervezet főbb cselekvési irányait tisztázandó és végrehajtó testületei szavazással hoznak döntéseket), egy esélyegyenlőségi tanácsadó testület (amely két havonta találkozik, hogy javaslatokat tegyen a nemek közötti kapcsolatok fejlesztésére a szervezetben) egy értékelő bizottság (amely minden hónapban találkozik az adott folyamat nyomonkövetése érdekében) vagy egy garanciavállaló szervezet (amely összegyűjti az incidenseket, a visszaéléseket vagy a döntéshozatali eljárások javítására irányuló javaslatokat) mindegyik a gyűléseknek jó példája.</p>\n"
           title: Mi az a gyűlés?
     log:
       value_types:
@@ -351,8 +356,10 @@ hu:
     decidim:
       assemblies:
         assembly:
+          more_info: Több információ
           take_part: Vegyél részt
         index:
+          children: 'Gyűlések: '
           organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
           reset_chart: Visszaállítás

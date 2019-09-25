@@ -51,8 +51,8 @@ it:
             - Hai contrassegnato la lettera come inviata.
             - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       csv_census:
-        explanation: Ottieni la verifica utilizzando il censimento dell'organizzazione
-        name: Censimento dell'organizzazione
+        explanation: Verifica i tuoi permessi
+        name: Verifica delle autorizzazioni
       direct: Diretto
       help: Aiuto
       id_documents:
@@ -104,7 +104,6 @@ it:
             title: È necessario attivare il censimento CSV per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
-            info: 'Deve essere un file con formato CSV con una colonna: email'
             submit: Caricare un file
             title: Carica un nuovo censimento
         authorizations:
@@ -184,7 +183,7 @@ it:
               mark_as_sent: Marca come inviato
               not_yet_sent: Non ancora inviato
               title: Verifiche in corso
-              username: Nome utente
+              username: Nickname
               verification_code: Codice di verifica
           postages:
             create:

@@ -7,11 +7,17 @@ module Decidim
   module DeviseControllers
     extend ActiveSupport::Concern
 
+    RegistersPermissions
+      .register_permissions(::Decidim::DeviseControllers,
+                            ::Decidim::Admin::Permissions,
+                            ::Decidim::Permissions)
+
     included do
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       include ImpersonateUsers
       include NeedsPermission
+      include Decidim::SafeRedirect
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
@@ -30,10 +36,7 @@ module Decidim
       before_action :store_current_location
 
       def permission_class_chain
-        [
-          Decidim::Admin::Permissions,
-          Decidim::Permissions
-        ]
+        PermissionsRegistry.chain_for(DeviseControllers)
       end
 
       def permission_scope
@@ -41,9 +44,9 @@ module Decidim
       end
 
       def store_current_location
-        return if params[:redirect_url].blank? || !request.format.html?
+        return if redirect_url.blank? || !request.format.html?
 
-        store_location_for(:user, params[:redirect_url])
+        store_location_for(:user, redirect_url)
       end
     end
   end

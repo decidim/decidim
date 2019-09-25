@@ -10,6 +10,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Randomable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -64,6 +65,10 @@ module Decidim
       questions.published.group_by(&:scope)
     end
 
+    def total_votes
+      @total_votes ||= questions.published.sum(:votes_count)
+    end
+
     # This method exists with the only purpose of getting rid of whats seems to be an issue in
     # the new scope picker: This engine is a bit special: consultations and questions are a kind of
     # nested participatory spaces. When a new question is created the consultation is the participatory space.
@@ -73,11 +78,8 @@ module Decidim
       nil
     end
 
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
+    def closed?
+      !active?
     end
   end
 end

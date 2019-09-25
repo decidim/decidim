@@ -1,0 +1,32 @@
+<main class="wrapper">
+  <div class="row">
+    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside) %>
+
+    <div class="columns large-6">
+      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header) %>
+
+      <div class="card">
+        <div class="p-l">
+          <div class="row column view-header">
+            <h2 class="heading2"><%= present(emendation).title(links: true, html_escape: true) %></h2>
+            <%= cell("decidim/coauthorships", emendation) %>
+          </div>
+
+          <div class="row column">
+            <%= simple_format present(emendation).body(links: true, strip_tags: true) %>
+          </div>
+
+          <br><%= render partial: "attachments", locals: { attached_to: emendation } %>
+
+          <div class="row column flex-center">
+            <%= link_to t(".modify"), edit_draft_amend_path(amendment) %>
+
+            <%= button_to t(".publish"), publish_draft_amend_path(amendment), method: :post, class: "button button--nomargin small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns large-3"></div>
+  </div>
+</main>

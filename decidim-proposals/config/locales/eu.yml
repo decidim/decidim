@@ -41,6 +41,10 @@ eu:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro uzteko beharra
+            body:
+              identical: ETA izenburua ezin da berdinak izan
+            title:
+              identical: ETA gorputzak ezin du berdinak izan
     models:
       decidim/proposals/accepted_proposal_event: Onartutako proposamena
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da

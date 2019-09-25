@@ -6,6 +6,8 @@ module Decidim
     # title, description and any other useful information to render a blog.
     class Post < Blogs::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::Authorable
       include Decidim::Comments::Commentable
@@ -40,6 +42,11 @@ module Decidim
 
       def official?
         author.nil?
+      end
+
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate_in_space?(user)
       end
     end
   end

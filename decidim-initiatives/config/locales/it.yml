@@ -151,7 +151,7 @@ it:
             state: Stato
         committee_requests:
           index:
-            approve: Approvare
+            approve: Sostieni
             confirm_revoke: Sei sicuro?
             invite_to_committee_help: Condividi questo link per invitare altri utenti al comitato di promozione
             no_members_yet: Non ci sono membri nel comitato promotore
@@ -454,7 +454,7 @@ it:
         previous_form: Inizio
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
-        show_similar_initiatives: Confrontare
+        show_similar_initiatives: Confronta
         step: Passaggio %{current} di %{total}
         title: Crea una nuova iniziativa
       initiative_header:

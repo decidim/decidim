@@ -60,13 +60,13 @@ edit_link(
       <% end %>
     </div>
 
-    <% if registration %>
+    <% if registration.present? %>
       <div class="card extra">
         <div class="card__content">
             <div class="registration_code">
               <span><%= registration_code_help_text %></span>
               <span><strong><%= registration.code %></strong></span>
-              <div class="text-small"><%= registration_validation_state %></div>
+              <div class="text-small"><%= validation_state_for(registration) %></div>
             </div>
         </div>
       </div>
@@ -117,6 +117,22 @@ edit_link(
       <%= render "meeting_minutes" %>
     <% end %>
 
+    <% if !meeting.closed? && meeting.user_group_registrations.any? %>
+      <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
+      <div class="section">
+        <h4 class="section-heading"><%= t(".organizations") %></h4>
+        <div class="card card--list">
+          <% Decidim::UserGroup.where(id: user_group_ids).each do |group| %>
+            <div class="card--list__item">
+              <div class="card--list__text card--list__text--top">
+              <%= cell "decidim/author", present(group) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>
@@ -130,6 +146,3 @@ edit_link(
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
 <%= pad_iframe_for meeting %>
-
-<%= javascript_include_tag "decidim/proposals/social_share" %>
-<%= stylesheet_link_tag "decidim/proposals/social_share" %>

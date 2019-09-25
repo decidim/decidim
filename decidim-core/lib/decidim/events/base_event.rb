@@ -88,7 +88,11 @@ module Decidim
       def resource_title
         return unless resource
 
-        if resource.respond_to?(:title)
+        if resource.is_a?(Decidim::Hashtaggable)
+          translated_title = translated_attribute(resource.title)
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_title)
+          renderer.render(links: false).html_safe
+        elsif resource.respond_to?(:title)
           translated_attribute(resource.title)
         elsif resource.respond_to?(:name)
           translated_attribute(resource.name)
@@ -106,6 +110,7 @@ module Decidim
 
       def participatory_space
         return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
+
         component&.participatory_space
       end
     end

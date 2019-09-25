@@ -20,10 +20,7 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :area,
-               foreign_key: "decidim_area_id",
-               class_name: "Decidim::Area",
-               optional: true
+
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
@@ -87,6 +84,7 @@ module Decidim
 
     def has_available_slots?
       return true if available_slots.zero?
+
       available_slots > conference_registrations.count
     end
 
@@ -96,7 +94,14 @@ module Decidim
 
     def diploma_sent?
       return false if diploma_sent_at.nil?
+
       true
+    end
+
+    def closed?
+      return false if end_date.blank?
+
+      end_date < Date.current
     end
   end
 end

@@ -12,6 +12,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Comments::Commentable
+      include Decidim::Randomable
 
       component_manifest_name "sortitions"
 
@@ -76,11 +77,9 @@ module Decidim
         true
       end
 
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate_in_space?(user)
       end
     end
   end

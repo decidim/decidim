@@ -12,6 +12,7 @@ module Decidim
     # Returns a String.
     def resource_reference(resource, options = {})
       return unless resource.respond_to?(:reference) && resource.reference.present?
+
       "<div class='tech-info #{options[:class]}'>#{localized_reference(resource.reference)}</div>".html_safe
     end
 

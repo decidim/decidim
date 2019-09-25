@@ -10,6 +10,8 @@ Decidim.register_component(:debates) do |component|
 
   component.data_portable_entities = ["Decidim::Debates::Debate"]
 
+  component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end

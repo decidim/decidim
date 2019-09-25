@@ -286,6 +286,7 @@ tr:
               other: '%{count} kayıt var.'
             reserved_slots_help: Ayrılmış yuvalarınız yoksa 0'a bırakın
             reserved_slots_less_than: Daha az ya da buna eşit olmalıdır %{count}
+            title: Kayıtlar
           update:
             invalid: Kayıt ayarları kaydedilirken bir sorun oluştu.
             success: Toplantı kayıtları ayarları başarıyla kaydedildi.

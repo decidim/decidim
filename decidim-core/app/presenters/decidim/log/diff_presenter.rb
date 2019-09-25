@@ -111,7 +111,7 @@ module Decidim
 
         begin
           return klass.constantize
-        rescue NameError => _exception
+        rescue NameError => _e
           default_klass
         end
       end

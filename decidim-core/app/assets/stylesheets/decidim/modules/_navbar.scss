@@ -117,7 +117,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   .is-dropdown-submenu{
-    z-index: 2;
+    z-index: 701;
     text-align: left;
     padding: 0;
     background-color: $white;
@@ -170,7 +170,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
       &:hover{
         cursor: pointer;
-        background-color: rgba(var(--secondary), .05);
+        background-color: rgba(var(--secondary-rgb), .05);
       }
     }
   }

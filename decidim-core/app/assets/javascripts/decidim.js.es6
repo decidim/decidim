@@ -21,6 +21,7 @@
 // = require decidim/ajax_modals
 // = require decidim/conferences
 // = require decidim/tooltip_keep_on_hover
+// = require decidim/diff_mode_dropdown
 // = require_tree ./decidim/vizzs
 
 // = require_self

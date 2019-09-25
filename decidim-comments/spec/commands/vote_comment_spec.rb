@@ -33,14 +33,14 @@ module Decidim
             comment.up_votes.create!(author: author)
           end
 
-          it "broadcasts invalid" do
-            expect { command.call }.to broadcast(:invalid)
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
           end
 
-          it "doesn't create a comment vote" do
+          it "removes the comment vote from this user" do
             expect do
               command.call
-            end.not_to change(CommentVote, :count)
+            end.to change(CommentVote, :count).by(-1)
           end
         end
 
@@ -79,14 +79,14 @@ module Decidim
                 comment.down_votes.create!(author: author)
               end
 
-              it "broadcasts invalid" do
-                expect { command.call }.to broadcast(:invalid)
+              it "broadcasts ok" do
+                expect { command.call }.to broadcast(:ok)
               end
 
-              it "doesn't create a comment vote" do
+              it "removes the comment vote from this user" do
                 expect do
                   command.call
-                end.not_to change(CommentVote, :count)
+                end.to change(CommentVote, :count).by(-1)
               end
             end
 

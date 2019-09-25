@@ -100,10 +100,6 @@ pl:
           create: Stwórz
           select_a_category: Proszę wybierz kategorie
           title: Nowa debata
-        share:
-          close_window: Zamknij okno
-          share: Dzielić
-          share_link: Udostępnij link
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"
       models:

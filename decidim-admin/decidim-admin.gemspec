@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "decidim-core", Decidim::Admin.version
-  s.add_dependency "devise", "~> 4.2"
+  s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "devise_invitable", "~> 1.7"
   s.add_dependency "jquery-rails", "~> 4.3"

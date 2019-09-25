@@ -5,21 +5,19 @@ module Decidim
     module CsvCensus
       module Admin
         class CensusController < Decidim::Admin::ApplicationController
-          include NeedsPermission
-
           layout "decidim/admin/users"
 
           before_action :show_instructions,
                         unless: :csv_census_active?
 
           def index
-            enforce_permission_to :index, CsvDatum
+            enforce_permission_to :index, :authorization
             @form = form(CensusDataForm).instance
             @status = Status.new(current_organization)
           end
 
           def create
-            enforce_permission_to :create, CsvDatum
+            enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
             CreateCensusData.call(@form, current_organization) do
               on(:ok) do
@@ -34,7 +32,7 @@ module Decidim
           end
 
           def destroy_all
-            enforce_permission_to :destroy, CsvDatum
+            enforce_permission_to :destroy, :authorization
             CsvDatum.clear(current_organization)
 
             redirect_to census_path, notice: t(".success")
@@ -43,23 +41,12 @@ module Decidim
           private
 
           def show_instructions
+            enforce_permission_to :index, :authorization
             render :instructions
           end
 
           def csv_census_active?
             current_organization.available_authorizations.include?("csv_census")
-          end
-
-          def permission_class_chain
-            [
-              Decidim::Verifications::CsvCensus::Admin::Permissions,
-              Decidim::Admin::Permissions,
-              Decidim::Permissions
-            ]
-          end
-
-          def permission_scope
-            :admin
           end
         end
       end

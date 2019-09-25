@@ -10,9 +10,9 @@ ar:
         email: بريدك الإلكتروني
         name: اسمك
         nickname: الاسم المستعار
-        password: كلمه السر
+        password: الكلمة السرية
         password_confirmation: أكد كلمتك السرية
-        personal_url: عنوان URL الشخصي
+        personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
     models:
       decidim/attachment_created_event: المرفق
@@ -31,7 +31,7 @@ ar:
         current_password: كلمة المرور الحالي
         email: البريد الإلكتروني
         name: كنية
-        password: كلمه السر
+        password: الكلمة السرية
         password_confirmation: تأكيد كلمة المرور
         remember_me: تذكرنى
     models:
@@ -117,7 +117,7 @@ ar:
         delete: "%{user_name} حذف تطبيق %{resource_name} OAuth"
         update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
       organization:
-        update: "%{user_name} تحديث إعدادات المؤسسة"
+        update: "قام %{user_name} بتحديث إعدادات المنظمة"
       participatory_space_private_user:
         create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
         delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
@@ -143,20 +143,16 @@ ar:
         verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
     amendments:
       accepted:
-        error: حدثت مشكلة في قبول التعديل ، يرجى إعادة المحاولة لاحقًا.
-        success: تم قبول هذا التعديل بنجاح.
+        error: حدث خطأ أثناء قبول التعديل.
+        success: تم قبول التعديل بنجاح.
       amendable:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
-        error: حدثت مشكلة في تعديل هذا المورد.
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
-        no_amenders: لا يوجد تعديل
-        no_amendments: لا توجد تعديلات
-        promote_button: نشر كـ %{model_name}جديد
-        promote_help_text: يمكنك نشر هذا التعديل كـ %{model_name}مستقل
+        promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
         section_heading: التعديلات (%{count})
       created:
-        error: حدث خطأ أثناء إنشاء هذا التعديل ، يرجى إعادة المحاولة لاحقًا
+        error: حدث خطأ أثناء إنشاء التعديل
         success: تم إنشاء التعديل بنجاح
       emendation:
         actions:
@@ -189,7 +185,7 @@ ar:
       review:
         back: الى الخلف
         heading: مراجعة التعديل
-        help_text: أنت تعدل %{model_name}
+        help_text: أنت تراجع التعديل على %{model_name}
         send: قبول التعديل
     anonymous_user: مجهول
     application:
@@ -247,6 +243,7 @@ ar:
           cancel: إلغاء
         unauthorized:
           ok: موافق
+          title: غير مخوّل
         unconfirmed:
           title: تأكيد البريد الإلكتروني
     collapsible_list:
@@ -393,45 +390,45 @@ ar:
             email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
             email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'تم قبول التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
             email_subject: تم قبول التعديل من %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: تم قبول التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لمدة <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'تم إنشاء تعديل جديد لـ %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-            email_subject: تعديل جديد لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">التعديل الجديد</a> تم إنشاؤها من قبل <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ل <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: تعديل جديد لـ %{amendable_title}
+            notification_title: تم إنشاء تعديل جديد لـ <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'تم إنشاء تعديل جديد لـ %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: تعديل جديد لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">التعديل الجديد</a> تم إنشاؤها من قبل <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ل <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: تعديل جديد لـ %{amendable_title}
+            notification_title: تم إنشاء تعديل جديد لـ <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
-            email_subject: تم نشر تعديل من %{emendation_author_nickname} كاقتراح جديد
-            notification_title: A <a href="%{emendation_path}">التعديل مرفوضا</a> ل <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} تم نشر مقترحا جديدا قبل <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
+            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'تم نشر تعديل مرفوض لـ %{amendable_title} باعتباره %{amendable_type}جديد. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: تم نشر تعديل من %{emendation_author_nickname} كاقتراح جديد
-            notification_title: A <a href="%{emendation_path}">التعديل مرفوضا</a> ل <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} تم نشر مقترحا جديدا قبل <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: تم نشر تعديل من %{emendation_author_nickname} كـ %{amendable_type}جديد
+            notification_title: A <a href="%{emendation_path}">رفض التعديل</a> لل <a href="%{amendable_path}">%{amendable_title}</a> تم نشره باعتباره الجديدة %{amendable_type} من <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف برقم %{amendable_title}.
             email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'تم رفض التعديل لمدة %{amendable_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{amendable_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
             email_subject: تم رفض التعديل لـ %{amendable_title} من %{emendation_author_nickname}
-            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: تم رفض التعديل <a href="%{emendation_path}"></a> تم إنشاؤه بواسطة <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> لـ <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'تمت إضافة مستند جديد إلى %{resource_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
@@ -537,7 +534,7 @@ ar:
         button: إتبع
         error: حدثت مشكلة بعد هذا المورد.
       destroy:
-        button: وقف التالية
+        button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
     forms:
       current_file: الملف الحالي
@@ -604,7 +601,7 @@ ar:
         error: حدثت مشكلة في قبول هذه الدعوة
         success: تم قبول الدعوة بنجاح
       accept_invitation: قبول
-      accept_or_reject_group_invitations: 'لقد دعوتك المجموعات التالية للانضمام إليهم. قبول أو رفض طلباتهم:'
+      accept_or_reject_group_invitations: 'لقد دَعتك المجموعات التالية للانضمام إليهم. يمكنك قبول أو رفض طلباتهم:'
       index:
         invite: دعا
         invite_user: دعوة مشارك
@@ -642,7 +639,7 @@ ar:
         error: كانت هناك مشكلة في إنشاء المجموعة
         success: تم إنشاء المجموعة بنجاح
       edit:
-        edit_user_group: تحرير المجموعة
+        edit_user_group: تعديل المجموعة
         update_user_group: تحديث المجموعة
       form:
         document_number_help: لا تستخدم شرطات ولا مسافات
@@ -679,7 +676,7 @@ ar:
           content: "<p>في %{organization} يمكنك المشاركة واتخاذ قرار بشأن مواضيع مختلفة ، من خلال المساحات التي تراها في القائمة العليا: العمليات ، والجمعيات ، والمبادرات ، والمشاورات.</p> <p>في كل منها ، ستجد خيارات مختلفة للمشاركة: تقديم مقترحات - بشكل فردي أو مع أشخاص آخرين - والمشاركة في المناقشات ، وتحديد أولويات المشاريع للتنفيذ ، وحضور الاجتماعات وجهاً لوجه وغيرها من الإجراءات.</p>\n"
           title: ماذا يمكنني أن أفعل في %{organization}؟
         description: قراءة المزيد عن %{organization}
-        title: مساعدة عامة
+        title: المساعدة العامة
     last_activities:
       activities:
         no_activities_warning: لا يوجد نشاط
@@ -711,7 +708,7 @@ ar:
     members:
       no_members: هذه المجموعة ليس لديها أي أعضاء حتى الآن.
     menu:
-      help: مساعدة
+      help: المساعدة
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:
@@ -759,7 +756,7 @@ ar:
     newsletter_mailer:
       newsletter:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
-        see_on_website: لا يمكن رؤية هذا البريد الإلكتروني بشكل صحيح؟ مشاهدته على <a href="%{link}" target="_blank">موقع</a>.
+        see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletters:
       unsubscribe:
@@ -813,29 +810,29 @@ ar:
         extended:
           debates: المناقشات
           debates_explanation: مناقشة ومناقشة وتبادل وجهات النظر الخاصة بك وإثراء المواضيع ذات الصلة.
-          how_to_participate: كيف أشارك في العملية؟
+          how_to_participate: كيف أشارك في المسار؟
           meetings: اجتماعات
           meetings_explanation: معرفة أين ومتى يمكنك المشاركة في الاجتماعات العامة.
           more_info: مزيد من المعلومات
           proposals: اقتراحات
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونية.<br /> الانضمام والمشاركة وتقرر.
-          footer_sub_hero_headline: مرحبًا بك في %{organization} منصة تشاركية.
+          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
+          footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:
           participate: مشاركة
-          welcome: مرحبًا بك في %{organization}!
+          welcome: مرحبًا بكم على %{organization}!
         metrics:
           headline: المشاركة في الأرقام
         statistics:
           answers_count: المسوحات المكتملة
-          assemblies_count: جمعيات
+          assemblies_count: الجمعيات
           comments_count: تعليقات
           conferences_count: المؤتمرات
           debates_count: المناقشات
           endorsements_count: موافقات
-          headline: الحالة الحالية لل %{organization}
+          headline: الحالة الحالية لـ %{organization}
           meetings_count: اجتماعات
           orders_count: الأصوات
           pages_count: صفحات
@@ -853,7 +850,7 @@ ar:
         read_more: قراءة المزيد
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
-        title: مساعدة
+        title: المساعدة
         topics: المواضيع
       participatory_space:
         metrics:
@@ -977,14 +974,21 @@ ar:
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         title: الإبلاغ عن مشكلة
       floating_help:
-        help: مساعدة
+        help: المساعدة
       follow_button:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
         please_sign_in: الرجاء تسجيل الدخول
         sign_up: سجل
+      participatory_space_filters:
+        filters:
+          areas: المناطق
+          select_an_area: اختر المنطقة
       reference:
         reference: 'المرجع: %{reference}'
+      represent_user_group:
+        represent_user_group: أنا أمثل مجموعة
+        select_user_group: اختر فريقا
       results_per_page:
         label: 'نتائج لكل صفحة:'
       share_modal:
@@ -1191,10 +1195,10 @@ ar:
         link_label: هنا
         ok: أنا موافق
       edit_link:
-        edit: تصحيح
+        edit: تعديل
       footer:
         download_open_data: تحميل ملفات البيانات المفتوحة
-        made_with_open_source: موقع صنع مع <a target="_blank" href="https://github.com/decidim/decidim">البرمجيات الحرة</a>.
+        made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
       header:
         close_menu: إغلاق القائمة
         navigation: التنقل
@@ -1225,7 +1229,7 @@ ar:
       widget:
         see_more: شاهد المزيد
   locale:
-    name: الإنجليزية
+    name: العربية
   password_validator:
     domain_included_in_password: مشابه جدًا لاسم النطاق هذا
     email_included_in_password: مشابه جدا لبريدك الالكتروني

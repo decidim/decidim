@@ -87,6 +87,9 @@ fi-pl:
         new:
           create: Luo
           title: Uusi kuuleminen
+        results:
+          not_visible: Tulokset tulee näkyviin, kun kuuleminen sulkeutuu
+          total_votes: 'Yhteensä: %{count} ääntä'
         update:
           error: Virhe päivitettäessä tätä kuulemista.
           success: Kuuleminen päivitetty onnistuneesti.
@@ -95,6 +98,7 @@ fi-pl:
         consultations_submenu:
           info: Tiedot
           questions: Kysymykset
+          results: Tulokset
         questions_submenu:
           components: Komponentit
           consultation: Kuuleminen
@@ -171,6 +175,7 @@ fi-pl:
         consultations: Kuulemiset
         questions: Kysymykset
         responses: Vastaukset
+        results: Tulokset
     consultations:
       admin:
         content_blocks:
@@ -230,6 +235,9 @@ fi-pl:
       question_votes:
         create:
           error: Kysymystä äänestäessä tapahtui virheitä
+          success: Voit muuttaa sitä kuulemisen loppuun saakka. Ainoastaan viimeisin ääni hyväksytään.
+          title_error: Virhe äänestettäessä!
+          title_success: Äänestys onnistui
       regular_questions:
         title: Tätä kuulemista koskevat kysymykset
       show:
@@ -257,6 +265,8 @@ fi-pl:
         statistics:
           consultations_count: Kuulemiset
     questions:
+      next_button: Seuraava kysymys
+      previous_button: Edellinen kysymys
       results:
         title: Tulokset
       show:
@@ -272,6 +282,7 @@ fi-pl:
         already_voted: Äänestetty aikaisemmin
         already_voted_hover: Peruuta kannatus
         starting_from: Alkaa %{date}
+        verification_required: Varmenna käyttäjätilisi äänestääksesi
         vote: Äänestä
       vote_modal:
         contextual_help: Valitse vaihtoehto.
@@ -281,6 +292,10 @@ fi-pl:
         confirm: Vahvista
         contextual_help: Vahvista valittu vaihtoehto.
         title: 'Kuuleminen: vahvista kannatus'
+    resources:
+      consultations:
+        actions:
+          vote: Äänestä
   layouts:
     decidim:
       admin:

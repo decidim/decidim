@@ -10,7 +10,7 @@ ar:
         instructions: تعليمات للمشاركة
         start_time: يبدأ عند
         title: عنوان
-        user_group_id: خلق النقاش كما
+        user_group_id: إنشاء النقاش كما
     models:
       decidim/debates/create_debate_event: النقاش
       decidim/debates/creation_disabled_event: تم تعطيل المناقشات
@@ -28,7 +28,7 @@ ar:
     components:
       debates:
         actions:
-          create: خلق
+          create: إنشاء
         name: المناقشات
         settings:
           global:
@@ -42,7 +42,7 @@ ar:
       actions:
         confirm_destroy: هل أنت واثق؟
         destroy: حذف
-        edit: تصحيح
+        edit: تعديل
         new: جديد %{name}
         title: أفعال
       admin:
@@ -58,7 +58,7 @@ ar:
           index:
             title: المناقشات
           new:
-            create: خلق النقاش
+            create: إنشاء نقاش
             title: نقاش جديد
           update:
             invalid: كانت هناك مشكلة في تحديث هذا النقاش.
@@ -101,7 +101,7 @@ ar:
           new_debate: نقاش جديد
         new:
           back: الى الخلف
-          create: خلق
+          create: إنشاء
           select_a_category: الرجاء تحديد الفئة
           title: نقاش جديد
         share:

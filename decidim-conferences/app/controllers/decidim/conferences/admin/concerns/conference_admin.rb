@@ -12,6 +12,11 @@ module Decidim
         module ConferenceAdmin
           extend ActiveSupport::Concern
 
+          RegistersPermissions
+            .register_permissions(::Decidim::Conferences::Admin::Concerns::ConferenceAdmin,
+                                  ::Decidim::Conferences::Permissions,
+                                  ::Decidim::Admin::Permissions)
+
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
             participatory_space_admin_layout
@@ -35,10 +40,7 @@ module Decidim
             end
 
             def permission_class_chain
-              [
-                Decidim::Conferences::Permissions,
-                Decidim::Admin::Permissions
-              ]
+              PermissionsRegistry.chain_for(ConferenceAdmin)
             end
           end
         end

@@ -14,7 +14,7 @@ module Decidim
     attribute :tos_agreement, Boolean
 
     validates :name, presence: true
-    validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
+    validates :nickname, presence: true, format: /\A[\w\-]+\z/, length: { maximum: Decidim::User.nickname_max_length }
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }
@@ -26,17 +26,18 @@ module Decidim
 
     def newsletter_at
       return nil unless newsletter?
+
       Time.current
     end
 
     private
 
     def email_unique_in_organization
-      errors.add :email, :taken if User.find_by(email: email, organization: current_organization).present?
+      errors.add :email, :taken if User.no_active_invitation.find_by(email: email, organization: current_organization).present?
     end
 
     def nickname_unique_in_organization
-      errors.add :nickname, :taken if User.find_by(nickname: nickname, organization: current_organization).present?
+      errors.add :nickname, :taken if User.no_active_invitation.find_by(nickname: nickname, organization: current_organization).present?
     end
   end
 end

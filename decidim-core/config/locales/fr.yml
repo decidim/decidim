@@ -3,6 +3,14 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      group:
+        about: A propos
+        avatar: Avatar
+        document_number: Numéro de document
+        email: Courriel
+        name: Nom
+        nickname: Nom d'utilisateur
+        phone: Téléphone
       report:
         details: Commentaires supplémentaires
       user:
@@ -30,7 +38,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Nom d'utilisateur
+        name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -39,8 +47,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: Participant
+        other: Participants
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
@@ -131,54 +139,86 @@ fr:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
     amendments:
       accepted:
-        error: Une erreur s'est produite lors de l'acceptation de l'amendement. Veuillez réessayer ultérieurement.
-        success: Cette modification a été acceptée avec succès.
+        error: Une erreur s'est produite lors de l'acceptation de l'amendement.
+        success: L'amendement a été accepté avec succès.
       amendable:
         amended_by: Modifié par
         button: Modifier %{model_name}
         error: Une erreur s'est produite lors de la modification de cette ressource.
         help_text: Améliorer ce %{model_name} en modifiant son %{amendable_fields}
-        no_amenders: Il n'y a pas d'amendeurs
-        no_amendments: Il n'y a pas d'amendements
         promote_button: Promouvoir à %{model_name}
+        promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
+      compare_draft:
+        continue: Continuer
+        no_similars_found: Aucune modification similaire trouvé.
+        title: Modifications similaires
       created:
-        error: Une erreur s'est produite lors de la création de cet amendement. Réessayez ultérieurement.
-        success: L'amendement a été créé avec succès
+        error: Une erreur s’est produite lors de la création du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
+      destroy_draft:
+        error: Il y a eu un problème de suppression du projet d'amendement.
+        success: Le projet d'amendement a été créé avec succès.
+      edit_draft:
+        discard: Supprimer ce brouillon
+        discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet d'amendement ?
+        send: Aperçu
+        title: Modifier le projet d'amendement
       emendation:
         actions:
-          button_accept: Acceptez
+          button_accept: Accepter
           button_reject: Rejeter
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
           accepted: |-
-            Cette modification du %{amendable_type} %{amendable_link} a été
-            accepté sur <strong>%{announcement_date}</strong>.
+            L'amendement pour %{amendable_type} %{proposal_link} a été accepté
+            le <strong>%{date}</strong>.
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          promoted: Promouvé à un %{amendable_type}.
+          rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
-            Cet amendement pour le %{amendable_type} %{amendable_link}
+            L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
-        back: Retour
-        heading: Créez votre amendement
-        help_text: Vous modifiez le %{model_name}
-        send: Envoyer l'amendement
+        send: Créer
+        title: Créer un projet d'amendement
+      preview_draft:
+        modify: Modifier
+        publish: Publier
+        title: Publier le projet d'amendement
       promoted:
-        error: Il y a eu des erreurs lors de la promotion de l'amendation
-        success: Amendation promue avec succès
+        error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition
+        success: L'amendement a été publié avec succès en tant que nouvelle proposition
+      publish_draft:
+        error: Une erreur s'est produite lors de la publication de cet amendement.
+        success: Amendement publié avec succès.
       rejected:
-        error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
+        error: Un problème est survenu lors du rejet de cet amendement. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
       review:
         back: Retour
-        heading: Revoir l'amendement
-        help_text: Vous modifiez le %{model_name}
+        heading: Examiner l'amendement
+        help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
+      update_draft:
+        error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
+        success: Le projet d'amendement a été mis à jour avec succès.
+      visibility_options:
+        all: Les amendements sont visibles par tous
+        participants: Les amendements ne sont visibles que par leurs auteurs
+      withdraw:
+        error: Une erreur s'est produite lors du retrait de l'amendement
+        success: L'amendement a été retiré avec succès
+      wizard_step_form:
+        steps:
+          '1': Créez votre amendement
+          '2': Comparez votre amendement
+          '3': Complétez votre amendement
+          '4': Publier votre amendement
     anonymous_user: Anonyme
     application:
       collection:
@@ -272,13 +312,17 @@ fr:
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
+            amendment_creation_enabled: Création d'amendement activée
+            amendment_promotion_enabled: Promotion d'amendement activée
+            amendment_reaction_enabled: Réaction d'amendement activée
+            amendments_visibility: Visibilité des amendements
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
     content_blocks:
       footer_sub_hero:
-        name: Bannière sous-héros footer
+        name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
         name: Image principale (hero)
       highlighted_content_banner:
@@ -293,13 +337,14 @@ fr:
         title: Dernière Activité
         view_all: Voir tout
       metrics:
-        name: Mesures d'organisation
+        name: Historique des statistiques de participation
       stats:
         name: Statistiques de l'organisation
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
     core:
       actions:
+        login_before_access: Veuillez vous connecter avec votre compte avant de réaliser cette action
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
     data_portability:
       export:
@@ -326,7 +371,8 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_in: S'identifier
+          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+          sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
@@ -387,45 +433,45 @@ fr:
             email_intro: 'Une modification a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
             email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Une modification a été acceptée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Une nouvelle modification a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
-            email_subject: Un nouvel amendement pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nouveau émendation</a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nouvel amendement pour %{amendable_title}
+            notification_title: Un nouvel amendement a été créé pour <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Une nouvelle modification a été créée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Un nouvel amendement pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nouveau émendation</a> a été créée par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nouvel amendement pour %{amendable_title}
+            notification_title: Un nouvel amendement a été créé pour <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
-            email_subject: Une modification de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejeté émendation</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Un amendement de %{emendation_author_nickname} a été publié en tant que nouveau %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">a rejeté l' amendement</a> pour <a href="%{amendable_path}">%{amendable_title}</a> a été publiée en tant que nouveau %{amendable_type} par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Une modification rejetée pour %{amendable_title} a été promue en %{amendable_type}indépendante. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Une modification de %{emendation_author_nickname} a été promue
-            notification_title: A <a href="%{emendation_path}">rejeté émendation</a> pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} a été promu par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Un amendement de %{emendation_author_nickname} a été publié en tant que nouveau %{amendable_type}
+            notification_title: A <a href="%{emendation_path}">a rejeté l' amendement</a> pour <a href="%{amendable_path}">%{amendable_title}</a> a été publiée en tant que nouveau %{amendable_type} par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de %{amendable_title}.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Une modification a été rejetée pour %{amendable_title}. Vous pouvez le voir sur cette page:'
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
-            notification_title: Le <a href="%{emendation_path}">émendation</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -565,7 +611,7 @@ fr:
           unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
-          how: Comment pouvez-vous le gagner
+          how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
         invitations:
@@ -636,8 +682,8 @@ fr:
         error: Il y a eu un problème pour créer le groupe
         success: Groupe créé avec succès
       edit:
-        edit_user_group: Editer le groupe
-        update_user_group: Groupe de mise à jour
+        edit_user_group: Éditer le groupe
+        update_user_group: Mettre à jour le groupe
       form:
         document_number_help: Ne pas utiliser de tirets ni d'espaces
         email_help: Email de votre organisation, association, collectif, groupe, etc.
@@ -670,8 +716,8 @@ fr:
     help:
       main_topic:
         default_page:
-          content: "<p>En %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
-          title: Que puis-je faire en %{organization}?
+          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          title: Que puis-je faire sur la plateforme %{organization} ?
         description: En savoir plus sur %{organization}
         title: Aide générale
     last_activities:
@@ -693,19 +739,19 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aidez-moi
+      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -724,7 +770,7 @@ fr:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
           no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          title: Conversations
         reply:
           send: Envoyer
           title: Répondre
@@ -758,7 +804,7 @@ fr:
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Il y a eu une erreur lors de votre désabonnement
+        error: Un problème est survenu lors de la désinscription
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
@@ -783,7 +829,7 @@ fr:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
-        newsletters: Lettres d'information
+        newsletters: Newsletters
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
         send_notifications_by_email: Envoyer des notifications par email
@@ -801,7 +847,7 @@ fr:
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
       explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
-      pad: Tampon
+      pad: Pad
     pages:
       home:
         extended:
@@ -821,10 +867,10 @@ fr:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
         metrics:
-          headline: Participation aux chiffres
+          headline: Participation en chiffres
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Agora
+          assemblies_count: Assemblées
           comments_count: Commentaires
           conferences_count: Conférences
           debates_count: Débats
@@ -845,10 +891,10 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Des pages
+        standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aidez-moi
-        topics: Les sujets
+        topics: Thématiques
       participatory_space:
         metrics:
           headline: Participation en chiffres
@@ -869,7 +915,7 @@ fr:
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
+          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
@@ -899,7 +945,7 @@ fr:
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
-        join_user_group: Demande de rejoindre un groupe
+        join_user_group: Demander à rejoindre ce groupe
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
@@ -933,10 +979,10 @@ fr:
     searches:
       filters:
         back: Retour aux résultats
-        jump_to: 'Sauter à:'
+        jump_to: 'Aller à:'
         state:
           active: actif
-          all: Tout
+          all: Tous
           future: Futur
           past: Passé
       filters_small_view:
@@ -956,7 +1002,7 @@ fr:
         embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
-        unfold: Se dérouler
+        unfold: Afficher
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -973,8 +1019,15 @@ fr:
       login_modal:
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
+      participatory_space_filters:
+        filters:
+          areas: Zones d'application
+          select_an_area: Sélectionnez une zone d'application
       reference:
         reference: 'Référence : %{reference}'
+      represent_user_group:
+        represent_user_group: Je représente un groupe
+        select_user_group: Sélectionner un groupe
       results_per_page:
         label: 'Résultats par page :'
       share_modal:
@@ -989,15 +1042,21 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de portée!
+        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
     welcome_notification:
-      default_body: <p>Bonjour {{name}}, merci de vous joindre à {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>Last but not least, joignez d' autres personnes, partager avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Retour
+      wizard_header:
+        see_steps: voir les étapes
+        step_of: Étape %{current_step} sur %{total_steps}
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -1087,7 +1146,8 @@ fr:
         change_my_password: Changer mon mot de passe
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Votre mot de passe
+        new_password: Nouveau mot de passe
+        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1100,11 +1160,11 @@ fr:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
       edit:
         are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Annuler mon compte
+        cancel_my_account: Supprimer mon compte
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Malheureux?
+        unhappy: Pas satisfait ? 
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1116,16 +1176,16 @@ fr:
       update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
       updated: Votre compte a été mis à jour avec succès.
     sessions:
-      already_signed_out: Signé avec succès.
+      already_signed_out: Déconnecté(e) avec succès.
       new:
         sign_in: S'identifier
-      signed_in: Signé avec succès.
-      signed_out: Signé avec succès.
+      signed_in: Connexion réussie.
+      signed_out: Déconnecté(e) avec succès.
     shared:
       links:
-        back: Arrière
+        back: Retour
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
+        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
@@ -1153,11 +1213,7 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: pas trouvé
       not_locked: n'était pas verrouillé
-      not_saved:
-        one: '1 erreur a interdit cette sauvegarde %{resource}:'
-        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
@@ -1231,12 +1287,15 @@ fr:
     qq: Qzone
     reddit: Reddit
     share_to: Partager sur %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1251,6 +1310,14 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Suppressions
+      right: Ajouts
+    dropdown:
+      choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      option_split: Côte à côte
+      option_unified: Unifié
   views:
     pagination:
       first: "&laquo; Première"

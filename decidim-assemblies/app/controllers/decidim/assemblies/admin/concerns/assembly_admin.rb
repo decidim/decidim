@@ -12,6 +12,11 @@ module Decidim
         module AssemblyAdmin
           extend ActiveSupport::Concern
 
+          RegistersPermissions
+            .register_permissions(::Decidim::Assemblies::Admin::Concerns::AssemblyAdmin,
+                                  Decidim::Assemblies::Permissions,
+                                  Decidim::Admin::Permissions)
+
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
             participatory_space_admin_layout
@@ -35,10 +40,7 @@ module Decidim
             end
 
             def permission_class_chain
-              [
-                Decidim::Assemblies::Permissions,
-                Decidim::Admin::Permissions
-              ]
+              PermissionsRegistry.chain_for(AssemblyAdmin)
             end
           end
         end

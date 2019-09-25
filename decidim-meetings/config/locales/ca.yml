@@ -10,7 +10,7 @@ ca:
         attending_organizations: Llista d'organitzacions que han participat
         closing_report: Informe
         contributions_count: Nombre de contribucions
-        proposal_ids: Propostes creades en una trobada
+        proposal_ids: Propostes creades en a la trobada
       meeting:
         address: Adreça
         available_slots: Espais disponibles per a aquesta trobada
@@ -22,8 +22,8 @@ ca:
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
-        registration_form_enabled: S'han habilitat les inscripcions
-        registration_terms: Termes i condicions de l'inscripció
+        registration_form_enabled: Formulari d'inscripcions habilitat
+        registration_terms: Termes i condicions d'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
@@ -38,7 +38,7 @@ ca:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durada dels elements supera la durada de la trobada per %{count} minuts
+              too_many_minutes: La durada dels ítems supera la durada de la trobada per %{count} minuts
               too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
         meeting_registration_invite:
           attributes:
@@ -47,7 +47,7 @@ ca:
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
-      decidim/meetings/meeting_registrations_enabled_event: S'han activat registres
+      decidim/meetings/meeting_registrations_enabled_event: Registre habilitat
       decidim/meetings/meeting_registrations_over_percentage_event: Inscripcions per sobre del límit
       decidim/meetings/upcoming_meeting_event: Propera trobada
       decidim/meetings/update_meeting_event: Trobada actualitzada
@@ -79,19 +79,19 @@ ca:
         name: Trobades
         settings:
           global:
-            announcement: Anunci
+            announcement: Avís
             comments_enabled: Comentaris habilitats
             default_registration_terms: Termes de registre per defecte
-            enable_pads_creation: Activar la creació de pads
+            enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
           step:
-            announcement: Anunci
+            announcement: Avís
             comments_blocked: Comentaris bloquejats
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'S''ha tancat la teva trobada "%{resource_title}". Podeu llegir les conclusions des de la seva pàgina:'
+            email_intro: 'La teva trobada "%{resource_title}" s''ha tancat. Pots llegir les conclusions des de la seva pàgina:'
             email_outro: Has rebut aquesta notificació perquè has organitzat la trobada "%{resource_title}".
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
@@ -103,17 +103,17 @@ ca:
         meeting_created:
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: Nova trobada a %{participatory_space_title}
+          email_subject: Nova trobada afegida a  %{participatory_space_title}
           notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
-          email_subject: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%
-          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
+          email_intro: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la trobada.
+          email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
+          notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
-          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
+          email_intro: 'La trobada "%{resource_title}" s''ha actualitzat. Pots llegir la nova versió a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
@@ -124,11 +124,11 @@ ca:
           notification_title: S'ha validat el teu codi de registre "%{registration_code}" per a la trobada <a href="%{resource_path}">%{resource_title}</a>.
         registrations_enabled:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
         upcoming_meeting:
-          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          email_intro: En menys de 48 hores començarà la trobada "%{resource_title}".
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
@@ -166,41 +166,41 @@ ca:
             agenda_item_children: Sub-ítems de l'ordre del dia
             down: Baixar
             remove: Eliminar
-            up: Amunt
+            up: Pujar
           agenda_item_child:
             agenda_item_child: Sub-ítem de l'ordre del dia
             down: Baixar
             remove: Eliminar
             up: Pujar
           create:
-            invalid: S'ha produït un error en crear aquesta agenda
+            invalid: S'ha produït un error en crear aquest ordre del dia
             success: S'ha creat l'agenda correctament
           edit:
-            title: Edita l'agenda
-            update: Actualització
+            title: Edita ordre del dia
+            update: Actualitzar
           form:
-            add_agenda_item: Afegeix un element de l'agenda
+            add_agenda_item: Afegeix un punt a l'ordre del dia
             agenda_items: Punts de l'ordre del dia
             end_date: Data de finalització
             start_date: Data d'inici
           new:
             create: Crear
-            title: Nova agenda
+            title: Nou ordre del dia
           update:
-            invalid: S'ha produït un error en actualitzar aquesta agenda
-            success: L'agenda s'ha actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest ordre del dia
+            success: Ordre del dia actualitzat correctament
         exports:
           meetings: Trobades
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
-            decline: Declina la invitació
-            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a unir-te a una reunió a l' %{application}. Pots rebutjar o acceptar la invitació a través dels enllaços a continuació."
+            decline: Declinar invitació
+            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a unir-te a una reunió a %{application}. Pots rebutjar o acceptar la invitació a través dels següents enllaços."
             join: Uneix-te a la trobada '%{meeting_title}'
         invites:
           create:
-            error: S'ha produït un error en convidar la participant a unir-se a la trobada.
-            success: S'ha convidat correctament la participant a unir-se a la trobada.
+            error: S'ha produït un error en convidar a la participant a unir-se a la trobada.
+            success: S'ha convidat correctament a la participant a unir-se a la trobada.
           form:
             attendee_type: Tipus d'assistent
             existing_user: Participant existent
@@ -210,14 +210,14 @@ ca:
             select_user: Selecciona la participant
           index:
             filter:
-              accepted: Acceptades
+              accepted: Acceptat
               all: Totes
               rejected: Rebutjades
-              sent: Enviat
+              sent: Enviades
             filter_by: Filtra per
-            invite_attendee: Convida l'assistent
+            invite_attendee: Convidar assistent
             invites: Invitacions
-            registrations_disabled: No pots convidar un assistent perquè les inscripcions estan inhabilitades.
+            registrations_disabled: No pots convidar a una assistent perquè les inscripcions estan inhabilitades.
             search: Cerca
         meeting_closes:
           edit:
@@ -238,7 +238,7 @@ ca:
           edit:
             update: Actualitzar
           form:
-            select_organizer: Selecciona l'organitzador
+            select_organizer: Selecciona l'organitzadora
           index:
             title: Trobades
           new:
@@ -246,7 +246,7 @@ ca:
             title: Crear trobada
           service:
             description: Descripció
-            down: Avall
+            down: Baixar
             remove: Elimina
             service: Servei
             title: Títol
@@ -278,46 +278,47 @@ ca:
             validate: Validar
             validate_registration_code: Valida el codi de registre
           form:
-            available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
             registration_form: Formulari d'inscripció
             registrations_count:
-              one: Hi ha hagut %{count} 1 inscripció.
+              one: Hi ha hagut %{count} inscripció.
               other: Hi ha hagut %{count} inscripcions.
-            reserved_slots_help: Deixa'l a 0 si no tens espais reservats
+            reserved_slots_help: Deixar a 0 si no hi ha espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
+            title: Inscripcions
           update:
             invalid: S'ha produït un error en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
           validate_registration_code:
             invalid: Aquest codi de registre no és vàlid.
-            success: El codi de registre s'ha validat amb èxit.
+            success: Codi de registre validat amb èxit.
       admin_log:
         invite:
-          create: "%{user_name} ha convidat %{attendee_name} a unir-se a la trobada %{resource_name} dins l'espai %{space_name}"
+          create: "%{user_name} ha convidat a %{attendee_name} a unir-se a la trobada %{resource_name} a l'espai %{space_name}"
           deleted: "%{user_name} ha eliminat l'invitació de %{attendee_name} per unir-se a la trobada %{resource_name} a l'espai %{space_name}"
           update: "%{user_name} ha convidat %{attendee_name} a unir-se a la trobada %{resource_name} a l'espai %{space_name}"
         meeting:
           close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
-          export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
+          export_registrations: "%{user_name} ha exportat les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
         minutes:
           create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
-          update: "%{user_name} va ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
-        export_calendar: Exportar el calendari
+        export_calendar: Exporta el calendari
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_events:
-          name: Propers esdeveniments
-          upcoming_events: Properes reunions
+          name: Propers trobades
+          upcoming_events: Properes trobades
           view_all_events: Veure-ho tot
       directory:
         meetings:
@@ -354,11 +355,11 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         meeting_minutes:
-          meeting_minutes: Minuts de trobada
+          meeting_minutes: Acta de la trobada
           related_information: Informació relacionada
         meetings:
-          no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
-          upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
+          no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
+          upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors.
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -366,10 +367,10 @@ ca:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
           going: Inscrit
-          join: Inscriu-te a la reunió
+          join: Inscriu-te a la trobada
           meeting_report: Informe de la trobada
-          no_slots_available: No hi ha lloc disponible
-          organizations: Llista d'organitzacions que han atès
+          no_slots_available: No hi ha places disponible
+          organizations: Organitzacions que han assistit
           registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
@@ -398,7 +399,7 @@ ca:
             map: Mapa
             start_time: Data d'inici
             title: Títol
-      read_more: "(Llegeix més)"
+      read_more: "(llegeix més)"
       registration_mailer:
         confirmation:
           confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
@@ -407,13 +408,13 @@ ca:
       registrations:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
-          success: T'has inscrit a la reunió amb èxit.
+          success: T'has inscrit a la trobada amb èxit.
         decline_invitation:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
         destroy:
-          invalid: S'ha produït un error en sortir d'aquesta trobada.
-          success: Heu deixat la trobada amb èxit.
+          invalid: S'ha produït un error en abandonar aquesta trobada.
+          success: Has abandonat la trobada amb èxit.
       types:
         private_meeting: Trobada privada
         transparent: Transparent

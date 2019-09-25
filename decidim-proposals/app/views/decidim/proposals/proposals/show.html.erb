@@ -23,14 +23,18 @@ edit_link(
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
-  <h2 class="heading2"><%= present(@proposal).title(links: true) %></h2>
+  <% if @proposal.emendation? %>
+    <h2 class="heading2"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
+  <% else %>
+    <h2 class="heading2"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+  <% end %>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
   <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% unless @proposal.emendation? %>
+    <% if @proposal.amendable? %>
       <div class="card text-center">
         <div class="card__content">
           <div>
@@ -50,7 +54,7 @@ edit_link(
         </div>
       </div>
     <% end %>
-    <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
+    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% else %>
       <%= amend_button_for @proposal %>
@@ -75,7 +79,7 @@ edit_link(
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
             <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
-            <br />
+            <br>
             <%= follow_button_for(@proposal) %>
           </div>
         </div>
@@ -89,12 +93,15 @@ edit_link(
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
     <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-      <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
-        <%= simple_format present(@proposal).body(links: true) %>
+      <% if @proposal.emendation? %>
+        <%= cell("decidim/diff", @proposal.versions.last) %>
+      <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
+        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+        <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
@@ -137,9 +144,6 @@ edit_link(
 <%= attachments_for @proposal %>
 
 <%= comments_for @proposal %>
-
-<%= javascript_include_tag "decidim/proposals/social_share" %>
-<%= stylesheet_link_tag "decidim/proposals/social_share" %>
 
 <%=
   render partial: "decidim/shared/flag_modal", locals: {

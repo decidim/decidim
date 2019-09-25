@@ -96,10 +96,6 @@ pt-BR:
           create: Criar
           select_a_category: Selecione uma categoria
           title: Novo debate
-        share:
-          close_window: Fechar janela
-          share: Compartilhar
-          share_link: Compartilhar link
       last_activity:
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:

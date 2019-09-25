@@ -15,9 +15,9 @@
 
     activate(picker) {
       let $element = $(picker);
-      let input    = "hidden",
-          name     = $element.data("picker-name"),
-          values   = $(".picker-values", $element);
+      let input = "hidden",
+          name = $element.data("picker-name"),
+          values = $(".picker-values", $element);
 
       if ($element.hasClass("picker-multiple")) {
         input = "checkbox";
@@ -119,7 +119,7 @@
             if (typeof $link.data("picker-choose") === "undefined") {
               this._load(chooseUrl);
             } else {
-              this._choose({url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || ""});
+              this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
             }
           }
         });
@@ -133,21 +133,23 @@
         return;
       }
 
+      let dataText = this._escape(data.text);
+
       // Add or update value appearance
       if (this.current.div) {
         let link = $("a", this.current.div);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
-        link.text(data.text);
+        link.text(dataText);
       } else {
         let input = "hidden",
-            name  = this.current.name;
+            name = this.current.name;
 
         if (this.current.multiple) {
           input = "checkbox";
           name += "[]";
         }
-        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${data.text}</a></div>`);
+        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
         this.current.div.appendTo(this.current.values);
       }
 
@@ -179,6 +181,12 @@
       $(".is-invalid-input", parent).removeClass("is-invalid-input");
       $(".is-invalid-label", parent).removeClass("is-invalid-label");
       $(".form-error.is-visible", parent).removeClass("is-visible");
+    }
+
+    _escape(str) {
+      return str.replace(/[\u00A0-\u9999<>&]/gim, function (char) {
+        return `&#${char.charCodeAt(0)};`;
+      });
     }
   }
 

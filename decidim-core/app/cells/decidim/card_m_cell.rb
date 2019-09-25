@@ -30,12 +30,17 @@ module Decidim
       false
     end
 
+    def has_children?
+      false
+    end
+
     def has_link_to_resource?
       true
     end
 
     def has_label?
       return true if model.respond_to?("emendation?") && model.emendation?
+
       context[:label].presence
     end
 
@@ -84,7 +89,9 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
+      classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
+
       classes.concat(state_classes).join(" ")
     end
 
@@ -136,7 +143,7 @@ module Decidim
     end
 
     def render_space?
-      context[:show_space].presence && model.respond_to?(:participatory_space)
+      context[:show_space].presence && model.respond_to?(:participatory_space) && model.participatory_space.present?
     end
 
     def render_top?

@@ -60,5 +60,20 @@ module Decidim
         expect(subject.invited_by).to eq(current_user)
       end
     end
+
+    context "when user name contains invalid characters" do
+      let(:attributes) do
+        {
+          email: "NewAdmin@example.org",
+          name: "New Admin ()",
+          invitation_instructions: "invite_admin",
+          role: "admin",
+          organization: form_organization,
+          invited_by: form_user
+        }
+      end
+
+      it { is_expected.to be_invalid }
+    end
   end
 end

@@ -4,22 +4,15 @@ module Decidim
   module Amendable
     # A form object used to promote emendations
     class PromoteForm < Decidim::Amendable::Form
-      mimic :amend
+      mimic :amendment
 
-      attribute :id, String
+      attribute :id, Integer
+      attribute :emendation_params, Hash
 
       validates :id, presence: true
 
-      def emendation
-        @emendation ||= Amendment.find_by(decidim_emendation_id: id).emendation
-      end
-
-      def amendable_type
-        emendation_type
-      end
-
-      def emendation_type
-        emendation.resource_manifest.model_class_name
+      def map_model(model)
+        self.emendation_params = model.emendation.attributes.slice(*amendable_fields_as_string)
       end
     end
   end

@@ -5,7 +5,7 @@ module Decidim
     module Components
       # This controller is the abstract class from which all component
       # controllers in their admin engines should inherit from.
-      class BaseController < Admin::ApplicationController
+      class BaseController < Decidim::Admin::ApplicationController
         include Settings
 
         include Decidim::Admin::ParticipatorySpaceAdminContext

@@ -22,7 +22,7 @@ de:
         state: Zustand
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
-        user_group_id: Erstellen Sie ein Angebot als
+        user_group_id: Vorschlag erstellen als
       proposal_answer:
         answer: Antworten
       proposals_copy:
@@ -41,17 +41,21 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Muss wieder angebracht werden
+            body:
+              identical: UND Titel dürfen nicht identisch sein
+            title:
+              identical: Der UND-Körper kann nicht identisch sein
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
-      decidim/proposals/admin/update_proposal_category_event: Angebotskategorie geändert
-      decidim/proposals/creation_enabled_event: Angebotserstellung aktiviert
-      decidim/proposals/endorsing_enabled_event: Angebotsunterstützung aktiviert
-      decidim/proposals/evaluating_proposal_event: Das Angebot wird evaluiert
+      decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
+      decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
+      decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
+      decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
       decidim/proposals/proposal_endorsed_event: Vorschlag gebilligt
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
-      decidim/proposals/voting_enabled_event: Angebotsabstimmung aktiviert
+      decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
@@ -91,25 +95,25 @@ de:
             new_proposal_help_text: Neuer Vorschlagstext
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
-            proposal_answering_enabled: Angebotsantworten aktiviert
+            proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
             proposal_length: Maximale Länge des Vorschlagskörpers
-            proposal_limit: Angebotslimit pro Benutzer
-            proposal_wizard_step_1_help_text: Angebotsassistent "Create" -Schritt-Hilfetext
-            proposal_wizard_step_2_help_text: Angebotsassistent "Vergleichen" Schritt-Hilfetext
-            proposal_wizard_step_3_help_text: Angebotsassistent "Schritt" - Hilfetext "Fertig"
-            proposal_wizard_step_4_help_text: Angebotsassistent "Veröffentlichen" Schritt-Hilfetext
-            resources_permissions_enabled: Aktionsberechtigungen können für jedes Angebot festgelegt werden
+            proposal_limit: Vorschlagslimit pro Benutzer
+            proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
+            proposal_wizard_step_2_help_text: Hilfetext "Vergleichen"-Schritt im Vorschlagsassistenten
+            proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
+            proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
+            resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
             threshold_per_proposal: Schwellenwert pro Angebot
             vote_limit: Wahllimit pro Benutzer
           step:
             announcement: Ankündigung
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
-            creation_enabled: Angebotserstellung aktiviert
+            creation_enabled: Vorschlagserstellung aktiviert
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
-            proposal_answering_enabled: Angebotsantworten aktiviert
+            proposal_answering_enabled: Vorschlagsantworten aktiviert
             suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Abstimmung blockiert
             votes_enabled: Abstimmung aktiviert
@@ -212,7 +216,7 @@ de:
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Angebots "%{resource_title}" aktualisiert, sehen Sie es sich an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
-          email_subject: Die %{resource_title} Angebotskategorie wurde aktualisiert
+          email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Vorschlagskategorie wurde von einem Administrator aktualisiert.
         voting_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title}abstimmen! Starten Sie die Teilnahme an dieser Seite:'
@@ -225,7 +229,7 @@ de:
           conditions:
             - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
             - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
-          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Angeboten teilnehmen und diese angenommen werden.
+          description: Dieses Abzeichen wird gewährt, wenn Sie neue Vorschläge einbringen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
           name: Akzeptierte Vorschläge
@@ -278,7 +282,7 @@ de:
     proposals:
       actions:
         answer: Antworten
-        edit_proposal: Angebot bearbeiten
+        edit_proposal: Vorschlag bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         participatory_texts: Partizipative Texte
@@ -334,7 +338,7 @@ de:
             title: Antwort für den Vorschlag %{title}
         proposal_notes:
           create:
-            error: Beim Erstellen dieser Angebotsnotiz ist ein Problem aufgetreten
+            error: Beim Erstellen dieser Vorschlagsnotiz ist ein Fehler aufgetreten
             success: Vorschlagsnotiz wurde erfolgreich erstellt
           form:
             note: Hinweis
@@ -346,10 +350,10 @@ de:
             invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags
             success: Der Vorschlag wurde erfolgreich beantwortet
           create:
-            invalid: Beim Erstellen dieses Angebots ist ein Problem aufgetreten
-            success: Angebot erfolgreich erstellt
+            invalid: Beim Erstellen dieses Vorschlags ist ein Fehler aufgetreten
+            success: Vorschlag erfolgreich erstellt
           edit:
-            title: Angebot aktualisieren
+            title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
             attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
@@ -370,7 +374,7 @@ de:
             update: Aktualisieren
           new:
             create: Erstellen
-            title: Angebot erstellen
+            title: Vorschlag erstellen
           update_category:
             invalid: 'Diese Vorschläge hatten bereits die Kategorie %{category} : %{proposals}.'
             select_a_category: Bitte wählen sie eine Kategorie
@@ -544,11 +548,11 @@ de:
           step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
           step_of: Schritt %{current_step_num} von %{total_steps}
       create:
-        error: Beim Speichern des Angebots sind Fehler aufgetreten.
+        error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
       destroy_draft:
-        error: Es gab Fehler beim Löschen des Angebotsentwurfs.
-        success: Der Angebotsentwurf wurde erfolgreich gelöscht.
+        error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
+        success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
       last_activity:
         new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
       models:
@@ -571,7 +575,7 @@ de:
             title: Titel
             votes: Stimmen
       new:
-        limit_reached: Sie können keine neuen Angebote erstellen, da Sie das Limit überschritten haben.
+        limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das Maximum erreicht haben.
       participatory_text_proposal:
         alternative_title: Momentan gibt es keine Mitmachtexte
         buttons:
@@ -611,12 +615,12 @@ de:
           back: Zurück
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
-          title: Angebot bearbeiten
+          title: Vorschlag bearbeiten
         edit_draft:
           discard: Verwerfen Sie diesen Entwurf
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
-          title: Angebotsentwurf bearbeiten
+          title: Vorschlagsentwurf bearbeiten
         endorsement_identities_cabin:
           endorse: Unterstützung
         endorsements_card_row:
@@ -640,7 +644,7 @@ de:
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
           new_proposal: Neuer Vorschlag
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
-          view_proposal: Angebot anzeigen
+          view_proposal: Vorschlag anzeigen
         linked_proposals:
           proposal_votes:
             one: Abstimmung
@@ -661,16 +665,16 @@ de:
         preview:
           modify: Ändern Sie den Vorschlag
           proposal_edit_before_minutes:
-            one: Sie können diesen Vorschlag in der ersten Minute nach der Veröffentlichung des Vorschlags bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
-            other: Sie können dieses Angebot in den ersten %{count} Minuten nach der Veröffentlichung des Angebots bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
+            one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
+            other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Veröffentlichen Sie Ihren Vorschlag
         proposal:
           creation_date: 'Erstellung: %{date}'
-          view_proposal: Angebot anzeigen
+          view_proposal: Vorschlag anzeigen
         show:
           back_to: Zurück zu
-          edit_proposal: Angebot bearbeiten
+          edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Empfehlungen
           hidden_endorsers_count:
             one: und %{count} weitere Person
@@ -727,14 +731,14 @@ de:
           step_4: Veröffentlichen Sie Ihren Vorschlag
           step_of: Schritt %{current_step_num} von %{total_steps}
       publish:
-        error: Beim Veröffentlichen des Angebots sind Fehler aufgetreten.
-        success: Angebot wurde erfolgreich veröffentlicht.
+        error: Beim Veröffentlichen des Vorschlags ist ein Fehler aufgetreten.
+        success: Vorschlag erfolgreich veröffentlicht.
       update:
-        error: Beim Speichern des Angebots sind Fehler aufgetreten.
-        success: Angebot wurde erfolgreich aktualisiert.
+        error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
+        success: Vorschlag wurde erfolgreich aktualisiert.
       update_draft:
-        error: Beim Speichern des Angebotsentwurfs sind Fehler aufgetreten.
-        success: Der Angebotsentwurf wurde erfolgreich aktualisiert.
+        error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
+        success: Der Vorschlagsentwurf wurde erfolgreich aktualisiert.
       versions:
         changes_at_title: Änderungen bei "%{title}"
         index:

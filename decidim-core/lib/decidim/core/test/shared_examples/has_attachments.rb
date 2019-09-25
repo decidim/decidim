@@ -23,7 +23,7 @@ shared_examples_for "has attachments" do
     end
   end
 
-  context "that are ordered by weight", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when are ordered by weight", processing_uploads_for: Decidim::AttachmentUploader do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to: attached_to, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to: attached_to, weight: 1) }
     let!(:last_image) { create(:attachment, attached_to: attached_to, weight: 2) }
@@ -39,7 +39,7 @@ shared_examples_for "has attachments" do
       end
 
       within "div.wrapper .images" do
-        expect(strip_tags(translated(fist_image.description, locale: :en))).to appear_before(strip_tags(translated(last_image.description, locale: :en)))
+        expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
   end

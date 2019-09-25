@@ -13,22 +13,35 @@ module Decidim::Amendable
 
     def announcement
       {
-        announcement: emendation_message,
+        announcement: emendation_message + promoted_message,
         callout_class: state_classes
       }
     end
 
     def emendation_message
-      t(model.emendation_state,
-        scope: "decidim.amendments.emendation.announcement",
-        amendable_type: amendable_type,
-        amendable_link: amendable_link,
-        announcement_date: announcement_date)
+      message(model.state, amendable_type, proposal_link, announcement_date)
     end
 
-    def amendable_link
-      link_to resource_locator(model.amendable).path do
-        %(<strong>#{present(model.amendable).title}</strong>)
+    def promoted_message
+      return "" unless model.amendment.promoted?
+
+      proposal = model.linked_promoted_resource
+      text = message(:promoted, amendable_type)
+      %(<br><strong>#{proposal_link(proposal, text)}</strong>)
+    end
+
+    def message(state, type, link = nil, date = nil)
+      t(state,
+        scope: "decidim.amendments.emendation.announcement",
+        amendable_type: type,
+        proposal_link: link,
+        date: date)
+    end
+
+    def proposal_link(resource = model.amendable, text = nil)
+      text ||= %(<strong>#{present(model.amendable).title}</strong>)
+      link_to resource_locator(resource).path do
+        text
       end
     end
 
@@ -41,7 +54,7 @@ module Decidim::Amendable
     end
 
     def state_classes
-      case model.emendation_state
+      case model.state
       when "accepted"
         "success"
       when "rejected"

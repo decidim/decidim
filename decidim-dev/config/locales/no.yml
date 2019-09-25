@@ -1,0 +1,5 @@
+"no":
+  activemodel:
+    attributes:
+      dummy_resource:
+        title: Tittel

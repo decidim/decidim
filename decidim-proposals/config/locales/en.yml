@@ -42,6 +42,10 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+            body:
+              identical: AND title cannot be identical
+            title:
+              identical: AND body cannot be identical
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -74,6 +78,7 @@ en:
     components:
       proposals:
         actions:
+          amend: Amend
           create: Create
           endorse: Endorse
           vote: Support
@@ -82,6 +87,8 @@ en:
         settings:
           global:
             amendments_enabled: Amendments enabled
+            amendments_enabled_help: If active, configure Amendment features for each step.
+            amendments_wizard_help_text: Amendments Wizard help text
             announcement: Announcement
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
@@ -91,6 +98,7 @@ en:
             minimum_votes_per_user: Minimum supports per user
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
+            participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             participatory_texts_enabled: Participatory texts enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
@@ -104,6 +112,14 @@ en:
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:
+            amendment_creation_enabled: Amendment creation enabled
+            amendment_creation_enabled_help: Participant can amend proposals.
+            amendment_promotion_enabled: Amendment promotion enabled
+            amendment_promotion_enabled_help: Emandation authors will be able to promote to Proposal the rejected emendation.
+            amendment_reaction_enabled: Amendment reaction enabled
+            amendment_reaction_enabled_help: Proposal's authors will be able to accept or reject Participant's emendations.
+            amendments_visibility: Amendment visibility
+            amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
@@ -306,6 +322,7 @@ en:
             success: All participatory text drafts have been discarded.
           import:
             invalid: The form is invalid!
+            invalid_file: The file contains some error, please try to edit the content of the file and re-upload it again.
             success: Congratulations, the following sections have been converted to proposals. Now you can review and adjust them before publishing.
           index:
             info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.
@@ -674,6 +691,7 @@ en:
           view_proposal: View proposal
         show:
           back_to: Back to
+          changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:
@@ -681,6 +699,10 @@ en:
             other: and %{count} more people
           link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
           link_to_collaborative_draft_text: See the collaborative draft
+          link_to_promoted_emendation_help_text: This proposal is a promoted emendation
+          link_to_promoted_emendation_text: See the rejected emendation.
+          link_to_proposal_from_emendation_help_text: This is a rejected emendation
+          link_to_proposal_from_emendation_text: See the Proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'

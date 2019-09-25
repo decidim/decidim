@@ -14,8 +14,9 @@ module Decidim
     attribute :role, String
 
     validates :email, :name, :organization, :invitation_instructions, presence: true
-    validates :role, inclusion: { in: Decidim::User::ROLES }
+    validates :role, inclusion: { in: Decidim::User::Roles.all }
 
+    validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
     validate :admin_uniqueness
 
     def email
@@ -31,7 +32,7 @@ module Decidim
     end
 
     def available_roles_for_select
-      Decidim::User::ROLES.map do |role|
+      Decidim::User::Roles.all.map do |role|
         [
           I18n.t("models.user.fields.roles.#{role}", scope: "decidim.admin"),
           role

@@ -32,7 +32,9 @@ module Decidim
       def create
         enforce_permission_to :join, :meeting, meeting: meeting
 
-        JoinMeeting.call(meeting, current_user) do
+        @form = JoinMeetingForm.from_params(params)
+
+        JoinMeeting.call(meeting, current_user, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
             redirect_after_path

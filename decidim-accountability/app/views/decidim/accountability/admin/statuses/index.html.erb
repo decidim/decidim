@@ -3,7 +3,6 @@
     <h2 class="card-title">
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")), new_status_path, class: "button tiny button--title" if allowed_to? :create, :status %>
-      <%= render partial: "decidim/accountability/admin/shared/subnav" %>
     </h2>
   </div>
 
@@ -22,7 +21,7 @@
         <tbody>
           <% statuses.each do |status| %>
             <tr data-id="<%= status.id %>">
-              <td><%= status.key %><br /></td>
+              <td><%= status.key %><br></td>
               <td><%= translated_attribute(status.name) %></td>
               <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
               <td><%= status.progress %></td>

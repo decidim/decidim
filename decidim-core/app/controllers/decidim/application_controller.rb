@@ -11,6 +11,8 @@ module Decidim
     include NeedsTosAccepted
     include HttpCachingDisabler
     include ActionAuthorization
+    include ForceAuthentication
+    include SafeRedirect
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -23,6 +25,11 @@ module Decidim
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
+    helper Decidim::SanitizeHelper
+
+    register_permissions(::Decidim::ApplicationController,
+                         ::Decidim::Admin::Permissions,
+                         ::Decidim::Permissions)
 
     # Saves the location before loading each page so we can return to the
     # right page.
@@ -45,10 +52,24 @@ module Decidim
     # In Devise controllers we only store the URL if it's from the params, we don't
     # want to overwrite the stored URL for a Devise one.
     def store_current_location
-      return if (devise_controller? && params[:redirect_url].blank?) || !request.format.html?
+      return if skip_store_location?
 
-      value = params[:redirect_url] || request.url
+      value = redirect_url || request.url
       store_location_for(:user, value)
+    end
+
+    def skip_store_location?
+      # Skip if Devise already handles the redirection
+      return true if devise_controller? && redirect_url.blank?
+      # Skip for all non-HTML requests"
+      return true unless request.format.html?
+      # Skip if a signed in user requests the TOS page without having agreed to
+      # the TOS. Most of the times this is because of a redirect to the TOS
+      # page (in which case the desired location is somewhere else after the
+      # TOS is agreed).
+      return true if current_user && !current_user.tos_accepted? && request.path == tos_path
+
+      false
     end
 
     def user_has_no_permission_path
@@ -56,10 +77,7 @@ module Decidim
     end
 
     def permission_class_chain
-      [
-        Decidim::Admin::Permissions,
-        Decidim::Permissions
-      ]
+      ::Decidim.permissions_registry.chain_for(::Decidim::ApplicationController)
     end
 
     def permission_scope
@@ -75,6 +93,7 @@ module Decidim
 
     def track_continuity_badge
       return unless current_user
+
       Decidim::ContinuityBadgeTracker.new(current_user).track!(Time.zone.today)
     end
   end

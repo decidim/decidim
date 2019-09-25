@@ -552,6 +552,7 @@ eu:
           take_part: Parte hartu
       conferences:
         conference:
+          more_info: Informazio gehiago
           take_part: Parte hartu
         index:
           promoted_conferences: Sustatutako hitzaldiak

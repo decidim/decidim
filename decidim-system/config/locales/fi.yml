@@ -47,6 +47,7 @@ fi:
           fields:
             created_at: Luotu
             name: Nimi
+            smtp_settings: SMTP-asetukset
           name: Organisaatio
       organizations:
         create:

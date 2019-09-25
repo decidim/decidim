@@ -34,6 +34,10 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Configure recurring jobs for [**metrics**](advanced/metrics.md) and [**open data**](advanced/open-data.md)
 
+1. You should have a **staging** / preproduction environment where to test changes before deploying to production. If this environment has a copy of production database, you should disable the SMTP server and for privacy issues you should change the usernames / names / emails.
+
+1. You should have a **exception tracking** service or gem, like [Errbit](https://errbit.com/), [Exception Notification](https://github.com/smartinez87/exception_notification), [Airbrake](https://airbrake.io/) or [Sentry](https://sentry.io).
+
 ## Contents
 
 1. Ideally you'll have a **Team** formed with experts on IT, Communication, Participation, Design and Law.

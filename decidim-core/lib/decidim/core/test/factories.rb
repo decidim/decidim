@@ -17,7 +17,7 @@ FactoryBot.define do
   end
 
   sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}"
+    "#{Faker::Name.name} #{n}".delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -41,7 +41,7 @@ FactoryBot.define do
   end
 
   sequence(:scope_name) do |n|
-    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}".gsub("s", "z").gsub("S", "Z")
   end
 
   sequence(:scope_code) do |n|
@@ -87,6 +87,16 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    force_users_to_authenticate_before_access_organization { false }
+    smtp_settings do
+      {
+        "from" => "test@example.org",
+        "user_name" => "test",
+        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "port" => "25",
+        "address" => "smtp.example.org"
+      }
+    end
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
@@ -105,7 +115,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { Faker::Lorem.paragraph(2) }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
@@ -131,6 +141,7 @@ FactoryBot.define do
       email { "" }
       password { "" }
       password_confirmation { "" }
+      encrypted_password { "" }
       managed { true }
     end
 
@@ -162,6 +173,7 @@ FactoryBot.define do
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     organization
 
     transient do
@@ -300,6 +312,17 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    settings do
+      {
+        dummy_global_translatable_text: generate_localized_title
+      }
+    end
+
+    default_step_settings do
+      {
+        dummy_step_translatable_text: generate_localized_title
+      }
+    end
 
     trait :unpublished do
       published_at { nil }
@@ -307,6 +330,14 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_amendments_enabled do
+      settings do
+        {
+          amendments_enabled: true
+        }
+      end
     end
   end
 
@@ -355,6 +386,10 @@ FactoryBot.define do
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
@@ -514,14 +549,17 @@ FactoryBot.define do
   end
 
   factory :amendment, class: "Decidim::Amendment" do
-    amender do
-      build(
-        :user,
-        organization: amendable.try(:organization) || build(:organization)
-      )
-    end
-    state { "evaluating" }
     amendable { build(:dummy_resource) }
     emendation { build(:dummy_resource) }
+    amender { emendation.try(:creator_author) || emendation.try(:author) }
+    state { "evaluating" }
+
+    trait :draft do
+      state { "draft" }
+    end
+
+    trait :rejected do
+      state { "rejected" }
+    end
   end
 end

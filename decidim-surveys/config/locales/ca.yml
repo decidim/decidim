@@ -1,8 +1,8 @@
 ca:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: S'ha acabat l'enquesta
-      decidim/surveys/opened_survey_event: S'ha iniciat l'enquesta
+      decidim/surveys/closed_survey_event: Ha acabat l'enquesta
+      decidim/surveys/opened_survey_event: Ha començat l'enquesta
   activerecord:
     models:
       decidim/surveys/survey:
@@ -15,20 +15,19 @@ ca:
     components:
       surveys:
         actions:
-          answer: Resposta
+          answer: Respondre
         name: Enquesta
         settings:
           global:
-            announcement: Anunci
+            announcement: Avís
           step:
             allow_answers: Permetre respostes
-            allow_unregistered: Permet respondre a usuaris sense registrar-se
-            announcement: Anunci
+            announcement: Avís
     events:
       surveys:
         survey_closed:
           email_intro: L'enquesta %{resource_title} a %{participatory_space_title} ha estat tancada.
-          email_outro: Heu rebut aquesta notificació perquè est`as seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha acabat una enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha acabat.
         survey_opened:
@@ -44,7 +43,7 @@ ca:
     surveys:
       admin:
         exports:
-          survey_user_answers: Respostes de les participants
+          survey_user_answers: Respostes de les participants de l'enquesta
         surveys:
           update:
             invalid: S'ha produït un error en desar l'enquesta.
@@ -53,5 +52,5 @@ ca:
         new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
       surveys:
         answer:
-          invalid: S'ha produït un error en respondre a l'enquesta.
+          invalid: S'ha produït un error en respondre l'enquesta.
           success: Enquesta resposta correctament.

@@ -20,6 +20,7 @@ module Decidim
 
         def target_component
           return current_component if clean_target_component_id == current_component.id
+
           @target_component ||= current_component.siblings.find_by(id: target_component_id)
         end
 

@@ -7,6 +7,7 @@ module Decidim
 
     process :set_content_type_and_size_in_model
     process :validate_dimensions
+    process :strip
 
     version :thumbnail, if: :image? do
       process resize_to_fit: [nil, 237]
@@ -17,6 +18,20 @@ module Decidim
     end
 
     protected
+
+    def extension_white_list
+      %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt ppx rtf txt odt ott odf otg ods ots)
+    end
+
+    # Strips out all embedded information from the image
+    def strip
+      return unless image?(self)
+
+      manipulate! do |img|
+        img.strip
+        img
+      end
+    end
 
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
@@ -62,6 +77,7 @@ module Decidim
 
       manipulate! do |image|
         raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
+
         image
       end
     end

@@ -7,18 +7,18 @@ ar:
         organization: المنظمة
       area_type:
         name: الاسم
-        organization: منظمة
+        organization: المنظمة
         plural: الجمع
       attachment:
         attachment_collection_id: المجلد
-        description: وصف
+        description: الوصف
         file: ملف
-        title: عنوان
+        title: العنوان
       attachment_collection:
-        description: وصف
+        description: الوصف
         name: اسم
       category:
-        description: وصف
+        description: الوصف
         name: اسم
         parent_id: الأبوين
       component:
@@ -30,72 +30,77 @@ ar:
         body: المحتوى
         subject: الموضوع
       oauth_application:
-        name: اسم
+        name: الاسم
         organization_logo: شعار المنظمة (مربع)
         organization_name: اسم المنظمة
         organization_url: عنوان URL للمؤسسة
         redirect_uri: إعادة توجيه URI
       organization:
+        address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
         default_locale: اللغة الافتراضية
-        description: وصف
+        description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
-        facebook_handler: معالج فيسبوك
+        facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
-        github_handler: معالج جيثب
+        from: مِن عنوان البريد الإلكتروني
+        github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
-        highlighted_content_banner_action_subtitle: عمل زر الترجمة
-        highlighted_content_banner_action_title: عنوان زر العمل
+        highlighted_content_banner_action_subtitle: نص زر الإجراء
+        highlighted_content_banner_action_title: عنوان زر الإجراء
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
         highlighted_content_banner_enabled: إظهار شعار المحتوى المميز
-        highlighted_content_banner_image: صورة
-        highlighted_content_banner_short_description: وصف قصير
-        highlighted_content_banner_title: عنوان
-        instagram_handler: معالج Instagram
-        logo: شعار
+        highlighted_content_banner_image: الصورة
+        highlighted_content_banner_short_description: وصف مختصر
+        highlighted_content_banner_title: العنوان
+        instagram_handler: مُعرّف حساب استجرام
+        logo: الشعار
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
         official_img_header: رأس الشعار الرسمي
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
-        omnipresent_banner_title: عنوان
-        omnipresent_banner_url: URL
+        omnipresent_banner_title: العنوان
+        omnipresent_banner_url: العنوان الشبكي
+        password: الكلمة السرية
+        port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         secondary_color: ثانوي
-        show_statistics: عرض إحصائيات
+        show_statistics: عرض الإحصائيات
         success_color: نجاح
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: التغريد معالج
+        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
+        user_name: اسم المستخدم
         warning_color: تحذير
-        youtube_handler: معالج YouTube
+        youtube_handler: مُعرّف حساب يوتيوب
       scope:
         code: الشفرة
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
         parent_id: الأبوين
         scope_type: نوع النطاق
         scope_type_id: نوع النطاق
       scope_type:
-        name: اسم
-        organization: منظمة
+        name: الاسم
+        organization: المنظمة
         plural: جمع
       static_page:
         changed_notably: كانت هناك تغييرات ملحوظة.
         content: يحتوى
-        organization: منظمة
+        organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
-        slug: سبيكة URL
-        title: عنوان
+        slug: سبيكة العنوان الشبكي
+        title: العنوان
         weight: وزن
       static_page_topic:
         description: وصف
         show_in_footer: تظهر في تذييل الصفحة
-        title: عنوان
+        title: العنوان
         weight: وزن
       user_group_csv_verification:
         file: ملف
@@ -115,16 +120,16 @@ ar:
     attributes:
       decidim/static_page:
         content: يحتوى
-        slug: سبيكة URL
-        title: عنوان
+        slug: سبيكة العنوان الشبكي
+        title: العنوان
       doorkeeper/application:
-        authorize_url: تفويض URL
+        authorize_url: تفويض العنوان الشبكي
         client_id: معرف العميل
         client_secret: سر العميل
         organization_name: اسم المنظمة
-        organization_url: عنوان URL للمؤسسة
+        organization_url: العنوان الشبكي للمؤسسة
         redirect_uri: إعادة توجيه URI
-        site: موقع الكتروني
+        site: موقع الويب
   decidim:
     admin:
       actions:
@@ -156,6 +161,7 @@ ar:
           error: كانت هناك مشكلة في إنشاء منطقة جديدة.
           success: تم إنشاء المنطقة بنجاح.
         destroy:
+          has_spaces: تحتوي المنطقة على مسافات تابعة ، ويجب ألا يكون لها تبعيات لكي يتم حذفها
           success: تم تدمير المنطقة بنجاح
         edit:
           title: تحرير المنطقة
@@ -180,8 +186,8 @@ ar:
           attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
-          create: خلق
-          title: ملف جديد
+          create: إنشاء
+          title: مجلد جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المجلد.
           success: تم تحديث المجلد بنجاح.
@@ -195,7 +201,7 @@ ar:
           title: تحرير المرفق
           update: تحديث
         index:
-          attachments_title: مرفقات
+          attachments_title: المرفقات
         new:
           create: إنشاء مرفق
           title: مرفق جديد
@@ -240,6 +246,7 @@ ar:
         form:
           default_step_settings: إعدادات الخطوة الافتراضية
           global_settings: الاعدادات العامة
+          participatory_texts_enabled_help: لا يمكن التفاعل مع هذا الإعداد إذا كان هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمه "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
           step_settings: إعدادات الخطوة
         index:
           add: إضافة عنصر
@@ -261,7 +268,7 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: مرحبًا بك في لوحة إدارة Decidim.
+          welcome: مرحبًا بكم في لوحة إدارة Decidim.
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
@@ -349,7 +356,7 @@ ar:
             collection: مجلد
             content_type: نوع
             file_size: الحجم
-            title: عنوان
+            title: العنوان
           name: المرفق
         attachment_collection:
           name: مجلد
@@ -368,6 +375,7 @@ ar:
             created_at: أنشئت في
             progress: تقدم
             sent_at: أرسلت في
+            sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
         oauth_application:
@@ -388,7 +396,7 @@ ar:
         static_page:
           fields:
             created_at: أنشئت في
-            title: عنوان
+            title: العنوان
         user:
           fields:
             created_at: تاريخ الإنشاء
@@ -411,7 +419,7 @@ ar:
             users_count: عدد المشاركين
       moderations:
         index:
-          title: الإعتدال
+          title: الإشراف
         report:
           reasons:
             does_not_belong: لا ينتمي
@@ -433,14 +441,28 @@ ar:
         form:
           interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في الجسم أو الموضوع وسيتم استبداله باسم المستلم.'
         index:
+          all: الكل
+          all_users: 'كافة المستخدمين '
+          and: 'و '
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
+          followers: 'مُتابِعون '
+          has_been_sent_to: 'تم إرسالها إلى: '
+          not_sent: غير مرسَلة
+          participants: 'مشاركون '
+          segmented_to: 'مقسمه إلى %{subject}: '
           title: الرسائل الإخبارية
         new:
           save: حفظ
           title: رسالة إخبارية جديدة
-        show:
+        select_recipients_to_deliver:
+          all_spaces: الكل
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
+          none: لا شَيْء
+          send_to_all_users: إرسال إلى كافة المستخدمين
+          send_to_followers: إرسال إلى المتابِعين
+          send_to_participants: إرسال إلى المشاركين
+        show:
           preview: معاينة
           subject: الموضوع
         update:
@@ -500,9 +522,9 @@ ar:
           facebook: فيسبوك
           github: غِت‌ هَب
           instagram: إينستاجرام
-          social_handlers: اجتماعي
+          social_handlers: التواصل الاجتماعي
           twitter: تويتر
-          url: رابط
+          url: العنوان الشبكي
           youtube: يوتيوب
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
@@ -536,11 +558,12 @@ ar:
         index:
           title: المشاركة الفضاء المشارك الخاص
         new:
-          create: خلق
+          create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       resource_permissions:
         edit:
           submit: خضع
+          title: تعديل الترخيصات
         update:
           success: تم تحديث الأذونات بنجاح.
       scope_types:
@@ -584,7 +607,7 @@ ar:
           title: تحرير الموضوع
           update: تحديث الموضوع
         new:
-          create: خلق الموضوع
+          create: إنشاء موضوع
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
@@ -705,7 +728,7 @@ ar:
             reportable: الإبلاغ عنها
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
-            visit_url: زيارة URL
+            visit_url: زيارة العنوان الشبكي
   errors:
     messages:
       invalid_json: JSON غير صالح

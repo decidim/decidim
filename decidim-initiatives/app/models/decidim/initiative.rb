@@ -17,6 +17,7 @@ module Decidim
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
+    include Decidim::Randomable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -93,13 +94,6 @@ module Decidim
 
     after_save :notify_state_change
     after_create :notify_creation
-
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
-    end
 
     def self.future_spaces
       none
@@ -217,6 +211,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def publish!
       return false if published?
+
       update(
         published_at: Time.current,
         state: "published",
@@ -231,6 +226,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
       return false unless published?
+
       update(published_at: nil, state: "discarded")
     end
 
@@ -290,6 +286,7 @@ module Decidim
     # RETURNS boolean
     def has_authorship?(user)
       return true if author.id == user.id
+
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
@@ -336,6 +333,7 @@ module Decidim
 
     def notify_state_change
       return unless saved_change_to_state?
+
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

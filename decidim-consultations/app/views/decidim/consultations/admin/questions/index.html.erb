@@ -25,12 +25,12 @@
                 <% if allowed_to? :update, :question, question: question %>
                   <%= link_to decidim_sanitize(translated_attribute(question.title)),
                               edit_question_path(question) %>
-                  <br />
+                  <br>
                 <% elsif allowed_to? :preview, :question, question: question %>
                   <%= link_to translated_attribute(question.title),
                               decidim_consultations.question_path(question),
                               target: "_blank" %>
-                  <br />
+                  <br>
                 <% else %>
                   <%= translated_attribute(question.title) %>
                 <% end %>
@@ -50,12 +50,15 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
+
                 <% if allowed_to? :update, :question, question: question %>
                   <%= icon_link_to "pencil",
                                    edit_question_path(question),
                                    t("actions.configure", scope: "decidim.admin"),
                                    class: "action-icon--edit" %>
                 <% end %>
+
+                <%= free_resource_permissions_link(question) %>
 
                 <% if allowed_to? :preview, :question, question: question %>
                   <%= icon_link_to "eye",
@@ -64,6 +67,7 @@
                                    class: "action-icon--preview",
                                    target: "_blank" %>
                 <% end %>
+
               </td>
             </tr>
           <% end %>

@@ -49,6 +49,8 @@ module Decidim
     end
 
     def withdraw_path
+      return decidim.withdraw_amend_path(from_context.amendment) if from_context.emendation?
+
       from_context_path + "/withdraw"
     end
 
@@ -57,6 +59,7 @@ module Decidim
       return unless from_context
       return unless proposals_controller? || collaborative_drafts_controller?
       return unless show_action?
+
       true
     end
 
@@ -72,6 +75,7 @@ module Decidim
 
     def commentable?
       return unless posts_controller?
+
       true
     end
 
@@ -82,6 +86,7 @@ module Decidim
     def actionable?
       return false if options[:has_actions] == false
       return true if user_author? && posts_controller?
+
       true if withdrawable? || flagable?
     end
 
@@ -90,6 +95,8 @@ module Decidim
     end
 
     def profile_path?
+      return false if options[:skip_profile_link] == true
+
       profile_path.present?
     end
 

@@ -27,5 +27,19 @@ describe Decidim::Amendment do
 
       it { is_expected.not_to be_valid }
     end
+
+    context "without state" do
+      let(:amendment) { build(:amendment, state: nil) }
+
+      it { is_expected.not_to be_valid }
+    end
+  end
+
+  describe "inclusion" do
+    context "with a state not included in STATES" do
+      let(:amendment) { build(:amendment, state: "just chilling") }
+
+      it { is_expected.not_to be_valid }
+    end
   end
 end

@@ -192,7 +192,7 @@ es-MX:
         partner:
           fields:
             link: Enlace
-            logo: Logo
+            logo: Logotipo
             name: Nombre
             partner_type: Tipo
           name: Colaborador
@@ -552,6 +552,7 @@ es-MX:
           take_part: Participar
       conferences:
         conference:
+          more_info: Más información
           take_part: Participar
         index:
           promoted_conferences: Conferencias destacadas

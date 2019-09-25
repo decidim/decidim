@@ -3,6 +3,7 @@
 module Decidim
   class FingerprintCell < Decidim::ViewModel
     include ActionView::RecordIdentifier
+    include Decidim::SanitizeHelper
 
     def show
       render

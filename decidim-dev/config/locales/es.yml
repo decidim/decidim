@@ -6,12 +6,13 @@ es:
         field: Mi campo
         start_date: Fecha de inicio
         title: Título
+        translatable_text: Texto traducible
         updated_at: Actualizado en
   decidim:
     dummy:
       admin:
         exports:
-          dummies: Maniquíes
+          dummies: Pruebas
     gamification:
       badges:
         test:
@@ -37,4 +38,4 @@ es:
         dummies_count_medium: Dummies media
     resource_links:
       test_link:
-        dummy_resource_dummy: Ficticio relacionado
+        dummy_resource_dummy: Prueba relacionada

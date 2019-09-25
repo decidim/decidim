@@ -38,7 +38,7 @@ it:
       actions:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
-        edit: modificare
+        edit: Modifica
         new: Nuovo %{name}
         title: Azioni
       admin:
@@ -96,17 +96,13 @@ it:
           create: Creare
           select_a_category: Si prega di selezionare una categoria
           title: Nuovo dibattito
-        share:
-          close_window: Chiudi la finestra
-          share: Condividere
-          share_link: Condividi il link
       last_activity:
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
           fields:
             end_time: Data di fine
-            official_debate: Dibattito ufficiale
+            official_debate: Dibattito proposto dall'Amministrazione
             start_time: Data d'inizio
             title: Titolo
     events:

@@ -10,6 +10,8 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})
+        @component = options[:component]
+        @current_user = options[:current_user]
         super(Proposal.all, options)
       end
 
@@ -84,11 +86,11 @@ module Decidim
       def search_type
         case type
         when "proposals"
-          query.where.not(id: query.joins(:amendable).pluck(:id))
+          query.only_amendables
         when "amendments"
-          query.where(id: query.joins(:amendable).pluck(:id))
-        else
-          query
+          query.only_visible_emendations_for(@current_user, @component)
+        else # Assume 'all'
+          query.amendables_and_visible_emendations_for(@current_user, @component)
         end
       end
 

@@ -5,32 +5,21 @@ require "spec_helper"
 describe "Explore versions", versioning: true, type: :system do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization: organization) }
-  let!(:proposal) { create(:proposal, component: component) }
-  let!(:emendation) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, body: "One liner body", component: component) }
+  let!(:emendation) { create(:proposal, body: "Amended One liner body", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
-  let(:command) { Decidim::Amendable::Accept.new(form) }
 
-  let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
-
-  let(:emendation_fields) do
-    {
-      title: emendation.title,
-      body: emendation.body
-    }
-  end
-
-  let(:form_params) do
-    {
+  let(:form) do
+    Decidim::Amendable::ReviewForm.from_params(
       id: amendment.id,
       amendable_gid: proposal.to_sgid.to_s,
       emendation_gid: emendation.to_sgid.to_s,
-      emendation_fields: emendation_fields
-    }
+      emendation_params: { title: emendation.title, body: emendation.body }
+    )
   end
+  let(:command) { Decidim::Amendable::Accept.new(form) }
 
-  let(:proposal_path) do
-    Decidim::ResourceLocatorPresenter.new(proposal).path
-  end
+  let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
   context "when visiting a proposal details" do
     before do
@@ -118,21 +107,29 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
-      expect(page).to have_content("TITLE")
-      expect(page).to have_content("BODY")
 
-      first ".diff-string > .removal" do
-        expect(page).to have_content(proposal.title)
-      end
-      first ".diff-string > .addition" do
-        expect(page).to have_content(emendation.title)
+      within ".diff-for-title" do
+        expect(page).to have_content("TITLE")
+
+        within ".diff > ul > .del" do
+          expect(page).to have_content(proposal.title)
+        end
+
+        within ".diff > ul > .ins" do
+          expect(page).to have_content(emendation.title)
+        end
       end
 
-      all(".diff-string > .removal").last do
-        expect(page).to have_content(proposal.body)
-      end
-      all(".diff-string > .addition").last do
-        expect(page).to have_content(emendation.body)
+      within ".diff-for-body" do
+        expect(page).to have_content("BODY")
+
+        within ".diff > ul > .del" do
+          expect(page).to have_content(proposal.body)
+        end
+
+        within ".diff > ul > .ins" do
+          expect(page).to have_content(emendation.body)
+        end
       end
     end
   end

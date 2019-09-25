@@ -100,10 +100,6 @@ cs:
           create: Vytvořit
           select_a_category: Vyberte kategorii
           title: Nová debata
-        share:
-          close_window: Zavřete okno
-          share: Podíl
-          share_link: Sdílet odkaz
       last_activity:
         new_debate_at_html: "<span>Nová diskuse na %{link}</span>"
       models:

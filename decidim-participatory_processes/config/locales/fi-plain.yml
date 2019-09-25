@@ -3,10 +3,12 @@ fi-pl:
     attributes:
       participatory_process:
         announcement: Ilmoitus
+        area_id: Alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
+        decidim_area_id: Alue
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -69,6 +71,9 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
+        filter:
+          all: Näytä kaikki prosessit
+          process_groups: Prosessiryhmät
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -131,6 +136,7 @@ fi-pl:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
+          error: Osallisuusprosessien ryhmän poisto epäonnistui.
           success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää
@@ -198,8 +204,6 @@ fi-pl:
           success: Osallisuusprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         edit:
           update: Päivitä
-        form:
-          title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -232,6 +236,9 @@ fi-pl:
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} loi osallisuusprosessien ryhmän %{resource_name}"
+        update: "%{user_name} päivitti osallisuusprosessien ryhmää %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
@@ -291,7 +298,16 @@ fi-pl:
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
+            duration: Kesto
+            filters: Suodattimet
+            images: kuvat
+            metadata: metadata
+            other: muut
+            select_an_area: Valitse alue
+            select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            title: Yleistä tietoa
+            visbility: näkyvyys
       content_blocks:
         highlighted_processes:
           name: Tärkeimmät prosessit
@@ -307,8 +323,6 @@ fi-pl:
             more_information: Lisätietoja
             participate: Osallistu
             see_all_processes: Näytä kaikki prosessit
-      participatory_process_groups:
-        none: Ei ryhmää
       participatory_processes:
         filters:
           counters:
@@ -337,6 +351,7 @@ fi-pl:
         index:
           loading: Ladataan tulokset...
       show:
+        area: Alue
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
@@ -378,6 +393,7 @@ fi-pl:
           promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
+          more_info: Lisätietoja
           take_part: Osallistu
         promoted_process:
           active_step: 'Aktiivinen vaihe:'

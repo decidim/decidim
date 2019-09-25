@@ -10,7 +10,7 @@ module Decidim
 
     belongs_to :user,
                foreign_key: "decidim_users_id",
-               class_name:  "Decidim::User"
+               class_name: "Decidim::User"
 
     enum state: [:requested, :rejected, :accepted]
 

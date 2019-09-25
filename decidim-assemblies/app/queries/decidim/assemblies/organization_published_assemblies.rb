@@ -12,8 +12,8 @@ module Decidim
       def query
         Rectify::Query.merge(
           OrganizationAssemblies.new(@organization),
-          VisibleAssemblies.new(@user),
-          PublishedAssemblies.new
+          PublishedAssemblies.new,
+          VisibleAssemblies.new(@user)
         ).query
       end
     end

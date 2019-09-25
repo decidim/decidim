@@ -23,6 +23,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           update_conference
           link_participatory_processes
           link_assemblies
@@ -99,7 +100,9 @@ module Decidim
         end
 
         def should_notify_followers_registrations_enabled?
-          @conference.previous_changes["registrations_enabled"].present? && @conference.registrations_enabled?
+          @conference.previous_changes["registrations_enabled"].present? &&
+            @conference.registrations_enabled? &&
+            @conference.published?
         end
 
         def send_notification_update_conference
@@ -112,7 +115,8 @@ module Decidim
         end
 
         def should_notify_followers_update_conference?
-          important_attributes.any? { |attr| @conference.previous_changes[attr].present? }
+          important_attributes.any? { |attr| @conference.previous_changes[attr].present? } &&
+            @conference.published?
         end
 
         def important_attributes

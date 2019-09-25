@@ -7,9 +7,7 @@ shared_examples "promote amendment" do
     end
 
     it "creates an amendable type resource" do
-      expect { command.call }
-        .to change(amendable.resource_manifest.model_class_name.constantize, :count)
-        .by(1)
+      expect { command.call }.to change(amendable.class, :count).by(1)
     end
 
     it "traces the action", versioning: true do
@@ -38,6 +36,32 @@ shared_examples "promote amendment" do
         )
 
       command.call
+    end
+  end
+
+  context "when the form is not valid" do
+    let(:form) { Decidim::Amendable::PromoteForm.from_params(id: nil) }
+
+    it "broadcasts invalid" do
+      expect { command.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when current user is not the author of the amendment" do
+    let(:current_user) { other_user }
+
+    it "broadcasts invalid" do
+      expect { command.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when amendment is not rejected" do
+    before do
+      amendment.update(state: "evaluating")
+    end
+
+    it "broadcasts invalid" do
+      expect { command.call }.to broadcast(:invalid)
     end
   end
 end

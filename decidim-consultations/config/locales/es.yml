@@ -5,29 +5,29 @@ es:
         banner_image: Imagen de banner
         decidim_highlighted_scope_id: Alcance resaltado
         description: Descripción
-        end_voting_date: La votación ha terminado
+        end_voting_date: La votación finaliza
         introductory_image: Imagen introductoria
         introductory_video_url: URL de vídeo introductoria
         questions: Preguntas
-        slug: URL slug
+        slug: Nom curt d'URL
         start_voting_date: Empieza la votación
-        subtitle: Subtitular
+        subtitle: Substítulo
         title: Título
       question:
         banner_image: Imagen de banner
         decidim_scope_id: Área municipal
         hashtag: Hashtag
-        hero_image: Imagen de inicio
+        hero_image: Imagen de la pagina de inicio
         i_frame_url: URL del sistema de votación externa
-        origin_scope: Alcance
+        origin_scope: Ámbito
         origin_title: Origen
         origin_url: URL de origen
-        participatory_scope: Alcance participativo
+        participatory_scope: Ámbito participativo
         promoter_group: Grupo promotor
         question_context: Contexto
         reference: Referencia
         scope: Área municipal
-        slug: URL slug
+        slug: Nom curt d'URL
         subtitle: Subtitular
         title: Título
         vote: Sistema de votación externa
@@ -35,7 +35,7 @@ es:
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Respuesta no encontrada
+          not_found: Respuesta no encontrada.
   activerecord:
     models:
       decidim/consultation:
@@ -57,29 +57,29 @@ es:
         new_question: Nueva pregunta
         new_response: Nueva respuesta
         publish_results: Publicar resultados
-        unpublish_results: Anular la publicación de resultados
+        unpublish_results: Despublicar resultados
       consultation_publications:
         create:
           error: Se ha producido un error al publicar esta consulta.
           success: Consulta publicada correctamente.
         destroy:
-          error: Se ha producido un error al anular la publicación de esta consulta.
-          success: Consulta despublicada correctamente.
+          error: Se ha producido un error al despublicar esta consulta.
+          success: La consulta se ha despublicado correctamente.
       consultation_results_publications:
         create:
           error: Se ha producido un error al publicar los resultados de esta consulta.
-          success: Resultados de la consulta publicados correctamente.
+          success: Los resultados de la consulta se han  publicado correctamente.
         destroy:
           error: Se ha producido un error al despublicar los resultados de esta consulta.
-          success: Resultados de la consulta despublicados correctamente.
+          success: Los resultados de la consulta se han despublicado correctamente.
       consultations:
         create:
           error: Se ha producido un error al crear una nueva consulta.
-          success: Consulta creada con éxito.
+          success: Consulta creada correctamente.
         edit:
           update: Actualizar
         form:
-          slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta consulta. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+          slug_help: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta consulta. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
           title: Información general
         index:
           not_published: No publicado
@@ -87,14 +87,18 @@ es:
         new:
           create: Crear
           title: Nueva consulta
+        results:
+          not_visible: Los resultados estarán disponibles cuando la consulta cierre
+          total_votes: 'Total: %{count} votos'
         update:
           error: Se ha producido un error al actualizar esta consulta.
-          success: Consulta actualizada con éxito
+          success: La consulta se ha actualizado correctamente.
       menu:
         consultations: Consultas
         consultations_submenu:
           info: Información
           questions: Preguntas
+          results: Resultados
         questions_submenu:
           components: Componentes
           consultation: Consulta
@@ -103,7 +107,7 @@ es:
       models:
         consultation:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             published: Publicado
             title: Título
           name:
@@ -111,7 +115,7 @@ es:
             other: Consultas
         question:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             published: Publicado
             title: Título
           name:
@@ -119,7 +123,7 @@ es:
             other: Preguntas
         response:
           fields:
-            created_at: Creado en
+            created_at: Creado el
             title: Título
           name:
             one: Respuesta
@@ -127,16 +131,16 @@ es:
       question_publications:
         create:
           error: Se ha producido un error al publicar esta pregunta.
-          success: Pregunta publicada correctamente.
+          success: La pregunta se ha publicado correctamente.
         destroy:
           error: Se ha producido un error al despublicar esta pregunta.
-          success: Pregunta despublicada correctamente.
+          success: La pregunta se ha despublicado correctamente.
       questions:
         create:
           error: Se ha producido un error al crear una nueva pregunta.
-          success: Pregunta creada con éxito.
+          success: Se ha creado la pregunta correctamente.
         destroy:
-          success: Pregunta eliminada con éxito.
+          success: Se ha eliminado la pregunta correctamente.
         edit:
           update: Actualizar
         form:
@@ -149,14 +153,14 @@ es:
           title: Nueva pregunta
         update:
           error: Se ha producido un error al actualizar esta pregunta.
-          success: Pregunta actualizada correctamente.
+          success: La pregunta se ha actualizado correctamente.
       responses:
         create:
           error: Se ha producido un error al crear una nueva respuesta.
-          success: Respuesta creada con éxito.
+          success: La respuesta se ha creado correctamente.
         destroy:
           error: Se ha producido un error al eliminar la respuesta.
-          success: Respuesta eliminada con éxito
+          success: La respuesta se ha eliminado correctamente.
         edit:
           update: Actualizar
         form:
@@ -171,11 +175,12 @@ es:
         consultations: Consultas
         questions: Preguntas
         responses: Respuestas
+        results: Resultados
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Cantidad máxima de elementos para mostrar
+            max_results: Cantidad máxima de elementos que se mostraran
       consultation:
         start_voting_date: Empieza la votación
         view_results: Ver resultados
@@ -183,7 +188,7 @@ es:
         view_results: Ver resultados
       consultations:
         orders:
-          label: 'Ordenar consultas por:'
+          label: 'Ordena las consultas por:'
           random: Aleatorio
           recent: Más reciente
       content_blocks:
@@ -196,14 +201,14 @@ es:
       filters:
         active: Activo
         all: Todas
-        finished: Completada
+        finished: Acabada
         search: Buscar
         state: Estado
         upcoming: Próximo
       filters_small_view:
-        close_modal: Cerrar ventana
-        filter: Filtrar
-        filter_by: Filtrado por
+        close_modal: Cierra la ventana
+        filter: Filtro
+        filter_by: Filtra por
         unfold: Desplegar
       highlighted_questions:
         title: Preguntas de %{scope_name}
@@ -220,7 +225,7 @@ es:
             voting_ends_in:
               one: La votación finaliza <strong>mañana</strong>
               other: La votación finaliza en <strong>%{count} días</strong>
-            voting_ends_today: La votación finaliza hoy <strong></strong>
+            voting_ends_today: La votación finaliza <strong>hoy</strong>
       question:
         take_part: Participar
         view_results: Ver resultados
@@ -230,11 +235,14 @@ es:
       question_votes:
         create:
           error: Se ha producido un error al votar la pregunta
+          success: Puedes cambiarlo hasta el final de la consulta. Sólo se aceptará el último voto.
+          title_error: '¡Error de voto!'
+          title_success: Voto registrado correctamente
       regular_questions:
         title: Preguntas para esta consulta
       show:
         badge_name:
-          finished: Terminado
+          finished: Acabada
           open: Abierta
           open_votes: Votos abiertos
           published_results: Resultados publicados
@@ -257,6 +265,8 @@ es:
         statistics:
           consultations_count: Consultas
     questions:
+      next_button: Siguiente pregunta
+      previous_button: Pregunta anterior
       results:
         title: Resultados
       show:
@@ -264,28 +274,33 @@ es:
       statistics:
         assistants_count_title: Asistentes
         comments_count_title: Comentarios
-        meetings_count_title: Reuniones
+        meetings_count_title: Encuentros
         supports_count_title: Votos
       technical_info:
         technical_data: Datos técnicos
       vote_button:
         already_voted: Ya votado
-        already_voted_hover: Revocar voto
+        already_voted_hover: Revocar el voto
         starting_from: A partir de %{date}
+        verification_required: Verifica tu cuenta para votar
         vote: Votar
       vote_modal:
         contextual_help: Por favor, selecciona una opción.
-        title: 'Consulta: votación de la pregunta'
+        title: 'Consulta: votar la pregunta'
       vote_modal_confirm:
         change: Cambio
-        confirm: Confirmar
-        contextual_help: Por favor confirma la opción seleccionada.
-        title: 'Consulta: confirmación del voto'
+        confirm: Confirma
+        contextual_help: Por favor, confirma la opción seleccionada.
+        title: 'Consulta: confirma el voto'
+    resources:
+      consultations:
+        actions:
+          vote: Votar
   layouts:
     decidim:
       admin:
         question:
-          attachments: Archivos adjuntos
+          attachments: Adjuntos
           categories: Categorías
       consultation_voting_data:
         start_voting_date: Empieza la votación

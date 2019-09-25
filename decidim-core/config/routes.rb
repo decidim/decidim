@@ -124,10 +124,17 @@ Decidim::Core::Engine.routes.draw do
       post :create
     end
     member do
+      get :compare_draft
+      get :edit_draft
+      patch :update_draft
+      delete :destroy_draft
+      get :preview_draft
+      post :publish_draft
       patch :reject
       post :promote
       get :review
       patch :accept
+      put :withdraw
     end
   end
 

@@ -15,6 +15,7 @@ module Decidim
           query.each do |key, results|
             cumulative_value = results[:cumulative]
             next if cumulative_value.zero?
+
             quantity_value = results[:quantity] || 0
             space_type, space_id, category_id, related_object_type, related_object_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
@@ -44,6 +45,8 @@ module Decidim
             next grouped_comments unless related_object
 
             group_key = generate_group_key(related_object)
+            next grouped_comments unless group_key
+
             grouped_comments[group_key] ||= { cumulative: 0, quantity: 0 }
             grouped_comments[group_key][:cumulative] += 1
             grouped_comments[group_key][:quantity] += 1 if comment.created_at >= start_time
@@ -70,6 +73,8 @@ module Decidim
         # Generates a group key from the related object of a Comment
         def generate_group_key(related_object)
           participatory_space = retrieve_participatory_space(related_object)
+          return unless participatory_space
+
           category_id = related_object.respond_to?(:category) ? related_object.category.try(:id) : ""
           group_key = []
           group_key += [participatory_space.class.name, participatory_space.id]

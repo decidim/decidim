@@ -3,10 +3,12 @@ tr:
     attributes:
       participatory_process:
         announcement: duyuru
+        area_id: alan
         banner_image: Banner resmi
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_steps: Adımları kopyala
+        decidim_area_id: alan
         description: Açıklama
         developer_group: Tanıtım grubu
         domain: domain
@@ -69,6 +71,9 @@ tr:
         destroy: silmek
         duplicate: Çift
         edit: Düzenle
+        filter:
+          all: Tüm işlemleri göster
+          process_groups: İşlem Grupları
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
         new_process_step: Yeni adım
@@ -198,8 +203,6 @@ tr:
           success: Katılımcı süreç başarıyla oluşturuldu. Şimdi adımlarını yapılandırın.
         edit:
           update: Güncelleştirme
-        form:
-          title: Genel bilgi
         index:
           not_published: Yayınlanmadı
           private: Özel
@@ -291,7 +294,16 @@ tr:
         participatory_processes:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
+            duration: süre
+            filters: Filtreler
+            images: Görüntüler
+            metadata: Meta veri
+            other: Diğer
+            select_an_area: Bir alan seçin
+            select_process_group: Bir işlem grubu seçin
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            title: Genel bilgi
+            visbility: görünürlük
       content_blocks:
         highlighted_processes:
           name: Vurgulanan süreçler
@@ -307,8 +319,6 @@ tr:
             more_information: Daha fazla bilgi
             participate: Katıl
             see_all_processes: Tüm süreçleri gör
-      participatory_process_groups:
-        none: Yok
       participatory_processes:
         filters:
           counters:
@@ -337,6 +347,7 @@ tr:
         index:
           loading: Sonuçlar yükleniyor ...
       show:
+        area: alan
         developer_group: Tanıtım grubu
         end_date: Bitiş tarihi
         local_area: Organizasyon Alanı
@@ -378,6 +389,7 @@ tr:
           promoted_processes: Vurgulanan süreçler
         participatory_process:
           active_step: 'Mevcut adım:'
+          more_info: Daha fazla bilgi
           take_part: Yer almak
         promoted_process:
           active_step: 'Mevcut adım:'

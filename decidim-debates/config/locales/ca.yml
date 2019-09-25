@@ -13,7 +13,7 @@ ca:
         user_group_id: Crea un debat com
     models:
       decidim/debates/create_debate_event: Debat
-      decidim/debates/creation_disabled_event: Debats desactivats
+      decidim/debates/creation_disabled_event: Debats deshabilitats
       decidim/debates/creation_enabled_event: Debats habilitats
   activerecord:
     models:
@@ -33,10 +33,10 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar la creació de debats per part de les participants
+            creation_enabled: Creació de debats per part de les participants habilitada
     debates:
       actions:
-        confirm_destroy: N'estàs segur?
+        confirm_destroy: N'estàs segura?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}
@@ -58,14 +58,14 @@ ca:
             title: Nou debat
           update:
             invalid: S'ha produït un error en actualitzar aquest debat.
-            success: El debat s'ha actualitzat correctament.
+            success: Debate actualizado correctament.
         models:
           debate:
             name: Debat
       admin_log:
         debate:
-          create: "L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
-          update: "L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+          create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
+          update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       debates:
         count:
           debates_count:
@@ -92,14 +92,10 @@ ca:
         index:
           new_debate: Nou debat
         new:
-          back: Enrere
+          back: Torna
           create: Crear
           select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
-        share:
-          close_window: Tanca la finestra
-          share: Compartir
-          share_link: Comparteix l'enllaç
       last_activity:
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
@@ -127,12 +123,12 @@ ca:
             email_subject: Nou debat "%{resource_title}" de %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts d''aquesta pàgina:'
+          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
-          notification_title: La creació de debats està desactivada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: La creació de debats està deshabilitada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Ja pots començar nous debats a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_intro: 'Ja pots crear nous debats a %{participatory_space_title}! Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -146,8 +142,8 @@ ca:
           description_own: Has participat en %{score} debats.
           name: Debats
           next_level_in: Participa en %{score} debats més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha pres part en cap debat.
-          unearned_own: No has participat a cap debat encara.
+          unearned_another: Aquesta participant encara no ha participat en cap debat.
+          unearned_own: Encara no has participat a cap debat.
     metrics:
       debates:
         description: Nombre de debats creats

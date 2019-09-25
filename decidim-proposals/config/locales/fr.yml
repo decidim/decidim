@@ -29,7 +29,7 @@ fr:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
-        import_proposals: Propositions d'importation
+        import_proposals: Importer des propositions
         keep_authors: Gardez les auteurs originaux
     errors:
       models:
@@ -41,6 +41,10 @@ fr:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              identical: ET le titre ne peut pas être identique
+            title:
+              identical: ET le corps ne peut pas être identique
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -55,7 +59,7 @@ fr:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Projet de collaboration
+        one: Brouillon collaboratif
         other: Brouillons collaboratifs
       decidim/proposals/proposal:
         one: Proposition
@@ -73,6 +77,7 @@ fr:
     components:
       proposals:
         actions:
+          amend: Amender
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -81,6 +86,8 @@ fr:
         settings:
           global:
             amendments_enabled: Modifications activées
+            amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
+            amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -90,6 +97,7 @@ fr:
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
+            participatory_texts_disabled_help: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             participatory_texts_enabled: Textes participatifs activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
@@ -103,6 +111,14 @@ fr:
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
+            amendment_creation_enabled: Création d'amendement activée
+            amendment_creation_enabled_help: Le participant peut amender les propositions.
+            amendment_promotion_enabled: Promotion d'amendement activée
+            amendment_promotion_enabled_help: Les auteurs de modifications pourront promouvoir la proposition de la modification rejetée.
+            amendment_reaction_enabled: Réaction aux amendements activée
+            amendment_reaction_enabled_help: Les auteurs de la proposition pourront accepter ou rejeter les modifications des participants.
+            amendments_visibility: Visibilité des amendements
+            amendments_visibility_help: Si l'option "Les amendements ne sont visibles que pour leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les amendements apportés.
             announcement: Annonce
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -239,7 +255,7 @@ fr:
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
-          name: Supports de proposition
+          name: Soutiens de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
@@ -257,16 +273,16 @@ fr:
     metrics:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
-        object: les propositions
+        object: propositions
         title: Propositions Acceptées
       endorsements:
         description: Nombre d'avenants générés dans les propositions
-        object: avenants
-        title: Endossements
+        object: soutiens
+        title: Soutiens
       proposals:
         description: Nombre de propositions générées
-        object: les propositions
-        title: Les propositions
+        object: propositions
+        title: Propositions
       votes:
         description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
@@ -300,7 +316,7 @@ fr:
           bulk-actions:
             are_you_sure: Etes-vous sûr de supprimer le brouillon du texte participatif?
             discard_all: Jeter tout
-            import_doc: Document d'importation
+            import_doc: Importer le document
           discard:
             success: Tous les brouillons de texte participatifs ont été rejetés.
           import:
@@ -313,7 +329,7 @@ fr:
             title: APERÇU DU TEXTE PARTICIPATIF
           new_import:
             accepted_mime_types:
-              md: Réduction
+              md: Markdown
               odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
@@ -367,8 +383,8 @@ fr:
             merge_button: Fusionner
             select_component: Sélectionnez un composant
             selected: choisi
-            split: Propositions fractionnées
-            split_button: Divisé
+            split: Fractionner la proposition
+            split_button: Scinder
             title: Propositions
             update: Mettre à jour
           new:
@@ -425,13 +441,13 @@ fr:
         filter_state_values:
           accepted: Accepté
           all: Tout
-          evaluating: Évaluer
+          evaluating: En cours d'évaluation
           except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
         filter_type_values:
           all: Tout
           amendments: Amendements
-          proposals: Les propositions
+          proposals: Propositions
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -441,30 +457,30 @@ fr:
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
-            success: Projet collaboratif publié avec succès en tant que proposition.
+            success: Brouillon collaboratif publié avec succès en tant que proposition.
           view_collaborative_draft: Afficher le brouillon collaboratif
           withdraw:
-            error: Il y a eu des erreurs en fermant le projet de collaboration.
+            error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
               body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
-            success: Projet de collaboration retiré avec succès.
+            success: Brouillon collaboratif retiré avec succès.
         compare:
-          mine_is_different: Mon projet de collaboration est différent
-          no_similars_found: Bien joué! Aucun projet de collaboration similaire n'a été trouvé
-          title: Projets collaboratifs similaires
+          mine_is_different: Mon brouillon collaboratif est différent
+          no_similars_found: Bien joué! Aucun brouillon collaboratif similaire n'a été trouvé
+          title: Brouillons collaboratifs similaires
         complete:
           send: Envoyer
-          title: Complétez votre projet collaboratif
+          title: Complétez votre brouillon collaboratif
         count:
           drafts_count:
-            one: "%{count} projet collaboratif"
-            other: "%{count} projet collaboratif"
+            one: "%{count} brouillon collaboratif"
+            other: "%{count} brouillons collaboratifs"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
-          success: Projet collaboratif créé avec succès.
+          success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
@@ -489,9 +505,9 @@ fr:
           unfold: Se dérouler
         new:
           send: Continuer
-          title: Créez votre projet collaboratif
+          title: Créez votre brouillon collaboratif
         new_collaborative_draft_button:
-          new_collaborative_draft: Nouveau projet de collaboration
+          new_collaborative_draft: Nouveau brouillon collaboratif
         orders:
           label: 'Ordre des brouillons par:'
           most_contributed: La plupart ont contribué
@@ -536,7 +552,7 @@ fr:
           withdrawn: Retiré
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
-          success: Projet de collaboration mis à jour avec succès.
+          success: Brouillon collaboratif mis à jour avec succès.
         wizard_aside:
           back: Arrière
           info: Vous créez un <strong>projet collaboratif</strong>.
@@ -593,7 +609,7 @@ fr:
           already_endorsed: Soutenue
           endorse: Soutenir
         render_endorsements_button_card_part:
-          endorse: Endosser
+          endorse: Soutenir
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -673,6 +689,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           back_to: Retour à
+          changes_at_title: Amendement de (%{title}"
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
@@ -680,6 +697,10 @@ fr:
             other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
+          link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
+          link_to_promoted_emendation_text: Voir les demandes de modification rejetées.
+          link_to_proposal_from_emendation_help_text: Ceci est une demande de modification rejetée
+          link_to_proposal_from_emendation_text: Voir la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
@@ -741,11 +762,11 @@ fr:
       versions:
         changes_at_title: Changements à "%{title}"
         index:
-          title: Des versions
+          title: Versions
         stats:
           back_to_collaborative_draft: Revenir au brouillon collaboratif
           back_to_proposal: Retourner à la proposition
-          number_of_versions: Des versions
+          number_of_versions: Versions
           show_all_versions: Afficher toutes les versions
           version_author: Auteur de la version
           version_created_at: Version créée à

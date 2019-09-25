@@ -39,6 +39,8 @@ require "nobspw"
 require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
+require "diffy"
+require "anchored"
 
 require "decidim/api"
 
@@ -208,10 +210,6 @@ module Decidim
         end
       end
 
-      initializer "paper_trail" do
-        PaperTrail.config.track_associations = false
-      end
-
       initializer "add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
@@ -243,13 +241,6 @@ module Decidim
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :public
           optional_scopes []
-
-          # Change the native redirect uri for client apps
-          # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
-          # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
-          # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
-          #
-          native_redirect_uri "urn:ietf:wg:oauth:2.0:oob"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
@@ -407,6 +398,10 @@ module Decidim
         Decidim::Gamification.register_badge(:continuity) do |badge|
           badge.levels = [2, 10, 30, 60, 180, 365]
         end
+      end
+
+      initializer "nbspw" do
+        NOBSPW.configuration.use_ruby_grep = true
       end
     end
   end

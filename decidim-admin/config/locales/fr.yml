@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       area:
-        area_type: Type de zone d'application
+        area_type: Périmètre d'assemblée
         name: Titre
         organization: Organisation
       area_type:
@@ -36,15 +36,18 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
+        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
+        customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
+        from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
@@ -63,23 +66,29 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        password: Mot de passe
+        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
+        send_welcome_notification: Envoyer un mail de bienvenue
         show_statistics: Montrer les statistiques
         success_color: Succès
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
         warning_color: Attention
+        welcome_notification_body: Corps du mail de bienvenue
+        welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
         name: Titre
         organization: Organisation
         parent_id: Parent
-        scope_type: Type de périmètre d'application
-        scope_type_id: Type de périmètre d'application
+        scope_type: Type de secteur
+        scope_type_id: Type de secteur
       scope_type:
         name: Titre
         organization: Organisation
@@ -132,30 +141,31 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouveau %{name}
+        new: Nouvelle %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
       area_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
-          success: Le type de zone d'application a été créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de zone d'application a bien été supprimé.
+          success: Le type de périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier le type de zone d'application
+          title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer un type de zone d'application
-          title: Nouveau type de zone d'application
+          create: Créer un type de périmètre d'assemblée
+          title: Nouveau type de périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: Le type de zone d'application a été mis à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
+          has_spaces: Le secteur a des sous-secteur dépendants, il ne doit pas avoir de dépendances pour être supprimé.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -319,7 +329,7 @@ fr:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zone d'application
+        area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
@@ -329,7 +339,7 @@ fr:
         newsletters: Bulletins d'information (newsletter)
         oauth_applications: Applications OAuth
         participants: Participants
-        scope_types: Types de périmètre d'application
+        scope_types: Types de secteur
         scopes: Périmètres d’application
         settings: Paramètres
         static_pages: Pages
@@ -338,7 +348,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone d'application
+            area_type: Type de périmètre d'assemblée
             name: Titre
         area_type:
           fields:
@@ -368,6 +378,7 @@ fr:
             created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
+            sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
@@ -380,7 +391,7 @@ fr:
         scope:
           fields:
             name: Titre
-            scope_type: Type de périmètre d'application
+            scope_type: Type de secteur
         scope_type:
           fields:
             name: Titre
@@ -433,15 +444,42 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
+          all: tous
+          all_users: 'Tous les utilisateurs '
+          and: 'et '
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: 'abonnés '
+          has_been_sent_to: 'A été envoyé à : '
+          no_scopes: Aucun secteur
+          not_sent: Envoi non effectué
+          participants: 'participants '
+          segmented_to: 'Segmenté à %{subject}: '
           title: Newsletters
         new:
           save: Enregistrer
           title: Nouvelle newsletter
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Tous
+          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
+          select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
+          select_spaces: Sélectionnez les espaces pour segmenter la newsletter
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous
+          send_to_followers: Envoyer aux abonnés
+          send_to_participants: Envoyer aux participants
+          title: Sélectionner les destinataires
+          warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir des bulletins d'information</em> dans leurs paramètres de notifications."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
+        show:
           preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
@@ -546,19 +584,19 @@ fr:
           success: Autorisations mises à jour avec succès.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre d'application.
-          success: Type de périmètre d'application créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
+          success: Type de secteur créé avec succès.
         destroy:
-          success: Le type de périmètre d'application a été supprimé avec succès
+          success: Le type de secteur a été supprimé avec succès
         edit:
-          title: Modifier le type de périmètre d'application
+          title: Modifier le type de secteur
           update: Mettre à jour
         new:
-          create: Créer un type de périmètre d'application
-          title: Nouveau périmètre d'application
+          create: Créer un type de secteur
+          title: Nouveau secteur
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
-          success: Type de périmètre d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
+          success: Type de secteur mis à jour avec succès
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
@@ -604,6 +642,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
         index:
           last_notable_change: Dernier changement notable
         new:
@@ -612,21 +651,21 @@ fr:
         topic:
           destroy: Supprimer le sujet
           edit: Modifier le sujet
-          empty: Il n'y a pas de page sous ce sujet
+          empty: Il n'y a pas de page dans cette thématique
           without_topic: Pages sans sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zone d'application
+        area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         participants: Utilisateurs
-        scope_types: Types de périmètre d'application
+        scope_types: Types de secteur
         scopes: Périmètres d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -646,13 +685,13 @@ fr:
           filter:
             all: Tous
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
           state:
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:

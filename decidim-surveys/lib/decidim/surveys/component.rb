@@ -23,6 +23,8 @@ Decidim.register_component(:surveys) do |component|
 
   component.data_portable_entities = ["Decidim::Forms::Answer"]
 
+  component.newsletter_participant_entities = ["Decidim::Forms::Answer"]
+
   component.on(:before_destroy) do |instance|
     survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
     survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)

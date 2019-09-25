@@ -5,6 +5,10 @@ module Decidim
     module Admin
       # The main admin application controller for assemblies
       class ApplicationController < Decidim::Admin::ApplicationController
+        register_permissions(::Decidim::Assemblies::Admin::ApplicationController,
+                             Decidim::Assemblies::Permissions,
+                             Decidim::Admin::Permissions)
+
         private
 
         def permissions_context
@@ -14,10 +18,7 @@ module Decidim
         end
 
         def permission_class_chain
-          [
-            Decidim::Assemblies::Permissions,
-            Decidim::Admin::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Assemblies::Admin::ApplicationController)
         end
       end
     end

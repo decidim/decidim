@@ -46,7 +46,7 @@ it:
               already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
-      decidim/meetings/create_meeting_event: Incontro
+      decidim/meetings/create_meeting_event: Evento
       decidim/meetings/meeting_registrations_enabled_event: Registrazioni abilitate
       decidim/meetings/meeting_registrations_over_percentage_event: Iscrizioni oltre il limite
       decidim/meetings/upcoming_meeting_event: Prossimo incontro
@@ -75,8 +75,8 @@ it:
     components:
       meetings:
         actions:
-          join: Aderire
-        name: incontri
+          join: Iscriviti
+        name: Incontri
         settings:
           global:
             announcement: Annuncio
@@ -136,8 +136,8 @@ it:
       badges:
         attended_meetings:
           conditions:
-            - Registrati negli incontri a cui vuoi partecipare
-          description: Questo badge è concesso quando si partecipano a numerosi incontri faccia a faccia.
+            - Registrati agli incontri a cui vuoi partecipare
+          description: Questo badge è concesso quando si partecipano a numerosi incontri in presenza.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.
           name: Riunioni frequentate
@@ -190,13 +190,13 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
-          meetings: incontri
+          meetings: Incontri
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
             decline: Rifiuta l'invito
             invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
-            join: Partecipa alla riunione '%{meeting_title}'
+            join: Partecipa all'evento '%{meeting_title}'
         invites:
           create:
             error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
@@ -240,7 +240,7 @@ it:
           form:
             select_organizer: Seleziona l'organizzatore
           index:
-            title: Riunioni
+            title: Incontri
           new:
             create: Crea
             title: Crea meeting
@@ -286,6 +286,7 @@ it:
               other: Ci sono state %{count} registrazioni.
             reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
+            title: Registrazioni
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
@@ -323,9 +324,9 @@ it:
         meetings:
           index:
             all: Tutti
-            date: Data
-            meetings: incontri
-            past: Passato
+            date: Quando
+            meetings: Incontri
+            past: Conclusi
             search: Ricerca
             space_type: Spazio partecipativo
             upcoming: Prossime
@@ -345,9 +346,9 @@ it:
           category: Categoria
           category_prompt: Scegli una categoria
           date: Data
-          past: Passato
+          past: Conclusi
           search: Cerca
-          upcoming: Imminenti
+          upcoming: Prossimi
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
@@ -377,7 +378,7 @@ it:
           remaining_slots:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
-          view: vista
+          view: Visualizza
       meetings_map:
         view_meeting: Guarda la riunione
       models:
@@ -407,7 +408,7 @@ it:
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
-          success: Hai partecipato alla riunione con successo.
+          success: L'iscrizione all'evento è stata registrata con successo.
         decline_invitation:
           invalid: C'è stato un problema a rifiutare l'invito.
           success: Hai rifiutato l'invito con successo.
@@ -421,7 +422,7 @@ it:
       meetings:
         description: Numero di riunioni create
         object: incontri
-        title: incontri
+        title: Incontri
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

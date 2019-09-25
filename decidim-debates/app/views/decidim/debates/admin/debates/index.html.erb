@@ -22,7 +22,7 @@
           <% debates.each do |debate| %>
             <tr data-id="<%= debate.id %>">
               <td>
-                <%= link_to translated_attribute(debate.title), resource_locator(debate).path, target: :blank %><br />
+                <%= link_to translated_attribute(debate.title), resource_locator(debate).path, target: :blank %><br>
               </td>
               <td>
                 <% if debate.start_time %>

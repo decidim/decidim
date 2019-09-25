@@ -21,6 +21,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           process = create_participatory_process
 
           if process.persisted?
@@ -54,6 +55,7 @@ module Decidim
             private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
+            area: form.area,
             target: form.target,
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
@@ -64,6 +66,7 @@ module Decidim
           )
 
           return process unless process.valid?
+
           transaction do
             process.save!
 
@@ -105,6 +108,7 @@ module Decidim
 
         def create_participatory_process_users(process)
           return unless form.private_process
+
           form.users.each do |user|
             ParticipatoryProcessUser.create!(
               participatory_process: process,

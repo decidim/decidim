@@ -4,10 +4,12 @@ en:
     attributes:
       participatory_process:
         announcement: Announcement
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
         copy_components: Copy components
         copy_steps: Copy steps
+        decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         domain: Domain
@@ -70,6 +72,9 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
@@ -132,6 +137,7 @@ en:
           title: Duplicate participatory process
       participatory_process_groups:
         destroy:
+          error: There was an error while destroying the Participatory process group.
           success: Participatory process group successfully deleted.
         edit:
           title: Edit process group
@@ -199,8 +205,6 @@ en:
           success: Participatory process successfully created. Configure now its phases.
         edit:
           update: Update
-        form:
-          title: General Information
         index:
           not_published: Not published
           private: Private
@@ -233,6 +237,9 @@ en:
         publish: "%{user_name} published the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_group:
+        create: "%{user_name} created the %{resource_name} participatory process group"
+        update: "%{user_name} updated the %{resource_name} participatory process group"
       participatory_process_step:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
@@ -292,7 +299,16 @@ en:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: General Information
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
@@ -308,8 +324,6 @@ en:
             more_information: More information
             participate: Participate
             see_all_processes: See all processes
-      participatory_process_groups:
-        none: None
       participatory_processes:
         filters:
           counters:
@@ -338,6 +352,7 @@ en:
         index:
           loading: Loading results...
       show:
+        area: Area
         developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
@@ -379,6 +394,7 @@ en:
           promoted_processes: Highlighted processes
         participatory_process:
           active_step: 'Current phase:'
+          more_info: More info
           take_part: Take part
         promoted_process:
           active_step: 'Current phase:'

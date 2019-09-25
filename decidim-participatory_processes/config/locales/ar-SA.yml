@@ -3,10 +3,12 @@ ar:
     attributes:
       participatory_process:
         announcement: إعلان
+        area_id: منطقة
         banner_image: صورة بانر
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_steps: نسخ الخطوات
+        decidim_area_id: منطقة
         description: وصف
         developer_group: مجموعة المروجين
         domain: نطاق
@@ -23,8 +25,8 @@ ar:
         scope_id: نطاق
         scopes_enabled: تم تمكين النطاقات
         short_description: وصف قصير
-        show_statistics: عرض إحصائيات
-        slug: سبيكة URL
+        show_statistics: عرض الإحصائيات
+        slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
         subtitle: عنوان فرعي
         target: من يشارك
@@ -37,17 +39,17 @@ ar:
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
         cta_text: دعوة إلى نص العمل
-        description: وصف
+        description: الوصف
         end_date: تاريخ الانتهاء
         short_description: وصف قصير
-        start_date: تاريخ البدء
-        title: عنوان
+        start_date: تاريخ البداية
+        title: العنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
     models:
-      decidim/participatory_process_step_activated_event: تنشيط المرحلة
+      decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
       decidim/participatory_process_step_changed_event: تغيرت المرحلة
   activerecord:
     models:
@@ -80,7 +82,10 @@ ar:
         confirm_destroy: تأكيد الحذف
         destroy: حذف
         duplicate: مكرر
-        edit: تصحيح
+        edit: تعديل
+        filter:
+          all: عرض جميع العمليات
+          process_groups: مجموعات العملية
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
         new_process_step: مرحلة جديدة
@@ -148,7 +153,7 @@ ar:
           title: تحرير مجموعة العملية
           update: تحديث
         new:
-          create: خلق
+          create: إنشاء
           title: مجموعة عملية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
@@ -180,7 +185,7 @@ ar:
         index:
           steps_title: المراحل
         new:
-          create: خلق
+          create: إنشاء
           title: مرحلة عملية تشاركية جديدة
         ordering:
           error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
@@ -199,7 +204,7 @@ ar:
         index:
           process_admins_title: مدراء العملية التشاركية
         new:
-          create: خلق
+          create: إنشاء
           title: مشرف عملية تشاركية جديدة.
         update:
           error: حدثت مشكلة أثناء تحديث مسؤول لهذه العملية التشاركية.
@@ -210,15 +215,13 @@ ar:
           success: تم إنشاء عملية المشاركة بنجاح. تكوين الآن مراحلها.
         edit:
           update: تحديث
-        form:
-          title: معلومات عامة
         index:
           not_published: غير منشور
           private: نشر
           public: عامة
           published: نشرت
         new:
-          create: خلق
+          create: إنشاء
           title: عملية تشاركية جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذه العملية التشاركية.
@@ -307,7 +310,16 @@ ar:
         participatory_processes:
           form:
             announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
+            duration: المدة الزمنية
+            filters: مرشحات
+            images: صور
+            metadata: البيانات الوصفية
+            other: آخر
+            select_an_area: اختر منطقة
+            select_process_group: حدد مجموعة عملية
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            title: معلومات عامة
+            visbility: رؤية
       content_blocks:
         highlighted_processes:
           name: عمليات مميزة
@@ -319,12 +331,10 @@ ar:
         home:
           highlighted_processes:
             active_processes: عمليات نشطة
-            active_step: مرحلة نشطة
+            active_step: المرحلة النشطة
             more_information: معلومات اكثر
             participate: مشاركة
             see_all_processes: رؤية جميع العمليات
-      participatory_process_groups:
-        none: لا شيء
       participatory_processes:
         filters:
           counters:
@@ -369,6 +379,7 @@ ar:
         index:
           loading: جارٍ تحميل النتائج ...
       show:
+        area: منطقة
         developer_group: مجموعة المروجين
         end_date: تاريخ الانتهاء
         local_area: منطقة التنظيم
@@ -403,13 +414,14 @@ ar:
           processes_count: 'العمليات:'
       participatory_process_widgets:
         show:
-          active_step: مرحلة نشطة
+          active_step: المرحلة النشطة
           take_part: خذ جزء
       participatory_processes:
         index:
           promoted_processes: عمليات مميزة
         participatory_process:
           active_step: 'المرحلة الحالية:'
+          more_info: مزيد من المعلومات
           take_part: خذ جزء
         promoted_process:
           active_step: 'المرحلة الحالية:'
@@ -417,4 +429,4 @@ ar:
           take_part: خذ جزء
       process_header_steps:
         step: المرحلة %{current} من %{total}
-        view_steps: عرض مراحل
+        view_steps: عرض المراحل

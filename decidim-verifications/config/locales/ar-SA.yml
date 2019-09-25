@@ -54,7 +54,7 @@ ar:
         explanation: الحصول على التحقق باستخدام تعداد المنظمة
         name: تعداد المنظمة
       direct: مباشرة
-      help: مساعدة
+      help: المساعدة
       id_documents:
         explanation: قم بتحميل وثائق هويتك حتى نتمكن من التحقق من هويتك
         name: وثائق الهوية
@@ -188,7 +188,7 @@ ar:
               mark_as_sent: بمناسبة إرسالها
               not_yet_sent: لم ترسل بعد
               title: التحقق المستمر
-              username: كنية
+              username: الاسم المستعار
               verification_code: شيفرة التأكيد
           postages:
             create:

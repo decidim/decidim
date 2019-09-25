@@ -7,6 +7,7 @@ module Decidim
         allowed_public_anonymous_action?
 
         return permission_action unless user
+
         allowed_public_action?
 
         return Decidim::Consultations::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
@@ -22,6 +23,12 @@ module Decidim
 
       def consultation
         @consultation ||= context.fetch(:consultation, nil)
+      end
+
+      def authorized?(permission_action, resource: nil)
+        return unless resource || question
+
+        ActionAuthorizer.new(user, permission_action, question, resource).authorize.ok?
       end
 
       def allowed_public_anonymous_action?
@@ -41,6 +48,9 @@ module Decidim
       def allowed_public_action?
         return unless permission_action.scope == :public
         return unless permission_action.subject == :question
+
+        # check if question has been limited by admins first
+        return unless authorized? :vote
 
         case permission_action.action
         when :vote

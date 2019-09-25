@@ -1,12 +1,12 @@
 <tr data-id="<%= proposal.id %>">
   <td>
-    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br />
+    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
   </td>
   <td>
-    <%= proposal.id %><br />
+    <%= proposal.id %><br>
   </td>
   <td>
-    <%= present(proposal).title %><br />
+    <%= decidim_html_escape(present(proposal).title).html_safe %><br>
   </td>
   <td>
     <% if proposal.category %>

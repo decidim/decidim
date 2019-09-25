@@ -286,6 +286,7 @@ es-MX:
               other: Ha habido %{count} inscripciones.
             reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
+            title: Registros
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
@@ -383,7 +384,7 @@ es-MX:
       models:
         invite:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
             sent_at: Enviado el
             status: Estado

@@ -438,9 +438,10 @@ eu:
         new:
           save: Gorde
           title: Buletin berria
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
+        show:
           preview: Aurreikusi
           subject: Gaia
         update:

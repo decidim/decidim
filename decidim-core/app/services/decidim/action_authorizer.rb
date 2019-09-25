@@ -38,8 +38,8 @@ module Decidim
 
     def authorization_handlers
       if permission&.has_key?("authorization_handler_name")
-        opts = permission["options"]
-        { permission["authorization_handler_name"] => opts.present? ? { "options" => otps } : {} }
+        options = permission["options"]
+        { permission["authorization_handler_name"] => options.present? ? { "options" => options } : {} }
       else
         permission&.fetch("authorization_handlers", {})
       end
@@ -47,6 +47,7 @@ module Decidim
 
     def permission
       return nil unless component && action
+
       @permission ||= resource&.permissions&.fetch(action, nil) || component.permissions&.fetch(action, nil)
     end
 

@@ -6,6 +6,8 @@ module Decidim
       include NeedsQuestion
       include Decidim::FormFactory
 
+      helper QuestionsHelper
+
       before_action :authenticate_user!
 
       def create
@@ -21,7 +23,7 @@ module Decidim
           on(:invalid) do
             render json: {
               error: I18n.t("question_votes.create.error", scope: "decidim.consultations")
-            }, status: 422
+            }, status: :unprocessable_entity
           end
         end
       end

@@ -11,6 +11,11 @@ module Decidim
       module QuestionAdmin
         extend ActiveSupport::Concern
 
+        RegistersPermissions
+          .register_permissions(::Decidim::Consultations::Admin::QuestionAdmin,
+                                ::Decidim::Consultations::Permissions,
+                                ::Decidim::Admin::Permissions)
+
         included do
           include NeedsQuestion
 
@@ -19,14 +24,12 @@ module Decidim
 
           def current_participatory_space
             return current_consultation if params.has_key? :consultation_slug
+
             current_question
           end
 
           def permission_class_chain
-            [
-              Decidim::Consultations::Permissions,
-              Decidim::Admin::Permissions
-            ]
+            PermissionsRegistry.chain_for(QuestionAdmin)
           end
         end
       end

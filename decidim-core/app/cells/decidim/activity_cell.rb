@@ -9,9 +9,11 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
+    include Decidim::SanitizeHelper
 
     def show
       return unless renderable?
+
       render
     end
 
@@ -75,6 +77,7 @@ module Decidim
 
     def published?
       return true unless resource.respond_to?(:published?)
+
       resource.published?
     end
 
@@ -87,12 +90,23 @@ module Decidim
     end
 
     def user
+      return resource.author if resource.respond_to?(:author)
+
       model.user_lazy
     end
 
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
-      cell "decidim/author", UserPresenter.new(user)
+
+      presenter = if user.is_a?(Decidim::User)
+                    UserPresenter.new(user)
+                  elsif user.is_a?(Decidim::UserGroup)
+                    UserGroupPresenter.new(user)
+                  end
+
+      return unless presenter
+
+      cell "decidim/author", presenter
     end
 
     def participatory_space

@@ -23,6 +23,7 @@ module Decidim
 
     def allow!
       raise PermissionCannotBeDisallowedError, "Allowing a previously disallowed action is not permitted: #{inspect}" if @state == :disallowed
+
       @state = :allowed
     end
 
@@ -32,11 +33,25 @@ module Decidim
 
     def allowed?
       raise PermissionNotSetError, "Permission hasn't been allowed or disallowed yet: #{inspect}" if @state.blank?
+
       @state == :allowed
     end
 
     def trace(class_name, state)
       @backtrace << [class_name, state]
+    end
+
+    # Checks if this PermissionAction specifies the same +scope+, +action+ and
+    # +subject+ thant the ones provided as arguments.
+    def matches?(scope, action, subject)
+      same = (self.action == action)
+      same &&= (self.scope == scope)
+      same &&= (self.subject == subject)
+      same
+    end
+
+    def to_s
+      "!#{self.class.name}<action: #{action}, scope: #{scope}, subject: #{subject}, state: #{@state}>"
     end
 
     class PermissionNotSetError < StandardError; end

@@ -26,7 +26,7 @@ es:
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
-            remove: Retirar
+            remove: Eliminar
             statement: Declaración
           edit:
             save: Guardar
@@ -35,12 +35,12 @@ es:
             add_question: Añadir pregunta
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
           question:
-            add_answer_option: Añadir opción de respuesta
+            add_answer_option: Añadir una opción de respuesta
             any: Alguna
             description: Descripción
             down: Abajo
             question: Pregunta
-            remove: Borrar
+            remove: Eliminar
             statement: Declaración
             up: Arriba
           update:
@@ -65,18 +65,18 @@ es:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
             title: Responde el formulario
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
           questionnaire_answered:
-            body: Ya has respondido este formulario.
+            body: Ya has respondido a este formulario.
             title: Ya has respondido
           questionnaire_closed:
-            body: El formulario está cerrado y ya no puedes responder.
+            body: El formulario está cerrado y no puedes responder.
             title: Formulario cerrado
           questionnaire_for_private_users:
             body: El formulario está disponible solo para participantes privadas
             title: Formulario cerrado
-          submit: Enviar
-          tos_agreement: Al responder aceptas los Términos y condiciones de uso
+          submit: Enviar respuestas
+          tos_agreement: Al participar aceptas los Términos y condiciones de uso
       user_answers_serializer:
-        created_at: Respondido en
-        id: ID de respuesta
+        created_at: Respondido el
+        id: Identificador de respuesta

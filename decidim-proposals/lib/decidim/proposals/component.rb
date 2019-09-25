@@ -13,7 +13,9 @@ Decidim.register_component(:proposals) do |component|
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw)
+  component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
+
+  component.actions = %w(endorse vote create withdraw amend)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
@@ -36,6 +38,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
+    settings.attribute :amendments_wizard_help_text, type: :text, translated: true, editor: true, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
@@ -53,6 +56,10 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :amendment_creation_enabled, type: :boolean, default: true
+    settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
+    settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
+    settings.attribute :amendments_visibility, type: :string, default: "all"
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
     settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
@@ -62,7 +69,7 @@ Decidim.register_component(:proposals) do |component|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
-    resource.actions = %w(endorse vote)
+    resource.actions = %w(endorse vote amend)
     resource.searchable = true
   end
 
@@ -76,7 +83,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.count
+    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
   component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
@@ -224,9 +231,10 @@ Decidim.register_component(:proposals) do |component|
             phone: Faker::PhoneNumber.phone_number,
             verified_at: Time.current
           },
-          decidim_organization_id: component.organization.id
+          decidim_organization_id: component.organization.id,
+          confirmed_at: Time.current
         )
-        group.confirm
+
         Decidim::UserGroupMembership.create!(
           user: author,
           role: "creator",
@@ -311,9 +319,10 @@ Decidim.register_component(:proposals) do |component|
                 phone: Faker::PhoneNumber.phone_number,
                 verified_at: Time.current
               },
-              decidim_organization_id: component.organization.id
+              decidim_organization_id: component.organization.id,
+              confirmed_at: Time.current
             )
-            group.confirm
+
             Decidim::UserGroupMembership.create!(
               user: author,
               role: "creator",

@@ -7,6 +7,7 @@ module Decidim
     class Order < Budgets::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::DataPortability
+      include Decidim::NewsletterParticipant
 
       component_manifest_name "budgets"
 
@@ -52,12 +53,14 @@ module Decidim
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
         return 0 unless component
+
         component.settings.total_budget.to_f * (component.settings.vote_threshold_percent.to_f / 100)
       end
 
       # Public: Returns the required maximum budget to checkout
       def maximum_budget
         return 0 unless component
+
         component.settings.total_budget.to_f
       end
 
@@ -69,12 +72,19 @@ module Decidim
         Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
       end
 
+      def self.newsletter_participant_ids(component)
+        Decidim::Budgets::Order.where(component: component).joins(:component)
+                               .finished
+                               .pluck(:decidim_user_id).flatten.compact.uniq
+      end
+
       private
 
       def user_belongs_to_organization
         organization = component&.organization
 
         return if !user || !organization
+
         errors.add(:user, :invalid) unless user.organization == organization
       end
     end

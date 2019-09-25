@@ -3,6 +3,14 @@ es-PY:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      group:
+        about: Acerca de
+        avatar: Avatar
+        document_number: Número de documento
+        email: Correo electrónico
+        name: Nombre
+        nickname: Alias
+        phone: Teléfono
       report:
         details: Comentarios adicionales
       user:
@@ -131,21 +139,32 @@ es-PY:
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
     amendments:
       accepted:
-        error: Se ha producido un error al aceptar la enmienda. Inténtalo de nuevo más tarde.
-        success: Esta enmienda ha sido aceptada con éxito.
+        error: Ocurrió un error al aceptar la enmienda.
+        success: La enmienda ha sido aceptada correctamente.
       amendable:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}
-        no_amenders: No hay enmendadores
-        no_amendments: No hay enmiendas
         promote_button: Promocionar a %{model_name}
+        promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como un %{model_name}independiente.
         section_heading: Enmiendas (%{count})
+      compare_draft:
+        continue: Continuar
+        no_similars_found: No se encontraron enmiendas similares.
+        title: Enmiendas similares
       created:
-        error: Se ha producido un error creando esta enmienda, inténtalo de nuevo más tarde
-        success: La enmienda se ha creado correctamente
+        error: Se ha producido un error al crear la enmienda.
+        success: La enmienda se ha creado correctamente.
+      destroy_draft:
+        error: Hubo un problema al eliminar el borrador de enmienda.
+        success: El borrador de la propuesta fue eliminado correctamente.
+      edit_draft:
+        discard: Descartar este borrador
+        discard_confirmation: '¿Está seguro de que desea descartar este borrador de enmienda?'
+        send: Vista previa
+        title: Editar borrador de enmienda
       emendation:
         actions:
           button_accept: Aceptar
@@ -158,27 +177,38 @@ es-PY:
           evaluating: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             está siendo evaluada.
+          promoted: Promocionar a %{amendable_type}.
           rejected: "Esta enmienda para el %{amendable_type} %{amendable_link}\nfue rechazada en <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             ha sido retirada por el autor.
       new:
         amendment_author: Autor de la enmienda
-        back: Volver
-        heading: Crea tu enmienda
-        help_text: Estás modificando el %{model_name}
-        send: Enviar enmienda
+        send: Crear
+        title: Crear borrador de enmienda
+      preview_draft:
+        modify: Modificar
+        publish: Publicar
+        title: Publicar borrador de enmienda
       promoted:
         error: Ha habido errores al promocionar la enmienda.
         success: La enmienda se promociona con éxito.
+      publish_draft:
+        error: Hubo un problema al publicar la enmienda.
       rejected:
         error: Se ha producido un error al rechazar esta enmienda. Inténtalo de nuevo más tarde.
         success: La enmienda ha sido rechazada con éxito.
       review:
         back: Volver
         heading: Revisar la enmienda
-        help_text: Estás enmendando el %{model_name}
+        help_text: Estás revisando una enmienda al %{model_name}
         send: Aceptar enmienda
+      wizard_step_form:
+        steps:
+          '1': Crea tu enmienda
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
     anonymous_user: Anónimo
     application:
       collection:
@@ -326,6 +356,7 @@ es-PY:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Su identificador corto y único en %{organization}
+          password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -387,45 +418,45 @@ es-PY:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
             email_subject: Una enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Una nueva enmienda para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nueva enmienda</a> ha sido creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nueva enmienda para %{amendable_title}
+            notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Una nueva enmienda para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">nueva enmienda</a> ha sido creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_subject: Nueva enmienda para %{amendable_title}
+            notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
-            email_subject: Se ha promocionado una enmienda de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">rechazaron enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} ha sido promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una enmienda rechazada por %{amendable_title} ha sido promovida a %{amendable_type}independiente. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Se ha promocionado una enmienda de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">rechazaron enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} ha sido promovida por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque eres un autor de %{amendable_title}.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verlo desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -973,8 +1004,15 @@ es-PY:
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
+      participatory_space_filters:
+        filters:
+          areas: Áreas
+          select_an_area: Seleccione un area
       reference:
         reference: 'Referencia: %{reference}'
+      represent_user_group:
+        represent_user_group: Yo represento a un grupo
+        select_user_group: Selecciona un grupo
       results_per_page:
         label: 'Resultados por página:'
       share_modal:
@@ -1088,6 +1126,7 @@ es-PY:
         change_your_password: cambia tu contraseña
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
+        password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
@@ -1153,11 +1192,7 @@ es-PY:
       long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: extraviado
       not_locked: no estaba bloqueado
-      not_saved:
-        one: '1 error ha impedido que se guarde este %{resource}:'
-        other: "%{count} errores prohibieron que se guarde este %{resource}:"
       too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos de 15 caracteres)
@@ -1251,6 +1286,14 @@ es-PY:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Supresiones
+      right: Adiciones
+    dropdown:
+      choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_split: En paralelo
+      option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primera"

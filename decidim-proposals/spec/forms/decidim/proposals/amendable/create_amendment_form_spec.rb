@@ -17,7 +17,7 @@ module Decidim
       let(:form_params) do
         {
           amendable_gid: amendable.to_sgid.to_s,
-          emendation_fields: emendation_fields
+          emendation_params: emendation_params
         }
       end
 
@@ -31,6 +31,12 @@ module Decidim
       end
 
       it_behaves_like "an amendment form"
+
+      context "when the emendation doesn't change the amendable" do
+        let(:emendation_params) { { title: amendable.title, body: amendable.body } }
+
+        it { is_expected.to be_invalid }
+      end
     end
   end
 end

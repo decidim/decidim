@@ -36,6 +36,7 @@ tr:
         organization_url: Kuruluş URL'si
         redirect_uri: Yönlendiren URI
       organization:
+        address: SMTP Sunucu Adı
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
@@ -45,6 +46,7 @@ tr:
         enable_omnipresent_banner: Her yerde banner göster
         facebook_handler: Facebook işleyicisi
         favicon: ikon
+        from: Gelen e-posta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
         highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
@@ -63,6 +65,8 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
+        password: Parola
+        port: Bağlantı noktası
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
@@ -71,6 +75,7 @@ tr:
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
+        user_name: Kullanıcı adı
         warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
@@ -156,6 +161,7 @@ tr:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
         destroy:
+          has_spaces: Alanın bağımlı boşlukları mevcut, silinmesi için bağımlılıklarının olmaması gerekmektedir.
           success: Alan başarıyla yok edildi
         edit:
           title: Alanı düzenle
@@ -368,6 +374,7 @@ tr:
             created_at: Düzenlendi
             progress: İlerleme
             sent_at: Adresine gönderildi
+            sent_to: Gönderilen
             subject: konu
           name: Bülten
         oauth_application:
@@ -433,15 +440,42 @@ tr:
         form:
           interpolations_hint: 'İpucu: Gövde veya nesnenin herhangi bir yerinde "%{name}" kullanabilir ve alıcının adıyla değiştirilir.'
         index:
+          all: tümü
+          all_users: 'Tüm kullanıcılar '
+          and: 've '
           confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
+          followers: 'takipçiler '
+          has_been_sent_to: 'Şuraya gönderildi: '
+          no_scopes: Kapsam yok
+          not_sent: Gönderilmedi
+          participants: 'katılımcılar '
+          segmented_to: '%{subject} bölüme ayrılmış: '
           title: Haber bültenleri
         new:
           save: Kayıt etmek
           title: Yeni bülten
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Tüm
+          all_users_help: Tüm onaylanmış kullanıcılara haber bülteni gönderir.
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
+          followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          none: Hiçbiri
+          participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
+          select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
+          select_spaces: Haber bültenini bölmek için alanları seçin
+          select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
+          send_to_all_users: Tüm kullanıcılara gönder
+          send_to_followers: Takipçilere gönder
+          send_to_participants: Katılımcılara gönder
+          title: Teslim etmek için alıcıları seçiniz
+          warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
+        send:
+          no_recipients: Bu seçim için hiç alıcı yok
+        show:
           preview: Ön izleme
+          select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
           subject: konu
         update:
           error: Bu bülteni güncellerken bir hata oluştu.
@@ -604,6 +638,7 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
+          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:

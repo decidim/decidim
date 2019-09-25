@@ -15,7 +15,7 @@ module Decidim
       private
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def body
@@ -36,21 +36,24 @@ module Decidim
 
       def has_footer?
         return false if model.emendation?
+
         true
       end
 
       def description
-        truncate(present(model).body, length: 100)
+        strip_tags(body).truncate(100, separator: /\s/)
       end
 
       def badge_classes
         return super unless options[:full_badge]
+
         state_classes.concat(["label", "proposal-status"]).join(" ")
       end
 
       def statuses
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
+
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 

@@ -4,6 +4,7 @@ module Decidim
   module Consultations
     # The data store for Consultation questions in the Decidim::Consultations component.
     class Question < ApplicationRecord
+      include Decidim::HasResourcePermission
       include Decidim::Participable
       include Decidim::Publicable
       include Decidim::Scopable
@@ -14,6 +15,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::ParticipatorySpaceResourceable
+      include Decidim::Randomable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",
@@ -57,6 +59,11 @@ module Decidim
       # Sorted results for the given question.
       def sorted_results
         responses.order(votes_count: :desc)
+      end
+
+      # if results can be shown to admins
+      def publishable_results?
+        consultation.finished? && sorted_results.any?
       end
 
       def most_voted_response
@@ -142,15 +149,13 @@ module Decidim
         Decidim.find_participatory_space_manifest(Decidim::Consultation.name.demodulize.underscore.pluralize)
       end
 
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-        end
-      end
-
       def resource_description
         subtitle
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
       end
     end
   end

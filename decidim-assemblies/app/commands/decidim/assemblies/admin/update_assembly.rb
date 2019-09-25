@@ -24,6 +24,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           update_assembly
           link_participatory_processes(@assembly)
 
@@ -116,6 +117,7 @@ module Decidim
         # Returns nothing.
         def update_children_count
           return unless @parent
+
           Assembly.reset_counters(@parent.id, :children_count)
         end
       end

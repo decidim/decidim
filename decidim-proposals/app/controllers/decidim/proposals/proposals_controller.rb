@@ -28,6 +28,7 @@ module Decidim
                        .where(component: current_component)
                        .published
                        .not_hidden
+                       .only_amendables
                        .includes(:category, :scope)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
@@ -53,7 +54,8 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless set_proposal
+        raise ActionController::RoutingError, "Not Found" unless can_show_proposal?
+
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -188,27 +190,15 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-        if @proposal.emendation?
-          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
-        else
-          WithdrawProposal.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
-            on(:has_supports) do
-              flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
+          on(:has_supports) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end
@@ -233,7 +223,8 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.from_all_author_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
+        Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
+                .where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft
@@ -243,6 +234,15 @@ module Decidim
 
       def set_proposal
         @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      # Returns true if the proposal is NOT an emendation or the user IS an admin.
+      # Returns false if the proposal is not found or the proposal IS an emendation
+      # and is NOT visible to the user based on the component's amendments settings.
+      def can_show_proposal?
+        return true if @proposal&.amendable? || current_user&.admin?
+
+        Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
       end
 
       def form_proposal_params

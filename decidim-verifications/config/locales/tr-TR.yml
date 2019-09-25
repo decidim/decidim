@@ -104,7 +104,6 @@ tr:
             title: Bu kuruluş için csv sayımını etkinleştirmeniz gerekir
           new:
             file: "e-posta verileri içeren .csv dosyası"
-            info: 'Tek sütunlu CSV biçiminde bir dosya olmalı: e-posta'
             submit: Dosya yükleme
             title: Yeni bir nüfus sayımı yükleyin
         authorizations:

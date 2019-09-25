@@ -21,6 +21,17 @@ module Decidim
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
+      let(:expected_answer) do
+        answer = proposal.answer
+        Decidim.available_locales.each_with_object({}) do |locale, result|
+          result[locale.to_s] = if answer.is_a?(Hash)
+                                  answer[locale.to_s] || ""
+                                else
+                                  ""
+                                end
+        end
+      end
+
       before do
         proposal.update!(category: category)
         proposal.update!(scope: scope)
@@ -91,17 +102,39 @@ module Decidim
           expect(serialized).to include(reference: proposal.reference)
         end
 
+        it "serializes the answer" do
+          expect(serialized).to include(answer: expected_answer)
+        end
+
         it "serializes the amount of attachments" do
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
-        it "serializes the amount of endorsements" do
-          expect(serialized).to include(endorsements: proposal.endorsements.count)
+        it "serializes the endorsements" do
+          expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
+          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
         end
 
         it "serializes related proposals" do
           expect(serialized[:related_proposals].length).to eq(2)
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
+        end
+
+        it "serializes if proposal is_amend" do
+          expect(serialized).to include(is_amend: proposal.emendation?)
+        end
+
+        it "serializes the original proposal" do
+          expect(serialized[:original_proposal]).to include(title: proposal&.amendable&.title)
+          expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
+        end
+
+        context "with proposal having an answer" do
+          let!(:proposal) { create(:proposal, :with_answer) }
+
+          it "serializes the answer" do
+            expect(serialized).to include(answer: expected_answer)
+          end
         end
       end
     end

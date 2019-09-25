@@ -21,6 +21,7 @@ module Decidim
         allow! if user_can_enter_space_area?
 
         read_admin_dashboard_action?
+        apply_newsletter_permissions_for_admin!
 
         if user.admin?
           allow! if read_admin_log_action?
@@ -37,7 +38,6 @@ module Decidim
           allow! if permission_action.subject == :scope_type
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
-          allow! if permission_action.subject == :newsletter
           allow! if permission_action.subject == :oauth_application
           allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
@@ -61,7 +61,32 @@ module Decidim
                       permission_action.action == :read
 
         return user_manager_permissions if user_manager?
+
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
+      end
+
+      def apply_newsletter_permissions_for_admin!
+        return unless permission_action.subject == :newsletter
+        return allow! if user.admin?
+        return unless space_allows_admin_access?
+
+        newsletter = context.fetch(:newsletter, nil)
+
+        case permission_action.action
+        when :index, :create
+          return allow!
+        when :read, :update, :destroy
+          return toggle_allow(user == newsletter.author)
+        end
+      end
+
+      def space_allows_admin_access?
+        Decidim.participatory_space_manifests.any? do |manifest|
+          Decidim.find_participatory_space_manifest(manifest.name)
+                 .participatory_spaces.call(organization)&.any? do |space|
+            space.admins.exists?(id: user.id)
+          end
+        end
       end
 
       def read_admin_log_action?
@@ -71,6 +96,7 @@ module Decidim
 
       def static_page_action?
         return unless permission_action.subject == :static_page
+
         static_page = context.fetch(:static_page, nil)
 
         case permission_action.action
@@ -109,6 +135,7 @@ module Decidim
 
       def user_action?
         return unless [:user, :impersonatable_user].include?(permission_action.subject)
+
         subject_user = context.fetch(:user, nil)
 
         case permission_action.action

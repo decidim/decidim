@@ -438,9 +438,10 @@ pt-BR:
         new:
           save: Salvar
           title: Novo boletim informativo
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+        show:
           preview: Pré-visualização
           subject: Sujeito
         update:

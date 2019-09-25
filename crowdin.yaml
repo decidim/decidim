@@ -3,6 +3,7 @@ files:
     translation: /**/locales/%locale%.yml
     languages_mapping:
       locale:
+        ar: ar
         ca: ca
         cs: cs
         de: de
@@ -18,6 +19,7 @@ files:
         id-ID: id
         it: it
         nl: nl
+        no: no
         pl: pl
         pt-BR: pt-BR
         pt-PT: pt

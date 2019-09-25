@@ -438,9 +438,10 @@ gl:
         new:
           save: Gardar
           title: Novo boletín informativo
-        show:
+        select_recipients_to_deliver:
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
+        show:
           preview: Vista previa
           subject: Asunto
         update:

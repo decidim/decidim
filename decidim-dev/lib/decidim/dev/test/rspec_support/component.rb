@@ -10,6 +10,16 @@ module Decidim
   end
 
   module DummyResources
+    include ActiveSupport::Configurable
+
+    # Settings needed to compare emendations in Decidim::SimilarEmendations
+    config_accessor :similarity_threshold do
+      0.25
+    end
+    config_accessor :similarity_limit do
+      10
+    end
+
     # Dummy engine to be able to test components.
     class DummyEngine < Rails::Engine
       engine_name "dummy"
@@ -52,6 +62,8 @@ module Decidim
       include Searchable
       include Paddable
       include Amendable
+      include Decidim::NewsletterParticipant
+      include Hashtaggable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -83,6 +95,13 @@ module Decidim
       def self.export_serializer
         DummySerializer
       end
+
+      def self.newsletter_participant_ids(component)
+        Decidim::DummyResources::DummyResource.where(component: component).joins(:component)
+                                              .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                              .where.not(author: nil)
+                                              .pluck(:decidim_author_id).flatten.compact.uniq
+      end
     end
   end
 end
@@ -106,6 +125,8 @@ Decidim.register_component(:dummy) do |component|
 
   component.actions = %w(foo bar)
 
+  component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
+
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
@@ -113,12 +134,18 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :dummy_global_attribute_2, type: :boolean
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
+    settings.attribute :dummy_global_translatable_text, type: :text, translated: true, editor: true, required: true
   end
 
   component.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :dummy_step_attribute_1, type: :boolean
     settings.attribute :dummy_step_attribute_2, type: :boolean
+    settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
+    settings.attribute :amendment_creation_enabled, type: :boolean, default: true
+    settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
+    settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
+    settings.attribute :amendments_visibility, type: :string, default: "all"
   end
 
   component.register_resource(:dummy_resource) do |resource|
@@ -151,6 +178,7 @@ RSpec.configure do |config|
     ActiveRecord::Migration.suppress_messages do
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
+          t.jsonb :translatable_text
           t.string :title
           t.string :body
           t.text :address

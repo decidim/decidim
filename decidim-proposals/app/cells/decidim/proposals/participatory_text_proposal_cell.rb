@@ -21,14 +21,19 @@ module Decidim
       def title
         case model.participatory_text_level
         when "section"
-          "<h5><strong class='text-uppercase'>#{present(model).title}</strong></h5>"
+          "<h5><strong class='text-uppercase'>#{section_title}</strong></h5>"
         else
-          "<h6><strong>#{present(model).title}</strong></h6>"
+          "<h6><strong>#{section_title}</strong></h6>"
         end
+      end
+
+      def section_title
+        decidim_html_escape(present(model).title).html_safe
       end
 
       def body
         return unless model.participatory_text_level == "article"
+
         formatted = simple_format(present(model).body)
         decidim_sanitize(strip_links(formatted))
       end
@@ -67,6 +72,18 @@ module Decidim
 
       def participatory_space_type_name
         translated_attribute current_participatory_space.model_name.human
+      end
+
+      def visible_emendations
+        @visible_emendations ||= model.visible_emendations_for(current_user)
+      end
+
+      def amendmendment_creation_enabled?
+        (current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?)
+      end
+
+      def amend_button_disabled?
+        !amendmendment_creation_enabled?
       end
     end
   end

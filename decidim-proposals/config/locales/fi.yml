@@ -41,6 +41,10 @@ fi:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
+            body:
+              identical: JA otsikko ei voi olla täysin sama
+            title:
+              identical: JA kuvaus ei voi olla täysin sama
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
       decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
@@ -73,6 +77,7 @@ fi:
     components:
       proposals:
         actions:
+          amend: Muokkaa
           create: Luo
           endorse: Suosittele
           vote: Kannata
@@ -81,6 +86,8 @@ fi:
         settings:
           global:
             amendments_enabled: Muutokset käytössä
+            amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
+            amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
@@ -90,6 +97,7 @@ fi:
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
+            participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
@@ -103,6 +111,14 @@ fi:
             threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
+            amendment_creation_enabled: Muutosten luonti on käytössä
+            amendment_creation_enabled_help: Osallistuja voi muuttaa ehdotuksia.
+            amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
+            amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
+            amendment_reaction_enabled: Reaktiot käytössä muutoksille
+            amendment_reaction_enabled_help: Ehdotuksen laatijat voivat hyväksyä tai hylätä osallistujan muutoksia.
+            amendments_visibility: Muutosten näkyvyys
+            amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
@@ -305,6 +321,7 @@ fi:
             success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
+            invalid_file: Tässä tiedostossa on jokin virhe. Yritä korjata tiedoston sisältö ja lataa se uudestaan.
             success: Onnittelut, seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
           index:
             info_1: Seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
@@ -673,6 +690,7 @@ fi:
           view_proposal: Näytä ehdotus
         show:
           back_to: Takaisin
+          changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista
           hidden_endorsers_count:
@@ -680,6 +698,10 @@ fi:
             other: ja %{count} muuta henkilöä
           link_to_collaborative_draft_help_text: Tämä ehdotus on yhteistyöluonnoksen tulos. Tarkastele historiaa
           link_to_collaborative_draft_text: Katso yhteistyöluonnosta
+          link_to_promoted_emendation_help_text: Tämä ehdotus on peräisin toisen ehdotuksen muutoksesta
+          link_to_promoted_emendation_text: Näytä hylätty muutos.
+          link_to_proposal_from_emendation_help_text: Tämä on hylätty muutos
+          link_to_proposal_from_emendation_text: Näytä ehdotus
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
