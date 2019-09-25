@@ -1,5 +1,6 @@
 // = require quill.min
 // = require image-resize.min
+// = require image-drop.min
 // = require_self
 
 ((exports) => {
@@ -32,8 +33,8 @@
     const quill = new Quill(container, {
       modules: {
         toolbar: quillToolbar,
-        imageResize: {
-        }
+        imageResize: {},
+        imageDrop: true
       },
       formats: quillFormats,
       theme: "snow"
