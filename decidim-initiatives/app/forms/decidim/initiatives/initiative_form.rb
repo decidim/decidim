@@ -30,6 +30,18 @@ module Decidim
       def signature_type_updatable?
         state == "created" || state.nil?
       end
+
+      def scope_id
+        super.presence
+      end
+
+      private
+
+      def scope_exists
+        return if scope_id.blank?
+
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(decidim_initiatives_types_id: type_id, decidim_scopes_id: scope_id).exists?
+      end
     end
   end
 end
