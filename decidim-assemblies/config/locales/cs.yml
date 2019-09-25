@@ -2,20 +2,20 @@ cs:
   activemodel:
     attributes:
       assembly:
-        area_id: Plocha
-        assembly_type: Typ sestavy
-        assembly_type_other: Typ sestavy jiná
+        area_id: Oblast
+        assembly_type: Typ shromáždění
+        assembly_type_other: Typ shromáždění jiné
         banner_image: Obrázek banneru
-        closing_date: Uzávěrka
-        closing_date_reason: Datum ukončení
+        closing_date: Ukončení
+        closing_date_reason: Důvod data ukončení
         composition: Složení
         copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
-        copy_features: Funkce kopírování
+        copy_components: Kopírovat komponenty
+        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
-        created_by_other: Vytvořil jiný
+        created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
-        decidim_area_id: Plocha
+        decidim_area_id: Oblast
         decidim_scope_id: Rozsah
         description: Popis
         developer_group: Skupina promotérů
@@ -24,11 +24,11 @@ cs:
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Domácí obrázek
+        hero_image: Obrázek na hlavní stránce
         included_at: Zahrnuty v
         instagram: Instagram
-        internal_organisation: Interní organizace
-        is_transparent: Je průhledná
+        internal_organisation: Vnitřní organizace
+        is_transparent: Transparentní
         local_area: Oblast organizace
         meta_scope: Rozsah metadat
         parent_id: Nadřazené shromáždění
@@ -71,12 +71,12 @@ cs:
         many: Sestavy
         other: Sestavy
       decidim/assembly_member:
-        one: Montážní člen
+        one: Člen shromáždění
         few: Členové shromáždění
         many: Členové shromáždění
         other: Členové shromáždění
       decidim/assembly_user_role:
-        one: Sestavení role uživatele
+        one: Uživatelská role shromáždění
         few: Sestavení uživatelských rolí
         many: Sestavení uživatelských rolí
         other: Sestavení uživatelských rolí
@@ -86,7 +86,7 @@ cs:
         new_assembly: Nové shromáždění
       assemblies:
         create:
-          error: Při vytváření nové sestavy došlo k chybě.
+          error: Při vytváření nového shromáždění došlo k chybě.
           success: Shromáždění bylo úspěšně vytvořeno.
         edit:
           update: Aktualizace
@@ -99,8 +99,8 @@ cs:
           create: Vytvořit
           title: Nové shromáždění
         update:
-          error: Při aktualizaci této sestavy došlo k chybě.
-          success: Sestavení se úspěšně aktualizovalo.
+          error: Při aktualizaci tohoto shromáždění došlo k chybě.
+          success: Shromáždění úspěšně aktualizováno.
       assemblies_copies:
         create:
           error: Při kopírování této sestavy došlo k chybě.
@@ -109,52 +109,52 @@ cs:
         new:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
-          title: Duplicitní sestavení
+          title: Zduplikovat shromáždění
       assembly_members:
         create:
-          error: Při přidávání člena této sestavy došlo k chybě.
-          success: Člen vytvořen úspěšně pro tuto sestavu.
+          error: Při přidávání člena tohoto shromáždění došlo k chybě.
+          success: Člen úspěšně vytvořen pro toto shromáždění.
         destroy:
-          success: Člen byl úspěšně smazán pro tuto sestavu.
+          success: Člen byl úspěšně smazán pro toto shromáždění.
         edit:
-          title: Aktualizovat člen sestavení.
+          title: Aktualizovat člena shromáždění.
           update: Aktualizace
         index:
           assembly_members_title: Členové shromáždění
         new:
           create: Vytvořit
-          title: Nový montážní člen.
+          title: Nový člen shromáždění.
         update:
           error: Při aktualizaci člena této sestavy došlo k chybě.
-          success: Člen byl úspěšně aktualizován pro tuto sestavu.
+          success: Člen byl úspěšně aktualizován pro toto shromáždění.
       assembly_publications:
         create:
           error: Při publikování této sestavy došlo k chybě.
           success: Shromáždění bylo úspěšně zveřejněno.
         destroy:
-          error: Při odebrání této sestavy došlo k chybě.
+          error: Při odebrání tohoto shromáždění došlo k chybě.
           success: Shromáždění bylo nepublikováno úspěšně.
       assembly_user_roles:
         create:
-          error: Při přidávání uživatele této sestavy došlo k chybě.
+          error: Při přidávání administrátora pro toto shromáždění došlo k chybě.
           success: Uživatel byl úspěšně přidán do této sestavy.
         destroy:
-          success: Uživatel byl z této sestavy úspěšně odstraněn.
+          success: Uživatel byl z tohoto shromáždění úspěšně odstraněn.
         edit:
           title: Aktualizovat uživatele sestavy.
           update: Aktualizace
         index:
-          assembly_admins_title: Uživatelé sestav
+          assembly_admins_title: Administrátoři shromáždění
         new:
           create: Vytvořit
-          title: Nový uživatel sestavení.
+          title: Nový administrátor shromáždění.
         update:
           error: Došlo k chybě uživatele aktualizované pro tuto sestavu.
-          success: Uživatel úspěšně aktualizován pro tuto sestavu.
+          success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
         assemblies: Sestavy
         assemblies_submenu:
-          assembly_admins: Uživatelé sestav
+          assembly_admins: Administrátoři shromáždění
           assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
@@ -171,7 +171,7 @@ cs:
             private: Soukromé
             promoted: Zvýrazněno
             published: Publikováno
-            title: Titul
+            title: Název
           name: Shromáždění
         assembly_member:
           fields:
@@ -190,7 +190,7 @@ cs:
             email: E-mailem
             name: název
             role: Role
-          name: Uspořádání uživatele
+          name: Správce shromáždění
           roles:
             admin: Správce
             collaborator: Spolupracovník
@@ -199,32 +199,32 @@ cs:
         assemblies: Sestavy
     admin_log:
       assembly:
-        create: "%{user_name} vytvořila %{resource_name} sestavu"
+        create: "%{user_name} vytvořil %{resource_name} shromáždění"
         publish: "%{user_name} publikoval %{resource_name} sestavu"
-        unpublish: "%{user_name} nepublikováno %{resource_name} sestavu"
+        unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizovala sestavu %{resource_name}"
       assembly_member:
-        create: "%{user_name} vytvořil %{resource_name} člen v sestavě %{space_name}"
-        delete: "%{user_name} odstranila %{resource_name} člen ze sestavy %{space_name}"
+        create: "%{user_name} vytvořil %{resource_name} člena ve shromáždění %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} člena ze shromáždění %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} člen v sestavě %{space_name}"
       assembly_user_role:
-        create: "%{user_name} pozváno %{resource_name} do sestavy %{space_name}"
-        delete: "%{user_name} odstranil uživatele %{resource_name} ze sestavy %{space_name}"
+        create: "%{user_name} pozval %{resource_name} do shromáždění %{space_name}"
+        delete: "%{user_name} odstranil účastníka %{resource_name} ze shromáždění %{space_name}"
         update: "%{user_name} změnila roli %{resource_name} v sestavě %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Doba trvání
-            duration_help: Je-li trvání této sestavy omezené, vyberte datum ukončení. V opačném případě se bude zobrazovat jako neurčitá.
+            duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
             images: snímky
-            included_at_help: Vyberte datum, kdy byla tato sestava přidána do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
+            included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
             metadata: Metadata
             other: jiný
             select_a_created_by: Vyberte vytvořenou službu
             select_an_area: Vyberte oblast
-            select_an_assembly_type: Vyberte typ sestavy
+            select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vyberte sestavu rodiče
             slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
@@ -232,18 +232,18 @@ cs:
             visbility: Viditelnost
         assembly_copies:
           form:
-            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
-            existing_user: Existující uživatel
-            non_user: Není uživatel
+            existing_user: Existující účastník
+            non_user: Není účastník
             select_a_position: Vyberte pozici
-            select_user: Vyberte uživatele
-            user_type: Typ uživatele
+            select_user: Vybrat účastníka
+            user_type: Typ účastníka
           index:
             filter:
-              all: Všechno
-              ceased: Přestala
+              all: Vše
+              ceased: Ukončit
               not_ceased: Nekončí
             filter_by: Filtrovat podle
             search: Vyhledávání
@@ -255,11 +255,11 @@ cs:
           members: Členové
       assembly_types:
         commission: Komise
-        consultative_advisory: Poradní / poradní
+        consultative_advisory: Konzultační / poradní
         executive: Výkonný
         government: Vláda
         others: Ostatní
-        participatory: Účastní se
+        participatory: Účast
         working_group: Pracovní skupina
       content_blocks:
         highlighted_assemblies:
@@ -281,7 +281,7 @@ cs:
       index:
         title: Sestavy
       last_activity:
-        new_assembly: Nová montáž
+        new_assembly: Nové shromáždění
       pages:
         home:
           highlighted_assemblies:
@@ -292,7 +292,7 @@ cs:
             member_of: Člen
       show:
         area: Plocha
-        assembly_type: Typ sestavy
+        assembly_type: Typ shromáždění
         children: Sestavy
         closing_date: Uzávěrka
         composition: Složení
@@ -335,19 +335,19 @@ cs:
         votes_count: Hlasy
     assembly_members:
       assembly_member:
-        designated_on: Určeno pro
+        designated_on: Určen pro
       index:
         title: Členové
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          contextual: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           page: "<p>Shromáždění je skupina členů organizace, která se pravidelně setkává s rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Sbory se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           title: Co jsou shromáždění?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Sestava nebyla nalezena v databázi (ID: %{id})'
+          not_found: 'Shromáždění nebylo nalezeno v databázi (ID: %{id})'
     menu:
       assemblies: Sestavy
     metrics:
