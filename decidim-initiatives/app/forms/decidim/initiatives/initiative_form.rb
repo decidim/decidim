@@ -20,11 +20,11 @@ module Decidim
       validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
       validates :type_id, presence: true
-      validates :scope_id, presence: true
+      validate :scope_exists
 
       def map_model(model)
         self.type_id = model.type.id
-        self.scope_id = model.scope.id
+        self.scope_id = model.scope.&id
       end
 
       def signature_type_updatable?

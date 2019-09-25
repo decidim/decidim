@@ -11,6 +11,7 @@ FactoryBot.define do
     organization
     online_signature_enabled { true }
     undo_online_signatures_enabled { true }
+    promoting_committee_enabled { true }
     minimum_committee_members { 3 }
 
     trait :online_signature_enabled do
@@ -27,6 +28,15 @@ FactoryBot.define do
 
     trait :undo_online_signatures_disabled do
       undo_online_signatures_enabled { false }
+    end
+
+    trait :promoting_committee_enabled do
+      promoting_committee_enabled { true }
+    end
+
+    trait :promoting_committee_disabled do
+      promoting_committee_enabled { false }
+      minimum_committee_members { 0 }
     end
 
     trait :with_user_extra_fields_collection do

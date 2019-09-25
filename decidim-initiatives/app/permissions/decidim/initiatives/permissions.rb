@@ -79,6 +79,7 @@ module Decidim
                       permission_action.action == :request_membership
 
         can_request = !initiative.published? &&
+                      initiative.promoting_committee_enabled? &&
                       !initiative.has_authorship?(user) &&
                       (
                         Decidim::Initiatives.do_not_require_authorization ||

@@ -28,8 +28,8 @@ module Decidim
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
-    delegate :type, to: :scoped_type, allow_nil: true
-    delegate :scope, to: :scoped_type, allow_nil: true
+    delegate :type, :scope, to: :scoped_type, allow_nil: true
+    delegate :promoting_committee_enabled?, to: :type
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",

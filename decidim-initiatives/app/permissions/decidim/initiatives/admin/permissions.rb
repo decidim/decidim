@@ -187,7 +187,7 @@ module Decidim
 
             toggle_allow(allowed)
           when :manage_membership
-            allow!
+            toggle_allow(initiative.promoting_committee_enabled?)
           else
             disallow!
           end

@@ -42,7 +42,7 @@
 
             <div class="field">
               <%= f.select :scope_id,
-                           scopes.map { |scoped_type| [translated_attribute(scoped_type.scope.name), scoped_type.scope.id]},
+                           scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id]},
                            prompt: t(".select_scope") %>
             </div>
 

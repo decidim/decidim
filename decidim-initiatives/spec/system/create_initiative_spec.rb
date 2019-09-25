@@ -190,6 +190,15 @@ describe "Initiative", type: :system do
             end
           end
         end
+
+        context "and it's disabled at the type scope" do
+          let(:initiative_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false) }
+
+          it "skips the promoting committee settings" do
+            expect(page).not_to have_content("Promoter committee")
+            expect(page).to have_content("Finish")
+          end
+        end
       end
 
       context "when Finish" do
