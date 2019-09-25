@@ -5,7 +5,7 @@
   <% end %>
 </div>
 <div class="row column">
-  <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
+  <%= simple_format(present(@proposal).body(links: true, strip_tags: true), nil, sanitize: false) %>
 </div>
 <br />
 <%= attachments_for(@proposal) %>
