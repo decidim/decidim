@@ -8,6 +8,8 @@
 
 **Changed**:
 
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5355](https://github.com/decidim/decidim/pull/5355)
+
 **Fixed**:
 
 - **decidim-core**: Fix: Add uniq index to `decidim_metrics` table [#5362](https://github.com/decidim/decidim/pull/5362)
