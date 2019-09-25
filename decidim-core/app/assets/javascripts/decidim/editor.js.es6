@@ -20,12 +20,18 @@
       quillToolbar = [
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
         ...quillToolbar,
+        ["video"]
+      ];
+    } else if (toolbar === "image") {
+      quillToolbar = [
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ...quillToolbar,
         ["video", "image"]
       ];
     } else if (toolbar === "basic") {
       quillToolbar = [
         ...quillToolbar,
-        ["video", "image"]
+        ["video"]
       ];
     }
 
