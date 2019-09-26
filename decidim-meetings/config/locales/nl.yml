@@ -245,7 +245,7 @@ nl:
             create: Creëren
             title: Creëer vergadering
           service:
-            description: Omschrijving
+            description: Beschrijving
             down: Omlaag
             remove: Verwijderen
             service: Dienst

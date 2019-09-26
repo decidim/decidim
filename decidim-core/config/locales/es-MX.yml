@@ -116,6 +116,7 @@ es-MX:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} a ser un usuario privado"
+        create_via_csv: "%{user_name} ha invitado a %{resource_name} como participante privada"
         delete: "%{user_name} ha eliminado el usuario %{resource_name} como usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -195,6 +196,7 @@ es-MX:
         success: La enmienda se promociona con éxito.
       publish_draft:
         error: Hubo un problema al publicar la enmienda.
+        success: La enmienda se ha publicado correctamente.
       rejected:
         error: Se ha producido un error al rechazar esta enmienda. Inténtalo de nuevo más tarde.
         success: La enmienda ha sido rechazada con éxito.
@@ -203,12 +205,21 @@ es-MX:
         heading: Revisar la enmienda
         help_text: Estás revisando una enmienda al %{model_name}
         send: Aceptar enmienda
+      update_draft:
+        error: Se ha producido un error al actualizar el borrador de enmienda.
+        success: Borrador de enmienda actualizado correctamente.
+      visibility_options:
+        all: Las enmiendas son visibles para todos
+        participants: Las enmiendas son visibles sólo para sus autores
+      withdraw:
+        error: Se ha producido un error al retirar la enmienda
+        success: La enmienda ha sido retirada correctamente
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Compara tu enmienda
+          '3': Completa tu enmienda
+          '4': Publicar tu enmienda
     anonymous_user: Anónimo
     application:
       collection:
@@ -299,12 +310,18 @@ es-MX:
             comments_enabled: Comentarios habilitados
             dummy_global_attribute_1: Atributo de prueba 1
             dummy_global_attribute_2: Atributo de prueba 2
+            dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Habilitar permisos de recursos
           step:
+            amendment_creation_enabled: Creación de enmienda activada
+            amendment_promotion_enabled: Promoción de enmienda activada
+            amendment_reaction_enabled: Reacción de enmienda activada
+            amendments_visibility: Visibilidad de la enmienda
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Atributo de fase de prueba 1
             dummy_step_attribute_2: Atributo de fase de prueba 2
+            dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -330,6 +347,7 @@ es-MX:
         name: Banner de sub-hero
     core:
       actions:
+        login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder
         unauthorized: No tienes permiso para realizar esta acción.
     data_portability:
       export:
@@ -569,6 +587,9 @@ es-MX:
       current_image: Imagen actual
       default_image: Imagen predeterminada
       errors:
+        decidim/user:
+          password: La contraseña es demasiado corta.
+          password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
@@ -1036,6 +1057,12 @@ es-MX:
     welcome_notification:
       default_body: <p>Hola {{name}}, ¡gracias por unirte a {{organization}} y bienvenido/a!</p><ul><li>Si quieres hacerte una idea ràpida de lo que puedes hacer aquí, echa un vistazo a la sección de <a href="{{help_url}}">Ayuda</a>.</li><li>Una vez la hayas leído obtendrás tu primera insignia. Aquí tienes <a href="{{badges_url}}">la lista</a> de todas las que puedes ir consiguiendo a medida que participes en {{organization}}</li><li>Finalmente, pero no por ello menos importante, únete a otras personas, comparte con ellas la experiencia de implicarte y participar en {{organization}}. Haz propuestas, comenta, debate, piensa en cómo contribuir al bien común, aporta argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta a colaborar y sumarte a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Atrás
+      wizard_header:
+        see_steps: ver pasos
+        step_of: Paso %{current_step} de %{total_steps}
   devise:
     confirmations:
       confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.
@@ -1192,7 +1219,11 @@ es-MX:
       long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: Debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
+      not_found: no se pudo encontrar. ¿Te has registrado previamente?
       not_locked: No estaba bloqueado
+      not_saved:
+        one: 'Se ha producido un error procesando tu solicitud:'
+        other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: Es demasiado corto (menos de 15 caracteres)
@@ -1266,12 +1297,15 @@ es-MX:
     qq: Qzone
     reddit: Reddit
     share_to: Compartir a %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Abra su WeChat, haga clic en el botón "Discover" y luego haga clic en el menú "Escanear código QR".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1281,10 +1315,13 @@ es-MX:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

@@ -94,7 +94,7 @@ module Decidim
         max_votes > 1
       end
 
-      # Sorted responses according to configuration
+      # TODO: Sorted responses according to configuration
       def sorted_responses
         responses.sort_by { |r| r.response_group&.id.to_i }
       end

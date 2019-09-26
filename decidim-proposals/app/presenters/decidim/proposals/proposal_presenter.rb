@@ -52,8 +52,11 @@ module Decidim
       def body(links: false, extras: true, strip_tags: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.body)
         text = renderer.render(links: links, extras: extras).html_safe
-        text = strip_tags(text) if strip_tags
-        Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
+        if strip_tags
+          text = strip_tags(text)
+          text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
+        end
+        text
       end
     end
   end

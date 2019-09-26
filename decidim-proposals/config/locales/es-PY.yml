@@ -77,6 +77,7 @@ es-PY:
     components:
       proposals:
         actions:
+          amend: Enmendar
           create: Crear
           endorse: Adherirse
           vote: Apoyar
@@ -85,6 +86,8 @@ es-PY:
         settings:
           global:
             amendments_enabled: Enmiendas habilitadas
+            amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
+            amendments_wizard_help_text: Asistente de ayuda de las enmiendas
             announcement: Anuncio
             attachments_allowed: Permitir archivos adjuntos
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
@@ -94,6 +97,7 @@ es-PY:
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
+            participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             participatory_texts_enabled: Textos participativos habilitados
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
@@ -107,6 +111,14 @@ es-PY:
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de voto por usuario
           step:
+            amendment_creation_enabled: Creación de enmienda activada
+            amendment_creation_enabled_help: La participante puede modificar las propuestas.
+            amendment_promotion_enabled: Promoción de enmienda activada
+            amendment_promotion_enabled_help: Las autoras de la enmienda podrán promover la enmienda rechazada como nueva propuesta.
+            amendment_reaction_enabled: Reacción de enmienda activada
+            amendment_reaction_enabled_help: Las autoras de la propuesta podrán aceptar o rechazar las enmiendas de otras participantes.
+            amendments_visibility: Visibilidad de la enmienda
+            amendments_visibility_help: Si se selecciona la opción "Las enmiendas son visibles sólo para sus autoras", las participantes deberán iniciar sesión para ver las enmiendas realizadas.
             announcement: Anuncio
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
@@ -309,6 +321,7 @@ es-PY:
             success: Todos los borradores de textos participativos han sido descartados.
           import:
             invalid: El formulario no es válido!
+            invalid_file: El archivo contiene un error, por favor intenta editar el contenido del archivo y volver a subirlo.
             success: Enhorabuena, las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
           index:
             info_1: Las siguientes secciones se analizaron en el documento importado y se convirtieron en propuestas. Ahora puedes revisar y ajustar lo que necesites antes de publicar.
@@ -677,6 +690,7 @@ es-PY:
           view_proposal: Ver propuesta
         show:
           back_to: De regreso
+          changes_at_title: Enmienda a "%{title}"
           edit_proposal: Editar propuesta
           endorsements_list: Lista de adhesiones
           hidden_endorsers_count:
@@ -684,6 +698,10 @@ es-PY:
             other: y %{count} personas más
           link_to_collaborative_draft_help_text: Esta propuesta es el resultado de un borrador colaborativo. Revisa el historial
           link_to_collaborative_draft_text: Ver el borrador colaborativo
+          link_to_promoted_emendation_help_text: Esta propuesta es una proviene de una enmienda
+          link_to_promoted_emendation_text: Ver la enmienda rechazada.
+          link_to_proposal_from_emendation_help_text: Esta es una enmienda rechazada
+          link_to_proposal_from_emendation_text: Ver la propuesta
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'

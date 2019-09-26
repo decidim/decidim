@@ -101,7 +101,7 @@ edit_link(
         <%= cell("decidim/diff", @proposal.versions.last) %>
       <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
         <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-        <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
+        <%= simple_format present(@proposal).body(links: true, strip_tags: true), nil, sanitize: false %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>

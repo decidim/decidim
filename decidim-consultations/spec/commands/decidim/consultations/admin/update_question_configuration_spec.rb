@@ -41,6 +41,23 @@ module Decidim
           end
         end
 
+        describe "when question is not valid" do
+          before do
+            expect(question).to receive(:valid?).and_return(false)
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't update the consultation" do
+            command.call
+            question.reload
+
+            expect(question.min_votes).not_to eq(3)
+          end
+        end
+
         describe "when the configuration is not valid" do
           let(:max_votes) { "1" }
 

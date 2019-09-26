@@ -368,6 +368,7 @@ nl:
             title: Update voorstel
             update: Bijwerken
           form:
+            add_images: Afbeeldingen toevoegen
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
             select_a_category: Kies een categorie
