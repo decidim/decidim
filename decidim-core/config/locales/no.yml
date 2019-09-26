@@ -1,5 +1,5 @@
 "no":
-  activemodel:
-    attribures:
-      area:
-        name: Navn
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Epost
