@@ -24,6 +24,7 @@
 - **decidim-core**, **decidim-proposals**: Add: Improvements in amendments on `Proposals` control version [#5185](https://github.com/decidim/decidim/pull/5185)
 - **decidim-proposals**: Copy attachments when importing proposals [#5198](https://github.com/decidim/decidim/pull/5198)
 - **decidim-core**: Adds new language: Norwegian [#5335](https://github.com/decidim/decidim/pull/5335)
+- **decidim-initiatives**: UX improvements to initiatives [#5369](https://github.com/decidim/decidim/pull/5369)
 
 
 **Changed**:
