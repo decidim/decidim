@@ -23,12 +23,13 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_question
-
-          if question.valid?
+          # We don't have other question fields in this forms so any additional
+          # validation error will be just shown in a flash message
+          begin
+            update_question!
             broadcast(:ok, question)
-          else
-            broadcast(:invalid)
+          rescue StandardError => e
+            broadcast(:invalid, question, e.message)
           end
         end
 
@@ -36,9 +37,9 @@ module Decidim
 
         attr_reader :form, :question
 
-        def update_question
+        def update_question!
           question.assign_attributes(attributes)
-          question.save! if question.valid?
+          question.save!
         end
 
         def attributes

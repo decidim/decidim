@@ -2,14 +2,15 @@
 
 module Decidim
   module Consultations
-    # A command with all the business logic when a user votes a question.
+    # A command with all the business logic when a user votes a multivote question.
     class MultipleVoteQuestion < Rectify::Command
       # Public: Initializes the command.
       #
-      # form   - A Decidim::Consultations::VoteForm object.
+      # form   - A Decidim::Consultations::MultiVoteForm object.
       # current_user - The current user.
-      def initialize(forms)
-        @forms = forms
+      def initialize(form, current_user)
+        @form = form
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -19,36 +20,26 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid, form, form.errors[:responses].first) if form.invalid?
+
         ActiveRecord::Base.transaction do
-          check_num_votes
-          forms.each do |form|
-            vote = build_vote form
-            vote.save!
+          form.vote_forms.each do |form|
+            create_vote! form
           end
-          broadcast(:ok, forms)
+          broadcast(:ok, form)
         rescue StandardError => e
-          broadcast(:invalid, forms, e)
-        rescue StandardError
-          broadcast(:invalid, forms)
+          broadcast(:invalid, form, e.message)
         end
       end
 
       private
 
-      attr_reader :forms
+      attr_reader :form
 
-      def check_num_votes
-        question = forms&.first&.context&.current_question
-        if question
-          return if forms.count.between?(question.min_votes, question.max_votes)
-        end
-        raise StandardError, I18n.t("activerecord.errors.models.decidim/consultations/vote.attributes.question.invalid_num_votes")
-      end
-
-      def build_vote(form)
-        form.context.current_question.votes.build(
-          author: form.context.current_user,
-          response: form.response
+      def create_vote!(vote_form)
+        @form.context.current_question.votes.create!(
+          author: @current_user,
+          response: vote_form.response
         )
       end
     end

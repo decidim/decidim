@@ -26,8 +26,9 @@ module Decidim
               redirect_to edit_question_configuration_path(question)
             end
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("questions.update.error", scope: "decidim.admin")
+            on(:invalid) do |_question, error|
+              flash[:error] = I18n.t("questions.update.error", scope: "decidim.admin")
+              flash[:error] << " (#{error})" if error
               render :edit, layout: "decidim/admin/question"
             end
           end
@@ -39,6 +40,8 @@ module Decidim
           form(QuestionConfigurationForm)
         end
 
+        # This is checked here (and not in permissions) to warn the user
+        # specifically about disabling external voting before using multivote questions
         def check_external_voting
           return unless current_question.external_voting
 

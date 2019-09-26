@@ -5,45 +5,30 @@ require "spec_helper"
 module Decidim
   module Consultations
     describe MultipleVoteQuestion do
-      let(:subject) { described_class.new(forms) }
+      let(:subject) { described_class.new(form, user) }
 
       let(:organization) { create :organization }
       let(:consultation) { create :consultation, organization: organization }
       let(:question) { create :question, :multiple, consultation: consultation }
       let(:user) { create :user, organization: organization }
-      let(:response) { create :response, question: question }
-      let(:decidim_consultations_response_id) { response.id }
+      let(:response1) { create :response, question: question }
+      let(:response2) { create :response, question: question }
+      let(:response3) { create :response, question: question }
+      let(:responses) { [response1.id, response2.id, response3.id] }
+      let(:form) do
+        MultiVoteForm
+          .from_params(attributes)
+          .with_context(current_question: question)
+      end
       let(:attributes) do
         {
-          decidim_consultations_response_id: decidim_consultations_response_id
+          responses: responses
         }
       end
 
-      let(:form1) do
-        VoteForm
-          .from_params(attributes)
-          .with_context(current_user: user, current_question: question)
-      end
-
-      let(:form2) do
-        VoteForm
-          .from_params(attributes)
-          .with_context(current_user: user, current_question: question)
-      end
-
-      let(:form3) do
-        VoteForm
-          .from_params(attributes)
-          .with_context(current_user: user, current_question: question)
-      end
-
-      let(:forms) do
-        [form1, form2, form3]
-      end
-
       context "when user votes too few options" do
-        let(:forms) do
-          [form1]
+        let(:responses) do
+          [response1.id]
         end
 
         it "broadcasts invalid" do
@@ -79,11 +64,11 @@ module Decidim
           end.to change(question, :votes_count).by(3)
         end
 
-        it "increases the response counter by three" do
+        it "increases a response counter by one" do
           expect do
             subject.call
-            response.reload
-          end.to change(response, :votes_count).by(3)
+            response1.reload
+          end.to change(response1, :votes_count).by(1)
         end
       end
 
