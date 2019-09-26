@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
   include ActionView::Helpers::TextHelper
-  include Decidim::SanitizeHelper
 
   include_context "with a component"
 
@@ -83,10 +82,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
-      let(:sanitized_title) { decidim_html_escape(collaborative_draft.title) }
-
       it "shows the title" do
-        expect(page).to have_content(sanitized_title)
+        expect(page).to have_content(collaborative_draft.title)
       end
 
       it "shows the body" do
@@ -116,7 +113,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the title" do
-          expect(page).to have_content(sanitized_title)
+          expect(page).to have_content(collaborative_draft.title)
         end
 
         it "shows the body" do
