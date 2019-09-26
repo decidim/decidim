@@ -20,7 +20,7 @@ cs:
       category:
         description: Popis
         name: název
-        parent_id: Nadřazený prvek
+        parent_id: Nadřazená
       component:
         name: název
         published_at: Publikováno v
