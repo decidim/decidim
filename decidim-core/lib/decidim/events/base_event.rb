@@ -67,22 +67,6 @@ module Decidim
         @resource_url ||= resource_locator.url
       end
 
-      # Whether this event should be notified or not. Useful when you want the
-      # event to decide based on the params.
-      #
-      # It returns false when the resource or any element in the chain is a
-      # `Decidim::Publicable` and it isn't published or participatory_space
-      # is a `Decidim::Participable` and the user can't participate.
-      def notifiable?
-        return false if resource.is_a?(Decidim::Publicable) && !resource.published?
-        return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
-        return false if component && !component.published?
-
-        return false if participatory_space.is_a?(Decidim::Participable) && !participatory_space.can_participate?(user)
-
-        true
-      end
-
       def resource_text; end
 
       def resource_title
@@ -101,18 +85,19 @@ module Decidim
 
       private
 
-      attr_reader :event_name, :resource, :user, :user_role, :extra
-
       def component
-        return resource.component if resource.is_a?(Decidim::HasComponent)
         return resource if resource.is_a?(Decidim::Component)
+
+        resource.try(:component)
       end
 
       def participatory_space
-        return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
+        return resource if resource.is_a?(Decidim::Participable)
 
-        component&.participatory_space
+        resource.try(:participatory_space)
       end
+
+      attr_reader :event_name, :resource, :user, :user_role, :extra
     end
   end
 end
