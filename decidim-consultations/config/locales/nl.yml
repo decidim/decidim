@@ -19,6 +19,9 @@ nl:
         hashtag: Hashtag
         hero_image: Home afbeelding
         i_frame_url: URL van het externe stemsysteem
+        instructions: Extra instructies voor stemmen
+        max_votes: Maximum aantal stemmen
+        min_votes: Minimaal aantal stemmen
         origin_scope: Scope
         origin_title: Oorsprong
         origin_url: Origin URL
@@ -33,10 +36,21 @@ nl:
         vote: Extern stemsysteem
         what_is_decided: Wat besloten werd
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum aantal stemmen moet hoger of gelijk zijn aan het minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Reactie niet gevonden.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Aantal stemmen is ongeldig
     models:
       decidim/consultation:
         one: Raadpleging
@@ -89,6 +103,7 @@ nl:
           title: Nieuwe burgerinspraak
         results:
           not_visible: Resultaten zijn beschikbaar wanneer raadpleging wordt gesloten
+          participants: "%{count} deelnemers"
           total_votes: 'Totaal: %{count} stemmen'
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
@@ -101,6 +116,7 @@ nl:
           results: Resultaten
         questions_submenu:
           components: Onderdelen
+          configuration: Configuratie
           consultation: Raadpleging
           info: Informatie
           responses: Antwoorden
@@ -232,6 +248,13 @@ nl:
         votes_out_of:
           one: stem uit
           other: stemmen uit
+      question_multiple_votes:
+        voting_rules:
+          title: 'Stemmen zijn onderworpen aan de volgende regels:'
+          vote_limit:
+            description: U kunt tot %{limit} voorstellen stemmen.
+            left: Resterend
+            votes: Stemmen
       question_votes:
         create:
           error: Er zijn fouten opgetreden bij het stemmen op de vraag
@@ -309,3 +332,4 @@ nl:
         unfold: Uitklappen
       question_header:
         back_to_consultation: Bekijk alle burgerinspraken
+        back_to_question: Terug naar de vraag
