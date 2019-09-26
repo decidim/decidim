@@ -7,11 +7,7 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   controller Decidim::PagesController
 
-  before do
-    allow(controller).to receive(:current_organization).and_return(organization)
-  end
-
-  Decidim::ActivitySearch.class_eval do
+  Decidim::HomeActivitySearch.class_eval do
     def resource_types
       %w(
         Decidim::DummyResources::DummyResource

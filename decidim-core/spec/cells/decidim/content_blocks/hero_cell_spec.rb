@@ -11,10 +11,6 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   controller Decidim::PagesController
 
-  before do
-    allow(controller).to receive(:current_organization).and_return(organization)
-  end
-
   context "when the content block has no settings" do
     it "shows the default welcome text" do
       expect(subject).to have_text("Welcome to #{organization.name}")

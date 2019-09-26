@@ -1154,10 +1154,7 @@ id:
       long_words: mengandung kata-kata yang terlalu panjang (lebih dari 35 karakter)
       must_start_with_caps: harus dimulai dengan huruf kapital
       nesting_too_deep: tidak dapat berada di dalam suatu subkategori
-      not_found: tidak ditemukan
       not_locked: tidak terkunci
-      not_saved:
-        other: "%{count} kesalahan melarang %{resource} ini disimpan:"
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
       too_short: terlalu pendek (kurang dari 15 karakter)

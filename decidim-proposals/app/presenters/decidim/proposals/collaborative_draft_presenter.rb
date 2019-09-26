@@ -8,6 +8,8 @@ module Decidim
     class CollaborativeDraftPresenter < SimpleDelegator
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
+      include ActionView::Helpers::SanitizeHelper
+      include Decidim::SanitizeHelper
 
       def author
         coauthorship = __getobj__.coauthorships.first
@@ -28,12 +30,19 @@ module Decidim
 
       def title(links: false, extras: true, html_escape: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
-        renderer.render(links: links, extras: extras, html_escape: html_escape).html_safe
+        text = renderer.render(links: links, extras: extras).html_safe
+        text = decidim_html_escape(text) if html_escape
+        text
       end
 
       def body(links: false, extras: true, strip_tags: false)
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
-        renderer.render(links: links, extras: extras, strip_tags: strip_tags).html_safe
+        text = renderer.render(links: links, extras: extras).html_safe
+        if strip_tags
+          text = strip_tags(text)
+          text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
+        end
+        text
       end
     end
   end

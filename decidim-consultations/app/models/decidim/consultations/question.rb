@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::ParticipatorySpaceResourceable
+      include Decidim::Randomable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",
@@ -160,13 +161,6 @@ module Decidim
 
       def self.participatory_space_manifest
         Decidim.find_participatory_space_manifest(Decidim::Consultation.name.demodulize.underscore.pluralize)
-      end
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-        end
       end
 
       def resource_description

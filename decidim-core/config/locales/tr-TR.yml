@@ -1174,11 +1174,7 @@ tr:
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
       nesting_too_deep: bir alt kategorinin içinde olamaz
-      not_found: bulunamadı
       not_locked: kilitli değildi
-      not_saved:
-        one: '1 hata bu yasak %{resource} kaydedilmesini:'
-        other: "%{count} hataları bu yasak %{resource} kaydedilmesini:"
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
       too_short: çok kısa (15 karakterin altında)

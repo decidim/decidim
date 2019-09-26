@@ -40,6 +40,7 @@ require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
+require "anchored"
 
 require "decidim/api"
 
@@ -240,13 +241,6 @@ module Decidim
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :public
           optional_scopes []
-
-          # Change the native redirect uri for client apps
-          # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
-          # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
-          # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
-          #
-          native_redirect_uri "urn:ietf:wg:oauth:2.0:oob"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in

@@ -104,7 +104,7 @@ es-PY:
             title: Necesitas activar el censo csv para esta organización.
           new:
             file: "archivo .csv con datos de correos electrónicos"
-            info: 'Debe ser un archivo con formato CSV con una columna: correo electrónico'
+            info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
             submit: Subir archivo
             title: Subir un nuevo censo
         authorizations:

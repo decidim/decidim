@@ -114,6 +114,7 @@ hu:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
             amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_promotion_enabled_help: A Módosítás szerzői képesek Javaslattá promotálni az elutasított módosítást.
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
@@ -276,7 +277,7 @@ hu:
         title: Elfogadott javaslatok
       endorsements:
         description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: kiterjesztések
+        object: elismerések
         title: Elismerések
       proposals:
         description: A létrehozott javaslatok száma
@@ -284,8 +285,8 @@ hu:
         title: javaslatok
       votes:
         description: A felhasználók által benyújtott szavazatok száma
-        object: szavazat
-        title: szavazatok
+        object: szavazatok
+        title: Szavazatok
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -371,8 +372,10 @@ hu:
             title: Frissítse a javaslatot
             update: frissítés
           form:
+            add_images: Képek hozzáadása
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
+            gallery_legend: "(opcionális) Kép hozzáadása a galériához"
             select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:

@@ -8,6 +8,12 @@ module Decidim
 
       helper_method :new_user_group_session_path
 
+      def create
+        super do |resource|
+          resource.errors.delete(:decidim_organization_id) if resource.errors.any?
+        end
+      end
+
       # Since we're using a single Devise installation for multiple
       # organizations, and user emails can be repeated across organizations,
       # we need to identify the user by both the email and the organization.

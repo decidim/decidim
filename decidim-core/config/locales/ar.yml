@@ -1188,15 +1188,7 @@ ar:
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
-      not_found: غير معثور عليه
       not_locked: لم يكن مغلقا
-      not_saved:
-        zero: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        one: '1 خطأ يحظر حفظ هذا %{resource}:'
-        two: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        few: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        many: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
-        other: "%{count} أخطاء تمنع حفظ هذا %{resource}:"
       too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
       too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
       too_short: قصير جدًا (أقل من 15 حرفًا)

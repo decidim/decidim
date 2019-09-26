@@ -6,6 +6,8 @@ module Decidim
       belongs_to :organization, foreign_key: :decidim_organization_id,
                                 class_name: "Decidim::Organization"
 
+      validates :email, format: { with: ::Devise.email_regexp }
+
       def self.inside(organization)
         where(organization: organization)
       end

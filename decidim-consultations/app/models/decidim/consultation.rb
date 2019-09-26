@@ -10,6 +10,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Randomable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -79,13 +80,6 @@ module Decidim
     # this method is necessary to exist an return nil in order to be able to browse the scope hierarchy
     def scope
       nil
-    end
-
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_consultations".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
     end
 
     def closed?

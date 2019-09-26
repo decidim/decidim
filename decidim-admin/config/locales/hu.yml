@@ -41,7 +41,7 @@ hu:
         badges_enabled: Jelvények engedélyezése
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
-        customize_welcome_notification: Értesítések testre szabása
+        customize_welcome_notification: Az üdvözlő értesítések testreszabása
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
@@ -79,7 +79,7 @@ hu:
         user_groups_enabled: Csoportok engedélyezése
         user_name: Felhasználónév
         warning_color: Figyelmeztetés
-        welcome_notification_body: Üdvözlő értesítés dokumentumtörzs
+        welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube handler
       scope:
@@ -175,7 +175,7 @@ hu:
           title: Új terület
         no_areas: Nincs terület
         update:
-          error: Hiba történt ezen terület frissítése során.
+          error: Hiba történt a terület frissítésekor.
           success: Terület frissítése sikeres
       attachment_collections:
         create:
@@ -288,7 +288,7 @@ hu:
             not_managed: Nem felügyelt
           filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
+          impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.

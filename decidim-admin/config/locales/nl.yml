@@ -43,7 +43,7 @@ nl:
         cta_button_text: actieknop tekst
         customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard taal
-        description: Omschrijving
+        description: Beschrijving
         enable_omnipresent_banner: Toon permanente header
         facebook_handler: Facebook naam
         favicon: Pictogram
@@ -55,7 +55,7 @@ nl:
         highlighted_content_banner_action_url: URL actieknop
         highlighted_content_banner_enabled: Toon de uitgelichte inhoudsbanner
         highlighted_content_banner_image: Beeld
-        highlighted_content_banner_short_description: Korte omschrijving
+        highlighted_content_banner_short_description: Korte beschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram gebruikersnaam
         logo: Logo
@@ -63,7 +63,7 @@ nl:
         official_img_footer: Officieel logo voettekst
         official_img_header: Officieel logo header
         official_url: Officiële URL van de organisatie
-        omnipresent_banner_short_description: Korte omschrijving
+        omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         password: Wachtwoord
@@ -102,7 +102,7 @@ nl:
         title: Titel
         weight: Gewicht
       static_page_topic:
-        description: Omschrijving
+        description: Beschrijving
         show_in_footer: Laat het in het voettekst zien
         title: Titel
         weight: Gewicht
