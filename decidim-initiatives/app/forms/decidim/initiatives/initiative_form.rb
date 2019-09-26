@@ -24,7 +24,7 @@ module Decidim
 
       def map_model(model)
         self.type_id = model.type.id
-        self.scope_id = model.scope.&id
+        self.scope_id = model.scope&.id
       end
 
       def signature_type_updatable?

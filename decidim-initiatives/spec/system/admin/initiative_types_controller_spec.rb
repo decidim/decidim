@@ -72,7 +72,7 @@ describe "InitiativeTypesController", type: :system do
     end
   end
 
-  context "when delting an initiative type" do
+  context "when deleting an initiative type" do
     let(:initiatives_type) { create :initiatives_type, organization: organization }
 
     it "Deletes the initiative type" do

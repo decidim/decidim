@@ -36,6 +36,7 @@ describe "Initiative", type: :system do
       let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members) }
       let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
+      let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
       before do
         switch_to_host(organization.host)
@@ -144,6 +145,18 @@ describe "Initiative", type: :system do
           expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
           expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
           expect(find(:xpath, "//input[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
+        end
+
+        context "when only one signature collection and scope are available" do
+          let(:other_initiative_type_scope) { nil }
+          let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, online_signature_enabled: false) }
+
+          it "hides and autmoatically selects the values" do
+            expect(page).not_to have_content("Signature collection type")
+            expect(page).not_to have_content("Scope")
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+            expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("In-person")
+          end
         end
       end
 
