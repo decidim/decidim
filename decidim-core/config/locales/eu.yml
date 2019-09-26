@@ -1158,11 +1158,7 @@ eu:
       long_words: luzeegia daukaten hitzak (35 karaktere baino gehiago)
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
-      not_found: ez da aurkitu
       not_locked: ez zen blokeatuta
-      not_saved:
-        one: '1 errore hau debekatu egin da %{resource} gordetzean:'
-        other: "%{count} errore hau debekatu zuen %{resource} gordetzean:"
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)

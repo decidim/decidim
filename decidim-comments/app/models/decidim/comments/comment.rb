@@ -106,6 +106,12 @@ module Decidim
                                   .map(&:author).pluck(:id).flatten.compact.uniq
       end
 
+      def can_participate?(user)
+        return true unless root_commentable&.respond_to?(:can_participate?)
+
+        root_commentable.can_participate?(user)
+      end
+
       private
 
       # Private: Check if commentable can have comments and if not adds

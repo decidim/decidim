@@ -1158,11 +1158,7 @@ pt-BR:
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
-      not_found: não encontrado
       not_locked: não estava trancado
-      not_saved:
-        one: '1 erro proibiu que este %{resource} fosse salvo:'
-        other: "%{count} erros proibiram este %{resource} de ser salvo:"
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
       too_short: é muito curto (menos de 15 caracteres)

@@ -31,6 +31,12 @@ module Decidim
         end
       end
 
+      def can_participate?(user)
+        return false unless user
+
+        users.include?(user)
+      end
+
       def self.public_spaces
         where(private_space: false)
       end
