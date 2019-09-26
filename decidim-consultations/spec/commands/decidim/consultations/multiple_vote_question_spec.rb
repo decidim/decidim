@@ -51,6 +51,11 @@ module Decidim
           expect { subject.call }.to broadcast :ok
         end
 
+        it "increases the participants counter by one" do
+          subject.call
+          expect(question.total_participants).to eq(1)
+        end
+
         it "creates a vote" do
           expect do
             subject.call
