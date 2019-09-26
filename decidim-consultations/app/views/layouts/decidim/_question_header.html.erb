@@ -20,6 +20,8 @@
   </div>
 </div>
 
+<%= yield :question_header_instructions if content_for? :question_header_instructions %>
+
 <div class="row column consultations-title">
   <h1 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h1>
   <% unless question.hashtag.blank? %>
@@ -30,17 +32,3 @@
 
   <%= yield :question_header_details if content_for? :question_header_details %>
 </div>
-
-<% if question.external_voting %>
-  <iframe src="<%= question.i_frame_url %>"></iframe>
-<% else %>
-  <% if question.results_published? %>
-    <%= render partial: "decidim/consultations/questions/results", locals: { question: question } %>
-  <% else %>
-    <div id="question-<%= question.id %>-vote-button">
-      <%= render partial: "decidim/consultations/questions/vote_button", locals: { question: question } %>
-    </div>
-  <% end %>
-<% end %>
-
-<%= render partial: "layouts/decidim/question_components", locals: { question: question } %>
