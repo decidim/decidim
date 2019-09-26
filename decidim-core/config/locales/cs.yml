@@ -331,7 +331,7 @@ cs:
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute_1: Atribut kroku dummy 1
+            dummy_step_attribute_1: Atribut 1 zástupného kroku
             dummy_step_attribute_2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
