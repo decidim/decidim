@@ -284,7 +284,7 @@ cs:
             resources_permissions_enabled: Oprávnění zdrojů povoleno
           step:
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute_1: Atribut kroku dummy 1
+            dummy_step_attribute_1: Atribut 1 zástupného kroku
             dummy_step_attribute_2: Atribut 2 zástupného kroku
     contact: Kontakt
     content_blocks:
