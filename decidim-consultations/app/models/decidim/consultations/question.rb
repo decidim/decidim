@@ -70,8 +70,22 @@ module Decidim
         @most_voted_response ||= responses.order(votes_count: :desc).first
       end
 
+      # Total number of votes, on multiple votes questions does not match users voting
       def total_votes
         @total_votes ||= responses.sum(&:votes_count)
+      end
+
+      # Total number of users voting
+      def total_participants
+        @total_participants ||= votes.select(:decidim_author_id).distinct.count
+      end
+
+      # Multiple answers allowed?
+      def multiple?
+        return false if external_voting
+        return false if max_votes.blank?
+
+        max_votes > 1
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
