@@ -57,7 +57,8 @@ module Decidim
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
         text = renderer.render(links: links, extras: extras).html_safe
 
-        Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
+        text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener") if links
+        text
       end
     end
   end
