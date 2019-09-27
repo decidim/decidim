@@ -252,6 +252,10 @@ ca:
         votes_out_of:
           one: vot d'un total de
           other: vots d'un total de
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            votes: Vots
       question_votes:
         create:
           error: Hi ha hagut errors en votar la pregunta
