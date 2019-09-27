@@ -141,7 +141,7 @@ fr:
       results:
         count:
           results_count:
-            one: 1 réalisation
+            one: "%{count} réalisation"
             other: "%{count} réalisations"
         filters:
           all: Tous

@@ -97,7 +97,7 @@ fr:
       sortitions:
         count:
           proposals_count:
-            one: 1 proposition
+            one: "%{count} proposition"
             other: "%{count} propositions"
         filters:
           active: Actif
@@ -148,5 +148,5 @@ fr:
           deleted: Utilisateur supprimé
         sortitions_count:
           count:
-            one: 1 tirage au sort
+            one: "%{count} tirage au sort"
             other: "%{count} tirages au sort"

@@ -97,7 +97,7 @@ fr:
           title: Vous décidez du budget
         count:
           projects_count:
-            one: 1 projet
+            one: "%{count} projet"
             other: "%{count} projets"
         filters:
           category: Catégorie
@@ -125,7 +125,7 @@ fr:
             one: projet sélectionné sur un total de
             other: projets sélectionnés sur un total de
           remaining_projects:
-            one: 1 projet pour valider votre vote.
+            one: "%{count} projet pour valider votre vote."
             other: "%{count} projets pour valider votre vote."
           remove: Supprimer
           selected_projects:
@@ -139,7 +139,7 @@ fr:
         project:
           add: Ajouter
           count:
-            one: 1 soutien
+            one: "%{count} soutien"
             other: "%{count} soutiens"
           remove: Supprimer
           view: Voir
