@@ -19,6 +19,9 @@ hu:
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
         i_frame_url: Külső szavazási rendszer URL
+        instructions: A szavazást kiegészítő utasítások
+        max_votes: A szavazatok maximális száma
+        min_votes: A szavazatok minimális száma
         origin_scope: Hatáskör
         origin_title: Kiindulópont
         origin_url: Kiindulópont URL
@@ -33,10 +36,21 @@ hu:
         vote: Külső szavazási rendszer
         what_is_decided: Mi a döntés
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: A szavazatok maximális számának nagyobbnak vagy egyenlőnek kell lennie, mint a minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Válasz nem található.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Érvénytelen szavazatok száma
     models:
       decidim/consultation:
         one: Konzultáció
@@ -89,6 +103,7 @@ hu:
           title: Új konzultáció
         results:
           not_visible: Az eredmények a konzultáció lezárásakor lesznek elérhetőek
+          participants: "%{count} résztvevő"
           total_votes: 'Összes: %{count} szavazat'
         update:
           error: Hiba történt a konzultáció frissítése során.
@@ -101,6 +116,7 @@ hu:
           results: Eredmények
         questions_submenu:
           components: Elemek
+          configuration: Konfiguráció
           consultation: Konzultáció
           info: Információ
           responses: Válaszok
@@ -128,6 +144,11 @@ hu:
           name:
             one: Válasz
             other: Válaszok
+      question_configuration:
+        disable_external_voting: Kérjük, tiltsa le a külső szavazást speciális konfigurációkhoz
+        form:
+          help: Állítson be több választási kérdést azáltal, hogy növeli a résztvevő által választható válaszok maximális számát. Az alapértelmezett maximális érték 1, azaz csak egy választ lehet megszavazni.
+          title: Haladó konfiguráció
       question_publications:
         create:
           error: Hiba történt a kérdés közzététele során.
@@ -232,6 +253,22 @@ hu:
         votes_out_of:
           one: 'szavazat ennyiből:'
           other: szavazatok
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: A résztvevők legalább %{votes} szavazatot oszthatnak el lehetőségek között.
+          title: Ebben a kérdésben több választás lehetséges
+          total_participants: Összesen %{count} ember vett részt a szavazásban.
+          vote_limit:
+            description: A résztvevők akár %{limit} opcióról szavazhatnak.
+        voting_rules:
+          minimum_votes_per_user:
+            description: A különféle lehetőségek között el kell osztania legalább %{votes} szavazatot.
+          title: 'A szavazásra ezen szabályok vonatkoznak:'
+          vote_limit:
+            description: Legfeljebb %{limit} javaslatról szavazhatsz.
+            left: Hátralévő
+            votes: Szavazatok
       question_votes:
         create:
           error: Hiba történt a kérdésre való szavazás során
@@ -309,3 +346,4 @@ hu:
         unfold: Kibontás
       question_header:
         back_to_consultation: Összes konzultáció megtekintése
+        back_to_question: Vissza a kérdéshez
