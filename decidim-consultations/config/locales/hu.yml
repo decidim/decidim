@@ -19,6 +19,9 @@ hu:
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
         i_frame_url: Külső szavazási rendszer URL
+        instructions: A szavazást kiegészítő utasítások
+        max_votes: A szavazatok maximális száma
+        min_votes: A szavazatok minimális száma
         origin_scope: Hatáskör
         origin_title: Kiindulópont
         origin_url: Kiindulópont URL
