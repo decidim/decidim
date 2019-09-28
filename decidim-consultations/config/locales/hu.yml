@@ -147,6 +147,7 @@ hu:
       question_configuration:
         disable_external_voting: Kérjük, tiltsa le a külső szavazást speciális konfigurációkhoz
         form:
+          help: Állítson be több választási kérdést azáltal, hogy növeli a résztvevő által választható válaszok maximális számát. Az alapértelmezett maximális érték 1, azaz csak egy választ lehet megszavazni.
           title: Haladó konfiguráció
       question_publications:
         create:
@@ -254,6 +255,8 @@ hu:
           other: szavazatok
       question_multiple_votes:
         results_rules:
+          minimum_votes_per_user:
+            description: A résztvevők legalább %{votes} szavazatot oszthatnak el lehetőségek között.
           title: Ebben a kérdésben több választás lehetséges
           total_participants: Összesen %{count} ember vett részt a szavazásban.
           vote_limit:
