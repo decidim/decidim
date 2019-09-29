@@ -147,6 +147,7 @@ fi:
       question_configuration:
         disable_external_voting: Poista ulkoinen äänestys käytöstä lisäasetuksille
         form:
+          help: Aseta useita vastausvaihtoehtoja nostamalla enimmäisvastausten määrää. Oletuksena enimmäismäärä on 1, mikä tarkoittaa, että vain yhtä vastausvaihtoehtoa voi äänestää.
           title: Lisäasetukset
       question_publications:
         create:
@@ -255,7 +256,7 @@ fi:
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
-            description: Osallistujat voivat jakaa vähintään %{votes} ääntä eri vaihtoehtojen kesken.
+            description: Osallistujat voivat antaa vähintään %{votes} ääntä eri vaihtoehtojen kesken.
           title: Useampi vastausvaihtoehto sallittiin tässä kysymyksessä
           total_participants: '%{count} ihmistä osallistui tähän äänestykseen.'
           vote_limit:
