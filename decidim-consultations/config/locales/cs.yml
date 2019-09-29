@@ -285,6 +285,10 @@ cs:
           minimum_votes_per_user:
             description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
           title: 'Hlasování podléhá těmto pravidlům:'
+          vote_limit:
+            description: Můžete hlasovat až pro %{limit} návrhů.
+            left: Zbývá
+            votes: Hlasů
       question_votes:
         create:
           error: Během hlasování se vyskytly chyby
@@ -362,3 +366,4 @@ cs:
         unfold: Rozvinout
       question_header:
         back_to_consultation: Podívejte se na všechny konzultace
+        back_to_question: Zpět k otázce
