@@ -19,6 +19,9 @@ cs:
         hashtag: Hashtag
         hero_image: Domácí obrázek
         i_frame_url: Adresa URL externího hlasování
+        instructions: Další pokyny pro hlasování
+        max_votes: Maximální počet hlasů
+        min_votes: Minimální počet hlasů
         origin_scope: Rozsah
         origin_title: Původ
         origin_url: Původní URL
@@ -33,10 +36,21 @@ cs:
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximální počet hlasů by měl být vyšší nebo stejný než minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Odpověď nebyla nalezena.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Počet hlasů je neplatný
     models:
       decidim/consultation:
         one: Konzultace
@@ -97,6 +111,7 @@ cs:
           title: Nová konzultace
         results:
           not_visible: Výsledky budou k dispozici při uzavírání konzultací
+          participants: "%{count} účastníků"
           total_votes: 'Celkem: %{count} hlasů'
         update:
           error: Při aktualizaci této konzultace došlo k chybě.
@@ -109,6 +124,7 @@ cs:
           results: Výsledky
         questions_submenu:
           components: Komponenty
+          configuration: Nastavení
           consultation: Konzultace
           info: Informace
           responses: Odpovědi
@@ -142,6 +158,11 @@ cs:
             few: Odpovědi
             many: Odpovědi
             other: Odpovědi
+      question_configuration:
+        disable_external_voting: Prosím, zakažte externí hlasování pro pokročilé konfigurace
+        form:
+          help: Nastavení mnoha otázek při výběru maximálním počtem reakcí, které si může účastník vybrat, je 1, což znamená, že lze hlasovat pouze o jedné odpovědi.
+          title: Pokročilé nastavení
       question_publications:
         create:
           error: Při publikování této otázky došlo k chybě.
@@ -252,6 +273,18 @@ cs:
           few: hlasy z
           many: hlasy z
           other: hlasy z
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Účastníci by mohli mezi různými možnostmi rozdělit minimum %{votes} hlasů.
+          title: V této otázce je povoleno několik možností
+          total_participants: Účastnilo se hlasování celkem %{count} lidí.
+          vote_limit:
+            description: Účastníci by mohli hlasovat podle %{limit} opcí.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
+          title: 'Hlasování podléhá těmto pravidlům:'
       question_votes:
         create:
           error: Během hlasování se vyskytly chyby
