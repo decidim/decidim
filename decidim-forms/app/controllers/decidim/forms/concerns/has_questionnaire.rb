@@ -16,11 +16,10 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :allow_unregistered?, :update_url
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-            @signature = session_token
             render template: "decidim/forms/questionnaires/show"
           end
 
@@ -29,7 +28,7 @@ module Decidim
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
 
-            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire, session_token) do
+            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire, request) do
               on(:ok) do
                 # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
                 flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)
@@ -54,6 +53,16 @@ module Decidim
           # return true if the questionnaire can receive answers by unregistered users
           def allow_unregistered?
             false
+          end
+
+          # Public: return true if the current user (if logged) can answer the questionnaire
+          def visitor_can_answer?
+            current_user || allow_unregistered?
+          end
+
+          # Public: return true if the current user (or session visitor) can answer the questionnaire
+          def visitor_already_answered?
+            questionnaire.answered_by?(current_user || tokenize(session[:session_id]))
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
@@ -86,8 +95,8 @@ module Decidim
             @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
           end
 
-          def session_token
-            @session_token ||= Digest::MD5.hexdigest("#{session[:session_id]}-#{Rails.application.secrets.secret_key_base}")
+          def tokenize(id)
+            Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
           end
         end
       end
