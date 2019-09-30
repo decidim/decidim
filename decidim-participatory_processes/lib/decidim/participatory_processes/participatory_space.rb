@@ -33,9 +33,9 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     context.layout = "layouts/decidim/admin/participatory_process"
   end
 
-  participatory_space.exports :participatory_processes do |exports|
-    exports.collection do |participatory_space_instance|
-      Decidim::ParticipatoryProcess.where(id: participatory_space_instance.id)
+  participatory_space.exports :participatory_processes do |export|
+    export.collection do |participatory_process|
+      participatory_process if Decidim::ParticipatoryProcess.exists?(id: participatory_process.id)
     end
 
     exports.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer

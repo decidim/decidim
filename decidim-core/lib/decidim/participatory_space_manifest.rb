@@ -128,14 +128,14 @@ module Decidim
     end
 
     # Public: Registers an export artifact with a name and its properties
-    # defined in `Decidim::Components::ExportManifest`.
+    # defined in `Decidim::Exporters::ExportManifest`.
     #
-    # Export artifacts provide an unified way for components to register
-    # exportable collections serialized via a `Serializer` than eventually
+    # Export artifacts provide a unified way for processes to register
+    # exportable collections serialized via a `Serializer` that eventually
     # are transformed to their formats.
     #
-    # name  - The name of the artifact. Should be unique in the context of
-    #         the component.
+    # name  - The name of the artifact for this export. Should be unique in the
+    # context of the space.
     # block - A block that receives the manifest as its only argument.
     #
     # Returns nothing.
@@ -147,12 +147,12 @@ module Decidim
     end
 
     # Pubic: Returns a collection of previously registered export manifests
-    # for this component.
+    # for this space.
     #
-    # Returns an Array<Decidim::Components::ExportManifest>.
+    # Returns an Array of <Decidim::Exporters::ExportManifest>.
     def export_manifests
       @export_manifests ||= Array(@exports).map do |(name, block)|
-        Decidim::ParticipatorySpaces::ExportManifest.new(name, self).tap do |manifest|
+        Decidim::Exporters::ExportManifest.new(name, self).tap do |manifest|
           block.call(manifest)
         end
       end
