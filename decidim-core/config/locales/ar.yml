@@ -326,7 +326,6 @@ ar:
           email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
         new:
           complete_profile: الملف الشخصي الكامل
-          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
           sign_up: يرجى استكمال ملف التعريف الخاص بك
           subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
@@ -335,7 +334,6 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
           sign_in: تسجيل الدخول
           sign_up: سجل
           sign_up_as:
