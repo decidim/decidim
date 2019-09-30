@@ -33,6 +33,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     context.layout = "layouts/decidim/admin/participatory_process"
   end
 
+  participatory_space.exports :participatory_processes do |exports|
+    exports.collection do |participatory_space_instance|
+      Decidim::ParticipatoryProcess.where(id: participatory_space_instance.id)
+    end
+
+    exports.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")

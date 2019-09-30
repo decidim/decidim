@@ -2,6 +2,7 @@
 
 require "decidim/settings_manifest"
 require "decidim/participatory_space_context_manifest"
+require "decidim/participatory_spaces/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a participatory
@@ -124,6 +125,37 @@ module Decidim
     # Returns nothing.
     def register_resource(name, &block)
       Decidim.register_resource(name, &block)
+    end
+
+    # Public: Registers an export artifact with a name and its properties
+    # defined in `Decidim::Components::ExportManifest`.
+    #
+    # Export artifacts provide an unified way for components to register
+    # exportable collections serialized via a `Serializer` than eventually
+    # are transformed to their formats.
+    #
+    # name  - The name of the artifact. Should be unique in the context of
+    #         the component.
+    # block - A block that receives the manifest as its only argument.
+    #
+    # Returns nothing.
+    def exports(name, &block)
+      return unless name
+      @exports ||= []
+      @exports << [name, block]
+      @export_manifests = nil
+    end
+
+    # Pubic: Returns a collection of previously registered export manifests
+    # for this component.
+    #
+    # Returns an Array<Decidim::Components::ExportManifest>.
+    def export_manifests
+      @export_manifests ||= Array(@exports).map do |(name, block)|
+        Decidim::ParticipatorySpaces::ExportManifest.new(name, self).tap do |manifest|
+          block.call(manifest)
+        end
+      end
     end
   end
 end
