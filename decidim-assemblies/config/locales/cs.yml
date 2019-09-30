@@ -269,7 +269,6 @@ cs:
         others: Ostatní
         public: Veřejnost
       filter:
-        all: Všechny typy sestav
         commission: Komise
         consultative_advisory: Poradní / poradní
         executive: Výkonný
