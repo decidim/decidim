@@ -75,6 +75,7 @@ en:
         filter:
           all: Show all processes
           process_groups: Process Groups
+        import_process: Import
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
@@ -135,6 +136,11 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
+      participatory_process_imports:
+        new:
+          import: Import          
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_groups:
         destroy:
           success: Participatory process group successfully deleted.
@@ -286,6 +292,9 @@ en:
           highlighted_processes:
             max_results: Maximum amount of elements to show
         participatory_process_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
