@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Randomable
 
       component_manifest_name "budgets"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy

@@ -69,6 +69,7 @@
 - **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
 - **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
 - **decidim-core**: Fix email notifications [#5370](https://github.com/decidim/decidim/pull/5370)
+- **decidim-assemblies**, **decidim-core**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-system** [\#5329](https://github.com/decidim/decidim/pull/5329)
 
 **Removed**:
 

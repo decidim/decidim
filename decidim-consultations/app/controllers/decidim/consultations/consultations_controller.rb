@@ -10,7 +10,7 @@ module Decidim
       include NeedsConsultation
       include FilterResource
       include Paginable
-      include Orderable
+      include Decidim::Consultations::Orderable
       include ParticipatorySpaceContext
 
       helper_method :collection, :consultations, :finished_consultations, :active_consultations, :filter
