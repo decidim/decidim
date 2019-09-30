@@ -85,7 +85,7 @@ module Decidim
 
     # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
     def self.public_spaces
-      where(private_space: false).or(where(private_space: true).where(is_transparent: true))
+      where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
     end
 
     # Scope to return only the promoted assemblies.

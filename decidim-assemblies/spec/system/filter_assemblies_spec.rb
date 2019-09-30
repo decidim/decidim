@@ -20,11 +20,11 @@ describe "Filter Assemblies", type: :system do
 
     before do
       visit decidim_assemblies.assemblies_path
-      click_button "All types of assemblies"
+      click_button "All types"
     end
 
     it "filters by All types" do
-      click_link "All types of assemblies"
+      click_link "All types"
       expect(page).to have_selector("article.card.card--assembly", count: 7)
     end
 
