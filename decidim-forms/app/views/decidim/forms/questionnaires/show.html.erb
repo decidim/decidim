@@ -39,6 +39,7 @@
                 <% end %>
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
+                  <%= invisible_captcha %>
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
                       <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>

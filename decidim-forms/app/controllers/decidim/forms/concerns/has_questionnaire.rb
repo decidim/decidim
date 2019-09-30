@@ -18,6 +18,8 @@ module Decidim
 
           helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url
 
+          invisible_captcha on_spam: :spam_detected
+
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
             render template: "decidim/forms/questionnaires/show"
@@ -93,6 +95,15 @@ module Decidim
 
           def questionnaire
             @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
+          end
+
+          def spam_detected
+            enforce_permission_to :answer, :questionnaire
+
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
+
+            flash.now[:alert] = I18n.t("answer.spam_detected", scope: i18n_flashes_scope)
+            render template: "decidim/forms/questionnaires/show"
           end
 
           def tokenize(id)

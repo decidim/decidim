@@ -3,6 +3,9 @@
 require "spec_helper"
 
 describe "Answer a survey", type: :system do
+  InvisibleCaptcha.honeypots = [:honeypot_id]
+  InvisibleCaptcha.visual_honeypots = true
+
   let(:manifest_name) { "surveys" }
 
   let(:title) do
@@ -69,6 +72,22 @@ describe "Answer a survey", type: :system do
       # Unregistered users are tracked with their session_id so they won't be allowed to repeat easily
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
+    end
+
+    context "and honeypot is filled" do
+      it "fails with spam complain" do
+        visit_component
+        fill_in question.body["en"], with: "My first answer"
+        fill_in "honeypot_id", with: "I am a robot"
+
+        check "questionnaire_tos_agreement"
+
+        accept_confirm { click_button "Submit" }
+
+        within ".alert.flash" do
+          expect(page).to have_content("problem")
+        end
+      end
     end
 
     def questionnaire_public_path
