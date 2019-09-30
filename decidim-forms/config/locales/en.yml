@@ -59,7 +59,6 @@ en:
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
-          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'
