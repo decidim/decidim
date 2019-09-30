@@ -59,8 +59,8 @@ en:
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
-          success: Form successfully answered.
           spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          success: Form successfully answered.
         question:
           max_choices: 'Max choices: %{n}'
         show:
@@ -82,3 +82,7 @@ en:
       user_answers_serializer:
         created_at: Answered on
         id: Answer ID
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status
