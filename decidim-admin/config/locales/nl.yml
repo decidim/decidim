@@ -246,6 +246,7 @@ nl:
         form:
           default_step_settings: Standaard instellingen stappen
           global_settings: Algemene instellingen
+          participatory_texts_enabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
           step_settings: Instellingen van de stappen
         index:
           add: Voeg onderdeel toe
