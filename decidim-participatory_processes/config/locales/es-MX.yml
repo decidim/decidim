@@ -136,6 +136,7 @@ es-MX:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
+          error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: El grupo de proceso participativo se eliminó con éxito.
         edit:
           title: Editar grupo de procesos
@@ -235,6 +236,9 @@ es-MX:
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} creó el grupo de procesos participativos de %{resource_name}"
+        update: "%{user_name} actualizó el grupo de procesos participativos de %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"

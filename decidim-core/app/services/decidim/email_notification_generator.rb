@@ -65,6 +65,7 @@ module Decidim
     def send_email_to(recipient, user_role:)
       return unless recipient
       return unless recipient.email_on_notification?
+      return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       NotificationMailer
         .event_received(

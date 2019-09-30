@@ -29,17 +29,22 @@ module Decidim
       end
 
       def title(links: false, extras: true, html_escape: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.title)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = collaborative_draft.title
         text = decidim_html_escape(text) if html_escape
-        text
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        renderer.render(links: links, extras: extras).html_safe
       end
 
       def body(links: false, extras: true, strip_tags: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(collaborative_draft.body)
-        text = renderer.render(links: links, extras: extras).html_safe
+        text = collaborative_draft.body
         text = strip_tags(text) if strip_tags
-        Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener") if links
+        text
       end
     end
   end

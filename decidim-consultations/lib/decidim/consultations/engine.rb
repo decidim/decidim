@@ -30,6 +30,7 @@ module Decidim
             end
             resource :question_widget, only: :show, path: "embed"
             resource :question_votes, only: [:create, :destroy], path: "vote"
+            resource :question_multiple_votes, only: [:create, :show], path: "multivote"
           end
         end
 

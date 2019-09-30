@@ -38,6 +38,8 @@
 - **decidim-verifications**: Allow resending SMS code. [\#4928](https://github.com/decidim/decidim/pull/4928)
 - **decidim-forms**: Add `:created_at` and `:id` to survey particpant answers (UserAnswersSerializer) [ \#4990](https://github.com/decidim/decidim/pull/4990)
 - **decidim-forms** Render readonly questionnaire to non logged participants [\#4991](https://github.com/decidim/decidim/pull/4991)
+- **decidim-consultations**: Allow multi-choice answers to questions in consultations. [#5356](https://github.com/decidim/decidim/pull/5356)
+- **decidim-proposals**: Allow admins to create image galleries in proposals if attachments are enabled. [\#5339](https://github.com/decidim/decidim/pull/5339)
 - **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
 - **decidim-admin**, **decidim-assemblies**, **decidim-participatory-processes**: Add CSV Import to Participatory Space Private Users. [\#5304](https://github.com/decidim/decidim/pull/5304)
 - **decidim-participatory-processes**: Add: process group presenter [#5289](https://github.com/decidim/decidim/pull/5289)
@@ -99,6 +101,7 @@
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**, **decidim-admin**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Multiple bugfixes [\#5329](https://github.com/decidim/decidim/pull/5329)
 - **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
 - **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
+- **decidim-core**: Fix email notifications [#5370](https://github.com/decidim/decidim/pull/5370)
 
 **Removed**:
 

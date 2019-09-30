@@ -20,7 +20,7 @@ module Decidim
         EORESULT
 
         it "converts all URLs to links and strips attributes in anchors" do
-          expect(subject.body(strip_tags: true)).to eq(result)
+          expect(subject.body(links: true, strip_tags: true)).to eq(result)
         end
       end
     end

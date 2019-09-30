@@ -175,7 +175,7 @@ hu:
           title: Új terület
         no_areas: Nincs terület
         update:
-          error: Hiba történt ezen terület frissítése során.
+          error: Hiba történt a terület frissítésekor.
           success: Terület frissítése sikeres
       attachment_collections:
         create:
@@ -288,7 +288,7 @@ hu:
             not_managed: Nem felügyelt
           filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
+          impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
