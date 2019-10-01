@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/settings_manifest"
-require "decidim/components/export_manifest"
+require "decidim/exporters/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a component
@@ -133,9 +133,9 @@ module Decidim
     end
 
     # Public: Registers an export artifact with a name and its properties
-    # defined in `Decidim::Components::ExportManifest`.
+    # defined in `Decidim::Exporters::ExportManifest`.
     #
-    # Export artifacts provide an unified way for components to register
+    # Export artifacts provide a unified way for components to register
     # exportable collections serialized via a `Serializer` than eventually
     # are transformed to their formats.
     #
@@ -154,10 +154,10 @@ module Decidim
     # Pubic: Returns a collection of previously registered export manifests
     # for this component.
     #
-    # Returns an Array<Decidim::Components::ExportManifest>.
+    # Returns an Array of <Decidim::Exporters::ExportManifest>.
     def export_manifests
       @export_manifests ||= Array(@exports).map do |(name, block)|
-        Decidim::Components::ExportManifest.new(name, self).tap do |manifest|
+        Decidim::Exporters::ExportManifest.new(name, self).tap do |manifest|
           block.call(manifest)
         end
       end
