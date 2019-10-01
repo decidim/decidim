@@ -53,6 +53,8 @@ module Decidim
           promoted: participatory_process.promoted,
           scopes_enabled: participatory_process.scopes_enabled,
           show_statistics: participatory_process.show_statistics,
+          participatory_process_steps: serialize_participatory_process_steps,
+          participatory_process_categories: serialize_categories,
         }
       end
 
@@ -60,6 +62,48 @@ module Decidim
 
       attr_reader :participatory_process
 
+      def serialize_participatory_process_steps
+        return unless participatory_process.steps.any?
+
+        participatory_process.steps.map do |step|
+          {
+            id: step.try(:id),
+            title: step.try(:title),
+            description: step.try(:description),
+            start_date: step.try(:start_date),
+            end_date: step.try(:end_date),
+            cta_path: step.try(:cta_path),
+            cta_text: step.try(:cta_text)
+          }
+        end
+      end
+
+      def serialize_categories
+        return unless participatory_process.categories.first_class.any?
+
+        participatory_process.categories.first_class.map do |category|
+          {
+            id: category.try(:id),
+            name: category.try(:name),
+            description: category.try(:description),
+            parent_id: category.try(:parent_id),
+            subcategories: serialize_subcategories(category.subcategories)
+          }
+        end
+      end
+
+      def serialize_subcategories subcategories
+        return unless subcategories.any?
+
+        subcategories.map do |subcategory|
+          {
+            id: subcategory.try(:id),
+            name: subcategory.try(:name),
+            description: subcategory.try(:description),
+            parent_id: subcategory.try(:parent_id),
+          }
+        end  
+      end
     end
   end
 end
