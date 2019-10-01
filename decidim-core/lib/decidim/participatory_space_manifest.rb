@@ -2,7 +2,7 @@
 
 require "decidim/settings_manifest"
 require "decidim/participatory_space_context_manifest"
-require "decidim/participatory_spaces/export_manifest"
+require "decidim/exporters/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a participatory
