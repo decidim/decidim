@@ -25,9 +25,6 @@ module Decidim
 
           transaction do
             import_participatory_process
-            # copy_participatory_process_steps if @form.copy_steps?
-            # copy_participatory_process_categories if @form.copy_categories?
-            # copy_participatory_process_components if @form.copy_components?
           end
 
           broadcast(:ok, @imported_process)
@@ -38,33 +35,18 @@ module Decidim
         attr_reader :form
 
         def import_participatory_process
-          text = document_parsed(form.document_text).first
-          
-          @imported_process = ParticipatoryProcess.create!(
-            organization: form.current_organization,
-            title: form.title,
-            slug: form.slug,
-            subtitle: text["subtitle"],
-            hashtag: text["hashtag"],
-            description: text["description"],
-            short_description: text["short_description"],
-            # hero_image: text["hero_image"],
-            # banner_image: text["banner_image"],
-            promoted: text["promoted"],
-            # scope: @participatory_process.scope,
-            developer_group: text["developer_group"],
-            local_area: text["local_area"],
-            # area: @participatory_process.area,
-            target: text["target"],
-            participatory_scope: text["participatory_scope"],
-            participatory_structure: text["participatory_structure"],
-            meta_scope: text["meta_scope"],
-            start_date: text["start_date"],
-            end_date: text["end_date"],
-            # participatory_process_group: @participatory_process.participatory_process_group
-          )
+          participatory_processes.map do |original_process|
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import(original_process, form)
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_participatory_process_steps(original_process["participatory_process_steps"], form) if form.import_steps?
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
+            # Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
+          end.compact
         end
 
+        def participatory_processes
+          document_parsed(form.document_text)
+        end
+        
         def document_parsed document_text
           JSON.parse(document_text)
         end
