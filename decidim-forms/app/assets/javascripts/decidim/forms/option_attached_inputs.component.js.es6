@@ -14,7 +14,7 @@
         const $field = $(el);
         const enabled = $field.is(":checked");
 
-        $field.parents("label").find(this.dependentInputSelector).prop("disabled", !enabled);
+        $field.parents("div.collection-input").find(this.dependentInputSelector).prop("disabled", !enabled);
       });
     }
 
