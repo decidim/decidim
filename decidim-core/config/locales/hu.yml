@@ -177,6 +177,7 @@ hu:
           evaluating: |-
             Ezt a %{amendable_type} %{proposal_link}
             módosító javaslat értékelés alatt van.
+          promoted: Felterjesztve %{amendable_type} -nak.
           rejected: "A %{amendable_type} %{proposal_link}\nre vonatkozó módosítást <strong>%{date}</strong>én elutasították."
           withdrawn: |-
             Ezt a %{amendable_type} %{proposal_link}
