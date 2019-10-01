@@ -11,8 +11,8 @@ module Decidim
       search_scope_action?
 
       return permission_action unless user
-      return user_manager_permissions if not_admin? && user_manager?
 
+      user_manager_permissions
       manage_self_user_action?
       authorization_action?
       follow_action?
@@ -170,15 +170,6 @@ module Decidim
 
     def user_manager_permissions
       Decidim::UserManagerPermissions.new(user, permission_action, context).permissions
-    end
-
-    def not_admin?
-      !user.admin?
-    end
-
-    # Whether the user has the user_manager role or not.
-    def user_manager?
-      user.role? "user_manager"
     end
   end
 end
