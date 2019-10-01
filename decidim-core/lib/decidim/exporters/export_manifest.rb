@@ -2,37 +2,42 @@
 
 module Decidim
   module Exporters
-    # This class serves as a DSL to declarative specify which artifacts are
-    # exportable in a component. It is used via the `ComponentManifest`.
+    # This class serves as a DSL to declaratively specify which artifacts are
+    # exportable in a parent manifest.
+    # A parent manifest is the manifest that will be used by the Serializer
+    # to take the settings of the element to serialize. For example a parent
+    # manifest may be a ParticipatorySpaceManifest or a ComponentManifest.
     #
     class ExportManifest
       include ActiveModel::Model
       include Virtus.model
 
-      attr_reader :name, :component_manifest
-
-      # An setting to choose if the collection exported by this manifest should
-      # be included in the open data export available for all users.
-      attribute :include_in_open_data, Boolean, default: false
+      attr_reader :name, :manifest
 
       # Initializes the manifest.
       #
       # name - The name of the export artifact. It should be unique in the
-      #        component.
+      #        space or component.
       #
-      # component_manifest - The parent ComponentManifest where this export
-      #                      manifest belongs to.
+      # manifest - The parent manifest where this export manifest belongs to.
       #
-      def initialize(name, component_manifest)
+      def initialize(name, manifest)
         @name = name.to_sym
-        @component_manifest = component_manifest
+        @manifest = manifest
       end
 
-      # Public: Sets the collection when a block is given, or returns it if
-      # no block is provided.
+      # Public: Sets the +collection block+ when a block is given, or returns
+      # the previously setted +collection block+ if no block is provided.
       #
-      # The collection will get passed an instance of `Decidim::Component` when
-      # it's evaluated so you can easily find the elements to export.
+      # The +collection block+ knows how to obtain the collection of elements
+      # to be serialized by the +Serializer+.
+      #
+      # The +collection block+ should be invoked like
+      # `export.collection.call(artifact_type)` and, when evaluated,
+      # will get passed an instance of the parent artifact type,
+      # `Decidim::ParticipatorySpace` or `Decidim::Component` for example,
+      # so you can easily find the elements to export. The +collection block+
+      # in the end should return the collection of elements to be serialized.
       #
       # &block - An optional block that returns the collection once evaluated.
       #
