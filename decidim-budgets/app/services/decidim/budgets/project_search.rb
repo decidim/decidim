@@ -10,7 +10,6 @@ module Decidim
       # component     - A Decidim::Component to get the projects from.
       def initialize(options = {})
         super(Project.all, options)
-        @random_seed = options[:random_seed].to_f
       end
 
       # Handle the search_text filter
@@ -22,16 +21,7 @@ module Decidim
 
       # Returns the random projects for the current page.
       def results
-        @results ||= Project.transaction do
-          Project.connection.execute("SELECT setseed(#{Project.connection.quote(random_seed)})")
-          super.reorder(Arel.sql("RANDOM()")).load
-        end
-      end
-
-      # Returns the random seed used to randomize the proposals.
-      def random_seed
-        @random_seed = (rand * 2 - 1) if @random_seed == 0.0 || @random_seed > 1 || @random_seed < -1
-        @random_seed
+        Project.where(id: super.pluck(:id))
       end
 
       private

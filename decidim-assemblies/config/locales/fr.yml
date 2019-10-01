@@ -263,7 +263,6 @@ fr:
         others: Autres
         public: Public
       filter:
-        all: Tous types de montages
         commission: Commission
         consultative_advisory: Consultatif
         executive: Exécutif

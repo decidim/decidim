@@ -263,7 +263,6 @@ ca:
         others: Altres
         public: Públic
       filter:
-        all: Tots els tipus d'assemblees
         commission: Comissió
         consultative_advisory: Consultiva / Assessora
         executive: Executiu

@@ -263,7 +263,6 @@ fi-pl:
         others: Muut
         public: Julkinen
       filter:
-        all: Kaikentyyppiset ryhmät
         commission: Komitea
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja

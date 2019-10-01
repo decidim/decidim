@@ -33,7 +33,7 @@ module Decidim
         activities.each do |activity|
           break if valid_activities_count == activities_to_show
 
-          if activity.resource_lazy.present? && activity.participatory_space_lazy.present? && visible_for_user?(activity)
+          if activity.visible_for?(current_user)
             @valid_activities << activity
             valid_activities_count += 1
           end
@@ -43,12 +43,6 @@ module Decidim
       end
 
       private
-
-      def visible_for_user?(activity)
-        return true unless activity.resource_lazy.respond_to?(:can_participate?)
-
-        activity.resource_lazy.can_participate?(current_user)
-      end
 
       def activities
         @activities ||= HomeActivitySearch.new(

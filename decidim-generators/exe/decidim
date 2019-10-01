@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 if File.exist?(File.expand_path("../../.git", __dir__))
-  ENV["RUBYOPT"] = ENV["RUBYOPT"].sub("-rsimplecov ", "")
-  ENV["RUBYLIB"] = ENV["RUBYLIB"].sub("#{File.expand_path("..", __dir__)}/lib:", "")
+  ENV["RUBYOPT"] = ENV["RUBYOPT"].to_s.sub("-rsimplecov ", "")
+  ENV["RUBYLIB"] = ENV["RUBYLIB"].to_s.sub("#{File.expand_path("..", __dir__)}/lib:", "")
 
   gem "decidim-core"
 end
@@ -16,9 +16,11 @@ when "--component"
 
   Decidim::Generators::ComponentGenerator.start
 when "--version"
-  puts Decidim.version
+  require "decidim/core/version"
+  puts Decidim::Core.version
 when "--help"
-  puts "Decidim #{Decidim.version}
+  require "decidim/core/version"
+  puts "Decidim #{Decidim::Core.version}
 Syntax: decidim [options] [App or Module name]
 https://decidim.org
 

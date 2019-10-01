@@ -38,7 +38,7 @@ module Decidim
       end
 
       def self.public_spaces
-        where(private_space: false)
+        where(private_space: false).published
       end
 
       def self.private_spaces

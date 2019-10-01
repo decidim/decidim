@@ -260,7 +260,6 @@ id:
         others: Lainnya
         public: Publik
       filter:
-        all: Semua jenis majelis
         commission: Komisi
         consultative_advisory: Konsultatif / Penasihat
         executive: Eksekutif
