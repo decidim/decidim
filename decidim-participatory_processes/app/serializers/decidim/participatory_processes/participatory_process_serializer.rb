@@ -27,8 +27,8 @@ module Decidim
           announcement: participatory_process.announcement,
           start_date: participatory_process.start_date,
           end_date: participatory_process.end_date,
-          hero_image: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).hero_image_url,
-          banner_image: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).banner_image_url,
+          remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).hero_image_url,
+          remote_banner_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).banner_image_url,
           developer_group: participatory_process.developer_group,
           local_area: participatory_process.local_area,
           meta_scope: participatory_process.meta_scope,
@@ -43,7 +43,7 @@ module Decidim
             id: participatory_process.participatory_process_group.try(:id),
             name: participatory_process.participatory_process_group.try(:name) || empty_translatable,
             description: participatory_process.participatory_process_group.try(:description) || empty_translatable,
-            image: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(participatory_process.participatory_process_group).hero_image_url
+            remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(participatory_process.participatory_process_group).hero_image_url
           },
           scope: {
             id: participatory_process.scope.try(:id),
@@ -55,7 +55,10 @@ module Decidim
           show_statistics: participatory_process.show_statistics,
           participatory_process_steps: serialize_participatory_process_steps,
           participatory_process_categories: serialize_categories,
-          attachments: serialize_attachments,
+          attachments: {
+            attachment_collections: serialize_attachment_collections,
+            files: serialize_attachments
+          }
         }
       end
 
@@ -74,7 +77,9 @@ module Decidim
             start_date: step.try(:start_date),
             end_date: step.try(:end_date),
             cta_path: step.try(:cta_path),
-            cta_text: step.try(:cta_text)
+            cta_text: step.try(:cta_text),
+            active: step.active,
+            position: step.position,
           }
         end
       end
@@ -129,7 +134,7 @@ module Decidim
             weight: attachment.try(:weight),
             description: attachment.try(:description),
             attachment_collection_id: attachment.try(:attachment_collection_id),
-            file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url 
+            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url 
           }
         end
       end
