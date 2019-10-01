@@ -364,6 +364,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
+          nickname_help: Uw alias in %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
