@@ -35,10 +35,11 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
 
   participatory_space.exports :participatory_processes do |export|
     export.collection do |participatory_process|
-      participatory_process if Decidim::ParticipatoryProcess.exists?(id: participatory_process.id)
+      Decidim::ParticipatoryProcess.where(id: participatory_process.id)
+      # participatory_process if Decidim::ParticipatoryProcess.exists?(id: participatory_process.id)
     end
 
-    exports.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
+    export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
   end
 
   participatory_space.seeds do
