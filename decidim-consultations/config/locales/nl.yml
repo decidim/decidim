@@ -144,6 +144,9 @@ nl:
           name:
             one: Antwoord
             other: Antwoorden
+      question_configuration:
+        form:
+          title: Geavanceerde instellingen
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
@@ -250,6 +253,8 @@ nl:
           other: stemmen uit
       question_multiple_votes:
         voting_rules:
+          minimum_votes_per_user:
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.

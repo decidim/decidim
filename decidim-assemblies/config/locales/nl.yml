@@ -263,7 +263,6 @@ nl:
         others: Overige
         public: Openbaar
       filter:
-        all: Alle soorten groepen
         commission: Commissie
         consultative_advisory: Adviesgroep
         executive: Uitvoerend

@@ -75,7 +75,7 @@ cs:
           questionnaire_for_private_users:
             body: Dotazník je k dispozici pouze pro soukromé uživatele
             title: Dotazník byl uzavřen
-          submit: Předložit
+          submit: Odeslat
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       user_answers_serializer:
         created_at: Zodpovězeno
