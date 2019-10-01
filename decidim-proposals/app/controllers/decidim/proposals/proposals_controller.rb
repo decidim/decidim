@@ -54,7 +54,7 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless can_show_proposal?
+        raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
 
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
