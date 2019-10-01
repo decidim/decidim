@@ -158,4 +158,8 @@ shared_examples "manage assemblies" do
       expect(page).to have_admin_callout("successfully")
     end
   end
+
+  it "shows the Assemblies link to manage nested assemblies" do
+    expect(page).to have_link("Assemblies", href: decidim_admin_assemblies.assemblies_path(parent_id: assembly.id))
+  end
 end
