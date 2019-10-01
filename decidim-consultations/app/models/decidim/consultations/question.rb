@@ -94,14 +94,14 @@ module Decidim
         max_votes > 1
       end
 
-      # TODO: Sorted responses according to configuration
+      # Sorted responses by date so admins have a way to predict it
       def sorted_responses
-        responses.sort_by { |r| r.response_group&.id.to_i }
+        @sorted_responses ||= responses.sort_by(&:created_at)
       end
 
       # matrix of responses by group (sorted by configuration)
       def grouped_responses
-        sorted_responses.group_by(&:response_group)
+        @grouped_responses ||= sorted_responses.group_by(&:response_group)
       end
 
       def grouped?
