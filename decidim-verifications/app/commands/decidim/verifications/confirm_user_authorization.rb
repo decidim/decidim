@@ -31,6 +31,8 @@ module Decidim
         else
           broadcast(:invalid)
         end
+      rescue StandardError => e
+        broadcast(:invalid, e.message)
       end
 
       protected
