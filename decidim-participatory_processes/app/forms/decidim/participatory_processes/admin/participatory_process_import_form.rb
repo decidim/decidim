@@ -16,6 +16,7 @@ module Decidim
         attribute :slug, String
         attribute :import_steps, Boolean
         attribute :import_categories, Boolean
+        attribute :import_attachments, Boolean
         attribute :import_components, Boolean
         attribute :document
 
@@ -36,7 +37,6 @@ module Decidim
 
           errors.add(:slug, :taken)
         end
-
       end
     end
   end

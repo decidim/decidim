@@ -217,7 +217,7 @@ module Decidim
           :process,
           :process_step,
           :process_user_role, 
-          :export,
+          :export_space,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -225,7 +225,6 @@ module Decidim
 
       def org_admin_action?
         return unless user.admin?
-
         is_allowed = [
           :attachment,
           :attachment_collection,
@@ -237,7 +236,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :space_private_user, 
-          :export,
+          :export_space,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed

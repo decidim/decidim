@@ -55,6 +55,7 @@ module Decidim
           show_statistics: participatory_process.show_statistics,
           participatory_process_steps: serialize_participatory_process_steps,
           participatory_process_categories: serialize_categories,
+          attachments: serialize_attachments,
         }
       end
 
@@ -103,6 +104,34 @@ module Decidim
             parent_id: subcategory.try(:parent_id),
           }
         end  
+      end
+
+      def serialize_attachment_collections
+        return unless participatory_process.attachment_collections.any?
+
+        participatory_process.attachment_collections.map do |collection|
+          {
+            id: collection.try(:id),
+            name: collection.try(:name),
+            weight: collection.try(:weight),
+            description: collection.try(:description)
+          }
+        end
+      end
+      
+      def serialize_attachments
+        return unless participatory_process.attachments.any?
+        
+        participatory_process.attachments.map do |attachment|
+          {
+            id: attachment.try(:id),
+            title: attachment.try(:title),
+            weight: attachment.try(:weight),
+            description: attachment.try(:description),
+            attachment_collection_id: attachment.try(:attachment_collection_id),
+            file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url 
+          }
+        end
       end
     end
   end
