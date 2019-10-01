@@ -12,6 +12,10 @@ module Decidim
       include ActiveModel::Model
       include Virtus.model
 
+      # A setting to choose if the collection exported by this manifest should
+      # be included in the open data export available for all users.
+      attribute :include_in_open_data, Boolean, default: false
+
       attr_reader :name, :manifest
 
       # Initializes the manifest.
