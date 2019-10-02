@@ -249,9 +249,9 @@ fr:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Consultatif
-        executive: Exécutif
-        government: Gouvernement
+        consultative_advisory: Organe consultatif
+        executive: Organe exécutif
+        government: Comité de pilotage
         others: Autres
         participatory: Participatif
         working_group: Groupe de travail
