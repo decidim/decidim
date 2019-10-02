@@ -19,7 +19,7 @@ fr:
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
-        participatory_structure: Modalités
+        participatory_structure: Modalités de décision
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Périmètre d'application
@@ -356,7 +356,7 @@ fr:
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
-        participatory_structure: Modalités
+        participatory_structure: Modalités de décision
         private_space: Ceci est une concertation privée
         scope: Périmètre d'application
         start_date: Date de début
