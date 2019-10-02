@@ -36,14 +36,14 @@ module Decidim
 
         def import_participatory_process
           participatory_processes.map do |original_process|
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import(original_process, form)
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import(original_process, form)
             if form.import_steps?
-              Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_participatory_process_steps(
+              Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_participatory_process_steps(
                 original_process["participatory_process_steps"], form
               )
             end
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
           end.compact
         end
 

@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
-    module ParticipatoryProcessBuilder
+    module ParticipatoryProcessImporter
       # Public: Creates a new ParticipatoryProcess.
       #
       # attributes        - The Hash of attributes to create the ParticipatoryProcess with.
@@ -21,10 +21,8 @@ module Decidim
             description: attributes["description"],
             short_description: attributes["short_description"],
             promoted: attributes["promoted"],
-            # scope: @participatory_process.scope,
             developer_group: attributes["developer_group"],
             local_area: attributes["local_area"],
-            # area: @participatory_process.area,
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
@@ -145,9 +143,10 @@ module Decidim
 
       def remote_file_exists?(url)
         return if url.nil?
+        accepted = ["image", "application/pdf"]
         url = URI.parse(url)
         Net::HTTP.start(url.host, url.port) do |http|
-          return http.head(url.request_uri)["Content-Type"].start_with? "image"
+          return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
         end
       end
 

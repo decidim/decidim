@@ -136,11 +136,6 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
-      participatory_process_imports:
-        new:
-          import: Import          
-          select: Select which data you would like to import
-          title: Import participatory process
       participatory_process_groups:
         destroy:
           success: Participatory process group successfully deleted.
@@ -153,6 +148,14 @@ en:
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -183,7 +186,8 @@ en:
           create: Create
           title: New participatory process phase
         ordering:
-          error: There was a problem in reordering these phases of the participatory process.
+          error: There was a problem in reordering these phases of the participatory
+            process.
         update:
           error: There was a problem updating this phase of the participatory process.
           success: Participatory phase successfully updated.
@@ -243,31 +247,65 @@ en:
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_step:
-        activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
-        create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
-        delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
+        activate: "%{user_name} activated the %{resource_name} phase in the %{space_name}
+          participatory process"
+        create: "%{user_name} created the %{resource_name} phase in the %{space_name}
+          participatory process"
+        delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name}
+          participatory process"
+        update: "%{user_name} updated the %{resource_name} phase in the %{space_name}
+          participatory process"
       participatory_process_user_role:
-        create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
-        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
-        update: "%{user_name} changed the role of the participant %{resource_name} in the %{space_name} participatory process"
+        create: "%{user_name} invited the participant %{resource_name} to the %{space_name}
+          participatory process"
+        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name}
+          participatory process"
+        update: "%{user_name} changed the role of the participant %{resource_name}
+          in the %{space_name} participatory process"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'The %{resource_title} phase is now active for %{participatory_space_title}.
+            You can see it from this page:'
+          email_outro: You have received this notification because you are following
+            %{participatory_space_title}. You can stop receiving notifications following
+            the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The %{resource_title} phase is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'The dates for the %{resource_title} phase at %{participatory_space_title} have been updated. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'The dates for the %{resource_title} phase at %{participatory_space_title}
+            have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following
+            %{participatory_space_title}. You can stop receiving notifications following
+            the previous link.
           email_subject: An update to %{participatory_space_title}
-          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> phase at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a>
+            phase at <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+            have been updated.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
-          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of
+            participatory activities (e.g. first filling out a survey, then making
+            proposals, discussing them in face-to-face or virtual meetings, and finally
+            prioritizing them) with the aim of defining and making a decision on a
+            specific topic.</p> <p>Examples of participatory processes are: a process
+            of electing committee members (where candidatures are first presented,
+            then debated and finally a candidacy is chosen), participatory budgets
+            (where proposals are made, valued economically and voted on with the money
+            available), a strategic planning process, the collaborative drafting of
+            a regulation or norm, the design of an urban space or the production of
+            a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory
+            activities (e.g. first filling out a survey, then making proposals, discussing
+            them in face-to-face or virtual meetings, and finally prioritizing them)
+            with the aim of defining and making a decision on a specific topic.</p>
+            <p>Examples of participatory processes are: a process of electing committee
+            members (where candidatures are first presented, then debated and finally
+            a candidacy is chosen), participatory budgets (where proposals are made,
+            valued economically and voted on with the money available), a strategic
+            planning process, the collaborative drafting of a regulation or norm,
+            the design of an urban space or the production of a public policy plan.</p>\n"
           title: What is a participatory process?
     menu:
       processes: Processes
@@ -293,17 +331,25 @@ en:
             max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this
+              process. Only accepts letters, numbers and dashes, and must start with
+              a letter. Example: %{url}'
         participatory_process_imports:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this
+              process. Only accepts letters, numbers and dashes, and must start with
+              a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters,
+              numbers, dashes and slashes, and must start with a letter. If not set,
+              the button will not be shown. Example: %{url}'
             cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
+            announcement_help: The text you enter here will be shown to the user right
+              below the process information.
             duration: Duration
             filters: Filters
             images: Images
@@ -311,7 +357,9 @@ en:
             other: Other
             select_an_area: Select an Area
             select_process_group: Select a process group
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this
+              process. Only accepts letters, numbers and dashes, and must start with
+              a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
       content_blocks:
@@ -347,7 +395,8 @@ en:
           explanations:
             no_active: No active processes
             no_active_nor_upcoming: No active nor upcoming processes
-            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes.
+              Here is a list of the past ones.
           names:
             active: Active
             all: All
