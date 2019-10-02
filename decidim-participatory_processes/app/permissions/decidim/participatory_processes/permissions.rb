@@ -216,7 +216,7 @@ module Decidim
           :moderation,
           :process,
           :process_step,
-          :process_user_role, 
+          :process_user_role,
           :export_space,
           :import
         ].include?(permission_action.subject)
@@ -235,7 +235,7 @@ module Decidim
           :process,
           :process_step,
           :process_user_role,
-          :space_private_user, 
+          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)
