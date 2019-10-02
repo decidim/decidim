@@ -554,7 +554,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: Click the next button to download your data. <br/> You will have the file available until %{date}.
+        click_button: "Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href='https://www.7-zip.org/'>7-Zip</a> to open it. Password: %{password}"
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
