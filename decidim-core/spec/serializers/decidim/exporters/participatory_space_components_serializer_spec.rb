@@ -38,7 +38,6 @@ module Decidim::Exporters
 
         def serialized_component_attrs_should_be_as_expected(serialized)
           component = components[serialized[:id]]
-          expect(serialized[:component_class]).to eq(component.class.name)
           expect(serialized[:manifest_name]).to eq(component.manifest_name)
           expect(serialized[:name]).to eq(component.name)
           expect(serialized[:participatory_space_id]).to eq(component.participatory_space_id)
@@ -46,6 +45,7 @@ module Decidim::Exporters
           expect(serialized[:settings]).to eq(component.settings.to_json)
           expect(serialized[:weight]).to eq(component.weight)
           expect(serialized[:permissions]).to eq(component.permissions)
+          expect(serialized[:published_at]).to be_within(1.second).of(component.published_at)
         end
       end
     end

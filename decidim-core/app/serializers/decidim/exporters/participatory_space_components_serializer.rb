@@ -18,7 +18,6 @@ module Decidim
       def serialize
         participatory_space.components.collect do |component|
           serialized = {
-            component_class: component.class.name,
             manifest_name: component.manifest_name,
             id: component.id,
             name: component.name,
@@ -26,7 +25,8 @@ module Decidim
             participatory_space_type: component.participatory_space_type,
             settings: component.settings.to_json,
             weight: component.weight,
-            permissions: component.permissions
+            permissions: component.permissions,
+            published_at: component.published_at
           }
           fill_component_specific_data(component, serialized) if has_component_specific_data?(component)
           serialized

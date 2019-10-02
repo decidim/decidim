@@ -58,7 +58,8 @@ module Decidim
           attachments: {
             attachment_collections: serialize_attachment_collections,
             files: serialize_attachments
-          }
+          },
+          components: serialize_components
         }
       end
 
@@ -141,6 +142,11 @@ module Decidim
             remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
           }
         end
+      end
+
+      def serialize_components
+        serializer= Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
+        serializer.serialize
       end
     end
   end
