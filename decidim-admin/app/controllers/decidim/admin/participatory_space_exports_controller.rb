@@ -25,7 +25,6 @@ module Decidim
       def default_format
         "json"
       end
-
     end
   end
 end

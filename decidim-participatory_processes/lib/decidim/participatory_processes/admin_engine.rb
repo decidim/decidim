@@ -19,7 +19,7 @@ module Decidim
         resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
-          
+
           resources :steps, controller: "participatory_process_steps" do
             resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
             collection do
@@ -33,9 +33,9 @@ module Decidim
           end
           resources :attachment_collections, controller: "participatory_process_attachment_collections"
           resources :attachments, controller: "participatory_process_attachments"
-          
+
           resource :export, controller: "participatory_process_exports", only: :create
-          
+
           collection do
             resources :imports, controller: "participatory_process_imports", only: [:new, :create]
           end

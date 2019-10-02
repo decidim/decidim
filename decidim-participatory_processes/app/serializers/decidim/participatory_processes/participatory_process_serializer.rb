@@ -39,7 +39,7 @@ module Decidim
             id: participatory_process.area.try(:id),
             name: participatory_process.area.try(:name) || empty_translatable
           },
-          participatory_process_group:{
+          participatory_process_group: {
             id: participatory_process.participatory_process_group.try(:id),
             name: participatory_process.participatory_process_group.try(:name) || empty_translatable,
             description: participatory_process.participatory_process_group.try(:description) || empty_translatable,
@@ -79,7 +79,7 @@ module Decidim
             cta_path: step.try(:cta_path),
             cta_text: step.try(:cta_text),
             active: step.active,
-            position: step.position,
+            position: step.position
           }
         end
       end
@@ -98,7 +98,7 @@ module Decidim
         end
       end
 
-      def serialize_subcategories subcategories
+      def serialize_subcategories(subcategories)
         return unless subcategories.any?
 
         subcategories.map do |subcategory|
@@ -106,9 +106,9 @@ module Decidim
             id: subcategory.try(:id),
             name: subcategory.try(:name),
             description: subcategory.try(:description),
-            parent_id: subcategory.try(:parent_id),
+            parent_id: subcategory.try(:parent_id)
           }
-        end  
+        end
       end
 
       def serialize_attachment_collections
@@ -123,10 +123,10 @@ module Decidim
           }
         end
       end
-      
+
       def serialize_attachments
         return unless participatory_process.attachments.any?
-        
+
         participatory_process.attachments.map do |attachment|
           {
             id: attachment.try(:id),
@@ -138,7 +138,7 @@ module Decidim
               weight: attachment.attachment_collection.try(:weight),
               description: attachment.attachment_collection.try(:description)
             },
-            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url 
+            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
           }
         end
       end
