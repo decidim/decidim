@@ -4,7 +4,7 @@ module Decidim
   module Admin
     module ParticipatorySpaceExport
       extend ActiveSupport::Concern
-  
+
       included do
         helper_method :exportable_space
 
@@ -18,13 +18,12 @@ module Decidim
           redirect_back(fallback_location: after_export_path)
         end
 
-
         # Public: The only method to be implemented at the controller. You need to
         # return the space that will be exported.
         def exportable_space
           raise NotImplementedError
         end
-        
+
         # Public: Returns a String or Object that will be passed to `redirect_to` after
         # exporing a space. By default it redirects to the root_path.
         #

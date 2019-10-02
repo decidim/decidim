@@ -7,7 +7,7 @@ module Decidim
       # Public: Creates a new ParticipatoryProcess.
       #
       # attributes        - The Hash of attributes to create the ParticipatoryProcess with.
-      # form              - 
+      # form              -
       #
       # Returns a ParticipatoryProcess.
       def import(attributes, form)
@@ -34,8 +34,8 @@ module Decidim
             private_space: attributes["private_space"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"], form)
           )
-          @imported_process.remote_hero_image_url= attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
-          @imported_process.remote_banner_image_url= attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
+          @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
+          @imported_process.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
           @imported_process.save!
           @imported_process
         end
@@ -44,14 +44,14 @@ module Decidim
       module_function :import
 
       def import_process_group(attributes, form)
-        Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, form.current_user ) do
+        Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, form.current_user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
             name: attributes["name"],
             description: attributes["description"],
             organization: form.current_organization
           )
 
-          group.remote_hero_image_url= attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
+          group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           group.save!
           group
         end
@@ -73,7 +73,7 @@ module Decidim
             position: step_attributes["position"]
           )
         end
-      end 
+      end
 
       module_function :import_participatory_process_steps
 
@@ -96,7 +96,7 @@ module Decidim
               description: subcategory_attributes["description"],
               parent_id: category.id,
               participatory_space: @imported_process
-            ) 
+            )
           end
         end
       end
@@ -106,7 +106,7 @@ module Decidim
       def import_folders_and_attachments(attachments, form)
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
-          Decidim.traceability.perform_action!("create", Attachment, form.current_user ) do
+          Decidim.traceability.perform_action!("create", Attachment, form.current_user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
@@ -117,11 +117,11 @@ module Decidim
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
             attachment
-          end 
+          end
         end
 
         attachments["attachment_collections"].map do |collection|
-          Decidim.traceability.perform_action!("create", AttachmentCollection, form.current_user ) do
+          Decidim.traceability.perform_action!("create", AttachmentCollection, form.current_user) do
             create_attachment_collection(collection)
           end
         end
@@ -129,7 +129,7 @@ module Decidim
 
       module_function :import_folders_and_attachments
 
-      def create_attachment_collection attributes
+      def create_attachment_collection(attributes)
         return unless attributes.compact.any?
         attachment_collection = AttachmentCollection.find_or_initialize_by(
           name: attributes["name"],
@@ -147,7 +147,7 @@ module Decidim
         return if url.nil?
         url = URI.parse(url)
         Net::HTTP.start(url.host, url.port) do |http|
-          return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+          return http.head(url.request_uri)["Content-Type"].start_with? "image"
         end
       end
 

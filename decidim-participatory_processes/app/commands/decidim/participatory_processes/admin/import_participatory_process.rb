@@ -37,7 +37,11 @@ module Decidim
         def import_participatory_process
           participatory_processes.map do |original_process|
             Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import(original_process, form)
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_participatory_process_steps(original_process["participatory_process_steps"], form) if form.import_steps?
+            if form.import_steps?
+              Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_participatory_process_steps(
+                original_process["participatory_process_steps"], form
+              )
+            end
             Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
             Decidim::ParticipatoryProcesses::ParticipatoryProcessBuilder.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
           end.compact
@@ -46,23 +50,10 @@ module Decidim
         def participatory_processes
           document_parsed(form.document_text)
         end
-        
-        def document_parsed document_text
+
+        def document_parsed(document_text)
           JSON.parse(document_text)
         end
-
-        # def add_admins_as_followers(process)
-        #   process.organization.admins.each do |admin|
-        #     form = Decidim::FollowForm
-        #            .from_params(followable_gid: process.to_signed_global_id.to_s)
-        #            .with_context(
-        #              current_organization: process.organization,
-        #              current_user: admin
-        #            )
-
-        #     Decidim::CreateFollow.new(form, admin).call
-        #   end
-        # end
       end
     end
   end

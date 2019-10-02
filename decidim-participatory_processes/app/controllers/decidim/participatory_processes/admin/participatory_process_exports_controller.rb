@@ -6,7 +6,7 @@ module Decidim
       class ParticipatoryProcessExportsController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
         include Decidim::Admin::ParticipatorySpaceExport
-        
+
         def exportable_space
           current_participatory_process
         end

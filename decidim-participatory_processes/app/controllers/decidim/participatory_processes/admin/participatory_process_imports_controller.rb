@@ -12,7 +12,7 @@ module Decidim
         def create
           enforce_permission_to :import, :process
           @form = form(ParticipatoryProcessImportForm).from_params(params)
-        
+
           ImportParticipatoryProcess.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_processes_imports.create.success", scope: "decidim.admin")

@@ -29,7 +29,7 @@ module Decidim
         def document_text
           @document_text ||= document&.read
         end
-        
+
         private
 
         def slug_uniqueness

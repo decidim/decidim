@@ -5,7 +5,7 @@ module Decidim
     class ParticipatoryProcessPresenter < SimpleDelegator
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
-    
+
       delegate :url, to: :hero_image, prefix: true
       delegate :url, to: :banner_image, prefix: true
 
