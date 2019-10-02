@@ -9,7 +9,7 @@ module Decidim
     include ActionView::Helpers::UrlHelper
 
     delegate :url, to: :file, prefix: true
-    
+
     def attachment_file_url
       URI.join(decidim.root_url(host: attachment.attached_to.organization.host), attachment.file_url).to_s
     end
