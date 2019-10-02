@@ -15,12 +15,12 @@ module Decidim
 
           ImportParticipatoryProcess.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t("participatory_processes_imports.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("participatory_process_imports.create.success", scope: "decidim.admin")
               redirect_to participatory_processes_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_processes_imports.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("participatory_process_imports.create.error", scope: "decidim.admin")
               render :new
             end
           end
