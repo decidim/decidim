@@ -18,8 +18,8 @@ module Decidim
       def serialize
         response= []
         participatory_process.components.each do |component|
-          jcomponent = {
-            component_class: component.class.name, # do we really need it?
+          serialized = {
+            component_class: component.class.name,
             manifest_name: component.manifest_name,
             name: component.name,
             participatory_space_id: component.participatory_space_id,
@@ -28,10 +28,10 @@ module Decidim
             weight: component.weight,
             permissions: component.permissions,
           }
-          fill_component_specific_fields(jcomponent) if has_component_specific_fields?(component)
-          response << jcomponent
+          fill_component_specific_fields(serialized) if has_component_specific_fields?(component)
+          response << serialized
         end
-        jcomponent
+        response
       end
 
       private
