@@ -19,26 +19,28 @@
     <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
       <% choice_id = "#{field_id}_choices_#{idx}" %>
 
-      <%= label_tag "#{choice_id}_body" do %>
-        <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
-                             translated_attribute(answer_option.body),
-                             answer_option.id == choice.try(:answer_option_id),
-                             id: "#{choice_id}_body", disabled: disabled %>
+      <div class="collection-input">
+        <%= label_tag "#{choice_id}_body" do %>
+          <%= radio_button_tag "questionnaire[answers][#{answer_idx}][choices][][body]",
+                              translated_attribute(answer_option.body),
+                              answer_option.id == choice.try(:answer_option_id),
+                              id: "#{choice_id}_body", disabled: disabled %>
 
-        <%= translated_attribute(answer_option.body) %>
+          <%= translated_attribute(answer_option.body) %>
+
+          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][][answer_option_id]",
+                              answer_option.id,
+                              id: "#{choice_id}_answer_option",
+                              disabled: true %>
+        <% end %>
 
         <% if answer_option.free_text %>
           <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][][custom_body]",
-                             choice.try(:custom_body),
-                             id: "#{choice_id}_custom_body",
-                             disabled: true %>
+          choice.try(:custom_body),
+          id: "#{choice_id}_custom_body",
+          disabled: true %>
         <% end %>
-
-        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][][answer_option_id]",
-                             answer_option.id,
-                             id: "#{choice_id}_answer_option",
-                             disabled: true %>
-      <% end %>
+      </div>
     <% end %>
   </div>
 <% when "multiple_option" %>
@@ -46,21 +48,23 @@
     <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
       <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
-      <%= label_tag do %>
-        <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
-                          translated_attribute(answer_option.body),
-                          choice.present?, disabled: disabled %>
+      <div class="collection-input">
+        <%= label_tag do %>
+          <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+                            translated_attribute(answer_option.body),
+                            choice.present?, disabled: disabled %>
 
-        <%= translated_attribute(answer_option.body) %>
+          <%= translated_attribute(answer_option.body) %>
+
+          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+        <% end %>
 
         <% if answer_option.free_text %>
           <%= text_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][custom_body]",
-                             choice.try(:custom_body),
-                             disabled: true %>
+          choice.try(:custom_body),
+          disabled: true %>
         <% end %>
-
-        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-      <% end %>
+      </div>
     <% end %>
   </div>
 <% when "sorting" %>
@@ -68,21 +72,23 @@
     <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
       <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
-      <%= label_tag do %>
-        <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
-                          translated_attribute(answer_option.body),
-                          choice.present?, disabled: disabled %>
+      <div class="collection-input">
+        <%= label_tag do %>
+          <%= check_box_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][body]",
+                            translated_attribute(answer_option.body),
+                            choice.present?, disabled: disabled %>
 
-        <span class="position"><%= choice.try(:position) %></span>
+          <span class="position"><%= choice.try(:position) %></span>
 
-        <%= translated_attribute(answer_option.body) %>
+          <%= translated_attribute(answer_option.body) %>
 
-        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][position]",
-                             choice.try(:position),
-                             disabled: true %>
+          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][position]",
+                              choice.try(:position),
+                              disabled: true %>
 
-        <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-      <% end %>
+          <%= hidden_field_tag "questionnaire[answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>

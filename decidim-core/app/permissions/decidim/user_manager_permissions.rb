@@ -3,8 +3,10 @@
 module Decidim
   class UserManagerPermissions < DefaultPermissions
     def permissions
-      allow! if read_admin_dashboard_action?
-      allow! if impersonate_managed_user_action?
+      if user_manager?
+        allow! if read_admin_dashboard_action?
+        allow! if impersonate_managed_user_action?
+      end
 
       permission_action
     end
@@ -19,6 +21,11 @@ module Decidim
     def impersonate_managed_user_action?
       permission_action.subject == :managed_user &&
         permission_action.action == :impersonate
+    end
+
+    # Whether the user has the user_manager role or not.
+    def user_manager?
+      user && !user.admin? && user.role?("user_manager")
     end
   end
 end
