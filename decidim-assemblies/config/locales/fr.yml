@@ -34,7 +34,7 @@ fr:
         parent_id: Assemblée parente
         participatory_processes_ids: Concertations associées
         participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_structure: Modalités de décision
         private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
@@ -301,7 +301,7 @@ fr:
           'true': visible par les non-membres
         local_area: Périmètre d'assemblée
         participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
         read_less: Voir moins
