@@ -97,7 +97,7 @@ fr:
           conference_admins_title: administrateurs de la conférence
         new:
           create: Créer
-          title: Nouvel utilisateur de conférence
+          title: Nouvel administrateur de conférence.
         update:
           error: Il y avait une erreur mise à jour d'un utilisateur pour cette conférence.
           success: Utilisateur mis à jour avec succès pour cette conférence.
