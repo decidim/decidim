@@ -58,6 +58,10 @@ module Decidim
     # probably have the form of `Decidim::<MyComponent>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # Does this component have specific data to serialize?
+    # Beyond the attributes in decidim_component table.
+    attribute :serializes_specific_data, Object, default: false
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some
@@ -161,6 +165,10 @@ module Decidim
           block.call(manifest)
         end
       end
+    end
+
+    def serializes_specific_data?
+      serializes_specific_data
     end
 
     # Public: Stores an instance of StatsRegistry
