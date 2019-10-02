@@ -133,7 +133,11 @@ module Decidim
             title: attachment.try(:title),
             weight: attachment.try(:weight),
             description: attachment.try(:description),
-            attachment_collection_id: attachment.try(:attachment_collection_id),
+            attachment_collection: {
+              name: attachment.attachment_collection.try(:name),
+              weight: attachment.attachment_collection.try(:weight),
+              description: attachment.attachment_collection.try(:description)
+            },
             remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url 
           }
         end
