@@ -18,7 +18,7 @@ fr:
         decidim_area_id: Zone d'application
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Groupe initiateur
+        developer_group: Organisateur
         domain: Domaine
         duration: Durée
         facebook: Facebook
@@ -29,12 +29,12 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'organisation
+        local_area: Espace d'organisation
         meta_scope: Échelle
         parent_id: Assemblée parente
         participatory_processes_ids: Concertations associées
-        participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_scope: Objectifs
+        participatory_structure: Modalités de décision
         private_space: Espace privé
         promoted: Mise en avant
         published_at: Publiée à
@@ -46,7 +46,7 @@ fr:
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
-        target: Qui participe
+        target: Participants
         title: Titre
         twitter: Twitter
         youtube: Youtube
@@ -249,11 +249,11 @@ fr:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Consultatif
-        executive: Exécutif
-        government: Gouvernement
+        consultative_advisory: Organe consultatif
+        executive: Organe exécutif
+        government: Comité de pilotage
         others: Autres
-        participatory: Participatif
+        participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
         highlighted_assemblies:
@@ -291,7 +291,7 @@ fr:
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
-        developer_group: Groupe initiateur
+        developer_group: Organisateur
         duration: Durée
         included_at: Inclus à
         indefinite_duration: Indéfinie
@@ -300,8 +300,8 @@ fr:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
         local_area: Périmètre d'assemblée
-        participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_scope: Objectifs
+        participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
         purpose_of_action: But de l'action
         read_less: Voir moins
@@ -309,7 +309,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        target: Qui participe
+        target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
