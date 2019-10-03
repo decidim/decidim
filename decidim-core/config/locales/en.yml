@@ -230,7 +230,7 @@ en:
       photos:
         related_photos: Related images
     author:
-      avatar: avatar
+      avatar: Avatar
       comments:
         one: comment
         other: comments
