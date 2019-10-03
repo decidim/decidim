@@ -321,11 +321,11 @@ FactoryBot.define do
     end
 
     trait :with_settings do
-      manifest { 
+      manifest do
         Decidim.register_component(:dummy_component) do |manifest|
         end
         Decidim.find_component_manifest(:dummy_component)
-      }
+      end
       settings { { Random.new.bytes(10) => Random.rand } }
     end
 

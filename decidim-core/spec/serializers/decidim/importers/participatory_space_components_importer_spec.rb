@@ -21,9 +21,9 @@ module Decidim::Importers
             "manifest_name": "#{component_1.manifest_name}",
             "id": #{component_1.id},
             "name": {
-              "ca": "#{component_1.name['ca']}",
-              "en": "#{component_1.name['en']}",
-              "es": "#{component_1.name['es']}"
+              "ca": "#{component_1.name["ca"]}",
+              "en": "#{component_1.name["en"]}",
+              "es": "#{component_1.name["es"]}"
             },
             "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_1.participatory_space.class.name}",
@@ -35,9 +35,9 @@ module Decidim::Importers
             "manifest_name": "#{component_2.manifest_name}",
             "id": #{component_2.id},
             "name": {
-              "ca": "#{component_2.name['ca']}",
-              "en": "#{component_2.name['en']}",
-              "es": "#{component_2.name['es']}"
+              "ca": "#{component_2.name["ca"]}",
+              "en": "#{component_2.name["en"]}",
+              "es": "#{component_2.name["es"]}"
             },
             "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_2.participatory_space.class.name}",
@@ -59,21 +59,19 @@ module Decidim::Importers
         end
 
         def expect_imported_to_be_equal(component)
-          actual_attrs= imported_from(component).attributes.except(*%w(id updated_at created_at))
-          expected_attrs= component.attributes.except(*%w(id updated_at created_at))
-          actual_published_at= actual_attrs.delete('published_at')
-          expected_published_at= expected_attrs.delete('published_at')
-          unless actual_published_at.nil? and expected_published_at.nil?
-            expect(actual_published_at).to be_within(1.second).of(expected_published_at)
-          end
+          actual_attrs = imported_from(component).attributes.except("id", "updated_at", "created_at")
+          expected_attrs = component.attributes.except("id", "updated_at", "created_at")
+          actual_published_at = actual_attrs.delete("published_at")
+          expected_published_at = expected_attrs.delete("published_at")
+          expect(actual_published_at).to be_within(1.second).of(expected_published_at) unless actual_published_at.nil? && expected_published_at.nil?
           expect(actual_attrs).to eq(expected_attrs)
         end
 
         # Find the Decidim::Component created during importation that corresponds
         # to the +component+ used to generate the impoted json.
         def imported_from(component)
-          imported = Decidim::Component.where.not(id: component.id).
-            find_by(manifest_name: component.manifest_name, weight: component.weight)
+          imported = Decidim::Component.where.not(id: component.id)
+                                       .find_by(manifest_name: component.manifest_name, weight: component.weight)
           expect(imported).to be_present
           imported
         end
