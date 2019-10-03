@@ -14,10 +14,10 @@ module Decidim
         mimic :participatory_process
 
         attribute :slug, String
-        attribute :import_steps, Boolean
-        attribute :import_categories, Boolean
-        attribute :import_attachments, Boolean
-        attribute :import_components, Boolean
+        attribute :import_steps, Boolean, default: true
+        attribute :import_categories, Boolean, default: true
+        attribute :import_attachments, Boolean, default: true
+        attribute :import_components, Boolean, default: true
         attribute :document
 
         validates :document, presence: true
