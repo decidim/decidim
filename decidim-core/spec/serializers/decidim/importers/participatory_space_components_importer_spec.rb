@@ -6,7 +6,7 @@ module Decidim::Importers
   describe ParticipatorySpaceComponentsImporter do
     describe "#serialize" do
       subject do
-        described_class.from_json(participatory_space, json_as_text, user)
+        described_class.new.from_json(participatory_space, json_as_text, user)
       end
 
       let(:user) { create(:user) }

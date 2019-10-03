@@ -37,7 +37,7 @@ module Decidim
         def import_participatory_process
           importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, form.current_user)
           participatory_processes.map do |original_process|
-            importer.import(original_process, form.title, form.slug)
+            @imported_process = importer.import(original_process, form.title, form.slug)
             importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?
             importer.import_categories(original_process["participatory_process_categories"]) if form.import_categories?
             importer.import_folders_and_attachments(original_process["attachments"]) if form.import_attachments?

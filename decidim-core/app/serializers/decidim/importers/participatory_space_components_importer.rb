@@ -4,7 +4,7 @@ module Decidim
   module Importers
     # This class parses and imports all components in a ParticipatorySpace.
     # It currently supports JSON format.
-    module ParticipatorySpaceComponentsImporter
+    class ParticipatorySpaceComponentsImporter
       # Parses an exported list of components and imports them into the
       # platform.
       #
@@ -16,7 +16,6 @@ module Decidim
         json = JSON.parse(json_text)
         import(participatory_space, json, user)
       end
-      module_function :from_json
 
       # For each component configuration in the json,
       # creates a new Decidim::Component with that configuration.
@@ -39,7 +38,6 @@ module Decidim
           result
         end
       end
-      module_function :import
     end
   end
 end

@@ -145,7 +145,7 @@ module Decidim
       end
 
       def serialize_components
-        serializer= Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
+        serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
         serializer.serialize
       end
     end

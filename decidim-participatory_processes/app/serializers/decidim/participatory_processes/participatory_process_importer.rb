@@ -124,7 +124,10 @@ module Decidim
       end
 
       # +components+: An Array of Hashes, each corresponding with the settings of a Decidim::Component.
-      def import_components(components); end
+      def import_components(components)
+        importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new
+        importer.import(@imported_process, components, @user)
+      end
 
       private
 

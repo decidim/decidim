@@ -23,7 +23,7 @@ module Decidim
             name: component.name,
             participatory_space_id: component.participatory_space_id,
             participatory_space_type: component.participatory_space_type,
-            settings: component.settings.to_json,
+            settings: component.settings.as_json,
             weight: component.weight,
             permissions: component.permissions,
             published_at: component.published_at
