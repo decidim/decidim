@@ -9,10 +9,13 @@ module Decidim
       # Parses an exported list of components and imports them into the
       # platform.
       #
+      # +participatory_space+: The ParticipatorySpace to which all components
+      # will belong to.
       # +json_text+: A json document as a String.
-      def from_json(json_text)
+      # +user+: The Decidim::User that is importing.
+      def from_json(participatory_space, json_text, user)
         json= JSON.parse(json_text)
-        import(json)
+        import(participatory_space, json, user)
       end
       module_function :from_json
 
@@ -21,15 +24,20 @@ module Decidim
       # 
       # Returns: An Array with all components created.
       # 
+      # +participatory_space+: The ParticipatorySpace to which all components
+      # will belong to.
       # +json+: An array of json compatible Hashes with the configuration of Decidim::Components.
-      def import(json_ary)
+      # +user+: The Decidim::User that is importing.
+      def import(participatory_space, json_ary, user)
         json_ary.collect do |serialized|
-          attributes= serialized
-          Decidim.traceability.perform_action!(
-            "create",
+          attributes= serialized.with_indifferent_access
+          # we override the parent participatory sapce
+          attributes['participatory_space_id']= participatory_space.id
+          attributes['participatory_space_type']= participatory_space.class.name
+          result= Decidim.traceability.perform_action!(:create,
             Decidim::Component,
-            attributes
-          )
+            user) { Decidim::Component.create!(attributes.except(:id)) }
+          result
         end
       end
       module_function :import

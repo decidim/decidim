@@ -6,12 +6,14 @@ module Decidim::Importers
   describe ParticipatorySpaceComponentsImporter do
     describe "#serialize" do
       subject do
-        described_class.from_json(json_as_text)
+        described_class.from_json(participatory_space, json_as_text, user)
       end
 
-      let!(:component_1) { create(:component, :published, :with_settings, :with_permissions, name: :one) }
+      let(:user) { create(:user) }
+      let(:previous_participatory_space) { create(:participatory_process) }
+      let!(:component_1) { create(:component, :published, :with_settings, :with_permissions, weight: 1) }
       let!(:participatory_space) { component_1.participatory_space }
-      let!(:component_2) { create(:component, :unpublished, :with_settings, :with_permissions, name: :two, participatory_space: participatory_space) }
+      let!(:component_2) { create(:component, :unpublished, :with_settings, :with_permissions, participatory_space: participatory_space, weight: 2) }
 
       let(:json_as_text) do
         <<~EOJSON
@@ -19,48 +21,60 @@ module Decidim::Importers
             "manifest_name": "#{component_1.manifest_name}",
             "id": #{component_1.id},
             "name": {
-              "ca": "#{component_1.name[:ca]}",
-              "en": "#{component_1.name[:en]}",
-              "es": "#{component_1.name[:es]}"
+              "ca": "#{component_1.name['ca']}",
+              "en": "#{component_1.name['en']}",
+              "es": "#{component_1.name['es']}"
             },
-            "participatory_space_id": #{component_1.participatory_space.id},
+            "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_1.participatory_space.class.name}",
             "settings": #{component_1.settings.to_json},
             "weight": #{component_1.weight},
             "permissions": #{component_1.permissions.to_json},
-            "published_at": #{component_1.published_at}
+            "published_at": "#{component_1.published_at&.iso8601 || "null"}"
           }, {
             "manifest_name": "#{component_2.manifest_name}",
             "id": #{component_2.id},
             "name": {
-              "ca": "#{component_2.name[:ca]}",
-              "en": "#{component_2.name[:en]}",
-              "es": "#{component_2.name[:es]}"
+              "ca": "#{component_2.name['ca']}",
+              "en": "#{component_2.name['en']}",
+              "es": "#{component_2.name['es']}"
             },
-            "participatory_space_id": #{component_2.participatory_space.id},
+            "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_2.participatory_space.class.name}",
             "settings": #{component_2.settings.to_json},
             "weight": #{component_2.weight},
             "permissions": #{component_2.permissions.to_json},
-            "published_at": #{component_2.published_at}
+            "published_at": "#{component_2.published_at&.iso8601 || "null"}"
           }
           ]
         EOJSON
       end
 
       describe "#import" do
-        let(:imported) { subject }
+        let!(:imported) { subject }
 
         it "imports space components" do
-          expect(imported_from(component_1)).to eq(component_1)
-          expect(imported_from(component_2)).to eq(component_2)
+          expect_imported_to_be_equal(component_1)
+          expect_imported_to_be_equal(component_2)
+        end
+
+        def expect_imported_to_be_equal(component)
+          actual_attrs= imported_from(component).attributes.except(*%w(id updated_at created_at))
+          expected_attrs= component.attributes.except(*%w(id updated_at created_at))
+          actual_published_at= actual_attrs.delete('published_at')
+          expected_published_at= expected_attrs.delete('published_at')
+          unless actual_published_at.nil? and expected_published_at.nil?
+            expect(actual_published_at).to be_within(1.second).of(expected_published_at)
+          end
+          expect(actual_attrs).to eq(expected_attrs)
         end
 
         # Find the Decidim::Component created during importation that corresponds
         # to the +component+ used to generate the impoted json.
         def imported_from(component)
-          imported = Decidim::Component.find_by(manifest_name: component.manifest_name, name: component.name)
-          expect(imported).not_to be(nil)
+          imported = Decidim::Component.where.not(id: component.id).
+            find_by(manifest_name: component.manifest_name, weight: component.weight)
+          expect(imported).to be_present
           imported
         end
       end
