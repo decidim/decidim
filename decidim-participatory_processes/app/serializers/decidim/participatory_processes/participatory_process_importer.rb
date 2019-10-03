@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
-    module ParticipatoryProcessImporter
+    class ParticipatoryProcessImporter
       # Public: Creates a new ParticipatoryProcess.
       #
       # attributes        - The Hash of attributes to create the ParticipatoryProcess with.
@@ -39,8 +39,6 @@ module Decidim
         end
       end
 
-      module_function :import
-
       def import_process_group(attributes, form)
         Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, form.current_user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
@@ -54,8 +52,6 @@ module Decidim
           group
         end
       end
-
-      module_function :import_process_group
 
       def import_participatory_process_steps(steps, form)
         steps.map do |step_attributes|
@@ -72,8 +68,6 @@ module Decidim
           )
         end
       end
-
-      module_function :import_participatory_process_steps
 
       def import_categories(categories, form)
         categories.map do |category_attributes|
@@ -99,8 +93,6 @@ module Decidim
         end
       end
 
-      module_function :import_categories
-
       def import_folders_and_attachments(attachments, form)
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
@@ -125,7 +117,10 @@ module Decidim
         end
       end
 
-      module_function :import_folders_and_attachments
+      # +components+: An Array of Hashes, each corresponding with the settings of a Decidim::Component.
+      def import_components(components); end
+
+      private
 
       def create_attachment_collection(attributes)
         return unless attributes.compact.any?
@@ -139,8 +134,6 @@ module Decidim
         attachment_collection
       end
 
-      module_function :create_attachment_collection
-
       def remote_file_exists?(url)
         return if url.nil?
         accepted = ["image", "application/pdf"]
@@ -148,9 +141,9 @@ module Decidim
         Net::HTTP.start(url.host, url.port) do |http|
           return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
         end
+      rescue StandardError
+        nil
       end
-
-      module_function :remote_file_exists?
     end
   end
 end

@@ -35,15 +35,17 @@ module Decidim
         attr_reader :form
 
         def import_participatory_process
+          importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new
           participatory_processes.map do |original_process|
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import(original_process, form)
+            importer.import(original_process, form)
             if form.import_steps?
-              Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_participatory_process_steps(
+              importer.import_participatory_process_steps(
                 original_process["participatory_process_steps"], form
               )
             end
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
+            importer.import_categories(original_process["participatory_process_categories"], form) if form.import_categories?
+            importer.import_folders_and_attachments(original_process["attachments"], form) if form.import_attachments?
+            importer.import_components(original_process["components"], form) if form.import_components?
           end.compact
         end
 

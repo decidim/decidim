@@ -37,13 +37,14 @@ module Decidim::ParticipatoryProcesses
         expect(subject.serialize).to include(show_statistics: resource.show_statistics)
       end
 
-      context "if process has area" do
+      context "when process has area" do
         let(:area) { create :area, organization: resource.organization }
-        
+
         before do
           resource.area = area
           resource.save
         end
+
         it "includes the area" do
           serialized_area = subject.serialize[:area]
 
@@ -53,10 +54,10 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_area).to include(name: resource.area.name)
         end
       end
-      
-      context "if process has scope" do
+
+      context "when process has scope" do
         let(:scope) { create :scope, organization: resource.organization }
-        
+
         before do
           resource.scope = scope
           resource.save
@@ -71,16 +72,16 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_scope).to include(name: resource.scope.name)
         end
       end
-    
-      context "if process belongs to process group" do
+
+      context "when process belongs to process group" do
         let(:participatory_process_group) { create :participatory_process_group, organization: resource.organization }
-        
+
         before do
           resource.participatory_process_group = participatory_process_group
           resource.save
         end
 
-         it "includes the participatory process group" do
+        it "includes the participatory process group" do
           serialized_participatory_process_group = subject.serialize[:participatory_process_group]
 
           expect(serialized_participatory_process_group).to be_a(Hash)
@@ -91,10 +92,10 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_group).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(resource.participatory_process_group).hero_image_url)
         end
       end
-      
-      context "if process has steps" do
+
+      context "when process has steps" do
         let(:step) { create :participatory_process_step }
-        
+
         before do
           resource.steps << step
           resource.save
@@ -116,8 +117,8 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_steps).to include(position: step.position)
         end
       end
-      
-      context "if process has categories" do
+
+      context "when process has categories" do
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
@@ -129,9 +130,9 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_categories).to include(description: category.description)
           expect(serialized_participatory_process_categories).to include(parent_id: category.parent_id)
         end
-        
-        context "if category has subcategories" do
-          let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource)}
+
+        context "when category has subcategories" do
+          let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
             serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
@@ -145,7 +146,7 @@ module Decidim::ParticipatoryProcesses
           end
         end
       end
-      
+
       # it "includes the attachments" do
 
       # end
