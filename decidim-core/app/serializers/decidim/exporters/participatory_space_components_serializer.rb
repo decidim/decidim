@@ -42,7 +42,8 @@ module Decidim
       end
 
       def fill_component_specific_data(component, serialized)
-        serialized[:specific_data] = component.serialize_specific_data
+        specific_serializer = component.manifest.specific_data_serializer_class.new(component)
+        serialized[:specific_data] = specific_serializer.serialize
       end
     end
   end

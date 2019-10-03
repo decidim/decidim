@@ -8,6 +8,8 @@ Decidim.register_component(:surveys) do |component|
   component.icon = "decidim/surveys/icon.svg"
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
+  component.serializes_specific_data = true
+  component.specific_data_serializer_class_name = "Decidim::Surveys::DataSerializer"
 
   component.on(:copy) do |context|
     Decidim::Surveys::CreateSurvey.call(context[:new_component]) do

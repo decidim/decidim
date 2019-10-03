@@ -27,10 +27,10 @@ module Decidim::Exporters
         component_2.manifest.specific_data_serializer_class_name = DummySpecificDataSerializer.name
       end
 
-      describe "with specific data" do
+      describe "#serialize" do
         let(:serialized) { subject.serialize }
 
-        it "serializes space components and their specific data when exists" do
+        it "serializes space components" do
           expect(serialized.size).to eq(2)
           serialized.each do |serialized|
             serialized_component_attrs_should_be_as_expected(serialized)

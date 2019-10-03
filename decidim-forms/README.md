@@ -26,7 +26,7 @@ See [Decidim](https://github.com/decidim/decidim).
 
 ## Seeds
 
-Since questionnaires cannot exist without a real model we are not including specific seeds for this engine.
+Since questionnaires cannot exist without a component, we are not including specific seeds for this engine.
 
 Other engines are free to include questionnaires on their seeds like this:
 
