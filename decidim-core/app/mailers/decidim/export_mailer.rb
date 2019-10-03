@@ -32,9 +32,10 @@ module Decidim
     # user - The user to be notified.
     #
     # Returns nothing.
-    def data_portability_export(user, password)
+    def data_portability_export(user, filename, password)
       @user = user
       @organization = user.organization
+      @filename = filename
       @password = password
 
       with_user(user) do

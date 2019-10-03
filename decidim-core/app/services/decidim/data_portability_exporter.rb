@@ -11,10 +11,10 @@ module Decidim
     #
     # organization - The Organization to export the data from.
     # path         - The String path where to write the zip file.
-    def initialize(user, path, format, password)
+    def initialize(user, path, export_format, password)
       @user = user
       @path = File.expand_path path
-      @format = format
+      @export_format = export_format
       @password = password
     end
 
@@ -23,7 +23,7 @@ module Decidim
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
       File.open(@path, "wb") do |file|
         SevenZipRuby::Writer.open(file, password: @password) do |szw|
-          szw.add_data(data, "#{SecureRandom.urlsafe_base64}.7z")
+          szw.add_data(data, "data-portability.7z")
         end
       end
     end
@@ -32,7 +32,7 @@ module Decidim
 
     def data
       buffer = Zip::OutputStream.write_buffer do |out|
-        export_data, export_images = data_for(@user, @format)
+        export_data, export_images = data_for(@user, @export_format)
 
         export_data.each do |element|
           filename_file = element.last.filename(element.first.parameterize)

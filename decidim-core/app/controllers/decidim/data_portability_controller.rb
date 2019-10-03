@@ -44,7 +44,7 @@ module Decidim
     end
 
     def uploader
-      current_user.data_portability_file
+      current_user.data_portability_file(params[:filename])
     end
   end
 end

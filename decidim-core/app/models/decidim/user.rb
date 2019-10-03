@@ -177,15 +177,11 @@ module Decidim
     end
 
     # Caches a Decidim::DataPortabilityUploader with the retrieved file.
-    def data_portability_file
+    def data_portability_file(filename)
       @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
-        uploader.retrieve_from_store!(data_portability_filename)
-        uploader.cache!(data_portability_filename)
+        uploader.retrieve_from_store!(filename)
+        uploader.cache!(filename)
       end
-    end
-
-    def data_portability_filename
-      "#{nickname}-data-portability.zip"
     end
 
     protected
