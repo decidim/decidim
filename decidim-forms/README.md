@@ -2,6 +2,34 @@
 
 This gem encapsulates the logic to create and manage forms, so it can be reused in other modules, like surveys and meetings.
 
+A `Decidim::Forms::Question` must be of one of the types:
+
+- short_answer
+- long_answer
+- single_option
+- multiple_option
+- sorting
+
+Here are the relations between the classes of a `Decidim::Questionnaire`:
+
+```
+                  1..* +----------+         1..* +--------------+
+        +------------->| Question |------------->| AnswerOption |
+        |              +-----+----+              +------+-------+
+        |                    |                          ^ 1..*
+        |                    |                          |
+        |                    |                          |
++-------+-------+   1..* +---+----+ 1..*         +------+-------+
+| Questionnaire +------->| Answer |<-------------+ AnswerChoice |
++---------------+        +---+----+              +--------------+
+                             |
+                             |
+                             v 1..1
+                          +--+---+
+                          | User |
+                          +------+
+```
+
 ## Installation
 
 Add this line to your module's gemspec:
