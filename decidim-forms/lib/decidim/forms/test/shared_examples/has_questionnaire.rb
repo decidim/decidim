@@ -54,7 +54,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "single_option",
           position: 0,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
           ]
@@ -163,7 +163,7 @@ shared_examples_for "has questionnaire" do
           question_type: "single_option",
           position: 0,
           mandatory: true,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
           ]
@@ -205,7 +205,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
-          answer_options: [
+          options: [
             { "body" => answer_option_bodies[0] },
             { "body" => answer_option_bodies[1] },
             { "body" => answer_option_bodies[2], "free_text" => true }
@@ -219,7 +219,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "multiple_option",
           max_choices: 2,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
@@ -346,7 +346,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is single option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -372,7 +372,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -431,7 +431,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
 
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -462,7 +462,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "sorting",
-          answer_options: [
+          options: [
             { "body" => "idiotas" },
             { "body" => "trates" },
             { "body" => "No" },

@@ -14,8 +14,5 @@ FactoryBot.define do
   factory :survey, class: Decidim::Surveys::Survey do
     questionnaire { build(:questionnaire) }
     component { build(:surveys_component) }
-
-    trait :with_questions do
-    end
   end
 end

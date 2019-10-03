@@ -13,11 +13,21 @@ FactoryBot.define do
     end
     tos { generate_localized_title }
     questionnaire_for { build(:participatory_process) }
+
+    trait :with_questions do
+      questions do
+        qs = %w(short_answer long_answer).collect do |text_question_type|
+          build(:questionnaire_question, question_type: text_question_type)
+        end
+        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option)
+        qs
+      end
+    end
   end
 
   factory :questionnaire_question, class: Decidim::Forms::Question do
     transient do
-      answer_options { [] }
+      options { [] }
     end
 
     body { generate_localized_title }
@@ -27,11 +37,19 @@ FactoryBot.define do
     questionnaire
 
     before(:create) do |question, evaluator|
-      evaluator.answer_options.each do |answer_option|
+      return if question.answer_options.any?
+
+      evaluator.options.each do |option|
         question.answer_options.build(
-          body: answer_option["body"],
-          free_text: answer_option["free_text"]
+          body: option["body"],
+          free_text: option["free_text"]
         )
+      end
+    end
+
+    trait :with_answer_options do
+      answer_options do
+        Array.new(3).collect { build(:answer_option) }
       end
     end
   end
@@ -46,6 +64,7 @@ FactoryBot.define do
   factory :answer_option, class: Decidim::Forms::AnswerOption do
     question { create(:questionnaire_question) }
     body { generate_localized_title }
+    free_text { false }
   end
 
   factory :answer_choice, class: Decidim::Forms::AnswerChoice do
