@@ -4,18 +4,24 @@ module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
     class ParticipatoryProcessImporter
+      def initialize(organization, user)
+        @organization = organization
+        @user = user
+      end
+
       # Public: Creates a new ParticipatoryProcess.
       #
       # attributes        - The Hash of attributes to create the ParticipatoryProcess with.
-      # form              -
+      # title             - The +title+ for the new PartidicpatoryProcess
+      # slug              - The +slug+ for the new PartidicpatoryProcess
       #
       # Returns a ParticipatoryProcess.
-      def import(attributes, form)
-        Decidim.traceability.perform_action!(:create, ParticipatoryProcess, form.current_user, visibility: "all") do
+      def import(attributes, title, slug)
+        Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
-            organization: form.current_organization,
-            title: form.title,
-            slug: form.slug,
+            organization: @organization,
+            title: title,
+            slug: slug,
             subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
             description: attributes["description"],
@@ -30,7 +36,7 @@ module Decidim
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
             private_space: attributes["private_space"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"], form)
+            participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           @imported_process.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
@@ -39,12 +45,12 @@ module Decidim
         end
       end
 
-      def import_process_group(attributes, form)
-        Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, form.current_user) do
+      def import_process_group(attributes)
+        Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
             name: attributes["name"],
             description: attributes["description"],
-            organization: form.current_organization
+            organization: @organization
           )
 
           group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
@@ -53,11 +59,11 @@ module Decidim
         end
       end
 
-      def import_participatory_process_steps(steps, form)
+      def import_participatory_process_steps(steps)
         steps.map do |step_attributes|
           Decidim.traceability.create!(
             ParticipatoryProcessStep,
-            form.current_user,
+            @user,
             title: step_attributes["title"],
             description: step_attributes["description"],
             start_date: step_attributes["start_date"],
@@ -69,11 +75,11 @@ module Decidim
         end
       end
 
-      def import_categories(categories, form)
+      def import_categories(categories)
         categories.map do |category_attributes|
           category = Decidim.traceability.create!(
             Category,
-            form.current_user,
+            @user,
             name: category_attributes["name"],
             description: category_attributes["description"],
             parent_id: category_attributes["parent_id"],
@@ -83,7 +89,7 @@ module Decidim
           category_attributes["subcategories"].map do |subcategory_attributes|
             Decidim.traceability.create!(
               Category,
-              form.current_user,
+              @user,
               name: subcategory_attributes["name"],
               description: subcategory_attributes["description"],
               parent_id: category.id,
@@ -93,10 +99,10 @@ module Decidim
         end
       end
 
-      def import_folders_and_attachments(attachments, form)
+      def import_folders_and_attachments(attachments)
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
-          Decidim.traceability.perform_action!("create", Attachment, form.current_user) do
+          Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
@@ -111,7 +117,7 @@ module Decidim
         end
 
         attachments["attachment_collections"].map do |collection|
-          Decidim.traceability.perform_action!("create", AttachmentCollection, form.current_user) do
+          Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
             create_attachment_collection(collection)
           end
         end
