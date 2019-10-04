@@ -45,7 +45,6 @@ FactoryBot.define do
           )
         end
       end
-      question
     end
 
     trait :with_answer_options do
