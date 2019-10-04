@@ -13,7 +13,7 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :online_signature_enabled %>
+      <%= form.select :signature_type, form.object.signature_type_options %>
     </div>
 
     <div class="row column">

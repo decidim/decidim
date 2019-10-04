@@ -53,7 +53,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any]
+    enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
 
     validates :title, :description, :state, presence: true
@@ -241,8 +241,8 @@ module Decidim
     end
 
     def supports_count
-      face_to_face_votes = offline_votes.nil? || online? ? 0 : offline_votes
-      digital_votes = offline? ? 0 : (initiative_votes_count + initiative_supports_count)
+      face_to_face_votes = offline_votes.nil? || online_signature_type? ? 0 : offline_votes
+      digital_votes = offline_signature_type? ? 0 : (initiative_votes_count + initiative_supports_count)
       digital_votes + face_to_face_votes
     end
 
@@ -291,15 +291,11 @@ module Decidim
     end
 
     def accepts_offline_votes?
-      Decidim::Initiatives.face_to_face_voting_allowed &&
-        (offline? || any?) &&
-        published?
+      published? && (offline_signature_type? || any_signature_type?)
     end
 
     def accepts_online_votes?
-      Decidim::Initiatives.online_voting_allowed &&
-        (online? || any?) &&
-        votes_enabled?
+      votes_enabled? && (online_signature_type? || any_signature_type?)
     end
 
     def accepts_online_unvotes?
