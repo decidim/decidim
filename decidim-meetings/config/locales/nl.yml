@@ -378,7 +378,7 @@ nl:
           remaining_slots:
             one: "%{count} slot over"
             other: "%{count} slots over"
-          view: Uitzicht
+          view: Bekijk
       meetings_map:
         view_meeting: Bekijk vergadering
       models:

@@ -113,7 +113,7 @@ nl:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
           remove: Verwijderen
-          view: Uitzicht
+          view: Bekijk
         project_budget_button:
           add: Toevoegen
           added: Toegevoegd

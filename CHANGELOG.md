@@ -76,6 +76,7 @@ end
 
 **Fixed**:
 
+- **decidim-core**: Apply security fix for rubyzip, https://nvd.nist.gov/vuln/detail/CVE-2019-16892. [\#5393](https://github.com/decidim/decidim/pull/5393)
 - **decidim-admin**: Fix: Proposals component form introduced regression [\#5180](https://github.com/decidim/decidim/pull/5180)
 - **decidim-admin**: Fix: Link `form.js` in `assets/config/decidim_admin_manifest.js` [\#5165](https://github.com/decidim/decidim/pull/5165)
 - **decidim-core**: Fix: potential loop redirection when accepting TOS agreement on multi-languages sites [\#5162](https://github.com/decidim/decidim/pull/5162)

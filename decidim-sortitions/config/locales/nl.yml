@@ -140,7 +140,7 @@ nl:
           selected_proposals:
             one: 1 voorstel geselecteerd
             other: '%{count} voorstellen geselecteerd'
-          view: Uitzicht
+          view: Bekijk
         sortition_author:
           deleted: Verwijder gebruiker
         sortition_cancel_author:

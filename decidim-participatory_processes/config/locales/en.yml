@@ -49,6 +49,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
