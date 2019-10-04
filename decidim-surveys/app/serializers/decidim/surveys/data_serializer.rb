@@ -2,15 +2,22 @@
 
 module Decidim
   module Surveys
-    # This class serializes the component specific data in a Survey.
+    # This class serializes the specific data in each Survey.
     # This is `Questionnaire->questions->answer_options` but not `answers`
     # and `answer_choices`.
     class DataSerializer < Decidim::Exporters::Serializer
+
+      # Returns: Array of Decidim::Forms::Questionnaire as a json hash,
+      #     or nil if none exists.
       def serialize
-        survey = resource
-        questionnaire = survey.questionnaire
-        json = serialize_questionnaire(questionnaire)
-        json.with_indifferent_access
+        component = resource
+        surveys= Decidim::Surveys::Survey.where(component: component)
+        surveys.collect do |survey|
+          questionnaire = survey.questionnaire
+          next if questionnaire.nil?
+          json = serialize_questionnaire(questionnaire)
+          json.with_indifferent_access.merge(survey_id: survey.id)
+        end
       end
 
       def serialize_questionnaire(questionnaire)

@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
-    class ParticipatoryProcessImporter
+    class ParticipatoryProcessImporter <
       def initialize(organization, user)
         @organization = organization
         @user = user
@@ -11,12 +11,16 @@ module Decidim
 
       # Public: Creates a new ParticipatoryProcess.
       #
-      # attributes        - The Hash of attributes to create the ParticipatoryProcess with.
-      # title             - The +title+ for the new PartidicpatoryProcess
-      # slug              - The +slug+ for the new PartidicpatoryProcess
+      # attributes  - The Hash of attributes to create the ParticipatoryProcess with.
+      # user        - The user that performs the action.
+      # opts        - The options MUST contain:
+      #   - title: The +title+ for the new PartidicpatoryProcess
+      #   - slug: The +slug+ for the new PartidicpatoryProcess
       #
       # Returns a ParticipatoryProcess.
-      def import(attributes, title, slug)
+      def import(attributes, user, opts)
+        title= opts[:title]
+        slug= opts[:slug]
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,

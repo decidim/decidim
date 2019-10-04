@@ -16,7 +16,8 @@ module Decidim
       #
       # +serialized+: The serialized version of the resource to import.
       # +user+: The Decidim::User that is importing.
-      def import(_serialized, _user)
+      # +opts+: Extra options that specific subclasses may require.
+      def import(_serialized, _user, _opts = {})
         raise NotImplementedError, "Decidim::Importers::Importer should be subclassed."
       end
     end

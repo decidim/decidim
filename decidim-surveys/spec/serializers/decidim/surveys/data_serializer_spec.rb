@@ -6,21 +6,24 @@ module Decidim::Surveys
   describe DataSerializer do
     describe "#serialize" do
       subject do
-        described_class.new(survey)
+        described_class.new(survey.component)
       end
 
-      let!(:questionnaire) { create(:questionnaire, :with_questions) }
-      let!(:survey) { create(:survey, questionnaire: questionnaire) }
+      let!(:survey) { create(:survey) }
+      let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
 
-      let(:serialized) { subject.serialize }
+      let(:questionnaires) { subject.serialize }
 
       it "serializes questionnaire" do
+        expect(questionnaires.count).to eq(1)
+        serialized= questionnaires.first
         expect(serialized[:title]).to eq(questionnaire.title)
         expect(serialized[:description]).to eq(questionnaire.description)
         expect(serialized[:tos]).to eq(questionnaire.tos)
         expect(serialized[:questionnaire_for_type]).to eq(questionnaire.questionnaire_for_type)
         expect(serialized[:questionnaire_for_id]).to eq(questionnaire.questionnaire_for_id)
         expect(serialized[:published_at]).to eq(questionnaire.published_at)
+        expect(serialized[:survey_id]).to eq(questionnaire.questionnaire_for.id)
 
         questions_should_be_as_expected(questionnaire.questions.order(:position), serialized[:questions])
       end

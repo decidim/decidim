@@ -16,7 +16,7 @@ module Decidim
       # # slug              - The +slug+ for the new PartidicpatoryProcess
       # #
       # # Returns a ParticipatoryProcess.
-      # def import(attributes, title, slug)
+      def import(serialized, user)
       #   Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
       #     @imported_process = ParticipatoryProcess.new(
       #       organization: @organization,
@@ -43,7 +43,7 @@ module Decidim
       #     @imported_process.save!
       #     @imported_process
       #   end
-      # end
+      end
 
       # def import_process_group(attributes)
       #   Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
