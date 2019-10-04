@@ -19,7 +19,7 @@ FactoryBot.define do
         qs = %w(short_answer long_answer).collect do |text_question_type|
           build(:questionnaire_question, question_type: text_question_type)
         end
-        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option)
+        # qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option)
         qs
       end
     end
@@ -37,14 +37,15 @@ FactoryBot.define do
     questionnaire
 
     before(:create) do |question, evaluator|
-      return if question.answer_options.any?
-
-      evaluator.options.each do |option|
-        question.answer_options.build(
-          body: option["body"],
-          free_text: option["free_text"]
-        )
+      if question.answer_options.empty?
+        evaluator.options.each do |option|
+          question.answer_options.build(
+            body: option["body"],
+            free_text: option["free_text"]
+          )
+        end
       end
+      question
     end
 
     trait :with_answer_options do
