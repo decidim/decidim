@@ -147,9 +147,22 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
-      # it "includes the attachments" do
+      context "when process has attachments" do
+        let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
+        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection: attachment_collection) }
 
-      # end
+        it "includes the attachment" do
+          serialized_participatory_process_attachment = subject.serialize[:attachments][:files].first
+
+          expect(serialized_participatory_process_attachment).to be_a(Hash)
+
+          expect(serialized_participatory_process_attachment).to include(id: attachment.id)
+          expect(serialized_participatory_process_attachment).to include(title: attachment.title)
+          expect(serialized_participatory_process_attachment).to include(weight: attachment.weight)
+          expect(serialized_participatory_process_attachment).to include(description: attachment.description)
+          expect(serialized_participatory_process_attachment).to include(remote_file_url: Decidim::AttachmentPresenter.new(resource.attachments.first).attachment_file_url)
+        end
+      end
     end
   end
 end

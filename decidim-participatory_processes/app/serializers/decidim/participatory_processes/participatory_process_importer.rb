@@ -111,6 +111,7 @@ module Decidim
               weight: file["weight"]
             )
             attachment.create_attachment_collection(file["attachment_collection"])
+
             attachment.save!
             attachment
           end
