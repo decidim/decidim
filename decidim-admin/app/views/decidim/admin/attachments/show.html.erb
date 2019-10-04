@@ -1,7 +1,7 @@
 <h3><%= translated_attribute(@attachment.title) %></h3>
 
 <div class="actions">
-  <hr />
+  <hr>
   <%= link_to t("decidim.admin.actions.edit"), ["edit", @attachment.attached_to, @attachment] if allowed_to? :update, :attachment, attachment: @attachment %>
   <%= link_to t("decidim.admin.actions.destroy"), [@attachment.attached_to, @attachment], method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if allowed_to? :destroy, :attachment, attachment: @attachment %>
 </div>

@@ -1,0 +1,5 @@
+"no":
+  activemodel:
+    attributes:
+      meeting:
+        title: Tittel

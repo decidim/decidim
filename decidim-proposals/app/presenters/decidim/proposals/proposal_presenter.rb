@@ -8,6 +8,8 @@ module Decidim
     class ProposalPresenter < SimpleDelegator
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
+      include ActionView::Helpers::SanitizeHelper
+      include Decidim::SanitizeHelper
 
       def author
         @author ||= if official?
@@ -16,8 +18,10 @@ module Decidim
                       coauthorship = coauthorships.first
                       if coauthorship.user_group
                         Decidim::UserGroupPresenter.new(coauthorship.user_group)
-                      else
+                      elsif coauthorship.author.is_a?(Decidim::User)
                         Decidim::UserPresenter.new(coauthorship.author)
+                      elsif coauthorship.author.is_a?(Decidim::Meeting)
+                        Decidim::MeetingPresenter.new(coauthorship.author)
                       end
                     end
       end
@@ -41,13 +45,22 @@ module Decidim
       #
       # Returns a String.
       def title(links: false, extras: true, html_escape: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.title)
-        renderer.render(links: links, extras: extras, html_escape: html_escape).html_safe
+        text = proposal.title
+        text = decidim_html_escape(text) if html_escape
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        renderer.render(links: links, extras: extras).html_safe
       end
 
       def body(links: false, extras: true, strip_tags: false)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(proposal.body)
-        renderer.render(links: links, extras: extras, strip_tags: strip_tags).html_safe
+        text = proposal.body
+        text = strip_tags(text) if strip_tags
+
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
+        text = renderer.render(links: links, extras: extras).html_safe
+
+        text = Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener") if links
+        text
       end
     end
   end

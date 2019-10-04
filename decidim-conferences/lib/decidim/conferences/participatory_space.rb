@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:conferences) do |participatory_space|
   participatory_space.icon = "decidim/conferences/conference.svg"
   participatory_space.model_class_name = "Decidim::Conference"
+  participatory_space.stylesheet = "decidim/conferences/conferences"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Conferences::OrganizationConferences.new(organization).query

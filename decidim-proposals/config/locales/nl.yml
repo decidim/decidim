@@ -115,6 +115,7 @@ nl:
             amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             announcement: Aankondiging
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
@@ -317,6 +318,7 @@ nl:
             success: Alle participatieve tekstconcepten zijn genegeerd.
           import:
             invalid: Het formulier is ongeldig!
+            invalid_file: Het bestand bevat een fout, probeer de inhoud van het bestand te bewerken en opnieuw te uploaden.
             success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
           index:
             info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
@@ -367,6 +369,7 @@ nl:
             title: Update voorstel
             update: Bijwerken
           form:
+            add_images: Afbeeldingen toevoegen
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
             select_a_category: Kies een categorie

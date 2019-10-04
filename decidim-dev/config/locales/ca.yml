@@ -6,6 +6,7 @@ ca:
         field: El meu camp
         start_date: Data d'inici
         title: Títol
+        translatable_text: Text traduïble
         updated_at: Actualitzat el
   decidim:
     dummy:

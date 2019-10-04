@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::DataPortability
+      include Decidim::Randomable
 
       component_manifest_name "accountability"
 
@@ -26,13 +27,6 @@ module Decidim
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
-      end
 
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter

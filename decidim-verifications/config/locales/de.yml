@@ -104,7 +104,6 @@ de:
             title: Sie müssen die csv-Zählung für diese Organisation aktivieren
           new:
             file: "CSV-Datei mit E-Mail-Daten"
-            info: 'Muss eine Datei im CSV-Format mit einer Spalte sein: E-Mail'
             submit: Datei hochladen
             title: Laden Sie eine neue Volkszählung hoch
         authorizations:

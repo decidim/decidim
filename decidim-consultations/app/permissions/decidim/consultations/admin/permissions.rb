@@ -72,7 +72,7 @@ module Decidim
           case permission_action.action
           when :create, :read
             allow!
-          when :update, :destroy, :preview
+          when :update, :destroy, :preview, :configure
             toggle_allow(question.present?)
           when :publish
             toggle_allow(question.external_voting || question.responses_count.positive?)

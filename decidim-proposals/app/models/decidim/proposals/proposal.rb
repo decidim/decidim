@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Proposals::ParticipatoryTextSection
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
+      include Decidim::Randomable
 
       fingerprint fields: [:title, :body]
 
@@ -68,13 +69,6 @@ module Decidim
                         },
                         index_on_create: ->(proposal) { proposal.official? },
                         index_on_update: ->(proposal) { proposal.visible? })
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
-      end
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter

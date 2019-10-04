@@ -87,6 +87,9 @@ es-MX:
         new:
           create: Crear
           title: Nueva consulta
+        results:
+          not_visible: Los resultados estarán disponibles cuando la consulta cierre
+          total_votes: 'Total: %{count} votos'
         update:
           error: Hubo un error al actualizar esta consulta.
           success: Consulta actualizada con éxito
@@ -95,6 +98,7 @@ es-MX:
         consultations_submenu:
           info: Información
           questions: Preguntas
+          results: Resultados
         questions_submenu:
           components: Componentes
           consultation: Consulta
@@ -171,6 +175,7 @@ es-MX:
         consultations: Consultas
         questions: Preguntas
         responses: Respuestas
+        results: Resultados
     consultations:
       admin:
         content_blocks:
@@ -230,6 +235,9 @@ es-MX:
       question_votes:
         create:
           error: Ha habido errores al votar la pregunta
+          success: Puedes cambiarlo hasta el final de la consulta. Sólo se aceptará el último voto.
+          title_error: '¡Error de voto!'
+          title_success: Voto registrado correctamente
       regular_questions:
         title: Preguntas para esta consulta
       show:
@@ -274,6 +282,7 @@ es-MX:
         already_voted: Ya votado
         already_voted_hover: Revocar apoyo
         starting_from: A partir de %{date}
+        verification_required: Verifica tu cuenta para votar
         vote: Votar
       vote_modal:
         contextual_help: Por favor, selecciona una opción.
@@ -283,6 +292,10 @@ es-MX:
         confirm: Confirmar
         contextual_help: Por favor confirma la opción seleccionada.
         title: 'Consulta: confirma el apoyo'
+    resources:
+      consultations:
+        actions:
+          vote: Votar
   layouts:
     decidim:
       admin:

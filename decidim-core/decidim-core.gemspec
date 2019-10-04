@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "active_link_to", "~> 1.0"
+  s.add_dependency "anchored", ">= 1.1.0"
   s.add_dependency "autoprefixer-rails", "~> 8.0"
   s.add_dependency "batch-loader", "~> 1.2"
   s.add_dependency "carrierwave", "~> 1.3"
@@ -26,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-rails", "~> 0.0.9"
   s.add_dependency "charlock_holmes", "~> 0.7"
   s.add_dependency "date_validator", "~> 0.9.0"
-  s.add_dependency "devise", "~> 4.6"
+  s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "doorkeeper", "~> 5.1"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
@@ -61,7 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyzip", "~> 1.2", ">= 1.2.2"
   s.add_dependency "sassc", "~> 1.12", ">= 1.12.1"
   s.add_dependency "sassc-rails", "~> 1.3"
-  s.add_dependency "social-share-button", "~> 1.2"
+  s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
   s.add_dependency "spreadsheet", "~> 1.2"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
   s.add_dependency "truncato", "~> 0.7"

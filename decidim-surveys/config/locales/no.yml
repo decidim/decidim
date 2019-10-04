@@ -1,0 +1,6 @@
+"no":
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Undersøkelse
+        other: Undersøkelse

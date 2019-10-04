@@ -21,6 +21,7 @@ module Decidim
           resources :questions, param: :slug, except: :show, shallow: true do
             resource :publish, controller: "question_publications", only: [:create, :destroy]
             resource :permissions, controller: "question_permissions"
+            resource :configuration, controller: "question_configuration", only: [:edit, :update]
           end
         end
 

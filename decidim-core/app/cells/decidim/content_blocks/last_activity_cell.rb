@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Core::Engine.routes.url_helpers
 
       def show
-        return if activities.empty?
+        return if valid_activities.empty?
 
         render
       end
@@ -33,7 +33,7 @@ module Decidim
         activities.each do |activity|
           break if valid_activities_count == activities_to_show
 
-          if activity.resource_lazy.present? && activity.participatory_space_lazy.present?
+          if activity.visible_for?(current_user)
             @valid_activities << activity
             valid_activities_count += 1
           end

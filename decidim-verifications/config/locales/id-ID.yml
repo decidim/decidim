@@ -104,7 +104,6 @@ id:
             title: Anda perlu mengaktifkan sensus csv untuk organisasi ini
           new:
             file: "File .csv dengan data email"
-            info: 'Harus berupa file dengan format CSV dengan satu kolom: email'
             submit: Unggah data
             title: Unggah sensus baru
         authorizations:

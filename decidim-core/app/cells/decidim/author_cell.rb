@@ -95,6 +95,8 @@ module Decidim
     end
 
     def profile_path?
+      return false if options[:skip_profile_link] == true
+
       profile_path.present?
     end
 

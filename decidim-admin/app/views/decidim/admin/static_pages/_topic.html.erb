@@ -28,7 +28,7 @@
             <% pages.each do |page| %>
               <tr>
                 <td>
-                  <%= link_to translated_attribute(page.title), ["edit", page] %><br />
+                  <%= link_to translated_attribute(page.title), ["edit", page] %><br>
                 </td>
                 <td>
                   <%= l page.created_at, format: :short %>

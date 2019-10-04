@@ -576,6 +576,11 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      participatory_space_private_users_csv_imports:
+        new:
+          explanation: Téléchargez votre fichier CSV. Il doit comprendre deux colonnes avec l'email dans la première colonne du fichier et le nom dans la dernière colonne du fichier (email, nom) des utilisateurs que vous souhaitez ajouter à l'espace participatif, sans en-tête.
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
       resource_permissions:
         edit:
           submit: Soumettre

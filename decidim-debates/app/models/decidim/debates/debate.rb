@@ -91,11 +91,6 @@ module Decidim
         self.class.name
       end
 
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(_context)
-        false
-      end
-
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         return Decidim::User.where(id: followers).or(Decidim::User.where(id: component.participatory_space.admins)).distinct if official?

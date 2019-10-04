@@ -19,6 +19,9 @@ ca:
         hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
         i_frame_url: URL del sistema de votació externa
+        instructions: Instruccions addicionals per la votació
+        max_votes: Màxim número de vots
+        min_votes: Mínim número de vots
         origin_scope: Àmbit
         origin_title: Origen
         origin_url: URL d'origen
@@ -33,10 +36,21 @@ ca:
         vote: Sistema de votació extern
         what_is_decided: Què es decideix
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: El màxim nombre de vots ha de ser més gran o igual que el mínim.
       vote:
         decidim_consultations_response_id:
           not_found: La resposta no trobada.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: El número de vots és invàlid
     models:
       decidim/consultation:
         one: Consulta
@@ -87,6 +101,10 @@ ca:
         new:
           create: Crear
           title: Nova consulta
+        results:
+          not_visible: Els resultats estaran disponibles quan la consulta hagi acabat
+          participants: "%{count} participants"
+          total_votes: 'Total: %{count} vots'
         update:
           error: S'ha produït un error en actualitzar aquesta consulta.
           success: La consulta s'ha actualitzat correctament.
@@ -95,8 +113,10 @@ ca:
         consultations_submenu:
           info: Informació
           questions: Preguntes
+          results: Resultats
         questions_submenu:
           components: Components
+          configuration: Configuració
           consultation: Consulta
           info: Informació
           responses: Respostes
@@ -124,6 +144,10 @@ ca:
           name:
             one: Resposta
             other: Respostes
+      question_configuration:
+        disable_external_voting: Si us plau, deshabilita la votació externa per la configuració avançada
+        form:
+          title: Configuració avançada
       question_publications:
         create:
           error: S'ha produït un error en publicar aquesta pregunta.
@@ -171,6 +195,7 @@ ca:
         consultations: Consultes
         questions: Preguntes
         responses: Respostes
+        results: Resultats
     consultations:
       admin:
         content_blocks:
@@ -227,9 +252,16 @@ ca:
         votes_out_of:
           one: vot d'un total de
           other: vots d'un total de
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            votes: Vots
       question_votes:
         create:
           error: Hi ha hagut errors en votar la pregunta
+          success: Pots canviar-lo fins a la finalització de la consulta. Només l'última vot serà acceptat.
+          title_error: S'ha produit un error al votar
+          title_success: Vot enregistrat correctament
       regular_questions:
         title: Preguntes per a aquesta consulta
       show:
@@ -274,6 +306,7 @@ ca:
         already_voted: Ja votat
         already_voted_hover: Revocar el vot
         starting_from: A partir de %{date}
+        verification_required: Verifica el teu compte per votar
         vote: Votació
       vote_modal:
         contextual_help: Si us plau, selecciona una opció.
@@ -283,6 +316,10 @@ ca:
         confirm: Confirma
         contextual_help: Si us plau, confirma l'opció seleccionada.
         title: 'Consulta: confirma el vot'
+    resources:
+      consultations:
+        actions:
+          vote: Vota
   layouts:
     decidim:
       admin:

@@ -17,7 +17,7 @@
         image: decidim_meta_image_url,
         desc: h(decidim_meta_description),
         via: decidim_meta_twitter_handler) %>
-    <a class="button secondary" data-open="urlShare">
+    <a class="button" data-open="urlShare">
       <%= icon "link-intact" %>
     </a>
   </div>
@@ -29,7 +29,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <input type="text" value="<%= "#{decidim_meta_url}" %>" readonly />
+  <input type="text" value="<%= "#{decidim_meta_url}" %>" readonly>
 </div>
 
 <%= javascript_include_tag "decidim/social_share" %>

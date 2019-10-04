@@ -26,7 +26,7 @@ de:
       initiatives_committee_member:
         user: Ausschussmitglied
       initiatives_type:
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen

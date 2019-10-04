@@ -16,7 +16,7 @@
             <%= simple_format present(emendation).body(links: true, strip_tags: true) %>
           </div>
 
-          <br /><%= render partial: "attachments", locals: { attached_to: emendation } %>
+          <br><%= render partial: "attachments", locals: { attached_to: emendation } %>
 
           <div class="row column flex-center">
             <%= link_to t(".modify"), edit_draft_amend_path(amendment) %>

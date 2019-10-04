@@ -26,11 +26,11 @@
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :conference, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br />
+                  <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
                 <% elsif allowed_to? :preview, :conference, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), decidim_conferences.conference_path(conference) %><br />
+                  <%= link_to translated_attribute(conference.title), decidim_conferences.conference_path(conference) %><br>
                 <% elsif allowed_to? :read, :moderation, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), moderations_path(conference) %><br />
+                  <%= link_to translated_attribute(conference.title), moderations_path(conference) %><br>
                 <% else %>
                   <%= translated_attribute(conference.title) %>
                 <% end %>

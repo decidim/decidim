@@ -20,6 +20,9 @@ en:
         hashtag: Hashtag
         hero_image: Home image
         i_frame_url: External voting system URL
+        instructions: Additional instructions for voting
+        max_votes: Maximum number of votes
+        min_votes: Minimum number of votes
         origin_scope: Scope
         origin_title: Origin
         origin_url: Origin URL
@@ -34,10 +37,21 @@ en:
         vote: External voting system
         what_is_decided: What is decided
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum number of votes should be higher or equal than the minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Response not found.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Number of votes is invalid
     models:
       decidim/consultation:
         one: Consultation
@@ -90,6 +104,7 @@ en:
           title: New consultation
         results:
           not_visible: Results will be available when consultation closes
+          participants: "%{count} participants"
           total_votes: 'Total: %{count} votes'
         update:
           error: There was a problem updating this consultation.
@@ -102,6 +117,7 @@ en:
           results: Results
         questions_submenu:
           components: Components
+          configuration: Configuration
           consultation: Consultation
           info: Information
           responses: Responses
@@ -129,6 +145,11 @@ en:
           name:
             one: Response
             other: Responses
+      question_configuration:
+        disable_external_voting: Please disable external voting for advanced configurations
+        form:
+          help: Set up multiple choices questions by increasing the maximum number of responses a participant can choose. Default maximum value is 1, meaning that only one response can be voted.
+          title: Advanced configuration
       question_publications:
         create:
           error: There was a problem publishing this question.
@@ -233,6 +254,22 @@ en:
         votes_out_of:
           one: vote out of
           other: votes out of
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Participants could distribute a minimum of %{votes} votes among different options.
+          title: In this question multiple choices where allowed
+          total_participants: A total of %{count} people participated in the vote.
+          vote_limit:
+            description: Participants could vote up to %{limit} options.
+        voting_rules:
+          minimum_votes_per_user:
+            description: You must distribute a minimum of %{votes} votes among different options.
+          title: 'Votes are subject to the following rules:'
+          vote_limit:
+            description: You can vote up to %{limit} options.
+            left: Remaining
+            votes: Votes
       question_votes:
         create:
           error: There was a problem voting the question
@@ -310,3 +347,4 @@ en:
         unfold: Unfold
       question_header:
         back_to_consultation: See all consultations
+        back_to_question: Back to the question

@@ -263,7 +263,6 @@ es-PY:
         others: Otros
         public: Público
       filter:
-        all: Todo tipo de montajes.
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo

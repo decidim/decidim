@@ -116,6 +116,7 @@ nl:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
         delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -363,7 +364,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Jouw korte, unieke ID op %{organization}
+          nickname_help: Uw alias in %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -372,7 +373,6 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          nickname_help: Jouw korte, unieke ID op %{organization}
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
@@ -548,7 +548,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> U hebt het bestand beschikbaar tot %{date}.
+        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> Het bestand blijft beschikbaar tot %{date}.
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -573,7 +573,7 @@ nl:
     followers:
       no_followers: Nog geen volgers.
     following:
-      no_followings: Volgt nog niemand of wat dan ook.
+      no_followings: Volgt nog niets of niemand.
     follows:
       create:
         button: Volgen
@@ -586,6 +586,9 @@ nl:
       current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
@@ -595,18 +598,18 @@ nl:
           conditions:
             - Kom hier vaker
           description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
-          description_another: Deze gebruiker heeft op een gegeven moment %{score} opeenvolgende dagen verbonden.
-          description_own: Je hebt op een gegeven moment %{score} opeenvolgende dagen verbonden.
+          description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
+          description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
           name: Continuïteit
-          next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te gaan!
+          next_level_in: Meld je %{score} opeenvolgende dagen aan om naar het volgende niveau te gaan!
           unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
-          unearned_own: Je hebt niet langer dan één opeenvolgende dag verbonden.
+          unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
-          description: Deze badge wordt toegekend wanneer u een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, weven uw web om te communiceren met andere mensen op het platform.
+          description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
-          description_own: "%{score} gebruikers volgen u."
+          description_own: "%{score} gebruikers volgen jou."
           name: Volgers
           next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen volgers.
@@ -710,7 +713,7 @@ nl:
       no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder
-        creator: Schepper
+        creator: Stichtend lid
         member: Lid
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
@@ -788,7 +791,7 @@ nl:
         csv: Gegevens downloaden (csv)
       followers:
         description: Aantal gebruikers dat deze participatieruimte volgt
-        object: volgelingen
+        object: volgers
         title: Volgers
       participants:
         description: Aantal actieve gebruikers in de organisatie
@@ -869,7 +872,7 @@ nl:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
         metrics:
-          headline: Deelname aan cijfers
+          headline: Deelname in cijfers
         statistics:
           answers_count: Voltooide enquêtes
           assemblies_count: Groepen
@@ -881,7 +884,7 @@ nl:
           meetings_count: vergaderingen
           orders_count: stemmen
           pages_count: Pages
-          processes_count: Thema's
+          processes_count: Processen
           projects_count: projecten
           proposals_accepted: Aanvaarde voorstellen
           proposals_count: voorstellen
@@ -899,7 +902,7 @@ nl:
         topics: Onderwerpen
       participatory_space:
         metrics:
-          headline: Deelname aan cijfers
+          headline: Deelname in cijfers
           link: Toon alle statistieken
       terms_and_conditions:
         accept:
@@ -923,7 +926,7 @@ nl:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
-      view: Uitzicht
+      view: Bekijk
     profiles:
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
@@ -931,7 +934,7 @@ nl:
         activity: Activiteit
         badges: badges
         followers: Volgers
-        following: volgt
+        following: Aan het volgen
         groups: groepen
         members: leden
         timeline: Tijdlijn
@@ -1174,7 +1177,7 @@ nl:
       signed_up: Welkom! Je hebt je succesvol aangemeld.
       signed_up_but_inactive: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet is geactiveerd.
       signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
-      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Volg de link om uw account te activeren.
+      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar je e-mailadres. Volg de link om je account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
       updated: Uw account is succesvol bijgewerkt.
     sessions:
@@ -1215,11 +1218,11 @@ nl:
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      not_found: niet gevonden
+      not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
       not_locked: was niet op slot
       not_saved:
-        one: '1 fout is verhinderd dat deze %{resource} wordt opgeslagen:'
-        other: "%{count} fouten om te voorkomen dat deze %{resource} wordt opgeslagen:"
+        one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
+        other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
       too_short: is te kort (minder dan 15 tekens)

@@ -111,6 +111,7 @@ ar:
         consultations_submenu:
           info: معلومات
           questions: الأسئلة
+          results: النتائج
         questions_submenu:
           components: المكونات
           consultation: تشاور
@@ -199,6 +200,7 @@ ar:
         consultations: المشاورات
         questions: الأسئلة
         responses: استجابات
+        results: النتائج
     consultations:
       admin:
         content_blocks:
@@ -270,6 +272,7 @@ ar:
       question_votes:
         create:
           error: كانت هناك مشكلة في التصويت على السؤال
+          title_error: خطأ في التصويت!
       regular_questions:
         title: أسئلة لهذا التشاور
       show:
@@ -314,6 +317,7 @@ ar:
         already_voted: صوت بالفعل
         already_voted_hover: إلغاء التصويت
         starting_from: بدءا من %{date}
+        verification_required: تحقق من حسابك قبل التصويت
         vote: تصويت
       vote_modal:
         contextual_help: من فضلك ، حدد خيار.
@@ -323,6 +327,10 @@ ar:
         confirm: تؤكد
         contextual_help: يرجى تأكيد الخيار المحدد.
         title: 'التشاور: تأكيد التصويت'
+    resources:
+      consultations:
+        actions:
+          vote: صوِّت
   layouts:
     decidim:
       admin:

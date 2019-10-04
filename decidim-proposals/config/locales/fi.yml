@@ -321,6 +321,7 @@ fi:
             success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
+            invalid_file: Tässä tiedostossa on jokin virhe. Yritä korjata tiedoston sisältö ja lataa se uudestaan.
             success: Onnittelut, seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
           index:
             info_1: Seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
@@ -371,8 +372,10 @@ fi:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
+            add_images: Lisää kuvia
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            gallery_legend: "(Vapaaehtoinen) Lisää kuvagalleria"
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:

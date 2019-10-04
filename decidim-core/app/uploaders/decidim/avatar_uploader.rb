@@ -3,8 +3,6 @@
 module Decidim
   # This class deals with uploading avatars to a User.
   class AvatarUploader < ImageUploader
-    include CarrierWave::MiniMagick
-
     process :validate_dimensions
 
     version :profile do

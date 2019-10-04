@@ -3,7 +3,7 @@ de:
     attributes:
       conference:
         assemblies_ids: Ähnliche Assemblies
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
@@ -12,7 +12,7 @@ de:
         description: Beschreibung
         hashtag: Hashtag
         hero_image: Hauptbild
-        participatory_processes_ids: Related Partizipative Prozesse
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -463,10 +463,10 @@ de:
       photo:
         show:
           close_modal: Modal schließen
-          photo: Foto
+          photo: Bild
       photos_list:
         show:
-          related_photos: Fotos
+          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
@@ -485,7 +485,7 @@ de:
         objectives: Ziele
         related_assemblies: Ähnliche Assemblies
         related_consultations: Verwandte Konsultationen
-        related_participatory_processes: In Verbindung stehende partizipative Prozesse
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
       statistics:
         answers_count: Antworten
         comments_count: Bemerkungen

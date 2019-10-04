@@ -193,7 +193,7 @@ fr:
           recent: Les plus récentes
       content_blocks:
         highlighted_consultations:
-          name: Consultations mises en avant
+          name: Votations mises en avant
       count:
         title:
           one: "%{count} votation"
@@ -220,8 +220,8 @@ fr:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Consultations actives
-            see_all_consultations: Voir toutes les consultations
+            active_consultations: Votations actives
+            see_all_consultations: Voir toutes les votations
             voting_ends_in:
               one: Le vote se termine <strong>demain</strong>
               other: Le vote prend fin à <strong>%{count} jour</strong>

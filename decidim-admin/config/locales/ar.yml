@@ -41,6 +41,7 @@ ar:
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
+        customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
@@ -77,6 +78,7 @@ ar:
         user_groups_enabled: تمكين المجموعات
         user_name: اسم المستخدم
         warning_color: تحذير
+        welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
       scope:
         code: الشفرة
@@ -554,10 +556,15 @@ ar:
           error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
           success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
         index:
+          import_via_csv: استيراد عبر ملف csv
           title: المشاركة الفضاء المشارك الخاص
         new:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: حمّل ملف CSV الخاص بك
+          upload: حمّل
       resource_permissions:
         edit:
           submit: خضع

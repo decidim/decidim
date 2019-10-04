@@ -573,10 +573,19 @@ en:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
         index:
+          import_via_csv: Import via csv
           title: Participatory space private participant
         new:
           create: Create
           title: New Participatory Space private participant.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: There was a problem reading the CSV file.
+          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
+        new:
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers.
+          title: Upload your CSV file
+          upload: Upload
       resource_permissions:
         edit:
           submit: Submit

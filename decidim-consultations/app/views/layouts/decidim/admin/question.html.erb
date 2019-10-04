@@ -21,6 +21,13 @@
           </li>
         <% end %>
 
+         <% if allowed_to?(:configure, :question, question: current_participatory_space) %>
+          <li <% if is_active_link?(decidim_admin_consultations.edit_question_configuration_path(current_participatory_space)) %> class="is-active" <% end %>>
+            <%= aria_selected_link_to t("configuration", scope: "decidim.admin.menu.questions_submenu"),
+                                      decidim_admin_consultations.edit_question_configuration_path(current_participatory_space) %>
+          </li>
+        <% end %>
+
         <% if allowed_to? :read, :response %>
           <li <% if is_active_link?(decidim_admin_consultations.responses_path(current_participatory_space)) %> class="is-active" <% end %>>
             <%= aria_selected_link_to t("responses", scope: "decidim.admin.menu.questions_submenu"),
@@ -80,6 +87,8 @@
   <div class="process-title">
     <div class="process-title-content">
       <%= link_to translated_attribute(current_participatory_space.consultation.title), decidim_consultations.consultation_path(current_participatory_space.consultation), target: "_blank" %>
+      &gt;
+      <%= strip_tags translated_attribute(current_participatory_space.title) %>
     </div>
   </div>
 

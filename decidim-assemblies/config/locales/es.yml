@@ -263,7 +263,6 @@ es:
         others: Otros
         public: Público
       filter:
-        all: Todos los tipos de asambleas
         commission: Comisión
         consultative_advisory: Consultiva / Asesora
         executive: Ejecutivo

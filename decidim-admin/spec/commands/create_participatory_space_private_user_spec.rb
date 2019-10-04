@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to) }
+    subject { described_class.new(form, current_user, privatable_to, via_csv) }
 
+    let(:via_csv) { false }
     let(:privatable_to) { create :participatory_process }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
@@ -46,7 +47,7 @@ module Decidim::Admin
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with(
-            :create,
+            "create",
             Decidim::ParticipatorySpacePrivateUser,
             current_user,
             resource: { title: user.name }
@@ -56,6 +57,23 @@ module Decidim::Admin
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_nil
+      end
+
+      context "when the creation is performed via csv" do
+        let(:via_csv) { true }
+
+        it "uses another action to track the changes" do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with(
+              "create_via_csv",
+              Decidim::ParticipatorySpacePrivateUser,
+              current_user,
+              resource: { title: user.name }
+            )
+
+          subject.call
+        end
       end
 
       context "when there is no user with the given email" do

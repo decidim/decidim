@@ -36,7 +36,7 @@ module Decidim
         AuthorizeUser.call(handler) do
           on(:ok) do
             flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications")
-            redirect_to params[:redirect_url] || authorizations_path
+            redirect_to redirect_url || authorizations_path
           end
 
           on(:invalid) do
@@ -88,9 +88,9 @@ module Decidim
       end
 
       def store_current_location
-        return if params[:redirect_url].blank? || !request.format.html?
+        return if redirect_url.blank? || !request.format.html?
 
-        store_location_for(:user, params[:redirect_url])
+        store_location_for(:user, redirect_url)
       end
     end
   end

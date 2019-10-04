@@ -138,7 +138,7 @@ de:
         sortition:
           random_seed: Zufallssamen
           selected_proposals:
-            one: Angebot ausgewählt
+            one: Vorschlag ausgewählt
             other: Vorschläge ausgewählt
           view: Aussicht
         sortition_author:

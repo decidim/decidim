@@ -1,0 +1,15 @@
+"no":
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Side
+        other: Sider
+  decidim:
+    components:
+      pages:
+        name: Side
+    pages:
+      admin:
+        pages:
+          edit:
+            title: Rediger side

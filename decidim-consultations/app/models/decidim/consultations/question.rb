@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::ParticipatorySpaceResourceable
+      include Decidim::Randomable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",
@@ -69,8 +70,22 @@ module Decidim
         @most_voted_response ||= responses.order(votes_count: :desc).first
       end
 
+      # Total number of votes, on multiple votes questions does not match users voting
       def total_votes
         @total_votes ||= responses.sum(&:votes_count)
+      end
+
+      # Total number of users voting
+      def total_participants
+        @total_participants ||= votes.select(:decidim_author_id).distinct.count
+      end
+
+      # Multiple answers allowed?
+      def multiple?
+        return false if external_voting
+        return false if max_votes.blank?
+
+        max_votes > 1
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -146,13 +161,6 @@ module Decidim
 
       def self.participatory_space_manifest
         Decidim.find_participatory_space_manifest(Decidim::Consultation.name.demodulize.underscore.pluralize)
-      end
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-        end
       end
 
       def resource_description

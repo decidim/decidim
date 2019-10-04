@@ -117,6 +117,37 @@ describe Decidim::NotificationGenerator do
           end
         end
       end
+
+      context "when participatory space is participable" do
+        before do
+          resource.published_at = Time.current
+          resource.component.published_at = Time.current
+          resource.component.participatory_space.published_at = Time.current
+          resource.save!
+        end
+
+        context "and the user can participate" do
+          it "enqueues the job" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .to receive(:perform_later).twice
+
+            subject.generate
+          end
+        end
+
+        context "and the user can't participate" do
+          before do
+            allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
+          end
+
+          it "doesn't schedule a job" do
+            expect(Decidim::NotificationGeneratorForRecipientJob)
+              .not_to receive(:perform_later)
+
+            subject.generate
+          end
+        end
+      end
     end
 
     context "when the event_class does not support notifications" do
@@ -124,7 +155,7 @@ describe Decidim::NotificationGenerator do
         allow(event_class).to receive(:types).and_return([])
       end
 
-      it "schedules a job for each recipient" do
+      it "doesn't schedule a job for each recipient" do
         expect(Decidim::NotificationGeneratorForRecipientJob)
           .not_to receive(:perform_later)
 

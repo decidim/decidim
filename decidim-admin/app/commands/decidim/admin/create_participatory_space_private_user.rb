@@ -10,10 +10,11 @@ module Decidim
       # form - A form object with the params.
       # private_user_to - The private_user_to that will hold the
       #   user role
-      def initialize(form, current_user, private_user_to)
+      def initialize(form, current_user, private_user_to, via_csv = false)
         @form = form
         @current_user = current_user
         @private_user_to = private_user_to
+        @via_csv = via_csv
       end
 
       # Executes the command. Broadcasts these events:
@@ -41,8 +42,9 @@ module Decidim
       attr_reader :form, :private_user_to, :current_user, :user
 
       def create_private_user
+        action = @via_csv ? "create_via_csv" : "create"
         Decidim.traceability.perform_action!(
-          :create,
+          action,
           Decidim::ParticipatorySpacePrivateUser,
           current_user,
           resource: {

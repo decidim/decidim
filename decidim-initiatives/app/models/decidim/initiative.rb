@@ -17,6 +17,7 @@ module Decidim
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
+    include Decidim::Randomable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -93,13 +94,6 @@ module Decidim
 
     after_save :notify_state_change
     after_create :notify_creation
-
-    def self.order_randomly(seed)
-      transaction do
-        connection.execute("SELECT setseed(#{connection.quote(seed)})")
-        select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
-      end
-    end
 
     def self.future_spaces
       none
