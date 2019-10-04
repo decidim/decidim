@@ -32,11 +32,19 @@ module Decidim
           # we override the parent participatory sapce
           attributes["participatory_space_id"] = participatory_space.id
           attributes["participatory_space_type"] = participatory_space.class.name
-          result = Decidim.traceability.perform_action!(:create,
+          component = Decidim.traceability.perform_action!(:create,
                                                         Decidim::Component,
                                                         user) { Decidim::Component.create!(attributes.except(:id)) }
-          result
+          if component.serializes_specific_data?
+            import_component_specific_data(component, attributes)
+          end
+          component
         end
+      end
+
+      def import_component_specific_data(component, serialized)
+        specific_serializer = component.manifest.specific_data_importer_class.new(component)
+        serialized[:specific_data] = specific_serializer.serialize
       end
     end
   end

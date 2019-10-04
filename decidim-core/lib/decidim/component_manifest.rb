@@ -1,3 +1,6 @@
+            if component.serializes_specific_data?
+
+            end
 # frozen_string_literal: true
 
 require "decidim/settings_manifest"
@@ -58,7 +61,7 @@ module Decidim
     # probably have the form of `Decidim::<MyComponent>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
-    # Does this component have specific data to serialize?
+    # Does this component have specific data to serialize and import?
     # Beyond the attributes in decidim_component table.
     attribute :serializes_specific_data, Object, default: false
 
@@ -71,6 +74,11 @@ module Decidim
     # Thus you will always be setting a subclass of `Decidim::Exporters::Serializer`.
     #
     attribute :specific_data_serializer_class_name, String
+
+    # The class to be used to import specific data for the current component.
+    # Should be a kind of `Decidim::Importers::Importer`.
+    #
+    attribute :specific_data_importer_class_name, String
 
     validates :name, presence: true
 
@@ -215,6 +223,16 @@ module Decidim
     # Returns a Decidim::Exporters::Serializer subclass or nil.
     def specific_data_serializer_class
       specific_data_serializer_class_name&.constantize
+    end
+
+
+    # Public: Finds the specific data importer class from its name, using the
+    # `specific_data_importerer_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Decidim::Importers::Importer subclass or nil.
+    def specific_data_importer_class
+      specific_data_importer_class_name&.constantize
     end
 
     # Public: Registers a resource. Exposes a DSL defined by
