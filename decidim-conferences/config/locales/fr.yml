@@ -484,7 +484,7 @@ fr:
         introduction: introduction
         objectives: Objectifs
         related_assemblies: Assemblées connexes
-        related_consultations: Consultations connexes
+        related_consultations: Votations connexes
         related_participatory_processes: Concertations associées
       statistics:
         answers_count: Réponses
@@ -493,7 +493,7 @@ fr:
         debates_count: Débats
         endorsements_count: Soutiens
         headline: Activité
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
         posts_count: Articles
@@ -549,11 +549,11 @@ fr:
         register: S'inscrire
       conference_widgets:
         show:
-          take_part: Prendre part
+          take_part: Participer
       conferences:
         conference:
           more_info: Plus d'informations
-          take_part: Prendre part
+          take_part: Participer
         index:
           promoted_conferences: Conférences mises en avant
         order_by_conferences:
