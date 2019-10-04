@@ -33,11 +33,9 @@ module Decidim
           attributes["participatory_space_id"] = participatory_space.id
           attributes["participatory_space_type"] = participatory_space.class.name
           component = Decidim.traceability.perform_action!(:create,
-                                                        Decidim::Component,
-                                                        user) { Decidim::Component.create!(attributes.except(:id)) }
-          if component.serializes_specific_data?
-            import_component_specific_data(component, attributes)
-          end
+                                                           Decidim::Component,
+                                                           user) { Decidim::Component.create!(attributes.except(:id)) }
+          import_component_specific_data(component, attributes) if component.serializes_specific_data?
           component
         end
       end

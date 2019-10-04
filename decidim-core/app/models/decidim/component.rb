@@ -73,9 +73,7 @@ module Decidim
     # Public: Returns an empty description
     def resource_description; end
 
-    def serializes_specific_data?
-      manifest.serializes_specific_data?
-    end
+    delegate :serializes_specific_data?, to: :manifest
 
     private
 

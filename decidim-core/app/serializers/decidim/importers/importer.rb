@@ -5,7 +5,6 @@ module Decidim
     # This class is an abstraction that defines a common and flexible interface
     # in how importers should be called.
     class Importer
-
       # Imports the contents of the `serialized` argument.
       #
       # Importers that import JSON will normally accept a JSON valid value for
@@ -17,9 +16,8 @@ module Decidim
       #
       # +serialized+: The serialized version of the resource to import.
       # +user+: The Decidim::User that is importing.
-      def import(serialized, user)
-        raise
-         NotImplementedError
+      def import(_serialized, _user)
+        raise NotImplementedError, "Decidim::Importers::Importer should be subclassed."
       end
     end
   end

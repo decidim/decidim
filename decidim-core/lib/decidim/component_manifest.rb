@@ -1,6 +1,3 @@
-            if component.serializes_specific_data?
-
-            end
 # frozen_string_literal: true
 
 require "decidim/settings_manifest"
@@ -224,7 +221,6 @@ module Decidim
     def specific_data_serializer_class
       specific_data_serializer_class_name&.constantize
     end
-
 
     # Public: Finds the specific data importer class from its name, using the
     # `specific_data_importerer_class_name` attribute. If the class does not exist,
