@@ -18,9 +18,9 @@ module Decidim
       #   - slug: The +slug+ for the new PartidicpatoryProcess
       #
       # Returns a ParticipatoryProcess.
-      def import(attributes, user, opts)
-        title= opts[:title]
-        slug= opts[:slug]
+      def import(attributes, _user, opts)
+        title = opts[:title]
+        slug = opts[:slug]
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,
