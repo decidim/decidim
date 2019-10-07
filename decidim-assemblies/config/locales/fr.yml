@@ -263,6 +263,7 @@ fr:
         others: Autres
         public: Public
       filter:
+        all: Tous les types
         commission: Commission
         consultative_advisory: Consultatif
         executive: Exécutif
