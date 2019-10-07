@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-forms**: Added UML clarifying the relation between the Questionnaire classes. [#5394](https://github.com/decidim/decidim/pull/5394)
 - **decidim-consultations**: Allow multi-choice answers to questions in consultations. [#5356](https://github.com/decidim/decidim/pull/5356)
 - **decidim-proposals**: Allow admins to create image galleries in proposals if attachments are enabled. [\#5339](https://github.com/decidim/decidim/pull/5339)
 - **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
@@ -72,6 +73,8 @@
 - **decidim-core**: Fix email notifications [#5370](https://github.com/decidim/decidim/pull/5370)
 - **decidim-assemblies**, **decidim-core**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-system** Various bugfixes [\#5376](https://github.com/decidim/decidim/pull/5376)
 - **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-forms**, **decidim-meetings**, **decidim-proposals**, **decidim-verifications**** Various bugfixes [\#5383](https://github.com/decidim/decidim/pull/5383)
+- **decidim-core** Fix omniauth registration edge cases and specs [#5397](https://github.com/decidim/decidim/pull/5397)
+- **decidim-core**: Fix errors controller forgery protection [#5398](https://github.com/decidim/decidim/pull/5398)
 
 **Removed**:
 
