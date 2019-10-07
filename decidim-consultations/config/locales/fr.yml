@@ -19,6 +19,8 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
+        max_votes: Nombre maximal de votes
+        min_votes: Nombre minimal de votes
         origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
@@ -101,6 +103,7 @@ fr:
           results: Résultats
         questions_submenu:
           components: Fonctionnalités
+          configuration: Configuration
           consultation: Votation
           info: Informations
           responses: Réponses
@@ -128,6 +131,9 @@ fr:
           name:
             one: Réponse
             other: Réponses
+      question_configuration:
+        form:
+          title: Configuration avancée
       question_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette question.
@@ -232,6 +238,11 @@ fr:
         votes_out_of:
           one: vote sur
           other: votes sur
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            left: Restant
+            votes: Voix
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
@@ -309,3 +320,4 @@ fr:
         unfold: Voir la suite
       question_header:
         back_to_consultation: Voir toutes les votations
+        back_to_question: Retour à la question
