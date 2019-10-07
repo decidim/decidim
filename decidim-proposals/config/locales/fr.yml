@@ -375,6 +375,7 @@ fr:
             add_images: Ajouter des images
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             created_in_meeting: Cette proposition provient d'une réunion
+            gallery_legend: "(Optionnel) Ajouter une galerie d'images"
             select_a_category: Sélectionner une catégorie
             select_a_meeting: Sélectionnez une réunion
           index:
