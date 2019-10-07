@@ -102,11 +102,15 @@ module Decidim
       def import_folders_and_attachments(attachments)
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
+          file_tmp = URI.open(file["remote_file_url"])
+
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              remote_file_url: file["remote_file_url"],
+              file: file_tmp,
+              file_size: file_tmp.size,
+              content_type: file_tmp.content_type,
               attached_to: @imported_process,
               weight: file["weight"]
             )

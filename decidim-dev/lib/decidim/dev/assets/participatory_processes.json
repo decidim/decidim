@@ -249,7 +249,74 @@
         }
       ],
       "files": [
-        
+        {
+          "id": 3,
+          "title": {
+            "ca": "Facilis unde.",
+            "en": "Reprehenderit quo.",
+            "es": "Autem consequatur."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Numquam aut beatae repudiandae minima.",
+            "en": "Sequi non eum minus impedit.",
+            "es": "Consequatur quis perferendis consequuntur repudiandae."
+          },
+          "attachment_collection": {
+            "name": null,
+            "weight": null,
+            "description": null
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/3/Exampledocument.pdf"
+        },
+        {
+          "id": 2,
+          "title": {
+            "ca": "Libero sed.",
+            "en": "Aut cum.",
+            "es": "Voluptas quisquam."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Similique vitae voluptas quae qui.",
+            "en": "Sapiente velit voluptatem id delectus.",
+            "es": "Facere eum nam adipisci culpa."
+          },
+          "attachment_collection": {
+            "name": null,
+            "weight": null,
+            "description": null
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/2/city.jpeg"
+        },
+        {
+          "id": 1,
+          "title": {
+            "ca": "Ea rerum.",
+            "en": "Possimus quia.",
+            "es": "Quod fugit."
+          },
+          "weight": 0,
+          "description": {
+            "ca": "Suscipit minus sit sit reprehenderit.",
+            "en": "Accusamus non iure ut reprehenderit.",
+            "es": "Inventore voluptatum nobis et ut."
+          },
+          "attachment_collection": {
+            "name": {
+              "ca": "assumenda",
+              "en": "cumque",
+              "es": "rem"
+            },
+            "weight": 0,
+            "description": {
+              "ca": "Ratione quae ut expedita placeat.",
+              "en": "Enim velit nulla nihil expedita.",
+              "es": "Pariatur excepturi veritatis cumque sed."
+            }
+          },
+          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf"
+        }
       ]
     }
   }

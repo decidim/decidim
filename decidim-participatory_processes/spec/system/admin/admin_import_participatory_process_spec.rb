@@ -81,5 +81,23 @@ describe "Admin imports participatory process", type: :system do
         end
       end
     end
+
+    it "imports the process with attachments" do
+      page.check("participatory_process[import_attachments]")
+      click_button "Import"
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Import participatory process")
+      expect(page).to have_content("Not published")
+
+      click_link "Import participatory process"
+      click_link "Files"
+
+      within ".table-list" do
+        Decidim::ParticipatoryProcess.last.attachments.each do |attachment|
+          expect(page).to have_content(translated(attachment.title))
+        end
+      end
+    end
   end
 end
