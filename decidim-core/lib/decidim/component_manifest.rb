@@ -60,7 +60,7 @@ module Decidim
 
     # Does this component have specific data to serialize and import?
     # Beyond the attributes in decidim_component table.
-    attribute :serializes_specific_data, Object, default: false
+    attribute :serializes_specific_data, Boolean, default: false
 
     # The class to be used to serialize specific data for the current component.
     # Should be a kind of `Decidim::Exporters::Serializer`.
