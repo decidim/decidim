@@ -16,7 +16,7 @@ module Decidim::Surveys
 
       it "serializes questionnaire" do
         expect(questionnaires.count).to eq(1)
-        serialized= questionnaires.first
+        serialized = questionnaires.first
         expect(serialized[:title]).to eq(questionnaire.title)
         expect(serialized[:description]).to eq(questionnaire.description)
         expect(serialized[:tos]).to eq(questionnaire.tos)

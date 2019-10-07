@@ -6,12 +6,11 @@ module Decidim
     # This is `Questionnaire->questions->answer_options` but not `answers`
     # and `answer_choices`.
     class DataSerializer < Decidim::Exporters::Serializer
-
       # Returns: Array of Decidim::Forms::Questionnaire as a json hash,
       #     or nil if none exists.
       def serialize
         component = resource
-        surveys= Decidim::Surveys::Survey.where(component: component)
+        surveys = Decidim::Surveys::Survey.where(component: component)
         surveys.collect do |survey|
           questionnaire = survey.questionnaire
           next if questionnaire.nil?
