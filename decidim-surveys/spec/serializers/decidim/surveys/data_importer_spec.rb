@@ -4,77 +4,79 @@ require "spec_helper"
 
 module Decidim::Surveys
   describe DataImporter do
-    describe "#serialize" do
-      # subject do
-      #   described_class.new.from_json(participatory_space, json_as_text, user)
-      # end
+    describe "#import" do
+      subject do
+        described_class.new(component).import(as_json, user)
+      end
 
-      # let(:user) { create(:user) }
-      # let(:previous_participatory_space) { create(:participatory_process) }
-      # let!(:component_1) { create(:component, :published, :with_settings, :with_permissions, weight: 1) }
-      # let!(:participatory_space) { component_1.participatory_space }
-      # let!(:component_2) { create(:component, :unpublished, :with_settings, :with_permissions, participatory_space: participatory_space, weight: 2) }
+      let(:user) { create(:user) }
+      let!(:original_questionnaire) { create(:questionnaire, :with_questions) }
+      let!(:survey) { create(:survey, questionnaire: original_questionnaire) }
+      let(:component) { survey.component }
 
-      # let(:json_as_text) do
-      #   <<~EOJSON
-      #     [{
-      #       "manifest_name": "#{component_1.manifest_name}",
-      #       "id": #{component_1.id},
-      #       "name": {
-      #         "ca": "#{component_1.name["ca"]}",
-      #         "en": "#{component_1.name["en"]}",
-      #         "es": "#{component_1.name["es"]}"
-      #       },
-      #       "participatory_space_id": #{previous_participatory_space.id},
-      #       "participatory_space_type": "#{component_1.participatory_space.class.name}",
-      #       "settings": #{component_1.settings.to_json},
-      #       "weight": #{component_1.weight},
-      #       "permissions": #{component_1.permissions.to_json},
-      #       "published_at": "#{component_1.published_at&.iso8601 || "null"}"
-      #     }, {
-      #       "manifest_name": "#{component_2.manifest_name}",
-      #       "id": #{component_2.id},
-      #       "name": {
-      #         "ca": "#{component_2.name["ca"]}",
-      #         "en": "#{component_2.name["en"]}",
-      #         "es": "#{component_2.name["es"]}"
-      #       },
-      #       "participatory_space_id": #{previous_participatory_space.id},
-      #       "participatory_space_type": "#{component_2.participatory_space.class.name}",
-      #       "settings": #{component_2.settings.to_json},
-      #       "weight": #{component_2.weight},
-      #       "permissions": #{component_2.permissions.to_json},
-      #       "published_at": "#{component_2.published_at&.iso8601 || "null"}"
-      #     }
-      #     ]
-      #   EOJSON
-      # end
+      let(:as_json) do
+        questionnaire_attrs = original_questionnaire.attributes
+        questions = []
+        original_questionnaire.questions.order(:position).each do |q|
+          question_attrs = q.attributes
+          answer_options = []
+          q.answer_options.each do |answer_option|
+            answer_options << answer_option.attributes
+          end
+          question_attrs[:answer_options] = answer_options
+          questions << question_attrs
+        end
+        questionnaire_attrs[:questions] = questions
+        [{
+          id: rand(99_999),
+          questionnaire: questionnaire_attrs
+        }]
+      end
 
-      # describe "#import" do
-      #   let!(:imported) { subject }
+      describe "#import" do
+        let!(:imported) { subject }
 
-      #   it "imports space components" do
-      #     expect_imported_to_be_equal(component_1)
-      #     expect_imported_to_be_equal(component_2)
-      #   end
+        it "imports survey" do
+          expect(imported.size).to eq(1)
+          imported_survey = imported.first
+          expect(imported_survey).to be_kind_of(Decidim::Surveys::Survey)
+          expect(imported_survey).to be_persisted
+          questionnaire = imported_survey.questionnaire
+          expect(questionnaire).to be_kind_of(Decidim::Forms::Questionnaire)
 
-      #   def expect_imported_to_be_equal(component)
-      #     actual_attrs = imported_from(component).attributes.except("id", "updated_at", "created_at")
-      #     expected_attrs = component.attributes.except("id", "updated_at", "created_at")
-      #     actual_published_at = actual_attrs.delete("published_at")
-      #     expected_published_at = expected_attrs.delete("published_at")
-      #     expect(actual_published_at).to be_within(1.second).of(expected_published_at) unless actual_published_at.nil? && expected_published_at.nil?
-      #     expect(actual_attrs).to eq(expected_attrs)
-      #   end
+          attribs_to_ignore = %w(id updated_at created_at questionnaire_for_id published_at)
+          expected_attrs = original_questionnaire.attributes.except(*attribs_to_ignore)
+          actual_attrs = questionnaire.attributes.except(*attribs_to_ignore)
+          expect(actual_attrs.delete("published_at")).to be_nil
+          expect(actual_attrs).to eq(expected_attrs)
 
-      #   # Find the Decidim::Component created during importation that corresponds
-      #   # to the +component+ used to generate the impoted json.
-      #   def imported_from(component)
-      #     imported = Decidim::Component.where.not(id: component.id)
-      #                                  .find_by(manifest_name: component.manifest_name, weight: component.weight)
-      #     expect(imported).to be_present
-      #     imported
-      #   end
+          imported_questions_should_eq_serialized(questionnaire.questions)
+        end
+      end
+
+      private
+
+      def imported_questions_should_eq_serialized(imported_questions)
+        original_questions = original_questionnaire.questions
+        expect(imported_questions.size).to eq(original_questions.size)
+
+        imported_questions.zip(original_questions).each do |imported, original|
+          expect(imported.position).to eq(original.position)
+          expect(imported.question_type).to eq(original.question_type)
+          expect(imported.mandatory).to eq(original.mandatory)
+          expect(imported.body).to eq(original.body)
+          expect(imported.description).to eq(original.description)
+          expect(imported.max_choices).to eq(original.max_choices)
+          imported_question_options_should_eq_serialized(imported.answer_options, original.answer_options)
+        end
+      end
+
+      def imported_question_options_should_eq_serialized(imported_answer_options, original_answer_options)
+        expect(imported_answer_options.size).to eq(original_answer_options.size)
+        imported_answer_options.zip(original_answer_options).each do |imported, original|
+          expect(imported.body).to eq(original.body)
+          expect(imported.free_text).to eq(original.free_text)
+        end
       end
     end
   end

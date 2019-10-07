@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
-    class ParticipatoryProcessImporter <
+    class ParticipatoryProcessImporter < Decidim::Importers::Importer
       def initialize(organization, user)
         @organization = organization
         @user = user
@@ -129,8 +129,8 @@ module Decidim
 
       # +components+: An Array of Hashes, each corresponding with the settings of a Decidim::Component.
       def import_components(components)
-        importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new
-        importer.import(@imported_process, components, @user)
+        importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new(@imported_process)
+        importer.import(components, @user)
       end
 
       private

@@ -12,16 +12,18 @@ module Decidim
         component = resource
         surveys = Decidim::Surveys::Survey.where(component: component)
         surveys.collect do |survey|
-          questionnaire = survey.questionnaire
-          next if questionnaire.nil?
-          json = serialize_questionnaire(questionnaire)
+          next if survey.questionnaire.nil?
+          json = serialize_survey(survey)
           json.with_indifferent_access.merge(survey_id: survey.id)
         end
       end
 
-      def serialize_questionnaire(questionnaire)
-        json = questionnaire.attributes.as_json
-        json[:questions] = serialize_questions(questionnaire.questions.order(:position))
+      def serialize_survey(survey)
+        questionnaire = survey.questionnaire
+        questionnaire_json = questionnaire.attributes.as_json
+        questionnaire_json[:questions] = serialize_questions(questionnaire.questions.order(:position))
+        json = survey.attributes.as_json
+        json[:questionnaire] = questionnaire_json
         json
       end
 

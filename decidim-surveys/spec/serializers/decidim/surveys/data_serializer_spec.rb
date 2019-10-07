@@ -12,18 +12,20 @@ module Decidim::Surveys
       let!(:survey) { create(:survey) }
       let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
 
-      let(:questionnaires) { subject.serialize }
+      let(:surveys) { subject.serialize }
 
       it "serializes questionnaire" do
-        expect(questionnaires.count).to eq(1)
-        serialized = questionnaires.first
+        expect(surveys.count).to eq(1)
+        serialized = surveys.first
+        expect(serialized[:id]).to eq(survey.id)
+
+        serialized = serialized[:questionnaire]
         expect(serialized[:title]).to eq(questionnaire.title)
         expect(serialized[:description]).to eq(questionnaire.description)
         expect(serialized[:tos]).to eq(questionnaire.tos)
-        expect(serialized[:questionnaire_for_type]).to eq(questionnaire.questionnaire_for_type)
-        expect(serialized[:questionnaire_for_id]).to eq(questionnaire.questionnaire_for_id)
+        expect(serialized[:questionnaire_for_type]).to eq(survey.class.name)
+        expect(serialized[:questionnaire_for_id]).to eq(survey.id)
         expect(serialized[:published_at]).to eq(questionnaire.published_at)
-        expect(serialized[:survey_id]).to eq(questionnaire.questionnaire_for.id)
 
         questions_should_be_as_expected(questionnaire.questions.order(:position), serialized[:questions])
       end

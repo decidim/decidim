@@ -10,6 +10,7 @@ Decidim.register_component(:surveys) do |component|
   component.permissions_class_name = "Decidim::Surveys::Permissions"
   component.serializes_specific_data = true
   component.specific_data_serializer_class_name = "Decidim::Surveys::DataSerializer"
+  component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
 
   component.on(:copy) do |context|
     Decidim::Surveys::CreateSurvey.call(context[:new_component]) do

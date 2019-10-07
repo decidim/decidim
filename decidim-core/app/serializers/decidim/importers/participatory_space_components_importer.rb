@@ -38,15 +38,14 @@ module Decidim
           attributes["participatory_space_type"] = @participatory_space.class.name
           component = Decidim.traceability.perform_action!(:create,
                                                            Decidim::Component,
-                                                           user) { Decidim::Component.create!(attributes.except(:id)) }
-          import_component_specific_data(component, attributes) if component.serializes_specific_data?
-          component
+                                                           user) { Decidim::Component.create!(attributes.except(:id, :specific_data)) }
+          import_component_specific_data(component, attributes, user) if component.serializes_specific_data?
         end
       end
 
-      def import_component_specific_data(component, serialized)
-        specific_serializer = component.manifest.specific_data_importer_class.new(component)
-        serialized[:specific_data] = specific_serializer.serialize
+      def import_component_specific_data(component, serialized, user)
+        specific_importer = component.manifest.specific_data_importer_class.new(component)
+        specific_importer.import(serialized[:specific_data], user)
       end
     end
   end
