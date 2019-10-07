@@ -1137,8 +1137,8 @@ de:
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Entsperren Anweisungen
     omniauth_callbacks:
-      failure: Konnte dich nicht von %{kind} wegen "%{reason}" authentifizieren.
-      success: Erfolgreich von %{kind} account authentifiziert.
+      failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
+      success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
     passwords:
       edit:
         change_my_password: Ändere mein Passwort
@@ -1185,7 +1185,7 @@ de:
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
-        sign_in_with_provider: Melde dich mit %{provider}
+        sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
