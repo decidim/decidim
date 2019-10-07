@@ -190,6 +190,7 @@ RSpec.configure do |config|
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false
           t.string :decidim_author_type, index: false
+          t.integer :decidim_user_group_id, index: false
           t.references :decidim_category, index: false
           t.references :decidim_scope, index: false
           t.string :reference
