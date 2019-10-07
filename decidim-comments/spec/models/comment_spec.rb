@@ -135,7 +135,9 @@ module Decidim
           expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
         end
 
-        describe "when body contains urls" do
+        describe "when the body contains urls" do
+          before { allow(Decidim).to receive(:content_processors).and_return([:link]) }
+
           let(:body) do
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end

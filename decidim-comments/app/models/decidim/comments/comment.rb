@@ -92,10 +92,7 @@ module Decidim
 
       # Public: Returns the comment message ready to display (it is expected to include HTML)
       def formatted_body
-        @formatted_body ||= begin
-          text = Decidim::ContentProcessor.render(sanitized_body)
-          Anchored::Linker.auto_link(text, target: "_blank", rel: "noopener")
-        end
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
       end
 
       def self.export_serializer
