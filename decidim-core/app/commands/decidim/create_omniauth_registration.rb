@@ -60,6 +60,11 @@ module Decidim
         @user.skip_confirmation! if verified_email
       end
 
+      # If user has left the account unconfirmed and later on decides to sign
+      # in with omniauth with an already verified account, the account needs to
+      # be marked confirmed.
+      @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
+
       @user.tos_agreement = "1"
       @user.save!
     end
