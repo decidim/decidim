@@ -580,6 +580,7 @@ fr:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Il y a eu un problème de lecture du fichier CSV.
+          success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           explanation: Téléchargez votre fichier CSV. Il doit comprendre deux colonnes avec l'email dans la première colonne du fichier et le nom dans la dernière colonne du fichier (email, nom) des utilisateurs que vous souhaitez ajouter à l'espace participatif, sans en-tête.
           title: Téléchargez votre fichier CSV
