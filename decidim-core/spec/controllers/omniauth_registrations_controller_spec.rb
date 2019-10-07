@@ -71,15 +71,32 @@ module Decidim
 
           before do
             request.env["omniauth.auth"][:info][:email] = "omniauth@email.com"
-
-            post :create
           end
 
           it "doesn't log in" do
+            post :create
+
             expect(controller).not_to be_user_signed_in
           end
 
+          it "resends the confirmation instructions" do
+            expect(Decidim::DecidimDeviseMailer).to receive(:confirmation_instructions).and_call_original
+
+            expect do
+              post :create
+            end.to have_enqueued_job(ActionMailer::DeliveryJob).with(
+              "Decidim::DecidimDeviseMailer",
+              "confirmation_instructions",
+              "deliver_now",
+              user,
+              kind_of(String),
+              {}
+            )
+          end
+
           it "redirects to root" do
+            post :create
+
             expect(controller).to redirect_to(root_path)
           end
         end
