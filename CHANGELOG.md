@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-participatory_processes**: Export/import feature for ParticipatoryProcess. [#5378](https://github.com/decidim/decidim/pull/5378)
 - **decidim-core**: Adds new language: Norwegian [#5334](https://github.com/decidim/decidim/pull/5334)
 
 **Changed**:
