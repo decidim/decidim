@@ -118,6 +118,14 @@ module Decidim
 
                 expect(user.identities.length).to eq(1)
               end
+
+              it "confirms a previously existing user" do
+                create(:user, email: email, organization: organization)
+                expect { command.call }.to change(User, :count).by(0)
+
+                user = User.find_by(email: email)
+                expect(user).to be_confirmed
+              end
             end
 
             context "with an unverified email" do
@@ -128,6 +136,14 @@ module Decidim
                 expect { command.call }.to broadcast(:error)
 
                 expect(user.identities.length).to eq(0)
+              end
+
+              it "doesn't confirm a previously existing user" do
+                create(:user, email: email, organization: organization)
+                expect { command.call }.to broadcast(:error)
+
+                user = User.find_by(email: email)
+                expect(user).not_to be_confirmed
               end
             end
           end
@@ -151,11 +167,33 @@ module Decidim
         end
 
         context "when a user exists with that identity" do
-          it "broadcasts ok" do
+          before do
             user = create(:user, email: email, organization: organization)
             create(:identity, user: user, provider: provider, uid: uid)
+          end
 
+          it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
+          end
+
+          context "with the same email as reported by the identity" do
+            it "confirms the user" do
+              command.call
+
+              user = User.find_by(email: email)
+              expect(user).to be_confirmed
+            end
+          end
+
+          context "with another email than in the one reported by the identity" do
+            let(:verified_email) { "other@email.com" }
+
+            it "doesn't confirm the user" do
+              command.call
+
+              user = User.find_by(email: email)
+              expect(user).not_to be_confirmed
+            end
           end
         end
       end
