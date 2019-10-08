@@ -39,13 +39,36 @@ module Decidim
 
         def publish_drafts
           Decidim::Proposals::Proposal.where(component: form.current_component).drafts.find_each do |proposal|
-            add_failure(proposal) unless proposal.update(published_at: Time.current)
+            add_failure(proposal) unless publish_proposal(proposal)
           end
           raise ActiveRecord::Rollback if @failures.any?
         end
 
         def add_failure(proposal)
           @failures[proposal.id] = proposal.errors.full_messages
+        end
+
+        # This will be the PaperTrail version shown in the version control feature (1 of 1).
+        # For an attribute to appear in the new version it has to be reset
+        # and reassigned, as PaperTrail only keeps track of object CHANGES.
+        def publish_proposal(proposal)
+          title, body = reset_proposal_title_and_body(proposal)
+
+          Decidim.traceability.perform_action!(:create, proposal, form.current_user, visibility: "all") do
+            proposal.update(title: title, body: body, published_at: Time.current)
+          end
+        end
+
+        # Reset the attributes to an empty string and return the old values.
+        def reset_proposal_title_and_body(proposal)
+          title = proposal.title
+          body = proposal.body
+
+          PaperTrail.request(enabled: false) do
+            proposal.update_columns(title: "", body: "") # rubocop:disable Rails/SkipsModelValidations
+          end
+
+          [title, body]
         end
       end
     end

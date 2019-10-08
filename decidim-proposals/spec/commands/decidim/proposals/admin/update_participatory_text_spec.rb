@@ -18,6 +18,7 @@ module Decidim
             proposals.each_with_index do |proposal, idx|
               level = Decidim::Proposals::ParticipatoryTextSection::LEVELS.keys[idx]
               proposal.update(participatory_text_level: level)
+              proposal.versions.destroy_all
             end
             proposals
           end
@@ -42,6 +43,14 @@ module Decidim
             )
           end
           let(:command) { described_class.new(form) }
+
+          it "does not create a version for each proposal", versioning: true do
+            expect { command.call }.to broadcast(:ok)
+
+            proposals.each do |proposal|
+              expect(proposal.reload.versions.count).to be_zero
+            end
+          end
 
           describe "when form modifies proposals" do
             context "with valid values" do
