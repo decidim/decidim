@@ -93,9 +93,11 @@ describe "Admin imports participatory process", type: :system do
       click_link "Import participatory process"
       click_link "Files"
 
-      within ".table-list" do
-        Decidim::ParticipatoryProcess.last.attachments.each do |attachment|
-          expect(page).to have_content(translated(attachment.title))
+      if Decidim::ParticipatoryProcess.last.attachments.any?
+        within ".table-list" do
+          Decidim::ParticipatoryProcess.last.attachments.each do |attachment|
+            expect(page).to have_content(translated(attachment.title))
+          end
         end
       end
     end
