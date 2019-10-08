@@ -274,7 +274,7 @@ de:
             name: Treffen
         registrations:
           edit:
-            save: sparen
+            save: Speichern
             validate: Bestätigen
             validate_registration_code: Validiere den Registrierungscode
           form:
