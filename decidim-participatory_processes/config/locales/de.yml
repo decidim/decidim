@@ -393,7 +393,7 @@ de:
           take_part: Teilnehmen
         promoted_process:
           active_step: 'Aktueller Schritt:'
-          more_info: Mehr Info
+          more_info: Mehr Information
           take_part: Teilnehmen
       process_header_steps:
         step: Schritt %{current} von %{total}
