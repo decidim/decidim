@@ -854,7 +854,7 @@ de:
           how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Info
+          more_info: Mehr Information
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
@@ -1030,8 +1030,8 @@ de:
         label: 'Ergebnisse pro Seite:'
       share_modal:
         close_window: Fenster schließen
-        share: Aktie
-        share_link: Einen Link teilen
+        share: Teilen
+        share_link: Link teilen
       version_author:
         deleted: Gelöschter Benutzer
     user_activity:
