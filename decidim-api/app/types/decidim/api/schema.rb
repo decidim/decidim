@@ -8,7 +8,7 @@ module Decidim
       mutation MutationType
 
       default_max_page_size 50
-      max_depth 10
+      max_depth 15
       max_complexity 300
 
       orphan_types(Api.orphan_types)
