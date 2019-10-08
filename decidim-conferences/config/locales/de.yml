@@ -333,7 +333,7 @@ de:
             slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
-            save: sparen
+            save: Speichern
             title: Teilnahmebestätigung
         invite_join_conference_mailer:
           invite:
