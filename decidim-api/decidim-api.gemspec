@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "graphiql-rails", "~> 1.7"
+  s.add_dependency "graphiql-rails", "~> 1.4", "< 1.5"
   s.add_dependency "graphql", "~> 1.9"
   s.add_dependency "rack-cors", "~> 1.0"
   s.add_dependency "sprockets-es6", "~> 0.9.2"

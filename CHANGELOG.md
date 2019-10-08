@@ -28,6 +28,7 @@
 
 **Changed**:
 
+- **decidim-comments**: Change: Promote URLs in plain text to HTML anchors in comments.[\#5401](https://github.com/decidim/decidim/pull/5401)
 - **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5341](https://github.com/decidim/decidim/pull/5341)
 - **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
 - **decidim-core**: Changes default format date [#5330](https://github.com/decidim/decidim/pull/5330)
@@ -75,6 +76,7 @@
 - **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-forms**, **decidim-meetings**, **decidim-proposals**, **decidim-verifications**** Various bugfixes [\#5383](https://github.com/decidim/decidim/pull/5383)
 - **decidim-core** Fix omniauth registration edge cases and specs [#5397](https://github.com/decidim/decidim/pull/5397)
 - **decidim-core**: Fix errors controller forgery protection [#5398](https://github.com/decidim/decidim/pull/5398)
+- **decidim-meetings**, **decidim-core**: Various bugfixes [#5402](https://github.com/decidim/decidim/pull/5402)
 
 **Removed**:
 
