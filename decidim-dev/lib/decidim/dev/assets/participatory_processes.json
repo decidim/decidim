@@ -318,6 +318,7 @@
           "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf"
         }
       ]
-    }
+    },
+    "components": []
   }
 ]
