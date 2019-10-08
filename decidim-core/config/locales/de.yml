@@ -1076,7 +1076,7 @@ de:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihre eindeutige ID in %{organization}.
-        submit_button: sparen
+        submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
@@ -1224,7 +1224,7 @@ de:
       cookie_warning:
         description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
         link_label: Hier
-        ok: ich stimme zu
+        ok: Ich stimme zu
       edit_link:
         edit: Bearbeiten
       footer:
