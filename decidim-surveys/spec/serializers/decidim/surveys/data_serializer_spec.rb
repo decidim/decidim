@@ -20,9 +20,6 @@ module Decidim::Surveys
         expect(serialized_survey[:id]).to eq(survey.id)
 
         serialized_questionnaire = serialized_survey[:questionnaire]
-puts "questionna: #{questionnaire.attributes.to_yaml}"
-puts "serialized: #{serialized_questionnaire}"
-
         expect(serialized_questionnaire[:title]).to eq(questionnaire.title)
         expect(serialized_questionnaire[:description]).to eq(questionnaire.description)
         expect(serialized_questionnaire[:tos]).to eq(questionnaire.tos)
