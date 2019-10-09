@@ -58,6 +58,8 @@ module Decidim
             decidim_category_id: form.decidim_category_id,
             categorizable: sortition
           )
+          # reload sortition model to make it aware of the category
+          sortition.reload
         end
 
         def select_proposals_for(sortition)
