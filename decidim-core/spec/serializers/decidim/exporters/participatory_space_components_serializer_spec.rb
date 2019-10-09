@@ -27,6 +27,11 @@ module Decidim::Exporters
         component_2.manifest.specific_data_serializer_class_name = DummySpecificDataSerializer.name
       end
 
+      after do
+        component_2.manifest.serializes_specific_data = false
+        component_2.manifest.specific_data_serializer_class_name = nil
+      end
+
       describe "with specific data" do
         let(:serialized) { subject.serialize }
 
