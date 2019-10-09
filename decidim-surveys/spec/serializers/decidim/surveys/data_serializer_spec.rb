@@ -9,8 +9,8 @@ module Decidim::Surveys
         described_class.new(survey.component)
       end
 
-      let!(:survey) { create(:survey) }
-      let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
+      let!(:questionnaire) { build(:questionnaire, :with_questions) }
+      let!(:survey) { create(:survey, questionnaire: questionnaire) }
 
       let(:serialized_surveys) { subject.serialize }
 
