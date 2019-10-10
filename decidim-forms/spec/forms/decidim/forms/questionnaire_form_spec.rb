@@ -12,11 +12,10 @@ module Decidim
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
       let(:current_user) { create(:user) }
-      let(:ip_hash) { "some-hash" }
+      let(:session_token) { "some-token" }
       let(:context) do
         {
-          current_user: current_user,
-          ip_hash: ip_hash
+          session_token: session_token
         }
       end
 
@@ -33,21 +32,14 @@ module Decidim
           subject.tos_agreement = true
         end
 
-        context "and no user, no ip is present" do
-          let(:current_user) { nil }
-          let(:ip_hash) { nil }
+        context "and no token is present" do
+          let(:session_token) { nil }
 
           it { is_expected.not_to be_valid }
         end
 
-        context "and user is present but no ip" do
+        context "and token is present" do
           let(:ip_hash) { nil }
-
-          it { is_expected.to be_valid }
-        end
-
-        context "and no user is present but ip is" do
-          let(:current_user) { nil }
 
           it { is_expected.to be_valid }
         end

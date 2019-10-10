@@ -28,10 +28,7 @@ module Decidim
           def answer
             enforce_permission_to :answer, :questionnaire
 
-            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params,
-                                                                        current_user: current_user,
-                                                                        session_token: session_token,
-                                                                        ip_hash: ip_hash)
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token)
 
             Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
               on(:ok) do
@@ -115,9 +112,14 @@ module Decidim
             @ip_hash ||= tokenize(request&.remote_ip)
           end
 
+          # token is used as a substitute of user_id if unregistered
           def session_token
+            id = current_user&.id
             session_id = request.session[:session_id] if request&.session
-            @session_token ||= tokenize(session_id || current_user&.id || Time.current.to_i)
+
+            return nil unless id || session_id
+
+            @session_token ||= tokenize(id || session_id)
           end
 
           def tokenize(id)

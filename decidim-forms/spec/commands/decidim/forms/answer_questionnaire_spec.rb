@@ -12,7 +12,7 @@ module Decidim
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:session_id) { "session-string" }
-      let(:session_token) { tokenize(session_id || current_user&.id) }
+      let(:session_token) { tokenize(current_user&.id || session_id) }
       let(:remote_ip) { "1.1.1.1" }
       let(:ip_hash) { tokenize(remote_ip) }
       let(:request) do
@@ -60,7 +60,6 @@ module Decidim
           form_params
         ).with_context(
           current_organization: current_organization,
-          current_user: current_user,
           session_token: session_token,
           ip_hash: ip_hash
         )
@@ -104,8 +103,7 @@ module Decidim
         end
 
         # This is to ensure that always exists a uniq identifier per-user
-        context "and no session exists" do
-          let(:session_id) { nil }
+        context "and user is registered" do
           let(:ip_hash) { nil }
 
           it "broadcasts ok" do
@@ -128,7 +126,7 @@ module Decidim
       describe "when the user is unregistered" do
         let(:current_user) { nil }
 
-        context "and remote_ip exists" do
+        context "and session exists" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -137,16 +135,16 @@ module Decidim
             command.call
 
             expect(Answer.first.session_token).to eq(tokenize(session_id))
-            expect(Answer.first.ip_hash).to eq(tokenize(remote_ip))
+            expect(Answer.first.ip_hash).to eq(ip_hash)
             expect(Answer.second.session_token).to eq(tokenize(session_id))
-            expect(Answer.second.ip_hash).to eq(tokenize(remote_ip))
+            expect(Answer.second.ip_hash).to eq(ip_hash)
             expect(Answer.third.session_token).to eq(tokenize(session_id))
-            expect(Answer.third.ip_hash).to eq(tokenize(remote_ip))
+            expect(Answer.third.ip_hash).to eq(ip_hash)
           end
         end
 
-        context "and remote_ip is missing" do
-          let(:ip_hash) { nil }
+        context "and session is missing" do
+          let(:session_token) { nil }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

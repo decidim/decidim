@@ -8,8 +8,9 @@ module Decidim
       attribute :user_group_id, Integer
 
       attribute :tos_agreement, Boolean
+
       validates :tos_agreement, allow_nil: false, acceptance: true
-      validate :user_or_ip_present
+      validate :session_token_in_context
 
       # Private: Create the answers from the questionnaire questions
       #
@@ -20,8 +21,8 @@ module Decidim
         end
       end
 
-      def user_or_ip_present
-        return if context&.current_user || context&.ip_hash
+      def session_token_in_context
+        return if context&.session_token
 
         errors.add(:tos_agreement, I18n.t("activemodel.errors.models.questionnaire.request_invalid"))
       end
