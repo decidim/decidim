@@ -16,10 +16,11 @@ module Decidim
         let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
         let(:title) { Decidim::Faker::Localized.sentence(3) }
         let(:category) { create(:category, participatory_space: participatory_process) }
+        let(:category_id) { nil }
         let(:params) do
           {
             decidim_proposals_component_id: proposal_component.id,
-            decidim_category_id: category.id,
+            decidim_category_id: category_id,
             dice: dice,
             title: title,
             target_items: target_items,
@@ -100,10 +101,38 @@ module Decidim
             expect(sortition.candidate_proposals).not_to be_empty
           end
 
-          it "Has a category" do
+          it "Has no category" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
-            expect(sortition.category).to eq(category)
+            expect(sortition.category).to eq(nil)
+          end
+
+          context "when restricted to a category without proposals" do
+            let(:category_id) { category.id }
+
+            it "Has a category" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.category).to eq(category)
+            end
+
+            it "The created sortition has not proposals" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).to be_empty
+            end
+          end
+
+          context "when restricted to a category with proposals" do
+            let(:category_id) { category.id }
+            let!(:proposal) { create(:proposal, component: proposal_component, category: category) }
+
+            it "The created sortition contains proposals" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).not_to be_empty
+              expect(sortition.selected_proposals.first).to eq(proposal.id)
+            end
           end
 
           it "Has a reference" do
