@@ -72,6 +72,7 @@
 - **decidim-core**: Fix email notifications [#5370](https://github.com/decidim/decidim/pull/5370)
 - **decidim-assemblies**, **decidim-core**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-system** Various bugfixes [\#5376](https://github.com/decidim/decidim/pull/5376)
 - **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-forms**, **decidim-meetings**, **decidim-proposals**, **decidim-verifications**** Various bugfixes [\#5383](https://github.com/decidim/decidim/pull/5383)
+- **decidim-participatory_processes**: Fix: Duplicate private process [\#5379](https://github.com/decidim/decidim/pull/5379)
 
 **Removed**:
 
