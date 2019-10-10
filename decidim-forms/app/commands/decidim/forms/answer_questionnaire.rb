@@ -67,7 +67,7 @@ module Decidim
 
       def session_token
         session_id = @request.session[:session_id] if @request&.session
-        @session_token ||= tokenize(session_id || @current_user&.id || Time.now.to_i)
+        @session_token ||= tokenize(session_id || @current_user&.id || Time.current.to_i)
       end
 
       def tokenize(id)
