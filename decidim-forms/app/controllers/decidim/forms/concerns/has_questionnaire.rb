@@ -28,9 +28,12 @@ module Decidim
           def answer
             enforce_permission_to :answer, :questionnaire
 
-            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params,
+                                                                        current_user: current_user,
+                                                                        session_token: session_token,
+                                                                        ip_hash: ip_hash)
 
-            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire, request) do
+            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
               on(:ok) do
                 # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
                 flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)
@@ -104,6 +107,17 @@ module Decidim
 
             flash.now[:alert] = I18n.t("answer.spam_detected", scope: i18n_flashes_scope)
             render template: "decidim/forms/questionnaires/show"
+          end
+
+          def ip_hash
+            return nil unless request&.remote_ip
+
+            @ip_hash ||= tokenize(request&.remote_ip)
+          end
+
+          def session_token
+            session_id = request.session[:session_id] if request&.session
+            @session_token ||= tokenize(session_id || current_user&.id || Time.current.to_i)
           end
 
           def tokenize(id)

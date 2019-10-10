@@ -9,6 +9,7 @@ module Decidim
 
       attribute :tos_agreement, Boolean
       validates :tos_agreement, allow_nil: false, acceptance: true
+      validate :user_or_ip_present
 
       # Private: Create the answers from the questionnaire questions
       #
@@ -17,6 +18,12 @@ module Decidim
         self.answers = model.questions.map do |question|
           AnswerForm.from_model(Decidim::Forms::Answer.new(question: question))
         end
+      end
+
+      def user_or_ip_present
+        return if context&.current_user || context&.ip_hash
+
+        errors.add(:tos_agreement, I18n.t("activemodel.errors.models.questionnaire.request_invalid"))
       end
     end
   end

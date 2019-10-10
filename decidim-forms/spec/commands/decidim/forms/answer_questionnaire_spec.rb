@@ -5,16 +5,23 @@ require "spec_helper"
 module Decidim
   module Forms
     describe AnswerQuestionnaire do
+      def tokenize(id)
+        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+      end
+
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:session_id) { "session-string" }
+      let(:session_token) { tokenize(session_id || current_user&.id) }
       let(:remote_ip) { "1.1.1.1" }
+      let(:ip_hash) { tokenize(remote_ip) }
       let(:request) do
         double(
           session: { session_id: session_id },
           remote_ip: remote_ip
         )
       end
+
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire) }
@@ -52,14 +59,13 @@ module Decidim
         QuestionnaireForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization
+          current_organization: current_organization,
+          current_user: current_user,
+          session_token: session_token,
+          ip_hash: ip_hash
         )
       end
-      let(:command) { described_class.new(form, current_user, questionnaire, request) }
-
-      def tokenize(id)
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
-      end
+      let(:command) { described_class.new(form, current_user, questionnaire) }
 
       describe "when the form is invalid" do
         before do
@@ -100,7 +106,7 @@ module Decidim
         # This is to ensure that always exists a uniq identifier per-user
         context "and no session exists" do
           let(:session_id) { nil }
-          let(:remote_ip) { nil }
+          let(:ip_hash) { nil }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
@@ -140,7 +146,7 @@ module Decidim
         end
 
         context "and remote_ip is missing" do
-          let(:remote_ip) { nil }
+          let(:ip_hash) { nil }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

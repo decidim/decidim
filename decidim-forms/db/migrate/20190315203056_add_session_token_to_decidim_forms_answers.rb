@@ -6,7 +6,7 @@ class AddSessionTokenToDecidimFormsAnswers < ActiveRecord::Migration[5.2]
   end
 
   def change
-    add_column :decidim_forms_answers, :session_token, :string, null: false, default: ''
+    add_column :decidim_forms_answers, :session_token, :string, null: false, default: ""
     add_index :decidim_forms_answers, :session_token
 
     Answer.find_each do |answer|

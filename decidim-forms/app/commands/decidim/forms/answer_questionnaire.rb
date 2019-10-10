@@ -8,12 +8,10 @@ module Decidim
       #
       # form - The form from which to get the data.
       # questionnaire - The current instance of the questionnaire to be answered.
-      # request - a request object is needed if belongs to and unregistered user survey
-      def initialize(form, current_user, questionnaire, request = nil)
+      def initialize(form, current_user, questionnaire)
         @form = form
         @current_user = current_user
         @questionnaire = questionnaire
-        @request = request
       end
 
       # Answers a questionnaire if it is valid
@@ -22,27 +20,24 @@ module Decidim
       def call
         return broadcast(:invalid) if @form.invalid?
 
-        # if no user, we need an ip to tokenize
-        unless @current_user
-          return broadcast(:invalid) unless ip_hash
-        end
-
         answer_questionnaire
         broadcast(:ok)
       end
+
+      attr_reader :form
 
       private
 
       def answer_questionnaire
         Answer.transaction do
-          @form.answers.each do |form_answer|
+          form.answers.each do |form_answer|
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
               question: form_answer.question,
               body: form_answer.body,
-              session_token: session_token,
-              ip_hash: ip_hash
+              session_token: form.context.session_token,
+              ip_hash: form.context.ip_hash
             )
 
             form_answer.selected_choices.each do |choice|
@@ -57,21 +52,6 @@ module Decidim
             answer.save!
           end
         end
-      end
-
-      def ip_hash
-        return nil unless @request&.remote_ip
-
-        @ip_hash ||= tokenize(@request&.remote_ip)
-      end
-
-      def session_token
-        session_id = @request.session[:session_id] if @request&.session
-        @session_token ||= tokenize(session_id || @current_user&.id || Time.current.to_i)
-      end
-
-      def tokenize(id)
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
       end
     end
   end
