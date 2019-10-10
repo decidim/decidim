@@ -267,7 +267,7 @@ de:
     metrics:
       participatory_processes:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: partizipatorische Prozesse
+        object: Beteiligungsprozesse
         title: Beteiligungsprozesse
     participatory_process_groups:
       show:
@@ -306,9 +306,9 @@ de:
             visbility: Sichtweite
       content_blocks:
         highlighted_processes:
-          name: Markierte Prozesse
+          name: Hervorgehobene Beteiligungsprozesse
       index:
-        title: Partizipative Prozesse
+        title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: Neuer partizipativer Prozess
       pages:
@@ -393,7 +393,7 @@ de:
           take_part: Teilnehmen
         promoted_process:
           active_step: 'Aktueller Schritt:'
-          more_info: Mehr Info
+          more_info: Mehr Informationen
           take_part: Teilnehmen
       process_header_steps:
         step: Schritt %{current} von %{total}
