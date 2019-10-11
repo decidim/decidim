@@ -15,6 +15,7 @@ module Decidim::Exporters
       let(:components) do
         { component_1.id => component_1, component_2.id => component_2 }
       end
+      let(:previous_conf) { {} }
 
       class DummySpecificDataSerializer < Decidim::Exporters::Serializer
         def serialize
@@ -23,13 +24,17 @@ module Decidim::Exporters
       end
 
       before do
-        component_2.manifest.serializes_specific_data = true
-        component_2.manifest.specific_data_serializer_class_name = DummySpecificDataSerializer.name
+        manifest = component_2.manifest
+        previous_conf[:serializes_specific_data] = manifest.serializes_specific_data
+        manifest.serializes_specific_data = true
+        previous_conf[:specific_data_serializer_class_name] = manifest.specific_data_serializer_class_name
+        manifest.specific_data_serializer_class_name = DummySpecificDataSerializer.name
       end
 
       after do
-        component_2.manifest.serializes_specific_data = false
-        component_2.manifest.specific_data_serializer_class_name = nil
+        manifest = component_2.manifest
+        manifest.serializes_specific_data = previous_conf[:serializes_specific_data]
+        manifest.specific_data_serializer_class_name = previous_conf[:specific_data_serializer_class_name]
       end
 
       describe "with specific data" do
