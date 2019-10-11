@@ -318,6 +318,117 @@
           "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf"
         }
       ]
-    }
+    },
+    "components": [
+      {
+        "manifest_name": "accountability",
+        "id": 15,
+        "name": {
+          "ca": "Seguiment",
+          "en": "Accountability",
+          "es": "Seguimiento"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "comments_enabled": true,
+          "intro": {
+            "ca": "<p>Sapiente animi quo at.</p>",
+            "en": "<p>Voluptatem praesentium maxime vitae.</p>",
+            "es": "<p>Illum veritatis porro nulla.</p>"
+          },
+          "intro_en": "<p>Voluptatem praesentium maxime vitae.</p>",
+          "intro_ca": "<p>Sapiente animi quo at.</p>",
+          "intro_es": "<p>Illum veritatis porro nulla.</p>",
+          "categories_label": {
+            "ca": "alias",
+            "en": "aut",
+            "es": "omnis"
+          },
+          "categories_label_en": "aut",
+          "categories_label_ca": "alias",
+          "categories_label_es": "omnis",
+          "subcategories_label": {
+            "ca": "rerum",
+            "en": "reprehenderit",
+            "es": "nostrum"
+          },
+          "subcategories_label_en": "reprehenderit",
+          "subcategories_label_ca": "rerum",
+          "subcategories_label_es": "nostrum",
+          "heading_parent_level_results": {
+            "ca": "et",
+            "en": "explicabo",
+            "es": "officiis"
+          },
+          "heading_parent_level_results_en": "explicabo",
+          "heading_parent_level_results_ca": "et",
+          "heading_parent_level_results_es": "officiis",
+          "heading_leaf_level_results": {
+            "ca": "consectetur",
+            "en": "illum",
+            "es": "sunt"
+          },
+          "heading_leaf_level_results_en": "illum",
+          "heading_leaf_level_results_ca": "consectetur",
+          "heading_leaf_level_results_es": "sunt",
+          "display_progress_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:43 UTC"
+      },
+      {
+        "manifest_name": "blogs",
+        "id": 18,
+        "name": {
+          "ca": "Blog",
+          "en": "Blog",
+          "es": "Blog"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "announcement": {
+            "ca": null,
+            "en": null,
+            "es": null
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null,
+          "comments_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:47 UTC"
+      },
+      {
+        "manifest_name": "budgets",
+        "id": 13,
+        "name": {
+          "ca": "Pressupostos",
+          "en": "Budgets",
+          "es": "Presupuestos"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "projects_per_page": 12,
+          "total_budget": 100000000,
+          "vote_threshold_percent": 70,
+          "comments_enabled": true,
+          "resources_permissions_enabled": true,
+          "announcement": {
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:42 UTC"
+      }
+    ]
   }
 ]

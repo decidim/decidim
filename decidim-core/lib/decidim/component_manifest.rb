@@ -58,6 +58,25 @@ module Decidim
     # probably have the form of `Decidim::<MyComponent>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # Does this component have specific data to serialize and import?
+    # Beyond the attributes in decidim_component table.
+    attribute :serializes_specific_data, Boolean, default: false
+
+    # The class to be used to serialize specific data for the current component.
+    # Should be a kind of `Decidim::Exporters::Serializer`.
+    #
+    # Note that this class will be initialized with the component as argument.
+    # Then it makes no sense to use the base Decidim::Exporters::Serializer because it
+    # will serialize the component itself, not the specific data depending on it.
+    # Thus you will always be setting a subclass of `Decidim::Exporters::Serializer`.
+    #
+    attribute :specific_data_serializer_class_name, String
+
+    # The class to be used to import specific data for the current component.
+    # Should be a kind of `Decidim::Importers::Importer`.
+    #
+    attribute :specific_data_importer_class_name, String
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some
@@ -163,6 +182,10 @@ module Decidim
       end
     end
 
+    def serializes_specific_data?
+      serializes_specific_data
+    end
+
     # Public: Stores an instance of StatsRegistry
     def stats
       @stats ||= StatsRegistry.new
@@ -188,6 +211,24 @@ module Decidim
     # Returns a Class.
     def permissions_class
       permissions_class_name&.constantize
+    end
+
+    # Public: Finds the specific data serializer class from its name, using the
+    # `specific_data_serializer_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Decidim::Exporters::Serializer subclass or nil.
+    def specific_data_serializer_class
+      specific_data_serializer_class_name&.constantize
+    end
+
+    # Public: Finds the specific data importer class from its name, using the
+    # `specific_data_importerer_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Decidim::Importers::Importer subclass or nil.
+    def specific_data_importer_class
+      specific_data_importer_class_name&.constantize
     end
 
     # Public: Registers a resource. Exposes a DSL defined by
