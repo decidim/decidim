@@ -19,6 +19,9 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
+        instructions: Instructions supplémentaires pour le vote
+        max_votes: Nombre maximal de votes
+        min_votes: Nombre minimal de votes
         origin_scope: Périmètre
         origin_title: Origine
         origin_url: URL d'origine
@@ -33,10 +36,21 @@ fr:
         vote: Système de vote externe
         what_is_decided: Objectifs
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Le nombre maximum de voix doit être supérieur ou égal au minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Réponse introuvable.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Nombre de voix invalide
     models:
       decidim/consultation:
         one: Consultation
@@ -89,6 +103,7 @@ fr:
           title: Nouvelle votation
         results:
           not_visible: Les résultats seront disponibles lorsque la consultation sera close
+          participants: "%{count} participant·e·s"
           total_votes: 'Total : %{count} votes'
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette votation.
@@ -101,6 +116,7 @@ fr:
           results: Résultats
         questions_submenu:
           components: Fonctionnalités
+          configuration: Configuration
           consultation: Votation
           info: Informations
           responses: Réponses
@@ -128,6 +144,10 @@ fr:
           name:
             one: Réponse
             other: Réponses
+      question_configuration:
+        disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées
+        form:
+          title: Configuration avancée
       question_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette question.
@@ -232,6 +252,22 @@ fr:
         votes_out_of:
           one: vote sur
           other: votes sur
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Les participants pourraient distribuer un minimum de %{votes} votes parmi différentes options.
+          title: Dans cette question plusieurs choix sont permis
+          total_participants: Un total de %{count} personnes ont participé au vote.
+          vote_limit:
+            description: Les participants peuvent voter jusqu'à %{limit} options.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Vous devez répartir un minimum de %{votes} voix entre différentes questions.
+          title: 'Les votes sont soumis aux règles suivantes :'
+          vote_limit:
+            description: Vous pouvez voter jusqu'à %{limit} options.
+            left: Restant
+            votes: Voix
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
@@ -309,3 +345,4 @@ fr:
         unfold: Voir la suite
       question_header:
         back_to_consultation: Voir toutes les votations
+        back_to_question: Retour à la question

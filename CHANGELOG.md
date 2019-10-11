@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-forms**: Added UML clarifying the relation between the Questionnaire classes. [#5394](https://github.com/decidim/decidim/pull/5394)
 - **decidim-consultations**: Allow multi-choice answers to questions in consultations. [#5356](https://github.com/decidim/decidim/pull/5356)
 - **decidim-proposals**: Allow admins to create image galleries in proposals if attachments are enabled. [\#5339](https://github.com/decidim/decidim/pull/5339)
 - **decidim-blog**: Allow attachments to blog posts. [\#5336](https://github.com/decidim/decidim/pull/5336)
@@ -27,6 +28,7 @@
 
 **Changed**:
 
+- **decidim-comments**: Change: Promote URLs in plain text to HTML anchors in comments.[\#5401](https://github.com/decidim/decidim/pull/5401)
 - **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5341](https://github.com/decidim/decidim/pull/5341)
 - **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
 - **decidim-core**: Changes default format date [#5330](https://github.com/decidim/decidim/pull/5330)
@@ -34,6 +36,8 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix: ParticipatoryText workflow creates multiple versions [#5399](https://github.com/decidim/decidim/pull/5399)
+- **decidim-assemblies**: Fix: show the Assemblies button to allow managing nested assemblies [#5386](https://github.com/decidim/decidim/pull/5386)
 - **decidim-admin**: Fix: Remove first `:header_snippets` field on organization admin apparence form. [#5352](https://github.com/decidim/decidim/pull/5352)
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5312](https://github.com/decidim/decidim/pull/5312)
 - **decidim-core**: Fix: WhatsApp url button [#5317](https://github.com/decidim/decidim/pull/5317)
@@ -69,7 +73,11 @@
 - **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
 - **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
 - **decidim-core**: Fix email notifications [#5370](https://github.com/decidim/decidim/pull/5370)
-- **decidim-assemblies**, **decidim-core**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-system** [\#5329](https://github.com/decidim/decidim/pull/5329)
+- **decidim-assemblies**, **decidim-core**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-system** Various bugfixes [\#5376](https://github.com/decidim/decidim/pull/5376)
+- **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-forms**, **decidim-meetings**, **decidim-proposals**, **decidim-verifications**** Various bugfixes [\#5383](https://github.com/decidim/decidim/pull/5383)
+- **decidim-core** Fix omniauth registration edge cases and specs [#5397](https://github.com/decidim/decidim/pull/5397)
+- **decidim-core**: Fix errors controller forgery protection [#5398](https://github.com/decidim/decidim/pull/5398)
+- **decidim-meetings**, **decidim-core**: Various bugfixes [#5402](https://github.com/decidim/decidim/pull/5402)
 
 **Removed**:
 

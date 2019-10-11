@@ -10,33 +10,95 @@ module Decidim
 
     before do
       request.env["decidim.current_organization"] = organization
+      request.env["devise.mapping"] = ::Devise.mappings[:user]
     end
 
     describe "POST create" do
-      context "when the unverified email address is already in use" do
-        subject do
-          post :create, params: {
-            user: {
-              provider: provider,
-              uid: uid,
-              name: "Facebook User",
-              email: email,
-              oauth_signature: OmniauthRegistrationForm.create_signature(provider, uid)
-            }
-          }
-        end
+      let(:provider) { "facebook" }
+      let(:uid) { "12345" }
+      let(:email) { "user@from-facebook.com" }
+      let!(:user) { create(:user, organization: organization, email: email) }
 
-        let(:provider) { "facebook" }
-        let(:uid) { "12345" }
-        let(:email) { "user@from-facebook.com" }
-        let!(:user) { create(:user, organization: organization, email: email) }
+      before do
+        request.env["omniauth.auth"] = {
+          provider: provider,
+          uid: uid,
+          info: {
+            name: "Facebook User",
+            nickname: "facebook_user",
+            email: email
+          }
+        }
+      end
+
+      context "when the unverified email address is already in use" do
+        before do
+          post :create
+        end
 
         it "doesn't create a new user" do
           expect(User.count).to eq(1)
         end
 
-        it "doesn't log in" do
-          expect(controller).not_to be_user_signed_in
+        it "logs in" do
+          expect(controller).to be_user_signed_in
+        end
+      end
+
+      context "when the unverified email address is already in use but left unconfirmed" do
+        before do
+          user.update!(
+            confirmation_sent_at: Time.now.utc - 1.year
+          )
+        end
+
+        context "with the same email as from the identity provider" do
+          before do
+            post :create
+          end
+
+          it "logs in" do
+            expect(controller).to be_user_signed_in
+          end
+
+          it "confirms the user account" do
+            expect(controller.current_user).to be_confirmed
+          end
+        end
+
+        context "with another email than the one from the identity provider" do
+          let!(:identity) { create(:identity, user: user, uid: uid) }
+
+          before do
+            request.env["omniauth.auth"][:info][:email] = "omniauth@email.com"
+          end
+
+          it "doesn't log in" do
+            post :create
+
+            expect(controller).not_to be_user_signed_in
+          end
+
+          it "resends the confirmation instructions" do
+            expect(Decidim::DecidimDeviseMailer).to receive(:confirmation_instructions).and_call_original
+
+            expect do
+              post :create
+            end.to have_enqueued_job(ActionMailer::DeliveryJob).with(
+              "Decidim::DecidimDeviseMailer",
+              "confirmation_instructions",
+              "deliver_now",
+              user,
+              kind_of(String),
+              {}
+            )
+          end
+
+          it "redirects to root" do
+            post :create
+
+            expect(controller).to redirect_to(root_path)
+          end
         end
       end
     end

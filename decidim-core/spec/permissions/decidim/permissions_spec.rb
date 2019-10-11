@@ -108,7 +108,21 @@ describe Decidim::Permissions do
     context "when user is a user manager" do
       let(:user) { create :user, :user_manager }
 
-      it_behaves_like "delegates permissions to", Decidim::UserManagerPermissions
+      context "when reading the admin dashboard" do
+        let(:action) do
+          { scope: :public, action: :read, subject: :admin_dashboard }
+        end
+
+        it { is_expected.to eq true }
+      end
+
+      context "when impersonating a managed user" do
+        let(:action) do
+          { scope: :public, action: :impersonate, subject: :managed_user }
+        end
+
+        it { is_expected.to eq true }
+      end
     end
 
     context "when managing self user" do

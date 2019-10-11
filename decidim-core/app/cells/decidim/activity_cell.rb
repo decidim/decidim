@@ -73,6 +73,13 @@ module Decidim
       I18n.l(model.created_at, format: :short)
     end
 
+    def user
+      return resource.normalized_author if resource.respond_to?(:normalized_author)
+      return resource.author if resource.respond_to?(:author)
+
+      model.user_lazy if resource.respond_to?(:user)
+    end
+
     private
 
     def published?
@@ -87,12 +94,6 @@ module Decidim
 
     def organization
       model.organization_lazy
-    end
-
-    def user
-      return resource.author if resource.respond_to?(:author)
-
-      model.user_lazy
     end
 
     def author
