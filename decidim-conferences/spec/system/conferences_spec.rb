@@ -169,4 +169,48 @@ describe "Conferences", type: :system do
       end
     end
   end
+
+  describe "custom link" do
+    let!(:custom_link_name) do
+      {
+        en: "decidim",
+        es: "decidim",
+        ca: "decidim"
+      }
+    end
+    let!(:custom_link_url) { "https://decidim.org" }
+
+    context "when there is no custom link" do
+      let!(:conference) { create(:conference, :published, organization: organization) }
+
+      before do
+        visit decidim_conferences.conferences_path
+        click_link "More info"
+      end
+
+      it "displays a custom link" do
+        expect(page).not_to have_link(custom_link_name[:en], href: custom_link_url)
+      end
+    end
+
+    context "when there is a custom link" do
+      let!(:conference) do
+        create(:conference,
+               :with_custom_link,
+               :published,
+               custom_link_name: custom_link_name,
+               custom_link_url: custom_link_url,
+               organization: organization)
+      end
+
+      before do
+        visit decidim_conferences.conferences_path
+        click_link "More info"
+      end
+
+      it "displays a custom link" do
+        expect(page).to have_link(custom_link_name[:en], href: custom_link_url)
+      end
+    end
+  end
 end

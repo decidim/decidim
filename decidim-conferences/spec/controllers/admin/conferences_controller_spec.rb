@@ -12,6 +12,7 @@ module Decidim
       let!(:conference) do
         create(
           :conference,
+          :with_custom_link,
           :published,
           organization: organization
         )
@@ -28,6 +29,8 @@ module Decidim
           {
             title: conference.title,
             slogan: conference.slogan,
+            custom_link_name: conference.custom_link_name,
+            custom_link_url: conference.custom_link_url,
             description: conference.description,
             short_description: conference.short_description,
             slug: conference.slug,

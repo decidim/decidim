@@ -24,6 +24,17 @@ $(() => {
       };
       $registrationsEnabled.on("change", toggleDisabledFields);
       toggleDisabledFields();
+
+      const $customLinkEnabled = $form.find("#conference_custom_link_enabled");
+      const toggleCustomLinksFields = () => {
+        const enabled = $customLinkEnabled.prop("checked");
+        $form.find("[data-tabs-content='conference-custom_link_name-tabs'] input").each((idx, node) => {
+          $form.find(node).attr("disabled", !enabled);
+        });
+        $form.find("#conference_custom_link_url").attr("disabled", !enabled);
+      };
+      $customLinkEnabled.on("change", toggleCustomLinksFields);
+      toggleCustomLinksFields();
     }
 
   })(window);

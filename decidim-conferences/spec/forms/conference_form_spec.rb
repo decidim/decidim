@@ -38,6 +38,15 @@ module Decidim
           }
         end
         let(:slug) { "slug" }
+        let(:custom_link_enabled) { false }
+        let(:custom_link_name) do
+          {
+            en: "my custom link",
+            es: "mi-link personalizado",
+            ca: "el meu enllaç personalitzat"
+          }
+        end
+        let(:custom_link_url) { "https://decidim.org" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:show_statistics) { true }
         let(:objectives) do
@@ -67,6 +76,11 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
+              "custom_link_enabled" => custom_link_enabled,
+              "custom_link_name_en" => custom_link_name[:en],
+              "custom_link_name_es" => custom_link_name[:es],
+              "custom_link_name_ca" => custom_link_name[:ca],
+              "custom_link_url" => custom_link_url,
               "show_statistics" => show_statistics,
               "objectives_en" => objectives[:en],
               "objectives_es" => objectives[:es],
@@ -180,6 +194,51 @@ module Decidim
 
             it "is valid" do
               expect(subject).to be_valid
+            end
+          end
+        end
+
+        context "when using a custom link" do
+          let(:custom_link_enabled) { true }
+
+          before do
+            create(:conference, :with_custom_link)
+          end
+
+          context "when missing a name" do
+            let(:custom_link_name) do
+              {
+                en: nil,
+                es: "mi-link personalizado",
+                ca: "el meu enllaç personalitzat"
+              }
+            end
+
+            it "is invalid" do
+              expect(subject).to be_invalid
+            end
+          end
+
+          context "when missing an url" do
+            let(:custom_link_url) { nil }
+
+            it "is invalid" do
+              expect(subject).to be_invalid
+            end
+          end
+
+          context "when url and name are empty" do
+            let(:custom_link_name) do
+              {
+                en: nil,
+                es: nil,
+                ca: nil
+              }
+            end
+            let(:custom_link_url) { nil }
+
+            it "is valid" do
+              expect(subject).to be_invalid
             end
           end
         end

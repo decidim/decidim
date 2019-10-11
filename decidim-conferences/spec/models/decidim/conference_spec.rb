@@ -6,7 +6,7 @@ module Decidim
   describe Conference do
     subject { conference }
 
-    let(:conference) { build(:conference, slug: "my-slug") }
+    let(:conference) { build(:conference, :with_custom_link, slug: "my-slug") }
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }

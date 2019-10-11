@@ -42,6 +42,12 @@ FactoryBot.define do
       sign_date { 5.days.from_now }
       signature_name { "Signature name" }
     end
+
+    trait :with_custom_link do
+      custom_link_enabled { true }
+      custom_link_name { generate_localized_title }
+      custom_link_url { Faker::Internet.url }
+    end
   end
 
   factory :conference_user_role, class: "Decidim::ConferenceUserRole" do

@@ -15,10 +15,13 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :objectives, String
         translatable_attribute :registration_terms, String
+        translatable_attribute :custom_link_name, String
 
         mimic :conference
 
         attribute :slug, String
+        attribute :custom_link_enabled, Boolean
+        attribute :custom_link_url, String
         attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
@@ -41,6 +44,9 @@ module Decidim
         validates :title, :slogan, :description, :short_description, translatable_presence: true
 
         validate :slug_uniqueness
+
+        validates :custom_link_name, translatable_presence: true, if: ->(form) { form.custom_link_enabled? }
+        validates :custom_link_url, presence: true, if: ->(form) { form.custom_link_enabled? }
 
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
-      let(:my_conference) { create :conference }
+      let(:my_conference) { create :conference, :with_custom_link }
       let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
       let!(:participatory_processes) do
         create_list(
@@ -43,6 +43,8 @@ module Decidim::Conferences
             location: my_conference.location,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
+            custom_link_name: { en: "My custom link name" },
+            custom_link_url: "https://decidim.org",
             hero_image: nil,
             banner_image: nil,
             promoted: my_conference.promoted,
@@ -178,6 +180,16 @@ module Decidim::Conferences
         end
       end
 
+      context "when there is a custom link" do
+        it "updates the custom link" do
+          command.call
+          my_conference.reload
+
+          expect(translated(my_conference.custom_link_name)).to eq "My custom link name"
+          expect(my_conference.custom_link_url).to eq "https://decidim.org"
+        end
+      end
+
       describe "events" do
         let!(:follow) { create :follow, followable: my_conference, user: user }
         let(:title) { my_conference.title }
@@ -191,6 +203,9 @@ module Decidim::Conferences
             slogan: my_conference.slogan,
             slug: my_conference.slug,
             hashtag: my_conference.slug,
+            custom_link_enabled: true,
+            custom_link_name: my_conference.custom_link_name,
+            custom_link_url: my_conference.custom_link_url,
             short_description: my_conference.short_description,
             description: my_conference.description,
             objectives: my_conference.objectives,

@@ -40,6 +40,9 @@ module Decidim::Conferences
         title: { en: "title" },
         slogan: { en: "slogan" },
         slug: "slug",
+        custom_link_enabled: true,
+        custom_link_name: { en: "My custom link name" },
+        custom_link_url: "https://decidim.org",
         hashtag: "hashtag",
         location: "location location",
         hero_image: nil,
@@ -116,6 +119,12 @@ module Decidim::Conferences
       it "adds the admins as followers" do
         subject.call
         expect(current_user.follows?(conference)).to be true
+      end
+
+      it "sets the custom link" do
+        subject.call
+        expect(translated(conference.custom_link_name)).to eq "My custom link name"
+        expect(conference.custom_link_url).to eq "https://decidim.org"
       end
 
       it "traces the action", versioning: true do
