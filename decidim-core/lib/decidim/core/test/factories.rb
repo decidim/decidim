@@ -319,19 +319,6 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
-
-    trait :with_settings do
-      manifest do
-        Decidim.register_component(:dummy_component) do |manifest|
-        end
-        Decidim.find_component_manifest(:dummy_component)
-      end
-      settings { { Random.new.bytes(10) => Random.rand } }
-    end
-
-    trait :with_permissions do
-      settings { { Random.rand => Random.new.bytes(5) } }
-    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
