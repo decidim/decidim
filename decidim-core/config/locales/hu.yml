@@ -346,7 +346,7 @@ hu:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Kérlek jelentkez be a fiókodba a hozzáféréshez
+        login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
     data_portability:
       export:
