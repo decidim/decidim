@@ -34,7 +34,7 @@ nl:
         parent_id: Hoofdgroep
         participatory_processes_ids: Verwante bevragingen
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
@@ -209,7 +209,7 @@ nl:
       admin:
         assemblies:
           form:
-            duration: Looptijd
+            duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
             images: Afbeeldingen
@@ -302,7 +302,7 @@ nl:
           'true': Transparant
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
         purpose_of_action: Doel van actie
         read_less: Minder lezen
