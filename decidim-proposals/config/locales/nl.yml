@@ -313,7 +313,7 @@ nl:
             name: Voorstel
         participatory_texts:
           bulk-actions:
-            are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
+            are_you_sure: Weet je zeker dat je de hele ontwerptekst wilt verwijderen?
             discard_all: Gooi alles weg
             import_doc: Document importeren
           discard:
@@ -341,7 +341,7 @@ nl:
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
-            sub-section: "<em>Onderafdeling:</em> %{title}"
+            sub-section: "<em>Subsectie:</em> %{title}"
           update:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
