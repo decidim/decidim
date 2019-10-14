@@ -691,6 +691,7 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           back_to: Terug naar
+          changes_at_title: Amendement op "%{title}"
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
