@@ -130,7 +130,8 @@ module Decidim
       end
 
       def session_initiative
-        session[:initiative]&.with_indifferent_access
+        session[:initiative] ||= {}
+        session[:initiative].with_indifferent_access
       end
 
       def promotal_committee_required?

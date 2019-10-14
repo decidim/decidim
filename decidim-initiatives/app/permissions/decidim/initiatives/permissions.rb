@@ -161,7 +161,7 @@ module Decidim
       end
 
       def can_user_support?(initiative)
-        !initiative.offline? && (
+        !initiative.offline_signature_type? && (
           Decidim::Initiatives.do_not_require_authorization ||
           UserAuthorizations.for(user).any?
         )

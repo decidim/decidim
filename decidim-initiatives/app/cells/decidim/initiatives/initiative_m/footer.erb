@@ -15,7 +15,7 @@
       <div class="card__support__data"></div>
     <% end %>
 
-    <% if model.closed? || model.offline? %>
+    <% if model.closed? || model.offline_signature_type? %>
       <%= link_to t("initiatives.initiative.check", scope: "layouts.decidim"),
                   resource_path,
                   class: "card__button button button--sc small light secondary" %>

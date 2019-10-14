@@ -28,7 +28,7 @@ module Decidim
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
-    delegate :type, :scope, to: :scoped_type, allow_nil: true
+    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
     delegate :promoting_committee_enabled?, to: :type
 
     has_many :votes,
@@ -324,7 +324,9 @@ module Decidim
     private
 
     def signature_type_allowed
-      errors.add(:signature_type, :invalid) if !published? && type.allowed_signature_types_for_initiatives.exclude?(signature_type)
+      return if published?
+
+      errors.add(:signature_type, :invalid) if type.allowed_signature_types_for_initiatives.exclude?(signature_type)
     end
 
     def notify_state_change

@@ -6,23 +6,19 @@ class MoveSignatureTypeToInitativeType < ActiveRecord::Migration[5.2]
   end
 
   def change
-    # rubocop:disable Style/GuardClause
-    if !ActiveRecord::Base.connection.table_exists?("decidim_initiatives_types") || InitiativesType.count.zero?
+    if !ActiveRecord::Base.connection.table_exists?("decidim_initiatives_types")
       Rails.logger.info "Skipping migration since there's no InitiativesType table"
       return
-    else
+    elsif InitiativesType.count.positive?
       raise "You need to edit this migration to continue"
     end
-    # rubocop:enable Style/GuardClause
 
     # This flag says when mixed and face-to-face voting methods
     # are allowed. If set to false, only online voting will be
     # allowed
     # face_to_face_voting_allowed = true
 
-    # rubocop:disable Lint/UnreachableCode
     add_column :decidim_initiatives_types, :signature_type, :integer, null: false, default: 0
-    # rubocop:enable Lint/UnreachableCode
 
     InitiativesType.reset_column_information
 

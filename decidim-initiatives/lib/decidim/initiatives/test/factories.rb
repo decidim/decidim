@@ -9,17 +9,17 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
-    online_signature_enabled { true }
+    signature_type { :online }
     undo_online_signatures_enabled { true }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
 
     trait :online_signature_enabled do
-      online_signature_enabled { true }
+      signature_type { :online }
     end
 
     trait :online_signature_disabled do
-      online_signature_enabled { false }
+      signature_type { :offline }
     end
 
     trait :undo_online_signatures_enabled do
@@ -72,7 +72,7 @@ FactoryBot.define do
 
     scoped_type do
       create(:initiatives_type_scope,
-             type: create(:initiatives_type, organization: organization))
+             type: create(:initiatives_type, organization: organization, signature_type: signature_type))
     end
 
     after(:create) do |initiative|

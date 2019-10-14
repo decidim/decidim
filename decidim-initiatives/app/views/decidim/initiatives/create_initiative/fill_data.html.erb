@@ -38,7 +38,7 @@
 
             <% signature_type_options = signature_type_options(f.object) %>
             <% if signature_type_options.length == 1 %>
-              <%= f.hidden_field :signature_type, value: signature_type_options.first.first %>
+              <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
             <% else %>
               <div class="field">
                 <%= f.select :signature_type, signature_type_options %>
