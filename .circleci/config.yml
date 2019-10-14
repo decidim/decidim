@@ -63,6 +63,7 @@ references:
     run:
       name: Run RSpec
       command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
+      no_output_timeout: 20m
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
