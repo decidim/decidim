@@ -19,7 +19,7 @@ nl:
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep thema's
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -295,7 +295,7 @@ nl:
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
-            duration: Looptijd
+            duration: Duur
             filters: Filters
             images: Afbeeldingen
             metadata: Metadata
@@ -333,7 +333,7 @@ nl:
               one: 1 proces uit het verleden
               other: "%{count} eerdere processen"
             upcoming:
-              one: 1 aankomend proces
+              one: 1 aankomend inspraakproces
               other: "%{count} aankomende processen"
           explanations:
             no_active: Geen actieve processen
