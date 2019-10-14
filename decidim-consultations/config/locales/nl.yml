@@ -252,6 +252,9 @@ nl:
           one: stem uit
           other: stemmen uit
       question_multiple_votes:
+        results_rules:
+          title: Bij deze vraag waren meerdere keuzes toegestaan
+          total_participants: Een totaal van %{count} mensen heeft deelgenomen aan de stemming.
         voting_rules:
           minimum_votes_per_user:
             description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
