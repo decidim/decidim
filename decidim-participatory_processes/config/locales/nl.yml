@@ -114,13 +114,13 @@ nl:
             end_date: Einddatum
             start_date: Startdatum
             title: Titel
-          name: Stap van de burgerinspraak
+          name: Stap van het inspraakproces
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Participerende procesgebruiker
+          name: Admin van het participatief proces
           roles:
             admin: Administrator
             collaborator: Medewerker
@@ -152,8 +152,8 @@ nl:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
           success: Participatief proces is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief proces is succesvol gepubliceerd.
+          error: Er was een probleem bij het depubliceren van dit participatief proces.
+          success: Participatief proces is succesvol gedepubliceerd.
       participatory_process_step_activations:
         create:
           error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
@@ -169,35 +169,35 @@ nl:
             last_step: Kan de laatste stap van een proces niet verwijderen.
           success: Participatieve processtap succesvol verwijderd.
         edit:
-          title: Bewerk participatieve processtap
+          title: Bewerk processtap
           update: Bijwerken
         index:
           steps_title: Stappen
         new:
           create: creëren
-          title: Nieuwe participerende processtap
+          title: Nieuwe processtap
         ordering:
-          error: Er is een fout opgetreden bij het herschikken van deze participatieve processtappen.
+          error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze participatieve processtap.
-          success: Participatief procesgroep is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze processtap.
+          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan deze burgerinspraak.
-          success: Gebruiker is succesvol toegevoegd aan dit participatieproces.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
+          success: Admin is succesvol toegevoegd aan dit participatief proces.
         destroy:
-          success: Gebruiker is succesvol verwijderd uit dit participatieproces.
+          success: Admin succesvol verwijderd van dit participatief proces.
         edit:
-          title: Update participatieve procesgebruiker.
+          title: Werk procesbeheerder bij.
           update: Bijwerken
         index:
-          process_admins_title: Participatieve procesgebruiker
+          process_admins_title: Admins van het participatieve proces
         new:
           create: creëren
-          title: Nieuwe participatieve procesgebruiker.
+          title: Nieuwe admin voor het participatieve proces.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze burgerinspraak.
-          success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
+          error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
+          success: Admin succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
@@ -213,12 +213,12 @@ nl:
           create: creëren
           title: Nieuw participatief proces
         update:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief procesgroep is succesvol bijgewerkt.
+          error: Er was een probleem bij het bijwerken van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
       participatory_processes_copies:
         create:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
-          success: Participatief procesgroep is succesvol gedupliceerd.
+          success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe participatieve procesgroep.
