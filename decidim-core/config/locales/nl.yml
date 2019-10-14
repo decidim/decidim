@@ -1027,8 +1027,8 @@ nl:
         sign_up: Registreren
       participatory_space_filters:
         filters:
-          areas: gebieden
-          select_an_area: Selecteer een gebied
+          areas: Onderwerpen
+          select_an_area: Selecteer een onderwerp
       reference:
         reference: 'Referentie: %{reference}'
       represent_user_group:
