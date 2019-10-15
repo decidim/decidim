@@ -279,6 +279,9 @@ de:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Alle anzeigen (%{count})
     proposals:
       actions:
         answer: Antworten
