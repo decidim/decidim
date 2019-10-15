@@ -3,6 +3,14 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      group:
+        about: Dettagli
+        avatar: Immagine di profilo
+        document_number: Numero del documento
+        email: Email
+        name: Nome
+        nickname: Nome utente
+        phone: Telefono
       report:
         details: Ulteriori commenti
       user:
