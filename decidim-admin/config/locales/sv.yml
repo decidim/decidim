@@ -470,7 +470,6 @@ sv:
           send_to_followers: Skicka till följare
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
-          warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
           no_recipients: Inga mottagare för det här urvalet
         show:
