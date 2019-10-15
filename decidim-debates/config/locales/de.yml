@@ -98,8 +98,8 @@ de:
           title: Neue Debatte
         share:
           close_window: Fenster schließen
-          share: Aktie
-          share_link: Einen Link teilen
+          share: Teilen
+          share_link: Link teilen
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
