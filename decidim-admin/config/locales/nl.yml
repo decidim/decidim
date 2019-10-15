@@ -474,6 +474,7 @@ nl:
           send_to_followers: Stuur naar volgers
           send_to_participants: Stuur naar deelnemers
           title: Selecteer ontvangers
+          warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         send:
           no_recipients: Geen ontvangers voor deze selectie
         show:
