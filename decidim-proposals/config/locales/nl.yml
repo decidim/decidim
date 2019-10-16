@@ -114,6 +114,7 @@ nl:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
             amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
             amendments_visibility: Zichtbaarheid van amendement
