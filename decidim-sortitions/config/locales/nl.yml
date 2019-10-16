@@ -147,5 +147,5 @@ nl:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
-            one: 1 sortering
+            one: 1 loting
             other: "%{count} lotingen"
