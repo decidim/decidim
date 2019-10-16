@@ -8,6 +8,7 @@ module Decidim::ParticipatoryProcesses
     let(:subject) { described_class.new(resource) }
 
     describe "#serialize" do
+      # rubocop:disable RSpec/MultipleExpectations
       it "includes the participatory process data" do
         serialized = subject.serialize
 
@@ -36,6 +37,7 @@ module Decidim::ParticipatoryProcesses
         expect(subject.serialize).to include(scopes_enabled: resource.scopes_enabled)
         expect(subject.serialize).to include(show_statistics: resource.show_statistics)
       end
+      # rubocop:enable RSpec/MultipleExpectations
 
       context "when process has area" do
         let(:area) { create :area, organization: resource.organization }

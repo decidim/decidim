@@ -1237,7 +1237,7 @@ RSpec/MessageSpies:
   Enabled: false
 
 RSpec/MultipleExpectations:
-  Max: 30
+  Max: 17
 
 RSpec/NestedGroups:
   Max: 7
