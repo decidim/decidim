@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Gemarkeerde scope
         description: Omschrijving
         end_voting_date: Stemmen eindigt
