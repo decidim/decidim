@@ -54,7 +54,7 @@ nl:
         explanation: Wordt geverifieerd aan de hand van de volkstelling van de organisatie
         name: De volkstelling van de organisatie
       direct: direct
-      help: Helpen
+      help: Help
       id_documents:
         explanation: Upload uw identiteitsdocumenten zodat we uw identiteit kunnen controleren
         name: Identiteitsdocumenten
