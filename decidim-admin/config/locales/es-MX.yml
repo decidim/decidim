@@ -474,7 +474,6 @@ es-MX:
           send_to_followers: Enviar a los seguidores
           send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
-          warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarios para esta selección
         show:

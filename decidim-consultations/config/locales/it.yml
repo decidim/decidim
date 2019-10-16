@@ -19,6 +19,8 @@ it:
         hashtag: hashtag
         hero_image: Immagine della home page
         i_frame_url: URL del sistema di votazione esterno
+        max_votes: Massimo numero di voti
+        min_votes: Minimo numero di voti
         origin_scope: Scopo
         origin_title: Origine
         origin_url: URL di origine

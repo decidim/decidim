@@ -474,7 +474,6 @@ ca:
           send_to_followers: Envia a totes les seguidores
           send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
-          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció
         show:

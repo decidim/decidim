@@ -18,32 +18,32 @@ nl:
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
-        developer_group: Promotorgroep
+        developer_group: Organisator
         domain: Domein
-        duration: Looptijd
+        duration: Duur
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        included_at: Inbegrepen bij
+        included_at: Opgenomen op
         instagram: Instagram
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
         local_area: Organisatiegebied
-        meta_scope: Omvang metadata
+        meta_scope: Scope metadata
         parent_id: Hoofdgroep
-        participatory_processes_ids: Verwante bevragingen
+        participatory_processes_ids: Verwante inspraakprocessen
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
-        purpose_of_action: Doel van actie
+        purpose_of_action: Doelstelling
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
-        slug: URL slak
+        slug: URL pad
         special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
         target: Wie doet mee
@@ -151,17 +151,17 @@ nl:
           assembly_admins: Groep-admins
           assembly_members: Leden
           attachment_collections: Mappen
-          attachment_files: bestanden
+          attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
-          info: info
+          info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
       models:
         assembly:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             private: Privaat
             promoted: Gemarkeerd
             published: Gepubliceerd
@@ -209,7 +209,7 @@ nl:
       admin:
         assemblies:
           form:
-            duration: Looptijd
+            duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
             images: Afbeeldingen
@@ -220,13 +220,13 @@ nl:
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een groepstype
             select_parent_assembly: Selecteer de hoofdgroep
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
         assembly_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
@@ -253,7 +253,7 @@ nl:
         executive: Uitvoerend
         government: Regering
         others: Overige
-        participatory: deelnemende
+        participatory: Participatief
         working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
@@ -263,6 +263,7 @@ nl:
         others: Overige
         public: Openbaar
       filter:
+        all: Alle types
         commission: Commissie
         consultative_advisory: Adviesgroep
         executive: Uitvoerend
@@ -292,8 +293,8 @@ nl:
         created_by: Aangemaakt door
         creation_date: Gemaakt op
         developer_group: Promotergroep
-        duration: Looptijd
-        included_at: Inbegrepen bij
+        duration: Duur
+        included_at: Opgenomen op
         indefinite_duration: onbepaald
         internal_organisation: Interne organisatie
         is_transparent:
@@ -301,12 +302,12 @@ nl:
           'true': Transparant
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
-        purpose_of_action: Doel van actie
+        purpose_of_action: Doelstelling
         read_less: Minder lezen
         read_more: Lees verder
-        related_participatory_processes: Verwante burgerinspraken
+        related_participatory_processes: Verwante inspraakprocessen
         scope: Scope
         social_networks: Sociale netwerken
         target: Wie doet mee
@@ -360,7 +361,7 @@ nl:
         index:
           children: 'Groepen: '
           organizational_chart: Organisatieschema
-          promoted_assemblies: Uitgelichte events
+          promoted_assemblies: Uitgelichte groepen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
