@@ -236,6 +236,9 @@ nl:
         publish: "%{user_name} heeft de burgerinspraak %{resource_name} gepubliceerd"
         unpublish: "%{user_name}heeft de burgerinspraak %{resource_name} ongepubliceerd"
         update: "%{user_name} heeft het burgerinspraak %{resource_name} bijgewerkt"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} het inspraakproces geactiveerd"
         create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
