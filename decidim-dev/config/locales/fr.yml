@@ -6,6 +6,7 @@ fr:
         field: Champ
         start_date: Date de début
         title: Titre
+        translatable_text: Texte traduisible
         updated_at: Mis à jour à
   decidim:
     dummy:

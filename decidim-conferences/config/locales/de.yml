@@ -333,7 +333,7 @@ de:
             slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
-            save: sparen
+            save: Speichern
             title: Teilnahmebestätigung
         invite_join_conference_mailer:
           invite:
@@ -397,10 +397,10 @@ de:
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
         go_to_twitter: Gehe zu Twitter
-        more_info: Mehr Info
+        more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
-          more_info: Mehr Info
+          more_info: Mehr Informationen
       conference_speaker_cell:
         personal_url:
           personal_website: Persönliche Webseite
@@ -552,7 +552,7 @@ de:
           take_part: Teilnehmen
       conferences:
         conference:
-          more_info: Mehr Info
+          more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
           promoted_conferences: Geförderte Konferenzen
@@ -561,7 +561,7 @@ de:
             one: "%{count} Konferenz"
             other: "%{count} Konferenzen"
         promoted_conference:
-          more_info: Mehr Info
+          more_info: Mehr Informationen
           take_part: Teilnehmen
       conferences_nav:
         conference_menu_item: Information

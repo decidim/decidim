@@ -3,7 +3,7 @@ nl:
     attributes:
       agenda:
         description: Beschrijving
-        duration: Looptijd
+        duration: Duur
         title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
@@ -318,7 +318,7 @@ nl:
       content_blocks:
         upcoming_events:
           name: Aankomende evenementen
-          upcoming_events: Komende vergaderingen
+          upcoming_events: Aankomende vergaderingen
           view_all_events: Bekijk alles
       directory:
         meetings:
