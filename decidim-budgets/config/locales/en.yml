@@ -1,8 +1,6 @@
 ---
 en:
   activemodel:
-    models:
-      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
     attributes:
       project:
         budget: Budget
@@ -11,6 +9,8 @@ en:
         description: Description
         proposal_ids: Related proposals
         title: Title
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -178,16 +178,16 @@ en:
             votes_enabled: Voting enabled
     events:
       budgets:
-        reminder_order:
-          email_intro: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
-          email_outro: Thank you for your participation
-          email_subject: "A vote is still pending on %{participatory_space_title}"
-          notification_title: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated on %{participatory_space_title}
           notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Thank you for your participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: There was a problem processing your vote
