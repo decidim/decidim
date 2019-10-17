@@ -16,11 +16,11 @@ module Decidim
       # user              - The +user+ that is performing this action
       #
       # Returns the ser.
-      def import(serialized, _user)
+      def import(serialized, user)
         ActiveRecord::Base.transaction do
           # we duplicate so that we can delete without affecting the received Hash
           serialized.dup.collect do |serialized_survey|
-            import_survey(serialized_survey)
+            import_survey(serialized_survey, user)
           end
         end
       end
@@ -28,7 +28,7 @@ module Decidim
       private
 
       # Returns a persisted Survey instance build from the +serialized_survey+.
-      def import_survey(serialized_survey)
+      def import_survey(serialized_survey, user)
         serialized_survey = serialized_survey.with_indifferent_access
         survey = build_survey(serialized_survey)
         serialized_questionnaire = serialized_survey[:questionnaire]
