@@ -97,7 +97,7 @@
                 <% if allowed_to? :create, :process, process: process %>
                   <%= icon_link_to "data-transfer-download", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
                 <% end %>
-                
+
                 <% if allowed_to? :create, :process, process: process %>
                   <%= icon_link_to "clipboard", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
                 <% end %>
