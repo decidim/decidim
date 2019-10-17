@@ -26,73 +26,37 @@ describe "Admin imports participatory process", type: :system do
         fill_in :participatory_process_slug, with: "pp-import"
         attach_file :participatory_process_document, Decidim::Dev.asset("participatory_processes.json")
       end
+
+      click_button "Import"
     end
 
-    it "imports the process with steps" do
-      page.check("participatory_process[import_steps]")
-      click_button "Import"
-
+    it "imports the json document" do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Import participatory process")
       expect(page).to have_content("Not published")
 
       click_link "Import participatory process"
+
       click_link "Phases"
-
       within ".table-list" do
-        Decidim::ParticipatoryProcess.last.steps.each do |step|
-          expect(page).to have_content(translated(step.title))
-        end
+        expect(page).to have_content(translated("Magni."))
       end
-    end
 
-    it "imports the process with categories" do
-      page.check("participatory_process[import_categories]")
-      click_button "Import"
-
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
-
-      click_link "Import participatory process"
       click_link "Categories"
-
       within ".table-list" do
-        Decidim::ParticipatoryProcess.last.categories.each do |category|
-          expect(page).to have_content(translated(category.name))
-        end
+        expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
+        expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
       end
-    end
 
-    it "imports the process with components" do
-      page.check("participatory_process[import_components]")
-      click_button "Import"
-
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
-
-      click_link "Import participatory process"
       click_link "Components"
-
+      expect(Decidim::ParticipatoryProcess.last.components.size).to eq(3)
       within ".table-list" do
         Decidim::ParticipatoryProcess.last.components.each do |component|
           expect(page).to have_content(translated(component.name))
         end
       end
-    end
 
-    it "imports the process with attachments" do
-      page.check("participatory_process[import_attachments]")
-      click_button "Import"
-
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
-
-      click_link "Import participatory process"
       click_link "Files"
-
       if Decidim::ParticipatoryProcess.last.attachments.any?
         within ".table-list" do
           Decidim::ParticipatoryProcess.last.attachments.each do |attachment|
