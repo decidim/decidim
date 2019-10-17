@@ -81,7 +81,7 @@ ca:
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
-        youtube_handler: Nom d'usuari de YouTube
+        youtube_handler: Nom d'usuària de YouTube
       scope:
         code: Codi
         name: Nom
