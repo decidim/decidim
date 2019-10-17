@@ -16,25 +16,32 @@ module Decidim
       # user              - The +user+ that is performing this action
       #
       # Returns the ser.
-      def import(serialized, user)
-        # we duplicate so that we can delete without affecting the received Hash
-        serialized.dup.collect do |serialized_survey|
-          serialized_survey = serialized_survey.with_indifferent_access
-          survey = build_survey(serialized_survey)
-          serialized_questionnaire = serialized_survey[:questionnaire]
-          serialized_questions = serialized_questionnaire.delete(:questions)
-
-          questionnaire = build_questionnaire(survey, serialized_questionnaire)
-          Decidim.traceability.perform_action!(:create, Decidim::Surveys::Survey, user) do
-            survey.save!
-            survey
+      def import(serialized, _user)
+        ActiveRecord::Base.transaction do
+          # we duplicate so that we can delete without affecting the received Hash
+          serialized.dup.collect do |serialized_survey|
+            import_survey(serialized_survey)
           end
-          import_questions(questionnaire, serialized_questions)
-          survey
         end
       end
 
       private
+
+      # Returns a persisted Survey instance build from the +serialized_survey+.
+      def import_survey(serialized_survey)
+        serialized_survey = serialized_survey.with_indifferent_access
+        survey = build_survey(serialized_survey)
+        serialized_questionnaire = serialized_survey[:questionnaire]
+        serialized_questions = serialized_questionnaire.delete(:questions)
+
+        questionnaire = build_questionnaire(survey, serialized_questionnaire)
+        Decidim.traceability.perform_action!(:create, Decidim::Surveys::Survey, user) do
+          survey.save!
+          survey
+        end
+        import_questions(questionnaire, serialized_questions)
+        survey
+      end
 
       def build_survey(_serialized)
         Survey.new(component: @component)
