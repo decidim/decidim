@@ -30,14 +30,14 @@ module Decidim
       #
       # +json+: An array of json compatible Hashes with the configuration of Decidim::Components.
       # +user+: The Decidim::User that is importing.
-      def import(json_ary, _user)
+      def import(json_ary, user)
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access
             # we override the parent participatory sapce
             attributes["participatory_space_id"] = @participatory_space.id
             attributes["participatory_space_type"] = @participatory_space.class.name
-            import_component_from_attributes(attributes)
+            import_component_from_attributes(attributes, user)
           end
         end
       end
@@ -45,7 +45,7 @@ module Decidim
       private
 
       # Returns a persisted Component instance build from the +attributes+ argument.
-      def import_component_from_attributes(attributes)
+      def import_component_from_attributes(attributes, user)
         component = Decidim.traceability.perform_action!(:create,
                                                          Decidim::Component,
                                                          user) { Decidim::Component.create!(attributes.except(:id, :specific_data)) }
