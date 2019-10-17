@@ -54,7 +54,7 @@ module Decidim
         end
 
         def category
-          Decidim::Category.find(form.decidim_category_id) if form.decidim_category_id
+          Decidim::Category.find(form.decidim_category_id) if form.decidim_category_id.present?
         end
 
         def select_proposals_for(sortition)
