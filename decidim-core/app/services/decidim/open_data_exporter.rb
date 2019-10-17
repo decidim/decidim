@@ -37,7 +37,7 @@ module Decidim
     end
 
     def data_for(export_manifest)
-      collection = components.where(manifest_name: export_manifest.component_manifest.name).find_each.flat_map do |component|
+      collection = components.where(manifest_name: export_manifest.manifest.name).find_each.flat_map do |component|
         export_manifest.collection.call(component)
       end
 
