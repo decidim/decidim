@@ -254,6 +254,10 @@ ca:
           one: vot d'un total de
           other: vots d'un total de
       question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Les participants poden distribuir un mínim de %{votes} suports entre les diferents opcions.
+          title: En aquesta pregunta, es permeten múltiples respostes
         voting_rules:
           vote_limit:
             votes: Vots
