@@ -28,7 +28,7 @@ module Decidim
             permissions: component.permissions,
             published_at: component.published_at
           }
-          fill_component_specific_data(component, serialized) if component.serializes_specific_data?
+          serialized[:specific_data] = serialize_component_specific_data(component) if component.serializes_specific_data?
           serialized
         end
       end
@@ -37,9 +37,9 @@ module Decidim
 
       attr_reader :participatory_space
 
-      def fill_component_specific_data(component, serialized)
+      def serialize_component_specific_data(component)
         specific_serializer = component.manifest.specific_data_serializer_class.new(component)
-        serialized[:specific_data] = specific_serializer.serialize
+        specific_serializer.serialize
       end
     end
   end
