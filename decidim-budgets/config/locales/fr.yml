@@ -1,6 +1,8 @@
 ---
 fr:
   activemodel:
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Vote en attente
     attributes:
       project:
         budget: Budget
@@ -173,6 +175,11 @@ fr:
             votes_enabled: Votes activés
     events:
       budgets:
+        reminder_order:
+          email_intro: "Votre vote n'a pas encore été validé ! Vous pouvez toujours le faire en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}</a>"
+          email_outro: Merci de votre participation
+          email_subject: "Votre vote n'a pas encore été validé sur %{participatory_space_title}"
+          notification_title: "Votre vote n'a pas encore été validé ! Vous pouvez toujours le faire en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Merci de votre participation
