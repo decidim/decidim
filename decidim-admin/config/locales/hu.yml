@@ -474,6 +474,7 @@ hu:
           send_to_followers: Küldés a követőknek
           send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
+          warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
           no_recipients: Ehhez a kiválasztáshoz nem tartoznak címzettek
         show:
