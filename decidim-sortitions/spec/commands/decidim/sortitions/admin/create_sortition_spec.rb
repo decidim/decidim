@@ -72,7 +72,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "Creates a sortition" do
+          it "creates a sortition" do
             expect do
               command.call
             end.to change { Sortition.where(component: sortition_component).count }.by(1)
@@ -89,19 +89,19 @@ module Decidim
             expect(action_log.version).to be_present
           end
 
-          it "The created sortition contains a list of selected proposals" do
+          it "the created sortition contains a list of selected proposals" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
             expect(sortition.selected_proposals).not_to be_empty
           end
 
-          it "The created sortition contains a list of candidate proposals" do
+          it "the created sortition contains a list of candidate proposals" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
             expect(sortition.candidate_proposals).not_to be_empty
           end
 
-          it "Has no category" do
+          it "has no category" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
             expect(sortition.category).to eq(nil)
@@ -110,13 +110,13 @@ module Decidim
           context "when restricted to a category without proposals" do
             let(:category_id) { category.id }
 
-            it "Has a category" do
+            it "has a category" do
               command.call
               sortition = Sortition.where(component: sortition_component).last
               expect(sortition.category).to eq(category)
             end
 
-            it "The created sortition has not proposals" do
+            it "the created sortition has not proposals" do
               command.call
               sortition = Sortition.where(component: sortition_component).last
               expect(sortition.selected_proposals).to be_empty
@@ -127,7 +127,7 @@ module Decidim
             let(:category_id) { category.id }
             let!(:proposal) { create(:proposal, component: proposal_component, category: category) }
 
-            it "The created sortition contains proposals" do
+            it "the created sortition contains proposals" do
               command.call
               sortition = Sortition.where(component: sortition_component).last
               expect(sortition.selected_proposals).not_to be_empty
@@ -135,7 +135,7 @@ module Decidim
             end
           end
 
-          it "Has a reference" do
+          it "has a reference" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
             expect(sortition.reference).not_to be_blank
