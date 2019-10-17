@@ -147,6 +147,7 @@ ca:
       question_configuration:
         disable_external_voting: Si us plau, deshabilita la votació externa per la configuració avançada
         form:
+          help: Configura preguntes amb opcions de resposta múltiples augmentant el nombre màxim de respostes que pot triar un participant. El valor màxim per defecte és 1, el que significa que només es pot seleccionar una resposta.
           title: Configuració avançada
       question_publications:
         create:
