@@ -38,16 +38,16 @@ ca:
       organization:
         address: Nom del servidor SMTP
         alert_color: Alerta
-        badges_enabled: Habilitar insígnies
+        badges_enabled: Habilitar les ensenyes
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
-        customize_welcome_notification: Adaptar la notificació de benvinguda
+        customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
-        enable_omnipresent_banner: Mostrar banner omnipresent
+        enable_omnipresent_banner: Mostrar el banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
-        from: De la direcció de correu electrònic
+        from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
