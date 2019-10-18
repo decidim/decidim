@@ -73,6 +73,8 @@ module Decidim
     # Public: Returns an empty description
     def resource_description; end
 
+    delegate :serializes_specific_data?, to: :manifest
+
     private
 
     def participatory_space_name

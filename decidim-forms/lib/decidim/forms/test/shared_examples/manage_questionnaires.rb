@@ -440,11 +440,10 @@ shared_examples_for "manage questionnaires" do
           questionnaire: questionnaire,
           body: body,
           question_type: "single_option",
-          answer_options: [
+          options: [
             { "body" => { "en" => "cacarua" } },
             { "body" => { "en" => "cat" } },
             { "body" => { "en" => "dog" } }
-
           ]
         )
       end
