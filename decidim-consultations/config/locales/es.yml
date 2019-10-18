@@ -19,6 +19,9 @@ es:
         hashtag: Hashtag
         hero_image: Imagen de la pagina de inicio
         i_frame_url: URL del sistema de votación externa
+        instructions: Instrucciones adicionales para votar
+        max_votes: Número máximo de votos
+        min_votes: Número mínimo de votos
         origin_scope: Ámbito
         origin_title: Origen
         origin_url: URL de origen
@@ -33,10 +36,21 @@ es:
         vote: Sistema de votación externa
         what_is_decided: Qué se decide
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: El número máximo de votos debe ser mayor o igual que el mínimo.
       vote:
         decidim_consultations_response_id:
           not_found: Respuesta no encontrada.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Número de votos no es válido
     models:
       decidim/consultation:
         one: Consulta
@@ -89,6 +103,7 @@ es:
           title: Nueva consulta
         results:
           not_visible: Los resultados estarán disponibles cuando la consulta cierre
+          participants: "%{count} participantes"
           total_votes: 'Total: %{count} votos'
         update:
           error: Se ha producido un error al actualizar esta consulta.
@@ -101,6 +116,7 @@ es:
           results: Resultados
         questions_submenu:
           components: Componentes
+          configuration: Configuración
           consultation: Consulta
           info: Información
           responses: Respuestas
@@ -128,6 +144,11 @@ es:
           name:
             one: Respuesta
             other: Respuestas
+      question_configuration:
+        disable_external_voting: Por favor, desactiva la votación externa para configuraciones avanzadas
+        form:
+          help: Configura preguntas con opciones de respuesta múltiples aumentando el número máximo de respuestas que puede elegir un participante. El valor máximo predeterminado es 1, lo que significa que sólo se puede seleccionar una respuesta.
+          title: Configuración avanzada
       question_publications:
         create:
           error: Se ha producido un error al publicar esta pregunta.
@@ -232,6 +253,22 @@ es:
         votes_out_of:
           one: votar fuera de
           other: votos de
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Las participantes pueden distribuir un mínimo de %{votes} apoyos entre las diferentes opciones.
+          title: En esta pregunta, se permiten múltiples respuestas
+          total_participants: Un total de %{count} personas han participado en la consulta.
+          vote_limit:
+            description: Las participantes pueden votar hasta %{limit} opciones.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Tienes que repartir un mínimo de %{votes} votos entre las diferentes opciones.
+          title: 'La votación se rige por la normativa siguiente:'
+          vote_limit:
+            description: Puedes votar hasta %{limit} opciones.
+            left: Restantes
+            votes: Votos
       question_votes:
         create:
           error: Se ha producido un error al votar la pregunta
@@ -309,3 +346,4 @@ es:
         unfold: Desplegar
       question_header:
         back_to_consultation: Ver todas las consultas
+        back_to_question: Volver a la pregunta
