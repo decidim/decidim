@@ -80,6 +80,7 @@
 - **decidim-core** Fix omniauth registration edge cases and specs [#5397](https://github.com/decidim/decidim/pull/5397)
 - **decidim-core**: Fix errors controller forgery protection [#5398](https://github.com/decidim/decidim/pull/5398)
 - **decidim-meetings**, **decidim-core**: Various bugfixes [#5402](https://github.com/decidim/decidim/pull/5402)
+- **decidim-participatory_processes**: Fix: Duplicate private process [\#5379](https://github.com/decidim/decidim/pull/5379)
 
 **Removed**:
 
