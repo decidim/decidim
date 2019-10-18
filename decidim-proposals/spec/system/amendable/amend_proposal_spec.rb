@@ -3,12 +3,13 @@
 require "spec_helper"
 
 describe "Amend Proposal", versioning: true, type: :system do
-  let!(:component) { create(:proposal_component) }
+  let!(:participatory_space) { create(:participatory_process, :with_steps) }
+  let!(:component) { create(:proposal_component, participatory_space: participatory_space) }
   let!(:proposal) { create(:proposal, title: "Long enough title", component: component) }
   let!(:emendation) { create(:proposal, title: "Amended Long enough title", component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
-  let(:active_step_id) { component.participatory_space.active_step.id }
+  let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
@@ -172,6 +173,33 @@ describe "Amend Proposal", versioning: true, type: :system do
     context "when amendment CREATION is enabled" do
       before do
         component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
+      end
+
+      context "and visits an amendable proposal from a private yet transparent space" do
+        let!(:participatory_space) { create(:assembly, :private, :transparent) }
+        let(:active_step_id) { "default_step" }
+
+        before do
+          visit proposal_path
+        end
+
+        it "is NOT shown a link to Amend it" do
+          expect(page).not_to have_link("Amend Proposal")
+        end
+
+        context "when a private user is logged in" do
+          let!(:user) { create :user, :confirmed, organization: component.organization }
+
+          before do
+            participatory_space.update(users: [user])
+            login_as user, scope: :user
+            visit proposal_path
+          end
+
+          it "is shown a link to Amend it" do
+            expect(page).to have_link("Amend Proposal")
+          end
+        end
       end
 
       context "and visits an amendable proposal" do

@@ -36,6 +36,7 @@
 
 **Fixed**:
 
+- **decidim-assemblies**, **decidim-core**, **decidim-participatory_processes**, **decidim-proposals**: Fix: Non-private users can amend proposals from a private space [#5427](https://github.com/decidim/decidim/pull/5427)
 - **decidim-sortitions**: Fix: Creating a Sortition ignores categories [#5412](https://github.com/decidim/decidim/pull/5412)
 - **decidim-proposals**: Fix: ParticipatoryText workflow creates multiple versions [#5399](https://github.com/decidim/decidim/pull/5399)
 - **decidim-assemblies**: Fix: show the Assemblies button to allow managing nested assemblies [#5386](https://github.com/decidim/decidim/pull/5386)

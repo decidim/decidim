@@ -131,13 +131,6 @@ module Decidim
       slug
     end
 
-    def can_participate?(user)
-      return true unless private_space?
-      return false unless user
-
-      users.include?(user)
-    end
-
     # Overrides the method from `Participable`.
     def moderators
       "#{admin_module_name}::Moderators".constantize.for(self)
