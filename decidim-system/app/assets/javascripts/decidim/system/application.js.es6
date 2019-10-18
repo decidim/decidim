@@ -1,4 +1,4 @@
-// = require jquery
+// = require jquery3
 // = require foundation
 // = require rails-ujs
 // = require decidim/editor
