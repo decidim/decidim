@@ -79,6 +79,8 @@ it:
         user_groups_enabled: Abilita gruppi
         user_name: Nome Utente
         warning_color: Attenzione
+        welcome_notification_body: Testo del messaggio di Benvenuto
+        welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
         youtube_handler: Gestore di YouTube
       scope:
         code: Codice
@@ -472,7 +474,6 @@ it:
           send_to_followers: Invia ai follower
           send_to_participants: Invia ai partecipanti
           title: Seleziona destinatari a cui inviare
-          warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         send:
           no_recipients: Nessun destinatario per questa selezione
         show:

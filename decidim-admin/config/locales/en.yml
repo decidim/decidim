@@ -475,7 +475,7 @@ en:
           send_to_followers: Send to followers
           send_to_participants: Send to participants
           title: Select recipients to deliver
-          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection
         show:

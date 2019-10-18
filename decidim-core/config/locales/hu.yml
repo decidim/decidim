@@ -346,7 +346,7 @@ hu:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Kérlek jelentkez be a fiókodba a hozzáféréshez
+        login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
     data_portability:
       export:
@@ -1219,6 +1219,9 @@ hu:
       nesting_too_deep: nem lehet alkategóriában belüli
       not_found: nem található. Regisztráltál már korábban?
       not_locked: nem volt zárva
+      not_saved:
+        one: 'Hiba történt a kérelmed feldolgozásakor:'
+        other: 'Több hiba történt a művelet végrehajtása során:'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
       too_short: túl rövid (15 karakterig)

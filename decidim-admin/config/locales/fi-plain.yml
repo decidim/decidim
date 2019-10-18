@@ -474,7 +474,6 @@ fi-pl:
           send_to_followers: Lähetä seuraajille
           send_to_participants: Lähetä osallistujille
           title: Valitse vastaanottajat
-          warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet <em>Haluan vastaanottaa uutiskirjeitä</em> -asetuksen heidän tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei vastaanottajia tälle valinnalle
         show:
