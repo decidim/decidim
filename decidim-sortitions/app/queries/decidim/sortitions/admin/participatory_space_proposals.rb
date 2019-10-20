@@ -25,7 +25,7 @@ module Decidim
           if category.nil?
             return Decidim::Proposals::Proposal
                    .except_withdrawn
-                     .except_drafts
+                   .except_drafts
                    .where("created_at < ?", request_timestamp)
                    .where(component: sortition.decidim_proposals_component)
                    .order(id: :asc)
