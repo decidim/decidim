@@ -91,7 +91,7 @@ module Decidim
             create_list(:proposal, 10, :draft, component: proposal_component, created_at: request_timestamp - 10.days)
           end
 
-          it "do not return withdrawn proposals" do
+          it "do not return draft proposals" do
             expect(described_class.for(sortition)).not_to include(*proposals)
           end
         end
