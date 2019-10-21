@@ -62,7 +62,7 @@ references:
   run_rspec: &run_rspec
     run:
       name: Run RSpec
-      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake
+      command: mkdir ~/rspec && cd decidim-$CIRCLE_JOB && bundle exec rake SPEC_OPTS="--format documentation"
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
@@ -114,7 +114,7 @@ jobs:
       - *wait_for_db
       - run:
           name: Run main folder RSpec
-          command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
+          command: mkdir ~/rspec && bundle exec rspec --format documentation --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
           name: Run rubocop
           command: bundle exec rubocop
