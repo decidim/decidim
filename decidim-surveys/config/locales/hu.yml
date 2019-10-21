@@ -22,6 +22,7 @@ hu:
             announcement: Közlemény
           step:
             allow_answers: Válaszok engedélyezése
+            allow_unregistered: Nem regisztrált felhasználók számára a kérdőív kitöltésének engedélyezése
             announcement: Közlemény
     events:
       surveys:
