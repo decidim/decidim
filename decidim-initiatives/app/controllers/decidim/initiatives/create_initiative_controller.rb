@@ -19,6 +19,7 @@ module Decidim
       helper_method :scopes
       helper_method :current_initiative
       helper_method :initiative_type
+      helper_method :promotal_committee_required?
 
       steps :select_initiative_type,
             :previous_form,
@@ -39,7 +40,7 @@ module Decidim
 
       private
 
-      def select_initiative_type_step(_unused)
+      def select_initiative_type_step(_parameters)
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
         session[:initiative] = {}
         render_wizard
@@ -117,7 +118,7 @@ module Decidim
       end
 
       def scopes
-        InitiativesType.find(@form.type_id).scopes.includes(:scope)
+        @scopes ||= InitiativesTypeScope.where(decidim_initiatives_types_id: @form.type_id)
       end
 
       def current_initiative
@@ -125,15 +126,18 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(@form&.type_id)
+        @initiative_type ||= InitiativesType.find(session_initiative[:type_id] || @form&.type_id)
       end
 
       def session_initiative
-        session[:initiative]&.with_indifferent_access
+        session[:initiative] ||= {}
+        session[:initiative].with_indifferent_access
       end
 
       def promotal_committee_required?
-        minimum_committee_members = InitiativesType.find(session_initiative[:type_id]).minimum_committee_members ||
+        return false unless initiative_type.promoting_committee_enabled?
+
+        minimum_committee_members = initiative_type.minimum_committee_members ||
                                     Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end

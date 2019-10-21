@@ -9,6 +9,7 @@
 
 **Changed**:
 
+- **decidim-initiatives**: UX improvements to initiatives [#5369](https://github.com/decidim/decidim/pull/5369)
 
 **Fixed**:
 
