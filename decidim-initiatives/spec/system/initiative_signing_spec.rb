@@ -19,20 +19,6 @@ describe "Initiative signing", type: :system do
   end
 
   context "when the user has not signed the initiative" do
-    context "when online signatures are disabled for site" do
-      before do
-        allow(Decidim::Initiatives)
-          .to receive(:online_voting_allowed)
-          .and_return(false)
-      end
-
-      it "voting disabled message is shown" do
-        visit decidim_initiatives.initiative_path(initiative)
-
-        expect(page).to have_content("SIGNING DISABLED")
-      end
-    end
-
     context "when online signatures are enabled for site" do
       context "when initative type only allows In-person signatures" do
         let(:initiative) { create(:initiative, :published, organization: organization, signature_type: "offline") }

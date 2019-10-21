@@ -42,8 +42,9 @@ module Decidim
           result = {
             title: form.title,
             description: form.description,
-            online_signature_enabled: form.online_signature_enabled,
+            signature_type: form.signature_type,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
+            promoting_committee_enabled: form.promoting_committee_enabled,
             minimum_committee_members: form.minimum_committee_members,
             collect_user_extra_fields: form.collect_user_extra_fields,
             extra_fields_legal_information: form.extra_fields_legal_information,
@@ -56,10 +57,8 @@ module Decidim
         end
 
         def upate_initiatives_signature_type
-          unless initiative_type.online_signature_enabled
-            initiative_type.initiatives.signature_type_updatable.each do |initiative|
-              initiative.update!(signature_type: Initiative.signature_types["offline"])
-            end
+          initiative_type.initiatives.signature_type_updatable.each do |initiative|
+            initiative.update!(signature_type: initiative_type.signature_type)
           end
         end
       end

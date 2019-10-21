@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <% if  current_initiative.accepts_offline_votes? && current_user.admin? %>
+    <% if current_initiative.accepts_offline_votes? && current_user.admin? %>
       <div class="row">
         <div class="columns xlarge-6">
           <%= form.number_field :offline_votes, min: 1 %>

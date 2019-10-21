@@ -1,1 +1,1 @@
-<%= options_for_select scoped_types.map { |s| [translated_attribute(s.scope.name), s.scope.id] }, params[:selected] %>
+<%= options_for_select scoped_types.map { |s| [translated_attribute(s.scope_name), s&.scope&.id] }, params[:selected] %>
