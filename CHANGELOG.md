@@ -1,7 +1,16 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [Unreleased](https://github.com/decidim/decidim/tree/0.19-stable)
 
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+**Removed**:
+
+## [0.19.0](https://github.com/decidim/decidim/tree/v0.19)
 
 **Added**:
 
@@ -24,7 +33,6 @@
 - **decidim-core**, **decidim-proposals**: Add: Improvements in amendments on `Proposals` control version [#5185](https://github.com/decidim/decidim/pull/5185)
 - **decidim-proposals**: Copy attachments when importing proposals [#5198](https://github.com/decidim/decidim/pull/5198)
 - **decidim-core**: Adds new language: Norwegian [#5335](https://github.com/decidim/decidim/pull/5335)
-
 
 **Changed**:
 
