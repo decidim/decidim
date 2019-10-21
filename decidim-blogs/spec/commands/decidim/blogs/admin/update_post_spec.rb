@@ -47,6 +47,7 @@ module Decidim
             subject.call
             expect(translated(post.title)).to eq title
           end
+
           it "updates the body" do
             subject.call
             expect(translated(post.body)).to eq body

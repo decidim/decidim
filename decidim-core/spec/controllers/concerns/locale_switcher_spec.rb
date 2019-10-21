@@ -19,11 +19,13 @@ module Decidim
       it "detected locale is empty" do
         expect(controller.detect_locale.to_s).to be_empty
       end
+
       it "application uses default language" do
         controller.switch_locale do
           expect(I18n.locale.to_s).to eq(default_locale)
         end
       end
+
       context "with alternate default locale" do
         let(:default_locale) { alt_locale }
 
