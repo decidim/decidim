@@ -9,9 +9,9 @@ module Decidim::Exporters
         described_class.new(participatory_space)
       end
 
-      let!(:component_1) { create(:component, :with_settings) }
+      let!(:component_1) { create(:component) }
       let!(:participatory_space) { component_1.participatory_space }
-      let!(:component_2) { create(:component, :with_settings, participatory_space: participatory_space) }
+      let!(:component_2) { create(:component, participatory_space: participatory_space) }
       let(:components) do
         { component_1.id => component_1, component_2.id => component_2 }
       end
