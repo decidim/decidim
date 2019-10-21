@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-core**, **decidim-participatory_processes**: Export/import space components feature, applied to for ParticipatoryProcess. [#5424](https://github.com/decidim/decidim/pull/5424)
 - **decidim-participatory_processes**: Export/import feature for ParticipatoryProcess. [#5422](https://github.com/decidim/decidim/pull/5422)
 - **decidim-forms**: Added UML clarifying the relation between the Questionnaire classes. [#5394](https://github.com/decidim/decidim/pull/5394)
 - **decidim-consultations**: Allow multi-choice answers to questions in consultations. [#5356](https://github.com/decidim/decidim/pull/5356)
