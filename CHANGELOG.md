@@ -5,6 +5,7 @@
 
 **Added**:
 
+- **decidim-surveys**: Added a setting to surveys to allow unregistered (aka: anonymous) users to answer a survey. [\#4996](https://github.com/decidim/decidim/pull/4996)
 
 **Changed**:
 

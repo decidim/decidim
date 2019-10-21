@@ -201,7 +201,8 @@ module Decidim::Meetings
     context "when the registration form is a questionnaire" do
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire) }
+      let(:session_token) { "some-token" }
+      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token: session_token) }
 
       context "and the registration form is invalid" do
         it "broadcast invalid_form" do
