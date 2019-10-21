@@ -48,7 +48,12 @@ module Decidim
       def import_component_from_attributes(attributes, user)
         component = Decidim.traceability.perform_action!(:create,
                                                          Decidim::Component,
-                                                         user) { Decidim::Component.create!(attributes.except(:id, :specific_data)) }
+                                                         user) do
+          c = Decidim::Component.new(attributes.except(:id, :settings, :specific_data))
+          c[:settings] = attributes[:settings]
+          c.save!
+          c
+        end
         import_component_specific_data(component, attributes, user) if component.serializes_specific_data?
         component
       end

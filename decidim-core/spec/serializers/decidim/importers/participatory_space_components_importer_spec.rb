@@ -11,9 +11,9 @@ module Decidim::Importers
 
       let(:user) { create(:user) }
       let(:previous_participatory_space) { create(:participatory_process) }
-      let!(:component_1) { create(:component, :published, :with_settings, :with_permissions, weight: 1) }
+      let!(:component_1) { create(:component, :published, :with_permissions, weight: 1) }
       let!(:participatory_space) { component_1.participatory_space }
-      let!(:component_2) { create(:component, :unpublished, :with_settings, :with_permissions, participatory_space: participatory_space, weight: 2) }
+      let!(:component_2) { create(:component, :unpublished, :with_permissions, participatory_space: participatory_space, weight: 2) }
 
       let(:json_as_text) do
         <<~EOJSON
@@ -27,7 +27,7 @@ module Decidim::Importers
             },
             "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_1.participatory_space.class.name}",
-            "settings": #{component_1.settings.to_json},
+            "settings": #{component_1.attributes["settings"].to_json},
             "weight": #{component_1.weight},
             "permissions": #{component_1.permissions.to_json},
             "published_at": "#{component_1.published_at&.iso8601 || "null"}"
@@ -41,7 +41,7 @@ module Decidim::Importers
             },
             "participatory_space_id": #{previous_participatory_space.id},
             "participatory_space_type": "#{component_2.participatory_space.class.name}",
-            "settings": #{component_2.settings.to_json},
+            "settings": #{component_2.attributes["settings"].to_json},
             "weight": #{component_2.weight},
             "permissions": #{component_2.permissions.to_json},
             "published_at": "#{component_2.published_at&.iso8601 || "null"}"
