@@ -22,6 +22,7 @@ nl:
             announcement: Aankondiging
           step:
             allow_answers: Antwoorden toestaan
+            allow_unregistered: Sta niet-geregistreerde gebruikers toe om de enquête te beantwoorden
             announcement: Aankondiging
     events:
       surveys:
