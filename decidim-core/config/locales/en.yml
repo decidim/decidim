@@ -365,7 +365,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias (@nickname) in %{organization}
+          nickname_help: Your alias in %{organization}
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -374,7 +374,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias (@nickname) in %{organization}
+          nickname_help: Your alias in %{organization}
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up

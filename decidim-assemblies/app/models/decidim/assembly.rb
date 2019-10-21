@@ -85,7 +85,7 @@ module Decidim
 
     # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
     def self.public_spaces
-      where(private_space: false).or(where(private_space: true).where(is_transparent: true))
+      where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
     end
 
     # Scope to return only the promoted assemblies.
@@ -123,13 +123,6 @@ module Decidim
 
     def ancestors
       self_and_ancestors.where.not(id: id)
-    end
-
-    def can_participate?(user)
-      return true unless private_space?
-      return false unless user
-
-      users.include?(user)
     end
 
     def translated_title

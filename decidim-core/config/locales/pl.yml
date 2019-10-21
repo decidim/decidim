@@ -326,7 +326,6 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -335,7 +334,6 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
           newsletter_title: Skontaktuj się z uprawnieniami
-          nickname_help: Twój krótki, niepowtarzalny identyfikator w %{organization}
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:

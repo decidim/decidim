@@ -277,7 +277,7 @@ de:
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
-          save: sparen
+          save: Speichern
         success: Hilfeabschnitte wurden erfolgreich aktualisiert
       impersonatable_users:
         index:
@@ -452,7 +452,7 @@ de:
           participants: 'Teilnehmer: '
           title: Newsletter
         new:
-          save: sparen
+          save: Speichern
           title: Neuer Newsletter
         select_recipients_to_deliver:
           all_spaces: Alle
@@ -478,13 +478,13 @@ de:
           error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
           success: Anwendung erfolgreich zerstört.
         edit:
-          save: sparen
+          save: Speichern
           title: Anwendung bearbeiten
         index:
           confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
           title: OAuth-Anwendungen
         new:
-          save: sparen
+          save: Speichern
           title: Neue Bewerbung
         update:
           error: Beim Aktualisieren dieser Anwendung ist ein Fehler aufgetreten.

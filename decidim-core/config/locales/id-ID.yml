@@ -308,7 +308,6 @@ id:
           email_already_exists: Akun lain menggunakan alamat email yang sama
         new:
           complete_profile: Profil lengkap
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_up: Silakan lengkapi profil Anda
           subtitle: Silakan isi formulir berikut untuk menyelesaikan pendaftaran
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -317,7 +316,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          nickname_help: Pengidentifikasi singkat dan unik Anda di %{organization}
           sign_in: Masuk
           sign_up: Daftar
           sign_up_as:

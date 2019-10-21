@@ -114,7 +114,8 @@ module Decidim
       end
 
       describe "#formatted_body" do
-        let(:comment) { create(:comment, commentable: commentable, author: author, body: "<b>bold text</b> *lorem* <a href='https://example.com'>link</a>") }
+        let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
+        let(:body) { "<b>bold text</b> *lorem* <a href='https://example.com'>link</a>" }
 
         before do
           allow(Decidim).to receive(:content_processors).and_return([:dummy_foo])
@@ -132,6 +133,21 @@ module Decidim
 
         it "returns the body sanitized and processed" do
           expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
+        end
+
+        describe "when the body contains urls" do
+          before { allow(Decidim).to receive(:content_processors).and_return([:link]) }
+
+          let(:body) do
+            %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
+          end
+          let(:result) do
+            %(<p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="noopener">https://decidim.org</a>. And a malicous click me</p>)
+          end
+
+          it "converts all URLs to links and strips attributes in anchors" do
+            expect(comment.formatted_body).to eq(result)
+          end
         end
       end
 

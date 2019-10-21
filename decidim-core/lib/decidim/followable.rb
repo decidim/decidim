@@ -9,5 +9,13 @@ module Decidim
       has_many :follows, as: :followable, foreign_key: "decidim_followable_id", foreign_type: "decidim_followable_type", class_name: "Decidim::Follow"
       has_many :followers, through: :follows, source: :user
     end
+
+    def followers
+      if respond_to?(:participatory_space) && participatory_space.present? && participatory_space.respond_to?(:followers)
+        super.or(participatory_space.followers).distinct
+      else
+        super
+      end
+    end
   end
 end

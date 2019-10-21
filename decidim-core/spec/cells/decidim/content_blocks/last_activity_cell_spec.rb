@@ -53,6 +53,14 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
       it { is_expected.not_to include(action_log) }
     end
 
+    context "when the resource has been hidden" do
+      before do
+        create(:moderation, :hidden, reportable: action_log.resource)
+      end
+
+      it { is_expected.not_to include(action_log) }
+    end
+
     context "with a lot of activities" do
       before do
         5.times do

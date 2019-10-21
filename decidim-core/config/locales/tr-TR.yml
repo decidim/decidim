@@ -324,7 +324,6 @@ tr:
           email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Tam profil
-          nickname_help: İçinde kısa, benzersiz tanıtıcı %{organization}
           sign_up: Lütfen profilinizi tamamlayın
           subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -333,7 +332,6 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: İlgili bilgiler içeren bir ara bülteni alın
           newsletter_title: İletişim izni
-          nickname_help: İçinde kısa, benzersiz tanıtıcı %{organization}
           password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol

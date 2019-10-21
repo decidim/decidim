@@ -314,7 +314,6 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
-          nickname_help: Zure identifikatzaile labur eta berezia %{organization} zenbakian
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -323,7 +322,6 @@ eu:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso buletin bat noizbehinka informazio garrantzitsu batekin
           newsletter_title: Harremanetarako baimena
-          nickname_help: Zure identifikatzaile labur eta berezia %{organization} zenbakian
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:

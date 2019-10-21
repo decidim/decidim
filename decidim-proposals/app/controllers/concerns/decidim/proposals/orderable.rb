@@ -9,14 +9,9 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :order, :available_orders, :random_seed
+        include Decidim::Orderable
 
         private
-
-        # Gets how the proposals should be ordered based on the choice made by the user.
-        def order
-          @order ||= detect_order(params[:order]) || default_order
-        end
 
         # Available orders based on enabled settings
         def available_orders
@@ -41,15 +36,6 @@ module Decidim
 
         def order_by_votes?
           most_voted_order_available? && current_settings.votes_blocked?
-        end
-
-        # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
-        def random_seed
-          @random_seed ||= (params[:random_seed] ? params[:random_seed].to_f : (rand * 2 - 1))
-        end
-
-        def detect_order(candidate)
-          available_orders.detect { |order| order == candidate }
         end
 
         def reorder(proposals)

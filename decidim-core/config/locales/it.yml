@@ -3,6 +3,14 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      group:
+        about: Dettagli
+        avatar: Immagine di profilo
+        document_number: Numero del documento
+        email: Email
+        name: Nome
+        nickname: Nome utente
+        phone: Telefono
       report:
         details: Ulteriori commenti
       user:
@@ -312,7 +320,7 @@ it:
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
       hero:
-        name: Immagine dell'eroe
+        name: Immagine in evidenza
       highlighted_content_banner:
         name: Banner dei contenuti evidenziati
       how_to_participate:
@@ -329,7 +337,7 @@ it:
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
-        name: Banner di sub eroe
+        name: Testo in evidenza home
     core:
       actions:
         login_before_access: Per favore, fai login con il tuo account prima di accedere
@@ -349,7 +357,6 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il nickname che ti identifica su %{organization} e che sarà visibile agli altri utenti
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -358,7 +365,6 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il nickname che userai per accedere a %{organization} e che sarà visibile agli altri utenti
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati

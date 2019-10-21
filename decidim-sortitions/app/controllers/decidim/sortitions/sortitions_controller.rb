@@ -6,7 +6,7 @@ module Decidim
     class SortitionsController < Decidim::Sortitions::ApplicationController
       helper Decidim::WidgetUrlsHelper
       include FilterResource
-      include Orderable
+      include Decidim::Sortitions::Orderable
       include Paginable
 
       helper_method :sortition

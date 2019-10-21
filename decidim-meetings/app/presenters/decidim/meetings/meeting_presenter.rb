@@ -18,9 +18,9 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.title, all_locales) do |content|
+          content = decidim_html_escape(content)
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          content = renderer.render(links: links).html_safe
-          decidim_html_escape(content)
+          renderer.render(links: links).html_safe
         end
       end
 

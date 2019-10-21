@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Gemarkeerde scope
         description: Omschrijving
         end_voting_date: Stemmen eindigt
@@ -144,6 +144,11 @@ nl:
           name:
             one: Antwoord
             other: Antwoorden
+      question_configuration:
+        disable_external_voting: Schakel externe stem uit voor geavanceerde configuraties
+        form:
+          help: Stel meerdere keuzes in door het maximum aantal antwoorden dat een deelnemer kan kiezen te verhogen. Standaard maximale waarde is 1, wat betekent dat slechts één reactie kan worden gestemd.
+          title: Geavanceerde instellingen
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze vraag.
@@ -249,7 +254,16 @@ nl:
           one: stem uit
           other: stemmen uit
       question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
+          title: Bij deze vraag waren meerdere keuzes toegestaan
+          total_participants: Een totaal van %{count} mensen heeft deelgenomen aan de stemming.
+          vote_limit:
+            description: Deelnemers konden stemmen tot %{limit} opties.
         voting_rules:
+          minimum_votes_per_user:
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.

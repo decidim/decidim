@@ -28,8 +28,7 @@ module Decidim
 
     def activities
       @activities ||= last_activities.select do |activity|
-        !activity.resource_lazy.respond_to?(:can_participate?) ||
-          activity.resource_lazy.can_participate?(current_user)
+        activity.visible_for?(current_user)
       end
     end
 
