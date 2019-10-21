@@ -140,7 +140,7 @@ module Decidim
           when :export_pdf_signatures
             toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected?)
           when :export_votes
-            toggle_allow(initiative.offline? || initiative.any?)
+            toggle_allow(initiative.offline_signature_type? || initiative.any_signature_type?)
           when :accept
             allowed = initiative.published? &&
                       initiative.signature_end_date < Date.current &&
@@ -187,7 +187,7 @@ module Decidim
 
             toggle_allow(allowed)
           when :manage_membership
-            allow!
+            toggle_allow(initiative.promoting_committee_enabled?)
           else
             disallow!
           end

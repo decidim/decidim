@@ -33,9 +33,11 @@ describe "Initiative", type: :system do
 
     context "without validation" do
       let(:initiative_type_minimum_committee_members) { 2 }
-      let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members) }
+      let(:signature_type) { "any" }
+      let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: signature_type) }
       let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
+      let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
       before do
         switch_to_host(organization.host)
@@ -145,6 +147,18 @@ describe "Initiative", type: :system do
           expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
           expect(find(:xpath, "//input[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
         end
+
+        context "when only one signature collection and scope are available" do
+          let(:other_initiative_type_scope) { nil }
+          let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+          it "hides and automatically selects the values" do
+            expect(page).not_to have_content("Signature collection type")
+            expect(page).not_to have_content("Scope")
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+            expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
+          end
+        end
       end
 
       context "when Promotal committee" do
@@ -190,6 +204,15 @@ describe "Initiative", type: :system do
             end
           end
         end
+
+        context "and it's disabled at the type scope" do
+          let(:initiative_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false, signature_type: signature_type) }
+
+          it "skips the promoting committee settings" do
+            expect(page).not_to have_content("Promoter committee")
+            expect(page).to have_content("Finish")
+          end
+        end
       end
 
       context "when Finish" do
@@ -202,8 +225,8 @@ describe "Initiative", type: :system do
           fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
-          select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
+          select("Online", from: "Signature collection type")
           find_button("Continue").click
 
           find_link("Continue").click

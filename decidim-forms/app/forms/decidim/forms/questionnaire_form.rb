@@ -8,7 +8,9 @@ module Decidim
       attribute :user_group_id, Integer
 
       attribute :tos_agreement, Boolean
+
       validates :tos_agreement, allow_nil: false, acceptance: true
+      validate :session_token_in_context
 
       # Private: Create the answers from the questionnaire questions
       #
@@ -17,6 +19,12 @@ module Decidim
         self.answers = model.questions.map do |question|
           AnswerForm.from_model(Decidim::Forms::Answer.new(question: question))
         end
+      end
+
+      def session_token_in_context
+        return if context&.session_token
+
+        errors.add(:tos_agreement, I18n.t("activemodel.errors.models.questionnaire.request_invalid"))
       end
     end
   end
