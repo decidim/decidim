@@ -3,6 +3,14 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      group:
+        about: Dettagli
+        avatar: Immagine di profilo
+        document_number: Numero del documento
+        email: Email
+        name: Nome
+        nickname: Nome utente
+        phone: Telefono
       report:
         details: Ulteriori commenti
       user:
@@ -312,7 +320,7 @@ it:
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
       hero:
-        name: Immagine dell'eroe
+        name: Immagine in evidenza
       highlighted_content_banner:
         name: Banner dei contenuti evidenziati
       how_to_participate:
@@ -329,7 +337,7 @@ it:
       stats:
         name: Statistiche dell'organizzazione
       sub_hero:
-        name: Banner di sub eroe
+        name: Testo in evidenza home
     core:
       actions:
         login_before_access: Per favore, fai login con il tuo account prima di accedere

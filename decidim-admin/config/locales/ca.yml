@@ -38,16 +38,16 @@ ca:
       organization:
         address: Nom del servidor SMTP
         alert_color: Alerta
-        badges_enabled: Habilitar insígnies
+        badges_enabled: Habilitar les ensenyes
         cta_button_path: URL del botó d'acció
         cta_button_text: Text del botó d'acció
-        customize_welcome_notification: Adaptar la notificació de benvinguda
+        customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
-        enable_omnipresent_banner: Mostrar banner omnipresent
+        enable_omnipresent_banner: Mostrar el banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
-        from: De la direcció de correu electrònic
+        from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
@@ -55,7 +55,7 @@ ca:
         highlighted_content_banner_action_url: URL del botó d'acció
         highlighted_content_banner_enabled: Mostrar el banner de contingut destacat
         highlighted_content_banner_image: Imatge
-        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_short_description: Breu descripció
         highlighted_content_banner_title: Títol
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
@@ -63,25 +63,25 @@ ca:
         official_img_footer: Logotip oficial al peu de pàgina
         official_img_header: Logotip oficial a la capçalera
         official_url: Pàgina web oficial de l'organització
-        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
         password: Contrasenya
         port: Port
         primary_color: Primària
-        reference_prefix: Prefix de referència
+        reference_prefix: prefix de referència
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
-        tos_version: Versió del Termes de Servei
-        twitter_handler: Nom d'usuari de Twitter
+        tos_version: Versió dels Termes de Servei
+        twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
         user_name: Àlies
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
-        youtube_handler: Nom d'usuari de YouTube
+        youtube_handler: Nom d'usuària de YouTube
       scope:
         code: Codi
         name: Nom
@@ -474,7 +474,7 @@ ca:
           send_to_followers: Envia a totes les seguidores
           send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
-          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà als usuaris que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+          warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció
         show:

@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       helper Decidim::Surveys::SurveyHelper
 
-      delegate :allow_answers?, to: :current_settings
+      delegate :allow_answers?, :allow_unregistered?, to: :current_settings
 
       before_action :check_permissions
 
