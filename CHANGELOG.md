@@ -11,6 +11,8 @@
 
 **Fixed**:
 
+- **decidim-sortitions**: Fix: Don't include drafts in sortitions [\#5434](https://github.com/decidim/decidim/pull/5434)
+
 
 **Removed**:
 
