@@ -263,6 +263,7 @@ es-MX:
         others: Otros
         public: Público
       filter:
+        all: Todos los tipos
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
