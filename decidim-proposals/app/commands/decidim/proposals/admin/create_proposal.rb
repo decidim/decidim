@@ -37,6 +37,7 @@ module Decidim
 
           transaction do
             create_proposal
+            create_card_image if form.component.settings.allow_card_image?
             create_attachment if process_attachments?
             create_gallery if process_gallery?
             send_notification
@@ -58,6 +59,12 @@ module Decidim
           @attached_to = @proposal
         end
 
+        def create_card_image
+          @proposal.card_image = form.card_image
+          @proposal.remove_card_image = form.remove_card_image
+          @proposal.save
+        end
+
         def attributes
           {
             title: title_with_hashtags,
@@ -69,6 +76,7 @@ module Decidim
             latitude: form.latitude,
             longitude: form.longitude,
             created_in_meeting: form.created_in_meeting,
+            card_image: form.card_image,
             published_at: Time.current
           }
         end

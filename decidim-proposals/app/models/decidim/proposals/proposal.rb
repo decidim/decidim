@@ -34,6 +34,8 @@ module Decidim
 
       component_manifest_name "proposals"
 
+      mount_uploader :card_image, Decidim::ImageUploader
+
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,

@@ -22,6 +22,8 @@ module Decidim
         attribute :suggested_hashtags, Array[String]
         attribute :photos, Array[String]
         attribute :add_photos, Array
+        attribute :card_image
+        attribute :remove_card_image
 
         validates :title, :body, presence: true
         validates :title, length: { maximum: 150 }
@@ -29,6 +31,8 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
+
+        validates :card_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }
 
         validate :scope_belongs_to_participatory_space_scope
 

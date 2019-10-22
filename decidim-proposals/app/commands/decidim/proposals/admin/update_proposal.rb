@@ -42,6 +42,7 @@ module Decidim
 
           transaction do
             update_proposal
+            update_card_image if form.component.settings.allow_card_image?
             update_proposal_author
             create_attachment if process_attachments?
             create_gallery if process_gallery?
@@ -70,6 +71,12 @@ module Decidim
           )
         end
 
+        def update_card_image
+          proposal.card_image = form.card_image
+          proposal.remove_card_image = form.remove_card_image
+          proposal.save
+        end
+        
         def update_proposal_author
           proposal.coauthorships.clear
           proposal.add_coauthor(form.author)

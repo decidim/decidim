@@ -8,11 +8,20 @@ module Decidim
     class ProposalMCell < Decidim::CardMCell
       include ProposalCellsHelper
 
+      def has_image?
+        model.card_image.present? && model.component.settings.allow_card_image
+      end
+
       def badge
         render if has_badge?
       end
 
       private
+
+      def resource_image_path
+        return unless model.card_image.present? && model.component.settings.allow_card_image
+        model.card_image.url
+      end
 
       def title
         decidim_html_escape(present(model).title)

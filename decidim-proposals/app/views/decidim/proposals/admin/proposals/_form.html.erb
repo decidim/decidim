@@ -109,6 +109,14 @@
         </fieldset>
       </div>
     <% end %>
+
+    <% if component_settings.allow_card_image? %>
+      <div class="row column">
+        <fieldset>
+          <%= form.upload :card_image, optional: true %>
+        </fieldset>
+      </div>
+    <% end %>
   </div>
 </div>
 
