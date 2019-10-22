@@ -715,6 +715,7 @@ ar:
             other: و %{count} المزيد من الناس
           link_to_collaborative_draft_help_text: هذا الاقتراح هو نتيجة لمشروع تعاوني. مراجعة التاريخ
           link_to_collaborative_draft_text: انظر المسودة التعاونية
+          link_to_proposal_from_emendation_text: الاطلاع على المُقتَرَح
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
