@@ -1,98 +1,97 @@
----
 nl-BE:
   activemodel:
     attributes:
       assembly:
-        area_id: Area
-        assembly_type: Assembly type
-        assembly_type_other: Assembly type other
-        banner_image: Banner image
-        closing_date: Closing date
-        closing_date_reason: Closing date reason
-        composition: Composition
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
-        created_by: Created by
-        created_by_other: Created by other
-        creation_date: Date created
-        decidim_area_id: Area
-        decidim_scope_id: Scope
-        description: Description
-        developer_group: Promoter group
-        domain: Domain
-        duration: Duration
+        area_id: Gebied
+        assembly_type: Groepstype
+        assembly_type_other: Groep type anders
+        banner_image: Banner afbeelding
+        closing_date: Sluitingsdatum
+        closing_date_reason: Reden sluitingsdatum
+        composition: Compositie
+        copy_categories: Kopieercategorieën
+        copy_components: Kopieer onderdelen
+        copy_features: Kopieerfuncties
+        created_by: Gemaakt door
+        created_by_other: Gemaakt door andere
+        creation_date: Datum aangemaakt
+        decidim_area_id: Gebied
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        developer_group: Organisator
+        domain: Domein
+        duration: Duur
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Home image
-        included_at: Included at
+        hero_image: Afbeelding van de startpagina
+        included_at: '-'
         instagram: Instagram
-        internal_organisation: Internal organisation
-        is_transparent: Is transparent
-        local_area: Organization area
+        internal_organisation: Interne organisatie
+        is_transparent: Is transparant
+        local_area: Organisatiegebied
         meta_scope: Scope metadata
-        parent_id: Parent assembly
-        participatory_processes_ids: Related Participatory processes
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: Private space
-        promoted: Promoted
-        published_at: Published at
-        purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
-        slug: URL slug
-        special_features: Special features
-        subtitle: Subtitle
-        target: Who participates
-        title: Title
+        parent_id: Hoofdgroep
+        participatory_processes_ids: Verwante inspraakprocessen
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe wordt er besloten
+        private_space: Privé ruimte
+        promoted: Opvallende
+        published_at: Gepubliceerd op
+        purpose_of_action: Doelstelling
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        show_statistics: Toon statistieken
+        slug: URL slak
+        special_features: Speciale functionaliteiten
+        subtitle: Subtitel
+        target: Wie doet mee
+        title: Titel
         twitter: Twitter
-        youtube: YouTube
+        youtube: Youtube
       assembly_member:
-        birthday: Birthday
-        birthplace: Birthplace
-        ceased_date: Ceased date
-        designation_date: Designation date
-        designation_mode: Designation mode
-        full_name: Full name
-        gender: Gender
-        position: Position
+        birthday: Verjaardag
+        birthplace: Geboortplaats
+        ceased_date: Datum van de datum
+        designation_date: Ontwerpdatum
+        designation_mode: Ontwerpdatum
+        full_name: Volledige naam
+        gender: Geslacht
+        position: Positie
       assembly_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Naam
+        role: Rol
   activerecord:
     models:
       decidim/assembly:
-        one: Assembly
-        other: Assemblies
+        one: Gemeentes
+        other: Gemeentes
       decidim/assembly_member:
-        one: Assembly member
-        other: Assembly members
+        one: Buurderij gebruikers
+        other: Bijwerken
       decidim/assembly_user_role:
-        one: Assembly user role
-        other: Assembly user roles
+        one: Bijwerken
+        other: Bijwerken
   decidim:
     admin:
       actions:
-        new_assembly: New assembly
+        new_assembly: Nieuwe montage
       assemblies:
         create:
           error: There was an error creating a new assembly.
-          success: Assembly created successfully.
+          success: Assemblage is succesvol gecreëerd.
         edit:
-          update: Update
+          update: Bijwerken
         index:
-          not_published: Not published
-          private: Private
-          public: Public
-          published: Published
+          not_published: Niet gepubliceerd
+          private: Privé
+          public: Publiek
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New assembly
+          create: Creëren
+          title: Nieuwe montage
         update:
           error: There was an error when updating this assembly.
           success: Assembly updated successfully.
@@ -102,9 +101,9 @@ nl-BE:
           success: Assembly duplicated successfully.
       assembly_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate assembly
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dupliceerde montage
       assembly_members:
         create:
           error: There was an error adding a member for this assembly.
@@ -112,13 +111,13 @@ nl-BE:
         destroy:
           success: Member deleted successfully for this assembly.
         edit:
-          title: Update assembly member.
-          update: Update
+          title: Update assemblee gebruiker.
+          update: Bijwerken
         index:
-          assembly_members_title: Assembly members
+          assembly_members_title: Groep leden
         new:
-          create: Create
-          title: New assembly member.
+          create: Creëren
+          title: Nieuwe montage.
         update:
           error: There was an error updating the member for this assembly.
           success: Member updated successfully for this assembly.
@@ -137,236 +136,244 @@ nl-BE:
           success: User removed successfully from this assembly.
         edit:
           title: Update assembly user.
-          update: Update
+          update: Bijwerken
         index:
           assembly_admins_title: Assembly users
         new:
-          create: Create
+          create: Buurderij gebruikers
           title: New assembly user.
         update:
           error: There was an error updated a user for this assembly.
           success: User updated successfully for this assembly.
       menu:
-        assemblies: Assemblies
+        assemblies: Groepen
         assemblies_submenu:
-          assembly_admins: Assembly users
-          assembly_members: Members
-          attachment_collections: Folders
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
+          assembly_admins: Groep-admins
+          assembly_members: Leden
+          attachment_collections: Mappen
+          attachment_files: Bestanden
+          attachments: Toebehoren
+          categories: Categorieën
+          components: Componenten
           info: Info
-          moderations: Moderations
-          private_users: Private users
+          moderations: Moderaties
+          private_users: Privé gebruikers
       models:
         assembly:
           fields:
-            created_at: Created at
-            private: Private
-            promoted: Highlighted
-            published: Published
-            title: Title
-          name: Assembly
+            created_at: Aangemaakt op
+            private: Privé
+            promoted: Opvallende
+            published: Gepubliceerd
+            title: Titel
+          name: Groep
         assembly_member:
           fields:
-            ceased_date: Ceased date
-            designation_date: Designation date
-            full_name: Name
-            position: Position
-          name: Member
+            ceased_date: Sluitingsdatum
+            designation_date: Ontwerpdatum
+            full_name: Naam
+            position: Positie
+          name: Leden
           positions:
-            other: Other
-            president: President
-            secretary: Secretary
-            vice_president: Vice president
+            other: Overige
+            president: Voorzitter
+            secretary: Minister
+            vice_president: Ondervoorzitter
         assembly_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Assembly User
+            email: E-mail
+            name: Naam
+            role: Rol
+          name: Groepsadmin
           roles:
-            admin: Administrator
-            collaborator: Collaborator
-            moderator: Moderator
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderaties
       titles:
-        assemblies: Assemblies
+        assemblies: Gemeentes
     admin_log:
       assembly:
-        create: "%{user_name} created the %{resource_name} assembly"
-        publish: "%{user_name} published the %{resource_name} assembly"
-        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
-        update: "%{user_name} updated the %{resource_name} assembly"
+        create: "%{user_name} heeft de groep %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
+        unpublish: "%{user_name} heeft de %{resource_name} groep gedepubliceerd"
+        update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
       assembly_member:
-        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
-        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep gemaakt"
+        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
+        create: "%{user_name} nodigde %{resource_name} uit voor de groep %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} groep"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} groep gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
-            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
-            select_a_created_by: Select a created by
-            select_an_area: Select an Area
-            select_an_assembly_type: Select an assembly type
-            select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-            social_handlers: Social
+            duration: Duur
+            duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
+            filters: Filters
+            images: Images
+            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
+            metadata: Metadata
+            other: Overige
+            select_a_created_by: Kies een categorie
+            select_an_area: Selecteer een onderwerp
+            select_an_assembly_type: Selecteer een groepstype
+            select_parent_assembly: Selecteer de hoofdgroep
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            social_handlers: Sociaal
+            title: Algemene informatie
+            visbility: Visibility
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Existing user
             non_user: Non user
-            select_a_position: Select a position
+            select_a_position: Selecteer een positie
             select_user: Select an user
             user_type: User type
           index:
             filter:
-              all: All
-              ceased: Ceased
-              not_ceased: Not ceased
-            filter_by: Filter by
-            search: Search
+              all: Alle
+              ceased: GeCeosticeerd
+              not_ceased: Niet gestopt
+            filter_by: Filteren op
+            search: Zoeken
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximum amount of elements to show
+            max_results: Maximum aantal elementen dat kan worden weergegeven	
       assembly_members:
         index:
-          members: Members
+          members: Leden
       assembly_types:
-        commission: Comission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        others: Others
-        participatory: Participatory
-        working_group: Working group
+        commission: Kompas
+        consultative_advisory: Raadgevend/Raadgevend
+        executive: Uitvoerend
+        government: Overheid
+        others: Leden
+        participatory: Participatief
+        working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
-          name: Highlighted assemblies
+          name: Uitgelichte groepen
       created_by:
-        city_council: City Council
-        others: Others
-        public: Public
+        city_council: Stadsraad
+        others: Leden
+        public: Publiek
       filter:
-        all: All
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        help: 'Show:'
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        all: Alle types
+        commission: Commissie
+        consultative_advisory: Adviesgroep
+        executive: Uitvoerend
+        government: Overheid
+        help: 'Toon:'
+        label: 'Toon:'
+        others: Overige
+        participatory: Participatief
+        working_group: Werkgroep
       index:
-        title: Assemblies
+        title: Gemeentes
       last_activity:
-        new_assembly: New assembly
+        new_assembly: Nieuwe groep
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            see_all_assemblies: See all assemblies
+            active_assemblies: Actieve bijeenkomsten
+            see_all_assemblies: Bekijk alle vergaderingen
         user_profile:
           member_of:
-            member_of: Member of
+            member_of: Lid van
       show:
-        area: Area
-        assembly_type: Assembly type
-        children: Assemblies
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Date created
-        developer_group: Promoter group
-        duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite
-        internal_organisation: Internal organisation
+        area: Gebied
+        assembly_type: Groepstype
+        children: Gemeentes
+        closing_date: Sluitingsdatum
+        composition: Compositie
+        created_by: Gemaakt door
+        creation_date: Datum aangemaakt
+        developer_group: Promotorgroep
+        duration: Duur
+        included_at: Opgenomen op
+        indefinite_duration: Onbepaald
+        internal_organisation: Interne organisatie
         is_transparent:
-          'false': opaque
-          'true': transparent
-        local_area: Organization area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: This is a private assembly
-        purpose_of_action: Purpose of action
-        read_less: Read less
-        read_more: Read more
-        related_participatory_processes: Related participatory processes
-        scope: Scope
-        social_networks: Social Networks
-        target: Who participates
+          'false': ondoorzichtig
+          'true': is transparant
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe wordt er besloten
+        private_space: Dit is een privé-vergadering
+        purpose_of_action: Doelstelling
+        read_less: Lees minder
+        read_more: Lees verder
+        related_participatory_processes: Verwante inspraakprocessen
+        scope: Reikwijdte
+        social_networks: Social media
+        target: Wie doet mee
       statistics:
-        answers_count: Answers
-        assemblies_count: Assemblies
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
-        pages_count: Pages
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        answers_count: Antwoorden
+        assemblies_count: Gemeentes
+        comments_count: Reacties
+        debates_count: Debatten
+        endorsements_count: Ondersteuningen
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: Ondersteunt
+        pages_count: Pagina's
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: Overleven
+        users_count: Deelnemers
+        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
-        designated_on: Designated on
+        designated_on: Ontworpen op
       index:
-        title: Members
+        title: Leden
     help:
       participatory_spaces:
         assemblies:
           contextual: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
           page: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          title: What are assemblies?
+          title: Wat zijn groepen?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'The assembly was not found on the database (ID: %{id})'
+          not_found: 'De groep is niet gevonden in de database (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Gemeentes
     metrics:
       assemblies:
-        description: Number of assemblies created
-        object: assemblies
-        title: Assemblies
+        description: Aantal aangemaakte groepen
+        object: groepen
+        title: Groepen
   errors:
     messages:
-      cannot_be_blank: can not be blank
+      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
         assembly:
-          take_part: Take part
+          more_info: Meer informatie
+          take_part: Deelnemen
         index:
-          organizational_chart: Organizational chart
-          promoted_assemblies: Highlighted assemblies
+          children: 'Groepen: '
+          organizational_chart: Organisatorische driver
+          promoted_assemblies: Uitgelichte groepen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblies"
-            other: "%{count} assemblies"
+            one: "%{count} groep"
+            other: "%{count} groepen"
         promoted_assembly:
-          more_info: More info
-          take_part: Take part
+          more_info: Meer informatie
+          take_part: Deelnemen
       assembly_navigation:
-        assembly_member_menu_item: Members
-        assembly_menu_item: The assembly
+        assembly_member_menu_item: Leden
+        assembly_menu_item: Nieuwe montage
       assembly_widgets:
         show:
-          take_part: Take part
+          take_part: Deelnemen

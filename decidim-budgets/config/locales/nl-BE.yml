@@ -1,183 +1,189 @@
----
 nl-BE:
   activemodel:
     attributes:
       project:
-        budget: Budget
-        decidim_category_id: Category
-        decidim_scope_id: Scope
-        description: Description
-        proposal_ids: Related proposals
-        title: Title
+        budget: Begroting
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        proposal_ids: Verwante voorstellen
+        title: Titel
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
-        equal_to: must be equal to %{count}
+        equal_to: moet gelijk zijn aan %{count}
     models:
       decidim/budgets/project:
-        one: Project
-        other: Projects
+        one: Projecten
+        other: Projecten
   decidim:
     budgets:
       actions:
-        attachment_collections: Folders
-        attachments: Attachments
-        confirm_destroy: Are you sure you want to delete this project?
-        destroy: Delete
-        edit: Edit
-        import: Import proposals to projects
-        new: New project
-        preview: Preview
-        title: Actions
+        attachment_collections: Map
+        attachments: Bijlagen
+        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerk
+        import: Importeer voorstellen naar projecten
+        new: nieuwe
+        preview: Voorbeeld
+        title: Acties
       admin:
         models:
           project:
-            name: Project
+            name: Projecten
         projects:
           create:
             invalid: There's been a problem creating this project
-            success: Project successfully created
+            success: Project succesvol gemaakt
           destroy:
-            success: Project successfully deleted
+            success: Project succesvol vernietigd
           edit:
-            title: Edit project
-            update: Update
+            title: Bewerk project
+            update: Bijwerken
           form:
             fields:
-              address: Address
+              address: Adres
           index:
-            finished_orders: Finished votes
-            pending_orders: Pending votes
-            title: Projects
+            finished_orders: Afgewerkte bestellingen
+            pending_orders: Openstaande bestellingen
+            title: Projecten
           new:
-            create: Create
-            title: New project
+            create: Creëren
+            title: Nieuw resultaat
           update:
             invalid: There's been a problem updating this project
-            success: Project successfully updated
+            success: Project succesvol bijgewerkt
         proposals_imports:
           create:
             invalid: There's been a problem importing the proposals into projects
-            success: "%{number} proposals successfully imported into projects"
+            success: "%{number} voorstellen succesvol geïmporteerd"
           new:
-            create: Import proposals to projects
-            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
-            select_component: Please select a component
+            create: Importeer voorstellen naar projecten
+            no_components: Er zijn geen andere onderdelen van dit deeltjesgebied om de voorstellen uit te voeren.
+            select_component: Selecteer een voorstel
       admin_log:
         project:
-          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       models:
         project:
           fields:
-            map: Map
-            title: Title
+            map: Kaart
+            title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
-          cancel: Cancel
-          confirm: Confirm
-          description: These are the projects you have chosen to be part of the budget.
-          title: Confirm vote
+          are_you_sure: Bent u het eens? Zodra u uw stem heeft bevestigd, kunt u het niet wijzigen.
+          cancel: Annuleer
+          confirm: Bevestigen
+          description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
+          title: Bevestig de stem
         budget_excess:
-          close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
-          ok: Гаразд
-          title: Перевищено граничний бюджет
+          close: Sluit
+          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          ok: Ok
+          title: Maximum budget overschreden
         budget_summary:
-          are_you_sure: Are you sure you want to cancel your vote?
-          assigned: 'Assigned:'
-          cancel_order: delete your vote and start over
+          are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
+          assigned: 'Toegewezen:'
+          cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
-            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
-            title: Budget vote completed
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
-          title: You decide the budget
+            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
+            title: Begrotingsstemming voltooid
+          description_per_budget: Welke projecten vinden u dat we budget moeten toewijzen? Wijs tenminste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_per_project: Naar welke projecten denkt u een budget te moeten toewijzen? Kies %{minimum_project} projecten en gevalideerd uw stem. Let op, alle stemmen zijn onherroepelijk.
+          title: U bepaalt het budget
         count:
           projects_count:
-            one: 1 project
-            other: "%{count} projects"
+            one: project
+            other: "%{count} projecten"
         filters:
-          category: Category
-          category_prompt: Select a category
-          search: Search
+          category: Categorie
+          category_prompt: Kies een categorie
+          search: Zoeken
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         index:
-          view_project: View project
+          view_project: Nieuw resultaat
         limit_excess:
-          close: Close
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          close: Dichtbij
+          description_per_budget: Dit project overschrijdt het maximum budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen, of uw stem uitbrengen met uw voorkeuren.
+          description_per_project: U heeft het maximum aantal projecten bereikt dat voor deze begroting is toegestaan. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd.
           ok: OK
-          title_per_budget: Maximum budget exceeded
-          title_per_project: Maximum number of projects reached
+          title_per_budget: Maximale budget overschreden
+          title_per_project: Maximum aantal projecten bereikt
         order_progress:
-          vote: Vote
+          vote: Stemmen
         order_selected_projects:
-          choose: Choisissez encore
+          choose: Keuze-mail encore
           per_project:
-            one: project selected out of a total of
-            other: projects selected out of a total of
+            one: project geselecteerd van een totaal van
+            other: projecten geselecteerd van een totaal van
           remaining_projects:
-            one: 1 project to validate your vote.
-            other: "%{count} projects to validate your vote."
-          remove: Remove
+            one: 1 project om uw stem te valideren.
+            other: "%{count} projecten om uw stem te valideren."
+          remove: Verwijderen
           selected_projects:
-            one: project selected
-            other: projects selected
+            one: geselecteerd project
+            other: geselecteerde projecten
           total_projects:
             one: projet
             other: projets
-          view: View
-          vote: Voter
+          view: Uitzicht
+          vote: Stemer
         project:
-          add: Add
+          add: Toevoegen
           count:
-            one: 1 support
-            other: "%{count} supports"
-          remove: Remove
-          view: View
+            one: 1 ondersteuning
+            other: "%{count} ondersteunt"
+          remove: Verwijderen
+          view: Uitzicht
         project_budget_button:
-          add: Add
-          added: Added
+          add: Toevoegen
+          added: Toegevoegd
         show:
-          budget: Budget
-          view_all_projects: Back to projects list
+          budget: Begroting
+          view_all_projects: Bekijk alle projecten
     components:
       budgets:
         actions:
-          vote: Vote
-        name: Budgets
+          vote: Stemmen
+        name: Begroting
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-            geocoding_enabled: Geocoding enabled
-            projects_per_page: Projects per page
-            resources_permissions_enabled: Actions permissions can be set for each meeting
-            total_budget: Total budget
-            total_projects: Total projects
-            vote_per_budget: budget sum enabled (default)
-            vote_per_project: project number enabled
-            vote_threshold_percent: Vote threshold percent
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
+            geocoding_enabled: Stemmen uitgeschakeld
+            projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
+            total_budget: Totale budget
+            total_projects: Totaal projecten
+            vote_per_budget: budget bedrag ingeschakeld (standaard)
+            vote_per_project: projectnummer ingeschakeld
+            vote_threshold_percent: Stemdrempel percentage
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            show_votes: Show votes
-            votes_enabled: Voting enabled
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
+            show_votes: Toon stemmen
+            votes_enabled: Stemmen uitgeschakeld
     events:
       budgets:
         order_checkout:
-          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
-          email_outro: Thank you for your participation
-          email_subject: Your vote has been validated on %{participatory_space_title}
-          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
+          email_intro: 'Uw stem is gevalideerd. U kunt het altijd bewerken als u wilt door hier te klikken: <a href=''%{resource_url}''>%{participatory_space_title}'
+          email_outro: Bedankt voor je bijdrage
+          email_subject: Uw stem is gevalideerd op %{participatory_space_title}
+          notification_title: Uw stem is gevalideerd op <a href='%{resource_url}'>%{participatory_space_title}</a> U kunt het altijd bewerken als u wilt.
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Bedankt voor je bijdrage
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: An error ocurred while processing your vote
@@ -187,7 +193,7 @@ nl-BE:
         success: Your vote has been canceled successfully
     resource_links:
       included_proposals:
-        project_proposal: 'Proposals included in this project:'
+        project_proposal: 'Voorstellen opgenomen in dit resultaat:'
   index:
-    confirmed_orders_count: Votes count
-  total_budget: Total budget
+    confirmed_orders_count: Bestellingen tellen
+  total_budget: Totale budget
