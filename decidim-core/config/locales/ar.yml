@@ -5,6 +5,7 @@ ar:
         delete_reason: سبب حذف حسابك
       group:
         about: عن
+        avatar: الصورة الرمزية
         document_number: رقم المستند
         email: البريد الإلكتروني
         name: الإسم
@@ -180,7 +181,9 @@ ar:
             من قبل المؤلف.
       new:
         amendment_author: مؤلف التعديل
+        send: إنشاء
       preview_draft:
+        modify: تعديل
         publish: انشر
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
@@ -553,6 +556,8 @@ ar:
       current_image: الصورة الحالية
       default_image: الصورة الافتراضية
       errors:
+        decidim/user:
+          password: الكلمة السرية قصيرة جدا.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
@@ -1286,6 +1291,10 @@ ar:
           invitation_instructions:
             accept_until_format: "%B %d، %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
+      option_unified: مُوَحَّدة
   views:
     pagination:
       first: "&laquo; أولاً"
