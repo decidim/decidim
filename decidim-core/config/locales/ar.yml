@@ -160,6 +160,8 @@ ar:
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
+      edit_draft:
+        send: معاينة
       emendation:
         actions:
           button_accept: قبول
@@ -251,6 +253,7 @@ ar:
       content:
         incomplete:
           cancel: إلغاء
+          invalid_field: "%{field}"
         unauthorized:
           ok: موافق
           title: غير مخوّل
