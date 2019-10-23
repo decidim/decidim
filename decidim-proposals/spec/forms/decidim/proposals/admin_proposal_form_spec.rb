@@ -8,6 +8,7 @@ module Decidim
       describe ProposalForm do
         it_behaves_like "a proposal form", skip_etiquette_validation: true
         it_behaves_like "a proposal form with meeting as author", skip_etiquette_validation: true
+        it_behaves_like "a proposal form with card image allowed", skip_etiquette_validation: true
       end
     end
   end

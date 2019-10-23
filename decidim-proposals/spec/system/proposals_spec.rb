@@ -97,7 +97,6 @@ describe "Proposals", type: :system do
       it "shows the author as official" do
         visit_component
         within "#proposal_#{official_proposal.id}" do
-          # expect(page).to have_content("image")
           expect(page).to have_selector(".card__image")
         end
       end

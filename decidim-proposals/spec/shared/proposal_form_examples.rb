@@ -340,3 +340,53 @@ shared_examples "a proposal form with meeting as author" do |options|
     end
   end
 end
+
+shared_examples "a proposal form with card image allowed" do |_options|
+  subject { form }
+
+  let(:organization) { create(:organization, available_locales: [:en]) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:component) { create(:proposal_component, :with_card_image_allowed, participatory_space: participatory_space) }
+  let(:title) { "More sidewalks and less roads!" }
+  let(:body) { "Everything would be better" }
+  let(:author) { organization }
+  let(:card_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+  let(:params) do
+    {
+      title: title,
+      body: body,
+      author: author,
+      card_image: card_image
+    }
+  end
+
+  let(:form) do
+    described_class.from_params(params).with_context(
+      current_component: component,
+      current_organization: component.organization,
+      current_participatory_space: participatory_space
+    )
+  end
+
+  context "when everything is OK" do
+    it { is_expected.to be_valid }
+  end
+
+  context "when proposal has card_image" do
+    context "when card_image is too big" do
+      before do
+        allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+        expect(subject.card_image).to receive(:size).and_return(6.megabytes)
+      end
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when images are not the expected type" do
+      let(:card_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+
+      it { is_expected.to be_valid }
+    end
+  end
+end
