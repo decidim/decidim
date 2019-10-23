@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix metrics graphql query [\#5442](https://github.com/decidim/decidim/pull/5442)
+
 **Removed**:
 
 ## [0.19.0](https://github.com/decidim/decidim/tree/v0.19)
