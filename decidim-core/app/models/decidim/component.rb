@@ -80,6 +80,8 @@ module Decidim
       participatory_space.can_participate?(user)
     end
 
+    delegate :serializes_specific_data?, to: :manifest
+
     private
 
     def participatory_space_name
