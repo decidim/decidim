@@ -48,6 +48,12 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Stap geactiveerd
       decidim/participatory_process_step_changed_event: Stap veranderd
@@ -74,6 +80,7 @@ nl:
         filter:
           all: Toon alle processen
           process_groups: Procesgroepen
+        import_process: Importeren
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
         new_process_step: Nieuwe stap
@@ -147,6 +154,14 @@ nl:
         update:
           error: Er was een fout bij het bijwerken van deze participatief procesgroep.
           success: Participatief procesgroep is succesvol bijgewerkt.
+      participatory_process_imports:
+        create:
+          error: Er was een probleem bij het importeren van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
+        new:
+          import: Importeren
+          select: Selecteer welke gegevens u wilt importeren
+          title: Importeer participatief proces
       participatory_process_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
@@ -291,6 +306,9 @@ nl:
         participatory_process_copies:
           form:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Document toevoegen
         participatory_process_steps:
           form:
             cta_path_help: 'Gebruik hier gedeeltelijke paden, niet volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
