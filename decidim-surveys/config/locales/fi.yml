@@ -22,6 +22,7 @@ fi:
             announcement: Ilmoitus
           step:
             allow_answers: Salli vastaukset
+            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
             announcement: Ilmoitus
     events:
       surveys:
