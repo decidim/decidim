@@ -9,6 +9,12 @@
                     edit_participatory_process_group_path(@process_group) %>
       <% end %>
 
+      <% if allowed_to? :import, :process %>
+        <%= link_to t("actions.import_process", scope: "decidim.admin"),
+                    new_import_path,
+                    class: "button tiny button--title" %>
+      <% end %>
+
       <% if allowed_to? :create, :process %>
         <%= link_to t("actions.new_process", scope: "decidim.admin"),
                     ["new", "participatory_process"],
@@ -88,6 +94,10 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
+                <% if allowed_to? :create, :process, process: process %>
+                  <%= icon_link_to "data-transfer-download", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+                <% end %>
+
                 <% if allowed_to? :create, :process, process: process %>
                   <%= icon_link_to "clipboard", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
                 <% end %>

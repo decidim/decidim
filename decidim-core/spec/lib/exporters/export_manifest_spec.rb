@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim
-  describe Components::ExportManifest do
-    subject { described_class.new(name, component_manifest) }
+  describe Exporters::ExportManifest do
+    subject { described_class.new(name, manifest) }
 
-    let(:component_manifest) { Decidim::ComponentManifest.new }
+    let(:manifest) { Decidim::ComponentManifest.new }
     let(:name) { "foo" }
 
     describe "#name" do
@@ -15,9 +15,9 @@ module Decidim
       end
     end
 
-    describe "#component_manifest" do
-      it "returns the parent component manifest" do
-        expect(subject.component_manifest).to eq(component_manifest)
+    describe "#manifest" do
+      it "returns the parent manifest" do
+        expect(subject.manifest).to eq(manifest)
       end
     end
 
