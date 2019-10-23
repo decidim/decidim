@@ -9,12 +9,12 @@ $(() => {
   const metricsParams = {};
 
   const query = () => {
-    let metricsQuery = `metrics(names: [${metricsParams.names}], space_type: "${metricsParams.spaceType}", space_id: ${metricsParams.spaceId}) { name history { key value } }`;
+    let metricsQuery = `metrics(names: ${metricsParams.names}, space_type: "${metricsParams.spaceType}", space_id: ${metricsParams.spaceId}) { name history { key value } }`;
     return {query: `{ ${metricsQuery} }`};
   }
 
   const parameterize = (metrics) => {
-    metricsParams.names = metrics.join(" ");
+    metricsParams.names = JSON.stringify(metrics || []);
     metricsParams.spaceType = $("#metrics #metrics-space_type").val() || null;
     metricsParams.spaceId = $("#metrics #metrics-space_id").val() || null;
   }

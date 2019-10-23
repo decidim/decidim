@@ -80,3 +80,6 @@ ar:
       user_answers_serializer:
         created_at: أجاب على
         id: معرف الإجابة
+        registered: مُسجَّل
+        unregistered: غير مُسجَّل
+        user_status: حالة المستخدم

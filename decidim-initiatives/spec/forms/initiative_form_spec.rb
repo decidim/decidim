@@ -17,7 +17,7 @@ module Decidim
           title: title,
           description: Decidim::Faker::Localized.sentence(25),
           type_id: initiatives_type.id,
-          scope_id: scope.id,
+          scope_id: scope&.scope&.id,
           signature_type: "offline"
         }
       end
@@ -63,6 +63,12 @@ module Decidim
 
           it { is_expected.to eq(false) }
         end
+      end
+
+      context "when no scope is present" do
+        let(:scope) { nil }
+
+        it { is_expected.to be_valid }
       end
     end
   end

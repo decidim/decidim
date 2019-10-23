@@ -19,6 +19,8 @@ ar:
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
         i_frame_url: عنوان URL لنظام التصويت الخارجي
+        max_votes: الحد الأقصى لعدد الأصوات
+        min_votes: الحد الأدنى لعدد الأصوات
         origin_scope: نطاق
         origin_title: الأصل
         origin_url: العنوان الشبكي الأصلي
@@ -103,6 +105,9 @@ ar:
         new:
           create: إنشاء
           title: استشارة جديدة
+        results:
+          participants: "%{count} مشارِكين"
+          total_votes: 'المجموع: %{count} أصوات'
         update:
           error: كانت هناك مشكلة في تحديث هذه المشاورة.
           success: تم تحديث المشاورة بنجاح.
@@ -269,10 +274,20 @@ ar:
           few: يصوت من
           many: يصوت من
           other: يصوت من
+      question_multiple_votes:
+        results_rules:
+          total_participants: لقد شارك مجموع يقدّر بـ %{count} أشخاص في التصويت.
+        voting_rules:
+          title: 'التصويت خاضع للقواعد التالية:'
+          vote_limit:
+            description: يمكنك التصويت إلى غاية %{limit} خيارات.
+            left: متبقي
+            votes: أصوات
       question_votes:
         create:
           error: كانت هناك مشكلة في التصويت على السؤال
           title_error: خطأ في التصويت!
+          title_success: تم تسجيل التصويت بنجاح
       regular_questions:
         title: أسئلة لهذا التشاور
       show:
@@ -344,3 +359,4 @@ ar:
         unfold: كشف
       question_header:
         back_to_consultation: انظر جميع المشاورات
+        back_to_question: العودة إلى السؤال

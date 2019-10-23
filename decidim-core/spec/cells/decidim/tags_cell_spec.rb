@@ -47,16 +47,19 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_css(".tags.tags--proposal")
       expect(html).to have_content(translated(scope.name))
     end
+
     it "renders the subscope of a proposal" do
       html = cell("decidim/tags", proposal_subscoped, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tags.tags--proposal")
       expect(html).to have_content(translated(subscope.name))
     end
+
     it "renders the scope of a meeting" do
       html = cell("decidim/tags", meeting_scoped, context: { extra_classes: ["tags--meeting"] }).call
       expect(html).to have_css(".tags.tags--meeting")
       expect(html).to have_content(translated(scope.name))
     end
+
     it "renders the subscope of a meeting" do
       html = cell("decidim/tags", meeting_subscoped, context: { extra_classes: ["tags--meeting"] }).call
       expect(html).to have_css(".tags.tags--meeting")
@@ -70,6 +73,7 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_css(".tags.tags--proposal")
       expect(html).to have_content(translated(category.name))
     end
+
     it "renders the subcategory of a proposal" do
       html = cell("decidim/tags", proposal_subcategorized, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tags.tags--proposal")
@@ -81,6 +85,7 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_css(".tags.tags--meeting")
       expect(html).to have_content(translated(category.name))
     end
+
     it "renders the subcategory of a meeting" do
       html = cell("decidim/tags", meeting_subcategorized, context: { extra_classes: ["tags--meeting"] }).call
       expect(html).to have_css(".tags.tags--meeting")
@@ -95,6 +100,7 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_content(translated(scope.name))
       expect(html).to have_content(translated(category.name))
     end
+
     it "renders the scope and category of a meeting" do
       html = cell("decidim/tags", meeting_scoped_categorized, context: { extra_classes: ["tags--meeting"] }).call
       expect(html).to have_css(".tags.tags--meeting")
