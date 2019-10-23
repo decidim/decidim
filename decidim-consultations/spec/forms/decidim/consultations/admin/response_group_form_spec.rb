@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Consultations
     module Admin
-      describe ResponseForm do
+      describe ResponseGroupForm do
         subject do
           described_class
             .from_params(attributes)
@@ -18,7 +18,6 @@ module Decidim
         let(:organization) { create :organization }
         let(:consultation) { create :consultation, organization: organization }
         let(:question) { create :question }
-        let(:response_group) { create :response_group }
         let(:title) do
           {
             en: "Title",
@@ -28,11 +27,10 @@ module Decidim
         end
         let(:attributes) do
           {
-            "response" => {
+            "response_group" => {
               "title_en" => title[:en],
               "title_es" => title[:es],
-              "title_ca" => title[:ca],
-              "decidim_consultations_response_group_id" => response_group
+              "title_ca" => title[:ca]
             }
           }
         end
