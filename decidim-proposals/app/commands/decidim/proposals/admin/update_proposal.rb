@@ -76,7 +76,7 @@ module Decidim
           proposal.remove_card_image = form.remove_card_image
           proposal.save
         end
-        
+
         def update_proposal_author
           proposal.coauthorships.clear
           proposal.add_coauthor(form.author)

@@ -20,6 +20,7 @@ module Decidim
 
       def resource_image_path
         return unless model.card_image.present? && model.component.settings.allow_card_image
+
         model.card_image.url
       end
 

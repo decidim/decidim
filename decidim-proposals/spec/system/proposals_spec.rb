@@ -84,6 +84,25 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when it is an official proposal with card image enable" do
+      let!(:component) do
+        create(:proposal_component,
+               :with_card_image_allowed,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      let!(:official_proposal) { create(:proposal, :official, :with_card_image, component: component) }
+
+      it "shows the author as official" do
+        visit_component
+        within "#proposal_#{official_proposal.id}" do
+          # expect(page).to have_content("image")
+          expect(page).to have_selector(".card__image")
+        end
+      end
+    end
+
     context "when it is an official meeting proposal" do
       let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
 

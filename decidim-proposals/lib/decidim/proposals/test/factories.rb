@@ -223,6 +223,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_card_image_allowed do
+      settings do
+        {
+          allow_card_image: true
+        }
+      end
+    end
+
     trait :with_extra_hashtags do
       transient do
         automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
@@ -341,6 +349,10 @@ FactoryBot.define do
       after :create do |proposal|
         create_list(:proposal_endorsement, 5, proposal: proposal)
       end
+    end
+
+    trait :with_card_image do
+      card_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     end
   end
 
