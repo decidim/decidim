@@ -186,15 +186,19 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
           success: Groep met succes gemaakt.
         destroy:
+          error: Er was een probleem bij het verwijderen van de reactiegroep. Misschien hangen er nog reacties aan.
           success: Groep succesvol verwijderd.
         edit:
           update: Bijwerken
         form:
           title: Algemene informatie
+        help: Gebruik groepen om meerkeuzevragen in pakketten te organiseren.
         new:
           create: Aanmaken
+          title: Nieuwe responsgroep
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
+          success: Resultaat met succes bijgewerkt.
       responses:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
@@ -215,6 +219,7 @@ nl:
       titles:
         consultations: Burgerinspraak
         questions: vragen
+        response_groups: Responsgroepen
         responses: Antwoorden
         results: Resultaten
     consultations:
