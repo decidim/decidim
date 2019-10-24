@@ -210,6 +210,7 @@ cs:
           create: Vytvořit
           title: Nová odpovídající skupina
         update:
+          error: Při aktualizaci této odpovědi došlo k chybě.
           success: Odpověď úspěšně aktualizována.
       responses:
         create:
