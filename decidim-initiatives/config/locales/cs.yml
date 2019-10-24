@@ -33,6 +33,7 @@ cs:
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
+        promoting_committee_enabled: Povolit podporu výboru
         title: Titul
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
