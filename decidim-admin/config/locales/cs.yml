@@ -474,6 +474,7 @@ cs:
           send_to_followers: Odeslat sledujícím
           send_to_participants: Odeslat účastníkům
           title: Vybrat příjemce k doručení
+          warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádný příjemce pro tento výběr
         show:
