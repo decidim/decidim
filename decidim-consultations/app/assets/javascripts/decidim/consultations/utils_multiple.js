@@ -11,7 +11,7 @@ $(document).ready(function () {
       max += 1;
     }
     if (max < 0) {
-      $(this).attr("checked", false);
+      $(this).prop("checked", false);
       event.preventDefault();
     }
     else {
