@@ -83,6 +83,7 @@ cs:
         new_response: Nová odpověď
         new_response_group: Nová skupina
         publish_results: Publikujte výsledky
+        response_groups: Spravovat odpovědi skupin
         unpublish_results: Zrušit publikování výsledků
       consultation_publications:
         create:
@@ -156,6 +157,7 @@ cs:
         response:
           fields:
             created_at: Vytvořeno u
+            response_group: Skupina
             title: Titul
           name:
             one: Odezva
@@ -193,6 +195,22 @@ cs:
         update:
           error: Při aktualizaci této otázky došlo k chybě.
           success: Otázka byla úspěšně aktualizována.
+      response_groups:
+        create:
+          error: Při vytváření nové skupiny odpovědí došlo k potížím.
+          success: Odpovídající skupina úspěšně vytvořena.
+        destroy:
+          success: Odpovědná skupina úspěšně smazána.
+        edit:
+          update: Aktualizovat
+        form:
+          title: Obecné informace
+        help: Použijte skupiny pro organizování více otázek při výběru v balíčcích.
+        new:
+          create: Vytvořit
+          title: Nová odpovídající skupina
+        update:
+          success: Odpověď úspěšně aktualizována.
       responses:
         create:
           error: Při vytváření nové odpovědi došlo k chybě.
@@ -213,6 +231,7 @@ cs:
       titles:
         consultations: Konzultace
         questions: Otázky
+        response_groups: Odpovídající skupiny
         responses: Odpovědi
         results: Výsledky
     consultations:
