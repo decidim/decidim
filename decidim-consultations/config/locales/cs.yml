@@ -35,6 +35,8 @@ cs:
         title: Titul
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
+      response:
+        decidim_consultations_response_group_id: Skupina
     errors:
       models:
         question:
@@ -75,9 +77,11 @@ cs:
   decidim:
     admin:
       actions:
+        back_to_responses: Zpět k reakcím
         new_consultation: Nová konzultace
         new_question: Nová otázka
         new_response: Nová odpověď
+        new_response_group: Nová skupina
         publish_results: Publikujte výsledky
         unpublish_results: Zrušit publikování výsledků
       consultation_publications:
