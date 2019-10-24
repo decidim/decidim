@@ -80,3 +80,7 @@ cs:
       user_answers_serializer:
         created_at: Zodpovězeno
         id: ID odpovědi
+        ip_hash: Ip Hash
+        registered: Registrován
+        unregistered: Neregistrovaný
+        user_status: Stav uživatele
