@@ -1,5 +1,5 @@
 // = require decidim/core/bundle.js
-// = require jquery
+// = require jquery3
 // = require rails-ujs
 // = require decidim/foundation
 // = require modernizr

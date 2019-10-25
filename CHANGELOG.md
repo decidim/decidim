@@ -2,7 +2,6 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-
 **Added**:
 
 - **decidim-consultations**: Create groups of responses in multi-choices question consultations. [\#5387](https://github.com/decidim/decidim/pull/5387)
@@ -13,6 +12,7 @@
 **Changed**:
 
 - **decidim-initiatives**: UX improvements to initiatives [#5369](https://github.com/decidim/decidim/pull/5369)
+- **decidim-core**: Update to JQuery 3 [#5433](https://github.com/decidim/decidim/pull/5433)
 
 **Fixed**:
 
