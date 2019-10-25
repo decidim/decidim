@@ -115,6 +115,8 @@ Refer to the [testing](advanced/testing.md) guide.
 
 ## Releasing new versions
 
+In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`).
+
 Releasing new versions is quite easy, it's the same process whether it's a new version or a patch:
 
 1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
@@ -125,6 +127,8 @@ Releasing new versions is quite easy, it's the same process whether it's a new v
 1. Update `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty section. After that, the header with the current version and link.
 1. Commit all the changes: `git add . && git commit -m "Prepare VERSION release"`
 1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
+1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
 
 If this was a major version release:
 
@@ -136,10 +140,5 @@ If this was a major version release:
 1. Update `CHANGELOG.MD` with a clean slate, onlye the empty sections and a bottom link to the latest release.
 1. Update `SECURITY.md` and change the supported version to the new version.
 1. Commit all the changes: `git add . && git commit -m "Bump version" && git push origin master`
-
-In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`)
-
-Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/tags) and create a new one.
-
-Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release.
-To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
+1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
+1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml) and create the sibling branch at the Docker repository.
