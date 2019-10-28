@@ -263,6 +263,7 @@ sv:
         others: Övriga
         public: Offentligt
       filter:
+        all: Alla typer
         commission: Kommission
         consultative_advisory: Rådgivande
         executive: Verkställande
