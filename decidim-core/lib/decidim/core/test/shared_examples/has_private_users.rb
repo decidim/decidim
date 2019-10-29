@@ -47,14 +47,17 @@ shared_examples_for "has private users" do
     end
 
     context "when the space is both public and has private users" do
-      let(:user) { create(:user) } # Non-private user
+      # Visible spaces for non-private user.
+      let(:user) { create(:user) }
 
       before do
-        create_space_private_user(public_space) # Multiple users
-        create_space_private_user(public_space) # Multiple users
+        # Public space has multiple private users.
+        create_space_private_user(public_space)
+        create_space_private_user(public_space)
       end
 
-      it { expect(scope).to contain_exactly(public_space) } # Expect no duplicates
+      # Expect no duplicate results.
+      it { expect(scope).to contain_exactly(public_space) }
     end
   end
 end
