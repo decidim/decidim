@@ -152,7 +152,10 @@ sv:
         section_heading: Ändringar (%{count})
       compare_draft:
         continue: Fortsätt
+      created:
+        error: Ett fel uppstod när ändringsutkastet skulle skapas.
       edit_draft:
+        discard: Släng utkastet
         send: Förhandsvisa
       emendation:
         actions:
@@ -550,6 +553,9 @@ sv:
       current_image: Nuvarande bild
       default_image: Förvald bild
       errors:
+        decidim/user:
+          password: Lösenordet är för kort.
+          password_confirmation: Lösenordsbekräftelsen måste stämma överens med angivet lösenord.
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
     gamification:
