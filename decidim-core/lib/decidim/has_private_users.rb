@@ -25,7 +25,7 @@ module Decidim
           left_outer_joins(:participatory_space_private_users).where(
             %(private_space = false OR
             decidim_participatory_space_private_users.decidim_user_id = ?), user.id
-          )
+          ).distinct
         else
           public_spaces
         end
