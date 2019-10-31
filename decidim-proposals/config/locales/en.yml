@@ -18,8 +18,8 @@ en:
         automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
+        decidim_scope_id: Scope
         has_address: Has address
-        scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
