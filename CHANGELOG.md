@@ -11,6 +11,7 @@
 
 **Changed**:
 
+- **decidim-core**: Extract footers into partials. [#5461](https://github.com/decidim/decidim/pull/5461)
 - **decidim-initiatives**: UX improvements to initiatives [#5369](https://github.com/decidim/decidim/pull/5369)
 - **decidim-core**: Update to JQuery 3 [#5433](https://github.com/decidim/decidim/pull/5433)
 
