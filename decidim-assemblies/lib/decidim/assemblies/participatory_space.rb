@@ -13,6 +13,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.register_resource(:assembly) do |resource|
     resource.model_class_name = "Decidim::Assembly"
     resource.card = "decidim/assemblies/assembly"
+    resource.searchable = true
   end
 
   participatory_space.context(:public) do |context|
