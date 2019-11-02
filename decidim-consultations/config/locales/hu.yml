@@ -185,11 +185,18 @@ hu:
         create:
           error: Hiba történt az új válaszcsoport létrehozása során.
           success: A válaszcsoport sikeresen létrehozva.
+        destroy:
+          error: Probléma merült fel a válaszcsoport eltávolításánál. Ellenőrizze, hogy nincsenek függő válaszok.
+          success: A válaszcsoport sikeresen törölve.
+        edit:
+          update: Frissítés
         form:
           title: Általános információ
         new:
           create: Létrehoz
+          title: Új válaszcsoport
         update:
+          error: Hiba történt a válasz frissítése során.
           success: A válasz sikeresen frissült.
       responses:
         create:
@@ -211,6 +218,7 @@ hu:
       titles:
         consultations: Konzultációk
         questions: Kérdések
+        response_groups: Válaszcsoportok
         responses: Válaszok
         results: Eredmények
     consultations:
