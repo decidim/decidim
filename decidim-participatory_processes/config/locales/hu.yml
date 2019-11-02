@@ -309,6 +309,7 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
+            slug_help: 'Az URL darabok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz és betűvel kell kezdened. Példa: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'
