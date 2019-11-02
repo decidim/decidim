@@ -192,6 +192,7 @@ hu:
           update: Frissítés
         form:
           title: Általános információ
+        help: Használj csoportokat, hogy többválaszos kérdéseket csomagokba szervezz.
         new:
           create: Létrehoz
           title: Új válaszcsoport
