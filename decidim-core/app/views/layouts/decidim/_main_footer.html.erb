@@ -1,0 +1,26 @@
+<div class="main-footer">
+  <% if current_organization.official_img_footer? %>
+    <%= link_to current_organization.official_url, class: "main-footer__badge" do %>
+      <%= image_tag current_organization.official_img_footer.url.to_s , alt: current_organization.name %>
+    <% end %>
+  <% end %>
+  <div class="row">
+    <div class="medium-8 large-6 large-offset-3 column main__footer__nav">
+        <ul class="footer-nav">
+          <% if current_organization.static_pages.any? %>
+            <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
+              <% if page_topic.pages.any? %>
+                <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+              <% end %>
+            <% end %>
+
+            <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>
+              <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
+            <% end %>
+          <% end %>
+          <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+        </ul>
+    </div>
+    <%= render partial: "layouts/decidim/social_media_links" %>
+  </div>
+</div>
