@@ -21,6 +21,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.register_resource(:initiative) do |resource|
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"
+    resource.searchable = true
   end
 
   participatory_space.register_resource(:initiatives_type) do |resource|

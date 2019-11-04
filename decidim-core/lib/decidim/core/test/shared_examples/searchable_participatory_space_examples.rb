@@ -56,9 +56,8 @@ shared_examples "global search of participatory spaces" do
           end
         end
 
-        it "removes tha associated SearchableResource after unpublishing a published ParticipatorySpace on update" do
-          participatory_space.update(published_at: nil)
-
+        it "removes the associated SearchableResource after unpublishing a published ParticipatorySpace on update" do
+          participatory_space.unpublish!
           searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
           expect(searchables).to be_empty
         end
@@ -138,7 +137,7 @@ shared_examples "global search of participatory spaces" do
   end
 
   def expected_searchable_resource_attrs(space, locale)
-    h= {
+    h = {
       "locale" => locale,
       "decidim_organization_id" => space.organization.id,
       "decidim_participatory_space_id" => space.id,
@@ -147,7 +146,7 @@ shared_examples "global search of participatory spaces" do
       "resource_id" => space.id,
       "resource_type" => space.class.name
     }.merge(searchable_resource_attrs_mapper.call(space, locale))
-    h.merge()
+    h.merge
     h
   end
 end
