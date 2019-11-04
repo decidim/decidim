@@ -95,7 +95,7 @@ shared_examples "manage media links examples" do
   end
 
   context "when paginating" do
-    let!(:collection_size) { 20 }
+    let!(:collection_size) { 25 }
     let!(:collection) { create_list(:media_link, collection_size, conference: conference) }
     let!(:resource_selector) { "#media_links tbody tr" }
 
@@ -104,7 +104,7 @@ shared_examples "manage media links examples" do
     end
 
     it "lists 15 media links per page by default" do
-      expect(page).to have_css(resource_selector, count: 15)
+      expect(page).to have_css(resource_selector, count: 20)
       expect(page).to have_css(".pagination .page", count: 2)
       click_link "Next"
       expect(page).to have_selector(".pagination .current", text: "2")
