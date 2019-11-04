@@ -5,7 +5,7 @@ shared_examples "global search of participatory spaces" do
   let!(:organization) { author.organization }
   let!(:scope1) { create :scope, organization: organization }
 
-  let(:subtitle_1) do
+  let(:description_1) do
     msg = "Nulla TestCheck accumsan tincidunt description Ow!"
     { ca: "CA:#{msg}", en: "EN:#{msg}", es: "ES:#{msg}" }
   end
@@ -66,14 +66,13 @@ shared_examples "global search of participatory spaces" do
     end
 
     context "when participatory_spaces ARE private" do
-      before do
-        participatory_space.update(published_at: Time.current, private_space: true)
-      end
-
       it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
-        organization.available_locales.each do |locale|
-          searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
-          expect(searchables).to be_empty
+        if participatory_space.respond_to?(:private_space?)
+          participatory_space.update(published_at: Time.current, private_space: true)
+          organization.available_locales.each do |locale|
+            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            expect(searchables).to be_empty
+          end
         end
       end
     end
@@ -140,18 +139,13 @@ shared_examples "global search of participatory spaces" do
 
   def expected_searchable_resource_attrs(space, locale)
     {
-      "content_a" => I18n.transliterate(space.title[locale]),
-      "content_b" => I18n.transliterate(space.subtitle[locale]),
-      "content_c" => I18n.transliterate(space.short_description[locale]),
-      "content_d" => I18n.transliterate(space.description[locale]),
       "locale" => locale,
-
       "decidim_organization_id" => space.organization.id,
       "decidim_participatory_space_id" => space.id,
       "decidim_participatory_space_type" => space.class.name,
       "decidim_scope_id" => space.decidim_scope_id,
       "resource_id" => space.id,
       "resource_type" => space.class.name
-    }
+    }.merge(searchable_resource_attrs_mapper.call(space, locale))
   end
 end

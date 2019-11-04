@@ -95,7 +95,7 @@ module Decidim
       # - is published
       # - is not private
       def visible?
-        published? && !private_space?
+        published? && !try(:private_space?)
       end
     end
 
