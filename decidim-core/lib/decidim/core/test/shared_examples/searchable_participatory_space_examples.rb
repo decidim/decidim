@@ -11,82 +11,80 @@ shared_examples "global search of participatory spaces" do
   end
 
   describe "Indexing of participatory_spaces" do
-    context "when implementing Searchable" do
-      context "when on create" do
-        context "when participatory_spaces are created" do
-          it "does not index a SearchableResource after ParticipatorySpace creation" do
-            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
-            expect(searchables).to be_empty
-          end
+    context "when on create" do
+      context "when participatory_spaces are created" do
+        it "does not index a SearchableResource after ParticipatorySpace creation" do
+          searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
+          expect(searchables).to be_empty
         end
+      end
+    end
 
-        context "when participatory_spaces ARE private" do
-          before do
-            participatory_space.update(published_at: Time.current, private_space: true)
-          end
-
-          it "does indexes a SearchableResource after ParticipatorySpace creation when it is not private_space" do
-            organization.available_locales.each do |locale|
-              searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
-              expect_searchable_resource_to_correspond_to_participatory_space(searchable, participatory_space, locale)
-            end
-          end
+    context "when on update" do
+      context "when it is NOT published" do
+        it "does not index a SearchableResource when ParticipatorySpace changes but is not published" do
+          searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
+          expect(searchables).to be_empty
         end
       end
 
-      context "when on update" do
-        context "when it is NOT published" do
-          it "does not index a SearchableResource when ParticipatorySpace changes but is not published" do
-            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
-            expect(searchables).to be_empty
+      context "when it IS published" do
+        before do
+          participatory_space.update published_at: Time.current
+        end
+
+        it "inserts a SearchableResource after ParticipatorySpace is published" do
+          organization.available_locales.each do |locale|
+            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            expect_searchable_resource_to_correspond_to_participatory_space(searchable, participatory_space, locale)
           end
         end
 
-        context "when it IS published" do
-          before do
-            participatory_space.update published_at: Time.current
-          end
+        it "updates the associated SearchableResource after published ParticipatorySpace update" do
+          searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
+          created_at = searchable.created_at
+          updated_title = "Brand new title"
+          participatory_space.update(title: updated_title)
 
-          it "inserts a SearchableResource after ParticipatorySpace is published" do
-            organization.available_locales.each do |locale|
-              searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
-              expect_searchable_resource_to_correspond_to_participatory_space(searchable, participatory_space, locale)
-            end
-          end
+          participatory_space.save!
+          searchable.reload
 
-          it "updates the associated SearchableResource after published ParticipatorySpace update" do
-            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
-            created_at = searchable.created_at
-            updated_title = "Brand new title"
-            participatory_space.update(title: updated_title)
-
-            participatory_space.save!
-            searchable.reload
-
-            organization.available_locales.each do |locale|
-              searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
-              expect(searchable.content_a).to eq updated_title
-              expect(searchable.updated_at).to be > created_at
-            end
-          end
-
-          it "removes tha associated SearchableResource after unpublishing a published ParticipatorySpace on update" do
-            participatory_space.update(published_at: nil)
-
-            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
-            expect(searchables).to be_empty
+          organization.available_locales.each do |locale|
+            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            expect(searchable.content_a).to eq updated_title
+            expect(searchable.updated_at).to be > created_at
           end
         end
-      end
 
-      context "when on destroy" do
-        it "destroys the associated SearchableResource after ParticipatorySpace destroy" do
-          participatory_space.destroy
+        it "removes tha associated SearchableResource after unpublishing a published ParticipatorySpace on update" do
+          participatory_space.update(published_at: nil)
 
           searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
-
-          expect(searchables.any?).to be false
+          expect(searchables).to be_empty
         end
+      end
+    end
+
+    context "when participatory_spaces ARE private" do
+      before do
+        participatory_space.update(published_at: Time.current, private_space: true)
+      end
+
+      it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
+        organization.available_locales.each do |locale|
+          searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+          expect(searchables).to be_empty
+        end
+      end
+    end
+
+    context "when on destroy" do
+      it "destroys the associated SearchableResource after ParticipatorySpace destroy" do
+        participatory_space.destroy
+
+        searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
+
+        expect(searchables.any?).to be false
       end
     end
   end

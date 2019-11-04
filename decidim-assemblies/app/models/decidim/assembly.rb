@@ -79,7 +79,7 @@ module Decidim
                         datetime: :published_at
                       },
                       index_on_create: ->(_assembly) { false },
-                      index_on_update: ->(assembly) { assembly.published? })
+                      index_on_update: ->(assembly) { assembly.visible? })
 
     # Overwriting existing method Decidim::HasPrivateUsers.visible_for
     def self.visible_for(user)
