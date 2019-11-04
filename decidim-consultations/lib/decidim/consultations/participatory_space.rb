@@ -24,6 +24,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
   participatory_space.register_resource(:consultation) do |resource|
     resource.model_class_name = "Decidim::Consultation"
     resource.card = "decidim/consultations/consultation"
+    resource.searchable = true
   end
 
   participatory_space.register_resource(:question) do |resource|
