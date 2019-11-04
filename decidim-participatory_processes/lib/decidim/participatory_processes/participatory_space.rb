@@ -15,6 +15,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.register_resource(:participatory_process) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcess"
     resource.card = "decidim/participatory_processes/process"
+    resource.searchable = true
   end
 
   participatory_space.register_resource(:participatory_process_group) do |resource|
