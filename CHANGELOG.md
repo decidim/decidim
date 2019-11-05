@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix: Duplicate results in Decidim::HasPrivateUsers::visible_for(user) [\#5475](https://github.com/decidim/decidim/pull/5475)
+
 **Removed**:
 
 ## [0.18.1](https://github.com/decidim/decidim/tree/v0.18.1)
