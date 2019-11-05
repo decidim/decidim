@@ -11,7 +11,7 @@ $(() => {
 
   // Listener for the event triggered by quilljs
   let cursor = "";
-  $mentionContainer.on("quill-position", function(event) {
+  $mentionContainer.on("quill-position", (event) => {
     if (event.detail !== null) {
       // When replacing the text content after selecting a hashtag, we only need
       // to know the hashtag's start position as that is the point which we want
@@ -35,8 +35,8 @@ $(() => {
       }).always(() => {
       // This function runs Tribute every single time you type something
       // So we must evalute DOM properties after each
-        const $parent = $(tribute.current.element).parent()
-        $parent.addClass("is-active")
+        const $parent = $(tribute.current.element).parent();
+        $parent.addClass("is-active");
 
         // We need to move the container to the wrapper selected
         const $tribute = $parent.find(".tribute-container");
@@ -54,6 +54,7 @@ $(() => {
     },
     positionMenu: true,
     menuContainer: null,
+    menuItemLimit: 5,
     fillAttr: "nickname",
     noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.nickname + item.name,
@@ -93,8 +94,47 @@ $(() => {
     }
   });
 
-  // tribute.attach($mentionContainer);
+  let setupEvents = function($element) {
+    // DOM manipulation
+    $element.on("focusin", (event) => {
+      // Set the parent container relative to the current element
+      tribute.menuContainer = event.target.parentNode;
+    });
+    $element.on("focusout", (event) => {
+      let $parent = $(event.target).parent();
 
+      if ($parent.hasClass("is-active")) {
+        $parent.removeClass("is-active");
+      }
+    });
+    $element.on("input", (event) => {
+      let $parent = $(event.target).parent();
+
+      if (tribute.isActive) {
+        // We need to move the container to the wrapper selected
+        let $tribute = $(".tribute-container");
+        $tribute.appendTo($parent);
+        // // Remove the inline styles, relative to absolute positioning
+        $tribute.removeAttr("style");
+        // Parent adaptation
+        $parent.addClass("is-active");
+      } else {
+        $parent.removeClass("is-active");
+      }
+    });
+
+  };
+
+  setupEvents($mentionContainer);
+
+  // This allows external libraries (like React) to use the component
+  // by simply firing and event targeting the element where to attach Tribute
+  $(document).on('tribute-attach-element', (event, element) => {
+    tribute.attach(element);
+    setupEvents($(element));
+  });
+
+  // tribute.attach($mentionContainer);
   // Tribute needs to be attached to the `.ql-editor` element as said at:
   // https://github.com/quilljs/quill/issues/1816
   //
@@ -109,32 +149,5 @@ $(() => {
       }
     });
   }, 1000);
-
-  // DOM manipulation
-  $mentionContainer.on("focusin", (event) => {
-    // Set the parent container relative to the current element
-    tribute.menuContainer = event.target.parentNode;
-  });
-  $mentionContainer.on("focusout", (event) => {
-    let $parent = $(event.target).parent();
-
-    if ($parent.hasClass("is-active")) {
-      $parent.removeClass("is-active");
-    }
-  });
-  $mentionContainer.on("input", (event) => {
-    let $parent = $(event.target).parent();
-
-    if (tribute.isActive) {
-      // We need to move the container to the wrapper selected
-      let $tribute = $(".tribute-container");
-      $tribute.appendTo($parent);
-      // // Remove the inline styles, relative to absolute positioning
-      $tribute.removeAttr("style");
-      // Parent adaptation
-      $parent.addClass("is-active");
-    } else {
-      $parent.removeClass("is-active");
-    }
-  });
 });
+
