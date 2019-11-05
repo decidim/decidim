@@ -12,6 +12,7 @@ Decidim::ParticipatoryProcesses::ParticipatoryProcess.find_each(&:add_to_index_a
 Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
 Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
 Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
+Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
   ```
 
 **Added**:
