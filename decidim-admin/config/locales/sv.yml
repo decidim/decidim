@@ -41,6 +41,7 @@ sv:
         badges_enabled: Aktivera märken
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
+        customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
@@ -70,6 +71,7 @@ sv:
         primary_color: Primär
         reference_prefix: Referensprefix
         secondary_color: Sekundär
+        send_welcome_notification: Skicka välkomstmeddelande
         show_statistics: Visa statistik
         success_color: Färdigt
         tos_version: Version på användarvillkor
@@ -567,10 +569,15 @@ sv:
           error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
           success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
         index:
+          import_via_csv: Importera via csv
           title: Privat deltagare i deltagarutrymme
         new:
           create: Skapa
           title: Ny privat deltagare i deltagarutrymme.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: Ladda upp din CSV-fil
+          upload: Ladda upp
       resource_permissions:
         edit:
           submit: Skicka in
