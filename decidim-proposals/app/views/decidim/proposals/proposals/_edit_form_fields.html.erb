@@ -3,7 +3,7 @@
 </div>
 
 <div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+  <%= form.text_area :body, rows: 10, class: "js-hashtags js-mentions", hashtaggable: true, value: form_presenter.body(extras: false).strip %>
 </div>
 
 <% if @form.component_automatic_hashtags.any? %>
