@@ -2,6 +2,18 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+- In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that executing:
+
+  ```ruby
+Decidim::Assemblies::Assembly.find_each(&:add_to_index_as_search_resource)
+Decidim::ParticipatoryProcesses::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
+Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
+Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
+Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
+  ```
+
 **Added**:
 
 - **decidim-consultations**: Create groups of responses in multi-choices question consultations. [\#5387](https://github.com/decidim/decidim/pull/5387)
