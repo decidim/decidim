@@ -17,7 +17,7 @@ module Decidim
         @filters = filters
       end
 
-      def participants
+      def users
         resolve
       end
 

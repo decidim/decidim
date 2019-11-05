@@ -102,7 +102,7 @@ module Decidim
                 }
       end
 
-      type.field :participants do
+      type.field :users do
         type types[Decidim::Core::UserType]
         description "The participants for the current organization"
         argument :name, types.String, "The name of the participant"
@@ -114,7 +114,7 @@ module Decidim
           args.each do |argument, value|
             filters[argument.to_sym] = value.to_s if value.present?
           end
-          Decidim::Core::UserResolver.new(ctx[:current_organization], filters).participants
+          Decidim::Core::UserResolver.new(ctx[:current_organization], filters).users
         }
       end
     end
