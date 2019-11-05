@@ -179,7 +179,7 @@ module Decidim
       options[:lines] ||= 10
       options[:disabled] ||= false
 
-      content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
+      content_tag(:div, class: "editor mentions__container #{"hashtags__container" if options[:hashtaggable]}") do
         template = ""
         template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
