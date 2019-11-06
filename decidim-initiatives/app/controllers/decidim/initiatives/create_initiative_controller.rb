@@ -118,7 +118,7 @@ module Decidim
       end
 
       def scopes
-        @scopes ||= InitiativesTypeScope.where(decidim_initiatives_types_id: @form.type_id)
+        @scopes ||= @form.available_scopes
       end
 
       def current_initiative

@@ -7,33 +7,36 @@
                   class: "button tiny button--title" if allowed_to? :create, :initiative_type_scope %>
     </h2>
   </div>
-  <div class="row column">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-        <tr>
-          <th><%= t("models.initiatives_type_scope.fields.scope", scope: "decidim.admin") %></th>
-          <th class="text-right">
-            <%= t("models.initiatives_type_scope.fields.supports_required", scope: "decidim.admin") %>
-          </th>
-          <th class="actions"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <% initiative_type.scopes.each do |s| %>
+
+  <div class="card-section">
+    <div class="row column">
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
           <tr>
-            <td><%= translated_attribute(s.scope_name) %></td>
-            <td class="text-right"><%= s.supports_required %></td>
-            <td class="table-list__actions">
-              <%= icon_link_to "pencil",
-                               decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
-                               t("actions.configure", scope: "decidim.admin"),
-                               class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
-            </td>
+            <th><%= t("models.initiatives_type_scope.fields.scope", scope: "decidim.admin") %></th>
+            <th class="text-right">
+              <%= t("models.initiatives_type_scope.fields.supports_required", scope: "decidim.admin") %>
+            </th>
+            <th class="actions"></th>
           </tr>
-        <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          <% initiative_type.scopes.each do |s| %>
+            <tr>
+              <td><%= translated_attribute(s.scope_name) %></td>
+              <td class="text-right"><%= s.supports_required %></td>
+              <td class="table-list__actions">
+                <%= icon_link_to "pencil",
+                                decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
+                                t("actions.configure", scope: "decidim.admin"),
+                                class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

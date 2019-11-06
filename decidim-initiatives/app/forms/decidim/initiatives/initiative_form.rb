@@ -32,7 +32,25 @@ module Decidim
       end
 
       def scope_id
+        return nil if initiative_type.only_global_scope_enabled?
+
         super.presence
+      end
+
+      def initiative_type
+        @initiative_type ||= InitiativesType.find(type_id)
+      end
+
+      def available_scopes
+        @available_scopes ||= if initiative_type.only_global_scope_enabled?
+                                initiative_type.scopes.where(scope: nil)
+                              else
+                                initiative_type.scopes
+                              end
+      end
+
+      def scope
+        @scope ||= Scope.find(scope_id)
       end
 
       private
@@ -40,7 +58,7 @@ module Decidim
       def scope_exists
         return if scope_id.blank?
 
-        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(decidim_initiatives_types_id: type_id, decidim_scopes_id: scope_id).exists?
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(type: initiative_type, scope: scope).exists?
       end
     end
   end

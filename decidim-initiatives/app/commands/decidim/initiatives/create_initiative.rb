@@ -68,8 +68,8 @@ module Decidim
 
       def scoped_type
         InitiativesTypeScope.find_by(
-          decidim_initiatives_types_id: form.type_id,
-          decidim_scopes_id: form.scope_id
+          type: form.initiative_type,
+          scope: form.scope
         )
       end
 
