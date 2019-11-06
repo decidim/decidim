@@ -30,6 +30,7 @@ en:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
         banner_image: Banner image
+        child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
         description: Description
@@ -37,6 +38,7 @@ en:
         extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
+        only_global_scope_enabled: Only allow global scope initiatives creation
         promoting_committee_enabled: Enable promoting committee
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
@@ -214,6 +216,8 @@ en:
             success: The initiative has been sent to technical validation
             update: Update
           form:
+            authorizations: Authorization settings
+            options: Options
             title: General information
           index:
             actions_title: Action
@@ -259,6 +263,8 @@ en:
             destroy: Delete
             update: Update
           form:
+            authorizations: Authorization settings
+            options: Options
             title: General information
           initiative_type_scopes:
             title: Scopes for the initiative type

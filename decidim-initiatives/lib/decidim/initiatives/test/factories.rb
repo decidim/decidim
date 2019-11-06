@@ -16,6 +16,8 @@ FactoryBot.define do
     area_enabled { false }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
+    child_scope_threshold_enabled { false }
+    only_global_scope_enabled { false }
 
     trait :attachments_enabled do
       attachments_enabled { true }
@@ -73,6 +75,14 @@ FactoryBot.define do
 
     trait :with_sms_code_validation do
       validate_sms_code_on_votes { true }
+    end
+
+    trait :child_scope_threshold_enabled do
+      child_scope_threshold_enabled { true }
+    end
+
+    trait :only_global_scope_enabled do
+      only_global_scope_enabled { true }
     end
   end
 
