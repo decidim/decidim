@@ -87,7 +87,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * Trick to reuse input_mentions.js logic
    */
   private _attachMentions() {
-    window.$(document).trigger('attach-mentions-element', this.bodyTextArea);
+    window.$(document).trigger("attach-mentions-element", this.bodyTextArea);
   }
 
   /**
