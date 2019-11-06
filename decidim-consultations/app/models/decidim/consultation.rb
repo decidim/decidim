@@ -46,7 +46,7 @@ module Decidim
                         participatory_space: :itself,
                         A: :title,
                         B: :subtitle,
-                        C: :description,
+                        D: :description,
                         datetime: :published_at
                       },
                       index_on_create: ->(_process) { false },

@@ -99,7 +99,7 @@ module Decidim
     searchable_fields({
                         participatory_space: :itself,
                         A: :title,
-                        B: :description,
+                        D: :description,
                         datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },

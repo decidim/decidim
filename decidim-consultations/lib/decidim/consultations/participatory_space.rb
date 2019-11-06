@@ -61,6 +61,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(active_consultation_params)
     end
+    active_consultation.add_to_index_as_search_resource
 
     finished_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -87,6 +88,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(finished_consultation_params)
     end
+    finished_consultation.add_to_index_as_search_resource
 
     upcoming_consultation_params = {
       slug: Faker::Internet.unique.slug(nil, "-"),
@@ -112,6 +114,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     ) do
       Decidim::Consultation.create!(upcoming_consultation_params)
     end
+    upcoming_consultation.add_to_index_as_search_resource
 
     [finished_consultation, active_consultation, upcoming_consultation].each do |consultation|
       4.times do

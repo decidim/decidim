@@ -32,9 +32,9 @@ module Decidim
         lambda { |space, locale|
           {
             "content_a" => I18n.transliterate(space.title[locale]),
-            "content_b" => I18n.transliterate(space.short_description[locale]),
-            "content_c" => I18n.transliterate(space.description[locale]),
-            "content_d" => ""
+            "content_b" => ""
+            "content_c" => I18n.transliterate(space.short_description[locale]),
+            "content_d" => I18n.transliterate(space.description[locale]),
           }
         }
       end

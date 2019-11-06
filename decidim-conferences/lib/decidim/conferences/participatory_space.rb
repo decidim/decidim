@@ -72,6 +72,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           Decidim::Faker::Localized.paragraph(3)
         end
       )
+      conference.add_to_index_as_search_resource
 
       # Create users with specific roles
       Decidim::ConferenceUserRole::ROLES.each do |role|

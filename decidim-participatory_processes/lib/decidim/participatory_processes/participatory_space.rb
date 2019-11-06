@@ -103,6 +103,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       ) do
         Decidim::ParticipatoryProcess.create!(params)
       end
+      process.add_to_index_as_search_resource
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(
         participatory_process: process,
