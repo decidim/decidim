@@ -84,9 +84,10 @@ module Decidim
       end
 
       describe "users" do
-        let!(:user1) { create(:user, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
-        let!(:user2) { create(:user, nickname: "_bar_user_2", name: "FooBar User 2", organization: current_organization) }
-        let!(:user3) { create(:user, nickname: "_foo_user_3", name: "FooBar User 3") }
+        let!(:user1) { create(:user, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+        let!(:user2) { create(:user, nickname: "_foo_user_2", name: "FooBar User 2", organization: current_organization ) }
+        let!(:user3) { create(:user, :confirmed, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
+        let!(:user4) { create(:user, :confirmed, nickname: "_foo_user_4", name: "FooBar User 4") }
 
         let(:term) { "foo_user" }
 
@@ -97,6 +98,7 @@ module Decidim
             expect(response["users"]).to include("name" => user1.name)
             expect(response["users"]).not_to include("name" => user2.name)
             expect(response["users"]).not_to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
           end
         end
 
@@ -106,8 +108,9 @@ module Decidim
 
           it "returns matching users" do
             expect(response["users"]).to include("name" => user1.name)
-            expect(response["users"]).to include("name" => user2.name)
-            expect(response["users"]).not_to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user2.name)
+            expect(response["users"]).to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
           end
         end
 
@@ -117,8 +120,9 @@ module Decidim
 
           it "returns matching users" do
             expect(response["users"]).to include("name" => user1.name)
-            expect(response["users"]).to include("name" => user2.name)
-            expect(response["users"]).not_to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user2.name)
+            expect(response["users"]).to include("name" => user3.name)
+            expect(response["users"]).not_to include("name" => user4.name)
           end
         end
       end

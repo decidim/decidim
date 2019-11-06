@@ -130,6 +130,9 @@ $(() => {
   // This allows external libraries (like React) to use the component
   // by simply firing and event targeting the element where to attach Tribute
   $(document).on("attach-mentions-element", (event, element) => {
+    if (!element) {
+      return;
+    }
     tribute.attach(element);
     // Due a bug in Tribute, re-add menu to DOM if it has been removed
     // See https://github.com/zurb/tribute/issues/140

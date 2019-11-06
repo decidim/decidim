@@ -35,6 +35,7 @@ module Decidim
       def scope
         @records = Decidim::User
                    .where(organization: organization)
+                   .confirmed
       end
 
       # Only key name attributes in Decidim::User will be applied
