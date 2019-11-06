@@ -20,8 +20,8 @@ module Decidim
                         Decidim::UserGroupPresenter.new(coauthorship.user_group)
                       elsif coauthorship.author.is_a?(Decidim::User)
                         Decidim::UserPresenter.new(coauthorship.author)
-                      elsif coauthorship.author.is_a?(Decidim::Meeting)
-                        Decidim::MeetingPresenter.new(coauthorship.author)
+                      elsif coauthorship.author.is_a?(Decidim::Meetings::Meeting)
+                        Decidim::Meetings::MeetingPresenter.new(coauthorship.author)
                       end
                     end
       end

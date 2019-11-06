@@ -57,8 +57,8 @@ module Decidim
         Decidim::UserGroupPresenter.new(authorable.user_group)
       elsif authorable.author.is_a?(Decidim::User)
         Decidim::UserPresenter.new(authorable.author)
-      elsif authorable.author.is_a?(Decidim::Meeting)
-        Decidim::MeetingPresenter.new(authorable.author)
+      elsif authorable.author.is_a?(Decidim::Meetings::Meeting)
+        Decidim::Meetings::MeetingPresenter.new(authorable.author)
       end
     end
 

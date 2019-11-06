@@ -29,8 +29,8 @@ module Decidim
           {
             "content_a" => I18n.transliterate(space.title[locale]),
             "content_b" => "",
-            "content_c" => ""
-            "content_d" => I18n.transliterate(space.description[locale]),
+            "content_c" => "",
+            "content_d" => I18n.transliterate(space.description[locale])
           }
         }
       end
