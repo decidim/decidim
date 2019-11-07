@@ -49,7 +49,7 @@ module Decidim
       # Public: after_create callback to index the model as a SearchableResource, if configured so.
       #
       def try_add_to_index_as_search_resource
-        return unless self.class.search_resource_fields_mapper.index_on_create?(self)
+        return unless self.class.searchable_resource?(self) && self.class.search_resource_fields_mapper.index_on_create?(self)
 
         add_to_index_as_search_resource
       end
@@ -65,6 +65,8 @@ module Decidim
       # Public: after_update callback to update index information of the model.
       #
       def try_update_index_for_search_resource
+        return unless self.class.searchable_resource?(self)
+
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
         searchables_in_org = searchable_resources.by_organization(org.id)
         if self.class.search_resource_fields_mapper.index_on_update?(self)
@@ -144,6 +146,10 @@ module Decidim
           after_update :try_update_index_for_search_resource
           @search_resource_indexable_fields.set_index_condition(:update, conditions[:index_on_update])
         end
+      end
+
+      def searchable_resource?(resource)
+        Decidim::Searchable.searchable_resources.include?(resource.class.name)
       end
     end
   end

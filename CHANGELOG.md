@@ -13,7 +13,8 @@ Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
 Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
 Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
 Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
-Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
+# results are ready to be searchable but don't have a card-m so can't be rendered
+# Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
   ```
 
 **Added**:
