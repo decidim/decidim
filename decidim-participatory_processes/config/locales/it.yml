@@ -136,6 +136,7 @@ it:
           title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
+          error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
@@ -235,6 +236,9 @@ it:
         publish: "%{user_name} pubblicato il %{resource_name} processo partecipativo"
         unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
         update: "%{user_name} ha aggiornato il processo partecipativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} ha creato il gruppo di processi partecipativi %{resource_name}"
+        update: "%{user_name} ha aggiornato il gruppo di processo partecipativo %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} attivato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
         create: "%{user_name} ha creato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
