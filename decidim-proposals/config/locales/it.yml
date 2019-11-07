@@ -97,6 +97,7 @@ it:
             minimum_votes_per_user: Voti minimi per utente
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
+            participatory_texts_disabled_help: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o elimina tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
             participatory_texts_enabled: Testi di partecipazione abilitati
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Minuti dall'inserimento dopo i quali le proposte non potranno piùessere modificate dagli autori
@@ -320,6 +321,7 @@ it:
             success: Tutte le bozze di testo partecipativo sono state scartate.
           import:
             invalid: Il modulo non è valido!
+            invalid_file: Il file contiene alcuni errori. Prova a modificare il contenuto del file e caricarlo nuovamente.
             success: Complimenti, le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
           index:
             info_1: Le seguenti sezioni sono state analizzate dal documento importato, sono state convertite in proposte. Ora puoi rivedere e regolare qualsiasi cosa tu abbia bisogno prima di pubblicare.
@@ -370,8 +372,10 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
+            add_images: Aggiungi immagini
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
+            gallery_legend: "(Opzionale) Aggiungi una galleria di immagini"
             select_a_category: Scegli una categoria
             select_a_meeting: Seleziona una riunione
           index:
