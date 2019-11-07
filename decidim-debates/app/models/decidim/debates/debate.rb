@@ -31,8 +31,8 @@ module Decidim
                           D: :description,
                           datetime: :start_time
                         },
-                        index_on_create: ->(proposal) { proposal.visible? },
-                        index_on_update: ->(proposal) { proposal.visible? })
+                        index_on_create: ->(debate) { debate.visible? },
+                        index_on_update: ->(debate) { debate.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter

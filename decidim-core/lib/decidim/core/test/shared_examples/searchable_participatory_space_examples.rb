@@ -1,14 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "global search of participatory spaces" do
-  let!(:author) { create(:user, :admin) }
-  let!(:organization) { author.organization }
-  let!(:scope1) { create :scope, organization: organization }
 
-  let(:description_1) do
-    msg = "Nulla TestCheck accumsan tincidunt description Ow!"
-    { ca: "CA:#{msg}", en: "EN:#{msg}", es: "ES:#{msg}" }
-  end
+  include_context "when a resource is ready for global search"
 
   describe "Indexing of participatory_spaces" do
     context "when on create" do

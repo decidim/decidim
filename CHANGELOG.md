@@ -13,6 +13,7 @@ Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
 Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
 Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
 Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
+Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
   ```
 
 **Added**:
@@ -30,7 +31,6 @@ Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
-- **decidim-core**, **decidim-participatory_processes**: Fix: Duplicate results in `Decidim::HasPrivateUsers::visible_for(user)` [\#5462](https://github.com/decidim/decidim/pull/5462)
 - **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL [\#5472](https://github.com/decidim/decidim/pull/5472)
 - **decidim-conferences**: Fix: Add pagination interface to some sections [\#5463](https://github.com/decidim/decidim/pull/5463)
 - **decidim-sortitions**: Fix: Don't include drafts in sortitions [\#5434](https://github.com/decidim/decidim/pull/5434)
