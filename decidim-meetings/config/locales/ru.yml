@@ -22,6 +22,7 @@ ru:
         location_hints: Как добраться
         organizer_id: Организация
         private_meeting: Частная встреча
+        registration_form_enabled: Регистрационная форма включена
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
         start_time: Время начала
@@ -95,6 +96,7 @@ ru:
       meetings:
         meeting_closed:
           affected_user:
+            email_intro: 'Ваша встреча «%{resource_title}» завершена. Вы можете прочитать итоги на странице:'
             email_subject: Встреча "%{resource_title}" закончена
             notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закончена.
           follower:
@@ -329,6 +331,8 @@ ru:
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
           view: Посмотреть
+      meetings_map:
+        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:
@@ -366,6 +370,11 @@ ru:
       types:
         private_meeting: Частная встреча
         transparent: Прозрачная
+    metrics:
+      meetings:
+        description: Количество созданных встреч
+        object: встречи
+        title: Встречи
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
@@ -374,6 +383,7 @@ ru:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Прошедшие встречи
+        see_all: Посмотреть все (%{count})
         upcoming_meetings: Предстоящие встречи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстоящая встреча
