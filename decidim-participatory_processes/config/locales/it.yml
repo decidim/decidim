@@ -309,6 +309,7 @@ it:
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilizza percorsi parziali, non URL completi qui. Accetta lettere, numeri, trattini e barre e deve iniziare con una lettera. Se non impostato, il pulsante non verrà mostrato. Esempio: %{url}'
