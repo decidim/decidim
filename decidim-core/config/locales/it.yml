@@ -314,6 +314,10 @@ it:
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
           step:
+            amendment_creation_enabled: Creazione di emendamenti abilitata
+            amendment_promotion_enabled: Promozione dell'emendamento abilitata
+            amendment_reaction_enabled: Risposta all'emendamento abilitata
+            amendments_visibility: Visibilità dell'emendamento
             comments_blocked: Commenti bloccati
             dummy_step_attribute_1: Attributo Dummy Step 1
             dummy_step_attribute_2: Attributo Dummy Step 2
@@ -1217,6 +1221,9 @@ it:
       nesting_too_deep: Non può stare all'interno di una subcategoria
       not_found: non è stato trovato. Ti sei iscritto in precedenza?
       not_locked: non era bloccato
+      not_saved:
+        one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
+        other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
       too_short: è troppo corto (meno di 15 caratteri)
