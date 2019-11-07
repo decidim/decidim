@@ -48,6 +48,12 @@ hu:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Érvénytelen dokumentumtípus. Elfogadott formátumok: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Lépés aktiválva
       decidim/participatory_process_step_changed_event: Lépés megváltozott
@@ -74,6 +80,7 @@ hu:
         filter:
           all: Az összes folyamat megjelenítése
           process_groups: Folyamatcsoportok
+        import_process: Importál
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
@@ -147,6 +154,14 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat csoport frissítése során.
           success: Részvételi folyamat csoport frissítése sikeres.
+      participatory_process_imports:
+        create:
+          error: Hiba történt a részvételi folyamat importálása során.
+          success: Részvételi folyamat importálása sikeres volt.
+        new:
+          import: Importál
+          select: Válaszd ki, mely adatokat szeretnéd importálni
+          title: Fontos részvételi folyamat
       participatory_process_publications:
         create:
           error: Hiba történt a részvételi folyamat közzététele során.
@@ -291,6 +306,10 @@ hu:
         participatory_process_copies:
           form:
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
+            slug_help: 'Az URL darabok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz és betűvel kell kezdened. Példa: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'
