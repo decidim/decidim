@@ -26,6 +26,13 @@ ru:
           update:
             invalid: При попытке сохранить форму произошли ошибки.
             success: Формы успешно сохранены.
+      errors:
+        answer:
+          body: Основной текст не может быть пустым
+      question_types:
+        long_answer: Длинный ответ
+        multiple_option: Несколько вариантов
+        single_option: Единственный вариант
       questionnaires:
         show:
           questionnaire_answered:
@@ -34,3 +41,5 @@ ru:
             title: Форма закрыта
           questionnaire_for_private_users:
             body: Форма доступна только для частных пользователей
+            title: Форма закрыта
+          submit: Отправить
