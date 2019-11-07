@@ -474,6 +474,7 @@ it:
           send_to_followers: Invia ai follower
           send_to_participants: Invia ai partecipanti
           title: Seleziona destinatari a cui inviare
+          warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         send:
           no_recipients: Nessun destinatario per questa selezione
         show:
