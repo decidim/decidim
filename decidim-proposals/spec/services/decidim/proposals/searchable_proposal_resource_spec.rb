@@ -6,18 +6,17 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :proposal_component, manifest_name: "proposals" }
-    let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: organization }
-    let(:author) { create(:user, organization: organization) }
+    include_context "when a resource is ready for global search"
+
+    let(:current_component) { create :proposal_component, organization: organization }
     let!(:proposal) do
       create(
         :proposal,
         :draft,
         component: current_component,
         scope: scope1,
-        title: "Nulla TestCheck accumsan tincidunt.",
-        body: "Nulla TestCheck accumsan tincidunt description Ow!",
+        title: Decidim::Faker.name,
+        body: description_1[:ca],
         users: [author]
       )
     end
