@@ -20,6 +20,19 @@ module Decidim
       )
     end
 
+    # rubocop:disable RSpec/BeforeAfterAll
+    # to be removed when results will have a card-m and are declared searchable in its component
+    before(:all) do
+      manifest = Decidim.find_resource_manifest(Decidim::Accountability::Result)
+      manifest.searchable = true
+    end
+
+    after(:all) do
+      manifest = Decidim.find_resource_manifest(Decidim::Accountability::Result)
+      manifest.searchable = false
+    end
+    # rubocop:enable  RSpec/BeforeAfterAll
+
     describe "Indexing of results" do
       context "when implementing Searchable" do
         context "when on create" do
