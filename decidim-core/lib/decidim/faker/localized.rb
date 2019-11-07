@@ -171,7 +171,7 @@ module Decidim
 
       # Prefixes the +msg+ for each available locale and returns as a Hash
       # of the form `locale => prefixed_msg`.
-      # 
+      #
       # Return a Hash with a value for each locale.
       def self.prefixed(msg, locales = Decidim.available_locales)
         locales.inject({}) do |result, locale|

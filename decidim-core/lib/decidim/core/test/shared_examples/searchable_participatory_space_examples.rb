@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "global search of participatory spaces" do
-
   include_context "when a resource is ready for global search"
 
   describe "Indexing of participatory_spaces" do
