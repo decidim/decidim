@@ -9,6 +9,7 @@ ru:
         about: Об участнике
         email: Ваш адрес электронной почты
         name: Ваше имя
+        nickname: Псевдоним
         password: Пароль
         password_confirmation: Подтвердите свой пароль
         personal_url: Личный веб-адрес
@@ -16,6 +17,7 @@ ru:
     models:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
+      decidim/demoted_membership: Больше не администратор группы
       decidim/profile_updated_event: Профиль обновлен
   activerecord:
     attributes:

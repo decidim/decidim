@@ -33,6 +33,7 @@ hu:
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
+        promoting_committee_enabled: Előléptetési bizottság engedélyezése
         title: Cím
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
