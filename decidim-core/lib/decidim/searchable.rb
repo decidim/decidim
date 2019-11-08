@@ -26,6 +26,18 @@ module Decidim
       end
     end
 
+    def self.searchable_resources_of_type_participant
+      searchable_resources.select { |r| r == "Decidim::User" }
+    end
+
+    def self.searchable_resources_of_type_participatory_space
+      searchable_resources.select { |r| r.constantize.reflect_on_association(:components).present? }
+    end
+
+    def self.searchable_resources_of_type_component
+      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::HasComponent) }
+    end
+
     included do
       # Always access to this association scoping by_organization
       clazz = self
