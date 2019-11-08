@@ -36,8 +36,10 @@ ru:
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
       organization:
+        badges_enabled: Включить значки
         cta_button_path: Путь кнопки "Призвать к действию"
         cta_button_text: Текст кнопки «Призвать к действию»
+        customize_welcome_notification: Настроить уведомления о приветствии
         default_locale: Язык по умолчанию
         description: Описание
         enable_omnipresent_banner: Показывать вездесущий баннер
