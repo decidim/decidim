@@ -225,7 +225,14 @@ ru:
           invalid_field: "Для %{field} недопустимо значение %{value}."
           ok: Хорошо
           title: Не подтвердили свою личность
+        unconfirmed:
+          title: Подтвердите вашу электронную почту
     collapsible_list:
+      hidden_elements_count:
+        one: и еще %{count}
+        few: и еще %{count}
+        many: и еще %{count}
+        other: и еще %{count}
       see_less: "(читать меньше)"
       see_more: "(читать подробнее)"
     components:
@@ -260,6 +267,7 @@ ru:
       last_activity:
         name: Последняя активность
         title: Последняя активность
+        view_all: Посмотреть всё
       metrics:
         name: Метрики организации
       stats:
@@ -277,12 +285,15 @@ ru:
         download_data: Загрузить данные
         download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
         request_data: Запросить данные
+    datepicker:
+      help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
+          nickname_help: Ваш псевдоним в %{organization}
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
@@ -291,6 +302,8 @@ ru:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
+          nickname_help: Ваш псевдоним в %{organization}
+          password_help: "Минимум %{minimun_characters} символов, не должен быть слишком распространенным (например, 123456) и должен отличаться от вашего имени и электронной почты."
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -304,6 +317,8 @@ ru:
         new:
           are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
+          sign_in_disabled: Вы можете получить доступ с помощью внешней учетной записи
+          sign_up_disabled: Регистрация отключена, вы можете использовать существующую учетную запись для доступа
       shared:
         newsletter_modal:
           buttons:
@@ -339,6 +354,16 @@ ru:
         content_doesnt_exist: Этот адрес неверен или был удален.
         title: Не удается найти страницу, которую вы ищете
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
+            email_outro: Вы получили это уведомление, потому что вы автор %{amendable_title}.
+            email_subject: Принята поправка для %{amendable_title} от %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Эта поправка</a> создана <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> была принята для <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Для %{amendable_title} была принята поправка. Вы можете увидеть ее на этой странице:'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{amendable_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
       attachments:
         attachment_created:
           email_intro: 'В %{resource_title} добавили новый документ. Вы можете посмотреть его на странице:'
@@ -405,6 +430,29 @@ ru:
       errors:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
+    gamification:
+      badges:
+        index:
+          how: Как вы можете его получить
+          title: Значки
+        invitations:
+          name: Приглашения
+      level: Уровень %{level}
+    group_admins:
+      actions:
+        demote_admin: Удалить админа
+      index:
+        current_admins: 'Текущие администраторы:'
+        manage_admins: Управление админами
+    group_invites:
+      accept_invitation: Принять
+      index:
+        invite: Пригласить
+      reject_invitation: Отклонить
+    group_members:
+      actions:
+        are_you_sure: Вы уверены?
+        remove_from_group: Удалить участника
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
