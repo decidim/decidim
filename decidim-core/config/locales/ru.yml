@@ -3,6 +3,12 @@ ru:
     attributes:
       account:
         delete_reason: Причина для удаления вашей учетной записи
+      group:
+        document_number: Номер документа
+        email: Эл. адрес
+        name: Название
+        nickname: Псевдоним
+        phone: Телефон
       report:
         details: Дополнительные комментарии
       user:
@@ -18,7 +24,13 @@ ru:
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
       decidim/demoted_membership: Больше не администратор группы
+      decidim/gamification/badge_earned_event: Значок получен
+      decidim/gamification/level_up_event: Вы повысили свой уровень
+      decidim/join_request_accepted_event: Запрос на присоединение принят
+      decidim/join_request_rejected_event: Запрос на присоединение отклонен
       decidim/profile_updated_event: Профиль обновлен
+      decidim/promote_to_admin: Приглашен в группу администраторов
+      decidim/removed_from_group: Удален из группы
   activerecord:
     attributes:
       decidim/user:
