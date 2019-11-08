@@ -29,7 +29,6 @@ ru:
       decidim/join_request_accepted_event: Запрос на присоединение принят
       decidim/join_request_rejected_event: Запрос на присоединение отклонен
       decidim/profile_updated_event: Профиль обновлен
-      decidim/promote_to_admin: Приглашен в группу администраторов
       decidim/removed_from_group: Удален из группы
   activerecord:
     attributes:
@@ -105,6 +104,10 @@ ru:
         update: "%{user_name} обновил приложение OAuth %{resource_name}"
       organization:
         update: "%{user_name} обновил настройки организации"
+      participatory_space_private_user:
+        create: "%{user_name} пригласил %{resource_name} стать частным участником"
+        create_via_csv: "%{user_name} пригласил %{resource_name} через csv стать частным участником"
+        delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
         create_with_parent: "%{user_name} создал охват %{resource_name} внутри охвата %{parent_scope}"
@@ -124,7 +127,32 @@ ru:
       user_group:
         reject: "%{user_name} отклонил подтверждение группы участников %{resource_name}"
         verify: "%{user_name} подтвердил группу участников %{resource_name}"
+        verify_via_csv: "%{user_name} подтвердил группу %{resource_name} через CSV файл"
     amendments:
+      accepted:
+        error: Произошла ошибка при принятии поправки.
+        success: Поправка была успешно принята.
+      amendable:
+        amended_by: Исправлено
+        button: Изменить %{model_name}
+        help_text: Улучшить этот %{model_name}, изменив его %{amendable_fields}
+        promote_button: Повысить до %{model_name}
+      emendation:
+        actions:
+          button_accept: Принять
+          button_reject: Отклонить
+      new:
+        send: Создать
+        title: Создать черновик поправок
+      preview_draft:
+        modify: Изменить
+        publish: Опубликовать
+        title: Опубликовать черновик поправок
+      promoted:
+        error: Возникла проблема с опубликованием поправки в качестве нового предложения
+        success: Эта поправка была успешно опубликована как новое предложение
+      review:
+        back: Назад
       wizard_step_form:
         steps:
           '1': Create your amendment
@@ -226,12 +254,21 @@ ru:
         name: Баннер рекомендуемого содержимого
       how_to_participate:
         name: Как принять участие
+      html:
+        html_content: HTML-содержимое
+        name: HTML-блок
+      last_activity:
+        name: Последняя активность
+        title: Последняя активность
+      metrics:
+        name: Метрики организации
       stats:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
     core:
       actions:
+        login_before_access: Пожалуйста, войдите под вашей учётной записью перед получением доступа
         unauthorized: Вы не имеете прав для выполнения этого действия
     data_portability:
       export:
@@ -240,6 +277,8 @@ ru:
         download_data: Загрузить данные
         download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
         request_data: Запросить данные
+    datepicker:
+      help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
