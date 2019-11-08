@@ -20,6 +20,10 @@ And then execute:
 bundle
 ```
 
+## Users
+
+User authentication is set up with [`Devise`](https://github.com/plataformatec/devise) with its modules, see the [`Decidim::User`](https://github.com/decidim/decidim/blob/master/decidim-core/app/models/decidim/user.rb) model configuration and its setup [initializer](https://github.com/decidim/decidim/blob/master/decidim-core/config/initializers/devise.rb).
+
 ## Amendments
 
 Core implements an Amendment feature that can be activated in the components. As of now, it's only implemented in the proposal component.
