@@ -54,11 +54,7 @@ module Decidim
       if official?
         "#{model.class.parent}::OfficialAuthorPresenter".constantize.new
       elsif authorable.user_group
-        Decidim::UserGroupPresenter.new(authorable.user_group)
-      elsif authorable.author.is_a?(Decidim::User)
-        Decidim::UserPresenter.new(authorable.author)
-      elsif authorable.author.is_a?(Decidim::Meeting)
-        Decidim::MeetingPresenter.new(authorable.author)
+        authorable.author.presenter
       end
     end
 
