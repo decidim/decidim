@@ -1,8 +1,11 @@
 "no":
   activemodel:
     attributes:
+      account:
+        delete_reason: Grunn for at du vil slette din bruker
       group:
         about: Om
+        avatar: Profilbilde
         email: Epost
   decidim:
     amendments:
