@@ -731,7 +731,19 @@ ru:
         nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
+      invitation_removed: Ваше приглашение было удалено.
+      invitation_token_invalid: Предоставленный токен приглашения недействителен!
+      new:
+        header: Отправить приглашение
+        submit_button: Отправить приглашение
+      no_invitations_remaining: Приглашений не осталось
+      send_instructions: Приглашение было отправлено на %{email}.
+      updated: Ваш пароль был успешно установлен. Вы вошли в систему.
+      updated_not_active: Ваш пароль был успешно установлен.
     mailer:
+      confirmation_instructions:
+        action: Подтвердить мой аккаунт
+        greeting: Добро пожаловать %{recipient}!
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
