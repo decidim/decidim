@@ -744,6 +744,12 @@ ru:
       confirmation_instructions:
         action: Подтвердить мой аккаунт
         greeting: Добро пожаловать %{recipient}!
+        instruction: 'Вы можете подтвердить вашу учетную запись электронной почты по ссылке ниже:'
+        subject: Инструкции по подтверждению
+      email_changed:
+        greeting: Здравствуйте, %{recipient}!
+        message: Мы связываемся с вами, чтобы уведомить о том, что ваш адрес электронной почты изменен на %{email}.
+        subject: Адрес электронной почты изменен
       invitation_instructions:
         accept: Принять приглашение
         accept_until: Срок действия этого приглашения закончится %{due_date}.
@@ -756,6 +762,7 @@ ru:
         someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
+        subject: Инструкция по приглашению
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
@@ -771,6 +778,31 @@ ru:
     passwords:
       edit:
         new_password: Пароль
+    registrations:
+      new:
+        sign_up: Зарегистрироваться
+      signed_up: Добро пожаловать! Вы успешно зарегистрировались.
+      signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
+      signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
+    sessions:
+      new:
+        sign_in: Войти
+      signed_in: Вход выполнен успешно.
+      signed_out: Вы вышли.
+    shared:
+      links:
+        back: Назад
+        didn_t_receive_confirmation_instructions: Не получили инструкцию по подтверждению?
+        didn_t_receive_unlock_instructions: Не получили инструкцию по разблокировке?
+        forgot_your_password: Забыли пароль?
+        sign_in: Войти
+        sign_in_with_provider: Войти с помощью %{provider}
+        sign_up: Зарегистрироваться
+    unlocks:
+      new:
+        resend_unlock_instructions: Повторно отправить инструкции по разблокировке
+      send_instructions: Вы получите письмо с инструкциями по разблокированию учетной записи в течение нескольких минут.
+      send_paranoid_instructions: Если ваша учетная запись существует, вы получите письмо с инструкциями о том, как ее разблокировать в течение нескольких минут.
   doorkeeper:
     scopes:
       public: Обнародованные сведения о вас.
