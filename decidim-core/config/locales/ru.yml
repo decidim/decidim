@@ -455,6 +455,23 @@ ru:
         remove_from_group: Удалить участника
       index:
         manage_members: Управление участниками
+    groups:
+      actions:
+        are_you_sure: Вы уверены?
+      edit:
+        edit_user_group: Изменить группу
+        update_user_group: Обновить группу
+      form:
+        document_number_help: Не использовать дефисы и пробелы
+        email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
+        phone_help: Не использовать дефисы и пробелы
+      join:
+        error: Возникла проблема при присоединении к группе
+        success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
+    last_activities:
+      all: Все виды активности
+      index:
+        last_activity: Последняя активность
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -477,6 +494,7 @@ ru:
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
+      help: Справка
       home: Главная
     messaging:
       conversation_mailer:
@@ -496,6 +514,7 @@ ru:
         index:
           no_conversations: У вас еще нет бесед
         reply:
+          send: Отправить
           title: Ответить
         start:
           send: Отправить
@@ -609,8 +628,17 @@ ru:
       show:
         followers: Читают
         following: Следит за
+      sidebar:
+        badges:
+          info: Значки заработаны за выполнение определенных действий на платформе.
+          title: Значки
       user:
+        confirmation_instructions_sent: Письмо с инструкциями по подтверждению отправлено
+        create_user_group: Создать группу
         edit_profile: Редактировать профиль
+        edit_user_group: Изменить профиль группы
+        fill_in_email_to_confirm_it: Пожалуйста, заполните электронную почту вашей группы для подтверждения
+        invite_user: Пригласить участника
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -657,6 +685,8 @@ ru:
         report: Пожаловаться
         spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
         title: Пожаловаться на проблему
+      floating_help:
+        help: Справка
       follow_button:
         sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
@@ -672,7 +702,29 @@ ru:
         share_link: Поделиться ссылкой
       version_author:
         deleted: Удаленный участник
+    wizard_step_form:
+      wizard_aside:
+        back: Назад
+      wizard_header:
+        see_steps: посмотреть шаги
+        step_of: Шаг %{current_step} из %{total_steps}
   devise:
+    confirmations:
+      confirmed: Ваш адрес электронной почты был успешно подтвержден.
+      new:
+        resend_confirmation_instructions: Повторно отправить инструкции по подтверждению
+      send_instructions: Вы получите письмо с инструкциями по подтверждению вашего адреса электронной почты в течение нескольких минут.
+      send_paranoid_instructions: Если ваш адрес электронной почты существует в нашей базе данных, вы получите письмо с инструкциями по подтверждению вашего адреса электронной почты в течение нескольких минут.
+    failure:
+      already_authenticated: Вы уже авторизованы.
+      inactive: Ваш аккаунт еще не активирован.
+      invalid: Неверный %{authentication_keys} или пароль.
+      invited: У вас есть приглашение, примите его, чтобы завершить создание учетной записи.
+      last_attempt: У вас есть еще одна попытка, прежде чем ваша учетная запись будет заблокирована.
+      locked: Ваша учетная запись заблокирована.
+      not_found_in_database: Неверный %{authentication_keys} или пароль.
+      timeout: Ваша сессия истекла. Пожалуйста, войдите снова, чтобы продолжить.
+      unauthenticated: Вам нужно войти или зарегистрироваться, чтобы продолжить.
     invitations:
       edit:
         header: Завершите создание своей учетной записи
