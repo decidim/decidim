@@ -854,7 +854,7 @@ de:
           how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Info
+          more_info: Mehr Informationen
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
@@ -1030,8 +1030,8 @@ de:
         label: 'Ergebnisse pro Seite:'
       share_modal:
         close_window: Fenster schließen
-        share: Aktie
-        share_link: Einen Link teilen
+        share: Teilen
+        share_link: Link teilen
       version_author:
         deleted: Gelöschter Benutzer
     user_activity:
@@ -1076,7 +1076,7 @@ de:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihre eindeutige ID in %{organization}.
-        submit_button: sparen
+        submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
@@ -1137,8 +1137,8 @@ de:
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Entsperren Anweisungen
     omniauth_callbacks:
-      failure: Konnte dich nicht von %{kind} wegen "%{reason}" authentifizieren.
-      success: Erfolgreich von %{kind} account authentifiziert.
+      failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
+      success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
     passwords:
       edit:
         change_my_password: Ändere mein Passwort
@@ -1185,7 +1185,7 @@ de:
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
-        sign_in_with_provider: Melde dich mit %{provider}
+        sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
@@ -1224,11 +1224,11 @@ de:
       cookie_warning:
         description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
         link_label: Hier
-        ok: ich stimme zu
+        ok: Ich stimme zu
       edit_link:
         edit: Bearbeiten
       footer:
-        download_open_data: Laden Sie Open Data-Dateien herunter
+        download_open_data: Open Data Dateien herunterladen
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
       header:
         close_menu: Menü schließen

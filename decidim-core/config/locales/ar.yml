@@ -5,6 +5,7 @@ ar:
         delete_reason: سبب حذف حسابك
       group:
         about: عن
+        avatar: الصورة الرمزية
         document_number: رقم المستند
         email: البريد الإلكتروني
         name: الإسم
@@ -160,6 +161,8 @@ ar:
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
+      edit_draft:
+        send: معاينة
       emendation:
         actions:
           button_accept: قبول
@@ -178,7 +181,9 @@ ar:
             من قبل المؤلف.
       new:
         amendment_author: مؤلف التعديل
+        send: إنشاء
       preview_draft:
+        modify: تعديل
         publish: انشر
       promoted:
         error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
@@ -251,6 +256,7 @@ ar:
       content:
         incomplete:
           cancel: إلغاء
+          invalid_field: "%{field}"
         unauthorized:
           ok: موافق
           title: غير مخوّل
@@ -335,7 +341,7 @@ ar:
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
           sign_in: تسجيل الدخول
-          sign_up: سجل
+          sign_up: انشئ حسابًا
           sign_up_as:
             legend: الاشتراك باسم
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
@@ -550,6 +556,8 @@ ar:
       current_image: الصورة الحالية
       default_image: الصورة الافتراضية
       errors:
+        decidim/user:
+          password: الكلمة السرية قصيرة جدا.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
@@ -988,7 +996,7 @@ ar:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
         please_sign_in: الرجاء تسجيل الدخول
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       participatory_space_filters:
         filters:
           areas: المناطق
@@ -1137,7 +1145,7 @@ ar:
         update: تحديث
         we_need_your_current_password_to_confirm_your_changes: نحتاج كلمة المرور الحالية لتأكيد تغييراتك
       new:
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       signed_up: أهلا بك! لقد اشتركت بنجاح
       signed_up_but_inactive: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك لم يتم تنشيطه بعد.
       signed_up_but_locked: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك مغلق.
@@ -1158,7 +1166,7 @@ ar:
         forgot_your_password: نسيت رقمك السري؟
         sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول مع %{provider}
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
         one: "(%{count} حرف كحد أدنى)"
@@ -1210,7 +1218,7 @@ ar:
         close_menu: إغلاق القائمة
         navigation: التنقل
         sign_in: تسجيل الدخول
-        sign_up: سجل
+        sign_up: انشئ حسابًا
       impersonation_warning:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
@@ -1283,6 +1291,10 @@ ar:
           invitation_instructions:
             accept_until_format: "%B %d، %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
+      option_unified: مُوَحَّدة
   views:
     pagination:
       first: "&laquo; أولاً"

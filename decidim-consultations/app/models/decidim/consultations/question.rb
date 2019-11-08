@@ -39,6 +39,12 @@ module Decidim
                inverse_of: :question,
                dependent: :destroy
 
+      has_many :response_groups,
+               foreign_key: "decidim_consultations_questions_id",
+               class_name: "Decidim::Consultations::ResponseGroup",
+               inverse_of: :question,
+               dependent: :destroy
+
       has_many :categories,
                foreign_key: "decidim_participatory_space_id",
                foreign_type: "decidim_participatory_space_type",
@@ -86,6 +92,22 @@ module Decidim
         return false if max_votes.blank?
 
         max_votes > 1
+      end
+
+      # Sorted responses by date so admins have a way to predict it
+      def sorted_responses
+        @sorted_responses ||= responses.sort_by(&:created_at)
+      end
+
+      # matrix of responses by group (sorted by configuration)
+      def grouped_responses
+        @grouped_responses ||= sorted_responses.group_by(&:response_group)
+      end
+
+      def grouped?
+        return false unless multiple?
+
+        response_groups_count.positive?
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

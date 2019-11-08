@@ -299,7 +299,7 @@ hu:
           view_logs: Naplók megtekintése
       impersonations:
         close_session:
-          error: Hiba történt a megszemélyesítő munkamenet lezárása közben.
+          error: Hiba történt a jelenlegi részvételi menedzsment munkamenet bezárása során.
           success: A megszemélyesítő munkamenet sikeresen lezárult.
         create:
           error: Hiba történt a felhasználó felhatalmazása során.

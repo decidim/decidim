@@ -3,3 +3,4 @@
     attributes:
       project:
         budget: Budsjett
+        decidim_category_id: Kategori

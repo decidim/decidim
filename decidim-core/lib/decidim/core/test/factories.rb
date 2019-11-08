@@ -339,6 +339,10 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_permissions do
+      settings { { Random.rand => Random.new.bytes(5) } }
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do

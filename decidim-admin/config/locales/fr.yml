@@ -474,7 +474,7 @@ fr:
           send_to_followers: Envoyer aux abonnés
           send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
-          warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir des bulletins d'information</em> dans leurs paramètres de notifications."
+          warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
           no_recipients: Aucun destinataire pour cette sélection
         show:
@@ -572,11 +572,15 @@ fr:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
+          import_via_csv: Importer via csv
           title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Il y a eu un problème de lecture du fichier CSV.
+          success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           explanation: Téléchargez votre fichier CSV. Il doit comprendre deux colonnes avec l'email dans la première colonne du fichier et le nom dans la dernière colonne du fichier (email, nom) des utilisateurs que vous souhaitez ajouter à l'espace participatif, sans en-tête.
           title: Téléchargez votre fichier CSV

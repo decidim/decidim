@@ -3,13 +3,13 @@ fr:
     attributes:
       conference:
         assemblies_ids: Assemblées associées
-        banner_image: Image de bannière
+        banner_image: Image d'en-tête
         consultations_ids: Votations associées
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_features: Copier les fonctionnalités
-        decidim_scope_id: Portée
-        description: La description
+        decidim_scope_id: Périmètre
+        description: Description
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         participatory_processes_ids: Concertations associées
@@ -44,7 +44,7 @@ fr:
         other: Conférenciers
       decidim/conference_user_role:
         one: Rôle d'utilisateur de la conférence
-        other: Rôle d'utilisateur de la conférence
+        other: Rôles d'utilisateur de la conférence
   decidim:
     admin:
       actions:
@@ -55,14 +55,14 @@ fr:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Conférence en double
+          title: Dupliquer la conférence
       conference_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette conférence.
           success: Conférence publiée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la publication de cette conférence.
-          success: Conférence inédite avec succès.
+          success: Conférence dépubliée avec succès.
       conference_registration:
         confirm:
           error: Une erreur s'est produite lors de la confirmation de cette inscription à la conférence.
@@ -86,12 +86,12 @@ fr:
           success: Conférencier mis à jour avec succès pour cette conférence.
       conference_user_roles:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette conférence.
-          success: Utilisateur ajouté avec succès à cette conférence.
+          error: Une erreur s'est produite lors de l'ajout d'un administrateur pour cette conférence.
+          success: Administrateur ajouté avec succès à cette conférence.
         destroy:
-          success: Utilisateur supprimé de cette conférence.
+          success: Administrateur supprimé de cette conférence.
         edit:
-          title: Mettre à jour l'utilisateur de la conférence.
+          title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
         index:
           conference_admins_title: administrateurs de la conférence
@@ -99,8 +99,8 @@ fr:
           create: Créer
           title: Nouvel administrateur de conférence.
         update:
-          error: Il y avait une erreur mise à jour d'un utilisateur pour cette conférence.
-          success: Utilisateur mis à jour avec succès pour cette conférence.
+          error: Il y avait une erreur mise à jour d'un administrateur pour cette conférence.
+          success: Administrateur mis à jour avec succès pour cette conférence.
       conferences:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle conférence.
@@ -201,7 +201,7 @@ fr:
             main_promotor: Promoteur principal
         registration_type:
           fields:
-            conference_meetings: Réunions de la conférence
+            conference_meetings: Rencontres de la conférence
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
@@ -326,7 +326,7 @@ fr:
             search: Chercher
         conferences:
           form:
-            available_slots_help: Laissez-le à 0 si vous avez un nombre illimité d'emplacements disponibles.
+            available_slots_help: Laissez à 0 si vous avez un nombre illimité de places disponibles.
             registrations_count:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
@@ -345,7 +345,7 @@ fr:
             title: Partenaires
         registration_types:
           form:
-            select_conference_meetings: Sélectionner des réunions de conférence
+            select_conference_meetings: Sélectionner des rencontres
           index:
             title: Types d'inscription
         send_conference_diploma_mailer:
@@ -412,7 +412,7 @@ fr:
       conferences:
         partners:
           collaborators: Partenaires
-          main_promotors: Les organisateurs
+          main_promotors: Organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: 'Inscrivez-vous à la conférence:'
@@ -425,9 +425,9 @@ fr:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: L'enregistrement de votre conférence a été confirmé
+            subject: Votre inscription à la conférence a été confirmée
           pending_validation:
-            subject: L'inscription de votre conférence est en attente de confirmation
+            subject: Votre inscription à la conférence est en attente de confirmation
         invite_join_conference_mailer:
           invite:
             subject: Invitation à participer à une conférence
@@ -484,7 +484,7 @@ fr:
         introduction: introduction
         objectives: Objectifs
         related_assemblies: Assemblées connexes
-        related_consultations: Consultations connexes
+        related_consultations: Votations connexes
         related_participatory_processes: Concertations associées
       statistics:
         answers_count: Réponses
@@ -493,7 +493,7 @@ fr:
         debates_count: Débats
         endorsements_count: Soutiens
         headline: Activité
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
         posts_count: Articles
@@ -549,11 +549,11 @@ fr:
         register: S'inscrire
       conference_widgets:
         show:
-          take_part: Prendre part
+          take_part: Participer
       conferences:
         conference:
           more_info: Plus d'informations
-          take_part: Prendre part
+          take_part: Participer
         index:
           promoted_conferences: Conférences mises en avant
         order_by_conferences:

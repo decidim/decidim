@@ -33,12 +33,13 @@ module Decidim
 
         def update_response
           response.assign_attributes(attributes)
-          response.save
+          response.save!
         end
 
         def attributes
           {
-            title: form.title
+            title: form.title,
+            response_group: form.response_group
           }
         end
       end

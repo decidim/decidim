@@ -10,8 +10,6 @@ module Decidim
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space, :query
         layout "decidim/admin/assemblies"
 
-        before_action :set_all_assemblies, except: [:index]
-
         def index
           enforce_permission_to :read, :assembly_list
           @assemblies = collection
@@ -86,10 +84,6 @@ module Decidim
           @collection ||= paginate(query.result)
         end
 
-        def set_all_assemblies
-          @all_assemblies = organization_assemblies
-        end
-
         def current_assembly
           scope = organization_assemblies
           @current_assembly ||= scope.where(slug: params[:slug]).or(
@@ -104,7 +98,7 @@ module Decidim
         end
 
         def parent_assemblies
-          @parent_assemblies ||= organization_assemblies.where(parent_id: nil)
+          @parent_assemblies ||= organization_assemblies.where.not(id: current_assembly)
         end
 
         def assembly_params

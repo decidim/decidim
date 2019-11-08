@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Gemarkeerde scope
         description: Omschrijving
         end_voting_date: Stemmen eindigt
@@ -35,6 +35,8 @@ nl:
         title: Titel
         vote: Extern stemsysteem
         what_is_decided: Wat besloten werd
+      response:
+        decidim_consultations_response_group_id: Groep
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ nl:
   decidim:
     admin:
       actions:
+        back_to_responses: Terug naar reacties
         new_consultation: Nieuwe raadpleging
         new_question: Nieuwe vraag
         new_response: Nieuw antwoord
+        new_response_group: Nieuwe groep
         publish_results: Publiceer resultaten
+        response_groups: Beheer reacties
         unpublish_results: Publicatie van resultaten ongedaan maken
       consultation_publications:
         create:
@@ -140,12 +145,15 @@ nl:
         response:
           fields:
             created_at: Aangemaakt op
+            response_group: Groep
             title: Titel
           name:
             one: Antwoord
             other: Antwoorden
       question_configuration:
+        disable_external_voting: Schakel externe stem uit voor geavanceerde configuraties
         form:
+          help: Stel meerdere keuzes in door het maximum aantal antwoorden dat een deelnemer kan kiezen te verhogen. Standaard maximale waarde is 1, wat betekent dat slechts één reactie kan worden gestemd.
           title: Geavanceerde instellingen
       question_publications:
         create:
@@ -173,6 +181,24 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze vraag.
           success: Vraag is succesvol bijgewerkt.
+      response_groups:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe groep.
+          success: Groep met succes gemaakt.
+        destroy:
+          error: Er was een probleem bij het verwijderen van de reactiegroep. Misschien hangen er nog reacties aan.
+          success: Groep succesvol verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        help: Gebruik groepen om meerkeuzevragen in pakketten te organiseren.
+        new:
+          create: Aanmaken
+          title: Nieuwe responsgroep
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
+          success: Resultaat met succes bijgewerkt.
       responses:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
@@ -193,6 +219,7 @@ nl:
       titles:
         consultations: Burgerinspraak
         questions: vragen
+        response_groups: Responsgroepen
         responses: Antwoorden
         results: Resultaten
     consultations:
@@ -252,6 +279,13 @@ nl:
           one: stem uit
           other: stemmen uit
       question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
+          title: Bij deze vraag waren meerdere keuzes toegestaan
+          total_participants: Een totaal van %{count} mensen heeft deelgenomen aan de stemming.
+          vote_limit:
+            description: Deelnemers konden stemmen tot %{limit} opties.
         voting_rules:
           minimum_votes_per_user:
             description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.

@@ -36,6 +36,8 @@ en:
         title: Title
         vote: External voting system
         what_is_decided: What is decided
+      response:
+        decidim_consultations_response_group_id: Group
     errors:
       models:
         question:
@@ -68,10 +70,13 @@ en:
   decidim:
     admin:
       actions:
+        back_to_responses: Back to responses
         new_consultation: New consultation
         new_question: New question
         new_response: New response
+        new_response_group: New group
         publish_results: Publish results
+        response_groups: Manage response groups
         unpublish_results: Unpublish results
       consultation_publications:
         create:
@@ -141,6 +146,7 @@ en:
         response:
           fields:
             created_at: Created at
+            response_group: Group
             title: Title
           name:
             one: Response
@@ -176,6 +182,24 @@ en:
         update:
           error: There was a problem updating this question.
           success: Question successfully updated.
+      response_groups:
+        create:
+          error: There was a problem creating a new response group.
+          success: Response group successfully created.
+        destroy:
+          error: There was a problem removing the response group. Check that no responses depend on it.
+          success: Response group successfully deleted.
+        edit:
+          update: Update
+        form:
+          title: General information
+        help: Use groups to organize multiple choices questions in packages.
+        new:
+          create: Create
+          title: New response group
+        update:
+          error: There was a problem updating this response.
+          success: Response successfully updated.
       responses:
         create:
           error: There was a problem creating a new response.
@@ -196,6 +220,7 @@ en:
       titles:
         consultations: Consultations
         questions: Questions
+        response_groups: Response Groups
         responses: Responses
         results: Results
     consultations:

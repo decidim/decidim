@@ -98,7 +98,7 @@ nl:
         content: Inhoud
         organization: Organisatie
         show_in_footer: Laat het in het voettekst zien
-        slug: URL slug
+        slug: URL pad
         title: Titel
         weight: Gewicht
       static_page_topic:
@@ -124,7 +124,7 @@ nl:
     attributes:
       decidim/static_page:
         content: Inhoud
-        slug: URL slug
+        slug: URL pad
         title: Titel
       doorkeeper/application:
         authorize_url: Autorisatie URL
