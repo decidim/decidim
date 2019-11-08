@@ -26,7 +26,6 @@ shared_examples "manage meetings" do
     end
 
     context "when there are multiple locales" do
-
       it "shows the title correctly in all available locales" do
         within "#meeting-title-tabs" do
           click_link "English"
