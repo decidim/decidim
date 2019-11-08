@@ -193,7 +193,7 @@ shared_examples "comments" do
       end
     end
 
-    describe "mentions" do
+    describe "mentions", :slow do
       before do
         visit resource_path
 
