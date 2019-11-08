@@ -16,7 +16,7 @@ module Decidim
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
                       coauthorship = coauthorships.first
-                      coauthorship.user_group.presenter || coauthorship.author.presenter
+                      coauthorship.user_group&.presenter || coauthorship.author.presenter
                     end
       end
 
