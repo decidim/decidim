@@ -13,6 +13,7 @@ gem "bootsnap", "~> 1.3"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
+gem "sprockets", "~> 3.7.2"
 
 gem "faker", "~> 1.9"
 # Fix https://nvd.nist.gov/vuln/detail/CVE-2019-16892
