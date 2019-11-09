@@ -13,6 +13,7 @@ module Decidim
       default_path = "tmp/data-portability/"
 
       return File.join(Decidim.base_uploads_path, default_path) if Decidim.base_uploads_path.present?
+
       default_path
     end
   end

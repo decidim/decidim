@@ -46,6 +46,7 @@ module Decidim
 
       def user_questionnaire_same_organization
         return if user&.organization == questionnaire.questionnaire_for&.organization
+
         errors.add(:user, :invalid)
       end
 

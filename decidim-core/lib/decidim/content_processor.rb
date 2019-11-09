@@ -64,6 +64,7 @@ module Decidim
       parsed = if content.is_a?(Hash)
                  Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
                    next unless type == :hashtag
+
                    result[:rewrite].each do |key, value|
                      parser = parser_klass(type).constantize.new(value, context)
                      result[:rewrite][key] = parser.rewrite
@@ -73,6 +74,7 @@ module Decidim
                else
                  Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
                    next unless type == :hashtag
+
                    parser = parser_klass(type).constantize.new(result[:rewrite], context)
                    result[:rewrite] = parser.rewrite
                    result[:metadata][type] = parser.metadata

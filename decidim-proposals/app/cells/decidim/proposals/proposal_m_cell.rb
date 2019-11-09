@@ -36,6 +36,7 @@ module Decidim
 
       def has_footer?
         return false if model.emendation?
+
         true
       end
 
@@ -45,12 +46,14 @@ module Decidim
 
       def badge_classes
         return super unless options[:full_badge]
+
         state_classes.concat(["label", "proposal-status"]).join(" ")
       end
 
       def statuses
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
+
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 

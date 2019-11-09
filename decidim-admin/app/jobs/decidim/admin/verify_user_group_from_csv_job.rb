@@ -13,6 +13,7 @@ module Decidim
 
         return if email.blank?
         return unless user_group
+
         Decidim::Admin::VerifyUserGroup.call(user_group, verifier, true)
       end
 

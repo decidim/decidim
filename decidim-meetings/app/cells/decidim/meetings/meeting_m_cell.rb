@@ -27,6 +27,7 @@ module Decidim
 
       def meeting_date
         return render(:multiple_dates) if spans_multiple_dates?
+
         render(:single_date)
       end
 

@@ -39,11 +39,13 @@ module Decidim
       followers.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
         next unless participatory_space.present? && participatory_space.is_a?(Decidim::Participable) && participatory_space.can_participate?(recipient)
+
         send_email_to(recipient, user_role: :follower)
       end
 
       affected_users.each do |recipient|
         next unless ["all", "own-only"].include?(recipient.notification_types)
+
         send_email_to(recipient, user_role: :affected_user)
       end
     end
@@ -83,6 +85,7 @@ module Decidim
 
     def participatory_space
       return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
+
       component&.participatory_space
     end
   end

@@ -5,11 +5,13 @@ require "spec_helper"
 module Decidim
   describe Nicknamizable do
     subject do
+      # rubocop:disable RSpec/LeakyConstantDeclaration
       class DummyTestUser < ApplicationRecord
         self.table_name = :decidim_users
 
         include Nicknamizable
       end
+      # rubocop:enable RSpec/LeakyConstantDeclaration
     end
 
     it "validates length of nickname" do

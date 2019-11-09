@@ -20,6 +20,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
           destroy_sortition
           broadcast(:ok, sortition)
         end

@@ -52,6 +52,7 @@ module Decidim
       # Holds the logic to render a label for a given attribute.
       def display_label(record, attr, locale = nil)
         return content_tag(:dt, record.class.human_attribute_name(attr)) unless locale
+
         content_tag(:dt, record.class.human_attribute_name(attr) + " (#{locale})")
       end
 
@@ -70,6 +71,7 @@ module Decidim
 
       def display_available_locales(record)
         return record.available_locales if record.respond_to?(:available_locales)
+
         record.organization.available_locales if record.respond_to?(:organization)
         current_organization.available_locales if respond_to?(:current_organization)
       end

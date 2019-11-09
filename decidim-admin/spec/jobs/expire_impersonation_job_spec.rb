@@ -10,7 +10,7 @@ module Decidim
       let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user: user) }
 
       it "marks the impersonation as expired" do
-        ExpireImpersonationJob.perform_now(user, current_user)
+        described_class.perform_now(user, current_user)
         expect(impersonation_log.reload).to be_expired
       end
 
@@ -20,7 +20,7 @@ module Decidim
         end
 
         it "doesn't expires it" do
-          ExpireImpersonationJob.perform_now(user, current_user)
+          described_class.perform_now(user, current_user)
           expect(impersonation_log.reload).not_to be_expired
         end
       end

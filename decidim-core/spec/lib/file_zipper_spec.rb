@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe FileZipper do
-    subject { FileZipper.new("foo.txt", "bar") }
+    subject { described_class.new("foo.txt", "bar") }
 
     describe "#zip" do
       let(:zip) { subject.zip }

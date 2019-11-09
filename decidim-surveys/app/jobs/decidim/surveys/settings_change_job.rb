@@ -17,6 +17,7 @@ module Decidim
         end
 
         return unless event && event_class
+
         Decidim::EventsManager.publish(
           event: event,
           event_class: event_class,

@@ -25,6 +25,7 @@ module Decidim
         # When there's a phone number, sanitize it allowing only numbers and +.
         def mobile_phone_number
           return unless super
+
           super.gsub(/[^\+0-9]/, "")
         end
 
@@ -43,6 +44,7 @@ module Decidim
           return @verification_code if defined?(@verification_code)
 
           return unless sms_gateway.new(mobile_phone_number, generated_code).deliver_code
+
           @verification_code = generated_code
         end
 

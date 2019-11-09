@@ -54,7 +54,7 @@ module Decidim
                 end
               end
 
-              context "otherwise", with_authorization_workflows: [] do
+              context "and otherwise", with_authorization_workflows: [] do
                 it { is_expected.to eq("/") }
               end
             end

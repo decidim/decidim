@@ -7,6 +7,7 @@ module Decidim
 
     def show
       return if model == current_user
+
       render
     end
 
@@ -15,11 +16,13 @@ module Decidim
     def button_classes
       return "card__button secondary text-uppercase follow-button mb-none" if inline?
       return "button secondary hollow expanded button--icon button--sc" if large?
+
       "button secondary hollow expanded small button--icon follow-button"
     end
 
     def icon_options
       return { class: "icon--small" } if inline?
+
       {}
     end
 

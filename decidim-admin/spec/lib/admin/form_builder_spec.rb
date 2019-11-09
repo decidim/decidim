@@ -23,7 +23,7 @@ module Decidim
       end.new
     end
 
-    let(:builder) { Admin::FormBuilder.new(:resource, resource, helper, {}) }
+    let(:builder) { described_class.new(:resource, resource, helper, {}) }
 
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales

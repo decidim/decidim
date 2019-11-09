@@ -17,6 +17,7 @@ module Decidim
           organization: context.current_organization,
           email: email
         ).where.not(id: context.current_user.id).empty?
+
         errors.add :email, :taken
         false
       end

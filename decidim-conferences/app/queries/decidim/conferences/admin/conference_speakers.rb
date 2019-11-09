@@ -32,6 +32,7 @@ module Decidim
 
         def filter_by_search(conference_speakers)
           return conference_speakers if @query.blank?
+
           conference_speakers.where("LOWER(full_name) LIKE LOWER(?)", "%#{@query}%")
         end
       end

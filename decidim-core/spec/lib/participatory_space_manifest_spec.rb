@@ -24,8 +24,10 @@ module Decidim
     describe "permissions_class" do
       context "when permissions_class_name is set" do
         it "finds the permissions class from its name" do
+          # rubocop:disable RSpec/LeakyConstantDeclaration
           class ::TestPermissions
           end
+          # rubocop:enable RSpec/LeakyConstantDeclaration
           subject.permissions_class_name = "TestPermissions"
 
           expect(subject.permissions_class).to eq(TestPermissions)

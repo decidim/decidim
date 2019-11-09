@@ -12,6 +12,7 @@ module Decidim
     def show
       return if requests.empty?
       return unless current_user_is_manager?
+
       render :show
     end
 

@@ -41,6 +41,7 @@ module Decidim
 
         @form.participatory_space_types.map do |type|
           next if type.ids.blank?
+
           object_class = "Decidim::#{type.manifest_name.classify}"
           if type.ids.include?("all")
             object_class.constantize.where(organization: @organization)
@@ -55,6 +56,7 @@ module Decidim
       def user_id_of_followers
         return if spaces.blank?
         return unless @form.send_to_followers
+
         Decidim::Follow.user_follower_ids_for_participatory_spaces(spaces)
       end
 
@@ -74,6 +76,7 @@ module Decidim
             end
           end
           next unless defined?(Decidim::Comments)
+
           Decidim::Comments.newsletter_participant_entities.flatten.each do |object|
             klass = Object.const_get(object)
             participant_ids << klass.newsletter_participant_ids(space)

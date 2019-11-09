@@ -76,6 +76,7 @@ namespace :decidim do
     path = Decidim::DataPortabilityUploader.new.store_dir
     Dir.glob(Rails.root.join(path, "*")).each do |filename|
       next unless File.mtime(filename) < Decidim.data_portability_expiry_time.ago
+
       File.delete(filename)
       puts "------"
       puts "!! deleting #{filename}"

@@ -12,6 +12,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present
           return unless value
+
           h.number_to_currency(value, unit: Decidim.currency_unit)
         end
       end

@@ -14,6 +14,7 @@ module Decidim
 
         @newsletter.with_lock do
           raise "Newsletter already sent" if @newsletter.sent?
+
           @newsletter.update!(
             sent_at: Time.current,
             extended_data: extended_data,

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe InlineMenuPresenter, type: :helper do
-    subject { InlineMenuPresenter.new(:custom_menu, view) }
+    subject { described_class.new(:custom_menu, view) }
 
     after { MenuRegistry.destroy(:custom_menu) }
 

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe MenuItemPresenter, type: :helper do
-    subject { MenuItemPresenter.new(menu_item, view) }
+    subject { described_class.new(menu_item, view) }
 
     let(:menu_item) { MenuItem.new("Foo", "/boo") }
 

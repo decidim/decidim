@@ -79,6 +79,7 @@ module Decidim
 
     def translated_one_locale(type, name, locale, options = {})
       return hashtaggable_text_field(type, name, locale, options.merge(value: options[:value])) if options[:hashtaggable]
+
       send(
         type,
         "#{name}_#{locale.to_s.gsub("-", "__")}",
@@ -365,10 +366,10 @@ module Decidim
                     else
                       @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
                     end
-        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank"
+        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank", rel: "noopener"
       elsif file_is_present?(file)
         template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-        template += @template.link_to file.file.filename, file.url, target: "_blank"
+        template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
       end
 
       if file_is_present?(file)
@@ -524,6 +525,7 @@ module Decidim
     # Returns a klass object.
     def find_validator(attribute, klass)
       return unless object.respond_to?(:_validators)
+
       object._validators[attribute].find { |validator| validator.class == klass }
     end
 
@@ -632,12 +634,14 @@ module Decidim
     def file_is_image?(file)
       return unless file && file.respond_to?(:url)
       return file.content_type.start_with? "image" if file.content_type.present?
+
       Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
     end
 
     # Private: Returns whether the file exists or not.
     def file_is_present?(file)
       return unless file && file.respond_to?(:url)
+
       file.present?
     end
 

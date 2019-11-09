@@ -7,6 +7,7 @@ module Decidim
     class TimeWithZone < Virtus::Attribute
       def coerce(value)
         return value unless value.is_a?(String)
+
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
         nil

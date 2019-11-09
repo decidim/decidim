@@ -8,6 +8,7 @@ module Decidim
 
         def show
           return if upcoming_events.blank?
+
           render
         end
 

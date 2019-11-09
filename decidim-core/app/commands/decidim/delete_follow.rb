@@ -38,6 +38,7 @@ module Decidim
     def decrement_score
       followable = form.follow.followable
       return unless followable.is_a? Decidim::User
+
       Decidim::Gamification.decrement_score(followable, :followers)
     end
   end
