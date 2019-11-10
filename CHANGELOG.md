@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL. [\#5483](https://github.com/decidim/decidim/pull/5483)
+
 **Removed**:
 
 ## [0.18.1](https://github.com/decidim/decidim/tree/v0.18.1)
