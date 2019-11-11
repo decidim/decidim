@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.18-stable)
 
+### Upgrade notes
+
+After many trial and error 0.18-stable will use 0.18.1 docker image. This 
+required to update Ruby to 2.6.5 and some gems, like rubocop and sprockets.
+Rubocop had to be upgraded as the version in 0.18-stable did not support Ruby
+2.6. In turn the new version of Rubocop has new defaults that had been applied
+extensively. But in some cases cops had been disabled as this branch won't
+have further developments. In master, for the upcoming 0.20, all defaults had
+been respected and applied instead of disabled.
+
 **Added**:
 
 **Changed**:
