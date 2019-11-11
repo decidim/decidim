@@ -85,6 +85,14 @@
       amendable:
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
+        promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
+        section_heading: Formell endring (%{count})
+      compare_draft:
+        continue: Fortsett
+        no_similars_found: Ingen like emendasjoner funnet.
+        title: Lignende Emendasjoner
+      created:
+        error: En feil skjedde under konstruksjonen av en formell endring.
       wizard_step_form:
         steps:
           '1': Create your amendment
