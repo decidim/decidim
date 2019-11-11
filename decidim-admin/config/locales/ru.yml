@@ -47,7 +47,7 @@ ru:
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
-        from: Из адреса электронной почты
+        from: Отправитель электронной почты
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
