@@ -46,6 +46,7 @@ module Decidim
 
       def filter_by_search(users)
         return users if name_query.blank?
+
         users.where("LOWER(name) LIKE LOWER(?)", "%#{name_query}%")
       end
 

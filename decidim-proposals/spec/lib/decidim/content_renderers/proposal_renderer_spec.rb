@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ContentRenderers
     describe ProposalRenderer do
-      let!(:renderer) { Decidim::ContentRenderers::ProposalRenderer.new(content) }
+      let!(:renderer) { described_class.new(content) }
 
       describe "on parse" do
         subject { renderer.render }

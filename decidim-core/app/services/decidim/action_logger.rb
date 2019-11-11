@@ -75,6 +75,7 @@ module Decidim
 
     def participatory_space
       return component.participatory_space if component.respond_to?(:participatory_space)
+
       resource.participatory_space if resource.respond_to?(:participatory_space)
     end
 

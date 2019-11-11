@@ -36,6 +36,7 @@ module Decidim
     def add_decidim_page_title(title)
       @decidim_page_title ||= []
       return @decidim_page_title if title.blank?
+
       @decidim_page_title << title
     end
 

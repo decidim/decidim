@@ -106,7 +106,7 @@ module Decidim
       let(:scopes) { build_list(:scope, 9) }
 
       before do
-        Scope.transaction do
+        described_class.transaction do
           scopes.each_with_index do |scope, i|
             scope.parent_id = scopes[i / 2].id if i.positive?
             scope.save!

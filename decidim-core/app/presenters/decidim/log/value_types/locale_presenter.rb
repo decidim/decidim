@@ -12,6 +12,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present
           return unless value
+
           I18n.with_locale(value) { I18n.t("locale.name") }
         end
       end

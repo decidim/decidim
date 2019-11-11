@@ -13,6 +13,7 @@ module Decidim
 
       def index
         raise ActionController::RoutingError, "No media_links for this conference " if media_links.empty? && current_participatory_space.attachments.empty?
+
         enforce_permission_to :list, :media_links
         redirect_to decidim_conferences.conference_path(current_participatory_space) unless current_user_can_visit_space?
       end

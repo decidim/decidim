@@ -14,6 +14,7 @@ module Decidim
         def present
           return unless value
           return h.translated_attribute(scope_type.name) if scope_type
+
           I18n.t("not_found", id: value, scope: "decidim.log.value_types.scope_type_presenter")
         end
 

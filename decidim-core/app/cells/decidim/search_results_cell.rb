@@ -20,6 +20,7 @@ module Decidim
 
     def sections_to_render
       return non_empty_sections.slice(selected_resource_type) if has_selected_resource_type?
+
       non_empty_sections
     end
 

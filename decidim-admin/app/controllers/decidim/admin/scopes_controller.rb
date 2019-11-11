@@ -75,11 +75,13 @@ module Decidim
 
       def parent_scope
         return @parent_scope if defined?(@parent_scope)
+
         @parent_scope = scope ? scope.parent : organization_scopes.find_by(id: params[:scope_id])
       end
 
       def scope
         return @scope if defined?(@scope)
+
         @scope = organization_scopes.find_by(id: params[:id])
       end
 

@@ -20,6 +20,7 @@ module Decidim
         def call
           @conference_registration.with_lock do
             return broadcast(:invalid) unless can_join_conference?
+
             confirm_registration
             send_email_confirmation
             send_notification_confirmation

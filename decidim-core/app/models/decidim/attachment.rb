@@ -44,6 +44,7 @@ module Decidim
     # Returns String.
     def thumbnail_url
       return unless photo?
+
       file.thumbnail.url
     end
 
@@ -52,6 +53,7 @@ module Decidim
     # Returns String.
     def big_url
       return unless photo?
+
       file.big.url
     end
   end

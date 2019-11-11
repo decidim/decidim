@@ -27,7 +27,7 @@ module Decidim
         end
 
         it "Draw can be reproduced several times" do
-          expect(Draw.for(sortition)).to eq(Draw.for(sortition))
+          expect(described_class.for(sortition)).to eq(described_class.for(sortition))
         end
       end
     end

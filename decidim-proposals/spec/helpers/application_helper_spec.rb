@@ -7,7 +7,7 @@ module Decidim
     describe ApplicationHelper do
       let(:helper) do
         Class.new.tap do |v|
-          v.extend(Decidim::Proposals::ApplicationHelper)
+          v.extend(described_class)
         end
       end
 

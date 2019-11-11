@@ -11,6 +11,7 @@ module Decidim
     def initialize(day_string, organization)
       @day = day_string.present? ? Date.parse(day_string) : Time.zone.yesterday
       raise ArgumentError, "[ERROR] Malformed `day` argument. Format must be `YYYY-MM-DD` and in the past" if @day > Time.zone.today
+
       @day ||= Time.zone.yesterday
       @organization = organization
       @metric_name = metric_name
@@ -28,6 +29,7 @@ module Decidim
       return @registry if @registry
 
       return if cumulative.zero?
+
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
       @registry.save!
@@ -61,6 +63,7 @@ module Decidim
     def retrieve_participatory_spaces
       Decidim.participatory_space_manifests.map do |space_manifest|
         next unless space_manifest.name == :participatory_processes # Temporal limitation
+
         space_manifest.participatory_spaces.call(@organization)
       end.flatten.compact
     end

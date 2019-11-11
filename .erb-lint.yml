@@ -16,6 +16,9 @@ linters:
       - text/javascript
       - text/template
 
+  SelfClosingTag:
+    enabled: false
+
   Rubocop:
     enabled: true
 

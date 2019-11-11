@@ -6,7 +6,9 @@ module Decidim
   describe Searchable do
     let(:component) { create(:component, manifest_name: "dummy") }
 
+    # rubocop:disable RSpec/LeakyConstantDeclaration
     COMMON_ID = 666
+    # rubocop:enable RSpec/LeakyConstantDeclaration
 
     context "when having searchables of different kinds indexed" do
       let(:organization_1) { create(:organization) }

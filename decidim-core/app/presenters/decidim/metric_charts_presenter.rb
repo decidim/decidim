@@ -30,6 +30,7 @@ module Decidim
             safe_join(
               metrics_group.map do |metric|
                 next "" if metric.blank?
+
                 render_metrics_data(metric.metric_name, klass: "column medium-6", graph_klass: "small")
               end
             )

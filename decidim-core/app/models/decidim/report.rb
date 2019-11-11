@@ -28,6 +28,7 @@ module Decidim
     # Private: check if the moderation and the user have the same organization
     def user_and_moderation_same_organization
       return if !moderation || !user
+
       errors.add(:moderation, :invalid) unless user.organization == moderation.organization
     end
   end

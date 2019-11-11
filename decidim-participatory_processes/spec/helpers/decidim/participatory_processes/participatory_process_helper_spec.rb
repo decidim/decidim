@@ -14,7 +14,7 @@ module Decidim
         let(:end_date) { Date.civil(2016, 2, 5) }
 
         before do
-          helper.extend ParticipatoryProcessHelper
+          helper.extend described_class
         end
 
         describe "when both dates are present" do

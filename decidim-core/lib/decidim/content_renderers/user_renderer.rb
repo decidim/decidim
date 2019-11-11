@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class UserRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{gid://\S+/Decidim::User/\d+}
+      GLOBAL_ID_REGEX = %r{gid://\S+/Decidim::User/\d+}.freeze
 
       # Replaces found Global IDs matching an existing user with
       # a link to their profile. The Global IDs representing an
@@ -21,7 +21,7 @@ module Decidim
         content.gsub(GLOBAL_ID_REGEX) do |user_gid|
           user = GlobalID::Locator.locate(user_gid)
           Decidim::UserPresenter.new(user).display_mention
-        rescue ActiveRecord::RecordNotFound => _ex
+        rescue ActiveRecord::RecordNotFound => _e
           ""
         end
       end

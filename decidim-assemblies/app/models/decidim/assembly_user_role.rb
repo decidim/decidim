@@ -24,6 +24,7 @@ module Decidim
     # Private: check if the process and the user have the same organization
     def user_and_assembly_same_organization
       return if !assembly || !user
+
       errors.add(:assembly, :invalid) unless user.organization == assembly.organization
     end
   end

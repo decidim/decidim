@@ -32,6 +32,7 @@ module Decidim
 
       def badge_classes
         return super unless options[:full_badge]
+
         state_classes.concat(["label", "collaborative-draft-status"]).join(" ")
       end
 

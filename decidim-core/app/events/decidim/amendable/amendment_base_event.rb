@@ -19,6 +19,7 @@ module Decidim::Amendable
 
     def emendation_author
       return unless emendation_resource
+
       @emendation_author ||= if emendation_resource.is_a?(Decidim::Coauthorable)
                                Decidim::UserPresenter.new(emendation_resource.creator_author)
                              else
@@ -28,16 +29,19 @@ module Decidim::Amendable
 
     def emendation_author_nickname
       return unless emendation_resource
+
       @emendation_author_nickname ||= emendation_author.nickname
     end
 
     def emendation_author_path
       return unless emendation_resource
+
       @emendation_author_path ||= emendation_author.profile_path
     end
 
     def emendation_path
       return unless emendation_resource
+
       @emendation_path ||= Decidim::ResourceLocatorPresenter.new(emendation_resource).path
     end
   end

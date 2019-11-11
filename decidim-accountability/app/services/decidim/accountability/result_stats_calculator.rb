@@ -15,6 +15,7 @@ module Decidim
 
       def votes_count
         return 0 unless proposals
+
         proposals.sum { |proposal| proposal.votes.size }
       end
 

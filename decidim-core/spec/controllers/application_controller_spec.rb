@@ -7,7 +7,7 @@ module Decidim
     let!(:organization) { create :organization }
     let!(:user) { create :user, :confirmed, organization: organization }
 
-    controller Decidim::ApplicationController do
+    controller described_class do
       def show
         render plain: "Hello World"
       end

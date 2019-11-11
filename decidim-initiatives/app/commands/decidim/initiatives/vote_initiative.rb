@@ -22,6 +22,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+
         build_initiative_vote
         set_vote_timestamp
 

@@ -16,6 +16,7 @@ module Decidim
           def present
             return unless value
             return present_organizer if organizer
+
             I18n.t("not_found", id: value, scope: "decidim.meetings.admin_log.meeting.value_types.organizer_presenter")
           end
 
@@ -37,7 +38,7 @@ module Decidim
               data: {
                 tooltip: true,
                 "disable-hover": false
-              }
+              }, rel: "noopener"
             )
           end
 

@@ -46,7 +46,7 @@ module Decidim
       end.new
     end
 
-    let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
+    let(:builder) { described_class.new(:resource, resource, helper, {}) }
     let(:parsed) { Nokogiri::HTML(output) }
 
     before do

@@ -26,10 +26,12 @@ describe Decidim::NotificationGeneratorForRecipient do
     end
 
     context "when the event is not notifiable" do
+      # rubocop:disable RSpec/LeakyConstantDeclaration
       class NonNotifiableEvent < Decidim::Events::BaseEvent
         def notifiable?
           false
         end
+        # rubocop:enable RSpec/LeakyConstantDeclaration
       end
       let(:event_class) { NonNotifiableEvent }
 

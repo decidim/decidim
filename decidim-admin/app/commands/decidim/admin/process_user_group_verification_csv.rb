@@ -22,6 +22,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) unless @form.valid?
+
         process_csv
         broadcast(:ok)
       end

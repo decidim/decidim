@@ -18,7 +18,7 @@ module Decidim
       end.new
     end
 
-    let(:builder) { FilterFormBuilder.new(:resource, resource, helper, {}) }
+    let(:builder) { described_class.new(:resource, resource, helper, {}) }
 
     shared_examples "fieldset_wrapper" do
       it "wraps fields in a fieldset inside a div with class 'filters__section'" do

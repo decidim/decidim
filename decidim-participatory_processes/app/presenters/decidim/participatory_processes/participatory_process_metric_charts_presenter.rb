@@ -44,6 +44,7 @@ module Decidim
               safe_join(
                 metrics_group.map do |metric_manifest|
                   next "" if metric_manifest.blank?
+
                   render_metrics_descriptive(metric_manifest.metric_name,
                                              klass: "column medium-6",
                                              graph_klass: "small",
@@ -65,6 +66,7 @@ module Decidim
               safe_join(
                 metrics_group.map do |metric_manifest|
                   next "" if metric_manifest.blank?
+
                   render_metrics_data(metric_manifest.metric_name,
                                       klass: "column medium-4",
                                       ratio: "16:9",

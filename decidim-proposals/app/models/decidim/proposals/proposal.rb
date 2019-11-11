@@ -28,7 +28,7 @@ module Decidim
 
       amendable(
         fields: [:title, :body],
-        form:   "Decidim::Proposals::ProposalForm"
+        form: "Decidim::Proposals::ProposalForm"
       )
 
       component_manifest_name "proposals"
@@ -226,6 +226,7 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
+
         !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
@@ -270,6 +271,7 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
+
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end

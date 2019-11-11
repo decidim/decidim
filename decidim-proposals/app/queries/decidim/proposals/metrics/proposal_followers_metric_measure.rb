@@ -33,6 +33,7 @@ module Decidim
                                                   .where("decidim_follows.created_at <= ?", end_time)
 
           return @proposals_followers.where("decidim_follows.created_at >= ?", start_time) if from_start
+
           @proposals_followers
         end
 
@@ -40,6 +41,7 @@ module Decidim
           @drafts_followers ||= Decidim::Follow.where(followable: retrieve_collaborative_drafts).joins(:user)
                                                .where("decidim_follows.created_at <= ?", end_time)
           return @drafts_followers.where("decidim_follows.created_at >= ?", start_time) if from_start
+
           @drafts_followers
         end
 
