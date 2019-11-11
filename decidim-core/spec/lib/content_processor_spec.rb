@@ -9,7 +9,7 @@ module Decidim
     end
 
     let(:context) { {} }
-    let(:processor) { ContentProcessor }
+    let(:processor) { described_class }
 
     describe "#parse" do
       subject { processor.parse("This text contains foo and bar and another foo", context) }

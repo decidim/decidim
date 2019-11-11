@@ -11,7 +11,7 @@ module Decidim
         let(:file_name) { "participatory_text.md" }
 
         it "keeps the same encoding" do
-          expect(IoEncoder.to_standard_encoding(input).encoding).to eq(Encoding::UTF_8)
+          expect(described_class.to_standard_encoding(input).encoding).to eq(Encoding::UTF_8)
         end
       end
 
@@ -20,7 +20,7 @@ module Decidim
 
         it "is transformed to utf-8 encoding" do
           inn = input.force_encoding(Encoding::ASCII_8BIT)
-          expect(IoEncoder.to_standard_encoding(inn).encoding).to eq(Encoding::UTF_8)
+          expect(described_class.to_standard_encoding(inn).encoding).to eq(Encoding::UTF_8)
         end
       end
 
@@ -28,7 +28,7 @@ module Decidim
         let(:file_name) { "iso-8859-15.md" }
 
         it "is transformed to utf-8 encoding" do
-          expect(IoEncoder.to_standard_encoding(input).encoding).to eq(Encoding::UTF_8)
+          expect(described_class.to_standard_encoding(input).encoding).to eq(Encoding::UTF_8)
         end
       end
 
@@ -36,7 +36,7 @@ module Decidim
         let(:file_name) { "participatory_text.odt" }
 
         it "keeps it unchanged" do
-          expect(IoEncoder.to_standard_encoding(input)).to eq(input)
+          expect(described_class.to_standard_encoding(input)).to eq(input)
         end
       end
     end

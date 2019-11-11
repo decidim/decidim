@@ -13,6 +13,7 @@ module Decidim
 
     def show
       return unless renderable?
+
       render
     end
 
@@ -76,6 +77,7 @@ module Decidim
 
     def published?
       return true unless resource.respond_to?(:published?)
+
       resource.published?
     end
 
@@ -93,6 +95,7 @@ module Decidim
 
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
+
       cell "decidim/author", UserPresenter.new(user)
     end
 

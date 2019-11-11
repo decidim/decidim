@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DataPortabilityFileReader do
-    subject { DataPortabilityFileReader.new(user, token) }
+    subject { described_class.new(user, token) }
 
     let(:user) { create :user }
     let(:token) { SecureRandom.base58(10) }

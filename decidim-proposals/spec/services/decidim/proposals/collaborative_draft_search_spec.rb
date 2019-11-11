@@ -20,7 +20,7 @@ module Decidim
             search_text: search_text,
             state: state,
             related_to: related_to,
-            scope_id: scope_id,
+            scope_id: scope_id
             # current_user: user
           ).results
         end

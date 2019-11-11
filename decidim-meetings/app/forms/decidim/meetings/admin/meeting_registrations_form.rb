@@ -33,6 +33,7 @@ module Decidim
         # TL;DR: if you remove this method, we'll get errors, so don't.
         def id
           return super if super.present?
+
           meeting.id
         end
 

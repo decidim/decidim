@@ -14,6 +14,7 @@ module Decidim
     def calculate(day, resource)
       operation = manager_class.constantize.new(day, resource)
       return unless operation.valid?
+
       operation.calculate
     end
   end

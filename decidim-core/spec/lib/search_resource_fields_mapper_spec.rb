@@ -118,7 +118,7 @@ module Decidim
     end
 
     describe "with index_on_create" do
-      subject { SearchResourceFieldsMapper.new({}) }
+      subject { described_class.new({}) }
 
       context "with defaults" do
         it "does index the resource" do
@@ -131,6 +131,7 @@ module Decidim
           subject.set_index_condition(:create, true)
           expect(subject).to be_index_on_create(nil)
         end
+
         it "does NOT index the resource if false is setted" do
           subject.set_index_condition(:create, false)
           expect(subject).not_to be_index_on_create(nil)
@@ -139,7 +140,7 @@ module Decidim
     end
 
     describe "with index_on_update" do
-      subject { SearchResourceFieldsMapper.new({}) }
+      subject { described_class.new({}) }
 
       context "with defaults" do
         it "does index the resource" do
@@ -152,6 +153,7 @@ module Decidim
           subject.set_index_condition(:update, true)
           expect(subject).to be_index_on_update(nil)
         end
+
         it "does NOT index the resource if false is setted" do
           subject.set_index_condition(:update, false)
           expect(subject).not_to be_index_on_update(nil)

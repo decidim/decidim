@@ -29,14 +29,14 @@ module Decidim
       describe "#verified" do
         it "returns verified organizations" do
           create(:user_group, :verified)
-          expect(UserGroup.verified.count).to eq(1)
+          expect(described_class.verified.count).to eq(1)
         end
       end
 
       describe "#rejected" do
         it "returns rejected organizations" do
           create(:user_group, :rejected)
-          expect(UserGroup.rejected.count).to eq(1)
+          expect(described_class.rejected.count).to eq(1)
         end
       end
     end

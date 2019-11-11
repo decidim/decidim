@@ -22,6 +22,7 @@ module Decidim
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if form.invalid?
+
           transaction do
             update_minutes!
           end

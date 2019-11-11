@@ -14,7 +14,7 @@ module Decidim
     let(:email) { "user@from-facebook.com" }
     let(:provider) { "facebook" }
     let(:uid) { "12345" }
-    let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
+    let(:oauth_signature) { described_class.create_signature(provider, uid) }
     let(:attributes) do
       {
         email: email,

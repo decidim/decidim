@@ -4,9 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe Events::EmailEvent do
+    # rubocop:disable RSpec/LeakyConstantDeclaration
     class TestEvent < Decidim::Events::BaseEvent
       include Events::EmailEvent
     end
+    # rubocop:enable RSpec/LeakyConstantDeclaration
 
     describe ".types" do
       subject { TestEvent }

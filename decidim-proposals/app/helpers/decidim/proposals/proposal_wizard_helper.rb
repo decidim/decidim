@@ -57,6 +57,7 @@ module Decidim
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
         return if step == :step_4 && type_of == :collaborative_drafts
+
         content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 

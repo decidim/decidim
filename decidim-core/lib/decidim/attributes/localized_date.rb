@@ -7,6 +7,7 @@ module Decidim
     class LocalizedDate < Virtus::Attribute
       def coerce(value)
         return value unless value.is_a?(String)
+
         Date.strptime(value, I18n.t("date.formats.decidim_short"))
       rescue ArgumentError
         nil

@@ -40,6 +40,7 @@ module Decidim
 
     def has_label?
       return true if model.respond_to?("emendation?") && model.emendation?
+
       context[:label].presence
     end
 
@@ -90,6 +91,7 @@ module Decidim
       classes = [base_card_class]
       classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
+
       classes.concat(state_classes).join(" ")
     end
 

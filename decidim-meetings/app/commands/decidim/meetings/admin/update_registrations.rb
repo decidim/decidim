@@ -20,6 +20,7 @@ module Decidim
         def call
           meeting.with_lock do
             return broadcast(:invalid) if form.invalid?
+
             update_meeting_registrations
             send_notification if should_notify_followers?
           end

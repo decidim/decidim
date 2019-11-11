@@ -9,34 +9,34 @@ module Decidim
     describe "#status_for" do
       it "returns the status of a user for a badge" do
         Gamification::BadgeScore.create(user: user, value: 2, badge_name: "test")
-        expect(Gamification.status_for(user, :test).score).to eq(2)
+        expect(described_class.status_for(user, :test).score).to eq(2)
       end
     end
 
     describe "#reset_badges" do
       it "resets all badges to their original status" do
-        Gamification.reset_badges(User.where(id: user.id))
-        expect(Gamification.status_for(user, :test).score).to eq(100)
+        described_class.reset_badges(User.where(id: user.id))
+        expect(described_class.status_for(user, :test).score).to eq(100)
       end
     end
 
     describe "#increment_score" do
       it "increments a user's score for a badge by 1" do
-        Gamification.increment_score(user, :test)
-        expect(Gamification.status_for(user, :test).score).to eq(1)
+        described_class.increment_score(user, :test)
+        expect(described_class.status_for(user, :test).score).to eq(1)
       end
     end
 
     describe "#set_score" do
       it "sets the score of a user to a particular value" do
-        Gamification.set_score(user, :test, 10)
-        expect(Gamification.status_for(user, :test).score).to eq(10)
+        described_class.set_score(user, :test, 10)
+        expect(described_class.status_for(user, :test).score).to eq(10)
       end
     end
 
     describe "#find_badge" do
       it "returns a badge given its name" do
-        badge = Gamification.find_badge(:test)
+        badge = described_class.find_badge(:test)
         expect(badge.name).to eq("test")
         expect(badge.levels).to eq([1, 5, 10])
       end
@@ -44,8 +44,8 @@ module Decidim
 
     describe "#badges" do
       it "returns all the available badges" do
-        badge = Gamification.find_badge(:test)
-        expect(Gamification.badges).to include(badge)
+        badge = described_class.find_badge(:test)
+        expect(described_class.badges).to include(badge)
       end
     end
   end

@@ -59,6 +59,7 @@ module Decidim
 
       def search_scope_id
         return if scope_id.nil?
+
         query
           .joins(:scoped_type)
           .where(

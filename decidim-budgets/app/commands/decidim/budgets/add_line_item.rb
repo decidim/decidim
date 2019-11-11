@@ -24,6 +24,7 @@ module Decidim
       def call
         transaction do
           return broadcast(:invalid) if votes_disabled? || order.checked_out?
+
           add_line_item
           broadcast(:ok, order)
         end

@@ -28,6 +28,7 @@ module Decidim
 
       def headers
         return [] if processed_collection.empty?
+
         processed_collection.first.keys
       end
 

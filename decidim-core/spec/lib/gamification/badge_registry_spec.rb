@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Gamification
     describe BadgeRegistry do
-      subject { BadgeRegistry.new }
+      subject { described_class.new }
 
       context "without any registered badges" do
         describe "#all" do

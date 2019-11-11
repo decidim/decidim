@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DataPortabilityFileZipper do
-    subject { DataPortabilityFileZipper.new(user, data, images) }
+    subject { described_class.new(user, data, images) }
 
     object = "Decidim::DummyResources::DummyResource"
     klass = Object.const_get(object)

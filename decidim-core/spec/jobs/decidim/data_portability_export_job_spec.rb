@@ -8,7 +8,7 @@ module Decidim
     let!(:user) { create(:user, organization: organization) }
 
     it "sends an email with the result of the export" do
-      DataPortabilityExportJob.perform_now(user, "CSV")
+      described_class.perform_now(user, "CSV")
 
       email = last_email
       expect(email.subject).to include("export")

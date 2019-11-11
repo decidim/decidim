@@ -46,7 +46,7 @@ module Decidim
         let!(:user2) { create(:user, name: "Neil Young", organization: organization) }
 
         it "returns User results" do
-          Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
+          described_class.call("Neil", organization, resource_type: user.class.name) do
             on(:ok) do |results_by_type|
               results = results_by_type[user.class.name]
               expect(results[:count]).to eq 2
@@ -57,7 +57,7 @@ module Decidim
         end
 
         it "allows searching by prefix characters" do
-          Decidim::Search.call("diam", organization, resource_type: user.class.name) do
+          described_class.call("diam", organization, resource_type: user.class.name) do
             on(:ok) do |results_by_type|
               results = results_by_type[user.class.name]
               expect(results[:count]).to eq 1

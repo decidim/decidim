@@ -28,6 +28,7 @@ describe "available locales", type: :system do
     LocaleTest::Decidim.available_locales.each do |l|
       # english is not necessary for datepicker
       next if l == "en"
+
       expect(File).to exist(datepicker_file[l])
     end
   end

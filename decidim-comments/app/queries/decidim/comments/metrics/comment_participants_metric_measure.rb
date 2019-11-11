@@ -18,6 +18,7 @@ module Decidim
             related_object = comment.root_commentable
             next unless related_object
             next unless check_participatory_space(@resource, related_object)
+
             cumulative_users << comment.decidim_author_id
             quantity_users << comment.decidim_author_id if comment.created_at >= start_time
           end
@@ -32,6 +33,7 @@ module Decidim
         def check_participatory_space(participatory_space, related_object)
           return related_object.participatory_space == participatory_space if related_object.respond_to?(:participatory_space)
           return related_object == participatory_space if related_object.is_a?(Decidim::Participable)
+
           false
         end
 

@@ -58,7 +58,7 @@ module Decidim
     describe "#multi_translation" do
       context "when given a key and a list of locales" do
         it "returns a hash scoped to that list of locales" do
-          result = TranslationsHelper.multi_translation("booleans.true", [:en, :ca])
+          result = described_class.multi_translation("booleans.true", [:en, :ca])
           expect(result.keys.length).to eq(2)
           expect(result).to include(en: "Yes", ca: "Sí")
         end
@@ -66,7 +66,7 @@ module Decidim
 
       context "when given only a key" do
         it "returns a hash scoped to the available list of locales" do
-          result = TranslationsHelper.multi_translation("booleans.true")
+          result = described_class.multi_translation("booleans.true")
           expect(result.keys.length).to eq(3)
           expect(result).to include(en: "Yes", ca: "Sí", es: "Sí")
         end
@@ -80,7 +80,7 @@ module Decidim
         let(:value) { nil }
 
         it "returns a hash with each locale as the key and empty string values" do
-          result = TranslationsHelper.ensure_translatable(value, locales)
+          result = described_class.ensure_translatable(value, locales)
           expect(result.keys.length).to eq(locales.length)
           expect(result).to include("en" => "", "ca" => "")
         end
@@ -90,7 +90,7 @@ module Decidim
         let(:value) { { en: "Value" } }
 
         it "returns a hash with each locale as the key and empty string values" do
-          result = TranslationsHelper.ensure_translatable(value, [:en, :ca])
+          result = described_class.ensure_translatable(value, [:en, :ca])
           expect(result.keys.length).to eq(locales.length)
           expect(result).to include("en" => "Value", "ca" => "")
         end
@@ -100,7 +100,7 @@ module Decidim
         let(:value) { { en: "Value", ca: "Valor" } }
 
         it "returns a hash with each locale as the key and empty string values" do
-          result = TranslationsHelper.ensure_translatable(value, [:en, :ca])
+          result = described_class.ensure_translatable(value, [:en, :ca])
           expect(result.keys.length).to eq(locales.length)
           expect(result).to include("en" => "Value", "ca" => "Valor")
         end

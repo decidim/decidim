@@ -18,7 +18,7 @@ module Decidim
 
       map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
 
-      link_to map_url, target: "_blank" do
+      link_to map_url, target: "_blank", rel: "noopener" do
         image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s)
       end
     end

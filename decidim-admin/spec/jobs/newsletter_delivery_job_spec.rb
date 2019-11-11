@@ -11,7 +11,7 @@ module Decidim
 
       it "delivers the email" do
         expect(ActionMailer::Base.deliveries).to be_empty
-        NewsletterDeliveryJob.perform_now(user, newsletter)
+        described_class.perform_now(user, newsletter)
         expect(ActionMailer::Base.deliveries).not_to be_empty
       end
 
@@ -20,13 +20,13 @@ module Decidim
 
         it "does not deliver the email" do
           expect(ActionMailer::Base.deliveries).to be_empty
-          NewsletterDeliveryJob.perform_now(user, newsletter)
+          described_class.perform_now(user, newsletter)
           expect(ActionMailer::Base.deliveries).to be_empty
         end
       end
 
       it "delivers a newsletter to a single user" do
-        NewsletterDeliveryJob.perform_now(user, newsletter)
+        described_class.perform_now(user, newsletter)
 
         expect(last_email.subject).to include(newsletter.subject[I18n.locale.to_s])
         expect(last_email.to).to include(user.email)
@@ -34,7 +34,7 @@ module Decidim
 
       it "increments the delivery count" do
         expect do
-          NewsletterDeliveryJob.perform_now(user, newsletter)
+          described_class.perform_now(user, newsletter)
         end.to change { newsletter.reload.total_deliveries }.by(1)
       end
     end

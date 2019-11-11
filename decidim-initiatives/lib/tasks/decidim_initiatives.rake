@@ -27,7 +27,6 @@ namespace :decidim_initiatives do
       .published
       .where.not(first_progress_notification_at: nil)
       .where(second_progress_notification_at: nil).find_each do |initiative|
-
       if initiative.percentage >= Decidim::Initiatives.second_notification_percentage
         notifier = Decidim::Initiatives::ProgressNotifier.new(initiative: initiative)
         notifier.notify
@@ -40,7 +39,6 @@ namespace :decidim_initiatives do
     Decidim::Initiative
       .published
       .where(first_progress_notification_at: nil).find_each do |initiative|
-
       if initiative.percentage >= Decidim::Initiatives.first_notification_percentage
         notifier = Decidim::Initiatives::ProgressNotifier.new(initiative: initiative)
         notifier.notify

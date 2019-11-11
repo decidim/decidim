@@ -74,7 +74,7 @@ describe "Conferences", type: :system do
     end
   end
 
-  context "that are ordered by weight", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when are ordered by weight", processing_uploads_for: Decidim::AttachmentUploader do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to: conference, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to: conference, weight: 1) }
     let!(:last_image) { create(:attachment, attached_to: conference, weight: 2) }

@@ -70,7 +70,7 @@ module Decidim
         end
 
         it "returns Meeting results" do
-          Decidim::Search.call("Nulla", organization, resource_type: meeting.class.name) do
+          described_class.call("Nulla", organization, resource_type: meeting.class.name) do
             on(:ok) do |results_by_type|
               results = results_by_type[meeting.class.name]
               expect(results[:count]).to eq 2
@@ -81,7 +81,7 @@ module Decidim
         end
 
         it "allows searching by prefix characters" do
-          Decidim::Search.call("subu", organization, resource_type: meeting.class.name) do
+          described_class.call("subu", organization, resource_type: meeting.class.name) do
             on(:ok) do |results_by_type|
               results = results_by_type[meeting.class.name]
               expect(results[:count]).to eq 1

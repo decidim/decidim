@@ -8,6 +8,7 @@ module Decidim
       subject { dummy_event }
 
       let(:dummy_event) do
+        # rubocop:disable RSpec/LeakyConstantDeclaration
         class DummyEvent < Decidim::Events::SimpleEvent
           include Decidim::Events::AuthorEvent
 
@@ -15,6 +16,7 @@ module Decidim
             {}
           end
         end
+        # rubocop:enable RSpec/LeakyConstantDeclaration
 
         DummyEvent.new(resource: resource, event_name: "dummy_event", user: user, extra: {})
       end

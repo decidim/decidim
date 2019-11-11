@@ -12,6 +12,7 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "No meetings for this conference " if meetings.empty?
+
         enforce_permission_to :list, :program
         redirect_to decidim_conferences.conference_path(current_participatory_space) unless current_user_can_visit_space?
       end
@@ -20,11 +21,13 @@ module Decidim
 
       def meeting_component
         return if params[:id].blank?
+
         @meeting_component ||= current_participatory_space.components.where(manifest_name: "meetings").find_by(id: params[:id])
       end
 
       def meetings
         return unless meeting_component.published? || !meeting_component.presence
+
         @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_meeting_for(current_user).order(:start_time)
       end
 

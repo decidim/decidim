@@ -14,10 +14,12 @@ module Decidim
 
       def save
         return @registry if @registry
+
         @registry = []
         query.each do |key, results|
           cumulative_value = results[:cumulative_users].count
           next if cumulative_value.zero?
+
           quantity_value = results[:quantity_users].count || 0
           space_type, space_id = key
           record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
@@ -45,6 +47,7 @@ module Decidim
           components.each do |component|
             operation_manifest = Decidim.metrics_operation.for(:participants, component.manifest_name)
             next grouped_participants unless operation_manifest
+
             component_participants = operation_manifest.calculate(@day, component)
             grouped_participants[key].merge!(component_participants || {}) do |_key, grouped_users, component_users|
               grouped_users | component_users
@@ -54,6 +57,7 @@ module Decidim
           # Special case for comments ONLY
           operation_manifest = Decidim.metrics_operation.for(:participants, :comments)
           next grouped_participants unless operation_manifest
+
           comments_participants = operation_manifest.calculate(@day, participatory_space)
           grouped_participants[key].merge!(comments_participants || {}) do |_key, grouped_users, comment_users|
             grouped_users | comment_users

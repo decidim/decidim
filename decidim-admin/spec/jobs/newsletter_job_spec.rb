@@ -43,21 +43,21 @@ module Decidim
         expect(NewsletterDeliveryJob).to receive(:perform_later).with(deliverable_user, newsletter)
         expect(NewsletterDeliveryJob).not_to receive(:perform_later).with(undeliverable_user, newsletter)
 
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
+        described_class.perform_now(newsletter, form.as_json, recipients_ids)
       end
 
       it "updates the recipients count" do
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
+        described_class.perform_now(newsletter, form.as_json, recipients_ids)
         expect(newsletter.reload.total_recipients).to eq(1)
       end
 
       it "updates the deliveries count" do
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
+        described_class.perform_now(newsletter, form.as_json, recipients_ids)
         expect(newsletter.reload.total_deliveries).to eq(0)
       end
 
       it "updates the extended data" do
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
+        described_class.perform_now(newsletter, form.as_json, recipients_ids)
         expect(newsletter.reload.extended_data).to eq(
           "send_to_all_users" => true,
           "send_to_followers" => false,
