@@ -69,11 +69,18 @@
         no_token: Ingen nøkkel oppgitt
         notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
       delete:
-        alert: Denne handlingen er endelig. Hvis du sletter brukeren din vil du ikke kunne logge inn igjen.
+        alert: Denne handlingen er endelig. Hvis du sletter denne kontoen vil du ikke kunne logge deg inn igjen.
         confirm:
           close: Lukk vindu
-          ok: Ja, jeg ønsker å slette brukeren min
-          question: Er du sikker på at du vil slette brukeren din?
+          ok: Ja, jeg ønsker å slette kontoen min
+          question: Er du sikker på at du vil slette denne kontoen?
+          title: Slett kontoen min
+        explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
+      destroy:
+        error: Det oppsto et problem med å slette kontoen din.
+        success: Kontoen din var suksessfullt slettet.
+      show:
+        change_password: Endre passord
     amendments:
       wizard_step_form:
         steps:
