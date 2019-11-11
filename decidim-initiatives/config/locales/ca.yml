@@ -122,7 +122,7 @@ ca:
           conditions:
             - Anar a l'espai d'Iniciatives
             - Segueix les passes per crear una nova iniciativa
-          description: Aquest distintiu es concedeix quan llances noves iniciatives, unint-te amb altres per dur-les a terme.
+          description: Aquest distintiu es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
@@ -144,7 +144,7 @@ ca:
             answer: Resposta
             title: Resposta per %{title}
           info_initiative:
-            created_at: Creada a
+            created_at: Creada el
             description: Descripció
             initiative_votes_count: Recompte de signatures
             initiatives: Iniciatives
