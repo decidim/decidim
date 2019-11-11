@@ -57,7 +57,7 @@ ca:
         one: Procés participatiu
         other: Processos participatius
       decidim/participatory_process_group:
-        one: Grups de processos participatius
+        one: Grup de processos participatius
         other: Grups de processos participatius
       decidim/participatory_process_step:
         one: Fase
@@ -67,7 +67,7 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirma eliminació
+        confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
@@ -80,7 +80,7 @@ ca:
         new_process_user_role: Nova administradora del procés
         preview: Previsualitzar
         publish: Publicar
-        resend_invitation: Reenviar invitació
+        resend_invitation: Reenviar la invitació
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
