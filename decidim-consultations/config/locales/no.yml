@@ -2,6 +2,23 @@
   activemodel:
     attributes:
       consultation:
+        banner_image: Bannerafbeelding
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        title: Tittel
+  decidim:
+    admin:
+      models:
+        consultation:
+          fields:
+            title: Tittel
+        question:
+          fields:
+            title: Tittel
+        response:
+          fields:
+            title: Tittel
+    consultations:
+      filters:
+        state: Status
