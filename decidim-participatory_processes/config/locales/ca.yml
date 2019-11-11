@@ -2,11 +2,11 @@ ca:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Avís
+        announcement: Anunci
         area_id: Àrea
-        banner_image: Imatge de banner
-        copy_categories: Copiar categories
-        copy_components: Copiar components
+        banner_image: Imatge de bàner
+        copy_categories: Copiar les categories
+        copy_components: Copiar els components
         copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
