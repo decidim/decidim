@@ -48,6 +48,12 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -74,6 +80,7 @@ ca:
         filter:
           all: Mostra tots els processos
           process_groups: Grups de processos
+        import_process: Importar
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
@@ -147,6 +154,14 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest grup de processos participatius.
           success: Grup de processos participatius actualitzat correctament.
+      participatory_process_imports:
+        create:
+          error: S'ha produït un error en actualitzar aquest procés participatiu.
+          success: El procés participatiu s'ha importat correctament.
+        new:
+          import: Importar
+          select: Selecciona quines dades vols importar.
+          title: Importar el procés participatiu
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -291,6 +306,10 @@ ca:
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Afegeix un document
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
