@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
       include ControlVersionHelper
+      include Decidim::RichTextEditorHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 
@@ -76,6 +77,29 @@ module Decidim
 
       def minimum_votes_per_user_enabled?
         minimum_votes_per_user.positive?
+      end
+
+      # If the proposal is official or the rich text editor is enabled on the
+      # frontend, the proposal body is considered as safe content.
+      def safe_content?
+        @proposal&.official? || rich_text_editor_enabled?
+      end
+
+      # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
+      def render_proposal_body(proposal)
+        body = present(proposal).body(links: true, strip_tags: !safe_content?)
+
+        safe_content? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
+      end
+
+      # Returns :text_area or :editor based on current_component settings.
+      def text_editor_for_proposal_body(form)
+        options = {
+          class: "js-hashtags",
+          value: form_presenter.body(extras: false).strip
+        }
+
+        text_editor_for(form, :body, options)
       end
 
       def proposal_limit
