@@ -68,6 +68,12 @@
         invalid_token: Nøkkelen du ga er ugyldig.
         no_token: Ingen nøkkel oppgitt
         notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
+      delete:
+        alert: Denne handlingen er endelig. Hvis du sletter brukeren din vil du ikke kunne logge inn igjen.
+        confirm:
+          close: Lukk vindu
+          ok: Ja, jeg ønsker å slette brukeren min
+          question: Er du sikker på at du vil slette brukeren din?
     amendments:
       wizard_step_form:
         steps:
