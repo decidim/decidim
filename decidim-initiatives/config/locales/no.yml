@@ -2,4 +2,26 @@
   activemodel:
     attributes:
       initiative:
+        state: Status
         title: Tittel
+      initiatives_type:
+        banner_image: Bannerafbeelding
+        title: Tittel
+  decidim:
+    admin:
+      models:
+        initiatives:
+          fields:
+            state: Status
+    initiatives:
+      create_initiative:
+        finish_help:
+          page: side
+      initiatives:
+        filters:
+          state: Status
+        interactions:
+          comments_count:
+            count:
+              one: Kommentar
+              other: Kommentar
