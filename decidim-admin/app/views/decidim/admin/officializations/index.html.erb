@@ -38,6 +38,16 @@
 <div class="card" id='user-groups'>
   <div class="card-divider">
     <h2 class="card-title"><%= t "decidim.admin.titles.participants" %></h2>
+    <%= form_for "", method: :get, html: { class: "form__per-page" } do %>
+      <div class="input-group">
+        <%= number_field_tag :per_page, per_page, within: 1..max_per_page, class: "input-group-field" %>
+        <div class="input-group-button">
+          <button type="submit" class="hollow button secondary">
+            <%= t("decidim.admin.actions.per_page") %>
+          </button>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="card-section">
     <div class="table-scroll">

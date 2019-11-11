@@ -40,6 +40,21 @@ describe "Admin manages officializations", type: :system do
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: not_officialized.name)
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: "Not officialized")
     end
+
+    describe "Number of results per page" do
+      let!(:users) { create_list(:user, 20, organization: organization) }
+
+      before do
+        within ".form__per-page" do
+          fill_in :per_page, with: 5
+          find("*[type=submit]").click
+        end
+      end
+
+      it "changes the number of results per page" do
+        expect(page).to have_selector(".table-list tbody tr", count: 5)
+      end
+    end
   end
 
   describe "officializating users" do

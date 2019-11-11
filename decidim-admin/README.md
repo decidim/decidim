@@ -42,6 +42,17 @@ There are some pages that exist by default and cannot be deleted since there
 are links to them inside the Decidim framework, see `Decidim::StaticPage` for
 the default list.
 
+### Pager Configuration
+
+The number of results shown per page and max results in particiant index can be configured in the app `decidim.rb` initializer as follows:
+
+```ruby
+Decidim::Admin.configure do |config|
+  config.default_per_page = 15
+  config.max_per_page = 100
+end
+```
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).
