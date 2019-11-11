@@ -1,5 +1,28 @@
 "no":
   activemodel:
     attributes:
-      proposal:
+      collaborative_draft:
+        category_id: Kategori
         title: Tittel
+      proposal:
+        category_id: Kategori
+        title: Tittel
+  decidim:
+    proposals:
+      collaborative_drafts:
+        filters:
+          category: Kategori
+          state: Status
+      models:
+        proposal:
+          fields:
+            category: Kategori
+            state: Status
+            title: Tittel
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+      proposals:
+        filters:
+          category: Kategori
+          state: Status
