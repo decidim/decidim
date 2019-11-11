@@ -46,6 +46,10 @@ en:
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
+        settings:
+          attributes:
+            rich_editor_public_view:
+              incompatible: This setting is not compatible with "Participatory texts" or "Collaborative drafts"
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -109,6 +113,8 @@ en:
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
+            rich_editor_public_view: Enable rich text editor in the public view
+            rich_editor_public_view_help: Users will be able to insert some HTML tags in the proposal body by using the rich text editor. Keep in mind that changes in this setting will affect the rendering of previously created proposals.
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:
