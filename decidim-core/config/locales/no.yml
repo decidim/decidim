@@ -65,6 +65,8 @@
     account:
       data_portability_export:
         file_no_exists: Filen finnes ikke
+        invalid_token: Nøkkelen du ga er ugyldig.
+        no_token: Ingen nøkkel oppgitt
     amendments:
       wizard_step_form:
         steps:
