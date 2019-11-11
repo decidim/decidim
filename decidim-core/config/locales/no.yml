@@ -7,6 +7,13 @@
         about: Om
         avatar: Profilbilde
         email: Epost
+        name: Navn
+      user:
+        about: Om
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Epost
   decidim:
     amendments:
       wizard_step_form:
@@ -15,3 +22,22 @@
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    menu:
+      help: Hjelp
+    pages:
+      home:
+        statistics:
+          pages_count: Sider
+          surveys_count: Undersøkelse
+      index:
+        standalone_pages: Sider
+        title: Hjelp
+    shared:
+      floating_help:
+        help: Hjelp
+  layouts:
+    decidim:
+      edit_link:
+        edit: Editar
+  social_share_button:
+    email: Epost
