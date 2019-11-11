@@ -26,6 +26,9 @@
       decidim/attachment_created_event: Vedlegg
       decidim/component_published_event: Aktiv komponent
       decidim/demoted_membership: Ikke lenger en leder for gruppen
+      decidim/gamification/badge_earned_event: Merke oppnåd
+      decidim/gamification/level_up_event: Du gikk opp i nivå
+      decidim/join_request_accepted_event: Bli med forespørsel godtatt
   activerecord:
     attributes:
       decidim/user:
