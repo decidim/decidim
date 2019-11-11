@@ -32,10 +32,16 @@
       decidim/join_request_rejected_event: Bli med forespørsel avslått
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe admin
+      decidim/removed_from_group: Fjernet fra gruppen
   activerecord:
     attributes:
       decidim/user:
+        current_password: Nåværende passord
         email: Epost
+        name: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft passord
+        remember_me: Husk meg
   decidim:
     amendments:
       wizard_step_form:
