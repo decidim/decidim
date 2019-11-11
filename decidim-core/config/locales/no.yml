@@ -6,10 +6,17 @@
       group:
         about: Om
         avatar: Profilbilde
+        document_number: Dokumentnummer
         email: Epost
         name: Navn
+        nickname: Kallenavn
+        phone: Telefon
+      report:
+        details: Ytterlige kommentarer
       user:
         about: Om
+        email: E-post
+        name: Navnet ditt
   activerecord:
     attributes:
       decidim/user:
