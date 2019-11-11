@@ -93,7 +93,10 @@
         title: Lignende Emendasjoner
       created:
         error: En feil skjedde under konstruksjonen av en formell endring.
-        success: Formell endring har blitt suksessfullt opprettet.
+        success: Endrings utkastet har blitt suksessfullt opprettet.
+      destroy_draft:
+        error: Det oppsto et problem med å slette endrings utkastet.
+        success: Endrings utkastet var slettet suksessfullt.
       wizard_step_form:
         steps:
           '1': Create your amendment
