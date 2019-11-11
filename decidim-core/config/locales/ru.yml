@@ -4,6 +4,7 @@ ru:
       account:
         delete_reason: Причина для удаления вашей учетной записи
       group:
+        about: О группе
         avatar: Аватар
         document_number: Номер документа
         email: Эл. адрес
