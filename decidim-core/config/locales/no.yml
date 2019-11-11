@@ -67,6 +67,7 @@
         file_no_exists: Filen finnes ikke
         invalid_token: Nøkkelen du ga er ugyldig.
         no_token: Ingen nøkkel oppgitt
+        notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
     amendments:
       wizard_step_form:
         steps:
