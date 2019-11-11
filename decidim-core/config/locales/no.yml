@@ -82,6 +82,8 @@
       show:
         change_password: Endre passord
     amendments:
+      amendable:
+        promote_button: Promoter til %{model_name}
       wizard_step_form:
         steps:
           '1': Create your amendment
