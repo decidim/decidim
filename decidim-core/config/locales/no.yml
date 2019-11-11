@@ -42,7 +42,29 @@
         password: Passord
         password_confirmation: Bekreft passord
         remember_me: Husk meg
+    models:
+      decidim/amendment:
+        one: Formell endring
+        other: Formelle endringer
+      decidim/user:
+        one: Deltaker
+        other: Deltakere
+      decidim/user_group:
+        one: Gruppe
+        other: Grupper
+  booleans:
+    'false': 'Nei'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: Dette bilde er for stort
+  date:
+    formats:
+      decidim_short: "%d.%m-%Y"
   decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Filen finnes ikke
     amendments:
       wizard_step_form:
         steps:
