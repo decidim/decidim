@@ -3,3 +3,16 @@
     attributes:
       debate:
         category_id: Kategori
+        decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    debates:
+      actions:
+        edit: Editar
+      debates:
+        filters:
+          category: Kategori
+      models:
+        debate:
+          fields:
+            title: Tittel
