@@ -29,6 +29,8 @@
       decidim/gamification/badge_earned_event: Merke oppnåd
       decidim/gamification/level_up_event: Du gikk opp i nivå
       decidim/join_request_accepted_event: Bli med forespørsel godtatt
+      decidim/join_request_rejected_event: Bli med forespørsel avslått
+      decidim/profile_updated_event: Profil oppdatert
   activerecord:
     attributes:
       decidim/user:
