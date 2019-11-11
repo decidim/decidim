@@ -2,4 +2,25 @@
   activemodel:
     attributes:
       assembly:
+        banner_image: Bannerafbeelding
         title: Tittel
+      assembly_user_role:
+        email: Epost
+        name: Navn
+  decidim:
+    admin:
+      models:
+        assembly:
+          fields:
+            title: Tittel
+        assembly_member:
+          fields:
+            full_name: Navn
+        assembly_user_role:
+          fields:
+            email: Epost
+            name: Navn
+    assemblies:
+      statistics:
+        pages_count: Sider
+        surveys_count: Undersøkelse
