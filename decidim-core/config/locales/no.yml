@@ -17,6 +17,15 @@
         about: Om
         email: E-post
         name: Navnet ditt
+        nickname: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft ditt passord
+        personal_url: Personlig URL
+        remove_avatar: Fjern profilbilde
+    models:
+      decidim/attachment_created_event: Vedlegg
+      decidim/component_published_event: Aktiv komponent
+      decidim/demoted_membership: Ikke lenger en leder for gruppen
   activerecord:
     attributes:
       decidim/user:
