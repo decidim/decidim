@@ -25,6 +25,8 @@ module Decidim
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
 
+      helper_method :per_page, :max_per_page
+
       default_form_builder Decidim::Admin::FormBuilder
 
       protect_from_forgery with: :exception, prepend: true
@@ -46,6 +48,18 @@ module Decidim
 
       def permission_scope
         :admin
+      end
+
+      def default_per_page
+        Decidim::Admin.default_per_page
+      end
+
+      def max_per_page
+        Decidim::Admin.max_per_page
+      end
+
+      def per_page
+        params[:per_page].present? ? params[:per_page].first : default_per_page
       end
     end
   end

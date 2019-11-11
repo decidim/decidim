@@ -11,5 +11,25 @@ module Decidim
   module Admin
     autoload :Components, "decidim/admin/components"
     autoload :FormBuilder, "decidim/admin/form_builder"
+
+    include ActiveSupport::Configurable
+
+    # Public Setting that configures Kaminari configuration options
+    # https://github.com/kaminari/kaminari#general-configuration-options
+
+    # Number of items per_page. Defaults to 15.
+    config_accessor :default_per_page do
+      15
+    end
+
+    # Max number of items per_page. Defaults to 100.
+    config_accessor :max_per_page do
+      100
+    end
+
+    Kaminari.configure do |config|
+      config.default_per_page = Decidim::Admin.default_per_page
+      config.max_per_page = Decidim::Admin.max_per_page
+    end
   end
 end
