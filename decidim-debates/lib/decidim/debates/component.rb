@@ -18,6 +18,7 @@ Decidim.register_component(:debates) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :rich_editor_public_view, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
