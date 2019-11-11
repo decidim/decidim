@@ -13,7 +13,7 @@ module Decidim
     def new
       raise ActionController::RoutingError, "Not Found" unless amendable
 
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       amendment_draft = amendable.amendments.find_by(amender: current_user.id, state: "draft")
 
@@ -25,7 +25,7 @@ module Decidim
     end
 
     def create
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::CreateForm).from_params(params)
 
@@ -43,7 +43,7 @@ module Decidim
     end
 
     def compare_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       if similar_emendations.empty?
         flash[:notice] = t("no_similars_found", scope: "decidim.amendments.compare_draft")
@@ -52,13 +52,13 @@ module Decidim
     end
 
     def edit_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::EditForm).from_model(amendment)
     end
 
     def update_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::EditForm).from_params(params)
 
@@ -76,7 +76,7 @@ module Decidim
     end
 
     def destroy_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       Decidim::Amendable::DestroyDraft.call(amendment, current_user) do
         on(:ok) do |amendable|
@@ -92,11 +92,11 @@ module Decidim
     end
 
     def preview_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
     end
 
     def publish_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
+      enforce_permission_to :create, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::PublishForm).from_model(amendment)
 
@@ -114,7 +114,7 @@ module Decidim
     end
 
     def reject
-      enforce_permission_to :reject, :amendment, current_component: amendable.component
+      enforce_permission_to :reject, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::RejectForm).from_model(amendment)
 
@@ -132,7 +132,7 @@ module Decidim
     end
 
     def promote
-      enforce_permission_to :promote, :amendment, current_component: amendable.component
+      enforce_permission_to :promote, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::PromoteForm).from_model(amendment)
 
@@ -150,13 +150,13 @@ module Decidim
     end
 
     def review
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
     end
 
     def accept
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, current_component: current_component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
 
@@ -174,7 +174,7 @@ module Decidim
     end
 
     def withdraw
-      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: amendable.component
+      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: current_component
 
       Decidim::Amendable::Withdraw.call(amendment, current_user) do
         on(:ok) do |withdrawn_emendation|
@@ -187,6 +187,10 @@ module Decidim
           redirect_to Decidim::ResourceLocatorPresenter.new(emendation).path
         end
       end
+    end
+
+    def current_component
+      @current_component ||= amendable.component
     end
 
     private
