@@ -84,6 +84,7 @@
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
+        promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
       wizard_step_form:
         steps:
           '1': Create your amendment
