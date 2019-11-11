@@ -215,5 +215,28 @@ describe "Explore debates", type: :system do
         end
       end
     end
+
+    context "when debate is official" do
+      let(:debate) { create(:debate, author: organization, description: content, component: current_component) }
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+    end
+
+    context "when rich text editor is enabled on the frontend" do
+      let(:debate) { create(:debate, author: user, description: content, component: current_component) }
+
+      before do
+        current_component.update(settings: { rich_editor_public_view: true })
+        visit path
+      end
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+    end
+
+    context "when rich text editor is NOT enabled on the frontend" do
+      let(:debate) { create(:debate, author: user, description: content, component: current_component) }
+
+      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+    end
   end
 end

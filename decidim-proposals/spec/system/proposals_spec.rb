@@ -75,13 +75,43 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, :official, component: component) }
+      let(:content) { generate_localized_title }
+      let!(:official_proposal) { create(:proposal, :official, body: content, component: component) }
 
-      it "shows the author as official" do
+      before do
         visit_component
         click_link official_proposal.title
+      end
+
+      it "shows the author as official" do
         expect(page).to have_content("Official proposal")
       end
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+    end
+
+    context "when rich text editor is enabled on the frontend" do
+      let!(:proposal) { create(:proposal, body: content, component: component) }
+
+      before do
+        settings = component.settings.to_h.merge(rich_editor_public_view: true)
+        component.update(settings: settings)
+        visit_component
+        click_link proposal.title
+      end
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+    end
+
+    context "when rich text editor is NOT enabled on the frontend" do
+      let!(:proposal) { create(:proposal, body: content, component: component) }
+
+      before do
+        visit_component
+        click_link proposal.title
+      end
+
+      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
     context "when it is an official meeting proposal" do

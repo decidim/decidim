@@ -32,5 +32,15 @@ describe "Proposals", type: :system do
         expect(page).to have_current_path(path)
       end
     end
+
+    context "and rich_editor_public_view component setting is enabled" do
+      before do
+        settings = component.settings.to_h.merge(rich_editor_public_view: true)
+        component.update(settings: settings)
+        click_link "New proposal"
+      end
+
+      it_behaves_like "having a rich text editor", "new_proposal", "basic"
+    end
   end
 end
