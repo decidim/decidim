@@ -1,8 +1,19 @@
 "no":
+  activemodel:
+    attributes:
+      sortition:
+        title: Tittel
   decidim:
     sortitions:
       admin:
+        actions:
+          edit: Editar
         models:
           sortition:
             fields:
+              category: Kategori
               title: Tittel
+      sortitions:
+        filters:
+          category: Kategori
+          state: Status
