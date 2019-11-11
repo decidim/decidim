@@ -93,6 +93,7 @@
         title: Lignende Emendasjoner
       created:
         error: En feil skjedde under konstruksjonen av en formell endring.
+        success: Formell endring har blitt suksessfullt opprettet.
       wizard_step_form:
         steps:
           '1': Create your amendment
