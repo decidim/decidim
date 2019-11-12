@@ -61,6 +61,10 @@
   date:
     formats:
       decidim_short: "%d.%m-%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
@@ -81,6 +85,10 @@
         success: Kontoen din var suksessfullt slettet.
       show:
         change_password: Endre passord
+        update_account: Oppdater konto
+      update:
+        error: Det oppsto et problem med å oppdatere kontoen din.
+        success: Kontoen din var suksessfullt oppdatert.
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
