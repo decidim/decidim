@@ -181,6 +181,15 @@
       sms:
         explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
         name: Kode via SMS
+      started_at: Startet på %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Gjenautorise med "%{authorization}"
+          explanation: Din autorisasjon har gått ut. For å gjøre denne handlingen, må du bli gjenautorisert med "%{authorization}".
+          title: Autorisasjon har utgått
+        incomplete:
+          cancel: Avbryt
     menu:
       help: Hjelp
     pages:
