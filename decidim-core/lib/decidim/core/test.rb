@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/core/test/shared_examples/acts_as_author_examples"
 require "decidim/core/test/shared_examples/authorable"
 require "decidim/core/test/shared_examples/coauthorable"
 require "decidim/core/test/shared_examples/publicable"

@@ -9,6 +9,7 @@ module Decidim
   class User < UserBaseEntity
     include Decidim::DataPortability
     include Decidim::Searchable
+    include Decidim::ActsAsAuthor
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
 
@@ -80,6 +81,12 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::UserPresenter.new(self)
+    end
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserPresenter

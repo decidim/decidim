@@ -5,6 +5,7 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
