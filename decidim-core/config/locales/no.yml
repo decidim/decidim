@@ -117,6 +117,13 @@
       participatory_space_private_user:
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
         create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
+      static_page:
+        create: "%{user_name} lagde %{resource_name} statisk side"
+        delete: "%{user_name} slettet %{resource_name} statisk side"
+        update: "%{user_name} oppdaterte %{resource_name} statisk side"
+      user:
+        invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
