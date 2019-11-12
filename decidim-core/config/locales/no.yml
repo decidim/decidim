@@ -90,6 +90,16 @@
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din var suksessfullt oppdatert.
         success_with_email_confirmation: Kontoen din var suksessfullt opdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen.
+    admin_log:
+      area:
+        create: "%{user_name} lagde %{resource_name} området"
+        delete: "%{user_name} slettet %{resource_name} området"
+        update: "%{user_name} oppdaterte %{resource_name} området"
+      component:
+        create: "%{user_name} la til %{resource_name} komponent til %{space_name} området"
+        delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} området"
+        publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} området"
+        unpublish: "%{user_name} tok ned %{resource_name} komponent til %{space_name} området"
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
