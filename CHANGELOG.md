@@ -18,6 +18,7 @@ been respected and applied instead of disabled.
 
 **Fixed**:
 
+- **decidim-core**: Fix: Duplicate results in Decidim::HasPrivateUsers::visible_for(user) [\#5475](https://github.com/decidim/decidim/pull/5475)
 - **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL. [\#5483](https://github.com/decidim/decidim/pull/5483)
 
 **Removed**:

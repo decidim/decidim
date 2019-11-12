@@ -22,9 +22,11 @@ module Decidim
         if user
           return all if user.admin?
 
-          left_outer_joins(:participatory_space_private_users).where(
-            %(private_space = false OR
-            decidim_participatory_space_private_users.decidim_user_id = ?), user.id
+          where(
+            id: public_spaces +
+                private_spaces
+                  .joins(:participatory_space_private_users)
+                  .where("decidim_participatory_space_private_users.decidim_user_id = ?", user.id)
           )
         else
           public_spaces
