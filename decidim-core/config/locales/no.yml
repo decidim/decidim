@@ -124,8 +124,21 @@
         update: "%{user_name} oppdaterte %{resource_name} statisk side"
       user:
         invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
+        officialize: "%{user_name} gjorde deltakeren %{resource_name} offisiell"
+        remove_from_admin: "%{user_name} fjernet deltakeren %{resource_name} med rolle: %{role}"
+        unofficialize: "%{user_name} gjorde deltakeren %{resource_name} uoffisiell"
+      user_group:
+        reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
+        verify: "%{user_name} verifiserte gruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
     amendments:
+      accepted:
+        error: En feil oppstod under godkjenningen av endringen.
+        success: Endringen var suksessfullt godkjent.
       amendable:
+        amended_by: Endret av
+        button: Endre %{model_name}
+        error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
         promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
