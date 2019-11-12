@@ -103,6 +103,20 @@
       moderation:
         hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} området"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} området"
+      newsletter:
+        create: "%{user_name} lagde %{resource_name} nyhetsbrevet"
+        delete: "%{user_name} slettet %{resource_name} nyhetsbrevet"
+        deliver: "%{user_name} leverte %{resource_name} nyhetsbrevet"
+        update: "%{user_name} oppdaterte %{resource_name} nyhetsbrevet"
+      oauth_application:
+        create: "%{user_name} lagde %{resource_name} OAuth applikasjonen"
+        delete: "%{user_name} slettet %{resource_name} OAuth applikasjonen"
+        update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
+      organization:
+        update: "%{user_name} oppdaterte organisasjonens innstillinger"
+      participatory_space_private_user:
+        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
+        create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
