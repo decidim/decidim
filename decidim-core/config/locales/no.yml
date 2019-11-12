@@ -139,6 +139,7 @@
         amended_by: Endret av
         button: Endre %{model_name}
         error: Det oppsto feil under endringen av denne resurssen.
+        help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
         promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
@@ -153,6 +154,15 @@
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
         success: Endrings utkastet var slettet suksessfullt.
+      edit_draft:
+        discard: Forkast dette utkastet
+        discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
+        send: Forhåndsvisning
+        title: Endre Endrings Utkastet
+      emendation:
+        actions:
+          button_accept: Aksepter
+          button_reject: Avvis
       wizard_step_form:
         steps:
           '1': Create your amendment
