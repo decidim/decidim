@@ -89,6 +89,7 @@
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din var suksessfullt oppdatert.
+        success_with_email_confirmation: Kontoen din var suksessfullt opdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen.
     amendments:
       amendable:
         promote_button: Promoter til %{model_name}
