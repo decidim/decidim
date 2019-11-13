@@ -51,8 +51,9 @@ Decidim::Admin.configure do |config|
   config.range_per_page = [15, 50, 100]
 end
 ```
-+ `range_per_page.first` sets the default value
-- `range_per_page.last` sets the max_per_page
+
+* `range_per_page.first` sets the default value
+* `range_per_page.last` sets the max_per_page
 
 ## Contributing
 

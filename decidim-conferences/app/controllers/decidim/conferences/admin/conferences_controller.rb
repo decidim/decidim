@@ -8,7 +8,7 @@ module Decidim
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
         helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
-        include Decidim::Paginable
+        include Decidim::Admin::Paginable
 
         def index
           enforce_permission_to :read, :conference_list
