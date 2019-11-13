@@ -1,7 +1,12 @@
 "no":
   decidim:
     system:
+      actions:
+        edit: Editar
       models:
         admin:
           fields:
             email: Epost
+        organization:
+          fields:
+            name: Navn
