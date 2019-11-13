@@ -21,12 +21,19 @@ module Decidim
                class_name: "Decidim::Initiative",
                inverse_of: :votes
 
-    validates :initiative, uniqueness: { scope: [:author, :user_group] }
+    belongs_to :scope,
+               foreign_key: "decidim_scope_id",
+               class_name: "Decidim::Scope",
+               optional: true
+
+    validates :initiative, uniqueness: { scope: [:author, :user_group, :scope] }
+    validates :initiative, uniqueness: { scope: [:hash_id, :scope] }
 
     after_commit :update_counter_cache, on: [:create, :destroy]
 
     scope :supports, -> { where.not(decidim_user_group_id: nil) }
     scope :votes, -> { where(decidim_user_group_id: nil) }
+    scope :for_scope, ->(scope) { where(scope: scope) }
 
     # PUBLIC
     #
@@ -53,12 +60,14 @@ module Decidim
     def update_counter_cache
       initiative.initiative_votes_count = Decidim::InitiativesVote
                                           .votes
-                                          .where(decidim_initiative_id: initiative.id)
+                                          .where(initiative: initiative)
+                                          .for_scope(nil)
                                           .count
 
       initiative.initiative_supports_count = Decidim::InitiativesVote
                                              .supports
-                                             .where(decidim_initiative_id: initiative.id)
+                                             .where(initiative: initiative)
+                                             .for_scope(nil)
                                              .count
 
       initiative.save

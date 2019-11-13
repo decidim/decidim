@@ -29,9 +29,6 @@ module Decidim
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
-    delegate :promoting_committee_enabled?, to: :type
-
     has_many :votes,
              foreign_key: "decidim_initiative_id",
              class_name: "Decidim::InitiativesVote",
@@ -59,12 +56,11 @@ module Decidim
 
     validates :title, :description, :state, presence: true
     validates :signature_type, presence: true
-    validate :signature_type_allowed
-
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
               case_sensitive: false
+    validate :signature_type_allowed
 
     scope :open, lambda {
       published
@@ -92,6 +88,8 @@ module Decidim
         .group("decidim_initiatives.id")
         .order(Arel.sql("count(decidim_comments_comments.id) desc"))
     }
+    scope :future_spaces, -> { none }
+    scope :past_spaces, -> { closed }
 
     after_save :notify_state_change
     after_create :notify_creation
@@ -106,17 +104,20 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we can't use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
-    def self.future_spaces
-      none
-    end
-
-    def self.past_spaces
-      closed
-    end
-
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
+
+    # PUBLIC banner image
+    #
+    # Overrides participatory space's banner image with the banner image defined
+    # for the initiative type.
+    #
+    # RETURNS string
+    delegate :banner_image, to: :type
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
+    delegate :supports_required, to: :scoped_type
+    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # PUBLIC
     #
@@ -171,17 +172,6 @@ module Decidim
       author.avatar&.url ||
         ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
     end
-
-    # PUBLIC banner image
-    #
-    # Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # RETURNS string
-    delegate :banner_image, to: :type
-
-    delegate :document_number_authorization_handler, to: :type
-    delegate :supports_required, to: :scoped_type
 
     def votes_enabled?
       published? &&
@@ -330,6 +320,40 @@ module Decidim
     # RETURNS boolean
     def validate_sms_code_on_votes?
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
+    end
+
+    def votable_initiative_type_scopes
+      return Array(scoped_type) unless type.child_scope_threshold_enabled?
+
+      initiative_type_scopes.select do |initiative_type_scope|
+        initiative_type_scope.scope.present? && (scoped_type.global_scope? || scoped_type.scope.ancestor_of?(initiative_type_scope.scope))
+      end.prepend(scoped_type).uniq
+    end
+
+    def initiative_type_scopes
+      type.scopes
+    end
+
+    def available_child_scopes
+      return [] unless type.child_scope_threshold_enabled?
+
+      (votable_initiative_type_scopes - [scoped_type])
+    end
+
+    def supports_count_for(scope)
+      votes = Decidim::InitiativesVote
+              .votes
+              .where(initiative: self)
+              .for_scope(scope)
+              .count
+
+      supports = Decidim::InitiativesVote
+                 .supports
+                 .where(initiative: self)
+                 .for_scope(scope)
+                 .count
+
+      votes + supports
     end
 
     private

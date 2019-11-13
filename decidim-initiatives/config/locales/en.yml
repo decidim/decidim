@@ -97,6 +97,7 @@ en:
             initiative_title: Initiative title
             name_and_surname: Name and surname
             postal_code: Postal code
+            scope: Scope
             time_and_date: Time and date
             timestamp: Timestamp
       titles:

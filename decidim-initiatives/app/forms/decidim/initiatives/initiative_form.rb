@@ -50,7 +50,7 @@ module Decidim
       end
 
       def scope
-        @scope ||= Scope.find(scope_id)
+        @scope ||= Scope.find(scope_id) if scope_id.present?
       end
 
       private

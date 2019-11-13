@@ -43,7 +43,7 @@ module Decidim
     #
     # Returns an ActiveRecord::Relation.
     def self.top_level
-      where parent_id: nil
+      where(parent_id: nil)
     end
 
     def self.log_presenter_class_for(_log)
@@ -51,7 +51,7 @@ module Decidim
     end
 
     def descendants
-      organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
+      @descendants ||= organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
     def ancestor_of?(scope)
