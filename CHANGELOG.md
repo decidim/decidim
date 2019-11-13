@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL [\#5484](https://github.com/decidim/decidim/pull/5484)
 - **decidim-core**: Fix metrics graphql query [\#5442](https://github.com/decidim/decidim/pull/5442)
 
 **Removed**:
