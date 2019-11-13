@@ -29,13 +29,15 @@ module Decidim
       private
 
       def destroy_initiative_vote
-        @initiative
-          .votes
-          .where(
-            author: @current_user,
-            decidim_user_group_id: @decidim_user_group_id
-          )
-          .destroy_all
+        Initiative.transaction do
+          @initiative
+            .votes
+            .where(
+              author: @current_user,
+              decidim_user_group_id: @decidim_user_group_id
+            )
+            .destroy_all
+        end
       end
     end
   end

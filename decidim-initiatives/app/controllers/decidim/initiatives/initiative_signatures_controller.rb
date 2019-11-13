@@ -36,14 +36,15 @@ module Decidim
       def create
         group_id = params[:group_id] || session[:initiative_vote_form]&.dig("group_id")
         enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: group_id
+
         @form = form(Decidim::Initiatives::VoteForm)
                 .from_params(
-                  initiative_id: current_initiative.id,
-                  author_id: current_user.id,
+                  initiative: current_initiative,
+                  signer: current_user,
                   group_id: group_id
                 )
 
-        VoteInitiative.call(@form, current_user) do
+        VoteInitiative.call(@form) do
           on(:ok) do
             current_initiative.reload
             render :update_buttons_and_counters
@@ -62,10 +63,11 @@ module Decidim
       def fill_personal_data_step(_unused)
         @form = form(Decidim::Initiatives::VoteForm)
                 .from_params(
-                  initiative_id: current_initiative.id,
-                  author_id: current_user.id,
+                  initiative: current_initiative,
+                  signer: current_user,
                   group_id: params[:group_id]
                 )
+
         session[:initiative_vote_form] = { group_id: @form.group_id }
         skip_step unless initiative_type.collect_user_extra_fields
         render_wizard
@@ -128,7 +130,7 @@ module Decidim
           end
         end
 
-        VoteInitiative.call(@vote_form, current_user) do
+        VoteInitiative.call(@vote_form) do
           on(:ok) do
             session[:initiative_vote_form] = {}
           end
@@ -139,13 +141,14 @@ module Decidim
             jump_to previous_step
           end
         end
+
         render_wizard
       end
 
       def build_vote_form(parameters)
         @vote_form = form(Decidim::Initiatives::VoteForm).from_params(parameters).tap do |form|
-          form.initiative_id = current_initiative.id
-          form.author_id = current_user.id
+          form.initiative = current_initiative
+          form.signer = current_user
         end
 
         session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values)

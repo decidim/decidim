@@ -415,7 +415,7 @@ FactoryBot.define do
   end
 
   factory :subscope, parent: :scope do
-    parent { build(:scope) }
+    parent { build(:scope, organization: organization) }
 
     before(:create) do |object|
       object.parent.save unless object.parent.persisted?
