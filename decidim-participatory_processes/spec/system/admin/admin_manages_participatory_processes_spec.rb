@@ -98,4 +98,10 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
       expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
     end
   end
+
+  context "when paginating" do
+    let!(:collection) { create_list(:participatory_process, 50, organization: organization) }
+
+    it_behaves_like "a paginated collection"
+  end
 end

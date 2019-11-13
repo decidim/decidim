@@ -17,6 +17,7 @@ module Decidim
       helper Decidim::Admin::IconLinkHelper
       helper Decidim::Admin::MenuHelper
       helper Decidim::Admin::ScopesHelper
+      helper Decidim::Admin::Paginable::PerPageHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::ScopesHelper
@@ -24,8 +25,6 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
-
-      helper_method :per_page, :max_per_page
 
       default_form_builder Decidim::Admin::FormBuilder
 
@@ -48,18 +47,6 @@ module Decidim
 
       def permission_scope
         :admin
-      end
-
-      def default_per_page
-        Decidim::Admin.default_per_page
-      end
-
-      def max_per_page
-        Decidim::Admin.max_per_page
-      end
-
-      def per_page
-        params[:per_page].present? ? params[:per_page].first : default_per_page
       end
     end
   end
