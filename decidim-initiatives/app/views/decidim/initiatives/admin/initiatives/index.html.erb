@@ -22,6 +22,12 @@
       </li>
     </ul>
   </div>
+
+  <div class="column medium-3">
+    <span class="dropdown-menu-inverted_label"><%= t("decidim.admin.actions.per_page") %> :</span>
+    <%= cell "decidim/admin/results_per_page", per_page_options %>
+  </div>
+
   <div class="column medium-4">
     <%= form_tag "", method: :get do %>
         <div class="filters__search">
