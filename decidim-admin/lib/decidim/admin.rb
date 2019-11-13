@@ -17,19 +17,16 @@ module Decidim
     # Public Setting that configures Kaminari configuration options
     # https://github.com/kaminari/kaminari#general-configuration-options
 
-    # Number of items per_page. Defaults to 15.
-    config_accessor :default_per_page do
-      15
-    end
-
-    # Max number of items per_page. Defaults to 100.
-    config_accessor :max_per_page do
-      100
+    # Range of number of results per_page. Defaults to [15, 50, 100].
+    # per_page_range.first sets the default number per page
+    # per_page_range.last sets the default max_per_page
+    config_accessor :per_page_range do
+      [15, 50, 100]
     end
 
     Kaminari.configure do |config|
-      config.default_per_page = Decidim::Admin.default_per_page
-      config.max_per_page = Decidim::Admin.max_per_page
+      config.default_per_page = Decidim::Admin.per_page_range.first
+      config.max_per_page = Decidim::Admin.per_page_range.last
     end
   end
 end

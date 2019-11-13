@@ -44,14 +44,15 @@ the default list.
 
 ### Pager Configuration
 
-The number of results shown per page and max results in particiant index can be configured in the app `decidim.rb` initializer as follows:
+The number of results shown per page and per page range can be configured in the app `decidim.rb` initializer as follows:
 
 ```ruby
 Decidim::Admin.configure do |config|
-  config.default_per_page = 15
-  config.max_per_page = 100
+  config.range_per_page = [15, 50, 100]
 end
 ```
++ `range_per_page.first` sets the default value
+- `range_per_page.last` sets the max_per_page
 
 ## Contributing
 

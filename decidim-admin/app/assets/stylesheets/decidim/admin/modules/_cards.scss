@@ -113,23 +113,3 @@ $card-padding-small: 1rem;
   // height adjust
   padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
 }
-
-.form__per-page{
-  .input-group{
-    margin-bottom: 0;
-  }
-
-  .input-group-field{
-    min-width: 4em;
-    border: 1px solid $medium-gray;
-    border-right: none;
-    height: 2em;
-    text-align: center;
-  }
-
-  .button.hollow.secondary{
-    color: $dark-gray;
-    border-color: $medium-gray;
-    padding: .85em .5em;
-  }
-}
