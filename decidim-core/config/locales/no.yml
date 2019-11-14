@@ -176,6 +176,7 @@
         success: Endringen var suksessfullt publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
+        success: Endringen var suksessfullt publisert.
       wizard_step_form:
         steps:
           '1': Create your amendment
