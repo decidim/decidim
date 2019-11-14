@@ -179,6 +179,10 @@
         success: Endringen var suksessfullt publisert.
       rejected:
         error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
+        success: Endringen for suksessfullt avslått
+      review:
+        back: Tilbake
+        heading: Se over endringen
       wizard_step_form:
         steps:
           '1': Create your amendment
