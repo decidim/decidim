@@ -50,6 +50,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Phase activated
       decidim/participatory_process_step_changed_event: Phase changed
@@ -76,6 +82,7 @@ en:
         filter:
           all: Show all processes
           process_groups: Process Groups
+        import_process: Import
         new: New
         new_process: New process
         new_process_group: New process group
@@ -149,6 +156,14 @@ en:
         update:
           error: There was a problem updating this participatory process group.
           success: Participatory process group successfully updated.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was a problem publishing this participatory process.
@@ -297,6 +312,10 @@ en:
             max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:

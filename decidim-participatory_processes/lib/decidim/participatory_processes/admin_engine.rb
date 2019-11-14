@@ -33,6 +33,12 @@ module Decidim
           end
           resources :attachment_collections, controller: "participatory_process_attachment_collections"
           resources :attachments, controller: "participatory_process_attachments"
+
+          resource :export, controller: "participatory_process_exports", only: :create
+
+          collection do
+            resources :imports, controller: "participatory_process_imports", only: [:new, :create]
+          end
         end
 
         scope "/participatory_processes/:participatory_process_slug" do

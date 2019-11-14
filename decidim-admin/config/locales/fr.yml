@@ -79,6 +79,11 @@ fr:
         user_name: Nom d'utilisateur
         warning_color: Attention
         youtube_handler: Gestionnaire YouTube
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Code
         name: Titre
@@ -117,6 +122,10 @@ fr:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: Le format de fichier est invalide. Assurez vous que le document sélectionné est bien au format JSON (extension .json).
   activerecord:
     attributes:
       decidim/static_page:
@@ -137,6 +146,7 @@ fr:
         add: Ajouter
         browse: Parcourir
         export: Exporter
+        import_process: Importer un processus
         manage: Modifier
         permissions: Autorisations
         reject: Rejeter
@@ -598,6 +608,14 @@ fr:
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
+      participatory_process_imports:
+        create:
+          error: Une erreur s'est produite lors de l'import de l'espace participatif.
+          success: L'espace participatif a été importé avec succès.
+        new:
+          import: Importer
+          select: Selectionner les éléments à importer
+          title: Importer un processus participatif
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -784,6 +802,12 @@ fr:
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+    participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Ajouter un document d'export de processus participatif au format JSON
+            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple : %{url}.'
   errors:
     messages:
       invalid_json: JSON non valide
