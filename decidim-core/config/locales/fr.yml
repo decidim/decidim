@@ -116,6 +116,7 @@ fr:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
+        create_via_csv: "%{user_name} a invité %{resource_name} via csv à être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
@@ -1211,7 +1212,11 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
+      not_found: introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
+      not_saved:
+        one: 'Une erreur est survenue pendant le traitement de votre requête.'
+        other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
@@ -1303,10 +1308,13 @@ fr:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%d %B %Y %H h %M min %S s"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%A %d %B %Y %H h %M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
