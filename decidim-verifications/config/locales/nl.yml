@@ -26,7 +26,7 @@ nl:
   decidim:
     admin:
       menu:
-        authorization_workflows: keuringen
+        authorization_workflows: Nazicht
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} heeft de verificatieconfiguratie Identity Documents bijgewerkt"
