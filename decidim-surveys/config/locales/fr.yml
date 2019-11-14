@@ -23,6 +23,7 @@ fr:
             announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
+            allow_unregistered: Autoriser les utilisateurs non enregistrés à répondre
             announcement: Annonce
     events:
       surveys:
