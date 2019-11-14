@@ -35,6 +35,8 @@ fr:
         title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
+      response:
+        decidim_consultations_response_group_id: Groupe
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ fr:
   decidim:
     admin:
       actions:
+        back_to_responses: Retour aux résultats
         new_consultation: Nouvelle votation
         new_question: Nouvelle question
         new_response: Nouvelle réponse
+        new_response_group: Nouveau groupe
         publish_results: Publier les résultats
+        response_groups: Gérer les groupes de réponses
         unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
@@ -140,6 +145,7 @@ fr:
         response:
           fields:
             created_at: Créée le
+            response_group: Groupe
             title: Titre
           name:
             one: Réponse
