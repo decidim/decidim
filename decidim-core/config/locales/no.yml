@@ -171,6 +171,8 @@
         modify: Endre
         publish: Publiser
         title: Publiser endringsutkast
+      promoted:
+        error: Det oppsto et problem under publiseringen av endringsutkastet som et nytt forslag
       wizard_step_form:
         steps:
           '1': Create your amendment
