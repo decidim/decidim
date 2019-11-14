@@ -2,3 +2,10 @@
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Kommentar

@@ -3,3 +3,86 @@
     attributes:
       area:
         name: Navn
+      area_type:
+        name: Navn
+      attachment:
+        title: Tittel
+      attachment_collection:
+        name: Navn
+      category:
+        name: Navn
+      component:
+        name: Navn
+      oauth_application:
+        name: Navn
+      organization:
+        highlighted_content_banner_title: Tittel
+        name: Navn
+        omnipresent_banner_title: Tittel
+      scope:
+        name: Navn
+      scope_type:
+        name: Navn
+      static_page:
+        title: Tittel
+      static_page_topic:
+        title: Tittel
+  activerecord:
+    attributes:
+      decidim/static_page:
+        title: Tittel
+  decidim:
+    admin:
+      impersonatable_users:
+        index:
+          name: Navn
+          status: Status
+      impersonations:
+        form:
+          name: Navn
+      menu:
+        static_pages: Sider
+      models:
+        area:
+          fields:
+            name: Navn
+        area_type:
+          fields:
+            name: Navn
+        attachment:
+          fields:
+            title: Tittel
+        category:
+          name: Kategori
+        oauth_application:
+          fields:
+            name: Navn
+        scope:
+          fields:
+            name: Navn
+        scope_type:
+          fields:
+            name: Navn
+        static_page:
+          fields:
+            title: Tittel
+        user:
+          fields:
+            email: Epost
+            name: Navn
+        user_group:
+          fields:
+            name: Navn
+      officializations:
+        index:
+          name: Navn
+          status: Status
+      static_pages:
+        edit:
+          title: Rediger side
+      titles:
+        static_pages: Sider
+      users:
+        form:
+          email: Epost
+          name: Navn

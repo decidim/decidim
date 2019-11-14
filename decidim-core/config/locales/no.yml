@@ -1,14 +1,211 @@
 "no":
   activemodel:
     attributes:
+      account:
+        delete_reason: Grunn for at du vil slette din bruker
       group:
         about: Om
+        avatar: Profilbilde
+        document_number: Dokumentnummer
         email: Epost
+        name: Navn
+        nickname: Kallenavn
+        phone: Telefon
+      report:
+        details: Ytterlige kommentarer
+      user:
+        about: Om
+        email: E-post
+        name: Navnet ditt
+        nickname: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft ditt passord
+        personal_url: Personlig URL
+        remove_avatar: Fjern profilbilde
+    models:
+      decidim/attachment_created_event: Vedlegg
+      decidim/component_published_event: Aktiv komponent
+      decidim/demoted_membership: Ikke lenger en admin for gruppen
+      decidim/gamification/badge_earned_event: Merke oppnåd
+      decidim/gamification/level_up_event: Du gikk opp i nivå
+      decidim/join_request_accepted_event: Bli med forespørsel godtatt
+      decidim/join_request_rejected_event: Bli med forespørsel avslått
+      decidim/profile_updated_event: Profilen er oppdatert
+      decidim/promote_to_admin: Forfremmet til gruppe admin
+      decidim/removed_from_group: Fjernet fra gruppen
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Nåværende passord
+        email: Epost
+        name: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft passord
+        remember_me: Husk meg
+    models:
+      decidim/amendment:
+        one: Formell endring
+        other: Formelle endringer
+      decidim/user:
+        one: Deltaker
+        other: Deltakere
+      decidim/user_group:
+        one: Gruppe
+        other: Grupper
+  booleans:
+    'false': 'Nei'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: Dette bilde er for stort
+  date:
+    formats:
+      decidim_short: "%d.%m-%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Filen finnes ikke
+        invalid_token: Nøkkelen du ga er ugyldig.
+        no_token: Ingen nøkkel oppgitt
+        notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
+      delete:
+        alert: Denne handlingen er endelig. Hvis du sletter denne kontoen vil du ikke kunne logge deg inn igjen.
+        confirm:
+          close: Lukk vindu
+          ok: Ja, jeg ønsker å slette kontoen min
+          question: Er du sikker på at du vil slette denne kontoen?
+          title: Slett kontoen min
+        explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
+      destroy:
+        error: Det oppsto et problem med å slette kontoen din.
+        success: Kontoen din var suksessfullt slettet.
+      show:
+        change_password: Endre passord
+        update_account: Oppdater konto
+      update:
+        error: Det oppsto et problem med å oppdatere kontoen din.
+        success: Kontoen din var suksessfullt oppdatert.
+        success_with_email_confirmation: Kontoen din var suksessfullt opdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen.
+    admin_log:
+      area:
+        create: "%{user_name} lagde %{resource_name} området"
+        delete: "%{user_name} slettet %{resource_name} området"
+        update: "%{user_name} oppdaterte %{resource_name} området"
+      component:
+        create: "%{user_name} la til %{resource_name} komponent til %{space_name} området"
+        delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} området"
+        publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} området"
+        unpublish: "%{user_name} tok ned %{resource_name} komponent til %{space_name} området"
+      moderation:
+        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} området"
+        unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} området"
+      newsletter:
+        create: "%{user_name} lagde %{resource_name} nyhetsbrevet"
+        delete: "%{user_name} slettet %{resource_name} nyhetsbrevet"
+        deliver: "%{user_name} leverte %{resource_name} nyhetsbrevet"
+        update: "%{user_name} oppdaterte %{resource_name} nyhetsbrevet"
+      oauth_application:
+        create: "%{user_name} lagde %{resource_name} OAuth applikasjonen"
+        delete: "%{user_name} slettet %{resource_name} OAuth applikasjonen"
+        update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
+      organization:
+        update: "%{user_name} oppdaterte organisasjonens innstillinger"
+      participatory_space_private_user:
+        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
+        create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
+      static_page:
+        create: "%{user_name} lagde %{resource_name} statisk side"
+        delete: "%{user_name} slettet %{resource_name} statisk side"
+        update: "%{user_name} oppdaterte %{resource_name} statisk side"
+      user:
+        invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
+        officialize: "%{user_name} gjorde deltakeren %{resource_name} offisiell"
+        remove_from_admin: "%{user_name} fjernet deltakeren %{resource_name} med rolle: %{role}"
+        unofficialize: "%{user_name} gjorde deltakeren %{resource_name} uoffisiell"
+      user_group:
+        reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
+        verify: "%{user_name} verifiserte gruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
     amendments:
+      accepted:
+        error: En feil oppstod under godkjenningen av endringen.
+        success: Endringen var suksessfullt godkjent.
+      amendable:
+        amended_by: Endret av
+        button: Endre %{model_name}
+        error: Det oppsto feil under endringen av denne resurssen.
+        help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
+        promote_button: Promoter til %{model_name}
+        promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
+        promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
+        section_heading: Formell endring (%{count})
+      compare_draft:
+        continue: Fortsett
+        no_similars_found: Ingen like emendasjoner funnet.
+        title: Lignende Emendasjoner
+      created:
+        error: En feil skjedde under konstruksjonen av en formell endring.
+        success: Endrings utkastet har blitt suksessfullt opprettet.
+      destroy_draft:
+        error: Det oppsto et problem med å slette endrings utkastet.
+        success: Endrings utkastet var slettet suksessfullt.
+      edit_draft:
+        discard: Forkast dette utkastet
+        discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
+        send: Forhåndsvisning
+        title: Endre Endrings Utkastet
+      emendation:
+        actions:
+          button_accept: Aksepter
+          button_reject: Avvis
+          help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
       wizard_step_form:
         steps:
           '1': Create your amendment
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    authorization_handlers:
+      expires_at: Går ut %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Felt
+          foo: Foo
+        name: Foo autorisering
+      granted_at: Godkjent på %{timestamp}
+      sms:
+        explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
+        name: Kode via SMS
+      started_at: Startet på %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Gjenautorise med "%{authorization}"
+          explanation: Din autorisasjon har gått ut. For å gjøre denne handlingen, må du bli gjenautorisert med "%{authorization}".
+          title: Autorisasjon har utgått
+        incomplete:
+          cancel: Avbryt
+    menu:
+      help: Hjelp
+    pages:
+      home:
+        statistics:
+          pages_count: Sider
+          surveys_count: Undersøkelse
+      index:
+        standalone_pages: Sider
+        title: Hjelp
+    shared:
+      floating_help:
+        help: Hjelp
+  layouts:
+    decidim:
+      edit_link:
+        edit: Editar
+  social_share_button:
+    email: Epost

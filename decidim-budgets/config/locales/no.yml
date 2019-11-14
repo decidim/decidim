@@ -4,3 +4,17 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    budgets:
+      actions:
+        edit: Editar
+      models:
+        project:
+          fields:
+            title: Tittel
+      projects:
+        filters:
+          category: Kategori
+        show:
+          budget: Budsjett
