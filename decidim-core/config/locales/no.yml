@@ -166,6 +166,7 @@
           help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
         announcement:
           promoted: Promotert til en %{amendable_type}.
+          rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
       new:
         send: Opprett
         title: Opprett endrings utkast
@@ -194,8 +195,8 @@
         steps:
           '1': Create your amendment
           '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '3': Fullfør endringen din
+          '4': Publiser endringen din
     anonymous_user: Anonym
     application:
       collection:
@@ -226,6 +227,8 @@
           title: Autorisasjon har utgått
         incomplete:
           cancel: Avbryt
+        unauthorized:
+          ok: Ok
     menu:
       help: Hjelp
     pages:
