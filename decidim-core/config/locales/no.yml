@@ -182,7 +182,8 @@
         success: Endringen for suksessfullt avslått
       review:
         back: Tilbake
-        heading: Se over endringen
+        heading: Anmeld endringen
+        help_text: Du andmelder en endring til %{model_name}
       wizard_step_form:
         steps:
           '1': Create your amendment
