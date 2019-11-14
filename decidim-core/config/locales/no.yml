@@ -143,7 +143,7 @@
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
         promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
-        section_heading: Formell endring (%{count})
+        section_heading: Formelle endringer (%{count})
       compare_draft:
         continue: Fortsett
         no_similars_found: Ingen like emendasjoner funnet.
@@ -166,11 +166,11 @@
           help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
       new:
         send: Opprett
-        title: Opprett endringsutkast
+        title: Opprett endrings utkast
       preview_draft:
         modify: Endre
         publish: Publiser
-        title: Publiser endringsutkast
+        title: Publiser endrings utkast
       promoted:
         error: Det oppsto et problem under publiseringen av endringsutkastet som et nytt forslag
         success: Endringen var suksessfullt publisert som et nytt forslag
@@ -184,6 +184,9 @@
         back: Tilbake
         heading: Anmeld endringen
         help_text: Du andmelder en endring til %{model_name}
+        send: Aksepter endring
+      update_draft:
+        error: Det oppsto et problem med å oppdatere endrings utkastet.
       wizard_step_form:
         steps:
           '1': Create your amendment
