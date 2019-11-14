@@ -78,6 +78,18 @@ module Decidim
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
       end
+
+      context "when using image toolbar" do
+        let(:output) do
+          builder.editor :slug, toolbar: :image
+        end
+
+        it "renders a hidden field and a container for the editor" do
+          expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
+          expect(parsed.css(".editor label[for='resource_slug']")).not_to be_empty
+          expect(parsed.css(".editor .editor-container[data-toolbar='image']")).not_to be_empty
+        end
+      end
     end
 
     describe "#translated" do
