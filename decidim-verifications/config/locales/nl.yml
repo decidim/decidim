@@ -51,8 +51,8 @@ nl:
             - U markeert de brief zoals verzonden.
             - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
       csv_census:
-        explanation: Wordt geverifieerd aan de hand van de volkstelling van de organisatie
-        name: De volkstelling van de organisatie
+        explanation: Wordt geverifieerd aan de hand van de ledenadministratie van de organisatie
+        name: De ledenadministratie van de organisatie
       direct: direct
       help: Help
       id_documents:
@@ -72,7 +72,7 @@ nl:
         first_login:
           actions:
             another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
-            csv_census: Controleer tegen de volkstelling van de organisatie
+            csv_census: Controleer aan de hand van de ledenadministratie van de organisatie
             dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
             dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
             id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
@@ -109,7 +109,7 @@ nl:
             title: Upload een nieuwe telling
         authorizations:
           new:
-            error: We kunnen uw account niet verifiëren of u staat niet in de volkstelling van de organisatie.
+            error: We kunnen uw account niet verifiëren of u staat niet in de ledenadministratie van de organisatie.
             success: Uw account is succesvol geverifieerd.
       dummy_authorization:
         extra_explanation:
