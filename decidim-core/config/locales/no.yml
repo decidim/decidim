@@ -164,6 +164,12 @@
           button_accept: Aksepter
           button_reject: Avvis
           help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
+      new:
+        send: Opprett
+        title: Opprett endringsutkast
+      preview_draft:
+        modify: Endre
+        publish: Publiser
       wizard_step_form:
         steps:
           '1': Create your amendment
