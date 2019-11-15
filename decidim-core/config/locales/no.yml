@@ -250,6 +250,16 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
+        download_data_description: En fil med all informasjon tilknyttet kontoen vil bli sendt til <strong>%{user_email}</strong>
+        request_data: Etterspør informasjonen
+    datepicker:
+      help_text: 'Forventet format: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: En annen bruker er registrert under samme mailadresse
+        new:
+          complete_profile: Fullfør profilen
     menu:
       help: Hjelp
     pages:
