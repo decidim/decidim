@@ -79,10 +79,20 @@ module Decidim
         minimum_votes_per_user.positive?
       end
 
+      def not_from_collaborative_draft(proposal)
+        proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
+      end
+
+      def not_from_participatory_text(proposal)
+        proposal.participatory_text_level.nil?
+      end
+
       # If the proposal is official or the rich text editor is enabled on the
-      # frontend, the proposal body is considered as safe content.
+      # frontend, the proposal body is considered as safe content; that's unless
+      # the proposal comes from a collaborative_draft or a participatory_text.
       def safe_content?
-        @proposal&.official? || rich_text_editor_enabled?
+        rich_text_editor_for_participants? && not_from_collaborative_draft(@proposal) ||
+          @proposal.official? && not_from_participatory_text(@proposal)
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
@@ -92,7 +102,7 @@ module Decidim
         safe_content? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
       end
 
-      # Returns :text_area or :editor based on current_component settings.
+      # Returns :text_area or :editor based on the organization' settings.
       def text_editor_for_proposal_body(form)
         options = {
           class: "js-hashtags",

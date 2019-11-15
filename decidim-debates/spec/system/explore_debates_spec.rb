@@ -222,11 +222,11 @@ describe "Explore debates", type: :system do
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
-    context "when rich text editor is enabled on the frontend" do
+    context "when rich text editor is enabled for participants" do
       let(:debate) { create(:debate, author: user, description: content, component: current_component) }
 
       before do
-        current_component.update(settings: { rich_editor_public_view: true })
+        organization.update(rich_text_editor_for_participants: true)
         visit path
       end
 

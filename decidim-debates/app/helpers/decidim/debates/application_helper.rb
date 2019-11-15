@@ -12,7 +12,7 @@ module Decidim
       # If the debate is official or the rich text editor is enabled on the
       # frontend, the debate description is considered as safe content.
       def safe_content?
-        debate&.official? || rich_text_editor_enabled?
+        debate&.official? || rich_text_editor_for_participants?
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.

@@ -20,6 +20,7 @@ module Decidim
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
       attribute :user_groups_enabled, Boolean
+      attribute :rich_text_editor_for_participants, Boolean
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean

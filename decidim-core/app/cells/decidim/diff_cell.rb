@@ -84,8 +84,7 @@ module Decidim
     # Gives the option to view HTML unescaped for better user experience.
     # Official means created from admin (where rich text editor is enabled).
     def show_html_view_dropdown?
-      item.try(:official?) ||
-        item&.component&.settings.try(:rich_editor_public_view)
+      item.try(:official?) || current_organization.rich_text_editor_for_participants?
     end
   end
 end

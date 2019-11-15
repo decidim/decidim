@@ -77,57 +77,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "rich_editor_public_view" do
-      let(:settings) { { rich_editor_public_view: true } }
-      let(:step_settings) { {} }
-
-      context "without participatory_texts_enabled" do
-        it "updates the component" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.to broadcast(:ok)
-        end
-      end
-
-      context "with participatory_texts_enabled" do
-        let(:settings) do
-          {
-            rich_editor_public_view: true,
-            participatory_texts_enabled: true
-          }
-        end
-
-        it "does NOT update the component" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.to broadcast(:invalid)
-        end
-      end
-
-      context "without collaborative_drafts_enabled" do
-        it "updates the component" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.to broadcast(:ok)
-        end
-      end
-
-      context "with collaborative_drafts_enabled" do
-        let(:settings) do
-          {
-            rich_editor_public_view: true,
-            collaborative_drafts_enabled: true
-          }
-        end
-
-        it "does NOT update the component" do
-          expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
-          end.to broadcast(:invalid)
-        end
-      end
-    end
-
     describe "amendments_visibility" do
       let(:settings) { { amendments_enabled: true } }
       let(:step_settings) { { amendments_visibility: amendment_visibility_option } }

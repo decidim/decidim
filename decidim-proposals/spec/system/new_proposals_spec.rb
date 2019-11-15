@@ -33,10 +33,9 @@ describe "Proposals", type: :system do
       end
     end
 
-    context "and rich_editor_public_view component setting is enabled" do
+    context "when rich text editor is enabled for participants" do
       before do
-        settings = component.settings.to_h.merge(rich_editor_public_view: true)
-        component.update(settings: settings)
+        organization.update(rich_text_editor_for_participants: true)
         click_link "New proposal"
       end
 

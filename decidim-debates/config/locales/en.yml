@@ -31,8 +31,6 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
-            rich_editor_public_view: Enable rich text editor in the public view
-            rich_editor_public_view_help: Users will be able to insert some HTML tags in the debate description by using the rich text editor. Keep in mind that changes in this setting will affect the rendering of previously created debates.
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

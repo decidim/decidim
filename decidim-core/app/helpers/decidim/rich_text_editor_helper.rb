@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Helper related to the component setting :rich_editor_public_view.
+  # Helper related to organization' setting :rich_text_editor_for_participants.
   module RichTextEditorHelper
     def self.included(base)
       base.include Decidim::SanitizeHelper
     end
 
-    def rich_text_editor_enabled?
-      controller&.current_component&.settings.try(:rich_editor_public_view) == true
-    end
+    delegate :rich_text_editor_for_participants?, to: :current_organization
 
     def text_editor_for(form, attribute, options = {})
-      if rich_text_editor_enabled?
+      if rich_text_editor_for_participants?
         options[:lines] ||= 25
         form.editor attribute, options
       else

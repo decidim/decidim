@@ -90,12 +90,11 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
-    context "when rich text editor is enabled on the frontend" do
+    context "when rich text editor is enabled for participants" do
       let!(:proposal) { create(:proposal, body: content, component: component) }
 
       before do
-        settings = component.settings.to_h.merge(rich_editor_public_view: true)
-        component.update(settings: settings)
+        organization.update(rich_text_editor_for_participants: true)
         visit_component
         click_link proposal.title
       end
@@ -103,7 +102,7 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
-    context "when rich text editor is NOT enabled on the frontend" do
+    context "when rich text editor is NOT enabled for participants" do
       let!(:proposal) { create(:proposal, body: content, component: component) }
 
       before do

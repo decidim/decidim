@@ -8,6 +8,13 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
 
   let(:my_cell) { cell("decidim/diff", model) }
   let(:model) { item.versions.last }
+  let(:organization) { item.organization }
+
+  before do
+    # rubocop:disable RSpec/AnyInstance
+    allow_any_instance_of(described_class).to receive(:current_organization).and_return(organization)
+    # rubocop:enable RSpec/AnyInstance
+  end
 
   context "when diffing a translatable attribute that has empty strings" do
     let(:title) { { en: "English title", ca: "Catalan title", es: "" } }
@@ -31,12 +38,10 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   describe "view unescaped html" do
     include_context "with content"
 
-    let(:component) { create(:proposal_component, settings: settings) }
-    let(:item) { create(:proposal, component: component, body: content) }
-    let(:settings) { {} }
+    let(:item) { create(:proposal, body: content) }
 
     context "when rich text editor is enabled on the frontend" do
-      let(:settings) { { rich_editor_public_view: true } }
+      before { organization.update(rich_text_editor_for_participants: true) }
 
       it "shows the HTML view dropdown menu" do
         expect(subject).to have_css(".diff-view-html .dropdown .menu")
@@ -44,8 +49,6 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     end
 
     context "when rich text editor is NOT enabled on the frontend" do
-      let(:settings) { { rich_editor_public_view: false } }
-
       it "does NOT show the HTML view dropdown menu" do
         expect(subject).not_to have_css(".diff-view-html .dropdown .menu")
       end

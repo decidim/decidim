@@ -51,7 +51,8 @@ module Decidim
           youtube_handler: form.youtube_handler,
           github_handler: form.github_handler,
           badges_enabled: form.badges_enabled,
-          user_groups_enabled: form.user_groups_enabled
+          user_groups_enabled: form.user_groups_enabled,
+          rich_text_editor_for_participants: form.rich_text_editor_for_participants
         }.merge(welcome_notification_attributes)
       end
 

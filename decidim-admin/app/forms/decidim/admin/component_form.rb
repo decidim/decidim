@@ -24,7 +24,6 @@ module Decidim
       attribute :step_settings, Hash[String => Object]
 
       validate :must_be_able_to_change_participatory_texts_setting
-      validate :must_be_able_to_change_rich_editor_public_view_setting
       validate :amendments_visibility_options_must_be_valid
 
       def settings?
@@ -62,15 +61,6 @@ module Decidim
         return unless settings.participatory_texts_enabled != component.settings.participatory_texts_enabled
 
         settings.errors.add(:participatory_texts_enabled) if Decidim::Proposals::Proposal.where(component: component).any?
-      end
-
-      # Validates setting `rich_editor_public_view` is not enabled with
-      # `participatory_texts_enabled` or `collaborative_drafts_enabled`.
-      def must_be_able_to_change_rich_editor_public_view_setting
-        return unless manifest&.name == :proposals && settings.rich_editor_public_view
-        return unless settings.participatory_texts_enabled || settings.collaborative_drafts_enabled
-
-        settings.errors.add(:rich_editor_public_view, :incompatible)
       end
 
       # Validates setting `amendments_visibility` is included in Decidim::Amendment::VisibilityStepSetting.options.
