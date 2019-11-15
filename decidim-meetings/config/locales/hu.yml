@@ -238,6 +238,9 @@ hu:
           edit:
             update: Frissítés
           form:
+            address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+            location_help: 'Helyszín: az adott helyszínere utaló felhasználóknak szóló üzenet'
+            location_hints_help: 'Helymeghatározási tippek: további információk. Példa: az épület padlója'
             select_organizer: Válassz szervezőt
           index:
             title: Találkozók
