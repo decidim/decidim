@@ -253,4 +253,10 @@ describe "Admin manages consultations", type: :system do
       end
     end
   end
+
+  context "when paginating" do
+    let!(:collection) { create_list(:consultation, 50, organization: organization) }
+
+    it_behaves_like "a paginated collection"
+  end
 end
