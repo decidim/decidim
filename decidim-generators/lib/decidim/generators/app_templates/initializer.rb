@@ -124,10 +124,5 @@ Decidim.configure do |config|
   # }
 end
 
-Decidim::Admin.configure do |config|
-  config.default_per_page = 15
-  config.max_per_page = 100
-end
-
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
