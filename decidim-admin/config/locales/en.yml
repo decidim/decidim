@@ -143,7 +143,7 @@ en:
         export: Export
         manage: Manage
         new: New %{name}
-        per_page: per page
+        per_page: Per page
         permissions: Permissions
         reject: Reject
         verify: Verify

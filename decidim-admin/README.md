@@ -48,12 +48,12 @@ The number of results shown per page and per page range can be configured in the
 
 ```ruby
 Decidim::Admin.configure do |config|
-  config.range_per_page = [15, 50, 100]
+  config.per_page_range = [15, 50, 100]
 end
 ```
 
-* `range_per_page.first` sets the default value
-* `range_per_page.last` sets the max_per_page
+* `Decidim::Admin.per_page_range.first` sets the `default_per_page` value for `Decidim::Admin` (in Kaminari)
+* `Decidim::Admin.per_page_range.last` sets the `max_per_page`  value for `Decidim::Admin` (in Kaminari)
 
 ## Contributing
 

@@ -14,9 +14,7 @@ module Decidim
         def per_page_options
           OpenStruct.new(
             per_page: per_page,
-            per_page_range: Decidim::Admin.per_page_range,
-            action_name: action_name,
-            controller_name: controller_name
+            per_page_range: Decidim::Admin.per_page_range
           )
         end
       end
