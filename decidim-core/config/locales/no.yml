@@ -263,6 +263,19 @@
           nickname_help: Aliaset ditt i %{organization}
           sign_up: Vennligs fullfør profilen din
           subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
+          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+      registrations:
+        new:
+          already_have_an_account?: Har du allerede en bruker?
+          sign_in: Logg inn
+          sign_up: Register deg
+          sign_up_as:
+            legend: Register deg som
+          subtitle: Registrer deg for å delta i diskusjoner og støtte forslag.
+          terms: vilkårene for bruk
+          tos_agreement: Ved å registrere deg godtar du til %{link}.
+          tos_title: Vilkår for bruk
+          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
     menu:
       help: Hjelp
     pages:
