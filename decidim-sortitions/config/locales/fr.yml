@@ -24,6 +24,7 @@ fr:
         settings:
           global:
             comments_enabled: Commentaires activés
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:

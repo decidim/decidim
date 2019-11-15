@@ -40,6 +40,7 @@ fr:
         address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut

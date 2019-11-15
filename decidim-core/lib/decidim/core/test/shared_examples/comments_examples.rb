@@ -55,6 +55,35 @@ shared_examples "comments" do
       expect(page).to have_selector(".add-comment form")
     end
 
+    context "when no default comments length specified" do
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("1000 characters left")
+        end
+      end
+    end
+
+    context "when organization has a default comments length params" do
+      let!(:organization) { create(:organization, comments_max_length: 2000) }
+
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("2000 characters left")
+        end
+      end
+
+      context "when component has a default comments length params" do
+        it "displays the numbers of characters left" do
+          component.update!(settings: { comments_max_length: 3000 })
+          visit current_path
+
+          within ".add-comment form" do
+            expect(page).to have_content("3000 characters left")
+          end
+        end
+      end
+    end
+
     context "when user adds a new comment" do
       before do
         within ".add-comment form" do

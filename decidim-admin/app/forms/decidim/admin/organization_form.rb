@@ -20,6 +20,7 @@ module Decidim
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
       attribute :user_groups_enabled, Boolean
+      attribute :comments_max_length, Integer
 
       attribute :deepl_api_key, String
 
@@ -34,6 +35,7 @@ module Decidim
       validates :name, presence: true
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
+      validates :comments_max_length, numericality: { greater_than: 0 }, if: ->(form) { form.comments_max_length.present? }
 
       private
 

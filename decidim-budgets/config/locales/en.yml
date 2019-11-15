@@ -163,6 +163,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting

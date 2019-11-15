@@ -61,6 +61,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés

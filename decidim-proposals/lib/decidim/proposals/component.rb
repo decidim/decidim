@@ -33,6 +33,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true

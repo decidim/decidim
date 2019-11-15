@@ -50,6 +50,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :vote_per_project, type: :boolean
     settings.attribute :total_projects, type: :integer, default: 5
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean
     settings.attribute :announcement, type: :text, translated: true, editor: true

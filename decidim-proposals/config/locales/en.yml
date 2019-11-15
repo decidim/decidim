@@ -91,6 +91,7 @@ en:
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_help_text: New proposal help text

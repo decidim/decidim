@@ -21,6 +21,7 @@ Decidim.register_component(:accountability) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :categories_label, type: :string, translated: true, editor: true
     settings.attribute :subcategories_label, type: :string, translated: true, editor: true

@@ -25,6 +25,7 @@ interface CommentProps {
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 interface CommentState {
@@ -345,7 +346,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   private _renderReplies() {
-    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy } = this.props;
+    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy, commentsMaxLength } = this.props;
     let replyArticleClassName = "comment comment--nested";
 
     if (articleClassName === "comment comment--nested") {
@@ -365,6 +366,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 articleClassName={replyArticleClassName}
                 rootCommentable={rootCommentable}
                 orderBy={orderBy}
+                commentsMaxLength={commentsMaxLength}
               />
             ))
           }
@@ -381,7 +383,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   private _renderReplyForm() {
-    const { session, comment, rootCommentable, orderBy } = this.props;
+    const { session, comment, rootCommentable, orderBy, commentsMaxLength } = this.props;
     const { showReplyForm } = this.state;
     const { comment: { userAllowedToComment  } } = this.props;
 
@@ -396,6 +398,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           autoFocus={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
     }

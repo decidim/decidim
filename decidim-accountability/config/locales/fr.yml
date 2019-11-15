@@ -189,6 +189,7 @@ fr:
           global:
             categories_label: Intitulé pour "Catégories"
             comments_enabled: Activer le module de Commentaires
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Afficher la progression
             heading_leaf_level_results: Intitulé pour "Projets"
             heading_parent_level_results: Intitulé pour "Réalisations"
