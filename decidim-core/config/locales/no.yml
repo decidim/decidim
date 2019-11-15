@@ -262,6 +262,7 @@
           complete_profile: Fullfør profilen
           nickname_help: Aliaset ditt i %{organization}
           sign_up: Vennligs fullfør profilen din
+          subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
     menu:
       help: Hjelp
     pages:
