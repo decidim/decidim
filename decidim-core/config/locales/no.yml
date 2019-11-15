@@ -195,10 +195,11 @@
         all: Endringer synlig for alle
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
+        success: Endringen har blitt suksessfullt tilbaketrukket
       wizard_step_form:
         steps:
           '1': Create your amendment
-          '2': Compare your amendment
+          '2': Sammenlign endringen din
           '3': Fullfør endringen din
           '4': Publiser endringen din
     anonymous_user: Anonym
@@ -212,6 +213,13 @@
       photos:
         related_photos: Relaterte bilder
     authorization_handlers:
+      another_dummy_authorization_handler:
+        fields:
+          passport_number: Pass nummer
+      dummy_authorization_handler:
+        fields:
+          document_number: Dokumentnummer
+          postal_code: Postnummer
       expires_at: Går ut %{timestamp}
       foo_authorization:
         fields:
