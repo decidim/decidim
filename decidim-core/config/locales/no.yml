@@ -241,6 +241,15 @@
           cancel: Avbryt
         unauthorized:
           ok: Ok
+    core:
+      actions:
+        login_before_access: Vennligst logg inn med kontoen din før tilgang
+        unauthorized: Du er ikke autorisert til å utføre denne handlingen
+    data_portability:
+      export:
+        ready: Klar
+      show:
+        download_data: Last ned informasjonen
     menu:
       help: Hjelp
     pages:
