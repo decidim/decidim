@@ -93,5 +93,11 @@ describe "Admin manages assemblies", type: :system do
 
     it_behaves_like "manage assemblies"
     it_behaves_like "creating an assembly"
+
+    context "when paginating" do
+      let!(:collection) { create_list(:assembly, 50, organization: organization) }
+
+      it_behaves_like "a paginated collection"
+    end
   end
 end

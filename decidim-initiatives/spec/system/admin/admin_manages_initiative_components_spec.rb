@@ -216,4 +216,10 @@ describe "Admin manages initiative components", type: :system do
       end
     end
   end
+
+  context "when paginating" do
+    let!(:collection) { create_list(:initiative, 50, organization: organization) }
+
+    it_behaves_like "a paginated collection"
+  end
 end
