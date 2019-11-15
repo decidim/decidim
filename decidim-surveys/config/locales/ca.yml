@@ -22,6 +22,7 @@ ca:
             announcement: Avís
           step:
             allow_answers: Permetre respostes
+            allow_unregistered: Permet a usuaris no registrats contestar l'enquesta
             announcement: Avís
     events:
       surveys:
