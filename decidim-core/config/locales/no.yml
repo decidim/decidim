@@ -260,6 +260,8 @@
           email_already_exists: En annen bruker er registrert under samme mailadresse
         new:
           complete_profile: Fullfør profilen
+          nickname_help: Aliaset ditt i %{organization}
+          sign_up: Vennligs fullfør profilen din
     menu:
       help: Hjelp
     pages:
