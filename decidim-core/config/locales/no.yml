@@ -278,6 +278,9 @@
         actions:
           bar: Felt
           foo: Foo
+        settings:
+          global:
+            comments_enabled: Kommentarer aktivert
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -313,6 +316,21 @@
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
           username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+    doorkeeper:
+      authorizations:
+        new:
+          see_name: Se navnet ditt
+          see_username: Se kallenavnet ditt
+          this_application_will_be_able_to: 'Dette programmet vil kunne:'
+          this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
+          update_profile: Oppdater profilen din
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    errors:
+      internal_server_error:
+        title: Det oppsto et problem med våre servere
+        try_later: Vennligst prøv igjen senere.
+      not_found:
+        content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
     menu:
       help: Hjelp
     pages:
