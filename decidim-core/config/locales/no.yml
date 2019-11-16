@@ -256,6 +256,9 @@
           authorize: Autoriser med "%{authorization}"
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
           title: Autorisering påkrevet
+        pending:
+          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
+          title: Autoriseringen pågår fremdeles
         unauthorized:
           ok: Ok
     collapsible_list:
