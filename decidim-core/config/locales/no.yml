@@ -258,8 +258,11 @@
           title: Autorisering påkrevet
         pending:
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
+          resume: Sjekk "%{authorization}" autoriseringen din
           title: Autoriseringen pågår fremdeles
         unauthorized:
+          explanation: Beklager, du kan ikke utføre denne handlingen fordi autoriserings informasjonen din er inkorrekt.
+          invalid_field: "%{field} verdi %{value} er ikke gyldig."
           ok: Ok
     collapsible_list:
       see_less: "(Se mindre)"
