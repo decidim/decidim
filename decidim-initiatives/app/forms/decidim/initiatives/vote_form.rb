@@ -145,7 +145,7 @@ module Decidim
       def document_number_authorized?
         return if initiative.document_number_authorization_handler.blank?
 
-        errors.add(:document_number, :invalid) unless authorized?
+        errors.add(:document_number, :invalid) unless authorized? && authorization_handler && authorization.unique_id == authorization_handler.unique_id
       end
 
       # Private: Checks if there's any existing vote that matches the user's data.
@@ -164,13 +164,13 @@ module Decidim
       # Private: Finds an authorization for the user signing the initiative and
       # the configured handler.
       def authorization
-        return unless signer && authorization_handler
+        return unless signer && handler_name
 
         @authorization ||= Verifications::Authorizations.new(
           organization: signer.organization,
           user: signer,
           name: handler_name
-        ).query.find_by(unique_id: authorization_handler.unique_id)
+        ).first
       end
 
       # Private: Checks if the authorization hasn't expired or is invalid.

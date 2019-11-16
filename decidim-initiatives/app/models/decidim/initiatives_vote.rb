@@ -35,9 +35,9 @@ module Decidim
     scope :votes, -> { where(decidim_user_group_id: nil) }
     scope :for_scope, ->(scope) { where(scope: scope) }
 
-    # PUBLIC
+    # Public: Generates a hashed representation of the initiative support.
     #
-    # Generates a hashed representation of the initiative support.
+    # Used when exporting the votes as CSV.
     def sha1
       return unless decidim_user_group_id.nil?
 
@@ -61,13 +61,13 @@ module Decidim
       initiative.initiative_votes_count = Decidim::InitiativesVote
                                           .votes
                                           .where(initiative: initiative)
-                                          .for_scope(nil)
+                                          .for_scope(scope)
                                           .count
 
       initiative.initiative_supports_count = Decidim::InitiativesVote
                                              .supports
                                              .where(initiative: initiative)
-                                             .for_scope(nil)
+                                             .for_scope(scope)
                                              .count
 
       initiative.save
