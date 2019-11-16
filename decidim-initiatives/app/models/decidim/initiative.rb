@@ -129,7 +129,6 @@ module Decidim
     # RETURNS string
     delegate :banner_image, to: :type
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
-    delegate :supports_required, to: :scoped_type
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # PUBLIC
@@ -255,9 +254,11 @@ module Decidim
     end
 
     def supports_count
-      face_to_face_votes = offline_votes.nil? || online_signature_type? ? 0 : offline_votes
-      digital_votes = offline_signature_type? ? 0 : (initiative_votes_count + initiative_supports_count)
-      digital_votes + face_to_face_votes
+      @supports_count ||= online_votes_count + offline_votes_count
+    end
+
+    def supports_required
+      @supports_required ||= votable_initiative_type_scopes.sum(&:supports_required)
     end
 
     # Public: Returns the percentage of required supports reached
@@ -270,6 +271,36 @@ module Decidim
     # Public: Whether the supports required objective has been reached
     def supports_goal_reached?
       supports_count >= supports_required
+    end
+
+    def online_votes_count
+      return 0 unless accepts_online_votes?
+
+      all_scopes_votes = (votes_count.dig("votes") || {}).values.map(&:to_i).sum
+      all_scopes_supports = (votes_count.dig("supports") || {}).values.map(&:to_i).sum
+
+      all_scopes_votes + all_scopes_supports
+    end
+
+    def offline_votes_count
+      return 0 unless accepts_offline_votes?
+
+      offline_votes.to_i
+    end
+
+    def supports_count_for(scope)
+      votes = votes_count.dig("votes", (scope&.id || "global").to_s).to_i
+      supports = votes_count.dig("supports", (scope&.id || "global").to_s).to_i
+
+      votes + supports
+    end
+
+    def votable_initiative_type_scopes
+      return Array(scoped_type) unless type.child_scope_threshold_enabled?
+
+      initiative_type_scopes.select do |initiative_type_scope|
+        initiative_type_scope.scope.present? && (scoped_type.global_scope? || scoped_type.scope.ancestor_of?(initiative_type_scope.scope))
+      end.prepend(scoped_type).uniq
     end
 
     # Public: Overrides slug attribute from participatory processes.
@@ -354,33 +385,11 @@ module Decidim
       end.prepend(scoped_type).uniq
     end
 
+    private
+
     def initiative_type_scopes
       type.scopes
     end
-
-    def available_child_scopes
-      return [] unless type.child_scope_threshold_enabled?
-
-      (votable_initiative_type_scopes - [scoped_type])
-    end
-
-    def supports_count_for(scope)
-      votes = Decidim::InitiativesVote
-              .votes
-              .where(initiative: self)
-              .for_scope(scope)
-              .count
-
-      supports = Decidim::InitiativesVote
-                 .supports
-                 .where(initiative: self)
-                 .for_scope(scope)
-                 .count
-
-      votes + supports
-    end
-
-    private
 
     def signature_type_allowed
       return if published?
