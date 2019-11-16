@@ -226,6 +226,9 @@
           document_number: Dokumentnummer
           postal_code: Postnummer
         name: Eksempel autorisering
+      errors:
+        duplicate_authorization: En deltaker har allerede autorisert med den samme informasjonen.
+      expired_at: Utgått på %{timestamp}
       expires_at: Går ut %{timestamp}
       foo_authorization:
         fields:
@@ -245,8 +248,24 @@
           title: Autorisasjon har utgått
         incomplete:
           cancel: Avbryt
+          explanation: 'Selv om du er autorisert med "%{authorization}", trenger du å gjen autorisere fordi vi mangler følgene data:'
+          invalid_field: "%{field}"
+          reauthorize: Gjenautoriser
+          title: Vennligst gjenautoriser
+        missing:
+          authorize: Autoriser med "%{authorization}"
+          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
+          title: Autorisering påkrevet
         unauthorized:
           ok: Ok
+    collapsible_list:
+      see_less: "(Se mindre)"
+      see_more: "(se mer)"
+    components:
+      dummy:
+        actions:
+          bar: Felt
+          foo: Foo
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
