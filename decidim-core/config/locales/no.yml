@@ -168,6 +168,7 @@
           promoted: Promotert til en %{amendable_type}.
           rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
       new:
+        amendment_author: Endrings forfatter
         send: Opprett
         title: Opprett endrings utkast
       preview_draft:
@@ -193,6 +194,7 @@
         success: Endrings utkastet var suksessfullt oppdatert.
       visibility_options:
         all: Endringer synlig for alle
+        participants: Endringen er bare synlig for forfatteren
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
         success: Endringen har blitt suksessfullt tilbaketrukket
@@ -214,12 +216,16 @@
         related_photos: Relaterte bilder
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
         fields:
           passport_number: Pass nummer
+        name: Et annet eksempel autorisering
       dummy_authorization_handler:
+        explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
         fields:
           document_number: Dokumentnummer
           postal_code: Postnummer
+        name: Eksempel autorisering
       expires_at: Går ut %{timestamp}
       foo_authorization:
         fields:
