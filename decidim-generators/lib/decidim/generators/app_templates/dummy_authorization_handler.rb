@@ -23,9 +23,11 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # Define the attributes you need for this authorization handler. Attributes
   # are defined using Virtus.
   #
+  attribute :name_and_surname, String
   attribute :document_number, String
   attribute :postal_code, String
-  attribute :birthday, Decidim::Attributes::LocalizedDate
+  attribute :date_of_birth, Decidim::Attributes::LocalizedDate
+  attribute :scope_id, Integer
 
   # You can (and should) also define validations on each attribute:
   #
@@ -60,7 +62,11 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   #
   def metadata
-    super.merge(document_number: document_number, postal_code: postal_code)
+    super.merge(document_number: document_number, postal_code: postal_code, scope_id: scope_id)
+  end
+
+  def scope
+    @scope ||= Decidim::Scope.find(scope_id) if scope_id.present?
   end
 
   private
