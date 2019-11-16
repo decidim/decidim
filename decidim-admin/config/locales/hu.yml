@@ -302,7 +302,7 @@ hu:
           error: Hiba történt a jelenlegi részvételi menedzsment munkamenet bezárása során.
           success: A megszemélyesítő munkamenet sikeresen lezárult.
         create:
-          error: Hiba történt a felhasználó felhatalmazása során.
+          error: Hiba történt a felhasználó kezelésekor.
           success: A felhasználó sikeresen létrehozva.
         form:
           authorization_method: Hitelesítési módszer
@@ -344,7 +344,7 @@ hu:
         settings: Beállítások
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
-        users: Felhasználók
+        users: Résztvevők
       models:
         area:
           fields:
@@ -372,7 +372,7 @@ hu:
             expired_at: 'Lejár:'
             reason: Indok
             started_at: 'Kezdődik:'
-            user: Felhasználó
+            user: Résztvevő
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -410,7 +410,7 @@ hu:
             roles:
               admin: Admin
               user_manager: Felhasználói menedzser
-          name: Felhasználó
+          name: Résztvevő
         user_group:
           fields:
             actions: Műveletek
@@ -419,7 +419,7 @@ hu:
             name: Név
             phone: Telefon
             state: Állapot
-            users_count: Felhasználók száma
+            users_count: Résztvevők száma
       moderations:
         index:
           title: Moderálás
