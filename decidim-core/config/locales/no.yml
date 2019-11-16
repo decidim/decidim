@@ -264,7 +264,13 @@
           explanation: Beklager, du kan ikke utføre denne handlingen fordi autoriserings informasjonen din er inkorrekt.
           invalid_field: "%{field} verdi %{value} er ikke gyldig."
           ok: Ok
+          title: Ikke autorisert
+        unconfirmed:
+          title: Bekreft e-posten din
     collapsible_list:
+      hidden_elements_count:
+        one: å %{count} mer
+        other: å %{count} mere
       see_less: "(Se mindre)"
       see_more: "(se mer)"
     components:
