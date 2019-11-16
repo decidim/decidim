@@ -331,6 +331,12 @@
         try_later: Vennligst prøv igjen senere.
       not_found:
         content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
+        title: Siden du ser etter kan ikke bli funnet
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
     menu:
       help: Hjelp
     pages:
