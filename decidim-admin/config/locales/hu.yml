@@ -710,18 +710,18 @@ hu:
           upload: Feltöltés
       users:
         create:
-          error: Hiba történt a felhasználó meghívása során.
-          success: Felhasználó meghívása sikeres.
+          error: Hiba történt a felhasználó adminnak történő meghívása során.
+          success: Résztvevő meghívása sikeres.
         destroy:
-          error: Hiba történt a felhasználó törlése során.
-          success: A felhasználó már nem rendszergazda.
+          error: Hiba történt az admin törlése során.
+          success: A résztvevő már nem adminisztrátor.
         form:
           email: Email
           name: Név
           role: Szerep
         new:
           create: Meghívás
-          title: Felhasználó meghívása rendszergazdaként
+          title: A résztvevő meghívása rendszergazdaként
       view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
@@ -766,4 +766,4 @@ hu:
         settings:
           title: Beállítások
         users:
-          title: Felhasználók
+          title: résztvevők
