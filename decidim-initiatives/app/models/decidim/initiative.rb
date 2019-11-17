@@ -94,7 +94,7 @@ module Decidim
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
-    scope :order_by_supports, -> { order(Arel.sql("initiative_votes_count + coalesce(offline_votes, 0) desc")) }
+    scope :order_by_supports, -> { order("((votes_count->'from_users'->>'total')::int + coalesce(offline_votes,0)) DESC") }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
         .left_joins(:comments)
@@ -233,7 +233,6 @@ module Decidim
       )
     end
 
-    #
     # Public: Unpublishes this initiative
     #
     # Returns true if the record was properly saved, false otherwise.
@@ -250,13 +249,20 @@ module Decidim
 
     # Public: Returns the hashtag for the initiative.
     def hashtag
-      attributes["hashtag"].to_s.delete("#")
+      @hashtag ||= attributes["hashtag"].to_s.delete("#")
     end
 
+    # Public: Calculates the number of current supports.
+    #
+    # Returns an Integer.
     def supports_count
       @supports_count ||= online_votes_count + offline_votes_count
     end
 
+    # Public: Calculates the number of supports required to accept the initiative
+    # across all votable scopes.
+    #
+    # Returns an Integer.
     def supports_required
       @supports_required ||= votable_initiative_type_scopes.sum(&:supports_required)
     end
@@ -273,28 +279,59 @@ module Decidim
       supports_count >= supports_required
     end
 
+    # Public: Calculates all the votes across all the scopes.
+    #
+    # Returns an Integer.
     def online_votes_count
       return 0 unless accepts_online_votes?
 
-      all_scopes_votes = (votes_count.dig("votes") || {}).values.map(&:to_i).sum
-      all_scopes_supports = (votes_count.dig("supports") || {}).values.map(&:to_i).sum
-
-      all_scopes_votes + all_scopes_supports
+      votes_count["total"]
     end
 
+    # TODO: Allow setting offline votes per scope.
     def offline_votes_count
       return 0 unless accepts_offline_votes?
 
       offline_votes.to_i
     end
 
-    def supports_count_for(scope)
-      votes = votes_count.dig("votes", (scope&.id || "global").to_s).to_i
-      supports = votes_count.dig("supports", (scope&.id || "global").to_s).to_i
+    def online_votes_count_for(scope)
+      scope_key = (scope&.id || "global").to_s
 
-      votes + supports
+      user_votes_count.dig(scope_key).to_i + user_groups_votes_count.dig(scope_key).to_i
     end
 
+    def user_votes_count
+      votes_count.dig("from_users") || {}
+    end
+
+    def user_groups_votes_count
+      votes_count.dig("from_user_groups") || {}
+    end
+
+    def update_online_votes_counters
+      # rubocop:disable Rails/SkipsModelValidations
+      from_users = count_votes_for(votes.from_users)
+      from_user_groups = count_votes_for(votes.from_user_groups)
+      total = from_users["total"].to_i + from_user_groups["total"].to_i
+      update_column("votes_count", "from_users" => from_users, "from_user_groups" => from_user_groups, "total" => total)
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    def count_votes_for(relation)
+      relation.group(:scope).count.each_with_object({}) do |(scope, count), counters|
+        counters[scope&.id || "global"] = count
+        counters["total"] ||= 0
+        counters["total"] += count
+      end
+    end
+
+    # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.
+    # Usually this is only the `scoped_type` but voting on children of the scoped type is
+    # enabled we have to filter all the available scopes in the initiative type to select
+    # the ones that are a descendant of the initiative type.
+    #
+    # Returns an Array of Decidim::InitiativesScopeType.
     def votable_initiative_type_scopes
       return Array(scoped_type) unless type.child_scope_threshold_enabled?
 
@@ -323,12 +360,10 @@ module Decidim
       true
     end
 
-    # PUBLIC
-    #
-    # Checks if user is the author or is part of the promotal committee
+    # Public:  Checks if user is the author or is part of the promotal committee
     # of the initiative.
     #
-    # RETURNS boolean
+    # Returns a Boolean.
     def has_authorship?(user)
       return true if author.id == user.id
 
@@ -387,10 +422,18 @@ module Decidim
 
     private
 
+    # Private: This is just an alias because the naming on InitiativeTypeScope
+    # is very confusing. The `scopes` method doesn't return Decidim::Scope but
+    # Decidim::InitiativeTypeScopes.
+    #
+    # ¯\_(ツ)_/¯
+    #
+    # Returns an Array of Decidim::InitiativesScopeType.
     def initiative_type_scopes
       type.scopes
     end
 
+    # Private: A validator that verifies the signaature type is allowed by the InitiativeType.
     def signature_type_allowed
       return if published?
 

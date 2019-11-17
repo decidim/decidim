@@ -31,8 +31,8 @@ module Decidim
 
     after_commit :update_counter_cache, on: [:create, :destroy]
 
-    scope :supports, -> { where.not(decidim_user_group_id: nil) }
-    scope :votes, -> { where(decidim_user_group_id: nil) }
+    scope :from_user_groups, -> { where.not(decidim_user_group_id: nil) }
+    scope :from_users, -> { where(decidim_user_group_id: nil) }
     scope :for_scope, ->(scope) { where(scope: scope) }
 
     # Public: Generates a hashed representation of the initiative support.
@@ -58,19 +58,7 @@ module Decidim
     end
 
     def update_counter_cache
-      initiative.initiative_votes_count = Decidim::InitiativesVote
-                                          .votes
-                                          .where(initiative: initiative)
-                                          .for_scope(scope)
-                                          .count
-
-      initiative.initiative_supports_count = Decidim::InitiativesVote
-                                             .supports
-                                             .where(initiative: initiative)
-                                             .for_scope(scope)
-                                             .count
-
-      initiative.save
+      initiative.update_online_votes_counters
     end
   end
 end
