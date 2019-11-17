@@ -4,6 +4,10 @@
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        end_date: Sluttdato
+        progress: Framgang
         title: Tittel
       status:
         name: Navn
