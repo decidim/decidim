@@ -40,10 +40,12 @@ module Decidim
 
       # GET /initiatives/:id/signature_identities
       def signature_identities
-        @voted_groups = InitiativesVote
-                        .supports
-                        .where(initiative: current_initiative, author: current_user)
+        @voted_groups = current_initiative
+                        .votes
+                        .from_user_groups
+                        .where(author: current_user)
                         .pluck(:decidim_user_group_id)
+
         render layout: false
       end
 

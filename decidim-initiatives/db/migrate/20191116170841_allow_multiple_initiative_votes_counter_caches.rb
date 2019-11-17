@@ -14,19 +14,7 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
 
     Initiative.reset_column_information
 
-    Initiative.find_each do |initiative|
-      Decidim::InitiativesVote.votes.where(initiative: initiative).group(:scope).count.each do |scope, count|
-        initiative.votes_count["votes"] ||= {}
-        initiative.votes_count["votes"][scope&.id || "global"] = count
-      end
-
-      Decidim::InitiativesVote.supports.where(initiative: initiative).group(:scope).count.each do |scope, count|
-        initiative.votes_count["supports"] ||= {}
-        initiative.votes_count["supports"][scope&.id || "global"] = count
-      end
-
-      initiative.save!
-    end
+    Initiative.find_each(&:update_online_votes_counters)
 
     remove_column :decidim_initiatives, :initiative_supports_count
     remove_column :decidim_initiatives, :initiative_votes_count
