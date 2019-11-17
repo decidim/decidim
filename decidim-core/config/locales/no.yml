@@ -118,6 +118,13 @@
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
         create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
+      scope:
+        create: "%{user_name} lagde %{resource_name} omfanget"
+        create_with_parent: "%{user_name} lagde %{resource_name} omfanget inni %{parent_scope} omfanget"
+        delete: "%{user_name} slettet %{resource_name} omfanget"
+        delete_with_parent: "%{user_name} slettet %{resource_name} omfanget inni %{parent_scope} omfanget"
+        update: "%{user_name} oppdaterte %{resource_name} omfanget"
+        update_with_parent: "%{user_name} oppdaterte %{resource_name} omfanget inni %{parent_scope} omfanget"
       static_page:
         create: "%{user_name} lagde %{resource_name} statisk side"
         delete: "%{user_name} slettet %{resource_name} statisk side"
@@ -165,6 +172,8 @@
           button_reject: Avvis
           help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
         announcement:
+          accepted: |-
+            Denne endringen for %{amendable_type}%{proposal_link} var akseptert på <strong>%{date}</strong>.
           promoted: Promotert til en %{amendable_type}.
           rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
       new:
