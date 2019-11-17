@@ -305,6 +305,7 @@
             dummy_global_attribute_2: Dummy Egenskap 2
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
+            resources_permissions_enabled: Ressurs tillatelser aktivert
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
