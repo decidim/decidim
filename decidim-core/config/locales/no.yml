@@ -44,8 +44,8 @@
         remember_me: Husk meg
     models:
       decidim/amendment:
-        one: Formell endring
-        other: Formelle endringer
+        one: Endring
+        other: Endringer
       decidim/user:
         one: Deltaker
         other: Deltakere
@@ -89,7 +89,7 @@
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din var suksessfullt oppdatert.
-        success_with_email_confirmation: Kontoen din var suksessfullt opdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen.
+        success_with_email_confirmation: Kontoen din var suksessfullt oppdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen din.
     admin_log:
       area:
         create: "%{user_name} lagde %{resource_name} området"
@@ -150,13 +150,13 @@
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
         promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
-        section_heading: Formelle endringer (%{count})
+        section_heading: Endringer (%{count})
       compare_draft:
         continue: Fortsett
         no_similars_found: Ingen like emendasjoner funnet.
         title: Lignende Emendasjoner
       created:
-        error: En feil skjedde under konstruksjonen av en formell endring.
+        error: En feil skjedde under konstruksjonen av en endring.
         success: Endrings utkastet har blitt suksessfullt opprettet.
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
@@ -281,7 +281,9 @@
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
-          confirmation_instructions: 'Hvis du ikke har fått bekreftelses instruksjonene kan du be om de igjen:'
+          confirmation_instructions: 'Hvis du ikke har fått bekreftelse instruksjonene kan du be om de igjen:'
+          explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte mailadressen din <strong>%{email}</strong>.
+          request_confirmation_instructions: Be om bekreftelse instruksjoner
           title: Bekreft e-posten din
     collapsible_list:
       hidden_elements_count:
@@ -294,8 +296,10 @@
         actions:
           bar: Felt
           foo: Foo
+        name: Dummy komponent
         settings:
           global:
+            amendments_enabled: Endringer aktivert
             comments_enabled: Kommentarer aktivert
     core:
       actions:
