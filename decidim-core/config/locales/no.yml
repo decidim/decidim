@@ -26,7 +26,7 @@
       decidim/attachment_created_event: Vedlegg
       decidim/component_published_event: Aktiv komponent
       decidim/demoted_membership: Ikke lenger en admin for gruppen
-      decidim/gamification/badge_earned_event: Merke oppnåd
+      decidim/gamification/badge_earned_event: Merke oppnådd
       decidim/gamification/level_up_event: Du gikk opp i nivå
       decidim/join_request_accepted_event: Bli med forespørsel godtatt
       decidim/join_request_rejected_event: Bli med forespørsel avslått
@@ -316,6 +316,17 @@
             dummy_step_attribute_2: Dummy Steg Egenskap 2
             dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
     contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      how_to_participate:
+        name: Hvordan delta
+      html:
+        html_content: HTML-innhold
+      last_activity:
+        name: Siste aktivitet
+        title: Siste aktivitet
+        view_all: Vis alle
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -351,6 +362,9 @@
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
           username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+      sessions:
+        new:
+          register: Opprett en konto
     doorkeeper:
       authorizations:
         new:
