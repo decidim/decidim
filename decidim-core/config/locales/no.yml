@@ -156,7 +156,7 @@
         no_similars_found: Ingen like emendasjoner funnet.
         title: Lignende Emendasjoner
       created:
-        error: En feil skjedde under konstruksjonen av en endring.
+        error: En feil oppstod mens du lagde endrings utkast.
         success: Endrings utkastet har blitt suksessfullt opprettet.
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
@@ -189,7 +189,7 @@
         publish: Publiser
         title: Publiser endrings utkast
       promoted:
-        error: Det oppsto et problem under publiseringen av endringsutkastet som et nytt forslag
+        error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
         success: Endringen var suksessfullt publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
@@ -301,6 +301,10 @@
           global:
             amendments_enabled: Endringer aktivert
             comments_enabled: Kommentarer aktivert
+            dummy_global_attribute_1: Dummy Egenskap 1
+            dummy_global_attribute_2: Dummy Egenskap 2
+            dummy_global_translatable_text: Dummy Oversettbar tekst
+            enable_pads_creation: Aktiver oppretting av pads
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
