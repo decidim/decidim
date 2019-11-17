@@ -174,8 +174,12 @@
         announcement:
           accepted: |-
             Denne endringen for %{amendable_type}%{proposal_link} var akseptert på <strong>%{date}</strong>.
+          evaluating: |-
+            Denne endrignen for %{amendable_type} %{proposal_link} holder på å bli evaluert.
           promoted: Promotert til en %{amendable_type}.
           rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
+          withdrawn: |-
+            Denne endrignen for %{amendable_type} %{proposal_link} har blitt trukket av forfatteren.
       new:
         amendment_author: Endrings forfatter
         send: Opprett
@@ -235,6 +239,8 @@
           document_number: Dokumentnummer
           postal_code: Postnummer
         name: Eksempel autorisering
+      dummy_authorization_workflow:
+        name: Dummy autoriserings arbeidskraft
       errors:
         duplicate_authorization: En deltaker har allerede autorisert med den samme informasjonen.
       expired_at: Utgått på %{timestamp}
@@ -275,6 +281,7 @@
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
+          confirmation_instructions: 'Hvis du ikke har fått bekreftelses instruksjonene kan du be om de igjen:'
           title: Bekreft e-posten din
     collapsible_list:
       hidden_elements_count:
