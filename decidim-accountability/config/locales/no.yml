@@ -8,9 +8,21 @@
         description: Beskrivelse
         end_date: Sluttdato
         progress: Framgang
+        project_ids: Inkluderte prosjekter
+        proposals: Inkluderte forslag
+        start_date: Startdato
         title: Tittel
+        updated_at: Oppdatert
       status:
+        description: Beskrivelse
+        key: Nøkkel
         name: Navn
+        progress: Framgang
+      timeline_entry:
+        description: Beskrivelse
+        entry_date: Dato
+    models:
+      decidim/accountability/proposal_linked_event: Forslag inkludert i et resultat
   decidim:
     accountability:
       actions:
