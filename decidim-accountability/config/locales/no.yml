@@ -49,6 +49,24 @@
             name: Status
           timeline_entry:
             name: Tidslinje oppføring
+        results:
+          create:
+            invalid: Det oppsto et problem med å opprette dette resultatet
+            success: Resultat var vellykket opprettet
+          destroy:
+            success: Resultat var vellykket slettet
+          edit:
+            title: Endre resultatet
+            update: Oppdater resultatet
+          form:
+            add_proposal: Legg til et forslag
+          index:
+            title: Resultater
+          new:
+            create: Opprett resultat
+            title: Nytt resultat
+          proposals:
+            close: Lukk
       models:
         result:
           fields:
