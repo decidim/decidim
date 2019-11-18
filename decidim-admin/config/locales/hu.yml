@@ -529,7 +529,7 @@ hu:
         new:
           badge: Hivatalos jelölés
           officialize: Hivatalossá tétel
-          title: '"%{name}" hivatalosság tétele'
+          title: '"%{name}" hivatalossá tétele'
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -576,7 +576,7 @@ hu:
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
-          title: Új privát felhasználó a részvételi térben.
+          title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Hiba történt a CSV fájl olvasásakor.
