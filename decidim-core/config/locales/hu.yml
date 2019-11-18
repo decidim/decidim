@@ -869,7 +869,7 @@ hu:
           register: Regisztráció
         hero:
           participate: Részvétel
-          welcome: Üdvözöli a %{organization}!
+          welcome: Üdvözöl a(z) %{organization}!
         metrics:
           headline: Részvétel számokban
         statistics:
