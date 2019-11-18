@@ -646,7 +646,7 @@ hu:
         destroy:
           success: Oldal törlése sikeres
         edit:
-          changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új feltételekről.
+          changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új felhasználási feltételekről.
           title: Oldal szerkesztése
           update: Frissítés
         form:
@@ -671,14 +671,14 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
-        impersonatable_users: Kezelhető felhasználók
-        impersonations: Felhasználók kezelése
-        participants: felhasználók
+        impersonatable_users: Kezelhető résztvevők
+        impersonations: Résztvevők kezelése
+        participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
-        user_groups: Felhasználói csoportok
-        users: Felhasználók
+        user_groups: Csoportok
+        users: Résztvevők
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -688,7 +688,7 @@ hu:
           success: Felhasználói csoport elutasítva
         verify:
           invalid: Hiba történt a felhasználói csoport ellenőrzésekor.
-          success: Felhasználói csoport elfogadva
+          success: A csoport sikeresen ellenőrzött
       user_groups:
         index:
           filter:
