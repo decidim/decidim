@@ -67,6 +67,17 @@
             title: Nytt resultat
           proposals:
             close: Lukk
+            current_selection: Gjeldende utvalg
+            select: Velg
+          update:
+            invalid: Det oppsto et problem med å oppdatere dette resultatet
+            success: Resultat var vellykket oppdatert
+        shared:
+          subnav:
+            statuses: Statuser
+        statuses:
+          create:
+            invalid: Det oppsto et problem med å opprette dette statusen
       models:
         result:
           fields:
