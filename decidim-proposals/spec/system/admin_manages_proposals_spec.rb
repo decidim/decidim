@@ -25,7 +25,7 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "split proposals"
 
   context "when paginating" do
-    let!(:collection) { create_list(:proposal, 50, organization: organization) }
+    let!(:collection) { create_list(:proposal, 50, component: current_component) }
 
     it_behaves_like "a paginated collection"
   end
