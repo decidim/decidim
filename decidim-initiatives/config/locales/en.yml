@@ -177,8 +177,6 @@ en:
             success: The initiative has been sent to technical validation
             update: Update
           form:
-            authorizations: Authorization settings
-            options: Options
             title: General information
           index:
             actions_title: Action
