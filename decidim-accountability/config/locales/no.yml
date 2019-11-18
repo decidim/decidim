@@ -23,14 +23,32 @@
         entry_date: Dato
     models:
       decidim/accountability/proposal_linked_event: Forslag inkludert i et resultat
+      decidim/accountability/result_progress_updated_event: Resultat fremgang oppdatert
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultater
   decidim:
     accountability:
       actions:
+        confirm_destroy: Er du sikker på at du vil slette dette %{name}?
+        destroy: Slett
         edit: Editar
+        new: Nytt %{name}
+        preview: Forhåndsvisning
+        timeline_entries: Prosjektutvikling
+        title: Handlinger
       admin:
+        exports:
+          results: Resultater
         models:
+          result:
+            name: Resultat
           status:
             name: Status
+          timeline_entry:
+            name: Tidslinje oppføring
       models:
         result:
           fields:
