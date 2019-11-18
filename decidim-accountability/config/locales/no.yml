@@ -78,7 +78,9 @@
         statuses:
           create:
             invalid: Det oppsto et problem med å opprette dette statusen
-            success: Status vellykket opprettet
+            success: Statusen var vellykket opprettet
+          destroy:
+            success: Statusen var vellykket slettet
       models:
         result:
           fields:
