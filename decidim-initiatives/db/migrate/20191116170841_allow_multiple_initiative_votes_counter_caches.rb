@@ -10,7 +10,7 @@ class AllowMultipleInitiativeVotesCounterCaches < ActiveRecord::Migration[5.2]
   end
 
   def change
-    add_column :decidim_initiatives, :votes_count, :jsonb, default: {}
+    add_column :decidim_initiatives, :online_votes, :jsonb, default: {}
 
     Initiative.reset_column_information
 

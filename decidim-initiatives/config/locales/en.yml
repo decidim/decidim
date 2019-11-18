@@ -6,6 +6,7 @@ en:
         decidim_user_group_id: Author
         description: Description
         offline_votes: In-person signatures
+        offline_votes_for_scope: In-person signatures for %{scope}
         scope_id: Scope
         signature_end_date: End of signature collection period
         signature_start_date: Start of signature collection period

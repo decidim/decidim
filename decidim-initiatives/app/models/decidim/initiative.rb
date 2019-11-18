@@ -94,7 +94,7 @@ module Decidim
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
-    scope :order_by_supports, -> { order("((votes_count->'from_users'->>'total')::int + coalesce(offline_votes,0)) DESC") }
+    scope :order_by_supports, -> { order("((online_votes->'from_users'->>'total')::int + (offline_votes->>'total')::int) DESC") }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
         .left_joins(:comments)
@@ -285,14 +285,13 @@ module Decidim
     def online_votes_count
       return 0 unless accepts_online_votes?
 
-      votes_count["total"]
+      online_votes["total"].to_i
     end
 
-    # TODO: Allow setting offline votes per scope.
     def offline_votes_count
       return 0 unless accepts_offline_votes?
 
-      offline_votes.to_i
+      offline_votes["total"].to_i
     end
 
     def online_votes_count_for(scope)
@@ -302,11 +301,11 @@ module Decidim
     end
 
     def user_votes_count
-      votes_count.dig("from_users") || {}
+      online_votes.dig("from_users") || {}
     end
 
     def user_groups_votes_count
-      votes_count.dig("from_user_groups") || {}
+      online_votes.dig("from_user_groups") || {}
     end
 
     def update_online_votes_counters
@@ -314,7 +313,7 @@ module Decidim
       from_users = count_votes_for(votes.from_users)
       from_user_groups = count_votes_for(votes.from_user_groups)
       total = from_users["total"].to_i + from_user_groups["total"].to_i
-      update_column("votes_count", "from_users" => from_users, "from_user_groups" => from_user_groups, "total" => total)
+      update_column("online_votes", "from_users" => from_users, "from_user_groups" => from_user_groups, "total" => total)
       # rubocop:enable Rails/SkipsModelValidations
     end
 
