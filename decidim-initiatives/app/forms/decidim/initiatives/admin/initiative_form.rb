@@ -30,7 +30,7 @@ module Decidim
         }
 
         # TODO: Update this
-        #validates :offline_votes, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
+        # validates :offline_votes, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
 
         def map_model(model)
           self.type_id = model.type.id

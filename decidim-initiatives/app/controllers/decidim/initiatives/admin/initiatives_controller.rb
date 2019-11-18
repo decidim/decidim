@@ -50,7 +50,6 @@ module Decidim
         # PUT /admin/initiatives/:id
         def update
           enforce_permission_to :update, :initiative, initiative: current_initiative
-          byebug
 
           params[:id] = params[:slug]
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
