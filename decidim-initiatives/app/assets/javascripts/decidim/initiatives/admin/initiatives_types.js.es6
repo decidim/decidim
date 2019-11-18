@@ -17,10 +17,10 @@
       $(".minimum-committee-members-details", $scope).hide();
     }
 
-    if ($signatureType.val() != "offline") {
-      $("#initiatives_type_undo_online_signatures_enabled").parent().parent().show();
-    } else {
+    if ($signatureType.val() === "offline") {
       $("#initiatives_type_undo_online_signatures_enabled").parent().parent().hide();
+    } else {
+      $("#initiatives_type_undo_online_signatures_enabled").parent().parent().show();
     }
 
     if ($collectUserDataCheckbox.is(":checked")) {
