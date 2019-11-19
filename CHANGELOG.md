@@ -7,11 +7,11 @@
 - In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that executing:
 
   ```ruby
-Decidim::Assemblies::Assembly.find_each(&:add_to_index_as_search_resource)
-Decidim::ParticipatoryProcesses::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
-Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
-Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
-Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
+Decidim::Assembly.find_each(&:add_to_index_as_search_resource)
+Decidim::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
+Decidim::Conference.find_each(&:add_to_index_as_search_resource)
+Decidim::Consultation.find_each(&:add_to_index_as_search_resource)
+Decidim::Initiative.find_each(&:add_to_index_as_search_resource)
 Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
 # results are ready to be searchable but don't have a card-m so can't be rendered
 # Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
