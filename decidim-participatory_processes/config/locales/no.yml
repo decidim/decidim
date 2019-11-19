@@ -2,4 +2,34 @@
   activemodel:
     attributes:
       participatory_process:
+        banner_image: Bannerafbeelding
         title: Tittel
+      participatory_process_group:
+        name: Navn
+      participatory_process_step:
+        title: Tittel
+      participatory_process_user_role:
+        email: Epost
+        name: Navn
+  decidim:
+    admin:
+      actions:
+        edit: Editar
+      models:
+        participatory_process:
+          fields:
+            title: Tittel
+        participatory_process_group:
+          fields:
+            name: Navn
+        participatory_process_step:
+          fields:
+            title: Tittel
+        participatory_process_user_role:
+          fields:
+            email: Epost
+            name: Navn
+    participatory_processes:
+      statistics:
+        pages_count: Sider
+        surveys_count: Undersøkelse

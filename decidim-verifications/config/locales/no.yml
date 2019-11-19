@@ -2,3 +2,4 @@
   decidim:
     authorization_handlers:
       help: Hjelp
+      name: Navn

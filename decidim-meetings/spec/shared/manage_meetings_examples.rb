@@ -15,11 +15,17 @@ shared_examples "manage meetings" do
   end
 
   describe "when rendering the text in the update page" do
-    context "when there are multiple locales" do
-      before do
-        click_link "Edit"
-      end
+    before do
+      click_link "Edit"
+    end
 
+    it "shows help text" do
+      expect(help_text_for("label[for*='meeting_address']")).to be_present
+      expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
+      expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
+    end
+
+    context "when there are multiple locales" do
       it "shows the title correctly in all available locales" do
         within "#meeting-title-tabs" do
           click_link "English"
@@ -61,10 +67,6 @@ shared_examples "manage meetings" do
       let!(:meeting) do
         create(:meeting, scope: scope, services: [], component: component,
                          title: { en: "Title" }, description: { en: "Description" })
-      end
-
-      before do
-        click_link "Edit"
       end
 
       it "shows the title correctly" do
@@ -434,5 +436,9 @@ shared_examples "manage meetings" do
         fill_in current_scope.find("[id$=title_en]", visible: true)["id"], with: service_titles[index]
       end
     end
+  end
+
+  def help_text_for(css)
+    page.find_all(css).first.sibling(".help-text")
   end
 end

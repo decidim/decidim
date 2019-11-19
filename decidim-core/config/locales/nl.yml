@@ -619,7 +619,7 @@ nl:
           badge_title: "%{name} badge"
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
-          title: badges
+          title: Badges
         invitations:
           conditions:
             - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
@@ -836,7 +836,7 @@ nl:
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         newsletters: nieuwsbrieven
-        own_activity: Mijn eigen activiteit, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
+        own_activity: Activiteiten gerelateerd aan mijn bijdragen, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
         receive_notifications_about: Ik wil meldingen ontvangen over
         send_notifications_by_email: Verstuur meldingen per e-mail
         update_notifications_settings: Wijzigingen opslaan
@@ -933,7 +933,7 @@ nl:
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
         activity: Activiteit
-        badges: badges
+        badges: Badges
         followers: Volgers
         following: Aan het volgen
         groups: groepen
@@ -943,7 +943,7 @@ nl:
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
-          title: badges
+          title: Badges
       user:
         confirmation_instructions_sent: Stuurbevestigingsinstructies verzonden
         create_user_group: Maak een groep
@@ -1269,7 +1269,7 @@ nl:
         my_interests: Mijn interesses
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
-        user_groups: groepen
+        user_groups: Gebruikersgroepen
       widget:
         see_more: Zie meer
   locale:

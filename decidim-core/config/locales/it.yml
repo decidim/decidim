@@ -1259,7 +1259,7 @@ it:
         conversations: conversazioni
         notifications: Notifiche
         profile: Il mio account
-        public_profile: Il mio profilo pubblico
+        public_profile: Il mio profilo
         sign_out: Esci
       user_profile:
         account: Account
