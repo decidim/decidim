@@ -4,3 +4,7 @@
       decidim/surveys/survey:
         one: Undersøkelse
         other: Undersøkelse
+  decidim:
+    components:
+      surveys:
+        name: Undersøkelse

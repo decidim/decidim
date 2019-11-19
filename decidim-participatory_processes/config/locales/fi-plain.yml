@@ -48,6 +48,12 @@ fi-pl:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -74,6 +80,7 @@ fi-pl:
         filter:
           all: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
+        import_process: Tuo
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -147,6 +154,14 @@ fi-pl:
         update:
           error: Tämän osallisuusprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallisuusprosessien ryhmä päivitetty onnistuneesti.
+      participatory_process_imports:
+        create:
+          error: Virhe tuotaessa tätä osallisuusprosessia.
+          success: Osallisuusprosessi tuotu onnistuneesti.
+        new:
+          import: Tuo
+          select: Valitse, mitkä tiedot haluat tuoda
+          title: Tuo osallisuusprosessi
       participatory_process_publications:
         create:
           error: Tämän osallisuusprosessin julkaisussa tapahtui virhe.
@@ -291,6 +306,10 @@ fi-pl:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Lisää asiakirja
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'

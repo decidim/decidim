@@ -33,6 +33,7 @@ nl:
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
+        promoting_committee_enabled: Bevorderende commissie
         title: Titel
         undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
         validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces

@@ -3,3 +3,23 @@
     attributes:
       result:
         decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        title: Tittel
+      status:
+        name: Navn
+  decidim:
+    accountability:
+      actions:
+        edit: Editar
+      admin:
+        models:
+          status:
+            name: Status
+      models:
+        result:
+          fields:
+            status: Status
+            title: Tittel
+        status:
+          fields:
+            name: Navn

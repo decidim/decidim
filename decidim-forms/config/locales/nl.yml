@@ -82,6 +82,7 @@ nl:
       user_answers_serializer:
         created_at: Beantwoord
         id: Antwoord ID
+        ip_hash: Ip Hash
         registered: Geregistreerd
         unregistered: Niet-geregistreerd
         user_status: Gebruiker-status
