@@ -65,8 +65,13 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     super.merge(document_number: document_number, postal_code: postal_code, scope_id: scope_id)
   end
 
+  # Useful when you want to link an authorization to a scope in order to check
+  # the permissions later.
+  #
+  # It is recommended to link the authorization to the lowest level of your
+  # scope hierarchy, so permission can bubble up.
   def scope
-    @scope ||= Decidim::Scope.find(scope_id) if scope_id.present?
+    @scope ||= Decidim::Scope.where(organization: user.orgaanization).find(scope_id) if user && scope_id.present?
   end
 
   private
