@@ -1,40 +1,23 @@
 <div class="fcell filter">
   <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
     <%= admin_filter(t("actions.filter.label", scope: "decidim.admin"),
-        {t("proposals.filters.type", scope: "decidim.proposals") => [
-          link_to(t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: ransak_params_for_query(is_emendation_true: "0")),
-          link_to(t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: ransak_params_for_query(is_emendation_true: "1"))
-        ]},
-        {t("models.proposal.fields.state", scope: "decidim.proposals") => []
+        {
+        t("proposals.filters.type", scope: "decidim.proposals") => {
+          link_to(t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: ransak_params_for_query(is_emendation_true: "0")) => nil,
+          link_to(t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: ransak_params_for_query(is_emendation_true: "1")) => nil
+        },
+        t("models.proposal.fields.state", scope: "decidim.proposals") => 
+          Decidim::Proposals::Proposal::POSSIBLE_STATES.inject({}) do |hash, state|
+            if state == "not_answered"
+              hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(state_null: 1))]= nil
+            else
+              hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(state_eq: state))]= nil
+            end
+            hash
+          end,
+          t("models.proposal.fields.category", scope: "decidim.proposals") => admin_filter_categories_tree(categories.first_class)
         }
-
     ) %>
-    <li class="is-dropdown-submenu-parent">
-      <a href="#" class="dropdown button">
-        <%= t("actions.filter.label", scope: "decidim.admin") %>
-      </a>
-      <ul class="nested vertical menu">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#"><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></a>
-          <ul class="nested vertical menu">
-            <% Decidim::Proposals::Proposal::POSSIBLE_STATES.each do |state| %>
-              <% if state == "not_answered" %>
-                <li><%= link_to (humanize_proposal_state state), q: ransak_params_for_query(state_null: 1) %></li>
-              <% else %>
-                <li><%= link_to (humanize_proposal_state state), q: ransak_params_for_query(state_eq: state) %></li>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
-        <li class="is-dropdown-submenu-parent">
-          <a href="#"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></a>
-          <ul class="nested vertical menu">
-            <%= categories_nested_dropdown(categories) %>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    ---------------------------------------------
   </ul>
 </div>
 <div class="fcell search">

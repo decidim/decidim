@@ -25,7 +25,7 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
 
-      POSSIBLE_STATES= %w(not_answered evaluating accepted rejected withdrawn)
+      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
       fingerprint fields: [:title, :body]
 
@@ -254,6 +254,19 @@ module Decidim
 
       ransacker :id do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
+      end
+
+      ransacker :is_emendation do |_parent|
+        query = <<-SQL
+        (
+          SELECT EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          )
+        )
+        SQL
+        Arel.sql(query)
       end
 
       def self.export_serializer
