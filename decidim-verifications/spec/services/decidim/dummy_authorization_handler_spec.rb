@@ -14,9 +14,9 @@ module Decidim
     describe "metadata" do
       subject { handler.metadata }
 
-      let(:extra_params) { { document_number: "123456", postal_code: "123456" } }
+      let(:extra_params) { { document_number: "123456", postal_code: "123456", scope_id: 1 } }
 
-      it { is_expected.to eq(document_number: "123456", postal_code: "123456") }
+      it { is_expected.to eq(document_number: "123456", postal_code: "123456", scope_id: 1) }
     end
 
     describe "valid?" do
@@ -40,6 +40,21 @@ module Decidim
         let(:document_number) { "123456X" }
 
         it { is_expected.to eq(true) }
+      end
+    end
+
+    describe "scope" do
+      subject { handler.scope }
+
+      let(:scope) { create(:scope) }
+      let(:extra_params) { { document_number: "123456", postal_code: "123456", scope_id: scope.id } }
+
+      it { is_expected.to eq(scope) }
+
+      context "with no scope" do
+        let(:extra_params) { { document_number: "123456", postal_code: "123456", scope_id: nil } }
+
+        it { is_expected.to eq(nil) }
       end
     end
   end
