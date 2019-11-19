@@ -653,6 +653,7 @@ en:
           related_to: Related to
           search: Search
           state: Status
+          type: Type
           voted: Supported
         filters_small_view:
           close_modal: Close modal

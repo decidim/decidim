@@ -25,6 +25,8 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
 
+      POSSIBLE_STATES= %w(not_answered evaluating accepted rejected withdrawn)
+
       fingerprint fields: [:title, :body]
 
       amendable(
@@ -248,6 +250,10 @@ module Decidim
          )
         SQL
         Arel.sql(query)
+      end
+
+      ransacker :id do
+        Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
       end
 
       def self.export_serializer

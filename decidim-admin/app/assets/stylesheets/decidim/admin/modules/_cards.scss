@@ -113,3 +113,7 @@ $card-padding-small: 1rem;
   // height adjust
   padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
 }
+
+.card.with-overflow{
+  overflow: visible;
+}
