@@ -238,6 +238,7 @@ fr:
           edit:
             update: Mettre à jour
           form:
+            address_help: 'Adresse: utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte'
             select_organizer: Sélectionnez l'organisateur
           index:
             title: Rencontres
