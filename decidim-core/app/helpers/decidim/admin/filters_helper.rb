@@ -3,6 +3,9 @@
 module Decidim
   module Admin
     module FiltersHelper
+      # Produces the html for a dropdown style filter component without the text search component.
+      # @param title: The text for the filter button.
+      # @param submenus: A tree (Hash) with the filter options.
       def admin_filter(menu_title, submenus)
         html = <<~EOFILTER
           <li class="is-dropdown-submenu-parent">
@@ -13,26 +16,6 @@ module Decidim
           </li>
         EOFILTER
         html.html_safe
-      end
-
-      def admin_filter_submenu_options(submenus)
-        content_tag(:ul, class: "nested vertical menu") do
-          if submenus.is_a?(Hash)
-            submenu_html = ""
-            submenus.each_pair do |key, value|
-              submenu_html += if value.nil?
-                                content_tag(:li, key)
-                              else
-                                content_tag(:li, class: "is-dropdown-submenu-parent") do
-                                  html = content_tag(:a, key, href: "#")
-                                  html += admin_filter_submenu_options(value)
-                                  html
-                                end
-                              end
-            end
-            submenu_html.html_safe
-          end
-        end
       end
 
       def admin_filter_categories_tree(categories)
@@ -53,6 +36,31 @@ module Decidim
         end
         tree
       end
+
+      #----------------------------------------------------------------------
+      private
+      #----------------------------------------------------------------------
+
+      # Produces the html for the submenus of an `admin_filter`.
+      # @param submenus: A tree (Hash) with the filter options. Keys are options of the dropdown, values are the sub-options that will dropdown for the given key.
+      def admin_filter_submenu_options(submenus)
+        content_tag(:ul, class: "nested vertical menu") do
+          submenu_html = ""
+          submenus.each_pair do |key, value|
+            submenu_html += if value.nil?
+                              content_tag(:li, key)
+                            else
+                              content_tag(:li, class: "is-dropdown-submenu-parent") do
+                                html = content_tag(:a, key, href: "#")
+                                html += admin_filter_submenu_options(value)
+                                html
+                              end
+                            end
+          end
+          submenu_html.html_safe
+        end
+      end
+
     end
   end
 end
