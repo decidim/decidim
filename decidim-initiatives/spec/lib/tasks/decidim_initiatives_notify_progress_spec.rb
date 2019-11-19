@@ -15,7 +15,7 @@ describe "decidim_initiatives:notify_progress", type: :task do
     let(:initiative) { create(:initiative) }
 
     it "Keeps initiative unchanged" do
-      expect(initiative.initiative_votes_count).to be_zero
+      expect(initiative.online_votes_count).to be_zero
 
       task.execute
       expect(initiative.first_progress_notification_at).to be_nil
@@ -32,9 +32,8 @@ describe "decidim_initiatives:notify_progress", type: :task do
     let(:initiative) do
       initiative = create(:initiative)
 
-      initiative.initiative_votes_count = initiative.scoped_type.supports_required *
-                                          (Decidim::Initiatives.first_notification_percentage / 100.0) + 1
-
+      votes_needed = initiative.supports_required * (Decidim::Initiatives.first_notification_percentage / 100.0) + 1
+      initiative.online_votes["total"] = votes_needed
       initiative.save!
 
       initiative
@@ -72,9 +71,9 @@ describe "decidim_initiatives:notify_progress", type: :task do
     let(:initiative) do
       initiative = create(:initiative, first_progress_notification_at: Time.current)
 
-      initiative.initiative_votes_count = initiative.scoped_type.supports_required *
-                                          (Decidim::Initiatives.second_notification_percentage / 100.0) + 1
+      votes_needed = initiative.supports_required * (Decidim::Initiatives.second_notification_percentage / 100.0) + 1
 
+      initiative.online_votes["total"] = votes_needed
       initiative.save!
 
       initiative

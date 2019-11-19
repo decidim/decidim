@@ -71,7 +71,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # It is recommended to link the authorization to the lowest level of your
   # scope hierarchy, so permission can bubble up.
   def scope
-    @scope ||= Decidim::Scope.where(organization: user.orgaanization).find(scope_id) if user && scope_id.present?
+    @scope ||= Decidim::Scope.where(organization: user.organization).find(scope_id) if user && scope_id.present?
   end
 
   private

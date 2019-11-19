@@ -256,7 +256,7 @@ module Decidim
     #
     # Returns an Integer.
     def supports_count
-      @supports_count ||= online_votes_count + offline_votes_count
+      online_votes_count + offline_votes_count
     end
 
     # Public: Calculates the number of supports required to accept the initiative
@@ -283,13 +283,13 @@ module Decidim
     #
     # Returns an Integer.
     def online_votes_count
-      return 0 unless accepts_online_votes?
+      return 0 if offline_signature_type?
 
       online_votes["total"].to_i
     end
 
     def offline_votes_count
-      return 0 unless accepts_offline_votes?
+      return 0 if online_signature_type?
 
       offline_votes["total"].to_i
     end

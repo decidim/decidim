@@ -47,7 +47,15 @@ module Decidim
       Digest::SHA1.hexdigest "#{authorization_unique_id}#{title}#{description}"
     end
 
+    def decrypted_metadata
+      @decrypted_metadata ||= encrypted_metadata ? encryptor.decrypt(encrypted_metadata) : {}
+    end
+
     private
+
+    def encryptor
+      @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
+    end
 
     def authorization_unique_id
       first_authorization = Decidim::Initiatives::UserAuthorizations
