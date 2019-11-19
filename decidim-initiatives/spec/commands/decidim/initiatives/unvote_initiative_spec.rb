@@ -21,13 +21,13 @@ module Decidim
           end.to change(InitiativesVote, :count).by(-1)
         end
 
-        it "Decreases the vote counter by one" do
+        it "decreases the vote counter by one" do
           initiative = vote.initiative
           expect(InitiativesVote.count).to eq(1)
           expect do
             command.call
             initiative.reload
-          end.to change { initiative.initiative_votes_count }.by(-1)
+          end.to change { initiative.online_votes_count }.by(-1)
         end
       end
 
@@ -47,13 +47,13 @@ module Decidim
           end.to change(InitiativesVote, :count).by(-1)
         end
 
-        it "Do not decreases the vote counter by one" do
+        it "does not decreases the vote counter by one" do
           expect(vote).to be_valid
           command.call
 
           initiative = vote.initiative
           initiative.reload
-          expect(initiative.initiative_votes_count).to be_zero
+          expect(initiative.online_votes_count).to be_zero
         end
       end
     end

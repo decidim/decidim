@@ -19,8 +19,8 @@ module Decidim
 
       let(:form_params) do
         {
-          initiative_id: initiative.id,
-          author_id: current_user.id
+          initiative: initiative,
+          signer: current_user
         }
       end
 
@@ -34,7 +34,7 @@ module Decidim
       end
 
       describe "User votes initiative" do
-        let(:command) { described_class.new(form, current_user) }
+        let(:command) { described_class.new(form) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast :ok
@@ -50,7 +50,7 @@ module Decidim
           expect do
             command.call
             initiative.reload
-          end.to change(initiative, :initiative_votes_count).by(1)
+          end.to change(initiative, :online_votes_count).by(1)
         end
 
         it "notifies the creation" do
@@ -119,8 +119,8 @@ module Decidim
             form_klass.from_params(form_params.merge(personal_data_params)).with_context(current_organization: organization)
           end
 
-          let(:invalid_command) { described_class.new(form, current_user) }
-          let(:command_with_personal_data) { described_class.new(form_with_personal_data, current_user) }
+          let(:invalid_command) { described_class.new(form) }
+          let(:command_with_personal_data) { described_class.new(form_with_personal_data) }
 
           it "broadcasts invalid when form doesn't contain personal data" do
             expect { invalid_command.call }.to broadcast :invalid
@@ -134,7 +134,7 @@ module Decidim
             command_with_personal_data.call
             vote = InitiativesVote.last
             expect(vote.encrypted_metadata).to be_present
-            expect(form_klass.from_model(vote).decrypted_metadata).to eq personal_data_params
+            expect(vote.decrypted_metadata).to eq personal_data_params
           end
 
           context "when another signature exists with the same hash_id" do
@@ -212,7 +212,7 @@ module Decidim
         let(:group_form) do
           form_klass.from_params(form_params.merge(group_id: user_group.id))
         end
-        let(:command) { described_class.new(group_form, current_user) }
+        let(:command) { described_class.new(group_form) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast :ok
@@ -227,7 +227,7 @@ module Decidim
         it "does not increases the vote counter by one" do
           command.call
           initiative.reload
-          expect(initiative.initiative_votes_count).to be_zero
+          expect(initiative.online_votes_count).to be_zero
         end
 
         it "does not notify the endorsement" do
