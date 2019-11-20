@@ -39,6 +39,7 @@ module Decidim
 
       #----------------------------------------------------------------------
       private
+
       #----------------------------------------------------------------------
 
       # Produces the html for the submenus of an `admin_filter`.
@@ -60,7 +61,6 @@ module Decidim
           submenu_html.html_safe
         end
       end
-
     end
   end
 end
