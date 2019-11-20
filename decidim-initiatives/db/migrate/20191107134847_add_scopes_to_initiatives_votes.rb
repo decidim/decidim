@@ -10,8 +10,8 @@ class AddScopesToInitiativesVotes < ActiveRecord::Migration[5.2]
 
     InitiativeVote.reset_column_information
 
-    InitiativeVote.includes(initiative: :scope).find_each do |vote|
-      vote.scope = initiative.scope
+    InitiativeVote.includes(initiative: :scoped_type).find_each do |vote|
+      vote.decidim_scope_id = initiative.scoped_type.decidim_scope_id
       vote.save!
     end
   end
