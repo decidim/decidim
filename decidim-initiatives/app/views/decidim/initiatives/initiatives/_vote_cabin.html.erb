@@ -1,4 +1,4 @@
-<% if current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? && allowed_to?(:vote, :initiative, initiative: initiative) %>
+<% if current_user && allowed_to?(:vote, :initiative, initiative: initiative) %>
   <button id="select-identity-button"
           class="button expanded light button--sc">
     <%= t(".vote") %>

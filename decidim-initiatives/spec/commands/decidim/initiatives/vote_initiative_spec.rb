@@ -205,36 +205,6 @@ module Decidim
           end
         end
       end
-
-      describe "Organization supports initiative" do
-        let(:user_group) { create(:user_group) }
-        let(:user_group_membership) { create(:user_group_membership, user: current_user, user_group: user_group) }
-        let(:group_form) do
-          form_klass.from_params(form_params.merge(group_id: user_group.id))
-        end
-        let(:command) { described_class.new(group_form) }
-
-        it "broadcasts ok" do
-          expect { command.call }.to broadcast :ok
-        end
-
-        it "creates a vote" do
-          expect do
-            command.call
-          end.to change(InitiativesVote, :count).by(1)
-        end
-
-        it "does not increases the vote counter by one" do
-          command.call
-          initiative.reload
-          expect(initiative.online_votes_count).to be_zero
-        end
-
-        it "does not notify the endorsement" do
-          expect(Decidim::EventsManager).not_to receive(:publish)
-          command.call
-        end
-      end
     end
   end
 end

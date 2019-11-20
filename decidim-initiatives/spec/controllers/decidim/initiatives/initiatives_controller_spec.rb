@@ -78,20 +78,6 @@ module Decidim
           end
         end
       end
-
-      describe "GET signature_identities" do
-        let(:group_vote) { create(:organization_user_vote, initiative: initiative) }
-
-        before do
-          sign_in group_vote.author, scope: :user
-        end
-
-        it "voted_groups is a list of groups represented by the user that supported the initiative" do
-          get :signature_identities, params: { slug: initiative.slug }
-
-          expect(assigns[:voted_groups]).to include(group_vote.decidim_user_group_id)
-        end
-      end
     end
   end
 end
