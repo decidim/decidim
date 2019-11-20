@@ -203,8 +203,11 @@
           notification_title: Forslaget <a href="%{proposal_path}">%{proposal_title}</a> har blitt inkludert i <a href="%{resource_path}">%{resource_title}</a> resultatet.
         result_progress_updated:
           email_intro: 'Resultatet "%{resource_title}", som inkluderer forslaget "%{proposal_title}", er nå %{progress}% ferdig. Du kan se det fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{proposal_title}", og dette forslaget er inkludert i resultatet "%{resource_title}". Du kan slutte å motta varsler hvis du følger den forrige linken.
+          email_subject: En oppdatering til %{resource_title} fremgang
     metrics:
       results:
+        description: Antall genererte resultater
         object: resultater
         title: Resultater
     participatory_processes:
