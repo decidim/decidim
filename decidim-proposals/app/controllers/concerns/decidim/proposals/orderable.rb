@@ -16,10 +16,11 @@ module Decidim
         # Available orders based on enabled settings
         def available_orders
           @available_orders ||= begin
-            available_orders = %w(random recent most_followed with_more_authors)
+            available_orders = %w(random recent)
             available_orders << "most_voted" if most_voted_order_available?
             available_orders << "most_endorsed" if current_settings.endorsements_enabled?
             available_orders << "most_commented" if component_settings.comments_enabled?
+            available_orders << "most_followed" << "with_more_authors"
             available_orders
           end
         end
