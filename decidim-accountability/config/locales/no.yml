@@ -114,11 +114,46 @@
           create: "%{user_name} lagde resultat %{resource_name} i %{space_name}"
           delete: "%{user_name} slettet %{resource_name} resultatet i %{space_name}"
           update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
         result:
           fields:
+            end_date: Sluttdato
+            progress: Framgang
+            start_date: Startdato
             status: Status
             title: Tittel
         status:
           fields:
+            description: Beskrivelse
+            key: Nøkkel
             name: Navn
+            progress: Framgang
+        timeline_entry:
+          fields:
+            description: Beskrivelse
+            entry_date: Dato
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultater"
+        filters:
+          all: Alle
+          scopes: Omfang
+        home:
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
+        home_header:
+          global_status: Global utførelse status
+        nav_breadcrumb:
+          global: Global utførelse
+        search:
+          search: Søk etter handlinger
+        show:
+          stats:
+            attendees: Deltakere
