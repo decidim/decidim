@@ -181,3 +181,10 @@
           changes_at_title: Endringer "%{title}"
         version:
           version_index: Versjon %{index}
+    components:
+      accountability:
+        name: Ansvarlighet
+        settings:
+          global:
+            categories_label: Navn på "Kategorier"
+            comments_enabled: Kommentarer aktivert
