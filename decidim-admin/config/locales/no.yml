@@ -62,6 +62,7 @@
         name: Navn
         plural: Flertall
       static_page:
+        content: Innhold
         title: Tittel
       static_page_topic:
         title: Tittel
