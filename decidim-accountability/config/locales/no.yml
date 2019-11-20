@@ -193,3 +193,5 @@
             heading_parent_level_results: Navn på "Resultater"
             intro: Introduksjon
             subcategories_label: Navn på "Underkategorier"
+          step:
+            comments_blocked: Kommentarer blokkert
