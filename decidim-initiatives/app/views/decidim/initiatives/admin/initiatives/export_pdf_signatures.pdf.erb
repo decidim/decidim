@@ -3,36 +3,36 @@
 </div>
 <div class="initiatives-votes-table" style="width: 100%; display: block; border: 1pt solid black;">
   <div class="initiatives-votes-table-header" style="background-color: lightgray; display: inline-block; width: 100%; font-size: 12pt; font-weight: bold; border-bottom: 1pt solid black;">
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin") %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin") %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= t("models.initiatives_votes.fields.initiative_start_date", scope: "decidim.admin") %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= t("models.initiatives_votes.fields.initiative_end_date", scope: "decidim.admin") %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin") %>
     </div>
   </div>
   <div class="initiatives-votes-table-row" style="width: 100%; display: inline-block; min-height: 33pt;">
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= current_initiative.reference %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= translated_attribute(current_initiative.title) %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= current_initiative.signature_start_date %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= current_initiative.signature_end_date %>
     </div>
-    <div class="initiatives-votes-table-cell w20" style="width: 19.4%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
+    <div class="initiatives-votes-table-cell w20" style="width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;">
       <%= @votes.count %>
     </div>
   </div>
