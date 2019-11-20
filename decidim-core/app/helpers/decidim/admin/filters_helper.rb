@@ -38,7 +38,7 @@ module Decidim
       end
 
       def admin_filter_scopes_tree(organization_id)
-        sorted_root_scopes = Decidim::Scope.where(decidim_organization_id: organization_id).top_level.sort_by do |scope|
+        sorted_root_scopes = Decidim::Scope.top_level(organization_id).sort_by do |scope|
           translated_attribute(scope.name)
         end
 
