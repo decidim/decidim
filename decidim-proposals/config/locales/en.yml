@@ -653,6 +653,7 @@ en:
           related_to: Related to
           search: Search
           state: Status
+          scope: Scope
           type: Type
           voted: Supported
         filters_small_view:

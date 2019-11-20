@@ -37,10 +37,31 @@ module Decidim
         tree
       end
 
+      def admin_filter_scopes_tree(organization_id)
+        sorted_root_scopes = Decidim::Scope.where(decidim_organization_id: organization_id).top_level.sort_by do |scope|
+          translated_attribute(scope.name)
+        end
+
+        admin_filter_scopes_subtree(sorted_root_scopes)
+      end
+
       #----------------------------------------------------------------------
       private
 
       #----------------------------------------------------------------------
+
+      def admin_filter_scopes_subtree(scopes)
+        scopes.each_with_object({}) do |scope, tree|
+          link = link_to(q: ransak_params_for_query(scope_id_eq: scope.id)) do
+            translated_attribute(scope.name)
+          end
+          tree[link] = if scope.children.empty?
+                         nil
+                       else
+                         admin_filter_scopes_subtree(scope.children)
+                       end
+        end
+      end
 
       # Produces the html for the submenus of an `admin_filter`.
       # @param submenus: A tree (Hash) with the filter options. Keys are options of the dropdown, values are the sub-options that will dropdown for the given key.
