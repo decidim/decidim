@@ -200,3 +200,22 @@
         proposal_linked:
           email_intro: 'Forslaget %{proposal_title} er blitt inkludert i et resultat. Du kan se det fra denne siden:'
           email_subject: En oppdatering til %{proposal_title}
+          notification_title: Forslaget <a href="%{proposal_path}">%{proposal_title}</a> har blitt inkludert i <a href="%{resource_path}">%{resource_title}</a> resultatet.
+        result_progress_updated:
+          email_intro: 'Resultatet "%{resource_title}", som inkluderer forslaget "%{proposal_title}", er nå %{progress}% ferdig. Du kan se det fra denne siden:'
+    metrics:
+      results:
+        object: resultater
+        title: Resultater
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vis alle (%{count})
+    resource_links:
+      included_projects:
+        result_project: Prosjekter inkludert i dette resultatet
+      included_proposals:
+        result_proposal: Forslagene er inkludert i dette resultatet
