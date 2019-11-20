@@ -190,3 +190,6 @@
             comments_enabled: Kommentarer aktivert
             display_progress_enabled: Vis fremgang
             heading_leaf_level_results: Navn på "Prosjekter"
+            heading_parent_level_results: Navn på "Resultater"
+            intro: Introduksjon
+            subcategories_label: Navn på "Underkategorier"
