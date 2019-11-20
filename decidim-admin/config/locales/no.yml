@@ -42,6 +42,8 @@
         customize_welcome_notification: Tilpass dine velkomst varsler
         default_locale: Standard språk
         description: Beskrivelse
+        enable_omnipresent_banner: Vis allestedsnærværende banner
+        favicon: Ikon
         highlighted_content_banner_title: Tittel
         name: Navn
         omnipresent_banner_title: Tittel
