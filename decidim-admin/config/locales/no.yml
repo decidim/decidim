@@ -44,6 +44,7 @@
         description: Beskrivelse
         enable_omnipresent_banner: Vis allestedsnærværende banner
         favicon: Ikon
+        from: Fra e-postadresse
         highlighted_content_banner_title: Tittel
         name: Navn
         omnipresent_banner_title: Tittel
