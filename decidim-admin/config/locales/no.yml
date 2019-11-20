@@ -46,13 +46,21 @@
         favicon: Ikon
         from: Fra e-postadresse
         header_snippets: Topptekstutdrag
+        highlighted_content_banner_image: Bilde
+        highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
+        logo: Logo
         name: Navn
         omnipresent_banner_title: Tittel
+        omnipresent_banner_url: URL
+        password: Passord
+        port: Port
+        primary_color: Primært
       scope:
         name: Navn
       scope_type:
         name: Navn
+        plural: Flertall
       static_page:
         title: Tittel
       static_page_topic:
