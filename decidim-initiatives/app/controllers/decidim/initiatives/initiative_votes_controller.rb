@@ -13,12 +13,11 @@ module Decidim
 
       # POST /initiatives/:initiative_id/initiative_vote
       def create
-        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: params[:group_id]
+        enforce_permission_to :vote, :initiative, initiative: current_initiative
 
         @form = form(Decidim::Initiatives::VoteForm).from_params(
           initiative: current_initiative,
-          signer: current_user,
-          group_id: params[:group_id]
+          signer: current_user
         )
 
         VoteInitiative.call(@form, current_user) do
@@ -37,9 +36,9 @@ module Decidim
 
       # DELETE /initiatives/:initiative_id/initiative_vote
       def destroy
-        enforce_permission_to :unvote, :initiative, initiative: current_initiative, group_id: params[:group_id]
+        enforce_permission_to :unvote, :initiative, initiative: current_initiative
 
-        UnvoteInitiative.call(current_initiative, current_user, params[:group_id]) do
+        UnvoteInitiative.call(current_initiative, current_user) do
           on(:ok) do
             current_initiative.reload
             render :update_buttons_and_counters

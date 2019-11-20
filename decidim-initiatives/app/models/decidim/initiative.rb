@@ -94,7 +94,7 @@ module Decidim
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
-    scope :order_by_supports, -> { order("((online_votes->'from_users'->>'total')::int + (offline_votes->>'total')::int) DESC") }
+    scope :order_by_supports, -> { order("((online_votes->>'total')::int + (offline_votes->>'total')::int) DESC") }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
         .left_joins(:comments)
@@ -297,32 +297,19 @@ module Decidim
     def online_votes_count_for(scope)
       scope_key = (scope&.id || "global").to_s
 
-      user_votes_count.dig(scope_key).to_i + user_groups_votes_count.dig(scope_key).to_i
-    end
-
-    def user_votes_count
-      online_votes.dig("from_users") || {}
-    end
-
-    def user_groups_votes_count
-      online_votes.dig("from_user_groups") || {}
+      (online_votes || {}).fetch(scope_key, 0).to_i
     end
 
     def update_online_votes_counters
       # rubocop:disable Rails/SkipsModelValidations
-      from_users = count_votes_for(votes.from_users)
-      from_user_groups = count_votes_for(votes.from_user_groups)
-      total = from_users["total"].to_i + from_user_groups["total"].to_i
-      update_column("online_votes", "from_users" => from_users, "from_user_groups" => from_user_groups, "total" => total)
-      # rubocop:enable Rails/SkipsModelValidations
-    end
-
-    def count_votes_for(relation)
-      relation.group(:scope).count.each_with_object({}) do |(scope, count), counters|
+      online_votes = votes.group(:scope).count.each_with_object({}) do |(scope, count), counters|
         counters[scope&.id || "global"] = count
         counters["total"] ||= 0
         counters["total"] += count
       end
+
+      update_column("online_votes", online_votes)
+      # rubocop:enable Rails/SkipsModelValidations
     end
 
     # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.

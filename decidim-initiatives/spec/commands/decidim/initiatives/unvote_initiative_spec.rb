@@ -30,32 +30,6 @@ module Decidim
           end.to change { initiative.online_votes_count }.by(-1)
         end
       end
-
-      describe "Organization supports initiative" do
-        let(:vote) { create(:organization_user_vote) }
-        let(:command) { described_class.new(vote.initiative, vote.author, vote.decidim_user_group_id) }
-
-        it "broadcasts ok" do
-          expect(vote).to be_valid
-          expect { command.call }.to broadcast :ok
-        end
-
-        it "Removes the vote" do
-          expect(vote).to be_valid
-          expect do
-            command.call
-          end.to change(InitiativesVote, :count).by(-1)
-        end
-
-        it "does not decreases the vote counter by one" do
-          expect(vote).to be_valid
-          command.call
-
-          initiative = vote.initiative
-          initiative.reload
-          expect(initiative.online_votes_count).to be_zero
-        end
-      end
     end
   end
 end

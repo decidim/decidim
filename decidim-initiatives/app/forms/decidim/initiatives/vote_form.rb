@@ -21,7 +21,6 @@ module Decidim
 
       attribute :initiative, Integer
       attribute :signer, Integer
-      attribute :group_id, Integer
 
       validates :initiative, :signer, presence: true
 
