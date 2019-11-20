@@ -2,17 +2,30 @@
   activemodel:
     attributes:
       area:
+        area_type: Områdetype
         name: Navn
+        organization: Organisasjon
       area_type:
         name: Navn
+        organization: Organisasjon
+        plural: Flertall
       attachment:
+        attachment_collection_id: Mapper
+        description: Beskrivelse
+        file: Fil
         title: Tittel
       attachment_collection:
+        description: Beskrivelse
         name: Navn
       category:
+        description: Beskrivelse
         name: Navn
+        parent_id: Forelder
       component:
         name: Navn
+        published_at: Publisert den
+        weight: Vekt
+      id: ID
       oauth_application:
         name: Navn
       organization:
