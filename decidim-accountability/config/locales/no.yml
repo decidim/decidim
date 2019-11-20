@@ -81,6 +81,8 @@
             success: Statusen var vellykket opprettet
           destroy:
             success: Statusen var vellykket slettet
+          edit:
+            title: Endre status
       models:
         result:
           fields:
