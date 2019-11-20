@@ -11,31 +11,31 @@
       margin: 0 .5rem;
     }
 
-      &.status{
-        width: 100%;
-        margin-top: .5rem;
+    &.status{
+      width: 100%;
+      margin-top: .5rem;
 
-        .label{
-          font-weight: 600;
-          text-transform: uppercase;
+      .label{
+        font-weight: 600;
+        text-transform: uppercase;
 
-          .type-icon{
+        .type-icon{
           vertical-align: top;
         }
 
-          .action-icon{
-            vertical-align: text-bottom;
+        .action-icon{
+          vertical-align: text-bottom;
 
-            &:first-child{
+          &:first-child{
             margin-left: .5rem;
           }
 
-            &.action-icon--remove{
-              color: lighten(#e66a5d, 24);
-              margin-left: .3rem;
+          &.action-icon--remove{
+            color: lighten(#e66a5d, 24);
+            margin-left: .3rem;
 
-              &:hover{
-                color: #e66a5d;
+            &:hover{
+              color: #e66a5d;
             }
           }
         }
@@ -43,47 +43,47 @@
     }
   }
 
-   .button,
+  .button,
   .input-group{
     margin-bottom: 0;
   }
 
-   .button.dropdown{
+  .button.dropdown{
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: .1em;
   }
 
-   .dropdown.menu{
+  .dropdown.menu{
     z-index: 100;
 
-     .nested{
+    .nested{
       background-color: $white;
       border: $card-border;
       border-radius: $global-radius;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
     }
 
-     & > li.is-dropdown-submenu-parent > a{
+    & > li.is-dropdown-submenu-parent > a{
       padding-right: 1rem;
 
-       &::after{
+      &::after{
         border-top-color: $white;
       }
 
-       &:hover{
+      &:hover{
         background-color: $button-background-hover;
         color: $white;
       }
     }
 
-     li.is-active > a,
+    li.is-active > a,
     li.is-active li.is-submenu-item > a:hover{
       background-color: $primary-color;
       color: $white;
     }
 
-     .menu.vertical li.is-active.opens-right > a::after{
+    .menu.vertical li.is-active.opens-right > a::after{
       border-left-color: $white;
     }
   }
