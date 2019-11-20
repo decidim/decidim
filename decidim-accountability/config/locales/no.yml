@@ -188,3 +188,5 @@
           global:
             categories_label: Navn på "Kategorier"
             comments_enabled: Kommentarer aktivert
+            display_progress_enabled: Vis fremgang
+            heading_leaf_level_results: Navn på "Prosjekter"
