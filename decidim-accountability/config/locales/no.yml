@@ -83,6 +83,18 @@
             success: Statusen var vellykket slettet
           edit:
             title: Endre status
+            update: Oppdater status
+          index:
+            title: Statuser
+          new:
+            create: Lag ny status
+            title: Ny status
+          update:
+            invalid: Det oppsto et problem med å oppdatere statusen din
+            success: Statusen din var vellykket oppdatert
+        timeline_entries:
+          create:
+            invalid: Det oppsto et problem med å opprette denne oppføringen
       models:
         result:
           fields:
