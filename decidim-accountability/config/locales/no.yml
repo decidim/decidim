@@ -171,3 +171,13 @@
             version_number: Versjonsnummer
             version_number_out_of_total: "%{current_version} ut av %{total_count}"
             votes: Støtter
+        timeline:
+          title: Prosjektutvikling
+      versions:
+        index:
+          changes_at_title: Endringer "%{title}"
+          title: Versjoner
+        show:
+          changes_at_title: Endringer "%{title}"
+        version:
+          version_index: Versjon %{index}
