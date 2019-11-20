@@ -95,6 +95,19 @@
         timeline_entries:
           create:
             invalid: Det oppsto et problem med å opprette denne oppføringen
+            success: Oppføring var vellykket opprettet
+          destroy:
+            success: Oppføringen var vellykket slettet
+          edit:
+            title: Rediger oppføringen
+            update: Oppdater oppføringen
+          index:
+            title: Prosjekt tidslinje oppføringer
+          new:
+            create: Lag en ny oppføring
+            title: Ny oppføring
+          update:
+            invalid: Det oppsto et problem med å oppdatere oppføringen
       models:
         result:
           fields:
