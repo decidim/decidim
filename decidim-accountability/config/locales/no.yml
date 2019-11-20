@@ -157,3 +157,9 @@
         show:
           stats:
             attendees: Deltakere
+            back_to_result: Gå tilbake til resultatet
+            comments: Kommentarer
+            contributions: Bidragene
+            last_edited_by: Sist endret av
+            last_updated_at: Sist oppdatert
+            meetings: Møter
