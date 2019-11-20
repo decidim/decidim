@@ -195,3 +195,8 @@
             subcategories_label: Navn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blokkert
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Forslaget %{proposal_title} er blitt inkludert i et resultat. Du kan se det fra denne siden:'
+          email_subject: En oppdatering til %{proposal_title}
