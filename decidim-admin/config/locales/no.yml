@@ -60,6 +60,7 @@
         send_welcome_notification: Send velkomst varsel
         show_statistics: Vis statistikk
         success_color: Vellykket
+        tos_version: Vilkår for tjenester versjon
       scope:
         name: Navn
       scope_type:
