@@ -20,6 +20,8 @@
       events:
         create_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
+        endorse_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
       initiatives:
         filters:
           state: Status
