@@ -61,6 +61,8 @@
         show_statistics: Vis statistikk
         success_color: Vellykket
         tos_version: Vilkår for tjenester versjon
+        user_name: Brukernavn
+        warning_color: Advarsel
       scope:
         name: Navn
       scope_type:
