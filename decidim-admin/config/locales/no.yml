@@ -60,6 +60,7 @@
         password: Passord
         port: Port
         primary_color: Primært
+        reference_prefix: Referanse prefiks
         secondary_color: Sekundær
         send_welcome_notification: Send velkomst varsel
         show_statistics: Vis statistikk
@@ -71,12 +72,20 @@
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
       scope:
+        code: Kode
         name: Navn
+        organization: Organisasjon
+        parent_id: Forelder
+        scope_type: Omfangs type
+        scope_type_id: Omfangs type
       scope_type:
         name: Navn
+        organization: Organisasjon
         plural: Flertall
       static_page:
+        changed_notably: Det har vært merkbare endringer.
         content: Innhold
+        organization: Organisasjon
         title: Tittel
       static_page_topic:
         title: Tittel
