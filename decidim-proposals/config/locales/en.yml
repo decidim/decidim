@@ -646,9 +646,11 @@ en:
           comments: Comments
         filters:
           activity: Activity
+          all: All
           amendment_type: Type
           category: Category
           category_prompt: Select a category
+          my_proposals: My proposals
           origin: Origin
           related_to: Related to
           search: Search
