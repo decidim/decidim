@@ -53,6 +53,8 @@
         name: Navn
         official_img_footer: Offisiell logo footer
         official_img_header: Offisiell logo header
+        official_url: Offisiell organisasjons URL
+        omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
         password: Passord
