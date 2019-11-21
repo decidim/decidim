@@ -76,6 +76,21 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
+    describe "when import_components exists" do
+      let(:import_components) { true }
+
+      it "imports a participatory process and the steps" do
+        expect { subject.call }.to change { Decidim::Component.count }.by(3)
+        expect(Decidim::Component.where(participatory_space_id: Decidim::ParticipatoryProcess.last).count).to eq 3
+      end
+
+      context "when participatory process steps are null" do
+        let(:document_name) { "participatory_processes_with_null.json" }
+
+        it_behaves_like "import participatory_process succeeds"
+      end
+    end
+
     describe "when import_steps exists" do
       let(:import_steps) { true }
 
@@ -87,6 +102,12 @@ module Decidim::ParticipatoryProcesses
 
         expect(imported_participatory_process_step.title).to eq("ca" => "Quo.", "en" => "Magni.", "es" => "Praesentium.")
         expect(imported_participatory_process_step.description).not_to be_nil
+      end
+
+      context "when participatory process steps are null" do
+        let(:document_name) { "participatory_processes_with_null.json" }
+
+        it_behaves_like "import participatory_process succeeds"
       end
     end
 
@@ -105,6 +126,12 @@ module Decidim::ParticipatoryProcesses
         )
         expect(imported_participatory_process_category.participatory_space).to eq(Decidim::ParticipatoryProcess.last)
       end
+
+      context "when categories are null" do
+        let(:document_name) { "participatory_processes_with_null.json" }
+
+        it_behaves_like "import participatory_process succeeds"
+      end
     end
 
     describe "when import_attachments exists" do
@@ -117,6 +144,12 @@ module Decidim::ParticipatoryProcesses
           expect(imported_participatory_process_collection.name).to eq("ca" => "assumenda", "en" => "cumque", "es" => "rem")
           expect(imported_participatory_process_collection.collection_for).to eq(Decidim::ParticipatoryProcess.last)
         end
+      end
+
+      context "when attachments are null" do
+        let(:document_name) { "participatory_processes_with_null.json" }
+
+        it_behaves_like "import participatory_process succeeds"
       end
     end
   end
