@@ -14,8 +14,17 @@
         settings:
           global:
             announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
     pages:
       admin:
+        models:
+          components:
+            body: Tekst
         pages:
           edit:
+            save: Oppdater
             title: Rediger side
+          update:
+            invalid: Det oppsto et problem med å lagre denne siden.
+            success: Siden var vellykket lagret.
