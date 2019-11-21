@@ -6,7 +6,8 @@ require "decidim/dev/test/authorization_shared_examples"
 module Decidim
   describe DummyAuthorizationHandler do
     let(:handler) { described_class.new(params.merge(extra_params)) }
-    let(:params) { { user: create(:user, :confirmed) } }
+    let(:user) { create(:user, :confirmed) }
+    let(:params) { { user: user } }
     let(:extra_params) { {} }
 
     it_behaves_like "an authorization handler"
@@ -46,7 +47,7 @@ module Decidim
     describe "scope" do
       subject { handler.scope }
 
-      let(:scope) { create(:scope) }
+      let(:scope) { create(:scope, organization: user.organization) }
       let(:extra_params) { { document_number: "123456", postal_code: "123456", scope_id: scope.id } }
 
       it { is_expected.to eq(scope) }
