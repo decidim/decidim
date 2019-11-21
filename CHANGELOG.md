@@ -22,6 +22,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 **Added**:
 
 - **many modules**: Added all spaces and many entities to global search, see Upgrade notes for more detail. [\#5469](https://github.com/decidim/decidim/pull/5469)
+- **decidim-core**: Add a searchable users endpoint to the GraphQL api and enable drop-down @mentions helper in comments. [\#5474](https://github.com/decidim/decidim/pull/5474)
 - **decidim-consultations**: Create groups of responses in multi-choices question consultations. [\#5387](https://github.com/decidim/decidim/pull/5387)
 - **decidim-core**, **decidim-participatory_processes**: Export/import space components feature, applied to for ParticipatoryProcess. [#5424](https://github.com/decidim/decidim/pull/5424)
 - **decidim-participatory_processes**: Export/import feature for ParticipatoryProcess. [#5422](https://github.com/decidim/decidim/pull/5422)
@@ -38,6 +39,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-admin**: Admin HasAttachments forces the absolute namespace for the AttachmentForm to `::Decidim::Admin::AttachmentForm`.[\#5511](https://github.com/decidim/decidim/pull/5511)
 - **decidim-participatory_processes**: Fix participatory process import when some imported elements are null [\#5496](https://github.com/decidim/decidim/pull/5496)
 - **decidim-core**: Upgrade dependecies, specially loofah. [\#5493](https://github.com/decidim/decidim/pull/5493)
 - **decidim-core**: Fix: mispelling when selecting the meetings presenter. [\#5482](https://github.com/decidim/decidim/pull/5482)
