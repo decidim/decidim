@@ -7,7 +7,7 @@ module Decidim
     describe UnvoteInitiative do
       describe "User unvotes initiative" do
         let(:vote) { create(:initiative_user_vote) }
-        let(:command) { described_class.new(vote.initiative, vote.author, nil) }
+        let(:command) { described_class.new(vote.initiative, vote.author) }
 
         it "broadcasts ok" do
           expect(vote).to be_valid

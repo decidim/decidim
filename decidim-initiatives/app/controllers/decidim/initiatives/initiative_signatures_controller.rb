@@ -20,28 +20,24 @@ module Decidim
 
       # GET /initiatives/:initiative_id/initiative_signatures/:step
       def show
-        group_id = params[:group_id] || (session[:initiative_vote_form] ||= {})["group_id"]
-        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, group_id: group_id, signature_has_steps: signature_has_steps?
+        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, signature_has_steps: signature_has_steps?
         send("#{step}_step", initiative_vote_form: session[:initiative_vote_form])
       end
 
       # PUT /initiatives/:initiative_id/initiative_signatures/:step
       def update
-        group_id = params.dig(:initiatives_vote, :group_id) || session[:initiative_vote_form]["group_id"]
-        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, group_id: group_id, signature_has_steps: signature_has_steps?
+        enforce_permission_to :sign_initiative, :initiative, initiative: current_initiative, signature_has_steps: signature_has_steps?
         send("#{step}_step", params)
       end
 
       # POST /initiatives/:initiative_id/initiative_signatures
       def create
-        group_id = params[:group_id] || session[:initiative_vote_form]&.dig("group_id")
-        enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: group_id
+        enforce_permission_to :vote, :initiative, initiative: current_initiative
 
         @form = form(Decidim::Initiatives::VoteForm)
                 .from_params(
                   initiative: current_initiative,
-                  signer: current_user,
-                  group_id: group_id
+                  signer: current_user
                 )
 
         VoteInitiative.call(@form) do
@@ -64,11 +60,9 @@ module Decidim
         @form = form(Decidim::Initiatives::VoteForm)
                 .from_params(
                   initiative: current_initiative,
-                  signer: current_user,
-                  group_id: params[:group_id]
+                  signer: current_user
                 )
 
-        session[:initiative_vote_form] = { group_id: @form.group_id }
         skip_step unless initiative_type.collect_user_extra_fields
         render_wizard
       end
