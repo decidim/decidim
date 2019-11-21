@@ -56,6 +56,10 @@
         password: Passord
         port: Port
         primary_color: Primært
+        secondary_color: Sekundær
+        send_welcome_notification: Send velkomst varsel
+        show_statistics: Vis statistikk
+        success_color: Vellykket
       scope:
         name: Navn
       scope_type:
