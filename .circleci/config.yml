@@ -4,7 +4,7 @@ defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-test`.
-    - image: decidim/decidim:latest-test
+    - image: decidim/decidim:0.19.0-test
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -21,14 +21,14 @@ references:
   restore_ruby_cache: &restore_ruby_cache
     restore_cache:
       keys:
-        - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+        - bundler-dependencies-2.6.5-{{ checksum "Gemfile.lock" }}
   install_ruby_dependencies: &install_ruby_dependencies
     run:
       name: Install ruby dependencies
       command: cd decidim-$CIRCLE_JOB && bundle install
   save_ruby_cache: &save_ruby_cache
     save_cache:
-      key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      key: bundler-dependencies-2.6.5-{{ checksum "Gemfile.lock" }}
       paths:
         - /usr/local/bundle/
   wait_for_db: &wait_for_db

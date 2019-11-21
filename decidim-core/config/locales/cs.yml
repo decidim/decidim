@@ -593,7 +593,7 @@ cs:
       no_followings: Nesleduje nikoho ani nic.
     follows:
       create:
-        button: Následovat
+        button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
       destroy:
         button: Ukončit sledování
@@ -809,7 +809,7 @@ cs:
       followers:
         description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
-        title: Následovníci
+        title: Sledující
       participants:
         description: Počet aktivních uživatelů v organizaci
         object: účastníků
@@ -950,7 +950,7 @@ cs:
       show:
         activity: Aktivita
         badges: Odznaky
-        followers: Následovníci
+        followers: Sledující
         following: Následuje
         groups: Skupiny
         members: Členové
@@ -981,7 +981,7 @@ cs:
       report:
         hello: Zdravím %{name},
         manage_moderations: Správa moderování
-        report_html: <p>Bylo hlášeno následující <a href="%{url}">obsah</a> .</p>
+        report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
         subject: Byl ohlášen zdroj
     reports:
       create:

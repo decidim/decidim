@@ -2,4 +2,42 @@
   activemodel:
     attributes:
       conference:
+        banner_image: Bannerafbeelding
         title: Tittel
+      conference_user_role:
+        email: Epost
+        name: Navn
+  decidim:
+    admin:
+      models:
+        conference:
+          fields:
+            title: Tittel
+        conference_user_role:
+          fields:
+            email: Epost
+            name: Navn
+        media_link:
+          fields:
+            title: Tittel
+        partner:
+          fields:
+            name: Navn
+        registration_type:
+          fields:
+            title: Tittel
+    conferences:
+      models:
+        conference_invite:
+          fields:
+            email: Epost
+            name: Navn
+            status: Status
+        conference_registration:
+          fields:
+            email: Epost
+            name: Navn
+            state: Status
+      statistics:
+        pages_count: Sider
+        surveys_count: Undersøkelse
