@@ -63,6 +63,7 @@
         tos_version: Vilkår for tjenester versjon
         user_name: Brukernavn
         warning_color: Advarsel
+        welcome_notification_body: Velkomst varslings tekst
       scope:
         name: Navn
       scope_type:
