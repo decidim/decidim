@@ -82,14 +82,14 @@
         explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
       destroy:
         error: Det oppsto et problem med å slette kontoen din.
-        success: Kontoen din var suksessfullt slettet.
+        success: Kontoen din var vellykket slettet.
       show:
         change_password: Endre passord
         update_account: Oppdater konto
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
-        success: Kontoen din var suksessfullt oppdatert.
-        success_with_email_confirmation: Kontoen din var suksessfullt oppdatert. Vi har send deg en email så du kan bekrefte den nye mailadressen din.
+        success: Kontoen din var vellykket oppdatert.
+        success_with_email_confirmation: Kontoen din var vellykket oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
     admin_log:
       area:
         create: "%{user_name} lagde %{resource_name} området"
@@ -141,7 +141,7 @@
     amendments:
       accepted:
         error: En feil oppstod under godkjenningen av endringen.
-        success: Endringen var suksessfullt godkjent.
+        success: Endringen var vellykket godkjent.
       amendable:
         amended_by: Endret av
         button: Endre %{model_name}
@@ -157,10 +157,10 @@
         title: Lignende Emendasjoner
       created:
         error: En feil oppstod mens du lagde endrings utkast.
-        success: Endrings utkastet har blitt suksessfullt opprettet.
+        success: Endrings utkastet har blitt vellykket opprettet.
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
-        success: Endrings utkastet var slettet suksessfullt.
+        success: Endrings utkastet var slettet vellykket.
       edit_draft:
         discard: Forkast dette utkastet
         discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
@@ -190,13 +190,13 @@
         title: Publiser endrings utkast
       promoted:
         error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
-        success: Endringen var suksessfullt publisert som et nytt forslag
+        success: Endringen var vellykket publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
-        success: Endringen var suksessfullt publisert.
+        success: Endringen var vellykket publisert.
       rejected:
         error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
-        success: Endringen for suksessfullt avslått
+        success: Endringen for vellykket avslått
       review:
         back: Tilbake
         heading: Anmeld endringen
@@ -204,13 +204,13 @@
         send: Aksepter endring
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
-        success: Endrings utkastet var suksessfullt oppdatert.
+        success: Endrings utkastet var vellykket oppdatert.
       visibility_options:
         all: Endringer synlig for alle
         participants: Endringen er bare synlig for forfatteren
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
-        success: Endringen har blitt suksessfullt tilbaketrukket
+        success: Endringen har blitt vellykket tilbaketrukket
       wizard_step_form:
         steps:
           '1': Create your amendment
@@ -282,7 +282,7 @@
           title: Ikke autorisert
         unconfirmed:
           confirmation_instructions: 'Hvis du ikke har fått bekreftelse instruksjonene kan du be om de igjen:'
-          explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte mailadressen din <strong>%{email}</strong>.
+          explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
           request_confirmation_instructions: Be om bekreftelse instruksjoner
           title: Bekreft e-posten din
     collapsible_list:
@@ -343,7 +343,7 @@
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: En annen bruker er registrert under samme mailadresse
+          email_already_exists: En annen bruker er registrert under samme e-postadresse
         new:
           complete_profile: Fullfør profilen
           nickname_help: Aliaset ditt i %{organization}
@@ -405,3 +405,19 @@
         edit: Editar
   social_share_button:
     email: Epost
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a%e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
