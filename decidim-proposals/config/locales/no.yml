@@ -8,6 +8,10 @@
         category_id: Kategori
         title: Tittel
   decidim:
+    events:
+      proposals:
+        collaborative_draft_withdrawn:
+          email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
     proposals:
       collaborative_drafts:
         filters:
