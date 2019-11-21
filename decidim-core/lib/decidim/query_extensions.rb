@@ -101,6 +101,22 @@ module Decidim
                   end
                 }
       end
+
+      type.field :users do
+        type types[Decidim::Core::UserType]
+        description "The participants for the current organization"
+        argument :name, types.String, "The name of the participant"
+        argument :nickname, types.String, "The @nickname of the participant"
+        argument :wildcard, types.String, "Either the name or the @nickname of the participant"
+
+        resolve lambda { |_obj, args, ctx|
+          filters = {}
+          args.each do |argument, value|
+            filters[argument.to_sym] = value.to_s if value.present?
+          end
+          Decidim::Core::UserResolver.new(ctx[:current_organization], filters).users
+        }
+      end
     end
   end
 end
