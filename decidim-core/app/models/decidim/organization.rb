@@ -78,6 +78,11 @@ module Decidim
         multi_translation("decidim.welcome_notification.default_body", available_locales)
     end
 
+    def admin_terms_of_use_body
+      self[:admin_terms_of_use_body] ||
+        multi_translation("decidim.admin_terms_of_use.default_body", available_locales)
+    end
+
     def sign_up_enabled?
       users_registration_mode_enabled?
     end

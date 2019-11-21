@@ -25,6 +25,9 @@ describe "Admin manages organization", type: :system do
       select "Castellano", from: "Default locale"
       fill_in "Reference prefix", with: "ABC"
 
+      fill_in_i18n_editor :organization_admin_terms_of_use_body, "#organization_admin_terms_of_use_body-tabs",
+                          en: "<p>Respect the privacy of others.</p>"
+
       click_button "Update"
       expect(page).to have_content("updated successfully")
     end

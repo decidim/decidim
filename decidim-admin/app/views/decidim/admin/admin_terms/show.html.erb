@@ -1,0 +1,33 @@
+<%= cell("decidim/announcement", admin_terms_announcement_args ) %>
+
+<article class="card">
+  <div class="card-section grid-x grid-margin-x">
+    <div class="cell medium-12">
+      <h2 class="card-title">
+        <%= t "decidim.admin.admin_terms_of_use.title" %>
+      </h2>
+
+      <div class="content">
+        <%= current_organization.admin_terms_of_use_body[locale].html_safe %>
+      </div>
+    </div>
+
+    <% unless current_user.admin_terms_accepted? %>
+      <h4 class="cell medium-12 text-center">
+        <%= t("decidim.admin.admin_terms_of_use.actions.title") %>
+      </h4>
+
+      <div class="cell medium-6 small-order-2 medium-order-1 text-center">
+        <%= button_to_refuse_admin_terms %>
+      </div>
+
+      <div class="cell medium-6 small-order-1 medium-order-2 text-center">
+        <%= button_to_accept_admin_terms %>
+      </div>
+    <% else %>
+      <div class="cell medium-12 text-center">
+        <%= button_to_refuse_admin_terms %>
+      </div>
+    <% end %>
+  </div>
+</article>

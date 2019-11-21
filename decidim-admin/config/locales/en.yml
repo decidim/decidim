@@ -146,6 +146,23 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      admin_terms_of_use:
+        accept:
+          error: There's been an error while accepting the admin terms of use.
+          success: Great! You've accepted the admin terms of use.
+        actions:
+          accept: I agree this admin terms
+          are_you_sure: Are you sure to refuse the admin terms?
+          refuse: Refuse the admin terms
+          title: Agree to the terms and conditions of use
+        refuse:
+          error: There's been an error while refusing the admin terms of use.
+          success: You've refused the admin terms of use.
+        required_review:
+          alert: 'Required: Review our admin terms of use'
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
+          cta: Review them now
+        title: Admin Terms of Use
       area_types:
         create:
           error: There was a problem creating a new area type.

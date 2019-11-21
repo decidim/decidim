@@ -1,8 +1,15 @@
+
 <h2 class="card-title">
   <%= t "decidim.admin.titles.dashboard" %>
 </h2>
+
 <div class="content">
   <p><%= t ".welcome" %></p>
+
+  <% unless current_user.admin_terms_accepted? %>
+    <%= cell("decidim/announcement", admin_terms_announcement_args ) %>
+  <% end %>
+
   <% if allowed_to? :read, :admin_log %>
     <div class="row">
       <h3 class="card-title">
@@ -12,5 +19,13 @@
         <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
       <% end %>
     </div>
+  <% end %>
+
+  <% if current_user.admin_terms_accepted? %>
+    <p class="text-right">
+      <small>
+        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_use"), admin_terms_of_use_path) %>
+      </small>
+    </p>
   <% end %>
 </div>
