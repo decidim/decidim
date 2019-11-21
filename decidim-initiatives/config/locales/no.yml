@@ -25,3 +25,6 @@
             count:
               one: Kommentar
               other: Kommentar
+        signatures_count:
+          one: " underskrift"
+          other: " underskrifter"
