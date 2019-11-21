@@ -17,6 +17,9 @@
       create_initiative:
         finish_help:
           page: side
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
       initiatives:
         filters:
           state: Status
