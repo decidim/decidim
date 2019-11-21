@@ -20,6 +20,7 @@
 
 **Fixed**:
 
+- **decidim-admin**: Admin HasAttachments forces the absolute namespace for the AttachmentForm to `::Decidim::Admin::AttachmentForm`.[\#5511](https://github.com/decidim/decidim/pull/5511)
 - **decidim-participatory_processes**: Fix participatory process import when some imported elements are null [\#5496](https://github.com/decidim/decidim/pull/5496)
 - **decidim-core**: Upgrade dependecies, specially loofah. [\#5493](https://github.com/decidim/decidim/pull/5493)
 - **decidim-core**: Fix: mispelling when selecting the meetings presenter. [\#5482](https://github.com/decidim/decidim/pull/5482)
