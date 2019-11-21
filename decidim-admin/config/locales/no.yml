@@ -51,6 +51,8 @@
         highlighted_content_banner_title: Tittel
         logo: Logo
         name: Navn
+        official_img_footer: Offisiell logo footer
+        official_img_header: Offisiell logo header
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
         password: Passord
@@ -61,9 +63,11 @@
         show_statistics: Vis statistikk
         success_color: Vellykket
         tos_version: Vilkår for tjenester versjon
+        user_groups_enabled: Aktiver grupper
         user_name: Brukernavn
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
+        welcome_notification_subject: Velkomst varslings emne
       scope:
         name: Navn
       scope_type:
