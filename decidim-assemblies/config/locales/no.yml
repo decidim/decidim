@@ -24,3 +24,10 @@
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
+  layouts:
+    decidim:
+      assemblies:
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} sammenstillinger"
+            other: "%{count} sammenstillingene"
