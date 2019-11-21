@@ -402,8 +402,6 @@ en:
         signatures_count:
           one: " signature"
           other: " signatures"
-        supports:
-          title: Listing of signatures
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"
