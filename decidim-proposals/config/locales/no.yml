@@ -12,6 +12,8 @@
       proposals:
         collaborative_draft_withdrawn:
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
+        proposal_published:
+          email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
     proposals:
       collaborative_drafts:
         filters:
