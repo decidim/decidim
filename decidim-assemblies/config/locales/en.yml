@@ -264,7 +264,7 @@ en:
         others: Others
         public: Public
       filter:
-        all: All types of assemblies
+        all: All types
         commission: Commission
         consultative_advisory: Consultative/Advisory
         executive: Executive
