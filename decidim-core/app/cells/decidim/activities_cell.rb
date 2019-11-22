@@ -34,9 +34,7 @@ module Decidim
     end
 
     def activities
-      @activities ||= last_activities.select do |activity|
-        activity.visible_for?(current_user)
-      end
+      model
     end
   end
 end
