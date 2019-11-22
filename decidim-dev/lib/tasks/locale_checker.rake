@@ -10,10 +10,7 @@ namespace :decidim do
     return unless status
 
     Dir.chdir("tmp/decidim_repo") do
-      env = {
-        "ENFORCED_LOCALES" => I18n.available_locales.join(","),
-        "SKIP_NORMALIZATION" => "true"
-      }
+      env = { "ENFORCED_LOCALES" => Decidim.available_locales.join(",") }
 
       Bundler.with_original_env do
         system(env, "bundle install")

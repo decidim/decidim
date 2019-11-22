@@ -10,7 +10,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
-      include Decidim::Proposals::Orderable
+      include Orderable
       include Paginable
 
       helper_method :form_presenter
