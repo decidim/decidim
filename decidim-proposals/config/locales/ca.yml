@@ -678,6 +678,7 @@ ca:
           most_voted: Amb més suports
           random: Aleatori
           recent: Recent
+          with_more_authors: Amb més autors
         participatory_texts:
           index:
             document_index: Índex del document
