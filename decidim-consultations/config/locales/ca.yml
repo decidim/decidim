@@ -184,6 +184,10 @@ ca:
       response_groups:
         create:
           error: S'ha produït un error en crear un nou grup de respostes.
+        edit:
+          update: Actualitza
+        form:
+          title: Informació general
       responses:
         create:
           error: Se ha producido un error al crear una nueva respuesta.
