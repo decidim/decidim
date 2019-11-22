@@ -45,3 +45,17 @@
 .dropdown-menu-inverted_label{
   vertical-align: middle;
 }
+
+// Pagination
+.card-divider.with-pagination {
+  padding: 10px;
+
+  h2 {
+    padding-top: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+.per_page {
+  flex: 0 0 auto;
+}

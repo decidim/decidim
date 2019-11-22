@@ -22,17 +22,15 @@ module Decidim::Admin
 
     describe "when the list is filtered" do
       context "and receives a search param" do
-        let!(:users) do
-          %w(Walter Fargo Phargo).map do |name|
-            create(:user, name: name, organization: organization)
-          end
-        end
+        let!(:user1) { create(:user, name: "Fargo O'Connel", organization: organization) }
+        let!(:user2) { create(:user, nickname: "fargo", organization: organization) }
+        let!(:user3) { create(:user, email: "fargo@example.org", organization: organization) }
 
         context "with regular characters" do
           let(:search) { "Argo" }
 
           it "returns all matching users" do
-            expect(subject.query).to match_array([users[1], users[2]])
+            expect(subject.query).to match_array([user1, user2, user3])
           end
         end
 

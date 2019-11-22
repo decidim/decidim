@@ -15,20 +15,20 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # scope - the ActiveRecord::Relation of users to be filtered
-      # name_query - query to filter user group names
+      # query - query to filter user by name, nickname and email
       # state - evaluation state to be used as a filter
-      def self.for(scope, name_query = nil, state = nil)
-        new(scope, name_query, state).query
+      def self.for(scope, query = nil, state = nil)
+        new(scope, query, state).query
       end
 
       # Initializes the class.
       #
       # scope - the ActiveRecord::Relation of users to be filtered
-      # name_query - query to filter user group names
+      # search_query - query to filter user by name, nickname and email
       # state - users state, must be defined as a scope in the user model
-      def initialize(scope, name_query = nil, state = nil)
+      def initialize(scope, search_query = nil, state = nil)
         @scope = scope
-        @name_query = name_query
+        @search_query = search_query
         @state = state
       end
 
@@ -42,12 +42,12 @@ module Decidim
 
       private
 
-      attr_reader :name_query, :state, :scope
+      attr_reader :search_query, :state, :scope
 
       def filter_by_search(users)
-        return users if name_query.blank?
+        return users if search_query.blank?
 
-        users.where("LOWER(name) LIKE LOWER(?)", "%#{name_query}%")
+        users.where("LOWER(name) LIKE LOWER(?) OR LOWER(nickname) LIKE LOWER(?) OR LOWER(email) LIKE LOWER(?)", "%#{search_query}%", "%#{search_query}%", "%#{search_query}%")
       end
 
       def filter_by_state(users)

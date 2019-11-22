@@ -1,5 +1,5 @@
-<div class="filters grid-x">
-  <div class="cell medium-2">
+<div class="filters row">
+  <div class="column medium-3">
     <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
     <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
         <li class="is-dropdown-submenu-parent">
@@ -18,13 +18,7 @@
         </li>
       </ul>
   </div>
-
-  <div class="cell medium-2">
-    <span class="dropdown-menu-inverted_label"><%= t("decidim.admin.actions.per_page") %>:</span>
-    <%= cell "decidim/admin/results_per_page", per_page_options %>
-  </div>
-
-  <div class="cell medium-8">
+  <div class="column medium-4">
     <%= form_tag "", method: :get do %>
       <div class="filters__search">
         <div class="input-group">
@@ -42,8 +36,12 @@
 </div>
 
 <div class="card" id='user-groups'>
-  <div class="card-divider">
+  <div class="card-divider with-pagination">
     <h2 class="card-title"><%= t "decidim.admin.titles.participants" %></h2>
+  <div class="per_page">
+    <span class="dropdown-menu-inverted_label"><%= t("decidim.admin.actions.per_page") %>:</span>
+    <%= cell "decidim/admin/results_per_page", per_page_options %>
+  </div>
   </div>
   <div class="card-section">
     <div class="table-scroll">
