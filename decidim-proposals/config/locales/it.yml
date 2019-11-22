@@ -672,9 +672,13 @@ it:
           title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
+          most_commented: I più commentati
+          most_endorsed: I più approvati
+          most_followed: I più seguiti
           most_voted: Più votate
           random: A caso
           recent: le più recenti
+          with_more_authors: Con più autori
         participatory_texts:
           index:
             document_index: Indice del documento
