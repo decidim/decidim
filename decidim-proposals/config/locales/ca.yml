@@ -672,6 +672,9 @@ ca:
           title: Crea la teva proposta
         orders:
           label: 'Ordenar propostes per:'
+          most_commented: Més comentats
+          most_endorsed: Més recolzats
+          most_followed: Més seguits
           most_voted: Amb més suports
           random: Aleatori
           recent: Recent
