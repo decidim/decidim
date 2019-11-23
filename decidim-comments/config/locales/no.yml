@@ -9,6 +9,8 @@
         form:
           body:
             label: Kommentar
+        remaining_characters: "%{count} tegn igjen"
+        remaining_characters_1: "%{count} tegn igjen"
     events:
       comments:
         comment_by_followed_user:
