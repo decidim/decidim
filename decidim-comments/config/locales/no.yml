@@ -17,6 +17,8 @@
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} har lagt igjen en kommentar i %{resource_title}. Du kan lese den på denne siden:"
+        comment_created:
+          email_intro: "%{resource_title} har blitt kommentert. Du kan lese kommentaren på denne siden:"
         reply_created:
           email_intro: "%{author_name} har svart kommentaren din i %{resource_title}. Du kan lese den på denne siden:"
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
