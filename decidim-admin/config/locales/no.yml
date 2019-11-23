@@ -95,6 +95,8 @@
         title: Tittel
   decidim:
     admin:
+      exports:
+        export_as: "%{name} som %{export_format}"
       impersonatable_users:
         index:
           name: Navn
