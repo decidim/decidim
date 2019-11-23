@@ -10,6 +10,8 @@
   decidim:
     events:
       proposals:
+        collaborative_draft_access_accepted:
+          email_subject: "%{requester_name} har blitt akseptert for tilgang som bidragsyter til %{resource_title}."
         collaborative_draft_withdrawn:
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
         proposal_endorsed:
