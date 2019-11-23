@@ -406,6 +406,10 @@
     shared:
       floating_help:
         help: Hjelp
+  devise:
+    mailer:
+      invitation_instructions:
+        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
   layouts:
     decidim:
       edit_link:
