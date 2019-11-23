@@ -11,6 +11,8 @@
             label: Kommentar
         remaining_characters: "%{count} tegn igjen"
         remaining_characters_1: "%{count} tegn igjen"
+      comments:
+        title: "%{count} kommentarer"
     events:
       comments:
         comment_by_followed_user:
