@@ -13,6 +13,9 @@
             fields:
               category: Kategori
               title: Tittel
+      admin_log:
+        sortition:
+          delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
       sortitions:
         filters:
           category: Kategori
