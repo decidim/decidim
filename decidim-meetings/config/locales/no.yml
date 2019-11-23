@@ -17,6 +17,10 @@
       meetings:
         filters:
           category: Kategori
+        show:
+          remaining_slots:
+            one: "%{count} plass igjen"
+            other: "%{count} plasser igjen"
       models:
         invite:
           fields:
