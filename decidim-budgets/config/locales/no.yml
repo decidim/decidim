@@ -9,6 +9,10 @@
     budgets:
       actions:
         edit: Editar
+      admin:
+        proposals_imports:
+          create:
+            success: "%{number} forslag vellykket importert til prosjekter"
       models:
         project:
           fields:
