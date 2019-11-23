@@ -392,10 +392,19 @@
           email_subject: "%{nickname} oppdaterte profilens sin"
     gamification:
       badges:
+        followers:
+          description_own: "%{score} folk følger deg."
         index:
           badge_title: "%{name} merke"
     menu:
       help: Hjelp
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
+          subject: "%{sender} har startet en samtale med deg"
+        new_message:
+          intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
     pages:
       home:
         statistics:
