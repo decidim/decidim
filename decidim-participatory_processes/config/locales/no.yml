@@ -29,6 +29,9 @@
           fields:
             email: Epost
             name: Navn
+    admin_log:
+      participatory_process_step:
+        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} \ndeltaker prosessen"
     participatory_processes:
       statistics:
         pages_count: Sider
