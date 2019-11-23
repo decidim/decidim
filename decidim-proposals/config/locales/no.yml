@@ -31,6 +31,9 @@
         proposals_imports:
           create:
             success: "%{number} forslag vellykket importert"
+      admin_log:
+        proposal:
+          answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
       collaborative_drafts:
         count:
           drafts_count:
