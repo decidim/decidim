@@ -26,6 +26,9 @@
         registration_type:
           fields:
             title: Tittel
+    admin_log:
+      conference_user_role:
+        update: "%{user_name} endret rollen av %{resource_name} i %{space_name} konferansen"
     conferences:
       admin:
         invite_join_conference_mailer:
