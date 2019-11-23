@@ -11,7 +11,11 @@
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_subject: "%{requester_name} har blitt akseptert for tilgang som bidragsyter til %{resource_title}."
+          email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} har blitt avslått tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
         collaborative_draft_withdrawn:
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
         proposal_endorsed:
