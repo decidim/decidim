@@ -33,6 +33,10 @@
         buttons:
           comment: Kommentar
       proposals:
+        count:
+          proposals_count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
         filters:
           category: Kategori
           state: Status
