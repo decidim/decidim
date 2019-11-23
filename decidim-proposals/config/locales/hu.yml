@@ -672,9 +672,13 @@ hu:
           title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
+          most_commented: Legkommentáltabb
+          most_endorsed: Legtámogatottabb
+          most_followed: Legkövetettebb
           most_voted: Legtöbb szavazattal
           random: Véletlenszerű
           recent: Legutóbbi
+          with_more_authors: Több szerző
         participatory_texts:
           index:
             document_index: Dokumentum index
