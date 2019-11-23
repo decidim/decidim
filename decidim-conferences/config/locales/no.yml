@@ -41,3 +41,10 @@
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
+  layouts:
+    decidim:
+      conferences:
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferanse"
+            other: "%{count} konferanser"
