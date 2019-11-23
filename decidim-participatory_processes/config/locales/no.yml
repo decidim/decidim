@@ -32,6 +32,8 @@
     admin_log:
       participatory_process_step:
         activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} \ndeltaker prosessen"
+      participatory_process_user_role:
+        update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
     participatory_processes:
       statistics:
         pages_count: Sider
