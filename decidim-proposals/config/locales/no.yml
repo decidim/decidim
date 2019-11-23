@@ -40,3 +40,6 @@
         filters:
           category: Kategori
           state: Status
+      versions:
+        stats:
+          version_number_out_of_total: "%{current_version} ut av %{total_count}"
