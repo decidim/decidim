@@ -18,6 +18,10 @@
         proposal_published:
           email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
     proposals:
+      admin:
+        proposals_imports:
+          create:
+            success: "%{number} forslag vellykket importert"
       collaborative_drafts:
         count:
           drafts_count:
