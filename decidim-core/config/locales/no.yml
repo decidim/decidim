@@ -396,6 +396,11 @@
       index:
         standalone_pages: Sider
         title: Hjelp
+    searches:
+      results:
+        results:
+          one: "%{count} resultat"
+          other: "%{count} resultater"
     shared:
       floating_help:
         help: Hjelp
