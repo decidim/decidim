@@ -16,6 +16,10 @@
           email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
     proposals:
       collaborative_drafts:
+        count:
+          drafts_count:
+            one: "%{count} samarbeids utkast"
+            other: "%{count} samarbeids utkaster"
         filters:
           category: Kategori
           state: Status
