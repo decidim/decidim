@@ -12,6 +12,9 @@
       proposals:
         collaborative_draft_withdrawn:
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
+        proposal_endorsed:
+          email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
+          email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
         proposal_published:
           email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
     proposals:
