@@ -32,6 +32,7 @@
       conference_speaker:
         create: "%{user_name} opprettet taler %{resource_name} i %{space_name} konferansen"
       conference_user_role:
+        create: "%{user_name} inviterte %{resource_name} til %{space_name} konferansen"
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} konferansen"
       conferences:
         conference_registration:
