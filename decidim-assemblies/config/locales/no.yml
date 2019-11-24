@@ -21,6 +21,8 @@
             email: Epost
             name: Navn
     admin_log:
+      assembly:
+        create: "%{user_name} lagde %{resource_name} forsamlingen"
       assembly_user_role:
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
     assemblies:
