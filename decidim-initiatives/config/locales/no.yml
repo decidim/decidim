@@ -16,6 +16,7 @@
     initiatives:
       admin_log:
         initiative:
+          publish: "%{user_name} publiserte %{resource_name} initiativet"
           unpublish: "%{user_name} la ned %{resource_name} initiativet"
       create_initiative:
         finish_help:
