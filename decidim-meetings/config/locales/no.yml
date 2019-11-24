@@ -21,6 +21,9 @@
         meeting:
           close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
           create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
+        minutes:
+          create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
       meetings:
         filters:
           category: Kategori
