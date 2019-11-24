@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing user officializations at the admin panel.
     #
     class OfficializationsController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Paginable
+
       layout "decidim/admin/users"
 
       helper_method :user
@@ -14,10 +16,8 @@ module Decidim
         enforce_permission_to :read, :officialization
         @query = params[:q]
         @state = params[:state]
-
-        @users = Decidim::Admin::UserFilter.for(current_organization.users.not_deleted, @query, @state)
-                                           .page(params[:page])
-                                           .per(15)
+        users = Decidim::Admin::UserFilter.for(current_organization.users.not_deleted, @query, @state)
+        @users = paginate(users)
       end
 
       def new

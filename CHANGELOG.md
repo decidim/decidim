@@ -27,6 +27,8 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim-participatory_processes**: Export/import feature for ParticipatoryProcess. [#5422](https://github.com/decidim/decidim/pull/5422)
 - **decidim-surveys**: Added a setting to surveys to allow unregistered (aka: anonymous) users to answer a survey. [\#4996](https://github.com/decidim/decidim/pull/4996)
 - **decidim-meetings**: Added help texts for meetings forms to solve doubts about Geocoder fields. [\# #5487](https://github.com/decidim/decidim/pull/5487)
+- **decidim-admin** Added per_page option in Admin participant index[#5480](https://github.com/decidim/decidim/pull/5480)
+- **decidim-admin** Add per_page option in Admin for participants, proposals and spaces indexes [#5480](https://github.com/decidim/decidim/pull/5480)
 
 **Changed**:
 

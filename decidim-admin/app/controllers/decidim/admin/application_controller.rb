@@ -17,6 +17,7 @@ module Decidim
       helper Decidim::Admin::IconLinkHelper
       helper Decidim::Admin::MenuHelper
       helper Decidim::Admin::ScopesHelper
+      helper Decidim::Admin::Paginable::PerPageHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::ScopesHelper
