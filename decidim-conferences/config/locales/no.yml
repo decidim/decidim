@@ -29,6 +29,7 @@
     admin_log:
       conference:
         create: "%{user_name} opprettet %{resource_name} konferansen"
+        publish: "%{user_name} publiserte %{resource_name} konferansen"
       conference_speaker:
         create: "%{user_name} opprettet taler %{resource_name} i %{space_name} konferansen"
       conference_user_role:
