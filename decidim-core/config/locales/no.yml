@@ -126,7 +126,7 @@
         update: "%{user_name} oppdaterte %{resource_name} omfanget"
         update_with_parent: "%{user_name} oppdaterte %{resource_name} omfanget inni %{parent_scope} omfanget"
       static_page:
-        create: "%{user_name} lagde %{resource_name} statisk side"
+        create: "%{user_name} lagde %{resource_name} statiske siden"
         delete: "%{user_name} slettet %{resource_name} statisk side"
         update: "%{user_name} oppdaterte %{resource_name} statisk side"
       user:
