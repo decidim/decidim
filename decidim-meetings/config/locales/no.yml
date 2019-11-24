@@ -18,10 +18,13 @@
           service:
             title: Tittel
       admin_log:
+        invite:
+          create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} området"
         meeting:
           close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
           create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
           delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
+          export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} rommet"
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
       meetings:
