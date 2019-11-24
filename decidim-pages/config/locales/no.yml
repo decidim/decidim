@@ -7,7 +7,7 @@
   decidim:
     admin_log:
       page:
-        update: "%{user_name} Oppdaterte %{resource_name} siden i %{space_name}"
+        update: "%{user_name} oppdaterte %{resource_name} siden i %{space_name}"
     components:
       pages:
         name: Side
