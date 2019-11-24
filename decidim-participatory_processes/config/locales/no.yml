@@ -32,6 +32,7 @@
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
+        publish: "%{user_name} publiserte %{resource_name} deltaker prosessen"
       participatory_process_group:
         create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
       participatory_process_step:
