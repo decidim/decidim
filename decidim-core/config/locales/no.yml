@@ -402,6 +402,7 @@
         create_with_space: "%{user_name} opprettet %{resource_name} i %{space_name}"
         delete: "%{user_name} slettet %{resource_name}"
         delete_with_space: "%{user_name} slettet %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utførte en handling på %{resource_name}"
     menu:
       help: Hjelp
     messaging:
