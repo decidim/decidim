@@ -39,6 +39,7 @@
         create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
         delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
       participatory_process_user_role:
+        create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
         update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
     participatory_processes:
       statistics:
