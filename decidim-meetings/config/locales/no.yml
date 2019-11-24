@@ -9,7 +9,7 @@
   decidim:
     meetings:
       actions:
-        edit: Editar
+        edit: Rediger
       admin:
         invite_join_meeting_mailer:
           invite:
@@ -21,10 +21,10 @@
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} området"
         meeting:
-          close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
-          create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
+          close: "%{user_name} lukket %{resource_name} møtet i %{space_name} området"
+          create: "%{user_name} opprettet %{resource_name} møte på %{space_name} området"
           delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
-          export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} rommet"
+          export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} området"
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
       meetings:
