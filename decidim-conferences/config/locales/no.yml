@@ -42,6 +42,7 @@
           create: "%{user_name} opprettet %{resource_name} til %{space_name} konferansen"
         registration_type:
           create: "%{user_name} opprettet redigerings typen %{resource_name} i %{space_name} konferansen"
+          publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
       media_link:
         create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
     conferences:
