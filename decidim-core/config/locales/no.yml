@@ -96,13 +96,13 @@
         delete: "%{user_name} slettet %{resource_name} området"
         update: "%{user_name} oppdaterte %{resource_name} området"
       component:
-        create: "%{user_name} la til %{resource_name} komponent til %{space_name} området"
-        delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} området"
-        publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} området"
-        unpublish: "%{user_name} tok ned %{resource_name} komponent til %{space_name} området"
+        create: "%{user_name} la til %{resource_name} komponent til %{space_name} rommet"
+        delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} rommet"
+        publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
+        unpublish: "%{user_name} tok ned %{resource_name} komponent til %{space_name} rommet"
       moderation:
-        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} området"
-        unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} området"
+        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} rommet"
+        unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
       newsletter:
         create: "%{user_name} opprettet %{resource_name} nyhetsbrevet"
         delete: "%{user_name} slettet %{resource_name} nyhetsbrevet"
