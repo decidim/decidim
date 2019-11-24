@@ -20,6 +20,7 @@
       admin_log:
         meeting:
           close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
       meetings:
         filters:
           category: Kategori
