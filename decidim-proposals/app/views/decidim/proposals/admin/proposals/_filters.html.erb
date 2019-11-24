@@ -1,0 +1,23 @@
+<div class="fcell filter">
+  <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+    <%= admin_filter(t("actions.filter.label", scope: "decidim.admin"), proposals_admin_filter_tree) %>
+  </ul>
+</div>
+<div class="fcell search">
+  <%= search_form_for query do |f| %>
+    <%= proposals_admin_search_hidden_params %>
+    <div class="input-group">
+      <%= f.search_field :id_or_title_cont, label: false, class: "input-group-field", placeholder: t("decidim.admin.impersonatable_users.index.search") %>
+      <div class="input-group-button">
+        <button type="submit" class="button button--muted">
+          <%= icon "magnifying-glass", aria_label: t("decidim.admin.impersonatable_users.index.search") %>
+        </button>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% if params[:q] %>
+  <div class="fcell status">
+    <%= proposals_admin_filter_applied_filters %>
+  </div>
+<% end %>
