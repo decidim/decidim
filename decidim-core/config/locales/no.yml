@@ -396,6 +396,10 @@
           description_own: "%{score} folk følger deg."
         index:
           badge_title: "%{name} merke"
+    log:
+      base_presenter:
+        create: "%{user_name} lagde %{resource_name}"
+        create_with_space: "%{user_name} lagde %{resource_name} i %{space_name}"
     menu:
       help: Hjelp
     messaging:
