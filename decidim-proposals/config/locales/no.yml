@@ -34,6 +34,7 @@
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
       collaborative_drafts:
         count:
           drafts_count:
