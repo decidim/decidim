@@ -17,6 +17,9 @@
         meetings:
           service:
             title: Tittel
+      admin_log:
+        meeting:
+          close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
       meetings:
         filters:
           category: Kategori
