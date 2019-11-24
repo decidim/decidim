@@ -15,6 +15,7 @@
               title: Tittel
       admin_log:
         sortition:
+          create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
           delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
       sortitions:
         filters:
