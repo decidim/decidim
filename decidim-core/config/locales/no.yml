@@ -92,7 +92,7 @@
         success_with_email_confirmation: Kontoen din var vellykket oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
     admin_log:
       area:
-        create: "%{user_name} lagde %{resource_name} området"
+        create: "%{user_name} opprettet %{resource_name} området"
         delete: "%{user_name} slettet %{resource_name} området"
         update: "%{user_name} oppdaterte %{resource_name} området"
       component:
@@ -104,12 +104,12 @@
         hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} området"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} området"
       newsletter:
-        create: "%{user_name} lagde %{resource_name} nyhetsbrevet"
+        create: "%{user_name} opprettet %{resource_name} nyhetsbrevet"
         delete: "%{user_name} slettet %{resource_name} nyhetsbrevet"
         deliver: "%{user_name} leverte %{resource_name} nyhetsbrevet"
         update: "%{user_name} oppdaterte %{resource_name} nyhetsbrevet"
       oauth_application:
-        create: "%{user_name} lagde %{resource_name} OAuth applikasjonen"
+        create: "%{user_name} opprettet %{resource_name} OAuth applikasjonen"
         delete: "%{user_name} slettet %{resource_name} OAuth applikasjonen"
         update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
       organization:
@@ -398,8 +398,8 @@
           badge_title: "%{name} merke"
     log:
       base_presenter:
-        create: "%{user_name} lagde %{resource_name}"
-        create_with_space: "%{user_name} lagde %{resource_name} i %{space_name}"
+        create: "%{user_name} opprettet %{resource_name}"
+        create_with_space: "%{user_name} opprettet %{resource_name} i %{space_name}"
     menu:
       help: Hjelp
     messaging:
