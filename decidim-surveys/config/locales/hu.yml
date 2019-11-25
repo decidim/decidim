@@ -55,5 +55,5 @@ hu:
       surveys:
         answer:
           invalid: Hiba történt a felmérés megválaszolása során.
-          spam_detected: Probléma történt a form megválaszolása során. Lehet, hogy túl gyorsan próbálkoztál, megpróbálnád újra?
+          spam_detected: Probléma történt az űrlap megválaszolása során. Lehet, hogy túl gyorsan próbálkoztál, megpróbálnád újra?
           success: Felmérés kitöltése sikeres.

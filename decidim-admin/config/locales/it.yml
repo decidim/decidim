@@ -77,7 +77,7 @@ it:
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
-        user_name: Nome Utente
+        user_name: Pseudonimo
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto

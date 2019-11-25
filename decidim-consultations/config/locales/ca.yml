@@ -35,6 +35,8 @@ ca:
         title: Títol
         vote: Sistema de votació extern
         what_is_decided: Què es decideix
+      response:
+        decidim_consultations_response_group_id: Grup
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ ca:
   decidim:
     admin:
       actions:
+        back_to_responses: Torna a les respostes
         new_consultation: Nova consulta
         new_question: Nova pregunta
         new_response: Nova resposta
+        new_response_group: Nou grup
         publish_results: Publica els resultats
+        response_groups: Administra els grups de respostes
         unpublish_results: Despublicar resultats
       consultation_publications:
         create:
@@ -140,6 +145,7 @@ ca:
         response:
           fields:
             created_at: Creat el
+            response_group: Grup
             title: Títol
           name:
             one: Resposta
@@ -175,6 +181,13 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta pregunta.
           success: La pregunta s'ha actualitzat correctament.
+      response_groups:
+        create:
+          error: S'ha produït un error en crear un nou grup de respostes.
+        edit:
+          update: Actualitza
+        form:
+          title: Informació general
       responses:
         create:
           error: Se ha producido un error al crear una nueva respuesta.

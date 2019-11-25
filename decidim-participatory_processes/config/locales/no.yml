@@ -29,6 +29,19 @@
           fields:
             email: Epost
             name: Navn
+    admin_log:
+      participatory_process:
+        create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
+        publish: "%{user_name} publiserte %{resource_name} deltaker prosessen"
+      participatory_process_group:
+        create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
+      participatory_process_step:
+        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} \ndeltaker prosessen"
+        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
+        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
+      participatory_process_user_role:
+        create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
+        update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
     participatory_processes:
       statistics:
         pages_count: Sider

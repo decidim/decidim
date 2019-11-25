@@ -14,10 +14,23 @@
           fields:
             state: Status
     initiatives:
+      admin_log:
+        initiative:
+          publish: "%{user_name} publiserte %{resource_name} initiativet"
+          unpublish: "%{user_name} la ned %{resource_name} initiativet"
       create_initiative:
         finish_help:
           page: side
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
+        endorse_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
       initiatives:
+        count:
+          title:
+            one: "%{count} initiativ"
+            other: "%{count} initiativer"
         filters:
           state: Status
         interactions:
@@ -25,3 +38,8 @@
             count:
               one: Kommentar
               other: Kommentar
+        signatures_count:
+          one: " underskrift"
+          other: " underskrifter"
+        vote_cabin:
+          supports_required: "%{total_supports} signaturer påkrevd"

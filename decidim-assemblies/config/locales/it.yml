@@ -3,8 +3,8 @@ it:
     attributes:
       assembly:
         area_id: La zona
-        assembly_type: Tipo di assieme
-        assembly_type_other: Tipo di assemblaggio altro
+        assembly_type: Tipo di assemblea
+        assembly_type_other: Tipo di assemblea altro
         banner_image: Immagine del banner
         closing_date: Data di chiusura
         closing_date_reason: Motivo della data di chiusura
@@ -25,18 +25,18 @@ it:
         github: GitHub
         hashtag: Hashtag
         hero_image: Immagine della home page
-        included_at: Incluso a
+        included_at: Fino a
         instagram: Instagram
         internal_organisation: Organizzazione interna
         is_transparent: È trasparente
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
-        parent_id: Assemblaggio genitore
+        parent_id: Assemblea genitore
         participatory_processes_ids: Processi partecipativi correlati
         participatory_scope: Cosa è deciso
         participatory_structure: Come è deciso?
         private_space: Spazio privato
-        promoted: Promosso
+        promoted: In evidenza
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
         scope_id: Obiettivi
@@ -52,7 +52,7 @@ it:
         youtube: Youtube
       assembly_member:
         birthday: Compleanno
-        birthplace: luogo di nascita
+        birthplace: Luogo di nascita
         ceased_date: Data di fine
         designation_date: Data di designazione
         designation_mode: Modalità di designazione
@@ -67,21 +67,21 @@ it:
     models:
       decidim/assembly:
         one: montaggio
-        other: assemblee
+        other: Assemblee
       decidim/assembly_member:
         one: Membro dell'Assemblea
         other: Membri dell'Assemblea
       decidim/assembly_user_role:
-        one: Ruolo dell'utente dell'assemblaggio
+        one: Ruolo dell'utente dell'assemblea
         other: Assemblare i ruoli utente
   decidim:
     admin:
       actions:
-        new_assembly: Nuovo assemblaggio
+        new_assembly: Nuova assemblea
       assemblies:
         create:
-          error: Si è verificato un errore durante la creazione di un nuovo assembly.
-          success: L'assemblaggio è stato creato con successo.
+          error: Si è verificato un errore durante la creazione di una nuova assemblea.
+          success: L'assemblea è stata creata con successo.
         edit:
           update: Aggiorna
         index:
@@ -91,36 +91,36 @@ it:
           published: Pubblicato
         new:
           create: Crea
-          title: Nuovo montaggio
+          title: Nuova assemblea
         update:
-          error: Si è verificato un errore durante l'aggiornamento di questo assembly.
-          success: L'assemblaggio è aggiornato correttamente.
+          error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
+          success: L'assemblea è stata aggiornata correttamente.
       assemblies_copies:
         create:
-          error: Si è verificato un errore durante la duplicazione di questo assembly.
-          success: L'assemblaggio è duplicato con successo.
+          error: Si è verificato un errore durante la duplicazione di questa assemblea.
+          success: L'assemblea è stata duplicata con successo.
       assembly_copies:
         new:
           copy: Copia
-          select: Scegli quale quale dato vuoi duplicare
-          title: Duplicare il montaggio
+          select: Scegli quale dato vuoi duplicare
+          title: Duplica l'assemblea
       assembly_members:
         create:
-          error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
-          success: Membro creato con successo per questo assembly.
+          error: Si è verificato un errore durante l'aggiunta di un membro per questa assemblea.
+          success: Membro creato con successo per questa assemblea.
         destroy:
-          success: Membro cancellato con successo per questo assembly.
+          success: Membro cancellato con successo per questa assemblea.
         edit:
-          title: Aggiorna membro dell'assembly.
-          update: Aggiornare
+          title: Aggiorna membro dell'assemblea.
+          update: Aggiorna
         index:
           assembly_members_title: Membri dell'Assemblea
         new:
-          create: Creare
+          create: Crea
           title: Nuovo membro dell'assemblea.
         update:
-          error: Si è verificato un errore durante l'aggiornamento del membro per questo assembly.
-          success: Membro aggiornato correttamente per questo assembly.
+          error: Si è verificato un errore durante l'aggiornamento del membro per questa assemblea.
+          success: Membro aggiornato correttamente per questa assemblea.
       assembly_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
@@ -146,15 +146,15 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di un utente per questo assieme.
           success: Utente aggiornato correttamente per questo assembly.
       menu:
-        assemblies: assemblee
+        assemblies: Assemblee
         assemblies_submenu:
-          assembly_admins: Utenti dell'assemblaggio
+          assembly_admins: Amministratori dell'assemblea
           assembly_members: Utenti
           attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie
-          components: componenti
+          components: Componenti
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
@@ -163,10 +163,10 @@ it:
           fields:
             created_at: Data/ora di creazione
             private: Privato
-            promoted: Evidenziato
+            promoted: In evidenzia
             published: Pubblicato
             title: Nome
-          name: montaggio
+          name: Assemblea
         assembly_member:
           fields:
             ceased_date: Data di fine

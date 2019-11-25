@@ -20,7 +20,7 @@ module Decidim
         def index
           @meeting_spaces = search.results.map do |meeting|
             klass = meeting.component.participatory_space.class
-            [klass.model_name.name.underscore, klass.model_name.human.pluralize]
+            [klass.model_name.name.underscore, klass.model_name.human(count: 2)]
           end.uniq
           @meeting_spaces = @meeting_spaces.sort_by do |_param, name|
             name
