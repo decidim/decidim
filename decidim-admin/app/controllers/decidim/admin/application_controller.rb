@@ -6,7 +6,6 @@ module Decidim
     class ApplicationController < ::DecidimController
       include NeedsOrganization
       include NeedsPermission
-      include Decidim::Admin::Concerns::NeedsAdminTermsAccepted
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo

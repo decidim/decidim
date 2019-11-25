@@ -161,7 +161,7 @@ en:
         required_review:
           alert: 'Required: Review our admin terms of use'
           callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
-          cta: Review them now
+          cta: Review them now.
         title: Admin Terms of Use
       area_types:
         create:

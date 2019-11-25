@@ -4,14 +4,11 @@ module Decidim
   module Admin
     class AdminTermsPermissions < Decidim::DefaultPermissions
       def permissions
-        if no_need_to_agree_admin_terms_action?
-          allow!
-        # elsif permission_action.subject.to_s.exclude?("initiative")
-        #   # toggle_allow(user.admin_terms_accepted?)
-        # else
+        if no_need_to_agree_admin_terms_action? || user_admin_terms_accepted?
+          allow! unless admin_initiative_subject?
+        else
+          disallow!
         end
-        allow! if user_admin_terms_accepted?
-
 
         permission_action
       end
@@ -27,15 +24,19 @@ module Decidim
           permission_action.action == :read
       end
 
-      def no_need_to_agree_admin_terms_action?
-        return true if read_admin_dashboard_action?
-        return true if context[:space_name] == :initiatives
-        # return true if permission_action.subject == :initiative
-        # return true if permission_action.subject == :initiative_type
+      def admin_terms_of_use_subject?
+        permission_action.subject == :admin_terms_of_use
       end
 
-      def organization
-        @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
+      def admin_initiative_subject?
+        permission_action.subject.to_s.include?("initiative")
+      end
+
+      def no_need_to_agree_admin_terms_action?
+        return true if read_admin_dashboard_action?
+        return true if admin_terms_of_use_subject?
+        return true if admin_initiative_subject?
+        return true if context[:space_name] == :initiatives
       end
     end
   end

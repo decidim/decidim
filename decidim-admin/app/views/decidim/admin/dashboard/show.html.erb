@@ -24,7 +24,7 @@
   <% if current_user.admin_terms_accepted? %>
     <p class="text-right">
       <small>
-        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_use"), admin_terms_of_use_path) %>
+        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_use"), admin_terms_show_path) %>
       </small>
     </p>
   <% end %>

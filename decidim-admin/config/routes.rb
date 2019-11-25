@@ -71,9 +71,11 @@ Decidim::Admin::Engine.routes.draw do
 
     resource :help_sections, only: [:show, :update]
 
-    get "/terms-of-use", to: "admin_terms#show", as: :admin_terms_of_use
-    put "/terms-of-use/accept", to: "admin_terms#accept_terms", as: :accept_admin_terms_of_use
-    put "/terms-of-use/refuse", to: "admin_terms#refuse", as: :refuse_admin_terms_of_use
+    namespace :admin_terms do
+      get :show
+      put :accept
+      put :refuse
+    end
 
     resources :oauth_applications
 

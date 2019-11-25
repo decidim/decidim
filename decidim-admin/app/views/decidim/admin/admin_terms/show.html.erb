@@ -3,12 +3,9 @@
 <article class="card">
   <div class="card-section grid-x grid-margin-x">
     <div class="cell medium-12">
-      <h2 class="card-title">
-        <%= t "decidim.admin.admin_terms_of_use.title" %>
-      </h2>
 
       <div class="content">
-        <%= current_organization.admin_terms_of_use_body[locale].html_safe %>
+        <%= admin_terms_of_use_body %>
       </div>
     </div>
 

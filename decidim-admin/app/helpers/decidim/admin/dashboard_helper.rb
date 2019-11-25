@@ -16,7 +16,7 @@ module Decidim
         body += " "
         body += link_to(
           t("required_review.cta", scope: "decidim.admin.admin_terms_of_use"),
-          admin_terms_of_use_path
+          admin_terms_show_path
         )
         body
       end
