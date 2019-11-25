@@ -15,6 +15,7 @@
 
 **Changed**:
 
+- **decidim-meetings**: Change: @meetings_spaces collection to use I18n translations [#5494](https://github.com/decidim/decidim/pull/5494)
 - **decidim-core**: Add @ prefix to the nickname field in the registration view. [\#5482](https://github.com/decidim/decidim/pull/5482)
 - **decidim-core**: Introduce the ActsAsAuthor concern. [\#5482](https://github.com/decidim/decidim/pull/5482)
 - **decidim-core**: Extract footers into partials. [#5461](https://github.com/decidim/decidim/pull/5461)
