@@ -116,6 +116,7 @@ it:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
+        create_via_csv: "%{user_name} è stato invitato %{resource_name} tramite csv per essere un partecipante privato"
         delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
@@ -309,12 +310,18 @@ it:
             comments_enabled: Commenti abilitati
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
+            dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
           step:
+            amendment_creation_enabled: Creazione di emendamenti abilitata
+            amendment_promotion_enabled: Promozione dell'emendamento abilitata
+            amendment_reaction_enabled: Risposta all'emendamento abilitata
+            amendments_visibility: Visibilità dell'emendamento
             comments_blocked: Commenti bloccati
             dummy_step_attribute_1: Attributo Dummy Step 1
             dummy_step_attribute_2: Attributo Dummy Step 2
+            dummy_step_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
       footer_sub_hero:
@@ -357,6 +364,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
+          nickname_help: Il nickname che ti identifica su %{organization}
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -365,6 +373,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
+          nickname_help: Il nickname che ti identifica su %{organization}
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -578,6 +587,9 @@ it:
       current_image: Immagine attuale
       default_image: Immagine predefinita
       errors:
+        decidim/user:
+          password: La password è troppo breve.
+          password_confirmation: La conferma password deve corrispondere alla password.
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
     gamification:
@@ -1207,7 +1219,11 @@ it:
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
       nesting_too_deep: Non può stare all'interno di una subcategoria
+      not_found: non è stato trovato. Ti sei iscritto in precedenza?
       not_locked: non era bloccato
+      not_saved:
+        one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
+        other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
       too_short: è troppo corto (meno di 15 caratteri)
@@ -1243,7 +1259,7 @@ it:
         conversations: conversazioni
         notifications: Notifiche
         profile: Il mio account
-        public_profile: Il mio profilo pubblico
+        public_profile: Il mio profilo
         sign_out: Esci
       user_profile:
         account: Account
@@ -1281,12 +1297,15 @@ it:
     qq: Qzone
     reddit: Reddit
     share_to: Condividi con %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Apri il tuo WeChat, clicca il pulsante "Discover", infine clicca sul menu "Scan QR Code".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1296,10 +1315,13 @@ it:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a %d %b %Y, %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, % %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

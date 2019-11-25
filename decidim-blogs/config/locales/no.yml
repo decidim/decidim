@@ -3,3 +3,7 @@
     blogs:
       actions:
         edit: Editar
+      models:
+        post:
+          fields:
+            title: tittel

@@ -1,5 +1,28 @@
 "no":
   activemodel:
     attributes:
-      meeting:
+      agenda:
         title: Tittel
+      meeting:
+        decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    meetings:
+      actions:
+        edit: Editar
+      admin:
+        meetings:
+          service:
+            title: Tittel
+      meetings:
+        filters:
+          category: Kategori
+      models:
+        invite:
+          fields:
+            email: Epost
+            name: Navn
+            status: Status
+        meeting:
+          fields:
+            title: Tittel

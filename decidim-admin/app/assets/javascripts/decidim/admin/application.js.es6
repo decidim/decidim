@@ -19,6 +19,7 @@
 // = require ./sortable
 // = require decidim/input_tags
 // = require decidim/input_hashtags
+// = require decidim/input_mentions
 // = require_self
 
 window.Decidim = window.Decidim || {};
