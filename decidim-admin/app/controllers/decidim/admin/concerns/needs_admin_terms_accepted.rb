@@ -16,9 +16,10 @@ module Decidim
           return true unless request.format.html?
           return true unless current_user
           return if current_user.admin_terms_accepted?
-          return if admin_permitted_path?
 
-          redirect_to_admin_terms
+          # return if admin_permitted_path?
+
+          # redirect_to_admin_terms
         end
 
         def admin_permitted_path?

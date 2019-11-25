@@ -4,6 +4,7 @@ module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if admin_terms_action?
         return permission_action if managed_user_action?
 
         unless permission_action.scope == :admin
@@ -153,6 +154,10 @@ module Decidim
         end
       end
 
+      def admin_terms_action?
+        admin_terms_permissions
+      end
+
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
@@ -179,6 +184,10 @@ module Decidim
 
       def user_manager_permissions
         Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).permissions
+      end
+
+      def admin_terms_permissions
+        Decidim::Admin::AdminTermsPermissions.new(user, permission_action, context).permissions
       end
 
       def available_authorization_handlers?
