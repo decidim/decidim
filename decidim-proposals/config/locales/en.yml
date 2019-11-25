@@ -675,9 +675,13 @@ en:
           title: Create Your Proposal
         orders:
           label: 'Order proposals by:'
+          most_commented: Most commented
+          most_endorsed: Most endorsed
+          most_followed: Most followed
           most_voted: Most supported
           random: Random
           recent: Recent
+          with_more_authors: With more authors
         participatory_texts:
           index:
             document_index: Document index
