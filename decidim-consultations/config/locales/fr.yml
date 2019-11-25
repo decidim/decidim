@@ -147,6 +147,7 @@ fr:
       question_configuration:
         disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées
         form:
+          help: Configurez plusieurs choix de questions en augmentant le nombre maximum de réponses qu'un participant peut sélectionner. La valeur maximale par défaut est 1, ce qui signifie qu'une seule réponse peut être sélectionnée.
           title: Configuration avancée
       question_publications:
         create:

@@ -2,28 +2,90 @@
   activemodel:
     attributes:
       area:
+        area_type: Områdetype
         name: Navn
+        organization: Organisasjon
       area_type:
         name: Navn
+        organization: Organisasjon
+        plural: Flertall
       attachment:
+        attachment_collection_id: Mapper
+        description: Beskrivelse
+        file: Fil
         title: Tittel
       attachment_collection:
+        description: Beskrivelse
         name: Navn
       category:
+        description: Beskrivelse
         name: Navn
+        parent_id: Forelder
       component:
         name: Navn
+        published_at: Publisert den
+        weight: Vekt
+      id: ID
+      newsletter:
+        body: Tekst
+        subject: Emne
       oauth_application:
         name: Navn
+        organization_logo: Organisasjonslogo (Firkant)
+        organization_name: Navn på organisasjonen
+        organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
       organization:
+        address: SMTP vertsnavn
+        alert_color: Varsel
+        badges_enabled: Aktiver merker
+        customize_welcome_notification: Tilpass dine velkomst varsler
+        default_locale: Standard språk
+        description: Beskrivelse
+        enable_omnipresent_banner: Vis allestedsnærværende banner
+        favicon: Ikon
+        from: Fra e-postadresse
+        header_snippets: Topptekstutdrag
+        highlighted_content_banner_image: Bilde
+        highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
+        logo: Logo
         name: Navn
+        official_img_footer: Offisiell logo footer
+        official_img_header: Offisiell logo header
+        official_url: Offisiell organisasjons URL
+        omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
+        omnipresent_banner_url: URL
+        password: Passord
+        port: Port
+        primary_color: Primært
+        reference_prefix: Referanse prefiks
+        secondary_color: Sekundær
+        send_welcome_notification: Send velkomst varsel
+        show_statistics: Vis statistikk
+        success_color: Vellykket
+        tos_version: Vilkår for tjenester versjon
+        user_groups_enabled: Aktiver grupper
+        user_name: Brukernavn
+        warning_color: Advarsel
+        welcome_notification_body: Velkomst varslings tekst
+        welcome_notification_subject: Velkomst varslings emne
       scope:
+        code: Kode
         name: Navn
+        organization: Organisasjon
+        parent_id: Forelder
+        scope_type: Omfangs type
+        scope_type_id: Omfangs type
       scope_type:
         name: Navn
+        organization: Organisasjon
+        plural: Flertall
       static_page:
+        changed_notably: Det har vært merkbare endringer.
+        content: Innhold
+        organization: Organisasjon
         title: Tittel
       static_page_topic:
         title: Tittel
@@ -33,6 +95,8 @@
         title: Tittel
   decidim:
     admin:
+      exports:
+        export_as: "%{name} som %{export_format}"
       impersonatable_users:
         index:
           name: Navn
