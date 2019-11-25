@@ -10,7 +10,7 @@ nl:
         copy_steps: Kopieer stappen
         decidim_area_id: Onderwerp
         description: Beschrijving
-        developer_group: Promotorgroep
+        developer_group: Organisator
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
@@ -267,7 +267,7 @@ nl:
       participatory_process:
         step_activated:
           email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
@@ -371,7 +371,7 @@ nl:
           loading: Laden van resultaten...
       show:
         area: Onderwerp
-        developer_group: Promotergroep
+        developer_group: Organisator
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten

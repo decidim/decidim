@@ -20,8 +20,8 @@ module Decidim
     end
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
-           :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :decidim_newsletterable,
+           :recoverable, :rememberable, :trackable, :lockable,
+           :decidim_validatable, :decidim_newsletterable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
