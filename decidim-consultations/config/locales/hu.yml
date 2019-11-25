@@ -56,7 +56,7 @@ hu:
     models:
       decidim/consultation:
         one: Konzultáció
-        other: konzultációk
+        other: Konzultációk
       decidim/consultations/question:
         one: Kérdés
         other: Kérdések
@@ -153,7 +153,7 @@ hu:
       question_configuration:
         disable_external_voting: Kérjük, tiltsa le a külső szavazást speciális konfigurációkhoz
         form:
-          help: Állítson be több választási kérdést azáltal, hogy növeli a résztvevő által választható válaszok maximális számát. Az alapértelmezett maximális érték 1, azaz csak egy választ lehet megszavazni.
+          help: Állítson be több lehetséges válasszal rendelkező kérdést azáltal, hogy növeli a résztvevő által választható válaszok maximális számát. Az alapértelmezett maximális érték 1, azaz csak egy választ lehet megszavazni.
           title: Haladó konfiguráció
       question_publications:
         create:
@@ -192,7 +192,7 @@ hu:
           update: Frissítés
         form:
           title: Általános információ
-        help: Használj csoportokat, hogy többválaszos kérdéseket csomagokba szervezz.
+        help: Használj csoportokat, hogy többválaszos kérdéseket csoportokba szervezz.
         new:
           create: Létrehoz
           title: Új válaszcsoport
@@ -281,7 +281,7 @@ hu:
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
-            description: A résztvevők legalább %{votes} szavazatot oszthatnak el lehetőségek között.
+            description: A résztvevők legalább %{votes} szavazatot oszthatnak el a lehetőségek között.
           title: Ebben a kérdésben több választás lehetséges
           total_participants: Összesen %{count} ember vett részt a szavazásban.
           vote_limit:
@@ -299,7 +299,7 @@ hu:
           error: Hiba történt a kérdésre való szavazás során
           success: Megváltoztathatod a konzultáció végéig. Csak az utolsó szavazás kerül elfogadásra.
           title_error: Szavazati hiba!
-          title_success: Sikeres szavazat regisztráció
+          title_success: Szavazat sikeresen regisztrálva
       regular_questions:
         title: Konzultációra vonatkozó kérdések
       show:
@@ -317,8 +317,8 @@ hu:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>A konzultációk egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generáljanak egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál, igennel vagy nemmel döntve arról, hogy a szervezet egy megállapodást írjon alá, nagyobb szervezet részévé váljon, egy új stratégiai stratégia érvényesítése vagy elutasítása kérdésében, vagy munkacsoport eredményét, vagy adott esetben meghatározni, hogy a pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
-          page: "<p>konzultációk olyan teret jelentenek, amely lehetővé teszi, hogy egyértelmű kérdéseket tegyenek fel a szervezetet alkotó embereknek, hívjanak fel a konzultációban való részvételre, szikrázzanak és megrendeljék a vitát egy válasz ellen vagy ellen. Amikor a konzultáció időpontja megérkezik, szavazhat és közzéteszi a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte minden olyan aspektusra vonatkozhatnak, amely a szervezetet érinti: néhány példa megváltoztatja a több alternatívát kínáló szervezet nevét vagy logóját, úgy dönt, hogy igen vagy nem, hogy egy nagyobb szervezet részévé váljon, új stratégiai jóváhagyást vagy elutasítást kapjon vagy egy munkacsoport eredménye, vagy meghatározza, hogy a pozíciók maximálisan 1, 2 vagy 3 mandátumot kell-e maradniuk a szervezetben.</p>\n"
+          contextual: "<p><strong>A konzultációk</strong> egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generálj egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál. Igennel vagy nemmel dönteni arról, hogy a szervezet egy megállapodást aláírjon vagy sem, egy nagyobb szervezet részévé váljon, egy új stratégiai terv érvényesítése vagy elutasítása kérdésében állást foglaljon, vagy egy munkacsoport munkájának eredményét elfogadja, vagy adott esetben meghatározni, hogy az adott pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
+          page: "<p><strong>A konzultációk</strong> egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel mindazoknak, akik egy szervezetet alkotnak, felhívást tegyél közzé a konzultációban való részvételre, vitát generálj egy kérdésben. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál. Igennel vagy nemmel dönteni arról, hogy a szervezet egy megállapodást aláírjon vagy sem, egy nagyobb szervezet részévé váljon, egy új stratégiai terv érvényesítése vagy elutasítása kérdésében állást foglaljon, vagy egy munkacsoport munkájának eredményét elfogadja, vagy adott esetben meghatározni, hogy az adott pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
