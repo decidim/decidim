@@ -151,7 +151,7 @@ nl:
         home_header:
           global_status: Globale uitvoeringstatus
         nav_breadcrumb:
-          global: Wereldwijde uitvoering
+          global: Globale uitvoering
         search:
           search: Zoek naar acties
         show:

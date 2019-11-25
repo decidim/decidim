@@ -490,7 +490,7 @@ nl:
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan dit ontvolgen door te klikken . op de voorgaande link.
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. Je kan stoppen met volgen door te klikken op de vorige link.
         email_subject: Een update voor %{resource_title}
       gamification:
         badge_earned:
@@ -544,7 +544,7 @@ nl:
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
-          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kan de meldingen uitschakelen door te klikken op de vorige link.
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
@@ -1255,7 +1255,7 @@ nl:
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
       user_menu:
-        admin_dashboard: Beheer dashboard
+        admin_dashboard: Admin
         conversations: conversaties
         notifications: Meldingen
         profile: Mijn account
@@ -1267,7 +1267,7 @@ nl:
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
         my_interests: Mijn interesses
-        notifications_settings: Notificatie instellingen
+        notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
         user_groups: Gebruikersgroepen
       widget:
