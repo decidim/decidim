@@ -645,7 +645,7 @@ en:
         endorsements_card_row:
           comments: Comments
         filters:
-          activity: Activity
+          activity: My activity
           all: All
           amendment_type: Type
           category: Category
