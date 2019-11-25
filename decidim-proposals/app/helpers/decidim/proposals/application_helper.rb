@@ -106,6 +106,7 @@ module Decidim
       def text_editor_for_proposal_body(form)
         options = {
           class: "js-hashtags",
+          hashtaggable: true,
           value: form_presenter.body(extras: false).strip
         }
 
