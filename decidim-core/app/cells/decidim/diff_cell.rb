@@ -55,7 +55,7 @@ module Decidim
 
       Diffy::Diff.new(
         data[:old_value].to_s,
-        data[:new_value],
+        data[:new_value].to_s,
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true
       ).to_s(:html).html_safe
@@ -70,8 +70,8 @@ module Decidim
       return unless direction && data && data[:new_value].present?
 
       Diffy::SplitDiff.new(
-        data[:old_value],
-        data[:new_value],
+        data[:old_value].to_s,
+        data[:new_value].to_s,
         allow_empty_diff: false,
         format: :html,
         include_plus_and_minus_in_html: true
