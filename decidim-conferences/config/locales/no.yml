@@ -31,6 +31,7 @@
         create: "%{user_name} opprettet %{resource_name} konferansen"
         publish: "%{user_name} publiserte %{resource_name} konferansen"
         send_conference_diplomas: "%{user_name} sendte deltakerbevis til %{resource_name} konferanse deltakerne"
+        unpublish: "%{user_name} upubliserte %{resource_name} konferansen"
       conference_speaker:
         create: "%{user_name} opprettet taler %{resource_name} i %{space_name} konferansen"
         delete: "%{user_name} fjernet taler %{resource_name} fra %{space_name} konferansen"
