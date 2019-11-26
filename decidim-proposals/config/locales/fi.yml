@@ -108,7 +108,7 @@ fi:
             proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
+            threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
             amendment_creation_enabled: Muutosten luonti on käytössä
@@ -672,6 +672,9 @@ fi:
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
+          most_commented: Eniten kommentoidut
+          most_endorsed: Eniten suositellut
+          most_followed: Eniten seuratut
           most_voted: Eniten kannatuksia saaneet
           random: Satunnainen
           recent: Viimeisimmät
