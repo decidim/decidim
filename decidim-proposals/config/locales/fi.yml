@@ -678,6 +678,7 @@ fi:
           most_voted: Eniten kannatuksia saaneet
           random: Satunnainen
           recent: Viimeisimmät
+          with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
             document_index: Asiakirjan hakemisto
