@@ -567,7 +567,7 @@ nl:
       check: Controleer vingerafdruk
       explanation: Het onderstaande stukje tekst is een verkorte, gehashte weergave van deze inhoud. Het is handig om ervoor te zorgen dat er niet met de inhoud is geknoeid, omdat een enkele wijziging een totaal andere waarde zou hebben.
       online_calculator_name: MD5 calculator online
-      replicate_help: Deze vingerafdruk wordt berekend met behulp van een SHA256 hash-algoritme. Om het zelf te repliceren, kunt u een %{online_calculator_link} en de brongegevens kopiëren en plakken.
+      replicate_help: Deze vingerafdruk wordt berekend met behulp van een SHA256 hash-algoritme. Om het zelf te repliceren, kunt u een %{online_calculator_link} gebruiken en de brongegevens kopiëren en plakken.
       source: Bron
       title: Vingerafdruk
       value: Waarde
@@ -597,8 +597,8 @@ nl:
       badges:
         continuity:
           conditions:
-            - Kom hier vaker
-          description: Deze badge wordt toegekend wanneer u het platform op een reguliere manier bezoekt. We vinden het leuk om je hier in de buurt te hebben!
+            - Kijk hier regelmatig
+          description: Deze badge wordt toegekend wanneer u het platform regelmatig bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
           description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
           name: Continuïteit
@@ -609,11 +609,11 @@ nl:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
-          description_another: Deze gebruiker heeft %{score} volgers.
+          description_another: Deze deelnemer heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen jou."
           name: Volgers
-          next_level_in: Ontvang nog %{score} extra gebruikers om je te volgen en het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen volgers.
+          next_level_in: Ontvang nog %{score} mensen om je te volgen en het volgende niveau te bereiken!
+          unearned_another: Deze deelnemer heeft nog geen volgers.
           unearned_own: Je hebt nog geen volgers.
         index:
           badge_title: "%{name} badge"
@@ -623,25 +623,25 @@ nl:
         invitations:
           conditions:
             - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas, als u wilt, het bericht aan dat u verzendt
+            - Pas het bericht aan dat u stuurt, als u wilt
             - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om je in %{organization_name} te registreren en deelnemers te worden. Dank u voor u %{organization_name} bekend bij anderen en het helpen om de community uit te breiden!
-          description_another: Deze gebruiker heeft %{score} gebruikers uitgenodigd.
-          description_own: Je hebt %{score} gebruikers uitgenodigd.
+          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
+          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
+          description_own: Je hebt %{score} mensen uitgenodigd.
           name: Uitnodigingen
-          next_level_in: Nodig nog %{score} gebruikers uit om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen gebruiker uitgenodigd.
-          unearned_own: Je hebt nog geen gebruikers uitgenodigd.
+          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
+          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
+          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     group_admins:
       actions:
-        are_you_sure: Weet je het zeker? Hiermee wordt de gebruiker niet uit de groep verwijderd.
+        are_you_sure: Weet je het zeker? Hiermee wordt de deelnemer niet uit de groep verwijderd.
         demote_admin: Verwijder admin
       demote:
-        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de beheerderslijst
-        success: Gebruiker is met succes van de beheerder verwijderd
+        error: Er is een probleem opgetreden bij het verwijderen van deze deelnemer uit de beheerderslijst
+        success: Deelnemer succesvol verwijderd uit admin
       index:
         current_admins: 'Huidige beheerders:'
         manage_admins: Beheer beheerders
@@ -653,7 +653,7 @@ nl:
       accept_or_reject_group_invitations: 'De volgende groepen hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
       index:
         invite: Nodig uit
-        invite_user: Nodig een gebruiker uit
+        invite_user: Nodig een deelnemer uit
       invite:
         error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker
         success: Gebruiker met succes uitgenodigd
@@ -739,7 +739,7 @@ nl:
         create_with_space: "%{user_name} heeft %{resource_name} aangemaakt in %{space_name}"
         delete: "%{user_name} heeft %{resource_name} verwijderd"
         delete_with_space: "%{user_name} heeft %{resource_name}  verwijderd in %{space_name}"
-        unknown_action: "%{user_name} voerde eeb actie uit op %{resource_name}"
+        unknown_action: "%{user_name} voerde een actie uit op %{resource_name}"
         unknown_action_with_space: "%{user_name} voerde een actie uit op %{resource_name} in %{space_name}"
         update: "%{user_name} heeft %{resource_name} bijgewerkt"
         update_with_space: "%{user_name} heeft %{resource_name} bijgewerkt in %{space_name}"
@@ -751,11 +751,11 @@ nl:
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Deze paginatype is niet gevonden in de database (ID: %{id})'
+          not_found: 'Het scopetype is niet gevonden in de database (ID: %{id})'
     managed_users:
-      expired_session: De huidige naboots sessie is verlopen.
+      expired_session: De huidige beheersessie van een deelnemer is verlopen.
     members:
-      no_members: Deze gebruikersgroepen hebben nog geen leden.
+      no_members: Deze groep heeft nog geen leden.
     menu:
       help: Help
       home: Home
@@ -791,17 +791,17 @@ nl:
       download:
         csv: Gegevens downloaden (csv)
       followers:
-        description: Aantal gebruikers dat deze participatieruimte volgt
+        description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
         title: Volgers
       participants:
-        description: Aantal actieve gebruikers in de organisatie
+        description: Aantal actieve deelnemers in de organisatie
         object: deelnemers
         title: Deelnemers
       users:
-        description: Aantal gebruikers in de organisatie
-        object: gebruikers
-        title: gebruikers
+        description: Aantal deelnemers in de organisatie
+        object: deelnemers
+        title: Deelnemers
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -810,14 +810,14 @@ nl:
     newsletters:
       unsubscribe:
         check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een fout opgetreden tijdens het uitschrijven.
+        error: Er is een probleem opgetreden met het opzeggen van het abonnement
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
     newsletters_opt_in:
       unathorized: Sorry, deze link is niet langer beschikbaar
       update:
-        error: Er gebeurde iets verkeerds
+        error: Sorry, er is iets misgelopen
         success: Nieuwsbriefinstellingen succesvol bijgewerkt
     newsletters_opt_in_mailer:
       notify:
