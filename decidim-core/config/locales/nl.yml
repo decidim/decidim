@@ -402,7 +402,7 @@ nl:
             Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen.</p>
             <p>Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform.<br>
             Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect.</p>
-            <p>Bedankt voor het lezen van dit!</p>
+            <p>Bedankt voor het lezen!</p>
           title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
@@ -433,7 +433,7 @@ nl:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_intro: 'Een eervolle vermelding is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
             email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is voor aanvaarde <a href="%{amendable_path}">%{amendable_title}</a>.
