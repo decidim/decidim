@@ -55,6 +55,7 @@ FactoryBot.define do
   factory :category, class: "Decidim::Category" do
     name { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    weight { 0 }
 
     association :participatory_space, factory: :participatory_process
   end
