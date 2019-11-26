@@ -147,14 +147,14 @@ nl:
           info_initiative:
             created_at: Gemaakt bij
             description: Omschrijving
-            initiative_votes_count: Stemmen tellen
+            initiative_votes_count: Aantal stemmen
             initiatives: initiatieven
-            state: Staat
+            state: Status
         committee_requests:
           index:
             approve: Goedkeuren
             confirm_revoke: Weet je het zeker?
-            invite_to_committee_help: Deel deze link om andere gebruikers uit te nodigen voor de promotiecommissie
+            invite_to_committee_help: Deel deze link om andere deelnemers uit te nodigen voor de promotieraad
             no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
@@ -167,7 +167,7 @@ nl:
             confirm: Weet je het zeker?
             discard: Gooi het initiatief weg
             export_pdf_signatures: PDF van handtekeningen exporteren
-            export_votes: Exportondersteuning
+            export_votes: Handtekeningen exporteren
             reject: Verwerp initiatief
             send_to_technical_validation: Stuur naar technische validatie
             success: Het initiatief is verzonden naar technische validatie
@@ -187,7 +187,7 @@ nl:
             filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Zoeken
+            search: Zoek
           show:
             print: Afdrukken
           update:
@@ -381,7 +381,7 @@ nl:
           answer_title:
             accepted: Dit voorstel is geaccepteerd omdat
             created: Dit voorstel is gemaakt
-            discarded: Dit voorstel is genegeerd omdat
+            discarded: Dit voorstel is afgewezen omdat
             published: Dit voorstel is gepubliceerd omdat
             rejected: Dit voorstel is afgewezen omdat
             validating: Dit voorstel wordt beoordeeld
