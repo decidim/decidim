@@ -435,27 +435,27 @@ nl:
           affected_user:
             email_intro: 'Een eervolle vermelding is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
-            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is voor aanvaarde <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Geaccepteerd amendement voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is aanvaard voor <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Een emendation is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is voor aanvaarde <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_intro: 'Een eervolle vermelding is geaccepteerd voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
+            email_subject: Geaccepteerd amendement voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is aanvaard voor <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
+            email_intro: 'Er is een nieuwe eervolle vermelding gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
             email_subject: Nieuw amendement voor %{amendable_title}
             notification_title: Er is een nieuw amendement gecreëerd voor <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Er is een nieuwe emendation gemaakt voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_intro: 'Er is een nieuw amendement gemaakt voor %{amendable_title}. U kunt het vanaf deze pagina bekijken:'
+            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
             email_subject: Nieuw amendement voor %{amendable_title}
             notification_title: Er is een nieuw amendement gecreëerd voor <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
+            email_intro: 'Een afgewezen amendement voor %{amendable_title} is als nieuw gepubliceerd %{amendable_type}. U kunt het vanaf deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
             email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
