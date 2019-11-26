@@ -13,7 +13,7 @@ nl:
           any: Gemengd
           offline: Face to face
           online: Online
-        state: Staat
+        state: Status
         title: Titel
       initiative_author:
         address: Adres
@@ -24,36 +24,36 @@ nl:
         post_code: Postcode
         province: Provincie
       initiatives_committee_member:
-        user: Commissie lid
+        user: Commissielid
       initiatives_type:
         banner_image: Banner afbeelding
-        collect_user_extra_fields: Verzamel persoonlijke gebruikersgegevens bij ondertekening
+        collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
         description: Beschrijving
-        document_number_authorization_handler: Autorisatie om documentnummer op stemmen te verifiëren
+        document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
-        promoting_committee_enabled: Bevorderende commissie
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titel
         undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
         validate_sms_code_on_votes: Voeg een sms-codevalidatiestap toe aan het handtekeningproces
       initiatives_vote:
         date_of_birth: Geboortedatum
-        document_number: Document Nummer
+        document_number: Documentnummer
         name_and_surname: Naam en achternaam
         postal_code: Postcode
       organization_data:
         address: Adres
-        id_document: ID-document
+        id_document: Identiteitsbewijs
         name: Volledige naam
   activerecord:
     models:
       decidim/initiative:
-        one: Initiative
-        other: initatieven
+        one: Initatief
+        other: Initatief
       decidim/initiative_comittee:
-        one: Comittee
-        other: Comités
+        one: Commissie
+        other: Commissies
       decidim/initiative_vote:
         one: Handtekening
         other: handtekeningen
@@ -63,24 +63,24 @@ nl:
         new_initiative_type: Nieuw initiatiefstype
       menu:
         initiatives: initiatieven
-        initiatives_types: Initiatieftypen
+        initiatives_types: Initiatieftypes
       models:
         initiatives:
           fields:
             created_at: Aangemaakt op
             id: ID kaart
-            state: Staat
-            supports_count: handtekeningen
+            state: Status
+            supports_count: Handtekeningen
             title: initiatieven
         initiatives_type_scope:
           fields:
             scope: Bereik
             supports_required: Ondersteuning vereist
-          name: Type initiatief
+          name: Initiatief type bereik
         initiatives_types:
           fields:
             created_at: Aangemaakt op
-            title: Initiatieftypen
+            title: Initiatieftypes
           name: Initiatieftype
         initiatives_votes:
           fields:
