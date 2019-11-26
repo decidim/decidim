@@ -68,7 +68,7 @@ nl:
         omnipresent_banner_url: URL
         password: Wachtwoord
         port: Poort
-        primary_color: primair
+        primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
         secondary_color: Tweede
         send_welcome_notification: Stuur welkomstmelding
@@ -76,7 +76,7 @@ nl:
         success_color: Succes
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
-        user_groups_enabled: Schakel gebruikersgroepen in
+        user_groups_enabled: Groepen inschakelen
         user_name: Gebruikersnaam
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
@@ -107,7 +107,7 @@ nl:
         title: Titel
         weight: Gewicht
       user_group_csv_verification:
-        file: het dossier
+        file: Bestand
     errors:
       models:
         oauth_application:
