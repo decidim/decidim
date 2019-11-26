@@ -85,12 +85,12 @@ nl:
         initiatives_votes:
           fields:
             date_of_birth: Geboortedatum
-            document_number: Document Nummer
-            hash: hachee
+            document_number: Documentnummer
+            hash: Hash
             initiative_end_date: Einddatum
             initiative_id: Initiatief ID
             initiative_signatures_count: Aantal handtekeningen
-            initiative_start_date: Begin datum
+            initiative_start_date: Begindatum
             initiative_title: Titel van het initiatief
             name_and_surname: Naam en achternaam
             postal_code: Postcode
@@ -98,13 +98,13 @@ nl:
             timestamp: tijdstempel
       titles:
         initiatives: initiatieven
-        initiatives_types: Initiatieftypen
+        initiatives_types: Initiatieftypes
     events:
       initiatives:
         initiative_extended:
-          email_intro: De handtekeningen einddatum voor het initiatief %{resource_title} is verlengd!
-          email_outro: U hebt deze melding ontvangen omdat u %{resource_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Initiatief handtekeningen einddatum verlengd!
+          email_intro: De einddatum voor de handtekeningen van initiatief %{resource_title} is verlengd!
+          email_outro: U hebt deze melding ontvangen omdat u %{resource_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
+          email_subject: Einddatum handtekeningen voor het initiatief verlengd!
           notification_title: De einddatum van de ondertekening van het <a href="%{resource_path}">%{resource_title}</a> initiatief is verlengd.
         milestone_completed:
           affected_user:
