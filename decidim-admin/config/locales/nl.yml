@@ -68,7 +68,7 @@ nl:
         omnipresent_banner_url: URL
         password: Wachtwoord
         port: Poort
-        primary_color: primair
+        primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
         secondary_color: Tweede
         send_welcome_notification: Stuur welkomstmelding
@@ -76,7 +76,7 @@ nl:
         success_color: Succes
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
-        user_groups_enabled: Schakel gebruikersgroepen in
+        user_groups_enabled: Groepen inschakelen
         user_name: Gebruikersnaam
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
@@ -107,7 +107,7 @@ nl:
         title: Titel
         weight: Gewicht
       user_group_csv_verification:
-        file: het dossier
+        file: Bestand
     errors:
       models:
         oauth_application:
@@ -288,7 +288,7 @@ nl:
             not_managed: Niet beheerd
           filter_by: Sorteren op
           impersonate: Nabootsen
-          impersonate_new_managed_user: Zich voordoen als nieuwe beheerde gebruiker
+          impersonate_new_managed_user: Beheer nieuwe deelnemer
           managed: Beheerd
           name: Naam
           needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
@@ -299,31 +299,31 @@ nl:
           view_logs: Bekijk logboeken
       impersonations:
         close_session:
-          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          error: Er is een probleem opgetreden bij het afsluiten van de huidige deelnemersbeheersessie.
           success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
-          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
-          success: De beheerde gebruiker is succesvol aangemaakt.
+          error: Er was een probleem bij het beheren van de deelnemer.
+          success: De beheerde deelnemer is succesvol gemaakt.
         form:
           authorization_method: Autorisatiemethode
           name: Naam
           reason: Reden
         new:
           impersonate: Nabootsen
-          impersonate_existing_managed_user: Zich voordoen als beheerde gebruiker "%{name}"
-          impersonate_existing_user: Zich voordoen als "%{name}"
-          impersonate_new_managed_user: Zich voordoen als nieuwe beheerde gebruiker
+          impersonate_existing_managed_user: Beheer deelnemer "%{name}"
+          impersonate_existing_user: Beheer deelnemer "%{name}"
+          impersonate_new_managed_user: Beheer nieuwe deelnemer
       logs:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
       managed_users:
         promotion:
-          error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
-          success: De beheerde gebruiker is succesvol gepromoveerd.
+          error: Er was een probleem met het promoten van de beheerde deelnemer.
+          success: De beheerde deelnemer is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Beheerde gebruikers kunnen worden gepromoveerd worden tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de applicatie en dat deze niet verpersoonlijkt kunnen worden. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
-            new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
+            explanation: Beheerde deelnemers kunnen worden gepromoveerd tot standaarddeelnemers. Dit betekent dat ze worden uitgenodigd voor de toepassing en dat u ze niet meer kunt beheren. De uitgenodigde deelnemer ontvangt een e-mail om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe promotie voor beheerde deelnemers
             promote: Promoten
       menu:
         admin_log: Admin activiteitenlogboek
@@ -333,7 +333,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
-        help_sections: Help secties
+        help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
@@ -343,8 +343,8 @@ nl:
         scopes: Scopes
         settings: Instellingen
         static_pages: Pagina's
-        user_groups: Gebruikersgroepen
-        users: Gebruikers
+        user_groups: groepen
+        users: Deelnemers
       models:
         area:
           fields:
@@ -372,7 +372,7 @@ nl:
             expired_at: Verlopen op
             reason: Reden
             started_at: Gestart op
-            user: Gebruiker
+            user: Deelnemer
         newsletter:
           fields:
             created_at: Aangemaakt op
@@ -387,7 +387,7 @@ nl:
             name: Naam
           name: OAuth-toepassing
         participatory_space_private_user:
-          name: Gebruiker van de burgerinspraak
+          name: Participerende ruimte privé deelnemer
         scope:
           fields:
             name: Naam
@@ -409,8 +409,8 @@ nl:
             role: Rol
             roles:
               admin: Beheerder
-              user_manager: Gebruikersbeheerder
-          name: Gebruiker
+              user_manager: Deelnemersmanager
+          name: Deelnemer
         user_group:
           fields:
             actions: acties
@@ -419,7 +419,7 @@ nl:
             name: Naam
             phone: Telefoon
             state: Staat
-            users_count: Aantal gebruikers
+            users_count: Aantal deelnemers
       moderations:
         index:
           title: Moderaties
@@ -505,9 +505,9 @@ nl:
           success: Toepassing succesvol bijgewerkt.
       officializations:
         create:
-          success: Gebruiker officieel gevalideerd
+          success: Deelnemer met succes officieel gemaakt
         destroy:
-          success: Gebruiker niet gevalideerd
+          success: Deelnemer succesvol niet-officieel
         index:
           actions: acties
           badge: badge
@@ -529,7 +529,7 @@ nl:
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
-          title: Gebruiker bevestigen "%{name}"
+          title: Deelnemer "%{name}" officieel maken
       organization:
         edit:
           title: Organisatie bewerken
@@ -549,7 +549,7 @@ nl:
         edit:
           update: Bijwerken
         form:
-          colors_title: Organisatie kleuren
+          colors_title: Organisatiekleuren
           cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
@@ -566,17 +566,17 @@ nl:
           update: Bijwerken
       participatory_space_private_users:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
-          success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
+          error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
+          success: De toegang van de privé deelnemer voor de burgerinspraak is succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het verwijderen van een privégebruiker voor deze deelruimte.
-          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
+          error: Er was een probleem met het verwijderen van een privé-deelnemer voor deze participatieruimte.
+          success: De toegang van de privé deelnemer voor burgerinspraak is met succes verwijderd.
         index:
           import_via_csv: Importeren via csv
-          title: Privégebruiker van de burgerinspraak
+          title: Participerende ruimte voor privé deelnemer
         new:
           create: creëren
-          title: Nieuwe privégebruiker van de burgerinspraak.
+          title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
@@ -587,7 +587,7 @@ nl:
           upload: Upload
       resource_permissions:
         edit:
-          submit: voorleggen
+          submit: Bevestigen
           title: Bewerk toelatingen
         update:
           success: Machtigingen succesvol bijgewerkt.
@@ -646,7 +646,7 @@ nl:
         destroy:
           success: Pagina succesvol vernietigd
         edit:
-          changed_notably_help: Indien ingeschakeld, zullen gebruikers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
+          changed_notably_help: Indien aangevinkt, zullen deelnemers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
         form:
@@ -671,24 +671,24 @@ nl:
         areas: Onderwerpen
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonatable_users: Beheersbare gebruikers
-        impersonations: Gebruikersbeheer
-        participants: gebruikers
+        impersonatable_users: Beheersbare deelnemers
+        impersonations: Beheer van deelnemers
+        participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
-        user_groups: Gebruikersgroepen
-        users: Gebruikers
+        user_groups: groepen
+        users: Deelnemers
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
-          success: CSV-bestand geüpload, we verifiëren de gebruikersgroepen die aan de criteria voldoen. Dit kan even duren.
+          success: CSV-bestand is geüpload, we verifiëren de groepen die aan de criteria voldoen. Dit kan even duren.
         reject:
-          invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol geweigerd
+          invalid: Er was een probleem met het afwijzen van deze groep.
+          success: Groep met succes afgewezen
         verify:
-          invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol geverifieerd
+          invalid: Er is een probleem opgetreden bij het verifiëren van deze groep.
+          success: Groep succesvol geverifieerd
       user_groups:
         index:
           filter:
@@ -705,28 +705,28 @@ nl:
           verify_via_csv: Controleer via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload uw CSV-bestand. Het moet de officiële e-mails van de gebruikersgroepen in uw organisatie bevatten in de eerste kolom van het bestand, zonder kopteksten. Alleen gebruikersgroepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
+          explanation: Upload uw CSV-bestand. De officiële e-mails van de groepen in uw organisatie moeten in de eerste kolom van het bestand staan, zonder kopteksten. Alleen groepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
           title: Upload uw CSV-bestand
           upload: Uploaden
       users:
         create:
-          error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
-          success: Gebruiker succesvol uitgenodigd.
+          error: Er is een probleem opgetreden bij het uitnodigen van deze beheerder.
+          success: Deelnemer met succes uitgenodigd.
         destroy:
-          error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
-          success: Gebruiker is niet meer een administrator.
+          error: Er is een probleem opgetreden bij het verwijderen van deze beheerder.
+          success: Deelnemer is geen beheerder meer.
         form:
           email: E-mail
           name: Naam
           role: Rol
         new:
           create: Nodig uit
-          title: Nodig gebruiker uit als beheerder
+          title: Nodig deelnemer uit als beheerder
       view_public_page: Bekijk openbare pagina
     forms:
       errors:
         impersonate_user:
-          reason: Je moet een reden opgeven waarom je je uitgeeft als een niet beheerde gebruiker
+          reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     moderations:
       actions:
         hidden: Verborgen
@@ -738,7 +738,7 @@ nl:
       admin:
         reportable:
           hide:
-            invalid: Er is een probleem geweest om de bron te verbergen.
+            invalid: Er was een probleem met het verbergen van de bron.
             success: Resource succesvol verborgen.
           unhide:
             invalid: Er is een probleem opgetreden bij het zichtbaar maken van de bron.
@@ -766,4 +766,4 @@ nl:
         settings:
           title: Instellingen
         users:
-          title: Gebruikers
+          title: Deelnemers

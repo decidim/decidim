@@ -20,6 +20,7 @@
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
+          deleted: "%{user_name} uinviterte %{attendee_name} fra å bli med i %{resource_name} møtet på %{space_name} rommet"
           update: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
         meeting:
           close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"

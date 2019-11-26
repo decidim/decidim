@@ -33,6 +33,7 @@
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
         publish: "%{user_name} publiserte %{resource_name} deltaker prosessen"
+        unpublish: "%{user_name} upubliserte %{resource_name} deltaker prosessen"
       participatory_process_group:
         create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
       participatory_process_step:
@@ -41,6 +42,7 @@
         delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
       participatory_process_user_role:
         create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltaker prosessen"
         update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
     participatory_processes:
       statistics:
