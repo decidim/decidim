@@ -2,8 +2,26 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+- In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
+
+```ruby
+Decidim::Assembly.find_each(&:add_to_index_as_search_resource)
+Decidim::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
+Decidim::Conference.find_each(&:add_to_index_as_search_resource)
+Decidim::Consultation.find_each(&:add_to_index_as_search_resource)
+Decidim::Initiative.find_each(&:add_to_index_as_search_resource)
+Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
+# results are ready to be searchable but don't have a card-m so can't be rendered
+# Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
+Decidim::Budgets::Project.find_each(&:add_to_index_as_search_resource)
+Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
+```
+
 **Added**:
 
+- **many modules**: Added all spaces and many entities to global search, see Upgrade notes for more detail. [\#5469](https://github.com/decidim/decidim/pull/5469)
 - **decidim-core**: Add weight to categories and sort them by that field. [\#5505](https://github.com/decidim/decidim/pull/5505)
 - **decidim-proposals**: Add: Additional sorting filters for proposals index. [\#5506](https://github.com/decidim/decidim/pull/5506)
 - **decidim-core**: Add a searchable users endpoint to the GraphQL api and enable drop-down @mentions helper in comments. [\#5474](https://github.com/decidim/decidim/pull/5474)

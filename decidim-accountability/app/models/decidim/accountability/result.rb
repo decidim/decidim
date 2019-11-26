@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::DataPortability
       include Decidim::Randomable
+      include Decidim::Searchable
 
       component_manifest_name "accountability"
 
@@ -27,6 +28,14 @@ module Decidim
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :description,
+        datetime: :start_date
+      )
 
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter
