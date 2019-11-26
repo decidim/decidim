@@ -4,7 +4,7 @@ nl:
       initiative:
         decidim_user_group_id: Auteur
         description: Beschrijving
-        offline_votes: Face-to-face ondersteuning
+        offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
         signature_start_date: Begin van de periode om handtekeningen te verzamelen
@@ -384,7 +384,7 @@ nl:
             published: Dit voorstel is gepubliceerd omdat
             rejected: Dit voorstel is afgewezen omdat
             validating: Dit voorstel wordt beoordeeld
-          initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan ondersteuning.
+          initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
           any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
@@ -406,7 +406,7 @@ nl:
           count:
             one: HANDTEKENING
             other: HANDTEKENINGEN
-          most_popular_initiative: Meest populaire initiatief
+          most_popular_initiative: Populairste initiatief
           need_more_votes: Meer handtekeningen nodig
       initiatives_mailer:
         creation_subject: Je burgerinitiatief '%{title}' is gemaakt
@@ -415,7 +415,7 @@ nl:
           here: hier
         more_information: Hier heb je meer informatie over het proces voor het maken van initiatieven.
         progress_report_body_for: Het initiatief %{title} heeft %{percentage}% van de vereiste stemmen behaald.
-        progress_report_for: 'Doorgaan over het initiatief: %{title}'
+        progress_report_for: 'Samenvatting over het initiatief: %{title}'
         promotal_committee_help: Vergeet niet dat u ten minste %{member_count} personen moet uitnodigen voor een promotieraad. Stuur de volgende link door om mensen uit te nodigen voor de promotieraad
         status_change_body_for: 'Het initiatief %{title} heeft de status gewijzigd in: %{state}'
         status_change_for: Het initiatief %{title} is van status veranderd
@@ -438,7 +438,7 @@ nl:
       initiatives_type:
         actions:
           title: acties
-          vote: Stemmen
+          vote: Onderteken
   layouts:
     decidim:
       admin:
@@ -462,7 +462,7 @@ nl:
       initiative_signature_creation_header:
         back: Terug
         fill_personal_data: Vul uw gegevens in
-        finish: Af hebben
+        finish: Voltooien
         finished: Initiatief handtekening gemaakt
         see_steps: zie stappen
         select_identity: Selecteer identiteit
