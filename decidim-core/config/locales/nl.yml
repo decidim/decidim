@@ -71,7 +71,7 @@ nl:
         file_no_exists: Bestand bestaat niet
         invalid_token: Het geleverde token is ongeldig.
         no_token: Geen token verstrekt
-        notice: De download van uw gegevens is momenteel bezig. Je ontvangt een e-mail als deze is voltooid.
+        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
@@ -97,8 +97,8 @@ nl:
         update: "%{user_name} heeft %{resource_name} bijgewerkt"
       component:
         create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name}"
-        delete: "%{user_name} heeft de %{resource_name} component uit de ruimte %{space_name} verwijderd"
-        publish: "%{user_name} heeft de %{resource_name} component in de ruimte %{space_name} gepubliceerd"
+        delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} ruimte verwijderd"
+        publish: "%{user_name} heeft de %{resource_name} component in de %{space_name} ruimte gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van het onderdeel %{resource_name} uit de %{space_name} ongedaan gemaakt"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
@@ -106,18 +106,18 @@ nl:
       newsletter:
         create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
         delete: "%{user_name} heeft de %{resource_name} nieuwsbrief verwijderd"
-        deliver: "%{user_name} de %{resource_name} nieuwsbrief geleverd"
+        deliver: "%{user_name} heeft de %{resource_name} nieuwsbrief geleverd"
         update: "%{user_name} heeft de %{resource_name} nieuwsbrief bijgewerkt"
       oauth_application:
         create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
         delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
-        update: "%{user_name} de organisatie-instellingen bijgewerkt"
+        update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
-        create: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een ​​privégebruiker te zijn"
-        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd als privégebruiker"
+        create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
+        delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -126,14 +126,14 @@ nl:
         update: "%{user_name} heeft het bereik %{resource_name} bijgewerkt"
         update_with_parent: "%{user_name} heeft het bereik %{resource_name} binnen het bereik %{parent_scope} bijgewerkt"
       static_page:
-        create: "%{user_name} creëerde de %{resource_name} statische pagina"
-        delete: "%{user_name} heeft de %{resource_name} statische pagina verwijderd"
-        update: "%{user_name} heeft de %{resource_name} statische pagina bijgewerkt"
+        create: "%{user_name} creëerde de statische pagina %{resource_name}"
+        delete: "%{user_name} heeft de statische pagina %{resource_name} verwijderd"
+        update: "%{user_name} heeft de statische pagina %{resource_name} bijgewerkt"
       user:
-        invite: "%{user_name} nodigde de gebruiker %{resource_name} uit met rol: %{role}"
-        officialize: "%{user_name} heeft de gebruiker %{resource_name} gevalideerd"
-        remove_from_admin: "%{user_name} de gebruiker %{resource_name} verwijderd met rol: %{role}"
-        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} ingetrokken"
+        invite: "%{user_name} nodigde de deelnemer %{resource_name} met rol: %{role} uit"
+        officialize: "%{user_name} heeft de deelnemer %{resource_name} gevalideerd"
+        remove_from_admin: "%{user_name} de deelnemer %{resource_name} met rol: %{role} verwijderd"
+        unofficialize: "%{user_name} heeft de deelnemer %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroep verificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
