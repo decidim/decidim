@@ -859,14 +859,14 @@ nl:
         extended:
           debates: Debatten
           debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
-          how_to_participate: Hoe neem ik deel?
+          how_to_participate: Hoe neem ik deel aan een proces?
           meetings: vergaderingen
-          meetings_explanation: Ontdek waar en wanneer je kan deelnemen aan openbare ontmoetingen.
+          meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
           more_info: Meer informatie
           proposals: voorstellen
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Contribuez à apporter des solutions aux problèmes sociétaux
+          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
@@ -950,7 +950,7 @@ nl:
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
         fill_in_email_to_confirm_it: Vul alstublieft het e-mailadres van uw groep in om dit te bevestigen
-        invite_user: Nodig gebruiker uit
+        invite_user: Nodig deelnemer uit
         join_user_group: Verzoek om lid te worden van de groep
         leave_user_group: Verlaat groep
         manage_user_group_admins: Beheer beheerders
@@ -989,7 +989,7 @@ nl:
         state:
           active: Actief
           all: Allemaal
-          future: Toekomst
+          future: Toekomstige
           past: Verleden
       filters_small_view:
         close_modal: Modal sluiten
@@ -1041,21 +1041,21 @@ nl:
         share: Deel
         share_link: Link delen
       version_author:
-        deleted: Verwijderde gebruiker
+        deleted: Verwijderde deelnemer
     user_activity:
       index:
-        no_activities_warning: Deze gebruiker heeft nog geen activiteit gehad.
+        no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
     user_interests:
       show:
         my_interests: Mijn interesses
         no_scopes: Deze organisatie heeft nog geen bereik!
-        select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om aan hen gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
+        select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om eraan gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
         update_my_interests: Update mijn interesses
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
         success: Uw interesses zijn succesvol bijgewerkt.
     welcome_notification:
-      default_body: <p>Hi {{name}}, bedankt voor het samenvoegen van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a> .</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, word lid van andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en besluit, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
+      default_body: <p>Hi {{name}}, bedankt om lid te worden van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a>.</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> die je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, voeg je bij andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en vastbeslotenheid, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1082,8 +1082,8 @@ nl:
       unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
     invitations:
       edit:
-        header: Eindig met het maken van je account
-        nickname_help: Jouw unieke ID op %{organization}.
+        header: Voltooi het aanmaken van je account
+        nickname_help: Je bijnaam in %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
       invitation_removed: Je uitnodiging is verwijderd.
