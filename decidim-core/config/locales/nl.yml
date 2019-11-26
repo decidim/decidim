@@ -1099,7 +1099,7 @@ nl:
       confirmation_instructions:
         action: Bevestig mijn account
         greeting: Welkom %{recipient}!
-        instruction: 'U kunt het e-mailadres van uw account bevestigen via de onderstaande link:'
+        instruction: 'U kunt uw e-mailaccount bevestigen via de onderstaande link:'
         subject: Instructies ter bevestiging
       email_changed:
         greeting: Hallo %{recipient}!
@@ -1114,10 +1114,10 @@ nl:
           Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
           Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Accepteren kan via onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privé deelnemer van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privégebruiker van %{application}, je kan accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-deelnemer van %{application}, je kunt het accepteren via de onderstaande link.
         subject: Instructies voor de uitnodiging
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
@@ -1157,13 +1157,13 @@ nl:
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
-      no_token: U hebt geen toegang tot deze pagina zonder afkomstig te zijn van een e-mail voor het opnieuw instellen van uw wachtwoord. Als u wel een e-mail ontvangt voor het opnieuw instellen van uw wachtwoord, moet u ervoor zorgen dat u de volledige URL heeft gebruikt.
+      no_token: U hebt geen toegang tot deze pagina zonder van een e-mail voor het opnieuw instellen van uw wachtwoord te komen. Als u wel van een e-mail komt voor het opnieuw instellen van uw wachtwoord, moet u ervoor zorgen dat u de volledige URL heeft gebruikt.
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het opnieuw instellen van uw wachtwoord.
       send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een wachtwoordherstellink op uw e-mailadres.
       updated: Je wachtwoord is met succes veranderd. U bent nu ingelogd.
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
-      destroyed: Doei! Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
+      destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
       edit:
         are_you_sure: Weet je het zeker?
         cancel_my_account: Annuleer mijn account
@@ -1281,7 +1281,7 @@ nl:
     name_included_in_password: lijkt te veel op jouw naam
     not_enough_unique_characters: heeft niet genoeg unieke tekens
     password_not_allowed: is niet toegestaan
-    password_too_common: is te gebruikelijk
+    password_too_common: te algemeen
     password_too_long: is te lang
     password_too_short: is te kort
   social_share_button:
