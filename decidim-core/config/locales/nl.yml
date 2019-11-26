@@ -137,7 +137,7 @@ nl:
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
-        verify_via_csv: "%{user_name} de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
+        verify_via_csv: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
     amendments:
       accepted:
         error: Er is een fout opgetreden bij het accepteren van het amendement.
@@ -146,10 +146,10 @@ nl:
         amended_by: Gewijzigd door
         button: Wijzigen %{model_name}
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
-        help_text: Verbeter deze %{model_name} door zijn %{amendable_fields}
-        promote_button: Promoot tot %{model_name}
-        promote_confirm_text: Weet je zeker dat je deze emendatie wilt promoten?
-        promote_help_text: U kunt deze emendatie promoten en publiceren als een onafhankelijke %{model_name}
+        help_text: Verbeter deze %{model_name} door zijn %{amendable_fields} aan te passen
+        promote_button: Promoot naar %{model_name}
+        promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
+        promote_help_text: U kunt deze eervolle vermelding promoten en publiceren als een onafhankelijke %{model_name}
         section_heading: Wijzigingen (%{count})
       compare_draft:
         continue: Volgende
@@ -327,7 +327,7 @@ nl:
       footer_sub_hero:
         name: Voettekst sub hero banner
       hero:
-        name: Held afbeelding
+        name: Hero-afbeelding
       highlighted_content_banner:
         name: Gemarkeerde inhoudsbanner
       how_to_participate:
@@ -336,15 +336,15 @@ nl:
         html_content: HTML-inhoud
         name: HTML-blok
       last_activity:
-        name: Laatste Activiteit
-        title: Laatste Activiteit
+        name: Laatste activiteit
+        title: Laatste activiteit
         view_all: Bekijk alles
       metrics:
         name: Organisatie statistieken
       stats:
         name: Organisatie statistieken
       sub_hero:
-        name: Sub held banner
+        name: Sub hero banner
     core:
       actions:
         login_before_access: Log in met uw account voor toegang
@@ -394,7 +394,7 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
-            close_modal: Modal sluiten
+            close_modal: Sluit venster
             uncheck: Blijf uitgeschakeld
           notice: |-
             <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
