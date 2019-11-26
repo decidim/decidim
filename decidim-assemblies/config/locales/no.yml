@@ -29,6 +29,7 @@
         delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingen"
       assembly_user_role:
         create: "%{user_name} inviterte %{resource_name} til %{space_name} forsamlingen"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} forsamlingen"
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
     assemblies:
       statistics:
