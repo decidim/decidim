@@ -95,6 +95,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - decidim.wizard_step_form_cell.*
+  - decidim.proposals.application_helper.activity_filter_values.*
 
 # Consider these keys used:
 ignore_unused:
@@ -194,6 +195,7 @@ ignore_unused:
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
+  - decidim.proposals.proposals.filters.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

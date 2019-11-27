@@ -53,13 +53,18 @@ module Decidim
 
       # Handle the activity filter
       def search_activity
-        if activity.include? "voted"
+        case activity
+        when "voted"
           query
             .includes(:votes)
-            .where(decidim_proposals_proposal_votes: {
-                     decidim_author_id: options[:current_user]
-                   })
-        else
+            .where(decidim_proposals_proposal_votes: { decidim_author_id: @current_user })
+        when "my_proposals"
+          query
+            .where.not(coauthorships_count: 0)
+            .joins(:coauthorships)
+            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+            .where(decidim_coauthorships: { decidim_author_id: @current_user })
+        else # Assume 'all'
           query
         end
       end
