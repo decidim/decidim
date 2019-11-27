@@ -644,7 +644,6 @@ hu:
         endorsements_card_row:
           comments: Hozzászólások
         filters:
-          activity: Tevékenység
           amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
