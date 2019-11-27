@@ -51,6 +51,7 @@
           create: "%{user_name} opprettet redigerings typen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
           unpublish: "%{user_name} upubliserte %{resource_name} registrerings typen in i %{space_name} konferansen"
+          update: "%{user_name} oppdaterte redigerings typen %{resource_name} i %{space_name} konferansen"
       media_link:
         create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
         delete: "%{user_name} fjernet %{resource_name} media linken fra %{space_name} konferansen"
