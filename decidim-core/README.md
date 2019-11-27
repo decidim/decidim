@@ -51,7 +51,22 @@ This module also includes the following models to Decidim's Global Search:
 - `Searchable` module: A concern with the features needed when you want a model to be searchable.
 - `SearchableResource` class: The ActiveRecord that finally includes PgSearch and maps the indexed documents into a model.
 
+### Adding an artifact to Global Search
+
 Models that want to be indexed must include `Searchable` and declare `Searchable.searchable_fields`.
+
+They should be registered as resources. In their manifest, in the `register_resource` section, the artifact should be declared searchable.
+This can be done in an initializer (like user does), in a participatory_space manifest, or in a component manifest. i.e.:
+
+```ruby
+      initializer "decidim.core.register_resources" do
+        Decidim.register_resource(:user) do |resource|
+          resource.model_class_name = "Decidim::User"
+          resource.card = "decidim/user_profile"
+          resource.searchable = true
+        end
+        ...
+```
 
 ## Metrics docs
 

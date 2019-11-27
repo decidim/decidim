@@ -54,13 +54,26 @@ module Decidim
         end
 
         describe "activity filter" do
-          let(:activity) { ["voted"] }
+          context "when filtering by supported" do
+            let(:activity) { "voted" }
 
-          it "returns the proposals voted by the user" do
-            create_list(:proposal, 3, component: component)
-            create(:proposal_vote, proposal: Proposal.first, author: user)
+            it "returns the proposals voted by the user" do
+              create_list(:proposal, 3, component: component)
+              create(:proposal_vote, proposal: Proposal.first, author: user)
 
-            expect(subject.size).to eq(1)
+              expect(subject.size).to eq(1)
+            end
+          end
+
+          context "when filtering by my proposals" do
+            let(:activity) { "my_proposals" }
+
+            it "returns the proposals created by the user" do
+              create_list(:proposal, 3, component: component)
+              create(:proposal, component: component, users: [user])
+
+              expect(subject.size).to eq(1)
+            end
           end
         end
 

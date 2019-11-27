@@ -17,6 +17,7 @@ Decidim.register_component(:accountability) do |component|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
+    resource.searchable = false
   end
 
   component.settings(:global) do |settings|

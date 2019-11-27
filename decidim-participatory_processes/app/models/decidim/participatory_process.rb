@@ -18,6 +18,7 @@ module Decidim
     include Decidim::HasPrivateUsers
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Searchable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -62,6 +63,18 @@ module Decidim
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gt(Date.current).or(arel_table[:end_date].eq(nil)))) }
+
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :subtitle,
+                        C: :short_description,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_process) { false },
+                      index_on_update: ->(process) { process.visible? })
 
     # Scope to return only the promoted processes.
     #

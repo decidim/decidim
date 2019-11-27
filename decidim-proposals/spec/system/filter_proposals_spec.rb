@@ -276,6 +276,83 @@ describe "Filter Proposals", type: :system do
     end
   end
 
+  context "when filtering proposals by ACTIVITY" do
+    let(:active_step_id) { component.participatory_space.active_step.id }
+    let!(:voted_proposal) { create(:proposal, component: component) }
+    let!(:vote) { create(:proposal_vote, proposal: voted_proposal, author: user) }
+    let!(:proposal_list) { create_list(:proposal, 3, component: component) }
+    let!(:created_proposal) { create(:proposal, component: component, users: [user]) }
+
+    context "when the user is logged in" do
+      before do
+        login_as user, scope: :user
+        visit_component
+      end
+
+      it "can be filtered by activity" do
+        within "form.new_filter" do
+          expect(page).to have_content(/Activity/i)
+        end
+      end
+
+      it "can be filtered by my proposals" do
+        within "form.new_filter" do
+          expect(page).to have_content(/My proposals/i)
+        end
+      end
+
+      it "lists the filtered proposals created by the user" do
+        within "form.new_filter" do
+          find("input[value='my_proposals']").click
+        end
+        expect(page).to have_css(".card--proposal", count: 1)
+      end
+
+      context "when votes are enabled" do
+        before do
+          component.update!(step_settings: { active_step_id => { votes_enabled: true } })
+          visit_component
+        end
+
+        it "can be filtered by supported" do
+          within "form.new_filter" do
+            expect(page).to have_content(/Supported/i)
+          end
+        end
+
+        it "lists the filtered proposals voted by the user" do
+          within "form.new_filter" do
+            find("input[value='voted']").click
+          end
+
+          expect(page).to have_css(".card--proposal", text: voted_proposal.title)
+        end
+      end
+
+      context "when votes are not enabled" do
+        before do
+          component.update!(step_settings: { active_step_id => { votes_enabled: false } })
+          visit_component
+        end
+
+        it "cannot be filtered by supported" do
+          within "form.new_filter" do
+            expect(page).not_to have_content(/Supported/i)
+          end
+        end
+      end
+    end
+
+    context "when the user is NOT logged in" do
+      it "cannot be filtered by activity" do
+        visit_component
+        within "form.new_filter" do
+          expect(page).not_to have_content(/Activity/i)
+        end
+      end
+    end
+  end
+
   context "when filtering proposals by TYPE" do
     context "when there are amendments to proposals" do
       let!(:proposal) { create(:proposal, component: component, scope: scope) }
