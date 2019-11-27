@@ -41,7 +41,6 @@ module Decidim
         sorted_root_scopes = Decidim::Scope.top_level(organization_id).sort_by do |scope|
           translated_attribute(scope.name)
         end
-
         admin_filter_scopes_subtree(sorted_root_scopes)
       end
 
@@ -73,7 +72,8 @@ module Decidim
                               content_tag(:li, key)
                             else
                               content_tag(:li, class: "is-dropdown-submenu-parent") do
-                                html = content_tag(:a, key, href: "#")
+                                # if key is a SafeBuffer, it is already a link, otherwise it is a String literal and should be converted into an anchor, as expected by dropdown
+                                html = key.is_a?(ActiveSupport::SafeBuffer) ? key.html_safe : content_tag(:a, key, href: "#")
                                 html += admin_filter_submenu_options(value)
                                 html
                               end
