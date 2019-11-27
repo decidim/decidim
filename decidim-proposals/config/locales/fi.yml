@@ -644,9 +644,12 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
+          activity: Oma toiminta
+          all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
+          my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
           search: Haku
