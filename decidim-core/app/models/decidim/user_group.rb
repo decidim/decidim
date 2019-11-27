@@ -8,6 +8,7 @@ module Decidim
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
     include Decidim::DataPortability
+    include Decidim::ActsAsAuthor
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
@@ -33,6 +34,12 @@ module Decidim
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
         .where("extended_data->>'document_number' = ?", number)
+    end
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::UserGroupPresenter.new(self)
     end
 
     def self.log_presenter_class_for(_log)

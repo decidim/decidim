@@ -1,8 +1,23 @@
 "no":
+  activemodel:
+    attributes:
+      sortition:
+        title: Tittel
   decidim:
     sortitions:
       admin:
+        actions:
+          edit: Editar
         models:
           sortition:
             fields:
+              category: Kategori
               title: Tittel
+      admin_log:
+        sortition:
+          create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
+          delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
+      sortitions:
+        filters:
+          category: Kategori
+          state: Status

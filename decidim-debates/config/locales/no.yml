@@ -3,3 +3,23 @@
     attributes:
       debate:
         category_id: Kategori
+        decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    debates:
+      actions:
+        edit: Editar
+      admin_log:
+        debate:
+          create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debatt"
+            other: "%{count} debatter"
+        filters:
+          category: Kategori
+      models:
+        debate:
+          fields:
+            title: Tittel

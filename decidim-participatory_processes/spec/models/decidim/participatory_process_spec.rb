@@ -12,7 +12,8 @@ module Decidim
 
     it { is_expected.to be_versioned }
 
-    include_examples "publicable"
+    it_behaves_like "publicable"
+    it_behaves_like "has private users"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))

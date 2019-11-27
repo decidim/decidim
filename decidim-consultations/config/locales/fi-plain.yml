@@ -35,6 +35,8 @@ fi-pl:
         title: Otsikko
         vote: Ulkoinen äänestysjärjestelmä
         what_is_decided: Mitä päätetään
+      response:
+        decidim_consultations_response_group_id: Ryhmä
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ fi-pl:
   decidim:
     admin:
       actions:
+        back_to_responses: Takaisin vastauksiin
         new_consultation: Uusi kuuleminen
         new_question: Uusi kysymys
         new_response: Uusi vastaus
+        new_response_group: Uusi ryhmä
         publish_results: Julkaise tulokset
+        response_groups: Hallitse vastausryhmiä
         unpublish_results: Peru tulosten julkistus
       consultation_publications:
         create:
@@ -140,6 +145,7 @@ fi-pl:
         response:
           fields:
             created_at: Luontiaika
+            response_group: Ryhmä
             title: Otsikko
           name:
             one: Vastaus
@@ -175,6 +181,24 @@ fi-pl:
         update:
           error: Tämän kysymyksen päivityksessä tapahtui virhe.
           success: Kysymys päivitetty onnistuneesti.
+      response_groups:
+        create:
+          error: Virhe luotaessa uutta vastausryhmää.
+          success: Vastausryhmän luonti onnistui.
+        destroy:
+          error: Vastausryhmän luonti ei onnistunut. Tarkista, että yksikään vastaus ei riipu tästä ryhmästä.
+          success: Vastausryhmän poisto onnistui.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleiset tiedot
+        help: Käytä ryhmiä järjestelläksesi usean vastausvaihtoehdon kysymyksiä hallittaviksi kokonaisuuksiksi.
+        new:
+          create: Luo
+          title: Uusi vastausryhmä
+        update:
+          error: Tämän vastauksen päivittämisessä tapahtui virhe.
+          success: Vastauksen päivitys onnistui.
       responses:
         create:
           error: Uuden vastauksen luonnissa tapahtui virhe.
@@ -195,6 +219,7 @@ fi-pl:
       titles:
         consultations: Kuulemiset
         questions: Kysymykset
+        response_groups: Vastausryhmät
         responses: Vastaukset
         results: Tulokset
     consultations:

@@ -1,4 +1,5 @@
 import { mount, ReactWrapper, shallow } from "enzyme";
+import * as $ from "jquery";
 import * as React from "react";
 
 import { AddCommentForm, MAX_LENGTH } from "./add_comment_form.component";
@@ -29,6 +30,8 @@ describe("<AddCommentForm />", () => {
         "icons.svg": "/assets/icons.svg"
       }
     };
+
+    window.$ = $;
   });
 
   it("should render a div with class add-comment", () => {

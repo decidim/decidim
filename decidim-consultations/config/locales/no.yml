@@ -2,6 +2,30 @@
   activemodel:
     attributes:
       consultation:
+        banner_image: Bannerafbeelding
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        title: Tittel
+  decidim:
+    admin:
+      consultations:
+        results:
+          participants: "%{count} deltakere"
+      models:
+        consultation:
+          fields:
+            title: Tittel
+        question:
+          fields:
+            title: Tittel
+        response:
+          fields:
+            title: Tittel
+    consultations:
+      count:
+        title:
+          one: "%{count} konsultasjon"
+          other: "%{count} konsultasjoner"
+      filters:
+        state: Status

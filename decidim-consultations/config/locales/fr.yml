@@ -35,6 +35,8 @@ fr:
         title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
+      response:
+        decidim_consultations_response_group_id: Groupe
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ fr:
   decidim:
     admin:
       actions:
+        back_to_responses: Retour aux résultats
         new_consultation: Nouvelle votation
         new_question: Nouvelle question
         new_response: Nouvelle réponse
+        new_response_group: Nouveau groupe
         publish_results: Publier les résultats
+        response_groups: Gérer les groupes de réponses
         unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
@@ -140,6 +145,7 @@ fr:
         response:
           fields:
             created_at: Créée le
+            response_group: Groupe
             title: Titre
           name:
             one: Réponse
@@ -147,6 +153,7 @@ fr:
       question_configuration:
         disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées
         form:
+          help: Configurez plusieurs choix de questions en augmentant le nombre maximum de réponses qu'un participant peut sélectionner. La valeur maximale par défaut est 1, ce qui signifie qu'une seule réponse peut être sélectionnée.
           title: Configuration avancée
       question_publications:
         create:
@@ -174,6 +181,24 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette question.
           success: Question mise à jour avec succès.
+      response_groups:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de réponses.
+          success: Le groupe de réponses a été créé avec succès.
+        destroy:
+          error: Il y a eu un problème lors de la suppression du groupe de réponse. Vérifiez qu'aucune réponse ne dépend d'elle.
+          success: Le groupe de réponses a bien été supprimé.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        help: Utiliser des groupes pour organiser des questions à choix multiples dans des blocs.
+        new:
+          create: Créer
+          title: Nouveau groupe de réponse
+        update:
+          error: Il y a eu un problème lors de la mise à jour de cette réponse.
+          success: Réponse mise à jour avec succès.
       responses:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
@@ -194,6 +219,7 @@ fr:
       titles:
         consultations: Votations
         questions: Questions
+        response_groups: Groupes de réponses
         responses: Réponses
         results: Résultats
     consultations:
