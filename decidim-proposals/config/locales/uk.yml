@@ -303,7 +303,6 @@ uk:
         endorsements_card_row:
           comments: Коментарі
         filters:
-          activity: Діяльність
           category: Категорія
           category_prompt: Оберіть категорію
           origin: Джерело
