@@ -441,6 +441,10 @@
     passwords:
       edit:
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+    shared:
+      minimum_password_length:
+        one: "(%{count} karakter minimum)"
+        other: "(%{count} karakterer minimum)"
   layouts:
     decidim:
       edit_link:
@@ -463,3 +467,7 @@
       long: "%B %d, %Y %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Først"
+      truncate: "&hellip;"
