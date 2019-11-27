@@ -25,6 +25,7 @@
         create: "%{user_name} opprettet %{resource_name} forsamlingen"
         publish: "%{user_name} publiserte %{resource_name} forsamlingen"
         unpublish: "%{user_name} upubliserte %{resource_name} forsamlingen"
+        update: "%{user_name} oppdaterte %{resource_name} forsamlingen"
       assembly_member:
         create: "%{user_name} opprettet %{resource_name} medlemmet i %{space_name} samlingen"
         delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingen"
