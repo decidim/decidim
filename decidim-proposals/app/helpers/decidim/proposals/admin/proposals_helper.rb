@@ -49,10 +49,11 @@ module Decidim
           html = []
           if params[:q][:is_emendation_true].present?
             html << content_tag(:span, class: "label secondary") do
-              tag = if params[:q][:is_emendation_true].to_s == "1"
-                      "#{icon "paperclip", class: "type-icon"} #{t("amendments", scope: "decidim.proposals.application_helper.filter_type_values")}"
+              tag = "#{t("filters.type", scope: "decidim.proposals.proposals")}: "
+              tag += if params[:q][:is_emendation_true].to_s == "1"
+                      t("amendments", scope: "decidim.proposals.application_helper.filter_type_values")
                     else
-                      "#{icon "file", class: "type-icon"} #{t("proposals", scope: "decidim.proposals.application_helper.filter_type_values")}"
+                      t("proposals", scope: "decidim.proposals.application_helper.filter_type_values")
                     end
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:is_emendation_true)), t("decidim.admin.actions.cancel"), class: "action-icon--remove")
               tag.html_safe
@@ -76,7 +77,7 @@ module Decidim
           end
           if params[:q][:category_id_eq]
             html << content_tag(:span, class: "label secondary") do
-              tag = "#{t("models.proposal.fields.category", scope: "decidim.proposals")} :"
+              tag = "#{t("models.proposal.fields.category", scope: "decidim.proposals")}: "
               tag += translated_attribute categories.find(params[:q][:category_id_eq]).name
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:category_id_eq)), t("decidim.admin.actions.cancel"), class: "action-icon--remove")
               tag.html_safe
@@ -84,7 +85,7 @@ module Decidim
           end
           if params[:q][:scope_id_eq]
             html << content_tag(:span, class: "label secondary") do
-              tag = "#{t("models.proposal.fields.scope", scope: "decidim.proposals")} :"
+              tag = "#{t("models.proposal.fields.scope", scope: "decidim.proposals")}: "
               tag += translated_attribute Decidim::Scope.where(decidim_organization_id: current_component.organization.id).find(params[:q][:scope_id_eq]).name
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:scope_id_eq)), t("decidim.admin.actions.cancel"), class: "action-icon--remove")
               tag.html_safe

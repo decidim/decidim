@@ -8,7 +8,7 @@ module Decidim
       # @param submenus: A tree (Hash) with the filter options.
       def admin_filter(menu_title, submenus)
         html = <<~EOFILTER
-          <li class="is-dropdown-submenu-parent">
+          <li>
             <a href="#" class="dropdown button">
               #{menu_title}
             </a>
@@ -41,7 +41,6 @@ module Decidim
         sorted_root_scopes = Decidim::Scope.top_level(organization_id).sort_by do |scope|
           translated_attribute(scope.name)
         end
-
         admin_filter_scopes_subtree(sorted_root_scopes)
       end
 
@@ -66,14 +65,15 @@ module Decidim
       # Produces the html for the submenus of an `admin_filter`.
       # @param submenus: A tree (Hash) with the filter options. Keys are options of the dropdown, values are the sub-options that will dropdown for the given key.
       def admin_filter_submenu_options(submenus)
-        content_tag(:ul, class: "nested vertical menu") do
+        content_tag(:ul, class: "vertical menu") do
           submenu_html = ""
           submenus.each_pair do |key, value|
             submenu_html += if value.nil?
                               content_tag(:li, key)
                             else
                               content_tag(:li, class: "is-dropdown-submenu-parent") do
-                                html = content_tag(:a, key, href: "#")
+                                # if key is a SafeBuffer, it is already a link, otherwise it is a String literal and should be converted into an anchor, as expected by dropdown
+                                html = key.is_a?(ActiveSupport::SafeBuffer) ? key.html_safe : content_tag(:a, key, href: "#")
                                 html += admin_filter_submenu_options(value)
                                 html
                               end
