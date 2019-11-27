@@ -12,6 +12,7 @@
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} debatten på %{space_name} rommet"
       debates:
         count:
           debates_count:
