@@ -644,9 +644,12 @@ it:
         endorsements_card_row:
           comments: Commenti
         filters:
+          activity: La mia attività
+          all: Tutti
           amendment_type: genere
           category: Categoria
           category_prompt: Scegli una categoria
+          my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
           search: Cerca
