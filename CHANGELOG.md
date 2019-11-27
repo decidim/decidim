@@ -8,6 +8,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Upgrade rack-cors for security. [\#5528](https://github.com/decidim/decidim/pull/5528)
 - **decidim-core**: Fix: Duplicate results in Decidim::HasPrivateUsers::visible_for(user) [\#5473](https://github.com/decidim/decidim/pull/5473)
 - **decidim-meetings**: Admin HasAttachments forces the absolute namespace for the AttachmentForm to `::Decidim::Admin::AttachmentForm`.[\#5510](https://github.com/decidim/decidim/pull/5510)
 - **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL [\#5484](https://github.com/decidim/decidim/pull/5484)
