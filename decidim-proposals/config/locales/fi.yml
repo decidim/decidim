@@ -105,14 +105,14 @@ fi:
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Viimeistele" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
             threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
-            amendment_creation_enabled: Muutosten luonti on käytössä
-            amendment_creation_enabled_help: Osallistuja voi muuttaa ehdotuksia.
+            amendment_creation_enabled: Muutosten luonti käytössä
+            amendment_creation_enabled_help: Osallistujat voivat lisätä muutoksia ehdotuksiin.
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
             amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
@@ -121,7 +121,7 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
@@ -644,7 +644,6 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          activity: Aktiivisuus
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
