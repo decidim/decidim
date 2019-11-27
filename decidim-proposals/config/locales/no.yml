@@ -35,6 +35,7 @@
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
           create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
+          update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
         proposal_note:
           create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
       collaborative_drafts:
