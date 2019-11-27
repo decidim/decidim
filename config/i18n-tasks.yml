@@ -200,6 +200,7 @@ ignore_unused:
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
   - decidim.admin_terms_of_use.default_body
+  - decidim.admin.admin_terms_of_use.required_review.alert
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

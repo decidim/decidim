@@ -33,6 +33,7 @@ module Decidim
       end
 
       def no_need_to_agree_admin_terms_action?
+        return true unless permission_action.scope == :admin
         return true if read_admin_dashboard_action?
         return true if admin_terms_of_use_subject?
         return true if admin_initiative_subject?
