@@ -10,37 +10,6 @@
       flex-grow: 1;
       margin: 0 .5rem;
     }
-
-    &.status{
-      width: 100%;
-      margin-top: .5rem;
-
-      .label{
-        font-weight: 600;
-        text-transform: uppercase;
-
-        .type-icon{
-          vertical-align: top;
-        }
-
-        .action-icon{
-          vertical-align: text-bottom;
-
-          &:first-child{
-            margin-left: .5rem;
-          }
-
-          &.action-icon--remove{
-            color: lighten(#e66a5d, 24);
-            margin-left: .3rem;
-
-            &:hover{
-              color: #e66a5d;
-            }
-          }
-        }
-      }
-    }
   }
 
   .button,
@@ -78,6 +47,37 @@
 
     .menu.vertical li.is-active.opens-right > a::after{
       border-left-color: $white;
+    }
+  }
+}
+
+.filter-status{
+  position: relative;
+  width: 100%;
+  margin-top: .5rem;
+
+  .label{
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: .5rem;
+
+    .type-icon{
+      vertical-align: top;
+    }
+
+    .action-icon{
+      span{
+        margin-left: .25rem;
+      }
+
+      &.action-icon--remove{
+        color: lighten(#e66a5d, 24);
+        margin-left: .3rem;
+
+        &:hover{
+          color: #e66a5d;
+        }
+      }
     }
   }
 }
