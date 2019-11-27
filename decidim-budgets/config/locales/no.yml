@@ -17,6 +17,7 @@
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
           delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
       models:
         project:
           fields:
