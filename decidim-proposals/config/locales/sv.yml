@@ -639,7 +639,6 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          activity: Aktivitet
           amendment_type: Typ
           category: Kategori
           category_prompt: Välj en kategori
