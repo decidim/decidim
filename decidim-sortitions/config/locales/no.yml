@@ -22,3 +22,5 @@
         filters:
           category: Kategori
           state: Status
+        show:
+          dice_result: "(1) Terning resultat"
