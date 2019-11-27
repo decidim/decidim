@@ -95,7 +95,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - decidim.wizard_step_form_cell.*
-  - decidim.proposals.application_helper.filter_activity_values.*
+  - decidim.proposals.application_helper.activity_filter_values.*
 
 # Consider these keys used:
 ignore_unused:

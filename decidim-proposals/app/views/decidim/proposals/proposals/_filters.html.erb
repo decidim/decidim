@@ -29,7 +29,7 @@
   <% end %>
 
   <% if current_user %>
-    <%= form.collection_radio_buttons :activity, filter_activity_values, :first, :last, legend_title: t(".activity") %>
+    <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, legend_title: t(".activity") %>
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
