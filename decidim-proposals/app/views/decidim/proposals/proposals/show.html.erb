@@ -118,14 +118,14 @@ edit_link(
         </div>
       <% elsif @proposal.rejected? %>
         <div class="section">
-          <div class="callout warning">
+          <div class="callout alert">
             <h5><%= t(".proposal_rejected_reason") %></h5>
             <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% else %>
         <div class="section">
-          <div class="callout secondary">
+          <div class="callout warning">
             <h5><%= t(".proposal_in_evaluation_reason") %></h5>
             <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
