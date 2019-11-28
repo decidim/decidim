@@ -555,7 +555,8 @@ GEM
     rack (2.0.7)
     rack-attack (6.2.0)
       rack (>= 1.0, < 3)
-    rack-cors (1.0.3)
+    rack-cors (1.1.0)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -780,7 +781,7 @@ DEPENDENCIES
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
    1.17.3
