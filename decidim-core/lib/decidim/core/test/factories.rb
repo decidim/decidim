@@ -119,7 +119,6 @@ FactoryBot.define do
     about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
-    admin_terms_accepted_at { Time.current }
     email_on_notification { true }
 
     trait :confirmed do
@@ -133,10 +132,12 @@ FactoryBot.define do
 
     trait :admin do
       admin { true }
+      admin_terms_accepted_at { Time.current }
     end
 
     trait :user_manager do
       roles { ["user_manager"] }
+      admin_terms_accepted_at { Time.current }
     end
 
     trait :managed do
