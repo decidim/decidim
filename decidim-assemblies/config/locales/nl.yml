@@ -292,7 +292,7 @@ nl:
         composition: Samenstelling
         created_by: Aangemaakt door
         creation_date: Gemaakt op
-        developer_group: Promotergroep
+        developer_group: Organisator
         duration: Duur
         included_at: Opgenomen op
         indefinite_duration: onbepaald
@@ -360,7 +360,7 @@ nl:
           take_part: Deelnemen
         index:
           children: 'Groepen: '
-          organizational_chart: Organisatieschema
+          organizational_chart: Organogram
           promoted_assemblies: Uitgelichte groepen
           reset_chart: Reset
         order_by_assemblies:
