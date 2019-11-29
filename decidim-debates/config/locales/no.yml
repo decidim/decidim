@@ -24,3 +24,8 @@
         debate:
           fields:
             title: Tittel
+    events:
+      debates:
+        create_debate_event:
+          user_followers:
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> opprettet <a href="%{resource_path}">%{resource_title}</a> debatten.
