@@ -153,6 +153,46 @@ describe "Orders", type: :system do
           end
         end
       end
+
+      context "and add another project to match total budget" do
+        let!(:other_project) { create(:project, component: component, budget: 75_000_000) }
+
+        it "disables the vote buttons on rest of the projects" do
+          visit_component
+
+          within "#project-#{other_project.id}-item" do
+            page.find(".budget--list__action").click
+          end
+
+          expect(page).to have_selector(".budget--list__action[disabled]", count: projects.count - 1)
+        end
+
+        context "and remove the added project after adding it" do
+          it "enables the vote buttons on all projects" do
+            visit_component
+
+            within "#project-#{other_project.id}-item" do
+              page.find(".budget--list__action").click
+              Timeout.timeout(Capybara.default_max_wait_time) do
+                loop until page.evaluate_script("jQuery.active").zero?
+              end
+            end
+
+            expect(page).to have_selector(".budget--list__action.success", count: 2)
+
+            within "#project-#{other_project.id}-item" do
+              page.find(".budget--list__action").click
+              Timeout.timeout(Capybara.default_max_wait_time) do
+                loop until page.evaluate_script("jQuery.active").zero?
+              end
+            end
+
+            expect(page).to have_selector(".budget--list__action.success", count: 1)
+
+            expect(page).to have_selector(".budget--list__action[disabled]", count: 0)
+          end
+        end
+      end
     end
 
     context "and has a finished order" do
