@@ -360,7 +360,7 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :proposal_amendment, class: "Decidim::Core::Amendment" do
+  factory :proposal_amendment, class: "Decidim::Amendment" do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
     amender { build(:user, organization: amendable.component.participatory_space.organization) }
