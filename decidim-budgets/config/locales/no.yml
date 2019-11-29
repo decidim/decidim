@@ -23,6 +23,10 @@
           fields:
             title: Tittel
       projects:
+        count:
+          projects_count:
+            one: 1 prosjekt
+            other: "%{count} prosjekter"
         filters:
           category: Kategori
         show:
