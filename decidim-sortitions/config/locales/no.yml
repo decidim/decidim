@@ -24,3 +24,4 @@
           state: Status
         show:
           dice_result: "(1) Terning resultat"
+          time_seed: "(2) Time seed"
