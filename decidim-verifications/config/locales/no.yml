@@ -8,3 +8,8 @@
     authorization_handlers:
       help: Hjelp
       name: Navn
+    verifications:
+      csv_census:
+        admin:
+          new:
+            file: ".csv fil med e-postdata"
