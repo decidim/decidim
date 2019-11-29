@@ -57,6 +57,9 @@
             all:
               one: 1 prosess
               other: "%{count} prosesser"
+            past:
+              one: 1 tidligere prosess
+              other: "%{count} tidligere prosesser"
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
