@@ -29,5 +29,9 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+        project:
+          count:
+            one: 1 støtte
+            other: "%{count} støttere"
         show:
           budget: Budsjett
