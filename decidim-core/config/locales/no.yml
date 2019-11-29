@@ -470,4 +470,5 @@
   views:
     pagination:
       first: "&laquo; Først"
+      previous: "&lsaquo; Tidligere"
       truncate: "&hellip;"
