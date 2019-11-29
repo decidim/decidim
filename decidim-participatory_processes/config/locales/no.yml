@@ -48,6 +48,15 @@
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltaker prosessen"
         update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
     participatory_processes:
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiv prosess
+              other: "%{count} aktive prosesser"
+            all:
+              one: 1 prosess
+              other: "%{count} prosesser"
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
