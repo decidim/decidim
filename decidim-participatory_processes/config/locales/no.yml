@@ -60,6 +60,9 @@
             past:
               one: 1 tidligere prosess
               other: "%{count} tidligere prosesser"
+            upcoming:
+              one: 1 kommende prosess
+              other: "%{count} kommende prosesser"
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
