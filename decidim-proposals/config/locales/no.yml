@@ -28,6 +28,9 @@
           email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
     proposals:
       admin:
+        participatory_texts:
+          new_import:
+            bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
         proposals:
           form:
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
