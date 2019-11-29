@@ -1,5 +1,8 @@
 "no":
   decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} oppdaterte identitets dokumentasjonens verifikasjons konfigurasjon"
     authorization_handlers:
       help: Hjelp
       name: Navn
