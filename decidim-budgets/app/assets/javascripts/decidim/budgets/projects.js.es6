@@ -20,10 +20,16 @@ $(() => {
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
-
-    } else if ($currentTarget.attr("data-add") && ((currentBudget + projectBudget) > totalBudget)) {
-      $budgetExceedModal.foundation("toggle");
-      cancelEvent(event);
+    } else if ($currentTarget.attr("data-add")) {
+      if ((currentBudget + projectBudget) > totalBudget) {
+        $budgetExceedModal.foundation("toggle");
+        cancelEvent(event);
+      } else if ((currentBudget + projectBudget) === totalBudget) {
+        $(".budget--list__action[data-add]").attr("disabled", "disabled");
+        $currentTarget.removeAttr("disabled");
+      }
+    } else {
+      $(".budget--list__action[data-add]").removeAttr("disabled");
     }
   });
 });
