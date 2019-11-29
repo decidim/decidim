@@ -21,6 +21,7 @@
           email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
         collaborative_draft_withdrawn:
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trukket</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         proposal_endorsed:
           email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
           email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
