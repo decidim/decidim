@@ -30,6 +30,7 @@
           update: "%{user_name} oppdaterte %{resource_name} møte på %{space_name} rommet"
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
+          update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
       meetings:
         filters:
           category: Kategori
