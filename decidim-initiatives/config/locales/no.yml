@@ -21,8 +21,20 @@
           unpublish: "%{user_name} la ned %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       create_initiative:
+        fill_data:
+          more_information: "(Mer informasjon)"
+        finish:
+          more_information: "(Mer informasjon)"
         finish_help:
           page: side
+        previous_form:
+          more_information: "(Mer informasjon)"
+        promotal_committee:
+          more_information: "(Mer informasjon)"
+        select_initiative_type:
+          more_information: "(Mer informasjon)"
+        show_similar_initiatives:
+          more_information: "(Mer informasjon)"
       events:
         create_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
