@@ -11,7 +11,7 @@ module Decidim
         description "The date and time this version was created"
         property :created_at
       end
-      field :editor, !Decidim::Core::AuthorInterface do
+      field :editor, Decidim::Core::AuthorInterface do
         description "The editor/author of this version"
         resolve ->(obj, _args, _ctx) {
           Decidim.traceability.version_editor(obj)

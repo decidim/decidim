@@ -35,9 +35,9 @@ module Decidim
         property :created_at
       end
 
-      field :upatedAt, Decidim::Core::DateTimeType do
+      field :updatedAt, Decidim::Core::DateTimeType do
         description "The date and time this proposal was upated"
-        property :upated_at
+        property :updated_at
       end
 
       field :answeredAt, Decidim::Core::DateTimeType do
