@@ -8,7 +8,6 @@ module Decidim
 
       interfaces [
         -> { Decidim::Comments::CommentableInterface },
-        # -> { Decidim::Core::AuthorableInterface }, # to remove
         -> { Decidim::Core::CoauthorableInterface },
         -> { Decidim::Core::CategorizableInterface },
         -> { Decidim::Core::ScopableInterface },

@@ -7,7 +7,7 @@ module Decidim
       name "CoauthorableInterface"
       description "An interface that can be used in coauthorable objects."
 
-      field :coAuthorsCount, types.Int do
+      field :authorsCount, types.Int do
         description "The total amount of co-authors that contributed to the proposal. Note that this field may include also non-user authors like meetings or the organization"
         property :coauthorships_count
       end
