@@ -22,3 +22,4 @@
         reply_created:
           email_intro: "%{author_name} har svart kommentaren din i %{resource_title}. Du kan lese den på denne siden:"
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svart kommentaren din i <a href="%{resource_path}">%{resource_title}</a>
