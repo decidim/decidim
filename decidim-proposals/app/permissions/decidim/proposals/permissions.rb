@@ -3,6 +3,8 @@
 module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
+      include ::Decidim::WithEndorsablePermissions
+
       def permissions
         return permission_action unless user
 
@@ -32,9 +34,9 @@ module Decidim
         when :withdraw
           can_withdraw_proposal?
         when :endorse
-          can_endorse_proposal?
+          can_endorse?(proposal)
         when :unendorse
-          can_unendorse_proposal?
+          can_unendorse?(proposal)
         when :amend
           can_create_amendment?
         when :vote
@@ -80,23 +82,6 @@ module Decidim
 
       def can_withdraw_proposal?
         toggle_allow(proposal && proposal.authored_by?(user))
-      end
-
-      def can_endorse_proposal?
-        is_allowed = proposal &&
-                     authorized?(:endorse, resource: proposal) &&
-                     current_settings&.endorsements_enabled? &&
-                     !current_settings&.endorsements_blocked?
-
-        toggle_allow(is_allowed)
-      end
-
-      def can_unendorse_proposal?
-        is_allowed = proposal &&
-                     authorized?(:endorse, resource: proposal) &&
-                     current_settings&.endorsements_enabled?
-
-        toggle_allow(is_allowed)
       end
 
       def can_create_amendment?
