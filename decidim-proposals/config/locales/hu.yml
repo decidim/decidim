@@ -644,9 +644,12 @@ hu:
         endorsements_card_row:
           comments: Hozzászólások
         filters:
+          activity: Tevékenységeim
+          all: Összes
           amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
+          my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
           search: Keresés
