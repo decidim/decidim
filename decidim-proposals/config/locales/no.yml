@@ -36,6 +36,10 @@
         participatory_texts:
           new_import:
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
+          sections:
+            article: "<em>Artikkel</em>"
+            section: "<em>Seksjon:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Ledd:</em> %{title}"
         proposals:
           form:
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
