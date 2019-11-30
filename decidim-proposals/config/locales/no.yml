@@ -17,6 +17,7 @@
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} har blitt avslått tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
           email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>avvist tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ba om tilgang som bidragsyter. Du kan <strong>godta eller avslå forespørselen</strong> fra <a href="%{resource_path}">%{resource_title}</a> samarbeids utkast siden.'
           email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
