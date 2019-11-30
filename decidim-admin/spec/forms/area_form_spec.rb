@@ -9,12 +9,12 @@ module Decidim
 
       let(:organization) { create :organization }
       let(:name) { Decidim::Faker::Localized.word }
-      let(:area_type) { create :area_type }
+      let(:area_type) { create :area_type, organization: organization }
       let(:attributes) do
         {
           "area" => {
             "name" => name,
-            "area_type" => area_type
+            "area_type_id" => area_type.id
           }
         }
       end
@@ -35,13 +35,25 @@ module Decidim
       end
 
       context "when name is not unique" do
-        before do
-          create(:area, organization: organization, name: name)
+        context "and area_type is the same" do
+          before do
+            create(:area, organization: organization, name: name, area_type: area_type)
+          end
+
+          it "is not valid" do
+            expect(subject).not_to be_valid
+            expect(subject.errors[:name]).not_to be_empty
+          end
         end
 
-        it "is not valid" do
-          expect(subject).not_to be_valid
-          expect(subject.errors[:name]).not_to be_empty
+        context "and area_type is different" do
+          before do
+            create(:area, organization: organization, name: name)
+          end
+
+          it "is valid" do
+            expect(subject).to be_valid
+          end
         end
       end
 
