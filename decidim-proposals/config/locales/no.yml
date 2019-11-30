@@ -21,6 +21,7 @@
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ba om tilgang som bidragsyter. Du kan <strong>godta eller avslå forespørselen</strong> fra <a href="%{resource_path}">%{resource_title}</a> samarbeids utkast siden.'
           email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> forespurte om tilgang til å bidra til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet. Vennligst <strong>godta eller avslå forespørselen</strong>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> trakk <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
