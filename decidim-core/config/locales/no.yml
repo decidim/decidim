@@ -424,6 +424,11 @@
       index:
         standalone_pages: Sider
         title: Hjelp
+    reported_mailer:
+      hide:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+      report:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
