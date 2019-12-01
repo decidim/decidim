@@ -369,6 +369,7 @@
     doorkeeper:
       authorizations:
         new:
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
