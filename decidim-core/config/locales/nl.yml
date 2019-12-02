@@ -718,7 +718,7 @@ nl:
         member: Lid
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
-        success: Groep succesvol geüpdatet
+        success: Groep succesvol bijgewerkt
     help:
       main_topic:
         default_page:
@@ -1210,7 +1210,7 @@ nl:
       public: Jouw openbare informatie.
   errors:
     messages:
-      already_confirmed: was al bevestigd, probeer je aan te melden
+      already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
       content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
