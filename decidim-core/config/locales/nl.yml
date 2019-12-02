@@ -882,7 +882,7 @@ nl:
           debates_count: Debatten
           endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
-          meetings_count: vergaderingen
+          meetings_count: Vergaderingen
           orders_count: stemmen
           pages_count: Pages
           processes_count: Inspraakprocessen
