@@ -1319,7 +1319,7 @@ hu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%é. %h %n., %A, %ó:%p"
-      short: "%n%h%é%ó:%p"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
