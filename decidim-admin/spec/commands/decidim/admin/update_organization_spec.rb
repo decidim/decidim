@@ -15,8 +15,8 @@ module Decidim::Admin
             default_locale: "en",
             badges_enabled: true,
             user_groups_enabled: true,
-            admin_terms_of_use_body: Faker::Lorem.paragraph,
-            send_welcome_notification: false
+            send_welcome_notification: false,
+            admin_terms_of_use_body: { "en": Faker::Lorem.paragraph }
           }
         }
       end

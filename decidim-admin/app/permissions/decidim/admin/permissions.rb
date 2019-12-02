@@ -4,7 +4,7 @@ module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return admin_terms_permissions if permission_action.scope == :admin
+        return admin_terms_permissions if permission_action.scope == :admin && !user.admin_terms_accepted?
         return permission_action if managed_user_action?
 
         unless permission_action.scope == :admin
@@ -24,7 +24,7 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        if user.admin?
+        if user.admin? && user.admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if static_page_action?
           allow! if organization_action?
@@ -54,6 +54,8 @@ module Decidim
       private
 
       def user_manager?
+        return false unless user.admin_terms_accepted?
+
         user && !user.admin? && user.role?("user_manager")
       end
 

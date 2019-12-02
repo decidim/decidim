@@ -4,8 +4,11 @@ module Decidim
   module Admin
     class AdminTermsPermissions < Decidim::DefaultPermissions
       def permissions
-        if no_need_to_agree_admin_terms_action? || user_admin_terms_accepted?
+        if no_need_to_agree_admin_terms_action?
+
           allow! unless admin_initiative_subject?
+        elsif user_admin_terms_accepted?
+
         else
           disallow!
         end
@@ -20,8 +23,10 @@ module Decidim
       end
 
       def read_admin_dashboard_action?
-        permission_action.subject == :admin_dashboard &&
-          permission_action.action == :read
+        return unless permission_action.subject == :admin_dashboard &&
+                      permission_action.action == :read
+
+        true
       end
 
       def admin_terms_of_use_subject?
@@ -33,7 +38,7 @@ module Decidim
       end
 
       def no_need_to_agree_admin_terms_action?
-        return true unless permission_action.scope == :admin
+        return unless permission_action.scope == :admin
         return true if read_admin_dashboard_action?
         return true if admin_terms_of_use_subject?
         return true if admin_initiative_subject?
