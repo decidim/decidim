@@ -43,15 +43,16 @@ namespace :decidim do
         raise ArgumentError if day.blank?
 
         (Date.parse(day)..Time.zone.today).each do |d|
+          current_day = d.to_s
           Decidim::Organization.find_each do |organization|
             if metric
               m_manifest = Decidim.metrics_registry.for(metric)
-              puts "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{d}]"
-              call_metric_job(m_manifest, organization, day)
+              puts "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{current_day}]"
+              call_metric_job(m_manifest, organization, current_day)
             else
-              puts "[#{organization.name}]: rebuilding all metrics for day [#{d}]"
+              puts "[#{organization.name}]: rebuilding all metrics for day [#{current_day}]"
               Decidim.metrics_registry.all.each do |metric_manifest|
-                call_metric_job(metric_manifest, organization, day)
+                call_metric_job(metric_manifest, organization, current_day)
               end
             end
           end
