@@ -7,7 +7,7 @@ nl:
         offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
-        signature_start_date: Begin van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode voor het verzamelen van handtekeningen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
@@ -233,7 +233,7 @@ nl:
             success: Het initiatieftype is succesvol bijgewerkt
       admin_log:
         initiative:
-          publish: "%{user_name} heeft het %{resource_name} -initiatief gepubliceerd"
+          publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
           send_to_technical_validation: "%{user_name} heeft het %{resource_name} -initiatief verzonden naar technische validatie"
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
