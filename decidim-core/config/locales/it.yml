@@ -173,15 +173,15 @@ it:
           help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
         announcement:
           accepted: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link} è stato
-            accettato su <strong>%{announcement_date}</strong>.
+            Questo emendamento per il %{amendable_type} %{proposal_link} è stato accettato
+            il <strong>%{date}</strong>.
           evaluating: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link}
+            Questo emendamento per il %{amendable_type} %{proposal_link}
             è in fase di valutazione.
           promoted: Promosso a un %{amendable_type}.
           rejected: "Questa emendazione per lo %{amendable_type} %{amendable_link}\nstata respinta su <strong>%{announcement_date}</strong>."
           withdrawn: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link}
+            Questo emendamento per il %{amendable_type} %{proposal_link}
             è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
