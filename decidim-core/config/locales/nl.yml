@@ -270,7 +270,7 @@ nl:
           title: Autorisatie is verlopen
         incomplete:
           cancel: annuleren
-          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          explanation: 'Hoewel u momenteel geautoriseerd bent met "%{authorization}", moeten we u vragen opnieuw autoriseren, omdat we niet beschikken over de volgende gegevens:'
           invalid_field: "%{field}"
           reauthorize: Opnieuw autoriseren
           title: Autoriseert u opnieuw alstublieft
