@@ -886,13 +886,13 @@ nl:
           orders_count: stemmen
           pages_count: Pages
           processes_count: Inspraakprocessen
-          projects_count: projecten
+          projects_count: Projecten
           proposals_accepted: Aanvaarde voorstellen
-          proposals_count: voorstellen
-          results_count: resultaten
+          proposals_count: Voorstellen
+          results_count: Resultaten
           surveys_count: Enquête
           users_count: Deelnemers
-          votes_count: stemmen
+          votes_count: Stemmen
         sub_hero:
           register: Registreren
       index:
@@ -908,7 +908,7 @@ nl:
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
-          success: Super goed! U hebt de algemene voorwaarden geaccepteerd.
+          success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
         form:
           agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
