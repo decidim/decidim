@@ -257,14 +257,14 @@ nl:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
+          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol aangemaakt.
+          callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
         finish_help:
@@ -369,7 +369,7 @@ nl:
           comments_count:
             count:
               one: Commentaar
-              other: Comments
+              other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meest gereageerd
