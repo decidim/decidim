@@ -366,6 +366,19 @@
       sessions:
         new:
           register: Opprett en konto
+      shared:
+        newsletter_modal:
+          notice: |-
+            <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
+            Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
+            Det er veldig viktig for oss at du kan motta sporadiske e-poster
+            for å gi viktige kunngjøringer, du kan alltids endre dette på 
+            notifikasjons innstillinger siden.</p>
+            <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
+            om nye deltaker muligheter innen plattformen.<br>
+            Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
+            beslutningen din.</p>
+            <p>Takk for at du leste dette!</p>
     doorkeeper:
       authorizations:
         new:
