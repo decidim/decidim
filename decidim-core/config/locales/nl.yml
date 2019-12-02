@@ -296,7 +296,7 @@ nl:
       hidden_elements_count:
         one: en %{count} meer
         other: en %{count} meer
-      see_less: "(zie minder)"
+      see_less: "(bekijk minder)"
       see_more: "(Bekijk meer)"
     components:
       dummy:
@@ -306,7 +306,7 @@ nl:
         name: Voorbeeld onderdeel
         settings:
           global:
-            amendments_enabled: Wijzigingen ingeschakeld
+            amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
@@ -460,7 +460,7 @@ nl:
             email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
+            email_intro: 'Een amendement afgewezen voor %{amendable_title} is gepubliceerd als een nieuw %{amendable_type}. Je kunt het op deze pagina bekijken:'
             email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
             email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
@@ -664,7 +664,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Deelnemen aan een succesvol geaccepteerd verzoek
+        success: Het deelnameverzoek is geaccepteerd 
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
