@@ -44,6 +44,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-core**: Fix: use incrementing date when rebuilding since one date.[\#5541](https://github.com/decidim/decidim/pull/5541)
 - **decidim-consultations**: Fix: current_participatory_space raises error in ConsultationsController.[\#5513](https://github.com/decidim/decidim/pull/5513)
 - **decidim-admin**: Admin HasAttachments forces the absolute namespace for the AttachmentForm to `::Decidim::Admin::AttachmentForm`.[\#5511](https://github.com/decidim/decidim/pull/5511)
 - **decidim-participatory_processes**: Fix participatory process import when some imported elements are null [\#5496](https://github.com/decidim/decidim/pull/5496)
