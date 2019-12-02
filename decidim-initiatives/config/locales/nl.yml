@@ -234,15 +234,15 @@ nl:
       admin_log:
         initiative:
           publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
-          send_to_technical_validation: "%{user_name} heeft het %{resource_name} -initiatief verzonden naar technische validatie"
+          send_to_technical_validation: "%{user_name} heeft het initiatief %{resource_name} verzonden naar technische validatie"
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
         accepted: Aanvaard
         created: gemaakt
-        discarded: afgedankte
+        discarded: Afgedankte
         published: Gepubliceerd
-        rejected: Verworpen
+        rejected: Afgewezen
         validating: Technische validatie
       committee_requests:
         new:
