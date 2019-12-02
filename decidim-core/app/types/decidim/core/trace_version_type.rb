@@ -14,7 +14,8 @@ module Decidim
       field :editor, Decidim::Core::AuthorInterface do
         description "The editor/author of this version"
         resolve ->(obj, _args, _ctx) {
-          Decidim.traceability.version_editor(obj)
+          author = Decidim.traceability.version_editor(obj)
+          author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
         }
       end
       field :changeset, GraphQL::Types::JSON do
