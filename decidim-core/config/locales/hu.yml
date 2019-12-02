@@ -1318,7 +1318,7 @@ hu:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%é. %h %n., %A, %ó:%p"
+      long: "%B %d, %Y %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
