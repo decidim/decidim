@@ -170,7 +170,7 @@ nl:
         actions:
           button_accept: Aanvaarden
           button_reject: afwijzen
-          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
+          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur(s).
         announcement:
           accepted: |-
             Dit amendement voor de %{amendable_type} %{amendable_link} is
@@ -192,14 +192,14 @@ nl:
         publish: Publiceren
         title: Publiceer het ontwerpdocument van amendement
       promoted:
-        error: Er zijn fouten opgetreden bij het promoten van de emendation
-        success: Emendation met succes gepromoot
+        error: Er zijn fouten opgetreden bij het publiceren van het amendement als een nieuw voorstel
+        success: Het amendement is gepubliceerd als een nieuw voorstel
       publish_draft:
         error: Er is een fout opgetreden bij het publiceren van dit amendement.
         success: Amendement succesvol gepubliceerd.
       rejected:
-        error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
-        success: De emendation is met succes afgewezen
+        error: Er is een fout opgetreden bij het afwijzen van dit amendement. Probeer het later opnieuw
+        success: Het amendement is met succes afgewezen
       review:
         back: Terug
         heading: Bekijk het amendement
@@ -233,7 +233,7 @@ nl:
     author:
       comments:
         one: commentaar
-        other: opmerkingen
+        other: commentaren
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
