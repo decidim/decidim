@@ -330,8 +330,8 @@ nl:
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
-          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
+          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen zijn niet geldig
+          success_html: Proficiat! Het initiatief <strong> %{title}</strong> is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
