@@ -502,23 +502,23 @@ nl:
           email_intro: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op de <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
-          notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+          notification_title: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
-          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
           email_subject: Je bent niet langer een beheerder van de %{user_group_name} groep!
           notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
         invited_to_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om mee te doen.
-          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd voor een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om deel te nemen.
+          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd tot een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
           email_subject: Je bent uitgenodigd om deel te nemen aan de %{user_group_name} groep!
           notification_title: U bent uitgenodigd om deel te nemen aan de <a href="%{resource_path}">%{user_group_name}</a> groep. Controleer de <a href="%{groups_profile_tab_path}">groepen pagina</a> in uw profiel om het goed te keuren!
         join_request_accepted:
           email_intro: Gefeliciteerd! Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft uw verzoek om hieraan deel te nemen geaccepteerd.
-          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
           email_subject: Je bent toegelaten tot de %{user_group_name} groep!
-          notification_title: U bent geaccepteerd voor de <a href="%{resource_path}">%{user_group_name}</a> groep.
+          notification_title: U bent geaccepteerd door de <a href="%{resource_path}">%{user_group_name}</a> groep.
         join_request_created:
           email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_url}">de groepsleden pagina</a>.
           email_outro: U hebt deze melding ontvangen omdat u de %{user_group_name} groep kunt beheren.
