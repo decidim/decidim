@@ -18,7 +18,6 @@ pt:
         body: Corpo
         category_id: Categoria
         has_address: Tem endereço
-        scope_id: Âmbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
