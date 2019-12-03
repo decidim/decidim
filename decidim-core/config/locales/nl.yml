@@ -1195,7 +1195,7 @@ nl:
         forgot_your_password: Uw wachtwoord vergeten?
         sign_in: Aanmelden
         sign_in_with_provider: Meld aan met %{provider}
-        sign_up: Aanmelden
+        sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
