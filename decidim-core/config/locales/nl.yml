@@ -51,7 +51,7 @@ nl:
         other: Deelnemers
       decidim/user_group:
         one: Groep
-        other: groepen
+        other: Groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -225,7 +225,7 @@ nl:
       collection:
         documents:
           one: Document
-          other: documenten
+          other: Documenten
       documents:
         related_documents: Gerelateerde documenten
       photos:
@@ -283,7 +283,7 @@ nl:
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
           title: Autorisatie is nog bezig
         unauthorized:
-          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
+          explanation: Sorry, u kunt deze actie niet uitvoeren, sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
@@ -472,7 +472,7 @@ nl:
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurd door <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Een amendement is afgewezen voor %{amendable_title}. Je kunt het op deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen via de vorige link.
+            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen via de vorige link.
             email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
@@ -497,9 +497,9 @@ nl:
           email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
-          notification_title: Gefeliciteerd! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+          notification_title: Gefeliciteerd! U heeft de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
         level_up:
-          email_intro: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op de <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Gefeliciteerd! U heeft niveau %{current_level} bereikt op de <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
           notification_title: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
@@ -520,7 +520,7 @@ nl:
           email_subject: Je bent toegelaten tot de %{user_group_name} groep!
           notification_title: U bent geaccepteerd door de <a href="%{resource_path}">%{user_group_name}</a> groep.
         join_request_created:
-          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren via <a href="%{resource_url}">de groepsleden pagina</a>.
+          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. U kunt het accepteren of weigeren via <a href="%{resource_url}">de groepsleden pagina</a>.
           email_outro: U heeft deze melding ontvangen omdat u de %{user_group_name} groep beheert.
           email_subject: Iemand heeft verzocht lid te worden van de %{user_group_name} groep!
           notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de groepsleden pagina</a>.
@@ -698,7 +698,7 @@ nl:
         nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
         phone_help: Gebruik geen streepjes of spaties
       join:
-        error: Er is een probleem opgetreden bij de groep
+        error: Er is een probleem opgetreden bij het toetreden van de groep
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
       leave:
         error: Er is een probleem met het verlaten van de groep
@@ -936,8 +936,8 @@ nl:
         badges: Badges
         followers: Volgers
         following: Aan het volgen
-        groups: groepen
-        members: leden
+        groups: Groepen
+        members: Leden
         timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
@@ -945,7 +945,7 @@ nl:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: Badges
       user:
-        confirmation_instructions_sent: Stuurbevestigingsinstructies verzonden
+        confirmation_instructions_sent: Bevestigingsinstructies verzonden via mail
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
@@ -1204,7 +1204,7 @@ nl:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
       send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
-      unlocked: Uw account is succesvol ontgrendeld. Log alstublieft in om verder te gaan.
+      unlocked: Uw account is succesvol ontgrendeld. Meld alstublieft aan om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
@@ -1250,7 +1250,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U boots de gebruiker <b>%{user_name}</b> na.
+        description_html: U beheert de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
@@ -1278,7 +1278,7 @@ nl:
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail
     fallback: is niet geldig
-    name_included_in_password: lijkt te veel op jouw naam
+    name_included_in_password: lijkt te veel op uw naam
     not_enough_unique_characters: heeft niet genoeg unieke tekens
     password_not_allowed: is niet toegestaan
     password_too_common: te algemeen
