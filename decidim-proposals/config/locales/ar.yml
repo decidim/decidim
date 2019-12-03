@@ -647,7 +647,6 @@ ar:
         endorsements_card_row:
           comments: تعليقات
         filters:
-          activity: نشاط
           amendment_type: نوع
           category: الفئة
           category_prompt: اختر تصنيف

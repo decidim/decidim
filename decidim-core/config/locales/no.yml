@@ -366,9 +366,23 @@
       sessions:
         new:
           register: Opprett en konto
+      shared:
+        newsletter_modal:
+          notice: |-
+            <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
+            Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
+            Det er veldig viktig for oss at du kan motta sporadiske e-poster
+            for å gi viktige kunngjøringer, du kan alltids endre dette på 
+            notifikasjons innstillinger siden.</p>
+            <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
+            om nye deltaker muligheter innen plattformen.<br>
+            Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
+            beslutningen din.</p>
+            <p>Takk for at du leste dette!</p>
     doorkeeper:
       authorizations:
         new:
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
@@ -423,6 +437,11 @@
       index:
         standalone_pages: Sider
         title: Hjelp
+    reported_mailer:
+      hide:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+      report:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -433,6 +452,8 @@
     shared:
       floating_help:
         help: Hjelp
+    welcome_notification:
+      default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
   devise:
     mailer:
       invitation_instructions:
@@ -441,6 +462,10 @@
     passwords:
       edit:
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+    shared:
+      minimum_password_length:
+        one: "(%{count} karakter minimum)"
+        other: "(%{count} karakterer minimum)"
   layouts:
     decidim:
       edit_link:
@@ -463,3 +488,8 @@
       long: "%B %d, %Y %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Først"
+      previous: "&lsaquo; Tidligere"
+      truncate: "&hellip;"

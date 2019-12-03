@@ -238,6 +238,9 @@ fi-pl:
           edit:
             update: Päivitä
           form:
+            address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
+            location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
+            location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
             select_organizer: Valitse järjestäjä
           index:
             title: Tapahtumat
