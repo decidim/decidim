@@ -18,7 +18,7 @@ nl:
         body: Body
         category_id: Categorie
         has_address: Heeft adres
-        scope_id: Reikwijdte
+        scope_id: Scope
         state: Status
         suggested_hashtags: Voorgestelde hashtags
         title: Titel
