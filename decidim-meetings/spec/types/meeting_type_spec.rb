@@ -175,6 +175,87 @@ module Decidim
           )
         end
       end
+
+      describe "registrationFormEnabled" do
+        let(:query) { "{ registrationFormEnabled }" }
+
+        it "returns true" do
+          expect(response["registrationFormEnabled"]).to be true
+        end
+      end
+
+      describe "privateMeeting" do
+        let(:query) { "{ privateMeeting }" }
+
+        it "returns true" do
+          expect(response["privateMeeting"]).to be false
+        end
+      end
+
+      context "when meeting is private" do
+        let(:query) { "{ privateMeeting }" }
+
+        before do
+          model.update(private_meeting: true, transparent: false)
+        end
+
+        it "returns true" do
+          expect(response["privateMeeting"]).to be true
+        end
+      end
+
+      describe "transparent" do
+        let(:query) { "{ transparent }" }
+
+        it "returns true" do
+          expect(response["transparent"]).to be true
+        end
+      end
+
+      describe "createdAt" do
+        let(:query) { "{ createdAt }" }
+
+        it "returns when was this query created at" do
+          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
+        end
+      end
+
+      describe "updatedAt" do
+        let(:query) { "{ updatedAt }" }
+
+        it "returns when was this query updated at" do
+          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        end
+      end
+
+      describe "organizer" do
+        let(:organizer) { nil }
+
+        describe "when organizer is not present" do
+          let(:query) { "{ organizer { name } }" }
+
+          before do
+            model.update(organizer: organizer)
+          end
+
+          it "does not include the organizer" do
+            expect(response["organizer"]).to be_nil
+          end
+        end
+
+        describe "with a regular user" do
+          let(:organizer) { create(:user, organization: model.participatory_space.organization) }
+          let(:query) { "{ organizer { name } }" }
+
+          before do
+            model.update(organizer: organizer)
+          end
+
+          it "includes the user's name" do
+            expect(response["organizer"]["name"]).to eq(organizer.name)
+          end
+        end
+      end
     end
   end
 end
