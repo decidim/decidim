@@ -7,7 +7,7 @@ nl:
         offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
-        signature_start_date: Begin van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode voor het verzamelen van handtekeningen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
@@ -233,16 +233,16 @@ nl:
             success: Het initiatieftype is succesvol bijgewerkt
       admin_log:
         initiative:
-          publish: "%{user_name} heeft het %{resource_name} -initiatief gepubliceerd"
-          send_to_technical_validation: "%{user_name} heeft het %{resource_name} -initiatief verzonden naar technische validatie"
+          publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
+          send_to_technical_validation: "%{user_name} heeft het initiatief %{resource_name} verzonden naar technische validatie"
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
         accepted: Aanvaard
         created: gemaakt
-        discarded: afgedankte
+        discarded: Afgedankte
         published: Gepubliceerd
-        rejected: Verworpen
+        rejected: Afgewezen
         validating: Technische validatie
       committee_requests:
         new:
@@ -257,14 +257,14 @@ nl:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
+          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol aangemaakt.
+          callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
         finish_help:
@@ -329,8 +329,8 @@ nl:
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
-          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
+          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen zijn niet geldig
+          success_html: Proficiat! Het initiatief <strong> %{title}</strong> is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
@@ -369,7 +369,7 @@ nl:
           comments_count:
             count:
               one: Commentaar
-              other: Comments
+              other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meest gereageerd

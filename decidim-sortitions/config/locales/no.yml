@@ -17,7 +17,19 @@
         sortition:
           create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
           delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name} sorteringen i %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 forslag
+            other: "%{count} forslag"
         filters:
           category: Kategori
           state: Status
+        show:
+          dice_result: "(1) Terning resultat"
+          time_seed: "(2) Time seed"
+        sortitions_count:
+          count:
+            one: 1 sortering
+            other: "%{count} sorteringer"
