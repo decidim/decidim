@@ -81,6 +81,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
+  autoload :Endorsable, "decidim/endorsable"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

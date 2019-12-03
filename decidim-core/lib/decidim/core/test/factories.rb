@@ -310,7 +310,7 @@ FactoryBot.define do
     end
 
     name { generate_localized_title }
-    participatory_space { create(:participatory_process, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
     settings do
@@ -343,6 +343,30 @@ FactoryBot.define do
 
     trait :with_permissions do
       settings { { Random.rand => Random.new.bytes(5) } }
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_blocked: true }
+        }
+      end
     end
   end
 
@@ -395,6 +419,18 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_endorsements do
+      after :create do |resource|
+        create_list(:endorsement, 5, resource: resource)
+      end
+    end
+  end
+
+  factory :user_group_endorsement, class: "Decidim::Endorsement" do
+    resource { build(:resource) }
+    author { build(:user, organization: resource.organization) }
+    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
@@ -566,5 +602,10 @@ FactoryBot.define do
     trait :rejected do
       state { "rejected" }
     end
+  end
+
+  factory :endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization) }
   end
 end

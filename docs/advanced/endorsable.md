@@ -60,10 +60,14 @@ Given that some settings have been defined in the Administration Panel, the most
 
 There is already a concern with this two methods: `Decidim::WithEndorsablePermissions`.
 
-
-
 ## Public view
 
-### The "Endorse" button in the right-side action card
+### The "Endorse" button
+Appears in the right-side action card of a detail (show).
+It allows the user to endorse with each of its identities, the personal one, and the user's user_groups, if any.
+
+### EndorsableHelper
+
+
 ### The endorsements count cell
 ### The list of endorsers

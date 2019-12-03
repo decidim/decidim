@@ -339,7 +339,7 @@ FactoryBot.define do
 
     trait :with_endorsements do
       after :create do |proposal|
-        create_list(:proposal_endorsement, 5, proposal: proposal)
+        create_list(:resource_endorsement, 5, resource: proposal)
       end
     end
   end
@@ -347,17 +347,6 @@ FactoryBot.define do
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
-  end
-
-  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-  end
-
-  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
-    proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

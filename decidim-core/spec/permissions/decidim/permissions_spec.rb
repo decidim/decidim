@@ -169,6 +169,51 @@ describe Decidim::Permissions do
       end
     end
 
+    context "when subject is endorsement" do
+      let(:action_subject) { :endorsement }
+
+      context "when endorsing a resource" do
+        let(:action_name) { :create }
+        let(:resource) { create :dummy_resource }
+        before do
+          context[:resource]= resource
+        end
+
+        context "with endorsements_enabled" do
+          before do
+            context[:current_settings]= double({
+              endorsements_enabled: true,
+              endorsements_blocked: false
+            })
+          end
+
+          it { is_expected.to eq true }
+        end
+
+        context "with endorsements not enabled" do
+          before do
+            context[:current_settings]= double({
+              endorsements_enabled: false,
+              endorsements_blocked: false
+            })
+          end
+
+          it { is_expected.to eq false }
+        end
+
+        context "with endorsements blocked" do
+          before do
+            context[:current_settings]= double({
+              endorsements_enabled: true,
+              endorsements_blocked: true
+            })
+          end
+
+          it { is_expected.to eq false }
+        end
+      end
+    end
+
     context "when action is on notifications" do
       let(:action_subject) { :notification }
 

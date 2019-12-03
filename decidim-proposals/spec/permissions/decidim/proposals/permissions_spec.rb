@@ -110,7 +110,12 @@ describe Decidim::Proposals::Permissions do
     end
   end
 
-  it_behaves_like "with endorsable permissions can perform actions related to endorsable", :proposal
+  describe "Endorsements" do
+    before do
+      context[:resource]= context.delete(:proposal)
+    end
+    it_behaves_like "with endorsable permissions can perform actions related to endorsable", :proposal
+  end
 
   describe "voting" do
     let(:action) do

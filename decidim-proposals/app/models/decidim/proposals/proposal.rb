@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Endorsable
 
       fingerprint fields: [:title, :body]
 
@@ -33,8 +34,6 @@ module Decidim
       )
 
       component_manifest_name "proposals"
-
-      has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
 
       has_many :votes,
                -> { final },
@@ -101,10 +100,10 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Proposals::ProposalEndorsement.joins(:proposal)
-                                                                               .where(proposal: proposals)
-                                                                               .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                                               .map(&:decidim_author_id).flatten.compact.uniq
+        endorsements_participants_ids = Decidim::Endorsement.joins(:resource)
+                                                           .where(resource: proposals)
+                                                           .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                                           .map(&:decidim_author_id).flatten.compact.uniq
 
         (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
       end

@@ -49,7 +49,7 @@ module Decidim
       end
 
       def proposal
-        @proposal ||= context.fetch(:proposal, nil)
+        @proposal ||= context.fetch(:proposal, nil) || context.fetch(:resource, nil)
       end
 
       def voting_enabled?
