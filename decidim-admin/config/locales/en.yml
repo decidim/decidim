@@ -525,7 +525,7 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
+          search: Search users by name, nickname or email
           status: Status
           unofficialize: Unofficialize
         new:

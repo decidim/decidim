@@ -30,7 +30,7 @@ module Decidim::Admin
           let(:search) { "Argo" }
 
           it "returns all matching users" do
-            expect(subject.query).to match_array([user1, user2, user3])
+            expect(subject.query).to match_array([user1, user2])
           end
         end
 
