@@ -18,7 +18,7 @@ tr:
         body: Vücut
         category_id: Kategori
         has_address: Adresi var
-        scope_id: Kapsam
+        scope_id: kapsam
         state: Belirtmek, bildirmek
         suggested_hashtags: Önerilen hashtag'ler
         title: Başlık
