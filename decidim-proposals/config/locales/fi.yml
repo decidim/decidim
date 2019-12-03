@@ -18,7 +18,6 @@ fi:
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
