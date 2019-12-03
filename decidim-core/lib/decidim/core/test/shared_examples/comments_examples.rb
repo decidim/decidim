@@ -193,7 +193,45 @@ shared_examples "comments" do
       end
     end
 
-    describe "mentions" do
+    describe "mentions drop-down", :slow do
+      before do
+        visit resource_path
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+        end
+      end
+
+      context "when mentioning a valid user" do
+        let!(:mentioned_user) { create(:user, :confirmed, organization: organization) }
+        let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
+
+        context "when text finish with a mention" do
+          it "shows the tribute container" do
+            expect(page).to have_selector(".tribute-container", text: mentioned_user.name)
+          end
+        end
+
+        context "when text contains a mention" do
+          let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
+
+          it "shows the tribute container" do
+            expect(page).not_to have_selector(".tribute-container", text: mentioned_user.name)
+          end
+        end
+      end
+
+      context "when mentioning a non valid user" do
+        let!(:mentioned_user) { create(:user, organization: organization) }
+        let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
+
+        it "do not show the tribute container" do
+          expect(page).not_to have_selector(".tribute-container")
+        end
+      end
+    end
+
+    describe "mentions", :slow do
       before do
         visit resource_path
 
@@ -205,7 +243,8 @@ shared_examples "comments" do
 
       context "when mentioning a valid user" do
         let!(:mentioned_user) { create(:user, :confirmed, organization: organization) }
-        let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
+        # do not finish with the mention to avoid trigger the drop-down
+        let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}")

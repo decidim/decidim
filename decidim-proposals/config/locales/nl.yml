@@ -644,10 +644,12 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          activity: Activiteit
+          activity: Mijn activiteit
+          all: Alle
           amendment_type: Type
           category: Categorie
           category_prompt: Kies een categorie
+          my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
@@ -672,9 +674,13 @@ nl:
           title: Maak voorstel aan
         orders:
           label: 'Bestelling sorteren op:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Documentindex

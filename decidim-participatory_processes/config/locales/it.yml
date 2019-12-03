@@ -48,6 +48,12 @@ it:
         email: Email
         name: Titolo
         role: Ruolo
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase attivata
       decidim/participatory_process_step_changed_event: Fase modificata
@@ -74,6 +80,7 @@ it:
         filter:
           all: Mostra tutti i processi
           process_groups: Gruppi di processi
+        import_process: Importa
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
         new_process_step: Nuova fase
@@ -136,6 +143,7 @@ it:
           title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
+          error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
@@ -146,6 +154,14 @@ it:
         update:
           error: Si è verificato un errore aggiornando questo gruppo di processi partecipativi.
           success: Il gruppo di processi partecipativi è stato modificato con successo.
+      participatory_process_imports:
+        create:
+          error: Si è verificato un problema nell'importazione di questo processo partecipativo.
+          success: Processo partecipativo importato con successo.
+        new:
+          import: Importa
+          select: Seleziona quali dati vuoi importare
+          title: Importa processo partecipativo
       participatory_process_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
@@ -235,6 +251,9 @@ it:
         publish: "%{user_name} pubblicato il %{resource_name} processo partecipativo"
         unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
         update: "%{user_name} ha aggiornato il processo partecipativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} ha creato il gruppo di processi partecipativi %{resource_name}"
+        update: "%{user_name} ha aggiornato il gruppo di processo partecipativo %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} attivato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
         create: "%{user_name} ha creato il passaggio %{resource_name} nel processo partecipativo %{space_name}"
@@ -286,6 +305,10 @@ it:
             max_results: Quantità massima di elementi da mostrare
         participatory_process_copies:
           form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Aggiungi documento
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_steps:
           form:

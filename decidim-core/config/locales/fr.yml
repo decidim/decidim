@@ -116,6 +116,7 @@ fr:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
+        create_via_csv: "%{user_name} a invité %{resource_name} via csv à être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
@@ -309,6 +310,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
+            dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
           step:
@@ -319,6 +321,7 @@ fr:
             comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
+            dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -390,17 +393,12 @@ fr:
       shared:
         newsletter_modal:
           buttons:
-            check: Vérifiez et continuez
+            check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
-            uncheck: Désactiver
+            uncheck: Non merci, je m'informerai autrement
           notice: |-
-            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
-            Nous vous conseillons vivement de cocher la case ci-dessous permettant de recevoir la newsletter.<br>
-            Il est très important pour nous que vous puissiez recevoir des emails occasionnels qui contiennent des annonces importantes. Vous pourrez toujours vous désinscrire par la suite dans votre compte, dans l'espace "paramètres de vos notifications".</p>
-            <p>Si vous ne cochez pas cette case, vous pourriez manquer les résultats des concertations et l'annonce de l'ouverture de nouveaux espaces de participation au sein de la plateforme.<br>
-            Si vous malgré tout ne pas recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
-            <p>Merci d'avoir lu ce message !</p>
-          title: Notifications de newsletter
+            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -1216,7 +1214,11 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
+      not_found: introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
+      not_saved:
+        one: 'Une erreur est survenue pendant le traitement de votre requête.'
+        other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
@@ -1308,10 +1310,13 @@ fr:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%d %B %Y %H h %M min %S s"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%A %d %B %Y %H h %M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

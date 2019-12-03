@@ -13,14 +13,17 @@
 
     <div class="row column">
       <%= form.text_field :address %>
+      <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.translated :text_area, :location %>
+      <p class="help-text"><%= t(".location_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.translated :text_area, :location_hints %>
+      <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
 
     <div class="row">

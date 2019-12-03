@@ -98,6 +98,10 @@ FactoryBot.define do
       state { "published" }
     end
 
+    trait :unpublished do
+      published_at { nil }
+    end
+
     trait :accepted do
       state { "accepted" }
     end

@@ -314,7 +314,7 @@ fi:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
-            amendment_creation_enabled: Muutosten luonti on käytössä
+            amendment_creation_enabled: Muutosten luonti käytössä
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
             amendments_visibility: Muutosten näkyvyys

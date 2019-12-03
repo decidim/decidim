@@ -644,7 +644,6 @@ fi-pl:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          activity: Aktiivisuus
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
@@ -672,9 +671,13 @@ fi-pl:
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
+          most_commented: Eniten kommentoidut
+          most_endorsed: Eniten suositellut
+          most_followed: Eniten seuratut
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+          with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
             document_index: Asiakirjan hakemisto

@@ -1,5 +1,92 @@
 "no":
   activemodel:
     attributes:
-      proposal:
+      collaborative_draft:
+        category_id: Kategori
         title: Tittel
+      proposal:
+        category_id: Kategori
+        title: Tittel
+  decidim:
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} har blitt avslått tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>avvist tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} ba om tilgang som bidragsyter. Du kan <strong>godta eller avslå forespørselen</strong> fra <a href="%{resource_path}">%{resource_title}</a> samarbeids utkast siden.'
+          email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> forespurte om tilgang til å bidra til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet. Vennligst <strong>godta eller avslå forespørselen</strong>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> trakk <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+          email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trakk</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        proposal_endorsed:
+          email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
+          email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
+        proposal_published:
+          email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
+    proposals:
+      admin:
+        participatory_texts:
+          new_import:
+            bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
+          sections:
+            article: "<em>Artikkel</em>"
+            section: "<em>Seksjon:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Ledd:</em> %{title}"
+        proposals:
+          form:
+            attachment_legend: "(Valgfritt) Legg til et vedlegg"
+            gallery_legend: "(Valgfritt) Legg til et bildegalleri"
+        proposals_imports:
+          create:
+            success: "%{number} forslag vellykket importert"
+      admin_log:
+        proposal:
+          answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
+          update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
+        proposal_note:
+          create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
+      collaborative_drafts:
+        count:
+          drafts_count:
+            one: "%{count} samarbeids utkast"
+            other: "%{count} samarbeids utkaster"
+        edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
+        filters:
+          category: Kategori
+          state: Status
+        show:
+          of_versions: "(av %{number})"
+      models:
+        proposal:
+          fields:
+            category: Kategori
+            state: Status
+            title: Tittel
+      participatory_text_proposal:
+        buttons:
+          comment: Kommentar
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
+        edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
+        filters:
+          category: Kategori
+          state: Status
+        tags:
+          changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
+      versions:
+        stats:
+          version_number_out_of_total: "%{current_version} ut av %{total_count}"

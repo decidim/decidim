@@ -2,4 +2,85 @@
   activemodel:
     attributes:
       conference:
+        banner_image: Bannerafbeelding
         title: Tittel
+      conference_user_role:
+        email: Epost
+        name: Navn
+  decidim:
+    admin:
+      models:
+        conference:
+          fields:
+            title: Tittel
+        conference_user_role:
+          fields:
+            email: Epost
+            name: Navn
+        media_link:
+          fields:
+            title: Tittel
+        partner:
+          fields:
+            name: Navn
+        registration_type:
+          fields:
+            title: Tittel
+    admin_log:
+      conference:
+        create: "%{user_name} opprettet %{resource_name} konferansen"
+        publish: "%{user_name} publiserte %{resource_name} konferansen"
+        send_conference_diplomas: "%{user_name} sendte deltakerbevis til %{resource_name} konferanse deltakerne"
+        unpublish: "%{user_name} upubliserte %{resource_name} konferansen"
+        update: "%{user_name} oppdaterte %{resource_name} konferansen"
+        update_diploma: "%{user_name} oppdaterte deltakerbevis konfigurasjonene for %{resource_name} konferansen"
+      conference_speaker:
+        create: "%{user_name} opprettet taler %{resource_name} i %{space_name} konferansen"
+        delete: "%{user_name} fjernet taler %{resource_name} fra %{space_name} konferansen"
+        update: "%{user_name} oppdaterte %{resource_name} taleren i %{space_name} konferansen"
+      conference_user_role:
+        create: "%{user_name} inviterte %{resource_name} til %{space_name} konferansen"
+        delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
+        update: "%{user_name} endret rollen av %{resource_name} i %{space_name} konferansen"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} bekreftet en konferanseregistrering i %{resource_name} konferanse"
+        partner:
+          create: "%{user_name} opprettet %{resource_name} til %{space_name} konferansen"
+          delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
+          update: "%{user_name} oppdaterte %{resource_name} i %{space_name} konferansen"
+        registration_type:
+          create: "%{user_name} opprettet redigerings typen %{resource_name} i %{space_name} konferansen"
+          publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
+          unpublish: "%{user_name} upubliserte %{resource_name} registrerings typen in i %{space_name} konferansen"
+          update: "%{user_name} oppdaterte redigerings typen %{resource_name} i %{space_name} konferansen"
+      media_link:
+        create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
+        delete: "%{user_name} fjernet %{resource_name} media linken fra %{space_name} konferansen"
+        update: "%{user_name} oppdaterte %{resource_name} media linken i %{space_name} konferansen"
+    conferences:
+      admin:
+        invite_join_conference_mailer:
+          invite:
+            invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+      models:
+        conference_invite:
+          fields:
+            email: Epost
+            name: Navn
+            status: Status
+        conference_registration:
+          fields:
+            email: Epost
+            name: Navn
+            state: Status
+      statistics:
+        pages_count: Sider
+        surveys_count: Undersøkelse
+  layouts:
+    decidim:
+      conferences:
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferanse"
+            other: "%{count} konferanser"

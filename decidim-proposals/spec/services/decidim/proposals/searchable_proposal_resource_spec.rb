@@ -6,18 +6,17 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :proposal_component, manifest_name: "proposals" }
-    let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: organization }
-    let(:author) { create(:user, organization: organization) }
+    include_context "when a resource is ready for global search"
+
+    let(:current_component) { create :proposal_component, organization: organization }
     let!(:proposal) do
       create(
         :proposal,
         :draft,
         component: current_component,
         scope: scope1,
-        title: "Nulla TestCheck accumsan tincidunt.",
-        body: "Nulla TestCheck accumsan tincidunt description Ow!",
+        title: Decidim::Faker.name,
+        body: description_1[:ca],
         users: [author]
       )
     end
@@ -88,7 +87,7 @@ module Decidim
               end
             end
 
-            it "removes tha associated SearchableResource after unpublishing a published Proposal on update" do
+            it "removes the associated SearchableResource after unpublishing a published Proposal on update" do
               proposal.update(published_at: nil)
 
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
@@ -163,10 +162,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => proposal.title,
+        "content_a" => I18n.transliterate(proposal.title),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => proposal.body,
+        "content_d" => I18n.transliterate(proposal.body),
         "locale" => locale,
 
         "decidim_organization_id" => proposal.component.organization.id,

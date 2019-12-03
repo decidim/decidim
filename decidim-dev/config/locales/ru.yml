@@ -6,12 +6,25 @@ ru:
         field: Мое поле
         start_date: Дата начала
         title: Название
+        translatable_text: Переводимый текст
         updated_at: 'Обновлено:'
   decidim:
     dummy:
       admin:
         exports:
           dummies: Примеры сохранения
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Используйте тестовую среду для decidim.
+          description: Участники получают этот значок за написание тестов.
+          description_another: Этот участник написал %{score} тестов.
+          description_own: Вы написали %{score} тест.
+          name: Тесты
+          next_level_in: Напишите еще %{score} тестов, чтобы достичь следующего уровня!
+          unearned_another: Этот участник еще не написал тестов.
+          unearned_own: Вы еще не написали тестов.
     pages:
       home:
         statistics:

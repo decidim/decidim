@@ -22,6 +22,8 @@ it:
             announcement: Annuncio
           step:
             allow_answers: Consenti risposte
+            allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
+            allow_unregistered_help: Se attivo, nessun login sarà richiesto per rispondere all'indagine. Questo può portare a dati inaffidabili e sarà più vulnerabile agli attacchi automatizzati. Utilizzare con cautela!
             announcement: Annuncio
     events:
       surveys:
@@ -53,4 +55,5 @@ it:
       surveys:
         answer:
           invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
+          spam_detected: C'è stato un problema nella risposta al modulo. Forse sei stato troppo veloce, puoi riprovare?
           success: Il questionario è stato salvato correttamente.
