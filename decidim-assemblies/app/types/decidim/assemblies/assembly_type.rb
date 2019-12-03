@@ -6,7 +6,8 @@ module Decidim
     AssemblyType = GraphQL::ObjectType.define do
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::AttachableInterface }
+        -> { Decidim::Core::AttachableInterface },
+        -> { Decidim::Core::ParticipatorySpaceResourceableInterface }
       ]
 
       name "Assembly"

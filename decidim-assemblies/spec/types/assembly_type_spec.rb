@@ -386,6 +386,19 @@ module Decidim
           expect(response["githubHandler"]).to eq(model.github_handler)
         end
       end
+
+      describe "categories" do
+        let(:category) { create(:category) }
+        let(:query) { "{ categories { id } }" }
+
+        before do
+          model.categories << category
+        end
+
+        it "returns its categories" do
+          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
+        end
+      end
     end
   end
 end

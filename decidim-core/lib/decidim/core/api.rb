@@ -10,5 +10,6 @@ module Decidim
     autoload :ScopableInterface, "decidim/api/scopable_interface"
     autoload :AttachableInterface, "decidim/api/attachable_interface"
     autoload :HashtagInterface, "decidim/api/hashtag_interface"
+    autoload :ParticipatorySpaceResourceableInterface, "decidim/api/participatory_space_resourceable_interface"
   end
 end
