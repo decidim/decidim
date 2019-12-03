@@ -18,7 +18,6 @@ ca:
         body: Cos
         category_id: Categoria
         has_address: Té adreça
-        scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
         title: Títol
