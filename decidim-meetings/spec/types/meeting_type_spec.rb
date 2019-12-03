@@ -6,6 +6,7 @@ require "decidim/core/test/shared_examples/categorizable_interface_examples"
 require "decidim/core/test/shared_examples/scopable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "shared/services_interface_examples"
 
 module Decidim
   module Meetings
@@ -17,6 +18,7 @@ module Decidim
       include_examples "categorizable interface"
       include_examples "scopable interface"
       include_examples "attachable interface"
+      include_examples "services interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -39,6 +41,14 @@ module Decidim
 
         it "returns the meeting's title" do
           expect(response["title"]["translation"]).to eq(model.title["ca"])
+        end
+      end
+
+      describe "description" do
+        let(:query) { "{ description { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's description" do
+          expect(response["description"]["translation"]).to eq(model.description["ca"])
         end
       end
 
@@ -98,6 +108,14 @@ module Decidim
           end
         end
 
+        describe "registrationTerms" do
+          let(:query) { "{ registrationTerms { translation(locale: \"ca\") } }" }
+
+          it "returns the meeting's registration_terms" do
+            expect(response["registrationTerms"]["translation"]).to eq(model.registration_terms["ca"])
+          end
+        end
+
         describe "remainingSlots" do
           let(:query) { "{ remainingSlots }" }
 
@@ -120,6 +138,22 @@ module Decidim
 
         it "returns the amount of contributions" do
           expect(response["contributionCount"]).to eq(model.contributions_count)
+        end
+      end
+
+      describe "location" do
+        let(:query) { "{ location { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's location" do
+          expect(response["location"]["translation"]).to eq(model.location["ca"])
+        end
+      end
+
+      describe "locationHints" do
+        let(:query) { "{ locationHints { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's location_hints" do
+          expect(response["locationHints"]["translation"]).to eq(model.location_hints["ca"])
         end
       end
 
