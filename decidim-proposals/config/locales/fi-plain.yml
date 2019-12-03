@@ -18,7 +18,6 @@ fi-pl:
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
@@ -644,9 +643,12 @@ fi-pl:
         endorsements_card_row:
           comments: Kommentit
         filters:
+          activity: Oma toiminta
+          all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
+          my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
           search: Haku
