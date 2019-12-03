@@ -33,10 +33,6 @@ module Decidim
           can_edit_proposal?
         when :withdraw
           can_withdraw_proposal?
-        when :endorse
-          can_endorse?(proposal)
-        when :unendorse
-          can_unendorse?(proposal)
         when :amend
           can_create_amendment?
         when :vote

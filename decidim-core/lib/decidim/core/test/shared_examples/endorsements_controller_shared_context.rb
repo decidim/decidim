@@ -7,8 +7,7 @@ RSpec.shared_context "when in a resource" do
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let(:params) do
     {
-      resource_type: resource.class.name,
-      resource_id: resource.id,
+      id: resource.to_gid.to_param,
       component_id: component.id,
       participatory_process_slug: component.participatory_space.slug
     }

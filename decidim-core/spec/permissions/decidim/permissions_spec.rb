@@ -175,16 +175,17 @@ describe Decidim::Permissions do
       context "when endorsing a resource" do
         let(:action_name) { :create }
         let(:resource) { create :dummy_resource }
+
         before do
-          context[:resource]= resource
+          context[:resource] = resource
         end
 
         context "with endorsements_enabled" do
           before do
-            context[:current_settings]= double({
+            context[:current_settings] = double(
               endorsements_enabled: true,
               endorsements_blocked: false
-            })
+            )
           end
 
           it { is_expected.to eq true }
@@ -192,10 +193,10 @@ describe Decidim::Permissions do
 
         context "with endorsements not enabled" do
           before do
-            context[:current_settings]= double({
+            context[:current_settings] = double(
               endorsements_enabled: false,
               endorsements_blocked: false
-            })
+            )
           end
 
           it { is_expected.to eq false }
@@ -203,10 +204,10 @@ describe Decidim::Permissions do
 
         context "with endorsements blocked" do
           before do
-            context[:current_settings]= double({
+            context[:current_settings] = double(
               endorsements_enabled: true,
               endorsements_blocked: true
-            })
+            )
           end
 
           it { is_expected.to eq false }

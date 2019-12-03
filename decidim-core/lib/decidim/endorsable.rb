@@ -9,9 +9,9 @@ module Decidim
 
     included do
       has_many :endorsements,
-              as: :resource,
-              dependent: :destroy,
-              counter_cache: "endorsements_count"
+               as: :resource,
+               dependent: :destroy,
+               counter_cache: "endorsements_count"
     end
   end
 end

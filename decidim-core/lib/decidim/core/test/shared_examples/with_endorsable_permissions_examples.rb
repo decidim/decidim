@@ -52,7 +52,7 @@ shared_examples "with endorsable permissions can perform actions related to endo
       let(:extra_settings) do
         {
           endorsements_enabled?: false,
-          endorsements_blocked?: false,
+          endorsements_blocked?: false
         }
       end
 
@@ -63,7 +63,7 @@ shared_examples "with endorsable permissions can perform actions related to endo
       let(:extra_settings) do
         {
           endorsements_enabled?: true,
-          endorsements_blocked?: true,
+          endorsements_blocked?: true
         }
       end
 
@@ -74,7 +74,7 @@ shared_examples "with endorsable permissions can perform actions related to endo
       let(:extra_settings) do
         {
           endorsements_enabled?: true,
-          endorsements_blocked?: false,
+          endorsements_blocked?: false
         }
       end
 

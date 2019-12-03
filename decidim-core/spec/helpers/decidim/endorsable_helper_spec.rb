@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe EndorsableHelper do
-
     describe "endorsements enabled" do
       subject { helper.endorsements_enabled? }
+
       before do
         allow(helper).to receive(:current_settings).and_return(double(endorsements_enabled: endorsements_enabled))
       end
@@ -26,10 +26,10 @@ module Decidim
 
     describe "endorsements blocked" do
       subject { helper.endorsements_blocked? }
+
       before do
         allow(helper).to receive(:current_settings).and_return(double(endorsements_blocked: endorsements_blocked))
       end
-
 
       context "when endorsements are blocked" do
         let(:endorsements_blocked) { true }

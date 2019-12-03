@@ -24,7 +24,7 @@ module Decidim
     end
 
     def destroy
-      enforce_permission_to :unendorse, resource_manifest_name, resource: resource
+      enforce_permission_to :withdraw, :endorsement, resource: resource
       user_group_id = params[:user_group_id]
       user_group = user_groups.find(user_group_id) if user_group_id
 
@@ -37,7 +37,7 @@ module Decidim
     end
 
     def identities
-      enforce_permission_to :endorse, resource_manifest_name, resource: resource
+      enforce_permission_to :create, :endorsement, resource: resource
 
       @user_verified_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
       render :identities, layout: false
@@ -50,14 +50,7 @@ module Decidim
     end
 
     def resource
-      @resource ||= begin
-        clazz= params[:resource_type].constantize
-        clazz.where(component: current_component).find(params[:resource_id])
-      end
-    end
-
-    def resource_manifest_name
-      @manifest_name||= resource.component.manifest.name
+      @resource ||= GlobalID::Locator.locate(GlobalID.parse(params[:id]))
     end
   end
 end

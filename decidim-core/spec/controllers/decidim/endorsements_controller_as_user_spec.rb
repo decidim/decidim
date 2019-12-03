@@ -25,7 +25,7 @@ module Decidim
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to be_empty
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
+            expect(subject).to render_template("decidim/endorsements/identities")
           end
         end
 
@@ -36,7 +36,7 @@ module Decidim
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to be_empty
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
+            expect(subject).to render_template("decidim/endorsements/identities")
           end
         end
 
@@ -47,7 +47,7 @@ module Decidim
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to eq user.user_groups
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
+            expect(subject).to render_template("decidim/endorsements/identities")
           end
         end
       end

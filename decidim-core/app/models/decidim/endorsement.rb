@@ -6,8 +6,8 @@ module Decidim
     include Decidim::Authorable
 
     belongs_to :resource,
-                polymorphic: true,
-                counter_cache: true
+               polymorphic: true,
+               counter_cache: true
 
     validates :resource_id, uniqueness: { scope: [:resource_type, :author, :user_group] }
     validate :author_and_resource_same_organization

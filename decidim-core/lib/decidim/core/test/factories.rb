@@ -427,12 +427,6 @@ FactoryBot.define do
     end
   end
 
-  factory :user_group_endorsement, class: "Decidim::Endorsement" do
-    resource { build(:resource) }
-    author { build(:user, organization: resource.organization) }
-    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
-  end
-
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
@@ -607,5 +601,11 @@ FactoryBot.define do
   factory :endorsement, class: "Decidim::Endorsement" do
     resource { build(:dummy_resource) }
     author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization) }
+  end
+
+  factory :user_group_endorsement, class: "Decidim::Endorsement" do
+    resource { build(:dummy_resource) }
+    author { build(:user, organization: resource.organization) }
+    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
 end
