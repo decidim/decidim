@@ -461,13 +461,13 @@ nl:
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Een amendement afgewezen voor %{amendable_title} is gepubliceerd als een nieuw %{amendable_type}. Je kunt het op deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
+            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen door de vorige link te volgen.
+            email_subject: Een amendement van %{emendation_author_nickname} is gepubliceerd als %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_intro: 'Een amendement is afgewezen door %{amendable_title}. Je kunt het op deze pagina bekijken:'
+            email_outro: U heeft deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
             email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
