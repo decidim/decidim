@@ -472,7 +472,7 @@ nl:
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurd door <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Een amendement is afgewezen voor %{amendable_title}. Je kunt het op deze pagina bekijken:'
-            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen via de vorige link.
+            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. U kunt stoppen met het ontvangen van meldingen via de vorige link.
             email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
@@ -698,7 +698,7 @@ nl:
         nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
         phone_help: Gebruik geen streepjes of spaties
       join:
-        error: Er is een probleem opgetreden bij het toetreden van de groep
+        error: Er is een probleem opgetreden bij het lid worden van de groep
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
       leave:
         error: Er is een probleem met het verlaten van de groep
@@ -1186,7 +1186,7 @@ nl:
       new:
         sign_in: Aanmelden
       signed_in: Succesvol aangemeld.
-      signed_out: Succesvol afmelden.
+      signed_out: Succesvol afgemeld.
     shared:
       links:
         back: Terug
@@ -1220,7 +1220,7 @@ nl:
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
       not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
-      not_locked: was niet op slot
+      not_locked: was niet vergrendeld
       not_saved:
         one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
