@@ -520,23 +520,23 @@ nl:
           email_subject: Je bent toegelaten tot de %{user_group_name} groep!
           notification_title: U bent geaccepteerd door de <a href="%{resource_path}">%{user_group_name}</a> groep.
         join_request_created:
-          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_url}">de groepsleden pagina</a>.
-          email_outro: U hebt deze melding ontvangen omdat u de %{user_group_name} groep kunt beheren.
+          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren via <a href="%{resource_url}">de groepsleden pagina</a>.
+          email_outro: U heeft deze melding ontvangen omdat u de %{user_group_name} groep beheert.
           email_subject: Iemand heeft verzocht lid te worden van de %{user_group_name} groep!
           notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de groepsleden pagina</a>.
         join_request_rejected:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om hieraan deel te nemen afgewezen.
-          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om lid te worden afgewezen.
+          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
           email_subject: Uw aanvraag om lid te worden van de %{user_group_name} groep is afgewezen!
           notification_title: Uw aanvraag om lid te worden van de <a href="%{resource_path}">%{user_group_name}</a> groep is afgewezen.
         promoted_to_admin:
           email_intro: Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft u beheerdersrechten voor die groep verleend.
-          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
           email_subject: U bent nu een beheerder van de %{user_group_name} groep!
           notification_title: U bent nu een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
         removed_from_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je ervan verwijderd.
-          email_outro: U hebt deze melding ontvangen omdat u lid was van die groep.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je eruit verwijderd.
+          email_outro: U heeft deze melding ontvangen omdat u lid was van die groep.
           email_subject: U bent verwijderd uit de %{user_group_name} groep!
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
@@ -1184,17 +1184,17 @@ nl:
     sessions:
       already_signed_out: Succesvol ondertekend.
       new:
-        sign_in: Log in
-      signed_in: Ingelogd.
-      signed_out: Succesvol ondertekend.
+        sign_in: Aanmelden
+      signed_in: Succesvol aangemeld.
+      signed_out: Succesvol afmelden.
     shared:
       links:
         back: Terug
         didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
         didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
-        forgot_your_password: Je wachtwoord vergeten?
-        sign_in: Log in
-        sign_in_with_provider: Log in met %{provider}
+        forgot_your_password: Uw wachtwoord vergeten?
+        sign_in: Aanmelden
+        sign_in_with_provider: Meld aan met %{provider}
         sign_up: Aanmelden
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
