@@ -6,9 +6,9 @@ module Decidim
       # Controller that allows managing participatory processes.
       #
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
-        include Decidim::Admin::Paginable
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
+        include Decidim::Paginable
 
         helper ProcessGroupsForSelectHelper
 
@@ -18,7 +18,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = paginate(collection)
+          @participatory_processes = collection
         end
 
         def new

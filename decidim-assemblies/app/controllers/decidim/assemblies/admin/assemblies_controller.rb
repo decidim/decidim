@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
-        include Decidim::Admin::Paginable
+        include Decidim::Paginable
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space, :query
         layout "decidim/admin/assemblies"
 

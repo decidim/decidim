@@ -8,7 +8,6 @@ shared_examples "a paginated collection" do
   describe "Number of results per page" do
     it "lists 15 resources per page by default" do
       expect(page).to have_css(".table-list tbody tr", count: 15)
-      # expect(page).to have_css(".pagination .page", count: 2)
     end
 
     it "changes the number of results per page" do

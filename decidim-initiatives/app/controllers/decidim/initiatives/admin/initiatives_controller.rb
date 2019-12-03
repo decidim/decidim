@@ -7,7 +7,6 @@ module Decidim
 
       # Controller used to manage the initiatives
       class InitiativesController < Decidim::Initiatives::Admin::ApplicationController
-        include Decidim::Admin::Paginable
         include Decidim::Initiatives::NeedsInitiative
         include Decidim::Initiatives::TypeSelectorOptions
 
@@ -20,14 +19,15 @@ module Decidim
 
           @query = params[:q]
           @state = params[:state]
-          initiatives = ManageableInitiatives
-                        .for(
-                          current_organization,
-                          current_user,
-                          @query,
-                          @state
-                        )
-          @initiatives = paginate(initiatives)
+          @initiatives = ManageableInitiatives
+                         .for(
+                           current_organization,
+                           current_user,
+                           @query,
+                           @state
+                         )
+                         .page(params[:page])
+                         .per(15)
         end
 
         # GET /admin/initiatives/:id

@@ -13,10 +13,4 @@ describe "Admin manages conferences", type: :system do
 
   it_behaves_like "manage conferences"
   it_behaves_like "manage diplomas"
-
-  context "when paginating" do
-    let!(:collection) { create_list(:conference, 50, organization: organization) }
-
-    it_behaves_like "a paginated collection"
-  end
 end

@@ -216,14 +216,4 @@ describe "Admin manages initiative components", type: :system do
       end
     end
   end
-
-  context "when paginating" do
-    before do
-      visit decidim_admin_initiatives.initiatives_path
-    end
-
-    let!(:collection) { create_list(:initiative, 50, organization: organization) }
-
-    it_behaves_like "a paginated collection"
-  end
 end
