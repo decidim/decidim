@@ -1195,7 +1195,7 @@ nl:
         forgot_your_password: Uw wachtwoord vergeten?
         sign_in: Aanmelden
         sign_in_with_provider: Meld aan met %{provider}
-        sign_up: Aanmelden
+        sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
@@ -1204,7 +1204,7 @@ nl:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
       send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
-      unlocked: Uw account is succesvol ontgrendeld. Log alstublieft in om verder te gaan.
+      unlocked: Uw account is succesvol ontgrendeld. Meld alstublieft aan om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
