@@ -18,7 +18,6 @@ es:
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
-        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
