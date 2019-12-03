@@ -37,7 +37,7 @@ module Decidim
       end
 
       field :updatedAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was upated"
+        description "The date and time this proposal was updated"
         property :updated_at
       end
 
