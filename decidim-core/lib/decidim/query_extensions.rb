@@ -39,30 +39,6 @@ module Decidim
         end
       end
 
-      type.field :participatoryProcessGroups do
-        type !types[Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType]
-        description "Lists all participatory process groups"
-
-        resolve lambda { |_obj, _args, ctx|
-          Decidim::ParticipatoryProcessGroup.where(
-            organization: ctx[:current_organization]
-          )
-        }
-      end
-
-      type.field :participatoryProcessGroup do
-        type !Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType
-        description "Finds a participatory process group"
-        argument :id, !types.ID, "The ID of the Participatory process group"
-
-        resolve lambda { |_obj, args, ctx|
-          Decidim::ParticipatoryProcessGroup.find_by(
-            organization: ctx[:current_organization],
-            id: args[:id]
-          )
-        }
-      end
-
       type.field :component, Decidim::Core::ComponentInterface do
         description "Lists the components this space contains."
         argument :id, !types.ID, "The ID of the component to be found"
