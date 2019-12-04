@@ -10,3 +10,6 @@
         organization:
           fields:
             name: Navn
+      organizations:
+        users_registration_mode:
+          disabled: Tilgang kan bare gjøres med eksterne kontoer
