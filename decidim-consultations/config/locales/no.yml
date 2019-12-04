@@ -32,6 +32,10 @@
         state: Status
       last_activity:
         new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktive konsultasjoner
       question_multiple_votes:
         results_rules:
           total_participants: Totalt %{count} personer deltok i avstemmingen.
