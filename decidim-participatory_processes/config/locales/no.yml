@@ -14,6 +14,7 @@
   decidim:
     admin:
       actions:
+        activate: Aktiver
         edit: Editar
       models:
         participatory_process:
@@ -73,6 +74,8 @@
             upcoming:
               one: 1 kommende prosess
               other: "%{count} kommende prosesser"
+          names:
+            active: Aktiv
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
