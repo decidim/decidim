@@ -24,6 +24,7 @@
             one: 1 forslag
             other: "%{count} forslag"
         filters:
+          active: Aktiv
           category: Kategori
           state: Status
         show:
