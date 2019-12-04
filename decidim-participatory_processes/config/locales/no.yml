@@ -59,9 +59,14 @@
           one: 1 prosess for %{group}
           other: "%{count} prosesser for %{group}"
     participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Legg til et dokumentet
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktive prosesser
             active_step: Aktiv fase
       participatory_processes:
         filters:
@@ -81,6 +86,7 @@
           names:
             active: Aktiv
       statistics:
+        headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
   layouts:
