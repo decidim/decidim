@@ -373,7 +373,7 @@
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
             Det er veldig viktig for oss at du kan motta sporadiske e-poster
             for å gi viktige kunngjøringer, du kan alltids endre dette på 
-            notifikasjons innstillinger siden.</p>
+            varslingsinnstillinger siden.</p>
             <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
             om nye deltaker muligheter innen plattformen.<br>
             Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
@@ -410,6 +410,11 @@
           description_own: "%{score} folk følger deg."
         index:
           badge_title: "%{name} merke"
+    group_invites:
+      accept_invitation: Aksepter
+    groups:
+      members:
+        accept_request: Aksepter
     help:
       main_topic:
         default_page:
@@ -474,6 +479,8 @@
     decidim:
       edit_link:
         edit: Editar
+      user_profile:
+        notifications_settings: Varslingsinnstillinger
   social_share_button:
     email: Epost
   time:
