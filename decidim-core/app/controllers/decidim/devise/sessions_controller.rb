@@ -8,7 +8,8 @@ module Decidim
 
       before_action :check_sign_in_enabled, only: :create
 
-      def create
+      def destroy
+        current_user.invalidate_all_sessions!
         super
       end
 
