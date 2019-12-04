@@ -2,9 +2,11 @@
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresse
         category_id: Kategori
         title: Tittel
       proposal:
+        address: Adresse
         category_id: Kategori
         title: Tittel
   decidim:
