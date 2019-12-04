@@ -126,6 +126,7 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
         filters:
+          activity: Aktivitet
           category: Kategori
           state: Status
         index:
