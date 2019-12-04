@@ -8,6 +8,7 @@
         admin:
           fields:
             email: Epost
+          name: Admin
         organization:
           fields:
             name: Navn
