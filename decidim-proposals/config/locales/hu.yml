@@ -17,6 +17,7 @@ hu:
         automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
         category_id: Kategória
+        decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
