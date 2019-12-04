@@ -13,3 +13,8 @@
         admin:
           new:
             file: ".csv fil med e-postdata"
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
