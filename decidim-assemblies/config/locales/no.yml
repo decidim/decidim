@@ -35,6 +35,10 @@
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} forsamlingen"
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
     assemblies:
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive forsamlinger
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
