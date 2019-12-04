@@ -5,6 +5,8 @@
         questionnaires:
           edit:
             title: Tittel
+          question:
+            add_answer_option: Legg til svaralternativ
       questionnaires:
         show:
           answer_questionnaire:
