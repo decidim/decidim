@@ -14,6 +14,11 @@ module Decidim
         -> { Decidim::Meetings::ServicesInterface }
       ]
 
+      # TODO
+      # linked_resources
+      # registration form
+      # Agenda (title, item-children(title,description,duration), ) IF VISIBLE
+
       field :id, !types.ID
       field :reference, !types.String
       field :title, !Decidim::Core::TranslatedFieldType, "The title of this meeting."
@@ -27,7 +32,11 @@ module Decidim
       field :attendingOrganizations, types.String, "list of attending organizations", property: :attending_organizations
       field :attendeeCount, types.Int, "Amount of attendees to this meeting", property: :attendees_count
       field :contributionCount, types.Int, "Amount of contributions to this meeting", property: :contributions_count
-
+      field :minutes, MinutesType, "Minutes for this meeting, if available" do
+        resolve ->(meeting, _args, _ctx) {
+          meeting.minutes if meeting.minutes&.visible?
+        }
+      end
       field :registrationsEnabled, !types.Boolean, "Whether the registrations are enabled or not", property: :registrations_enabled
       field :registrationTerms, Decidim::Core::TranslatedFieldType, "The registration terms", property: :registration_terms
       field :remainingSlots, types.Int, "Amount of slots available for this meeting", property: :remaining_slots
