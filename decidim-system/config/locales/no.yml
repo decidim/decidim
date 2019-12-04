@@ -3,6 +3,7 @@
     system:
       actions:
         edit: Editar
+        title: Handlinger
       models:
         admin:
           fields:
