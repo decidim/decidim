@@ -518,6 +518,8 @@
     decidim:
       edit_link:
         edit: Editar
+      user_menu:
+        admin_dashboard: Admin hovedpanel
       user_profile:
         account: Konto
         notifications_settings: Varslingsinnstillinger
@@ -539,6 +541,9 @@
       long: "%B %d, %Y %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      right: Tillegg
   views:
     pagination:
       first: "&laquo; Først"
