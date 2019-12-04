@@ -26,11 +26,20 @@
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> trakk <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trakk</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        proposal_accepted:
+          follower:
+            email_subject: Et forslag du følger har blitt akseptert
         proposal_endorsed:
           email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
           email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
+        proposal_evaluating:
+          follower:
+            email_subject: Et forslag du følger blir evaluert
         proposal_published:
           email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
+        proposal_rejected:
+          follower:
+            email_subject: Et forslag du følger har blitt avslått
     proposals:
       admin:
         participatory_texts:
