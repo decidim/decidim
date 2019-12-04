@@ -653,8 +653,10 @@ en:
           my_proposals: My proposals
           origin: Origin
           related_to: Related to
+          scope: Scope
           search: Search
           state: Status
+          type: Type
           voted: Supported
         filters_small_view:
           close_modal: Close modal

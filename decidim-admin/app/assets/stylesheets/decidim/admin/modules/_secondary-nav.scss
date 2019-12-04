@@ -49,7 +49,11 @@ $process-title-height: 3rem;
 
 .secondary-nav--subnav,
 .process-content{
-  padding-top: 2rem;
+  padding-top: 1rem;
+
+  .card{
+    margin-top: -2rem;
+  }
 
   @include breakpoint(large){
     min-height: calc(100% - #{$process-title-height});
