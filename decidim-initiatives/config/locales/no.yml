@@ -79,6 +79,10 @@
           other: " underskrifter"
         vote_cabin:
           supports_required: "%{total_supports} signaturer påkrevd"
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktive initiativer
       states:
         accepted: Aksepterte
     resources:
