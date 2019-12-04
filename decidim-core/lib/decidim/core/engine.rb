@@ -268,6 +268,10 @@ module Decidim
         end
       end
 
+      initializer "Expire sessions" do
+        Rails.application.config.session_store :cookie_store, expire_after: 1.day
+      end
+
       initializer "decidim.core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
