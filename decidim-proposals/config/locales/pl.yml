@@ -645,7 +645,6 @@ pl:
         endorsements_card_row:
           comments: Komentarze
         filters:
-          activity: Czynność
           amendment_type: Rodzaj
           category: Kategoria
           category_prompt: Wybierz kategorię
