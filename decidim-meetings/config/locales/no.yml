@@ -32,6 +32,8 @@
         meetings:
           service:
             title: Tittel
+          services:
+            add_service: Legg til tjeneste
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
