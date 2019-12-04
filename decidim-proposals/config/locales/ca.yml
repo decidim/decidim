@@ -644,7 +644,6 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          activity: Activitat
           amendment_type: Tipus
           category: Categoria
           category_prompt: Selecciona una categoria

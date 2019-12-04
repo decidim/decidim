@@ -629,7 +629,6 @@ eu:
         endorsements_card_row:
           comments: Oharrak
         filters:
-          activity: Jarduera
           amendment_type: Mota
           category: Kategoria
           category_prompt: Aukeratu kategoria bat

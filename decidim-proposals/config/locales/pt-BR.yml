@@ -629,7 +629,6 @@ pt-BR:
         endorsements_card_row:
           comments: Comentários
         filters:
-          activity: Atividade
           amendment_type: Tipo
           category: Categoria
           category_prompt: Selecionar uma categoria

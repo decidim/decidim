@@ -635,7 +635,6 @@ tr:
         endorsements_card_row:
           comments: Yorumlar
         filters:
-          activity: Aktivite
           amendment_type: tip
           category: Kategori
           category_prompt: bir kategori seç

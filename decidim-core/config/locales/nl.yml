@@ -51,7 +51,7 @@ nl:
         other: Deelnemers
       decidim/user_group:
         one: Groep
-        other: groepen
+        other: Groepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -170,7 +170,7 @@ nl:
         actions:
           button_accept: Aanvaarden
           button_reject: afwijzen
-          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur (s).
+          help_text: Bekijk de wijzigingen en accepteer of verwerp dit amendement. Er wordt een melding verzonden aan de auteur(s).
         announcement:
           accepted: |-
             Dit amendement voor de %{amendable_type} %{amendable_link} is
@@ -192,14 +192,14 @@ nl:
         publish: Publiceren
         title: Publiceer het ontwerpdocument van amendement
       promoted:
-        error: Er zijn fouten opgetreden bij het promoten van de emendation
-        success: Emendation met succes gepromoot
+        error: Er zijn fouten opgetreden bij het publiceren van het amendement als een nieuw voorstel
+        success: Het amendement is gepubliceerd als een nieuw voorstel
       publish_draft:
         error: Er is een fout opgetreden bij het publiceren van dit amendement.
         success: Amendement succesvol gepubliceerd.
       rejected:
-        error: Er is een fout opgetreden bij het afwijzen van deze emendatie. Probeer het later opnieuw
-        success: De emendation is met succes afgewezen
+        error: Er is een fout opgetreden bij het afwijzen van dit amendement. Probeer het later opnieuw
+        success: Het amendement is met succes afgewezen
       review:
         back: Terug
         heading: Bekijk het amendement
@@ -225,7 +225,7 @@ nl:
       collection:
         documents:
           one: Document
-          other: documenten
+          other: Documenten
       documents:
         related_documents: Gerelateerde documenten
       photos:
@@ -233,7 +233,7 @@ nl:
     author:
       comments:
         one: commentaar
-        other: opmerkingen
+        other: commentaren
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
@@ -270,7 +270,7 @@ nl:
           title: Autorisatie is verlopen
         incomplete:
           cancel: annuleren
-          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          explanation: 'Hoewel u momenteel geautoriseerd bent met "%{authorization}", moeten we u vragen opnieuw autoriseren, omdat we niet beschikken over de volgende gegevens:'
           invalid_field: "%{field}"
           reauthorize: Opnieuw autoriseren
           title: Autoriseert u opnieuw alstublieft
@@ -283,7 +283,7 @@ nl:
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
           title: Autorisatie is nog bezig
         unauthorized:
-          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
+          explanation: Sorry, u kunt deze actie niet uitvoeren, sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
@@ -296,7 +296,7 @@ nl:
       hidden_elements_count:
         one: en %{count} meer
         other: en %{count} meer
-      see_less: "(zie minder)"
+      see_less: "(bekijk minder)"
       see_more: "(Bekijk meer)"
     components:
       dummy:
@@ -306,7 +306,7 @@ nl:
         name: Voorbeeld onderdeel
         settings:
           global:
-            amendments_enabled: Wijzigingen ingeschakeld
+            amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
@@ -460,19 +460,19 @@ nl:
             email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Een emendatie afgewezen voor %{amendable_title} is gepromoveerd tot een onafhankelijke %{amendable_type}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-            email_subject: Een amendement van %{emendation_author_nickname} is als nieuw gepubliceerd %{amendable_type}
+            email_intro: 'Een amendement afgewezen voor %{amendable_title} is gepubliceerd als een nieuw %{amendable_type}. Je kunt het op deze pagina bekijken:'
+            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. Je kunt stoppen met het ontvangen van meldingen door de vorige link te volgen.
+            email_subject: Een amendement van %{emendation_author_nickname} is gepubliceerd als %{amendable_type}
             notification_title: Een <a href="%{emendation_path}">afgewezen amendement</a> voor <a href="%{amendable_path}">%{amendable_title}</a> is gepubliceerd als een nieuwe %{amendable_type} bij <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
+            email_intro: 'Een amendement is afgewezen door %{amendable_title}. Je kunt het op deze pagina bekijken:'
+            email_outro: U heeft deze melding ontvangen omdat u een auteur bent van %{amendable_title}.
             email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
-            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurd door <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Een emendation is afgewezen voor %{amendable_title}. Je kunt het vanaf deze pagina bekijken:'
-            email_outro: U hebt deze melding ontvangen omdat u %{amendable_title}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_intro: 'Een amendement is afgewezen voor %{amendable_title}. Je kunt het op deze pagina bekijken:'
+            email_outro: U heeft deze melding ontvangen omdat u %{amendable_title} volgt. U kunt stoppen met het ontvangen van meldingen via de vorige link.
             email_subject: Een amendement afgewezen voor %{amendable_title} van %{emendation_author_nickname}
             notification_title: De <a href="%{emendation_path}">amendement</a> door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is afgekeurde <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
@@ -495,48 +495,48 @@ nl:
       gamification:
         badge_earned:
           email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
-          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
-          notification_title: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
+          notification_title: Gefeliciteerd! U heeft de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
         level_up:
-          email_intro: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
-          email_outro: U hebt deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
+          email_intro: Gefeliciteerd! U heeft niveau %{current_level} bereikt op de <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
           email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
-          notification_title: Goed werk! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
+          notification_title: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
-          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
           email_subject: Je bent niet langer een beheerder van de %{user_group_name} groep!
           notification_title: U bent niet langer een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
         invited_to_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om mee te doen.
-          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd voor een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je uitgenodigd om deel te nemen.
+          email_outro: Je hebt deze melding ontvangen omdat je bent uitgenodigd tot een groep. Controleer het tabblad Groepen in uw profiel om het goed te keuren.
           email_subject: Je bent uitgenodigd om deel te nemen aan de %{user_group_name} groep!
           notification_title: U bent uitgenodigd om deel te nemen aan de <a href="%{resource_path}">%{user_group_name}</a> groep. Controleer de <a href="%{groups_profile_tab_path}">groepen pagina</a> in uw profiel om het goed te keuren!
         join_request_accepted:
           email_intro: Gefeliciteerd! Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft uw verzoek om hieraan deel te nemen geaccepteerd.
-          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
           email_subject: Je bent toegelaten tot de %{user_group_name} groep!
-          notification_title: U bent geaccepteerd voor de <a href="%{resource_path}">%{user_group_name}</a> groep.
+          notification_title: U bent geaccepteerd door de <a href="%{resource_path}">%{user_group_name}</a> groep.
         join_request_created:
-          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_url}">de groepsleden pagina</a>.
-          email_outro: U hebt deze melding ontvangen omdat u de %{user_group_name} groep kunt beheren.
+          email_intro: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. U kunt het accepteren of weigeren via <a href="%{resource_url}">de groepsleden pagina</a>.
+          email_outro: U heeft deze melding ontvangen omdat u de %{user_group_name} groep beheert.
           email_subject: Iemand heeft verzocht lid te worden van de %{user_group_name} groep!
           notification_title: Iemand heeft verzocht om lid te worden van de %{user_group_name} groep. Je kunt het accepteren of weigeren vanaf <a href="%{resource_path}">de groepsleden pagina</a>.
         join_request_rejected:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om hieraan deel te nemen afgewezen.
-          email_outro: U hebt deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw verzoek om lid te worden afgewezen.
+          email_outro: U heeft deze melding ontvangen omdat uw aanvraag tot deelname is bijgewerkt.
           email_subject: Uw aanvraag om lid te worden van de %{user_group_name} groep is afgewezen!
           notification_title: Uw aanvraag om lid te worden van de <a href="%{resource_path}">%{user_group_name}</a> groep is afgewezen.
         promoted_to_admin:
           email_intro: Een beheerder van de groep <a href="%{resource_url}">%{user_group_name}</a> heeft u beheerdersrechten voor die groep verleend.
-          email_outro: U hebt deze melding ontvangen omdat u lid bent van die groep.
+          email_outro: U heeft deze melding ontvangen omdat u lid bent van die groep.
           email_subject: U bent nu een beheerder van de %{user_group_name} groep!
           notification_title: U bent nu een beheerder van de <a href="%{resource_path}">%{user_group_name}</a> groep.
         removed_from_group:
-          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je ervan verwijderd.
-          email_outro: U hebt deze melding ontvangen omdat u lid was van die groep.
+          email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft je eruit verwijderd.
+          email_outro: U heeft deze melding ontvangen omdat u lid was van die groep.
           email_subject: U bent verwijderd uit de %{user_group_name} groep!
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
@@ -664,7 +664,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Deelnemen aan een succesvol geaccepteerd verzoek
+        success: Het deelnameverzoek is geaccepteerd 
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
@@ -698,7 +698,7 @@ nl:
         nickname_help: Gebruikersnaam van uw organisatie, vereniging, collectief, groep, etc. Gebruik geen spaties of accenten.
         phone_help: Gebruik geen streepjes of spaties
       join:
-        error: Er is een probleem opgetreden bij de groep
+        error: Er is een probleem opgetreden bij het lid worden van de groep
         success: Deelnemen aan verzoek is met succes gemaakt. Een beheerder zal uw verzoek beoordelen voordat u akkoord gaat met de groep.
       leave:
         error: Er is een probleem met het verlaten van de groep
@@ -718,7 +718,7 @@ nl:
         member: Lid
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
-        success: Groep succesvol geüpdatet
+        success: Groep succesvol bijgewerkt
     help:
       main_topic:
         default_page:
@@ -882,17 +882,17 @@ nl:
           debates_count: Debatten
           endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
-          meetings_count: vergaderingen
+          meetings_count: Vergaderingen
           orders_count: stemmen
           pages_count: Pages
           processes_count: Inspraakprocessen
-          projects_count: projecten
+          projects_count: Projecten
           proposals_accepted: Aanvaarde voorstellen
-          proposals_count: voorstellen
-          results_count: resultaten
+          proposals_count: Voorstellen
+          results_count: Resultaten
           surveys_count: Enquête
           users_count: Deelnemers
-          votes_count: stemmen
+          votes_count: Stemmen
         sub_hero:
           register: Registreren
       index:
@@ -908,7 +908,7 @@ nl:
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
-          success: Super goed! U hebt de algemene voorwaarden geaccepteerd.
+          success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
         form:
           agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
@@ -936,8 +936,8 @@ nl:
         badges: Badges
         followers: Volgers
         following: Aan het volgen
-        groups: groepen
-        members: leden
+        groups: Groepen
+        members: Leden
         timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
@@ -945,7 +945,7 @@ nl:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: Badges
       user:
-        confirmation_instructions_sent: Stuurbevestigingsinstructies verzonden
+        confirmation_instructions_sent: Bevestigingsinstructies verzonden via mail
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
@@ -1184,18 +1184,18 @@ nl:
     sessions:
       already_signed_out: Succesvol ondertekend.
       new:
-        sign_in: Log in
-      signed_in: Ingelogd.
-      signed_out: Succesvol ondertekend.
+        sign_in: Aanmelden
+      signed_in: Succesvol aangemeld.
+      signed_out: Succesvol afgemeld.
     shared:
       links:
         back: Terug
         didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
         didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
-        forgot_your_password: Je wachtwoord vergeten?
-        sign_in: Log in
-        sign_in_with_provider: Log in met %{provider}
-        sign_up: Aanmelden
+        forgot_your_password: Uw wachtwoord vergeten?
+        sign_in: Aanmelden
+        sign_in_with_provider: Meld aan met %{provider}
+        sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
@@ -1204,13 +1204,13 @@ nl:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
       send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
-      unlocked: Uw account is succesvol ontgrendeld. Log alstublieft in om verder te gaan.
+      unlocked: Uw account is succesvol ontgrendeld. Meld alstublieft aan om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
   errors:
     messages:
-      already_confirmed: was al bevestigd, probeer je aan te melden
+      already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
       content_type_whitelist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
@@ -1220,11 +1220,11 @@ nl:
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
       not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
-      not_locked: was niet op slot
+      not_locked: was niet vergrendeld
       not_saved:
         one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
-      too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld! en?)
+      too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
       too_short: is te kort (minder dan 15 tekens)
   forms:
@@ -1250,7 +1250,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U boots de gebruiker <b>%{user_name}</b> na.
+        description_html: U beheert de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
@@ -1278,7 +1278,7 @@ nl:
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail
     fallback: is niet geldig
-    name_included_in_password: lijkt te veel op jouw naam
+    name_included_in_password: lijkt te veel op uw naam
     not_enough_unique_characters: heeft niet genoeg unieke tekens
     password_not_allowed: is niet toegestaan
     password_too_common: te algemeen
