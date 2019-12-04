@@ -6,6 +6,7 @@
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        instructions: Ytterligere instruksjoner for avstemning
         title: Tittel
   decidim:
     admin:
