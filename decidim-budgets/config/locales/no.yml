@@ -31,9 +31,12 @@
         filters:
           category: Kategori
         project:
+          add: Legg til
           count:
             one: 1 støtte
             other: "%{count} støttere"
+        project_budget_button:
+          add: Legg til
         show:
           budget: Budsjett
     components:
