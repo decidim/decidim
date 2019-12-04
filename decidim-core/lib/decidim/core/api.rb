@@ -13,6 +13,7 @@ module Decidim
     autoload :HashtagInterface, "decidim/api/hashtag_interface"
     autoload :FingerprintInterface, "decidim/api/fingerprint_interface"
     autoload :AmendableInterface, "decidim/api/amendable_interface"
+    autoload :AmendableEntityInterface, "decidim/api/amendable_entity_interface"
     autoload :TraceableInterface, "decidim/api/traceable_interface"
   end
 end
