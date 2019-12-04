@@ -3,6 +3,7 @@
     blogs:
       actions:
         edit: Editar
+        title: Handlinger
       last_activity:
         new_post_at_html: "<span>Nytt innlegg på %{link}</span>"
       models:
