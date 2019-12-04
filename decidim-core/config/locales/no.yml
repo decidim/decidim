@@ -410,8 +410,10 @@
             notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
+            email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
+            email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
       attachments:
         attachment_created:
@@ -465,8 +467,10 @@
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+        subject: En ressurs var automatisk skjult
       report:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
+        subject: En ressurs er blitt rapportert
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -482,6 +486,7 @@
   devise:
     mailer:
       invitation_instructions:
+        accept: Godta invitasjonen
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
         invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
     passwords:
@@ -493,6 +498,9 @@
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
+  errors:
+    messages:
+      cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
   layouts:
     decidim:
       edit_link:
