@@ -621,7 +621,6 @@ id:
         endorsements_card_row:
           comments: Komentar
         filters:
-          activity: Aktivitas
           amendment_type: Mengetik
           category: Kategori
           category_prompt: Pilih Kategori
