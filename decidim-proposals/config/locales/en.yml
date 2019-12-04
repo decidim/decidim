@@ -593,17 +593,9 @@ en:
           comment: Comment
           comments: Comments
           endorse: Endorse
-      proposal_endorsements:
-        create:
-          error: There was a problem endorsing the proposal.
-        identities:
-          done: Done
-          select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Endorsed
-          endorse: Endorse
-        render_endorsements_button_card_part:
           endorse: Endorse
       proposal_votes:
         create:
