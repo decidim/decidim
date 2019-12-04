@@ -9,6 +9,9 @@
         name: Navn
   decidim:
     admin:
+      assembly_user_roles:
+        create:
+          success: Admin ble lagt til i denne forsamlingen.
       models:
         assembly:
           fields:
