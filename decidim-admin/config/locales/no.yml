@@ -137,6 +137,9 @@
         user_group:
           fields:
             name: Navn
+      newsletters:
+        select_recipients_to_deliver:
+          warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
       officializations:
         index:
           name: Navn
