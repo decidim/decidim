@@ -10,6 +10,7 @@
     meetings:
       actions:
         edit: Rediger
+        title: Handlinger
       admin:
         invite_join_meeting_mailer:
           invite:
