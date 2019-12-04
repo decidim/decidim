@@ -4,9 +4,14 @@
       initiative:
         state: Status
         title: Tittel
+      initiative_author:
+        address: Adresse
       initiatives_type:
         banner_image: Bannerafbeelding
         title: Tittel
+        validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
+      organization_data:
+        address: Adresse
   decidim:
     admin:
       models:
