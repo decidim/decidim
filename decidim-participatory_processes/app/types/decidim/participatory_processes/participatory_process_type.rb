@@ -6,6 +6,7 @@ module Decidim
     ParticipatoryProcessType = GraphQL::ObjectType.define do
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
+        -> { Decidim::Core::ParticipatorySpaceResourceableInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface }
       ]

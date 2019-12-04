@@ -8,16 +8,13 @@ module Decidim
       name "ParticipatorySpaceResourcableInterface"
       description "An interface that can be used in objects with participatorySpaceResourceable"
 
-      Decidim.participatory_space_manifests.each do |participatory_space_manifest|
-        next unless participatory_space_manifest[:model_class_name].constantize.included_modules.include? Decidim::ParticipatorySpaceResourceable
-
-        field "linked#{participatory_space_manifest.name.to_s.camelize}" do
-          type types[participatory_space_manifest.query_type.constantize]
-          description "Lists all linked #{participatory_space_manifest.name}"
-          resolve lambda { |participatory_space, _args, _ctx|
-            participatory_space.linked_participatory_space_resources(participatory_space_manifest.name, "included_#{participatory_space_manifest.name}")
-          }
-        end
+      # this handles the cases linked_participatory_space_resources(:participatory_space, :included_participatory_space)
+      field "linkedParticipatorySpaces", !types[ParticipatorySpaceLinkType] do
+        description "Lists all linked participatory spaces in a polymorphic way"
+        resolve ->(participatory_space, _args, _ctx) {
+          Decidim::ParticipatorySpaceLink.where("name like 'included_%' and ((from_id=:id and from_type=:type) or (to_id=:id and to_type=:type))",
+                                                id: participatory_space.id, type: participatory_space.class.name)
+        }
       end
     end
   end

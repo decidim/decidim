@@ -4,6 +4,7 @@ require "spec_helper"
 require "decidim/api/test/type_context"
 
 require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/participatory_space_resourcable_interface_examples"
 
 module Decidim
   module Assemblies
@@ -13,6 +14,7 @@ module Decidim
       let(:model) { create(:assembly) }
 
       include_examples "attachable interface"
+      include_examples "participatory space resourcable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
