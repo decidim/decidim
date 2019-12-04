@@ -7,6 +7,7 @@ require "decidim/core/test/shared_examples/scopable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
 require "shared/services_interface_examples"
+require "shared/linked_resources_interface_examples"
 
 module Decidim
   module Meetings
@@ -19,6 +20,7 @@ module Decidim
       include_examples "scopable interface"
       include_examples "attachable interface"
       include_examples "services interface"
+      include_examples "linked resources interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -94,6 +96,34 @@ module Decidim
           it "doesn't have a closing report" do
             expect(response["closingReport"]).to be_nil
           end
+        end
+      end
+
+      describe "agenda" do
+        let(:query) { "{ agenda { id items { id } } }" }
+        let(:agenda) { create(:agenda, :with_agenda_items) }
+
+        before do
+          model.update(agenda: agenda)
+        end
+
+        it "returns the agenda's items" do
+          ids = response["agenda"]["items"].map { |item| item["id"] }
+          expect(ids).to include(*model.agenda.agenda_items.map(&:id).map(&:to_s))
+          expect(response["agenda"]["id"]).to eq(agenda.id.to_s)
+        end
+      end
+
+      describe "minutes" do
+        let(:query) { "{ minutes { id } }" }
+        let(:minutes) { create(:minutes) }
+
+        before do
+          model.update(minutes: minutes)
+        end
+
+        it "returns the minutes's items" do
+          expect(response["minutes"]["id"]).to eq(minutes.id.to_s)
         end
       end
 
