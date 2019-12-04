@@ -25,7 +25,7 @@ module Decidim
 
         tree = {}
         sorted_main_categories.each do |category|
-          link = link_to(q: ransak_params_for_query(category_id_eq: category.id)) do
+          link = link_to(q: ransak_params_for_query(category_id_eq: category.id, per_page: params['per_page'])) do
             translated_attribute(category.name, category.participatory_space.organization)
           end
           tree[link] = if category.subcategories.empty?
@@ -44,7 +44,13 @@ module Decidim
         admin_filter_scopes_subtree(sorted_root_scopes)
       end
 
+      # Renders the pagination to be included at the top right of the admin filters.
+      def admin_filters_pagination
+        cell("decidim/admin/results_per_page", per_page_options)
+      end
+
       #----------------------------------------------------------------------
+
       private
 
       #----------------------------------------------------------------------
