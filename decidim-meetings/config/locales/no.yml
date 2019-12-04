@@ -31,6 +31,8 @@
             filter:
               accepted: Aksepterte
         meetings:
+          form:
+            address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           service:
             title: Tittel
           services:
