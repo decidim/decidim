@@ -471,6 +471,9 @@
       terms_and_conditions:
         refuse:
           modal_btn_continue: Aksepter vilkår og fortsett
+    profiles:
+      show:
+        activity: Aktivitet
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
