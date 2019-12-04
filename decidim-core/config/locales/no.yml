@@ -201,7 +201,7 @@
         back: Tilbake
         heading: Anmeld endringen
         help_text: Du andmelder en endring til %{model_name}
-        send: Aksepter endring
+        send: Godta endring
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet var vellykket oppdatert.
@@ -401,6 +401,9 @@
         amendment_accepted:
           affected_user:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
+          follower:
+            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
         amendment_created:
           affected_user:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
@@ -460,10 +463,14 @@
       home:
         statistics:
           pages_count: Sider
+          proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
       index:
         standalone_pages: Sider
         title: Hjelp
+      terms_and_conditions:
+        refuse:
+          modal_btn_continue: Aksepter vilkår og fortsett
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
@@ -486,7 +493,7 @@
   devise:
     mailer:
       invitation_instructions:
-        accept: Godta invitasjonen
+        accept: Godta invitasjon
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
         invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
     passwords:
@@ -506,6 +513,7 @@
       edit_link:
         edit: Editar
       user_profile:
+        account: Konto
         notifications_settings: Varslingsinnstillinger
   social_share_button:
     email: Epost
