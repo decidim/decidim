@@ -37,6 +37,7 @@
             other: "%{count} støttere"
         project_budget_button:
           add: Legg til
+          added: Lagt til
         show:
           budget: Budsjett
     components:
