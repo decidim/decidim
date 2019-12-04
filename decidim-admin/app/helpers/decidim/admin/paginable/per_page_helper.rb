@@ -5,12 +5,6 @@ module Decidim
     module Paginable
       # This module includes helpers the :per_page cell's option
       module PerPageHelper
-        def results_filter_options
-          OpenStruct.new(
-            per_page_options: per_page_options
-          )
-        end
-
         def per_page_options
           OpenStruct.new(
             per_page: per_page,

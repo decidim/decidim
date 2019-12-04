@@ -116,9 +116,9 @@ module Decidim::ParticipatoryProcesses
 
       it "imports a participatory process and the categories" do
         expect { subject.call }.to change { Decidim::Category.count }.by(8)
-        expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 1
+        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 1
 
-        imported_participatory_process_category = Decidim::Category.first
+        imported_participatory_process_category = Decidim::Category.unscoped.first
         expect(imported_participatory_process_category.name).to eq(
           "ca" => "Rerum quo dicta asperiores officiis.",
           "en" => "Illum nesciunt praesentium explicabo qui.",

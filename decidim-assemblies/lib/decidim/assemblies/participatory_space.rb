@@ -151,6 +151,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       )
 
       [assembly, child].each do |current_assembly|
+        current_assembly.add_to_index_as_search_resource
         attachment_collection = Decidim::AttachmentCollection.create!(
           name: Decidim::Faker::Localized.word,
           description: Decidim::Faker::Localized.sentence(5),
