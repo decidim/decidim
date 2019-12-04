@@ -9,6 +9,7 @@
     debates:
       actions:
         edit: Editar
+        title: Handlinger
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
