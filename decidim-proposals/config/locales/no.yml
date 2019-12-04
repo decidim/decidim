@@ -40,6 +40,13 @@
         proposal_rejected:
           follower:
             email_subject: Et forslag du følger har blitt avslått
+    gamification:
+      badges:
+        accepted_proposals:
+          name: Godkjente forslag
+    metrics:
+      accepted_proposals:
+        title: Godkjente forslag
     proposals:
       admin:
         participatory_texts:
@@ -49,6 +56,9 @@
             article: "<em>Artikkel</em>"
             section: "<em>Seksjon:</em> <strong>%{title}</strong>"
             sub-section: "<em>Ledd:</em> %{title}"
+        proposal_answers:
+          edit:
+            accepted: Aksepterte
         proposals:
           form:
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
@@ -63,6 +73,11 @@
           update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
         proposal_note:
           create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
+      answers:
+        accepted: Aksepterte
+      application_helper:
+        filter_state_values:
+          accepted: Aksepterte
       collaborative_drafts:
         count:
           drafts_count:
@@ -82,6 +97,7 @@
             success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
           of_versions: "(av %{number})"
+          requested_access: Tilgang forespurt
       last_activity:
         new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
@@ -103,6 +119,8 @@
         filters:
           category: Kategori
           state: Status
+        index:
+          collaborative_drafts_list: Tilgang til samarbeids utkaster
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
       versions:
