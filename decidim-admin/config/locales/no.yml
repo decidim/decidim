@@ -102,8 +102,12 @@
         add: Legg til
       components:
         index:
+          add: Legg til komponent
           headers:
             actions: Handlinger
+        new:
+          add: Legg til komponent
+          title: 'Legg til komponent: %{name}'
       exports:
         export_as: "%{name} som %{export_format}"
       impersonatable_users:
