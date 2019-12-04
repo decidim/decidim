@@ -2,6 +2,7 @@
 
 module Decidim
   module Meetings
+    include MeetingsHelper
     MeetingType = GraphQL::ObjectType.define do
       name "Meeting"
       description "A meeting"
@@ -11,13 +12,12 @@ module Decidim
         -> { Decidim::Core::CategorizableInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Meetings::ServicesInterface }
+        -> { Decidim::Meetings::ServicesInterface },
+        -> { Decidim::Meetings::LinkedResourcesInterface }
       ]
 
       # TODO
-      # linked_resources
       # registration form
-      # Agenda (title, item-children(title,description,duration), ) IF VISIBLE
 
       field :id, !types.ID
       field :reference, !types.String
@@ -26,6 +26,11 @@ module Decidim
       field :startTime, !Decidim::Core::DateTimeType, "The time this meeting starts", property: :start_time
       field :endTime, !Decidim::Core::DateTimeType, "The time this meeting ends", property: :end_time
       field :organizer, Decidim::Core::AuthorInterface, "If specified, the organizer of this meeting"
+      field :agenda, AgendaType, "Agenda for this meeting, if available" do
+        resolve ->(meeting, _args, _ctx) {
+          meeting.agenda if meeting.agenda&.visible?
+        }
+      end
 
       field :closed, !types.Boolean, "Whether this meeting is closed or not.", property: :closed?
       field :closingReport, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", property: :closing_report
