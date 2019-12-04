@@ -80,6 +80,10 @@
             email: Epost
             name: Navn
             state: Status
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktive konferanser
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
