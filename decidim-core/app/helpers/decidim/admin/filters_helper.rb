@@ -46,7 +46,6 @@ module Decidim
 
       # Renders the pagination to be included at the top right of the admin filters.
       def admin_filters_pagination
-        # cell("decidim/admin/results_filter", results_filter_options).to_s.html_safe
         cell("decidim/admin/results_per_page", per_page_options)
       end
 
