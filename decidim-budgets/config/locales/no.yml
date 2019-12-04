@@ -9,6 +9,7 @@
     budgets:
       actions:
         edit: Editar
+        title: Handlinger
       admin:
         proposals_imports:
           create:
@@ -35,3 +36,8 @@
             other: "%{count} støttere"
         show:
           budget: Budsjett
+    components:
+      budgets:
+        settings:
+          global:
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
