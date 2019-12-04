@@ -59,6 +59,10 @@
           one: 1 prosess for %{group}
           other: "%{count} prosesser for %{group}"
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktiv fase
       participatory_processes:
         filters:
           counters:
@@ -79,3 +83,8 @@
       statistics:
         pages_count: Sider
         surveys_count: Undersøkelse
+  layouts:
+    decidim:
+      participatory_process_widgets:
+        show:
+          active_step: Aktiv fase
