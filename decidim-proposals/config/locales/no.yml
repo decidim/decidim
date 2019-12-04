@@ -8,6 +8,11 @@
         category_id: Kategori
         title: Tittel
   decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
     events:
       proposals:
         collaborative_draft_access_accepted:
