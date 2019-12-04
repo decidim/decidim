@@ -66,6 +66,8 @@
           state: Status
         show:
           of_versions: "(av %{number})"
+      last_activity:
+        new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
         proposal:
           fields:
