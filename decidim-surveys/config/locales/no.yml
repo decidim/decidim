@@ -8,6 +8,10 @@
     components:
       surveys:
         name: Undersøkelse
+    events:
+      surveys:
+        survey_opened:
+          email_subject: En ny undersøkelse i %{participatory_space_title}
     surveys:
       last_activity:
         new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"
