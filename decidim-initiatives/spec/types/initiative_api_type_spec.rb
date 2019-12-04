@@ -118,7 +118,6 @@ module Decidim
         let(:query) { "{ initiatives { id } }" }
 
         context "when there are no initiatives" do
-
           it "returns the initiatives for this type" do
             expect(response["initiatives"]).to eq(model.initiatives)
           end
@@ -127,7 +126,6 @@ module Decidim
         context "when there are initiatives" do
           let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
 
-          
           it "returns the initiatives" do
             ids = response["initiatives"].map { |item| item["id"] }
             expect(ids).to include(*model.initiatives.map(&:id).map(&:to_s))
