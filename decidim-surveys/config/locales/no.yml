@@ -10,6 +10,8 @@
         name: Undersøkelse
     events:
       surveys:
+        survey_closed:
+          email_subject: En undersøkelse var fullført i %{participatory_space_title}
         survey_opened:
           email_subject: En ny undersøkelse i %{participatory_space_title}
     surveys:
