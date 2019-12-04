@@ -23,6 +23,10 @@
         initiatives:
           edit:
             accept: Godta initiativ
+          index:
+            actions_title: Handling
+            filter:
+              accepted: Aksepterte
         initiatives_type_scopes:
           create:
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
@@ -35,6 +39,8 @@
           send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
           unpublish: "%{user_name} la ned %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
+      admin_states:
+        accepted: Aksepterte
       create_initiative:
         fill_data:
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
@@ -73,3 +79,5 @@
           other: " underskrifter"
         vote_cabin:
           supports_required: "%{total_supports} signaturer påkrevd"
+      states:
+        accepted: Aksepterte
