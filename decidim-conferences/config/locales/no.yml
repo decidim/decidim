@@ -85,6 +85,7 @@
           highlighted_conferences:
             active_conferences: Aktive konferanser
       statistics:
+        headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
   layouts:
