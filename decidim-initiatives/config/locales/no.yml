@@ -81,3 +81,7 @@
           supports_required: "%{total_supports} signaturer påkrevd"
       states:
         accepted: Aksepterte
+    resources:
+      initiatives_type:
+        actions:
+          title: Handlinger
