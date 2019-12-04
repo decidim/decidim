@@ -24,7 +24,7 @@
         remove_avatar: Fjern profilbilde
     models:
       decidim/attachment_created_event: Vedlegg
-      decidim/component_published_event: Aktiv komponent
+      decidim/component_published_event: Aktive komponent
       decidim/demoted_membership: Ikke lenger en admin for gruppen
       decidim/gamification/badge_earned_event: Merke oppnådd
       decidim/gamification/level_up_event: Du gikk opp i nivå
@@ -481,6 +481,9 @@
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
+      filters:
+        state:
+          active: Aktiv
       results:
         results:
           one: "%{count} resultat"
