@@ -14,6 +14,7 @@ module Decidim
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::FingerprintInterface },
         -> { Decidim::Core::AmendableInterface },
+        -> { Decidim::Core::AmendableEntityInterface },
         -> { Decidim::Core::TraceableInterface }
       ]
 
