@@ -18,11 +18,8 @@ module Decidim
         property :decidim_emendation_type
       end
 
-      # Currently there are only proposals, when this changes
-      # we will have to take a look at unions:
-      # https://github.com/rmosolgo/graphql-ruby/blob/master/guides/type_definitions/unions.md
-      field :amendable, !Decidim::Proposals::ProposalType, "The original amended resource (currently, a proposal only)"
-      field :emendation, !Decidim::Proposals::ProposalType, "The emendation (currently, a proposal only)"
+      field :amendable, !AmendableEntityInterface, "The original amended resource (currently, a proposal only)"
+      field :emendation, !AmendableEntityInterface, "The emendation (currently, a proposal only)"
     end
   end
 end
