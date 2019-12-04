@@ -401,6 +401,22 @@
         amendment_accepted:
           affected_user:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+        amendment_created:
+          affected_user:
+            email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
+          notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
       users:
         profile_updated:
           email_subject: "%{nickname} oppdaterte profilens sin"
@@ -471,6 +487,8 @@
     passwords:
       edit:
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+    registrations:
+      signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
     shared:
       minimum_password_length:
         one: "(%{count} karakter minimum)"
