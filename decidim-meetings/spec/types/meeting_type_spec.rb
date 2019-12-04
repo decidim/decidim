@@ -6,6 +6,7 @@ require "decidim/core/test/shared_examples/categorizable_interface_examples"
 require "decidim/core/test/shared_examples/scopable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
 require "shared/services_interface_examples"
 require "shared/linked_resources_interface_examples"
 
@@ -17,6 +18,7 @@ module Decidim
       let(:model) { create(:meeting, component: component) }
 
       include_examples "categorizable interface"
+      include_examples "timestamps interface"
       include_examples "scopable interface"
       include_examples "attachable interface"
       include_examples "services interface"
@@ -214,6 +216,14 @@ module Decidim
         end
       end
 
+      describe "registrationForm" do
+        let(:query) { "{ registrationForm { id } }" }
+
+        it "returns the registrationForm's items" do
+          expect(response["registrationForm"]["id"]).to eq(model.questionnaire.id.to_s)
+        end
+      end
+
       describe "privateMeeting" do
         let(:query) { "{ privateMeeting }" }
 
@@ -239,22 +249,6 @@ module Decidim
 
         it "returns true" do
           expect(response["transparent"]).to be true
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when was this query created at" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when was this query updated at" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 
