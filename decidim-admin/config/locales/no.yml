@@ -46,6 +46,9 @@
         favicon: Ikon
         from: Fra e-postadresse
         header_snippets: Topptekstutdrag
+        highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
+        highlighted_content_banner_action_title: Handlingsknapp tittel
+        highlighted_content_banner_action_url: Handlingsknapp URL
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
@@ -95,6 +98,10 @@
         title: Tittel
   decidim:
     admin:
+      components:
+        index:
+          headers:
+            actions: Handlinger
       exports:
         export_as: "%{name} som %{export_format}"
       impersonatable_users:
@@ -136,12 +143,14 @@
             name: Navn
         user_group:
           fields:
+            actions: Handlinger
             name: Navn
       newsletters:
         select_recipients_to_deliver:
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
       officializations:
         index:
+          actions: Handlinger
           name: Navn
           status: Status
       static_pages:
@@ -153,3 +162,6 @@
         form:
           email: Epost
           name: Navn
+    moderations:
+      actions:
+        title: Handlinger
