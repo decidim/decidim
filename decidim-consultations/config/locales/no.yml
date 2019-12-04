@@ -28,6 +28,7 @@
           one: "%{count} konsultasjon"
           other: "%{count} konsultasjoner"
       filters:
+        active: Aktiv
         state: Status
       last_activity:
         new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
