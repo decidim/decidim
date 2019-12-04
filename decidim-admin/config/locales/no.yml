@@ -153,6 +153,9 @@
           actions: Handlinger
           name: Navn
           status: Status
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive innholdsblokker
       static_pages:
         edit:
           title: Rediger side
