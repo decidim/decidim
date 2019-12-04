@@ -157,6 +157,16 @@ module Decidim
           ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         ]
       end
+
+      # Options to filter Proposals by activity.
+      def activity_filter_values
+        base = [
+          ["all", t(".all")],
+          ["my_proposals", t(".my_proposals")]
+        ]
+        base += [["voted", t(".voted")]] if current_settings.votes_enabled?
+        base
+      end
     end
   end
 end

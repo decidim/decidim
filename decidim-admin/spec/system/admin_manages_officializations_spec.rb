@@ -40,6 +40,12 @@ describe "Admin manages officializations", type: :system do
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: not_officialized.name)
       expect(page).to have_selector("tr[data-user-id=\"#{not_officialized.id}\"]", text: "Not officialized")
     end
+
+    context "when paginating" do
+      let!(:collection) { create_list(:user, 50, organization: organization) }
+
+      it_behaves_like "a paginated collection"
+    end
   end
 
   describe "officializating users" do

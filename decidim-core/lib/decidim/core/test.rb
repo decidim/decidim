@@ -43,4 +43,6 @@ require "decidim/core/test/shared_examples/amendable/amendment_accepted_event_ex
 require "decidim/core/test/shared_examples/amendable/amendment_rejected_event_examples"
 require "decidim/core/test/shared_examples/amendable/amendment_promoted_event_examples"
 require "decidim/core/test/shared_examples/uncommentable_component_examples"
+require "decidim/core/test/shared_examples/searchable_resources_shared_context"
+require "decidim/core/test/shared_examples/searchable_participatory_space_examples"
 require "decidim/core/test/shared_examples/has_private_users"

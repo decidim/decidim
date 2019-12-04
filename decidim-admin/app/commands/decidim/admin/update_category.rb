@@ -40,6 +40,7 @@ module Decidim
       def attributes
         {
           name: form.name,
+          weight: form.weight,
           parent_id: form.parent_id,
           description: form.description
         }

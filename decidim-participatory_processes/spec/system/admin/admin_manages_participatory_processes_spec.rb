@@ -82,7 +82,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   end
 
   context "when updating a participatory process" do
-    let!(:participatory_process3) { create(:participatory_process, organization: organization) }
+    let!(:parçticipatory_process3) { create(:participatory_process, organization: organization) }
 
     before do
       visit decidim_admin_participatory_processes.participatory_processes_path

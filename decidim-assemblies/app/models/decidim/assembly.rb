@@ -31,6 +31,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::HasPrivateUsers
+    include Decidim::Searchable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
@@ -67,6 +68,18 @@ module Decidim
 
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
+
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :subtitle,
+                        C: :short_description,
+                        D: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_assembly) { false },
+                      index_on_update: ->(assembly) { assembly.visible? })
 
     # Overwriting existing method Decidim::HasPrivateUsers.visible_for
     def self.visible_for(user)
