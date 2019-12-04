@@ -14,6 +14,10 @@
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+        invites:
+          index:
+            filter:
+              accepted: Aksepterte
         meetings:
           service:
             title: Tittel
@@ -46,6 +50,8 @@
             email: Epost
             name: Navn
             status: Status
+          status:
+            accepted: Aksepterte (%{at})
         meeting:
           fields:
             title: Tittel
