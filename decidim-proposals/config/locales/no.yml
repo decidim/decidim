@@ -64,6 +64,9 @@
         filters:
           category: Kategori
           state: Status
+        requests:
+          collaboration_requests:
+            accept_request: Aksepter
         show:
           of_versions: "(av %{number})"
       last_activity:
