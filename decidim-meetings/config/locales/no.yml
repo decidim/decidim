@@ -31,6 +31,8 @@
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
           update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
+      last_activity:
+        new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       meetings:
         filters:
           category: Kategori
