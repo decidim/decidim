@@ -25,7 +25,7 @@ module Decidim
 
         tree = {}
         sorted_main_categories.each do |category|
-          link = link_to(q: ransak_params_for_query(category_id_eq: category.id, per_page: params['per_page'])) do
+          link = link_to(q: ransak_params_for_query(category_id_eq: category.id, per_page: params["per_page"])) do
             translated_attribute(category.name, category.participatory_space.organization)
           end
           tree[link] = if category.subcategories.empty?

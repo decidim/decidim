@@ -51,10 +51,10 @@ module Decidim
             html << content_tag(:span, class: "label secondary") do
               tag = "#{t("filters.type", scope: "decidim.proposals.proposals")}: "
               tag += if params[:q][:is_emendation_true].to_s == "1"
-                      t("amendments", scope: "decidim.proposals.application_helper.filter_type_values")
-                    else
-                      t("proposals", scope: "decidim.proposals.application_helper.filter_type_values")
-                    end
+                       t("amendments", scope: "decidim.proposals.application_helper.filter_type_values")
+                     else
+                       t("proposals", scope: "decidim.proposals.application_helper.filter_type_values")
+                     end
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:is_emendation_true)), t("decidim.admin.actions.cancel"), class: "action-icon--remove")
               tag.html_safe
             end
