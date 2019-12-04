@@ -12,7 +12,6 @@ require "decidim/core/test/shared_examples/amendable_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
 require "decidim/core/test/shared_examples/timestamps_interface_examples"
 
-
 module Decidim
   module Proposals
     describe ProposalType, type: :graphql do
