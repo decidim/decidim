@@ -13,7 +13,8 @@ module Decidim
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TimestampsInterface },
         -> { Decidim::Meetings::ServicesInterface },
-        -> { Decidim::Meetings::LinkedResourcesInterface }
+        -> { Decidim::Meetings::LinkedResourcesInterface },
+        -> { Decidim::Forms::QuestionnaireEntityInterface }
       ]
 
       field :id, !types.ID, "ID of this meeting"
