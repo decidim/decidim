@@ -118,6 +118,7 @@
         form:
           name: Navn
       menu:
+        admin_log: Admin aktivitet logg
         static_pages: Sider
       models:
         area:
@@ -131,6 +132,9 @@
             title: Tittel
         category:
           name: Kategori
+        impersonation_log:
+          fields:
+            admin: Admin
         oauth_application:
           fields:
             name: Navn
@@ -147,6 +151,8 @@
           fields:
             email: Epost
             name: Navn
+            roles:
+              admin: Admin
         user_group:
           fields:
             actions: Handlinger
@@ -166,6 +172,7 @@
         edit:
           title: Rediger side
       titles:
+        admin_log: Admin logg
         static_pages: Sider
       users:
         form:
