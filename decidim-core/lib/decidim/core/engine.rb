@@ -262,6 +262,12 @@ module Decidim
         end
       end
 
+      initializer "Disable Rack::Runtime" do
+        Rails.application.configure do
+          config.middleware.delete Rack::Runtime
+        end
+      end
+
       initializer "decidim.core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
