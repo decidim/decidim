@@ -29,6 +29,8 @@
           other: "%{count} konsultasjoner"
       filters:
         state: Status
+      last_activity:
+        new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
     help:
       participatory_spaces:
         consultations:
