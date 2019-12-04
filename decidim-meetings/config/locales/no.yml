@@ -4,6 +4,7 @@
       agenda:
         title: Tittel
       meeting:
+        address: Adresse
         decidim_category_id: Kategori
         title: Tittel
   decidim:
