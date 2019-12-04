@@ -40,6 +40,7 @@
           highlighted_assemblies:
             active_assemblies: Aktive forsamlinger
       statistics:
+        headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
     help:
