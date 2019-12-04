@@ -60,6 +60,10 @@
         update: "%{user_name} oppdaterte %{resource_name} media linken i %{space_name} konferansen"
     conferences:
       admin:
+        conference_invites:
+          index:
+            filter:
+              accepted: Aksepterte
         invite_join_conference_mailer:
           invite:
             invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
@@ -69,6 +73,8 @@
             email: Epost
             name: Navn
             status: Status
+          status:
+            accepted: Aksepterte (%{at})
         conference_registration:
           fields:
             email: Epost
