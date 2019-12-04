@@ -98,6 +98,8 @@
         title: Tittel
   decidim:
     admin:
+      actions:
+        add: Legg til
       components:
         index:
           headers:
