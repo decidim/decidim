@@ -65,8 +65,12 @@
           category: Kategori
           state: Status
         requests:
+          accepted_request:
+            success: "@%{user} har blitt godtatt som en samarbeidspartner"
           collaboration_requests:
             accept_request: Aksepter
+          rejected_request:
+            success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
           of_versions: "(av %{number})"
       last_activity:
