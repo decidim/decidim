@@ -14,6 +14,8 @@
           success: Admin ble lagt til i denne forsamlingen.
         destroy:
           success: Admin slettet fra denne forsamlingen.
+        update:
+          success: Admin ble oppdatert for denne forsamlingen.
       models:
         assembly:
           fields:
@@ -25,6 +27,8 @@
           fields:
             email: Epost
             name: Navn
+          roles:
+            admin: Administrator
     admin_log:
       assembly:
         create: "%{user_name} opprettet %{resource_name} forsamlingen"
