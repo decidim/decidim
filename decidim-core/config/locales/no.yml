@@ -436,6 +436,8 @@
     groups:
       members:
         accept_request: Aksepter
+      roles:
+        admin: Administrator
     help:
       main_topic:
         default_page:
