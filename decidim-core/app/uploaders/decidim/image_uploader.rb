@@ -11,15 +11,7 @@ module Decidim
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
     def content_type_whitelist
-      [
-        'image/jpg',
-        'image/jpeg',
-        'image/png',
-        'image/gif',
-        'image/png',
-        'image/bmp',
-        'image/ico',
-      ]
+      extension_whitelist.map { |ext| "image/#{ext}" }
     end
 
     # Strips out all embedded information from the image
