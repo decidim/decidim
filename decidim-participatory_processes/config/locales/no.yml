@@ -30,11 +30,15 @@
           fields:
             email: Epost
             name: Navn
+          roles:
+            admin: Administrator
       participatory_process_user_roles:
         create:
           success: Admin ble lagt til i denne deltaker prosessen.
         destroy:
           success: Admin slettet fra denne deltaker prosessen.
+        update:
+          success: Admin ble oppdatert for denne deltaker prosessen.
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
