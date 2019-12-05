@@ -157,10 +157,10 @@
         title: Lignende Emendasjoner
       created:
         error: En feil oppstod mens du lagde endrings utkast.
-        success: Endrings utkastet har blitt vellykket opprettet.
+        success: Endrings utkastet har blitt opprettet.
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
-        success: Endrings utkastet var slettet vellykket.
+        success: Endrings utkastet ble slettet.
       edit_draft:
         discard: Forkast dette utkastet
         discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
@@ -204,7 +204,7 @@
         send: Godta endring
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
-        success: Endrings utkastet var vellykket oppdatert.
+        success: Endrings utkastet ble oppdatert.
       visibility_options:
         all: Endringer synlig for alle
         participants: Endringen er bare synlig for forfatteren
