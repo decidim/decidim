@@ -7,6 +7,10 @@
       admins:
         create:
           success: Admin opprettet
+        destroy:
+          success: Admin ble slettet
+        update:
+          success: Admin ble oppdatert
       models:
         admin:
           fields:
