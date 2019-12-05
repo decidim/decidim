@@ -12,6 +12,8 @@
       assembly_user_roles:
         create:
           success: Admin ble lagt til i denne forsamlingen.
+        destroy:
+          success: Admin slettet fra denne forsamlingen.
       models:
         assembly:
           fields:
