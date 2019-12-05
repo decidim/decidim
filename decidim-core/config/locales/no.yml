@@ -82,14 +82,14 @@
         explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
       destroy:
         error: Det oppsto et problem med å slette kontoen din.
-        success: Kontoen din var vellykket slettet.
+        success: Kontoen din ble slettet.
       show:
         change_password: Endre passord
         update_account: Oppdater konto
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
-        success: Kontoen din var vellykket oppdatert.
-        success_with_email_confirmation: Kontoen din var vellykket oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
+        success: Kontoen din ble oppdatert.
+        success_with_email_confirmation: Kontoen ble oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
     admin_log:
       area:
         create: "%{user_name} opprettet %{resource_name} området"
@@ -141,7 +141,7 @@
     amendments:
       accepted:
         error: En feil oppstod under godkjenningen av endringen.
-        success: Endringen var vellykket godkjent.
+        success: Endringen ble godtatt.
       amendable:
         amended_by: Endret av
         button: Endre %{model_name}
@@ -190,13 +190,13 @@
         title: Publiser endrings utkast
       promoted:
         error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
-        success: Endringen var vellykket publisert som et nytt forslag
+        success: Endringen ble publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
-        success: Endringen var vellykket publisert.
+        success: Endringen ble publisert.
       rejected:
         error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
-        success: Endringen for vellykket avslått
+        success: Endringen ble avslått
       review:
         back: Tilbake
         heading: Anmeld endringen
@@ -210,7 +210,7 @@
         participants: Endringen er bare synlig for forfatteren
       withdraw:
         error: Et problem oppsto under tilbaketrekningen av endringen
-        success: Endringen har blitt vellykket tilbaketrukket
+        success: Endringen ble tilbaketrukket
       wizard_step_form:
         steps:
           '1': Create your amendment
