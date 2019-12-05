@@ -4,6 +4,9 @@
       actions:
         edit: Editar
         title: Handlinger
+      admins:
+        create:
+          success: Admin opprettet
       models:
         admin:
           fields:
