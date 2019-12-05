@@ -9,8 +9,12 @@
           success: Admin opprettet
         destroy:
           success: Admin ble slettet
+        index:
+          title: Adminer
         update:
           success: Admin ble oppdatert
+      menu:
+        admins: Adminer
       models:
         admin:
           fields:
