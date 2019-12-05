@@ -5,6 +5,8 @@ module Decidim
     # This cell renders the Medium (:m) process card
     # for an given instance of a Process
     class ProcessMCell < Decidim::CardMCell
+      include Decidim::SanitizerHelper
+
       private
 
       def has_image?
