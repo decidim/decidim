@@ -119,6 +119,7 @@
           name: Navn
       menu:
         admin_log: Admin aktivitet logg
+        admins: Adminer
         static_pages: Sider
       models:
         area:
