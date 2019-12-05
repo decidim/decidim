@@ -33,11 +33,10 @@ module Decidim
       end
 
       def button_to_refuse_admin_terms
-        button_to(
+        link_to(
           t("decidim.admin.admin_terms_of_use.actions.refuse"),
-          admin_terms_refuse_path,
+          decidim.root_path,
           class: "button clear",
-          method: :put,
           data: {
             confirm: t("actions.are_you_sure", scope: "decidim.admin.admin_terms_of_use")
           }

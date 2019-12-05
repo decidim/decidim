@@ -22,11 +22,5 @@
         <%= button_to_accept_admin_terms %>
       </div>
     <% end %>
-
-    <% if Rails.env.development? && current_user.admin_terms_accepted? %>
-      <div class="cell medium-12 text-center">
-        <%= button_to_refuse_admin_terms %>
-      </div>
-    <% end %>
   </div>
 </article>

@@ -155,9 +155,6 @@ en:
           are_you_sure: Are you sure to refuse the admin terms?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
-        refuse:
-          error: There's been an error while refusing the admin terms of use.
-          success: You've refused the admin terms of use.
         required_review:
           alert: 'Required: Review our admin terms of use'
           callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.

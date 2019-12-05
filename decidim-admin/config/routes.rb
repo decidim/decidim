@@ -74,7 +74,6 @@ Decidim::Admin::Engine.routes.draw do
     namespace :admin_terms do
       get :show
       put :accept
-      put :refuse
     end
 
     resources :oauth_applications

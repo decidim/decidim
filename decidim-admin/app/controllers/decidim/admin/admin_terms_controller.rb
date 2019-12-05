@@ -15,17 +15,6 @@ module Decidim
           redirect_to decidim_admin.admin_terms_show_path
         end
       end
-
-      def refuse
-        current_user.admin_terms_accepted_at = nil
-        if current_user.save!
-          flash[:notice] = t("refuse.success", scope: "decidim.admin.admin_terms_of_use")
-          redirect_to decidim_admin.root_path
-        else
-          flash[:alert] = t("refuse.error", scope: "decidim.admin.admin_terms_of_use")
-          redirect_to decidim_admin.admin_terms_show_path
-        end
-      end
     end
   end
 end
