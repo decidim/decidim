@@ -13,7 +13,7 @@
       admin:
         proposals_imports:
           create:
-            success: "%{number} forslag vellykket importert til prosjekter"
+            success: "%{number} forslag importert til prosjekter"
       admin_log:
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
