@@ -21,7 +21,9 @@
       <div class="cell medium-6 small-order-1 medium-order-2 text-center">
         <%= button_to_accept_admin_terms %>
       </div>
-    <% else %>
+    <% end %>
+
+    <% if Rails.env.development? && current_user.admin_terms_accepted? %>
       <div class="cell medium-12 text-center">
         <%= button_to_refuse_admin_terms %>
       </div>
