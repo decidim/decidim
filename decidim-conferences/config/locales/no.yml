@@ -17,6 +17,8 @@
           fields:
             email: Epost
             name: Navn
+          roles:
+            admin: Administrator
         media_link:
           fields:
             title: Tittel
