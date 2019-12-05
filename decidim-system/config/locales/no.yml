@@ -7,6 +7,8 @@
       admins:
         create:
           success: Admin opprettet
+        destroy:
+          success: Admin slettet
       models:
         admin:
           fields:
