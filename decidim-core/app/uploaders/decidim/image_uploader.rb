@@ -12,7 +12,13 @@ module Decidim
     # type fo the temp file to match against any of these options.
     def content_type_whitelist
       [
-        %r{image\/}
+        'image/jpg',
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'image/png',
+        'image/bmp',
+        'image/ico',
       ]
     end
 
@@ -50,6 +56,15 @@ module Decidim
 
     def max_image_height_or_width
       3840
+    end
+
+    def manipulate!
+      begin
+        super
+      rescue CarrierWave::ProcessingError => e
+        STDERR.puts e.inspect
+        raise CarrierWave::ProcessingError.new('Error processing image')
+      end
     end
 
     private
