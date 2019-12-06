@@ -7,6 +7,8 @@
         address: Adresse
         decidim_category_id: Kategori
         title: Tittel
+      minutes:
+        audio_url: Audio url
   decidim:
     components:
       meetings:
@@ -16,6 +18,11 @@
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
           step:
             announcement: Kunngjøring
+    gamification:
+      badges:
+        attended_meetings:
+          name: Deltok møter
+          next_level_in: Delta %{score} flere møter for å nå neste nivå!
     meetings:
       actions:
         agenda: Dagsorden
@@ -44,6 +51,8 @@
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
         invites:
+          form:
+            attendee_type: Deltaker type
           index:
             filter:
               accepted: Aksepterte
@@ -80,6 +89,8 @@
         filters:
           category: Kategori
         show:
+          attendees: Antall deltakere
+          organizations: Deltakende organisasjoner
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
