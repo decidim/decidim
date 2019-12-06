@@ -83,6 +83,10 @@
         endorse_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
       initiatives:
+        author_list:
+          hidden_authors_count:
+            one: og 1 til persjon
+            other: og %{count} flere personer
         count:
           title:
             one: "%{count} initiativ"
