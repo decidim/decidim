@@ -14,6 +14,7 @@
       proposals:
         settings:
           global:
+            attachments_allowed: Tillat vedlegg
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
           step:
             amendments_visibility: Endringens synlighet
@@ -61,10 +62,14 @@
         title: Handlinger
       admin:
         participatory_texts:
+          discard:
+            success: Alle deltakende tekstutkast er forkastet.
           new_import:
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
             document_legend: 'Legg til et dokument som er mindre enn 2MB, hver seksjon opptil 3 nivåer dypt blir analysert i Forslag. Støttede formater er: %{valid_mime_types}'
             title: LEGG TIL DOKUMENT
+          publish:
+            success: Alle forslagene er publisert
           sections:
             article: "<em>Artikkel</em>"
             section: "<em>Seksjon:</em> <strong>%{title}</strong>"
@@ -97,6 +102,7 @@
         filter_state_values:
           accepted: Aksepterte
           all: Alle
+          except_rejected: Alle unntatt avvist
         filter_type_values:
           all: Alle
           amendments: Endringer
