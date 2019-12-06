@@ -8,6 +8,7 @@
       proposal:
         address: Adresse
         answer: Svar
+        answered_at: Besvart på
         category_id: Kategori
         title: Tittel
       proposal_answer:
