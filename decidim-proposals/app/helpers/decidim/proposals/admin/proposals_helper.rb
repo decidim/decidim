@@ -38,6 +38,7 @@ module Decidim
           return unless params[:q]
 
           tags = ""
+          tags += hidden_field_tag "per_page", params[:per_page] if params[:per_page]
           tags += hidden_field_tag "q[is_emendation_true]", params[:q][:is_emendation_true] if params[:q][:is_emendation_true]
           tags += hidden_field_tag "q[state_eq]", params[:q][:state_eq] if params[:q][:state_eq]
           tags += hidden_field_tag "q[category_id_eq]", params[:q][:category_id_eq] if params[:q][:category_id_eq]
