@@ -71,6 +71,7 @@ FactoryBot.define do
     trait :with_user_extra_fields_collection do
       collect_user_extra_fields { true }
       extra_fields_legal_information { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+      document_number_authorization_handler { "dummy_authorization_handler" }
     end
 
     trait :with_sms_code_validation do

@@ -13,6 +13,16 @@ describe "Initiative signing", type: :system do
   let!(:verification_form) { Decidim::Verifications::Sms::MobilePhoneForm.new(mobile_phone_number: phone_number) }
   let(:unique_id) { verification_form.unique_id }
   let(:sms_code) { "12345" }
+  let!(:authorization) do
+    create(
+      :authorization,
+      :granted,
+      name: "dummy_authorization_handler",
+      user: confirmed_user,
+      unique_id: document_number,
+      metadata: { document_number: document_number, postal_code: "01234", scope_id: initiative.scope.id }
+    )
+  end
 
   before do
     allow(Decidim::Initiatives)
@@ -39,6 +49,8 @@ describe "Initiative signing", type: :system do
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
+
+      expect(page).to have_no_css("div.alert")
     end
   end
 
@@ -61,7 +73,7 @@ describe "Initiative signing", type: :system do
 
           within ".view-side" do
             expect(page).to have_content(signature_text(1))
-            expect(initiative.reload.initiative_votes_count).to eq(1)
+            expect(initiative.reload.supports_count).to eq(1)
           end
         end
       end
@@ -69,7 +81,7 @@ describe "Initiative signing", type: :system do
       it "mobile phone is required" do
         expect(page).to have_content("Fill the form with your verified phone number")
         expect(page).to have_content("Send me an SMS")
-        expect(initiative.reload.initiative_votes_count).to be_zero
+        expect(initiative.reload.supports_count).to be_zero
       end
 
       context "when the user fills phone number" do
@@ -78,7 +90,7 @@ describe "Initiative signing", type: :system do
             fill_phone_number
 
             expect(page).to have_content("The phone number is invalid or pending of authorization")
-            expect(initiative.reload.initiative_votes_count).to be_zero
+            expect(initiative.reload.supports_count).to be_zero
           end
         end
 
@@ -94,7 +106,7 @@ describe "Initiative signing", type: :system do
               fill_phone_number
 
               expect(page).to have_content("The phone number is invalid or pending of authorization")
-              expect(initiative.reload.initiative_votes_count).to be_zero
+              expect(initiative.reload.supports_count).to be_zero
             end
           end
 
@@ -107,7 +119,7 @@ describe "Initiative signing", type: :system do
 
             it "sms code is required" do
               expect(page).to have_content("Check the SMS received at your phone")
-              expect(initiative.reload.initiative_votes_count).to be_zero
+              expect(initiative.reload.supports_count).to be_zero
             end
 
             context "and inserts the wrong code number" do
@@ -117,7 +129,7 @@ describe "Initiative signing", type: :system do
                 fill_sms_code
 
                 expect(page).to have_content("Your verification code doesn't match ours")
-                expect(initiative.reload.initiative_votes_count).to be_zero
+                expect(initiative.reload.supports_count).to be_zero
               end
             end
 
@@ -129,7 +141,7 @@ describe "Initiative signing", type: :system do
                 click_on "Back to initiative"
 
                 expect(page).to have_content(signature_text(1))
-                expect(initiative.reload.initiative_votes_count).to eq(1)
+                expect(initiative.reload.supports_count).to eq(1)
               end
             end
           end

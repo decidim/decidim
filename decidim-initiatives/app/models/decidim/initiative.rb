@@ -94,7 +94,7 @@ module Decidim
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
-    scope :order_by_supports, -> { order("((online_votes->>'total')::int + (offline_votes->>'total')::int) DESC") }
+    scope :order_by_supports, -> { order(Arel.sql("((online_votes->>'total')::int + (offline_votes->>'total')::int) DESC")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
         .left_joins(:comments)
@@ -249,7 +249,7 @@ module Decidim
 
     # Public: Returns the hashtag for the initiative.
     def hashtag
-      @hashtag ||= attributes["hashtag"].to_s.delete("#")
+      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of current supports.

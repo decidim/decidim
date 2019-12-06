@@ -34,8 +34,8 @@ module Decidim
 
         resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
           resources :initiative_signatures
+
           member do
-            get :signature_identities
             get :authorization_sign_modal, to: "authorization_sign_modals#show"
           end
 

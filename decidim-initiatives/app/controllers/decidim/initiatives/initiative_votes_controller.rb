@@ -20,7 +20,7 @@ module Decidim
           signer: current_user
         )
 
-        VoteInitiative.call(@form, current_user) do
+        VoteInitiative.call(@form) do
           on(:ok) do
             current_initiative.reload
             render :update_buttons_and_counters

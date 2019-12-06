@@ -31,6 +31,7 @@ module Decidim
                   :area_enabled, :promoting_committee_enabled, inclusion: { in: [true, false] }
         validates :minimum_committee_members, numericality: { only_integer: true }, allow_nil: true
         validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
+        validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
         def minimum_committee_members=(value)
           super(value.presence)

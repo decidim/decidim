@@ -19,8 +19,8 @@ module Decidim
       attribute :encrypted_metadata, String
       attribute :hash_id, String
 
-      attribute :initiative, Integer
-      attribute :signer, Integer
+      attribute :initiative, Decidim::Initiative
+      attribute :signer, Decidim::User
 
       validates :initiative, :signer, presence: true
 

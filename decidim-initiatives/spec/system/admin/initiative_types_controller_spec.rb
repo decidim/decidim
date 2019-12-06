@@ -69,7 +69,7 @@ describe "InitiativeTypesController", type: :system do
         en: "My updated initiative type"
       )
 
-      select("In-person", from: "Signature type")
+      select("Mixed", from: "Signature type")
       check "Enable attachments"
       uncheck "Enable participants to undo their online signatures"
       check "Enable authors to choose the end of signature collection period"
