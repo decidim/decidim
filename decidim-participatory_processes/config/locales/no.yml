@@ -58,6 +58,12 @@
         create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltaker prosessen"
         update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
+    events:
+      participatory_process:
+        step_activated:
+          email_subject: En oppdatering til %{participatory_space_title}
+        step_changed:
+          email_subject: En oppdatering til %{participatory_space_title}
     help:
       participatory_spaces:
         participatory_processes:
