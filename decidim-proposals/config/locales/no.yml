@@ -12,11 +12,17 @@
   decidim:
     components:
       proposals:
+        actions:
+          amend: Endre
         settings:
           global:
+            amendments_enabled: Endringer aktivert
             attachments_allowed: Tillat vedlegg
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
           step:
+            amendment_creation_enabled: Oppretting av endringer aktivert
+            amendment_promotion_enabled: Forfremmelse av endringer aktivert
+            amendment_reaction_enabled: Endrings reaksjon aktivert
             amendments_visibility: Endringens synlighet
     events:
       proposals:
@@ -145,6 +151,7 @@
             title: Tittel
       participatory_text_proposal:
         buttons:
+          amend: Endre
           comment: Kommentar
       proposals:
         count:
@@ -163,6 +170,8 @@
           changes_at_title: Endring til "%{title}"
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
+        vote_button:
+          already_voted: Støttet allerede
       versions:
         stats:
           version_number_out_of_total: "%{current_version} ut av %{total_count}"
