@@ -84,6 +84,7 @@
           one: " underskrift"
           other: " underskrifter"
         vote_cabin:
+          already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
       pages:
         home:
