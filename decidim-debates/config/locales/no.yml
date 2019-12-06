@@ -15,6 +15,7 @@
             announcement: Kunngjøring
     debates:
       actions:
+        confirm_destroy: Er du sikker?
         edit: Editar
         title: Handlinger
       admin_log:
