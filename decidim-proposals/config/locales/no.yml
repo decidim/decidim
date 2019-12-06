@@ -153,6 +153,7 @@
             other: "%{count} samarbeids utkaster"
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
+          back: Tilbake
         filters:
           all: Alle
           amendment: Endringer
@@ -166,14 +167,20 @@
           rejected_request:
             success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
+          back: Tilbake
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
           of_versions: "(av %{number})"
           requested_access: Tilgang forespurt
+        wizard_aside:
+          back: Tilbake
       last_activity:
         new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
+        collaborative_draft:
+          fields:
+            authors: Forfattere
         proposal:
           fields:
             category: Kategori
@@ -190,6 +197,7 @@
             other: "%{count} forslag"
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
+          back: Tilbake
         edit_draft:
           discard_confirmation: Er du sikker på at du vil forkaste dette forslaget?
         filters:
@@ -199,6 +207,7 @@
         index:
           collaborative_drafts_list: Tilgang til samarbeids utkaster
         show:
+          back_to: Tilbake til
           changes_at_title: Endring til "%{title}"
           hidden_endorsers_count:
             one: og %{count} til person
@@ -208,6 +217,8 @@
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
         vote_button:
           already_voted: Støttet allerede
+        wizard_aside:
+          back: Tilbake
       versions:
         stats:
           version_number_out_of_total: "%{current_version} ut av %{total_count}"
