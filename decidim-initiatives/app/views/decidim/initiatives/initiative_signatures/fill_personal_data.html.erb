@@ -1,7 +1,5 @@
 <div class="callout secondary mb-sm">
-  <p>
-<%= t ".help" %>
-  </p>
+  <p><%= t ".help" %></p>
 </div>
 <h2 class="section-heading"><%= t(step, scope: "layouts.decidim.initiative_signature_creation_header") %></h2>
 
@@ -10,7 +8,6 @@
 <div class="card">
   <div class="card__content">
     <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form user_personal_data_signature_form" }) do |f| %>
-      <%= f.hidden_field :group_id %>
       <div>
         <div class="field">
           <%= f.text_field :name_and_surname, autofocus: true, required: true %>

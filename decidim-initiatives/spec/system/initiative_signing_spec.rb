@@ -102,7 +102,7 @@ describe "Initiative signing", type: :system do
 
     context "and has signed the initiative" do
       before do
-        initiative.votes.create(author: confirmed_user)
+        initiative.votes.create(author: confirmed_user, scope: initiative.scope)
       end
 
       context "and is not verified" do
@@ -126,31 +126,47 @@ describe "Initiative signing", type: :system do
     end
 
     context "when the user has not signed the initiative yet and signs it" do
-      it "adds the signature" do
-        vote_initiative
+      context "when the personal data is filled" do
+        before do
+          create(
+            :authorization,
+            :granted,
+            name: "dummy_authorization_handler",
+            user: confirmed_user,
+            unique_id: "012345678X",
+            metadata: { document_number: "012345678X", postal_code: "01234", scope_id: initiative.scope.id }
+          )
+        end
+
+        it "adds the signature" do
+          vote_initiative
+        end
       end
 
-      it "vote is forbidden unless personal data is filled" do
-        visit decidim_initiatives.initiative_path(initiative)
+      context "when the personal daata is not filled" do
+        it "doesn't allow voting" do
+          visit decidim_initiatives.initiative_path(initiative)
 
-        within ".view-side" do
-          expect(page).to have_content(signature_text(0))
-          click_on "Sign"
-        end
-        click_button "Continue"
+          within ".view-side" do
+            expect(page).to have_content(signature_text(0))
+            click_on "Sign"
+          end
+          click_button "Continue"
 
-        expect(page).to have_content "error"
+          expect(page).to have_content "error"
 
-        visit decidim_initiatives.initiative_path(initiative)
-        within ".view-side" do
-          expect(page).to have_content(signature_text(0))
-          click_on "Sign"
+          visit decidim_initiatives.initiative_path(initiative)
+
+          within ".view-side" do
+            expect(page).to have_content(signature_text(0))
+            click_on "Sign"
+          end
         end
       end
     end
   end
 
-  def vote_initiative(user_name: nil)
+  def vote_initiative
     visit decidim_initiatives.initiative_path(initiative)
 
     within ".view-side" do
@@ -158,15 +174,9 @@ describe "Initiative signing", type: :system do
       click_on "Sign"
     end
 
-    if user_name.present?
-      within "#user-identities" do
-        click_on user_name
-      end
-    end
-
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
-      fill_in :initiatives_vote_document_number, with: "012345678A"
+      fill_in :initiatives_vote_document_number, with: "012345678X"
       select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
       select "January", from: :initiatives_vote_date_of_birth_2i
       select "1", from: :initiatives_vote_date_of_birth_3i

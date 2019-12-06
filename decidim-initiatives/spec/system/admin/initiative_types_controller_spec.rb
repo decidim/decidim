@@ -61,7 +61,7 @@ describe "InitiativeTypesController", type: :system do
         en: "My updated initiative type"
       )
 
-      select("In-person", from: "Signature type")
+      select("Mixed", from: "Signature type")
       uncheck "Enable participants to undo their online signatures"
 
       click_button "Update"
