@@ -21,6 +21,7 @@
         settings:
           global:
             amendments_enabled: Endringer aktivert
+            amendments_wizard_help_text: Endrings Veiviser hjelpetekst
             announcement: Kunngjøring
             attachments_allowed: Tillat vedlegg
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
