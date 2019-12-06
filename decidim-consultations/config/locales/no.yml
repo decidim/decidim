@@ -10,6 +10,8 @@
         title: Tittel
   decidim:
     admin:
+      actions:
+        back_to_responses: Tilbake til svar
       consultations:
         results:
           participants: "%{count} deltakere"
@@ -60,3 +62,5 @@
       admin:
         question:
           attachments: Vedlegg
+      question_header:
+        back_to_question: Tilbake til spørsmålet
