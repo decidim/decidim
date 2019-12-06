@@ -123,6 +123,26 @@
           success: Området ble ødelagt
         update:
           success: Området ble oppdatert
+      attachment_collections:
+        index:
+          attachment_collections_title: Vedleggsmapper
+      attachments:
+        create:
+          error: Det oppsto et problem med å opprette et nytt vedlegg.
+          success: Vedlegget ble opprettet.
+        destroy:
+          success: Vedlegg ble ødelagt.
+        edit:
+          title: Rediger vedlegg
+          update: Oppdater
+        index:
+          attachments_title: Vedlegg
+        new:
+          create: Opprett vedlegg
+          title: Nytt vedlegg
+        update:
+          error: Det oppsto et problem med å oppdatere dette vedlegget.
+          success: Vedlegg ble oppdatert.
       components:
         index:
           add: Legg til komponent
@@ -160,6 +180,7 @@
         attachment:
           fields:
             title: Tittel
+          name: Vedlegg
         category:
           name: Kategori
         impersonation_log:
