@@ -1,9 +1,14 @@
 "no":
+  activemodel:
+    attributes:
+      answer:
+        body: Svar
   decidim:
     forms:
       admin:
         questionnaires:
           answer_option:
+            answer_option: Svaralternativ
             remove: Fjern
           edit:
             title: Tittel
@@ -18,3 +23,5 @@
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
           questionnaire_answered:
             title: Allerede besvart
+      user_answers_serializer:
+        id: Svar ID
