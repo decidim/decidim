@@ -32,6 +32,7 @@
             actions_title: Handling
             filter:
               accepted: Aksepterte
+              all: Alle
         initiatives_type_scopes:
           create:
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
