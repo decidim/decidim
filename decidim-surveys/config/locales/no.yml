@@ -4,13 +4,21 @@
       decidim/surveys/survey:
         one: Undersøkelse
         other: Undersøkelse
+      decidim/surveys/survey_answer:
+        one: Svar
+        other: Svar
   decidim:
     components:
       surveys:
+        actions:
+          answer: Svar
         name: Undersøkelse
         settings:
+          global:
+            announcement: Kunngjøring
           step:
             allow_answers: Tillat svar
+            announcement: Kunngjøring
     events:
       surveys:
         survey_closed:
