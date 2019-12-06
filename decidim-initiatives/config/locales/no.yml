@@ -2,12 +2,14 @@
   activemodel:
     attributes:
       initiative:
+        decidim_user_group_id: Forfatter
         state: Status
         title: Tittel
       initiative_author:
         address: Adresse
       initiatives_type:
         banner_image: Bannerafbeelding
+        document_number_authorization_handler: Autorisasjon til å verifisere dokumentnummer på underskrifter
         title: Tittel
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
       organization_data:
@@ -102,6 +104,7 @@
             other: "%{count} initiativer"
         filters:
           any: Alle
+          author: Forfatter
           state: Status
         interactions:
           comments_count:
