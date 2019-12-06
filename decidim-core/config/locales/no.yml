@@ -382,6 +382,7 @@
     doorkeeper:
       authorizations:
         new:
+          authorize: Autoriser søknad
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
@@ -394,6 +395,7 @@
         title: Det oppsto et problem med våre servere
         try_later: Vennligst prøv igjen senere.
       not_found:
+        back_home: Tilbake hjem
         content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
         title: Siden du ser etter kan ikke bli funnet
     events:
@@ -464,6 +466,9 @@
           description_own: "%{score} folk følger deg."
         index:
           badge_title: "%{name} merke"
+          page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
+          title: Merker
+      description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
     group_admins:
       actions:
         are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
@@ -526,6 +531,11 @@
     profiles:
       show:
         activity: Aktivitet
+        badges: Merker
+      sidebar:
+        badges:
+          info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
+          title: Merker
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
@@ -540,6 +550,7 @@
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
       filters:
+        back: Tilbake til resultater
         state:
           active: Aktiv
           all: Alle
@@ -555,6 +566,9 @@
           areas: Områder
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
+    wizard_step_form:
+      wizard_aside:
+        back: Tilbake
   devise:
     invitations:
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
@@ -571,6 +585,8 @@
         are_you_sure: Er du sikker?
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
     shared:
+      links:
+        back: Tilbake
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
