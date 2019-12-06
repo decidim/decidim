@@ -6,6 +6,13 @@
         decidim_category_id: Kategori
         title: Tittel
   decidim:
+    components:
+      debates:
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
     debates:
       actions:
         edit: Editar
