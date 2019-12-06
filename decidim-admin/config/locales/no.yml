@@ -112,6 +112,8 @@
         export_as: "%{name} som %{export_format}"
       impersonatable_users:
         index:
+          filter:
+            all: Alle
           name: Navn
           status: Status
       impersonations:
@@ -159,11 +161,16 @@
             actions: Handlinger
             name: Navn
       newsletters:
+        index:
+          all: alle
         select_recipients_to_deliver:
+          all_spaces: Alle
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
       officializations:
         index:
           actions: Handlinger
+          filter:
+            all: Alle
           name: Navn
           status: Status
       organization_homepage:
@@ -175,6 +182,10 @@
       titles:
         admin_log: Admin logg
         static_pages: Sider
+      user_groups:
+        index:
+          filter:
+            all: Alle
       users:
         form:
           email: Epost
