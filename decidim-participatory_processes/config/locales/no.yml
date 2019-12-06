@@ -90,6 +90,7 @@
               other: "%{count} kommende prosesser"
           names:
             active: Aktiv
+            all: Alle
       statistics:
         headline: Aktivitet
         pages_count: Sider
