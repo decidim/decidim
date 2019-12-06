@@ -431,6 +431,7 @@
       attachments:
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige linken.
           email_subject: En oppdatering til %{resource_title}
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
       components:
