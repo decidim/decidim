@@ -108,6 +108,9 @@
     admin:
       actions:
         add: Legg til
+      areas:
+        create:
+          success: Området ble opprettet.
       components:
         index:
           add: Legg til komponent
@@ -131,6 +134,7 @@
         admin_log: Admin aktivitet logg
         admins: Adminer
         appearance: Utseende
+        areas: Områder
         static_pages: Sider
       models:
         area:
@@ -203,6 +207,7 @@
           title: Rediger side
       titles:
         admin_log: Admin logg
+        areas: Områder
         static_pages: Sider
       user_groups:
         index:
