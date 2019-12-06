@@ -69,6 +69,8 @@
     conferences:
       admin:
         conference_invites:
+          form:
+            attendee_type: Deltaker type
           index:
             filter:
               accepted: Aksepterte
@@ -79,6 +81,11 @@
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
+          diploma_user:
+            attendance_verified_by: Oppmøte verifisert av
+      conference:
+        show:
+          going: Møtende
       models:
         conference_invite:
           fields:
