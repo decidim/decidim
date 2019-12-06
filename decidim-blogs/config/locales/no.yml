@@ -4,11 +4,16 @@
       actions:
         edit: Editar
         title: Handlinger
+      admin:
+        models:
+          components:
+            body: Tekst
       last_activity:
         new_post_at_html: "<span>Nytt innlegg på %{link}</span>"
       models:
         post:
           fields:
+            body: Tekst
             title: tittel
     components:
       blogs:
