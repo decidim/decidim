@@ -10,3 +10,10 @@
         post:
           fields:
             title: tittel
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
