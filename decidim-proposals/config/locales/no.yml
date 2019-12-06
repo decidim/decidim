@@ -3,12 +3,14 @@
     attributes:
       collaborative_draft:
         address: Adresse
+        body: Tekst
         category_id: Kategori
         title: Tittel
       proposal:
         address: Adresse
         answer: Svar
         answered_at: Besvart på
+        body: Tekst
         category_id: Kategori
         title: Tittel
       proposal_answer:
@@ -20,7 +22,7 @@
             body:
               identical: OG tittelen kan ikke være identisk
             title:
-              identical: OG hoveddelen kan ikke være identisk
+              identical: OG teksten kan ikke være identisk
   decidim:
     components:
       proposals:
@@ -113,6 +115,9 @@
         proposals_imports:
           create:
             success: "%{number} forslag importert"
+        shared:
+          info_proposal:
+            body: Tekst
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
