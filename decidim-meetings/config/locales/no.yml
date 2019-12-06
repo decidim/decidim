@@ -15,12 +15,14 @@
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
     meetings:
       actions:
+        agenda: Dagsorden
         edit: Rediger
         title: Handlinger
       admin:
         agenda:
           agenda_item:
             add_agenda_item_child: Legg til dagsorden underelement
+            agenda_item: Dagsorden
           form:
             add_agenda_item: Legg til dagsorden
         invite_join_meeting_mailer:
