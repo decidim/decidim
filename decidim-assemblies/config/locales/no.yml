@@ -56,6 +56,7 @@
           highlighted_assemblies:
             active_assemblies: Aktive forsamlinger
       statistics:
+        answers_count: Svar
         headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
