@@ -486,6 +486,8 @@
           legend: Godta vilkårene for bruk
         refuse:
           modal_btn_continue: Aksepter vilkår og fortsett
+    participatory_space_private_users:
+      not_allowed: Du er ikke tillatt å se dette innholdet
     profiles:
       show:
         activity: Aktivitet
@@ -539,6 +541,8 @@
       user_profile:
         account: Konto
         notifications_settings: Varslingsinnstillinger
+  password_validator:
+    password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
   time:
