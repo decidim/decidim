@@ -6,6 +6,11 @@
       user:
         grant_id_documents_offline_verification: "%{user_name} verifiserte %{resource_name} bruker en offline Identitets Dokument verifikasjon"
     authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Adminier laster opp en CSV med e-postene til de aksepterte deltakerne
+            - Only participants with an email in that CSV file can get verified
       help: Hjelp
       name: Navn
     verifications:
