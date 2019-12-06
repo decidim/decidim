@@ -8,6 +8,7 @@
       proposal:
         address: Adresse
         answer: Svar
+        answered_at: Besvart på
         category_id: Kategori
         title: Tittel
       proposal_answer:
@@ -20,6 +21,7 @@
         settings:
           global:
             amendments_enabled: Endringer aktivert
+            amendments_wizard_help_text: Endrings Veiviser hjelpetekst
             announcement: Kunngjøring
             attachments_allowed: Tillat vedlegg
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
