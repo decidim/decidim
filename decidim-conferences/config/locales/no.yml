@@ -13,6 +13,9 @@
         conference:
           fields:
             title: Tittel
+        conference_speaker:
+          fields:
+            affiliation: Tilknytning
         conference_user_role:
           fields:
             email: Epost
