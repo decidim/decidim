@@ -22,9 +22,17 @@
       assemblies:
         create:
           success: Forsamling ble opprettet.
+      assemblies_copies:
+        create:
+          success: Forsamlingen ble duplisert.
       assembly_members:
         index:
           assembly_members_title: Forsamlings medlemmer
+      assembly_publications:
+        create:
+          success: Forsamlingen ble publisert.
+        destroy:
+          success: Forsamlingen ble upublisert.
       assembly_user_roles:
         create:
           success: Admin ble lagt til i denne forsamlingen.
