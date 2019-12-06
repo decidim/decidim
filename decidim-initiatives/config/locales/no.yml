@@ -9,7 +9,7 @@
         address: Adresse
       initiatives_type:
         banner_image: Bannerafbeelding
-        document_number_authorization_handler: Autorisasjon til å verifisere dokumentnummer på underskrifter
+        document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         title: Tittel
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
       organization_data:
@@ -53,7 +53,10 @@
             error: Det oppstod en feil
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
           edit:
+            back: Tilbake
             confirm_destroy: Er du sikker?
+          new:
+            back: Tilbake
           update:
             error: Det oppstod en feil
         initiatives_types:
@@ -74,25 +77,35 @@
         accepted: Aksepterte
       create_initiative:
         fill_data:
+          back: Tilbake
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           more_information: "(Mer informasjon)"
         finish:
+          back: Tilbake
+          back_to_initiatives: Tilbake til initiativer
           more_information: "(Mer informasjon)"
         finish_help:
           page: side
         previous_form:
+          back: Tilbake
           more_information: "(Mer informasjon)"
         promotal_committee:
+          back: Tilbake
           more_information: "(Mer informasjon)"
         select_initiative_type:
+          back: Tilbake
           more_information: "(Mer informasjon)"
         show_similar_initiatives:
+          back: Tilbake
           more_information: "(Mer informasjon)"
       events:
         create_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
         endorse_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
+      initiative_signatures:
+        finish:
+          back_to_initiative: Tilbake til initiativ
       initiatives:
         author_list:
           hidden_authors_count:
@@ -132,3 +145,7 @@
       admin:
         initiative:
           attachments: Vedlegg
+      initiative_creation_header:
+        back: Tilbake
+      initiative_signature_creation_header:
+        back: Tilbake
