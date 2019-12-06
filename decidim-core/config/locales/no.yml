@@ -423,8 +423,10 @@
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
+            email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
           follower:
+            email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
             email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
       attachments:
         attachment_created:
