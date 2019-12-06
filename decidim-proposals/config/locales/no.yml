@@ -93,6 +93,10 @@
         filter_state_values:
           accepted: Aksepterte
       collaborative_drafts:
+        collaborative_draft:
+          withdraw:
+            irreversible_action_modal:
+              body: Etter å ha lukket utkastet, kan utkastet ikke lenger redigeres. Utkastet vil ikke godta nye forfattere eller bidrag.
         count:
           drafts_count:
             one: "%{count} samarbeids utkast"
