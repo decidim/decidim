@@ -5,6 +5,7 @@
         title: Tittel
       meeting:
         address: Adresse
+        available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
         title: Tittel
       minutes:
