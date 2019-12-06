@@ -88,6 +88,8 @@
         title: Handlinger
       admin:
         participatory_texts:
+          bulk-actions:
+            are_you_sure: Er du sikker på å forkaste hele deltaker tekst utkastet?
           discard:
             success: Alle deltakende tekstutkast er forkastet.
           new_import:
@@ -188,6 +190,8 @@
             other: "%{count} forslag"
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
+        edit_draft:
+          discard_confirmation: Er du sikker på at du vil forkaste dette forslaget?
         filters:
           all: Alle
           category: Kategori
