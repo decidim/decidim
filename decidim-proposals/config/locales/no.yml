@@ -151,6 +151,9 @@
           rejected_request:
             success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
+          hidden_authors_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
           of_versions: "(av %{number})"
           requested_access: Tilgang forespurt
       last_activity:
@@ -180,6 +183,9 @@
           collaborative_drafts_list: Tilgang til samarbeids utkaster
         show:
           changes_at_title: Endring til "%{title}"
+          hidden_endorsers_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
         vote_button:
