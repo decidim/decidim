@@ -80,6 +80,7 @@
             one: "%{count} initiativ"
             other: "%{count} initiativer"
         filters:
+          any: Alle
           state: Status
         interactions:
           comments_count:
