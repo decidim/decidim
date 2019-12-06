@@ -69,6 +69,8 @@
             all: Alle
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
+      meeting:
+        not_allowed: Du er ikke tillatt å se dette møte
       meetings:
         filters:
           category: Kategori
