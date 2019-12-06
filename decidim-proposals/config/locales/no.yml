@@ -63,6 +63,8 @@
         proposal_rejected:
           follower:
             email_subject: Et forslag du følger har blitt avslått
+        proposal_update_category:
+          email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
     gamification:
       badges:
         accepted_proposals:
