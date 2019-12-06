@@ -8,6 +8,9 @@
     components:
       surveys:
         name: Undersøkelse
+        settings:
+          step:
+            allow_answers: Tillat svar
     events:
       surveys:
         survey_closed:
