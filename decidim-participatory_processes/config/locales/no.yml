@@ -93,6 +93,7 @@
             active: Aktiv
             all: Alle
       statistics:
+        answers_count: Svar
         headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
