@@ -431,7 +431,13 @@
       attachments:
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
+          email_subject: En oppdatering til %{resource_title}
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_subject: En oppdatering til %{participatory_space_title}
+      email_event:
+        email_subject: En oppdatering til %{resource_title}
       groups:
         demoted_membership:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
@@ -443,6 +449,8 @@
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
         removed_from_group:
           email_intro: En admind av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet deg fra den.
+      notification_event:
+        notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_subject: "%{nickname} oppdaterte profilens sin"
@@ -519,6 +527,9 @@
       report:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
         subject: En ressurs er blitt rapportert
+    reports:
+      create:
+        error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -536,6 +547,8 @@
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
   devise:
+    invitations:
+      send_instructions: En invitasjons epost har blitt sendt til %{email}.
     mailer:
       invitation_instructions:
         accept: Godta invitasjon
