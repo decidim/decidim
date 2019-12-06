@@ -8,6 +8,7 @@
   decidim:
     budgets:
       actions:
+        confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         edit: Editar
         title: Handlinger
       admin:
