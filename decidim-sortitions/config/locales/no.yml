@@ -14,6 +14,8 @@
               category: Kategori
               title: Tittel
         sortitions:
+          confirm_destroy:
+            confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
           form:
             all_categories: Alle kategorier
       admin_log:
