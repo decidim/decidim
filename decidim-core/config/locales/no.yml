@@ -403,6 +403,7 @@
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
           follower:
+            email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
             email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
         amendment_created:
           affected_user:
@@ -414,9 +415,11 @@
         amendment_promoted:
           affected_user:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
@@ -428,8 +431,12 @@
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
       groups:
+        demoted_membership:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
         invited_to_group:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har invitert deg til å være med i den.
+        join_request_rejected:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen avviste forespørselen din om å bli med i den.
         promoted_to_admin:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
         removed_from_group:
