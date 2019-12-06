@@ -21,15 +21,17 @@
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Legg til dagsorden underelement
+            add_agenda_item_child: Legg til dagsordens underelement
             agenda_item: Dagsordens element
             agenda_item_children: Dagsordens underelementer
+            remove: Fjern
           agenda_item_child:
             agenda_item_child: Dagsordens underelement
+            remove: Fjern
           create:
             success: Dagsorden opprettet
           form:
-            add_agenda_item: Legg til dagsorden
+            add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
           update:
             success: Dagsorden oppdatert
@@ -45,6 +47,7 @@
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           service:
+            remove: Fjern
             title: Tittel
           services:
             add_service: Legg til tjeneste
