@@ -21,6 +21,8 @@
           fields:
             email: Epost
           name: Admin
+          validations:
+            email_uniqueness: en annen admin med samme email eksisterer allerede
         organization:
           fields:
             name: Navn
