@@ -465,13 +465,17 @@
           badge_title: "%{name} merke"
     group_admins:
       actions:
+        are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
         demote_admin: Fjern admin
     group_invites:
       accept_invitation: Aksepter
     group_members:
       actions:
+        are_you_sure: Er du sikker?
         remove_from_group: Fjern deltaker
     groups:
+      actions:
+        are_you_sure: Er du sikker?
       members:
         accept_request: Aksepter
       roles:
@@ -504,6 +508,7 @@
     pages:
       home:
         statistics:
+          assemblies_count: Forsamlinger
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
@@ -544,6 +549,9 @@
     shared:
       floating_help:
         help: Hjelp
+      participatory_space_filters:
+        filters:
+          areas: Områder
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
   devise:
@@ -558,6 +566,8 @@
       edit:
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
     registrations:
+      edit:
+        are_you_sure: Er du sikker?
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
     shared:
       minimum_password_length:
