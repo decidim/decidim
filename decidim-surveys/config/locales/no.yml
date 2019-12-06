@@ -11,7 +11,8 @@
         settings:
           step:
             allow_answers: Tillat svar
-            allow_unregistered: La uregistrerte brukere svare på undersøkelsen
+            allow_unregistered: Tillat uregistrerte brukere å svare på undersøkelsen
+            allow_unregistered_help: Hvis aktiv, er det ikke nødvendig med innlogging for å svare på undersøkelsen. Dette kan føre til dårlige eller upålitelig data, og den vil være mer sårbare for automatiserte angrep. Bruk med forsiktighet!
     events:
       surveys:
         survey_closed:
