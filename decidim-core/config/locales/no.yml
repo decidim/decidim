@@ -77,7 +77,7 @@
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
-          question: Er du sikker på at du vil slette denne kontoen?
+          question: Er du sikker på at du vil slette kontoen din?
           title: Slett kontoen min
         explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
       destroy:
