@@ -172,6 +172,7 @@
         index:
           all: alle
           all_users: 'Alle brukere '
+          and: 'og '
         select_recipients_to_deliver:
           all_spaces: Alle
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
