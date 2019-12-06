@@ -3,6 +3,8 @@
     attributes:
       assembly:
         area_id: Område
+        assembly_type: Forsamlings type
+        assembly_type_other: Forsamlings type annet
         banner_image: Bannerafbeelding
         decidim_area_id: Område
         title: Tittel
@@ -17,11 +19,16 @@
       decidim/assembly_member:
         one: Forsamlings medlem
         other: Forsamlings medlemmer
+      decidim/assembly_user_role:
+        one: Forsamlings bruker rolle
+        other: Forsamlings bruker roller
   decidim:
     admin:
       assemblies:
         create:
           success: Forsamling ble opprettet.
+        update:
+          success: Forsamlingen ble oppdatert.
       assemblies_copies:
         create:
           success: Forsamlingen ble duplisert.
@@ -46,6 +53,7 @@
         assemblies: Forsamlinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
+          attachments: Vedlegg
       models:
         assembly:
           fields:
@@ -93,6 +101,7 @@
             active_assemblies: Aktive forsamlinger
       show:
         area: Område
+        assembly_type: Forsamlings type
         children: Forsamlinger
       statistics:
         answers_count: Svar
