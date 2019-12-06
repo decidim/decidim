@@ -3,12 +3,15 @@
     forms:
       admin:
         questionnaires:
+          answer_option:
+            remove: Fjern
           edit:
             title: Tittel
           form:
             add_question: Legg til spørsmål
           question:
             add_answer_option: Legg til svaralternativ
+            remove: Fjern
       questionnaires:
         show:
           answer_questionnaire:
