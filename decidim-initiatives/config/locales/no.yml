@@ -31,6 +31,9 @@
           edit:
             answer: Svar
             title: Svar for %{title}
+        committee_requests:
+          index:
+            approve: Godkjenn
         initiatives:
           edit:
             accept: Godta initiativ
