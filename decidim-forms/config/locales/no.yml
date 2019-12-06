@@ -16,3 +16,5 @@
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
+          questionnaire_answered:
+            title: Allerede besvart
