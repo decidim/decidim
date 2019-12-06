@@ -30,11 +30,14 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+        order_selected_projects:
+          remove: Fjern
         project:
           add: Legg til
           count:
             one: 1 støtte
             other: "%{count} støttere"
+          remove: Fjern
         project_budget_button:
           add: Legg til
           added: Lagt til
