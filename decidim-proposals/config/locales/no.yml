@@ -203,6 +203,7 @@
           hidden_endorsers_count:
             one: og %{count} til person
             other: og %{count} flere personer
+          withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
         vote_button:
