@@ -427,6 +427,13 @@
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
+      groups:
+        invited_to_group:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har invitert deg til å være med i den.
+        promoted_to_admin:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
+        removed_from_group:
+          email_intro: En admind av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet deg fra den.
       users:
         profile_updated:
           email_subject: "%{nickname} oppdaterte profilens sin"
