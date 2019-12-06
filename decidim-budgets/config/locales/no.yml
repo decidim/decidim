@@ -24,6 +24,8 @@
           fields:
             title: Tittel
       projects:
+        budget_summary:
+          are_you_sure: Er du sikker på at du vil avbryte din stemme?
         count:
           projects_count:
             one: 1 prosjekt
