@@ -8,6 +8,8 @@
         banner_image: Bannerafbeelding
         decidim_area_id: Område
         title: Tittel
+      assembly_member:
+        birthplace: Fødested
       assembly_user_role:
         email: Epost
         name: Navn
