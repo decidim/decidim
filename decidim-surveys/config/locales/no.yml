@@ -25,6 +25,10 @@
           email_subject: En undersøkelse var fullført i %{participatory_space_title}
         survey_opened:
           email_subject: En ny undersøkelse i %{participatory_space_title}
+    metrics:
+      survey_answers:
+        object: svar på undersøkelser
+        title: Svar på undersøkelser
     surveys:
       last_activity:
         new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"
