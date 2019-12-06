@@ -17,6 +17,8 @@
         remaining_characters_1: "%{count} tegn igjen"
         title: Legg til kommentaren din
       comment:
+        alignment:
+          against: Imot
         report:
           details: Ytterlige kommentarer
       comments:
