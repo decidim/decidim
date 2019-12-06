@@ -22,9 +22,17 @@
         agenda:
           agenda_item:
             add_agenda_item_child: Legg til dagsorden underelement
-            agenda_item: Dagsorden
+            agenda_item: Dagsordens element
+            agenda_item_children: Dagsordens underelementer
+          agenda_item_child:
+            agenda_item_child: Dagsordens underelement
+          create:
+            success: Dagsorden opprettet
           form:
             add_agenda_item: Legg til dagsorden
+            agenda_items: Dagsordens elementer
+          update:
+            success: Dagsorden oppdatert
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
@@ -32,6 +40,7 @@
           index:
             filter:
               accepted: Aksepterte
+              all: Alle
         meetings:
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
@@ -53,6 +62,10 @@
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
           update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
+      directory:
+        meetings:
+          index:
+            all: Alle
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       meetings:
