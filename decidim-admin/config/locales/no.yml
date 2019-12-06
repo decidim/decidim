@@ -130,6 +130,7 @@
       menu:
         admin_log: Admin aktivitet logg
         admins: Adminer
+        appearance: Utseende
         static_pages: Sider
       models:
         area:
