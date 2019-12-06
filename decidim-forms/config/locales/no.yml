@@ -3,6 +3,13 @@
     attributes:
       answer:
         body: Svar
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: er ikke fullstendig
+              too_many: er for mange
   decidim:
     forms:
       admin:
@@ -18,6 +25,9 @@
             add_answer_option: Legg til svaralternativ
             any: Alle
             remove: Fjern
+      errors:
+        answer:
+          body: Teksten kan ikke være blank
       questionnaires:
         show:
           answer_questionnaire:
