@@ -434,8 +434,14 @@
           description_own: "%{score} folk følger deg."
         index:
           badge_title: "%{name} merke"
+    group_admins:
+      actions:
+        demote_admin: Fjern admin
     group_invites:
       accept_invitation: Aksepter
+    group_members:
+      actions:
+        remove_from_group: Fjern deltaker
     groups:
       members:
         accept_request: Aksepter
@@ -476,6 +482,8 @@
         standalone_pages: Sider
         title: Hjelp
       terms_and_conditions:
+        form:
+          legend: Godta vilkårene for bruk
         refuse:
           modal_btn_continue: Aksepter vilkår og fortsett
     profiles:
