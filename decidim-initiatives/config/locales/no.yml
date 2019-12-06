@@ -34,9 +34,11 @@
         committee_requests:
           index:
             approve: Godkjenn
+            confirm_revoke: Er du sikker?
         initiatives:
           edit:
             accept: Godta initiativ
+            confirm: Er du sikker?
           index:
             actions_title: Handling
             filter:
@@ -48,12 +50,16 @@
           create:
             error: Det oppstod en feil
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
+          edit:
+            confirm_destroy: Er du sikker?
           update:
             error: Det oppstod en feil
         initiatives_types:
           create:
             error: Det oppstod en feil
             success: En ny initiativtype er blitt opprettet
+          edit:
+            confirm_destroy: Er du sikker?
           update:
             error: Det oppstod en feil
       admin_log:
