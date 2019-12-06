@@ -9,8 +9,22 @@
       assembly_user_role:
         email: Epost
         name: Navn
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Forsamling
+        other: Forsamlinger
+      decidim/assembly_member:
+        one: Forsamlings medlem
+        other: Forsamlings medlemmer
   decidim:
     admin:
+      assemblies:
+        create:
+          success: Forsamling ble opprettet.
+      assembly_members:
+        index:
+          assembly_members_title: Forsamlings medlemmer
       assembly_user_roles:
         create:
           success: Admin ble lagt til i denne forsamlingen.
