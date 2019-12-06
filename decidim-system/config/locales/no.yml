@@ -2,6 +2,7 @@
   decidim:
     system:
       actions:
+        confirm_destroy: Er du sikker på at du vil slette dette?
         edit: Editar
         title: Handlinger
       admins:
