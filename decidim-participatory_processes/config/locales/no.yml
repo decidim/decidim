@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       participatory_process:
+        announcement: Kunngjøring
         banner_image: Bannerafbeelding
         title: Tittel
       participatory_process_group:
