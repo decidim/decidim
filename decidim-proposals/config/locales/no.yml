@@ -15,6 +15,8 @@
         settings:
           global:
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
+          step:
+            amendments_visibility: Endringens synlighet
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -90,10 +92,19 @@
       answers:
         accepted: Aksepterte
       application_helper:
+        filter_origin_values:
+          all: Alle
         filter_state_values:
           accepted: Aksepterte
+          all: Alle
+        filter_type_values:
+          all: Alle
+          amendments: Endringer
       collaborative_drafts:
         collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              body: Etter å ha publisert utkastet som et forslag, kan utkastet ikke lenger redigeres. Forslaget vil ikke godta nye forfattere eller bidrag.
           withdraw:
             irreversible_action_modal:
               body: Etter å ha lukket utkastet, kan utkastet ikke lenger redigeres. Utkastet vil ikke godta nye forfattere eller bidrag.
@@ -104,6 +115,8 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
         filters:
+          all: Alle
+          amendment: Endringer
           category: Kategori
           state: Status
         requests:
@@ -135,10 +148,13 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
         filters:
+          all: Alle
           category: Kategori
           state: Status
         index:
           collaborative_drafts_list: Tilgang til samarbeids utkaster
+        show:
+          changes_at_title: Endring til "%{title}"
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
       versions:
