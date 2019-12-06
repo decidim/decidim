@@ -8,6 +8,7 @@
   decidim:
     budgets:
       actions:
+        attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         edit: Editar
         title: Handlinger
@@ -27,6 +28,7 @@
       projects:
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
+          assigned: 'Tildelt:'
         count:
           projects_count:
             one: 1 prosjekt
