@@ -92,6 +92,14 @@
         title: Tittel
       static_page_topic:
         title: Tittel
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Ugyldig bildefil
+            official_img_header:
+              allowed_file_content_types: Ugyldig bildefil
   activerecord:
     attributes:
       decidim/static_page:
