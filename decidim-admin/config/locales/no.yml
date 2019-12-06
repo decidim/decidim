@@ -161,6 +161,7 @@
           status: Status
       impersonations:
         form:
+          authorization_method: Autoriseringsmetode
           name: Navn
       menu:
         admin_log: Admin aktivitet logg
