@@ -43,6 +43,7 @@
             active_consultations: Aktive konsultasjoner
       question_multiple_votes:
         results_rules:
+          title: I dette spørsmålet var flere valg tillatt
           total_participants: Totalt %{count} personer deltok i avstemmingen.
     help:
       participatory_spaces:
