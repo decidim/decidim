@@ -7,8 +7,11 @@
         title: Tittel
       proposal:
         address: Adresse
+        answer: Svar
         category_id: Kategori
         title: Tittel
+      proposal_answer:
+        answer: Svar
   decidim:
     components:
       proposals:
@@ -17,6 +20,7 @@
         settings:
           global:
             amendments_enabled: Endringer aktivert
+            announcement: Kunngjøring
             attachments_allowed: Tillat vedlegg
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
           step:
@@ -24,6 +28,7 @@
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendments_visibility: Endringens synlighet
+            announcement: Kunngjøring
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -65,6 +70,7 @@
         title: Godkjente forslag
     proposals:
       actions:
+        answer: Svar
         title: Handlinger
       admin:
         participatory_texts:
@@ -83,6 +89,8 @@
         proposal_answers:
           edit:
             accepted: Aksepterte
+            answer_proposal: Svar
+            title: Svar for forslag %{title}
         proposals:
           form:
             add_images: Legg til bilder
