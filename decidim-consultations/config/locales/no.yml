@@ -23,6 +23,9 @@
         response:
           fields:
             title: Tittel
+      question_configuration:
+        form:
+          title: Avansert konfigurasjon
     consultations:
       count:
         title:
