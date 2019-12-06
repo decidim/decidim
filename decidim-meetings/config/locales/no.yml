@@ -12,7 +12,10 @@
       meetings:
         settings:
           global:
+            announcement: Kunngjøring
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+          step:
+            announcement: Kunngjøring
     meetings:
       actions:
         agenda: Dagsorden
