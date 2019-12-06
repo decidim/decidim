@@ -26,5 +26,5 @@
       organizations:
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
-          enabled: Tillat deltakerne å registrere og logge på
+          enabled: Tillat deltakerne å registrere og logge inn
           existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn
