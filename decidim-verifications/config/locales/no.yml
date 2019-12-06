@@ -16,6 +16,9 @@
     verifications:
       csv_census:
         admin:
+          census:
+            destroy_all:
+              success: Alle folketellingene er slettet
           new:
             file: ".csv fil med e-postdata"
       postal_letter:
