@@ -124,3 +124,8 @@
       initiatives_type:
         actions:
           title: Handlinger
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Vedlegg
