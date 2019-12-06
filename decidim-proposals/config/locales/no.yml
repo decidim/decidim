@@ -13,6 +13,14 @@
         title: Tittel
       proposal_answer:
         answer: Svar
+    errors:
+      models:
+        proposal:
+          attributes:
+            body:
+              identical: OG tittelen kan ikke være identisk
+            title:
+              identical: OG hoveddelen kan ikke være identisk
   decidim:
     components:
       proposals:
