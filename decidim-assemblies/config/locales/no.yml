@@ -44,6 +44,13 @@
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} forsamlingen"
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
     assemblies:
+      admin:
+        assembly_members:
+          index:
+            filter:
+              all: Alle
+      filter:
+        all: Alle typer
       pages:
         home:
           highlighted_assemblies:
