@@ -20,6 +20,7 @@
             one: "%{count} debatt"
             other: "%{count} debatter"
         filters:
+          all: Alle
           category: Kategori
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
