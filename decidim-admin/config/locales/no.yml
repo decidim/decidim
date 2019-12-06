@@ -104,6 +104,8 @@
     attributes:
       decidim/static_page:
         title: Tittel
+      doorkeeper/application:
+        authorize_url: Autoriser URL
   decidim:
     admin:
       actions:
@@ -231,6 +233,7 @@
       officializations:
         index:
           actions: Handlinger
+          badge: Merke
           filter:
             all: Alle
           name: Navn
