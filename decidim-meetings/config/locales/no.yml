@@ -19,6 +19,7 @@
     meetings:
       actions:
         agenda: Dagsorden
+        attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
         edit: Rediger
         title: Handlinger
