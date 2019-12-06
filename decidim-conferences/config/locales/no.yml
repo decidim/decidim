@@ -9,6 +9,9 @@
         name: Navn
   decidim:
     admin:
+      menu:
+        conferences_submenu:
+          attachments: Vedlegg
       models:
         conference:
           fields:
