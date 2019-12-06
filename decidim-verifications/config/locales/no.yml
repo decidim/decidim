@@ -26,3 +26,7 @@
           pending_authorizations:
             index:
               address: Adresse
+      sms:
+        authorizations:
+          edit:
+            confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
