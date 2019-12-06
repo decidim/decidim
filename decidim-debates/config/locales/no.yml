@@ -30,6 +30,8 @@
         filters:
           all: Alle
           category: Kategori
+        new:
+          back: Tilbake
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
