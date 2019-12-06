@@ -174,14 +174,18 @@
           all: alle
           all_users: 'Alle brukere '
           and: 'og '
+          confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
         select_recipients_to_deliver:
           all_spaces: Alle
+          confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
       oauth_applications:
         create:
           success: Søknaden ble opprettet.
         destroy:
           success: Søknaden ble ødelagt.
+        index:
+          confirm_delete: Er du sikker på at du vil slette dette programmet?
         update:
           success: Søknaden ble oppdatert.
       officializations:
