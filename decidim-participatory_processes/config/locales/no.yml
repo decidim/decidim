@@ -19,6 +19,9 @@
       actions:
         activate: Aktiver
         edit: Editar
+      menu:
+        participatory_processes_submenu:
+          attachments: Vedlegg
       models:
         participatory_process:
           fields:
