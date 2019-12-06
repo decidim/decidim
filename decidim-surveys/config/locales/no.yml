@@ -11,6 +11,7 @@
         settings:
           step:
             allow_answers: Tillat svar
+            allow_unregistered: La uregistrerte brukere svare på undersøkelsen
     events:
       surveys:
         survey_closed:
