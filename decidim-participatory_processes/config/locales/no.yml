@@ -3,7 +3,9 @@
     attributes:
       participatory_process:
         announcement: Kunngjøring
+        area_id: Område
         banner_image: Bannerafbeelding
+        decidim_area_id: Område
         title: Tittel
       participatory_process_group:
         name: Navn
@@ -98,6 +100,8 @@
           names:
             active: Aktiv
             all: Alle
+      show:
+        area: Område
       statistics:
         answers_count: Svar
         headline: Aktivitet
