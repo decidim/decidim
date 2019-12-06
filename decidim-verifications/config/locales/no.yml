@@ -1,4 +1,8 @@
 "no":
+  activemodel:
+    attributes:
+      config:
+        available_methods: Tilgjengelige metoder
   decidim:
     admin_log:
       organization:
