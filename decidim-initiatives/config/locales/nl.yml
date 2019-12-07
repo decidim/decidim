@@ -269,9 +269,9 @@ nl:
           more_information: "(Meer informatie)"
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
-          help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de Promotingscommissie vormen
+          help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de promotieraad vormen
           help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
-          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
+          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel, waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
           initiatives_page_link: Je kunt al deze informatie op de %{link} opzoeken om je te informeren over initiatieven.
           page: pagina
         previous_form:
@@ -281,20 +281,20 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Dit soort burgerinitiatief vereist een Promotingscommissie bestaande uit ten minste %{committee_size} personen (attestors). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          individual_help_text: Dit soort burgerinitiatief vereist een promotieraad bestaande uit ten minste %{committee_size} personen (attestors). Deel de volgende link met de anderen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
-          choose_html: Ik wil een <strong>%{title}</strong>
+          choose_html: Ik wil een <strong>%{title}</strong> aanmaken
           more_information: "(Meer informatie)"
           select: Ik wil dit initiatief promoten
-          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
+          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee burgers kunnen ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotorcommissie
+          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
         show_similar_initiatives:
           back: Terug
-          compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gedaan te worden.
+          compare_help: Als een van de volgende initiatieven vergelijkbaar is met dat van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gerealiseerd te worden.
           continue: Mijn initiatief is anders
           more_information: "(Meer informatie)"
       events:
@@ -372,7 +372,7 @@ nl:
               other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
-          most_commented: Meest gereageerd
+          most_commented: Meeste reacties
           most_voted: Meest ondertekend
           random: Willekeurig
           recent: Meest recente
