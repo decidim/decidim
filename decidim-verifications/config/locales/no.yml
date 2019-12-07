@@ -1,5 +1,15 @@
 "no":
   decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} oppdaterte identitets dokumentasjonens verifikasjons konfigurasjon"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifiserte %{resource_name} bruker en offline Identitets Dokument verifikasjon"
     authorization_handlers:
       help: Hjelp
       name: Navn
+    verifications:
+      csv_census:
+        admin:
+          new:
+            file: ".csv fil med e-postdata"

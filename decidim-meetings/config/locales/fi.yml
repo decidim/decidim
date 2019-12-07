@@ -86,7 +86,7 @@ fi:
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi on estetty
+            comments_blocked: Kommentointi estetty
     events:
       meetings:
         meeting_closed:
