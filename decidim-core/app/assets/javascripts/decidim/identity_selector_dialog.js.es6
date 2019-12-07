@@ -6,14 +6,14 @@
 $(document).ready(function () {
 
   let button = $("#select-identity-button"),
-      refreshUrl = null,
+      identities_url = null,
       userIdentitiesDialog = $("#user-identities");
 
   if (userIdentitiesDialog.length) {
-    refreshUrl = userIdentitiesDialog.data("refresh-url");
+    identities_url = userIdentitiesDialog.data("reveal-identities-url");
 
     button.click(function () {
-      $.ajax(refreshUrl).done(function(response) {
+      $.ajax(identities_url).done(function(response) {
         userIdentitiesDialog.html(response).foundation("open");
         button.trigger("ajax:success")
       });
@@ -33,20 +33,19 @@ $(document).ready(function () {
       let liTag = $(elem)
       liTag.on("click", function() {
         let method = liTag.data("method")
-        let url = liTag.data("url")
         $.ajax({
-          url: url,
+          url: liTag.data((method == "POST") ? "create_url" : "destroy_url"),
           method: method,
           dataType: "script",
           success: function() {
             if (liTag.hasClass("selected")) {
               liTag.removeClass("selected")
               liTag.find(".icon--circle-check").addClass("invisible")
-              liTag.data("method", "post")
+              liTag.data("method", "POST")
             } else {
               liTag.addClass("selected")
               liTag.find(".icon--circle-check").removeClass("invisible")
-              liTag.data("method", "delete")
+              liTag.data("method", "DELETE")
             }
           }
         })

@@ -106,7 +106,6 @@ module Decidim
     end
 
     def apply_endorsement_permissions
-      resource = context.fetch(:resource, nil)
       return disallow! if !current_settings.endorsements_enabled || current_settings.endorsements_blocked
 
       allow!

@@ -3,6 +3,11 @@
 module Decidim
   # Exposes the `Endorsements` so that users can endorse resources.
   class EndorsementsController < Decidim::Components::BaseController
+    # we need to +include+ to be able to call :endorsement_button from the view
+    include Decidim::EndorsableHelper
+    helper_method :endorsement_button
+    # we need to declare with +helper+ to be able to call :render_endorsement_identity from the views
+    helper Decidim::EndorsableHelper
     helper_method :resource
 
     before_action :authenticate_user!
@@ -43,6 +48,11 @@ module Decidim
       render :identities, layout: false
     end
 
+    # should be pubic in order to be visibe in NeedsPermission#permissions_context
+    def current_component
+      resource.component
+    end
+
     private
 
     def user_groups
@@ -50,7 +60,12 @@ module Decidim
     end
 
     def resource
-      @resource ||= GlobalID::Locator.locate(GlobalID.parse(params[:id]))
+      gid_param = params[:id] || params[:resource_id]
+      @resource ||= GlobalID::Locator.locate(GlobalID.parse(gid_param))
+    end
+
+    def current_participatory_space
+      current_component.participatory_space
     end
   end
 end

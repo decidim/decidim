@@ -4,17 +4,17 @@ update_main_page_button();
 update_identities_rows();
 
 function update_main_page_button() {
-  var $proposalEndorsementButton = $('#proposal-<%= proposal.id %>-endorsement-button');
-  morphdom($proposalEndorsementButton[0], '<%= j(endorsement_button(proposal, false)).strip.html_safe %>');
+  var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
+  morphdom($endorsementButton[0], '<%= j(endorsement_button(resource)).strip.html_safe %>');
 }
 function update_identities_rows() {
-  <% fully_endorsed= fully_endorsed?(proposal, current_user) %>
-  var $proposalEndorsementsRowCount = $('#proposal-<%= proposal.id %>-endorsements-count');
-  morphdom($proposalEndorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(proposal, fully_endorsed)).strip.html_safe %>');
-  var $proposalEndorsementsRowButton = $($('#select-identity-button')[0]);
+  <% fully_endorsed= fully_endorsed?(resource, current_user) %>
+  var $endorsementsRowCount = $('#resource-<%= resource.id %>-endorsements-count');
+  morphdom($endorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(resource).strip.html_safe) %>');
+  var $endorsementsRowButton = $($('#select-identity-button')[0]);
   <% if fully_endorsed %>
-    $proposalEndorsementsRowButton.addClass('success')
+    $endorsementsRowButton.addClass('success')
   <% else %>
-    $proposalEndorsementsRowButton.removeClass('success')
+    $endorsementsRowButton.removeClass('success')
   <% end %>
 }

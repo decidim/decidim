@@ -4,20 +4,25 @@
 
 **Upgrade notes**:
 
+- This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applicable to many resources. To keep current Decidim::Proposals::Proposal's endorsement information endorsements should be copied into the new `Decidim::Endorsable` tables and counter cache columns. After this `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` can be removed. You can do this with the following script:
+
+  ```
+  ```
+
 - In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
 
-```ruby
-Decidim::Assembly.find_each(&:add_to_index_as_search_resource)
-Decidim::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
-Decidim::Conference.find_each(&:add_to_index_as_search_resource)
-Decidim::Consultation.find_each(&:add_to_index_as_search_resource)
-Decidim::Initiative.find_each(&:add_to_index_as_search_resource)
-Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
-# results are ready to be searchable but don't have a card-m so can't be rendered
-# Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
-Decidim::Budgets::Project.find_each(&:add_to_index_as_search_resource)
-Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
-```
+  ```ruby
+  Decidim::Assembly.find_each(&:add_to_index_as_search_resource)
+  Decidim::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
+  Decidim::Conference.find_each(&:add_to_index_as_search_resource)
+  Decidim::Consultation.find_each(&:add_to_index_as_search_resource)
+  Decidim::Initiative.find_each(&:add_to_index_as_search_resource)
+  Decidim::Debates::Debate.find_each(&:add_to_index_as_search_resource)
+  # results are ready to be searchable but don't have a card-m so can't be rendered
+  # Decidim::Accountability::Result.find_each(&:add_to_index_as_search_resource)
+  Decidim::Budgets::Project.find_each(&:add_to_index_as_search_resource)
+  Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
+  ```
 
 **Added**:
 

@@ -13,6 +13,31 @@ A participant can endorse with her own identity or with the identify of the `use
 A `decidim_endorsements` table that registers each endorsement that each identity gives to each element. This is, one endorsable has many endorsements, and each endorsement belongs to on endorsable.
 For performance, an endorsable has a counter cache of endorsements.
 
+```
++----------------------+
+|  Decidim::Endorsable |
+|   ((Proposal,...))   |                                   +-------------+
++----------------------+  0..N +--------------------+   +--+Decidim::User|
+|-has_many endorsements|-------+Decidim::Endorsement|   |  +-------------+
+|#counter cahce column |       +--------------------+   |
+|-endorsements_counter |       |-author: may be a   |<--+
++----------------------+       |         user or a  |   |
+                               |         user_group |   |  +------------------+
+                               +--------------------+   +--+Decidim::UserGroup|
+                                                           +------------------+
+```
+
+This is an example migration to add the endorsements counter cache column to a resource:
+
+```ruby
+class AddEndorsementsCounterCacheToProposals < ActiveRecord::Migration[5.2]
+  def change
+    add_column :decidim_proposals_proposals, :endorsements_count, :integer, null: false, default: 0
+  end
+end
+
+```
+
 ## Administration Panel
 
 It is a good practice to give the opportunity to the admin to switch on and off Endorsements.
@@ -63,8 +88,8 @@ There is already a concern with this two methods: `Decidim::WithEndorsablePermis
 ## Public view
 
 ### The "Endorse" button
-Appears in the right-side action card of a detail (show).
-It allows the user to endorse with each of its identities, the personal one, and the user's user_groups, if any.
+It normally appears in the resource detail view (show). At the action card in right-side of the view.
+It allows the user to endorse with any of its identities, the personal one, and her user_groups, if any.
 
 ### EndorsableHelper
 

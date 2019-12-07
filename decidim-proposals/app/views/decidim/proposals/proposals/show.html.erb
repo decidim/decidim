@@ -78,7 +78,7 @@ edit_link(
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
-            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <%= cell("decidim/endorsement_buttons", @proposal) %>
             <br>
             <%= follow_button_for(@proposal) %>
           </div>

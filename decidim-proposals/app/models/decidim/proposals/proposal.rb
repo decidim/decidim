@@ -101,9 +101,9 @@ module Decidim
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
         endorsements_participants_ids = Decidim::Endorsement.joins(:resource)
-                                                           .where(resource: proposals)
-                                                           .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                           .map(&:decidim_author_id).flatten.compact.uniq
+                                                            .where(resource: proposals)
+                                                            .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                                            .map(&:decidim_author_id).flatten.compact.uniq
 
         (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
       end

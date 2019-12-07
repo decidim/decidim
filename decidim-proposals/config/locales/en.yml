@@ -593,10 +593,6 @@ en:
           comment: Comment
           comments: Comments
           endorse: Endorse
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Endorsed
-          endorse: Endorse
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.
