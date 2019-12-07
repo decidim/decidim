@@ -6,14 +6,14 @@
 $(document).ready(function () {
 
   let button = $("#select-identity-button"),
-      identities_url = null,
+      identitiesUrl = null,
       userIdentitiesDialog = $("#user-identities");
 
   if (userIdentitiesDialog.length) {
-    identities_url = userIdentitiesDialog.data("reveal-identities-url");
+    identitiesUrl = userIdentitiesDialog.data("reveal-identities-url");
 
     button.click(function () {
-      $.ajax(identities_url).done(function(response) {
+      $.ajax(identitiesUrl).done(function(response) {
         userIdentitiesDialog.html(response).foundation("open");
         button.trigger("ajax:success")
       });
@@ -32,9 +32,15 @@ $(document).ready(function () {
     $("#user-identities ul.reveal__list li").each(function(index, elem) {
       let liTag = $(elem)
       liTag.on("click", function() {
-        let method = liTag.data("method")
+        let method = liTag.data("method"),
+          urlDataAttr = null;
+        if(method === "POST")
+          urlDataAttr = "create_url";
+        else
+          urlDataAttr = "create_url";
+        end
         $.ajax({
-          url: liTag.data((method == "POST") ? "create_url" : "destroy_url"),
+          url: liTag.data(urlDataAttr),
           method: method,
           dataType: "script",
           success: function() {
