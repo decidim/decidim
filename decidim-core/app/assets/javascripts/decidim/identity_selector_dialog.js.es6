@@ -33,8 +33,8 @@ $(document).ready(function () {
       let liTag = $(elem)
       liTag.on("click", function() {
         let method = liTag.data("method"),
-          urlDataAttr = null;
-        if(method === "POST") {
+            urlDataAttr = null;
+        if (method === "POST") {
           urlDataAttr = "create_url";
         } else {
           urlDataAttr = "create_url";
