@@ -431,7 +431,6 @@ en:
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     endorsement_buttons:
-      endorse: Endorse
       endorsement_identities_cabin:
         endorse: Endorse
     endorsement_cell:
@@ -443,8 +442,8 @@ en:
         select_identity: Select identity
     endorsements_helper:
       endorsement_button:
-          already_endorsed: Endorsed
-          endorse: Endorse
+        already_endorsed: Endorsed
+        endorse: Endorse
     errors:
       internal_server_error:
         title: There was a problem with our server
