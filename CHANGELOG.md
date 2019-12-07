@@ -4,9 +4,35 @@
 
 **Upgrade notes**:
 
-- This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applicable to many resources. To keep current Decidim::Proposals::Proposal's endorsement information endorsements should be copied into the new `Decidim::Endorsable` tables and counter cache columns. After this `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` can be removed. You can do this with the following script:
+- This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applicable to many resources.
+  To keep current Decidim::Proposals::Proposal's endorsement information endorsements should be copied into the new `Decidim::Endorsable` tables and counter cache columns.
 
+  ```ruby
+  # copy endorsements from `decidim_proposals_proposal_endorsements` into `decidim_endorsements`
+  class ProposalEndorsement < ApplicationRecord
+    self.table_name = :decidim_proposals_proposal_endorsements
+  end
+  ProposalEndorsement.all.find_each do |prop_endorsement|
+    ::Decidim::Endorsement.create!(
+      resource_type: Decidim::Proposals::Proposal.class.name,
+      resource_id: prop_endorsement.decidim_proposal_id,
+      decidim_author_type: prop_endorsement.decidim_author_type,
+      decidim_author_id: prop_endorsement.decidim_author_id,
+      decidim_user_group_id: prop_endorsement.decidim_user_group_id)
+  end
+  # update new `decidim_proposals_proposal.endorsements_count` counter cache
+  Decidim::Proposals::Proposal.all.pluck(:id).find_each do |id|
+    Decidim::Proposals::Proposal.reset_counters(id, :endorsements)
+  end
   ```
+
+  After this `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` can be removed.
+
+  ```sql
+  -- remove legacy `decidim_proposals_proposal_endorsements` table
+  DROP TABLE IF EXISTS decidim_proposals_proposal_endorsements RESTRICT;
+  -- remove legacy column `decidim_proposals_proposal.proposal_endorsements_count`
+  ALTER TABLE decidim_proposals_proposal DROP COLUMN proposal_endorsements;
   ```
 
 - In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
