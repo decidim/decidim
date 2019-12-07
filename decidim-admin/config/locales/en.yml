@@ -237,6 +237,7 @@ en:
           success: Category updated successfully.
       component_permissions:
         update:
+          error: There was a problem updating the permissions of this component.
           success: Permissions updated successfully.
       components:
         create:
