@@ -34,11 +34,11 @@ $(document).ready(function () {
       liTag.on("click", function() {
         let method = liTag.data("method"),
           urlDataAttr = null;
-        if(method === "POST")
+        if(method === "POST") {
           urlDataAttr = "create_url";
-        else
+        } else {
           urlDataAttr = "create_url";
-        end
+        }
         $.ajax({
           url: liTag.data(urlDataAttr),
           method: method,
