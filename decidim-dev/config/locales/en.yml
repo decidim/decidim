@@ -10,6 +10,12 @@ en:
         translatable_text: Translatable text
         updated_at: Updated at
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     dummy:
       admin:
         exports:
