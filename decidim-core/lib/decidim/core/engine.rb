@@ -269,7 +269,7 @@ module Decidim
       end
 
       initializer "Expire sessions" do
-        Rails.application.config.session_store :cookie_store, expire_after: 1.day
+        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do

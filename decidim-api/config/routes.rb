@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim::Api::Engine.routes.draw do
-  if Rails.env.development?
+  if Decidim.config.expose_graphiql?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api", as: :graphiql
   end
   get "/docs", to: "documentation#show", as: :documentation
