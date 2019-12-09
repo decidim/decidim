@@ -13,11 +13,43 @@
         initiatives:
           fields:
             state: Status
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          page: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
     initiatives:
+      admin_log:
+        initiative:
+          publish: "%{user_name} publiserte %{resource_name} initiativet"
+          send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
+          unpublish: "%{user_name} la ned %{resource_name} initiativet"
+          update: "%{user_name} oppdaterte %{resource_name} initiativet"
       create_initiative:
+        fill_data:
+          more_information: "(Mer informasjon)"
+        finish:
+          more_information: "(Mer informasjon)"
         finish_help:
           page: side
+        previous_form:
+          more_information: "(Mer informasjon)"
+        promotal_committee:
+          more_information: "(Mer informasjon)"
+        select_initiative_type:
+          more_information: "(Mer informasjon)"
+        show_similar_initiatives:
+          more_information: "(Mer informasjon)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
+        endorse_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
       initiatives:
+        count:
+          title:
+            one: "%{count} initiativ"
+            other: "%{count} initiativer"
         filters:
           state: Status
         interactions:
@@ -25,3 +57,8 @@
             count:
               one: Kommentar
               other: Kommentar
+        signatures_count:
+          one: " underskrift"
+          other: " underskrifter"
+        vote_cabin:
+          supports_required: "%{total_supports} signaturer påkrevd"

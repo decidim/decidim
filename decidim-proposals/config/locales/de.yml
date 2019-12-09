@@ -631,7 +631,6 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          activity: Aktivität
           amendment_type: Art
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie

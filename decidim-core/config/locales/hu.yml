@@ -116,7 +116,7 @@ hu:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
         create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
-        create_via_csv: "%{user_name} meghívota %{resource_name} CSV -vel, hogy privát résztvevő legyen"
+        create_via_csv: "%{user_name} meghívta %{resource_name} Csv-n keresztül, hogy privát résztvevő legyen"
         delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
@@ -205,8 +205,8 @@ hu:
         help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
       update_draft:
-        error: Probléma merült fel a módosító tervezet frissítésével.
-        success: A módosító tervezet sikeresen frissítve.
+        error: Probléma merült fel a módosító javaslat frissítésével.
+        success: A módosító javaslat sikeresen frissítve.
       visibility_options:
         all: A módosítások mindenki számára láthatóak
         participants: A módosítások csak a szerzőik számára láthatóak
@@ -309,12 +309,12 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
-            dummy_global_translatable_text: Hamis Fordítható Szöveg
+            dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
-            amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_promotion_enabled: A módosítás előléptetése engedélyezett
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
@@ -671,8 +671,8 @@ hu:
         current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
         manage_members: Tagok kezelése
       promote:
-        error: Hiba történt a felhasználó népszerűsítésében
-        success: A felhasználó sikeresen népszerűsödött
+        error: Hiba történt a felhasználó előléptetésekor
+        success: A felhasználó sikeresen előléptetve
       reject:
         error: Hiba történt a csatlakozási kérelem elutasításakor
         success: Csatlakozási kérelem sikeresen elutasítva
@@ -869,7 +869,7 @@ hu:
           register: Regisztráció
         hero:
           participate: Részvétel
-          welcome: Üdvözöli a %{organization}!
+          welcome: Üdvözöl a(z) %{organization}!
         metrics:
           headline: Részvétel számokban
         statistics:
@@ -1318,8 +1318,8 @@ hu:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%é. %h %n., %A, %ó:%p"
-      short: "%n%h%é%ó:%p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

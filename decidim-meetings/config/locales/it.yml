@@ -238,6 +238,9 @@ it:
           edit:
             update: Modifica
           form:
+            address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
+            location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
+            location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio'
             select_organizer: Seleziona l'organizzatore
           index:
             title: Incontri

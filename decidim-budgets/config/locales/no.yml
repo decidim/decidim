@@ -9,12 +9,29 @@
     budgets:
       actions:
         edit: Editar
+      admin:
+        proposals_imports:
+          create:
+            success: "%{number} forslag vellykket importert til prosjekter"
+      admin_log:
+        project:
+          create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
       models:
         project:
           fields:
             title: Tittel
       projects:
+        count:
+          projects_count:
+            one: 1 prosjekt
+            other: "%{count} prosjekter"
         filters:
           category: Kategori
+        project:
+          count:
+            one: 1 støtte
+            other: "%{count} støttere"
         show:
           budget: Budsjett

@@ -9,14 +9,35 @@
   decidim:
     meetings:
       actions:
-        edit: Editar
+        edit: Rediger
       admin:
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
         meetings:
           service:
             title: Tittel
+      admin_log:
+        invite:
+          create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
+          deleted: "%{user_name} fjern invitasjon %{attendee_name} fra å bli med i %{resource_name} møtet på %{space_name} rommet"
+          update: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
+        meeting:
+          close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
+          export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} møte på %{space_name} rommet"
+        minutes:
+          create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
+          update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
       meetings:
         filters:
           category: Kategori
+        show:
+          remaining_slots:
+            one: "%{count} plass igjen"
+            other: "%{count} plasser igjen"
       models:
         invite:
           fields:
@@ -26,3 +47,4 @@
         meeting:
           fields:
             title: Tittel
+      read_more: "(Les mer)"

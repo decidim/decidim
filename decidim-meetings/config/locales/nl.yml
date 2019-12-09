@@ -238,6 +238,9 @@ nl:
           edit:
             update: Bijwerken
           form:
+            address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+            location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
+            location_hints_help: 'Locatie hint: extra info. Voorbeeld: de vloer van het gebouw'
             select_organizer: Selecteer de organisator
           index:
             title: Events
