@@ -18,11 +18,12 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
+          click_button "Continue"
+          fill_in :user_nickname, with: "responsible"
+          fill_in :user_name, with: "Responsible Citizen"
           check :user_newsletter
           find("*[type=submit]").click
         end
@@ -38,11 +39,12 @@ describe "Authentication", type: :system do
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
+          check :user_tos_agreement
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :user_tos_agreement
+          click_button "Continue"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
           check :user_newsletter
           find("*[type=submit]").click
         end
@@ -494,11 +496,12 @@ describe "Authentication", type: :system do
 
           within ".new_user" do
             fill_in :user_email, with: user.email
-            fill_in :user_name, with: "Responsible Citizen"
-            fill_in :user_nickname, with: "responsible"
             fill_in :user_password, with: "DfyvHn425mYAy2HL"
             fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
+            click_button "Continue"
+            fill_in :user_name, with: "Responsible Citizen"
+            fill_in :user_nickname, with: "responsible"
             check :user_newsletter
             find("*[type=submit]").click
           end
