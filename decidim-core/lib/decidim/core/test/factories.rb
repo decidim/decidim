@@ -310,7 +310,7 @@ FactoryBot.define do
     end
 
     name { generate_localized_title }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, organization: organization) }
     manifest_name { "dummy" }
     published_at { Time.current }
     settings do
@@ -345,8 +345,20 @@ FactoryBot.define do
       settings { { Random.rand => Random.new.bytes(5) } }
     end
 
+    transient do
+      participatory_space_with_steps do
+        create(:participatory_process_step,
+               active: true,
+               end_date: 1.month.from_now,
+               participatory_process: participatory_space)
+        participatory_space.reload
+        participatory_space.steps.reload
+      end
+    end
+
     trait :with_endorsements_enabled do
       step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
         {
           participatory_space.active_step.id => { endorsements_enabled: true }
         }
@@ -355,6 +367,7 @@ FactoryBot.define do
 
     trait :with_endorsements_disabled do
       step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
         {
           participatory_space.active_step.id => { endorsements_enabled: false }
         }
@@ -363,6 +376,7 @@ FactoryBot.define do
 
     trait :with_endorsements_blocked do
       step_settings do
+        participatory_space_with_steps if participatory_space.active_step.nil?
         {
           participatory_space.active_step.id => { endorsements_blocked: true }
         }
