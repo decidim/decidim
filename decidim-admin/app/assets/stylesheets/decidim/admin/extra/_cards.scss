@@ -11,3 +11,16 @@ form{
     overflow: initial;
   }
 }
+
+// Newsletters index
+.text-right{
+  .subscribed_title{
+    text-transform: none; 
+    letter-spacing: 0;
+  }
+
+  .subscribed_count{
+    padding-right: 2em;
+    font-weight: normal;
+  }
+}

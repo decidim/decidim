@@ -63,6 +63,10 @@
         </div>
       <% end %>
 
+      <div class="callout warning">
+        <%= t(".recipients_count", count: @recipients_count ).html_safe %>
+      </div>
+
       <div class="button--double form-general-submit">
         <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
           <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
