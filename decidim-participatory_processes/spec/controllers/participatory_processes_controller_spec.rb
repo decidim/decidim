@@ -122,7 +122,7 @@ module Decidim
           request.env["decidim.current_organization"] = organization
         end
 
-        context 'when the process can show statistics' do
+        context "when the process can show statistics" do
           it "shows them" do
             get :all_metrics, params: { slug: active.slug }
 
@@ -130,7 +130,7 @@ module Decidim
           end
         end
 
-        context 'when the process cannot show statistics' do
+        context "when the process cannot show statistics" do
           it "does not show them" do
             active.update!(show_statistics: false)
             get :all_metrics, params: { slug: active.slug }

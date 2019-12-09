@@ -28,9 +28,7 @@ module Decidim
 
         return invalid! unless form.valid?
 
-        if too_many_failed_attempts?
-          throttle!
-        end
+        throttle! if too_many_failed_attempts?
 
         if confirmation_successful?
           valid!

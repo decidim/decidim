@@ -20,6 +20,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+
         create_comment
 
         broadcast(:ok, comment)

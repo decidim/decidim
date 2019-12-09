@@ -23,7 +23,7 @@ module Decidim
     end
 
     def decidim_url_escape(text)
-      decidim_html_escape(text).sub(/^javascript:/, '')
+      decidim_html_escape(text).sub(/^javascript:/, "")
     end
   end
 end

@@ -216,7 +216,8 @@ module Decidim
     end
 
     def invalidate_all_sessions!
-      self.update_attribute(:session_token, SecureRandom.hex)
+      self.session_token = SecureRandom.hex
+      save!
     end
 
     protected

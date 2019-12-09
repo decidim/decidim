@@ -19,6 +19,7 @@ module Decidim
 
       def max_depth
         return unless commentable.respond_to?(:depth)
+
         errors.add(:base, :invalid) if commentable.depth >= Comment::MAX_DEPTH
       end
     end

@@ -72,10 +72,10 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
 
   context "when the authorization fails too many times in a row" do
     let(:secret_code) { "XX42YY" }
-    let(:session) { { failed_attempts: 3 }  }
+    let(:session) { { failed_attempts: 3 } }
 
-    it "it throttles before proceeding" do
-      expect(subject).to receive(:throttle!)
+    it "throttles before proceeding" do
+      expect(subject).to receive(:throttle!) # rubocop:disable RSpec/SubjectStub
       expect { subject.call }.to broadcast(:ok)
     end
   end

@@ -51,12 +51,10 @@ module Decidim
     end
 
     def manipulate!
-      begin
-        super
-      rescue CarrierWave::ProcessingError => e
-        Rails.logger.error(e)
-        raise CarrierWave::ProcessingError.new(I18n.t("carrierwave.errors.general"))
-      end
+      super
+    rescue CarrierWave::ProcessingError => e
+      Rails.logger.error(e)
+      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
     end
 
     private
