@@ -1,0 +1,65 @@
+<% add_decidim_page_title(t(".complete_registration")) %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <span>
+          <h1><%= t(".welcome") %></h1>
+          <p>
+            <%= t(".complete_registration_subtitle") %>
+          </p>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= decidim_form_for(@user_complete_registration, url: user_complete_registration_path, method: :put, html: { autocomplete: "nope" }) do |f| %>
+        <div class="card">
+          <div class="card__content">
+
+            <div class="columns large-4">
+              <%= f.upload :avatar %>
+            </div>
+
+            <div class="columns large-8 end">
+              <%= f.url_field :personal_url %>
+              <%= f.text_area :about, rows: 5 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__content">
+            <div class="columns large-8 end">
+              <p><%= t(".select_your_interests") %></p>
+              <p><strong><%= t(".my_interests") %></strong></p>
+              <% if @user_complete_registration.scopes.any? %>
+                <div class="clearfix m-bottom">
+                  <%= render partial: "scopes", locals: { scopes: @user_complete_registration.scopes, f: f } %>
+                </div>
+              <% else %>
+                <p><%= t(".no_scopes") %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__content">
+            <div class="columns large-6 large-centered">
+              <div class="actions">
+                <%= f.submit(
+                      t(".save_and_start_explore"),
+                      class: "button expanded",
+                      disable_with: true
+                    ) %>
+                <%= link_to t(".skip"), after_sign_up_path_for(current_user), class: "button expanded hollow" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

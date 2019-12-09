@@ -4,7 +4,7 @@ $(() => {
   const inputSelector         = 'input[name="user[sign_up_as]"]';
   const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
   const $newsletterModal      = $("#sign-up-newsletter-modal");
-
+  const $formStepButton       = $(".form-step-button");
 
   const setGroupFieldsVisibility = (value) => {
     if (value === "user") {
@@ -39,7 +39,20 @@ $(() => {
     }
   });
 
+  $(document).on("forminvalid.zf.abide", (event) => {
+    if (event.target.id === $userRegistrationForm.attr("id")) {
+      $("[form-step='2']").hide();
+      $("[form-step-field]").show();
+    }
+  });
+
   $newsletterModal.find(".check-newsletter").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
+  });
+
+  $formStepButton.on("click", (event) => {
+    event.preventDefault();
+
+    $("[form-step]").toggle();
   });
 });

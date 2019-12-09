@@ -66,6 +66,7 @@ Decidim::Core::Engine.routes.draw do
     end
 
     resource :user_interests, only: [:show, :update]
+    resource :user_complete_registration, only: [:show, :update], controller: "user_complete_registration"
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
 
