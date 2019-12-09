@@ -55,7 +55,7 @@ module Decidim
         super
       rescue CarrierWave::ProcessingError => e
         Rails.logger.error(e)
-        raise CarrierWave::ProcessingError.new('Error processing image')
+        raise CarrierWave::ProcessingError.new(I18n.t("carrierwave.errors.general"))
       end
     end
 
