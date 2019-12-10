@@ -2,7 +2,7 @@
 
 module Decidim
   module Initiatives
-    # This type represents a conference.
+    # This type represents a initiative.
     InitiativeCommitteeMemberType = GraphQL::ObjectType.define do
       name "InitiativeCommitteeMemberType"
       description "A initiative committee member"
