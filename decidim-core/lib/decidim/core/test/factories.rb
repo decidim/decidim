@@ -131,14 +131,18 @@ FactoryBot.define do
       deleted_at { Time.current }
     end
 
+    trait :admin_terms_accepted do
+      admin_terms_accepted_at { Time.current }
+    end
+
     trait :admin do
       admin { true }
-      admin_terms_accepted_at { Time.current }
+      admin_terms_accepted
     end
 
     trait :user_manager do
       roles { ["user_manager"] }
-      admin_terms_accepted_at { Time.current }
+      admin_terms_accepted
     end
 
     trait :managed do
