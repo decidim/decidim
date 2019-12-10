@@ -5,7 +5,7 @@ update_identities_rows();
 
 function update_main_page_button() {
   var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
-  morphdom($endorsementButton[0], '<%= j(endorsement_button(resource)).strip.html_safe %>');
+  morphdom($endorsementButton[0], '<%= j(cell("decidim/endorsement_buttons", resource).button).strip.html_safe %>');
 }
 function update_identities_rows() {
   <% fully_endorsed= fully_endorsed?(resource, current_user) %>

@@ -127,6 +127,8 @@ en:
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
             votes_hidden: Supports hidden (if supports are enabled, checking this will hide the number of supports)
+    endorsement_buttons:
+      endorse: Endorse
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -675,6 +677,7 @@ en:
         show:
           back_to: Back to
           changes_at_title: Amendment to "%{title}"
+          comments: Comments
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
           hidden_endorsers_count:

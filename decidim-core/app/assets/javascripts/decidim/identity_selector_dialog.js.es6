@@ -37,7 +37,7 @@ $(document).ready(function () {
         if (method === "POST") {
           urlDataAttr = "create_url";
         } else {
-          urlDataAttr = "create_url";
+          urlDataAttr = "destroy_url";
         }
         $.ajax({
           url: liTag.data(urlDataAttr),

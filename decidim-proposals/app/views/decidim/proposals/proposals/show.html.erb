@@ -78,7 +78,18 @@ edit_link(
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
-            <%= cell("decidim/endorsement_buttons", @proposal) %>
+            <div class="row collapse buttons__row">
+              <% if endorsements_enabled? %>
+                <div class="column small-9 collapse">
+                  <%= cell("decidim/endorsement_buttons", @proposal) %>
+                </div>
+              <% end %>
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
+                <% end %>
+              </div>
+            </div>
             <br>
             <%= follow_button_for(@proposal) %>
           </div>

@@ -45,6 +45,20 @@ module Decidim
       endorsements_enabled?
     end
 
+    # produces the path that should be POST to create an endorsement
+    def path_to_create_endorsement(resource, user_group = nil)
+      endorsements_path(resource_id: resource.to_gid.to_param,
+                        user_group_id: user_group&.id,
+                        authenticity_token: form_authenticity_token)
+    end
+
+    # Produces the path that should be DELETE to destroy an endorsement.
+    def path_to_destroy_endorsement(resource, user_group = nil)
+      endorsement_path(resource.to_gid.to_param,
+                       user_group_id: user_group&.id,
+                       authenticity_token: form_authenticity_token)
+    end
+
     # Renders an identity for endorsement.
     #
     # Parameters:
@@ -59,17 +73,11 @@ module Decidim
                   end
       selected = resource.endorsed_by?(user, user_group)
       http_method = selected ? :delete : :post
-      create_url = endorsements_path(resource_id: resource.to_gid.to_param,
-                                     user_group_id: user_group&.id,
-                                     authenticity_token: form_authenticity_token)
-      destroy_url = endorsement_path(resource.to_gid.to_param,
-                                     user_group_id: user_group&.id,
-                                     authenticity_token: form_authenticity_token)
       render partial: "decidim/endorsements/identity", locals:
       { identity: presenter, selected: selected,
         http_method: http_method,
-        create_url: create_url,
-        destroy_url: destroy_url }
+        create_url: path_to_create_endorsement(resource, user_group),
+        destroy_url: path_to_destroy_endorsement(resource, user_group) }
     end
 
     # Renders the counter of endorsements that appears in card at show Propoal.
@@ -98,33 +106,12 @@ module Decidim
       elsif current_user && allowed_to?(:create, :endorsement, resource: resource)
         render "endorsement_identities_cabin"
       elsif current_user
-        button_to(endorse_translated, proposal_path(resource),
+        button_to(endorse_translated, endorsement_path(resource),
                   data: { open: "authorizationModal", "open-url": modal_path(:endorse, resource) },
                   class: "#{html_class} #{endorsement_button_classes(false)} secondary")
       else
         action_authorized_button_to :endorse, endorse_translated, "", resource: resource, class: "#{html_class} #{endorsement_button_classes(false)} secondary"
       end
-    end
-
-    # Renders a button to endorse the given +resource+.
-    # To override the translation for both buttons: endorse and unendorse (use to be the name of the user/user_group).
-    #
-    # Parameters:
-    #   resources  - The endorsable resource.
-    #   btn_label  - A label to override the default button label (optional).
-    #   user_group - The user_group on behalf of which the endorsement is being done (optional).
-    def endorsement_button(resource, btn_label = nil, user_group = nil)
-      current_endorsement_url = endorsement_path(
-        resource.to_gid.to_param,
-        user_group_id: user_group&.id
-      )
-      endorse_label = btn_label || t("decidim.endorsements_helper.endorsement_button.endorse")
-      unendorse_label = btn_label || t("decidim.endorsements_helper.endorsement_button.already_endorsed")
-
-      render partial: "decidim/endorsements/endorsement_button", locals: { resource: resource,
-                                                                           user_group: user_group,
-                                                                           current_endorsement_url: current_endorsement_url,
-                                                                           endorse_label: endorse_label, unendorse_label: unendorse_label }
     end
 
     # Returns the css classes used for proposal endorsement button in both proposals list and show pages

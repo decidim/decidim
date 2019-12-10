@@ -9,5 +9,5 @@
        data-reveal data-reveal-identities-url="<%= reveal_identities_url %>">
   </div>
 <% else %>
-    <%= endorsement_button(resource, false) %>
+    <%= cell("decidim/endorsement_buttons", resource).button %>
 <% end %>
