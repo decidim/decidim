@@ -67,13 +67,12 @@ $(() => {
       });
     })
 
-    $(".form.newsletter_deliver").on("change" ,function(){
+    $(".form.newsletter_deliver").on("change", function() {
       let $data = $form.serializeJSON().newsletter;
       let $id = $form.attr("id").match(/\d+/)[0];
-      let $url = "/admin/newsletters/" + $id + "/recipients_count";
-
-      $.get($url, {data: $data}, function( recipients_count ) {
-        $('#recipients_count').text(recipients_count);
+      let $url = `/admin/newsletters/${$id}/recipients_count`;
+      $.get($url, {data: $data}, function(recipientsCount) {
+        $("#recipients_count").text(recipientsCount);
       });
     })
   }
