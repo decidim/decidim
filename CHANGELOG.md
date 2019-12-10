@@ -51,6 +51,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Security upgrade: puma. [\#5557](https://github.com/decidim/decidim/pull/5557)
 - **decidim-assemblies**, **decidim-core**, **decidim-participatory_processes**, **decidim-proposals**: Fix: Non-private users can amend proposals from a private space [#5427](https://github.com/decidim/decidim/pull/5427)
 - **decidim-sortitions**: Fix: Creating a Sortition ignores categories [#5412](https://github.com/decidim/decidim/pull/5412)
 - **decidim-proposals**: Fix: ParticipatoryText workflow creates multiple versions [#5399](https://github.com/decidim/decidim/pull/5399)
