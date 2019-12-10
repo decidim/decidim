@@ -3,10 +3,10 @@
     <h2 class="card-title">
       <%= t("participatory_processes", scope: "decidim.admin.titles") %>
 
-      <% if @process_group %>
+      <% if process_group %>
         <span>&lt;</span>
-        <%= link_to translated_attribute(@process_group.name),
-                    edit_participatory_process_group_path(@process_group) %>
+        <%= link_to translated_attribute(process_group.name),
+                    edit_participatory_process_group_path(process_group) %>
       <% end %>
 
       <% if allowed_to? :import, :process %>
@@ -26,17 +26,18 @@
       </button>
       <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
         <ul class="list-reset">
-          <%= link_to url_for(group_id: nil) do %>
+          <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
             <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
           <% end %>
-          <% Decidim::ParticipatoryProcessGroup.all.each do |group| %>
-            <%= link_to url_for(group_id: group.id) do %>
-              <li><%= translated_attribute(group.name) %></li>
+          <% process_groups_for_select.each do |group_name, group_id| %>
+            <%= link_to query_params_with(decidim_participatory_process_group_id_eq: group_id) do %>
+              <li><%= group_name %></li>
             <% end %>
           <% end %>
         </ul>
       </div>
   </div>
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
