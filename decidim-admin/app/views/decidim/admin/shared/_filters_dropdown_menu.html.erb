@@ -1,0 +1,14 @@
+<% if lookup_context.exists?(filters_dropdown_menu_partial, [], true) %>
+  <%= render partial: filters_dropdown_menu_partial %>
+<% else %>
+  <% filters_with_values.each do |filter, values| %>
+    <li class="is-dropdown-submenu-parent">
+      <%= filter_link_label(filter) %>
+      <ul class="vertical menu">
+        <% values.each do |value| %>
+          <li><%= filter_link_value(filter, value) %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+<% end %>

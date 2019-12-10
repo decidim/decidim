@@ -277,6 +277,21 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      filters:
+        filter_label: Filter
+        private_space_eq:
+          label: Private
+          values:
+            'false': Public
+            'true': Private
+        published_at_null:
+          label: Published
+          values:
+            'false': Published
+            'true': Unpublished
+        search_label: Search
+        search_placeholder:
+          title_cont: Search %{collection} by title.
       help_sections:
         error: There was a problem updating the help sections
         form:
