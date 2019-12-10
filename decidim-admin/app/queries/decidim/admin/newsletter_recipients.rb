@@ -23,6 +23,7 @@ module Decidim
         recipients = Decidim::User.where(organization: @form.current_organization)
                                   .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
                                   .not_deleted
+
         recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
 
         followers = recipients.where(id: user_id_of_followers) if @form.send_to_followers
