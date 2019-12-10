@@ -196,6 +196,7 @@ ignore_unused:
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
+  - decidim.admin.filters.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
