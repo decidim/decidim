@@ -14,6 +14,12 @@ module Decidim
             @processes_selected ||= current_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
           end
         end
+
+        # Public: A collection of Assemblies that can be selected as parent
+        # assemblies for another assembly; to be used in forms.
+        def parent_assemblies_for_select
+          @parent_assemblies_for_select ||= ParentAssembliesForSelect.for(current_organization, current_assembly)
+        end
       end
     end
   end
