@@ -34,7 +34,7 @@ module Decidim
       validates :name, presence: true
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      validates :admin_terms_of_use_body, translatable_presence: true
+      validates :admin_terms_of_use_body, translatable_presence: true, if: proc { |form| form.default_locale }
 
       private
 

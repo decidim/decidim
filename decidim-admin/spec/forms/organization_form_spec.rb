@@ -19,6 +19,13 @@ module Decidim
       let(:youtube_handler) { "My youtube awesome handler" }
       let(:github_handler) { "My github awesome handler" }
       let(:default_locale) { :en }
+      let!(:admin_terms_of_use_body) do
+        {
+          "ca" => "",
+          "en" => "<p>Dummy admin terms body en</p>",
+          "es" => ""
+        }
+      end
       let(:organization) { create(:organization) }
       let(:attributes) do
         {
@@ -30,7 +37,11 @@ module Decidim
             "facebook_handler" => facebook_handler,
             "instagram_handler" => instagram_handler,
             "youtube_handler" => youtube_handler,
-            "github_handler" => github_handler
+            "github_handler" => github_handler,
+            "admin_terms_of_use_body" => admin_terms_of_use_body,
+            "admin_terms_of_use_body_ca" => admin_terms_of_use_body[:ca],
+            "admin_terms_of_use_body_en" => admin_terms_of_use_body[:en],
+            "admin_terms_of_use_body_es" => admin_terms_of_use_body[:es]
           }
         }
       end
@@ -47,6 +58,28 @@ module Decidim
 
       context "when name is missing" do
         let(:name) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when admin_terms_of_use_body is missing" do
+        let(:admin_terms_of_use_body) do
+          {
+            ca: nil,
+            en: nil,
+            es: nil
+          }
+        end
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when default language in admin_terms_of_use_body is missing" do
+        let(:admin_terms_of_use_body) do
+          {
+            ca: "Termes i condicions de l'administrador (ca)"
+          }
+        end
 
         it { is_expected.to be_invalid }
       end

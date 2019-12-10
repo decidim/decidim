@@ -53,8 +53,6 @@ module Decidim
       private
 
       def user_manager?
-        return unless admin_terms_accepted?
-
         user && !user.admin? && user.role?("user_manager")
       end
 
