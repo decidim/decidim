@@ -6,13 +6,14 @@
                   ["new", "consultation"], class: "button tiny button--title" if allowed_to? :create, :consultation %>
     </h2>
   </div>
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
         <thead>
           <tr>
             <th><%= t("models.consultation.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.consultation.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= sort_link(query, :created_at, t("models.consultation.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th class="table-list__actions">
               <%= t("models.consultation.fields.published", scope: "decidim.admin") %>
             </th>
