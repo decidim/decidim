@@ -14,6 +14,7 @@ module Decidim
 
         context "without a valid email" do
           let(:csv_datum) { build(:csv_datum, email: "invalid_email") }
+
           it { is_expected.not_to be_valid }
         end
       end
