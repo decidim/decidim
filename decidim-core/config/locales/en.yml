@@ -430,20 +430,13 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
-    endorsement_buttons:
-      endorsement_identities_cabin:
-        endorse: Endorse
-    endorsement_cell:
-      render_endorsements_button_card_part:
-        endorse: Endorse
+    endorsement_buttons_cell:
+      already_endorsed: Endorsed
+      endorse: Endorse
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
-    endorsements_helper:
-      endorsement_button:
-        already_endorsed: Endorsed
-        endorse: Endorse
     errors:
       internal_server_error:
         title: There was a problem with our server

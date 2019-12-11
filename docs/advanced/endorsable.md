@@ -89,7 +89,9 @@ There is already a concern with this two methods: `Decidim::WithEndorsablePermis
 
 ### The "Endorse" button
 It normally appears in the resource detail view (show). At the action card in right-side of the view.
-It allows the user to endorse with any of its identities, the personal one, and her user_groups, if any.
+It allows the user to endorse with any of its identities, its personal one, and/or the ones from its user_groups, if any.
+
+To render this button Core offers the "decidim/endorsement_buttons" cell. It is strongly recommended to use this cell to make new resources endorsable.
 
 ### EndorsableHelper
 

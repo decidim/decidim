@@ -127,8 +127,6 @@ en:
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
             votes_hidden: Supports hidden (if supports are enabled, checking this will hide the number of supports)
-    endorsement_buttons:
-      endorse: Endorse
     events:
       proposals:
         collaborative_draft_access_accepted:

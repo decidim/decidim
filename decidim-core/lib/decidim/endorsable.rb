@@ -12,6 +12,14 @@ module Decidim
                as: :resource,
                dependent: :destroy,
                counter_cache: "endorsements_count"
+
+      # Public: Check if the user has endorsed the resource.
+      # - user_group: may be nil if user is not representing any user_group.
+      #
+      # Returns Boolean.
+      def endorsed_by?(user, user_group = nil)
+        endorsements.where(author: user, user_group: user_group).any?
+      end
     end
   end
 end

@@ -97,32 +97,5 @@ module Decidim
         end
       end
     end
-
-    def render_endorsements_button_card_part(resource, html_class = nil)
-      endorse_translated = t("decidim.endorsement_cell.render_endorsements_button_card_part.endorse")
-      html_class = "card__button button" if html_class.blank?
-      if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)
-        content_tag :span, endorse_translated, class: "#{html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
-      elsif current_user && allowed_to?(:create, :endorsement, resource: resource)
-        render "endorsement_identities_cabin"
-      elsif current_user
-        button_to(endorse_translated, endorsement_path(resource),
-                  data: { open: "authorizationModal", "open-url": modal_path(:endorse, resource) },
-                  class: "#{html_class} #{endorsement_button_classes(false)} secondary")
-      else
-        action_authorized_button_to :endorse, endorse_translated, "", resource: resource, class: "#{html_class} #{endorsement_button_classes(false)} secondary"
-      end
-    end
-
-    # Returns the css classes used for proposal endorsement button in both proposals list and show pages
-    #
-    # from_resourcess_list - A boolean to indicate if the template is rendered from the list page of the resource.
-    #
-    # Returns a string with the value of the css classes.
-    def endorsement_button_classes(from_resourcess_list = false)
-      return "small" if from_resourcess_list
-
-      "small compact light button--sc expanded"
-    end
   end
 end

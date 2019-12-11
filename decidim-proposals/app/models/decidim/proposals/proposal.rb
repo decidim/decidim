@@ -124,14 +124,6 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Check if the user has endorsed the proposal.
-      # - user_group: may be nil if user is not representing any user_group.
-      #
-      # Returns Boolean.
-      def endorsed_by?(user, user_group = nil)
-        endorsements.where(author: user, user_group: user_group).any?
-      end
-
       # Public: Checks if the proposal has been published or not.
       #
       # Returns Boolean.
