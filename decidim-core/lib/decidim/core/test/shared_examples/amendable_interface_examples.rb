@@ -4,38 +4,11 @@ require "spec_helper"
 
 shared_examples_for "amendable interface" do
   describe "amendments" do
-    let(:query) { "{ amendments { state amendable { title } amendableType emendation { title } emendationType amender { name } } }" }
+    let(:query) { "{ amendments { id } }" }
 
-    it "includes the amendments states" do
-      amendments_states = response["amendments"].map { |amendment| amendment["state"] }
-      expect(amendments_states).to include(*model.amendments.map(&:state))
-    end
-
-    it "amendable types matches Proposals Type" do
-      response["amendments"].each do |amendment|
-        expect(amendment["amendableType"]).to eq("Decidim::Proposals::Proposal")
-      end
-    end
-
-    it "emendation types matches Proposals Type" do
-      response["amendments"].each do |amendment|
-        expect(amendment["emendationType"]).to eq("Decidim::Proposals::Proposal")
-      end
-    end
-
-    it "returns amendable as parent proposal" do
-      amendment_amendables = response["amendments"].map { |amendment| amendment["amendable"] }
-      expect(amendment_amendables).to include(*model.amendments.map(&:amendable).map { |p| { "title" => p.title } })
-    end
-
-    it "returns emendations received" do
-      amendment_emendations = response["amendments"].map { |amendment| amendment["emendation"] }
-      expect(amendment_emendations).to include(*model.amendments.map(&:emendation).map { |p| { "title" => p.title } })
-    end
-
-    it "returns amender as emendation author" do
-      amendment_amenders = response["amendments"].map { |amendment| amendment["amender"] }
-      expect(amendment_amenders).to include(*model.amendments.map(&:amender).map { |p| { "name" => p.name } })
+    it "includes the amendments id" do
+      amendments_ids = response["amendments"].map { |amendment| amendment["id"].to_i }
+      expect(amendments_ids).to include(*model.amendments.map(&:id))
     end
   end
 end

@@ -10,6 +10,7 @@ module Decidim
 
       let(:model) do
         double(
+          id: 1101,
           state: "some_status",
           decidim_amendable_type: "type1",
           decidim_emendation_type: "type2",
@@ -21,6 +22,14 @@ module Decidim
       let(:user) { create(:user) }
       let(:amendable) { create(:proposal) }
       let(:emendation) { create(:proposal) }
+
+      describe "id" do
+        let(:query) { "{ id }" }
+
+        it "returns the user" do
+          expect(response["id"]).to eq(model.id.to_s)
+        end
+      end
 
       describe "amender" do
         let(:query) { "{ amender { name } }" }
@@ -55,7 +64,7 @@ module Decidim
       end
 
       describe "emendation" do
-        let(:query) { "{ emendation { title } }" }
+        let(:query) { "{ emendation { ...on Proposal { title } } }" }
 
         it "returns the emendation as a string" do
           expect(response["emendation"]["title"]).to eq(emendation.title)
@@ -63,7 +72,7 @@ module Decidim
       end
 
       describe "amendable" do
-        let(:query) { "{ amendable { title } }" }
+        let(:query) { "{ amendable { ...on Proposal { title } } }" }
 
         it "returns the amendable as a string" do
           expect(response["amendable"]["title"]).to eq(amendable.title)

@@ -6,6 +6,7 @@ module Decidim
       name "Amendment"
       description "An amendment"
 
+      field :id, !types.ID, "The id of this amendment"
       field :state, !types.String, "The status of this amendment"
       field :amender, !Decidim::Core::AuthorInterface, "The author of this amendment"
 

@@ -9,6 +9,7 @@ require "decidim/core/test/shared_examples/authorable_interface_examples"
 require "decidim/core/test/shared_examples/coauthorable_interface_examples"
 require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
 require "decidim/core/test/shared_examples/amendable_interface_examples"
+require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
 
 module Decidim
@@ -24,6 +25,7 @@ module Decidim
       include_examples "coauthorable interface"
       include_examples "fingerprintable interface"
       include_examples "amendable interface"
+      include_examples "amendable proposals interface"
       include_examples "traceable interface"
 
       describe "id" do
