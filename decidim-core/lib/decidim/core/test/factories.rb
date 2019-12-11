@@ -425,10 +425,25 @@ FactoryBot.define do
   end
 
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
+    transient do
+      users { nil }
+      # user_groups correspondence to users is by sorting order
+      user_groups { [] }
+    end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
+
+    after(:build) do |resource, evaluator|
+      if resource.component
+        users = evaluator.users || [create(:user, organization: resource.component.participatory_space.organization)]
+        users.each_with_index do |user, idx|
+          user_group = evaluator.user_groups[idx]
+          resource.coauthorships.build(author: user, user_group: user_group)
+        end
+      end
+    end
 
     trait :published do
       published_at { Time.current }
