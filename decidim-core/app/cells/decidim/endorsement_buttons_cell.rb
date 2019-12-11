@@ -94,7 +94,7 @@ module Decidim
                                                                                           class: "button #{endorsement_button_classes} success", id: "endorsement_button")
         else
           action_authorized_button_to(:endorse, endorse_translated, path_to_create_endorsement(resource), resource: resource, remote: true,
-                                                                                                             class: "button #{endorsement_button_classes} secondary")
+                                                                                                          class: "button #{endorsement_button_classes} secondary")
         end
       end
     end
