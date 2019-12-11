@@ -7,18 +7,18 @@ import AddCommentForm from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
 import CommentThread from "./comment_thread.component";
 
-import {
-  GetCommentsQuery,
-  GetCommentsQueryVariables
-} from "../support/schema";
+import { GetCommentsQuery, GetCommentsQueryVariables } from "../support/schema";
 
 const { I18n, Translate } = require("react-i18nify");
+
+import { debounce } from "ts-debounce";
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
   singleCommentId?: string;
   reorderComments: (orderBy: string) => void;
+  fetchMoreComments: (page: number) => any;
 }
 
 /**
@@ -28,7 +28,7 @@ interface CommentsProps extends GetCommentsQuery {
  * @class
  * @augments Component
  */
-export class Comments extends React.Component<CommentsProps> {
+export class Comments extends React.Component<CommentsProps, { page: number }> {
   public static defaultProps: any = {
     loading: false,
     session: null,
@@ -37,10 +37,42 @@ export class Comments extends React.Component<CommentsProps> {
     }
   };
 
+  public onScroll = debounce(() => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 500
+    ) {
+      this._fetchMoreComments();
+    }
+  }, 100);
+
+  constructor(props: CommentsProps) {
+    super(props);
+
+    this.state = {
+      page: 1
+    };
+  }
+
+  public componentDidMount() {
+    document.addEventListener("scroll", () => this.onScroll());
+  }
+
+  public componentWillUnmount() {
+    document.removeEventListener("scroll", () => this.onScroll());
+  }
+
   public render() {
-    const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading } = this.props;
+    const {
+      commentable: { totalCommentsCount = 0 },
+      singleCommentId,
+      loading
+    } = this.props;
     let commentClasses = "comments";
-    let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
+    let commentHeader = I18n.t("components.comments.title", {
+      count: totalCommentsCount
+    });
+
     if (singleCommentId && singleCommentId !== "") {
       commentHeader = I18n.t("components.comments.comment_details_title");
     }
@@ -64,9 +96,24 @@ export class Comments extends React.Component<CommentsProps> {
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
           {this._renderBlockedCommentsForUserWarning()}
+          {this._renderBlockedCommentsWarning()}
+          {this._renderCommentThreads()}
         </section>
       </div>
     );
+  }
+
+  private _fetchMoreComments() {
+    const { fetchMoreComments, commentable } = this.props;
+    const { totalPages } = commentable;
+    const { page } = this.state;
+
+    if (page < totalPages) {
+      fetchMoreComments(page);
+      this.setState({
+        page: page + 1
+      });
+    }
   }
 
   /**
@@ -123,7 +170,9 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsWarning() {
-    const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
+    const {
+      commentable: { acceptsNewComments, userAllowedToComment }
+    } = this.props;
 
     if (!acceptsNewComments && !userAllowedToComment) {
       return (
@@ -143,13 +192,17 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsForUserWarning() {
-    const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
+    const {
+      commentable: { acceptsNewComments, userAllowedToComment }
+    } = this.props;
 
     if (acceptsNewComments) {
       if (!userAllowedToComment) {
         return (
           <div className="callout warning">
-            <p>{I18n.t("components.comments.blocked_comments_for_user_warning")}</p>
+            <p>
+              {I18n.t("components.comments.blocked_comments_for_user_warning")}
+            </p>
           </div>
         );
       }
@@ -167,7 +220,7 @@ export class Comments extends React.Component<CommentsProps> {
     const { session, commentable, orderBy } = this.props;
     const { comments, commentsHaveVotes } = commentable;
 
-    return comments.map((comment) => (
+    return comments.map(comment => (
       <CommentThread
         key={comment.id}
         comment={comment}
@@ -217,29 +270,51 @@ window.Comments = Comments;
 
 export const commentsQuery = require("../queries/comments.query.graphql");
 
-const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(commentsQuery, {
-  options: {
-    pollInterval: 15000
-  },
-  props: ({ ownProps, data }) => {
-    if (data) {
-      const { loading, session, commentable, refetch } = data;
+const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(
+  commentsQuery,
+  {
+    props: ({ ownProps, data }) => {
+      if (data) {
+        const { loading, session, commentable, refetch, fetchMore } = data;
 
-      return {
-        loading,
-        session,
-        commentable,
-        orderBy: ownProps.orderBy,
-        singleCommentId: ownProps.singleCommentId,
-        reorderComments: (orderBy: string) => {
-          return refetch({
-            orderBy
-          });
-        }
-      };
+        return {
+          loading,
+          session,
+          commentable,
+          orderBy: ownProps.orderBy,
+          singleCommentId: ownProps.singleCommentId,
+          reorderComments: (orderBy: string) => {
+            return refetch({
+              orderBy
+            });
+          },
+          fetchMoreComments: (page: number) => {
+            return fetchMore({
+              variables: {
+                page: page + 1
+              },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                if (!fetchMoreResult) {
+                  return prev;
+                }
+                return {
+                  ...prev,
+                  commentable: {
+                    ...prev.commentable,
+                    comments: [
+                      ...prev.commentable.comments,
+                      ...fetchMoreResult.commentable.comments
+                    ]
+                  }
+                };
+              }
+            });
+          }
+        };
+      }
     }
   }
-})(Comments);
+)(Comments);
 
 export interface CommentsApplicationProps extends GetCommentsQueryVariables {
   singleCommentId: string;
@@ -251,15 +326,20 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType, singleCommentId }) => (
-  <Application locale={locale}>
-    <CommentsWithData
-      commentableId={commentableId}
-      commentableType={commentableType}
-      orderBy="older"
-      singleCommentId={singleCommentId}
-    />
-  </Application>
-);
+const CommentsApplication: React.SFC<CommentsApplicationProps> = ({
+  locale,
+  commentableId,
+  commentableType,
+  singleCommentId
+}) => (
+    <Application locale={locale}>
+      <CommentsWithData
+        commentableId={commentableId}
+        commentableType={commentableType}
+        orderBy="older"
+        singleCommentId={singleCommentId}
+      />
+    </Application>
+  );
 
 export default CommentsApplication;

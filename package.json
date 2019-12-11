@@ -270,6 +270,7 @@
     "react-i18nify": "^1.8.8",
     "react-select": "^1.2.1",
     "react-test-renderer": "^16.0.0",
+    "ts-debounce": "^1.0.0",
     "unfetch": "^3.0.0",
     "uuid": "^3.2.1"
   },

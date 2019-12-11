@@ -29,10 +29,11 @@ module Decidim
         type !types[!CommentType]
 
         argument :orderBy, types.String, "Order the comments"
+        argument :page, types.Int, "Which page of comments to fetch"
         argument :singleCommentId, types.String, "ID of the single comment to look at"
 
         resolve lambda { |obj, args, _ctx|
-          SortedComments.for(obj, order_by: args[:orderBy], id: args[:singleCommentId])
+          SortedComments.for(obj, order_by: args[:orderBy], page: args[:page], id: args[:singleCommentId])
         }
       end
 
@@ -42,6 +43,15 @@ module Decidim
 
         resolve lambda { |obj, _args, _ctx|
           obj.comments.count
+        }
+      end
+
+      field :totalPages do
+        type !types.Int
+        description "The number of pages of comments"
+
+        resolve lambda { |obj, _args, _ctx|
+          (obj.comments.count.to_f / 10).ceil
         }
       end
 

@@ -22,6 +22,8 @@ module Decidim
       #           :order_by - The string order_by to sort by ( optional )
       def initialize(commentable, options = {})
         options[:order_by] ||= "older"
+        options[:page] ||= 1
+        options[:per_page] = 10 # limit this for security reasons
         @commentable = commentable
         @options = options
       end
@@ -33,6 +35,8 @@ module Decidim
         scope = base_scope
                 .not_hidden
                 .includes(:author, :user_group, :up_votes, :down_votes)
+                .page(@options[:page])
+                .per(@options[:per_page])
 
         scope = case @options[:order_by]
                 when "older"

@@ -9,6 +9,7 @@ module Decidim::Comments
     let(:options) do
       {
         order_by: order_by,
+        page: page,
         id: id
       }
     end
@@ -20,6 +21,7 @@ module Decidim::Comments
     let!(:commentable) { create(:dummy_resource, component: component) }
     let!(:comment) { create(:comment, commentable: commentable, author: author) }
     let!(:order_by) {}
+    let!(:page) {}
 
     it "returns the commentable's comments" do
       expect(subject.query).to eq [comment]
@@ -57,6 +59,15 @@ module Decidim::Comments
 
       it "is not included in the query" do
         expect(subject.query).to be_empty
+      end
+    end
+
+    context "when order_by is not default" do
+      let!(:page) { 2 }
+
+      it "fetches a specific page of 10 comments" do
+        comments = [comment] + 29.times.map { create(:comment, commentable: commentable, author: author) }
+        expect(subject.query).to eq(comments[10..19])
       end
     end
 

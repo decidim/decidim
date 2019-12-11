@@ -1,7 +1,13 @@
 #import "../fragments/add_comment_form_session.fragment.graphql"
 #import "../fragments/comment_thread.fragment.graphql"
 #import "../fragments/add_comment_form_commentable.fragment.graphql"
-query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String, $singleCommentId: String) {
+query GetComments(
+  $commentableId: String!
+  $commentableType: String!
+  $orderBy: String
+  $page: Int
+  $singleCommentId: String
+) {
   session {
     user {
       name
@@ -17,7 +23,8 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
     commentsHaveAlignment
     commentsHaveVotes
     totalCommentsCount
-    comments(orderBy: $orderBy, singleCommentId: $singleCommentId) {
+    totalPages
+    comments(orderBy: $orderBy, page: $page, singleCommentId: $singleCommentId) {
       id
       ...CommentThread
     }

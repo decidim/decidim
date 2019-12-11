@@ -35,7 +35,7 @@ shared_examples "comments" do
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 
     click_link "Best rated"
-    expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
+    expect(page).to have_css(".comments > div:nth-child(3)", text: "Most Rated Comment")
   end
 
   context "when not authenticated" do
