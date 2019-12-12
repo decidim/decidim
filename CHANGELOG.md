@@ -44,6 +44,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 
 **Fixed**:
 
+- **decidim-admin**: [FIX] consultation queries don't result in exception [\#5561](https://github.com/decidim/decidim/pull/5561)
 - **decidim-admin**: Fix: Edit component permissions when PermissionsForm validations fail [\#5458](https://github.com/decidim/decidim/pull/5458)
 - **decidim-core**: Upgrade rack-cors for security. [\#5527](https://github.com/decidim/decidim/pull/5527)
 - **decidim-core**, **decidim-proposals**: Fix: diffing attributes with integer values [\#5468](https://github.com/decidim/decidim/pull/5468)
