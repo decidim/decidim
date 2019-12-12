@@ -2,6 +2,8 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/authorable_interface_examples"
 
 module Decidim
   module Blogs
@@ -9,6 +11,9 @@ module Decidim
       include_context "with a graphql type"
 
       let(:model) { create(:post) }
+
+      include_examples "attachable interface"
+      include_examples "authorable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
