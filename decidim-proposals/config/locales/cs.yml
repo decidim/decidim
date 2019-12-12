@@ -18,7 +18,6 @@ cs:
         body: Tělo
         category_id: Kategorie
         has_address: Má adresu
-        scope_id: Rozsah
         state: Stát
         suggested_hashtags: Navrhované hashtags
         title: Titul
@@ -660,7 +659,6 @@ cs:
         endorsements_card_row:
           comments: Komentáře
         filters:
-          activity: Aktivita
           amendment_type: Typ
           category: Kategorie
           category_prompt: Vyberte kategorii

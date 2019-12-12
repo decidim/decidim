@@ -18,7 +18,6 @@ de:
         body: Karosserie
         category_id: Kategorie
         has_address: Hat eine Adresse
-        scope_id: Umfang
         state: Zustand
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
@@ -631,7 +630,6 @@ de:
         endorsements_card_row:
           comments: Bemerkungen
         filters:
-          activity: Aktivität
           amendment_type: Art
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
