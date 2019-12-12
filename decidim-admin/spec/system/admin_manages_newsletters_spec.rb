@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+%w(conferences initiatives consultations).each do |space|
+  require "decidim/#{space}/test/factories.rb"
+end
 
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
@@ -107,7 +110,23 @@ describe "Admin manages newsletters", type: :system do
   end
 
   describe "select newsletter recipients" do
+    let!(:participatory_process) { create(:participatory_process, organization: organization) }
+    let!(:assembly) { create(:assembly, organization: organization) }
+    let!(:conference) { create(:conference, organization: organization) }
+    let!(:consultation) { create(:consultation, organization: organization) }
+    let!(:initiative) { create(:initiative, organization: organization) }
     let!(:newsletter) { create(:newsletter, organization: organization) }
+    let(:spaces) { [participatory_process, assembly, conference, consultation, initiative] }
+    let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
+
+    def select_all
+      spaces.each do |space|
+        plural_name = space.model_name.route_key
+        within ".#{plural_name}-block" do
+          select translated(space.title), from: "newsletter_participatory_space_types_#{plural_name}__ids"
+        end
+      end
+    end
 
     context "when all users are selected" do
       it "sends to all users" do
@@ -133,10 +152,9 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when followers are selected" do
-      let!(:participatory_processes) { create_list(:participatory_process, 2, organization: organization) }
       let!(:followers) do
         deliverable_users.each do |follower|
-          create(:follow, followable: participatory_processes.first, user: follower)
+          create(:follow, followable: component.participatory_space, user: follower)
         end
       end
 
@@ -147,9 +165,7 @@ describe "Admin manages newsletters", type: :system do
             uncheck("Send to all users")
             check("Send to followers")
             uncheck("Send to participants")
-            within ".participatory_processes-block" do
-              select translated(participatory_processes.first.title), from: :newsletter_participatory_space_types_participatory_processes__ids
-            end
+            select_all
           end
 
           within ".button--double" do
@@ -167,8 +183,6 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when participants are selected" do
-      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
-
       before do
         deliverable_users.each do |participant|
           create(:dummy_resource, component: component, author: participant, published_at: Time.current)
@@ -182,9 +196,7 @@ describe "Admin manages newsletters", type: :system do
             uncheck("Send to all users")
             uncheck("Send to followers")
             check("Send to participants")
-            within ".participatory_processes-block" do
-              select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
-            end
+            select_all
           end
 
           within ".button--double" do
@@ -202,8 +214,6 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when selecting both followers and participants" do
-      let!(:component) { create(:dummy_component, organization: newsletter.organization) }
-
       let!(:followers) do
         deliverable_users.each do |follower|
           create(:follow, followable: component.participatory_space, user: follower)
@@ -223,9 +233,7 @@ describe "Admin manages newsletters", type: :system do
             uncheck("Send to all users")
             check("Send to followers")
             check("Send to participants")
-            within ".participatory_processes-block" do
-              select translated(component.participatory_space.title), from: :newsletter_participatory_space_types_participatory_processes__ids
-            end
+            select_all
           end
 
           within ".button--double" do
