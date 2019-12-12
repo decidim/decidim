@@ -41,6 +41,25 @@
           <%= invisible_captcha %>
           <div class="card">
             <div class="card__content">
+
+              <ol class="horizontal__steps" <%= form_step_attributes(step: 1, field: true) %>>
+                <li class="step--active">
+                  1. Create account
+                </li>
+                <li>
+                  2. Complete profile
+                </li>
+              </ol>
+
+              <ol class="horizontal__steps" <%= form_step_attributes(step: 2, field: true) %>>
+                <li class="step--active">
+                  1. Create account
+                </li>
+                <li class="step--active">
+                  2. Complete profile
+                </li>
+              </ol>
+
               <div class="user-person" <%= form_step_attributes(step: 2, field: true) %>>
                 <div class="field">
                   <%= f.text_field :name, help_text: t(".username_help") %>

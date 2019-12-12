@@ -1,0 +1,63 @@
+.horizontal__steps{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 $margin-s;
+  list-style-type: none;
+
+  li{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: $muted;
+    font-weight: 600;
+    font-size: rem-calc(18);
+  }
+
+  $radius: 8px;
+  $line-height: calc(#{$radius} / 4);
+  $center-line: calc(-1 * ((2 * #{$radius}) - #{$line-height}) / 2);
+
+  li::before{
+    content: "";
+    display: block;
+    position: absolute;
+    height: $line-height;
+    width: 100%;
+    background-color: $muted;
+    bottom: 0;
+    transform: translateY($center-line);
+  }
+
+  li:first-child::before{
+    width: 50%;
+    transform: translate(50%, $center-line);
+  }
+
+  li:last-child::before{
+    width: 50%;
+    transform: translate(-50%, $center-line);
+  }
+
+  li::after{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    height: calc(2 * #{$radius});
+    width: calc(2 * #{$radius});
+    background-color: $muted;
+  }
+
+  li.step--active{
+    color: var(--primary);
+
+    &::before{
+      background-color: var(--primary);
+    }
+
+    &::after{
+      background-color: var(--primary);
+    }
+  }
+}
