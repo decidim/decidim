@@ -1,8 +1,8 @@
 $(() => {
   const $userRegistrationForm  = $("#register-form");
   const $userGroupFields       = $userRegistrationForm.find(".user-group-fields");
-  const inputSelector          = 'input[name="user[sign_up_as]"]';
-  const newsletterSelector     = 'input[type="checkbox"][name="user[newsletter]"]';
+  const inputSelector          = "input[name='user[sign_up_as]']";
+  const newsletterSelector     = "input[type='checkbox'][name='user[newsletter]']";
   const $newsletterModal       = $("#sign-up-newsletter-modal");
   const $formStepForwardButton = $(".form-step-forward-button");
   const $formStepBackButton    = $(".form-step-back-button");
@@ -59,11 +59,11 @@ $(() => {
     event.preventDefault();
 
     // validate only input elements from step 1
-    $('[form-step="1"] input').each((index, element) => {
-      $userRegistrationForm.foundation('validateInput', $(element));
+    $("[form-step='1'] input").each((index, element) => {
+      $userRegistrationForm.foundation("validateInput", $(element));
     });
 
-    if(!$userRegistrationForm.find('[data-invalid]:visible').length) {
+    if (!$userRegistrationForm.find("[data-invalid]:visible").length) {
       toggleFromSteps();
     }
   });
