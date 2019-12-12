@@ -7,7 +7,6 @@ uk:
         body: Основний текст
         category_id: Категорія
         has_address: Має адресу
-        scope_id: Обсяг
         state: Стан
         title: Назва
         user_group_id: Створити пропозицію як
@@ -303,7 +302,6 @@ uk:
         endorsements_card_row:
           comments: Коментарі
         filters:
-          activity: Діяльність
           category: Категорія
           category_prompt: Оберіть категорію
           origin: Джерело

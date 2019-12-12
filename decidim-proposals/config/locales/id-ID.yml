@@ -18,7 +18,6 @@ id:
         body: Tubuh
         category_id: Kategori
         has_address: Memiliki alamat
-        scope_id: Cakupan
         state: Negara
         suggested_hashtags: Tagar yang disarankan
         title: Judul
@@ -621,7 +620,6 @@ id:
         endorsements_card_row:
           comments: Komentar
         filters:
-          activity: Aktivitas
           amendment_type: Mengetik
           category: Kategori
           category_prompt: Pilih Kategori

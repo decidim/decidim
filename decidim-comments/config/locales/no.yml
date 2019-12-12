@@ -4,13 +4,23 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
   decidim:
+    comments:
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Logg på med kontoen din</a> eller <a href="%{sign_up_url}">opprett en</a> for å legge til kommentaren din.
         form:
           body:
             label: Kommentar
         remaining_characters: "%{count} tegn igjen"
         remaining_characters_1: "%{count} tegn igjen"
+        title: Legg til kommentaren din
+      comment:
+        alignment:
+          against: Imot
+        report:
+          details: Ytterlige kommentarer
       comments:
         title: "%{count} kommentarer"
     events:
@@ -22,3 +32,4 @@
         reply_created:
           email_intro: "%{author_name} har svart kommentaren din i %{resource_title}. Du kan lese den på denne siden:"
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svart kommentaren din i <a href="%{resource_path}">%{resource_title}</a>

@@ -108,30 +108,9 @@ edit_link(
       <% end %>
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
-    <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
-      <% if @proposal.accepted? %>
-        <div class="section">
-          <div class="callout success">
-            <h5><%= t(".proposal_accepted_reason") %></h5>
-            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
-          </div>
-        </div>
-      <% elsif @proposal.rejected? %>
-        <div class="section">
-          <div class="callout warning">
-            <h5><%= t(".proposal_rejected_reason") %></h5>
-            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
-          </div>
-        </div>
-      <% else %>
-        <div class="section">
-          <div class="callout secondary">
-            <h5><%= t(".proposal_in_evaluation_reason") %></h5>
-            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+
+    <%= cell("decidim/announcement", proposal_reason_callout_args) if @proposal.answered? %>
+
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
