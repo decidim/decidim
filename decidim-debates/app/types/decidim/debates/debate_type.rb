@@ -6,7 +6,7 @@ module Decidim
       interfaces [
         -> { Decidim::Core::CategorizableInterface },
         -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::ScopableInterface }
+        -> { Decidim::Core::AuthorableInterface }
       ]
 
       name "Debate"
