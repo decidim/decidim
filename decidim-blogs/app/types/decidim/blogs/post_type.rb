@@ -5,9 +5,9 @@ module Decidim
     # This type represents a Post.
     PostType = GraphQL::ObjectType.define do
       interfaces [
-        -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AttachableInterface }
+        -> { Decidim::Core::AttachableInterface },
+        -> { Decidim::Core::AuthorableInterface }
       ]
 
       name "Post"
@@ -18,8 +18,6 @@ module Decidim
       field :body, Decidim::Core::TranslatedFieldType, "The body of this post"
       field :createdAt, Decidim::Core::DateTimeType, "The time this post was created", property: :created_at
       field :updatedAt, Decidim::Core::DateTimeType, "The time this post was updated", property: :updated_at
-
-      field :author, !Decidim::Core::AuthorInterface, "The author of this post"
     end
   end
 end

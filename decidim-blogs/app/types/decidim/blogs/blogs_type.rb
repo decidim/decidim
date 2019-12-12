@@ -2,11 +2,11 @@
 
 module Decidim
   module Blogs
-    PostsType = GraphQL::ObjectType.define do
+    BlogsType = GraphQL::ObjectType.define do
       interfaces [-> { Decidim::Core::ComponentInterface }]
 
       name "Blogs"
-      description "A posts component of a participatory space."
+      description "A blogs component of a participatory space."
 
       connection :posts, PostType.connection_type do
         resolve ->(component, _args, _ctx) {

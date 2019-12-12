@@ -6,7 +6,7 @@ require "decidim/core/test"
 
 module Decidim
   module Blogs
-    describe PostsType, type: :graphql do
+    describe BlogsType, type: :graphql do
       include_context "with a graphql type"
       let(:model) { create(:post_component) }
 

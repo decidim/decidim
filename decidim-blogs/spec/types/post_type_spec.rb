@@ -49,6 +49,14 @@ module Decidim
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
+
+      describe "author" do
+        let(:query) { "{ author { name }}" }
+
+        it "returns the author of the post" do
+          expect(response["author"]["name"]).to eq(model.author.name)
+        end
+      end
     end
   end
 end
