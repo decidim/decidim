@@ -46,6 +46,9 @@
         favicon: Ikon
         from: Fra e-postadresse
         header_snippets: Topptekstutdrag
+        highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
+        highlighted_content_banner_action_title: Handlingsknapp tittel
+        highlighted_content_banner_action_url: Handlingsknapp URL
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
@@ -89,26 +92,90 @@
         title: Tittel
       static_page_topic:
         title: Tittel
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Ugyldig bildefil
+            official_img_header:
+              allowed_file_content_types: Ugyldig bildefil
   activerecord:
     attributes:
       decidim/static_page:
         title: Tittel
+      doorkeeper/application:
+        authorize_url: Autoriser URL
   decidim:
     admin:
+      actions:
+        add: Legg til
+      area_types:
+        create:
+          success: Områdetype ble opprettet.
+        destroy:
+          success: Områdetype ble ødelagt
+        update:
+          success: Områdetype ble oppdatert
+      areas:
+        create:
+          success: Området ble opprettet.
+        destroy:
+          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
+          success: Området ble ødelagt
+        update:
+          success: Området ble oppdatert
+      attachment_collections:
+        index:
+          attachment_collections_title: Vedleggsmapper
+      attachments:
+        create:
+          error: Det oppsto et problem med å opprette et nytt vedlegg.
+          success: Vedlegget ble opprettet.
+        destroy:
+          success: Vedlegg ble ødelagt.
+        edit:
+          title: Rediger vedlegg
+          update: Oppdater
+        index:
+          attachments_title: Vedlegg
+        new:
+          create: Opprett vedlegg
+          title: Nytt vedlegg
+        update:
+          error: Det oppsto et problem med å oppdatere dette vedlegget.
+          success: Vedlegg ble oppdatert.
+      components:
+        index:
+          add: Legg til komponent
+          headers:
+            actions: Handlinger
+        new:
+          add: Legg til komponent
+          title: 'Legg til komponent: %{name}'
       exports:
         export_as: "%{name} som %{export_format}"
       impersonatable_users:
         index:
+          filter:
+            all: Alle
           name: Navn
           status: Status
       impersonations:
         form:
+          authorization_method: Autoriseringsmetode
           name: Navn
       menu:
+        admin_log: Admin aktivitet logg
+        admins: Adminer
+        appearance: Utseende
+        area_types: Områdetyper
+        areas: Områder
         static_pages: Sider
       models:
         area:
           fields:
+            area_type: Områdetype
             name: Navn
         area_type:
           fields:
@@ -116,8 +183,12 @@
         attachment:
           fields:
             title: Tittel
+          name: Vedlegg
         category:
           name: Kategori
+        impersonation_log:
+          fields:
+            admin: Admin
         oauth_application:
           fields:
             name: Navn
@@ -134,19 +205,58 @@
           fields:
             email: Epost
             name: Navn
+            roles:
+              admin: Admin
         user_group:
           fields:
+            actions: Handlinger
             name: Navn
+      newsletters:
+        index:
+          all: alle
+          all_users: 'Alle brukere '
+          and: 'og '
+          confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+        select_recipients_to_deliver:
+          all_spaces: Alle
+          confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
+          warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
+      oauth_applications:
+        create:
+          success: Søknaden ble opprettet.
+        destroy:
+          success: Søknaden ble ødelagt.
+        index:
+          confirm_delete: Er du sikker på at du vil slette dette programmet?
+        update:
+          success: Søknaden ble oppdatert.
       officializations:
         index:
+          actions: Handlinger
+          badge: Merke
+          filter:
+            all: Alle
           name: Navn
           status: Status
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive innholdsblokker
       static_pages:
         edit:
           title: Rediger side
       titles:
+        admin_log: Admin logg
+        area_types: Områdetyper
+        areas: Områder
         static_pages: Sider
+      user_groups:
+        index:
+          filter:
+            all: Alle
       users:
         form:
           email: Epost
           name: Navn
+    moderations:
+      actions:
+        title: Handlinger
