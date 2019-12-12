@@ -8,8 +8,16 @@ describe Decidim::Proposals::Metrics::EndorsementsMetricManage do
   let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
   let(:proposal) { create(:proposal, component: component) }
   let(:day) { Time.zone.today - 1.day }
-  let!(:endorsements) { create_list(:proposal_endorsement, 5, proposal: proposal, created_at: day) }
-  let!(:old_endorsements) { create_list(:proposal_endorsement, 5, proposal: proposal, created_at: day - 1.week) }
+  let!(:endorsements) do
+    5.times.collect do
+      create(:endorsement, resource: proposal, created_at: day, author: build(:user, organization: proposal.organization))
+    end
+  end
+  let!(:old_endorsements) do
+    5.times.collect do
+      create(:endorsement, resource: proposal, created_at: (day - 1.week), author: build(:user, organization: proposal.organization))
+    end
+  end
 
   context "when executing" do
     it "creates new metric records" do

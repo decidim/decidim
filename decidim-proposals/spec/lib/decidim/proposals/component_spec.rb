@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
-  let!(:current_user) { create(:user, :admin, organization: component.participatory_space.organization) }
+  let(:organization) { component.participatory_space.organization }
+  let!(:current_user) { create(:user, :admin, organization: organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
@@ -166,12 +167,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :endorsements_count }
 
       before do
-        create_list :proposal_endorsement, 2, proposal: proposal
-        create_list :proposal_endorsement, 3, proposal: hidden_proposal
+        create_list(:endorsement, 2, resource: proposal, author: build(:user, organization: organization))
+        create_list(:endorsement, 3, resource: hidden_proposal, author: build(:user, organization: organization))
       end
 
       it "counts the endorsements from visible proposals" do
-        expect(Decidim::Proposals::ProposalEndorsement.count).to eq 5
+        expect(Decidim::Endorsement.count).to eq 5
         expect(subject).to eq 2
       end
     end

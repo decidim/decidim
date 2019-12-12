@@ -339,7 +339,9 @@ FactoryBot.define do
 
     trait :with_endorsements do
       after :create do |proposal|
-        create_list(:resource_endorsement, 5, resource: proposal)
+        5.times.collect do
+          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+        end
       end
     end
   end

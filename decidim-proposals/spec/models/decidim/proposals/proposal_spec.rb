@@ -49,7 +49,7 @@ module Decidim
           end
 
           it "returns true if the proposal is not endorsed by the given user" do
-            create(:proposal_endorsement, proposal: subject, author: user)
+            create(:endorsement, resource: subject, author: user)
             expect(subject).to be_endorsed_by(user)
           end
         end
@@ -65,7 +65,7 @@ module Decidim
           end
 
           it "returns true if the proposal is not endorsed by the given organization" do
-            create(:proposal_endorsement, proposal: subject, author: user, user_group: user_group)
+            create(:endorsement, resource: subject, author: user, user_group: user_group)
             expect(subject).to be_endorsed_by(user, user_group)
           end
         end
