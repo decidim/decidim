@@ -16,7 +16,7 @@
     <div class="row">
       <%= decidim_form_for(@user_complete_registration, url: user_complete_registration_path, method: :put, html: { autocomplete: "nope" }) do |f| %>
         <div class="card">
-          <div class="card__content">
+          <div class="card__content row">
 
             <div class="columns large-4">
               <%= f.upload :avatar %>
