@@ -115,7 +115,6 @@ module Decidim
 
       # Processes the component params so Decidim::Admin::ComponentForm
       # can assign and validate the attributes when using #from_params.
-      def component_params
         new_settings = proc { |name, data| Component.build_settings(manifest, name, data, current_organization) }
 
         params[:component].permit!.tap do |hsh|
@@ -126,23 +125,11 @@ module Decidim
           if hsh[:default_step_settings]
             hsh[:default_step_settings] = new_settings.call(:step, hsh[:default_step_settings])
           else
+            hsh[:step_settings] ||= {}
             hsh[:step_settings].each do |key, value|
               hsh[:step_settings][key] = new_settings.call(:step, value)
             end
           end
-        end
-      end
-
-      def query_scope
-        current_participatory_space.components
-      end
-
-      def manifest
-        @component&.manifest || Decidim.find_component_manifest(params[:type])
-      end
-
-      def default_name(manifest)
-        TranslationsHelper.multi_translation(
           "decidim.components.#{manifest.name}.name",
           current_organization.available_locales
         )
