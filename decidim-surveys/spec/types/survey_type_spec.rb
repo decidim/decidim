@@ -26,16 +26,16 @@ module Decidim
       end
 
       describe "description" do
-        let(:query)  { '{ description { translation(locale:"en")}}' }
-        
+        let(:query) { '{ description { translation(locale:"en")}}' }
+
         it "returns the description field" do
           expect(response["description"]).to be_nil
         end
       end
 
       describe "tos" do
-        let(:query)  { '{ tos { translation(locale:"en")}}' }
-        
+        let(:query) { '{ tos { translation(locale:"en")}}' }
+
         it "returns the terms of service field" do
           expect(response["tos"]).to be_nil
         end
@@ -66,7 +66,7 @@ module Decidim
       end
 
       describe "questionnaire" do
-        let(:query) { "{ questionnaire { id }} "}
+        let(:query) { "{ questionnaire { id }} " }
 
         it "returns the questionnaire " do
           expect(response["questionnaire"]["id"]).to eq(model.questionnaire.id.to_s)

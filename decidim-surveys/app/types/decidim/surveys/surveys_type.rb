@@ -27,6 +27,6 @@ module Decidim
       def self.base_scope(component)
         Survey.where(component: component)
       end
-    end  
+    end
   end
 end
