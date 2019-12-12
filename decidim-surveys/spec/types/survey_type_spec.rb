@@ -17,30 +17,6 @@ module Decidim
         end
       end
 
-      describe "title" do
-        let(:query) { '{ title { translation(locale:"en")}}' }
-
-        it "returns the title field" do
-          expect(response["title"]).to be_nil
-        end
-      end
-
-      describe "description" do
-        let(:query) { '{ description { translation(locale:"en")}}' }
-
-        it "returns the description field" do
-          expect(response["description"]).to be_nil
-        end
-      end
-
-      describe "tos" do
-        let(:query) { '{ tos { translation(locale:"en")}}' }
-
-        it "returns the terms of service field" do
-          expect(response["tos"]).to be_nil
-        end
-      end
-
       describe "publishedAt" do
         let(:query) { "{ publishedAt }" }
 
