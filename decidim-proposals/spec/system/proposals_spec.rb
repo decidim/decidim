@@ -156,7 +156,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.secondary" do
+        within ".callout.warning" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -174,7 +174,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.warning" do
+        within ".callout.alert" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
