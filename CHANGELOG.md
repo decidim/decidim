@@ -42,6 +42,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim-core**: Extract footers into partials. [#5461](https://github.com/decidim/decidim/pull/5461)
 - **decidim-initiatives**: UX improvements to initiatives [#5369](https://github.com/decidim/decidim/pull/5369)
 - **decidim-core**: Update to JQuery 3 [#5433](https://github.com/decidim/decidim/pull/5433)
+- **decidim_participatory_process**: Admin: move `:participatory_process_groups` from `:main_menu` to `:participatory_processes` `:secondary_nav`[#5545](https://github.com/decidim/decidim/pull/5545)
 - **decidim-core**: Remove the Continuity badge [#5565](https://github.com/decidim/decidim/pull/5565)
 
 **Fixed**:
