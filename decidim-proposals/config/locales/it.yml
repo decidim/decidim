@@ -17,8 +17,8 @@ it:
         automatic_hashtags: Hashtag aggiunti automaticamente
         body: Corpo del testo
         category_id: Categoria
+        decidim_scope_id: Ambito
         has_address: Ha un indirizzo
-        scope_id: Visibilità
         state: Stato
         suggested_hashtags: Hashtag consigliati
         title: Titolo
