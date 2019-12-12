@@ -27,4 +27,4 @@
             title: Rediger side
           update:
             invalid: Det oppsto et problem med å lagre denne siden.
-            success: Siden var vellykket lagret.
+            success: Siden ble lagret.
