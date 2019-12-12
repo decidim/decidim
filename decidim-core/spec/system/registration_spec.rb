@@ -42,9 +42,24 @@ describe "Registration", type: :system do
     end
 
     describe "after clicking in next step" do
-      before { click_button "Continue" }
+      it "forces user to fill first step attributes" do
+        click_button "Continue"
+
+        expect(page).to have_field("user_email", with: "")
+        expect(page).to have_field("user_password", with: "")
+        expect(page).to have_field("user_password_confirmation", with: "")
+        expect(page).not_to have_field("user_name", with: "")
+        expect(page).not_to have_field("user_nickname", with: "")
+        expect(page).not_to have_field("user_newsletter", checked: false)
+      end
 
       it "shows fields empty" do
+        fill_registration_form(step: 1)
+        click_button "Continue"
+
+        expect(page).not_to have_field("user_email")
+        expect(page).not_to have_field("user_password")
+        expect(page).not_to have_field("user_password_confirmation")
         expect(page).to have_field("user_name", with: "")
         expect(page).to have_field("user_nickname", with: "")
         expect(page).to have_field("user_newsletter", checked: false)

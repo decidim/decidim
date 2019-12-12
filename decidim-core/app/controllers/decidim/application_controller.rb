@@ -42,8 +42,6 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
-    before_action :track_continuity_badge
-
     private
 
     # Stores the url where the user will be redirected after login.
@@ -89,12 +87,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    def track_continuity_badge
-      return unless current_user
-
-      Decidim::ContinuityBadgeTracker.new(current_user).track!(Time.zone.today)
     end
   end
 end

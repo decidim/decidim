@@ -117,13 +117,13 @@
               <div class="actions">
                 <%= button_tag(
                       t(".continue"),
-                      class: "button expanded form-step-button",
+                      class: "button expanded form-step-forward-button",
                       style: form_step_style(step: 1),
                       type: nil,
                       "form-step": 1
                     ) %>
 
-                <button class="button expanded hollow form-step-button" <%= form_step_attributes(step: 2) %>>
+                <button class="button expanded hollow form-step-back-button" <%= form_step_attributes(step: 2) %>>
                   <%= t(".back") %>
                 </button>
 
