@@ -65,7 +65,6 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Hashtaggable
       include ::Decidim::Endorsable
-      include ::Decidim::Coauthorable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -189,7 +188,7 @@ RSpec.configure do |config|
           t.float :latitude
           t.float :longitude
           t.datetime :published_at
-          t.integer :coauthorships_count, null: false, default: 0
+          # t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
 
           t.references :decidim_component, index: false
