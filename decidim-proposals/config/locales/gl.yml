@@ -629,7 +629,6 @@ gl:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          activity: Actividade
           amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona unha categoría

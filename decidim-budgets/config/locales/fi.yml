@@ -135,7 +135,7 @@ fi:
             vote_threshold_percent: Äänestyksen kynnysprosentti
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
             show_votes: Näytä äänet
             votes_enabled: Äänestys on käytössä
     orders:

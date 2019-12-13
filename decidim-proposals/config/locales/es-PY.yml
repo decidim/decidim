@@ -644,7 +644,6 @@ es-PY:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          activity: Actividad
           amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona una categoría
