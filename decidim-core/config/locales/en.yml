@@ -94,8 +94,6 @@ en:
     admin:
       actions:
         cancel: Cancel
-        filter:
-          label: Filter
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
