@@ -14,22 +14,34 @@ module Decidim
         @model_class = manifest.model_class_name.constantize
       end
 
+      argument :filter, Decidim::Core::ParticipatorySpaceInputFilter, "This argument let's you filter the results"
       argument :order, Decidim::Core::ParticipatorySpaceInputSort, "This argument let's you order the results"
 
       def call(_obj, args, ctx)
-        model_class.public_spaces.where(
+        @query = model_class.public_spaces.where(
           organization: ctx[:current_organization]
-        ).order(create_order_keys(args[:order]))
+        )
+
+        add_filter_keys(args[:filter])
+        add_order_keys(args[:order])
+        @query
       end
 
       private
 
-      def create_order_keys(order_input)
-        return {} unless order_input.respond_to? :map
+      def add_filter_keys(filter_input)
+        return unless filter_input.respond_to? :each
+        filter_input.values.each do |params|
+          @query = @query.where(model_class.arel_table[params[:attr]].public_send(params[:func], params[:value]))
+        end
+      end
 
-        order_input.map do |key, value|
+      def add_order_keys(order_input)
+        return unless order_input.respond_to? :map
+        order = order_input.map do |key, value|
           [key.underscore, value.upcase]
-        end.to_h
+        end
+        @query = @query.order(order.to_h)
       end
     end
   end
