@@ -2,12 +2,12 @@
 
 shared_context "with filterable context" do
   let(:factory_name) { model_name.singular_route_key }
+  let(:module_name) { model_name.route_key.camelize }
+  let(:filterable_concern) { "Decidim::#{module_name}::Admin::Filterable".constantize }
 
   let(:filterable_fake_controller) do
-    MODULE_NAME ||= model_name.route_key.camelize
-    class FilterableFakeController < Decidim::ApplicationController
-      include "Decidim::#{MODULE_NAME}::Admin::Filterable".constantize
-    end
+    FILTERABLE_CONCERN ||= filterable_concern
+    class FilterableFakeController < Decidim::ApplicationController; include FILTERABLE_CONCERN; end
   end
 
   def filterable_method(method_name)
