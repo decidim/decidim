@@ -4,7 +4,13 @@
 
 **Upgrade notes**:
 
-- In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
+- **SocialShareButton**
+
+Due to [#5270](https://github.com/decidim/decidim/pull/5270), the SocialShareButton gem [default configuration](https://github.com/CodiTramuntana/decidim/blob/master/decidim-generators/lib/decidim/generators/app_templates/social_share_button.rb) that decidim uses has changed so you'll want to update your configuration accordingly.
+
+- **Decidim::Searchable**
+
+Due to [#5469](https://github.com/decidim/decidim/pull/5469), in order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
 
 ```ruby
 Decidim::Assembly.find_each(&:add_to_index_as_search_resource)
