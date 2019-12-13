@@ -120,7 +120,6 @@ module Decidim
       end
 
       def managed_user_action?
-        return unless admin_terms_accepted?
         return unless permission_action.subject == :managed_user
         return user_manager_permissions if user_manager?
         return unless user&.admin?
