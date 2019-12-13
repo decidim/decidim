@@ -40,9 +40,8 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(@organization).public_spaces
           end
-          components = Decidim::Component.where(participatory_space: spaces).published
           @query = Decidim::Accountability::Result.select(:decidim_component_id)
-                                                  .where(component: components)
+                                                  .where(component: visible_component_ids_from_spaces(spaces))
                                                   .joins(:component)
                                                   .left_outer_joins(:category)
           @query = @query.where("decidim_accountability_results.created_at <= ?", end_time)

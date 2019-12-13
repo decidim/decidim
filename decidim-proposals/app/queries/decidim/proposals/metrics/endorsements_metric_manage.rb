@@ -33,11 +33,10 @@ module Decidim
         def query
           return @query if @query
 
-          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
-          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
+          proposal_ids = Decidim::Proposals::Proposal.where(component: visible_component_ids_from_spaces(retrieve_participatory_spaces)).except_withdrawn.pluck(:id)
           @query = Decidim::Proposals::ProposalEndorsement.joins(proposal: :component)
                                                           .left_outer_joins(proposal: :category)
-                                                          .where(proposal: proposals)
+                                                          .where(proposal: proposal_ids)
           @query = @query.where("decidim_proposals_proposal_endorsements.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.id",
                                 :participatory_space_type,

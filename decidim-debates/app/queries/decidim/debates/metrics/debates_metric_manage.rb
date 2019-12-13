@@ -32,8 +32,7 @@ module Decidim
         def query
           return @query if @query
 
-          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
-          @query = Decidim::Debates::Debate.where(component: components).joins(:component)
+          @query = Decidim::Debates::Debate.where(component: visible_component_ids_from_spaces(retrieve_participatory_spaces)).joins(:component)
                                            .left_outer_joins(:category)
           @query = @query.where("decidim_debates_debates.start_time <= ?", end_time)
           @query = @query.group("decidim_categorizations.decidim_category_id",

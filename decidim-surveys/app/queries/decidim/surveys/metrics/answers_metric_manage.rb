@@ -49,8 +49,7 @@ module Decidim
         end
 
         def retrieve_surveys
-          components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
-          Decidim::Surveys::Survey.where(component: components)
+          Decidim::Surveys::Survey.where(component: visible_component_ids_from_spaces(retrieve_participatory_spaces))
         end
 
         def retrieve_questionnaires(survey)
