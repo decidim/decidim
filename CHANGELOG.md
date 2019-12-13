@@ -8,6 +8,16 @@
 
 **Fixed**:
 
+**Removed**:
+
+## [0.19.1](https://github.com/decidim/decidim/tree/v0.19.1)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
 - **decidim-core**: Fix dynamic controller extensions (undefined method `current_user`) [#5475](https://github.com/decidim/decidim/pull/5475)
 - **decidim-consultations**: Fix: current_participatory_space raises error in ConsultationsController.[\#5517](https://github.com/decidim/decidim/pull/5517)
 - **decidim-core**: Upgrade rack-cors for security. [\#5528](https://github.com/decidim/decidim/pull/5528)
@@ -18,7 +28,7 @@
 
 **Removed**:
 
-## [0.19.0](https://github.com/decidim/decidim/tree/v0.19)
+## [0.19.0](https://github.com/decidim/decidim/tree/v0.19.0)
 
 **Added**:
 
