@@ -9,6 +9,60 @@ module Decidim
         render partial: "decidim/admin/shared/filters"
       end
 
+      # Builds a tree of links from Decidim::Admin::Filterable::filters_with_values
+      def submenu_options_tree
+        filters_with_values.each_with_object({}) do |(filter, values), hash|
+          link = filter_link_label(filter)
+          hash[link] = if values.is_a?(Array)
+                         build_submenu_options_tree_from_array(filter, values)
+                       elsif values.is_a?(Hash)
+                         build_submenu_options_tree_from_hash(filter, values)
+                       end
+        end
+      end
+
+      # Builds a tree of links from an array. The tree will have only one level.
+      def build_submenu_options_tree_from_array(filter, values)
+        links = []
+        links += extra_dropdown_submenu_options_items(filter)
+        links += values.map { |value| filter_link_value(filter, value) }
+        links.each_with_object({}) { |link, hash| hash[link] = nil }
+      end
+
+      # To be overriden. Useful for adding links that do not match with the filter.
+      # Must return an Array.
+      def extra_dropdown_submenu_options_items(_filter)
+        []
+      end
+
+      # Builds a tree of links from an Hash. The tree can have many levels.
+      def build_submenu_options_tree_from_hash(filter, values)
+        values.each_with_object({}) do |(key, value), hash|
+          link = filter_link_value(filter, key)
+          hash[link] = if value.nil?
+                         nil
+                       elsif value.is_a?(Hash)
+                         build_submenu_options_tree_from_hash(filter, value)
+                       end
+        end
+      end
+
+      # Produces the html for the dropdown submenu from the options tree.
+      # Returns a ActiveSupport::SafeBuffer.
+      def dropdown_submenu(options)
+        content_tag(:ul, class: "vertical menu") do
+          options.map do |key, value|
+            if value.nil?
+              content_tag(:li, key)
+            elsif value.is_a?(Hash)
+              content_tag(:li, class: "is-dropdown-submenu-parent") do
+                key + dropdown_submenu(value)
+              end
+            end
+          end.join.html_safe
+        end
+      end
+
       def filter_link_label(filter)
         link_to(i18n_filter_label(filter), href: "#")
       end
@@ -24,37 +78,31 @@ module Decidim
       def i18n_filter_value(filter, value)
         t(value, scope: "decidim.admin.filters.#{filter}.values")
       rescue I18n::MissingTranslationData
-        ""
+        find_dynamic_translation(filter, value)
       end
 
-      def applied_filters_hidden_field_tags(*filters)
+      def applied_filters_hidden_field_tags
         html = []
-
-        ransack_params.slice(*filters).each do |filter, value|
-          html << hidden_field_tag("q[#{filter}]", value)
+        html += ransack_params.slice(*filters, *extra_filters).map do |filter, value|
+          hidden_field_tag("q[#{filter}]", value)
         end
-
-        html << hidden_field_tag(:per_page, params[:per_page])
-
+        html += query_params.slice(*extra_allowed_params).map do |filter, value|
+          hidden_field_tag(filter, value)
+        end
         html.join.html_safe
       end
 
-      def applied_filters_tags(filters)
-        html = []
-
-        ransack_params.slice(*filters).each do |filter, value|
-          html << applied_filter_tag(filter, value)
-        end
-
-        html.join.html_safe
+      def applied_filters_tags
+        ransack_params.slice(*filters).map do |filter, value|
+          applied_filter_tag(filter, value)
+        end.join.html_safe
       end
 
       def applied_filter_tag(filter, value)
         content_tag(:span, class: "label secondary") do
-          tag = "#{i18n_filter_label(filter)}: "
-          tag += i18n_filter_value(filter, value)
-          tag += remove_filter_icon_link(filter)
-          tag.html_safe
+          concat "#{i18n_filter_label(filter)}: "
+          concat i18n_filter_value(filter, value)
+          concat remove_filter_icon_link(filter)
         end
       end
 

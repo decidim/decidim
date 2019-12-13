@@ -5,15 +5,13 @@
         <a href="#" class="dropdown button">
           <%= t("filter_label", scope: "decidim.admin.filters") %>
         </a>
-        <ul class="vertical menu">
-          <%= render partial: "decidim/admin/shared/filters_dropdown_menu" %>
-        </ul>
+        <%= dropdown_submenu(submenu_options_tree) %>
       </li>
     </ul>
   </div>
   <div class="fcell search">
     <%= search_form_for(query, url: url_for) do |form| %>
-      <%= applied_filters_hidden_field_tags(*filters, *extra_filters) %>
+      <%= applied_filters_hidden_field_tags %>
       <div class="input-group">
         <%= form.search_field(
               search_field_predicate,
@@ -34,7 +32,7 @@
 </div>
 <div class="card-section fcell grid-x">
   <div class="cell medium-10 filter-status">
-    <%= applied_filters_tags(filters) %>
+    <%= applied_filters_tags %>
   </div>
   <div class="cell auto text-right">
     <%= admin_filters_pagination %>

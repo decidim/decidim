@@ -36,7 +36,11 @@ shared_context "with filterable context" do
   end
 
   shared_examples "paginating a collection" do
-    before { create_list(factory_name, 50, organization: organization) }
+    unless block_given?
+      let!(:collection) do
+        create_list(factory_name, 50, organization: organization)
+      end
+    end
 
     it_behaves_like "a paginated collection"
   end

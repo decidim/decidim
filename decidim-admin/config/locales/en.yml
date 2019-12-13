@@ -278,6 +278,8 @@ en:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
       filters:
+        category_id_eq:
+          label: Category
         filter_label: Filter
         officialized_at_null:
           label: State
@@ -294,6 +296,8 @@ en:
           values:
             'false': Published
             'true': Unpublished
+        scope_id_eq:
+          label: Scope
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
