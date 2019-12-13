@@ -69,12 +69,12 @@ module Decidim
         participant_ids = []
         spaces.each do |space|
           available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
-          if space.respond_to? :question_ids
-            # Participatory space is consultations
-            component_ids = space.question_ids
-          else
-            component_ids = space.component_ids
-          end
+          component_ids = if space.respond_to? :question_ids
+                            # Participatory space is consultations
+                            space.question_ids
+                          else
+                            space.component_ids
+                          end
           Decidim::Component.where(id: component_ids, manifest_name: available_components).published.each do |component|
             Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
               klass = Object.const_get(object)
