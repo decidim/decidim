@@ -41,6 +41,7 @@ module Decidim
           end
 
           on(:invalid) do
+            set_flash_message :alert, :registration_errors
             render :new
           end
         end
@@ -66,12 +67,8 @@ module Decidim
         "display: none" if params[:step] == 2 && @form.errors.empty?
       end
 
-      def form_step_field(params)
-        "form-step-field" if params[:field]
-      end
-
       def form_step_attributes(params)
-        %(form-step="#{params[:step]}" #{form_step_field(params)} style="#{form_step_style(params)}").html_safe
+        %(form-step="#{params[:step]}" style="#{form_step_style(params)}").html_safe
       end
     end
   end

@@ -408,6 +408,8 @@ en:
           complete_sign_up_subtitle: Fill in those last fields to finalize the creation
             of your account
           continue: Continue
+          create_account: Create account
+          complete_profile: Complete profile
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}
@@ -1412,6 +1414,8 @@ en:
         to verify your new email address. Please check your email and follow the confirm
         link to confirm your new email address.
       updated: Your account has been successfully updated.
+      user:
+        registration_errors: There was a problem creating your account. Please review the errors
     sessions:
       already_signed_out: Signed out successfully.
       new:

@@ -24,6 +24,7 @@ $(() => {
 
   const toggleFromSteps = () => {
     $("[form-step]").toggle();
+    $("[form-active-step]").toggleClass("step--active");
   }
 
   setGroupFieldsVisibility($userRegistrationForm.find(`${inputSelector}:checked`).val());
@@ -46,13 +47,6 @@ $(() => {
 
   $newsletterModal.find(".check-newsletter").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
-  });
-
-  $(document).on("forminvalid.zf.abide", (event) => {
-    if (event.target.id === $userRegistrationForm.attr("id")) {
-      $("[form-step='2']").hide();
-      $("[form-step-field]").show();
-    }
   });
 
   $formStepForwardButton.on("click", (event) => {

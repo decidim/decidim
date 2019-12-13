@@ -42,51 +42,44 @@
           <div class="card">
             <div class="card__content">
 
-              <ol class="horizontal__steps" <%= form_step_attributes(step: 1, field: true) %>>
-                <li class="step--active">
-                  1. Create account
-                </li>
-                <li>
-                  2. Complete profile
-                </li>
-              </ol>
+              <% if @form.errors.empty? %>
+                <ol class="horizontal__steps">
+                  <li class="step--active" form-active-step="1">
+                    1. <%= t(".create_account") %>
+                  </li>
+                  <li form-active-step="2">
+                    2. <%= t(".complete_profile") %>
+                  </li>
+                </ol>
+              <% end %>
 
-              <ol class="horizontal__steps" <%= form_step_attributes(step: 2, field: true) %>>
-                <li class="step--active">
-                  1. Create account
-                </li>
-                <li class="step--active">
-                  2. Complete profile
-                </li>
-              </ol>
-
-              <div class="user-person" <%= form_step_attributes(step: 2, field: true) %>>
+              <div class="user-person" <%= form_step_attributes(step: 2) %>>
                 <div class="field">
                   <%= f.text_field :name, help_text: t(".username_help") %>
                 </div>
               </div>
 
-              <div class="user-nickname" <%= form_step_attributes(step: 2, field: true) %>>
+              <div class="user-nickname" <%= form_step_attributes(step: 2) %>>
                 <div class="field">
                   <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
                 </div>
               </div>
 
-              <div class="field" <%= form_step_attributes(step: 1, field: true) %>>
+              <div class="field" <%= form_step_attributes(step: 1) %>>
                 <%= f.email_field :email %>
               </div>
 
-              <div class="field" <%= form_step_attributes(step: 1, field: true) %>>
+              <div class="field" <%= form_step_attributes(step: 1) %>>
                 <%= f.password_field :password, help_text: t(".password_help", minimun_characters: NOBSPW.configuration.min_password_length), autocomplete: "off" %>
               </div>
 
-              <div class="field" <%= form_step_attributes(step: 1, field: true) %>>
+              <div class="field" <%= form_step_attributes(step: 1) %>>
                 <%= f.password_field :password_confirmation %>
               </div>
             </div>
           </div>
 
-          <div class="card" id="card__tos" <%= form_step_attributes(step: 1, field: true) %>>
+          <div class="card" id="card__tos" <%= form_step_attributes(step: 1) %>>
             <div class="card__content">
               <legend><%= t(".tos_title") %></legend>
 
@@ -100,7 +93,7 @@
             </div>
           </div>
 
-          <div class="card" id="card__newsletter" <%= form_step_attributes(step: 2, field: true) %>>
+          <div class="card" id="card__newsletter" <%= form_step_attributes(step: 2) %>>
             <div class="card__content">
               <legend><%= t(".newsletter_title") %></legend>
 
@@ -115,23 +108,24 @@
           <div class="card">
             <div class="card__content">
               <div class="actions">
-                <%= button_tag(
-                      t(".continue"),
-                      class: "button expanded form-step-forward-button",
-                      style: form_step_style(step: 1),
-                      type: nil,
-                      "form-step": 1
-                    ) %>
+                <% if @form.errors.empty? %>
+                  <%= button_tag(
+                        t(".continue"),
+                        class: "button expanded form-step-forward-button",
+                        style: form_step_style(step: 1),
+                        type: nil,
+                        "form-step": 1
+                      ) %>
 
-                <button class="button expanded hollow form-step-back-button" <%= form_step_attributes(step: 2) %>>
-                  <%= t(".back") %>
-                </button>
+                  <button class="button expanded hollow form-step-back-button" <%= form_step_attributes(step: 2) %>>
+                    <%= t(".back") %>
+                  </button>
+                <% end %>
 
                 <%= f.submit(
                       t("devise.registrations.new.sign_up"),
                       class: "button expanded",
                       style: form_step_style(step: 2),
-                      "form-step-field": "",
                       "form-step": 2
                     ) %>
               </div>
