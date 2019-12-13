@@ -2,7 +2,10 @@
   activemodel:
     attributes:
       participatory_process:
+        announcement: Kunngjøring
+        area_id: Område
         banner_image: Bannerafbeelding
+        decidim_area_id: Område
         title: Tittel
       participatory_process_group:
         name: Navn
@@ -14,7 +17,11 @@
   decidim:
     admin:
       actions:
+        activate: Aktiver
         edit: Editar
+      menu:
+        participatory_processes_submenu:
+          attachments: Vedlegg
       models:
         participatory_process:
           fields:
@@ -29,6 +36,15 @@
           fields:
             email: Epost
             name: Navn
+          roles:
+            admin: Administrator
+      participatory_process_user_roles:
+        create:
+          success: Admin ble lagt til i denne deltaker prosessen.
+        destroy:
+          success: Admin slettet fra denne deltaker prosessen.
+        update:
+          success: Admin ble oppdatert for denne deltaker prosessen.
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
@@ -47,6 +63,12 @@
         create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltaker prosesessen"
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltaker prosessen"
         update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltaker prosessen"
+    events:
+      participatory_process:
+        step_activated:
+          email_subject: En oppdatering til %{participatory_space_title}
+        step_changed:
+          email_subject: En oppdatering til %{participatory_space_title}
     help:
       participatory_spaces:
         participatory_processes:
@@ -58,6 +80,15 @@
           one: 1 prosess for %{group}
           other: "%{count} prosesser for %{group}"
     participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Legg til et dokumentet
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktive prosesser
+            active_step: Aktiv fase
       participatory_processes:
         filters:
           counters:
@@ -73,6 +104,18 @@
             upcoming:
               one: 1 kommende prosess
               other: "%{count} kommende prosesser"
+          names:
+            active: Aktiv
+            all: Alle
+      show:
+        area: Område
       statistics:
+        answers_count: Svar
+        headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
+  layouts:
+    decidim:
+      participatory_process_widgets:
+        show:
+          active_step: Aktiv fase
