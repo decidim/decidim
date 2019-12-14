@@ -3,8 +3,6 @@
 module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
-      include ::Decidim::WithEndorsablePermissions
-
       def permissions
         return permission_action unless user
 
