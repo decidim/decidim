@@ -24,6 +24,24 @@ module Decidim
                             op.matches("%#{search}%")
                           end
                         end
+      argument :withGeolocationEnabled,
+               type: Boolean,
+               description: "Returns components with geolocation activated (may be Proposals or Meetings)",
+               required: false,
+               prepare: ->(active, _ctx) do
+                 proc do |_model_class|
+                   ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active]
+                 end
+               end
+      argument :withCommentsEnabled,
+               type: Boolean,
+               description: "Returns components with comments enabled globally (can still be deactivated in the current step if the component has steps)",
+               required: false,
+               prepare: ->(active, _ctx) do
+                 proc do |_model_class|
+                   ["(settings->'global'->>'comments_enabled')::boolean is ?", active]
+                 end
+               end
     end
   end
 end
