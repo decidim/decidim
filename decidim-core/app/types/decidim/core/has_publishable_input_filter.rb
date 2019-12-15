@@ -9,14 +9,18 @@ module Decidim
                              description: "List result published before (non including) this date",
                              required: false,
                              prepare: ->(date, _ctx) do
-                               { attr: :published_at, func: :lt, value: date_to_iso8601(date, :publishedBefore) }
+                               proc do |model_class|
+                                 model_class.arel_table[:published_at].lt(date_to_iso8601(date, :publishedBefore))
+                               end
                              end
         child_class.argument :publishedSince,
                              type: String,
                              description: "List result published after (and including) this date",
                              required: false,
                              prepare: ->(date, _ctx) do
-                               { attr: :published_at, func: :gteq, value: date_to_iso8601(date, :publishedSince) }
+                               proc do |model_class|
+                                 model_class.arel_table[:published_at].gteq(date_to_iso8601(date, :publishedBefore))
+                               end
                              end
       end
 
