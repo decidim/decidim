@@ -2,11 +2,11 @@
 
 module Decidim
   module Core
-    class ParticipatorySpaceInputSort < BaseInputSort
+    class ComponentInputSort < BaseInputSort
       include HasPublishableInputSort
 
-      graphql_name "ParticipatorySpaceSort"
-      description "A type used for sorting any generic participatory space"
+      graphql_name "ComponentSort"
+      description "A type used for sorting any generic component"
 
       argument :id, String, "Sort by ID, valid values are ASC or DESC", required: false
     end

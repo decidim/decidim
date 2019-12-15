@@ -8,9 +8,7 @@ module Decidim
                              type: String,
                              description: "List result having this hashtag",
                              required: false,
-                             prepare: ->(hashtag, _ctx) do
-                               { attr: :hashtag, func: :eq, value: "##{hashtag.sub(/^#/, "")}" }
-                             end
+                             prepare: ->(hashtag, _ctx) { "##{hashtag.sub(/^#/, "")}" }
       end
     end
   end

@@ -8,7 +8,7 @@ module Decidim
       graphql_name "ParticipatoryProcessSort"
       description "A type used for sorting participatory processess"
 
-      argument :id, ID, "Sort by ID, valid values are ASC or DESC", required: false
+      argument :id, String, "Sort by ID, valid values are ASC or DESC", required: false
       argument :startDate, String, "Sort by participatory process starting date, valid values are ASC or DESC", required: false
     end
   end

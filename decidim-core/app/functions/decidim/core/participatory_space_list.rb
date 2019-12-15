@@ -7,8 +7,8 @@ module Decidim
     # + info:
     # https://github.com/rmosolgo/graphql-ruby/blob/v1.6.8/guides/fields/function.md
     class ParticipatorySpaceList < ParticipatorySpaceListBase
-      argument :filter, ParticipatorySpaceInputFilter, "This argument let's you filter the results"
-      argument :order, ParticipatorySpaceInputSort, "This argument let's you order the results"
+      argument :filter, ParticipatorySpaceInputFilter, "Provides several methods to filter the results"
+      argument :order, ParticipatorySpaceInputSort, "Provides several methods to order the results"
     end
   end
 end
