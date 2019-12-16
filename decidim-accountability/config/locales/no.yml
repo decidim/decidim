@@ -52,9 +52,9 @@
         results:
           create:
             invalid: Det oppsto et problem med å opprette dette resultatet
-            success: Resultat var vellykket opprettet
+            success: Resultat ble opprettet
           destroy:
-            success: Resultat var vellykket slettet
+            success: Resultat ble slettet
           edit:
             title: Endre resultatet
             update: Oppdater resultatet
@@ -71,16 +71,16 @@
             select: Velg
           update:
             invalid: Det oppsto et problem med å oppdatere dette resultatet
-            success: Resultat var vellykket oppdatert
+            success: Resultat ble oppdatert
         shared:
           subnav:
             statuses: Statuser
         statuses:
           create:
             invalid: Det oppsto et problem med å opprette dette statusen
-            success: Statusen var vellykket opprettet
+            success: Status opprettet
           destroy:
-            success: Statusen var vellykket slettet
+            success: Status slettet
           edit:
             title: Endre status
             update: Oppdater status
@@ -91,13 +91,13 @@
             title: Ny status
           update:
             invalid: Det oppsto et problem med å oppdatere statusen din
-            success: Statusen din var vellykket oppdatert
+            success: Status oppdatert
         timeline_entries:
           create:
             invalid: Det oppsto et problem med å opprette denne oppføringen
-            success: Oppføring var vellykket opprettet
+            success: Oppføringen ble opprettet
           destroy:
-            success: Oppføringen var vellykket slettet
+            success: Oppføringen ble slettet
           edit:
             title: Rediger oppføringen
             update: Oppdater oppføringen
@@ -108,7 +108,7 @@
             title: Ny oppføring
           update:
             invalid: Det oppsto et problem med å oppdatere oppføringen
-            success: Oppføringen var vellykket oppdatert
+            success: Oppføringen ble oppdatert
       admin_log:
         result:
           create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"

@@ -381,7 +381,7 @@ it:
             legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
-          tos_agreement: Iscrivendoti accetti le %{link}.
+          tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
