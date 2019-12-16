@@ -455,7 +455,9 @@ FactoryBot.define do
 
     trait :with_endorsements do
       after :create do |resource|
-        create_list(:endorsement, 5, resource: resource)
+        5.times.collect do
+          create(:endorsement, resource: resource, author: build(:user, organization: resource.component.organization))
+        end
       end
     end
   end

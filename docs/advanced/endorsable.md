@@ -60,30 +60,7 @@ In some cases, it may be interesting to require the user to be verified in order
   component.actions = %w(endorse vote create withdraw amend)
 ```
 
-
-Given that some settings have been defined in the Administration Panel, the most common will be to define some permissions to check if the user can or can not endorse.
-
-
-```
-    def can_endorse?(resource)
-      is_allowed = resource &&
-                   authorized?(:endorse, resource: resource) &&
-                   current_settings&.endorsements_enabled? &&
-                   !current_settings&.endorsements_blocked?
-
-      toggle_allow(is_allowed)
-    end
-
-    def can_unendorse?(resource)
-      is_allowed = proposal &&
-                   authorized?(:endorse, resource: proposal) &&
-                   current_settings&.endorsements_enabled?
-
-      toggle_allow(is_allowed)
-    end
-```
-
-There is already a concern with this two methods: `Decidim::WithEndorsablePermissions`.
+Given that some settings have been defined in the Administration Panel, for the user to have permissions to endorse endorsements should be enabled and not blocked.
 
 ## Public view
 
