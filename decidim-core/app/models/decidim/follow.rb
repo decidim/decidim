@@ -24,6 +24,13 @@ module Decidim
     end
 
     def self.user_follower_ids_for_participatory_spaces(spaces)
+      spaces = spaces.map do |space|
+        if space.respond_to? :questions
+          space.questions
+        else
+          space
+        end
+      end
       joins(:user).where(followable: spaces).pluck(:decidim_user_id).uniq
     end
 
