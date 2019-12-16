@@ -134,7 +134,7 @@ module Decidim
       def newsletter_attention_callout_args
         {
           announcement: {
-            body: t(".warning").html_safe
+            body: t("warning", scope: "decidim.admin.newsletters.select_recipients_to_deliver").html_safe
           },
           callout_class: "warning"
         }
@@ -143,7 +143,7 @@ module Decidim
       def newsletter_recipients_count_callout_args
         {
           announcement: {
-            body: t(".recipients_count", count: @recipients_count)
+            body: t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: @recipients_count)
           },
           callout_class: "warning"
         }
