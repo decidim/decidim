@@ -94,7 +94,7 @@ describe "Proposals", type: :system do
       let!(:proposal) { create(:proposal, body: content, component: component) }
 
       before do
-        organization.update(rich_text_editor_for_participants: true)
+        organization.update(rich_text_editor_in_public_views: true)
         visit_component
         click_link proposal.title
       end

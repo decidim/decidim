@@ -41,7 +41,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     let(:item) { create(:proposal, body: content) }
 
     context "when rich text editor is enabled on the frontend" do
-      before { organization.update(rich_text_editor_for_participants: true) }
+      before { organization.update(rich_text_editor_in_public_views: true) }
 
       it "shows the HTML view dropdown menu" do
         expect(subject).to have_css(".diff-view-html .dropdown .menu")

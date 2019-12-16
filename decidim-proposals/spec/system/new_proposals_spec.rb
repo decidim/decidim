@@ -35,7 +35,7 @@ describe "Proposals", type: :system do
 
     context "when rich text editor is enabled for participants" do
       before do
-        organization.update(rich_text_editor_for_participants: true)
+        organization.update(rich_text_editor_in_public_views: true)
         click_link "New proposal"
       end
 

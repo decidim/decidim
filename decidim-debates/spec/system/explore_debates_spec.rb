@@ -226,7 +226,7 @@ describe "Explore debates", type: :system do
       let(:debate) { create(:debate, author: user, description: content, component: current_component) }
 
       before do
-        organization.update(rich_text_editor_for_participants: true)
+        organization.update(rich_text_editor_in_public_views: true)
         visit path
       end
 

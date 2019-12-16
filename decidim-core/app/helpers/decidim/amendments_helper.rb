@@ -142,9 +142,9 @@ module Decidim
 
     # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
     def render_emendation_body(emendation)
-      body = present(emendation).body(links: true, strip_tags: !rich_text_editor_for_participants?)
+      body = present(emendation).body(links: true, strip_tags: !rich_text_editor_in_public_views?)
 
-      rich_text_editor_for_participants? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
+      rich_text_editor_in_public_views? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
     end
 
     # Return the edited field value or presents the original attribute value in a form.

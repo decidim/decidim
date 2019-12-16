@@ -91,7 +91,7 @@ module Decidim
       # frontend, the proposal body is considered as safe content; that's unless
       # the proposal comes from a collaborative_draft or a participatory_text.
       def safe_content?
-        rich_text_editor_for_participants? && not_from_collaborative_draft(@proposal) ||
+        rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal) ||
           @proposal.official? && not_from_participatory_text(@proposal)
       end
 

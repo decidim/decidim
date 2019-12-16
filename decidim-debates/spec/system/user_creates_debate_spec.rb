@@ -42,7 +42,7 @@ describe "User creates debate", type: :system do
 
         context "and rich_editor_public_view component setting is enabled" do
           before do
-            organization.update(rich_text_editor_for_participants: true)
+            organization.update(rich_text_editor_in_public_views: true)
             visit_component
             click_link "New debate"
           end
