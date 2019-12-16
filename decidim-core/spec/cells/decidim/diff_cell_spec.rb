@@ -36,7 +36,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   end
 
   describe "view unescaped html" do
-    include_context "with content"
+    include_context "with rich text editor content"
 
     let(:item) { create(:proposal, body: content) }
 

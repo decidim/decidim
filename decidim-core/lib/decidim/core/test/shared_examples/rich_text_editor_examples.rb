@@ -8,7 +8,7 @@ shared_examples "having a rich text editor" do |css, toolbar|
   end
 end
 
-shared_context "with content" do
+shared_context "with rich text editor content" do
   let(:content) { "<p>" + safe_tags + "</p>" + script }
   let(:safe_tags) { em + u + strong }
   let(:em) { "<em>em</em>" }
@@ -18,7 +18,7 @@ shared_context "with content" do
 end
 
 shared_examples "rendering safe content" do |css|
-  include_context "with content"
+  include_context "with rich text editor content"
 
   it "renders potentially safe HTML tags unescaped" do
     within css do
@@ -37,7 +37,7 @@ shared_examples "rendering safe content" do |css|
 end
 
 shared_examples "rendering unsafe content" do |css|
-  include_context "with content"
+  include_context "with rich text editor content"
 
   it "sanitizes potentially safe HTML tags" do
     within css do
