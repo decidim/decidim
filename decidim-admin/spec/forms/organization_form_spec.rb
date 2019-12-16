@@ -19,14 +19,15 @@ module Decidim
       let(:youtube_handler) { "My youtube awesome handler" }
       let(:github_handler) { "My github awesome handler" }
       let(:default_locale) { :en }
-      let!(:admin_terms_of_use_body) do
+      let(:admin_terms_of_use_body) do
         {
-          "ca" => "",
-          "en" => "<p>Dummy admin terms body en</p>",
-          "es" => ""
+          ca: "",
+          en: "<p>Dummy admin terms body en</p>",
+          es: ""
         }
       end
       let(:organization) { create(:organization) }
+      let(:available_locales) { organization.available_locales }
       let(:attributes) do
         {
           "organization" => {
@@ -38,7 +39,6 @@ module Decidim
             "instagram_handler" => instagram_handler,
             "youtube_handler" => youtube_handler,
             "github_handler" => github_handler,
-            "admin_terms_of_use_body" => admin_terms_of_use_body,
             "admin_terms_of_use_body_ca" => admin_terms_of_use_body[:ca],
             "admin_terms_of_use_body_en" => admin_terms_of_use_body[:en],
             "admin_terms_of_use_body_es" => admin_terms_of_use_body[:es]
@@ -87,7 +87,9 @@ module Decidim
       context "when default_locale is missing" do
         let(:default_locale) { nil }
 
-        it { is_expected.to be_invalid }
+        before do
+          it { is_expected.to validate_inclusion_of(:default_locale).in_array(available_locales) }
+        end
       end
 
       context "when reference_prefix is missing" do
@@ -97,13 +99,11 @@ module Decidim
       end
 
       context "when default_locale is not an available locale" do
-        let(:default_locale) { :de }
+        let!(:default_locale) { :de }
 
         before do
-          allow(organization).to receive(:available_locales).and_return([:en, :es, :ca])
+          it { is_expected.to validate_inclusion_of(:default_locale).in_array(available_locales) }
         end
-
-        it { is_expected.to be_invalid }
       end
     end
   end
