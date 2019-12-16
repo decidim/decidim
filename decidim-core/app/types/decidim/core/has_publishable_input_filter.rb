@@ -6,7 +6,7 @@ module Decidim
       def self.included(child_class)
         child_class.argument :publishedBefore,
                              type: String,
-                             description: "List result published before (non including) this date",
+                             description: "List result published **before** (and **excluding**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
                                proc do |model_class|
@@ -15,7 +15,7 @@ module Decidim
                              end
         child_class.argument :publishedSince,
                              type: String,
-                             description: "List result published after (and including) this date",
+                             description: "List result published after (and **including**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
                                proc do |model_class|
