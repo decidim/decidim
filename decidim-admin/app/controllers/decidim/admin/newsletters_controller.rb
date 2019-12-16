@@ -7,7 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
-      helper_method :newsletter
+      helper_method :newsletter, :newsletter_attention_callout_args, :newsletter_recipients_count_callout_args
 
       def index
         enforce_permission_to :index, :newsletter
@@ -134,10 +134,6 @@ module Decidim
 
       def newsletter
         @newsletter ||= collection.find_by(id: params[:id])
-      end
-
-      def recipients_count_query(form)
-        NewsletterRecipients.for(form).size
       end
     end
   end

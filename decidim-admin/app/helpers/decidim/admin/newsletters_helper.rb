@@ -130,6 +130,28 @@ module Decidim
           { class: space.try(:closed?) ? "red" : "green", title: translated_attribute(space.title).to_s }
         ]
       end
+
+      def newsletter_attention_callout_args
+        {
+          announcement: {
+            body: t(".warning").html_safe
+          },
+          callout_class: "warning"
+        }
+      end
+
+      def newsletter_recipients_count_callout_args
+        {
+          announcement: {
+            body: t(".recipients_count", count: @recipients_count)
+          },
+          callout_class: "warning"
+        }
+      end
+
+      def recipients_count_query(form)
+        NewsletterRecipients.for(form).size
+      end
     end
   end
 end

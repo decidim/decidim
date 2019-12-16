@@ -67,10 +67,9 @@ $(() => {
       });
     })
 
-    $(".form.newsletter_deliver").on("change", function() {
+    $form.on("change", function() {
       let $data = $form.serializeJSON().newsletter;
-      let $id = $form.attr("id").match(/\d+/)[0];
-      let $url = `/admin/newsletters/${$id}/recipients_count`;
+      let $url = $form.data("recipients-count-newsletter-path");
       $.get($url, {data: $data}, function(recipientsCount) {
         $("#recipients_count").text(recipientsCount);
       });
