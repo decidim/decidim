@@ -77,6 +77,26 @@ module Decidim
           end
         end
 
+        context "when someone from the same organization had already endorsed" do
+          let(:user_group) { create(:user_group, verified_at: Time.current, users: [current_user, another_user]) }
+          let(:another_user) { create(:user, organization: proposal.component.organization) }
+          let(:command) { described_class.new(proposal, current_user, user_group.id) }
+
+          before do
+            described_class.new(proposal, another_user, user_group.id).call
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "does not increase the endorsements counter" do
+            expect do
+              command.call
+            end.not_to change(ProposalEndorsement, :count)
+          end
+        end
+
         context "when the endorsement is not valid" do
           before do
             proposal.update(answered_at: Time.current, state: "rejected")

@@ -19,9 +19,12 @@ module Decidim
       #
       # - :ok when everything is valid, together with the proposal vote.
       # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if someone in the same user group already endorsed
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if existing_group_endorsement?
+
         endorsement = build_proposal_endorsement
         if endorsement.save
           notify_endorser_followers
@@ -32,6 +35,10 @@ module Decidim
       end
 
       private
+
+      def existing_group_endorsement?
+        @current_group_id.present? && @proposal.endorsements.exists?(decidim_user_group_id: @current_group_id)
+      end
 
       def build_proposal_endorsement
         endorsement = @proposal.endorsements.build(author: @current_user)
