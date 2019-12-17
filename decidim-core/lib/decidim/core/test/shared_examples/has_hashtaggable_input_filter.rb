@@ -1,14 +1,39 @@
 # frozen_string_literal: true
 
 shared_examples_for "has hashtaggable input filter" do |filter, participatory_space_type|
-  let!(:model) { create(:participatory_process, :with_hashtag, organization: current_organization) }
+  let(:model) { create(:participatory_process, organization: current_organization) }
   let(:query) { "query ($filter: #{filter}){ #{participatory_space_type}(filter: $filter) { id }}" }
 
-  describe "hashtag" do
-    let(:variables) { { "filter" => { "hashtag": model.hashtag } } }
+  let(:hashtag) { "someHashtag" }
+  before do
+    model.hashtag = "#someHashtag"
+    model.save!
+  end
 
-    it "finds participatory space" do
-      expect(response[participatory_space_type.to_s]).to eq(model.id)
+  context "when hashtag starts with #" do
+    let(:variables) { { "filter" => { "hashtag": "##{hashtag}" } } }
+
+    it "finds the participatory space" do
+      ids = response[participatory_space_type.to_s].map { |space| space["id"] }
+      expect(ids).to include(model.id.to_s)
+    end
+  end
+
+  context "when hashtag starts without #" do
+    let(:variables) { { "filter" => { "hashtag": hashtag } } }
+
+    it "finds the participatory space" do
+      ids = response[participatory_space_type.to_s].map { |space| space["id"] }
+      expect(ids).to include(model.id.to_s)
+    end
+  end
+
+  context "when hashtag is different" do
+    let(:variables) { { "filter" => { "hashtag": "#{hashtag}_" } } }
+
+    it "does not find the participatory space" do
+      ids = response[participatory_space_type.to_s].map { |space| space["id"] }
+      expect(ids).not_to include(model.id.to_s)
     end
   end
 end

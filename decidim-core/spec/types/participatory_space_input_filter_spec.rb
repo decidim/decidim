@@ -6,7 +6,7 @@ require "decidim/core/test/shared_examples/has_publishable_input_filter"
 
 module Decidim
   module Core
-    describe ParticipatorySpaceInputFilter, type: :graphql do
+    describe ParticipatoryProcessInputFilter, type: :graphql do
       include_context "with a graphql type"
       let(:type_class) { Decidim::Api::QueryType }
 
