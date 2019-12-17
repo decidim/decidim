@@ -3,6 +3,17 @@
 module Decidim
   module Core
     # A very basic resolver for the GraphQL endpoint for listing components
+    # Used in the keyword that lists some type of a specific component.
+    # For instance, "proposals" if is a Proposals:
+    #
+    # participatoryProcesses {
+    #   components {
+    #   ... on Proposals {
+    #        proposals(...)
+    #     }
+    #   }
+    # }
+    # Needs to be extended and add arguments
     class ComponentListBase < GraphQL::Function
       include NeedsFilterAndOrder
       attr_reader :model_class
