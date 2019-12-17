@@ -18,7 +18,6 @@ gl:
         body: Corpo
         category_id: Categoría
         has_address: Ten enderezo
-        scope_id: Alcance
         state: Estado
         suggested_hashtags: Hashtags suxeridos
         title: Título
@@ -629,7 +628,6 @@ gl:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          activity: Actividade
           amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona unha categoría

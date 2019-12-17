@@ -17,8 +17,8 @@ ca:
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
         category_id: Categoria
+        decidim_scope_id: Àmbit
         has_address: Té adreça
-        scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
         title: Títol
@@ -644,10 +644,12 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          activity: Activitat
+          activity: La meva activitat
+          all: Tots
           amendment_type: Tipus
           category: Categoria
           category_prompt: Selecciona una categoria
+          my_proposals: Les meves propostes
           origin: Origen
           related_to: Relacionat amb
           search: Cerca
