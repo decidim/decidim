@@ -8,11 +8,15 @@ module Decidim
     # https://github.com/rmosolgo/graphql-ruby/blob/v1.6.8/guides/fields/function.md
     class ParticipatorySpaceListBase < GraphQL::Function
       include NeedsFilterAndOrder
-      attr_reader :manifest, :model_class
+      attr_reader :manifest
 
       def initialize(manifest:)
         @manifest = manifest
-        @model_class = manifest.model_class_name.constantize
+      end
+
+      # lazy instantation of the class
+      def model_class
+        @model_class ||= manifest.model_class_name.constantize
       end
 
       def call(_obj, args, ctx)

@@ -5,11 +5,15 @@ module Decidim
     # A very basic resolver for the GraphQL endpoint for a single participatory spaces
     # This can be easily overwritten by the participatory_space_manifest.query_finder
     class ParticipatorySpaceFinderBase < GraphQL::Function
-      attr_reader :manifest, :model_class
+      attr_reader :manifest
 
       def initialize(manifest:)
         @manifest = manifest
-        @model_class = manifest.model_class_name.constantize
+      end
+
+      # lazy instantation of the class
+      def model_class
+        @model_class ||= manifest.model_class_name.constantize
       end
 
       def call(_obj, args, ctx)
