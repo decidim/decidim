@@ -9,20 +9,13 @@ module Decidim
       graphql_name "ComponentFilter"
       description "A type used for filtering any generic component.
 
-This is the filter available if the component does not implement a custom filter on its own.
-
-For instance, Proposals uses [ProposalInputFilter](#ProposalInputFilter)
-
 A typical query would look like:
 
 ```
   {
     participatoryProcesses {
-      components {
-        ...on Meetings {
-          meetings(filter:{ publishedBefore: \"2020-01-01\" }) {
-            id
-          }
+      components(filter: {type: \"Proposals\"}) {
+          id
         }
       }
     }

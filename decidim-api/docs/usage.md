@@ -48,6 +48,8 @@ Response (formatted) should look something like this:
 
 The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.
 
+From now on, we will skip the "query" keyword for purposes of readability. You can skip it too if using GraphiQL but include it if querying directly (using CURL for instance).
+
 ### Usage limits
 
 Decidim is just a Rails application, meaning that any particular installation may implement custom limits in order to access the API (and the application in general).
@@ -310,8 +312,248 @@ The response:
 
 Note that, in this case, there's only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.
 
+### Polymorphism and connections
 
+Many relationships between tables in Decidim are polymorphic, this means that the related object can belong to different classes and share just a few properties in common.
 
-### Polymorphism
+For instance, components in a participatory space are polymorphic, while the concept of component is generic and all of them share properties like *published date*, *name* or *weight*, they differ in the rest. *Proposals* have the *status* field while *Meetings* have an *agenda*.
 
+Other example are cases of linked resources, these are properties that may link objects of different nature between components or participatory spaces.
+
+In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handle through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will be change accordingly.
+
+In the previous examples we've queried for this property:
+
+Response fragment:
+
+```
 ...
+      "components": [
+        {
+          "id": "38",
+          "name": {
+            "translation": "Meetings"
+          },
+          "__typename": "Meetings"
+        }
+...
+```
+
+So, if we want to access the rest of the properties in a polymorphic object, we should do it through the `... on` operator as follows:
+
+```
+{
+  assembly(id: 3) {
+    components {
+      id
+      ... on Proposals {
+
+      }
+    }
+  }
+}
+```
+
+Consider this query:
+
+```
+{
+  assembly(id: 3) {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      ... on Proposals {
+        proposals(order: {endorsementCount: "desc"}, first: 2) {
+          edges {
+            node {
+              id
+              endorsements {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The response:
+
+```
+{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "39",
+          "name": {
+            "translation": "Proposals"
+          },
+          "proposals": {
+            "edges": [
+              {
+                "node": {
+                  "id": "35",
+                  "endorsements": [
+                    {
+                      "name": "Ms. Johnathon Schaefer"
+                    },
+                    {
+                      "name": "Linwood Lakin PhD 3 4 endr1"
+                    },
+                    {
+                      "name": "Gracie Emmerich"
+                    },
+                    {
+                      "name": "Randall Rath 3 4 endr3"
+                    },
+                    {
+                      "name": "Jolene Schmitt MD"
+                    },
+                    {
+                      "name": "Clarence Hammes IV 3 4 endr5"
+                    },
+                    {
+                      "name": "Omar Mayer"
+                    },
+                    {
+                      "name": "Raymundo Jaskolski 3 4 endr7"
+                    }
+                  ]
+                }
+              },
+              {
+                "node": {
+                  "id": "33",
+                  "endorsements": [
+                    {
+                      "name": "Spring Brakus"
+                    },
+                    {
+                      "name": "Reiko Simonis IV 3 2 endr1"
+                    },
+                    {
+                      "name": "Dr. Jim Denesik"
+                    },
+                    {
+                      "name": "Dr. Mack Schoen 3 2 endr3"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+#### What's going on?
+
+Until the `... on Proposals` line, there's nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, we just add them at the query.
+
+After that, we want content specific from the *Proposals* type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches *Proposals*. We do that by wrapping the rest of the query in the `... on Proposals` clause.
+
+The next line is just a property of the type *Proposals* which is a type of collection called a "connection". A connection works similar as normal collection (such as *components*) but it can handle more complex cases.
+
+Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list *edges* in several *node* results. Also there are more arguments available in order to navigate between pages. This are the arguments:
+
+- `first`: Returns the first *n* elements from the list
+- `after`: Returns the elements in the list that come after the specified *cursor*
+- `last`: Returns the last *n* elements from the list
+- `before`: Returns the elements in the list that come before the specified *cursor*
+
+Example:
+
+```
+{
+  assembly(id: 3) {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      ... on Proposals {
+        proposals(first:2,after:"Mg") {
+          pageInfo {
+            endCursor
+            startCursor
+            hasPreviousPage
+            hasNextPage
+          }
+          edges {
+            node {
+              id
+              endorsements {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Being the response:
+
+```
+{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "39",
+          "name": {
+            "translation": "Proposals"
+          },
+          "proposals": {
+            "pageInfo": {
+              "endCursor": "NA",
+              "startCursor": "Mw",
+              "hasPreviousPage": false,
+              "hasNextPage": true
+            },
+            "edges": [
+              {
+                "node": {
+                  "id": "32",
+                  "endorsements": []
+                }
+              },
+              {
+                "node": {
+                  "id": "31",
+                  "endorsements": [
+                    {
+                      "name": "Mr. Nicolas Raynor"
+                    },
+                    {
+                      "name": "Gerry Fritsch PhD 3 1 endr1"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+As you can see, a part from the *edges* list, you can access to the object *pageInfo* which gives you the information needed to navigate through the different pages.
+
+For more info on how connections work, you can check the official guide:
+
+https://graphql.org/learn/pagination/
+
+
