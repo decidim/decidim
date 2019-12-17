@@ -2,8 +2,14 @@
 
 module Decidim
   module Core
-    # A resolver for the GraphQL endpoint components insidea a participatory_space
-    class BareComponentList < GraphQL::Function
+    # An abstract resolver for the GraphQL endpoint components inside a a participatory_space
+    # Used in the keyword "components", ie:
+    #
+    # participatoryProcesses {
+    #   components {...}
+    # }
+    # Needs to be extended and add arguments
+    class ComponentList < GraphQL::Function
       include NeedsFilterAndOrder
       attr_reader :model_class
 

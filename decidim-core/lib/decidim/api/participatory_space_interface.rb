@@ -20,7 +20,7 @@ module Decidim
       field :components,
             type: types[ComponentInterface],
             description: "Lists the components this space contains.",
-            function: BareComponentListHelper.new
+            function: ComponentListHelper.new
 
       field :stats, types[Decidim::Core::StatisticType] do
         resolve ->(participatory_space, _args, _ctx) {
@@ -37,9 +37,9 @@ module Decidim
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
 
-    class BareComponentListHelper < BareComponentList
-      argument :order, BareComponentInputSort, "Provides several methods to order the results"
-      argument :filter, BareComponentInputFilter, "Provides several methods to filter the results"
+    class ComponentListHelper < ComponentList
+      argument :order, ComponentInputSort, "Provides several methods to order the results"
+      argument :filter, ComponentInputFilter, "Provides several methods to filter the results"
     end
   end
 end
