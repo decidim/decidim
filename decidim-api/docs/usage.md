@@ -100,7 +100,7 @@ Response should look like:
 
 #### What happened?
 
-In the former query, each represents a type, the words `publishedSince`, `publishedAt`, `slug`, `locale` are scalars, all of them Strings.
+In the former query, each keyword represents a type, the words `publishedSince`, `publishedAt`, `slug`, `locale` are scalars, all of them Strings.
 
 The other however, are objects representing certain entities:
 
@@ -308,7 +308,9 @@ The response:
 }
 ```
 
-Note that, in this case, there's only one component returned, "Meetings". In some cases Proposals can be geolocated too.
+Note that, in this case, there's only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.
+
+
 
 ### Polymorphism
 
