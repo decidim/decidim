@@ -1,4 +1,4 @@
-## About the GraphQL APi
+## About the GraphQL API
 
 [Decidim](https://github.com/decidim/decidim) comes with an API that follows the [GraphQL](https://graphql.org/) specification. It has a comprehensive coverage of all the public content that can be found on the website.
 
