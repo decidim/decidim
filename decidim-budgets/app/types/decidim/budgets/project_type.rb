@@ -8,7 +8,6 @@ module Decidim
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Comments::CommentableInterface },
         -> { Decidim::Core::CategorizableInterface }
-        # -> { Decidim::Core::AttachableCollectionInterface } ## CREATE A PROPOSALS
       ]
 
       name "Project"
