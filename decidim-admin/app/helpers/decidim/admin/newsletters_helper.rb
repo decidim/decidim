@@ -143,14 +143,10 @@ module Decidim
       def newsletter_recipients_count_callout_args
         {
           announcement: {
-            body: t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: @recipients_count)
+            body: t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: recipients_count_query)
           },
           callout_class: "warning"
         }
-      end
-
-      def recipients_count_query(form)
-        NewsletterRecipients.for(form).size
       end
     end
   end
