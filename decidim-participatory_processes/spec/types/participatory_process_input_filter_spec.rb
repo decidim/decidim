@@ -10,6 +10,7 @@ module Decidim
     describe ParticipatoryProcessInputFilter, type: :graphql do
       include_context "with a graphql type"
       let(:type_class) { Decidim::Api::QueryType }
+      let!(:model) { create(:participatory_process, :published, organization: current_organization) }
 
       include_examples "has publishable input filter", "ParticipatoryProcessFilter", "participatoryProcesses"
 

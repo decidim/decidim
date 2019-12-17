@@ -2,7 +2,6 @@
 
 shared_examples_for "has publishable input sort" do |order, participatory_space_type|
   let(:query) { "query ($order: #{order}){ #{participatory_space_type}(order: $order) { id }}" }
-  let!(:model) { create_list(:participatory_process, 3, :published, organization: current_organization) }
 
   describe "ordered asc" do
     let(:variables) { { "order" => { "publishedAt": "ASC" } } }
