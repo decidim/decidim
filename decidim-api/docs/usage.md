@@ -107,11 +107,46 @@ In the former query, each keyword represents a type, the words `publishedSince`,
 The other however, are objects representing certain entities:
 
 - `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
-- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter) input type, it has several properties that allows us to refine our search. One of the is the `publishedSince` property with the initial date from which to list entries.
+- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of the is the `publishedSince` property with the initial date from which to list entries.
 - `order ` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
 - `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
 
 Finally, note that the returned object is an array, each item of which is a representation of the object we requested.
+
+> \***About how filters and sorting are organized**
+>
+> There are two types of objects to filter and ordering collections in Decidim, they all work in a similar fashion. The type involved in filtering always have the suffix "Filter", for ordering it has the suffix "Sort".
+>
+> The types used to filter participatory spaces are: [ParticipatoryProcessFilter](#ParticipatoryProcessFilter), [AssemblyFilter](#AssemblyFilter), [ConsultationFilter](#ConsultationFilter) and so on.
+>
+> Other collections (or connections) have their own filters (ie [ComponentFilter](#ComponentFilter)).
+>
+> Each filter has it own properties, you should check any object in particular for details. The way how they work with multi-languages fields, however, is the same:
+>
+> Let's say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to unique language?
+>
+> In our case, we've decided to search only into one particular language of a multi-language field but we let you choose which language where to search. If none language is specified, the default configured will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
+>
+> Example (this is not a real Decidim query):
+>
+> ```
+> some_collection(filter: { locale: "en", title: "ideas"}) {
+>   id
+> }
+> ```
+>
+> The same applies to sorting ([ParticipatoryProcessSort](#ParticipatoryProcessSort), [AssemblySort](#AssemblySort), etc.)
+>
+> In this case, the content of the field (*title* in this case) only allows 2 values: *ASC* and *DESC*.
+>
+> Example of ordering alphabetically by the title content in French language:
+>
+> ```
+> some_collection(order: { locale: "en", title: "asc"}) {
+>   id
+> }
+> ```
+> Of course, you can combine both filter and order. Also remember to check availability of this type of behaviour for any particular filter/sort.
 
 #### Decidim main types
 
@@ -274,7 +309,7 @@ The response will be similar to:
 }
 ```
 
-We can also apply some filters by using the [BareComponentFilter](#BareComponentFilter) type. In the next query we would like to *find all the components with geolocation enabled in the assembly with id=2*:
+We can also apply some filters by using the [ComponentFilter](#ComponentFilter) type. In the next query we would like to *find all the components with geolocation enabled in the assembly with id=2*:
 
 ```
 {
