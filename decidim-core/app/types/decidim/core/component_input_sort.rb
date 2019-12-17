@@ -3,6 +3,8 @@
 module Decidim
   module Core
     class ComponentInputSort < BaseInputSort
+      include HasLocaleInputSort
+
       graphql_name "ComponentSort"
       description "A type used for sorting any component parent objects"
 
