@@ -8,7 +8,7 @@ module Decidim
     #
     module ApplicationHelper
       def render_doc(file)
-        md_render File.read(File.join(File.dirname(__FILE__),'../../../../docs', "#{file}.md"))
+        md_render File.read(File.join(File.dirname(__FILE__), "../../../../docs", "#{file}.md"))
       end
 
       def md_render(text)
