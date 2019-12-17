@@ -121,18 +121,19 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Other collections (or connections) have their own filters (ie [ComponentFilter](#ComponentFilter)).
 >
-> Each filter has it own properties, you should check any object in particular for details. The way how they work with multi-languages fields, however, is the same:
+> Each filter has it own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:
 >
 > Let's say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to unique language?
 >
-> In our case, we've decided to search only into one particular language of a multi-language field but we let you choose which language where to search. If none language is specified, the default configured will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
+> In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
+> If no language is specified, the default configured will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
 >
 > Example (this is not a real Decidim query):
 >
 > ```
-> some_collection(filter: { locale: "en", title: "ideas"}) {
->   id
-> }
+>  some_collection(filter: { locale: "en", title: "ideas"}) {
+>    id
+>  }
 > ```
 >
 > The same applies to sorting ([ParticipatoryProcessSort](#ParticipatoryProcessSort), [AssemblySort](#AssemblySort), etc.)
@@ -146,6 +147,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >   id
 > }
 > ```
+>
 > Of course, you can combine both filter and order. Also remember to check availability of this type of behaviour for any particular filter/sort.
 
 #### Decidim main types
