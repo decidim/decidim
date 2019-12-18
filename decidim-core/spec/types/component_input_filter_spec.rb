@@ -42,49 +42,71 @@ module Decidim
         end
       end
 
-      # context "when searching components with comments" do
+      context "when searching components with comments enabled" do
 
-      #   let(:model_with_comments_enabled) { create(:proposal_component)}
-      #   let(:model_with_comments_disabled) { create(:proposal_component, :with_comments_disabled)}
+        let(:query) {  "{ components(filter: { withCommentsEnabled: true} ) { id } }" }
 
-      #   describe "comments enabled" do
-      #     let(:query) {  "{ components(filter: { withCommentsEnabled: true} ) { id } }" }
+        it "returns the component with comments enabled" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*proposal.id)
+        end
+      end
 
-      #     it "returns the component" do
-      #       expect(response["components"]).to eq(model_with_comments_enabled.id)
-      #     end
-      #   end
+      context "comments not enabled" do
+        let!(:model_with_comments_disabled) { create(:proposal_component, :with_comments_disabled, participatory_space: model)}
+        let(:query) { "{ components(filter: { withCommentsEnabled: false } ) { id } }" }
 
-      #   describe "comments not enabled" do
-      #     let(:query) { "{ components(filter: { withCommentsEnabled: true } ) { id } }" }
+        it "returns the component with comments not enabled" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*model_with_comments_disabled.id)
+        end
+      end
 
-      #     it "returns the component" do
-      #       expect(response["components"]).to eq(model_with_comments_disabled.id)
-      #     end
-      #   end
-      # end
+      context "when searching components with geocoding enabled" do
 
-      # context "when searching components with geocoding" do
+        let!(:model_with_geocoding_enabled) { create(:proposal_component, :published, :with_geocoding_enabled, participatory_space: model)}
+        let(:query) {  "{ components(filter: { withGeolocationEnabled: true} ) { id } }" }
 
-      #   let(:model_with_geocoding_enabled) { create(:proposal_component, :with_geocoding_enabled)}
-      #   let(:model_with_geocoding_disabled) { create(:proposal_component)}
+        it "returns the component with geocoding enabled" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*model_with_geocoding_enabled.id)
+        end
+      end
 
-      #   describe "comments enabled" do
-      #     let(:query) {  "{ components(filter: { withCommentsEnabled: true} ) { id } }" }
+      context "when searching components with geocoding not enabled" do
+        let(:query) { "{ components(filter: { withGeolocationEnabled: false } ) { id } }" }
 
-      #     it "returns the component" do
-      #       expect(response["components"]).to eq(model_with_geocoding_enabled.id)
-      #     end
-      #   end
+        it "returns the component with geocoding disabled" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*proposal.id)
+        end
+      end
 
-      #   describe "comments not enabled" do
-      #     let(:query) { "{ components(filter: { withCommentsEnabled: false } ) { id } }" }
+      context "when searching for name without locale" do
+        let(:query) { %[{ components(filter: { name: "Proposals"}) { id } }]}
 
-      #     it "returns the component" do
-      #       expect(response["components"]).to eq(model_with_geocoding_disabled.id)
-      #     end
-      #   end
-      # end
+        it "returns the components requested" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*proposal.id)
+        end
+      end
+
+      context "when searching for name with locale" do
+        let(:query) { %[{ components(filter: { name: "Propostes", locale: "ca"}) { id } }]}
+
+        it "returns the components requested" do
+          ids = response["components"].map { |component| component["id"].to_i }
+          expect(ids).to include(*proposal.id)
+        end
+      end
+
+      context "when searching for name with wrong locale" do
+        let(:query) { %[{ components(filter: { name: "Proposals", locale: "de"}) { id } }]}
+
+        it "returns the components requested" do
+          expect(response).to raise_exception(GraphQL::ExecutionError)
+        end
+      end
     end
   end
 end
