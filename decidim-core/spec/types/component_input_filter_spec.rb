@@ -37,7 +37,7 @@ module Decidim
       context "when type is not present" do
         let(:query) {  %[{ components(filter: { type: "other_type"}) { id } }] }
 
-        it "returns and empty array" do
+        it "returns an empty array" do
           expect(response["components"]).to eq([])
         end
       end
@@ -104,7 +104,15 @@ module Decidim
         let(:query) { %[{ components(filter: { name: "Proposals", locale: "de"}) { id } }]}
 
         it "returns the components requested" do
-          expect(response).to raise_exception(GraphQL::ExecutionError)
+          expect{response}.to raise_exception(Exception)
+        end
+      end
+
+      context "when searching for name with wrong name" do
+        let(:query) { %[{ components(filter: { name: "Decidim"}) { id } }]}
+
+        it "returns an empty array" do
+          expect(response["components"]).to eq([])
         end
       end
     end
