@@ -435,20 +435,6 @@ FactoryBot.define do
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
 
-    after(:build) do |resource, evaluator|
-      if resource.component
-        users = evaluator.users || [create(:user, organization: resource.component.participatory_space.organization)]
-        if resource.is_a?(Decidim::Authorable)
-          resource.author = users.sample
-        else
-          users.each_with_index do |user, idx|
-            user_group = evaluator.user_groups[idx]
-            resource.coauthorships.build(author: user, user_group: user_group)
-          end
-        end
-      end
-    end
-
     trait :published do
       published_at { Time.current }
     end
