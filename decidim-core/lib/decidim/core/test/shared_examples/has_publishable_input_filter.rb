@@ -42,8 +42,7 @@ shared_examples_for "has publishable input filter" do |filter, participatory_spa
   end
 end
 
-shared_examples_for "has publishable input filter component" do |filter, component_type|
-
+shared_examples_for "has publishable input filter component" do |_filter, component_type|
   describe "not published before" do
     let(:query) { "{ #{component_type}(filter: {publishedBefore: \"#{2.days.ago.to_date}\"}) { edges { node { id } } } }" }
 
