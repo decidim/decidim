@@ -71,7 +71,6 @@ describe "Registration", type: :system do
     it "opens modal on submit" do
       fill_registration_form(step: 1)
       click_button "Continue"
-
       fill_registration_form(step: 2)
       submit_form
 
@@ -82,7 +81,6 @@ describe "Registration", type: :system do
     it "checks when clicking the checking button and user is created" do
       fill_registration_form(step: 1)
       click_button "Continue"
-
       fill_registration_form(step: 2)
       submit_form
 
@@ -100,12 +98,18 @@ describe "Registration", type: :system do
     it "submit after modal has been opened and selected an option" do
       fill_registration_form(step: 1)
       click_button "Continue"
+      fill_registration_form(step: 2)
       submit_form
 
-      click_button "Keep uncheck"
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      expect do
+        click_button "Keep uncheck"
+      end.to change(Decidim::User, :count).by(1)
 
-      expect(page).to have_field("user_newsletter", checked: false)
+      expect(page).to have_current_path(decidim.user_complete_registration_path)
+
+      user = Decidim::User.last
+
+      expect(user.newsletter_notifications_at).to be_nil
     end
   end
 
