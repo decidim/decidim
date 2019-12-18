@@ -3,6 +3,7 @@
 require "spec_helper"
 require "decidim/api/test/type_context"
 require "decidim/core/test"
+require "decidim/core/test/shared_examples/input_sort_examples"
 
 module Decidim
   module Core
@@ -11,128 +12,46 @@ module Decidim
       let(:type_class) { Decidim::ParticipatoryProcesses::ParticipatoryProcessType }
 
       let(:model) { create(:participatory_process, organization: current_organization) }
+      let(:models) { model.components }
       let!(:proposal) { create(:proposal_component, :published, participatory_space: model) }
       let!(:dummy) { create(:component, :published, participatory_space: model) }
 
-      context "when order by id ASC" do
-        let(:query) { %[{ components(order: {id: "ASC"}) { id } }] }
-
-        it "returns all the components ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:id).map { |proposal_component| proposal_component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
+      context "when sorting by component id" do
+        include_examples "collection has input sort", "components", "id"
       end
 
-      context "when order by id DESC" do
-        let(:query) { %[{ components(order: {id: "DESC"}) { id } }] }
-
-        it "returns all the components ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:id).reverse.map { |proposal_component| proposal_component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
+      context "when sorting by component name" do
+        include_examples "collection has i18n input sort", "components", "name"
       end
 
-      context "when order by weight DESC" do
-        let(:query) { %[{ components(order: {weight: "DESC"}) { id } }] }
-
+      context "when sorting by component weight" do
         before do
           proposal.weight = 3
           proposal.save!
           dummy.weight = 1
-          dummy.save
+          dummy.save!
         end
 
-        it "returns all the components ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:weight).reverse.map { |proposal_component| proposal_component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
+        include_examples "collection has input sort", "components", "weight"
       end
 
-      context "when order by weight ASC" do
-        let(:query) { %[{ components(order: {weight: "ASC"}) { id } }] }
+      context "when sorting by component manifest_name" do
+        describe "ASC" do
+          let(:query) { %[{ components(order: { type: "ASC" }) { id } }] }
 
-        before do
-          proposal.weight = 3
-          proposal.save!
-          dummy.weight = 1
-          dummy.save
+          it "returns alphabetical order" do
+            expect(response["components"].first["id"]).to eq(dummy.id.to_s)
+            expect(response["components"].last["id"]).to eq(proposal.id.to_s)
+          end
         end
 
-        it "returns all the components ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:weight).map { |proposal_component| proposal_component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
+        describe "DESC" do
+          let(:query) { %[{ components(order: { type: "DESC" }) { id } }] }
 
-      context "when order by type ASC" do
-        let(:query) { %[{ components(order: {type: "ASC"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:manifest_name).map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by type DESC" do
-        let(:query) { %[{ components(order: {type: "DESC"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by(&:manifest_name).reverse.map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by name ASC" do
-        let(:query) { %[{ components(order: {name: "ASC"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by { |component| component.name[current_organization.default_locale] }.map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by name DESC" do
-        let(:query) { %[{ components(order: {name: "DESC"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by { |component| component.name[current_organization.default_locale] }.reverse_each.map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by name and locale ASC" do
-        let(:query) { %[{ components(order: {name: "ASC", locale: "ca"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by { |component| component.name["ca"] }.map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by name and locale DESC" do
-        let(:query) { %[{ components(order: {name: "DESC", locale: "ca"}) { id } }] }
-
-        it "returns all the component ordered" do
-          response_ids = response["components"].map { |component| component["id"].to_i }
-          ids = model.components.sort_by { |component| component.name["ca"] }.reverse_each.map { |component| component.id.to_i }
-          expect(response_ids).to eq(ids)
-        end
-      end
-
-      context "when order by name and wrong locale DESC" do
-        let(:query) { %[{ components(order: {name: "DESC", locale: "de"}) { id } }] }
-
-        it "returns all the component ordered" do
-          expect { response }.to raise_exception(Exception)
+          it "returns revered alphabetical order" do
+            expect(response["components"].first["id"]).to eq(proposal.id.to_s)
+            expect(response["components"].last["id"]).to eq(dummy.id.to_s)
+          end
         end
       end
     end
