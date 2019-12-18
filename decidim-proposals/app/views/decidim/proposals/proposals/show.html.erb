@@ -127,7 +127,7 @@ edit_link(
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= cell "decidim/endorsers_list", @proposal, context: { current_user: current_user } %>
     <%= amendments_for @proposal %>
   </div>
 </div>
