@@ -14,9 +14,9 @@ module Decidim
       let!(:proposal) { create(:proposal_component, :published, participatory_space: model) }
       let!(:dummy) { create(:component, :published, participatory_space: model) }
 
-
       context "when no filters are applied" do
-        let(:query) {  %[{ components(filter: {}) { id } }] }
+        let(:query) { %[{ components(filter: {}) { id } }] }
+
         it "returns all the types" do
           ids = response["components"].map { |component| component["id"].to_i }
           expect(ids).to include(*proposal.id)
@@ -25,7 +25,7 @@ module Decidim
       end
 
       context "when filtering by type" do
-        let(:query) {  %[{ components(filter: { type: "proposals"}) { id } }] }
+        let(:query) { %[{ components(filter: { type: "proposals"}) { id } }] }
 
         it "returns the types requested" do
           ids = response["components"].map { |component| component["id"].to_i }
@@ -35,7 +35,7 @@ module Decidim
       end
 
       context "when type is not present" do
-        let(:query) {  %[{ components(filter: { type: "other_type"}) { id } }] }
+        let(:query) { %[{ components(filter: { type: "other_type"}) { id } }] }
 
         it "returns an empty array" do
           expect(response["components"]).to eq([])
@@ -43,8 +43,7 @@ module Decidim
       end
 
       context "when searching components with comments enabled" do
-
-        let(:query) {  "{ components(filter: { withCommentsEnabled: true} ) { id } }" }
+        let(:query) { "{ components(filter: { withCommentsEnabled: true} ) { id } }" }
 
         it "returns the component with comments enabled" do
           ids = response["components"].map { |component| component["id"].to_i }
@@ -52,8 +51,8 @@ module Decidim
         end
       end
 
-      context "comments not enabled" do
-        let!(:model_with_comments_disabled) { create(:proposal_component, :with_comments_disabled, participatory_space: model)}
+      context " when searching components with comments not enabled" do
+        let!(:model_with_comments_disabled) { create(:proposal_component, :with_comments_disabled, participatory_space: model) }
         let(:query) { "{ components(filter: { withCommentsEnabled: false } ) { id } }" }
 
         it "returns the component with comments not enabled" do
@@ -63,9 +62,8 @@ module Decidim
       end
 
       context "when searching components with geocoding enabled" do
-
-        let!(:model_with_geocoding_enabled) { create(:proposal_component, :published, :with_geocoding_enabled, participatory_space: model)}
-        let(:query) {  "{ components(filter: { withGeolocationEnabled: true} ) { id } }" }
+        let!(:model_with_geocoding_enabled) { create(:proposal_component, :published, :with_geocoding_enabled, participatory_space: model) }
+        let(:query) { "{ components(filter: { withGeolocationEnabled: true} ) { id } }" }
 
         it "returns the component with geocoding enabled" do
           ids = response["components"].map { |component| component["id"].to_i }
@@ -83,7 +81,7 @@ module Decidim
       end
 
       context "when searching for name without locale" do
-        let(:query) { %[{ components(filter: { name: "Proposals"}) { id } }]}
+        let(:query) { %[{ components(filter: { name: "Proposals"}) { id } }] }
 
         it "returns the components requested" do
           ids = response["components"].map { |component| component["id"].to_i }
@@ -92,7 +90,7 @@ module Decidim
       end
 
       context "when searching for name with locale" do
-        let(:query) { %[{ components(filter: { name: "Propostes", locale: "ca"}) { id } }]}
+        let(:query) { %[{ components(filter: { name: "Propostes", locale: "ca"}) { id } }] }
 
         it "returns the components requested" do
           ids = response["components"].map { |component| component["id"].to_i }
@@ -101,15 +99,15 @@ module Decidim
       end
 
       context "when searching for name with wrong locale" do
-        let(:query) { %[{ components(filter: { name: "Proposals", locale: "de"}) { id } }]}
+        let(:query) { %[{ components(filter: { name: "Proposals", locale: "de"}) { id } }] }
 
         it "returns the components requested" do
-          expect{response}.to raise_exception(Exception)
+          expect { response }.to raise_exception(Exception)
         end
       end
 
       context "when searching for name with wrong name" do
-        let(:query) { %[{ components(filter: { name: "Decidim"}) { id } }]}
+        let(:query) { %[{ components(filter: { name: "Decidim"}) { id } }] }
 
         it "returns an empty array" do
           expect(response["components"]).to eq([])
