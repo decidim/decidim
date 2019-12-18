@@ -7,7 +7,6 @@ uk:
         body: Основний текст
         category_id: Категорія
         has_address: Має адресу
-        scope_id: Обсяг
         state: Стан
         title: Назва
         user_group_id: Створити пропозицію як

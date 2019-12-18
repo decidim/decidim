@@ -13,6 +13,11 @@
             fields:
               category: Kategori
               title: Tittel
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
+          form:
+            all_categories: Alle kategorier
       admin_log:
         sortition:
           create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
@@ -24,6 +29,8 @@
             one: 1 forslag
             other: "%{count} forslag"
         filters:
+          active: Aktiv
+          all: Alle
           category: Kategori
           state: Status
         show:
