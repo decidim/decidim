@@ -15,6 +15,12 @@ $(() => {
     }
   }
 
+  const scrollToTop = () => {
+    $("html, body").animate({
+      scrollTop: $("main").offset().top
+    }, 200);
+  }
+
   const checkNewsletter = (check) => {
     $userRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
@@ -52,6 +58,8 @@ $(() => {
   $formStepForwardButton.on("click", (event) => {
     event.preventDefault();
 
+    scrollToTop();
+
     // validate only input elements from step 1
     $("[form-step='1'] input").each((index, element) => {
       $userRegistrationForm.foundation("validateInput", $(element));
@@ -65,6 +73,7 @@ $(() => {
   $formStepBackButton.on("click", (event) => {
     event.preventDefault();
 
+    scrollToTop();
     toggleFromSteps();
   });
 });
