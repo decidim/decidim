@@ -57,7 +57,7 @@ module Decidim
         end
 
         describe "DESC" do
-          let(:query) { %[{ proposals(order: {endorsementCount: "DESC"}) { edges { node { id } } } }] }
+          let(:query) { %[{ proposals(order: {voteCount: "DESC"}) { edges { node { id } } } }] }
 
           it "returns the most voted first" do
             expect(response["proposals"]["edges"].count).to eq(3)
