@@ -81,7 +81,7 @@ edit_link(
             <div class="row collapse buttons__row">
               <% if endorsements_enabled? %>
                 <div class="column small-9 collapse">
-                  <%= cell("decidim/endorsement_buttons", @proposal) %>
+                  <%= endorsement_buttons_cell(@proposal) %>
                 </div>
               <% end %>
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
@@ -127,7 +127,7 @@ edit_link(
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= cell "decidim/endorsers_list", @proposal %>
     <%= amendments_for @proposal %>
   </div>
 </div>

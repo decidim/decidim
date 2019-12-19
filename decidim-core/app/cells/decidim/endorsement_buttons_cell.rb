@@ -17,10 +17,16 @@ module Decidim
       render
     end
 
-    # Renders the "Endorse" button card part.
+    # Renders the "Endorse" button.
     # Contains all the logic about how the button should be rendered
     # and which actions the button must trigger.
-    def render_endorsements_button_card_part(_resource)
+    #
+    # It takes into account:
+    # - if endorsements are enabled
+    # - if users are logged in
+    # - if users can endorse with many identities (of their user_groups)
+    # - if users require verification
+    def render_endorsements_button
       if endorsements_blocked_or_user_can_not_participate?
         render_disabled_endorsements_button
       elsif !current_user
@@ -37,26 +43,29 @@ module Decidim
       end
     end
 
+    # Renders the counter of endorsements that appears in m-cards.
+    def render_endorsements_count
+      content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
+      content += resource.endorsements_count.to_s
+      html_class = "button small compact light button--sc button--shadow "
+      html_class += fully_endorsed?(resource, current_user) ? "success" : "secondary"
+      tag_params = { id: "resource-#{resource.id}-endorsements-count", class: html_class }
+      if resource.endorsements_count.positive?
+        link_to "#list-of-endorsements", tag_params do
+          content
+        end
+      else
+        content_tag(:div, tag_params) do
+          content
+        end
+      end
+    end
+
     # Renders the endorsements button but disabled.
     # To be used to let the user know that endorsements are enabled but are blocked or cant participate.
     def render_disabled_endorsements_button
       content_tag :span, endorse_translated, class: "#{card_button_html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
     end
-
-    # def render_endorsements_button_card_part(resource, html_class = nil)
-    #   html_class = "card__button button" if html_class.blank?
-    #   if current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)
-    # x     content_tag :span, endorse_translated, class: "#{html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated
-    # x   elsif current_user && allowed_to?(:create, :endorsement, resource: resource)
-    #     render "endorsement_identities_cabin"
-    #   elsif current_user
-    #     button_to(endorse_translated, endorsement_path(resource),
-    #               data: { open: "authorizationModal", "open-url": modal_path(:endorse, resource) },
-    #               class: "#{html_class} #{endorsement_button_classes(false)} secondary")
-    #   else
-    #     action_authorized_button_to :endorse, endorse_translated, "", resource: resource, class: "#{html_class} #{endorsement_button_classes(false)} secondary"
-    #   end
-    # end
 
     # Returns the css classes used for proposal endorsement button in both proposals list and show pages
     #

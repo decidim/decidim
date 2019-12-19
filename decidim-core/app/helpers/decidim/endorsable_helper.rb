@@ -3,6 +3,16 @@
 module Decidim
   # A Helper for views with Endorsable resources.
   module EndorsableHelper
+    # Invokes the decidim/endorsement_buttons cell.
+    def endorsement_buttons_cell(resource)
+      cell("decidim/endorsement_buttons", resource)
+    end
+
+    # Invokes the decidim/endorsers_list cell.
+    def endorsers_list_cell(resource)
+      cell("decidim/endorsers_list", resource)
+    end
+
     #
     # Public: Checks if the given resource has been endorsed by all identities of the user.
     #
@@ -78,24 +88,6 @@ module Decidim
         http_method: http_method,
         create_url: path_to_create_endorsement(resource, user_group),
         destroy_url: path_to_destroy_endorsement(resource, user_group) }
-    end
-
-    # Renders the counter of endorsements that appears in card at show Propoal.
-    def render_endorsements_count_card_part(resource)
-      content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
-      content += resource.endorsements_count.to_s
-      html_class = "button small compact light button--sc button--shadow "
-      html_class += fully_endorsed?(resource, current_user) ? "success" : "secondary"
-      tag_params = { id: "resource-#{resource.id}-endorsements-count", class: html_class }
-      if resource.endorsements_count.positive?
-        link_to "#list-of-endorsements", tag_params do
-          content
-        end
-      else
-        content_tag(:div, tag_params) do
-          content
-        end
-      end
     end
   end
 end

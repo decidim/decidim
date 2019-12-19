@@ -5,12 +5,12 @@ update_identities_rows();
 
 function update_main_page_button() {
   var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
-  morphdom($endorsementButton[0], '<%= j(cell("decidim/endorsement_buttons", resource).render_user_identity_endorse_button).strip.html_safe %>');
+  morphdom($endorsementButton[0], '<%= j(endorsement_buttons_cell(resource).render_user_identity_endorse_button).strip.html_safe %>');
 }
 function update_identities_rows() {
   <% fully_endorsed= fully_endorsed?(resource, current_user) %>
   var $endorsementsRowCount = $('#resource-<%= resource.id %>-endorsements-count');
-  morphdom($endorsementsRowCount[0], '<%= j(render_endorsements_count_card_part(resource).strip.html_safe) %>');
+  morphdom($endorsementsRowCount[0], '<%= j(endorsement_buttons_cell(resource).render_endorsements_count).strip.html_safe %>');
   var $endorsementsRowButton = $($('#select-identity-button')[0]);
   <% if fully_endorsed %>
     $endorsementsRowButton.addClass('success')
