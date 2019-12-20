@@ -52,6 +52,7 @@ Decidim::Blogs::Post.find_each(&:add_to_index_as_search_resource)
 - **decidim_participatory_process**: Admin: move `:participatory_process_groups` from `:main_menu` to `:participatory_processes` `:secondary_nav`[#5545](https://github.com/decidim/decidim/pull/5545)
 - **decidim-core**: Remove the Continuity badge [#5565](https://github.com/decidim/decidim/pull/5565)
 - **decidim-core**: Remove resizing for banner images [#5567](https://github.com/decidim/decidim/pull/5567)
+- **decidim-participatory_processes**, **decidim-conferences**, **decidim-assemblies**, **decidim-initiatives**: Use cardM cell in space embed [#5589](https://github.com/decidim/decidim/pull/5589)
 
 **Fixed**:
 
