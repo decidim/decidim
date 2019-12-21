@@ -32,6 +32,35 @@ For orphan records, you can do the following:
 - Delete orphan records fromt the console (code is below).
 - Delete "comments" metrics and recalculate them following the [aforementioned example](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics).
 
+### Some queries that may help
+
+```ruby
+    GROUP_BY_FIELDS= %w(
+      day
+      metric_type
+      decidim_organization_id
+      participatory_space_type
+      participatory_space_id
+      related_object_type
+      related_object_id
+      decidim_category_id).join(', ')
+
+    def remove_duplicates
+      sql= <<~EOSQL.strip
+      DELETE FROM decidim_metrics WHERE decidim_metrics.id NOT IN
+        (SELECT id FROM (
+          SELECT DISTINCT ON (#{GROUP_BY_FIELDS}) * FROM decidim_metrics));
+      EOSQL
+    end
+
+    # DELETE FROM decidim_metrics WHERE decidim_metrics.id NOT IN \n  (SELECT id FROM (\n    SELECT DISTINCT ON (day, metric_type, decidim_organization_id, participatory_space_type, participatory_space_id, related_object_type, related_object_id, decidim_category_id) * FROM decidim_metrics));
+    def count_duplicates
+      sql= <<~EOSQL.strip
+        SELECT count(1), #{GROUP_BY_FIELDS} FROM decidim_metrics GROUP BY #{GROUP_BY_FIELDS} HAVING COUNT(1) > 1;
+      EOSQL
+    end
+```
+
 ### Delete orphan records
 "proposals", "meetings", "accountability", "debates", "pages", "budgets", "surveys"
 
