@@ -584,6 +584,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
+        participatory_space: Already following the participatory space
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.

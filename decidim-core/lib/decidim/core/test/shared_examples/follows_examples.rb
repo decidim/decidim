@@ -34,4 +34,20 @@ shared_examples "follows" do
       end
     end
   end
+
+  context "when the user is following the followable's participatory space" do
+    before do
+      create(:follow, followable: followable.participatory_space, user: user)
+    end
+
+    context "when user clicks the Follow button" do
+      it "makes the user follow the followable" do
+        visit resource_locator(followable).path
+        expect do
+          click_button "Already following the participatory space"
+          expect(page).to have_content "Stop following"
+        end.to change(Decidim::Follow, :count).by(1)
+      end
+    end
+  end
 end
