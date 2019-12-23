@@ -525,6 +525,7 @@ fr:
             success: "@%{user} a été rejeté en tant que collaborateur avec succès"
         show:
           back: Retour
+          back_to_list: Retourner à la liste
           edit: Modifier un brouillon collaboratif
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée

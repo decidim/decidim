@@ -21,6 +21,10 @@ describe "show", type: :system do
     it "shows the sortition witnesses" do
       expect(page).to have_content(sortition.witnesses[:en])
     end
+
+    it "shows the back button" do
+      expect(page).to have_link(href: "#{main_component_path(component)}sortitions")
+    end
   end
 
   context "when sortition result" do
@@ -58,6 +62,17 @@ describe "show", type: :system do
 
     it "shows the cancel reasons" do
       expect(page).to have_content(sortition.cancel_reason[:en])
+    end
+  end
+
+  context "when clicking the back button" do
+    before do
+      visit_component
+      click_link(href: "#{main_component_path(component)}sortitions")
+    end
+
+    it "redirect the user to index sortitions" do
+      expect(page).to have_current_path("#{main_component_path(component)}sortitions")
     end
   end
 end

@@ -369,6 +369,7 @@ en:
           confirm: Confirm
         show:
           attendees: Attendees count
+          back: Back to list
           contributions: Contributions count
           going: Going
           join: Join meeting

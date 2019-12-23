@@ -47,6 +47,10 @@ describe "Explore posts", type: :system do
       expect(page).to have_content(post.author.name)
       expect(page).to have_content(post.created_at.day)
     end
+
+    it "shows the back button" do
+      expect(page).to have_link(href: "#{main_component_path(component)}posts")
+    end
   end
 
   describe "most commented" do
