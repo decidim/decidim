@@ -619,7 +619,6 @@ en:
             success: "@%{user} has been successfully rejected as a collaborator"
         show:
           back: Back
-          back_to_list: Back to list
           edit: Edit collaborative draft
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
@@ -791,6 +790,7 @@ en:
         show:
           answer: Answer
           back_to: Back to
+          back_to_list: Back to list
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
