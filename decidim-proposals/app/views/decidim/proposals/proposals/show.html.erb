@@ -69,7 +69,7 @@ edit_link(
     <%= amenders_list_for(@proposal) %>
 
     <%= resource_reference(@proposal) %>
-    <%= resource_version(@proposal) %>
+    <%= resource_version(@proposal, versions_path: proposal_versions_path(@proposal)) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>

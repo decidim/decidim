@@ -13,24 +13,17 @@ module Decidim
     def resource_version(resource, options = {})
       return unless resource.respond_to?(:amendable?) && resource.amendable?
 
-      info = "<strong class='text-medium text-uppercase'>#{localized_version(resource)}</strong>
-      <small class='text-small'>#{localized_version(resource)}</small>"
+      html = %(<strong class="text-uppercase">#{localized_version("version", resource.versions_count)}</strong> #{localized_version("of_versions", resource.versions_count)})
 
-      if options[:versions_path]
-        info.concat link_to(I18n.t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), options[:versions_path])
-      end
+      html += %( #{link_to(localized_version("see_other_versions"), options[:versions_path])}) if options[:versions_path]
 
-      "<div class='version-info #{options[:class]}'>#{info}</div>".html_safe
+      "<div class='tech-info #{options[:class]}'>#{html}</div>".html_safe
     end
 
     private
 
-    def localized_version(resource)
-      I18n.t("version", scope:"decidim.proposals.collaborative_drafts.show", number: resource.versions_count)
-    end
-
-    def localized_version_of(resource)
-      I18n.t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: resource.versions_count)
+    def localized_version(string, count = nil)
+      I18n.t(string, scope: "decidim.proposals.collaborative_drafts.show", number: count)
     end
   end
 end
