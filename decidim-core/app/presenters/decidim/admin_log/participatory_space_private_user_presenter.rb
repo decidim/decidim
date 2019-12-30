@@ -23,7 +23,7 @@ module Decidim
 
       def action_string
         case action
-        when "invite", "delete"
+        when "create", "create_via_csv", "delete"
           "decidim.admin_log.participatory_space_private_user.#{action}"
         else
           super

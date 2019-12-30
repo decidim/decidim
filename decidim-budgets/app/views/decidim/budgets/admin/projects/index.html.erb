@@ -21,7 +21,7 @@
           <% projects.each do |project| %>
             <tr data-id="<%= project.id %>">
               <td>
-                <%= translated_attribute(project.title) %><br />
+                <%= translated_attribute(project.title) %><br>
               </td>
               <td class='center'>
                <%= project.confirmed_orders_count %>

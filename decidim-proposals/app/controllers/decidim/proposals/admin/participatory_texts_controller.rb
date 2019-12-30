@@ -34,6 +34,11 @@ module Decidim
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
               render action: "new_import"
             end
+
+            on(:invalid_file) do
+              flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
+              render action: "new_import"
+            end
           end
         end
 

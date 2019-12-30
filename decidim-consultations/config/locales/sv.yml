@@ -19,6 +19,9 @@ sv:
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: URL till externt röstningssystem
+        instructions: Fler instruktioner för röstning
+        max_votes: Max antal röster
+        min_votes: Minsta antal röster
         origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungs-URL
@@ -32,11 +35,19 @@ sv:
         title: Titel
         vote: Externt omröstningssystem
         what_is_decided: Vad som bestäms
+      response:
+        decidim_consultations_response_group_id: Grupp
     errors:
       vote:
         decidim_consultations_response_id:
           not_found: Hittade inte svar.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Antalet röster är ogiltigt
     models:
       decidim/consultation:
         one: Samråd
@@ -53,10 +64,13 @@ sv:
   decidim:
     admin:
       actions:
+        back_to_responses: Tillbaka till svaren
         new_consultation: Nytt samråd
         new_question: Ny fråga
         new_response: Nytt svar
+        new_response_group: Ny grupp
         publish_results: Publicera resultat
+        response_groups: Hantera svarsgrupper
         unpublish_results: Avpublicera resultat
       consultation_publications:
         create:
@@ -101,6 +115,7 @@ sv:
           results: Resultat
         questions_submenu:
           components: Komponenter
+          configuration: Konfiguration
           consultation: Samråd
           info: Information
           responses: Svar
@@ -124,10 +139,14 @@ sv:
         response:
           fields:
             created_at: Skapad
+            response_group: Grupp
             title: Titel
           name:
             one: Svar
             other: Svar
+      question_configuration:
+        form:
+          title: Avancerad konfiguration
       question_publications:
         create:
           error: Det gick inte att publicera den här frågan.
@@ -154,6 +173,14 @@ sv:
         update:
           error: Det gick inte att uppdatera frågan.
           success: Frågan har uppdaterats.
+      response_groups:
+        edit:
+          update: Uppdatera
+        form:
+          title: Allmän information
+        new:
+          create: Skapa
+          title: Ny svarsgrupp
       responses:
         create:
           error: Det gick inte att skapa ett nytt svar.
@@ -174,6 +201,7 @@ sv:
       titles:
         consultations: Samråd
         questions: Frågor
+        response_groups: Svarsgrupper
         responses: Svar
         results: Resultat
     consultations:
@@ -232,9 +260,15 @@ sv:
         votes_out_of:
           one: röst av
           other: röster av
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            left: Återstående
+            votes: Röster
       question_votes:
         create:
           error: Det gick inte att rösta i frågan
+          title_error: Röstningsfel!
       regular_questions:
         title: Frågor för detta samråd
       show:
@@ -279,6 +313,7 @@ sv:
         already_voted: Redan röstat
         already_voted_hover: Återkalla röst
         starting_from: Börjar %{date}
+        verification_required: Bekräfta ditt konto för att rösta
         vote: Rösta
       vote_modal:
         contextual_help: Välj ett alternativ.
@@ -288,6 +323,10 @@ sv:
         confirm: Bekräfta
         contextual_help: Bekräfta det valda alternativet.
         title: 'Samråd: bekräfta röst'
+    resources:
+      consultations:
+        actions:
+          vote: Rösta
   layouts:
     decidim:
       admin:
@@ -301,3 +340,4 @@ sv:
         unfold: Veckla ut
       question_header:
         back_to_consultation: Visa alla samråd
+        back_to_question: Tillbaks till frågan

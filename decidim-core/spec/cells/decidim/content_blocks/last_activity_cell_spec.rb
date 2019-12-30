@@ -7,11 +7,7 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   controller Decidim::PagesController
 
-  before do
-    allow(controller).to receive(:current_organization).and_return(organization)
-  end
-
-  Decidim::ActivitySearch.class_eval do
+  Decidim::HomeActivitySearch.class_eval do
     def resource_types
       %w(
         Decidim::DummyResources::DummyResource
@@ -52,6 +48,14 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     context "when the resource is missing" do
       before do
         resource.delete
+      end
+
+      it { is_expected.not_to include(action_log) }
+    end
+
+    context "when the resource has been hidden" do
+      before do
+        create(:moderation, :hidden, reportable: action_log.resource)
       end
 
       it { is_expected.not_to include(action_log) }

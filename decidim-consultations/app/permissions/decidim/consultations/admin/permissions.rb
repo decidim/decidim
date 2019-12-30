@@ -27,6 +27,7 @@ module Decidim
           allowed_consultation_action?
           allowed_question_action?
           allowed_response_action?
+          allowed_response_group_action?
 
           permission_action
         end
@@ -43,6 +44,10 @@ module Decidim
 
         def response
           @response ||= context.fetch(:response, nil)
+        end
+
+        def response_group
+          @response_group ||= context.fetch(:response_group, nil)
         end
 
         def allowed_action_on_component?
@@ -72,7 +77,7 @@ module Decidim
           case permission_action.action
           when :create, :read
             allow!
-          when :update, :destroy, :preview
+          when :update, :destroy, :preview, :configure
             toggle_allow(question.present?)
           when :publish
             toggle_allow(question.external_voting || question.responses_count.positive?)
@@ -87,6 +92,17 @@ module Decidim
             allow!
           when :update, :destroy
             toggle_allow(response.present?)
+          end
+        end
+
+        def allowed_response_group_action?
+          return unless permission_action.subject == :response_group
+
+          case permission_action.action
+          when :create, :read
+            toggle_allow(question&.multiple?)
+          when :update, :destroy
+            toggle_allow(response_group.present?)
           end
         end
 

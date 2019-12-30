@@ -87,7 +87,7 @@ module Decidim
 
       delegate :resource_manifest, to: :class
 
-      # Checks throughout all its parent hierarchy if this Resource is visible.
+      # Checks throughout all its parent hierarchy if this Resource should be visible in the public views.
       # i.e. checks
       # - the visibility of its parent Component
       # - the visibility of its participatory space.

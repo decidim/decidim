@@ -34,16 +34,27 @@ module Decidim
           let(:command) { described_class.new(form) }
 
           shared_examples "import participatory_text succeeds" do
+            let(:proposals) { Proposal.where(component: current_component) }
+
             it "broadcasts ok and creates the proposals" do
+              levels = Decidim::Proposals::ParticipatoryTextSection::LEVELS
               sections = 2
               sub_sections = 5
               expect { command.call }.to(
                 broadcast(:ok) &&
-                change { ParticipatoryText.where(component: current_component).count }.by(1) &&
-                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:section]).count }.by(sections) &&
-                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]).count }.by(sub_sections) &&
-                change { Proposal.where(component: current_component, participatory_text_level: Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]).count }.by(articles)
+                change(proposals, :count).by(1) &&
+                change { proposals.where(participatory_text_level: levels[:section]).count }.by(sections) &&
+                change { proposals.where(participatory_text_level: levels[:sub_section]).count }.by(sub_sections) &&
+                change { proposals.where(participatory_text_level: levels[:article]).count }.by(articles)
               )
+            end
+
+            it "does not create a version for each proposal", versioning: true do
+              expect { command.call }.to broadcast(:ok)
+
+              proposals.each do |proposal|
+                expect(proposal.reload.versions.count).to be_zero
+              end
             end
           end
 
@@ -80,6 +91,16 @@ module Decidim
               let(:articles) { 15 }
 
               it_behaves_like "import participatory_text succeeds"
+            end
+
+            context "with invalid odt document" do
+              let(:document_name) { "participatory_text_wrong.odt" }
+              let(:document_type) { "application/vnd.oasis.opendocument.text" }
+              let(:articles) { 15 }
+
+              it "broadcasts invalid_file" do
+                expect { command.call }.to broadcast(:invalid_file)
+              end
             end
           end
         end

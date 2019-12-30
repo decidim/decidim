@@ -20,7 +20,7 @@ module Decidim
           @values = []
           @errors = []
 
-          CSV.foreach(@file, headers: true) do |row|
+          CSV.foreach(@file) do |row|
             process_row(row)
           end
         end
@@ -28,8 +28,8 @@ module Decidim
         private
 
         def process_row(row)
-          user_mail = row["email"]
-          if user_mail.present?
+          user_mail = row.first
+          if user_mail.present? && user_mail.match?(Devise.email_regexp)
             values << user_mail
           else
             errors << row

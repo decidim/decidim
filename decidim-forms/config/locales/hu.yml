@@ -15,6 +15,8 @@ hu:
             choices:
               missing: nem teljesek
               too_many: túl sok
+        questionnaire:
+          request_invalid: A kérés teljesítése során hiba történt. Kérjük próbálkozzon újra
   decidim:
     forms:
       admin:
@@ -79,4 +81,8 @@ hu:
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
       user_answers_serializer:
         created_at: Válaszolt
-        id: Válaszazonosító
+        id: Válasz azonosító
+        ip_hash: Ip Hash
+        registered: Regisztrált
+        unregistered: Nem regisztrált
+        user_status: Felhasználó státusza

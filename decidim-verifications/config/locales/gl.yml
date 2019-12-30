@@ -104,7 +104,6 @@ gl:
             title: Debe activar o censo de csv para esta organización
           new:
             file: "Ficheiro .csv con datos de correo electrónico"
-            info: 'Debe ser un ficheiro con formato CSV cunha columna: correo electrónico'
             submit: Cargar ficheiro
             title: Suba un novo censo
         authorizations:

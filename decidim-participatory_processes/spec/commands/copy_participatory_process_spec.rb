@@ -66,6 +66,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.meta_scope).to eq(old_participatory_process.meta_scope)
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
+        expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
       end
 
       it "broadcasts ok" do
@@ -95,10 +96,10 @@ module Decidim::ParticipatoryProcesses
 
       it "duplicates a participatory process and the categories" do
         expect { subject.call }.to change { Decidim::Category.count }.by(1)
-        expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
+        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
-        old_participatory_process_category = Decidim::Category.first
-        new_participatory_process_category = Decidim::Category.last
+        old_participatory_process_category = Decidim::Category.unscoped.first
+        new_participatory_process_category = Decidim::Category.unscoped.last
 
         expect(new_participatory_process_category.name).to eq(old_participatory_process_category.name)
         expect(new_participatory_process_category.description).to eq(old_participatory_process_category.description)

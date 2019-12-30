@@ -23,9 +23,7 @@ module Decidim
       end
 
       def get_filter(filter_name, default = nil)
-        return default unless params[:filter].try(:[], filter_name)
-
-        params[:filter][filter_name]
+        params&.dig(:filter, filter_name) || default
       end
 
       def filtered_processes(date_filter)

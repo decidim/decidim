@@ -1,0 +1,42 @@
+<%= decidim_form_for(@form,
+    url: decidim_consultations.question_question_multiple_votes_path(current_participatory_space),
+    method: :post,
+    html: { class: "form" }) do |f| %>
+
+  <div class="section row<%= " question-masonry-group" if current_participatory_space.grouped? %>">
+    <% current_participatory_space.grouped_responses.each do |group, responses| %>
+      <div class="column large-4 medium-6<%= " large-offset-4 medium-offset-3" unless current_participatory_space.grouped? %>">
+        <%= render partial: "form", locals: { form: f, group: group, responses: responses } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="question-vote-cabin">
+
+    <div class="row column">
+      <div class="large-offset-4 large-4 medium-offset-3 medium-6">
+        <%= button_to decidim_consultations.question_question_votes_path(current_participatory_space),
+                      method: :post,
+                      class: "card__button button expanded",
+                      id: "vote_button" do %>
+            <div class="vote-button-caption"><%= t "questions.vote_button.vote", scope: "decidim" %></div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="column">
+      <%= link_to decidim_consultations.question_path(current_participatory_space),
+                  class: "card__button button hollow float-left" do %>
+            &larr; <%= t("question_header.back_to_question", scope: "layouts.decidim") %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+<%= content_for :question_header_instructions do %>
+  <%= render partial: "decidim/consultations/question_multiple_votes/voting_rules", locals: { question: current_participatory_space } %>
+<% end %>

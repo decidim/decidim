@@ -19,10 +19,10 @@
     <div class="row">
       <div class="row column medium-8 text-left mt-m">
         <div class="column medium-6">
-          <button type="button" class="button hollow light expanded">
+          <div class="conference--date button hollow light expanded">
             <%= participatory_space_helpers.render_date(current_participatory_space) %>
             <%= current_participatory_space.location %>
-          </button>
+          </div>
         </div>
         <% if current_participatory_space.registrations_enabled? %>
           <div class="column medium-3 end">

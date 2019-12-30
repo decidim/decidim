@@ -1,0 +1,14 @@
+<div class="row column results-rules">
+  <div class="callout secondary">
+    <div class="row">
+      <div class="columns medium-8 large-9">
+        <h3 class="heading3"><%= t(".title") %></h3>
+        <ul>
+          <li><%= t(".vote_limit.description", limit: question.max_votes) %></li>
+          <li><%= t(".minimum_votes_per_user.description", votes: question.min_votes) %></li>
+          <li><%= t(".total_participants", count: question.total_participants) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

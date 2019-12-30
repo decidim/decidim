@@ -20,12 +20,12 @@ edit_link(
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.banner_image.url %>
 <div class="row">
-  <% unless current_initiative.online? %>
+  <% unless current_initiative.online_signature_type? %>
     <div class="column">
       <div class="callout secondary">
         <p>
-          <%= t ".any_vote_method" if current_initiative.any? %>
-          <%= t ".offline_method" if current_initiative.offline? %>
+          <%= t ".any_vote_method" if current_initiative.any_signature_type? %>
+          <%= t ".offline_method" if current_initiative.offline_signature_type? %>
         </p>
       </div>
     </div>
@@ -64,7 +64,7 @@ edit_link(
         </h2>
         <%= render partial: "author", locals: { initiative: current_initiative } %>
       </div>
-      <br />
+      <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
         <%= decidim_sanitize translated_attribute(current_initiative.description) %>

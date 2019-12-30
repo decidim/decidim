@@ -1,0 +1,66 @@
+"no":
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Bannerafbeelding
+        title: Tittel
+      question:
+        banner_image: Bannerafbeelding
+        instructions: Ytterligere instruksjoner for avstemning
+        title: Tittel
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Tilbake til svar
+      consultations:
+        results:
+          participants: "%{count} deltakere"
+      models:
+        consultation:
+          fields:
+            title: Tittel
+        question:
+          fields:
+            title: Tittel
+        response:
+          fields:
+            title: Tittel
+      question_configuration:
+        form:
+          title: Avansert konfigurasjon
+    consultations:
+      count:
+        title:
+          one: "%{count} konsultasjon"
+          other: "%{count} konsultasjoner"
+      filters:
+        active: Aktiv
+        all: Alle
+        state: Status
+      last_activity:
+        new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktive konsultasjoner
+      question_multiple_votes:
+        results_rules:
+          title: I dette spørsmålet var flere valg tillatt
+          total_participants: Totalt %{count} personer deltok i avstemmingen.
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Konsultasjoner</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, ring for å delta i konsultasjonen, gnist og beordre debatten for eller imot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater.</p>\n"
+          page: "<p><strong>Konsultasjoner</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, ring for å delta i konsultasjonen, gnist og beordre debatten for eller imot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater i organisasjonen.</p>\n"
+    questions:
+      statistics:
+        assistants_count_title: Assistenter
+      vote_button:
+        already_voted: Stemt allerede
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Vedlegg
+      question_header:
+        back_to_question: Tilbake til spørsmålet

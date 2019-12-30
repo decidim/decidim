@@ -18,8 +18,8 @@ en:
         automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
+        decidim_scope_id: Scope
         has_address: Has address
-        scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
@@ -322,6 +322,7 @@ en:
             success: All participatory text drafts have been discarded.
           import:
             invalid: The form is invalid!
+            invalid_file: The file contains some error, please try to edit the content of the file and re-upload it again.
             success: Congratulations, the following sections have been converted to proposals. Now you can review and adjust them before publishing.
           index:
             info_1: The following sections have been converted to proposals. Now you can review and adjust them before publishing.
@@ -372,8 +373,10 @@ en:
             title: Update proposal
             update: Update
           form:
+            add_images: Add images
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
+            gallery_legend: "(Optional) Add an image gallery"
             select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
@@ -536,7 +539,7 @@ en:
           hidden_authors_count:
             one: and %{count} more person
             other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
           of_versions: "(of %{number})"
           publish: Publish
           publish_info: Publish this version of the draft or
@@ -642,10 +645,12 @@ en:
         endorsements_card_row:
           comments: Comments
         filters:
-          activity: Activity
+          activity: My activity
+          all: All
           amendment_type: Type
           category: Category
           category_prompt: Select a category
+          my_proposals: My proposals
           origin: Origin
           related_to: Related to
           search: Search
@@ -670,9 +675,13 @@ en:
           title: Create Your Proposal
         orders:
           label: 'Order proposals by:'
+          most_commented: Most commented
+          most_endorsed: Most endorsed
+          most_followed: Most followed
           most_voted: Most supported
           random: Random
           recent: Recent
+          with_more_authors: With more authors
         participatory_texts:
           index:
             document_index: Document index

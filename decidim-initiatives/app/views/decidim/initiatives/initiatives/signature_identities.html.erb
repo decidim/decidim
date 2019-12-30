@@ -9,10 +9,10 @@
                unvote_label: current_user.name,
                verification_label: current_user.name,
                steps: signature_has_steps?
-           } unless current_initiative.offline? %>
+           } unless current_initiative.offline_signature_type? %>
 
 <% Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.each do |g| %>
-  <br />
+  <br>
   <% if @voted_groups.include? g.id %>
     <%= button_to(
       g.name,

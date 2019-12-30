@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Proposals::ParticipatoryTextSection
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
+      include Decidim::Randomable
 
       fingerprint fields: [:title, :body]
 
@@ -55,6 +56,7 @@ module Decidim
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
+      scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
 
       acts_as_list scope: :decidim_component_id
@@ -68,13 +70,6 @@ module Decidim
                         },
                         index_on_create: ->(proposal) { proposal.official? },
                         index_on_update: ->(proposal) { proposal.visible? })
-
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
-      end
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter

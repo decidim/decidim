@@ -17,8 +17,8 @@ fi:
         automatic_hashtags: Hashtagit lisätty automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
+        decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
@@ -97,6 +97,7 @@ fi:
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
+            participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
@@ -104,14 +105,14 @@ fi:
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Viimeistele" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
-            threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
+            threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
-            amendment_creation_enabled: Muutosten luonti on käytössä
-            amendment_creation_enabled_help: Osallistuja voi muuttaa ehdotuksia.
+            amendment_creation_enabled: Muutosten luonti käytössä
+            amendment_creation_enabled_help: Osallistujat voivat lisätä muutoksia ehdotuksiin.
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
             amendment_promotion_enabled_help: Muutosten laatijat voivat siirtää hylättyjä muutoksia uusiksi ehdotuksiksi.
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
@@ -120,7 +121,7 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
-            comments_blocked: Kommentit on estetty
+            comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
@@ -320,6 +321,7 @@ fi:
             success: Kaikki ehdotusaineistojen luonnokset on hylätty.
           import:
             invalid: Lomake on virheellinen!
+            invalid_file: Tässä tiedostossa on jokin virhe. Yritä korjata tiedoston sisältö ja lataa se uudestaan.
             success: Onnittelut, seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
           index:
             info_1: Seuraavat osiot on tuotu aineistosta ja muutettu ehdotuksiksi. Voit tarkistaa ja muuttaa niitä ennen julkaisua.
@@ -370,8 +372,10 @@ fi:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
+            add_images: Lisää kuvia
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            gallery_legend: "(Vapaaehtoinen) Lisää kuvagalleria"
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -640,10 +644,12 @@ fi:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          activity: Aktiivisuus
+          activity: Oma toiminta
+          all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
+          my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
           search: Haku
@@ -668,9 +674,13 @@ fi:
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
+          most_commented: Eniten kommentoidut
+          most_endorsed: Eniten suositellut
+          most_followed: Eniten seuratut
           most_voted: Eniten kannatuksia saaneet
           random: Satunnainen
           recent: Viimeisimmät
+          with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
             document_index: Asiakirjan hakemisto

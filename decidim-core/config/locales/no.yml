@@ -1,0 +1,633 @@
+"no":
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Grunn for at du vil slette din bruker
+      group:
+        about: Om
+        avatar: Profilbilde
+        document_number: Dokumentnummer
+        email: Epost
+        name: Navn
+        nickname: Kallenavn
+        phone: Telefon
+      report:
+        details: Ytterlige kommentarer
+      user:
+        about: Om
+        email: E-post
+        name: Navnet ditt
+        nickname: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft ditt passord
+        personal_url: Personlig URL
+        remove_avatar: Fjern profilbilde
+    models:
+      decidim/attachment_created_event: Vedlegg
+      decidim/component_published_event: Aktive komponent
+      decidim/demoted_membership: Ikke lenger en admin for gruppen
+      decidim/gamification/badge_earned_event: Merke oppnådd
+      decidim/gamification/level_up_event: Du gikk opp i nivå
+      decidim/join_request_accepted_event: Bli med forespørsel godtatt
+      decidim/join_request_rejected_event: Bli med forespørsel avslått
+      decidim/profile_updated_event: Profilen er oppdatert
+      decidim/promote_to_admin: Forfremmet til gruppe admin
+      decidim/removed_from_group: Fjernet fra gruppen
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Nåværende passord
+        email: Epost
+        name: Kallenavn
+        password: Passord
+        password_confirmation: Bekreft passord
+        remember_me: Husk meg
+    models:
+      decidim/amendment:
+        one: Endring
+        other: Endringer
+      decidim/user:
+        one: Deltaker
+        other: Deltakere
+      decidim/user_group:
+        one: Gruppe
+        other: Grupper
+  booleans:
+    'false': 'Nei'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: Dette bilde er for stort
+  date:
+    formats:
+      decidim_short: "%d.%m-%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Filen finnes ikke
+        invalid_token: Nøkkelen du ga er ugyldig.
+        no_token: Ingen nøkkel oppgitt
+        notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
+      delete:
+        alert: Denne handlingen er endelig. Hvis du sletter denne kontoen vil du ikke kunne logge deg inn igjen.
+        confirm:
+          close: Lukk vindu
+          ok: Ja, jeg ønsker å slette kontoen min
+          question: Er du sikker på at du vil slette kontoen din?
+          title: Slett kontoen min
+        explanation: Hvorfor ønsker du å slette kontoen din? (Frivillig).
+      destroy:
+        error: Det oppsto et problem med å slette kontoen din.
+        success: Kontoen din ble slettet.
+      show:
+        change_password: Endre passord
+        update_account: Oppdater konto
+      update:
+        error: Det oppsto et problem med å oppdatere kontoen din.
+        success: Kontoen din ble oppdatert.
+        success_with_email_confirmation: Kontoen ble oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
+    admin_log:
+      area:
+        create: "%{user_name} opprettet %{resource_name} området"
+        delete: "%{user_name} slettet %{resource_name} området"
+        update: "%{user_name} oppdaterte %{resource_name} området"
+      component:
+        create: "%{user_name} la til %{resource_name} komponent til %{space_name} rommet"
+        delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} rommet"
+        publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
+        unpublish: "%{user_name} upubliserte %{resource_name} komponent til %{space_name} rommet"
+      moderation:
+        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} rommet"
+        unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
+      newsletter:
+        create: "%{user_name} opprettet %{resource_name} nyhetsbrevet"
+        delete: "%{user_name} slettet %{resource_name} nyhetsbrevet"
+        deliver: "%{user_name} leverte %{resource_name} nyhetsbrevet"
+        update: "%{user_name} oppdaterte %{resource_name} nyhetsbrevet"
+      oauth_application:
+        create: "%{user_name} opprettet %{resource_name} OAuth applikasjonen"
+        delete: "%{user_name} slettet %{resource_name} OAuth applikasjonen"
+        update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
+      organization:
+        update: "%{user_name} oppdaterte organisasjonens innstillinger"
+      participatory_space_private_user:
+        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
+        create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
+      scope:
+        create: "%{user_name} lagde %{resource_name} omfanget"
+        create_with_parent: "%{user_name} lagde %{resource_name} omfanget inni %{parent_scope} omfanget"
+        delete: "%{user_name} slettet %{resource_name} omfanget"
+        delete_with_parent: "%{user_name} slettet %{resource_name} omfanget inni %{parent_scope} omfanget"
+        update: "%{user_name} oppdaterte %{resource_name} omfanget"
+        update_with_parent: "%{user_name} oppdaterte %{resource_name} omfanget inni %{parent_scope} omfanget"
+      static_page:
+        create: "%{user_name} lagde %{resource_name} statiske siden"
+        delete: "%{user_name} slettet %{resource_name} statisk side"
+        update: "%{user_name} oppdaterte %{resource_name} statisk side"
+      user:
+        invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
+        officialize: "%{user_name} gjorde deltakeren %{resource_name} offisiell"
+        remove_from_admin: "%{user_name} fjernet deltakeren %{resource_name} med rolle: %{role}"
+        unofficialize: "%{user_name} gjorde deltakeren %{resource_name} uoffisiell"
+      user_group:
+        reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
+        verify: "%{user_name} verifiserte gruppen %{resource_name}"
+        verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
+    amendments:
+      accepted:
+        error: En feil oppstod under godkjenningen av endringen.
+        success: Endringen ble godtatt.
+      amendable:
+        amended_by: Endret av
+        button: Endre %{model_name}
+        error: Det oppsto feil under endringen av denne resurssen.
+        help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
+        promote_button: Promoter til %{model_name}
+        promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
+        promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
+        section_heading: Endringer (%{count})
+      compare_draft:
+        continue: Fortsett
+        no_similars_found: Ingen like emendasjoner funnet.
+        title: Lignende Emendasjoner
+      created:
+        error: En feil oppstod mens du lagde endrings utkast.
+        success: Endrings utkastet har blitt opprettet.
+      destroy_draft:
+        error: Det oppsto et problem med å slette endrings utkastet.
+        success: Endrings utkastet ble slettet.
+      edit_draft:
+        discard: Forkast dette utkastet
+        discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
+        send: Forhåndsvisning
+        title: Endre Endrings Utkastet
+      emendation:
+        actions:
+          button_accept: Aksepter
+          button_reject: Avvis
+          help_text: Anmeld endringene og akseptere eller avis denne endringen. Endringens forfatter(e) vil bli informert.
+        announcement:
+          accepted: |-
+            Denne endringen for %{amendable_type}%{proposal_link} var akseptert på <strong>%{date}</strong>.
+          evaluating: |-
+            Denne endrignen for %{amendable_type} %{proposal_link} holder på å bli evaluert.
+          promoted: Promotert til en %{amendable_type}.
+          rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
+          withdrawn: |-
+            Denne endrignen for %{amendable_type} %{proposal_link} har blitt trukket av forfatteren.
+      new:
+        amendment_author: Endrings forfatter
+        send: Opprett
+        title: Opprett endrings utkast
+      preview_draft:
+        modify: Endre
+        publish: Publiser
+        title: Publiser endrings utkast
+      promoted:
+        error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
+        success: Endringen ble publisert som et nytt forslag
+      publish_draft:
+        error: Det oppsto et problem under publiseringen av endringen.
+        success: Endringen ble publisert.
+      rejected:
+        error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
+        success: Endringen ble avslått
+      review:
+        back: Tilbake
+        heading: Anmeld endringen
+        help_text: Du andmelder en endring til %{model_name}
+        send: Godta endring
+      update_draft:
+        error: Det oppsto et problem med å oppdatere endrings utkastet.
+        success: Endrings utkastet ble oppdatert.
+      visibility_options:
+        all: Endringer synlig for alle
+        participants: Endringen er bare synlig for forfatteren
+      withdraw:
+        error: Et problem oppsto under tilbaketrekningen av endringen
+        success: Endringen ble tilbaketrukket
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Sammenlign endringen din
+          '3': Fullfør endringen din
+          '4': Publiser endringen din
+    anonymous_user: Anonym
+    application:
+      collection:
+        documents:
+          one: Dokument
+          other: Dokumenter
+      documents:
+        related_documents: Relaterte dokumenter
+      photos:
+        related_photos: Relaterte bilder
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
+        fields:
+          passport_number: Pass nummer
+        name: Et annet eksempel autorisering
+      dummy_authorization_handler:
+        explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
+        fields:
+          document_number: Dokumentnummer
+          postal_code: Postnummer
+        name: Eksempel autorisering
+      dummy_authorization_workflow:
+        name: Dummy autoriserings arbeidskraft
+      errors:
+        duplicate_authorization: En deltaker har allerede autorisert med den samme informasjonen.
+      expired_at: Utgått på %{timestamp}
+      expires_at: Går ut %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Felt
+          foo: Foo
+        name: Foo autorisering
+      granted_at: Godkjent på %{timestamp}
+      sms:
+        explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
+        name: Kode via SMS
+      started_at: Startet på %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Gjenautorise med "%{authorization}"
+          explanation: Din autorisasjon har gått ut. For å gjøre denne handlingen, må du bli gjenautorisert med "%{authorization}".
+          title: Autorisasjon har utgått
+        incomplete:
+          cancel: Avbryt
+          explanation: 'Selv om du er autorisert med "%{authorization}", trenger du å gjen autorisere fordi vi mangler følgene data:'
+          invalid_field: "%{field}"
+          reauthorize: Gjenautoriser
+          title: Vennligst gjenautoriser
+        missing:
+          authorize: Autoriser med "%{authorization}"
+          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
+          title: Autorisering påkrevet
+        pending:
+          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
+          resume: Sjekk "%{authorization}" autoriseringen din
+          title: Autoriseringen pågår fremdeles
+        unauthorized:
+          explanation: Beklager, du kan ikke utføre denne handlingen fordi autoriserings informasjonen din er inkorrekt.
+          invalid_field: "%{field} verdi %{value} er ikke gyldig."
+          ok: Ok
+          title: Ikke autorisert
+        unconfirmed:
+          confirmation_instructions: 'Hvis du ikke har fått bekreftelse instruksjonene kan du be om de igjen:'
+          explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
+          request_confirmation_instructions: Be om bekreftelse instruksjoner
+          title: Bekreft e-posten din
+    collapsible_list:
+      hidden_elements_count:
+        one: å %{count} mer
+        other: å %{count} mere
+      see_less: "(Se mindre)"
+      see_more: "(se mer)"
+    components:
+      dummy:
+        actions:
+          bar: Felt
+          foo: Foo
+        name: Dummy komponent
+        settings:
+          global:
+            amendments_enabled: Endringer aktivert
+            comments_enabled: Kommentarer aktivert
+            dummy_global_attribute_1: Dummy Egenskap 1
+            dummy_global_attribute_2: Dummy Egenskap 2
+            dummy_global_translatable_text: Dummy Oversettbar tekst
+            enable_pads_creation: Aktiver oppretting av pads
+            resources_permissions_enabled: Ressurs tillatelser aktivert
+          step:
+            amendment_creation_enabled: Oppretting av endringer aktivert
+            amendment_promotion_enabled: Forfremmelse av endringer aktivert
+            amendment_reaction_enabled: Endrings reaksjon aktivert
+            amendments_visibility: Endringens synlighet
+            comments_blocked: Kommentarer blokkert
+            dummy_step_attribute_1: Dummy Steg Egenskap 1
+            dummy_step_attribute_2: Dummy Steg Egenskap 2
+            dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
+    contact: Kontakt
+    content_blocks:
+      footer_sub_hero:
+        name: Footer sub hero banner
+      how_to_participate:
+        name: Hvordan delta
+      html:
+        html_content: HTML-innhold
+      last_activity:
+        name: Siste aktivitet
+        title: Siste aktivitet
+        view_all: Vis alle
+    core:
+      actions:
+        login_before_access: Vennligst logg inn med kontoen din før tilgang
+        unauthorized: Du er ikke autorisert til å utføre denne handlingen
+    data_portability:
+      export:
+        ready: Klar
+      show:
+        download_data: Last ned informasjonen
+        download_data_description: En fil med all informasjon tilknyttet kontoen vil bli sendt til <strong>%{user_email}</strong>
+        request_data: Etterspør informasjonen
+    datepicker:
+      help_text: 'Forventet format: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: En annen bruker er registrert under samme e-postadresse
+        new:
+          complete_profile: Fullfør profilen
+          nickname_help: Aliaset ditt i %{organization}
+          sign_up: Vennligs fullfør profilen din
+          subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
+          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+      registrations:
+        new:
+          already_have_an_account?: Har du allerede en bruker?
+          password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+          sign_in: Logg inn
+          sign_up: Register deg
+          sign_up_as:
+            legend: Register deg som
+          subtitle: Registrer deg for å delta i diskusjoner og støtte forslag.
+          terms: vilkårene for bruk
+          tos_agreement: Ved å registrere deg godtar du til %{link}.
+          tos_title: Vilkår for bruk
+          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+      sessions:
+        new:
+          register: Opprett en konto
+      shared:
+        newsletter_modal:
+          notice: |-
+            <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
+            Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
+            Det er veldig viktig for oss at du kan motta sporadiske e-poster
+            for å gi viktige kunngjøringer, du kan alltids endre dette på 
+            varslingsinnstillinger siden.</p>
+            <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
+            om nye deltaker muligheter innen plattformen.<br>
+            Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
+            beslutningen din.</p>
+            <p>Takk for at du leste dette!</p>
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoriser søknad
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
+          see_name: Se navnet ditt
+          see_username: Se kallenavnet ditt
+          this_application_will_be_able_to: 'Dette programmet vil kunne:'
+          this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
+          update_profile: Oppdater profilen din
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    errors:
+      internal_server_error:
+        title: Det oppsto et problem med våre servere
+        try_later: Vennligst prøv igjen senere.
+      not_found:
+        back_home: Tilbake hjem
+        content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
+        title: Siden du ser etter kan ikke bli funnet
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
+          follower:
+            email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+            email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
+        amendment_created:
+          affected_user:
+            email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
+            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
+            notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
+            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
+          follower:
+            email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
+            email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
+      attachments:
+        attachment_created:
+          email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige linken.
+          email_subject: En oppdatering til %{resource_title}
+          notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_subject: En oppdatering til %{participatory_space_title}
+      email_event:
+        email_subject: En oppdatering til %{resource_title}
+      groups:
+        demoted_membership:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
+        invited_to_group:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har invitert deg til å være med i den.
+        join_request_rejected:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen avviste forespørselen din om å bli med i den.
+        promoted_to_admin:
+          email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
+        removed_from_group:
+          email_intro: En admind av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet deg fra den.
+      notification_event:
+        notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_subject: "%{nickname} oppdaterte profilens sin"
+    filters:
+      linked_classes:
+        all: Alle
+    gamification:
+      badges:
+        followers:
+          description_own: "%{score} folk følger deg."
+        index:
+          badge_title: "%{name} merke"
+          page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
+          title: Merker
+      description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
+    group_admins:
+      actions:
+        are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
+        demote_admin: Fjern admin
+    group_invites:
+      accept_invitation: Aksepter
+    group_members:
+      actions:
+        are_you_sure: Er du sikker?
+        remove_from_group: Fjern deltaker
+    groups:
+      actions:
+        are_you_sure: Er du sikker?
+      members:
+        accept_request: Aksepter
+      roles:
+        admin: Administrator
+    help:
+      main_topic:
+        default_page:
+          content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
+    last_activities:
+      all: Alle aktivitetstyper
+    log:
+      base_presenter:
+        create: "%{user_name} opprettet %{resource_name}"
+        create_with_space: "%{user_name} opprettet %{resource_name} i %{space_name}"
+        delete: "%{user_name} slettet %{resource_name}"
+        delete_with_space: "%{user_name} slettet %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utførte en handlig på %{resource_name}"
+        unknown_action_with_space: "%{user_name} utførete en handlig på %{resource_name} i %{space_name}"
+        update: "%{user_name} oppdaterte %{resource_name}"
+        update_with_space: "%{user_name} oppdaterte %{resource_name} i %{space_name}"
+    menu:
+      help: Hjelp
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
+          subject: "%{sender} har startet en samtale med deg"
+        new_message:
+          intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+    pages:
+      home:
+        statistics:
+          assemblies_count: Forsamlinger
+          pages_count: Sider
+          proposals_accepted: Godkjente Forslag
+          surveys_count: Undersøkelse
+      index:
+        standalone_pages: Sider
+        title: Hjelp
+      terms_and_conditions:
+        form:
+          legend: Godta vilkårene for bruk
+        refuse:
+          modal_btn_continue: Aksepter vilkår og fortsett
+    participatory_space_private_users:
+      not_allowed: Du er ikke tillatt å se dette innholdet
+    profiles:
+      show:
+        activity: Aktivitet
+        badges: Merker
+      sidebar:
+        badges:
+          info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
+          title: Merker
+    reported_mailer:
+      hide:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+        subject: En ressurs var automatisk skjult
+      report:
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
+        subject: En ressurs er blitt rapportert
+    reports:
+      create:
+        error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
+    search:
+      results_found_for_term: '%{count} Resultater for søket: "%{term}"'
+    searches:
+      filters:
+        back: Tilbake til resultater
+        state:
+          active: Aktiv
+          all: Alle
+      results:
+        results:
+          one: "%{count} resultat"
+          other: "%{count} resultater"
+    shared:
+      floating_help:
+        help: Hjelp
+      participatory_space_filters:
+        filters:
+          areas: Områder
+    welcome_notification:
+      default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
+    wizard_step_form:
+      wizard_aside:
+        back: Tilbake
+  devise:
+    invitations:
+      send_instructions: En invitasjons epost har blitt sendt til %{email}.
+    mailer:
+      invitation_instructions:
+        accept: Godta invitasjon
+        invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
+        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
+    passwords:
+      edit:
+        password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+    registrations:
+      edit:
+        are_you_sure: Er du sikker?
+      signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
+    shared:
+      links:
+        back: Tilbake
+      minimum_password_length:
+        one: "(%{count} karakter minimum)"
+        other: "(%{count} karakterer minimum)"
+  errors:
+    messages:
+      cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
+  layouts:
+    decidim:
+      edit_link:
+        edit: Editar
+      user_menu:
+        admin_dashboard: Admin hovedpanel
+      user_profile:
+        account: Konto
+        authorizations: Fullmakter
+        notifications_settings: Varslingsinnstillinger
+  password_validator:
+    password_not_allowed: er ikke tillatt
+  social_share_button:
+    email: Epost
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a%e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  versions:
+    directions:
+      right: Tillegg
+  views:
+    pagination:
+      first: "&laquo; Først"
+      previous: "&lsaquo; Tidligere"
+      truncate: "&hellip;"

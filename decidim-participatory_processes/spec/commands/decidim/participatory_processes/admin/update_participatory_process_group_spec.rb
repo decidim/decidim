@@ -84,6 +84,10 @@ module Decidim::ParticipatoryProcesses
           ).and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
     end
   end

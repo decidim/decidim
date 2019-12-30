@@ -17,7 +17,7 @@
   </pre>
   <small><code>key</code>, en el array anidado, ha de ser una fecha en formato ISO</small>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión simple</h4>
   <code>partial "linechart", metric: "metrica", title: "Lorem", subtitle: "Ipsum"</code>
@@ -25,7 +25,7 @@
 <div class="row column mt-s">
   <%= partial "linechart", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con diferentes ratios</h4>
   <div class="callout warning">
@@ -44,7 +44,7 @@
 <div class="row column mt-s">
   <%= partial "linechart", ratio: "5:4", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión sin título ni subtítulo</h4>
   <code>partial "linechart", metric: "metrica"</code>
@@ -52,7 +52,7 @@
 <div class="row column mt-s">
   <%= partial "linechart", metric: "linechart-" + SecureRandom.random_number(2).to_s %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Diferentes colores según su status</h4>
   <div class="callout warning">
@@ -74,7 +74,7 @@
     <%= partial "linechart", classes: "alert", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
   <code>partial "linechart", metric: "metrica", tip: false</code>
@@ -87,7 +87,7 @@
     <%= partial "linechart", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Adaptables al contenedor</h4>
 </div>

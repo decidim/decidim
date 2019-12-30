@@ -2,6 +2,9 @@
 
 module Decidim
   class ErrorsController < Decidim::ApplicationController
+    skip_before_action :verify_authenticity_token
+    skip_after_action :verify_same_origin_request
+
     def not_found
       render status: :not_found
     end

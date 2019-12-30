@@ -8,6 +8,7 @@ module Decidim
       include TranslatableAttributes
 
       translatable_attribute :name, String
+      attribute :weight, Integer, default: 0
       translatable_attribute :description, String
       attribute :parent_id, Integer
 

@@ -2,11 +2,11 @@ de:
   activemodel:
     attributes:
       consultation:
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         decidim_highlighted_scope_id: Hervorgehobener Umfang
         description: Beschreibung
         end_voting_date: Die Abstimmung endet
-        introductory_image: Einführendes Bild
+        introductory_image: Einführungsbild
         introductory_video_url: Einleitende Video-URL
         questions: Fragen
         slug: URL-Block
@@ -14,7 +14,7 @@ de:
         subtitle: Untertitel
         title: Titel
       question:
-        banner_image: Bannerbild
+        banner_image: Banner-Bild
         decidim_scope_id: Kommunales Gebiet
         hashtag: Hashtag
         hero_image: Hauptbild

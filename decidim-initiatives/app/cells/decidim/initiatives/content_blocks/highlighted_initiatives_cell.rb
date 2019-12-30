@@ -4,6 +4,8 @@ module Decidim
   module Initiatives
     module ContentBlocks
       class HighlightedInitiativesCell < Decidim::ViewModel
+        include Decidim::SanitizeHelper
+
         delegate :current_organization, to: :controller
 
         def show

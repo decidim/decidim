@@ -1,0 +1,10 @@
+"no":
+  activemodel:
+    attributes:
+      dummy_resource:
+        title: Tittel
+  decidim:
+    pages:
+      home:
+        statistics:
+          bar: Felt

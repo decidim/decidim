@@ -9,6 +9,23 @@ describe "Filter Participatory Processes", type: :system do
     switch_to_host(organization.host)
   end
 
+  shared_examples "listing all processes" do
+    it "lists all processes ordered by start_date (closest to current_date)" do
+      within "#processes-grid h2" do
+        expect(page).to have_content("6 PROCESSES")
+      end
+
+      within "#processes-grid" do
+        expect(titles[0].text).to eq("Started today")
+        expect(titles[1].text).to eq("Started 1 day ago")
+        expect(titles[2].text).to eq("Starts 1 week from now")
+        expect(titles[3].text).to eq("Started 2 weeks ago")
+        expect(titles[4].text).to eq("Started 3 weeks ago")
+        expect(titles[5].text).to eq("Starts 1 year from now")
+      end
+    end
+  end
+
   context "when filtering processes by date" do
     let!(:active_process) { create :participatory_process, title: "Started today", start_date: Date.current, organization: organization }
     let!(:active_process_2) { create :participatory_process, title: "Started 1 day ago", start_date: 1.day.ago, organization: organization }
@@ -74,27 +91,23 @@ describe "Filter Participatory Processes", type: :system do
     end
 
     context "and choosing 'all' processes" do
+      let(:time_zone) { Time.zone } # UTC
+
       before do
         past_process.update(title: "Started 2 weeks ago")
         past_process_2.update(title: "Started 3 weeks ago", start_date: 3.weeks.ago)
+        allow(Time).to receive(:zone).and_return(time_zone)
         within ".order-by__tabs" do
           click_link "All"
         end
       end
 
-      it "lists all processes ordered by start_date (closest to current_date)" do
-        within "#processes-grid h2" do
-          expect(page).to have_content("6 PROCESSES")
-        end
+      it_behaves_like "listing all processes"
 
-        within "#processes-grid" do
-          expect(titles[0].text).to eq("Started today")
-          expect(titles[1].text).to eq("Started 1 day ago")
-          expect(titles[2].text).to eq("Starts 1 week from now")
-          expect(titles[3].text).to eq("Started 2 weeks ago")
-          expect(titles[4].text).to eq("Started 3 weeks ago")
-          expect(titles[5].text).to eq("Starts 1 year from now")
-        end
+      context "when the configured time_zone is not UTC" do
+        let(:time_zone) { ActiveSupport::TimeZone.new("Madrid") }
+
+        it_behaves_like "listing all processes"
       end
     end
   end

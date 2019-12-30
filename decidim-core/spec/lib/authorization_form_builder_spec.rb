@@ -27,7 +27,8 @@ module Decidim
       end
 
       it "includes the public handler attributes" do
-        expect(find("input#authorization_handler_birthday")["type"]).to eq("text")
+        expect(find("input#authorization_handler_birthday")["data-date-format"]).to eq("dd/mm/yyyy")
+        expect(find("input#authorization_handler_postal_code")["type"]).to eq("text")
         expect(find("input#authorization_handler_document_number")["type"]).to eq("text")
       end
 
@@ -56,6 +57,21 @@ module Decidim
           expect(html.css(".form-error").length).to eq(1)
         end
       end
+    end
+
+    describe "public_attributes (private)" do
+      subject { builder.send(:public_attributes) }
+
+      let(:public_attributes) do
+        {
+          handler_name: String,
+          document_number: String,
+          postal_code: String,
+          birthday: Date
+        }
+      end
+
+      it { is_expected.to eq(public_attributes) }
     end
   end
 end

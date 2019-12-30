@@ -1,0 +1,58 @@
+"no":
+  activemodel:
+    attributes:
+      project:
+        budget: Budsjett
+        decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    budgets:
+      actions:
+        attachments: Vedlegg
+        confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
+        edit: Editar
+        title: Handlinger
+      admin:
+        proposals_imports:
+          create:
+            success: "%{number} forslag importert til prosjekter"
+      admin_log:
+        project:
+          create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
+      models:
+        project:
+          fields:
+            title: Tittel
+      projects:
+        budget_summary:
+          are_you_sure: Er du sikker på at du vil avbryte din stemme?
+          assigned: 'Tildelt:'
+        count:
+          projects_count:
+            one: 1 prosjekt
+            other: "%{count} prosjekter"
+        filters:
+          category: Kategori
+        order_selected_projects:
+          remove: Fjern
+        project:
+          add: Legg til
+          count:
+            one: 1 støtte
+            other: "%{count} støttere"
+          remove: Fjern
+        project_budget_button:
+          add: Legg til
+          added: Lagt til
+        show:
+          budget: Budsjett
+    components:
+      budgets:
+        settings:
+          global:
+            announcement: Kunngjøring
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+          step:
+            announcement: Kunngjøring

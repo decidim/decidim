@@ -3,15 +3,18 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
-  include_context "when a simple event"
-
-  let(:resource) { comment.commentable }
-  let(:comment) { create :comment }
-  let(:comment_author) { comment.author }
   let(:event_name) { "decidim.events.comments.user_mentioned" }
-  let(:extra) { { comment_id: comment.id } }
 
-  it_behaves_like "a simple event"
+  include_context "when it's a comment event"
+
+  before do
+    body = "Comment mentioning some user, @#{comment.author.nickname}"
+    parsed_body = Decidim::ContentProcessor.parse(body, current_organization: comment.organization)
+    comment.body = parsed_body.rewrite
+    comment.save
+  end
+
+  it_behaves_like "a comment event"
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -43,8 +46,9 @@ describe Decidim::Comments::UserMentionedEvent do
   end
 
   describe "resource_text" do
-    it "outputs the comment body" do
-      expect(subject.resource_text).to eq comment.body
+    it "correctly renders comments with mentions" do
+      expect(subject.resource_text).not_to include("gid://")
+      expect(subject.resource_text).to include("@#{comment.author.nickname}")
     end
   end
 end

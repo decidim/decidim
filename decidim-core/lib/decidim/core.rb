@@ -5,6 +5,7 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
@@ -79,6 +80,7 @@ module Decidim
   autoload :IoEncoder, "decidim/io_encoder"
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
+  autoload :Randomable, "decidim/randomable"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -131,7 +133,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors

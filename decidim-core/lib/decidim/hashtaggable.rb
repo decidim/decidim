@@ -11,10 +11,14 @@ module Decidim
         renderer.render(links: false).html_safe
       end
 
+      alias_method :formatted_title, :search_title
+
       def search_body
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
         renderer.render(links: false).html_safe
       end
+
+      alias_method :formatted_body, :search_body
     end
   end
 end

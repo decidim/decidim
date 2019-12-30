@@ -1,0 +1,133 @@
+"no":
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Område
+        assembly_type: Forsamlings type
+        assembly_type_other: Forsamlings type annet
+        banner_image: Bannerafbeelding
+        decidim_area_id: Område
+        title: Tittel
+      assembly_member:
+        birthplace: Fødested
+      assembly_user_role:
+        email: Epost
+        name: Navn
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Forsamling
+        other: Forsamlinger
+      decidim/assembly_member:
+        one: Forsamlings medlem
+        other: Forsamlings medlemmer
+      decidim/assembly_user_role:
+        one: Forsamlings bruker rolle
+        other: Forsamlings bruker roller
+  decidim:
+    admin:
+      assemblies:
+        create:
+          success: Forsamling ble opprettet.
+        update:
+          success: Forsamlingen ble oppdatert.
+      assemblies_copies:
+        create:
+          success: Forsamlingen ble duplisert.
+      assembly_members:
+        index:
+          assembly_members_title: Forsamlings medlemmer
+      assembly_publications:
+        create:
+          success: Forsamlingen ble publisert.
+        destroy:
+          success: Forsamlingen ble upublisert.
+      assembly_user_roles:
+        create:
+          success: Admin ble lagt til i denne forsamlingen.
+        destroy:
+          success: Admin slettet fra denne forsamlingen.
+        index:
+          assembly_admins_title: Forsamlings adminer
+        update:
+          success: Admin ble oppdatert for denne forsamlingen.
+      menu:
+        assemblies: Forsamlinger
+        assemblies_submenu:
+          assembly_admins: Forsamlings adminer
+          attachments: Vedlegg
+      models:
+        assembly:
+          fields:
+            title: Tittel
+          name: Forsamling
+        assembly_member:
+          fields:
+            full_name: Navn
+        assembly_user_role:
+          fields:
+            email: Epost
+            name: Navn
+          name: Forsamlings admin
+          roles:
+            admin: Administrator
+      titles:
+        assemblies: Forsamlinger
+    admin_log:
+      assembly:
+        create: "%{user_name} opprettet %{resource_name} forsamlingen"
+        publish: "%{user_name} publiserte %{resource_name} forsamlingen"
+        unpublish: "%{user_name} upubliserte %{resource_name} forsamlingen"
+        update: "%{user_name} oppdaterte %{resource_name} forsamlingen"
+      assembly_member:
+        create: "%{user_name} opprettet %{resource_name} medlemmet i %{space_name} samlingen"
+        delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingen"
+        update: "%{user_name} oppdaterte %{resource_name} medlemmet i %{space_name} samlingen"
+      assembly_user_role:
+        create: "%{user_name} inviterte %{resource_name} til %{space_name} forsamlingen"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} forsamlingen"
+        update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
+    assemblies:
+      admin:
+        assembly_members:
+          index:
+            filter:
+              all: Alle
+      filter:
+        all: Alle typer
+      index:
+        title: Forsamlinger
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive forsamlinger
+      show:
+        area: Område
+        assembly_type: Forsamlings type
+        children: Forsamlinger
+      statistics:
+        answers_count: Svar
+        assemblies_count: Forsamlinger
+        headline: Aktivitet
+        pages_count: Sider
+        surveys_count: Undersøkelse
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p> En <strong>forsamling</strong> er en gruppe medlemmer av en organisasjon som møtes med jevne mellomrom for å ta beslutninger om et spesifikt område eller omfang av organisasjonen.</p> <p>Forsamlinger holder møter, noen er private og noen er åpne. Hvis de er åpne, er det mulig å delta dem (for eksempel: delta på om kapasiteten tillater det, legge punkter til dagsordenen eller kommentere forslagene og beslutningene som er tatt av dette organet).</p> <p>Eksempler: En generalforsamling (som møtes en gang i året for å definere organisasjonens hovedhandlingslinjer i tillegg til dens overordnede organer ved avstemning), et råd for likestillingsråd (som møtes annenhver måned for å komme med forslag til hvordan man kan forbedre kjønnsrelasjoner i organisasjon), en evaluering kommisjon (som møtes hver måned for å overvåke en prosess) eller et garantiorgan (som samler hendelser, missbruk eller forslag for å forbedre beslutningsprosessene) er alle eksempler på forsamlinger.</p>\n"
+          page: "<p>En <strong>forsamling</strong> er en gruppe medlemmer av en organisasjon som møtes med jevne mellomrom for å ta beslutninger om et spesifikt område eller omfang av organisasjonen.</p> <p>Forsamlinger holder møter, noen er private og noen er åpne. Hvis de er åpne, er det mulig å delta dem (for eksempel: delta på om kapasiteten tillater det, legge punkter til dagsordenen eller kommentere forslagene og beslutningene som er tatt av dette organet).</p> <p>Eksempler: En generalforsamling (som møtes en gang i året for å definere organisasjonens hovedhandlingslinjer i tillegg til dens overordnede organer ved avstemning), et råd for likestillingsråd (som møtes annenhver måned for å komme med forslag til hvordan man kan forbedre kjønnsrelasjoner i organisasjon), en evaluering kommisjon (som møtes hver måned for å overvåke en prosess) eller et garantiorgan (som samler hendelser, missbruk eller forslag for å forbedre beslutningsprosessene) er alle eksempler på forsamlinger.</p>\n"
+    menu:
+      assemblies: Forsamlinger
+    metrics:
+      assemblies:
+        object: forsamlinger
+        title: Forsamlinger
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          children: 'Forsamlinger: '
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} sammenstillinger"
+            other: "%{count} sammenstillingene"

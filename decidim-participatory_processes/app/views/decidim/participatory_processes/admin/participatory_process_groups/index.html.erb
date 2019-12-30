@@ -1,3 +1,11 @@
+<%= render partial: "decidim/participatory_processes/admin/shared/secondary_nav" %>
+
+<div class="process-title">
+  <div class="process-title-content">
+    <%= link_to t("decidim.admin.titles.participatory_process_groups"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -19,7 +27,7 @@
             <tr>
               <td>
                 <% if allowed_to? :update, :process_group, process_group: group %>
-                  <%= link_to translated_attribute(group.name), ["edit", group] %><br />
+                  <%= link_to translated_attribute(group.name), ["edit", group] %><br>
                 <% else %>
                   <%= translated_attribute(group.name) %>
                 <% end %>

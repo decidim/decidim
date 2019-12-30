@@ -106,14 +106,14 @@ nl:
           selected_projects:
             one: Geselecteerd project
             other: Geselecteerde projecten
-          view: Bekijken
+          view: Bekijk
         project:
           add: Toevoegen
           count:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
           remove: Verwijderen
-          view: Uitzicht
+          view: Bekijk
         project_budget_button:
           add: Toevoegen
           added: Toegevoegd

@@ -34,6 +34,7 @@ en:
         extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
+        promoting_committee_enabled: Enable promoting committee
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
