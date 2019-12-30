@@ -80,6 +80,7 @@ namespace :decidim do
       puts msg
       Rails.logger.info(msg)
     end
+
     def log_error(msg)
       puts msg
       Rails.logger.error(msg)
