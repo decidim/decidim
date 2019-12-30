@@ -16,7 +16,7 @@ module Decidim
   # - datetime:  The timestamp that places this resource in the line of time. Used as second criteria (first is text relevance) for sorting.
   #
   class SearchableResource < ApplicationRecord
-    include PgSearch
+    include PgSearch::Model
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

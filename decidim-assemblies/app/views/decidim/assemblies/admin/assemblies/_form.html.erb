@@ -157,7 +157,7 @@
       <div class="row column">
         <%= form.select :parent_id,
                         options_from_collection_for_select(
-                          @all_assemblies,
+                          parent_assemblies,
                           :id,
                           :translated_title,
                           selected: current_assembly.try(:parent_id)

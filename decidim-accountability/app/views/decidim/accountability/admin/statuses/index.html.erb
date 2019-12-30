@@ -21,7 +21,7 @@
         <tbody>
           <% statuses.each do |status| %>
             <tr data-id="<%= status.id %>">
-              <td><%= status.key %><br /></td>
+              <td><%= status.key %><br></td>
               <td><%= translated_attribute(status.name) %></td>
               <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
               <td><%= status.progress %></td>

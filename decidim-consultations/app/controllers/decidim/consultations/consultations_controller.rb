@@ -7,11 +7,11 @@ module Decidim
     class ConsultationsController < Decidim::Consultations::ApplicationController
       layout "layouts/decidim/consultation", only: :show
 
+      include ParticipatorySpaceContext
       include NeedsConsultation
       include FilterResource
       include Paginable
-      include Orderable
-      include ParticipatorySpaceContext
+      include Decidim::Consultations::Orderable
 
       helper_method :collection, :consultations, :finished_consultations, :active_consultations, :filter
 

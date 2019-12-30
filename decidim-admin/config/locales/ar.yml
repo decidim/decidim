@@ -71,6 +71,7 @@ ar:
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         secondary_color: ثانوي
+        send_welcome_notification: إرسال إشعار بالترحيب
         show_statistics: عرض الإحصائيات
         success_color: نجاح
         tos_version: شروط وأحكام الخدمة
@@ -78,6 +79,7 @@ ar:
         user_groups_enabled: تمكين المجموعات
         user_name: اسم المستخدم
         warning_color: تحذير
+        welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
       scope:

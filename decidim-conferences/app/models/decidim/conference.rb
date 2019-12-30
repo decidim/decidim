@@ -16,6 +16,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::Searchable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -54,6 +55,18 @@ module Decidim
     mount_uploader :banner_image, Decidim::HomepageImageUploader
     mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
     mount_uploader :signature, Decidim::Conferences::DiplomaUploader
+
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :slogan,
+                        C: :short_description,
+                        D: [:description, :objectives],
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_conference) { false },
+                      index_on_update: ->(conference) { conference.visible? })
 
     # Scope to return only the promoted conferences.
     #

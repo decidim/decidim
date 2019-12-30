@@ -1,0 +1,42 @@
+"no":
+  activemodel:
+    attributes:
+      sortition:
+        title: Tittel
+  decidim:
+    sortitions:
+      admin:
+        actions:
+          edit: Editar
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              title: Tittel
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
+          form:
+            all_categories: Alle kategorier
+      admin_log:
+        sortition:
+          create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"
+          delete: "%{user_name} kansellerte %{resource_name} sorteringen i %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name} sorteringen i %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 forslag
+            other: "%{count} forslag"
+        filters:
+          active: Aktiv
+          all: Alle
+          category: Kategori
+          state: Status
+        show:
+          dice_result: "(1) Terning resultat"
+          time_seed: "(2) Time seed"
+        sortitions_count:
+          count:
+            one: 1 sortering
+            other: "%{count} sorteringer"

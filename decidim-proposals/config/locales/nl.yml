@@ -18,7 +18,6 @@ nl:
         body: Body
         category_id: Categorie
         has_address: Heeft adres
-        scope_id: Reikwijdte
         state: Status
         suggested_hashtags: Voorgestelde hashtags
         title: Titel
@@ -114,7 +113,11 @@ nl:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Aankondiging
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
@@ -310,7 +313,7 @@ nl:
             name: Voorstel
         participatory_texts:
           bulk-actions:
-            are_you_sure: Weet je zeker dat je de hele deelnemende tekstopmaak wilt verwijderen?
+            are_you_sure: Weet je zeker dat je de hele ontwerptekst wilt verwijderen?
             discard_all: Gooi alles weg
             import_doc: Document importeren
           discard:
@@ -338,7 +341,7 @@ nl:
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Sectie:</em> <strong>%{title}</strong>"
-            sub-section: "<em>Onderafdeling:</em> %{title}"
+            sub-section: "<em>Subsectie:</em> %{title}"
           update:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
@@ -368,8 +371,10 @@ nl:
             title: Update voorstel
             update: Bijwerken
           form:
+            add_images: Afbeeldingen toevoegen
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
+            gallery_legend: "(Optioneel) Voeg een beeldgalerij toe"
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -638,10 +643,12 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          activity: Activiteit
+          activity: Mijn activiteit
+          all: Alle
           amendment_type: Type
           category: Categorie
           category_prompt: Kies een categorie
+          my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
@@ -666,9 +673,13 @@ nl:
           title: Maak voorstel aan
         orders:
           label: 'Bestelling sorteren op:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Meest recent
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Documentindex
@@ -686,6 +697,7 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           back_to: Terug naar
+          changes_at_title: Amendement op "%{title}"
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
           hidden_endorsers_count:
@@ -693,6 +705,9 @@ nl:
             other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
           link_to_collaborative_draft_text: Bekijk de samenwerkende trekking
+          link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement
+          link_to_promoted_emendation_text: Bekijk het verworpen amendement.
+          link_to_proposal_from_emendation_help_text: Dit is een verworpen amendement
           link_to_proposal_from_emendation_text: Bekijk het voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd

@@ -1,0 +1,30 @@
+"no":
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Side
+        other: Sider
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} oppdaterte %{resource_name} siden i %{space_name}"
+    components:
+      pages:
+        name: Side
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
+    pages:
+      admin:
+        models:
+          components:
+            body: Tekst
+        pages:
+          edit:
+            save: Oppdater
+            title: Rediger side
+          update:
+            invalid: Det oppsto et problem med å lagre denne siden.
+            success: Siden ble lagret.

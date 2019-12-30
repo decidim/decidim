@@ -16,10 +16,20 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Randomable
+      include Decidim::Searchable
 
       component_manifest_name "budgets"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
+
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :description,
+        datetime: :created_at
+      )
 
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::ProjectPresenter

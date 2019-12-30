@@ -6,11 +6,12 @@ module Decidim
       # Controller that allows managing conference media links.
       class MediaLinksController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         def index
           enforce_permission_to :index, :media_link
 
-          @media_links = collection.page(params[:page]).per(15)
+          @media_links = paginate(collection)
         end
 
         def new

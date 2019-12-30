@@ -365,7 +365,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias (@nickname) in %{organization}
+          nickname_help: Your alias in %{organization}
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -374,7 +374,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias (@nickname) in %{organization}
+          nickname_help: Your alias in %{organization}
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
@@ -592,21 +592,14 @@ en:
       current_image: Current image
       default_image: Default image
       errors:
+        decidim/user:
+          password: The password is too short.
+          password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
       all_badges_link: See all available badges.
       badges:
-        continuity:
-          conditions:
-          - Come here often
-          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
-          description_another: This participant has connected for %{score} consecutive days at some point.
-          description_own: You have connected for %{score} consecutive days at some point.
-          name: Continuity
-          next_level_in: Connect for %{score} consecutive days to get to the next level!
-          unearned_another: This participant hasn't signed in for more than one consecutive day.
-          unearned_own: You haven't connected for more than one consecutive day.
         followers:
           conditions:
           - Being active and following other people will surely make other people follow you.
@@ -1221,11 +1214,11 @@ en:
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
-      not_found: not found
+      not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: 'There''s been an error processing your request:'
+        other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)

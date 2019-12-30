@@ -16,7 +16,7 @@
     ]
   </pre>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión simple</h4>
   <code>partial "rowchart", metric: "metrica", title: "Lorem", subtitle: "Ipsum"</code>
@@ -24,7 +24,7 @@
 <div class="row column mt-s">
   <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con diferentes ratios</h4>
   <div class="callout warning">
@@ -43,7 +43,7 @@
 <div class="row column mt-s">
   <%= partial "rowchart", ratio: "5:4", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión sin título ni subtítulo</h4>
   <code>partial "rowchart", metric: "metrica"</code>
@@ -51,7 +51,7 @@
 <div class="row column mt-s">
   <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(2).to_s %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con muchas categorías (<code>máximo 12</code>)</h4>
   <div class="callout warning">
@@ -62,7 +62,7 @@
 <div class="row column mt-s">
   <%= partial "rowchart", metric: "rowchart-3", ratio: "1:2", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión con etiquetas muy largas</h4>
   <code>partial "rowchart", metric: "metrica"</code>
@@ -70,7 +70,7 @@
 <div class="row column mt-s">
   <%= partial "rowchart", metric: "rowchart-2", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Datos en porcentaje<sup>1</sup> (por defecto <code>percent: false</code>)</h4>
   <code>partial "rowchart", percent: true, metric: "metrica"</code>
@@ -86,7 +86,7 @@
 <div class="row column">
   <small><sup>1</sup>&nbsp;Ambos gráficos están usando el mismo dataset <code>rowchart-0</code></small>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Diferentes colores según su status</h4>
   <div class="callout warning">
@@ -108,7 +108,7 @@
     <%= partial "rowchart", classes: "alert", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Versión sin tooltip (por defecto <code>tip: true</code>)</h4>
   <code>partial "rowchart", metric: "metrica", tip: false</code>
@@ -121,7 +121,7 @@
     <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
   </div>
 </div>
-<br />
+<br>
 <div class="row column">
   <h4>Adaptables al contenedor</h4>
   <div class="callout warning">

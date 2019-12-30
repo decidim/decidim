@@ -14,7 +14,7 @@ module Decidim
     delegate :current_organization, to: :controller
 
     def current_user
-      context[:current_user]
+      context&.dig(:current_user) || controller&.current_user
     end
 
     private

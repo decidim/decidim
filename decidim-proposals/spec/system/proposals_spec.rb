@@ -156,7 +156,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.secondary" do
+        within ".callout.warning" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -174,7 +174,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.warning" do
+        within ".callout.alert" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -365,6 +365,22 @@ describe "Proposals", type: :system do
       end
     end
 
+    shared_examples "ordering proposals by selected option" do |selected_option|
+      before do
+        visit_component
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link(selected_option)
+        end
+      end
+
+      it "lists the proposals ordered by selected option" do
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: first_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: last_proposal.title)
+      end
+    end
+
     context "when ordering by 'most_voted'" do
       let!(:component) do
         create(:proposal_component,
@@ -372,40 +388,67 @@ describe "Proposals", type: :system do
                manifest: manifest,
                participatory_space: participatory_process)
       end
+      let!(:most_voted_proposal) { create(:proposal, component: component) }
+      let!(:votes) { create_list(:proposal_vote, 3, proposal: most_voted_proposal) }
+      let!(:less_voted_proposal) { create(:proposal, component: component) }
 
-      it "lists the proposals ordered by votes" do
-        most_voted_proposal = create(:proposal, component: component)
-        create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-        less_voted_proposal = create(:proposal, component: component)
-
-        visit_component
-
-        within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click
-          click_link "Most supported"
-        end
-
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+      it_behaves_like "ordering proposals by selected option", "Most supported" do
+        let(:first_proposal) { most_voted_proposal }
+        let(:last_proposal) { less_voted_proposal }
       end
     end
 
     context "when ordering by 'recent'" do
-      it "lists the proposals ordered by created at" do
-        older_proposal = create(:proposal, component: component, created_at: 1.month.ago)
-        recent_proposal = create(:proposal, component: component)
+      let!(:older_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
+      let!(:recent_proposal) { create(:proposal, component: component) }
 
-        visit_component
+      it_behaves_like "ordering proposals by selected option", "Recent" do
+        let(:first_proposal) { recent_proposal }
+        let(:last_proposal) { older_proposal }
+      end
+    end
 
-        within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click
-          click_link "Recent"
-        end
+    context "when ordering by 'most_followed'" do
+      let!(:most_followed_proposal) { create(:proposal, component: component) }
+      let!(:follows) { create_list(:follow, 3, followable: most_followed_proposal) }
+      let!(:less_followed_proposal) { create(:proposal, component: component) }
 
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
+      it_behaves_like "ordering proposals by selected option", "Most followed" do
+        let(:first_proposal) { most_followed_proposal }
+        let(:last_proposal) { less_followed_proposal }
+      end
+    end
+
+    context "when ordering by 'most_commented'" do
+      let!(:most_commented_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
+      let!(:comments) { create_list(:comment, 3, commentable: most_commented_proposal) }
+      let!(:less_commented_proposal) { create(:proposal, component: component) }
+
+      it_behaves_like "ordering proposals by selected option", "Most commented" do
+        let(:first_proposal) { most_commented_proposal }
+        let(:last_proposal) { less_commented_proposal }
+      end
+    end
+
+    context "when ordering by 'most_endorsed'" do
+      let!(:most_endorsed_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
+      let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: most_endorsed_proposal) }
+      let!(:less_endorsed_proposal) { create(:proposal, component: component) }
+
+      it_behaves_like "ordering proposals by selected option", "Most endorsed" do
+        let(:first_proposal) { most_endorsed_proposal }
+        let(:last_proposal) { less_endorsed_proposal }
+      end
+    end
+
+    context "when ordering by 'with_more_authors'" do
+      let!(:most_authored_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
+      let!(:coauthorships) { create_list(:coauthorship, 3, coauthorable: most_authored_proposal) }
+      let!(:less_authored_proposal) { create(:proposal, component: component) }
+
+      it_behaves_like "ordering proposals by selected option", "With more authors" do
+        let(:first_proposal) { most_authored_proposal }
+        let(:last_proposal) { less_authored_proposal }
       end
     end
 

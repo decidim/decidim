@@ -1,0 +1,111 @@
+"no":
+  activemodel:
+    attributes:
+      agenda:
+        title: Tittel
+      meeting:
+        address: Adresse
+        available_slots: Tilgjengelige plasser for dette møtet
+        decidim_category_id: Kategori
+        title: Tittel
+      minutes:
+        audio_url: Audio url
+  decidim:
+    components:
+      meetings:
+        settings:
+          global:
+            announcement: Kunngjøring
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+          step:
+            announcement: Kunngjøring
+    gamification:
+      badges:
+        attended_meetings:
+          name: Deltok møter
+          next_level_in: Delta %{score} flere møter for å nå neste nivå!
+    meetings:
+      actions:
+        agenda: Dagsorden
+        attachments: Vedlegg
+        confirm_destroy: Er du sikker på at du vil slette dette møtet?
+        edit: Rediger
+        title: Handlinger
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Legg til dagsordens underelement
+            agenda_item: Dagsordens element
+            agenda_item_children: Dagsordens underelementer
+            remove: Fjern
+          agenda_item_child:
+            agenda_item_child: Dagsordens underelement
+            remove: Fjern
+          create:
+            success: Dagsorden opprettet
+          form:
+            add_agenda_item: Legg til dagsordens element
+            agenda_items: Dagsordens elementer
+          update:
+            success: Dagsorden oppdatert
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+        invites:
+          form:
+            attendee_type: Deltaker type
+          index:
+            filter:
+              accepted: Aksepterte
+              all: Alle
+        meetings:
+          form:
+            address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+          service:
+            remove: Fjern
+            title: Tittel
+          services:
+            add_service: Legg til tjeneste
+      admin_log:
+        invite:
+          create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
+          deleted: "%{user_name} fjern invitasjon %{attendee_name} fra å bli med i %{resource_name} møtet på %{space_name} rommet"
+          update: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
+        meeting:
+          close: "%{user_name} lukket %{resource_name} møtet i %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} møte på %{space_name} rommet"
+          delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
+          export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} møte på %{space_name} rommet"
+        minutes:
+          create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
+          update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
+      directory:
+        meetings:
+          index:
+            all: Alle
+      last_activity:
+        new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
+      meeting:
+        not_allowed: Du er ikke tillatt å se dette møtet
+      meetings:
+        filters:
+          category: Kategori
+        show:
+          attendees: Antall deltakere
+          organizations: Deltakende organisasjoner
+          remaining_slots:
+            one: "%{count} plass igjen"
+            other: "%{count} plasser igjen"
+      models:
+        invite:
+          fields:
+            email: Epost
+            name: Navn
+            status: Status
+          status:
+            accepted: Aksepterte (%{at})
+        meeting:
+          fields:
+            title: Tittel
+      read_more: "(Les mer)"

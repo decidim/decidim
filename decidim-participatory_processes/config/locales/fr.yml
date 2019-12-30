@@ -18,8 +18,8 @@ fr:
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_scope: Objectif
-        participatory_structure: Modalités
+        participatory_scope: Objectifs
+        participatory_structure: Modalités de décision
         promoted: Mise en avant
         published_at: Publiée à
         scope_id: Périmètre d'application
@@ -48,6 +48,12 @@ fr:
         email: Email
         name: Nom
         role: Rôle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -74,6 +80,7 @@ fr:
         filter:
           all: Afficher tous les processus
           process_groups: Groupes de processus
+        import_process: Importer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
@@ -147,6 +154,14 @@ fr:
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
           success: Groupe de concertations mis à jour avec succès.
+      participatory_process_imports:
+        create:
+          error: Une erreur s'est produite lors de l'import de cette concertation.
+          success: Concertation importée avec succès.
+        new:
+          import: Importer
+          select: Sélectionnez les données que vous souhaitez importer
+          title: Importer une concertation
       participatory_process_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette concertation.
@@ -194,7 +209,7 @@ fr:
           process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel utilisateur de la concertation.
+          title: Nouvel administrateur de la concertation.
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -291,6 +306,10 @@ fr:
         participatory_process_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Ajouter un document
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
@@ -356,7 +375,7 @@ fr:
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
-        participatory_structure: Modalités
+        participatory_structure: Modalités de décision
         private_space: Ceci est une concertation privée
         scope: Périmètre d'application
         start_date: Date de début

@@ -50,6 +50,8 @@ module Decidim
     attr_reader :event, :event_class, :resource, :followers, :affected_users, :extra
 
     def generate_notification_for(recipient, user_role:)
+      return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
+
       NotificationGeneratorForRecipientJob.perform_later(
         event,
         event_class.name,

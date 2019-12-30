@@ -6,6 +6,7 @@ fi-pl:
         field: Oma kenttä
         start_date: Alkamispäivä
         title: Otsikko
+        translatable_text: Käännettävä teksti
         updated_at: Päivitysaika
   decidim:
     dummy:

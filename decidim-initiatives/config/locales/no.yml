@@ -1,0 +1,151 @@
+"no":
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Forfatter
+        state: Status
+        title: Tittel
+      initiative_author:
+        address: Adresse
+      initiatives_type:
+        banner_image: Bannerafbeelding
+        document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
+        title: Tittel
+        validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
+      organization_data:
+        address: Adresse
+  decidim:
+    admin:
+      models:
+        initiatives:
+          fields:
+            state: Status
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          page: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+    initiatives:
+      actions:
+        answer: Svar
+      admin:
+        answers:
+          edit:
+            answer: Svar
+            title: Svar for %{title}
+        committee_requests:
+          index:
+            approve: Godkjenn
+            confirm_revoke: Er du sikker?
+        initiatives:
+          edit:
+            accept: Godta initiativ
+            confirm: Er du sikker?
+          index:
+            actions_title: Handling
+            filter:
+              accepted: Aksepterte
+              all: Alle
+          update:
+            error: Det oppstod en feil
+        initiatives_type_scopes:
+          create:
+            error: Det oppstod en feil
+            success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
+          edit:
+            back: Tilbake
+            confirm_destroy: Er du sikker?
+          new:
+            back: Tilbake
+          update:
+            error: Det oppstod en feil
+        initiatives_types:
+          create:
+            error: Det oppstod en feil
+            success: En ny initiativtype er blitt opprettet
+          edit:
+            confirm_destroy: Er du sikker?
+          update:
+            error: Det oppstod en feil
+      admin_log:
+        initiative:
+          publish: "%{user_name} publiserte %{resource_name} initiativet"
+          send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
+          unpublish: "%{user_name} la ned %{resource_name} initiativet"
+          update: "%{user_name} oppdaterte %{resource_name} initiativet"
+      admin_states:
+        accepted: Aksepterte
+      create_initiative:
+        fill_data:
+          back: Tilbake
+          fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
+          more_information: "(Mer informasjon)"
+        finish:
+          back: Tilbake
+          back_to_initiatives: Tilbake til initiativer
+          more_information: "(Mer informasjon)"
+        finish_help:
+          page: side
+        previous_form:
+          back: Tilbake
+          more_information: "(Mer informasjon)"
+        promotal_committee:
+          back: Tilbake
+          more_information: "(Mer informasjon)"
+        select_initiative_type:
+          back: Tilbake
+          more_information: "(Mer informasjon)"
+        show_similar_initiatives:
+          back: Tilbake
+          more_information: "(Mer informasjon)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
+        endorse_initiative_event:
+          email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
+      initiative_signatures:
+        finish:
+          back_to_initiative: Tilbake til initiativ
+      initiatives:
+        author_list:
+          hidden_authors_count:
+            one: og 1 til persjon
+            other: og %{count} flere personer
+        count:
+          title:
+            one: "%{count} initiativ"
+            other: "%{count} initiativer"
+        filters:
+          any: Alle
+          author: Forfatter
+          state: Status
+        interactions:
+          comments_count:
+            count:
+              one: Kommentar
+              other: Kommentar
+        signatures_count:
+          one: " underskrift"
+          other: " underskrifter"
+        vote_cabin:
+          already_voted: Allerede signert
+          supports_required: "%{total_supports} signaturer påkrevd"
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktive initiativer
+      states:
+        accepted: Aksepterte
+    resources:
+      initiatives_type:
+        actions:
+          title: Handlinger
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Vedlegg
+      initiative_creation_header:
+        back: Tilbake
+      initiative_signature_creation_header:
+        back: Tilbake

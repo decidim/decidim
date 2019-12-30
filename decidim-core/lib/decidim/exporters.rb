@@ -7,7 +7,6 @@ module Decidim
     autoload :CSV, "decidim/exporters/csv"
     autoload :Excel, "decidim/exporters/excel"
     autoload :ExportData, "decidim/exporters/export_data"
-    autoload :Serializer, "decidim/exporters/serializer"
 
     # Get the exporter class constant from the format as a string.
     #

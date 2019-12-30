@@ -1,0 +1,12 @@
+<%= decidim_form_for @form,
+                     url: question_configuration_path(current_question),
+                     method: :patch,
+                     html: { class: "form edit_question" } do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("questions.edit.update", scope: "decidim.admin"),
+                 class: "button",
+                 data: { disable_with: true } %>
+
+  </div>
+<% end %>

@@ -14,6 +14,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::DataPortability
+      include Decidim::Randomable
+      include Decidim::Searchable
 
       component_manifest_name "accountability"
 
@@ -27,12 +29,13 @@ module Decidim
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
-      def self.order_randomly(seed)
-        transaction do
-          connection.execute("SELECT setseed(#{connection.quote(seed)})")
-          order(Arel.sql("RANDOM()")).load
-        end
-      end
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :description,
+        datetime: :start_date
+      )
 
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter

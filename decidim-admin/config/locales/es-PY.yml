@@ -41,6 +41,7 @@ es-PY:
         badges_enabled: Habilitar insignias
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
+        customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
         enable_omnipresent_banner: Mostrar banner omnipresente
@@ -70,6 +71,7 @@ es-PY:
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         secondary_color: Secundario
+        send_welcome_notification: Enviar notificación de bienvenida
         show_statistics: Mostrar estadísticas
         success_color: Éxito
         tos_version: Versión de los Términos de Servicio
@@ -77,6 +79,8 @@ es-PY:
         user_groups_enabled: Habilitar grupos de usuarios
         user_name: Nombre de usuario
         warning_color: Advertencia
+        welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
+        welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
       scope:
         code: Código
@@ -161,6 +165,7 @@ es-PY:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
+          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
           success: Área destruida correctamente
         edit:
           title: Editar área
@@ -567,10 +572,19 @@ es-PY:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
+          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Se ha producido un error al leer el archivo CSV.
+          success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
+        new:
+          explanation: Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y nombre en la última columna del archivo (correo electrónico, nombre) de las participantes que quieras añadir al espacio participativo, sin cabeceras.
+          title: Sube tu archivo CSV
+          upload: Subir
       resource_permissions:
         edit:
           submit: Enviar

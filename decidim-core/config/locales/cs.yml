@@ -331,7 +331,7 @@ cs:
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute_1: Atribut kroku dummy 1
+            dummy_step_attribute_1: Atribut 1 zástupného kroku
             dummy_step_attribute_2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
@@ -376,7 +376,7 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Váš alias (@nickname) v %{organization}
+          nickname_help: Vaše přezdívka v %{organization}
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -385,7 +385,7 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Váš alias (@nickname) v %{organization}
+          nickname_help: Vaše přezdívka v %{organization}
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se
@@ -593,7 +593,7 @@ cs:
       no_followings: Nesleduje nikoho ani nic.
     follows:
       create:
-        button: Následovat
+        button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
       destroy:
         button: Ukončit sledování
@@ -603,6 +603,9 @@ cs:
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
       errors:
+        decidim/user:
+          password: Heslo je příliš krátké.
+          password_confirmation: Potvrzení hesla se musí shodovat s heslem.
         error: V tomto poli je chyba.
       remove_this_file: Odstranit tento soubor
     gamification:
@@ -806,7 +809,7 @@ cs:
       followers:
         description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
-        title: Následovníci
+        title: Sledující
       participants:
         description: Počet aktivních uživatelů v organizaci
         object: účastníků
@@ -947,7 +950,7 @@ cs:
       show:
         activity: Aktivita
         badges: Odznaky
-        followers: Následovníci
+        followers: Sledující
         following: Následuje
         groups: Skupiny
         members: Členové
@@ -978,7 +981,7 @@ cs:
       report:
         hello: Zdravím %{name},
         manage_moderations: Správa moderování
-        report_html: <p>Bylo hlášeno následující <a href="%{url}">obsah</a> .</p>
+        report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
         subject: Byl ohlášen zdroj
     reports:
       create:
@@ -1201,15 +1204,15 @@ cs:
       new:
         sign_in: Přihlásit se
       signed_in: Úspěšně jste se přihlásili.
-      signed_out: Bylo úspěšně odhlášeno.
+      signed_out: Odhlášení proběhlo úspěšně.
     shared:
       links:
-        back: Zadní
+        back: Zpět
         didn_t_receive_confirmation_instructions: Nedostali jste pokyny k potvrzení?
         didn_t_receive_unlock_instructions: Nezískali jste pokyny k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
         sign_in: Přihlásit se
-        sign_in_with_provider: Přihlaste se pomocí %{provider}
+        sign_in_with_provider: Přihlásit se přes %{provider}
         sign_up: Přihlásit se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
@@ -1236,13 +1239,8 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
-      not_found: nenalezeno
+      not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyla zamčená
-      not_saved:
-        one: '1 chyba zakázala uložení tohoto %{resource}:'
-        few: "%{count} chybám bylo zakázáno %{resource} uloženo:"
-        many: "%{count} chybám bylo zakázáno %{resource} uloženo:"
-        other: "%{count} chybám bylo zakázáno %{resource} uloženo:"
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod 15 znaků)
@@ -1255,7 +1253,7 @@ cs:
     decidim:
       cookie_warning:
         description_html: Tento web používá cookies. Pokračováním v procházení webu souhlasíte s používáním souborů cookie. Zjistěte více o tom %{link}.
-        link_label: tady
+        link_label: zde
         ok: souhlasím
       edit_link:
         edit: Upravit
@@ -1263,16 +1261,16 @@ cs:
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
       header:
-        close_menu: Zavřete nabídku
+        close_menu: Zavřít nabídku
         navigation: Navigace
         sign_in: Přihlásit se
-        sign_up: Přihlásit se
+        sign_up: Registrovat
       impersonation_warning:
-        close_session: Zavřete relaci
-        description_html: Odsuzujete uživatele <b>%{user_name}</b>.
+        close_session: Zavřít sezení
+        description_html: Spravujete účastníka <b>%{user_name}</b>.
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       notifications_dashboard:
-        mark_all_as_read: označit vše jako přečtené
+        mark_all_as_read: Označit vše jako přečtené
       user_menu:
         admin_dashboard: Správní panel
         conversations: Konverzace
@@ -1295,16 +1293,16 @@ cs:
     name: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
-    email_included_in_password: je příliš podobná e-mailu
+    email_included_in_password: je příliš podobný e-mailu
     fallback: není platný
     name_included_in_password: je příliš podobné vašemu jménu
     not_enough_unique_characters: nemá dostatek jedinečných znaků
     password_not_allowed: není povoleno
     password_too_common: je příliš běžné
     password_too_long: je to moc dlouhé
-    password_too_short: je příliš krátká
+    password_too_short: je příliš krátké
   social_share_button:
-    delicious: Lahodné
+    delicious: Delicious
     douban: Douban
     email: E-mailem
     facebook: Facebook
@@ -1318,7 +1316,7 @@ cs:
     share_to: Sdílet na %{name}
     telegram: Telegram
     tumblr: Tumblr
-    twitter: Cvrlikání
+    twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Otevřete WeChat, klikněte na tlačítko "Objevte" a poté klikněte na nabídku "Skenovat QR kód".
@@ -1352,8 +1350,8 @@ cs:
       option_unified: Sjednocené
   views:
     pagination:
-      first: "&laquo; Nejprve"
+      first: "&laquo; První"
       last: Poslední &raquo;
       next: Další &rsaquo;
-      previous: "&lsaquo; Předch"
+      previous: "&lsaquo; Předchozí"
       truncate: "&hellip;"

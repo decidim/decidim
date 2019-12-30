@@ -22,6 +22,8 @@ hu:
             announcement: Közlemény
           step:
             allow_answers: Válaszok engedélyezése
+            allow_unregistered: Nem regisztrált felhasználók számára a kérdőív kitöltésének engedélyezése
+            allow_unregistered_help: Amennyiben aktív, nem szükséges a bejelentkezés a kérdőív kitöltéséhez. Ez megbízhatatlan, kevésbé hiteles adatokhoz vezethet és sérülékenyebbé teszi a rendszert az automatizált támadásokkal szemben. Óvatosan használjuk!
             announcement: Közlemény
     events:
       surveys:
@@ -37,9 +39,9 @@ hu:
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> felmérés elindult itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     metrics:
       survey_answers:
-        description: A felhasználók által felmérett felmérések száma
+        description: A felhasználók által megválaszolt felmérések száma
         object: válaszok a felmérésekre
-        title: Válaszok a felmérésekhez
+        title: Válaszok a felmérésekre
     surveys:
       admin:
         exports:
@@ -53,4 +55,5 @@ hu:
       surveys:
         answer:
           invalid: Hiba történt a felmérés megválaszolása során.
+          spam_detected: Probléma történt az űrlap megválaszolása során. Lehet, hogy túl gyorsan próbálkoztál, megpróbálnád újra?
           success: Felmérés kitöltése sikeres.

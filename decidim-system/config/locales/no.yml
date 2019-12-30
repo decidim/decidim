@@ -1,0 +1,33 @@
+"no":
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Er du sikker på at du vil slette dette?
+        edit: Editar
+        title: Handlinger
+      admins:
+        create:
+          success: Admin opprettet
+        destroy:
+          success: Admin ble slettet
+        index:
+          title: Adminer
+        update:
+          success: Admin ble oppdatert
+      menu:
+        admins: Adminer
+      models:
+        admin:
+          fields:
+            email: Epost
+          name: Admin
+          validations:
+            email_uniqueness: en annen admin med samme email eksisterer allerede
+        organization:
+          fields:
+            name: Navn
+      organizations:
+        users_registration_mode:
+          disabled: Tilgang kan bare gjøres med eksterne kontoer
+          enabled: Tillat deltakerne å registrere og logge inn
+          existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn

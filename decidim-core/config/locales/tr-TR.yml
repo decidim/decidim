@@ -324,7 +324,6 @@ tr:
           email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Tam profil
-          nickname_help: İçinde kısa, benzersiz tanıtıcı %{organization}
           sign_up: Lütfen profilinizi tamamlayın
           subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -333,7 +332,6 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: İlgili bilgiler içeren bir ara bülteni alın
           newsletter_title: İletişim izni
-          nickname_help: İçinde kısa, benzersiz tanıtıcı %{organization}
           password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol
@@ -1174,11 +1172,7 @@ tr:
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
       nesting_too_deep: bir alt kategorinin içinde olamaz
-      not_found: bulunamadı
       not_locked: kilitli değildi
-      not_saved:
-        one: '1 hata bu yasak %{resource} kaydedilmesini:'
-        other: "%{count} hataları bu yasak %{resource} kaydedilmesini:"
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
       too_short: çok kısa (15 karakterin altında)

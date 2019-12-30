@@ -4,23 +4,26 @@
   </div>
   <div class="card-section">
     <div class="row column  hashtags__container">
-      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, value: @meeting.present? ? present(@meeting).title(all_locales: true) : @form.title.with_indifferent_access %>
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :description, hashtaggable: true, value: @meeting.present? ? present(@meeting).description(all_locales: true) : @form.description.with_indifferent_access %>
+      <%= form.translated :editor, :description, hashtaggable: true %>
     </div>
 
     <div class="row column">
       <%= form.text_field :address %>
+      <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.translated :text_area, :location %>
+      <p class="help-text"><%= t(".location_help") %></p>
     </div>
 
     <div class="row column">
       <%= form.translated :text_area, :location_hints %>
+      <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
 
     <div class="row">

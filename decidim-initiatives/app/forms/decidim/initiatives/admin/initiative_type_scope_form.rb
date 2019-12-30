@@ -11,7 +11,6 @@ module Decidim
         attribute :supports_required, Integer
         attribute :decidim_scopes_id, Integer
 
-        validates :decidim_scopes_id, presence: true
         validates :supports_required,
                   presence: true,
                   numericality: {

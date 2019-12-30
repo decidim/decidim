@@ -13,7 +13,7 @@
     </div>
   </div>
 </div>
-<br />
+<br>
 <div class="row">
   <div class="medium-centered">
     <div class="card">
@@ -36,15 +36,24 @@
               <%= f.editor :description, lines: 8, toolbar: :full, required: true %>
             </div>
 
-            <div class="field">
-              <%= f.select :signature_type, signature_type_options(f.object) %>
-            </div>
+            <% signature_type_options = signature_type_options(f.object) %>
+            <% if signature_type_options.length == 1 %>
+              <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
+            <% else %>
+              <div class="field">
+                <%= f.select :signature_type, signature_type_options %>
+              </div>
+            <% end %>
 
-            <div class="field">
-              <%= f.select :scope_id,
-                           scopes.map { |scoped_type| [translated_attribute(scoped_type.scope.name), scoped_type.scope.id]},
-                           prompt: t(".select_scope") %>
-            </div>
+            <% if scopes.length == 1 %>
+              <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
+            <% else %>
+              <div class="field">
+                <%= f.select :scope_id,
+                            scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id]},
+                            prompt: t(".select_scope") %>
+              </div>
+            <% end %>
 
             <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
               <div class="field">

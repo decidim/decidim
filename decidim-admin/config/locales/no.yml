@@ -1,0 +1,262 @@
+"no":
+  activemodel:
+    attributes:
+      area:
+        area_type: Områdetype
+        name: Navn
+        organization: Organisasjon
+      area_type:
+        name: Navn
+        organization: Organisasjon
+        plural: Flertall
+      attachment:
+        attachment_collection_id: Mapper
+        description: Beskrivelse
+        file: Fil
+        title: Tittel
+      attachment_collection:
+        description: Beskrivelse
+        name: Navn
+      category:
+        description: Beskrivelse
+        name: Navn
+        parent_id: Forelder
+      component:
+        name: Navn
+        published_at: Publisert den
+        weight: Vekt
+      id: ID
+      newsletter:
+        body: Tekst
+        subject: Emne
+      oauth_application:
+        name: Navn
+        organization_logo: Organisasjonslogo (Firkant)
+        organization_name: Navn på organisasjonen
+        organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
+      organization:
+        address: SMTP vertsnavn
+        alert_color: Varsel
+        badges_enabled: Aktiver merker
+        customize_welcome_notification: Tilpass dine velkomst varsler
+        default_locale: Standard språk
+        description: Beskrivelse
+        enable_omnipresent_banner: Vis allestedsnærværende banner
+        favicon: Ikon
+        from: Fra e-postadresse
+        header_snippets: Topptekstutdrag
+        highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
+        highlighted_content_banner_action_title: Handlingsknapp tittel
+        highlighted_content_banner_action_url: Handlingsknapp URL
+        highlighted_content_banner_image: Bilde
+        highlighted_content_banner_short_description: Kort beskrivelse
+        highlighted_content_banner_title: Tittel
+        logo: Logo
+        name: Navn
+        official_img_footer: Offisiell logo footer
+        official_img_header: Offisiell logo header
+        official_url: Offisiell organisasjons URL
+        omnipresent_banner_short_description: Kort beskrivelse
+        omnipresent_banner_title: Tittel
+        omnipresent_banner_url: URL
+        password: Passord
+        port: Port
+        primary_color: Primært
+        reference_prefix: Referanse prefiks
+        secondary_color: Sekundær
+        send_welcome_notification: Send velkomst varsel
+        show_statistics: Vis statistikk
+        success_color: Vellykket
+        tos_version: Vilkår for tjenester versjon
+        user_groups_enabled: Aktiver grupper
+        user_name: Brukernavn
+        warning_color: Advarsel
+        welcome_notification_body: Velkomst varslings tekst
+        welcome_notification_subject: Velkomst varslings emne
+      scope:
+        code: Kode
+        name: Navn
+        organization: Organisasjon
+        parent_id: Forelder
+        scope_type: Omfangs type
+        scope_type_id: Omfangs type
+      scope_type:
+        name: Navn
+        organization: Organisasjon
+        plural: Flertall
+      static_page:
+        changed_notably: Det har vært merkbare endringer.
+        content: Innhold
+        organization: Organisasjon
+        title: Tittel
+      static_page_topic:
+        title: Tittel
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Ugyldig bildefil
+            official_img_header:
+              allowed_file_content_types: Ugyldig bildefil
+  activerecord:
+    attributes:
+      decidim/static_page:
+        title: Tittel
+      doorkeeper/application:
+        authorize_url: Autoriser URL
+  decidim:
+    admin:
+      actions:
+        add: Legg til
+      area_types:
+        create:
+          success: Områdetype ble opprettet.
+        destroy:
+          success: Områdetype ble ødelagt
+        update:
+          success: Områdetype ble oppdatert
+      areas:
+        create:
+          success: Området ble opprettet.
+        destroy:
+          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
+          success: Området ble ødelagt
+        update:
+          success: Området ble oppdatert
+      attachment_collections:
+        index:
+          attachment_collections_title: Vedleggsmapper
+      attachments:
+        create:
+          error: Det oppsto et problem med å opprette et nytt vedlegg.
+          success: Vedlegget ble opprettet.
+        destroy:
+          success: Vedlegg ble ødelagt.
+        edit:
+          title: Rediger vedlegg
+          update: Oppdater
+        index:
+          attachments_title: Vedlegg
+        new:
+          create: Opprett vedlegg
+          title: Nytt vedlegg
+        update:
+          error: Det oppsto et problem med å oppdatere dette vedlegget.
+          success: Vedlegg ble oppdatert.
+      components:
+        index:
+          add: Legg til komponent
+          headers:
+            actions: Handlinger
+        new:
+          add: Legg til komponent
+          title: 'Legg til komponent: %{name}'
+      exports:
+        export_as: "%{name} som %{export_format}"
+      impersonatable_users:
+        index:
+          filter:
+            all: Alle
+          name: Navn
+          status: Status
+      impersonations:
+        form:
+          authorization_method: Autoriseringsmetode
+          name: Navn
+      menu:
+        admin_log: Admin aktivitet logg
+        admins: Adminer
+        appearance: Utseende
+        area_types: Områdetyper
+        areas: Områder
+        static_pages: Sider
+      models:
+        area:
+          fields:
+            area_type: Områdetype
+            name: Navn
+        area_type:
+          fields:
+            name: Navn
+        attachment:
+          fields:
+            title: Tittel
+          name: Vedlegg
+        category:
+          name: Kategori
+        impersonation_log:
+          fields:
+            admin: Admin
+        oauth_application:
+          fields:
+            name: Navn
+        scope:
+          fields:
+            name: Navn
+        scope_type:
+          fields:
+            name: Navn
+        static_page:
+          fields:
+            title: Tittel
+        user:
+          fields:
+            email: Epost
+            name: Navn
+            roles:
+              admin: Admin
+        user_group:
+          fields:
+            actions: Handlinger
+            name: Navn
+      newsletters:
+        index:
+          all: alle
+          all_users: 'Alle brukere '
+          and: 'og '
+          confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+        select_recipients_to_deliver:
+          all_spaces: Alle
+          confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
+          warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
+      oauth_applications:
+        create:
+          success: Søknaden ble opprettet.
+        destroy:
+          success: Søknaden ble ødelagt.
+        index:
+          confirm_delete: Er du sikker på at du vil slette dette programmet?
+        update:
+          success: Søknaden ble oppdatert.
+      officializations:
+        index:
+          actions: Handlinger
+          badge: Merke
+          filter:
+            all: Alle
+          name: Navn
+          status: Status
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive innholdsblokker
+      static_pages:
+        edit:
+          title: Rediger side
+      titles:
+        admin_log: Admin logg
+        area_types: Områdetyper
+        areas: Områder
+        static_pages: Sider
+      user_groups:
+        index:
+          filter:
+            all: Alle
+      users:
+        form:
+          email: Epost
+          name: Navn
+    moderations:
+      actions:
+        title: Handlinger

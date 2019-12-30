@@ -1,0 +1,36 @@
+"no":
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Undersøkelse
+        other: Undersøkelse
+      decidim/surveys/survey_answer:
+        one: Svar
+        other: Svar
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Svar
+        name: Undersøkelse
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            allow_answers: Tillat svar
+            allow_unregistered: Tillat uregistrerte brukere å svare på undersøkelsen
+            allow_unregistered_help: Hvis aktiv, er det ikke nødvendig med innlogging for å svare på undersøkelsen. Dette kan føre til dårlige eller upålitelig data, og den vil være mer sårbare for automatiserte angrep. Bruk med forsiktighet!
+            announcement: Kunngjøring
+    events:
+      surveys:
+        survey_closed:
+          email_subject: En undersøkelse var fullført i %{participatory_space_title}
+        survey_opened:
+          email_subject: En ny undersøkelse i %{participatory_space_title}
+    metrics:
+      survey_answers:
+        object: svar på undersøkelser
+        title: Svar på undersøkelser
+    surveys:
+      last_activity:
+        new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"

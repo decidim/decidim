@@ -22,7 +22,7 @@ edit_link(
       <h4 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h4>
       <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
     </section>
-    <hr class="reset mt-none mb-m" />
+    <hr class="reset mt-none mb-m">
     <section class="section">
       <h4 class="section-heading"><%= t("conferences.show.details", scope: "decidim") %></h4>
       <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
@@ -53,7 +53,7 @@ edit_link(
     <%= render_hook(:conference_venues) %>
 
     <% if current_participatory_space.registrations_enabled? %>
-      <hr class="reset mt-none mb-m" />
+      <hr class="reset mt-none mb-m">
       <section class="section">
         <h4 class="section-heading"><%= t(".register") %></h4>
         <% if current_user.present? %>
@@ -72,7 +72,7 @@ edit_link(
       </section>
     <% end %>
 
-    <hr class="reset mt-none mb-m" />
+    <hr class="reset mt-none mb-m">
 
     <% unless translated_attribute(current_participatory_space.objectives).blank? %>
       <section class="section">

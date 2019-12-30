@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="card--list__data">
-    <%= link_to document.url, target: "_blank", class: "card--list__data__icon" do %>
+    <%= link_to document.url, target: "_blank", rel: "noopener", class: "card--list__data__icon" do %>
         <%= icon "cloud-download" %>
     <% end %>
   </div>

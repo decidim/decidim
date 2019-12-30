@@ -15,6 +15,8 @@ nl:
             choices:
               missing: zijn niet compleet
               too_many: zijn te veel
+        questionnaire:
+          request_invalid: Er is een fout opgetreden bij het verwerken van het verzoek. Probeer het opnieuw
   decidim:
     forms:
       admin:
@@ -80,3 +82,7 @@ nl:
       user_answers_serializer:
         created_at: Beantwoord
         id: Antwoord ID
+        ip_hash: Ip Hash
+        registered: Geregistreerd
+        unregistered: Niet-geregistreerd
+        user_status: Gebruiker-status

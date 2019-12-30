@@ -155,7 +155,7 @@ nl:
           diploma: Certificaat van aanwezigheid
           info: info
           media_links: Media links
-          moderations: matigingen
+          moderations: Moderaties
           partners: partners
           registration_types: Registratie Types
           registrations: registraties
@@ -511,7 +511,7 @@ nl:
           notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
         conference_registrations_over_percentage:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
-          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
+          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de inspraakruimte van de conferentie.
           email_subject: De "%{resource_title}" -bezette slots zijn meer dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie bezet slots zijn meer dan %{percentage}%.
         conference_updated:

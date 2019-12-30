@@ -17,8 +17,8 @@ fi-pl:
         automatic_hashtags: Hashtagit lisätty automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
+        decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
@@ -372,8 +372,10 @@ fi-pl:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
+            add_images: Lisää kuvia
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            gallery_legend: "(Vapaaehtoinen) Lisää kuvagalleria"
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -642,10 +644,12 @@ fi-pl:
         endorsements_card_row:
           comments: Kommentit
         filters:
-          activity: Aktiivisuus
+          activity: Oma toiminta
+          all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
+          my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
           search: Haku
@@ -670,9 +674,13 @@ fi-pl:
           title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
+          most_commented: Eniten kommentoidut
+          most_endorsed: Eniten suositellut
+          most_followed: Eniten seuratut
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+          with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
             document_index: Asiakirjan hakemisto

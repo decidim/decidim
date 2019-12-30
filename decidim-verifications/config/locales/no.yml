@@ -1,0 +1,36 @@
+"no":
+  activemodel:
+    attributes:
+      config:
+        available_methods: Tilgjengelige metoder
+  decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} oppdaterte identitets dokumentasjonens verifikasjons konfigurasjon"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifiserte %{resource_name} bruker en offline Identitets Dokument verifikasjon"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Adminier laster opp en CSV med e-postene til de aksepterte deltakerne
+            - Only participants with an email in that CSV file can get verified
+      help: Hjelp
+      name: Navn
+    verifications:
+      csv_census:
+        admin:
+          census:
+            destroy_all:
+              success: Alle folketellingene er slettet
+          new:
+            file: ".csv fil med e-postdata"
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
+      sms:
+        authorizations:
+          edit:
+            confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?

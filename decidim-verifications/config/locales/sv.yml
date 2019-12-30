@@ -104,7 +104,7 @@ sv:
             title: Du måste aktivera medlemsuppgifter via CSV för organisationen
           new:
             file: ".csv-fil med e-postadresser"
-            info: 'Måste vara en fil i CSV-format med en kolumn: e-postadress'
+            info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
             submit: Skicka in fil
             title: Skicka in nya medlemsuppgifter
         authorizations:

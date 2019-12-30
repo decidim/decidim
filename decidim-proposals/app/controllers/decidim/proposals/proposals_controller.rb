@@ -10,7 +10,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
-      include Orderable
+      include Decidim::Proposals::Orderable
       include Paginable
 
       helper_method :form_presenter
@@ -54,7 +54,7 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless can_show_proposal?
+        raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
 
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
@@ -213,7 +213,7 @@ module Decidim
         {
           search_text: "",
           origin: "all",
-          activity: "",
+          activity: "all",
           category_id: "",
           state: "except_rejected",
           scope_id: nil,

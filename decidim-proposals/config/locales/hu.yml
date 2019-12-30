@@ -17,8 +17,8 @@ hu:
         automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
         category_id: Kategória
+        decidim_scope_id: Hatáskör
         has_address: Van lakcíme
-        scope_id: Hatáskör
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím
@@ -44,7 +44,7 @@ hu:
             body:
               identical: A cím nem lehet azonos
             title:
-              identical: A test nem lehet azonos
+              identical: A szövegtörzs nem lehet azonos
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
@@ -71,7 +71,7 @@ hu:
         one: Megjegyzés
         other: Megjegyzések
       decidim/proposals/proposal_vote:
-        one: Szavazás
+        one: Támogatás
         other: Szavazások
   decidim:
     components:
@@ -80,7 +80,7 @@ hu:
           amend: Módosítás
           create: Létrehozás
           endorse: Támogatás
-          vote: Szavazás
+          vote: Támogatás
           withdraw: Visszalépés
         name: Javaslatok
         settings:
@@ -94,7 +94,7 @@ hu:
             collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
-            minimum_votes_per_user: Minimális szavazatok felhasználónként
+            minimum_votes_per_user: Minimális támogatás felhasználónként
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
             participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
@@ -109,11 +109,12 @@ hu:
             proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
-            vote_limit: Szavazási limit felhasználónként
+            vote_limit: Támogatási limit felhasználónként
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
             amendment_promotion_enabled: A módosítás promotálása engedélyezett
+            amendment_promotion_enabled_help: A Módosítás szerzői képesek Javaslattá promotálni az elutasított módosítást.
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendment_reaction_enabled_help: A javaslatok szerzői elfogadhatják vagy elutasíthatják a résztvevő helyreigazításait.
             amendments_visibility: A módosítás láthatósága
@@ -276,7 +277,7 @@ hu:
         title: Elfogadott javaslatok
       endorsements:
         description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: kiterjesztések
+        object: elismerések
         title: Elismerések
       proposals:
         description: A létrehozott javaslatok száma
@@ -284,8 +285,8 @@ hu:
         title: javaslatok
       votes:
         description: A felhasználók által benyújtott szavazatok száma
-        object: szavazat
-        title: szavazatok
+        object: szavazatok
+        title: Szavazatok
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -371,8 +372,10 @@ hu:
             title: Frissítse a javaslatot
             update: frissítés
           form:
+            add_images: Képek hozzáadása
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
+            gallery_legend: "(opcionális) Kép hozzáadása a galériához"
             select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:
@@ -641,10 +644,12 @@ hu:
         endorsements_card_row:
           comments: Hozzászólások
         filters:
-          activity: Tevékenység
+          activity: Tevékenységeim
+          all: Összes
           amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
+          my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
           search: Keresés
@@ -669,9 +674,13 @@ hu:
           title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
+          most_commented: Legkommentáltabb
+          most_endorsed: Legtámogatottabb
+          most_followed: Legkövetettebb
           most_voted: Legtöbb szavazattal
           random: Véletlenszerű
           recent: Legutóbbi
+          with_more_authors: Több szerző
         participatory_texts:
           index:
             document_index: Dokumentum index

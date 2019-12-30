@@ -1,0 +1,224 @@
+"no":
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Adresse
+        body: Tekst
+        category_id: Kategori
+        title: Tittel
+      proposal:
+        address: Adresse
+        answer: Svar
+        answered_at: Besvart på
+        body: Tekst
+        category_id: Kategori
+        title: Tittel
+      proposal_answer:
+        answer: Svar
+    errors:
+      models:
+        proposal:
+          attributes:
+            body:
+              identical: OG tittelen kan ikke være identisk
+            title:
+              identical: OG teksten kan ikke være identisk
+  decidim:
+    components:
+      proposals:
+        actions:
+          amend: Endre
+        settings:
+          global:
+            amendments_enabled: Endringer aktivert
+            amendments_wizard_help_text: Endrings Veiviser hjelpetekst
+            announcement: Kunngjøring
+            attachments_allowed: Tillat vedlegg
+            resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
+          step:
+            amendment_creation_enabled: Oppretting av endringer aktivert
+            amendment_promotion_enabled: Forfremmelse av endringer aktivert
+            amendment_reaction_enabled: Endrings reaksjon aktivert
+            amendments_visibility: Endringens synlighet
+            announcement: Kunngjøring
+    events:
+      proposals:
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} har blitt avslått tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
+          email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>avvist tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} ba om tilgang som bidragsyter. Du kan <strong>godta eller avslå forespørselen</strong> fra <a href="%{resource_path}">%{resource_title}</a> samarbeids utkast siden.'
+          email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> forespurte om tilgang til å bidra til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet. Vennligst <strong>godta eller avslå forespørselen</strong>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> trakk <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+          email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trakk</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
+        proposal_accepted:
+          follower:
+            email_subject: Et forslag du følger har blitt akseptert
+        proposal_endorsed:
+          email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
+          email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
+        proposal_evaluating:
+          follower:
+            email_subject: Et forslag du følger blir evaluert
+        proposal_published:
+          email_intro: '%{author_name}%{author_nickname}, som du følger, har publisert et nytt forslag kalt "%{resource_title}". Sjekk det ut og bidra:'
+        proposal_rejected:
+          follower:
+            email_subject: Et forslag du følger har blitt avslått
+        proposal_update_category:
+          email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
+    gamification:
+      badges:
+        accepted_proposals:
+          name: Godkjente forslag
+    metrics:
+      accepted_proposals:
+        title: Godkjente forslag
+    proposals:
+      actions:
+        answer: Svar
+        title: Handlinger
+      admin:
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: Er du sikker på å forkaste hele deltaker tekst utkastet?
+          discard:
+            success: Alle deltakende tekstutkast er forkastet.
+          new_import:
+            bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
+            document_legend: 'Legg til et dokument som er mindre enn 2MB, hver seksjon opptil 3 nivåer dypt blir analysert i Forslag. Støttede formater er: %{valid_mime_types}'
+            title: LEGG TIL DOKUMENT
+          publish:
+            success: Alle forslagene er publisert
+          sections:
+            article: "<em>Artikkel</em>"
+            section: "<em>Seksjon:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Ledd:</em> %{title}"
+        proposal_answers:
+          edit:
+            accepted: Aksepterte
+            answer_proposal: Svar
+            title: Svar for forslag %{title}
+        proposals:
+          form:
+            add_images: Legg til bilder
+            attachment_legend: "(Valgfritt) Legg til et vedlegg"
+            gallery_legend: "(Valgfritt) Legg til et bildegalleri"
+          index:
+            actions: Handlinger
+        proposals_imports:
+          create:
+            success: "%{number} forslag importert"
+        shared:
+          info_proposal:
+            body: Tekst
+      admin_log:
+        proposal:
+          answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
+          update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
+        proposal_note:
+          create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
+      answers:
+        accepted: Aksepterte
+      application_helper:
+        filter_origin_values:
+          all: Alle
+        filter_state_values:
+          accepted: Aksepterte
+          all: Alle
+          except_rejected: Alle unntatt avvist
+        filter_type_values:
+          all: Alle
+          amendments: Endringer
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              body: Etter å ha publisert utkastet som et forslag, kan utkastet ikke lenger redigeres. Forslaget vil ikke godta nye forfattere eller bidrag.
+          withdraw:
+            irreversible_action_modal:
+              body: Etter å ha lukket utkastet, kan utkastet ikke lenger redigeres. Utkastet vil ikke godta nye forfattere eller bidrag.
+        count:
+          drafts_count:
+            one: "%{count} samarbeids utkast"
+            other: "%{count} samarbeids utkaster"
+        edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
+          back: Tilbake
+        filters:
+          all: Alle
+          amendment: Endringer
+          category: Kategori
+          state: Status
+        requests:
+          accepted_request:
+            success: "@%{user} har blitt godtatt som en samarbeidspartner"
+          collaboration_requests:
+            accept_request: Aksepter
+          rejected_request:
+            success: "@%{user} har blitt avvist som samarbeidspartner"
+        show:
+          back: Tilbake
+          hidden_authors_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
+          of_versions: "(av %{number})"
+          requested_access: Tilgang forespurt
+        wizard_aside:
+          back: Tilbake
+      last_activity:
+        new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: Forfattere
+        proposal:
+          fields:
+            category: Kategori
+            state: Status
+            title: Tittel
+      participatory_text_proposal:
+        buttons:
+          amend: Endre
+          comment: Kommentar
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
+        edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
+          back: Tilbake
+        edit_draft:
+          discard_confirmation: Er du sikker på at du vil forkaste dette forslaget?
+        filters:
+          all: Alle
+          category: Kategori
+          state: Status
+        index:
+          collaborative_drafts_list: Tilgang til samarbeids utkaster
+        show:
+          back_to: Tilbake til
+          changes_at_title: Endring til "%{title}"
+          hidden_endorsers_count:
+            one: og %{count} til person
+            other: og %{count} flere personer
+          withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
+        tags:
+          changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
+        vote_button:
+          already_voted: Støttet allerede
+        wizard_aside:
+          back: Tilbake
+      versions:
+        stats:
+          version_number_out_of_total: "%{current_version} ut av %{total_count}"

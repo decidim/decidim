@@ -89,6 +89,14 @@ module Decidim
       def resource_description
         try(:description) || try(:body) || try(:content)
       end
+
+      # Checks if this ParticipatorySpace should be visible in the public views.
+      # i.e. checks
+      # - is published
+      # - is not private
+      def visible?
+        published? && !try(:private_space?)
+      end
     end
 
     class_methods do

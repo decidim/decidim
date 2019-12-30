@@ -1,0 +1,45 @@
+"no":
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategori
+        decidim_category_id: Kategori
+        title: Tittel
+  decidim:
+    components:
+      debates:
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
+    debates:
+      actions:
+        confirm_destroy: Er du sikker?
+        edit: Editar
+        title: Handlinger
+      admin_log:
+        debate:
+          create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
+          update: "%{user_name} oppdaterte %{resource_name} debatten på %{space_name} rommet"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debatt"
+            other: "%{count} debatter"
+        filters:
+          all: Alle
+          category: Kategori
+        new:
+          back: Tilbake
+      last_activity:
+        new_debate_at_html: "<span>Ny debatt på %{link}</span>"
+      models:
+        debate:
+          fields:
+            title: Tittel
+    events:
+      debates:
+        create_debate_event:
+          user_followers:
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> opprettet <a href="%{resource_path}">%{resource_title}</a> debatten.

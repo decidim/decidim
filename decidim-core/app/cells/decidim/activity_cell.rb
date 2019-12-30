@@ -73,6 +73,13 @@ module Decidim
       I18n.l(model.created_at, format: :short)
     end
 
+    def user
+      return resource.normalized_author if resource.respond_to?(:normalized_author)
+      return resource.author if resource.respond_to?(:author)
+
+      model.user_lazy if resource.respond_to?(:user)
+    end
+
     private
 
     def published?
@@ -89,14 +96,18 @@ module Decidim
       model.organization_lazy
     end
 
-    def user
-      model.user_lazy
-    end
-
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
 
-      cell "decidim/author", UserPresenter.new(user)
+      presenter = if user.is_a?(Decidim::User)
+                    UserPresenter.new(user)
+                  elsif user.is_a?(Decidim::UserGroup)
+                    UserGroupPresenter.new(user)
+                  end
+
+      return unless presenter
+
+      cell "decidim/author", presenter
     end
 
     def participatory_space

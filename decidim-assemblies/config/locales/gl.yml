@@ -263,7 +263,6 @@ gl:
         others: Outros
         public: Público
       filter:
-        all: Todo tipo de montaxes
         commission: Comisión
         consultative_advisory: Consultivo / asesor
         executive: Executivo

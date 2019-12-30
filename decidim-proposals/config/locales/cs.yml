@@ -18,7 +18,6 @@ cs:
         body: Tělo
         category_id: Kategorie
         has_address: Má adresu
-        scope_id: Rozsah
         state: Stát
         suggested_hashtags: Navrhované hashtags
         title: Titul
@@ -382,8 +381,10 @@ cs:
             title: Návrh aktualizace
             update: Aktualizace
           form:
+            add_images: Přidat obrázky
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
+            gallery_legend: "(Volitelně) Přidat galerii obrázků"
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:
@@ -658,7 +659,6 @@ cs:
         endorsements_card_row:
           comments: Komentáře
         filters:
-          activity: Aktivita
           amendment_type: Typ
           category: Kategorie
           category_prompt: Vyberte kategorii
