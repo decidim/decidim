@@ -48,6 +48,7 @@ module Decidim
         enforce_permission_to :update, :component, component: @component
 
         @form = form(ComponentForm).from_model(@component)
+        byebug
       end
 
       def update

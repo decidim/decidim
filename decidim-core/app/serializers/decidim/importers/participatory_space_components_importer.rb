@@ -34,7 +34,7 @@ module Decidim
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access
-            # we override the parent participatory sapce
+            # we override the parent participatory space
             attributes["participatory_space_id"] = @participatory_space.id
             attributes["participatory_space_type"] = @participatory_space.class.name
             import_component_from_attributes(attributes, user)

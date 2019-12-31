@@ -39,6 +39,7 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
+            announcement: attributes["announcement"],
             private_space: attributes["private_space"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
