@@ -3,15 +3,21 @@
 require "seven_zip_ruby"
 
 module Decidim
-  # Public: It generates a ZIP file with Open Data CSV files ready
-  # to be uploaded somewhere so users can download an organization
-  # data.
+  # Public: It generates a 7z(seven zip) file with data files ready to be uploaded
+  # somewhere so users can download their data.
+  #
+  # In fact, the 7z file wraps a ZIP file which finally contains the data files.
   class DataPortabilityExporter
+    DEFAULT_EXPORT_FORMAT = "CSV"
+    ZIP_FILE_NAME = "data-portability.zip"
+
     # Public: Initializes the class.
     #
-    # organization - The Organization to export the data from.
-    # path         - The String path where to write the zip file.
-    def initialize(user, path, export_format, password)
+    # user          - The user to export the data from.
+    # path          - The String path where to write the zip file.
+    # password      - The password to protect the zip file.
+    # export_format - The format of the data files inside the zip file. (CSV by default)
+    def initialize(user, path, password, export_format = DEFAULT_EXPORT_FORMAT)
       @user = user
       @path = File.expand_path path
       @export_format = export_format
@@ -23,7 +29,8 @@ module Decidim
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
       File.open(@path, "wb") do |file|
         SevenZipRuby::Writer.open(file, password: @password) do |szw|
-          szw.add_data(data, "data-portability.7z")
+          szw.header_encryption = true
+          szw.add_data(data, ZIP_FILE_NAME)
         end
       end
     end
@@ -63,10 +70,13 @@ module Decidim
               element.send(my_uploader).cache_stored_file!
               element.send(my_uploader).retrieve_from_cache!(element.send(my_uploader).cache_name)
             end
-            my_image_path = File.open(image.file.file)
+            my_image_path = image.file.file
             next unless File.exist?(my_image_path)
 
-            out.add("#{folder_name}/#{image.file.filename}", my_image_path)
+            out.put_next_entry("#{folder_name}/#{image.file.filename}")
+            File.open(image.file.file) do |f|
+              out << f.read
+            end
             CarrierWave.clean_cached_files!
           end
         end

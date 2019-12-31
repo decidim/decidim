@@ -5,8 +5,6 @@ require "zip"
 module Decidim
   # The controller to handle the user's download_my_data page.
   class DataPortabilityController < Decidim::ApplicationController
-    DEFAULT_EXPORT_FORMAT = "CSV"
-
     include Decidim::UserProfile
 
     def show
@@ -18,7 +16,7 @@ module Decidim
     def export
       enforce_permission_to :export, :user, current_user: current_user
 
-      DataPortabilityExportJob.perform_later(current_user, DEFAULT_EXPORT_FORMAT)
+      DataPortabilityExportJob.perform_later(current_user)
 
       flash[:notice] = t("decidim.account.data_portability_export.notice")
       redirect_back(fallback_location: data_portability_path)
