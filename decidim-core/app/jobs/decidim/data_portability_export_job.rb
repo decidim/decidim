@@ -9,7 +9,7 @@ module Decidim
       path = Rails.root.join("tmp/#{filename}")
       password = SecureRandom.urlsafe_base64
 
-      generate_zip_file(user, path, export_format, password)
+      generate_zip_file(user, path, password, export_format)
       save_or_upload_file(path)
 
       ExportMailer.data_portability_export(user, filename, password).deliver_later
@@ -17,8 +17,8 @@ module Decidim
 
     private
 
-    def generate_zip_file(user, path, export_format, password)
-      DataPortabilityExporter.new(user, path, export_format, password).export
+    def generate_zip_file(user, path, password, export_format)
+      DataPortabilityExporter.new(user, path, password, export_format).export
     end
 
     # Saves to file system or uploads to storage service depending on the configuration.
