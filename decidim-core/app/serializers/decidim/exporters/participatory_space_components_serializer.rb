@@ -28,7 +28,6 @@ module Decidim
             permissions: component.permissions,
             published_at: component.published_at
           }
-          byebug
           serialized[:specific_data] = serialize_component_specific_data(component) if component.serializes_specific_data?
           serialized
         end
