@@ -20,10 +20,6 @@ module Decidim
       Decidim::AdminLog::ComponentPresenter
     end
 
-    def get_settings
-      self[:settings]
-    end
-
     # Other components with the same manifest and same participatory space as this one.
     def siblings
       @siblings ||= participatory_space.components.where.not(id: id).where(manifest_name: manifest_name)
