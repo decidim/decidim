@@ -6,17 +6,20 @@ require "tasks/decidim_tasks_sniffs_stdout_context"
 
 describe "rake decidim:delete_data_portability_files", type: :task do
   let!(:original_expiry_time) { Decidim.data_portability_expiry_time }
+  let!(:original_base_uploads_path) { Decidim.base_uploads_path }
 
   let(:uploader) { ::Decidim::DataPortabilityUploader.new }
   let(:files_expression) { "#{uploader.store_dir}/*" }
 
   before do
     Decidim.data_portability_expiry_time = 0.seconds
+    Decidim.base_uploads_path = Rails.root.join("tmp", "storage", "data_portability")
   end
 
   after do
     Decidim.data_portability_expiry_time = original_expiry_time
     uploader.remove!
+    Decidim.base_uploads_path = original_base_uploads_path
   end
 
   it "preloads the Rails environment" do
@@ -46,7 +49,6 @@ describe "rake decidim:delete_data_portability_files", type: :task do
   #-------------------------------------------------------------
 
   def produce_data_portability_files
-    Decidim.base_uploads_path = Rails.root.join("tmp", "storage", "data_portability")
     uploader.store!(Tempfile.new("produce_data_portability_files"))
   end
 
