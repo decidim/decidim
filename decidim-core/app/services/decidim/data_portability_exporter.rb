@@ -3,7 +3,7 @@
 require "seven_zip_ruby"
 
 module Decidim
-  # Public: It generates a 7z(seven zip) file with data files ready to be uploaded
+  # Public: Generates a 7z(seven zip) file with data files ready to be persisted
   # somewhere so users can download their data.
   #
   # In fact, the 7z file wraps a ZIP file which finally contains the data files.
