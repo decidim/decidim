@@ -34,6 +34,9 @@ module Decidim
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
             attributes = serialized.with_indifferent_access
+            step_settings = attributes["settings"]["steps"]
+            # we override the parent participatory space steps id
+            override_step_settings_ids(attributes, step_settings)
             # we override the parent participatory space
             attributes["participatory_space_id"] = @participatory_space.id
             attributes["participatory_space_type"] = @participatory_space.class.name
@@ -61,6 +64,15 @@ module Decidim
       def import_component_specific_data(component, serialized, user)
         specific_importer = component.manifest.specific_data_importer_class.new(component)
         specific_importer.import(serialized[:specific_data], user)
+      end
+
+      def override_step_settings_ids(attributes, step_settings)
+        return if step_settings.nil?
+
+        new_steps_id = @participatory_space.steps.first.id.to_s
+        old_steps_id = attributes["settings"]["steps"].keys.first
+        step_settings[new_steps_id] = step_settings[old_steps_id]
+        step_settings.delete(old_steps_id)
       end
     end
   end
