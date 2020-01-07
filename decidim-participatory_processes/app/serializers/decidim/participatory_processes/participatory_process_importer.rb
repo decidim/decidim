@@ -41,6 +41,7 @@ module Decidim
             end_date: attributes["end_date"],
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
+            scopes_enabled: attributes["scopes_enabled"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
