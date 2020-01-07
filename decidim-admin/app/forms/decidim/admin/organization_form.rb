@@ -12,6 +12,7 @@ module Decidim
 
       attribute :name, String
       attribute :reference_prefix, String
+      attribute :time_zone, String
       attribute :twitter_handler, String
       attribute :facebook_handler, String
       attribute :instagram_handler, String
@@ -30,6 +31,8 @@ module Decidim
       validates :welcome_notification_subject, :welcome_notification_body, translatable_presence: true, if: proc { |form| form.customize_welcome_notification }
 
       validates :name, presence: true
+      validates :time_zone, presence: true
+      validates :time_zone, time_zone: true
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
 

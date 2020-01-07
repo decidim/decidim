@@ -24,7 +24,7 @@
               <td>
                 <%= link_to translated_attribute(debate.title), resource_locator(debate).path, target: :blank %><br>
               </td>
-              <td>
+              <td><%= current_organization %>
                 <% if debate.start_time %>
                   <%= l debate.start_time, format: :long %>
                 <% end %>

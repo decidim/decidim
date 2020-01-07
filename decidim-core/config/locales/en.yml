@@ -1220,6 +1220,7 @@ en:
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under 15 characters)
+      invalid_time_zone: is not a valid time zone
   forms:
     required: Required
   invisible_captcha:

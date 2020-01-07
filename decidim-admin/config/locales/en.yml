@@ -44,6 +44,7 @@ en:
         cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
+        time_zone: Time Zone
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler

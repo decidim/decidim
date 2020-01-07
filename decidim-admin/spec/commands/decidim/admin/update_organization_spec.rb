@@ -12,6 +12,7 @@ module Decidim::Admin
           organization: {
             name: "My super organization",
             reference_prefix: "MSO",
+            time_zone: "Hawaii",
             default_locale: "en",
             badges_enabled: true,
             user_groups_enabled: true,
