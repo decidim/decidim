@@ -200,6 +200,8 @@ ignore_unused:
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
   - layouts.decidim.widget.*
+  - layouts.decidim.assembly_widgets.*
+  - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
