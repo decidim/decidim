@@ -44,7 +44,6 @@ en:
         cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
-        time_zone: Time Zone
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook handler
@@ -76,6 +75,7 @@ en:
         send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
+        time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
