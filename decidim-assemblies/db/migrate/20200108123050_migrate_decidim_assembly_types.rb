@@ -21,15 +21,22 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
       LEGACY_TYPES.each do |type|
         title = {}
         organization.available_locales.each do |lang|
-          I18n.with_locale(lang) do
-            title[lang] = I18n.t("assembly_types.#{type}", scope: "decidim.assemblies")
-          end
+          title[lang] = type_localized(type, lang)
         end
-        assembly_type = AssemblyType.create(
-          decidim_organization_id: organization.id,
-          title: title
-        )
+
+        unless type == "others"
+          assembly_type = AssemblyType.create(
+            decidim_organization_id: organization.id,
+            title: title
+          )
+        end
         Assembly.where(decidim_organization_id: organization.id, assembly_type: type).each do |assembly|
+          if type == "others"
+            assembly_type = AssemblyType.create(
+              decidim_organization_id: organization.id,
+              title: assembly.assembly_type_other
+            )
+          end
           assembly.decidim_assemblies_type_id = assembly_type.id
           assembly.save
         end
@@ -44,9 +51,22 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
       assembly_type = AssemblyType.find(assembly.decidim_assemblies_type_id)
       next unless assembly_type
 
-      key = LEGACY_TYPES.find { |type| I18n.with_locale("en") { I18n.t("assembly_types.#{type}", scope: "decidim.assemblies") } == assembly_type.title["en"] }
+      key = LEGACY_TYPES.find { |type| type_localized(type, "en") == assembly_type.title["en"] }
+
+      unless key
+        key = "others"
+        assembly.assembly_type_other = assembly_type.title
+      end
       assembly.assembly_type = key
       assembly.save
+    end
+  end
+
+  private
+
+  def type_localized(type, lang)
+    I18n.with_locale(lang) do
+      I18n.t("assembly_types.#{type}", scope: "decidim.assemblies")
     end
   end
 end
