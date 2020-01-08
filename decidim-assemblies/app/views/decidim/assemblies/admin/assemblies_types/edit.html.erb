@@ -2,13 +2,5 @@
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
-
-    <% if allowed_to? :publish, :assembly, assembly: current_assembly_type %>
-      <% if current_assembly_type.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), assemblies_type_publish_path(current_assembly_type), method: :delete, class: "button muted" %>
-      <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), assemblies_type_publish_path(current_assembly_type), method: :post, class: "button hollow" %>
-      <% end %>
-    <% end %>
   </div>
 <% end %>

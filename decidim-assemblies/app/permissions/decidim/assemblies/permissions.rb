@@ -53,11 +53,11 @@ module Decidim
         return unless [:assembly_type, :assemblies_type].include? permission_action.subject
 
         assembly_type = context.fetch(:assembly_type, nil)
-
         case permission_action.action
         when :destroy
-          assemblies_are_empty = assembly_type && assembly_type.assemblies.empty?
-          toggle_allow(assemblies_are_empty)
+          assemblies_is_empty = assembly_type && assembly_type.assemblies.empty?
+
+          toggle_allow(assemblies_is_empty)
         else
           allow!
         end
