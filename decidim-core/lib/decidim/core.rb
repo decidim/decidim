@@ -80,7 +80,6 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
-  autoload :LocalDateTimeAttrReaders, "decidim/local_date_time_attr_readers"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
