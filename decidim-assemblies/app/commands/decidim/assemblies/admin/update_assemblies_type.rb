@@ -3,13 +3,15 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when creating a new assembly
+      # A command with all the business logic when updating a new assembly
       # type in the system.
-      class CreateAssembliesType < Rectify::Command
+      class UpdateAssembliesType < Rectify::Command
         # Public: Initializes the command.
         #
+        # assemblies_type - A assemblies_type object to update.
         # form - A form object with the params.
-        def initialize(form)
+        def initialize(assemblies_type, form)
+          @assemblies_type = assemblies_type
           @form = form
         end
 
@@ -22,7 +24,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          create_assemblies_type!
+          update_assemblies_type!
 
           broadcast(:ok)
         end
@@ -31,9 +33,8 @@ module Decidim
 
         attr_reader :form
 
-        def create_assemblies_type!
-          @assemblies_type = AssembliesType.create!(
-            organization: form.current_organization,
+        def update_assemblies_type!
+          @assemblies_type.update!(
             title: form.title
           )
         end
