@@ -69,10 +69,10 @@ module Decidim
       def override_step_settings_ids(attributes, step_settings)
         return if step_settings.nil?
 
-        new_steps_id = @participatory_space.steps.first.id.to_s
-        old_steps_id = attributes["settings"]["steps"].keys.first
-        step_settings[new_steps_id] = step_settings[old_steps_id]
-        step_settings.delete(old_steps_id)
+        @participatory_space.steps.each do |step|
+          old_id = attributes["settings"]["steps"].keys.first
+          step_settings[step.id.to_s] = step_settings.delete(old_id)
+        end
       end
     end
   end
