@@ -44,6 +44,10 @@ module Decidim
                foreign_key: "decidim_area_id",
                class_name: "Decidim::Area",
                optional: true
+    belongs_to :assembly_type,
+               foreign_key: "decidim_assemblies_type_id",
+               class_name: "Decidim::AssembliesType",
+               optional: true
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
