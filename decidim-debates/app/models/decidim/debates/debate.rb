@@ -20,10 +20,8 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
-      include Decidim::LocalDateTimeAttrReaders
 
       component_manifest_name "debates"
-      local_datetime_attr_reader :start_time, :end_time
 
       validates :title, presence: true
 

@@ -35,10 +35,9 @@ module Decidim
         def event
           return @event if @event
 
-          tz = zone_for(meeting)
           @event = Icalendar::Event.new
-          @event.dtstart = Icalendar::Values::DateTime.new(meeting.start_time_local, 'tzid' => tz)
-          @event.dtend = Icalendar::Values::DateTime.new(meeting.end_time_local, 'tzid' => tz)
+          @event.dtstart = Icalendar::Values::DateTime.new(meeting.start_time.utc, 'tzid' => "UTC")
+          @event.dtend = Icalendar::Values::DateTime.new(meeting.end_time.utc, 'tzid' => "UTC")
           @event.summary = present(meeting).title
           @event.description = strip_tags(present(meeting).description)
           @event.location = meeting.address
@@ -64,16 +63,6 @@ module Decidim
 
         def present(meeting)
           Decidim::Meetings::MeetingPresenter.new(meeting)
-        end
-
-        def zone_for(meeting)
-          tzid = meeting.organization.time_zone
-          tz = ActiveSupport::TimeZone[tzid]
-          if tz
-            tz.tzinfo.name
-          else
-            "UTC"
-          end
         end
       end
     end
