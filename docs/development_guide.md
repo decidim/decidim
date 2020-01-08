@@ -137,8 +137,9 @@ If this was a major version release:
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Update `CHANGELOG.MD` with a clean slate, onlye the empty sections and a bottom link to the latest release.
+1. Update `CHANGELOG.MD` with a clean slate, only the empty sections and a bottom link to the latest release.
 1. Update `SECURITY.md` and change the supported version to the new version.
 1. Commit all the changes: `git add . && git commit -m "Bump version" && git push origin master`
+1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
-1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml) and create the sibling branch at the Docker repository.
+1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml) and create the sibling branch at the Docker repository. NOTE: You should also take into account if the Ruby version has changed, in which case the Dockerfile should also be updated.
