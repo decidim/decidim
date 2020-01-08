@@ -11,8 +11,6 @@ module Decidim
       around_action :use_organization_time_zone
       helper_method :organization_time_zone
 
-      private
-
       # Sets the time zone used to user in the controller
       # Returns nothing.
       def use_organization_time_zone(&action)
