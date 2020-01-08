@@ -14,10 +14,6 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
 
   class AssemblyType < ApplicationRecord
     self.table_name = :decidim_assemblies_types
-
-    belongs_to :organization,
-               foreign_key: "decidim_organization_id",
-               class_name: "Organization"
   end
 
   def up
@@ -30,10 +26,10 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
           end
         end
         assembly_type = AssemblyType.create(
-          organization: organization,
+          decidim_organization_id: organization.id,
           title: title
         )
-        Assembly.where(organization: organization, assembly_type: type).each do |assembly|
+        Assembly.where(decidim_organization_id: organization.id, assembly_type: type).each do |assembly|
           assembly.decidim_assemblies_type_id = assembly_type.id
           assembly.save
         end
@@ -52,6 +48,5 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
       assembly.assembly_type = key
       assembly.save
     end
-    # AssemblyType.destroy_all
   end
 end
