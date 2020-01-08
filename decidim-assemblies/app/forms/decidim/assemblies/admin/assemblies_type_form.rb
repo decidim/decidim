@@ -10,7 +10,7 @@ module Decidim
         mimic :assemblies_type
 
         translatable_attribute :title, String
-        validates :title, presence: true
+        validates :title, translatable_presence: true
       end
     end
   end
