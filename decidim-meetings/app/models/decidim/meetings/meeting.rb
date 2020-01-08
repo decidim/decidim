@@ -21,6 +21,10 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
+      include Decidim::LocalDateTimeAttrReaders
+
+      local_datetime_attr_reader :start_time, :end_time
+
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
