@@ -5,6 +5,7 @@
 **Upgrade notes**:
 
 **Added**:
+- **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 
 **Changed**:
 
