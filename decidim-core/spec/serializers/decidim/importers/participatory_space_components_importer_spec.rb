@@ -9,9 +9,48 @@ module Decidim::Importers
         described_class.new(participatory_space).from_json(json_as_text, user)
       end
 
+      let(:settings) do
+        {
+          "steps": {
+            "2": {
+              "announcement": {
+                "ca": "<p>ca</p>",
+                "en": "<p>en</p>",
+                "es": "<p>es</p>"
+              },
+              "announcement_ca": "<p>ca</p>",
+              "announcement_en": "<p>en</p>",
+              "announcement_es": "<p>es</p>",
+              "comments_blocked": true,
+              "creation_enabled": false
+            }
+          },
+          "global": {
+            "announcement": {
+              "ca": "<p>ca</p>",
+              "en": "<p>en</p>",
+              "es": "<p>es</p>"
+            },
+            "announcement_ca": "<p>ca</p>",
+            "announcement_en": "<p>en</p>",
+            "announcement_es": "<p>es</p>",
+            "comments_enabled": true
+          },
+          "default_step": {
+            "announcement": {
+            },
+            "announcement_ca": "<p>ca</p>",
+            "announcement_en": "<p>en</p>",
+            "announcement_es": "<p>es</p>",
+            "comments_blocked": false,
+            "creation_enabled": false
+          }
+        }
+      end
+
       let(:user) { create(:user) }
       let(:previous_participatory_space) { create(:participatory_process) }
-      let!(:component_1) { create(:component, :published, :with_permissions, weight: 1) }
+      let!(:component_1) { create(:component, :published, :with_permissions, weight: 1, settings: settings) }
       let!(:participatory_space) { component_1.participatory_space }
       let!(:component_2) { create(:component, :unpublished, :with_permissions, participatory_space: participatory_space, weight: 2) }
 
