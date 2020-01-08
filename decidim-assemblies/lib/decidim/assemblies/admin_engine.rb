@@ -15,7 +15,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :assembly_types
+        resources :assemblies_types
 
         resources :assemblies, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
