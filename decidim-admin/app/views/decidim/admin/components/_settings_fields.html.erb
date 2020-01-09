@@ -1,5 +1,4 @@
 <% manifest.settings(settings_name).attributes.each do |field_name, settings_attribute| %>
-<% # byebug if field_name == :new_proposal_template_text %>
   <%= settings_attribute_input(
     form,
     settings_attribute,
