@@ -5,6 +5,7 @@ en:
       assembly:
         area_id: Area
         assembly_type: Assembly type
+        decidim_assemblies_type_id: Assembly type
         assembly_type_other: Assembly type other
         banner_image: Banner image
         closing_date: Closing date
@@ -362,6 +363,8 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     metrics:

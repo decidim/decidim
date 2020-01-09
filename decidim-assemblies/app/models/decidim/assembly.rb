@@ -34,7 +34,6 @@ module Decidim
     include Decidim::Searchable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
-    ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
     CREATED_BY = %w(city_council public others).freeze
 
     belongs_to :organization,
