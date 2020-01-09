@@ -25,14 +25,14 @@ class MigrateDecidimAssemblyTypes < ActiveRecord::Migration[5.2]
         end
 
         unless type == "others"
-          assembly_type = AssemblyType.create(
+          assembly_type = AssemblyType.find_or_create_by(
             decidim_organization_id: organization.id,
             title: title
           )
         end
         Assembly.where(decidim_organization_id: organization.id, assembly_type: type).each do |assembly|
           if type == "others"
-            assembly_type = AssemblyType.create(
+            assembly_type = AssemblyType.find_or_create_by(
               decidim_organization_id: organization.id,
               title: assembly.assembly_type_other
             )
