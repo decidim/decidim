@@ -7,6 +7,7 @@
 **Added**:
 
 **Changed**:
+**decidim-meetings**: Add width and height to meetings component icon [\#5614](https://github.com/decidim/decidim/pull/5614)
 
 **Fixed**:
 
