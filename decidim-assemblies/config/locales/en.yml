@@ -5,7 +5,6 @@ en:
       assembly:
         area_id: Area
         assembly_type: Assembly type
-        decidim_assemblies_type_id: Assembly type
         assembly_type_other: Assembly type other
         banner_image: Banner image
         closing_date: Closing date
@@ -18,6 +17,7 @@ en:
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
+        decidim_assemblies_type_id: Assembly type
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
@@ -215,15 +215,15 @@ en:
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_member:
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"
-      assembly_member:
-        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
-        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
