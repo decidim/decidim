@@ -5,6 +5,7 @@
 **Upgrade notes**:
 
 **Added**:
+**decidim-meetings**: Follow a meeting on registration [\#5615](https://github.com/decidim/decidim/pull/5615)
 
 **Changed**:
 
