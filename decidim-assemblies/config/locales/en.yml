@@ -215,6 +215,11 @@ en:
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_type:
+        create: "%{user_name} created the %{resource_name} assembly type"
+        publish: "%{user_name} published the %{resource_name} assembly type"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
+        update: "%{user_name} updated the %{resource_name} assembly type"
       assembly_member:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
         delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
