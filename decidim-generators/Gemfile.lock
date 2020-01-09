@@ -98,7 +98,7 @@ PATH
       pg (~> 1.1.4, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
-      rack (~> 2.0)
+      rack (>= 2.0.8)
       rack-attack (~> 6.0)
       rails (>= 5.2, < 6.0.x)
       rails-i18n (~> 5.0)
@@ -547,7 +547,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.1.0)
     puma (3.12.2)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-attack (6.2.2)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -775,7 +775,7 @@ DEPENDENCIES
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.5.3p105
 
 BUNDLED WITH
    1.17.3
