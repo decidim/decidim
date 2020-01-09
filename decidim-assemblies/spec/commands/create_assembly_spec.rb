@@ -8,6 +8,7 @@ module Decidim::Assemblies
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:assembly_type) { create :assemblies_type, organisation: organisation }
     let(:scope) { create :scope, organization: organization }
     let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
@@ -49,8 +50,7 @@ module Decidim::Assemblies
         show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type: "others",
-        assembly_type_other: "others",
+        assembly_type: assembly_type,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: "other created by",
