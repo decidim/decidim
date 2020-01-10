@@ -3,7 +3,8 @@
 require "active_support/concern"
 
 module Decidim
-  # Common logic to switch between locales.
+  # When included in a controller this concern will wrap any action
+  # in the context of the organization configured time zone
   module UseOrganizationTimeZone
     extend ActiveSupport::Concern
 
@@ -11,7 +12,10 @@ module Decidim
       around_action :use_organization_time_zone
       helper_method :organization_time_zone
 
-      # Sets the time zone used to user in the controller
+      # Executes a block of code in the context of the the organization's time zone
+      #
+      # &action - a block of code to be wrapped around the time zone
+      #
       # Returns nothing.
       def use_organization_time_zone(&action)
         Time.use_zone(organization_time_zone, &action)

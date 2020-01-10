@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This validator ensures timezones ara valed
+# This validator ensures timezones are valid. This is, supported by ActiveSupport::TimeZone
 class TimeZoneValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
