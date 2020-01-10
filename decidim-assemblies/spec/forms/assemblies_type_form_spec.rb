@@ -6,8 +6,9 @@ module Decidim
   module Assemblies
     module Admin
       describe AssembliesTypeForm do
-        subject { described_class.from_params(attributes) }
+        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
+        let(:organization) { create :organization }
         let(:title) do
           {
             en: "Title",
@@ -18,7 +19,9 @@ module Decidim
         let(:attributes) do
           {
             "assemblies_type" => {
-              "title" => title
+              "title_en" => title[:en],
+              "title_es" => title[:es],
+              "title_ca" => title[:ca]
             }
           }
         end
@@ -27,8 +30,12 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when title is missing" do
-          let(:title) {}
+        context "when default language in title is missing" do
+          let(:title) do
+            {
+              ca: "Títol"
+            }
+          end
 
           it { is_expected.to be_invalid }
         end

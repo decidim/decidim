@@ -358,7 +358,7 @@ describe Decidim::Assemblies::Permissions do
       end
     end
 
-    context "when user is not admin" do
+    context "when user is not an admin" do
       let(:user) { assembly_collaborator }
 
       let(:action) do

@@ -116,7 +116,7 @@ module Decidim
         end
 
         def assembly_type
-          AssembliesType.find(decidim_assemblies_type_id) if decidim_assemblies_type_id
+          AssembliesType.find_by(id: decidim_assemblies_type_id)
         end
 
         private
@@ -144,6 +144,7 @@ module Decidim
         end
 
         def same_type_organization
+          return unless assembly_type
           return if assembly_type.organization == current_organization
 
           errors.add(:assembly_type, :invalid)

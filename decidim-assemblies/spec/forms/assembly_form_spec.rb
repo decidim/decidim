@@ -119,7 +119,7 @@ module Decidim
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
-              "assembly_type_id" => assembly_type_id,
+              "decidim_assemblies_type_id" => assembly_type_id,
               "creation_date" => creation_date,
               "created_by" => created_by,
               "created_by_other_en" => created_by_other[:en],

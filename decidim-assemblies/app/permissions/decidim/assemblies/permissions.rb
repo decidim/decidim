@@ -49,8 +49,8 @@ module Decidim
       private
 
       def assemblies_type_action?
-        return unless user.admin?
         return unless [:assembly_type, :assemblies_type].include? permission_action.subject
+        return disallow! unless user.admin?
 
         assembly_type = context.fetch(:assembly_type, nil)
         case permission_action.action
