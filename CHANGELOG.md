@@ -18,6 +18,8 @@ In order to prevent errors while upgrading multi-servers envirnoments, the field
 
 **Removed**:
 
+- **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
+
 ## Previous versions
 
 Please check [0.20-stable](https://github.com/decidim/decidim/blob/0.19-stable/CHANGELOG.md) for previous changes.
