@@ -4,7 +4,13 @@
 
 **Upgrade notes**:
 
+- **Assembly types**
+
+In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
+
 **Added**:
+
+- **decidim-assemblies**: Added configurable assembly types. [\#5616](https://github.com/decidim/decidim/pull/5616)
 
 **Changed**:
 
