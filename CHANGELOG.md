@@ -4,24 +4,13 @@
 
 **Upgrade notes**:
 
-**Added**:
-
-- **decidim-core**: Add docs in how to fix metrics problems. [\#5587](https://github.com/decidim/decidim/pull/5587)
-- In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that executing:
-
-  ```ruby
-Decidim::Assemblies::Assembly.find_each(&:add_to_index_as_search_resource)
-Decidim::ParticipatoryProcesses::ParticipatoryProcess.find_each(&:add_to_index_as_search_resource)
-Decidim::Conferences::Conference.find_each(&:add_to_index_as_search_resource)
-Decidim::Consultations::Consultation.find_each(&:add_to_index_as_search_resource)
-Decidim::Initiatives::Initiative.find_each(&:add_to_index_as_search_resource)
-- In order for the newly searchable entities to be indexed, you'll have to manually trigger a reindex. You can do that by running in the rails console:
 - **Data portability**
 
 Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
 
 **Added**:
 
+- **decidim-core**: Add docs in how to fix metrics problems. [\#5587](https://github.com/decidim/decidim/pull/5587)
 - **decidim-core**: Data portability now supports AWS S3 storage. [\#5342](https://github.com/decidim/decidim/pull/5342)
 
 **Changed**:
