@@ -66,7 +66,7 @@ Only available for `ParticipatorySpaces` (restricted to `ParticipatoryProcesses`
 
 ## Configuration
 
-- A **crontab** line must be added to your server to maintain them updated daily. You could use [Whenever](https://github.com/javan/whenever) to manage it directly from the APP
+- A **crontab** line must be added to your server to maintain them updated daily. You could use [Whenever](https://github.com/javan/whenever) to manage it directly from the APP. You probably want to schedule a `bundle exec rake decidim:metrics:all` every night.
 - An **ActiveJob** queue, like [Sidekiq](https://github.com/mperham/sidekiq) or [DelayedJob](https://github.com/collectiveidea/delayed_job/)
 
 ## Persistence
