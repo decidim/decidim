@@ -34,7 +34,9 @@ module Decidim
         attr_reader :form
 
         def update_assemblies_type!
-          @assemblies_type.update!(
+          Decidim.traceability.update!(
+            @assemblies_type,
+            form.current_user,
             title: form.title
           )
         end

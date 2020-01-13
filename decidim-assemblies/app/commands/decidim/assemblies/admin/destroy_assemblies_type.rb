@@ -9,8 +9,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # assemblies_type - the AssemblyMember to destroy
-        def initialize(assemblies_type)
+        # current_user - the user performing the action
+        def initialize(assemblies_type, current_user)
           @assemblies_type = assemblies_type
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -20,8 +22,22 @@ module Decidim
         #
         # Returns nothing.
         def call
-          @assemblies_type.destroy!
+          destroy_assembly_type!
           broadcast(:ok)
+        end
+
+        private
+
+        attr_reader :current_user
+
+        def destroy_assembly_type!
+          Decidim.traceability.perform_action!(
+            "delete",
+            @assemblies_type,
+            current_user
+          ) do
+            @assemblies_type.destroy!
+          end
         end
       end
     end

@@ -32,7 +32,9 @@ module Decidim
         attr_reader :form
 
         def create_assemblies_type!
-          @assemblies_type = AssembliesType.create!(
+          Decidim.traceability.create!(
+            AssembliesType,
+            form.current_user,
             organization: form.current_organization,
             title: form.title
           )

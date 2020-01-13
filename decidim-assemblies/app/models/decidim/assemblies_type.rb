@@ -3,6 +3,9 @@
 module Decidim
   # Assembly type.
   class AssembliesType < ApplicationRecord
+    include Decidim::Traceable
+    include Decidim::Loggable
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
