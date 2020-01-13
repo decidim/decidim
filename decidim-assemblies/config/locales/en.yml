@@ -108,6 +108,9 @@ en:
           success: Assembly type created successfully.
         destroy:
           success: Assembly type successfully deleted.
+        new:
+          create: Create
+          title: New assembly type
         update:
           error: There was a problem updating this assembly type.
           success: Assembly type successfully updated.
@@ -221,6 +224,7 @@ en:
         update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"

@@ -79,11 +79,13 @@ module Decidim
         # DELETE /admin/assemblies_types/:id
         def destroy
           enforce_permission_to :destroy, :assembly_type, assembly_type: current_assembly_type
-          current_assembly_type.destroy!
 
-          redirect_to assemblies_types_path, flash: {
-            notice: I18n.t("assemblies_types.destroy.success", scope: "decidim.admin")
-          }
+          DestroyAssembliesType.call(current_assembly_type, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("assemblies_types.destroy.success", scope: "decidim.admin")
+              redirect_to assemblies_types_path
+            end
+          end
         end
 
         private

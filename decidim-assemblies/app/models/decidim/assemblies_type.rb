@@ -16,5 +16,9 @@ module Decidim
              dependent: :nullify
 
     validates :title, presence: true
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssembliesTypePresenter
+    end
   end
 end
