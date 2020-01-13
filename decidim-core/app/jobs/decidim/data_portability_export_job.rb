@@ -4,18 +4,26 @@ module Decidim
   class DataPortabilityExportJob < ApplicationJob
     queue_as :default
 
-    def perform(user, format)
-      objects = Decidim::DataPortabilitySerializers.data_entities
-      export_data = []
-      export_images = []
+    def perform(user, export_format = ::Decidim::DataPortabilityExporter::DEFAULT_EXPORT_FORMAT)
+      filename = "#{SecureRandom.urlsafe_base64}.zip"
+      path = Rails.root.join("tmp/#{filename}")
+      password = SecureRandom.urlsafe_base64
 
-      objects.each do |object|
-        klass = Object.const_get(object)
-        export_data << [klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter(format).new(klass.user_collection(user), klass.export_serializer).export]
-        export_images << [klass.model_name.name.parameterize.pluralize, klass.data_portability_images(user).flatten] unless klass.data_portability_images(user).nil?
-      end
+      generate_zip_file(user, path, password, export_format)
+      save_or_upload_file(path)
 
-      ExportMailer.data_portability_export(user, export_data, export_images).deliver_now
+      ExportMailer.data_portability_export(user, filename, password).deliver_later
+    end
+
+    private
+
+    def generate_zip_file(user, path, password, export_format)
+      DataPortabilityExporter.new(user, path, password, export_format).export
+    end
+
+    # Saves to file system or uploads to storage service depending on the configuration.
+    def save_or_upload_file(path)
+      DataPortabilityUploader.new.store!(File.open(path, "rb"))
     end
   end
 end
