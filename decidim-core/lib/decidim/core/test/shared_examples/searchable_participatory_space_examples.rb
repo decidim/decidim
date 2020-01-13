@@ -139,7 +139,6 @@ shared_examples "global search of participatory spaces" do
       "resource_id" => space.id,
       "resource_type" => space.class.name
     }.merge(searchable_resource_attrs_mapper.call(space, locale))
-    h.merge
     h
   end
 end
