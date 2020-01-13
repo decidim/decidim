@@ -123,6 +123,66 @@ module Decidim
             end
           end
 
+          context "when proposals has been moderated" do
+            let!(:proposals) do
+              create_list(:proposal, target_items.to_i,
+                          :hidden,
+                          component: proposal_component,
+                          created_at: Time.now.utc - 1.day)
+            end
+
+            it "returns empty" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).to be_empty
+            end
+          end
+
+          context "when proposals are rejected" do
+            let!(:proposals) do
+              create_list(:proposal, target_items.to_i,
+                          :rejected,
+                          component: proposal_component,
+                          created_at: Time.now.utc - 1.day)
+            end
+
+            it "returns empty" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).to be_empty
+            end
+          end
+
+          context "when proposals are withdrawn" do
+            let!(:proposals) do
+              create_list(:proposal, target_items.to_i,
+                          :withdrawn,
+                          component: proposal_component,
+                          created_at: Time.now.utc - 1.day)
+            end
+
+            it "returns empty" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).to be_empty
+            end
+          end
+
+          context "when proposals are draft" do
+            let!(:proposals) do
+              create_list(:proposal, target_items.to_i,
+                          :draft,
+                          component: proposal_component,
+                          created_at: Time.now.utc - 1.day)
+            end
+
+            it "returns empty" do
+              command.call
+              sortition = Sortition.where(component: sortition_component).last
+              expect(sortition.selected_proposals).to be_empty
+            end
+          end
+
           context "when restricted to a category with proposals" do
             let(:category_id) { category.id }
             let!(:proposal) { create(:proposal, component: proposal_component, category: category) }
@@ -132,6 +192,70 @@ module Decidim
               sortition = Sortition.where(component: sortition_component).last
               expect(sortition.selected_proposals).not_to be_empty
               expect(sortition.selected_proposals.first).to eq(proposal.id)
+            end
+
+            context "when proposals has been moderated" do
+              let!(:proposals) do
+                create_list(:proposal, target_items.to_i,
+                            :hidden,
+                            category: category,
+                            component: proposal_component,
+                            created_at: Time.now.utc - 1.day)
+              end
+
+              it "returns empty" do
+                command.call
+                sortition = Sortition.where(component: sortition_component).last
+                expect(sortition.selected_proposals).to eq([proposal.id])
+              end
+            end
+
+            context "when proposals are rejected" do
+              let!(:proposals) do
+                create_list(:proposal, target_items.to_i,
+                            :rejected,
+                            category: category,
+                            component: proposal_component,
+                            created_at: Time.now.utc - 1.day)
+              end
+
+              it "returns empty" do
+                command.call
+                sortition = Sortition.where(component: sortition_component).last
+                expect(sortition.selected_proposals).to eq([proposal.id])
+              end
+            end
+
+            context "when proposals are withdrawn" do
+              let!(:proposals) do
+                create_list(:proposal, target_items.to_i,
+                            :withdrawn,
+                            category: category,
+                            component: proposal_component,
+                            created_at: Time.now.utc - 1.day)
+              end
+
+              it "returns empty" do
+                command.call
+                sortition = Sortition.where(component: sortition_component).last
+                expect(sortition.selected_proposals).to eq([proposal.id])
+              end
+            end
+
+            context "when proposals are draft" do
+              let!(:proposals) do
+                create_list(:proposal, target_items.to_i,
+                            :draft,
+                            category: category,
+                            component: proposal_component,
+                            created_at: Time.now.utc - 1.day)
+              end
+
+              it "returns empty" do
+                command.call
+                sortition = Sortition.where(component: sortition_component).last
+                expect(sortition.selected_proposals).to eq([proposal.id])
+              end
             end
           end
 
