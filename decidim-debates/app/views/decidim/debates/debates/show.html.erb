@@ -42,7 +42,7 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%= decidim_sanitize(simple_format(translated_attribute(debate.description))) %></p>
+      <%= render_debate_description(debate) %>
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
           <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>
