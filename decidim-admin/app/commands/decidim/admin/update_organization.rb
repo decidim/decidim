@@ -45,6 +45,7 @@ module Decidim
           name: form.name,
           default_locale: form.default_locale,
           reference_prefix: form.reference_prefix,
+          time_zone: form.time_zone,
           twitter_handler: form.twitter_handler,
           facebook_handler: form.facebook_handler,
           instagram_handler: form.instagram_handler,

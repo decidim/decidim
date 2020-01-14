@@ -13,6 +13,7 @@ module Decidim
 
       let(:name) { "My super organization" }
       let(:reference_prefix) { "MSO" }
+      let(:time_zone) { "UTC" }
       let(:twitter_handler) { "My twitter awesome handler" }
       let(:facebook_handler) { "My facebook awesome handler" }
       let(:instagram_handler) { "My instagram awesome handler" }
@@ -25,6 +26,7 @@ module Decidim
           "organization" => {
             "name" => name,
             "reference_prefix" => reference_prefix,
+            "time_zone" => time_zone,
             "default_locale" => default_locale,
             "twitter_handler" => twitter_handler,
             "facebook_handler" => facebook_handler,
@@ -59,6 +61,12 @@ module Decidim
 
       context "when reference_prefix is missing" do
         let(:reference_prefix) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when time_zone is missing" do
+        let(:time_zone) { nil }
 
         it { is_expected.to be_invalid }
       end
