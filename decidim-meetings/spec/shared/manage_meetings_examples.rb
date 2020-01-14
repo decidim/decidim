@@ -14,6 +14,12 @@ shared_examples "manage meetings" do
     stub_geocoding(address, [latitude, longitude])
   end
 
+  describe "admin form" do
+    before { click_on "New meeting" }
+
+    it_behaves_like "having a rich text editor", "new_meeting", "full"
+  end
+
   describe "when rendering the text in the update page" do
     before do
       click_link "Edit"

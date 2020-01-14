@@ -12,6 +12,18 @@ describe "Admin manages newsletters", type: :system do
     login_as user, scope: :user
   end
 
+  describe "newsletter index" do
+    let(:recipients_count) { deliverable_users.size }
+
+    it "shows the number of users subscribed to the newsletter" do
+      visit decidim_admin.newsletters_path
+
+      within ".subscribed_count" do
+        expect(page).to have_content(recipients_count)
+      end
+    end
+  end
+
   describe "creates and previews a newsletter" do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
@@ -110,11 +122,17 @@ describe "Admin manages newsletters", type: :system do
     let!(:newsletter) { create(:newsletter, organization: organization) }
 
     context "when all users are selected" do
+      let(:recipients_count) { deliverable_users.size }
+
       it "sends to all users" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
             find(:css, "#newsletter_send_to_all_users").set(true)
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
           end
 
           within ".button--double" do
@@ -139,6 +157,7 @@ describe "Admin manages newsletters", type: :system do
           create(:follow, followable: participatory_processes.first, user: follower)
         end
       end
+      let(:recipients_count) { followers.size }
 
       it "sends to followers" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
@@ -150,6 +169,10 @@ describe "Admin manages newsletters", type: :system do
             within ".participatory_processes-block" do
               select translated(participatory_processes.first.title), from: :newsletter_participatory_space_types_participatory_processes__ids
             end
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
           end
 
           within ".button--double" do
@@ -167,9 +190,10 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when participants are selected" do
+      let(:recipients_count) { deliverable_users.size }
       let!(:component) { create(:dummy_component, organization: newsletter.organization) }
 
-      before do
+      let!(:participants) do
         deliverable_users.each do |participant|
           create(:dummy_resource, component: component, author: participant, published_at: Time.current)
         end
@@ -187,6 +211,10 @@ describe "Admin manages newsletters", type: :system do
             end
           end
 
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
+          end
+
           within ".button--double" do
             accept_confirm { find("*", text: "Deliver").click }
           end
@@ -202,7 +230,9 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when selecting both followers and participants" do
+      let(:recipients_count) { (followers + participants).size }
       let!(:component) { create(:dummy_component, organization: newsletter.organization) }
+      let!(:deliverable_users2) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 
       let!(:followers) do
         deliverable_users.each do |follower|
@@ -210,13 +240,13 @@ describe "Admin manages newsletters", type: :system do
         end
       end
 
-      before do
-        deliverable_users.each do |participant|
+      let!(:participants) do
+        deliverable_users2.each do |participant|
           create(:dummy_resource, component: component, author: participant, published_at: Time.current)
         end
       end
 
-      it "sends to participants" do
+      it "sends to followers and participants" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
@@ -228,6 +258,10 @@ describe "Admin manages newsletters", type: :system do
             end
           end
 
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
+          end
+
           within ".button--double" do
             accept_confirm { find("*", text: "Deliver").click }
           end
@@ -237,7 +271,7 @@ describe "Admin manages newsletters", type: :system do
         end
 
         within "tbody" do
-          expect(page).to have_content("5 / 5")
+          expect(page).to have_content("10 / 10")
         end
       end
     end
