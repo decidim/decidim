@@ -4,16 +4,24 @@
 
 **Upgrade notes**:
 
+- **Data portability**
+
+Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
+
 **Added**:
+
+- **decidim-core**: Add docs in how to fix metrics problems. [\#5587](https://github.com/decidim/decidim/pull/5587)
+- **decidim-core**: Data portability now supports AWS S3 storage. [\#5342](https://github.com/decidim/decidim/pull/5342)
 
 **Changed**:
 
 **Fixed**:
 
 - **decidim-participatory_processes and decidim-core**: Participatory processes not being imported properly. [\#5596](https://github.com/decidim/decidim/pull/5596)
+- **decidim-core**: Fix: use incrementing date when rebuilding since one date.[\#5541](https://github.com/decidim/decidim/pull/5541)
 
 **Removed**:
 
 ## Previous versions
 
-Please check [0.20-stable](https://github.com/decidim/decidim/blob/0.19-stable/CHANGELOG.md) for previous changes.
+Please check [0.20-stable](https://github.com/decidim/decidim/blob/0.20-stable/CHANGELOG.md) for previous changes.
