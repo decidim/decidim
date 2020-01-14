@@ -140,7 +140,7 @@ namespace :decidim do
   #
   # Return [Fog::AWS::Storage::File]
   def get_data_portability_files_from_aws(data_portability_path)
-    fog_credentials= CarrierWave::Uploader::Base.fog_credentials
+    fog_credentials = CarrierWave::Uploader::Base.fog_credentials
     s3 = Fog::Storage.new(fog_credentials)
     data_portability_dir = s3.directories.get(CarrierWave::Uploader::Base.fog_directory, prefix: data_portability_path)
     data_portability_dir.files
