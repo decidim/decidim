@@ -8,7 +8,6 @@ module Decidim
     class ProposalPresenter < SimpleDelegator
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
-      include ActionView::Helpers::SanitizeHelper
       include Decidim::SanitizeHelper
 
       def author
