@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-rails", "~> 0.0.9"
   s.add_dependency "decidim-comments", Decidim::Proposals.version
   s.add_dependency "decidim-core", Decidim::Proposals.version
-  s.add_dependency "diffy", "~> 3.3"
   s.add_dependency "doc2text", "~> 0.4.2"
   s.add_dependency "kaminari", "~> 1.1"
   s.add_dependency "ransack", "~> 2.1.1"
