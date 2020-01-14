@@ -7,7 +7,8 @@ describe Decidim::Assemblies::Permissions do
 
   let(:user) { create :user, :admin, organization: organization }
   let(:organization) { create :organization }
-  let(:assembly) { create :assembly, organization: organization }
+  let(:assembly_type) { create :assemblies_type, organization: organization }
+  let(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:assembly_admin) { create :assembly_admin, assembly: assembly }
@@ -310,6 +311,61 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
       it_behaves_like "allows any action on subject", :space_private_user
+    end
+  end
+
+  describe "assemblies types" do
+    context "when action is :index" do
+      let(:action) do
+        { scope: :admin, action: :index, subject: :assembly_type }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when action is :create" do
+      let(:action) do
+        { scope: :admin, action: :create, subject: :assembly_type }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when action is :edit" do
+      let(:action) do
+        { scope: :admin, action: :edit, subject: :assembly_type }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when action is :destroy" do
+      let(:context) { { assembly_type: assembly_type } }
+      let(:action) do
+        { scope: :admin, action: :destroy, subject: :assembly_type }
+      end
+
+      context "and assembly type has children" do
+        let!(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
+
+        it { is_expected.to eq false }
+      end
+
+      context "and assembly type has no children" do
+        let(:assembly) { create :assembly, organization: organization }
+
+        it { is_expected.to eq true }
+      end
+    end
+
+    context "when user is not an admin" do
+      let(:user) { assembly_collaborator }
+
+      let(:action) do
+        { scope: :admin, action: :create, subject: :assembly_type }
+      end
+
+      it { is_expected.to eq false }
     end
   end
 end
