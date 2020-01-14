@@ -123,9 +123,7 @@ namespace :decidim do
   #   kms_key_id=nil
   # >
   def delete_data_portability_files_from_aws(uploader)
-    s3 = Fog::Storage.new(CarrierWave::Uploader::Base.fog_credentials)
-    data_portability_dir = s3.directories.get("codit-decidim-santcugat", prefix: uploader.store_path)
-    files = data_portability_dir.files # => [Fog::AWS::Storage::File]
+    files = get_data_portability_files_from_aws(uploader.store_path)
     files.each do |file|
       next unless file.last_modified < Decidim.data_portability_expiry_time.ago
 
@@ -134,5 +132,17 @@ namespace :decidim do
       file.delete
       puts "ok----"
     end
+  end
+
+  # Retrieves the list of files in the data portability dir.
+  #
+  # This method has a high cost as it performs a couple of requests to aws.
+  #
+  # Return [Fog::AWS::Storage::File]
+  def get_data_portability_files_from_aws(data_portability_path)
+    fog_credentials = CarrierWave::Uploader::Base.fog_credentials
+    s3 = Fog::Storage.new(fog_credentials)
+    data_portability_dir = s3.directories.get(CarrierWave::Uploader::Base.fog_directory, prefix: data_portability_path)
+    data_portability_dir.files
   end
 end
