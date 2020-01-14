@@ -53,6 +53,7 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :newsletters do
       member do
+        get :recipients_count
         get :preview
         get :select_recipients_to_deliver
         post :deliver
