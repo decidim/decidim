@@ -53,6 +53,7 @@ module Decidim
           github_handler: form.github_handler,
           badges_enabled: form.badges_enabled,
           user_groups_enabled: form.user_groups_enabled,
+          admin_terms_of_use_body: form.admin_terms_of_use_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views
         }.merge(welcome_notification_attributes)
       end
