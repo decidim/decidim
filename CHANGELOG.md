@@ -31,6 +31,8 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Changed**:
 
+- **decidim-participatory_processes**, **decidim-conferences**, **decidim-assemblies**, **decidim-initiatives**: Use cardM cell in space embed [#5589](https://github.com/decidim/decidim/pull/5589)
+
 **Fixed**:
 
 - **decidim-verifications**: Fix: Missing method email_regexp [#5560](https://github.com/decidim/decidim/pull/5560)
