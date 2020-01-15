@@ -56,7 +56,7 @@ module Decidim
         {
           scope_id: nil,
           area_id: nil,
-          assembly_type: "all"
+          type_id: nil
         }
       end
 
