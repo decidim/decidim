@@ -11,6 +11,10 @@ module Decidim
           survey
         end
 
+        def results_url
+          results_path
+        end
+
         private
 
         def i18n_flashes_scope
