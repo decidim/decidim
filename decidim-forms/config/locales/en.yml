@@ -53,6 +53,7 @@ en:
             title: Results
           actions:
             show: Show results
+            edit: Edit
       errors:
         answer:
           body: Body can't be blank

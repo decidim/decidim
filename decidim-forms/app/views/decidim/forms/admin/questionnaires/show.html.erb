@@ -1,0 +1,46 @@
+<div class="card" id="answers">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+      <div class="button--title">
+        <%= link_to t("actions.edit", scope: "decidim.forms.admin.questionnaires"), update_url, class: "button tiny button--title new" %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <%# TODO filterable? %>
+      <table class="table-list">
+        <thead>
+          <tr>
+            <%# TODO what translation keys to use? %>
+            <%# TODO make sortable %>
+            <th><%= "id" %></th>
+            <th><%= "session_token" %></th>
+            <th><%= "question" %></th>
+            <th><%= "body" %></th>
+            <th><%= "user_status" %></th>
+            <th><%= "ip_hash" %></th>
+            <th><%= "created_at" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @answers.each do |user_answer| %>
+            <% user_answer.each do |answer| %>
+              <tr>
+                <td><%= answer.id %></td>
+                <td><%= questionnaire_answer_session_token_mask(answer) %></td>
+                <td><%= translated_attribute(answer.question.body) %></td>
+                <td><%= questionnaire_answer_body(answer) %></td>
+                <td><%= questionnaire_answer_user_status(answer) %></td>
+                <td><%= answer.ip_hash %></td>
+                <td><%= l answer.created_at, format: :short %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <%# paginate @answers, theme: "decidim" %>
+    </div>
+  </div>
+</div>
