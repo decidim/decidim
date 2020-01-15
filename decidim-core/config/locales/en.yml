@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -67,6 +68,8 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo_alt: "Link to %{organization}"
     account:
       data_portability_export:
         file_no_exists: File does not exist
