@@ -5,6 +5,7 @@ module Decidim
   class ApplicationController < ::DecidimController
     include NeedsOrganization
     include LocaleSwitcher
+    include UseOrganizationTimeZone
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers

@@ -10,6 +10,14 @@ module Decidim
       after_initialize :default_values
     end
 
+    class_methods do
+      # Returns a Class with the attributes sanitized, coerced  and filtered
+      # to the right type. See Decidim::SettingsManifest#schema.
+      def build_settings(manifest, settings_name, data, organization)
+        manifest.settings(settings_name).schema.new(data, organization.default_locale)
+      end
+    end
+
     def settings
       new_settings_schema(:global, self[:settings]["global"])
     end
@@ -59,12 +67,10 @@ module Decidim
       step_settings.fetch(active_step.id.to_s)
     end
 
-    # Returns a Class with the attributes sanitized, coerced  and filtered
-    # to the right type. See Decidim::SettingsManifest#schema.
-    def new_settings_schema(name, data)
+    def new_settings_schema(settings_name, data)
       return {} unless manifest && participatory_space
 
-      manifest.settings(name).schema.new(data, participatory_space.organization.default_locale)
+      self.class.build_settings(manifest, settings_name, data, participatory_space.organization)
     end
 
     def default_values

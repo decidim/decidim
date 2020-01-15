@@ -9,6 +9,8 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create :organization }
+        let(:assembly_type) { create :assemblies_type, organization: organization }
+        let(:assembly_type_id) { assembly_type.id }
         let(:title) do
           {
             en: "Title",
@@ -53,14 +55,6 @@ module Decidim
             en: "Composition of internal working groups",
             es: "Composición de los grupos internos",
             ca: "Composició dels grups interns"
-          }
-        end
-        let(:assembly_type) { "others" }
-        let(:assembly_type_other) do
-          {
-            en: "Lorem ipsum",
-            es: "Lorem ipsum",
-            ca: "Lorem ipsum"
           }
         end
         let(:creation_date) { 2.days.from_now }
@@ -125,10 +119,7 @@ module Decidim
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
-              "assembly_type" => assembly_type,
-              "assembly_type_other_en" => assembly_type_other[:en],
-              "assembly_type_other_es" => assembly_type_other[:es],
-              "assembly_type_other_ca" => assembly_type_other[:ca],
+              "decidim_assemblies_type_id" => assembly_type_id,
               "creation_date" => creation_date,
               "created_by" => created_by,
               "created_by_other_en" => created_by_other[:en],
@@ -184,6 +175,19 @@ module Decidim
 
         context "when images are not the expected type" do
           let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when assembly type is null" do
+          let(:assembly_type_id) { nil }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when assembly type is in a different organization" do
+          let(:alt_organization) { create :organization }
+          let(:assembly_type) { create :assemblies_type, organization: alt_organization }
 
           it { is_expected.not_to be_valid }
         end

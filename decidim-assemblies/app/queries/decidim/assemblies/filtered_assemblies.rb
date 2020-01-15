@@ -13,9 +13,9 @@ module Decidim
       end
 
       def query
-        return assemblies.all if @filter == "all"
+        return assemblies.all if @filter.blank?
 
-        assemblies.where(assembly_type: @filter)
+        assemblies.where(decidim_assemblies_type_id: @filter)
       end
     end
   end
