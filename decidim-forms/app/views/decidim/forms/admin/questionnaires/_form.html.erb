@@ -5,6 +5,10 @@
       <div class="button--title">
         <%= export_dropdown if allowed_to? :export_answers, :questionnaire %>
       </div>
+      <div class="button--title">
+        <%# TODO: add "if allowed_to? :show, :questionnaire" %>
+        <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), results_url, class: "button tiny button--title new" %>
+      </div>
     </h2>
   </div>
   <div class="card-section">

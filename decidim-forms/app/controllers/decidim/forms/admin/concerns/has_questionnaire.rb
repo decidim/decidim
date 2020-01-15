@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url, :results_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -46,6 +46,14 @@ module Decidim
               end
             end
 
+            def show
+              # enforce_permission_to :show, :questionnaire, questionnaire: questionnaire # TODO: How?
+
+              @answers = QuestionnaireUserAnswers.new(questionnaire).query
+
+              render template: "decidim/forms/admin/questionnaires/show"
+            end
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
@@ -63,6 +71,12 @@ module Decidim
             def after_update_url
               url_for(questionnaire.questionnaire_for)
             end
+            
+            # You can implement this method in your controller to change the URL
+            # where the questionnaire results will be shown.
+            def results_url
+              url_for([:show, questionnaire.questionnaire_for])
+            end
 
             private
 
@@ -73,7 +87,7 @@ module Decidim
             def questionnaire
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
             end
-
+            
             def blank_question
               @blank_question ||= Admin::QuestionForm.new
             end

@@ -49,6 +49,10 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Forms successfully saved.
+          show:
+            title: Results
+          actions:
+            show: Show results
       errors:
         answer:
           body: Body can't be blank
