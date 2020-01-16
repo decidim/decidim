@@ -10,7 +10,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/results", to: "surveys#show", as: :results
+        get "/answer/:session_token", to: "surveys#show", as: :show_survey
+        get "/answers", to: "surveys#index", as: :index_survey
         put "/", to: "surveys#update", as: :survey
         root to: "surveys#edit"
       end
