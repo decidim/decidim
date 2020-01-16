@@ -6,13 +6,10 @@ module Decidim
       # This controller allows the user to update a Page.
       class SurveysController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
 
         def questionnaire_for
           survey
-        end
-
-        def results_url
-          results_path
         end
 
         private
