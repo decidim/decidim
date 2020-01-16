@@ -366,7 +366,7 @@ fi:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
-          see: Katso
+          see: Näytä
         index:
           loading: Ladataan tulokset...
       show:

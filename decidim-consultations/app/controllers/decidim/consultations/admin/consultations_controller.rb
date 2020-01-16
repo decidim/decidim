@@ -5,12 +5,13 @@ module Decidim
     module Admin
       # Controller in charge of managing consultation related requests
       class ConsultationsController < Decidim::Consultations::Admin::ApplicationController
+        include Decidim::Consultations::Admin::Filterable
         helper_method :current_consultation, :current_participatory_space
 
         # GET /admin/consultations
         def index
           enforce_permission_to :read, :consultation
-          @consultations = collection
+          @consultations = filtered_collection
         end
 
         # GET /admin/consultations/new

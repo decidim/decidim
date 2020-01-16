@@ -183,6 +183,14 @@ module Decidim
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    def data_portability_file(filename)
+      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+        uploader.retrieve_from_store!(filename)
+        uploader.cache!(filename)
+      end
+    end
+
     protected
 
     # Overrides devise email required validation.

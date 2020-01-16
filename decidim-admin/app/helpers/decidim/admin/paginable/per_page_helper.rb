@@ -12,6 +12,11 @@ module Decidim
             with_label: true
           )
         end
+
+        # Renders the pagination dropdown menu in the admin panel.
+        def admin_filters_pagination
+          cell("decidim/admin/results_per_page", per_page_options)
+        end
       end
     end
   end

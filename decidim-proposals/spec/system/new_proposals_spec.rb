@@ -32,5 +32,14 @@ describe "Proposals", type: :system do
         expect(page).to have_current_path(path)
       end
     end
+
+    context "when rich text editor is enabled for participants" do
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
+        click_link "New proposal"
+      end
+
+      it_behaves_like "having a rich text editor", "new_proposal", "basic"
+    end
   end
 end
