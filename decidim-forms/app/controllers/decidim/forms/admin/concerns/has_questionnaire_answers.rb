@@ -70,10 +70,6 @@ module Decidim
               @query ||= QuestionnaireUserAnswers.new(questionnaire).query
             end
 
-            def participant_fields
-              [:session_token, :decidim_user_id, :ip_hash]
-            end
-
             def participant_token
               params[:session_token]
             end
@@ -83,7 +79,7 @@ module Decidim
             end
 
             def participants
-              query.select(participant_fields).distinct
+              query.select(:session_token, :decidim_user_id, :ip_hash).distinct
             end
 
             def participant
