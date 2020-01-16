@@ -40,6 +40,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 - **decidim-verifications**: Fix: Missing method email_regexp [#5560](https://github.com/decidim/decidim/pull/5560)
 - **decidim-core**: Fix: use incrementing date when rebuilding since one date. [\#5541](https://github.com/decidim/decidim/pull/5541)
+- **decidim-core**: Fix: Collapse floating-helper-block element on access to processes index screen [\#5626](https://github.com/decidim/decidim/pull/5626)
 
 **Removed**:
 
