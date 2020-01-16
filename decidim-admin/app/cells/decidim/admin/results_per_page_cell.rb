@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     class ResultsPerPageCell < Decidim::ViewModel
-      property :per_page, :per_page_range, :with_label
+      property :per_page, :per_page_range
       delegate :params, to: :controller, prefix: false
 
       def path_for_num_per_page(num_per_page = per_page_range.first)
