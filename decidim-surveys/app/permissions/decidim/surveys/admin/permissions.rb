@@ -7,13 +7,19 @@ module Decidim
         def permissions
           return permission_action unless user
 
-          return permission_action if permission_action.scope != :admin
+          return permission_action unless permission_action.scope == :admin
 
-          return permission_action if permission_action.subject != :questionnaire
-
-          case permission_action.action
-          when :export_answers, :update
-            permission_action.allow!
+          case permission_action.subject
+          when :questionnaire
+            case permission_action.action
+            when :export_answers, :update
+              permission_action.allow!
+            end
+          when :questionnaire_answers
+            case permission_action.action
+            when :index, :show
+              permission_action.allow!
+            end
           end
 
           permission_action
