@@ -65,6 +65,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -79,8 +85,8 @@ en:
   decidim:
     admin:
       actions:
-        new_assembly: New assembly
         import_assembly: Import
+        new_assembly: New assembly
         new_assembly_type: New assembly type
       assemblies:
         create:
@@ -103,14 +109,6 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assembly_imports:
-        create:
-          error: There was a problem importing this assembly.
-          success: Assembly successfully imported.
-        new:
-          import: Import
-          select: Select which data you would like to import
-          title: Import assembly
       assemblies_types:
         create:
           error: There was a problem creating a new assembly type.
@@ -128,6 +126,14 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_imports:
+        create:
+          error: There was a problem importing this assembly.
+          success: Assembly successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import assembly
       assembly_members:
         create:
           error: There was a problem adding a member for this assembly.
