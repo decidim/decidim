@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-#TODO
 module Decidim
   module Assemblies
     module Admin
