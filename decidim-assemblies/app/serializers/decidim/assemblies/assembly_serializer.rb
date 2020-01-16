@@ -32,6 +32,7 @@ module Decidim
           meta_scope: assembly.meta_scope,
           local_area: assembly.local_area,
           target: assembly.target,
+          decidim_scope_id: assembly.decidim_scope_id,
           paticipatory_scope: assembly.participatory_scope,
           participatory_structure: assembly.participatory_structure,
           show_statistics: assembly.show_statistics,
@@ -40,11 +41,10 @@ module Decidim
           reference: assembly.reference,
           purpose_of_action: assembly.purpose_of_action,
           composition: assembly.composition,
-          assembly_type: assembly.assembly_type,
-          assembly_type_other: assembly.assembly_type_other,
           duration: assembly.duration,
           included_at: assembly.included_at,
           closing_date: assembly.closing_date,
+          created_by: assembly.created_by,
           internal_organisation: assembly.internal_organisation,
           is_transparent: assembly.is_transparent,
           special_features: assembly.special_features,
@@ -53,6 +53,7 @@ module Decidim
           facebook_handler: assembly.facebook_handler,
           youtube_handler: assembly.youtube_handler,
           github_handler: assembly.github_handler,
+          decidim_assemblies_type_id: assembly.decidim_assemblies_type_id,
           area: {
             id: assembly.area.try(:id),
             name: assembly.area.try(:name) || empty_translatable

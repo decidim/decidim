@@ -26,18 +26,37 @@ module Decidim
             organization: @organization,
             title: title,
             slug: slug,
-            subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
-            description: attributes["description"],
+            subtitle: attributes["subtitle"],
             short_description: attributes["short_description"],
+            description: attributes["description"],
             promoted: attributes["promoted"],
             developer_group: attributes["developer_group"],
             local_area: attributes["local_area"],
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            meta_scope: attributes["meta_scope"],
-            private_space: attributes["private_space"]
+            show_statistics: attributes["show_statistics"],
+            scopes_enabled: attributes["scopes_enabled"],
+            private_space: attributes["private_space"],
+            reference: attributes["reference"],
+            purpose_of_action: attributes["purpose_of_action"],
+            composition: attributes["composition"],
+            duration: attributes["duration"],
+            decidim_scope_id: attributes["decidim_scope_id"],
+            included_at: attributes["included_at"],
+            closing_date: attributes["closing_date"],
+            internal_organisation: attributes["internal_organisation"],
+            is_transparent: attributes["is_transparent"],
+            decidim_assemblies_type_id: attributes["decidim_assemblies_type_id"],
+            special_features: attributes["special_features"],
+            twitter_handler: attributes["twitter_handler"],
+            instagram_handler: attributes["instagram_handler"],
+            facebook_handler: attributes["facebook_handler"],
+            youtube_handler: attributes["youtube_handler"],
+            github_handler: attributes["github_handler"],
+            created_by: attributes["created_by"],
+            meta_scope: attributes["meta_scope"]
           )
           @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
@@ -45,7 +64,6 @@ module Decidim
           @imported_assembly
         end
       end
-
 
       def import_categories(categories)
         return if categories.nil?

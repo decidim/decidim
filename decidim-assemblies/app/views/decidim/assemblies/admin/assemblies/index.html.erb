@@ -8,7 +8,7 @@
 
       <%= t("assemblies", scope: "decidim.admin.titles") %>
 
-      <% if allowed_to? :import, :assembly%>
+      <% if allowed_to? :import, :assembly %>
         <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
                     new_import_path,
                     class: "button tiny button--title" %>
