@@ -29,6 +29,9 @@ describe "Invite process collaborator", type: :system do
       expect(page).to have_current_path "/admin/"
       expect(page).to have_content("DASHBOARD")
 
+      visit decidim_admin.admin_terms_show_path
+      find_button("I agree this admin terms").click
+
       click_link "Processes"
 
       within "#processes" do
@@ -41,7 +44,7 @@ describe "Invite process collaborator", type: :system do
     let(:email) { "collaborator@example.org" }
 
     let!(:collaborator) do
-      create :user, :confirmed, email: email, organization: organization
+      create :user, :confirmed, :admin_terms_accepted, email: email, organization: organization
     end
 
     before do
