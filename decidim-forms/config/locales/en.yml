@@ -49,11 +49,17 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Forms successfully saved.
-          show:
-            title: Results
           actions:
-            show: Show results
-            edit: Edit
+            show: Show responses
+            back: Back to questions
+          answers:
+            actions:
+              show: Show answers
+              back: Back to responses
+            index:
+              title: Responses
+            show:
+              title: Answers
       errors:
         answer:
           body: Body can't be blank
@@ -88,7 +94,10 @@ en:
       user_answers_serializer:
         created_at: Answered on
         id: Answer ID
-        ip_hash: Ip Hash
+        ip_hash: IP Hash
         registered: Registered
         unregistered: Unregistered
         user_status: User status
+        session_token: User identifier
+        question: Question
+        body: Answer

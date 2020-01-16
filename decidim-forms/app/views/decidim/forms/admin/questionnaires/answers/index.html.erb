@@ -1,0 +1,41 @@
+<div class="card" id="answers">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+      <div class="button--title">
+        <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button tiny button--title new" %>
+      </div>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @participants.each do |participant| %>
+            <tr>
+              <td><%= participant.session_token %></td>
+              <td><%= questionnaire_answer_user_status(participant.decidim_user_id) %></td>
+              <td><%= participant.ip_hash %></td>
+              <td class="table-list__actions">
+                <% if allowed_to? :show, :questionnaire_answers %>
+                  <%= icon_link_to "eye", questionnaire_participant_answers_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--eye" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <%= paginate @participants, theme: "decidim" %>
+    </div>
+  </div>
+</div>

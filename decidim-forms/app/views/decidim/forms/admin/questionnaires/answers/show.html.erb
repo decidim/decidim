@@ -1,0 +1,50 @@
+<div class="card" id="answers">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+      
+      <div class="button--title">
+        <%= link_to_unless last?,  t("views.pagination.next").html_safe, next_url, rel: "next", class: 'button tiny button--title next' %>
+      </div>
+
+      <div class="button--title">
+        <%= link_to_unless first?, t("views.pagination.previous").html_safe, prev_url, rel: "prev", class: 'button tiny button--title prev' %>
+      </div>
+
+      <div class="button--title">
+        <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_participants_url, class: "button tiny button--title back" %>
+      </div>
+    </h2>
+  </div>
+
+  <div class="card-section">
+     <div class="table">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            <td><%= participant.session_token %></td>
+            <td><%= questionnaire_answer_user_status(participant.decidim_user_id) %></td>
+            <td><%= participant.ip_hash %></td>
+            <td><%= l @answers.first.created_at, format: :short %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <dl>
+      <% @answers.each do |answer| %>
+        <dt><%= translated_attribute(answer.question.body) %></dt>
+        <dd><%= questionnaire_answer_body(answer) %></dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
