@@ -22,6 +22,8 @@ module Decidim
     #
     # Returns nothing.
     def call
+      return broadcast(:invalid) if existing_group_endorsement?
+      
       endorsement = build_resource_endorsement
       if endorsement.save
         notify_endorser_followers
