@@ -70,7 +70,7 @@ module Decidim
               @query ||= QuestionnaireUserAnswers.new(questionnaire).query
             end
 
-            def participant_fiels
+            def participant_fields
               [:session_token, :decidim_user_id, :ip_hash]
             end
 
@@ -83,7 +83,7 @@ module Decidim
             end
 
             def participants
-              query.select(participant_fiels).distinct
+              query.select(participant_fields).distinct
             end
 
             def participant
