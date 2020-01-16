@@ -79,6 +79,7 @@ en:
     admin:
       actions:
         new_assembly: New assembly
+        import_assembly: Import
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -100,6 +101,14 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
+      assembly_imports:
+        create:
+          error: There was a problem importing this assembly.
+          success: Assembly successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import assembly
       assembly_copies:
         new:
           copy: Copy
@@ -228,6 +237,10 @@ en:
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant

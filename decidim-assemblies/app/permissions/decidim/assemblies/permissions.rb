@@ -196,7 +196,10 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user
+          :space_private_user,
+          :process_user_role,
+          :export_space,
+          :import
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -214,7 +217,10 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user
+          :space_private_user,
+          :process_user_role,
+          :export_space,
+          :import
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

@@ -26,6 +26,14 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     context.layout = "layouts/decidim/admin/assembly"
   end
 
+  participatory_space.exports :assemblies do |export|
+    export.collection do |assembly|
+      Decidim::Assembly.where(id: assembly.id)
+    end
+
+    export.serializer Decidim::Assemblies::AssemblySerializer
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
