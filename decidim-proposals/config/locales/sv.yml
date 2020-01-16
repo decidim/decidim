@@ -18,7 +18,6 @@ sv:
         body: Innehåll
         category_id: Kategori
         has_address: Har adress
-        scope_id: Omfång
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel

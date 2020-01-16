@@ -4,7 +4,7 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 FactoryBot.define do
-  factory :initiatives_type, class: Decidim::InitiativesType do
+  factory :initiatives_type, class: "Decidim::InitiativesType" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
@@ -49,7 +49,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiatives_type_scope, class: Decidim::InitiativesTypeScope do
+  factory :initiatives_type_scope, class: "Decidim::InitiativesTypeScope" do
     type { create(:initiatives_type) }
     scope { create(:scope, organization: type.organization) }
     supports_required { 1000 }
@@ -59,7 +59,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiative, class: Decidim::Initiative do
+  factory :initiative, class: "Decidim::Initiative" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
@@ -150,12 +150,12 @@ FactoryBot.define do
     end
   end
 
-  factory :initiative_user_vote, class: Decidim::InitiativesVote do
+  factory :initiative_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
   end
 
-  factory :organization_user_vote, class: Decidim::InitiativesVote do
+  factory :organization_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
     decidim_user_group_id { create(:user_group).id }
@@ -164,7 +164,7 @@ FactoryBot.define do
     end
   end
 
-  factory :initiatives_committee_member, class: Decidim::InitiativesCommitteeMember do
+  factory :initiatives_committee_member, class: "Decidim::InitiativesCommitteeMember" do
     initiative { create(:initiative) }
     user { create(:user, :confirmed, organization: initiative.organization) }
     state { "accepted" }

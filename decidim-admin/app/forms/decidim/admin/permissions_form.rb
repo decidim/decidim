@@ -9,7 +9,12 @@ module Decidim
 
       attribute :permissions, Hash[String => PermissionForm]
 
-      def valid?
+      private
+
+      # Overriding Rectify::Form#form_attributes_valid? to preserve errors from custom method validations.
+      def form_attributes_valid?
+        return false unless errors.empty? && permissions.each_value.map(&:errors).all?(&:empty?)
+
         super && permissions.values.all?(&:valid?)
       end
     end

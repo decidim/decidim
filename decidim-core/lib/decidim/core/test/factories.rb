@@ -69,6 +69,7 @@ FactoryBot.define do
   factory :organization, class: "Decidim::Organization" do
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
+    time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
     facebook_handler { Faker::Hipster.word }
     instagram_handler { Faker::Hipster.word }
