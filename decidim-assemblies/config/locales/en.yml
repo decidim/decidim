@@ -17,6 +17,7 @@ en:
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
+        decidim_assemblies_type_id: Assembly type
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
@@ -80,6 +81,7 @@ en:
       actions:
         new_assembly: New assembly
         import_assembly: Import
+        new_assembly_type: New assembly type
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -109,6 +111,18 @@ en:
           import: Import
           select: Select which data you would like to import
           title: Import assembly
+      assemblies_types:
+        create:
+          error: There was a problem creating a new assembly type.
+          success: Assembly type created successfully.
+        destroy:
+          success: Assembly type successfully deleted.
+        new:
+          create: Create
+          title: New assembly type
+        update:
+          error: There was a problem updating this assembly type.
+          success: Assembly type successfully updated.
       assembly_copies:
         new:
           copy: Copy
@@ -168,7 +182,12 @@ en:
           info: Info
           moderations: Moderations
           private_users: Private users
+        assemblies_types: Assemblies types
       models:
+        assemblies_types:
+          fields:
+            created_at: Created at
+            title: Title
         assembly:
           fields:
             created_at: Created at
@@ -201,6 +220,7 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
+        assemblies_types: Assemblies types
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
@@ -211,6 +231,12 @@ en:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
         delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
         update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+      assembly_type:
+        create: "%{user_name} created the %{resource_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        publish: "%{user_name} published the %{resource_name} assembly type"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
+        update: "%{user_name} updated the %{resource_name} assembly type"
       assembly_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
@@ -234,6 +260,9 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
+        assemblies_types:
+          form:
+            title: Title
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -356,6 +385,8 @@ en:
       value_types:
         assembly_presenter:
           not_found: 'The assembly was not found on the database (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     metrics:

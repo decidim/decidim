@@ -2,15 +2,10 @@
 
 module Decidim
   # This class deals with saving data portability Zip Files to App
-  class DataPortabilityUploader < CarrierWave::Uploader::Base
+  class DataPortabilityUploader < ApplicationUploader
     # Override the directory where uploaded files will be stored.
-    # def store_dir
-    #   default_path = "tmp/data-portability/"
-    #   File.join(Rails.root, default_path)
-    # end
-
     def store_dir
-      default_path = "tmp/data-portability/"
+      default_path = "uploads/data-portability/"
 
       return File.join(Decidim.base_uploads_path, default_path) if Decidim.base_uploads_path.present?
 
