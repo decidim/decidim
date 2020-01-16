@@ -12,7 +12,11 @@
   class ProposalEndorsement < ApplicationRecord
     self.table_name = :decidim_proposals_proposal_endorsements
   end
-  ProposalEndorsement.all.find_each do |prop_endorsement|
+  non_duplicated_group_endorsements = ProposalEndorsement.select(
+       "MIN(id) as id, decidim_user_group_id"
+  ).group(:decidim_user_group_id).where.not(decidim_user_group_id: nil)
+
+  ProposalEndorsement.where("id IN (?) OR decidim_user_group_id IS NULL", non_duplicated_group_endorsements.map(&:id)).find_each do |prop_endorsement|
     ::Decidim::Endorsement.create!(
       resource_type: Decidim::Proposals::Proposal.class.name,
       resource_id: prop_endorsement.decidim_proposal_id,
