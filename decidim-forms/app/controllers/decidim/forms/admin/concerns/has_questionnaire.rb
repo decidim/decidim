@@ -46,7 +46,6 @@ module Decidim
               end
             end
 
-
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
