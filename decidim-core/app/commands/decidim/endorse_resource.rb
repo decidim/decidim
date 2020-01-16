@@ -35,6 +35,10 @@ module Decidim
 
     private
 
+      def existing_group_endorsement?
+         @current_group_id.present? && @resource.endorsements.exists?(decidim_user_group_id: @current_group_id)
+       end
+
     def build_resource_endorsement
       endorsement = @resource.endorsements.build(author: @current_user)
       endorsement.user_group = user_groups.find(@current_group_id) if @current_group_id.present?
