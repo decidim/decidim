@@ -3,7 +3,9 @@
 module Decidim
   # Helper that provides methods to render order selector and links
   module SanitizeHelper
-    include ActionView::Helpers::SanitizeHelper
+    def self.included(base)
+      base.include ActionView::Helpers::SanitizeHelper
+    end
 
     # Public: It sanitizes a user-inputted string with the
     # `Decidim::UserInputScrubber` scrubber, so that video embeds work
