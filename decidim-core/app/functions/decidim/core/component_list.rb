@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # An abstract resolver for the GraphQL endpoint components inside a a participatory_space
+    # An abstract resolver for the GraphQL endpoint components inside a participatory_space.
     # Used in the keyword "components", ie:
     #
     # participatoryProcesses {
