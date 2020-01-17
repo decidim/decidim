@@ -23,7 +23,7 @@ module Decidim
     # Returns nothing.
     def call
       return broadcast(:invalid) if existing_group_endorsement?
-      
+
       endorsement = build_resource_endorsement
       if endorsement.save
         notify_endorser_followers
@@ -35,9 +35,9 @@ module Decidim
 
     private
 
-      def existing_group_endorsement?
-         @current_group_id.present? && @resource.endorsements.exists?(decidim_user_group_id: @current_group_id)
-       end
+    def existing_group_endorsement?
+      @current_group_id.present? && @resource.endorsements.exists?(decidim_user_group_id: @current_group_id)
+     end
 
     def build_resource_endorsement
       endorsement = @resource.endorsements.build(author: @current_user)
