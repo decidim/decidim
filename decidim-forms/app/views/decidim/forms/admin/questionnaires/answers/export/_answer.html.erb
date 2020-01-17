@@ -1,0 +1,26 @@
+<hr>
+
+<h2><%= t(".title", number: participant_counter + 1) %></h2>
+
+<dl>
+  <dt><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></dt>
+  <dd><%= participant.session_token %></dd>
+  
+  <dt><%= t("user_status", scope: "decidim.forms.user_answers_serializer") %></dt>
+  <dd><%= participant.status %></dd>
+
+  <dt><%= t("ip_hash", scope: "decidim.forms.user_answers_serializer") %></dt>
+  <dd><%= participant.ip_hash %></dd>
+
+  <dt><%= t("created_at", scope: "decidim.forms.user_answers_serializer") %></dt>
+  <dd><%= participant.answered_at %></dd>
+</dl>
+
+---
+
+<div class="answers">
+  <% participant.answers.each do |answer| %>
+    <h3><%= translated_attribute(answer.question.body) %></h3>
+    <p><%= questionnaire_answer_body(answer) %></p>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+<h1><%= translated_attribute questionnaire.title %></h1>
+<%= raw translated_attribute(questionnaire.description).html_safe %>
+
+<%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: @participants, as: :participant %>

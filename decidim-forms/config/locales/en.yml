@@ -52,14 +52,19 @@ en:
           actions:
             show: Show responses
             back: Back to questions
+            export: Export responses
           answers:
             actions:
               show: Show answers
               back: Back to responses
+              export: Export
             index:
               title: Responses
             show:
               title: Answers
+            export:
+              answer:
+                title: "Response #%{number}"
       errors:
         answer:
           body: Body can't be blank
