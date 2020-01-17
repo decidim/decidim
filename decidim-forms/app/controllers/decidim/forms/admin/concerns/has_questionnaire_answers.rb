@@ -15,15 +15,17 @@ module Decidim
 
           included do
             include Decidim::Paginable
+
             helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
 
-            helper_method :questionnaire_url, :questionnaire_participants_url, :questionnaire_participant_answers_url, :participant
+            helper_method :questionnaire_url, :questionnaire_participants_url, :questionnaire_participant_answers_url, :questionnaire_export_url, :questionnaire_export_response_url
             helper_method :prev_url, :next_url, :first?, :last?
 
             def index
               enforce_permission_to :index, :questionnaire_answers
 
-              @participants = paginate(participants)
+              @query = paginate(collection)
+              @participants = participants(@query)
 
               render template: "decidim/forms/admin/questionnaires/answers/index"
             end
@@ -31,9 +33,41 @@ module Decidim
             def show
               enforce_permission_to :show, :questionnaire_answers
 
-              @answers = participant_answers
+              @participant = participant
 
               render template: "decidim/forms/admin/questionnaires/answers/show"
+            end
+
+            def export
+              enforce_permission_to :export, :questionnaire_answers
+
+              @participants = participants(collection)
+
+              render pdf: "responses",
+                     template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
+                     layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+            end
+
+            def export_response
+              enforce_permission_to :export_response, :questionnaire_answers
+
+              @participants = [participant]
+
+              render pdf: "responses",
+                     template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
+                     layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+              # respond_to do |format|
+              # end
+              # pdf = WickedPdf.new.pdf_from_string(
+              #   orientation: "Portrait"
+              # )
+
+              # send_data(
+              #   pdf,
+              #   filename: "responses.pdf",
+              #   # type: "application/pdf",
+              #   disposition: :inline
+              # )
             end
 
             # Public: The only method to be implemented at the controller. You need to
@@ -60,39 +94,40 @@ module Decidim
               url_for([:show, questionnaire.questionnaire_for, session_token: session_token])
             end
 
+            def questionnaire_export_url
+              url_for([:export, questionnaire.questionnaire_for])
+            end
+
+            def questionnaire_export_response_url(session_token)
+              url_for([:export_response, questionnaire.questionnaire_for, session_token: session_token])
+            end
+
             private
 
             def questionnaire
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
             end
 
-            def query
-              @query ||= QuestionnaireUserAnswers.new(questionnaire).query
+            def collection
+              @collection ||= QuestionnaireParticipants.new(questionnaire).query
             end
 
-            def participant_token
-              params[:session_token]
+            def participant(session_token = nil)
+              session_token ||= params[:session_token]
+              Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(questionnaire: questionnaire, session_token: session_token)
             end
 
-            def participant_ids
-              participants.pluck(:session_token)
-            end
-
-            def participants
-              query.select(:session_token, :decidim_user_id, :ip_hash).distinct
-            end
-
-            def participant
-              participants.find_by(session_token: participant_token)
-            end
-
-            def participant_answers
-              query.where(session_token: participant_token)
+            def participants(query)
+              query.map { |p| participant(p.session_token) }
             end
 
             # Custom pagination methods
+            def participant_ids
+              @participant_ids ||= collection.pluck(:session_token)
+            end
+
             def current_idx
-              participant_ids.index(participant_token)
+              participant_ids.index(params[:session_token])
             end
 
             def prev_url
