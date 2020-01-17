@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # A very basic resolver for the GraphQL endpoint for a single participatory spaces
+    # A very basic resolver for the GraphQL endpoint for a single participatory space
     # This can be easily overwritten by the participatory_space_manifest.query_finder
     class ParticipatorySpaceFinderBase < GraphQL::Function
       attr_reader :manifest
