@@ -8,6 +8,7 @@
           <div class="column">
             <article class="card card--conference card--mini">
               <%= link_to decidim_conferences.conference_path(conference), class: "card__link" do %>
+                <span class="show-for-sr"><%= translated_attribute conference.title %></span>
                 <div class="card__image-top"
                   style="background-image:url(<%= conference.hero_image.url %>)"></div>
               <% end %>
