@@ -228,11 +228,21 @@ module Decidim
       describe "steps" do
         let!(:step) { create(:participatory_process_step, participatory_process: model) }
 
-        let(:query) { "{ steps {  id } }" }
+        let(:query) { "{ steps { id } }" }
 
-        it "returns all the required fields" do
+        it "returns all the required steps" do
           step_response = response["steps"].first
           expect(step_response["id"]).to eq(step.id.to_s)
+        end
+      end
+
+      describe "participatoryProcessGroup" do
+        let!(:group) { create(:participatory_process_group, participatory_processes: [model]) }
+
+        let(:query) { "{ participatoryProcessGroup {  id } }" }
+
+        it "returns all the required participatory process group" do
+          expect(response["participatoryProcessGroup"]["id"]).to eq(group.id.to_s)
         end
       end
     end

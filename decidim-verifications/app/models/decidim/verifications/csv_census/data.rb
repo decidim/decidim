@@ -29,7 +29,7 @@ module Decidim
 
         def process_row(row)
           user_mail = row.first
-          if user_mail.present? && user_mail.match?(Devise.email_regexp)
+          if user_mail.present? && user_mail.match?(::Devise.email_regexp)
             values << user_mail
           else
             errors << row

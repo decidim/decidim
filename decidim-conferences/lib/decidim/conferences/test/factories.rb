@@ -23,6 +23,7 @@ FactoryBot.define do
     show_statistics { true }
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }
+    registration_terms { generate_localized_title }
 
     trait :promoted do
       promoted { true }

@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # This interface should be implemented by any Type that can used as amendment
+    # This interface should be implemented by any Type that can be used as amendment
     # The only requirement is to have an ID and the Type name be the class.name + Type
     AmendableEntityInterface = GraphQL::InterfaceType.define do
       name "AmendableEntityInterface"
