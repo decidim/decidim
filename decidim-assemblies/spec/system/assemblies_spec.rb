@@ -9,11 +9,11 @@ describe "Assemblies", type: :system do
   let(:base_assembly) do
     create(
       :assembly,
+      :with_type,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_statistics: show_statistics,
-      assembly_type: "others"
+      show_statistics: show_statistics
     )
   end
 

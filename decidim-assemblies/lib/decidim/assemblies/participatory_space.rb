@@ -68,8 +68,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        assembly_type: "others",
-        assembly_type_other: Decidim::Faker::Localized.word,
+        assembly_type: Decidim::AssembliesType.create!(organization: organization, title: Decidim::Faker::Localized.word),
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: Decidim::Faker::Localized.word,
