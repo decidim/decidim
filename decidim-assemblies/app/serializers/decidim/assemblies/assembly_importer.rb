@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # A factory class to ensure we always create ParticipatoryProcesses the same way since it involves some logic.
+    # A factory class to ensure we always create Assemblies the same way since it involves some logic.
     class AssemblyImporter < Decidim::Importers::Importer
       def initialize(organization, user)
         @organization = organization
@@ -44,7 +44,6 @@ module Decidim
             composition: attributes["composition"],
             duration: attributes["duration"],
             creation_date: attributes["creation_date"],
-            participatory_scope: attributes["participatory_scope"],
             decidim_scope_id: attributes["decidim_scope_id"],
             closing_date_reason: attributes["closing_date_reason"],
             included_at: attributes["included_at"],
