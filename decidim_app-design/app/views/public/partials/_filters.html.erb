@@ -22,10 +22,10 @@
     <form>
       <fieldset>
         <legend><h6 class="heading6">Resultat de la revisió</h6></legend>
-          <label><input data-sub-checkboxes="filters-review" type="checkbox" checked><strong>Totes</strong></label>
+          <label data-global-checkbox><input data-sub-checkboxes="filters-review" type="checkbox" checked><strong>Totes</strong></label>
           <div id="filters-review" class="filters__subfilters">
-            <label><input type="checkbox" checked>Acceptades</label>
-            <label><input type="checkbox" checked>Rebutjades</label>
+            <label data-children-checkbox><input type="checkbox" checked>Acceptades</label>
+            <label data-children-checkbox><input type="checkbox" checked>Rebutjades</label>
 
           </div>
       </fieldset>
@@ -56,13 +56,13 @@
             </span>
           </h6>
         </legend>
-        <label><input id="" type="checkbox" checked><strong>Tots</strong></label>
-        <div class="filters__subfilters">
-          <label><input id="" type="checkbox" checked>Bon viure</label>
-          <label><input id="" type="checkbox" checked>Economia plural</label>
-          <label><input id="" type="checkbox" checked>Transició ecològica</label>
-          <label><input id="" type="checkbox" checked>Bon govern</label>
-          <label><input id="" type="checkbox" checked>Justícia global</label>
+        <label data-global-checkbox><input data-sub-checkboxes="filters-axis" type="checkbox" checked><strong>Tots</strong></label>
+        <div id="filters-axis" class="filters__subfilters">
+          <label data-children-checkbox><input id="" type="checkbox" checked>Bon viure</label>
+          <label data-children-checkbox><input id="" type="checkbox" checked>Economia plural</label>
+          <label data-children-checkbox><input id="" type="checkbox" checked>Transició ecològica</label>
+          <label data-children-checkbox><input id="" type="checkbox" checked>Bon govern</label>
+          <label data-children-checkbox><input id="" type="checkbox" checked>Justícia global</label>
         </div>
       </fieldset>
     </form>
