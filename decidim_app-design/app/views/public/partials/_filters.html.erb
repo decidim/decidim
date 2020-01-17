@@ -22,9 +22,12 @@
     <form>
       <fieldset>
         <legend><h6 class="heading6">Resultat de la revisió</h6></legend>
-        <label><input id="" type="radio" name="revision" checked>Totes</label>
-        <label><input id="" type="radio" name="revision">Acceptades</label>
-        <label><input id="" type="radio" name="revision">Rebutjades</label>
+          <label><input data-sub-checkboxes="filters-review" type="checkbox" checked><strong>Totes</strong></label>
+          <div id="filters-review" class="filters__subfilters">
+            <label><input type="checkbox" checked>Acceptades</label>
+            <label><input type="checkbox" checked>Rebutjades</label>
+
+          </div>
       </fieldset>
     </form>
   </div>

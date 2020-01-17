@@ -23,6 +23,7 @@
 // = require decidim/conferences
 // = require decidim/tooltip_keep_on_hover
 // = require decidim/diff_mode_dropdown
+// = require decidim/subcheckboxes
 // = require_tree ./decidim/vizzs
 
 // = require_self
@@ -34,7 +35,7 @@ window.Decidim = window.Decidim || {};
 
 $(() => {
   if (window.Decidim.DataPicker) {
-    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+    window.theDataPicker = new window.Decidim.DataPicker($('.data-picker'));
   }
 
   $(document).foundation();
