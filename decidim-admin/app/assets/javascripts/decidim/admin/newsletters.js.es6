@@ -66,5 +66,13 @@ $(() => {
         }
       });
     })
+
+    $form.on("change", function() {
+      let $data = $form.serializeJSON().newsletter;
+      let $url = $form.data("recipients-count-newsletter-path");
+      $.get($url, {data: $data}, function(recipientsCount) {
+        $("#recipients_count").text(recipientsCount);
+      });
+    })
   }
 });

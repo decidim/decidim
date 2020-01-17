@@ -7,7 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
-      helper_method :newsletter
+      helper_method :newsletter, :recipients_count_query
 
       def index
         enforce_permission_to :index, :newsletter
@@ -96,6 +96,12 @@ module Decidim
         @form.send_to_all_users = current_user.admin?
       end
 
+      def recipients_count
+        data = params.permit(data: {}).to_h[:data]
+        @form = form(SelectiveNewsletterForm).from_params(data)
+        render plain: recipients_count_query
+      end
+
       def deliver
         enforce_permission_to :update, :newsletter, newsletter: newsletter
         @form = form(SelectiveNewsletterForm).from_params(params)
@@ -126,6 +132,11 @@ module Decidim
 
       def newsletter
         @newsletter ||= collection.find_by(id: params[:id])
+      end
+
+      def recipients_count_query
+        @form ||= form(SelectiveNewsletterForm).instance
+        NewsletterRecipients.for(@form).size
       end
     end
   end

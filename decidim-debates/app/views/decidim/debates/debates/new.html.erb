@@ -16,7 +16,7 @@
           </div>
 
           <div class="field">
-            <%= form.text_area :description, rows: 10 %>
+            <%= text_editor_for_debate_description(form) %>
           </div>
 
           <% if current_participatory_space.categories&.any? %>

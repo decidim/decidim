@@ -17,8 +17,8 @@ fi:
         automatic_hashtags: Hashtagit lisätty automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
+        decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
-        scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
         title: Ehdotuksen nimi
