@@ -24,11 +24,11 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     smtp_settings: {
-      from: Faker::Internet.email,
-      user_name: Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
-      address: ENV["DECIDIM_HOST"] || "localhost",
-      port: ENV["DECIDIM_SMTP_PORT"] || "25"
+      from: ENV["EMAIL"] || Faker::Internet.email,
+      user_name: ENV["SMTP_USERNAME"] || Faker::Twitter.unique.screen_name,
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV["SMTP_PASSWORD"] || Faker::Internet.password(8)),
+      address: ENV["SMTP_ADDRESS"] || ENV["DECIDIM_HOST"] || "localhost",
+      port: ENV["SMTP_PORT"] || "25"
     },
     host: ENV["DECIDIM_HOST"] || "localhost",
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
