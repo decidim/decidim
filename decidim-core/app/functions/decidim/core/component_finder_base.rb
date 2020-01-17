@@ -2,7 +2,18 @@
 
 module Decidim
   module Core
-    # A very basic resolver for the GraphQL endpoint for a single component
+    # An abstract class where for the GraphQL endpoint for a single component
+    # Normal components (such as Proposal) can inherit from this class and just
+    # add the needed search arguments
+    #
+    # Usually something like:
+    #
+    #   class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
+    #     argument :id, !types.ID, "The ID of the proposal"
+    #   end
+    #
+    # For an example check
+    # decidim-proposals/app/types/decidim/proposals/proposals_type.rb
     class ComponentFinderBase < GraphQL::Function
       attr_reader :model_class
 

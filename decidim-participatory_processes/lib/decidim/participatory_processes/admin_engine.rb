@@ -91,15 +91,9 @@ module Decidim
                     decidim_admin_participatory_processes.participatory_processes_path,
                     icon_name: "target",
                     position: 2,
-                    active: :inclusive,
-                    if: allowed_to?(:enter, :space_area, space_name: :processes)
-
-          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_process_groups_path,
-                    icon_name: "layers",
-                    position: 3,
-                    active: :inclusive,
-                    if: allowed_to?(:enter, :space_area, space_name: :process_groups)
+                    active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
+                            is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive),
+                    if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
     end

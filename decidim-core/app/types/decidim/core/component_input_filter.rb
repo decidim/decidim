@@ -7,21 +7,7 @@ module Decidim
       include HasLocaleInputFilter
 
       graphql_name "ComponentFilter"
-      description "A type used for filtering any generic component.
-
-A typical query would look like:
-
-```
-  {
-    participatoryProcesses {
-      components(filter: {type: \"Proposals\"}) {
-          id
-        }
-      }
-    }
-  }
-```
-"
+      description "A type used for filtering any component parent objects"
 
       argument :type,
                type: String,

@@ -6,7 +6,7 @@ module Decidim
       include Decidim::Core::HasPublishableInputFilter
 
       graphql_name "ProposalFilter"
-      description "A type used for filtering the component proposals.
+      description "A type used for filtering proposals inside a participatory space.
 
 A typical query would look like:
 

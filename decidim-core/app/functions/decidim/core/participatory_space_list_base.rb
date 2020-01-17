@@ -2,8 +2,9 @@
 
 module Decidim
   module Core
-    # A very basic resolver for the GraphQL endpoint for listing participatory spaces
-    # This can be easily overwritten by the participatory_space_manifest.query_list
+    # An abstract base class resolver for the GraphQL endpoint for listing participatory spaces
+    # Inherit from this class and add search arguments to create list-finders participatory classes
+    # as is shown in ParticipatorySpaceList
     # + info:
     # https://github.com/rmosolgo/graphql-ruby/blob/v1.6.8/guides/fields/function.md
     class ParticipatorySpaceListBase < GraphQL::Function
