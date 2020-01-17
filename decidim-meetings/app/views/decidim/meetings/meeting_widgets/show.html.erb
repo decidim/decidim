@@ -1,9 +1,0 @@
-<%= content_for(:title, present(model).title) %>
-<%= render partial: "decidim/meetings/meetings/datetime", locals: { meeting: model } %>
-<%= decidim_sanitize meeting_description(model) %>
-<div class="address card__extra">
-  <div class="address__icon">
-    <%= icon "meetings", remove_icon_class: true, width: 40, height: 70 %>
-  </div>
-  <%= render partial: "decidim/shared/address_details", locals: { icon_name: "meetings", geolocalizable: model } %>
-</div>
