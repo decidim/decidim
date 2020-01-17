@@ -15,7 +15,8 @@ module Decidim
         -> { Decidim::Core::FingerprintInterface },
         -> { Decidim::Core::AmendableInterface },
         -> { Decidim::Core::AmendableEntityInterface },
-        -> { Decidim::Core::TraceableInterface }
+        -> { Decidim::Core::TraceableInterface },
+        -> { Decidim::Core::TimestampsInterface }
       ]
 
       field :id, !types.ID
@@ -30,16 +31,6 @@ module Decidim
       field :reference, types.String, "This proposal's unique reference"
       field :state, types.String, "The answer status in which proposal is in"
       field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal"
-
-      field :createdAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was created"
-        property :created_at
-      end
-
-      field :updatedAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was upated"
-        property :updated_at
-      end
 
       field :answeredAt, Decidim::Core::DateTimeType do
         description "The date and time this proposal was answered"
