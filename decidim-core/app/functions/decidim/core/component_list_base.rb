@@ -4,7 +4,7 @@ module Decidim
   module Core
     # A very basic resolver for the GraphQL endpoint for listing components
     # Used in the keyword that lists some type of a specific component.
-    # For instance, "proposals" if is a Proposals:
+    # For instance, "proposals" if it is a Proposal:
     #
     # participatoryProcesses {
     #   components {
@@ -13,7 +13,18 @@ module Decidim
     #     }
     #   }
     # }
+    #
     # Needs to be extended and add arguments
+    # Usually something like:
+    #
+    #   class ProposalListHelper < Decidim::Core::ComponentListBase
+    #     argument :order, ProposalInputSort, "Provides several methods to order the results"
+    #     argument :filter, ProposalInputFilter, "Provides several methods to filter the results"
+    #   end
+    #
+    # For an example check
+    # decidim-proposals/app/types/decidim/proposals/proposals_type.rb
+    #
     class ComponentListBase < GraphQL::Function
       include NeedsFilterAndOrder
       attr_reader :model_class

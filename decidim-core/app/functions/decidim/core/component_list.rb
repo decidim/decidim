@@ -8,7 +8,12 @@ module Decidim
     # participatoryProcesses {
     #   components {...}
     # }
-    # Needs to be extended and add arguments
+    #
+    # Needs to be extended and add arguments.
+    #
+    # This is used by ParticipatorySpaceInterface to apply filter/orders when
+    # searching raw components. When listing properly defined components,
+    # use ComponentListBase instead
     class ComponentList < GraphQL::Function
       include NeedsFilterAndOrder
       attr_reader :model_class
