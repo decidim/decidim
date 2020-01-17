@@ -17,9 +17,8 @@ module Decidim
           choices.join(", ")
         end
 
-        def questionnaire_answer_user_status(user_id)
-          scope = "decidim.forms.user_answers_serializer"
-          t(user_id.present? ? "registered" : "unregistered", scope: scope)
+        def questionnaire_participant_status(registered)
+          t(registered ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
         end
       end
     end

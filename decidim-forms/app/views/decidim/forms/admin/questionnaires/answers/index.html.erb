@@ -3,6 +3,7 @@
     <h2 class="card-title">
       <%= t ".title" %>
       <div class="button--title">
+        <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires"), questionnaire_export_url, class: "button tiny button--title export", target: :blank %>
         <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button tiny button--title new" %>
       </div>
     </h2>
@@ -15,6 +16,7 @@
             <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
             <th></th>
           </tr>
         </thead>
@@ -23,9 +25,14 @@
           <% @participants.each do |participant| %>
             <tr>
               <td><%= participant.session_token %></td>
-              <td><%= questionnaire_answer_user_status(participant.decidim_user_id) %></td>
+              <td><%= participant.status %></td>
               <td><%= participant.ip_hash %></td>
+              <td><%= l participant.answered_at, format: :short %></td>
               <td class="table-list__actions">
+                <% if allowed_to? :export_response, :questionnaire_answers %>
+                  <%= icon_link_to "data-transfer-download", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--data-transfer-download", target: :blank %>
+                <% end %>
+
                 <% if allowed_to? :show, :questionnaire_answers %>
                   <%= icon_link_to "eye", questionnaire_participant_answers_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--eye" %>
                 <% end %>
@@ -35,7 +42,7 @@
         </tbody>
       </table>
       
-      <%= paginate @participants, theme: "decidim" %>
+      <%= paginate @query, theme: "decidim" %>
     </div>
   </div>
 </div>

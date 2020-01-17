@@ -16,7 +16,7 @@
       </div>
     </h2>
   </div>
-
+  
   <div class="card-section">
      <div class="table">
       <table class="table-list">
@@ -26,22 +26,28 @@
             <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
             <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
+            <th></th>
           </tr>
         </thead>
         
         <tbody>
           <tr>
-            <td><%= participant.session_token %></td>
-            <td><%= questionnaire_answer_user_status(participant.decidim_user_id) %></td>
-            <td><%= participant.ip_hash %></td>
-            <td><%= l @answers.first.created_at, format: :short %></td>
+            <td><%= @participant.session_token %></td>
+            <td><%= @participant.status %></td>
+            <td><%= @participant.ip_hash %></td>
+            <td><%= l @participant.answered_at, format: :short %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :export_response, :questionnaire_answers %>
+                <%= icon_link_to "data-transfer-download", questionnaire_export_response_url(@participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--data-transfer-download", target: :blank %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
     
     <dl>
-      <% @answers.each do |answer| %>
+      <% @participant.answers.each do |answer| %>
         <dt><%= translated_attribute(answer.question.body) %></dt>
         <dd><%= questionnaire_answer_body(answer) %></dd>
       <% end %>
