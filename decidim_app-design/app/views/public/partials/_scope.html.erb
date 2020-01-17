@@ -1,10 +1,10 @@
 <form>
   <fieldset>
     <legend><h6 class="heading6">Àmbit</h6></legend>
-    <label><input data-sub-checkboxes="filters-all" type="checkbox" checked><strong>Tota la Ciutat</strong></label>
+    <label data-global-checkbox><input data-sub-checkboxes="filters-all" type="checkbox" checked><strong>Tota la Ciutat</strong></label>
     <div id="filters-all" class="filters__subfilters">
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-1" id="" type="checkbox" checked>Ciutat Vella</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-1" id="" type="checkbox" checked>Ciutat Vella</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-1 filters-area-1-trigger">
           <span id="filters-area-1-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -13,13 +13,13 @@
         </button>
       </div>
       <div id="filters-area-1" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>el Barri Gòtic</label>
-        <label><input id="" type="checkbox" checked>el Raval</label>
-        <label><input id="" type="checkbox" checked>la Barceloneta</label>
-        <label><input id="" type="checkbox" checked>Sant Pere, Santa Caterina i la Ribera</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>el Barri Gòtic</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>el Raval</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>la Barceloneta</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Sant Pere, Santa Caterina i la Ribera</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-2" id="" type="checkbox" checked>Eixample</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-2" id="" type="checkbox" checked>Eixample</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-2 filters-area-2-trigger">
           <span id="filters-area-2-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -28,13 +28,13 @@
         </button>
       </div>
       <div id="filters-area-2" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-3" id="" type="checkbox" checked>Gràcia</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-3" id="" type="checkbox" checked>Gràcia</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-3 filters-area-3-trigger">
           <span id="filters-area-3-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -43,13 +43,13 @@
         </button>
       </div>
       <div id="filters-area-3" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-4" id="" type="checkbox" checked>Horta-Guinardó</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-4" id="" type="checkbox" checked>Horta-Guinardó</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-4 filters-area-4-trigger">
           <span id="filters-area-4-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -58,13 +58,13 @@
         </button>
       </div>
       <div id="filters-area-4" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-5" id="" type="checkbox" checked>Les Corts</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-5" id="" type="checkbox" checked>Les Corts</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-5 filters-area-5-trigger">
           <span id="filters-area-5-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -73,13 +73,13 @@
         </button>
       </div>
       <div id="filters-area-5" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-6" id="" type="checkbox" checked>Nou Barris</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-6" id="" type="checkbox" checked>Nou Barris</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-6 filters-area-6-trigger">
           <span id="filters-area-6-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -88,13 +88,13 @@
         </button>
       </div>
       <div id="filters-area-6" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-7" id="" type="checkbox" checked>Sant Andreu</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-7" id="" type="checkbox" checked>Sant Andreu</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-7 filters-area-7-trigger">
           <span id="filters-area-7-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -103,13 +103,13 @@
         </button>
       </div>
       <div id="filters-area-7" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-8" id="" type="checkbox" checked>Sant Martí</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-8" id="" type="checkbox" checked>Sant Martí</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-8 filters-area-8-trigger">
           <span id="filters-area-8-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -118,13 +118,13 @@
         </button>
       </div>
       <div id="filters-area-8" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input data-children-checkbox id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input data-children-checkbox id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input data-children-checkbox id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input data-children-checkbox id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-9" id="" type="checkbox" checked>Sants-Montjuïc</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-9" id="" type="checkbox" checked>Sants-Montjuïc</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-9 filters-area-9-trigger">
           <span id="filters-area-9-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -133,13 +133,13 @@
         </button>
       </div>
       <div id="filters-area-9" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
       <div class="filters__has-subfilters">
-        <label><input data-sub-checkboxes="filters-area-10" id="" type="checkbox" checked>Sarrià - Sant Gervasi</label>
+        <label data-children-checkbox><input data-sub-checkboxes="filters-area-10" id="" type="checkbox" checked>Sarrià - Sant Gervasi</label>
         <button type="button" aria-label="Mostrar/ocultar barris"  data-toggle="filters-area-10 filters-area-10-trigger">
           <span id="filters-area-10-trigger" data-toggler=".filters__is-open">
             <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
@@ -148,10 +148,10 @@
         </button>
       </div>
       <div id="filters-area-10" class="filters__subfilters hide" data-toggler=".hide">
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
-        <label><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
+        <label data-children-checkbox><input id="" type="checkbox" checked>Lorem ipsum</label>
       </div>
     </div>
   </fieldset>
