@@ -1,3 +1,20 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if allowed_to?(:read, :assembly_list) %>
+        <li <% if is_active_link?(decidim_admin_assemblies.assemblies_path) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to I18n.t("menu.assemblies", scope: "decidim.admin"), decidim_admin_assemblies.assemblies_path %>
+        </li>
+      <% end %>
+      <% if allowed_to?(:manage, :assemblies_type) %>
+        <li <% if is_active_link?(decidim_admin_assemblies.assemblies_types_path) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to I18n.t("menu.assemblies_types", scope: "decidim.admin"), decidim_admin_assemblies.assemblies_types_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">

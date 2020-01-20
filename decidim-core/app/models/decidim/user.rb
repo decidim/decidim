@@ -166,6 +166,10 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
+    def admin_terms_accepted?
+      return true if admin_terms_accepted_at
+    end
+
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?
