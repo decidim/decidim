@@ -94,6 +94,14 @@ module Decidim
       def can_be_followed?
         !model.withdrawn?
       end
+
+      def has_image?
+        model.attachments.first.present? && model.component.settings.allow_card_image
+      end
+
+      def resource_image_path
+        model.attachments.first.url if has_image?
+      end
     end
   end
 end

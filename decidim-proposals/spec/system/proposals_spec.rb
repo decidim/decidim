@@ -84,6 +84,25 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when it is a proposal with card image enable" do
+      let!(:component) do
+        create(:proposal_component,
+               :with_attachemnts_and_card_image_allowed,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      let!(:proposal) { create(:proposal, component: component) }
+      let!(:image) { create(:attachment, attached_to: proposal) }
+
+      it "shows the card image" do
+        visit_component
+        within "#proposal_#{proposal.id}" do
+          expect(page).to have_selector(".card__image")
+        end
+      end
+    end
+
     context "when it is an official meeting proposal" do
       let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
 
