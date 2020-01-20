@@ -18,10 +18,10 @@ module Decidim
         @questionnaire = questionnaire
       end
 
-      # Returns query with all questionnaire answers
+      # Finds and group answers by user for each questionnaire's question.
       def query
-        query = Answer.where(questionnaire: @questionnaire)
-        query.sort_by { |answer| answer.question.position }.group_by { |a| a.user || a.session_token }.values
+        answers = Answer.where(questionnaire: @questionnaire)
+        answers.sort_by { |answer| answer.question.position }.group_by { |a| a.user || a.session_token }.values
       end
     end
   end
