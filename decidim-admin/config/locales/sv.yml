@@ -79,6 +79,8 @@ sv:
         user_groups_enabled: Aktivera grupper
         user_name: Användarnamn
         warning_color: Varning
+        welcome_notification_body: Välkomstmeddelandetext
+        welcome_notification_subject: Välkomstmeddeleandeämne
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod

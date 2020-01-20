@@ -17,8 +17,8 @@ hu:
         automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
         category_id: Kategória
+        decidim_scope_id: Hatáskör
         has_address: Van lakcíme
-        scope_id: Hatáskör
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím
@@ -644,10 +644,12 @@ hu:
         endorsements_card_row:
           comments: Hozzászólások
         filters:
-          activity: Tevékenység
+          activity: Tevékenységeim
+          all: Összes
           amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
+          my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
           search: Keresés

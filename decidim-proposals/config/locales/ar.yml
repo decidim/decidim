@@ -18,7 +18,6 @@ ar:
         body: الجسم
         category_id: الفئة
         has_address: لديه عنوان
-        scope_id: نطاق
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
         title: عنوان
@@ -647,7 +646,6 @@ ar:
         endorsements_card_row:
           comments: تعليقات
         filters:
-          activity: نشاط
           amendment_type: نوع
           category: الفئة
           category_prompt: اختر تصنيف

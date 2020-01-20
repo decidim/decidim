@@ -18,7 +18,6 @@ fr:
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseigner une adresse
-        scope_id: Périmètre d'application
         state: État
         suggested_hashtags: Hashtags suggérés
         title: Titre
@@ -644,7 +643,6 @@ fr:
         endorsements_card_row:
           comments: Commentaires
         filters:
-          activity: Activité
           amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie

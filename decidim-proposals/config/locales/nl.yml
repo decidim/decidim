@@ -18,7 +18,6 @@ nl:
         body: Body
         category_id: Categorie
         has_address: Heeft adres
-        scope_id: Reikwijdte
         state: Status
         suggested_hashtags: Voorgestelde hashtags
         title: Titel
@@ -644,10 +643,12 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          activity: Activiteit
+          activity: Mijn activiteit
+          all: Alle
           amendment_type: Type
           category: Categorie
           category_prompt: Kies een categorie
+          my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken

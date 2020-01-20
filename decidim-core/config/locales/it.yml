@@ -173,15 +173,15 @@ it:
           help_text: Esaminare le modifiche e accettare o rifiutare questo emendamento. Una notifica verrà inviata al suo autore (s).
         announcement:
           accepted: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link} è stato
-            accettato su <strong>%{announcement_date}</strong>.
+            Questo emendamento per il %{amendable_type} %{proposal_link} è stato accettato
+            il <strong>%{date}</strong>.
           evaluating: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link}
+            Questo emendamento per il %{amendable_type} %{proposal_link}
             è in fase di valutazione.
           promoted: Promosso a un %{amendable_type}.
           rejected: "Questa emendazione per lo %{amendable_type} %{amendable_link}\nstata respinta su <strong>%{announcement_date}</strong>."
           withdrawn: |-
-            Questo emendamento per lo %{amendable_type} %{amendable_link}
+            Questo emendamento per il %{amendable_type} %{proposal_link}
             è stato ritirato dall'autore.
       new:
         amendment_author: Autore dell'autore
@@ -381,7 +381,7 @@ it:
             legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
-          tos_agreement: Iscrivendoti accetti le %{link}.
+          tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:

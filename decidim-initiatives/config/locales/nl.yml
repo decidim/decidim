@@ -7,7 +7,7 @@ nl:
         offline_votes: Face-to-face handtekeningen
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
-        signature_start_date: Begin van de periode om handtekeningen te verzamelen
+        signature_start_date: Begin van de periode voor het verzamelen van handtekeningen
         signature_type: Handtekening verzamelingstype
         signature_type_values:
           any: Gemengd
@@ -234,16 +234,16 @@ nl:
             success: Het initiatieftype is succesvol bijgewerkt
       admin_log:
         initiative:
-          publish: "%{user_name} heeft het %{resource_name} -initiatief gepubliceerd"
-          send_to_technical_validation: "%{user_name} heeft het %{resource_name} -initiatief verzonden naar technische validatie"
+          publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
+          send_to_technical_validation: "%{user_name} heeft het initiatief %{resource_name} verzonden naar technische validatie"
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
         accepted: Aanvaard
         created: gemaakt
-        discarded: afgedankte
+        discarded: Afgedankte
         published: Gepubliceerd
-        rejected: Verworpen
+        rejected: Afgewezen
         validating: Technische validatie
       committee_requests:
         new:
@@ -258,21 +258,21 @@ nl:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stadsdeel?</li> </ul>"
+          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Hartelijk gefeliciteerd! Je burgerinitiatief is succesvol aangemaakt.
+          callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
-          help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de Promotingscommissie vormen
+          help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de promotieraad vormen
           help_in_person_signatures: Als je ervoor hebt gekozen de handtekeningen persoonlijk te verzamelen of in combinatie met online, moet je de vereiste informatie uploaden.
-          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
+          help_text: Vergeet niet dat om het initiatief goed te verwerken, u toegang moet hebben tot het administratiepaneel, waar u het gebruikersmenu kunt vinden, de vereiste informatie kunt uploaden en deze voor verwerking kunt verzenden.
           initiatives_page_link: Je kunt al deze informatie op de %{link} opzoeken om je te informeren over initiatieven.
           page: pagina
         previous_form:
@@ -282,20 +282,20 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Dit soort burgerinitiatief vereist een Promotingscommissie bestaande uit ten minste %{committee_size} personen (attestors). Je moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          individual_help_text: Dit soort burgerinitiatief vereist een promotieraad bestaande uit ten minste %{committee_size} personen (attestors). Deel de volgende link met de anderen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
-          choose_html: Ik wil een <strong>%{title}</strong>
+          choose_html: Ik wil een <strong>%{title}</strong> aanmaken
           more_information: "(Meer informatie)"
           select: Ik wil dit initiatief promoten
-          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
+          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee burgers kunnen ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
-          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotorcommissie
+          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
         show_similar_initiatives:
           back: Terug
-          compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gedaan te worden.
+          compare_help: Als een van de volgende initiatieven vergelijkbaar is met dat van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gerealiseerd te worden.
           continue: Mijn initiatief is anders
           more_information: "(Meer informatie)"
       events:
@@ -330,8 +330,8 @@ nl:
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen, zijn niet geldig
-          success_html: Gefeliciteerd! Het <strong> %{title}</strong> initiatief is correct ondertekend
+          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen zijn niet geldig
+          success_html: Proficiat! Het initiatief <strong> %{title}</strong> is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_code:
@@ -370,10 +370,10 @@ nl:
           comments_count:
             count:
               one: Commentaar
-              other: Comments
+              other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
-          most_commented: Meest gereageerd
+          most_commented: Meeste reacties
           most_voted: Meest ondertekend
           random: Willekeurig
           recent: Meest recente
