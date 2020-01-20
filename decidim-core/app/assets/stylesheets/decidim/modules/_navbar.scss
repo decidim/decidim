@@ -49,15 +49,21 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 }
 
 .topbar__search{
+  width: 100%;
   position: relative;
+  display: flex;
 
   input,
   input:focus{
     color: $navbar-color-hover;
     border: 0;
-    padding-left: $input-padding * 4;
     box-shadow: none;
     background: $navbar-active-bg;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    float: left;
+
 
     @include breakpoint(medium){
       background: $navbar-bg;
@@ -65,13 +71,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   svg{
-    color: $input-placeholder-color;
-    position: absolute;
-    top: 50%;
-    left: $input-padding;
-    transform: translateY(-50%);
+    color: $white;
     opacity: .5;
   }
+
+}
+
+button {
+  float: right;
+  padding: 10px 10px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  background-color: $navbar-bg;
+}
+
+button:hover {
+  background-color: $secondary;
+  transition: 0.6s;
 }
 
 /* Top bar */
