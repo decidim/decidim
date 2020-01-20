@@ -7,6 +7,7 @@ module Decidim
 
     include NeedsOrganization
     include LocaleSwitcher
+    include UseOrganizationTimeZone
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
