@@ -69,7 +69,7 @@ module Decidim
             # You can implement this method in your controller to change the URL
             # where the questionnaire participants' info will be shown.
             def questionnaire_participants_url
-              url_for([:index, questionnaire.questionnaire_for]) # TODO: ?
+              url_for([:index, questionnaire.questionnaire_for, format: nil])
             end
 
             # You can implement this method in your controller to change the URL
@@ -79,11 +79,11 @@ module Decidim
             end
 
             def questionnaire_export_url
-              url_for([:export, questionnaire.questionnaire_for])
+              url_for([:export, questionnaire.questionnaire_for, format: "pdf"])
             end
 
             def questionnaire_export_response_url(session_token)
-              url_for([:export_response, questionnaire.questionnaire_for, session_token: session_token])
+              url_for([:export_response, questionnaire.questionnaire_for, session_token: session_token, format: "pdf"])
             end
 
             private
@@ -93,6 +93,8 @@ module Decidim
             end
 
             def render_answers_pdf(title)
+              @title = title
+
               render pdf: title,
                      template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
                      layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
