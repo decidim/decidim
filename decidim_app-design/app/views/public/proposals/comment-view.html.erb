@@ -1,0 +1,37 @@
+<%
+@title = "Comentario -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "proposals"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper-mini">
+    <div class="row column view-header">
+      <h2 class="heading2"><a href="proposal-view">Cobriment de la Ronda de Dalt al seu pas per la Vall d'Hebrón</a></h2>
+      <%= partial "author_data", { extra: true } %>
+    </div>
+    <div class="row column">
+      <div class="callout secondary">
+        <h5>Estás viendo un detalle de comentario</h5>
+        <p>
+          Puedes <a href="proposal-view">ver el resto de comentarios aquí</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comment-single" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
