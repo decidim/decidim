@@ -7,39 +7,9 @@
 - **Endorsements**
 
 This new version of Decidim has extracted the Endorsement feature into a generic concern that can now be applied to many resources.
-To keep current Decidim::Proposals::Proposal's endorsement information, endorsements should be copied into the new `Decidim::Endorsable` tables and counter cache columns. This must be done after executing the migrations.
+To keep current Decidim::Proposals::Proposal's endorsement information, endorsements are copied into the new `Decidim::Endorsable` tables and counter cache columns. This is done via migrations.
 
-```ruby
-# copy endorsements from `decidim_proposals_proposal_endorsements` into `decidim_endorsements`
-class ProposalEndorsement < ApplicationRecord
-  self.table_name = :decidim_proposals_proposal_endorsements
-end
-non_duplicated_group_endorsements = ProposalEndorsement.select(
-     "MIN(id) as id, decidim_user_group_id"
-).group(:decidim_user_group_id).where.not(decidim_user_group_id: nil)
-
-ProposalEndorsement.where("id IN (?) OR decidim_user_group_id IS NULL", non_duplicated_group_endorsements.map(&:id)).find_each do |prop_endorsement|
-  ::Decidim::Endorsement.create!(
-    resource_type: Decidim::Proposals::Proposal.class.name,
-    resource_id: prop_endorsement.decidim_proposal_id,
-    decidim_author_type: prop_endorsement.decidim_author_type,
-    decidim_author_id: prop_endorsement.decidim_author_id,
-    decidim_user_group_id: prop_endorsement.decidim_user_group_id)
-end
-# update new `decidim_proposals_proposal.endorsements_count` counter cache
-Decidim::Proposals::Proposal.all.pluck(:id).find_each do |id|
-  Decidim::Proposals::Proposal.reset_counters(id, :endorsements)
-end
-```
-
-After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` can be removed.
-
-```sql
--- remove legacy `decidim_proposals_proposal_endorsements` table
-DROP TABLE IF EXISTS decidim_proposals_proposal_endorsements RESTRICT;
--- remove legacy column `decidim_proposals_proposal.proposal_endorsements_count`
-ALTER TABLE decidim_proposals_proposal DROP COLUMN proposal_endorsements;
-```
+After this, `Decidim::Proposals::ProposalEndorsement` and the corresponding counter cache column in `decidim_proposals_proposal.proposal_endorsements_count` should be removed. To do so, Decidim will provide the corresponding migration in the next release.
 
 - **Assembly types**
 
