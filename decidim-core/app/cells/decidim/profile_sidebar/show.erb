@@ -1,5 +1,5 @@
 <div class="card profile--sidebar">
-  <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger" %>
+  <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <div class="card__content">
     <h5>
       <div><strong><%= profile_user.name %></strong></div>

@@ -2,7 +2,7 @@
   <div class="author author--inline">
     <% if author.respond_to?(:avatar_url) %>
       <span class="author__avatar author__avatar--small">
-        <%= image_tag author.avatar_url %>
+        <%= image_tag author.avatar_url, alt: "author-avatar" %>
       </span>
     <% end %>
     <span class="author__name">
