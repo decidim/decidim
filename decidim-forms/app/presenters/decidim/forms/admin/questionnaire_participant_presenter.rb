@@ -34,7 +34,9 @@ module Decidim
           t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
         end
 
-        delegate :answers, to: :query
+        def answers
+          query.answers.order(:created_at)
+        end
       end
     end
   end
