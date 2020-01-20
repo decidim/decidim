@@ -31,7 +31,10 @@ module Decidim
                 "user_name" => "f.laguardia",
                 "password" => Decidim::AttributeEncryptor.encrypt("password"),
                 "from" => "decide@gotham.gov"
-              }
+              },
+              omniauth_settings_facebook_enabled: true,
+              omniauth_settings_facebook_app_id: "facebook-app-id",
+              omniauth_settings_facebook_app_secret: "facebook-app-secret"
             }
           end
 
@@ -46,6 +49,14 @@ module Decidim
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
+
+            expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
+            expect(
+              Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
+            ).to eq("facebook-app-id")
+            expect(
+              Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_secret"])
+            ).to eq("facebook-app-secret")
           end
 
           it "invites a user as organization admin" do
