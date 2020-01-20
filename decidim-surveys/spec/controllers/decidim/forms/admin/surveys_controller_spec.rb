@@ -59,7 +59,7 @@ module Decidim
         end
 
         describe "export" do
-          let(:filename) { "#{survey.questionnaire.id}_responses.pdf" }
+          let(:filename) { "Responses.pdf" }
           let(:params) do
             {
               component_id: survey.component.id,
@@ -77,7 +77,7 @@ module Decidim
         end
 
         describe "export_response" do
-          let(:filename) { "#{survey.questionnaire.id}_response_#{session_token}.pdf" }
+          let(:filename) { "Response for #{session_token}.pdf" }
           let(:params) do
             {
               component_id: survey.component.id,

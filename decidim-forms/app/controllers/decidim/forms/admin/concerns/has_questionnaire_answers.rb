@@ -43,19 +43,15 @@ module Decidim
 
               @participants = participants(collection)
 
-              render pdf: "#{questionnaire.id}_responses",
-                     template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
-                     layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+              render_answers_pdf t("export.title", scope: i18n_scope)
             end
-
+            
             def export_response
               enforce_permission_to :export_response, :questionnaire_answers
-
+              
               @participants = [participant]
-
-              render pdf: "#{questionnaire.id}_response_#{participant.session_token}",
-                     template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
-                     layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+              
+              render_answers_pdf t("export_response.title", scope: i18n_scope, token: participant.session_token)
             end
 
             # Public: The only method to be implemented at the controller. You need to
@@ -91,6 +87,16 @@ module Decidim
             end
 
             private
+
+            def i18n_scope
+              "decidim.forms.admin.questionnaires.answers"
+            end
+
+            def render_answers_pdf(title)
+              render pdf: title,
+                     template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
+                     layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+            end
 
             def questionnaire
               @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)

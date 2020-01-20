@@ -63,8 +63,11 @@ en:
             show:
               title: Answers
             export:
+              title: Responses
               answer:
                 title: "Response #%{number}"
+            export_response:
+              title: Response for %{token}
       errors:
         answer:
           body: Body can't be blank
