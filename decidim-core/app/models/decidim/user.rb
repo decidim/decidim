@@ -166,6 +166,10 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
+    def admin_terms_accepted?
+      return true if admin_terms_accepted_at
+    end
+
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?
@@ -181,6 +185,14 @@ module Decidim
 
     def interested_scopes
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    def data_portability_file(filename)
+      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+        uploader.retrieve_from_store!(filename)
+        uploader.cache!(filename)
+      end
     end
 
     protected
