@@ -6,7 +6,9 @@ module Decidim::Assemblies
   describe Admin::UpdateAssembly do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:my_assembly) { create :assembly, organization: organization }
+      let(:assembly_type) { create(:assemblies_type, organization: organization) }
+      let(:assembly_type_id) { assembly_type.id }
+      let(:my_assembly) { create :assembly, assembly_type: assembly_type, organization: organization }
       let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
 
       let(:participatory_processes) do
@@ -48,8 +50,7 @@ module Decidim::Assemblies
             participatory_processes_ids: participatory_processes.map(&:id),
             purpose_of_action: my_assembly.purpose_of_action,
             composition: my_assembly.composition,
-            assembly_type: my_assembly.assembly_type,
-            assembly_type_other: my_assembly.assembly_type_other,
+            decidim_assemblies_type_id: assembly_type_id,
             creation_date: my_assembly.creation_date,
             created_by: my_assembly.created_by,
             created_by_other: my_assembly.created_by_other,
@@ -145,6 +146,22 @@ module Decidim::Assemblies
 
           linked_participatory_processes = my_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
           expect(linked_participatory_processes).to match_array(participatory_processes)
+        end
+
+        it "links to assembly type" do
+          command.call
+
+          expect(my_assembly.assembly_type).to eq(assembly_type)
+        end
+
+        context "when no assembly type is set" do
+          let(:assembly_type_id) { nil }
+
+          it "assembly type is null" do
+            command.call
+
+            expect(my_assembly.assembly_type).to eq(nil)
+          end
         end
 
         context "when no homepage image is set" do
