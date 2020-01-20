@@ -116,7 +116,7 @@ describe "Proposals", type: :system do
     context "when it is a proposal with card image enable" do
       let!(:component) do
         create(:proposal_component,
-               :with_attachemnts_and_card_image_allowed,
+               :with_attachments_and_card_image_allowed,
                manifest: manifest,
                participatory_space: participatory_process)
       end
