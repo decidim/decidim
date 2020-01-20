@@ -43,7 +43,7 @@ module Decidim
 
               @participants = participants(collection)
 
-              render pdf: "responses",
+              render pdf: "#{questionnaire.id}_responses",
                      template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
                      layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
             end
@@ -53,21 +53,9 @@ module Decidim
 
               @participants = [participant]
 
-              render pdf: "responses",
+              render pdf: "#{questionnaire.id}_response_#{participant.session_token}",
                      template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
                      layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
-              # respond_to do |format|
-              # end
-              # pdf = WickedPdf.new.pdf_from_string(
-              #   orientation: "Portrait"
-              # )
-
-              # send_data(
-              #   pdf,
-              #   filename: "responses.pdf",
-              #   # type: "application/pdf",
-              #   disposition: :inline
-              # )
             end
 
             # Public: The only method to be implemented at the controller. You need to
