@@ -75,23 +75,25 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     opacity: .5;
   }
 
+  button {
+    float: right;
+    padding: 10px 10px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    background-color: $navbar-bg;
+  }
+
+  button:hover {
+    background-color: $secondary;
+    transition: 0.6s;
+  }
+
 }
 
-button {
-  float: right;
-  padding: 10px 10px;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  display: flex;
-  background-color: $navbar-bg;
-}
 
-button:hover {
-  background-color: $secondary;
-  transition: 0.6s;
-}
 
 /* Top bar */
 .topbar{
