@@ -1,5 +1,11 @@
-<section class="comments">
+<section class="comments" id="single-comment">
   <h4 class="section-heading">Detalle de comentario</h4>
+  <div class="callout primary">
+    <h5>Estás viendo un detalle de comentario</h5>
+    <p>
+      Puedes <a href="proposal-view">ver el resto de comentarios aquí</a>.
+    </p>
+  </div>
   <div class="comment-thread comment--pinned">
     <article class="comment">
       <div class="comment__header">
@@ -17,7 +23,7 @@
           </div>
           <div class="author-data__extra">
             <%= partial "flag_empty" %>
-            <a href="comment-view" title="Enlace permamente">
+            <a href="comment-view#single-comment" title="Enlace permamente">
               <%= icon "link-intact", class: "icon--small", aria_label: "Enlace permanente" %>
             </a>
           </div>
