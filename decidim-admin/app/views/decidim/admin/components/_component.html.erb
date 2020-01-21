@@ -26,7 +26,7 @@
 
     <% if allowed_to? :update, :component, component: component %>
       <% if component.manifest.actions.empty? %>
-        <%= icon "key", class: "action-icon action-icon--disabled" %>
+        <%= icon "key", class: "action-icon action-icon--disabled", role: "img" %>
       <% else %>
         <%= icon_link_to "key", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
       <% end %>

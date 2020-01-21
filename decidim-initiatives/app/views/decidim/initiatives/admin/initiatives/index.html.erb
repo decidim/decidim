@@ -30,7 +30,7 @@
             <%= hidden_field_tag :state, @state %>
             <div class="input-group-button">
               <button type="submit" class="button button--muted">
-                <%= icon "magnifying-glass", aria_label: t(".search") %>
+                <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
               </button>
             </div>
           </div>
@@ -92,7 +92,7 @@
               <% if allowed_to?(:answer, :initiative, initiative: initiative) %>
                 <%= icon_link_to "comment-square", edit_initiative_answer_path(initiative.slug), t("actions.answer", scope: "decidim.initiatives"), class: "action-icon action-icon--answer" %>
               <% else %>
-                <%= icon "comment-square", scope: "decidim.admin", class: "action-icon action-icon--disabled" %>
+                <%= icon "comment-square", scope: "decidim.admin", class: "action-icon action-icon--disabled", role: "img" %>
               <% end %>
 
               <% if allowed_to? :read, :initiative, initiative: initiative %>

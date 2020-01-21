@@ -26,7 +26,7 @@
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
             <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t(".search") %>
+              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
             </button>
           </div>
         </div>
@@ -69,13 +69,13 @@
               <td class="table-list__actions">
                 <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% if user.officialized? %>
-                  <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
+                  <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img" %>
                   <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
                   <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
                 <% else %>
                   <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled" %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
               </td>
             </tr>

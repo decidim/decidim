@@ -1,6 +1,6 @@
 <div class="row columns">
   <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", aria_label: t(".back"), role: "img" %>
     <%= t(".back") %>
   <% end %>
   <h2 class="section-heading"><%= t(".title") %></h2>

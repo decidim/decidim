@@ -1,6 +1,6 @@
 <% unless attachment_collection.unused? %>
   <div class="docs__container">
-    <h6 data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small" %>&nbsp
+    <h6 data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img" %>&nbsp
       <strong><%= translated_attribute(attachment_collection.name) %></strong>
       <small>(<%= attachment_collection.attachments.count %> <%= t(".documents", count: attachment_collection.attachments.count) %>)</small>
     </h6>

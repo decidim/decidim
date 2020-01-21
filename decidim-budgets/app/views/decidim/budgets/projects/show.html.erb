@@ -17,7 +17,7 @@ edit_link(
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
   <%= link_to projects_path, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
+    <%= icon "chevron-left", class: "icon--small", role: "img" %>
     <%= t(".view_all_projects") %>
   <% end %>
   <h2 class="heading2"><%= translated_attribute project.title %></h2>
