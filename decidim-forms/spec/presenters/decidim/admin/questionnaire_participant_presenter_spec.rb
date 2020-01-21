@@ -40,5 +40,11 @@ module Decidim
         expect(subject.answers).to eq(answers)
       end
     end
+    
+    describe "commpletion" do
+      it "returns the participant's completion percentage" do
+        expect(subject.completion).to eq(100)
+      end
+    end
   end
 end
