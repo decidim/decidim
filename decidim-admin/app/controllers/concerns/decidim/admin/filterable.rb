@@ -30,6 +30,10 @@ module Decidim
         delegate :categories, to: :current_component
         delegate :scopes, to: :current_organization
 
+        def query
+          @query ||= base_query.ransack(ransack_params)
+        end
+
         private
 
         def filtered_collection
@@ -38,10 +42,6 @@ module Decidim
 
         def base_query
           raise NotImplementedError, "A base query is needed to filter admin resources"
-        end
-
-        def query
-          @query ||= base_query.ransack(ransack_params)
         end
 
         def query_params
