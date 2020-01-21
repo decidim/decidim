@@ -26,7 +26,7 @@ module Decidim
     # decidim-proposals/app/types/decidim/proposals/proposals_type.rb
     #
     class ComponentListBase < GraphQL::Function
-      include NeedsFilterAndOrder
+      include NeedsApiFilterAndOrder
       attr_reader :model_class
 
       def initialize(model_class:)

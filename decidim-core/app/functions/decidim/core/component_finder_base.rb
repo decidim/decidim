@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # An abstract class where for the GraphQL endpoint for a single component
+    # An abstract class with the logic for the GraphQL endpoint for a single component to be searchable.
     # Normal components (such as Proposal) can inherit from this class and just
     # add the needed search arguments
     #
