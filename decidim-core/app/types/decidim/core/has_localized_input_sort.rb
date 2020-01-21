@@ -2,11 +2,11 @@
 
 module Decidim
   module Core
-    module HasLocaleInputFilter
+    module HasLocalizedInputSort
       def self.included(child_class)
         child_class.argument :locale,
                              type: String,
-                             description: "Specify the locale to use when searching translated fields, otherwise default organization language will be used",
+                             description: "Specify the locale to use when ordering translated fields, otherwise default organization language will be used",
                              required: false,
                              prepare: ->(locale, ctx) do
                                unless ctx[:current_organization].available_locales.include?(locale)
