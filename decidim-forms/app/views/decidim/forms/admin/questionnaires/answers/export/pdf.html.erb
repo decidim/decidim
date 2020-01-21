@@ -1,4 +1,12 @@
-<h1><%= translated_attribute questionnaire.title %></h1>
-<%= raw translated_attribute(questionnaire.description).html_safe %>
+<div class="questionnaire-answers">
 
-<%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: @participants, as: :participant %>
+  <div class="header">
+    <h1><%= translated_attribute questionnaire.title %></h1>
+
+    <div class="description">
+      <%= raw translated_attribute(questionnaire.description).html_safe %>
+    </div>
+  </div>
+
+  <%= render partial: "decidim/forms/admin/questionnaires/answers/export/answer", collection: @participants, as: :participant %>
+</div>
