@@ -110,3 +110,4 @@ en:
         session_token: User identifier
         question: Question
         body: Answer
+        completion: Completion

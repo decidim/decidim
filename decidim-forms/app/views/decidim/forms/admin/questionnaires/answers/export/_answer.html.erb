@@ -11,6 +11,9 @@
 
   <dt><%= t("ip_hash", scope: "decidim.forms.user_answers_serializer") %></dt>
   <dd><%= participant.ip_hash %></dd>
+  
+  <dt><%= t("completion", scope: "decidim.forms.user_answers_serializer") %></dt>
+  <dd><%= display_percentage(participant.completion) %></dd>
 
   <dt><%= t("created_at", scope: "decidim.forms.user_answers_serializer") %></dt>
   <dd><%= participant.answered_at %></dd>

@@ -37,6 +37,10 @@ module Decidim
         def answers
           query.answers.order(:created_at)
         end
+
+        def completion
+          answers.count / questionnaire.questions.count * 100
+        end
       end
     end
   end

@@ -20,6 +20,10 @@ module Decidim
         def questionnaire_participant_status(registered)
           t(registered ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
         end
+
+        def display_percentage(number)
+          number_to_percentage(number, precision: 0, strip_insignificant_zeros: true, locale: I18n.locale)
+        end
       end
     end
   end
