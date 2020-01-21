@@ -43,9 +43,19 @@ module Decidim
 
           context "when user is unregistered" do
             let(:registered) { false }
-
+            
             it "Returns 'Unregistered'" do
               expect(helper.questionnaire_participant_status(registered)).to eq("Unregistered")
+            end
+          end
+        end
+        
+        describe "display_percentage" do
+          context "when given a number " do
+            let(:number) { 84.64 }
+
+            it "displays the number formatted as percentage with no decimals" do
+              expect(helper.display_percentage(number)).to eq("85%")
             end
           end
         end
