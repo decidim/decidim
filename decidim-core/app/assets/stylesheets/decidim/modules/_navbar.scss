@@ -49,9 +49,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 }
 
 .topbar__search{
-  width: 100%;
   position: relative;
-  display: flex;
 
   input,
   input:focus{
@@ -71,26 +69,30 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   svg{
-    color: $white;
-    opacity: .5;
+    color: $primary;
   }
 
   button {
     float: right;
-    padding: 10px 10px;
-    font-size: 17px;
-    border: none;
+    width: 30%;
+    padding: 5px;
     cursor: pointer;
-    color: white;
-    display: flex;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: $primary;
     background-color: $navbar-bg;
+
   }
 
   button:hover {
     background-color: $secondary;
     transition: 0.6s;
-  }
+    border-color: $secondary;
 
+    svg {
+      color: white;
+    }
+  }
 }
 
 
