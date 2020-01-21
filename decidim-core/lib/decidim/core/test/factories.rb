@@ -89,6 +89,7 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
       {
@@ -131,12 +132,18 @@ FactoryBot.define do
       deleted_at { Time.current }
     end
 
+    trait :admin_terms_accepted do
+      admin_terms_accepted_at { Time.current }
+    end
+
     trait :admin do
       admin { true }
+      admin_terms_accepted
     end
 
     trait :user_manager do
       roles { ["user_manager"] }
+      admin_terms_accepted
     end
 
     trait :managed do
