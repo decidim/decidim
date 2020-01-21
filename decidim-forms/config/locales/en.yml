@@ -54,6 +54,7 @@ en:
             back: Back to questions
             export: Export responses
           answers:
+            empty: No answers yet
             actions:
               show: Show answers
               back: Back to responses
