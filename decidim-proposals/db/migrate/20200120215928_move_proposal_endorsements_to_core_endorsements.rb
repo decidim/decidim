@@ -14,7 +14,7 @@ class MoveProposalEndorsementsToCoreEndorsements < ActiveRecord::Migration[5.2]
 
     ProposalEndorsement.where("id IN (?) OR decidim_user_group_id IS NULL", non_duplicated_group_endorsements).find_each do |prop_endorsement|
       ::Decidim::Endorsement.create!(
-        resource_type: Decidim::Proposals::Proposal.class.name,
+        resource_type: Decidim::Proposals::Proposal.name,
         resource_id: prop_endorsement.decidim_proposal_id,
         decidim_author_type: prop_endorsement.decidim_author_type,
         decidim_author_id: prop_endorsement.decidim_author_id,
@@ -37,9 +37,9 @@ class MoveProposalEndorsementsToCoreEndorsements < ActiveRecord::Migration[5.2]
       .where("id IN (?) OR decidim_user_group_id IS NULL", non_duplicated_group_endorsements).find_each do |endorsement|
       ProposalEndorsement.create!(
         decidim_proposal_id: endorsement.resource_id,
-        decidim_author_type: prop_endorsement.decidim_author_type,
-        decidim_author_id: prop_endorsement.decidim_author_id,
-        decidim_user_group_id: prop_endorsement.decidim_user_group_id
+        decidim_author_type: endorsement.decidim_author_type,
+        decidim_author_id: endorsement.decidim_author_id,
+        decidim_user_group_id: endorsement.decidim_user_group_id
       )
     end
     # update `decidim_proposals_proposal.proposal_endorsements_count` counter cache
