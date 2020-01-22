@@ -51,7 +51,6 @@ module Decidim
             created_by_other: attributes["created_by_other"],
             internal_organisation: attributes["internal_organisation"],
             is_transparent: attributes["is_transparent"],
-            decidim_assemblies_type_id: attributes["decidim_assemblies_type_id"],
             special_features: attributes["special_features"],
             twitter_handler: attributes["twitter_handler"],
             instagram_handler: attributes["instagram_handler"],
@@ -61,6 +60,7 @@ module Decidim
             created_by: attributes["created_by"],
             meta_scope: attributes["meta_scope"]
           )
+          @imported_assembly.decidim_assemblies_type_id = attributes["decidim_assemblies_type_id"] unless Decidim::AssembliesType.find_by_id(attributes["decidim_assemblies_type_id"]).nil?
           @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
           @imported_assembly.save!
