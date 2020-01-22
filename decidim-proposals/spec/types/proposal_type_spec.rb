@@ -11,6 +11,7 @@ require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
 require "decidim/core/test/shared_examples/amendable_interface_examples"
 require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
 
 module Decidim
   module Proposals
@@ -27,6 +28,7 @@ module Decidim
       include_examples "amendable interface"
       include_examples "amendable proposals interface"
       include_examples "traceable interface"
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -108,22 +110,6 @@ module Decidim
           it "returns when was this query answered at" do
             expect(response["answeredAt"]).to eq(model.answered_at.to_time.iso8601)
           end
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when was this query created at" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when was this query updated at" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 
