@@ -6,6 +6,9 @@ require "decidim/core/test/shared_examples/categorizable_interface_examples"
 require "decidim/core/test/shared_examples/scopable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "shared/services_interface_examples"
+require "shared/linked_resources_interface_examples"
 
 module Decidim
   module Meetings
@@ -15,8 +18,11 @@ module Decidim
       let(:model) { create(:meeting, component: component) }
 
       include_examples "categorizable interface"
+      include_examples "timestamps interface"
       include_examples "scopable interface"
       include_examples "attachable interface"
+      include_examples "services interface"
+      include_examples "linked resources interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -39,6 +45,14 @@ module Decidim
 
         it "returns the meeting's title" do
           expect(response["title"]["translation"]).to eq(model.title["ca"])
+        end
+      end
+
+      describe "description" do
+        let(:query) { "{ description { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's description" do
+          expect(response["description"]["translation"]).to eq(model.description["ca"])
         end
       end
 
@@ -87,6 +101,34 @@ module Decidim
         end
       end
 
+      describe "agenda" do
+        let(:query) { "{ agenda { id items { id } } }" }
+        let(:agenda) { create(:agenda, :with_agenda_items) }
+
+        before do
+          model.update(agenda: agenda)
+        end
+
+        it "returns the agenda's items" do
+          ids = response["agenda"]["items"].map { |item| item["id"] }
+          expect(ids).to include(*model.agenda.agenda_items.map(&:id).map(&:to_s))
+          expect(response["agenda"]["id"]).to eq(agenda.id.to_s)
+        end
+      end
+
+      describe "minutes" do
+        let(:query) { "{ minutes { id } }" }
+        let(:minutes) { create(:minutes) }
+
+        before do
+          model.update(minutes: minutes)
+        end
+
+        it "returns the minutes's items" do
+          expect(response["minutes"]["id"]).to eq(minutes.id.to_s)
+        end
+      end
+
       context "with registrations open" do
         let(:model) { create(:meeting, :with_registrations_enabled, component: component) }
 
@@ -95,6 +137,14 @@ module Decidim
 
           it "returns true" do
             expect(response["registrationsEnabled"]).to be true
+          end
+        end
+
+        describe "registrationTerms" do
+          let(:query) { "{ registrationTerms { translation(locale: \"ca\") } }" }
+
+          it "returns the meeting's registration_terms" do
+            expect(response["registrationTerms"]["translation"]).to eq(model.registration_terms["ca"])
           end
         end
 
@@ -123,6 +173,22 @@ module Decidim
         end
       end
 
+      describe "location" do
+        let(:query) { "{ location { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's location" do
+          expect(response["location"]["translation"]).to eq(model.location["ca"])
+        end
+      end
+
+      describe "locationHints" do
+        let(:query) { "{ locationHints { translation(locale: \"ca\") } }" }
+
+        it "returns the meeting's location_hints" do
+          expect(response["locationHints"]["translation"]).to eq(model.location_hints["ca"])
+        end
+      end
+
       describe "address" do
         let(:query) { "{ address }" }
 
@@ -139,6 +205,79 @@ module Decidim
             "latitude" => model.latitude,
             "longitude" => model.longitude
           )
+        end
+      end
+
+      describe "registrationFormEnabled" do
+        let(:query) { "{ registrationFormEnabled }" }
+
+        it "returns true" do
+          expect(response["registrationFormEnabled"]).to be true
+        end
+      end
+
+      describe "registrationForm" do
+        let(:query) { "{ registrationForm { id } }" }
+
+        it "returns the registrationForm's items" do
+          expect(response["registrationForm"]["id"]).to eq(model.questionnaire.id.to_s)
+        end
+      end
+
+      describe "privateMeeting" do
+        let(:query) { "{ privateMeeting }" }
+
+        it "returns true" do
+          expect(response["privateMeeting"]).to be false
+        end
+      end
+
+      context "when meeting is private" do
+        let(:query) { "{ privateMeeting }" }
+
+        before do
+          model.update(private_meeting: true, transparent: false)
+        end
+
+        it "returns true" do
+          expect(response["privateMeeting"]).to be true
+        end
+      end
+
+      describe "transparent" do
+        let(:query) { "{ transparent }" }
+
+        it "returns true" do
+          expect(response["transparent"]).to be true
+        end
+      end
+
+      describe "organizer" do
+        let(:organizer) { nil }
+
+        describe "when organizer is not present" do
+          let(:query) { "{ organizer { name } }" }
+
+          before do
+            model.update(organizer: organizer)
+          end
+
+          it "does not include the organizer" do
+            expect(response["organizer"]).to be_nil
+          end
+        end
+
+        describe "with a regular user" do
+          let(:organizer) { create(:user, organization: model.participatory_space.organization) }
+          let(:query) { "{ organizer { name } }" }
+
+          before do
+            model.update(organizer: organizer)
+          end
+
+          it "includes the user's name" do
+            expect(response["organizer"]["name"]).to eq(organizer.name)
+          end
         end
       end
     end
