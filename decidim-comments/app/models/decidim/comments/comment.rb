@@ -125,9 +125,22 @@ module Decidim
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
 
-      # Private: Returns the comment body sanitized, stripping HTML tags
+      # Private: Returns the comment body sanitized, sanitizing HTML tags
       def sanitized_body
-        Rails::Html::Sanitizer.full_sanitizer.new.sanitize(body)
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          render_markdown(body),
+          scrubber: Decidim::Comments::UserInputScrubber.new
+        ).try(:html_safe)
+      end
+
+      # Private: Initializes the Markdown parser
+      def markdown
+        @markdown ||= Decidim::Comments::Markdown.new
+      end
+
+      # Private: converts the string from markdown to html
+      def render_markdown(string)
+        markdown.render(string)
       end
     end
   end

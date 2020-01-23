@@ -36,6 +36,10 @@ $comment-form-bg: $light-gray;
   > :last-child{
     margin-bottom: 0;
   }
+
+  p:empty{
+    display: none;
+  }
 }
 
 .comment__footer,
@@ -119,6 +123,22 @@ $comment-form-bg: $light-gray;
     .icon{
       color: inherit;
     }
+  }
+}
+
+.comment__quote{
+  border-left-width: 6px;
+  font-size: 80%;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  > p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  > br {
+    display: none;
   }
 }
 
