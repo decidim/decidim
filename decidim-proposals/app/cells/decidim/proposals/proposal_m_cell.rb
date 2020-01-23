@@ -96,7 +96,7 @@ module Decidim
       end
 
       def has_image?
-        model.attachments.first.present? && model.component.settings.allow_card_image
+        model.attachments.first.present? && model.attachments.first.file.content_type.start_with?("image") && model.component.settings.allow_card_image
       end
 
       def resource_image_path
