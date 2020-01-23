@@ -14,7 +14,7 @@ module Decidim::Assemblies::Admin
     end
     let(:form) do
       instance_double(
-         AssemblyImportForm,
+        AssemblyImportForm,
         title: { en: "title" },
         slug: "imported-slug",
         import_steps?: import_steps,

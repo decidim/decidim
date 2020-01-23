@@ -37,19 +37,14 @@ describe "Admin imports assembly", type: :system do
 
       click_link "Import assembly"
 
-      click_link "Phases"
-      within ".table-list" do
-        expect(page).to have_content(translated("Magni."))
-      end
-
       click_link "Categories"
       within ".table-list" do
-        expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
-        expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
+        expect(page).to have_content(translated("Veritatis provident nobis reprehenderit tenetur."))
+        expect(page).to have_content(translated("Quidem aliquid reiciendis incidunt iste."))
       end
 
       click_link "Components"
-      expect(Decidim::Assembly.last.components.size).to eq(3)
+      expect(Decidim::Assembly.last.components.size).to eq(9)
       within ".table-list" do
         Decidim::Assembly.last.components.each do |component|
           expect(page).to have_content(translated(component.name))
