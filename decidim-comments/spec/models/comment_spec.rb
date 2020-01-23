@@ -142,7 +142,7 @@ module Decidim
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="noopener">https://decidim.org</a>. And a malicous click me</p>)
+            %(<p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>. And a malicous click me</p>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do
