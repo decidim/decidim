@@ -39,7 +39,7 @@ and then in `config/secrets.yml`:
     api_version: <%= ENV["ETHERPAD_API_VERSION"] %>
 ```
 
-## How is Etherpad feature integrated in Meetings?
+## How is Etherpad Lite integrated in Meetings?
 
 To better understand this feature, the final idea is to have the three moments of a meeting covered on Decidim itself by default:
 
@@ -47,6 +47,6 @@ To better understand this feature, the final idea is to have the three moments o
 - During, you can take notes on a collaborative way
 - After, you upload the notes, metadata and pictures for having memory on what was talked
 
-Pad creation can be enabled by administrators in each `Meetings` component.
+Pad creation can be enabled by administrators in each `Meetings` component. When enabled, the public view of a Meeting renders an iframe which encapsulates the integrated Pad. This Pad is automatically created before rendering, so there's nothing the user or the administrators has to do to see the Pad.
 
 The pad iframe is only accesible for 24 hours before and 72 hours after the meeting. After the meeting only the read only URL for this pad is shown.
