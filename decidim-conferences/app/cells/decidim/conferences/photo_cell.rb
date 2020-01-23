@@ -18,7 +18,7 @@ module Decidim
       end
 
       def image_thumb
-        image_tag model.thumbnail_url
+        image_tag model.thumbnail_url, alt: "media-picture"
       end
 
       def image_big
