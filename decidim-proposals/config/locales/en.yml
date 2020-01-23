@@ -97,9 +97,9 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
+            new_proposal_body_template: New proposal body template
+            new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
-            new_proposal_template_text: New proposal body template
-            new_proposal_template_text_help: You can define prefilled text that the new Proposals will have
             official_proposals_enabled: Official proposals enabled
             participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             participatory_texts_enabled: Participatory texts enabled
