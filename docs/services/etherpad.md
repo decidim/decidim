@@ -1,6 +1,10 @@
 # Etherpad
 
-Decidim can be integrated with Etherpad so meetings can have their own pads.
+On some cases, users need to have near real time collaborative writing, for instance for having the minutes on a presencial meeting.
+
+To ease online/offline participation, Decidim can be integrated with Etherpad so meetings can have their own pads.
+
+## Integration
 
 In order to use it you need to have your own Etherpad deployment, you can do it
 with the Docker compose using the provided `docker-compose-etherpad.yml`.
@@ -34,3 +38,15 @@ and then in `config/secrets.yml`:
     api_key: <%= ENV["ETHERPAD_API_KEY"] %>
     api_version: <%= ENV["ETHERPAD_API_VERSION"] %>
 ```
+
+## How is Etherpad feature integrated in Meetings?
+
+To better understand this feature, the final idea is to have the three moments of a meeting covered on Decidim itself by default:
+
+- Before, you let know that the meeting is going to happen, where, when and what is gonna be talked
+- During, you can take notes on a collaborative way
+- After, you upload the notes, metadata and pictures for having memory on what was talked
+
+Pad creation can be enabled by administrators in each `Meetings` component.
+
+The pad iframe is only accesible for 24 hours before and 72 hours after the meeting. After the meeting only the read only URL for this pad is shown.
