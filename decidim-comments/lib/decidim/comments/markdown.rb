@@ -27,8 +27,8 @@ module Decidim
           autolink: true,
           escape_html: false,
           filter_html: true,
-          hard_wrap: false,
-          lax_spacing: true,
+          hard_wrap: true,
+          lax_spacing: false,
           no_images: true,
           no_styles: true
         }.merge(extensions))
@@ -48,7 +48,7 @@ module Decidim
       def paragraph(text)
         return if text.blank?
 
-        text
+        "<p>#{text}</p>"
       end
     end
   end

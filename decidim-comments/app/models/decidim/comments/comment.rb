@@ -92,7 +92,7 @@ module Decidim
 
       # Public: Returns the comment message ready to display (it is expected to include HTML)
       def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
       end
 
       def self.export_serializer

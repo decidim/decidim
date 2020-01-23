@@ -13,7 +13,7 @@ module Decidim
       private
 
       def custom_allowed_tags
-        %w(blockquote)
+        %w(p blockquote)
       end
     end
   end
