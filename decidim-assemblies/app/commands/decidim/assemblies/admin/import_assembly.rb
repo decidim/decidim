@@ -39,6 +39,7 @@ module Decidim
           importer = Decidim::Assemblies::AssemblyImporter.new(form.current_organization, form.current_user)
           assemblies.each do |original_assembly|
             @imported_assembly = importer.import(original_assembly, form.current_user, title: form.title, slug: form.slug)
+            importer.import_assemblies_type(original_assembly["decidim_assemblies_type_id"])
             importer.import_categories(original_assembly["assembly_categories"]) if form.import_categories?
             importer.import_folders_and_attachments(original_assembly["attachments"]) if form.import_attachments?
             importer.import_components(original_assembly["components"]) if form.import_components?

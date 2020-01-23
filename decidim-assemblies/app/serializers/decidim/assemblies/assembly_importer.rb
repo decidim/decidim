@@ -60,15 +60,17 @@ module Decidim
             created_by: attributes["created_by"],
             meta_scope: attributes["meta_scope"]
           )
-          unless Decidim::AssembliesType.find_by(id: attributes["decidim_assemblies_type_id"]).nil?
-            @imported_assembly.decidim_assemblies_type_id =
-              attributes["decidim_assemblies_type_id"]
-          end
           @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
           @imported_assembly.save!
           @imported_assembly
         end
+      end
+
+      def import_assemblies_type(type_id)
+        return if Decidim::AssembliesType.find_by(id: type_id).nil?
+
+        @imported_assembly.decidim_assemblies_type_id = type_id
       end
 
       def import_categories(categories)
