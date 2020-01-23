@@ -129,15 +129,15 @@ $comment-form-bg: $light-gray;
 .comment__quote{
   border-left-width: 6px;
   font-size: 80%;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, .03);
   padding: 1rem;
   margin-bottom: 1rem;
 
-  > p:last-of-type {
+  > p:last-of-type{
     margin-bottom: 0;
   }
 
-  > br {
+  > br{
     display: none;
   }
 }
