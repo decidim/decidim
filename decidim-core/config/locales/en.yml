@@ -226,6 +226,8 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
+      document:
+        download: Download file
       collection:
         documents:
           one: Document
