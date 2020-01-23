@@ -115,7 +115,7 @@ module Decidim
 
       describe "#formatted_body" do
         let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
-        let(:body) { "<b>bold text</b> *lorem* <a href='https://example.com'>link</a>" }
+        let(:body) { "<b>bold text</b> %lorem% <a href='https://example.com'>link</a>" }
 
         before do
           allow(Decidim).to receive(:content_processors).and_return([:dummy_foo])
@@ -127,7 +127,7 @@ module Decidim
         end
 
         it "process the body after it is sanitized" do
-          expect(Decidim::ContentProcessor).to receive(:render).with("bold text *lorem* link")
+          expect(Decidim::ContentProcessor).to receive(:render).with("bold text %lorem% link")
           comment.formatted_body
         end
 
