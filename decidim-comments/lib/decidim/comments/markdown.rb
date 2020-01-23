@@ -25,7 +25,7 @@ module Decidim
       def initialize(extensions = {})
         super({
           autolink: true,
-          escape_html: true,
+          escape_html: false,
           filter_html: true,
           hard_wrap: false,
           lax_spacing: true,
