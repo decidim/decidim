@@ -4,12 +4,16 @@ module Decidim
   module Forms
     module Admin
       module Concerns
-        # Questionnaires can be related to any class in Decidim, in order to
-        # manage the questionnaires for a given type, you should create a new
-        # controller and include this concern.
+        # Questionnaires can be related to any class in Decidim. In order to
+        # manage the questionnaires answers for a given type, you should create a new
+        # controller and include the HasQuestionnaire concern as well as this one.
         #
-        # The only requirement is to define a `questionnaire_for` method that
-        # returns an instance of the model that questionnaire belongs to.
+        # In the controller that includes this concern, you should define a
+        # `questionnaire_for` method that returns an instance of the model that the
+        # questionnaire belongs to. You should also define the routes for:
+        # `index_<model>_url` and `export_<model>_url` as well as
+        # `show_<model>_url` and `export_response_<model>_url` (which are passed
+        # a `:session_token` parameter)
         module HasQuestionnaireAnswers
           extend ActiveSupport::Concern
 
@@ -45,12 +49,12 @@ module Decidim
 
               render_answers_pdf t("export.title", scope: i18n_scope)
             end
-            
+
             def export_response
               enforce_permission_to :export_response, :questionnaire_answers
-              
+
               @participants = [participant]
-              
+
               render_answers_pdf t("export_response.title", scope: i18n_scope, token: participant.session_token)
             end
 
