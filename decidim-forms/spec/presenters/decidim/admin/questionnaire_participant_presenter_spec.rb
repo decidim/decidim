@@ -14,10 +14,22 @@ module Decidim
     let!(:session_token) { answers.first.session_token }
 
     describe "ip_hash" do
-      it "returns participant's ip_hash or '-' if the ip_hash is blank" do
-        if answer.ip_hash.present?
+      context "when participant's ip_hash is present" do
+        before do
+          answer.update(ip_hash: "some ip")
+        end
+
+        it "returns participant ip hash" do
           expect(subject.ip_hash).to eq(answer.ip_hash)
-        else
+        end
+      end
+
+      context "when participant's ip_hash is missing" do
+        before do
+          answer.update(ip_hash: nil)
+        end
+
+        it "returns a hyphen '-'" do
           expect(subject.ip_hash).to eq("-")
         end
       end
@@ -40,7 +52,7 @@ module Decidim
         expect(subject.answers).to eq(answers)
       end
     end
-    
+
     describe "commpletion" do
       it "returns the participant's completion percentage" do
         expect(subject.completion).to eq(100)
