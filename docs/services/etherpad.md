@@ -43,7 +43,7 @@ and then in `config/secrets.yml`:
 
 To better understand this feature, the final idea is to have the three moments of a meeting covered on Decidim itself by default:
 
-- Before, you let know that the meeting is going to happen, where, when and what is gonna be talked
+- **Before the meeting**, you let know that the meeting is going to happen, where, when and what is going to be discussed
 - During, you can take notes on a collaborative way
 - After, you upload the notes, metadata and pictures for having memory on what was talked
 
