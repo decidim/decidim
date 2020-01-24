@@ -39,10 +39,10 @@ module Decidim
 
     def data
       buffer = Zip::OutputStream.write_buffer do |out|
-        user_data, export_images = data_for(@user, @export_format)
+        user_data, attachments = data_for(@user, @export_format)
 
         add_user_data_to_zip_stream(out, user_data)
-        add_images_to_zip_stream(out, export_images)
+        add_attachments_to_zip_stream(out, attachments)
       end
 
       buffer.string
@@ -50,15 +50,16 @@ module Decidim
 
     def data_for(user, format)
       export_data = []
-      export_images = []
+      export_attachments = []
 
       data_portability_entities.each do |object|
         klass = Object.const_get(object)
         export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(format).new(klass.user_collection(user), klass.export_serializer).export]
-        export_images << [klass.model_name.name.parameterize.pluralize, klass.data_portability_images(user).flatten] unless klass.data_portability_images(user).nil?
+        attachments = klass.data_portability_images(user)
+        export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
       end
 
-      [export_data, export_images]
+      [export_data, export_attachments]
     end
 
     def data_portability_entities
@@ -78,34 +79,43 @@ module Decidim
       end
     end
 
-    def add_images_to_zip_stream(out, export_images)
-      export_images.each do |image_block|
-        next if image_block.last.nil?
+    def add_attachments_to_zip_stream(out, export_attachments)
+      export_attachments.each do |attachment_block|
+        next if attachment_block.last.nil?
 
-        folder_name = image_block.first.parameterize
-        image_block.last.each do |image|
-          next if image.file.nil?
+        folder_name = attachment_block.first.parameterize
+        attachment_block.last.each do |attachment_uploader|
+          next if attachment_uploader.file.nil?
 
-          uploader = ApplicationUploader.new(image.model, image.mounted_as)
-          if image.file.respond_to? :file
-            uploader.cache!(File.open(image.file.file))
-            uploader.retrieve_from_store!(image.file.filename)
+          attachment_local_path= case attachment_uploader.fog_provider
+          when "fog" # file system
+            my_path = attachment_uploader.file.file
+            next unless File.exist?(my_path)
+            attachment_uploader.file.file
+          when "fog/aws"
+            retrieve_attachment_from_aws(attachment_uploader)
           else
-            my_uploader = element.send(image.mounted_as)
-
-            my_uploader.cache_stored_file!
-            my_uploader.retrieve_from_cache!(my_uploader.cache_name)
+            Rails.logger.info "Carrierwave fog_provider not supported by DataPortabilityExporter for attachment: #{attachment_uploader.attributes}"
+            next
           end
-          my_image_path = image.file.file
-          next unless File.exist?(my_image_path)
 
-          out.put_next_entry("#{folder_name}/#{image.file.filename}")
-          File.open(image.file.file) do |f|
+          out.put_next_entry("#{folder_name}/#{attachment_uploader.file.filename}")
+          File.open(attachment_local_path) do |f|
             out << f.read
           end
           CarrierWave.clean_cached_files!
         end
       end
     end
+
+    # Retrieves the file from AWS and stores it into a temporal cache.
+    #
+    # Returns a CarrierWave::SanitizedFile.
+    def retrieve_attachment_from_aws(uploader)
+      uploader.cache_stored_file!
+      uploader.retrieve_from_cache!(uploader.cache_name)
+      uploader.file.file
+    end
+
   end
 end
