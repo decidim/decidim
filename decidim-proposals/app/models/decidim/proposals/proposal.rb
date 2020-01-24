@@ -252,7 +252,7 @@ module Decidim
         Arel.sql(query)
       end
 
-      ransacker :id do
+      ransacker :id_string do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
       end
 

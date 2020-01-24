@@ -83,7 +83,7 @@ en:
             'false': Proposals
             'true': Amendments
         search_placeholder:
-          id_or_title_cont: Search %{collection} by ID or title.
+          id_string_or_title_cont: Search %{collection} by ID or title.
         state_eq:
           values:
             evaluating: Evaluating

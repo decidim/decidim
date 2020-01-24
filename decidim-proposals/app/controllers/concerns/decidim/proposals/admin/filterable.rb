@@ -23,7 +23,7 @@ module Decidim
           end
 
           def search_field_predicate
-            :id_or_title_cont
+            :id_string_or_title_cont
           end
 
           def filters
