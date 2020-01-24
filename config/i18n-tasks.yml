@@ -123,6 +123,7 @@ ignore_unused:
   - decidim.proposals.proposals.show.proposal_rejected_reason
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
+  - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*

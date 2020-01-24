@@ -78,6 +78,11 @@ describe "Organizations", type: :system do
         fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
         choose "Don't allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
+
+        check "organization_omniauth_settings_facebook_enabled"
+        fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
+        fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
+
         click_button "Save"
 
         expect(page).to have_css("div.flash.success")
