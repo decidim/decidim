@@ -19,14 +19,10 @@ module Decidim
 
           included do
             include Decidim::Paginable
-            include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersHelpers
+            include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
+            include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersPaginationHelper
 
             helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
-
-            helper_method :questionnaire_url, :questionnaire_participants_url,
-                          :questionnaire_participant_answers_url, :questionnaire_export_url,
-                          :questionnaire_export_response_url
-            helper_method :prev_url, :next_url, :first?, :last?
 
             def index
               enforce_permission_to :index, :questionnaire_answers
