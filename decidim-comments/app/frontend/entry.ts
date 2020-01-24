@@ -6,8 +6,19 @@ import loadTranslations from "./support/load_translations";
 
 window.DecidimComments = window.DecidimComments || {};
 
+type Dict = { [key: string]: string }
+
 window.DecidimComments.renderCommentsComponent = (nodeId: string, props: CommentsApplicationProps) => {
   const node = window.$(`#${nodeId}`)[0];
+  let queryDict: Dict = {}
+  window
+    .location
+    .search
+    .substr(1)
+    .split("&")
+    .forEach(function (item) { queryDict[item.split("=")[0]] = item.split("=")[1] })
+
+  props = { ...props, singleCommentId: queryDict.commentId }
 
   ReactDOM.render(
     React.createElement(Comments, props),
