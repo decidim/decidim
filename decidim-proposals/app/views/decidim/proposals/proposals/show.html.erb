@@ -34,26 +34,6 @@ edit_link(
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if @proposal.amendable? %>
-      <div class="card text-center">
-        <div class="card__content">
-          <div>
-            <strong class="text-large text-uppercase">
-              <%= t("version", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
-            </strong>
-            <small class="text-medium">
-              <%= t("of_versions", scope:"decidim.proposals.collaborative_drafts.show", number: @proposal.versions_count) %>
-            </small>
-          </div>
-
-          <div>
-            <span class="text-medium">
-              <%= link_to t("see_other_versions", scope:"decidim.proposals.collaborative_drafts.show"), proposal_versions_path(@proposal) %>
-            </span>
-          </div>
-        </div>
-      </div>
-    <% end %>
     <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% else %>
@@ -89,6 +69,7 @@ edit_link(
     <%= amenders_list_for(@proposal) %>
 
     <%= resource_reference(@proposal) %>
+    <%= resource_version(@proposal, versions_path: proposal_versions_path(@proposal)) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
