@@ -12,6 +12,7 @@ import {
   AddCommentFormSessionFragment,
   CommentFragment
 } from "../support/schema";
+import { NetworkStatus } from "apollo-client";
 
 const { I18n } = require("react-i18nify");
 
@@ -32,6 +33,8 @@ interface CommentState {
   showReplyForm: boolean;
 }
 
+type Dict = { [key: string]: boolean | undefined }
+
 /**
  * A single comment component with the author info and the comment's body
  * @class
@@ -50,8 +53,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
   constructor(props: CommentProps) {
     super(props);
 
+    let { comment: { id } } = props;
+    let isThreadHidden = !!this.getThreadsStorage()[id];
+
     this.state = {
-      showReplies: true,
+      showReplies: !isThreadHidden,
       showReplyForm: false
     };
   }
@@ -146,9 +152,26 @@ class Comment extends React.Component<CommentProps, CommentState> {
     this.setState({ showReplyForm: !showReplyForm });
   }
 
+  private getThreadsStorage = (): Dict => {
+    const storage: Dict = JSON.parse(localStorage.hiddenCommentThreads || null) || {};
+
+    return storage;
+  }
+
+  private saveThreadsStorage = (id: string, state: boolean) => {
+    const storage = this.getThreadsStorage();
+    storage[parseInt(id)] = state;
+    console.log(storage);
+    localStorage.hiddenCommentThreads = JSON.stringify(storage);
+  }
+
   private toggleReplies = () => {
+    const { comment: { id } } = this.props;
     const { showReplies } = this.state;
-    this.setState({ showReplies: !showReplies });
+    const newState = !showReplies;
+
+    this.saveThreadsStorage(id, !newState);
+    this.setState({ showReplies: newState });
   }
 
   private countReplies = (comment: CommentFragment): number => {
@@ -296,7 +319,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderShowHideThreadButton() {
     const { comment, isRootComment } = this.props;
-    const { hasComments } = comment;
+    const { id, hasComments } = comment;
     const { showReplies } = this.state;
 
     if (hasComments && isRootComment) {
