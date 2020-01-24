@@ -30,14 +30,11 @@ module Decidim
       let(:participatory_space2) { conference_2 }
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
-          d = I18n.transliterate(space.description[locale])
-          d += " "
-          d += I18n.transliterate(space.objectives[locale])
           {
             "content_a" => I18n.transliterate(space.title[locale]),
-            "content_b" => I18n.transliterate(space.slogan[locale]),
+            "content_b" => "",
             "content_c" => I18n.transliterate(space.short_description[locale]),
-            "content_d" => d
+            "content_d" => I18n.transliterate(space.description[locale])
           }
         }
       end

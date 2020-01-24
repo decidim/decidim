@@ -60,9 +60,8 @@ module Decidim
                         scope_id: :decidim_scope_id,
                         participatory_space: :itself,
                         A: :title,
-                        B: :slogan,
                         C: :short_description,
-                        D: [:description, :objectives],
+                        D: :description,
                         datetime: :published_at
                       },
                       index_on_create: ->(_conference) { false },
