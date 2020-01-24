@@ -50,6 +50,7 @@ module Decidim
 
               @participants = participants(collection)
 
+              # i18n-tasks-use
               render_answers_pdf t("export.title", scope: i18n_scope)
             end
 
@@ -58,6 +59,7 @@ module Decidim
 
               @participants = [participant]
 
+              # i18n-tasks-use
               render_answers_pdf t("export_response.title", scope: i18n_scope, token: participant.session_token)
             end
 
