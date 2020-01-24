@@ -28,6 +28,18 @@ en:
     admin:
       menu:
         authorization_workflows: Verifications
+        authorization_revocation:
+          title: Verifications's revocation
+          info: "There are a total of %{count} verified participants."
+          button: Revoke all
+          button_before: Revoke before date
+          no_data: No verified participants
+          before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
+          destroy:
+            confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
+            confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
+          destroy_ok: All matched authorizations had been revocated successfully!
+          destroy_nok: Has been a problem within authorizations revocation.
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
