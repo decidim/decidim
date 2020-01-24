@@ -34,6 +34,7 @@ module Decidim
                 .where(commentable: commentable)
                 .not_hidden
                 .includes(:author, :user_group, :up_votes, :down_votes)
+        scope = filter_by_id(scope)
 
         scope = case @options[:order_by]
                 when "older"
@@ -52,6 +53,13 @@ module Decidim
       end
 
       private
+
+      def filter_by_id(scope)
+        id = @options[:id]
+        return scope.where(id: id) if id.present?
+
+        scope
+      end
 
       def order_by_older(scope)
         scope.order(created_at: :asc)
