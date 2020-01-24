@@ -17,7 +17,8 @@ en:
               missing: are not complete
               too_many: are too many
         questionnaire:
-          request_invalid: There's been an error handling the request. Please try again
+          request_invalid: There's been an error handling the request. Please try
+            again
   decidim:
     forms:
       admin:
@@ -26,17 +27,38 @@ en:
             description: Description
             tos: Terms of service
         questionnaires:
+          actions:
+            back: Back to questions
+            export: Export responses
+            show: Show responses
           answer_option:
             answer_option: Answer option
             free_text: Free text
             remove: Remove
             statement: Statement
+          answers:
+            actions:
+              back: Back to responses
+              export: Export
+              show: Show answers
+            empty: No answers yet
+            export:
+              answer:
+                title: 'Response #%{number}'
+              title: Responses
+            export_response:
+              title: Response for %{token}
+            index:
+              title: Responses
+            show:
+              title: Answers
           edit:
             save: Save
             title: Title
           form:
             add_question: Add question
-            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            already_answered_warning: The form is already answered by some users so
+              you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             any: Any
@@ -49,26 +71,6 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Forms successfully saved.
-          actions:
-            show: Show responses
-            back: Back to questions
-            export: Export responses
-          answers:
-            empty: No answers yet
-            actions:
-              show: Show answers
-              back: Back to responses
-              export: Export
-            index:
-              title: Responses
-            show:
-              title: Answers
-            export:
-              title: Responses
-              answer:
-                title: "Response #%{number}"
-            export_response:
-              title: Response for %{token}
       errors:
         answer:
           body: Body can't be blank
@@ -86,9 +88,11 @@ en:
           max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a>
+              or <a href="%{sign_up_link}">sign up</a> to answer the form.
             title: Answer the form
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          are_you_sure: This action cannot be undone and you will not be able to edit
+            your answers. Are you sure?
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
@@ -101,13 +105,13 @@ en:
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
       user_answers_serializer:
+        body: Answer
+        completion: Completion
         created_at: Answered on
         id: Answer ID
         ip_hash: IP Hash
+        question: Question
         registered: Registered
+        session_token: User identifier
         unregistered: Unregistered
         user_status: User status
-        session_token: User identifier
-        question: Question
-        body: Answer
-        completion: Completion
