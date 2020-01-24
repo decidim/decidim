@@ -28,6 +28,7 @@ interface CommentProps {
 }
 
 interface CommentState {
+  showReplies: boolean;
   showReplyForm: boolean;
 }
 
@@ -50,6 +51,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     super(props);
 
     this.state = {
+      showReplies: true,
       showReplyForm: false
     };
   }
@@ -127,6 +129,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         </div>
         <div className="comment__footer">
           <div className="comment__actions">
+            {this._renderShowHideThreadButton()}
             {this._renderReplyButton()}
           </div>
           {this._renderVoteButtons()}
@@ -141,6 +144,17 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
+  }
+
+  private toggleReplies = () => {
+    const { showReplies } = this.state;
+    this.setState({ showReplies: !showReplies });
+  }
+
+  private countReplies = (comment: CommentFragment): number => {
+    const { comments } = comment;
+
+    return comments.length + comments.map(this.countReplies).reduce((a: number, b: number) => a + b, 0);
   }
 
   /**
@@ -252,14 +266,16 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAdditionalReplyButton() {
     const { comment: { id, acceptsNewComments, hasComments, userAllowedToComment }, session, isRootComment } = this.props;
+    const { showReplies } = this.state;
 
     if (session && acceptsNewComments && userAllowedToComment) {
-      if (hasComments && isRootComment) {
+      if (hasComments && isRootComment && showReplies) {
         return (
           <div className="comment__additionalreply">
             <button
               className="comment__reply muted-link"
               aria-controls={`comment${id}-reply`}
+              data-toggle={`comment${id}-reply`}
               onClick={this.toggleReplyForm}
             >
               <Icon name="icon-pencil" iconExtraClassName="icon--small" />
@@ -269,6 +285,36 @@ class Comment extends React.Component<CommentProps, CommentState> {
           </div>
         );
       }
+    }
+    return null;
+  }
+
+  /**
+   * Render show/hide thread button if comment is top-level and has children.
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not
+   */
+  private _renderShowHideThreadButton() {
+    const { comment, isRootComment } = this.props;
+    const { hasComments } = comment;
+    const { showReplies } = this.state;
+
+    if (hasComments && isRootComment) {
+      return (
+        <button
+          className={`comment__reply muted-link ${showReplies ? "comment__is-open" : ""}`}
+          onClick={this.toggleReplies}
+        >
+          <Icon name="icon-comment-square" iconExtraClassName="icon--small" />
+          &nbsp;
+          <span className="comment__text-is-closed">
+            {I18n.t("components.comment.show_replies", { replies_count: this.countReplies(comment) })}
+          </span>
+          <span className="comment__text-is-open">
+            {I18n.t("components.comment.hide_replies")}
+          </span>
+        </button>
+      );
     }
     return null;
   }
@@ -301,6 +347,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderReplies() {
     const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy } = this.props;
+    const { showReplies } = this.state;
     let replyArticleClassName = "comment comment--nested";
 
     if (articleClassName === "comment comment--nested") {
@@ -309,7 +356,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
 
     if (hasComments) {
       return (
-        <div>
+        <div id={`comment-${id}-replies`} className={showReplies ? "" : "hide"}>
           {
             comments.map((reply: CommentFragment) => (
               <Comment
