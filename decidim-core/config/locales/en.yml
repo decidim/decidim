@@ -232,6 +232,7 @@ en:
       photos:
         related_photos: Related images
     author:
+      avatar: Avatar
       comments:
         one: comment
         other: comments
