@@ -127,7 +127,7 @@ module Decidim
         end
 
         it "process the body after it is sanitized" do
-          expect(Decidim::ContentProcessor).to receive(:render).with("<p>bold text %lorem% link</p>")
+          expect(Decidim::ContentProcessor).to receive(:render).with("<p>bold text %lorem% link</p>", "div")
           comment.formatted_body
         end
 

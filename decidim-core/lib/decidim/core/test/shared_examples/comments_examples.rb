@@ -9,7 +9,7 @@ shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
-  it "shows the list of comments for the resorce" do
+  it "shows the list of comments for the resource" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
