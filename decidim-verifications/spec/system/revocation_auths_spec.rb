@@ -13,15 +13,32 @@ describe "Authorizations revocation flow", type: :system do
   let(:user1) { create(:user, organization: organization) }
   let(:user2) { create(:user, organization: organization) }
   let(:user3) { create(:user, organization: organization) }
+  let(:user4) { create(:user, organization: organization) }
+  let(:user5) { create(:user, organization: organization) }
   let!(:granted_authorizations) do
     create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user1)
     create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user2)
     create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user3)
   end
-  let(:authorizations) do
+  let!(:ungranted_authorizations) do
+    create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user4)
+    create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user5)
+  end
+  let(:get_all_authorizations) do
     Decidim::Verifications::Authorizations.new(
-        organization: organization,
-        granted: true
+      organization: organization
+    ).query
+  end
+  let(:get_granted_authorizations) do
+    Decidim::Verifications::Authorizations.new(
+      organization: organization,
+      granted: true
+    ).query
+  end
+  let(:get_ungranted_authorizations) do
+    Decidim::Verifications::Authorizations.new(
+      organization: organization,
+      granted: nil
     ).query
   end
 
@@ -33,7 +50,7 @@ describe "Authorizations revocation flow", type: :system do
     click_link "Verifications"
   end
 
-  context "Showing revocation cell options" do
+  context "when showing revocation cell" do
     context "when showing Admin / Participants / Verifications menu with granted authorizations" do
       it "allows the user to see Verification's revocation menu cell" do
         within ".container" do
@@ -57,7 +74,6 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
     end
-
     context "when showing Admin / Participants / Verifications menu without granted authorizations" do
       let(:organization) do
         create(:organization, available_authorizations: [authorization])
@@ -74,4 +90,68 @@ describe "Authorizations revocation flow", type: :system do
       end
     end
   end
+
+  context "when clicking revocating authorizations. Prompts" do
+    context "when clicking Revoke All authorizations option" do
+      it "appears revoke all confirmation dialog" do
+        within ".container" do
+          message = dismiss_prompt do
+            click_link(t("decidim.admin.menu.authorization_revocation.button"))
+          end
+          expect(message).to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm_all"))
+        end
+      end
+      it "doesnt appear revoke before confirmation dialog" do
+        within ".container" do
+          message = dismiss_prompt do
+            click_link(t("decidim.admin.menu.authorization_revocation.button"))
+          end
+          expect(message).not_to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm"))
+        end
+      end
+    end
+    context "when clicking Revoke Before Date authorizations option" do
+      it "appears revoke before confirmation dialog" do
+        within ".container" do
+          message = dismiss_prompt do
+            click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
+          end
+          expect(message).to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm"))
+        end
+      end
+      it "doesnt appear revoke all confirmation dialog" do
+        within ".container" do
+          message = dismiss_prompt do
+            click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
+          end
+          expect(message).not_to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm_all"))
+        end
+      end
+    end
+  end
+
+  # context "when clicking Revoke All authorizations option" do
+  #   it "doesn't destroy any ungranted auth" do
+  #     accept_prompt do
+  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.not_to change(get_ungranted_authorizations, :count)
+  #     end
+  #   end
+  # end
+  #
+  # context "when clicking Revoke All authorizations option" do
+  #   it "destroyed all granted auths" do
+  #     accept_prompt do
+  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.to change{ get_granted_authorizations.count }.from(3).to(0)
+  #     end
+  #   end
+  # end
+  #
+  # context "when clicking Revoke All authorizations option" do
+  #   it "total auths are fewer than before" do
+  #     accept_prompt do
+  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.to change{ get_all_authorizations.count }.from(5).to(2)
+  #     end
+  #   end
+  # end
+
 end
