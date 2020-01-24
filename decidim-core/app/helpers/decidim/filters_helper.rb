@@ -19,6 +19,33 @@ module Decidim
       end
     end
 
+    def chained_check_boxes_global_options(label, chained_check_boxes_id)
+      {
+        label: label,
+        name: nil,
+        "data-sub-checkboxes": chained_check_boxes_id,
+        include_hidden: false,
+        label_options: {
+          "data-global-checkbox": "root"
+        }
+      }
+    end
+
+    def chained_check_boxes_subfilter_options(value, label, checks)
+      options = {
+        value: value,
+        label: label,
+        multiple: true,
+        include_hidden: false,
+        label_options: {
+          "data-children-checkbox": "children",
+        }
+      }
+
+      options[:checked] = "checked" if checks.include?(value.first)
+      options
+    end
+
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in

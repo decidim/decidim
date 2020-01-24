@@ -72,19 +72,13 @@ module Decidim
       # Handle the state filter
       def search_state
         case state
-        when "accepted"
-          query.accepted
-        when "rejected"
-          query.rejected
-        when "evaluating"
-          query.evaluating
         when "withdrawn"
           query.withdrawn
-        when "except_rejected"
-          query.except_rejected.except_withdrawn
         else # Assume 'not_withdrawn'
-          query.except_withdrawn
+          state + [nil] if state.member? "not_answered"
+          query.except_withdrawn.where(state: state)
         end
+        query
       end
 
       # Handle the amendment type filter

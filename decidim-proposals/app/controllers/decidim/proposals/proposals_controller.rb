@@ -215,7 +215,7 @@ module Decidim
           origin: "all",
           activity: "all",
           category_id: "",
-          state: "except_rejected",
+          state: ["accepted", "evaluating", "not_answered"],
           scope_id: nil,
           related_to: "",
           type: "all"

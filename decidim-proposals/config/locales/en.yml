@@ -482,7 +482,7 @@ en:
           accepted: Accepted
           all: All
           evaluating: Evaluating
-          except_rejected: All except rejected
+          not_answered: Not answered
           rejected: Rejected
         filter_type_values:
           all: All

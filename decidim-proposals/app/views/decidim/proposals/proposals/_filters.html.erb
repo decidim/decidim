@@ -12,24 +12,8 @@
     </div>
   </div>
 
-  <% if @proposals.only_emendations.any? %>
-    <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, legend_title: t(".amendment_type") %>
-  <% end %>
-
-  <% if component_settings.official_proposals_enabled %>
-    <%= form.collection_radio_buttons :origin, filter_origin_values, :first, :last, legend_title: t(".origin") %>
-  <% end %>
-
   <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
-    <%= form.collection_radio_buttons :state, filter_state_values, :first, :last, legend_title: t(".state") %>
-  <% end %>
-
-  <% if linked_classes_for(Decidim::Proposals::Proposal).any? %>
-    <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, legend_title: t(".related_to") %>
-  <% end %>
-
-  <% if current_user %>
-    <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, legend_title: t(".activity") %>
+    <%= form.chained_check_boxes :state, filter_state_values, legend_title: t(".state") %>
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
@@ -38,6 +22,22 @@
 
   <% if current_component.categories.any? %>
     <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+  <% end %>
+
+  <% if component_settings.official_proposals_enabled %>
+    <%= form.collection_radio_buttons :origin, filter_origin_values, :first, :last, legend_title: t(".origin") %>
+  <% end %>
+
+  <% if current_user %>
+    <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, legend_title: t(".activity") %>
+  <% end %>
+
+  <% if @proposals.only_emendations.any? %>
+    <%= form.collection_radio_buttons :type, filter_type_values, :first, :last, legend_title: t(".amendment_type") %>
+  <% end %>
+
+  <% if linked_classes_for(Decidim::Proposals::Proposal).any? %>
+    <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::Proposal), :first, :last, legend_title: t(".related_to") %>
   <% end %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>

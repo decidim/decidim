@@ -175,14 +175,24 @@ module Decidim
         base + [["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]]
       end
 
+      Node = Struct.new(:values, :node) do
+        def values_are_nodes?
+          values.is_a?(Node)
+        end
+      end
+
       def filter_state_values
-        [
-          ["except_rejected", t("decidim.proposals.application_helper.filter_state_values.except_rejected")],
-          ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
-          ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
-          ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")],
-          ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
-        ]
+        Node.new(
+          [["all", t("decidim.proposals.application_helper.filter_state_values.all")]],
+          Node.new(
+            [
+              ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
+              ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
+              ["not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")],
+              ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")]
+            ]
+          )
+        )
       end
 
       def filter_type_values

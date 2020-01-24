@@ -1,0 +1,15 @@
+<div class="wrapper_chained-check-boxes">
+  <% collection.values.each do |value| %>
+    <%= form.check_box attribute,
+                       chained_check_boxes_global_options(value.last, chained_check_boxes_id) %>
+  <% end %>
+
+  <div id="<%= chained_check_boxes_id %>" class="filters__subfilters">
+    <% collection.node.values.each do |value| %>
+      <%= form.check_box attribute,
+                         chained_check_boxes_subfilter_options(value.first, value.last, form.object.send(attribute)),
+                         value.first, nil %>
+
+    <% end %>
+  </div>
+</div>
