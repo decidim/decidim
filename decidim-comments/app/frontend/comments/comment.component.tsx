@@ -126,7 +126,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
           </div>
         </div>
         <div className="comment__footer">
-          {this._renderReplyButton()}
+          <div className="comment__actions">
+            {this._renderReplyButton()}
+          </div>
           {this._renderVoteButtons()}
         </div>
         {this._renderReplies()}
@@ -223,17 +225,20 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { acceptsNewComments, userAllowedToComment }, session } = this.props;
+    const { comment: { id, acceptsNewComments, userAllowedToComment }, session } = this.props;
 
     if (session && acceptsNewComments && userAllowedToComment) {
       return (
         <button
           className="comment__reply muted-link"
-          aria-controls="comment1-reply"
+          aria-controls={`comment${id}-reply`}
+          data-toggle={`comment${id}-reply`}
           onClick={this.toggleReplyForm}
         >
+          <Icon name="icon-pencil" iconExtraClassName="icon--small" />
+          &nbsp;
           {I18n.t("components.comment.reply")}
-        </button>
+        </button >
       );
     }
 
@@ -246,7 +251,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { acceptsNewComments, hasComments, userAllowedToComment }, session, isRootComment } = this.props;
+    const { comment: { id, acceptsNewComments, hasComments, userAllowedToComment }, session, isRootComment } = this.props;
 
     if (session && acceptsNewComments && userAllowedToComment) {
       if (hasComments && isRootComment) {
@@ -254,9 +259,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
           <div className="comment__additionalreply">
             <button
               className="comment__reply muted-link"
-              aria-controls="comment1-reply"
+              aria-controls={`comment${id}-reply`}
               onClick={this.toggleReplyForm}
             >
+              <Icon name="icon-pencil" iconExtraClassName="icon--small" />
+              &nbsp;
               {I18n.t("components.comment.reply")}
             </button>
           </div>
