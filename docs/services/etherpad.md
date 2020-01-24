@@ -1,6 +1,6 @@
 # Etherpad
 
-On some cases, users need to have near real time collaborative writing, for instance for having the minutes on a presencial meeting.
+On some cases, users need to have near real time collaborative writing, for instance for having the minutes on a physical meeting.
 
 To ease online/offline participation, Decidim can be integrated with Etherpad so meetings can have their own pads.
 
