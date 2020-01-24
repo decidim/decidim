@@ -44,7 +44,7 @@ and then in `config/secrets.yml`:
 To better understand this feature, the final idea is to have the three moments of a meeting covered on Decidim itself by default:
 
 - **Before the meeting**, you let know that the meeting is going to happen, where, when and what is going to be discussed
-- During, you can take notes on a collaborative way
+- **During the meeting**, notes can be taken on a collaborative way
 - After, you upload the notes, metadata and pictures for having memory on what was talked
 
 Pad creation can be enabled by administrators in each `Meetings` component. When enabled, the public view of a Meeting renders an iframe which encapsulates the integrated Pad. This Pad is automatically created before rendering, so there's nothing the user or the administrators has to do to see the Pad.
