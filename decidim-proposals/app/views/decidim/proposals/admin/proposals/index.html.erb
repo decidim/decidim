@@ -34,7 +34,7 @@
             <% end %>
 
             <th>
-              <%= sort_link(query, :state, t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
+              <%= sort_link(query, :state, [:state, :is_emendation], t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
             </th>
 
             <% if current_settings.votes_enabled? %>
