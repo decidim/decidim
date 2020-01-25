@@ -37,6 +37,28 @@ module Decidim
 
         t(i18n_key, scope: "decidim.proposals.proposals.show")
       end
+
+      def scopes_picker_filter_depth(form, name, checkboxes_on_top = true)
+        options = {
+          multiple: true,
+          legend_title: I18n.t("decidim.scopes.scopes"),
+          label: false,
+          checkboxes_on_top: checkboxes_on_top,
+        }
+
+        form.scopes_picker name, options do |scope|
+          {
+            url: decidim.scopes_picker_path(
+              root: try(:current_participatory_space)&.scope,
+              current: scope&.id,
+              title: I18n.t("decidim.scopes.prompt"),
+              global_value: "global",
+              max_depth: try(:current_participatory_space)&.scope_type_max_depth
+            ),
+            text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt")),
+          }
+        end
+      end
     end
   end
 end

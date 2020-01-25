@@ -49,6 +49,10 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
+    belongs_to :scope_type_max_depth,
+               foreign_key: "decidim_scope_type_id",
+               class_name: "Decidim::ScopeType",
+               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
