@@ -97,7 +97,7 @@ module Decidim
             next
           end
 
-          attachment_local_path= attachment_uploader.file.file
+          attachment_local_path = attachment_uploader.file.file
           out.put_next_entry("#{folder_name}/#{attachment_uploader.file.filename}")
           File.open(attachment_local_path) do |f|
             out << f.read
@@ -114,6 +114,5 @@ module Decidim
       uploader.cache_stored_file!
       uploader.retrieve_from_cache!(uploader.cache_name)
     end
-
   end
 end
