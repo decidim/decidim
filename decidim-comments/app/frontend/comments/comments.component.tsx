@@ -41,8 +41,8 @@ export class Comments extends React.Component<CommentsProps> {
     const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
-    if (singleCommentId && singleCommentId != "") {
-      commentHeader = I18n.t("components.comments.comment_details_title")
+    if (singleCommentId && singleCommentId !== "") {
+      commentHeader = I18n.t("components.comments.comment_details_title");
     }
 
     if (loading) {
@@ -77,7 +77,7 @@ export class Comments extends React.Component<CommentsProps> {
   private _renderSingleCommentWarning() {
     const { singleCommentId, reorderComments, orderBy } = this.props;
 
-    if (singleCommentId && singleCommentId != "") {
+    if (singleCommentId && singleCommentId !== "") {
       const newUrl = `${window.location.pathname}${window.location.search.replace(`commentId=${singleCommentId}`, "")}`;
 
       return (
@@ -105,7 +105,7 @@ export class Comments extends React.Component<CommentsProps> {
   private _renderCommentOrderSelector() {
     const { singleCommentId, reorderComments, orderBy } = this.props;
 
-    if (singleCommentId && singleCommentId != "") {
+    if (singleCommentId && singleCommentId !== "") {
       return null;
     }
 
@@ -188,7 +188,7 @@ export class Comments extends React.Component<CommentsProps> {
     const { session, commentable, orderBy, singleCommentId } = this.props;
     const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment } = commentable;
 
-    if (singleCommentId && singleCommentId != "") {
+    if (singleCommentId && singleCommentId !== "") {
       return null;
     }
 
