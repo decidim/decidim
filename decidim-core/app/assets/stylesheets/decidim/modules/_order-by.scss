@@ -31,6 +31,10 @@ $order-border: $border;
       margin-left: .5rem;
       margin-top: .25rem;
     }
+
+    .is-dropdown-submenu-item:hover {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -33,6 +33,10 @@
           height: calc(100% - 1.875rem);
         }
 
+        a:hover {
+          text-decoration: underline;
+        }
+
         p{
           font-weight: 600;
           margin-bottom: .75rem;

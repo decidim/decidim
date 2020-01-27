@@ -40,6 +40,10 @@
     background-color: transparent;
     color: var(--primary);
     border-color: var(--primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &.secondary{
@@ -52,6 +56,10 @@
       background-color: transparent;
       color: var(--secondary);
       border-color: var(--secondary);
+
+      &:hover {
+        text-decoration: underline;
+      };
     }
   }
 }
@@ -197,6 +205,10 @@
   letter-spacing: .05em;
   font-weight: 600;
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   &.large{
     font-size: 1rem;
   }
@@ -222,6 +234,7 @@
 
   &:hover{
     color: $anchor-color;
+    text-decoration: underline;
   }
 }
 

@@ -404,6 +404,7 @@ $datetime-bg: var(--primary);
 
   &:hover{
     color: $anchor-color;
+    text-decoration: underline;
   }
 }
 

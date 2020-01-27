@@ -19,6 +19,10 @@ $tags-border: $border;
     display: block;
     border: $tags-border;
     padding: 0 .5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -129,6 +129,7 @@ $author-data-color: $muted;
 
 a:hover .author__name{
   color: inherit;
+  text-decoration: underline;
 }
 
 .author__avatar{
