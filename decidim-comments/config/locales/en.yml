@@ -68,7 +68,7 @@ en:
       comments:
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
-        comment_details_title: "Comment details"
+        comment_details_title: Comment details
         loading: Loading comments ...
         single_comment_warning: You can check the rest of the comments <a href="%{url}">here</a>.
         single_comment_warning_title: You are seeing a single comment
