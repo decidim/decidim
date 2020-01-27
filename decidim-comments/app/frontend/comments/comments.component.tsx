@@ -12,7 +12,7 @@ import {
   GetCommentsQueryVariables
 } from "../support/schema";
 
-const { I18n } = require("react-i18nify");
+const { I18n, Translate } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
@@ -59,6 +59,7 @@ export class Comments extends React.Component<CommentsProps> {
             </h2>
             {this._renderCommentOrderSelector()}
           </div>
+          {this._renderSingleCommentWarning()}
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
@@ -66,6 +67,34 @@ export class Comments extends React.Component<CommentsProps> {
         </section>
       </div>
     );
+  }
+
+  /**
+   * Renders warning message when viewing a single comment.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderSingleCommentWarning() {
+    const { singleCommentId, reorderComments, orderBy } = this.props;
+
+    if (singleCommentId && singleCommentId != "") {
+      const newUrl = `${window.location.pathname}${window.location.search.replace(`commentId=${singleCommentId}`, "")}`;
+
+      return (
+        <div className="callout secondary">
+          <h5>{I18n.t("components.comments.single_comment_warning_title")}</h5>
+          <p>
+            <Translate
+              value="components.comments.single_comment_warning"
+              url={newUrl}
+              dangerousHTML={true}
+            />
+          </p>
+        </div>
+      );
+    }
+
+    return null;
   }
 
   /**
