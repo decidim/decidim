@@ -31,7 +31,7 @@ module Decidim
           scope = scope.where(granted_at: nil)
         end
 
-        # TODO 
+        # TODO
         # if impersonated_only == true
         #   scope = scope.where.not(granted_at: nil)
         # elsif impersonated_only == false

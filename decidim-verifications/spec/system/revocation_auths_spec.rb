@@ -10,18 +10,20 @@ describe "Authorizations revocation flow", type: :system do
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let(:name) { "some_method" }
   let(:prev_year) { Date.today.prev_year }
+  let(:prev_month) { Date.today.prev_month }
+  let(:prev_week) { Date.today.prev_week }
   let(:user1) { create(:user, organization: organization) }
   let(:user2) { create(:user, organization: organization) }
   let(:user3) { create(:user, organization: organization) }
   let(:user4) { create(:user, organization: organization) }
   let(:user5) { create(:user, organization: organization) }
   let!(:granted_authorizations) do
-    create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user1)
+    create(:authorization, created_at: prev_month, granted_at: prev_month, name: name, user: user1)
     create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user2)
     create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user3)
   end
   let!(:ungranted_authorizations) do
-    create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user4)
+    create(:authorization, created_at: prev_month, granted_at: nil, name: name, user: user4)
     create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user5)
   end
   let(:get_all_authorizations) do
@@ -130,28 +132,25 @@ describe "Authorizations revocation flow", type: :system do
     end
   end
 
-  # context "when clicking Revoke All authorizations option" do
-  #   it "doesn't destroy any ungranted auth" do
-  #     accept_prompt do
-  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.not_to change(get_ungranted_authorizations, :count)
-  #     end
-  #   end
-  # end
-  #
-  # context "when clicking Revoke All authorizations option" do
-  #   it "destroyed all granted auths" do
-  #     accept_prompt do
-  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.to change{ get_granted_authorizations.count }.from(3).to(0)
-  #     end
-  #   end
-  # end
-  #
-  # context "when clicking Revoke All authorizations option" do
-  #   it "total auths are fewer than before" do
-  #     accept_prompt do
-  #       expect { click_link(t("decidim.admin.menu.authorization_revocation.button")) }.to change{ get_all_authorizations.count }.from(5).to(2)
-  #     end
-  #   end
-  # end
+  context "when clicking Revoke All authorizations option" do
+    it "shows an informative message to the user with all authorizations revoked ok" do
+      accept_prompt do
+        click_link(t("decidim.admin.menu.authorization_revocation.button"))
+      end
+      expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
+      expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+    end
+  end
+
+  context "when clicking Revoke Before Date authorizations option" do
+    it "shows an informative message to the user with before date authorizations revoked ok" do
+      accept_prompt do
+        page.execute_script("$('#revocations_before_date_before_date_picker').val('#{prev_week}')")
+        click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
+      end
+      expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
+      expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+    end
+  end
 
 end
