@@ -12,7 +12,7 @@ describe "Admin imports assembly", type: :system do
   end
 
   context "with context" do
-    before "Imports the process with the basic fields" do
+    before "Imports the assembly with the basic fields" do
       click_link "Import", match: :first
 
       within ".import_assembly" do

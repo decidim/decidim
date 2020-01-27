@@ -56,7 +56,7 @@ module Decidim::Assemblies
         expect(subject.serialize).to include(decidim_assemblies_type_id: resource.decidim_assemblies_type_id)
       end
 
-      context "when process has area" do
+      context "when assembly has area" do
         let(:area) { create :area, organization: resource.organization }
 
         before do
