@@ -44,7 +44,7 @@ module Decidim::Comments
       let!(:another_comment) { create(:comment, commentable: commentable, author: author) }
       let(:id) { comment.id }
 
-      it "only returns the requersted comment" do
+      it "only returns the requested comment" do
         expect(subject.query).to eq [comment]
       end
     end
