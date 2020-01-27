@@ -17,8 +17,7 @@ en:
               missing: are not complete
               too_many: are too many
         questionnaire:
-          request_invalid: There's been an error handling the request. Please try
-            again
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -57,8 +56,7 @@ en:
             title: Title
           form:
             add_question: Add question
-            already_answered_warning: The form is already answered by some users so
-              you cannot modify its questions.
+            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             any: Any
@@ -88,11 +86,9 @@ en:
           max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a>
-              or <a href="%{sign_up_link}">sign up</a> to answer the form.
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
             title: Answer the form
-          are_you_sure: This action cannot be undone and you will not be able to edit
-            your answers. Are you sure?
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
