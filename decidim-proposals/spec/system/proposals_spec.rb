@@ -113,10 +113,10 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
-    context "when it is a proposal with card image enable" do
+    context "when it is a proposal with card image enabled" do
       let!(:component) do
         create(:proposal_component,
-               :with_attachments_and_card_image_allowed,
+               :with_card_image_allowed,
                manifest: manifest,
                participatory_space: participatory_process)
       end

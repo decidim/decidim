@@ -223,7 +223,7 @@ FactoryBot.define do
       end
     end
 
-    trait :with_attachments_and_card_image_allowed do
+    trait :with_card_image_allowed do
       settings do
         {
           allow_card_image: true
