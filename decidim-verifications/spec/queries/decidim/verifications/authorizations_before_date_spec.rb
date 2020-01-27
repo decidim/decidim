@@ -13,10 +13,10 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   let(:user7) { create(:user, organization: organization) }
   let(:user8) { create(:user, organization: organization) }
   let(:organization) { create :organization }
-  let(:now) { DateTime.now }
-  let(:prev_week) { Date.today.prev_week }
-  let(:prev_month) { Date.today.prev_month }
-  let(:prev_year) { Date.today.prev_year }
+  let(:now) { Time.zone.now }
+  let(:prev_week) { Time.zone.today.prev_week }
+  let(:prev_month) { Time.zone.today.prev_month }
+  let(:prev_year) { Time.zone.today.prev_year }
 
   let!(:created_now) do
     create(:authorization, created_at: now, granted_at: nil, name: name, user: user1)
@@ -139,7 +139,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
       end
 
       let(:expectation) do
-        [ ]
+        []
       end
     end
   end
@@ -196,9 +196,8 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
       end
 
       let(:expectation) do
-        [ ]
+        []
       end
     end
   end
-
 end

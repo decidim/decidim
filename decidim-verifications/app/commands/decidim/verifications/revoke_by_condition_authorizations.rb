@@ -24,7 +24,6 @@ module Decidim
       #
       # Returns nothing.
       def call
-
         # Check before date
         if before_date.present?
 
@@ -46,7 +45,7 @@ module Decidim
           end
 
           auths_arr = authorizations_to_revoke.query.to_a
-          auths_arr.each { |auth|
+          auths_arr.each do |auth|
             Decidim.traceability.perform_action!(
               :delete,
               auth,
@@ -54,14 +53,13 @@ module Decidim
             ) do
               auth.delete
             end
-          }
+          end
 
           broadcast(:ok)
 
         else
           broadcast(:invalid)
         end
-
       rescue StandardError => e
         broadcast(:invalid, e.message)
       end
@@ -69,7 +67,6 @@ module Decidim
       private
 
       attr_reader :organization, :current_user, :before_date, :impersonated_only
-
     end
   end
 end

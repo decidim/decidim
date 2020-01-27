@@ -43,7 +43,6 @@ module Decidim
       private
 
       attr_reader :organization, :date, :granted, :impersonated_only
-
     end
   end
 end

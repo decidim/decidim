@@ -20,13 +20,12 @@ module Decidim
       #
       # Returns nothing.
       def call
-
         auths_arr = Decidim::Verifications::Authorizations.new(
           organization: organization,
           granted: true
         ).query.to_a
 
-        auths_arr.each { |auth|
+        auths_arr.each do |auth|
           Decidim.traceability.perform_action!(
             :delete,
             auth,
@@ -34,10 +33,9 @@ module Decidim
           ) do
             auth.delete
           end
-        }
+        end
 
         broadcast(:ok)
-
       rescue StandardError => e
         broadcast(:invalid, e.message)
       end
@@ -45,7 +43,6 @@ module Decidim
       private
 
       attr_reader :organization, :current_user
-
     end
   end
 end

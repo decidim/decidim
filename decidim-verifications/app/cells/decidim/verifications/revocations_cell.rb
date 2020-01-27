@@ -15,7 +15,6 @@ module Decidim
       def decidim_verifications
         Decidim::Verifications::Engine.routes.url_helpers
       end
-
     end
   end
 end

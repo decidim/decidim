@@ -22,17 +22,15 @@ module Decidim
 
         namespace :admin do
           # Revocations - Two options: 1) Revoke all (without params) 2) Revoke before date (when date params exist)
-          post "verifications", to: 'verifications#destroy', as: 'verifications/destroy'
-          delete "verifications_all", to: 'verifications#destroy_all', as: 'verifications/destroy_all'
+          post "verifications", to: "verifications#destroy", as: "verifications/destroy"
+          delete "verifications_all", to: "verifications#destroy_all", as: "verifications/destroy_all"
         end
-
       end
 
       # Initializer to include cells views paths
       initializer "decidim_verifications.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")
       end
-
     end
   end
 end

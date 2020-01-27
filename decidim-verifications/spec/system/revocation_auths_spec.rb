@@ -9,9 +9,9 @@ describe "Authorizations revocation flow", type: :system do
   let(:authorization) { "dummy_authorization_handler" }
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let(:name) { "some_method" }
-  let(:prev_year) { Date.today.prev_year }
-  let(:prev_month) { Date.today.prev_month }
-  let(:prev_week) { Date.today.prev_week }
+  let(:prev_year) { Time.zone.today.prev_year }
+  let(:prev_month) { Time.zone.today.prev_month }
+  let(:prev_week) { Time.zone.today.prev_week }
   let(:user1) { create(:user, organization: organization) }
   let(:user2) { create(:user, organization: organization) }
   let(:user3) { create(:user, organization: organization) }
@@ -59,29 +59,34 @@ describe "Authorizations revocation flow", type: :system do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.title").upcase!)
         end
       end
+
       it "allows the user to see Verification's revocation menu. Revoke all option " do
         within ".container" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button"))
         end
       end
+
       it "allows the user to see Verification's revocation menu. Before date option " do
         within ".container" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))
         end
       end
+
       it "doesn't allow the user to see No Granted Authorizations info message" do
         within ".container" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
     end
+
     context "when showing Admin / Participants / Verifications menu without granted authorizations" do
       let(:organization) do
         create(:organization, available_authorizations: [authorization])
       end
       let(:authorization) { "dummy_authorization_handler" }
-      let(:granted_authorizations) { [ ] }
+      let(:granted_authorizations) { [] }
+
       it "allows the user to list all available authorization methods" do
         within ".container" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
@@ -103,6 +108,7 @@ describe "Authorizations revocation flow", type: :system do
           expect(message).to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm_all"))
         end
       end
+
       it "doesnt appear revoke before confirmation dialog" do
         within ".container" do
           message = dismiss_prompt do
@@ -112,6 +118,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
     end
+
     context "when clicking Revoke Before Date authorizations option" do
       it "appears revoke before confirmation dialog" do
         within ".container" do
@@ -121,6 +128,7 @@ describe "Authorizations revocation flow", type: :system do
           expect(message).to eq(t("decidim.admin.menu.authorization_revocation.destroy.confirm"))
         end
       end
+
       it "doesnt appear revoke all confirmation dialog" do
         within ".container" do
           message = dismiss_prompt do
@@ -152,5 +160,4 @@ describe "Authorizations revocation flow", type: :system do
       expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end
   end
-
 end

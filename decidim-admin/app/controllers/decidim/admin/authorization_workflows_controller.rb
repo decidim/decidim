@@ -12,10 +12,9 @@ module Decidim
 
         # Decidim::Verifications::Authorizations Query
         @authorizations = Decidim::Verifications::Authorizations.new(
-            organization: current_organization,
-            granted: true
+          organization: current_organization,
+          granted: true
         ).query
-
       end
     end
   end
