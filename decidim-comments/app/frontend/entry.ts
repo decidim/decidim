@@ -26,6 +26,12 @@ window.DecidimComments.renderCommentsComponent = (nodeId: string, props: Comment
     React.createElement(Comments, props),
     node
   );
+
+  if (queryDict.commentId) {
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#comments").offset()!.top
+    }, 2000);
+  }
 };
 
 // Load component locales from yaml files
