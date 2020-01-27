@@ -12,6 +12,7 @@ import {
   AddCommentFormSessionFragment,
   CommentFragment
 } from "../support/schema";
+
 import { NetworkStatus } from "apollo-client";
 
 const { I18n } = require("react-i18nify");
@@ -33,7 +34,9 @@ interface CommentState {
   showReplyForm: boolean;
 }
 
-type Dict = { [key: string]: boolean | undefined }
+interface Dict {
+  [key: string]: boolean | undefined;
+}
 
 /**
  * A single comment component with the author info and the comment's body
@@ -53,8 +56,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
   constructor(props: CommentProps) {
     super(props);
 
-    let { comment: { id } } = props;
-    let isThreadHidden = !!this.getThreadsStorage()[id];
+    const { comment: { id } } = props;
+    const isThreadHidden = !!this.getThreadsStorage()[id];
 
     this.state = {
       showReplies: !isThreadHidden,
@@ -160,8 +163,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
 
   private saveThreadsStorage = (id: string, state: boolean) => {
     const storage = this.getThreadsStorage();
-    storage[parseInt(id)] = state;
-    console.log(storage);
+    storage[parseInt(id, 10)] = state;
     localStorage.hiddenCommentThreads = JSON.stringify(storage);
   }
 
