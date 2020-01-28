@@ -78,7 +78,7 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         filter:
-          all: Toon alle processen
+          all_processes: Toon alle processen
           process_groups: Procesgroepen
         import_process: Importeren
         new_process: Nieuw proces
