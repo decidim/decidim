@@ -52,7 +52,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   end
 
   let!(:granted_managed) do
-    create(:authorization, created_at: prev_year, granted_at: prev_year, name: 'managed', user: user9)
+    create(:authorization, created_at: prev_year, granted_at: prev_year, name: "managed", user: user9)
   end
 
   let!(:external_organization_authorization) do

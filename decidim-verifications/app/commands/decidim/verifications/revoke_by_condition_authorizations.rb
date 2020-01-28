@@ -28,20 +28,20 @@ module Decidim
         if before_date.present?
 
           # Check if before_date, then filter it
-          if impersonated_only == true
-            authorizations_to_revoke = Decidim::Verifications::AuthorizationsBeforeDate.new(
-              organization: organization,
-              date: before_date,
-              granted: true,
-              impersonated_only: impersonated_only
-            )
-          else
-            authorizations_to_revoke = Decidim::Verifications::AuthorizationsBeforeDate.new(
-              organization: organization,
-              date: before_date,
-              granted: true
-            )
-          end
+          authorizations_to_revoke = if impersonated_only == true
+                                       Decidim::Verifications::AuthorizationsBeforeDate.new(
+                                         organization: organization,
+                                         date: before_date,
+                                         granted: true,
+                                         impersonated_only: impersonated_only
+                                       )
+                                     else
+                                       Decidim::Verifications::AuthorizationsBeforeDate.new(
+                                         organization: organization,
+                                         date: before_date,
+                                         granted: true
+                                       )
+                                     end
 
           auths_arr = authorizations_to_revoke.query.to_a
           auths_arr.each do |auth|
