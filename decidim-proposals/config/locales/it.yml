@@ -164,12 +164,12 @@ it:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ritirato</strong> il <a href="%{resource_path}">%{resource_title}</a> progetto collaborativo.
         creation_enabled:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
           notification_title: Ora puoi proporre <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
           notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
@@ -232,7 +232,7 @@ it:
           notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
         voting_enabled:
           email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo clich su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
           email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
