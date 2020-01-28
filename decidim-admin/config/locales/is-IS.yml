@@ -409,18 +409,12 @@ is-IS:
           actions: Aðgerðir
           badge: Merki
           created_at: Búið til á
-          filter:
-            all: Allt
-            not_officialized: Ekki opinberað
-            officialized: Opinberað
-          filter_by: Sía eftir
           name: Nafn
           nickname: Gælunafn
           not_officialized: Ekki opinberað
           officialize: Opinbera
           officialized: Opinberað
           reofficialize: Reofficialize
-          search: Leita
           status: Staða
           unofficialize: Óopinbera
         new:
