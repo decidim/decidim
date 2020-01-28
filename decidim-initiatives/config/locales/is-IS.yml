@@ -72,15 +72,6 @@ is-IS:
             title: Almennar upplýsingar
           index:
             actions_title: Aðgerð
-            filter:
-              accepted: Samþykkt
-              all: Allt
-              created: Búið til
-              discarded: Fargað
-              published: Published
-              rejected: Hafnað
-              validating: Tæknilegar staðfestingar
-            filter_by: Sía eftir
             preview: Preview
             print: Prenta
           show:
