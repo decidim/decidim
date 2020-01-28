@@ -512,18 +512,12 @@ ca:
           actions: Accions
           badge: Insígnia
           created_at: Creat el
-          filter:
-            all: Todas
-            not_officialized: No oficialitzada
-            officialized: Oficialitzada
-          filter_by: Filtra per
           name: Nom
           nickname: Àlies
           not_officialized: No oficialitzada
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
-          search: Cerca
           status: Estat
           unofficialize: Des-oficialitzar
         new:
