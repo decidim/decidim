@@ -24,7 +24,7 @@
       <p><%= decidim_sanitize translated_attribute post.body %></p>
     </div>
   </div>
-  <% if show_endorsements_card?%>
+  <% if show_endorsements_card? %>
         <div class="card">
           <div class="card__content">
             <div class="row collapse buttons__row">
@@ -46,9 +46,7 @@
   <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
     <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
   </div>
-</div>
-
-<% byebug %>
 <%= cell "decidim/endorsers_list", post %>
+</div>
 <%= attachments_for post %>
 <%= comments_for post %>

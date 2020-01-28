@@ -49,11 +49,10 @@ en:
             title: title
       posts:
         show:
-          view: View
           comments: Comments
+          view: View
         sidebar_blog:
           comments: comments
-          endorsements: endorsements
           most_commented_posts: Most commented posts
       read_more: Read more
     components:
