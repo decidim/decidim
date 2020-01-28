@@ -69,8 +69,6 @@ nl:
     account:
       data_portability_export:
         file_no_exists: Bestand bestaat niet
-        invalid_token: Het geleverde token is ongeldig.
-        no_token: Geen token verstrekt
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
@@ -549,7 +547,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> Het bestand blijft beschikbaar tot %{date}.
+        click_button: 'Klik op de volgende knop om uw gegevens te downloaden. <br/> Het bestand blijft beschikbaar tot %{date}.'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -595,16 +593,6 @@ nl:
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
-        continuity:
-          conditions:
-            - Kijk hier regelmatig
-          description: Deze badge wordt toegekend wanneer u het platform regelmatig bezoekt. We vinden het leuk om je hier in de buurt te hebben!
-          description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
-          description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
-          name: Continuïteit
-          next_level_in: Meld je %{score} opeenvolgende dagen aan om naar het volgende niveau te gaan!
-          unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
-          unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
