@@ -531,18 +531,12 @@ fi:
           actions: Toiminnot
           badge: Kunniamerkki
           created_at: Luontihetki
-          filter:
-            all: Kaikki
-            not_officialized: Ei virallistettu
-            officialized: Virallistettu
-          filter_by: Suodata
           name: Nimi
           nickname: Nimimerkki
           not_officialized: Ei virallistettu
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
-          search: Hae
           status: Tila
           unofficialize: Poista virallistaminen
         new:
