@@ -21,7 +21,6 @@
             <th></th>
           </tr>
         </thead>
-        
         <tbody>
           <% @participants.each do |participant| %>
             <tr>
@@ -43,7 +42,6 @@
           <% end %>
         </tbody>
       </table>
-      
       <%= paginate @query, theme: "decidim" %>
     </div>
   </div>
