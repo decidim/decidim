@@ -176,18 +176,8 @@ nl:
             title: Algemene informatie
           index:
             actions_title: Actie
-            filter:
-              accepted: Aanvaard
-              all: Alle
-              created: Aangemaakt
-              discarded: verworpen
-              published: Gepubliceerd
-              rejected: Verworpen
-              validating: Technische validatie
-            filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Zoek
           show:
             print: Afdrukken
           update:
