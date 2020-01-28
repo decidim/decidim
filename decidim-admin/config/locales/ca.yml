@@ -142,6 +142,7 @@ ca:
         export: Exporta
         manage: Gestionar
         new: Nou %{name}
+        per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
@@ -275,6 +276,20 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtre
+        officialized_at_null:
+          label: Estat
+          values:
+            'false': Oficialitza
+            'true': No oficialitzada
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Públic
+            'true': Privat
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
