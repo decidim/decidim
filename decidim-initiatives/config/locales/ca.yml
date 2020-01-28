@@ -177,7 +177,7 @@ ca:
           index:
             actions_title: Acció
             filter:
-              accepted: Acceptat
+              accepted: Acceptada
               all: Totes
               created: Creada
               discarded: Rebutjada
