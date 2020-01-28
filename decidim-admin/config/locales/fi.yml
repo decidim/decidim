@@ -154,6 +154,13 @@ fi:
         actions:
           accept: Hyväksyn nämä hallintakäyttäjän ehdot
           are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
+          refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
+          title: Hyväksy käyttöehdot
+        required_review:
+          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
+          callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
+          cta: Tutustu nyt.
+        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luonti epäonnistui.
@@ -464,6 +471,7 @@ fi:
           not_sent: Ei lähetetty
           participants: 'osallistujat '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
+          subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
         new:
           save: Tallenna
@@ -476,6 +484,7 @@ fi:
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
           none: Ei kenellekään
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
+          recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
           scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
