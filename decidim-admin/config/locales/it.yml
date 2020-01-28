@@ -513,7 +513,7 @@ it:
           badge: Distintivo
           created_at: Creato a
           filter:
-            all: Tutti
+            all: Tutto
             not_officialized: Non ufficializzato
             officialized: ufficializzato
           filter_by: Filtra per
@@ -523,7 +523,7 @@ it:
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
+          search: Cerca
           status: Stato
           unofficialize: Unofficialize
         new:
