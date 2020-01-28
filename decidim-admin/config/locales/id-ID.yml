@@ -475,18 +475,12 @@ id:
           actions: Tindakan
           badge: Lencana
           created_at: Dibuat di
-          filter:
-            all: Semua
-            not_officialized: Tidak resmi
-            officialized: Diresmikan
-          filter_by: Filter berdasarkan
           name: Nama
           nickname: Nama panggilan
           not_officialized: Tidak resmi
           officialize: Resmi
           officialized: Diresmikan
           reofficialize: Lakukan pengesahan ulang
-          search: Pencarian
           status: Status
           unofficialize: Tidak resmi
         new:
