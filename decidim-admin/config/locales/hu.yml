@@ -236,6 +236,7 @@ hu:
           success: Kategória frissítése sikeres.
       component_permissions:
         update:
+          error: Probléma merült fel ezen összetevő engedélyeinek frissítésekor.
           success: Engedélyek frissítése sikeres.
       components:
         create:
