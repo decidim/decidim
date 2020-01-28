@@ -105,7 +105,7 @@ fi:
           remove: Poista
           selected_projects:
             one: suunnitelma valittu
-            other: projektia valittu
+            other: suunnitelmaa valittu
           view: Näytä
         project:
           add: Lisää
