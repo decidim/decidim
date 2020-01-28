@@ -498,18 +498,12 @@ ar:
           actions: أفعال
           badge: شارة
           created_at: أنشئت في
-          filter:
-            all: الكل
-            not_officialized: غير رسمي
-            officialized: Officialized
-          filter_by: مصنف بواسطة
           name: اسم
           nickname: كنية
           not_officialized: غير رسمي
           officialize: الصفة الرسمية
           officialized: Officialized
           reofficialize: Reofficialize
-          search: بحث
           status: الحالة
           unofficialize: Unofficialize
         new:
