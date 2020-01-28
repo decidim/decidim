@@ -7,6 +7,7 @@
 //Table list
 .table-list{
   border-collapse: collapse;
+  border-spacing: 0;
 
   th{
     text-transform: uppercase;
@@ -24,18 +25,18 @@
 
   th:first-child,
   td:first-child{
-    padding-left: 0;
+    padding-left: $global-padding;
   }
 
   th:last-child,
   td:last-child{
-    padding-right: 0;
+    padding-right: $global-padding;
     text-align: right;
   }
 
   th [type="checkbox"]:only-child,
   td [type="checkbox"]:only-child{
-    margin-bottom: 0;
+    margin-bottom: .5rem;
   }
 
   &.table-list--lastcenter{
@@ -114,4 +115,24 @@
 
 .table-list__state{
   text-align: center;
+}
+
+.table-list__type-icon{
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+
+.table-list__type-label{
+  display: none;
+  position: relative;
+  top: -1px;
+  margin-left: -1.5 * $global-padding;
+  font-size: 80%;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.expanded{
+    display: inline-block;
+  }
 }
