@@ -515,18 +515,12 @@ it:
           actions: Azioni
           badge: Distintivo
           created_at: Creato a
-          filter:
-            all: Tutti
-            not_officialized: Non ufficializzato
-            officialized: ufficializzato
-          filter_by: Filtra per
           name: Nome
           nickname: Nickname
           not_officialized: Non ufficializzato
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
           status: Stato
           unofficialize: Unofficialize
         new:
