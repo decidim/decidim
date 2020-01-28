@@ -12,6 +12,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
       include Decidim::Searchable
+      include Decidim::Endorsable
       include Traceable
       include Loggable
 

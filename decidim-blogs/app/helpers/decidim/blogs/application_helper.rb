@@ -8,6 +8,7 @@ module Decidim
       include PaginateHelper
       include SanitizeHelper
       include Decidim::Blogs::PostsHelper
+      include ::Decidim::EndorsableHelper
       include Decidim::Comments::CommentsHelper
     end
   end

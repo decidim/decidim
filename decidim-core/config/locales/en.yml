@@ -239,6 +239,9 @@ en:
       comments:
         one: comment
         other: comments
+      endorsements:
+        one: endorsement
+        other: endorsements
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"

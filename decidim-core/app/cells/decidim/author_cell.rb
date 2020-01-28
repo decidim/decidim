@@ -79,6 +79,12 @@ module Decidim
       true
     end
 
+    def endorsable?
+      return unless posts_controller?
+
+      true
+    end
+
     def author_classes
       (["author-data"] + options[:extra_classes].to_a).join(" ")
     end

@@ -50,8 +50,10 @@ en:
       posts:
         show:
           view: View
+          comments: Comments
         sidebar_blog:
           comments: comments
+          endorsements: endorsements
           most_commented_posts: Most commented posts
       read_more: Read more
     components:
@@ -64,6 +66,8 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     events:
       blogs:
         post_created:
