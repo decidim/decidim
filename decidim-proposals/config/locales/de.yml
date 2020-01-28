@@ -3,7 +3,7 @@ de:
     attributes:
       collaborative_draft:
         address: Adresse
-        body: Karosserie
+        body: Haupttext
         category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
@@ -15,7 +15,7 @@ de:
         answer: Antworten
         answered_at: Beantwortet bei
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
-        body: Karosserie
+        body: Haupttext
         category_id: Kategorie
         has_address: Hat eine Adresse
         state: Zustand
@@ -50,7 +50,7 @@ de:
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
-      decidim/proposals/proposal_endorsed_event: Vorschlag gebilligt
+      decidim/proposals/proposal_endorsed_event: Vorschlag unterstützt
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
@@ -59,52 +59,53 @@ de:
     models:
       decidim/proposals/collaborative_draft:
         one: Gemeinsamer Entwurf
-        other: Kollaborative Entwürfe
+        other: Gemeinsame Entwürfe
       decidim/proposals/proposal:
         one: Vorschlag
         other: Vorschläge
       decidim/proposals/proposal_endorsement:
-        one: Billigung
-        other: Empfehlungen
+        one: Befürwortung
+        other: Befürworter
       decidim/proposals/proposal_note:
-        one: Hinweis
+        one: Anmerkung
         other: Anmerkungen
       decidim/proposals/proposal_vote:
-        one: Abstimmung
-        other: Stimmen
+        one: Unterstützung
+        other: Unterstützer
   decidim:
     components:
       proposals:
         actions:
+          amend: Änderungsvorschlag
           create: Erstellen
           endorse: Unterstützung
           vote: Abstimmung
-          withdraw: Abheben
+          withdraw: Zurückziehen
         name: Vorschläge
         settings:
           global:
-            amendments_enabled: Änderungen aktiviert
+            amendments_enabled: Änderungsvorschläge aktiviert
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
-            can_accumulate_supports_beyond_threshold: Kann Unterstützungen jenseits des Schwellenwerts ansammeln
-            collaborative_drafts_enabled: Collaborative Entwürfe aktiviert
+            can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
+            collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
-            geocoding_enabled: Geocodierung aktiviert
+            geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Mindeststimmen pro Nutzer
-            new_proposal_help_text: Neuer Vorschlagstext
+            new_proposal_help_text: Hilfetext für neue Vorschläge
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
-            proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
-            proposal_length: Maximale Länge des Vorschlagskörpers
+            proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
+            proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_2_help_text: Hilfetext "Vergleichen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
-            threshold_per_proposal: Schwellenwert pro Angebot
-            vote_limit: Wahllimit pro Benutzer
+            threshold_per_proposal: Schwellenwert pro Vorschlag
+            vote_limit: Unterstützungslimit pro Benutzer
           step:
             announcement: Ankündigung
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
@@ -137,7 +138,7 @@ de:
         collaborative_draft_access_requester_accepted:
           email_intro: Sie wurden als Beitrag zum gemeinsamen <a href="%{resource_path}">%{resource_title}</a> -Kollaborationsentwurf akzeptiert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefordert haben, ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sie wurden als Mitwirkender von %{resource_title}akzeptiert.
+          email_subject: Du wurdest als Mitwirkender von %{resource_title} angenommen.
           notification_title: Sie haben <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs akzeptiert.
         collaborative_draft_access_requester_rejected:
           email_intro: Ihnen wurde der Zugriff auf den <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurf verweigert.
@@ -249,7 +250,7 @@ de:
         proposals:
           conditions:
             - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Erstellen Sie einen neuen Vorschlag
+            - Neuen Vorschlag erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.
@@ -264,16 +265,16 @@ de:
         title: Akzeptierte Vorschläge
       endorsements:
         description: Anzahl der in Vorschlägen generierten Vermerke
-        object: Vermerke
-        title: Vermerke
+        object: Änderungsvorschläge
+        title: Änderungsvorschläge
       proposals:
-        description: Anzahl der generierten Vorschläge
+        description: Anzahl der Vorschläge
         object: Vorschläge
         title: Vorschläge
       votes:
-        description: Anzahl der in den Vorschlägen der Nutzer erzeugten Stimmen
-        object: Stimmen
-        title: Stimmen
+        description: Anzahl der Unterstützungen zu Vorschlägen
+        object: Unterstützer
+        title: Unterstützer
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -294,7 +295,7 @@ de:
         actions:
           preview: Vorschau
         exports:
-          comments: Bemerkungen
+          comments: Kommentare
           proposals: Vorschläge
         models:
           proposal:
@@ -333,19 +334,19 @@ de:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           edit:
-            accepted: Akzeptiert
+            accepted: Angenommen
             answer_proposal: Antworten
-            evaluating: Bewertung
+            evaluating: In Bearbeitung
             rejected: Abgelehnt
-            title: Antwort für den Vorschlag %{title}
+            title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
             error: Beim Erstellen dieser Vorschlagsnotiz ist ein Fehler aufgetreten
-            success: Vorschlagsnotiz wurde erfolgreich erstellt
+            success: Vorschlagsanmerkung erfolgreich erstellt
           form:
-            note: Hinweis
-            submit: einreichen
-          leave_your_note: Hinterlasse deine Nachricht
+            note: Anmerkung
+            submit: Absenden
+          leave_your_note: Anmerkung hinterlassen
           title: Private Notizen
         proposals:
           answer:
@@ -359,21 +360,21 @@ de:
             update: Aktualisieren
           form:
             add_images: Bilder hinzufügen
-            attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+            attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             gallery_legend: "(Optional) Bildergalerie hinzufügen"
-            select_a_category: Wählen Sie eine Kategorie
-            select_a_meeting: Wählen Sie eine Besprechung aus
+            select_a_category: Kategorie auswählen
+            select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
-            cancel: Stornieren
+            cancel: Abbrechen
             change_category: Kategorie ändern
-            merge: Verschmelze zu einem neuen
-            merge_button: Verschmelzen
-            select_component: Wählen Sie eine Komponente aus
+            merge: Zu einem neuen zusammenführen
+            merge_button: Zusammenführen
+            select_component: Komponente auswählen
             selected: ausgewählt
-            split: Split-Vorschläge
-            split_button: Teilt
+            split: Vorschläge aufteilen
+            split_button: Aufteilen
             title: Vorschläge
             update: Aktualisieren
           new:
@@ -381,7 +382,7 @@ de:
             title: Vorschlag erstellen
           update_category:
             invalid: 'Diese Vorschläge hatten bereits die Kategorie %{category} : %{proposals}.'
-            select_a_category: Bitte wählen sie eine Kategorie
+            select_a_category: Bitte wählen Sie eine Kategorie
             select_a_proposal: Bitte wählen Sie einen Vorschlag
             success: 'Vorschläge, die erfolgreich in die %{category} Kategorie aktualisiert wurden: %{proposals}.'
         proposals_imports:
@@ -403,9 +404,9 @@ de:
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         shared:
           info_proposal:
-            body: Karosserie
+            body: Haupttext
             created_at: Erstellungsdatum
-            proposal_votes_count: Stimmen zählen
+            proposal_votes_count: Anzahl der Unterstützungen
             proposals: Vorschläge
       admin_log:
         proposal:
@@ -415,27 +416,27 @@ de:
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
       answers:
-        accepted: Akzeptiert
-        evaluating: Bewertung
-        not_answered: Nicht beantwortet
+        accepted: Angenommen
+        evaluating: In Bewertung
+        not_answered: Unbeantwortet
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
       application_helper:
         filter_origin_values:
-          all: Alles
+          all: Alle
           citizens: Bürger
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen
         filter_state_values:
-          accepted: Akzeptiert
-          all: Alles
-          evaluating: Auswerten
-          except_rejected: Alle außer abgelehnt
+          accepted: Angenommen
+          all: Alle
+          evaluating: In Bearbeitung
+          except_rejected: Alle außer abgelehnte
           rejected: Abgelehnt
         filter_type_values:
-          all: Alles
-          amendments: Änderungen
+          all: Alle
+          amendments: Änderungsanträge
           proposals: Vorschläge
       collaborative_drafts:
         collaborative_draft:
@@ -443,16 +444,16 @@ de:
             error: Bei der Veröffentlichung des gemeinsamen Entwurfs sind Fehler aufgetreten.
             irreversible_action_modal:
               body: Nachdem der Entwurf als Vorschlag veröffentlicht wurde, kann der Entwurf nicht mehr bearbeitet werden. Der Vorschlag akzeptiert keine neuen Autoren oder Beiträge.
-              cancel: Stornieren
+              cancel: Abbrechen
               ok: Als Vorschlag veröffentlichen
               title: Die folgende Aktion ist irreversibel
             success: Collaborative Draft erfolgreich als Vorschlag veröffentlicht.
-          view_collaborative_draft: Collaborative Draft anzeigen
+          view_collaborative_draft: Gemeinsamen Entwurf anzeigen
           withdraw:
             error: Es gab Fehler beim Schließen des gemeinsamen Entwurfs.
             irreversible_action_modal:
               body: Nach dem Schließen des Entwurfs wird der Entwurf nicht mehr bearbeitet werden können. Der Entwurf akzeptiert keine neuen Autoren oder Beiträge.
-              cancel: Stornieren
+              cancel: Abbrechen
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
@@ -461,7 +462,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
           title: Ähnliche kollaborative Entwürfe
         complete:
-          send: Senden
+          send: Absenden
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
@@ -473,35 +474,35 @@ de:
         edit:
           attachment_legend: "(Optional) Fügen Sie eine Anlage hinzu"
           back: Zurück
-          select_a_category: Bitte wählen sie eine Kategorie
-          send: Senden
-          title: Bearbeiten Sie den gemeinsamen Entwurf
+          select_a_category: Bitte wählen Sie eine Kategorie
+          send: Abschicken
+          title: Gemeinsamen Entwurf bearbeiten
         filters:
           all: Alle
-          amendment: Änderungen
+          amendment: Änderungsanträge
           category: Kategorie
           category_prompt: Kategorie Eingabeaufforderung
-          open: Öffnen
+          open: Offen
           published: Veröffentlicht
-          related_to: Bezüglich
-          search: Suche
-          state: Zustand
+          related_to: In Zusammenhang mit
+          search: Suchen
+          state: Status
           withdrawn: Zurückgezogen
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
-          unfold: Entfalten
+          unfold: Aufklappen
         new:
           send: Fortsetzen
-          title: Erstellen Sie Ihren gemeinsamen Entwurf
+          title: Gemeinsamen Entwurf erstellen
         new_collaborative_draft_button:
           new_collaborative_draft: Neuer gemeinsamer Entwurf
         orders:
           label: 'Bestellentwürfe von:'
-          most_contributed: Die meisten haben beigetragen
+          most_contributed: Am meisten beigetragen
           random: Zufällig
-          recent: Kürzlich
+          recent: Neueste
         requests:
           accepted_request:
             error: Könnte nicht als Mitarbeiter akzeptiert werden, versuchen Sie es später erneut.
@@ -519,7 +520,7 @@ de:
         show:
           back: Zurück
           edit: Bearbeiten Sie den gemeinsamen Entwurf
-          final_proposal: endgültiger Vorschlag
+          final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
             one: und %{count} weitere Person
@@ -528,12 +529,12 @@ de:
           of_versions: "(von %{number})"
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
-          published_proposal: veröffentlichter Vorschlag
-          request_access: Anfrage Zugang
+          published_proposal: Veröffentlichter Vorschlag
+          request_access: Zugangsanfragen
           requested_access: Zugriff angefordert
-          see_other_versions: Siehe andere Versionen
+          see_other_versions: Andere Versionen anzeigen
           version: Version %{number}
-          version_history: Siehe Versionsgeschichte für dieses Angebot
+          version_history: Änderungsverlauf für diesen Vorschlag
           withdraw: den Entwurf zurückziehen
         states:
           open: Öffnen
@@ -569,7 +570,7 @@ de:
           fields:
             category: Kategorie
             comments: Bemerkungen
-            endorsements: Empfehlungen
+            endorsements: Befürworter
             id: ICH WÜRDE
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
@@ -609,7 +610,7 @@ de:
           title: Ähnliche Vorschläge
         complete:
           send: Senden
-          title: Vervollständigen Sie Ihren Vorschlag
+          title: Vorschlag vervollständigen
         count:
           proposals_count:
             one: "%{count} Vorschlag"
@@ -618,7 +619,7 @@ de:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           select_a_category: Bitte wählen sie eine Kategorie
-          send: Senden
+          send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
           discard: Verwerfen Sie diesen Entwurf
@@ -626,7 +627,7 @@ de:
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
         endorsement_identities_cabin:
-          endorse: Unterstützung
+          endorse: Befürwortung
         endorsements_card_row:
           comments: Bemerkungen
         filters:
@@ -642,7 +643,7 @@ de:
           close_modal: Modal schließen
           filter: Filter
           filter_by: Filtern nach
-          unfold: Entfalten
+          unfold: Aufklappen
         index:
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
           new_proposal: Neuer Vorschlag
@@ -654,40 +655,41 @@ de:
             other: Stimmen
         new:
           send: Fortsetzen
-          title: Erstellen Sie Ihren Vorschlag
+          title: Neuen Vorschlag erstellen
         orders:
-          label: 'Bestellvorschläge von:'
-          most_voted: Die meisten haben gewählt
+          label: 'Vorschläge sortieren nach:'
+          most_voted: Am meisten unterstützt
           random: Zufällig
           recent: Kürzlich
         participatory_texts:
           index:
             document_index: Dokumentenindex
           view_index:
-            see_index: Siehe Index
+            see_index: Index anzeigen
         preview:
-          modify: Ändern Sie den Vorschlag
+          modify: Vorschlag ändern
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
             other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
-          title: Veröffentlichen Sie Ihren Vorschlag
+          title: Vorschlag veröffentlichen
         proposal:
-          creation_date: 'Erstellung: %{date}'
+          creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
         show:
           back_to: Zurück zu
           edit_proposal: Vorschlag bearbeiten
-          endorsements_list: Liste der Empfehlungen
+          endorsements_list: Liste der Befürworter
           hidden_endorsers_count:
             one: und %{count} weitere Person
             other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
-          link_to_collaborative_draft_text: Siehe den gemeinsamen Entwurf
+          link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
+          link_to_proposal_from_emendation_text: Den Vorschlag ansehen
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
-          report: Bericht
+          report: Melden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
           withdraw_proposal: Vorschlag zurückziehen
@@ -695,18 +697,18 @@ de:
           changed_from: "(geändert von <u>%{previous_category}</u> durch einen Administrator)"
           filed_as: Abgelegt als
         vote_button:
-          already_voted: Schon gewählt
-          already_voted_hover: Aufheben
-          maximum_votes_reached: Wahllimit erreicht
-          no_votes_remaining: Keine verbleibenden Stimmen
-          vote: Abstimmung
-          votes_blocked: Abstimmung deaktiviert
+          already_voted: Bereits unterstützt
+          already_voted_hover: Unterstützung zurückziehen
+          maximum_votes_reached: Unterstützungslimit erreicht
+          no_votes_remaining: Keine verbleibenden Unterstützungen
+          vote: Unterstützen
+          votes_blocked: Unterstützungen deaktiviert
         votes_count:
           count:
-            one: ABSTIMMUNG
-            other: ABSTIMMUNGEN
-          most_popular_proposal: Beliebtester Vorschlag
-          need_more_votes: Brauche mehr Stimmen
+            one: UNTERSTÜTZUNG
+            other: UNTERSTÜTZUNGEN
+          most_popular_proposal: Beliebteste Vorschläge
+          need_more_votes: Benötigt weitere Unterstützungen
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
@@ -728,10 +730,10 @@ de:
           info: Sie erstellen einen <strong>Vorschlag</strong>.
         wizard_steps:
           see_steps: siehe Schritte
-          step_1: Erstellen Sie Ihren Vorschlag
+          step_1: Vorschlag erstellen
           step_2: Vergleichen
-          step_3: Komplett
-          step_4: Veröffentlichen Sie Ihren Vorschlag
+          step_3: Abschließen
+          step_4: Vorschlag veröffentlichen
           step_of: Schritt %{current_step_num} von %{total_steps}
       publish:
         error: Beim Veröffentlichen des Vorschlags ist ein Fehler aufgetreten.
@@ -743,16 +745,16 @@ de:
         error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
         success: Der Vorschlagsentwurf wurde erfolgreich aktualisiert.
       versions:
-        changes_at_title: Änderungen bei "%{title}"
+        changes_at_title: Änderungen an "%{title}"
         index:
           title: Versionen
         stats:
           back_to_collaborative_draft: Kehren Sie zum gemeinsamen Entwurf zurück
           back_to_proposal: Gehen Sie zurück zum Vorschlag
           number_of_versions: Versionen
-          show_all_versions: Zeige alle Versionen
-          version_author: Versionsautor
-          version_created_at: Version erstellt um
+          show_all_versions: Alle Versionen anzeigen
+          version_author: Autor dieser Version
+          version_created_at: Version erstellt am
           version_number: Versionsnummer
           version_number_out_of_total: "%{current_version} von %{total_count}"
         version:
