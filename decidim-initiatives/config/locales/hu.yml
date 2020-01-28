@@ -176,18 +176,8 @@ hu:
             title: Általános információ
           index:
             actions_title: Művelet
-            filter:
-              accepted: Elfogadva
-              all: Összes
-              created: Létrehozva
-              discarded: Elvetve
-              published: Közzétett
-              rejected: Elutasított
-              validating: Technikai érvényesítés
-            filter_by: 'Szűrés ez alapján:'
             preview: Előnézet
             print: Nyomtatás
-            search: Keresés
           show:
             print: Nyomtatás
           update:
