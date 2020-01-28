@@ -512,18 +512,12 @@ es:
           actions: Acciones
           badge: Insignias
           created_at: Creado el
-          filter:
-            all: Todas
-            not_officialized: No oficializada
-            officialized: Oficializada
-          filter_by: Filtrado por
           name: Nombre
           nickname: Alias
           not_officialized: No oficializada
           officialize: Oficializa
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
-          search: Buscar
           status: Estado
           unofficialize: Des-oficializar
         new:
