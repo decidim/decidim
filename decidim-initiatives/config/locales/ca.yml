@@ -176,18 +176,8 @@ ca:
             title: Informació general
           index:
             actions_title: Acció
-            filter:
-              accepted: Acceptat
-              all: Totes
-              created: Creada
-              discarded: Rebutjada
-              published: Publicada
-              rejected: Rebutjada
-              validating: Validació tècnica
-            filter_by: Filtra per
             preview: Vista prèvia
             print: Imprimir
-            search: Cerca
           show:
             print: Imprimir
           update:
