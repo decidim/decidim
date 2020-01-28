@@ -523,7 +523,7 @@ fi-pl:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
-          search: Hae
+          search: Etsi
           status: Tila
           unofficialize: Poista virallistaminen
         new:
