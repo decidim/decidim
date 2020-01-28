@@ -318,8 +318,6 @@
           actions: Handlinger
           badge: Merke
           created_at: Opprette På
-          filter:
-            all: Alle
           name: Navn
           status: Status
       organization_appearance:
