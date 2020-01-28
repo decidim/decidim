@@ -8,11 +8,11 @@ module Decidim
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
         helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
-        include Decidim::Paginable
+        include Decidim::Conferences::Admin::Filterable
 
         def index
           enforce_permission_to :read, :conference_list
-          @conferences = paginate(collection)
+          @conferences = filtered_collection
         end
 
         def new
@@ -70,9 +70,8 @@ module Decidim
         private
 
         def current_conference
-          scope = OrganizationConferences.new(current_user.organization).query
-          @current_conference ||= scope.where(slug: params[:slug]).or(
-            scope.where(id: params[:slug])
+          @current_conference ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
           ).first
         end
 
