@@ -513,10 +513,10 @@ es-PY:
           badge: Distintivo
           created_at: Creado el
           filter:
-            all: Todas
+            all: Todos
             not_officialized: No oficializado
             officialized: Oficializado
-          filter_by: Filtrado por
+          filter_by: Filtrar por
           name: Nombre
           nickname: Apodo
           not_officialized: No oficializado
