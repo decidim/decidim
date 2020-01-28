@@ -236,6 +236,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
+          error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
