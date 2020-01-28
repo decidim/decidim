@@ -177,12 +177,12 @@ fi-pl:
           index:
             actions_title: Toiminnot
             filter:
-              accepted: Hyväksytyt
+              accepted: Hyväksytty
               all: Kaikki
-              created: Luodut
-              discarded: Hylätyt
-              published: Julkaistut
-              rejected: Torjutut
+              created: Luotu
+              discarded: Hylätty
+              published: Julkaistu
+              rejected: Torjuttu
               validating: Teknisessä validoinnissa
             filter_by: Suodata
             preview: Esikatsele
