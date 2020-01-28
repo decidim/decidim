@@ -23,7 +23,7 @@ module Decidim
         end
 
         def answered_at
-          answers.first.created_at
+          answers_query.first.created_at
         end
 
         def registered?
@@ -35,11 +35,17 @@ module Decidim
         end
 
         def answers
-          query.answers.order(:created_at)
+          answers_query.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
         end
 
         def completion
-          answers.count / questionnaire.questions.count * 100
+          answers_query.count / questionnaire.questions.count * 100
+        end
+
+        private
+
+        def answers_query
+          query.answers.order(:created_at)
         end
       end
     end

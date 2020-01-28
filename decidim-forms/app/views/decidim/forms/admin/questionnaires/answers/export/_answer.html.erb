@@ -24,8 +24,8 @@
 
   <div class="answers">
     <% participant.answers.each do |answer| %>
-      <h3 class="question"><%= translated_attribute(answer.question.body) %></h3>
-      <p><%= questionnaire_answer_body(answer) %></p>
+      <h3 class="question"><%= answer.question %></h3>
+      <p><%= answer.body %></p>
     <% end %>
   </div>
 </div>

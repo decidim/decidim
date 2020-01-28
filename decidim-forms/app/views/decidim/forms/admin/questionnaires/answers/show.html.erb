@@ -50,8 +50,8 @@
     
     <dl>
       <% @participant.answers.each do |answer| %>
-        <dt><%= translated_attribute(answer.question.body) %></dt>
-        <dd><%= questionnaire_answer_body(answer) %></dd>
+        <dt><%= answer.question %></dt>
+        <dd><%= answer.body %></dd>
       <% end %>
     </dl>
   </div>
