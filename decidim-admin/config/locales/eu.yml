@@ -476,17 +476,17 @@ eu:
           badge: Badge
           created_at: Sortua
           filter:
-            all: guztiak
+            all: Guztiak
             not_officialized: Ez ofiziala
             officialized: Officialized
-          filter_by: Iragazi arabera
+          filter_by: 'Iragazi honen arabera:'
           name: izena
           nickname: ezizena
           not_officialized: Ez ofiziala
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
+          search: Bilatu
           status: Egoera
           unofficialize: Unofficialize
         new:
