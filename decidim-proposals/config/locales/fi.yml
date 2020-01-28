@@ -97,6 +97,7 @@ fi:
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
+            new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
