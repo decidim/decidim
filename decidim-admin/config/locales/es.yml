@@ -513,10 +513,10 @@ es:
           badge: Insignias
           created_at: Creado el
           filter:
-            all: Todas
+            all: Todos
             not_officialized: No oficializada
             officialized: Oficializada
-          filter_by: Filtrado por
+          filter_by: Filtrar por
           name: Nombre
           nickname: Alias
           not_officialized: No oficializada
