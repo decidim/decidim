@@ -69,8 +69,6 @@ hu:
     account:
       data_portability_export:
         file_no_exists: Fájl nem létezik
-        invalid_token: A megadott token érvénytelen.
-        no_token: Nincs token megadva
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
@@ -593,16 +591,6 @@ hu:
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
-        continuity:
-          conditions:
-            - Gyere ide gyakran
-          description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
-          description_another: Ez a résztvevő egy bizonyos időpontban %{score} egymást követő napon keresztül csatlakozott.
-          description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
-          name: Folytonosság
-          next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
-          unearned_another: Ez a résztvevő nem lépett be több mint egy egymást követő napon.
-          unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
             - Az aktív és más emberek követése biztosan másokat követni fog.
