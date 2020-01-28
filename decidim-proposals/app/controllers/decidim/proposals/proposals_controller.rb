@@ -65,14 +65,14 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalWizardCreateStepForm).from_params({})
+          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
         end
       end
 
       def create
         enforce_permission_to :create, :proposal
         @step = :step_1
-        @form = form(ProposalWizardCreateStepForm).from_params(params)
+        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
@@ -270,6 +270,14 @@ module Decidim
 
       def set_participatory_text
         @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
+      end
+
+      def translated_proposal_body_template
+        translated_attribute component_settings.new_proposal_body_template
+      end
+
+      def proposal_creation_params
+        params[:proposal].merge(body_template: translated_proposal_body_template)
       end
     end
   end

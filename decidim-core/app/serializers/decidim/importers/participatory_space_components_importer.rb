@@ -33,10 +33,10 @@ module Decidim
       def import(json_ary, user)
         ActiveRecord::Base.transaction do
           json_ary.collect do |serialized|
-            attributes = serialized.with_indifferent_access
-            # we override the parent participatory sapce
-            attributes["participatory_space_id"] = @participatory_space.id
-            attributes["participatory_space_type"] = @participatory_space.class.name
+            attributes = serialized.with_indifferent_access.except(:id, :participatory_space_id, :participatory_space_type)
+            step_settings = attributes["settings"]["steps"]
+            # we override the parent participatory space steps id
+            override_step_settings_ids(attributes, step_settings)
             import_component_from_attributes(attributes, user)
           end
         end
@@ -49,7 +49,7 @@ module Decidim
         component = Decidim.traceability.perform_action!(:create,
                                                          Decidim::Component,
                                                          user) do
-          c = Decidim::Component.new(attributes.except(:id, :settings, :specific_data))
+          c = Decidim::Component.new({ participatory_space: @participatory_space }.merge(attributes.except(:settings, :specific_data)))
           c[:settings] = attributes[:settings]
           c.save!
           c
@@ -61,6 +61,15 @@ module Decidim
       def import_component_specific_data(component, serialized, user)
         specific_importer = component.manifest.specific_data_importer_class.new(component)
         specific_importer.import(serialized[:specific_data], user)
+      end
+
+      def override_step_settings_ids(attributes, step_settings)
+        return if step_settings.nil?
+
+        @participatory_space.steps.each do |step|
+          old_id = attributes["settings"]["steps"].keys.first
+          step_settings[step.id.to_s] = step_settings.delete(old_id)
+        end
       end
     end
   end
