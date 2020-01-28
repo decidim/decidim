@@ -236,6 +236,7 @@ fi-pl:
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
+          error: Komponentin oikeuksien päivitys epäonnistui.
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
