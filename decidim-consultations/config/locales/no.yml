@@ -7,14 +7,39 @@
       question:
         banner_image: Bannerafbeelding
         instructions: Ytterligere instruksjoner for avstemning
+        question_context: Kontekst
         title: Tittel
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksimalt antall stemmer bør være høyere eller lik enn minimum.
   decidim:
     admin:
       actions:
         back_to_responses: Tilbake til svar
+      consultation_publications:
+        create:
+          error: Det oppstod et problem med å publisere denne konsultasjonen.
+        destroy:
+          error: Det oppstod et problem med å avpublisere denne konsultasjonen.
+      consultation_results_publications:
+        create:
+          error: Det oppstod et problem med å publisere resultatene for denne konsultasjonen.
+        destroy:
+          error: Det oppstod et problem med å avpublisere resultatene for denne konsultasjonen.
       consultations:
+        create:
+          error: Det oppstod et problem med å lage en ny konsultasjon.
+        form:
+          slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         results:
+          not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
           participants: "%{count} deltakere"
+      menu:
+        questions_submenu:
+          components: Komponenter
       models:
         consultation:
           fields:
@@ -26,8 +51,16 @@
           fields:
             title: Tittel
       question_configuration:
+        disable_external_voting: Vennlist deaktiver ekstern avstemning for avanserte konfigurasjoner
         form:
+          help: Sett opp flere valg spørsmål ved å øke det maksimale antallet svar en deltaker kan velge. Standard maksimumsverdi er 1, noe som betyr at bare ett svar kan bli stemt.
           title: Avansert konfigurasjon
+      response_groups:
+        create:
+          error: Det oppstod et problem med å opprette en ny svargruppe.
+        destroy:
+          error: Det oppstod et problem med å fjerne svargruppen. Sjekk at ingen svar er avhengig av det.
+        help: Bruk grupper til å organisere flere spørsmåls valg i pakker.
     consultations:
       count:
         title:
@@ -37,6 +70,8 @@
         active: Aktiv
         all: Alle
         state: Status
+      filters_small_view:
+        close_modal: Lukk vindu
       last_activity:
         new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
       pages:
@@ -45,8 +80,18 @@
             active_consultations: Aktive konsultasjoner
       question_multiple_votes:
         results_rules:
+          minimum_votes_per_user:
+            description: Deltakerne kunne fordele minimum %{votes} stemmer mellom forskjellige alternativer.
           title: I dette spørsmålet var flere valg tillatt
           total_participants: Totalt %{count} personer deltok i avstemmingen.
+          vote_limit:
+            description: Deltakerne kan stemme opp til %{limit} muligheter.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Du må fordele minimum %{votes} stemmer mellom forskjellige alternativer.
+      question_votes:
+        create:
+          success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
     help:
       participatory_spaces:
         consultations:
@@ -55,12 +100,16 @@
     questions:
       statistics:
         assistants_count_title: Assistenter
+        comments_count_title: Kommentarer
       vote_button:
         already_voted: Stemt allerede
+      vote_modal_confirm:
+        change: Endre
   layouts:
     decidim:
       admin:
         question:
           attachments: Vedlegg
+          categories: Kategorier
       question_header:
         back_to_question: Tilbake til spørsmålet
