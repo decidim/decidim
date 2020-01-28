@@ -84,7 +84,7 @@ ar:
         duplicate: مكرر
         edit: تعديل
         filter:
-          all: عرض جميع العمليات
+          all_processes: عرض جميع العمليات
           process_groups: مجموعات العملية
         import_process: استيراد
         new_process: عملية جديدة
