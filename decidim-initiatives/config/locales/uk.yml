@@ -118,7 +118,7 @@ uk:
           index:
             actions_title: Дія
             filter:
-              accepted: Прийнято
+              accepted: Прийняті
               all: Усі
               created: Створені
               discarded: Відкинуті
