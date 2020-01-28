@@ -14,6 +14,11 @@ if Rails.env.production?
     &:ip
   )
 
+  Rack::Attack.blocklist("block all access to admin") do |request|
+    # Requests are blocked if the return value is truthy
+    request.path.start_with?("/system") unless Decidim.whitelist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?
+  end
+
   # Throttle login attempts for a given email parameter to 6 reqs/minute
   # Return the email as a discriminator on POST /users/sign_in requests
   Rack::Attack.throttle("limit logins per email", limit: 5, period: 60.seconds) do |request|

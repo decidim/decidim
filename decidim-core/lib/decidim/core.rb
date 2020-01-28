@@ -191,6 +191,11 @@ module Decidim
     end
   end
 
+  # Exposes a configuration option: the whitelist ips
+  config_accessor :whitelist_ips do
+    []
+  end
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
