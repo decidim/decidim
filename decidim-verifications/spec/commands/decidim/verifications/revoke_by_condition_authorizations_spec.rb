@@ -31,12 +31,21 @@ module Decidim::Admin
           granted: false
         ).query
       end
+      let(:impersonated_authorizations) do
+        Decidim::Verifications::AuthorizationsBeforeDate.new(
+          organization: organization,
+          date: now,
+          granted: true,
+          impersonated_only: true
+        ).query
+      end
       let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user0) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user1) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user2) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user3) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user4) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:user5) { create(:user, :admin, :confirmed, organization: organization, managed: true) }
 
       describe "when creating a revoke all authorizations command" do
         context "with organization not set but impersonated_only & before_date" do
@@ -74,13 +83,14 @@ module Decidim::Admin
         end
       end
 
-      describe "with 3 organization's granted auths and 2 ungranted auths a month ago." do
+      describe "with 4 organization's granted auths (only 1 impersonated) and 2 ungranted auths created a month ago." do
         before do
           create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user0)
           create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user1)
           create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user2)
           create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user3)
           create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user4)
+          create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user5)
         end
 
         context "when no before date. When destroy impersonated_only auths" do
@@ -107,16 +117,22 @@ module Decidim::Admin
             end.not_to change(no_granted_authorizations, :count)
           end
 
-          it "destroy all granted auths. 3 to 0" do
+          it "destroy granted auths. 4 granted (only 1 impersonated) to 3" do
             expect do
               subject.call
-            end.to change(granted_authorizations, :count).from(3).to(0)
+            end.to change(granted_authorizations, :count).from(4).to(3)
           end
 
-          it "total auths are fewer than before. 5 to 2" do
+          it "destroy all impersonated_only auths. 1 to 0" do
             expect do
               subject.call
-            end.to change(all_authorizations, :count).from(5).to(2)
+            end.to change(impersonated_authorizations, :count).from(1).to(0)
+          end
+
+          it "total auths are fewer than before. 6 to 5" do
+            expect do
+              subject.call
+            end.to change(all_authorizations, :count).from(6).to(5)
           end
 
           it "broadcasts ok" do
@@ -124,7 +140,7 @@ module Decidim::Admin
           end
 
           it "traces the action", versioning: true do
-            granted_authorizations.to_a.each do |auth|
+            impersonated_authorizations.to_a.each do |auth|
               expect(Decidim.traceability)
                 .to receive(:perform_action!)
                 .with(:delete, auth, current_user)
@@ -145,13 +161,13 @@ module Decidim::Admin
             end.not_to change(no_granted_authorizations, :count)
           end
 
-          it "destroy all granted auths before_date only. None" do
+          it "destroy all impersonated_only auths before_date only. None" do
             expect do
               subject.call
             end.not_to change(granted_authorizations, :count)
           end
 
-          it "total auths are the same than before. 5" do
+          it "total auths are the same than before. 6" do
             expect do
               subject.call
             end.not_to change(all_authorizations, :count)
@@ -165,22 +181,22 @@ module Decidim::Admin
         context "when before date, week ago. When destroy all auths" do
           let(:impersonated_only) { nil }
 
-          it "destroy all ungranted auth" do
+          it "destroy all ungranted auth. None" do
             expect do
               subject.call
             end.not_to change(no_granted_authorizations, :count)
           end
 
-          it "destroy all granted auths before_date only. 3 to 0" do
+          it "destroy all granted auths before_date only. 4 to 0" do
             expect do
               subject.call
-            end.to change(granted_authorizations, :count).from(3).to(0)
+            end.to change(granted_authorizations, :count).from(4).to(0)
           end
 
-          it "total auths are fewer than before. 5 to 2" do
+          it "total auths are fewer than before. 6 to 2" do
             expect do
               subject.call
-            end.to change(all_authorizations, :count).from(5).to(2)
+            end.to change(all_authorizations, :count).from(6).to(2)
           end
 
           it "broadcasts ok" do
@@ -216,7 +232,13 @@ module Decidim::Admin
             end.not_to change(granted_authorizations, :count)
           end
 
-          it "total auths are the same than before. 5" do
+          it "destroy impersonated_only auths before_date only. None" do
+            expect do
+              subject.call
+            end.not_to change(impersonated_authorizations, :count)
+          end
+
+          it "total auths are the same than before. 6" do
             expect do
               subject.call
             end.not_to change(all_authorizations, :count)

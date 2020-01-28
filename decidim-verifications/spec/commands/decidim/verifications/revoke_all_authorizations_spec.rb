@@ -33,14 +33,16 @@ module Decidim::Admin
       let!(:user2) { create(:user, :admin, :confirmed, organization: organization) }
       let!(:user3) { create(:user, :admin, :confirmed, organization: organization) }
       let!(:user4) { create(:user, :admin, :confirmed, organization: organization) }
+      let!(:user5) { create(:user, :admin, :confirmed, organization: organization, managed: true) }
 
-      # With 5 authorizations, 3 granted, 2 pending
+      # With 6 authorizations, 3 granted, 2 pending, only 1 granted & managed
       before do
         create(:authorization, created_at: prev_week, granted_at: prev_week, name: Faker::Name.name, user: user0)
         create(:authorization, created_at: prev_week, granted_at: prev_week, name: Faker::Name.name, user: user1)
         create(:authorization, created_at: prev_week, granted_at: prev_week, name: Faker::Name.name, user: user2)
         create(:authorization, created_at: prev_week, granted_at: nil, name: Faker::Name.name, user: user3)
         create(:authorization, created_at: prev_week, granted_at: nil, name: Faker::Name.name, user: user4)
+        create(:authorization, created_at: prev_week, granted_at: prev_week, name: Faker::Name.name, user: user5)
       end
 
       describe "When creating a revoke all authorizations command" do
@@ -53,7 +55,7 @@ module Decidim::Admin
         end
       end
 
-      describe "With 3 organization's granted auths and 2 ungranted auths" do
+      describe "With 4 organization's granted auths and 2 ungranted auths" do
         context "when destroy all granted auths" do
           it "doesn't destroy any ungranted auth" do
             expect do
@@ -64,13 +66,13 @@ module Decidim::Admin
           it "destroy all granted auths" do
             expect do
               subject.call
-            end.to change(granted_authorizations, :count).from(3).to(0)
+            end.to change(granted_authorizations, :count).from(4).to(0)
           end
 
           it "total auths are fewer than before" do
             expect do
               subject.call
-            end.to change(all_authorizations, :count).from(5).to(2)
+            end.to change(all_authorizations, :count).from(6).to(2)
           end
 
           it "broadcasts ok" do

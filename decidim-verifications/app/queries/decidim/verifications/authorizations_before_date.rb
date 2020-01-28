@@ -23,6 +23,10 @@ module Decidim
       def query
         scope = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
 
+        if impersonated_only == true
+          scope = scope.left_outer_joins(:user).where(decidim_users: { managed: true })
+        end
+
         scope = scope.where("#{Decidim::Authorization.table_name}.created_at < ?", date) unless date.nil?
 
         if granted == true
@@ -30,12 +34,6 @@ module Decidim
         elsif granted == false
           scope = scope.where(granted_at: nil)
         end
-
-        # if impersonated_only == true
-        #   scope = scope.where.not(granted_at: nil)
-        # elsif impersonated_only == false
-        #   scope = scope.where(granted_at: nil)
-        # end
 
         scope
       end
