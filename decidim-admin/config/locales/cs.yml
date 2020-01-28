@@ -514,7 +514,7 @@ cs:
           badge: Odznak
           created_at: Vytvořeno na
           filter:
-            all: Všechno
+            all: Vše
             not_officialized: Není oficializováno
             officialized: Úředně
           filter_by: Filtrovat podle
