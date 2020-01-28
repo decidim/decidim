@@ -139,6 +139,8 @@ ca:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
     amendments:
       accepted:
         error: S'ha produït un error en acceptar l'esmena.
