@@ -16,6 +16,7 @@ fi:
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
         decidim_area_id: alue
+        decidim_assemblies_type_id: Ryhmän tyyppi
         decidim_scope_id: Teema
         description: Kuvaus
         developer_group: Perustajaryhmä
@@ -78,6 +79,7 @@ fi:
     admin:
       actions:
         new_assembly: Uusi ryhmä
+        new_assembly_type: Uusi ryhmätyyppi
       assemblies:
         create:
           error: Uuden ryhmän luonti epäonnistui.
