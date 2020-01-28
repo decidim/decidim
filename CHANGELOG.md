@@ -4,6 +4,10 @@
 
 ### Upgrade notes
 
+- **Geocoder**
+
+Here maps API has changed, including the way clients authenticate. Thus, former `app_id` and `app_code` credentials are now deprecated in favour of a unique `api_key` token. For your current application to continue working with Here maps services generate an `api_key` and configure it as explained in [Decidim's geocoding documentation](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md).
+
 - **Assembly types**
 
 In order to prevent errors while upgrading multi-servers envirnoments, the fields `assembly_type` and `assembly_type_other` are maintained. Future releases will take care of this.
@@ -51,6 +55,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Fixed**:
 
+- **decidim-core**: Using new geocoder version requires using new Here maps API and authentication. [#5644](https://github.com/decidim/decidim/pull/5644)
 - **decidim-participatory_processes and decidim-core**: Participatory processes not being imported properly. [\#5596](https://github.com/decidim/decidim/pull/5596
 - **decidim-core**: Fix: Apply google webmaster guidelines for buttons "sign with Google".[\#5592](https://github.com/decidim/decidim/pull/5592)
 - **decidim-verifications**: Fix: Missing method email_regexp [#5560](https://github.com/decidim/decidim/pull/5560)
