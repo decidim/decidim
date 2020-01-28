@@ -877,7 +877,7 @@ fi:
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmiä
-          comments_count: Kommenteja
+          comments_count: Kommentteja
           conferences_count: Konferensseja
           debates_count: Keskusteluja
           endorsements_count: Suosituksia
@@ -892,7 +892,7 @@ fi:
           results_count: Tuloksia
           surveys_count: Kyselyjä
           users_count: Osallistujia
-          votes_count: Ääniä
+          votes_count: Kannatuksia
         sub_hero:
           register: Rekisteröidy
       index:
