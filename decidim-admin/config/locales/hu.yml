@@ -513,18 +513,12 @@ hu:
           actions: Műveletek
           badge: Jelvény
           created_at: 'Létrehozva:'
-          filter:
-            all: Összes
-            not_officialized: Nem hivatalos
-            officialized: Hivatalos
-          filter_by: 'Szűrés ez alapján:'
           name: Név
           nickname: Becenév
           not_officialized: Nem hivatalos
           officialize: Hivatalossá tétel
           officialized: Hivatalos
           reofficialize: Újbóli hivatalossá tétel
-          search: Keresés
           status: Állapot
           unofficialize: Hivatalossá tétel visszavonása
         new:
