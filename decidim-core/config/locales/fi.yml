@@ -1321,7 +1321,9 @@ fi:
     dropdown:
       choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
+      option_unescaped: Teknisten elementtien käsittely pois käytöstä
       option_unified: Yhdistetty
   views:
     pagination:
