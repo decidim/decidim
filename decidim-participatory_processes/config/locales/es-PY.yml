@@ -72,7 +72,7 @@ es-PY:
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostrar todos los procesos
+          all_processes: Mostrar todos los procesos
           process_groups: Grupos de proceso
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
