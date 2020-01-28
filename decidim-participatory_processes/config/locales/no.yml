@@ -78,7 +78,7 @@
         duplicate: Dubliser
         edit: Editar
         filter:
-          all: Vis alle prosesser
+          all_processes: Vis alle prosesser
           process_groups: Prosess Grupper
         import_process: Importer
         new_process: Ny prosess
