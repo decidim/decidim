@@ -236,6 +236,7 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
+          error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
           success: Toelatingen succesvol bijgewerkt.
       components:
         create:
