@@ -595,16 +595,6 @@ fi:
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
-        continuity:
-          conditions:
-            - Käy täällä usein
-          description: Tämä kunniamerkki myönnetään, kun vierailet alustalla säännöllisesti. Mukavaa, että olet mukana!
-          description_another: Tämä käyttäjä on vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
-          description_own: Olet vieraillut alustalla %{score} peräkkäisenä päivänä jossakin vaiheessa.
-          name: Jatkuvuus
-          next_level_in: Vieraile alustalla %{score} peräkkäisenä päivänä päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä on kirjautunut sisään ainoastaan yhtenä peräkkäisenä päivänä.
-          unearned_own: Et ole kirjautunut palveluun kuin yhtenä peräkkäisenä päivänä.
         followers:
           conditions:
             - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
@@ -877,7 +867,7 @@ fi:
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmiä
-          comments_count: Kommenteja
+          comments_count: Kommentteja
           conferences_count: Konferensseja
           debates_count: Keskusteluja
           endorsements_count: Suosituksia
@@ -892,7 +882,7 @@ fi:
           results_count: Tuloksia
           surveys_count: Kyselyjä
           users_count: Osallistujia
-          votes_count: Ääniä
+          votes_count: Kannatuksia
         sub_hero:
           register: Rekisteröidy
       index:
