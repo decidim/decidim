@@ -175,18 +175,8 @@ es:
             title: Información general
           index:
             actions_title: Acción
-            filter:
-              accepted: Aceptado
-              all: Todas
-              created: Creada
-              discarded: Descartada
-              published: Publicada
-              rejected: Rechazada
-              validating: Validación técnica
-            filter_by: Filtra por
             preview: Vista previa
             print: Imprimir
-            search: Buscar
           show:
             print: Imprimir
           update:
