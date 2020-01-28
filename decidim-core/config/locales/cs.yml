@@ -611,16 +611,6 @@ cs:
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
-        continuity:
-          conditions:
-            - Choďte sem často
-          description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
-          description_another: Tento účastník se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
-          description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
-          name: Kontinuita
-          next_level_in: Připojte se na %{score} po sobě jdoucích dní, abyste se dostali na další úroveň!
-          unearned_another: Tento uživatel se nepřihlásil na více než jeden po sobě následující den.
-          unearned_own: Nejste připojeni více než jeden po sobě následující den.
         followers:
           conditions:
             - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
