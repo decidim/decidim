@@ -83,6 +83,7 @@ is-IS:
             filter_by: Sía eftir
             preview: Preview
             print: Prenta
+            search: Leita
           show:
             print: Prenta
           update:
