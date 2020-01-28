@@ -180,8 +180,8 @@ hu:
               all: Összes
               created: Létrehozva
               discarded: Elvetve
-              published: Közzétett
-              rejected: Elutasított
+              published: Közzétéve
+              rejected: Elutasítva
               validating: Technikai érvényesítés
             filter_by: 'Szűrés ez alapján:'
             preview: Előnézet
