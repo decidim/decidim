@@ -74,6 +74,10 @@ hu:
         one: Támogatás
         other: Szavazások
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Típus
     components:
       proposals:
         actions:
