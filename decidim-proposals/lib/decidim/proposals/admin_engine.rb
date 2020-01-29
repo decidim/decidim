@@ -18,7 +18,7 @@ module Decidim
             resource :proposals_split, only: [:create]
           end
           resources :proposal_answers, only: [:edit, :update]
-          resources :proposal_notes, only: [:index, :create]
+          resources :proposal_notes, only: [:create]
         end
 
         resources :participatory_texts, only: [:index] do
