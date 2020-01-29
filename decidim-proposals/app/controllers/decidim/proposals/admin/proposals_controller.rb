@@ -9,7 +9,11 @@ module Decidim
         include Decidim::Proposals::Admin::Filterable
 
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query, :form_presenter
+        helper_method :proposals, :query, :form_presenter, :proposal
+
+        def show
+          @notes_form = form(ProposalNoteForm).instance
+        end
 
         def new
           enforce_permission_to :create, :proposal

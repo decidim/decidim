@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= link_to "#{t ".proposals"} > ", proposals_path %>
+      <%= decidim_html_escape(present(proposal).title).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <strong><%= t ".link" %>:</strong>  <%= link_to resource_locator(proposal).url, resource_locator(proposal).path %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".authors" %>:</strong>
+        <ul>
+          <% coauthor_presenters_for(proposal).each do |presented_author| %>
+            <li>
+              <%= link_to_if(
+                presented_author.profile_path.present?,
+                presented_author.name,
+                presented_author.profile_path,
+                target: :blank
+              ) %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".body" %>:</strong>  <%= simple_format(present(proposal).body(strip_tags: true)) %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".created_at" %>:</strong> <%= l proposal.created_at, format: :decidim_short %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".votes_count" %>:</strong> <%= proposal.proposal_votes_count %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".endorsements_count" %>:</strong> <%= proposal.proposal_endorsements_count %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".amendments_count" %>:</strong> <%= proposal.amendments.count %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".comments_count" %>:</strong> <%= proposal.comments.count %>
+      <ul>
+        <li><strong><%= t ".comments_positive_count" %>:</strong> <%= proposal.comments.positive.count %></li>
+        <li><strong><%= t ".comments_neutral_count" %>:</strong> <%= proposal.comments.neutral.count %></li>
+        <li><strong><%= t ".comments_negative_count" %>:</strong> <%= proposal.comments.negative.count %></li>
+      </ul>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".endorsers" %>:</strong>
+        <ul>
+          <% endorsers_presenters_for(proposal).each do |presented_endorser| %>
+            <li>
+              <%= link_to_if(
+                presented_endorser.profile_path.present?,
+                presented_endorser.name,
+                presented_endorser.profile_path,
+                target: :blank
+              ) %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
+

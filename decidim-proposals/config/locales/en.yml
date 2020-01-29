@@ -414,6 +414,20 @@ en:
           new:
             create: Create
             title: Create proposal
+          show:
+            amendments_count: Amendments count
+            authors: Authors
+            body: Body
+            comments_count: Comments count
+            comments_negative_count: Against
+            comments_neutral_count: Neutral
+            comments_positive_count: Favor
+            created_at: Creation date
+            endorsements_count: Endorsements count
+            endorsers: Endorsers
+            link: Link
+            proposals: Proposals
+            votes_count: Supports count
           update_category:
             invalid: 'These proposals already had the %{category} category: %{proposals}.'
             select_a_category: Please select a category
