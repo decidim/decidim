@@ -64,9 +64,9 @@ edit_link(
             <div class="column">
               <article class="card card--process card--mini">
                 <div class="card__content">
-                  <h4 class="card__title">
+                  <span class="card__title">
                     <%= link_to translated_attribute(page.title), page_path(page), class: "card__link" %>
-                  </h4>
+                  </span>
                   <%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %>
                 </div>
                 <div class="card__footer">
