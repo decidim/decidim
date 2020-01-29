@@ -5,7 +5,7 @@ module Decidim
     module Admin
       class VerificationsController < Decidim::Admin::ApplicationController
         def destroy_before_date
-          # enforce_permission_to :destroy, :authorization
+          enforce_permission_to :destroy, :authorization
           return unless params.has_key?(:revocations_before_date)
 
           form = RevocationsBeforeDateForm.from_params(params[:revocations_before_date])
@@ -22,7 +22,7 @@ module Decidim
         end
 
         def destroy_all
-          # enforce_permission_to :destroy, :authorization
+          enforce_permission_to :destroy, :authorization
           RevokeAllAuthorizations.call(current_organization, current_user) do
             on(:ok) do
               flash[:notice] = t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu")
