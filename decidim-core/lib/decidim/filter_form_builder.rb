@@ -34,15 +34,15 @@ module Decidim
     end
 
     # Wrap the dependant check_boxes in a custom fieldset.
+    # checked parent checks its children
     def chained_check_boxes(attribute, collection, options = {})
       fieldset_wrapper options[:legend_title] do
         @template.render("decidim/shared/chained_check_boxes",
-          form: self,
-          attribute: attribute,
-          collection: collection,
-          chained_check_boxes_id: chained_check_boxes_id(attribute),
-          options: options
-        ).html_safe
+                         form: self,
+                         attribute: attribute,
+                         collection: collection,
+                         chained_check_boxes_id: chained_check_boxes_id(attribute),
+                         options: options).html_safe
       end
     end
 
@@ -81,7 +81,7 @@ module Decidim
     end
 
     def chained_check_boxes_id(attribute)
-      "#{attribute}-#{self.object_id}"
+      "#{attribute}-#{object_id}"
     end
   end
 end

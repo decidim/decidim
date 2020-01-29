@@ -17,15 +17,15 @@
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= scopes_picker_filter form, :scope_id %>
+    <%= form.chained_check_boxes :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t(".category_prompt") %>
+    <%= form.chained_check_boxes :category_id, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <% if component_settings.official_proposals_enabled %>
-    <%= form.collection_radio_buttons :origin, filter_origin_values, :first, :last, legend_title: t(".origin") %>
+    <%= form.chained_check_boxes :origin, filter_origin_values, legend_title: t(".origin") %>
   <% end %>
 
   <% if current_user %>

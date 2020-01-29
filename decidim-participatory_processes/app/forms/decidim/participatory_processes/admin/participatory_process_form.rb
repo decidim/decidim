@@ -72,7 +72,7 @@ module Decidim
         end
 
         def scope_type_max_depth
-          @scope_type ||= current_organization.scope_types.find_by(id: scope_type_max_depth_id)
+          @scope_type_max_depth ||= current_organization.scope_types.find_by(id: scope_type_max_depth_id)
         end
 
         def area

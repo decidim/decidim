@@ -160,38 +160,92 @@ module Decidim
         return true if minimum_votes_per_user_enabled?
       end
 
-      def filter_origin_values
-        base = if component_settings.official_proposals_enabled
-                 [
-                   ["all", t("decidim.proposals.application_helper.filter_origin_values.all")],
-                   ["official", t("decidim.proposals.application_helper.filter_origin_values.official")]
-                 ]
-               else
-                 [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
-               end
-
-        base += [["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")]]
-        base += [["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")]] if current_organization.user_groups_enabled?
-        base + [["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]]
-      end
-
-      Node = Struct.new(:values, :node) do
-        def values_are_nodes?
-          values.is_a?(Node)
+      # struct for nodes of chained checkboxes
+      TreeNode = Struct.new(:leaf, :node) do
+        def tree_node?
+          is_a?(TreeNode)
         end
       end
 
+      # struct for leafs of chained checkboxes
+      TreePoint = Struct.new(:value, :label) do
+        def tree_node?
+          is_a?(TreeNode)
+        end
+      end
+
+      def filter_origin_values
+        origin_values = []
+        origin_values << TreePoint.new("official", t("decidim.proposals.application_helper.filter_origin_values.official")) if component_settings.official_proposals_enabled
+        origin_values << TreePoint.new("citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens"))
+        origin_values << TreePoint.new("user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")) if current_organization.user_groups_enabled?
+        origin_values << TreePoint.new("meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings"))
+
+        TreeNode.new(
+          TreePoint.new("all", t("decidim.proposals.application_helper.filter_origin_values.all")),
+          origin_values
+        )
+      end
+
       def filter_state_values
-        Node.new(
-          [["all", t("decidim.proposals.application_helper.filter_state_values.all")]],
-          Node.new(
-            [
-              ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
-              ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
-              ["not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")],
-              ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")]
-            ]
+        TreeNode.new(
+          TreePoint.new("all", t("decidim.proposals.application_helper.filter_state_values.all")),
+          [
+            TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
+            TreePoint.new("not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
+            TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+          ]
+        )
+      end
+
+      def filter_categories_values
+        organization = current_participatory_space.organization
+
+        sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
+          [category.weight, translated_attribute(category.name, organization)]
+        end
+
+        categories_values = sorted_main_categories.flat_map do |category|
+          sorted_descendant_categories = category.descendants.sort_by do |subcategory|
+            [subcategory.weight, translated_attribute(subcategory.name, organization)]
+          end
+
+          subcategories = sorted_descendant_categories.flat_map do |subcategory|
+            TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, organization))
+          end
+
+          TreeNode.new(
+            TreePoint.new(category.id.to_s, translated_attribute(category.name, organization)),
+            subcategories
           )
+        end
+
+        TreeNode.new(
+          TreePoint.new("all", t("decidim.proposals.application_helper.filter_category_values.all")),
+          categories_values
+        )
+      end
+
+      def filter_scopes_values
+        organization = current_participatory_space.organization
+
+        main_scopes = current_participatory_space.scopes.top_level
+
+        scopes_values = main_scopes.flat_map do |scope|
+          subscopes = scope.descendants.flat_map do |subscope|
+            TreePoint.new(subscope.id.to_s, translated_attribute(subscope.name, organization))
+          end
+
+          TreeNode.new(
+            TreePoint.new(scope.id.to_s, translated_attribute(scope.name, organization)),
+            subscopes
+          )
+        end
+
+        TreeNode.new(
+          TreePoint.new("all", t("decidim.proposals.application_helper.filter_category_values.all")),
+          scopes_values
         )
       end
 

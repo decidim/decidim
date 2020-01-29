@@ -472,6 +472,8 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       application_helper:
+        filter_category_values:
+          all: All
         filter_origin_values:
           all: All
           citizens: Citizens

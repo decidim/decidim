@@ -76,6 +76,10 @@ $filters-padding-y: 1rem;
   label {
     line-height: 1.2;
     margin-bottom: 0.4rem;
+
+    &[data-global-checkbox]{
+      font-weight: 600;
+    }
   }
 
   .button {

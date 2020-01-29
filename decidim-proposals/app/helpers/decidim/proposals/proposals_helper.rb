@@ -43,7 +43,7 @@ module Decidim
           multiple: true,
           legend_title: I18n.t("decidim.scopes.scopes"),
           label: false,
-          checkboxes_on_top: checkboxes_on_top,
+          checkboxes_on_top: checkboxes_on_top
         }
 
         form.scopes_picker name, options do |scope|
@@ -55,7 +55,7 @@ module Decidim
               global_value: "global",
               max_depth: try(:current_participatory_space)&.scope_type_max_depth
             ),
-            text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt")),
+            text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt"))
           }
         end
       end

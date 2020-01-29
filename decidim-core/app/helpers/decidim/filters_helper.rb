@@ -19,30 +19,24 @@ module Decidim
       end
     end
 
-    def chained_check_boxes_global_options(label, chained_check_boxes_id)
-      {
-        label: label,
-        name: nil,
-        "data-sub-checkboxes": chained_check_boxes_id,
-        include_hidden: false,
-        label_options: {
-          "data-global-checkbox": "root"
-        }
-      }
-    end
-
-    def chained_check_boxes_subfilter_options(value, label, checks)
-      options = {
+    # This method returns a hash with the options for the checkbox and its label
+    # used in filters that uses chained checkboxes
+    def chained_check_box_options(value, label, **options)
+      checkbox_options = {
         value: value,
         label: label,
         multiple: true,
         include_hidden: false,
-        label_options: {
-          "data-children-checkbox": "children",
-        }
+        label_options: {}
       }
+      options.merge!(checkbox_options)
 
-      options[:checked] = "checked" if checks.include?(value.first)
+      if value == "all"
+        options[:label_options].merge!("data-global-checkbox": "")
+      else
+        options[:label_options].merge!("data-children-checkbox": "")
+      end
+
       options
     end
 

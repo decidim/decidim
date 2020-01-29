@@ -24,31 +24,16 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
-        case origin
-        when "official"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        when "citizens"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        when "user_group"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-            .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
-        when "meeting"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
-        else # Assume 'all'
-          query
-        end
+        official = origin.member?("official") ? query.from_official : nil
+        citizens = origin.member?("citizens") ? query.from_citizens : nil
+        user_group = origin.member?("user_group") ? query.from_user_group : nil
+        meeting = origin.member?("meeting") ? query.from_meeting : nil
+
+        query
+          .where(id: official)
+          .or(query.where(id: citizens))
+          .or(query.where(id: user_group))
+          .or(query.where(id: meeting))
       end
 
       # Handle the activity filter
@@ -71,14 +56,20 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        case state
-        when "withdrawn"
+        if state.member? "withdrawn"
           query.withdrawn
-        else # Assume 'not_withdrawn'
-          state + [nil] if state.member? "not_answered"
-          query.except_withdrawn.where(state: state)
+        else
+          accepted = state.member?("accepted") ? query.accepted : nil
+          rejected = state.member?("rejected") ? query.rejected : nil
+          evaluating = state.member?("evaluating") ? query.evaluating : nil
+          not_answered = state.member?("not_answered") ? query.not_answered : nil
+
+          query
+            .where(id: accepted)
+            .or(query.where(id: rejected))
+            .or(query.where(id: evaluating))
+            .or(query.where(id: not_answered))
         end
-        query
       end
 
       # Handle the amendment type filter

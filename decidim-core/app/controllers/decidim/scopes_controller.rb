@@ -8,16 +8,14 @@ module Decidim
     def picker
       enforce_permission_to :pick, :scope
 
-      context = root ? { root: root.id, title: title, max_depth: max_depth} : { title: title, max_depth: max_depth }
+      context = root ? { root: root.id, title: title, max_depth: max_depth } : { title: title, max_depth: max_depth }
       required = params[:required] && params[:required] != "false"
 
       if current
         scopes = current.children unless scope_depth_limit?
         parent_scopes = current.part_of_scopes(root)
       else
-        unless scope_depth_limit?
-          scopes = root&.children || current_organization.scopes.top_level
-        end
+        scopes = root&.children || current_organization.scopes.top_level unless scope_depth_limit?
 
         parent_scopes = [root].compact
       end
@@ -52,7 +50,7 @@ module Decidim
     end
 
     def current
-      return unless params[:current].present?
+      return if params[:current].blank?
 
       @current ||= (root&.descendants || current_organization.scopes).find_by(id: params[:current])
     end
