@@ -6,14 +6,14 @@
         <h1 class="text-highlight hero-heading mb-none">
           <%= translated_attribute(current_participatory_space.title) %>
         </h1>
-        <h3 class="text-highlight">
+        <h2 class="text-highlight">
           <% if current_participatory_space.hashtag.present? %>
             <span class="process-header__hashtag card__link">
               <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}", target: "_blank" %>
             </span>
           <% end %>
           <%= translated_attribute(current_participatory_space.slogan) %>
-        </h3>
+        </h2>
       </div>
     </div>
     <div class="row">

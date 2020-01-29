@@ -1,8 +1,8 @@
 <% if upcoming_meetings.any? %>
   <div class="section row collapse upcoming_meetings">
-    <h4 class="section-heading">
+    <h3 class="section-heading">
       <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count) %></a>
-    </h4>
+    </h3>
     <div class="card card--list">
       <% upcoming_meetings.each do |meeting| %>
         <%= card_for meeting, size: :list_item %>
@@ -16,9 +16,9 @@
   </div>
 <% elsif past_meetings.any? %>
   <div class="section row collapse past_meetings">
-    <h4 class="section-heading">
+    <h3 class="section-heading">
       <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.past_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count) %></a>
-    </h4>
+    </h3>
     <div class="card card--list">
       <% past_meetings.each do |meeting| %>
         <%= card_for meeting, size: :list_item %>
