@@ -145,7 +145,7 @@ describe "Authorizations revocation flow", type: :system do
     end
   end
 
-  context "when clicking Revoke All authorizations option" do
+  context "when clicking revoke all authorizations option with admin user" do
     it "shows an informative message to the user with all authorizations revoked ok" do
       accept_prompt do
         click_link(t("decidim.admin.menu.authorization_revocation.button"))
@@ -155,10 +155,9 @@ describe "Authorizations revocation flow", type: :system do
     end
   end
 
-  context "when clicking Revoke Before Date authorizations option" do
+  context "when clicking revoke before date authorizations option with admin user" do
     it "shows an informative message to the user with before date authorizations revoked ok" do
       accept_prompt do
-        page.execute_script("$('#revocations_before_date_before_date_picker').val('#{prev_week}')")
         click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
