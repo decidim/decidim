@@ -1,4 +1,5 @@
 <% extra ||= false %>
+<% timestamp ||= false %>
 <% nick = true unless local_assigns.has_key?(:nick) %>
 <% tooltip = true unless local_assigns.has_key?(:tooltip) %>
 <% big ||= false %>
@@ -50,6 +51,11 @@
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
         <%= Faker::Number.between(1, 100) %> comentarios
       </a>
+    </div>
+  <% end %>
+  <% if timestamp %>
+    <div class="author-data__extra">
+      <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;12:54
     </div>
   <% end %>
 
