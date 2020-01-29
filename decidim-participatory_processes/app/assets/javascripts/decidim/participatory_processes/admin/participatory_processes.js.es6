@@ -8,7 +8,7 @@ $(() => {
       $participatoryProcessScopeEnabled.on("change", (event) => {
         const checked = event.target.checked;
         exports.theDataPicker.enabled($participatoryProcessScopeId, checked);
-        if(checked == true) {
+        if (checked === true) {
           $participatoryProcessScopeTypeId.removeAttr("disabled");
         } else {
           $participatoryProcessScopeTypeId.attr("disabled", true)

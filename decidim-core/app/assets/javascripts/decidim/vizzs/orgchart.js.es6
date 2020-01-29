@@ -534,7 +534,7 @@
             node.proportion = (max + min) / 2
             if (!node.x) {
 
-            // if node has parent, match entered node positions to it's parent
+              // if node has parent, match entered node positions to it's parent
               if (node.parent) {
                 node.x = node.parent.x
               } else {

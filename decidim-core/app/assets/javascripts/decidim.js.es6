@@ -35,7 +35,7 @@ window.Decidim = window.Decidim || {};
 
 $(() => {
   if (window.Decidim.DataPicker) {
-    window.theDataPicker = new window.Decidim.DataPicker($('.data-picker'));
+    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
   }
 
   $(document).foundation();
