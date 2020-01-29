@@ -88,6 +88,9 @@ hu:
         error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
         success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
+    admin:
+      actions:
+        cancel: Mégse
     admin_log:
       area:
         create: "%{user_name} létrehozta a(z) %{resource_name} területet"
@@ -1202,6 +1205,7 @@ hu:
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
       expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
+      invalid_time_zone: ez nem érvényes időzóna
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
@@ -1314,6 +1318,7 @@ hu:
       left: Törlések
       right: Kiegészítések
     dropdown:
+      choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
       option_split: Egymás mellet
       option_unified: Egyesített
