@@ -1,7 +1,7 @@
 <div class="card profile--sidebar">
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <div class="card__content">
-    <h5>
+    <h1>
       <div><strong><%= profile_user.name %></strong></div>
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
@@ -9,7 +9,7 @@
           <%= link_to_current_or_new_conversation_with(profile_holder) %>
         </span>
       <% end %>
-    </h5>
+    </h1>
     <div class="mb-s text-compact">
       <small><%= strip_tags(profile_user.about) %></small>
     </div>
@@ -34,26 +34,26 @@
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <h2 class="heading2"><strong><%= profile_user.followers_count %></strong></h2>
+            <span class="heading2"><strong><%= profile_user.followers_count %></strong></span>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_following_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.following") %>
-            <h2 class="heading2"><strong><%= profile_user.following_count %></strong></h2>
+            <span class="heading2"><strong><%= profile_user.following_count %></strong></span>
           <% end %>
         </div>
       <% else %>
         <div class="mr-s">
           <%= link_to profile_followers_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.followers") %>
-            <h1 class="heading1"><%= profile_user.followers_count %></h1>
+            <span class="heading1"><%= profile_user.followers_count %></span>
           <% end %>
         </div>
         <div class="ml-s">
           <%= link_to profile_members_path(nickname: profile_holder.nickname) do %>
             <%= t("decidim.profiles.show.members") %>
-            <h1 class="heading1"><%= profile_user.members_count %></h1>
+            <span class="heading1"><%= profile_user.members_count %></span>
           <% end %>
         </div>
       <% end %>

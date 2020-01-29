@@ -20,7 +20,7 @@ edit_link(
 
   <% if @topics.any? %>
     <div class="row">
-      <h3 class="section-heading"><%= t ".topics" %></h3>
+      <h2 class="section-heading"><%= t ".topics" %></h2>
       <div class="row collapse">
         <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-3 card-grid">
           <% @topics.each do |topic| %>
@@ -28,9 +28,9 @@ edit_link(
               <div class="column">
                 <article class="card card--process card--mini">
                   <div class="card__content">
-                    <h4 class="card__title">
+                    <h3 class="card__title">
                       <%= link_to translated_attribute(topic.title), page_path(topic.pages.first), class: "card__link" %>
-                    </h4>
+                    </h3>
                     <p><%= translated_attribute topic.description %></p>
                     <ul>
                       <% topic.pages.each do |page| %>

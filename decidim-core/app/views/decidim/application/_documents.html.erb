@@ -1,6 +1,6 @@
 <% if documents.any? %>
   <div class="section documents">
-    <h4 class="section-heading"><%= t(".related_documents") %></h4>
+    <h3 class="section-heading"><%= t(".related_documents") %></h3>
     <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
       <div class="card card--list">
         <%= render partial: "document", collection: documents_without_collection %>

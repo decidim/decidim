@@ -12,9 +12,9 @@
           <%= icon "proposals", class: "card--list__icon", remove_icon_class: true %>
 
           <%= link_to result, class: "card--list__text card__link card__link--block" do %>
-            <h5 class="card--list__heading">
+            <h3 class="card--list__heading">
               <%= translated_attribute result.title %>
-            </h5>
+            </h3>
 
             <span class="text-small"><%= heading_leaf_level_results(result.children.count) %></span>
           <% end %>
