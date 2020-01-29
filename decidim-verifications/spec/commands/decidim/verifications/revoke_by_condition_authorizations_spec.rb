@@ -5,8 +5,17 @@ require "spec_helper"
 module Decidim::Admin
   module Decidim::Verifications
     describe RevokeByConditionAuthorizations do
-      subject { described_class.new(organization, current_user, before_date, impersonated_only) }
+      subject { described_class.new(organization, current_user, form) }
 
+      let(:params) do
+        {
+          impersonated_only: impersonated_only,
+          before_date_picker: before_date
+        }
+      end
+      let(:form) do
+        Decidim::Verifications::Admin::RevocationsBeforeDateForm.from_params(params)
+      end
       let(:now) { Time.zone.now }
       let(:prev_week) { Time.zone.today.prev_week }
       let(:prev_month) { Time.zone.today.prev_month }

@@ -15,7 +15,7 @@
     </div>
     <br>
     <div class="revoke_before_date_box">
-      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_path, html: { class: "form" } ) do |form| %>
+      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_before_date_path, html: { class: "form" } ) do |form| %>
         <div class="card">
           <div class="card-section">
             <div class="row column">
@@ -25,10 +25,10 @@
               <%= form.date_field :before_date_picker, value: Date.today.prev_month.strftime("%d/%m/%Y"), autocomplete: "off" %>
               <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
             </div>
+            <div class="button--double">
+              <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") } %>
+            </div>
           </div>
-        </div>
-        <div class="button--double form-general-submit">
-          <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") } %>
         </div>
       <% end %>
     </div>

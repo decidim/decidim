@@ -21,24 +21,24 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation.
       def query
-        scope = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
+        query = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
 
         if impersonated_only == true
-          scope = scope
+          query = query
                   .left_outer_joins(:user)
                   .where(decidim_users: { decidim_organization_id: organization.id })
                   .where(decidim_users: { managed: true })
         end
 
-        scope = scope.where("#{Decidim::Authorization.table_name}.created_at < ?", date) unless date.nil?
+        query = query.where("#{Decidim::Authorization.table_name}.created_at < ?", date) unless date.nil?
 
         if granted == true
-          scope = scope.where.not(granted_at: nil)
+          query = query.where.not(granted_at: nil)
         elsif granted == false
-          scope = scope.where(granted_at: nil)
+          query = query.where(granted_at: nil)
         end
 
-        scope
+        query
       end
 
       private

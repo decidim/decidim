@@ -55,7 +55,7 @@ module Decidim::Admin
         end
       end
 
-      describe "With 4 organization's granted auths and 2 ungranted auths" do
+      describe "With 4 granted auths and 2 ungranted auths" do
         context "when destroy all granted auths" do
           it "doesn't destroy any ungranted auth" do
             expect do
@@ -67,12 +67,6 @@ module Decidim::Admin
             expect do
               subject.call
             end.to change(granted_authorizations, :count).from(4).to(0)
-          end
-
-          it "total auths are fewer than before" do
-            expect do
-              subject.call
-            end.to change(all_authorizations, :count).from(6).to(2)
           end
 
           it "broadcasts ok" do

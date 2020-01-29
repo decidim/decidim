@@ -3,17 +3,13 @@
 module Decidim
   module Verifications
     module Admin
-      class VerificationsController < ApplicationController
-        include NeedsOrganization
+      class VerificationsController < Decidim::Admin::ApplicationController
+        def destroy_before_date
+          # enforce_permission_to :destroy, :authorization
+          return unless params.has_key?(:revocations_before_date)
 
-        def destroy
-          return unless params.has_key?(:revocations_before_date) # If before_call config, call Before Date Revoke Authorizations Command
-
-          @form = RevocationsBeforeDateForm.from_params(params[:revocations_before_date])
-          return unless @form.valid?
-
-          # Revoke filtered authorizations
-          RevokeByConditionAuthorizations.call(current_organization, current_user, @form.before_date_picker.strftime("%d/%m/%Y"), @form.impersonated_only) do
+          form = RevocationsBeforeDateForm.from_params(params[:revocations_before_date])
+          RevokeByConditionAuthorizations.call(current_organization, current_user, form) do
             on(:ok) do
               flash[:notice] = t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu")
               redirect_to decidim_admin.authorization_workflows_url
@@ -26,7 +22,7 @@ module Decidim
         end
 
         def destroy_all
-          # If revoke all authorizations, call Revoke All Authorizations Command
+          # enforce_permission_to :destroy, :authorization
           RevokeAllAuthorizations.call(current_organization, current_user) do
             on(:ok) do
               flash[:notice] = t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu")

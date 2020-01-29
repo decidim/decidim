@@ -8,13 +8,11 @@ module Decidim
       #
       # organization - Organization object.
       # current_user - The current user.
-      # before_date - The filter date.
-      # impersonated_only - Boolean that defines granted or not (optional)
-      def initialize(organization, current_user, before_date, impersonated_only)
+      # form - A form object with the verification data to confirm it.
+      def initialize(organization, current_user, form)
         @organization = organization
         @current_user = current_user
-        @before_date = before_date
-        @impersonated_only = impersonated_only
+        @form = form
       end
 
       # Executes the command. Broadcasts these events:
@@ -24,16 +22,20 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) unless @form.valid?
+
+        # Date format
+        before_date = @form.before_date_picker.strftime("%d/%m/%Y")
         # Check before date
         if before_date.present?
 
           # Check if before_date, then filter it
-          authorizations_to_revoke = if impersonated_only == true
+          authorizations_to_revoke = if @form.impersonated_only == true
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
                                          organization: organization,
                                          date: before_date,
                                          granted: true,
-                                         impersonated_only: impersonated_only
+                                         impersonated_only: @form.impersonated_only
                                        )
                                      else
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
@@ -65,7 +67,7 @@ module Decidim
 
       private
 
-      attr_reader :organization, :current_user, :before_date, :impersonated_only
+      attr_reader :organization, :current_user, :form
     end
   end
 end

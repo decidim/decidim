@@ -7,7 +7,9 @@ module Decidim
         include TranslatableAttributes
 
         attribute :impersonated_only, Boolean
-        attribute :before_date_picker, Date
+        attribute :before_date_picker, Decidim::Attributes::LocalizedDate
+
+        validates :before_date_picker, presence: true
       end
     end
   end

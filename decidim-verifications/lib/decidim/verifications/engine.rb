@@ -22,7 +22,7 @@ module Decidim
 
         namespace :admin do
           # Revocations - Two options: 1) Revoke all (without params) 2) Revoke before date (when date params exist)
-          post "verifications", to: "verifications#destroy", as: "verifications/destroy"
+          post "verifications_before_date", to: "verifications#destroy_before_date", as: "verifications/destroy_before_date"
           delete "verifications_all", to: "verifications#destroy_all", as: "verifications/destroy_all"
         end
       end
