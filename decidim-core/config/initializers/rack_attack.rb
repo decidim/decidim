@@ -14,7 +14,7 @@ if Rails.env.production?
     &:ip
   )
 
-  Rack::Attack.blocklist("block all access to admin") do |request|
+  Rack::Attack.blocklist("block all access to system") do |request|
     # Requests are blocked if the return value is truthy
     request.path.start_with?("/system") unless Decidim.whitelist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?
   end
