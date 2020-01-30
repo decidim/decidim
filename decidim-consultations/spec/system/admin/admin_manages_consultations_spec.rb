@@ -11,6 +11,12 @@ describe "Admin manages consultations", type: :system do
     visit decidim_admin_consultations.consultations_path
   end
 
+  describe "listing consultations" do
+    let(:model_name) { consultation.class.model_name }
+
+    it_behaves_like "filtering collection by published/unpublished"
+  end
+
   describe "creating a consultation" do
     before do
       within ".layout-content" do
