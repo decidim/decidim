@@ -45,7 +45,7 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        this.$form.on("change", "input, select", this._onFormChange);
+        this.$form.on("change", "input, select", this._debounce(this._onFormChange, 250));
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
@@ -234,6 +234,30 @@
      */
     _getUID() {
       return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    }
+
+    /**
+     * Returns a function, that, as long as it continues to be invoked, will not
+     * be triggered. The function will be called after it stops being called for
+     * N milliseconds. If `immediate` is passed, trigger the function on the
+     * leading edge, instead of the trailing.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
+    _debounce(func, wait, immediate) {
+      let timeout;
+      return function() {
+        let context = this,
+            args = arguments;
+        let later = function() {
+          timeout = null;
+          if (!immediate) {func.apply(context, args);}
+        };
+        let callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) {func.apply(context, args);}
+      }
     }
   }
 
