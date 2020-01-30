@@ -66,7 +66,7 @@ references:
   format_test_coverage: &format_test_coverage
     run:
       name: Format CodeClimate test coverage
-      command: cat /app/coverage/.resultset.json && ./cc-test-reporter format-coverage coverage/.resultset.json -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json
+      command: ./cc-test-reporter format-coverage coverage/.resultset.json -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json
   persist_coverage_to_workspace: &persist_coverage_to_workspace
     persist_to_workspace:
       root: coverage
