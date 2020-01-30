@@ -74,6 +74,10 @@
   </div>
 </div>
 
-<% if allowed_to? :create, :proposal_note %>
+<% if allowed_to?(:create, :proposal_note) %>
   <%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>
+<% end %>
+
+<% if allowed_to?(:create, :proposal_answer) && !proposal.emendation? %>
+  <%= render "decidim/proposals/admin/proposal_answers/form" %>
 <% end %>

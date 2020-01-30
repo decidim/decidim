@@ -368,7 +368,7 @@ en:
           update:
             success: Participatory text successfully updated.
         proposal_answers:
-          edit:
+          form:
             accepted: Accepted
             answer_proposal: Answer
             evaluating: Evaluating

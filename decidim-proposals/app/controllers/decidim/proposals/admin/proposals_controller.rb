@@ -13,6 +13,7 @@ module Decidim
 
         def show
           @notes_form = form(ProposalNoteForm).instance
+          @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
 
         def new
