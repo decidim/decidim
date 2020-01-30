@@ -242,7 +242,7 @@ hu:
             - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
             - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
-          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
