@@ -26,7 +26,10 @@
   <div class="row" id="see-all-conferences">
     <div class="columns small-centered small-12
       smallmedium-8 medium-6 large-4">
-      <%= link_to t("see_all_conferences", scope: i18n_scope), decidim_conferences.conferences_path, class: "button expanded hollow button--sc home-section__cta" %>
+      <%= link_to t("see_all_conferences", scope: i18n_scope),
+                  decidim_conferences.conferences_path,
+                  class: "button expanded hollow button--sc home-section__cta",
+                  title: t("conferences_button_title", scope: i18n_scope) %>
     </div>
   </div>
 </section>

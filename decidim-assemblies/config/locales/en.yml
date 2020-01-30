@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -77,6 +78,22 @@ en:
         one: Assembly user role
         other: Assembly user roles
   decidim:
+    pages:
+      home:
+        sub_hero:
+          register_title: Sign up to create an account on the platform
+        hero:
+          participate_title: Participate to the platform's processes
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link to the Processes page displaying all the processes
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link to the Conferences page displaying all the conferences
     admin:
       actions:
         new_assembly: New assembly
@@ -309,6 +326,7 @@ en:
       pages:
         home:
           highlighted_assemblies:
+            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
         user_profile:
