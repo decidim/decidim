@@ -27,9 +27,21 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          scope_id: "",
-          category_id: ""
+          scope_id: default_filter_scope_params,
+          category_id: default_filter_category_params
         }
+      end
+
+      def default_filter_scope_params
+        return unless current_participatory_space.scopes.any?
+
+        current_participatory_space.scopes.map { |scope| scope.id.to_s }
+      end
+
+      def default_filter_category_params
+        return unless current_participatory_space.categories.any?
+
+        current_participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def context_params
