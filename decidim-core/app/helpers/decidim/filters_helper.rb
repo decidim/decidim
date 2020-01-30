@@ -27,14 +27,16 @@ module Decidim
         label: label,
         multiple: true,
         include_hidden: false,
-        label_options: {}
+        label_options: {
+          "data-children-checkbox": "",
+          value: value
+        }
       }
       options.merge!(checkbox_options)
 
       if value == "all"
         options[:label_options].merge!("data-global-checkbox": "")
-      else
-        options[:label_options].merge!("data-children-checkbox": "")
+        options[:label_options].delete(:"data-children-checkbox")
       end
 
       options

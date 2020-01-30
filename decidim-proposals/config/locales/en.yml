@@ -480,6 +480,8 @@ en:
           meetings: Meetings
           official: Official
           user_groups: Groups
+        filter_scope_values:
+          all: All
         filter_state_values:
           accepted: Accepted
           all: All

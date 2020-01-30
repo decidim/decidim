@@ -228,25 +228,31 @@ module Decidim
       end
 
       def filter_scopes_values
-        organization = current_participatory_space.organization
-
         main_scopes = current_participatory_space.scopes.top_level
 
         scopes_values = main_scopes.flat_map do |scope|
-          subscopes = scope.descendants.flat_map do |subscope|
-            TreePoint.new(subscope.id.to_s, translated_attribute(subscope.name, organization))
-          end
-
           TreeNode.new(
-            TreePoint.new(scope.id.to_s, translated_attribute(scope.name, organization)),
-            subscopes
+            TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_participatory_space.organization)),
+            scope_children_to_tree(scope)
           )
         end
 
         TreeNode.new(
-          TreePoint.new("all", t("decidim.proposals.application_helper.filter_category_values.all")),
+          TreePoint.new("all", t("decidim.proposals.application_helper.filter_scope_values.all")),
           scopes_values
         )
+      end
+
+      def scope_children_to_tree(scope)
+        return if scope.scope_type == current_participatory_space&.scope_type_max_depth
+        return unless scope.children.any?
+
+        scope.children.flat_map do |child|
+          TreeNode.new(
+            TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
+            scope_children_to_tree(child)
+          )
+        end
       end
 
       def filter_type_values

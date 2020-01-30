@@ -27,21 +27,21 @@
 
     <% if collection.node.present? %>
       <div id="<%= data_sub_checkboxes_id %>" class="filters__subfilters" <%= %{data-toggler=.hide} unless is_root_check_box %>>
-        <% collection.node.each do |point| %>
-          <% if point.tree_node? %>
+        <% collection.node.each do |item| %>
+          <% if item.tree_node? %>
             <%= render "decidim/shared/chained_check_boxes",
                         form: form,
                         attribute: attribute,
-                        collection: point,
-                        chained_check_boxes_id: "#{chained_check_boxes_id}-#{point.leaf.value}",
+                        collection: item,
+                        chained_check_boxes_id: "#{chained_check_boxes_id}-#{item.leaf.value}",
                         options: options %>
           <% else %>
             <%= form.check_box attribute,
                                 chained_check_box_options(
-                                  point.value,
-                                  point.label
+                                  item.value,
+                                  item.label
                                 ),
-                                point.value, nil %>
+                                item.value, nil %>
           <% end %>
         <% end %>
       </div>
