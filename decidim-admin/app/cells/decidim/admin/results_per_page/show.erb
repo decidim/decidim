@@ -1,0 +1,16 @@
+<span class="dropdown-menu-inverted_label"><%= t("decidim.admin.actions.per_page") %> :</span>
+<ul class="results-per-page__dropdown dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
+  <li class="is-dropdown-submenu-parent">
+    <a title="<%= %{#{per_page} #{t("decidim.admin.actions.per_page")}} %>">
+      <%= per_page %>
+    </a>
+
+    <ul class="menu">
+      <% per_page_range.each do |num_per_page| %>
+        <li>
+          <%= link_to num_per_page, path_for_num_per_page(num_per_page) %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
