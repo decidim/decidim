@@ -71,10 +71,12 @@ en:
         port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
+        rich_text_editor_in_public_views: Enable rich text editor for participants
         secondary_color: Secondary
         send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
+        time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
@@ -143,9 +145,24 @@ en:
         export: Export
         manage: Manage
         new: New %{name}
+        per_page: Per page
         permissions: Permissions
         reject: Reject
         verify: Verify
+      admin_terms_of_use:
+        accept:
+          error: There's been an error while accepting the admin terms of use.
+          success: Great! You've accepted the admin terms of use.
+        actions:
+          accept: I agree this admin terms
+          are_you_sure: Are you sure to refuse the admin terms?
+          refuse: Refuse the admin terms
+          title: Agree to the terms and conditions of use
+        required_review:
+          alert: 'Required: Review our admin terms of use'
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
+          cta: Review them now.
+        title: Admin Terms of Use
       area_types:
         create:
           error: There was a problem creating a new area type.
@@ -277,6 +294,31 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      filters:
+        category_id_eq:
+          label: Category
+        filter_label: Filter
+        officialized_at_null:
+          label: State
+          values:
+            'false': Officialized
+            'true': Not officialized
+        private_space_eq:
+          label: Private
+          values:
+            'false': Public
+            'true': Private
+        published_at_null:
+          label: Published
+          values:
+            'false': Published
+            'true': Unpublished
+        scope_id_eq:
+          label: Scope
+        search_label: Search
+        search_placeholder:
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          title_cont: Search %{collection} by title.
       help_sections:
         error: There was a problem updating the help sections
         form:
@@ -456,6 +498,7 @@ en:
           not_sent: Not sent
           participants: 'participants '
           segmented_to: 'Segmented to %{subject}: '
+          subscribed_count: 'Subscribed:'
           title: Newsletters
         new:
           save: Save
@@ -468,6 +511,7 @@ en:
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: None
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
           scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
@@ -514,18 +558,12 @@ en:
           actions: Actions
           badge: Badge
           created_at: Created At
-          filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
           name: Name
           nickname: Nickname
           not_officialized: Not officialized
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
           status: Status
           unofficialize: Unofficialize
         new:
@@ -540,6 +578,7 @@ en:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: Twitter
           url: Url

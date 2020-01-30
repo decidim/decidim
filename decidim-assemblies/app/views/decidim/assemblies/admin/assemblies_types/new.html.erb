@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, html: { class: "form new_assembly_type" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("assemblies_types.new.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("assemblies_types.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>

@@ -1,15 +1,17 @@
 <div id="assemblies-filter" class="inline-filters">
-  <label>
-    <span><%= help_text %></span>
-    <button id="button-text" data-toggle="inline-filter-sort"><%= current_filter_name %></button>
-    <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
-      <ul class="list-reset">
-        <% available_filters.each do |filter| %>
-          <%= link_to filter_link(filter), remote: true do %>
-            <li><%= filter_name(filter) %></li>
+  <% if available_filters.any? %>
+    <label>
+      <span><%= help_text %></span>
+      <button id="button-text" data-toggle="inline-filter-sort"><%= current_filter_name %></button>
+      <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+        <ul class="list-reset">
+          <% available_filters.each do |title, id| %>
+            <%= link_to filter_link(id), remote: true do %>
+              <li><%= title %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </label>
+        </ul>
+      </div>
+    </label>
+  <% end %>
 </div>

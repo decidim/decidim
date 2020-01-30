@@ -123,6 +123,7 @@ ignore_unused:
   - decidim.proposals.proposals.show.proposal_rejected_reason
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
+  - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*
@@ -199,6 +200,13 @@ ignore_unused:
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
+  - decidim.admin.filters.*
+  - decidim.admin_terms_of_use.default_body
+  - decidim.admin.admin_terms_of_use.required_review.alert
+  - layouts.decidim.widget.*
+  - layouts.decidim.assembly_widgets.*
+  - layouts.decidim.conference_widgets.*
+  - layouts.decidim.participatory_process_widgets.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
