@@ -606,7 +606,7 @@ hu:
           unearned_own: Még nincsenek követői.
         index:
           badge_title: "%{name} jelvény"
-          how: Hogyan lehet keresni?
+          how: Így lehet megszerezni
           page_description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz. Itt van a jelvények listája, és néhány módon, amiket kereshet.
           title: Kitűzők
         invitations:
