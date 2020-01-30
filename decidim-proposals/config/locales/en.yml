@@ -323,6 +323,7 @@ en:
         new: New proposal
         participatory_texts: Participatory texts
         private_notes: Private notes
+        show: Show proposal
         title: Actions
       admin:
         actions:
