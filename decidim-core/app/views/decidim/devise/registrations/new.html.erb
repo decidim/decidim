@@ -70,12 +70,13 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <legend><%= t(".newsletter_title") %></legend>
+
 
             <fieldset>
-              <div class="field">
-                <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
-              </div>
+              <legend><%= t(".newsletter_title") %></legend>
+                <div class="field">
+                  <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
+                </div>
             </fieldset>
           </div>
         </div>
