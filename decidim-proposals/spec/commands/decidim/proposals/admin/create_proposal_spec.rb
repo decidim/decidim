@@ -87,7 +87,7 @@ module Decidim
               it "sets the meeting as author" do
                 command.call
 
-                expect(Decidim::Proposals::Proposal.last.authors).to include(meetings.first)
+                expect(Decidim::Proposals::Proposal.last.authors).to include(meeting_as_author)
               end
 
               it "links the proposal and the meeting" do
@@ -95,7 +95,20 @@ module Decidim
                 proposal = Decidim::Proposals::Proposal.last
                 proposal_linked_meetings = proposal.linked_resources(:meeting, "proposals_from_meeting")
 
-                expect(proposal_linked_meetings).to include(meetings.first)
+                expect(proposal_linked_meetings).to include(meeting_as_author)
+              end
+
+              context "when the meeting is already linked to other proposals" do
+                let(:another_proposal) { create :proposal, component: component }
+
+                it "keeps the old proposals linked" do
+                  another_proposal.link_resources(meeting_as_author, "proposals_from_meeting")
+                  command.call
+                  proposal = Decidim::Proposals::Proposal.last
+                  linked_proposals = meeting_as_author.linked_resources(:proposal, "proposals_from_meeting")
+
+                  expect(linked_proposals).to eq([proposal, another_proposal])
+                end
               end
             end
 
