@@ -566,7 +566,7 @@ hu:
           status: Állapot
           unofficialize: Hivatalossá tétel visszavonása
         new:
-          badge: Hivatalos jelölés
+          badge: A hitelesítés jelvénye
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
       organization:
