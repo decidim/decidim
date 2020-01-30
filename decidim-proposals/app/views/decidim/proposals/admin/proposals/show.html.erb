@@ -74,4 +74,6 @@
   </div>
 </div>
 
-<%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>
+<% if allowed_to? :create, :proposal_note %>
+  <%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>
+<% end %>
