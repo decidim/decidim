@@ -321,6 +321,10 @@ FactoryBot.define do
       answered_at { Time.current }
     end
 
+    trait :not_answered do
+      state { nil }
+    end
+
     trait :draft do
       published_at { nil }
     end
@@ -357,7 +361,7 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+  factory :proposal_endorsement, class: "Decidim::Endorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
@@ -369,7 +373,7 @@ FactoryBot.define do
     state { Decidim::Amendment::STATES.sample }
   end
 
-  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+  factory :user_group_proposal_endorsement, class: "Decidim::Endorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
     user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }

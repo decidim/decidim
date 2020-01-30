@@ -11,6 +11,7 @@ module Decidim
         {
           title: title,
           body: body,
+          body_template: body_template,
           user_group_id: user_group.id
         }
       end
@@ -20,6 +21,7 @@ module Decidim
       let(:component) { create(:proposal_component, participatory_space: participatory_space) }
       let(:title) { "More sidewalks and less roads" }
       let(:body) { "Cities need more people, not more cars" }
+      let(:body_template) { nil }
       let(:author) { create(:user, organization: organization) }
       let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
 
@@ -57,6 +59,18 @@ module Decidim
         let(:body) { "A body longer than the permitted" }
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when there's a body template set" do
+        let(:body_template) { "This is the template" }
+
+        it { is_expected.to be_valid }
+
+        context "when the template and the body are the same" do
+          let(:body) { body_template }
+
+          it { is_expected.to be_invalid }
+        end
       end
     end
   end
