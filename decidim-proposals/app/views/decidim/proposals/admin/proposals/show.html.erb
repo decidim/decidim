@@ -40,7 +40,15 @@
     </div>
 
     <div class="row column">
+      <strong><%= t ".votes_ranking" %>:</strong> <%= i18n_votes_ranking_for(proposal) %>
+    </div>
+
+    <div class="row column">
       <strong><%= t ".endorsements_count" %>:</strong> <%= proposal.proposal_endorsements_count %>
+    </div>
+
+    <div class="row column">
+      <strong><%= t ".endorsements_ranking" %>:</strong> <%= i18n_endorsements_ranking_for(proposal) %>
     </div>
 
     <div class="row column">

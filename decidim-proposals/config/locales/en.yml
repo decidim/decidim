@@ -425,10 +425,13 @@ en:
             comments_positive_count: Favor
             created_at: Creation date
             endorsements_count: Endorsements count
+            endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
             link: Link
             proposals: Proposals
             votes_count: Supports count
+            ranking: "%{ranking} of %{total}"
+            votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{category} category: %{proposals}.'
             select_a_category: Please select a category

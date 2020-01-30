@@ -9,6 +9,7 @@ module Decidim
         include Decidim::Proposals::Admin::Filterable
 
         helper Proposals::ApplicationHelper
+        helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper_method :proposals, :query, :form_presenter, :proposal
 
         def show
