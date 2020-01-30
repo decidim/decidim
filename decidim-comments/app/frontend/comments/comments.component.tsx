@@ -50,9 +50,9 @@ export class Comments extends React.Component<CommentsProps> {
       <div className="columns large-9" id="comments">
         <section className={commentClasses}>
           <div className="row collapse order-by">
-            <h2 className="order-by__text section-heading">
+            <h3 className="order-by__text section-heading">
               {commentHeader}
-            </h2>
+            </h3>
             <CommentOrderSelector
               reorderComments={reorderComments}
               defaultOrderBy={orderBy}
