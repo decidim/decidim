@@ -64,7 +64,7 @@ module Decidim
       # data      - An optional Hash to add to the link.
       #
       # Returns nothing.
-      def link_participatory_spaces_resources(resources, link_name, data = {})
+      def link_participatory_space_resources(resources, link_name, data = {})
         transaction do
           participatory_space_resource_links_from.where(name: link_name).delete_all
           Array.wrap(resources).each do |resource|
@@ -77,6 +77,7 @@ module Decidim
           end
         end
       end
+      alias_method :link_participatory_spaces_resources, :link_participatory_space_resources
 
       # Public: This method will be used to represent this participatory space in other contexts, like cards
       # or search results.
