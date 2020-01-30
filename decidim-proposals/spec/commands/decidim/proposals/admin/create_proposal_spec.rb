@@ -89,6 +89,14 @@ module Decidim
 
                 expect(Decidim::Proposals::Proposal.last.authors).to include(meetings.first)
               end
+
+              it "links the proposal and the meeting" do
+                command.call
+                proposal = Decidim::Proposals::Proposal.last
+                proposal_linked_meetings = proposal.linked_resources(:meeting, "proposals_from_meeting")
+
+                expect(proposal_linked_meetings).to include(meetings.first)
+              end
             end
 
             context "when proposal is official" do
