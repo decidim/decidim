@@ -24,6 +24,8 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
+        return query if origin.member?("all")
+
         official = origin.member?("official") ? query.from_official : nil
         citizens = origin.member?("citizens") ? query.from_citizens : nil
         user_group = origin.member?("user_group") ? query.from_user_group : nil
@@ -59,6 +61,8 @@ module Decidim
         if state.member? "withdrawn"
           query.withdrawn
         else
+          return query.except_withdrawn if state.member?("all")
+
           accepted = state.member?("accepted") ? query.accepted : nil
           rejected = state.member?("rejected") ? query.rejected : nil
           evaluating = state.member?("evaluating") ? query.evaluating : nil
@@ -70,6 +74,18 @@ module Decidim
             .or(query.where(id: evaluating))
             .or(query.where(id: not_answered))
         end
+      end
+
+      def search_category_id
+        return query if category_id.member?("all")
+
+        super
+      end
+
+      def search_scope_id
+        return query if scope_id.member?("all")
+
+        super
       end
 
       # Handle the amendment type filter
