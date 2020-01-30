@@ -607,7 +607,7 @@ hu:
         index:
           badge_title: "%{name} jelvény"
           how: Így lehet megszerezni
-          page_description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz. Itt van a jelvények listája, és néhány módon, amiket kereshet.
+          page_description: A jelvények megmutatják, milyen tevékenységeket végzünk a platformon. Amint a résztvevők elkezdik felfedezni mi minden módon tudnak részt venni és kölcsönhatni a platformon, úgy különböző jelvényekhez juthatnak hozzá. Itt van a jelvények listája, és néhány módon, amellyel megszerezhetők.
           title: Kitűzők
         invitations:
           conditions:
