@@ -16,6 +16,7 @@ ca:
         created_by_other: Creat per una altre
         creation_date: Data de creació
         decidim_area_id: Àrea
+        decidim_assemblies_type_id: Tipus d'assemblea
         decidim_scope_id: Àmbit
         description: Descripció
         developer_group: Grup promotor
