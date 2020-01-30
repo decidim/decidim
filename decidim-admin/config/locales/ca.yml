@@ -290,6 +290,9 @@ ca:
           values:
             'false': Públic
             'true': Privat
+        scope_id_eq:
+          label: Àmbit
+        search_label: Cerca
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
