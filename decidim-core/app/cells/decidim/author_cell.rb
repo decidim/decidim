@@ -55,20 +55,13 @@ module Decidim
     end
 
     def creation_date?
-      return true if posts_controller?
-      return unless from_context
-      return unless proposals_controller? || collaborative_drafts_controller?
-      return unless show_action?
+      from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at)
 
       true
     end
 
     def creation_date
-      date_at = if proposals_controller?
-                  from_context.published_at
-                else
-                  from_context.created_at
-                end
+      date_at = from_context.try(:published_at) || from_context.try(:created_at)
 
       l date_at, format: :decidim_short
     end
