@@ -225,6 +225,8 @@ es:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
         delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
         publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
+        unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
+        update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} de la asamblea %{space_name}"
@@ -248,6 +250,9 @@ es:
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
+        assemblies_types:
+          form:
+            title: Título
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -366,6 +371,8 @@ es:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró la asamblea en la base de datos (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'El tipo de asamblea no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Asambleas
     metrics:
