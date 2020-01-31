@@ -22,8 +22,8 @@ ca:
             announcement: Avís
           step:
             allow_answers: Permetre respostes
-            allow_unregistered: Permet a usuaris no registrats contestar l'enquesta
-            allow_unregistered_help: Si s'activa, no caldrà identificar-se per a contestar l'enquesta. Això pot comportar que les dades siguin poc fiables i serà més vulnerable a atacs automatitzats. Utilitzeu-ho amb cura!
+            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
+            allow_unregistered_help: Si s'activa, no caldrà iniciar sessió per a contestar l'enquesta. Això pot comportar que les dades siguin poc fiables i serà més vulnerable a atacs automatitzats. Feu-ho servir amb cura!
             announcement: Avís
     events:
       surveys:
