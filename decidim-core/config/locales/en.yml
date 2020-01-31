@@ -1344,6 +1344,10 @@ en:
       option_unified: Unified
   views:
     pagination:
+      previous_title: Link to the previous page
+      first_title: Link to the first page
+      last_title: Link to the last page
+      next_title: Link to the next page
       first: "&laquo; First"
       last: Last &raquo;
       next: Next &rsaquo;
