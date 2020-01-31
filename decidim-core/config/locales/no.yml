@@ -136,6 +136,8 @@
         reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
         verify: "%{user_name} verifiserte gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
+    admin_terms_of_use:
+      default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     amendments:
       accepted:
         error: En feil oppstod under godkjenningen av endringen.
@@ -573,6 +575,8 @@
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
     group_members:
+      accept:
+        error: Det oppstod et problem med å godta denne bli med forespørselen
       actions:
         are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
