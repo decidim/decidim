@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This type represents a assembly.
+    # This type represents an AssembliesType.
     AssembliesTypeType = GraphQL::ObjectType.define do
       name "AssembliesType"
       description "An assemblies type"
