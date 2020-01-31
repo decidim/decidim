@@ -236,6 +236,7 @@ es:
           success: Categoría actualizada correctamente.
       component_permissions:
         update:
+          error: Hubo un problema al actualizar los permisos de este componente.
           success: Permisos actualizados con éxito.
       components:
         create:
