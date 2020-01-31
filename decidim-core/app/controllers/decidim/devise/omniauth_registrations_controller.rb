@@ -66,7 +66,7 @@ module Decidim
       end
 
       def action_missing(action_name)
-        return send(:create) if devise_mapping.omniauthable? && User.omniauth_providers.include?(action_name.to_sym)
+        return send(:create) if devise_mapping.omniauthable? && current_organization.enabled_omniauth_providers.keys.include?(action_name.to_sym)
 
         raise AbstractController::ActionNotFound, "The action '#{action_name}' could not be found for Decidim::Devise::OmniauthCallbacksController"
       end
