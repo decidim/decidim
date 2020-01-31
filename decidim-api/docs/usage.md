@@ -2,7 +2,7 @@
 
 [Decidim](https://github.com/decidim/decidim) comes with an API that follows the [GraphQL](https://graphql.org/) specification. It has a comprehensive coverage of all the public content that can be found on the website.
 
-Currently, it is read-only (except for posting comments) and does not.
+Currently, it is read-only (except for posting comments) but intends to cover anything that is published on the regular website.
 
 Typically (although some particular installations may change that) you will find 3 relevant folders:
 
@@ -48,7 +48,7 @@ Response (formatted) should look something like this:
 
 The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.
 
-From now on, we will skip the "query" keyword for purposes of readability. You can skip it too if using GraphiQL but include it if querying directly (using CURL for instance).
+From now on, we will skip the "query" keyword for the purpose of readability. You can skip it too if you are using GraphiQL, if you are querying directly (by using CURL for instance) you will need to include it.
 
 ### Usage limits
 
@@ -104,10 +104,10 @@ Response should look like:
 
 In the former query, each keyword represents a type, the words `publishedSince`, `publishedAt`, `slug`, `locale` are scalars, all of them Strings.
 
-The other however, are objects representing certain entities:
+The other keywords however, are objects representing certain entities:
 
 - `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
-- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of the is the `publishedSince` property with the initial date from which to list entries.
+- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of them is the `publishedSince` property with the initial date from which to list entries.
 - `order ` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
 - `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
 
@@ -119,14 +119,14 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > The types used to filter participatory spaces are: [ParticipatoryProcessFilter](#ParticipatoryProcessFilter), [AssemblyFilter](#AssemblyFilter), [ConsultationFilter](#ConsultationFilter) and so on.
 >
-> Other collections (or connections) have their own filters (ie [ComponentFilter](#ComponentFilter)).
+> Other collections (or connections) may have their own filters (i.e. [ComponentFilter](#ComponentFilter)).
 >
-> Each filter has it own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:
+> Each filter has its own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:
 >
-> Let's say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to unique language?
+> Let's say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?
 >
 > In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
-> If no language is specified, the default configured will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
+> If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
 >
 > Example (this is not a real Decidim query):
 >
@@ -138,7 +138,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > The same applies to sorting ([ParticipatoryProcessSort](#ParticipatoryProcessSort), [AssemblySort](#AssemblySort), etc.)
 >
-> In this case, the content of the field (*title* in this case) only allows 2 values: *ASC* and *DESC*.
+> In this case, the content of the field (*title*) only allows 2 values: *ASC* and *DESC*.
 >
 > Example of ordering alphabetically by the title content in French language:
 >
@@ -154,7 +154,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 
 Decidim has 2 main types of objects through which content is provided. These are Participatory Spaces and Components.
 
-A participatory space is the first level, currently there are 5 officially supported: *Participatory Processes*, *Assemblies*, *Consultations*, *Conferences* and *Initiatives*. For each participatory process there will correspond collection type and "single item" type.
+A participatory space is the first level, currently there are 5 officially supported: *Participatory Processes*, *Assemblies*, *Consultations*, *Conferences* and *Initiatives*. For each participatory process there will correspond a collection type and a "single item" type.
 
 The previous example uses the collection type for participatory processes. You can try `assemblies`, `conferences`, `consultations` or `initiatives` for the others. Note that each collection can implement their own filter and order types with different properties.
 
@@ -162,7 +162,7 @@ As an example for a single item query, you can run:
 
 ```
 {
-  participatoryProcess(slug:"consectetur-at") {
+  participatoryProcess(slug: "consectetur-at") {
     slug
     title {
       translation(locale: "en")
@@ -188,11 +188,11 @@ And the response will be:
 
 #### What's different?
 
-First, note that we are querying, in singular, the type `participatoryProcess`, with a different parameter, `slug`\*, this time a String. We can use the `id` instead if we know it.
+First, note that we are querying, in singular, the type `participatoryProcess`, with a different parameter, `slug`\*, (a String). We can use the `id` instead if we know it.
 
 Second, the response is not an Array, it is just the object we requested. We can expect to return `null` if the object is not found.
 
-> \* The `slug` is a convenient way to find a participatory space as is (usually) in the url.
+> \* The `slug` is a convenient way to find a participatory space as is (usually) in the URL.
 >
 > For instance, consider this real case from Barcelona:
 >
@@ -202,7 +202,7 @@ Second, the response is not an Array, it is just the object we requested. We can
 
 #### Components
 
-Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates`, `Sortitions` and `Blog`. Plugins may add they own components.
+Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates`, `Sortitions` and `Blog`. Plugins may add their own components.
 
 If you know the `id`\* of a specific component you can obtain it by querying it directly:
 
@@ -244,7 +244,7 @@ Response:
 
 The process is analogue as what has been explained in the case of searching for one specific participatory process.
 
-> \*Note that the `id` of a component is present also in the url after the letter "f":
+> \*Note that the `id` of a component is present also in the URL after the letter "f":
 >
 > https://www.decidim.barcelona/processes/patrimonigracia/f/3257/
 >
@@ -252,7 +252,7 @@ The process is analogue as what has been explained in the case of searching for 
 
 #### What about component's collections?
 
-Glad you asked, components collections cannot be retrieved directly, the are available *in the context* of a participatory space.
+Glad you asked, component's collections cannot be retrieved directly, the are available *in the context* of a participatory space.
 
 For instance, we can query all the components in an particular Assembly as follows:
 
@@ -315,7 +315,7 @@ We can also apply some filters by using the [ComponentFilter](#ComponentFilter) 
 
 ```
 {
-  assembly(id: 3) {
+  assembly(id: 2) {
     components(filter: {withGeolocationEnabled: true}) {
       id
       name {
@@ -335,7 +335,7 @@ The response:
     "assembly": {
       "components": [
         {
-          "id": "38",
+          "id": "39",
           "name": {
             "translation": "Meetings"
           },
@@ -347,7 +347,7 @@ The response:
 }
 ```
 
-Note that, in this case, there's only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.
+Note that, in this case, there is only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.
 
 ### Polymorphism and connections
 
@@ -355,9 +355,9 @@ Many relationships between tables in Decidim are polymorphic, this means that th
 
 For instance, components in a participatory space are polymorphic, while the concept of component is generic and all of them share properties like *published date*, *name* or *weight*, they differ in the rest. *Proposals* have the *status* field while *Meetings* have an *agenda*.
 
-Other example are cases of linked resources, these are properties that may link objects of different nature between components or participatory spaces.
+Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.
 
-In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handle through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will be change accordingly.
+In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
 
 In the previous examples we've queried for this property:
 
@@ -380,7 +380,7 @@ So, if we want to access the rest of the properties in a polymorphic object, we 
 
 ```
 {
-  assembly(id: 3) {
+  assembly(id: 2) {
     components {
       id
       ... on Proposals {
@@ -493,7 +493,7 @@ The response:
 
 #### What's going on?
 
-Until the `... on Proposals` line, there's nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, we just add them at the query.
+Until the `... on Proposals` line, there's nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, so we can just add them at the query.
 
 After that, we want content specific from the *Proposals* type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches *Proposals*. We do that by wrapping the rest of the query in the `... on Proposals` clause.
 
