@@ -47,6 +47,7 @@ ca:
           fields:
             created_at: Data de creació
             name: Nom
+            omniauth_settings: Configuració de l'Omniauth
             smtp_settings: Configuració d'SMTP
           name: Organització
       organizations:
@@ -61,6 +62,19 @@ ca:
           reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
+        omniauth_settings:
+          enabled: Habilitat
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: ID del Client
+            client_secret: Client secret
+          icon: Icona
+          icon_path: Ruta de la icona
+          twitter:
+            api_key: Clau de l'API
+            api_secret: Clau secreta de l'API
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: L'organització s'ha actualitzat correctament.

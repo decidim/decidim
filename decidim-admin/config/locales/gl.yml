@@ -475,18 +475,12 @@ gl:
           actions: Accións
           badge: Insignia
           created_at: Creado en
-          filter:
-            all: Todo
-            not_officialized: Non oficializado
-            officialized: Oficializado
-          filter_by: Filtrar por
           name: Nome
           nickname: Alcume
           not_officialized: Non oficializado
           officialize: Organizar
           officialized: Oficializado
           reofficialize: Reofficializar
-          search: Busca
           status: Estado
           unofficialize: Non oficializar
         new:

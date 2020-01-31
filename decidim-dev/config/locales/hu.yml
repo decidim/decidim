@@ -18,8 +18,8 @@ hu:
         test:
           conditions:
             - Használjon teszt környezetet a decidim számára.
-          description: A jelvényt tesztek létrehozásával kapod meg.
-          description_another: '%{score} teszt létrehozva.'
+          description: A résztvevők ezt a jelvényt tesztek létrehozásával kapják meg.
+          description_another: Ez a résztvevő %{score} tesztet hozott létre.
           description_own: Létrehoztad a(z) %{score} teszteket.
           name: Tesztek
           next_level_in: Hozz létre még %{score} tesztet a következő szint eléréséhez!

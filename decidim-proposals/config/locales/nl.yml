@@ -3,9 +3,9 @@ nl:
     attributes:
       collaborative_draft:
         address: Adres
-        body: Lichaam
+        body: Tekstgedeelte
         category_id: Categorie
-        decidim_scope_id: strekking
+        decidim_scope_id: Scope
         has_address: Heeft adres
         state: Staat
         title: Titel
@@ -17,6 +17,7 @@ nl:
         automatic_hashtags: Hashtags worden automatisch toegevoegd
         body: Body
         category_id: Categorie
+        decidim_scope_id: Scope
         has_address: Heeft adres
         state: Status
         suggested_hashtags: Voorgestelde hashtags
@@ -29,27 +30,28 @@ nl:
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
       proposals_import:
         import_proposals: Voorstellen importeren
-        keep_authors: Houd originele auteurs
+        keep_authors: Bewaar originele auteurs
     errors:
       models:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
+              invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
+              cant_be_equal_to_template: mag niet gelijk zijn aan het template
               identical: EN titel kan niet identiek zijn
             title:
-              identical: EN lichaam kan niet identiek zijn
+              identical: EN tekstgedeelte kan niet identiek zijn
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
-      decidim/proposals/evaluating_proposal_event: Voorstel wordt beoordeeld
+      decidim/proposals/evaluating_proposal_event: Dit voorstel wordt geëvalueerd
       decidim/proposals/proposal_endorsed_event: Voorstel goedgekeurd
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
@@ -65,12 +67,12 @@ nl:
         other: voorstellen
       decidim/proposals/proposal_endorsement:
         one: bekrachtiging
-        other: Endorsements
+        other: Ondersteuningen
       decidim/proposals/proposal_note:
         one: Notitie
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Stemmen
+        one: Stem
         other: stemmen
   decidim:
     components:
@@ -108,7 +110,7 @@ nl:
             proposal_wizard_step_4_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
             threshold_per_proposal: Limiet per voorstel
-            vote_limit: Limiet van het aantal stemmen per gebruiker
+            vote_limit: Beperk het aantal stemmen per gebruiker
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
@@ -128,57 +130,57 @@ nl:
             suggested_hashtags: Hashtags stelde gebruikers voor nieuwe voorstellen voor
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen ingeschakeld
-            votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
+            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} is geaccepteerd om toegang te krijgen als bijdrager voor de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke conceptversie.'
-          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} is aanvaard om toegang te krijgen als bijdrager voor de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.'
+          email_outro: U ontvangt deze melding omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking toegang te krijgen.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong> aanvaard om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} is afgewezen om toegang te krijgen als een bijdrager van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.'
+          email_intro: '%{requester_name} is afgewezen om toegang te krijgen als een bijdrager van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke ontwerp.'
           email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} is afgewezen om toegang te krijgen als bijdrager van de %{resource_title} gezamenlijke conceptversie."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.
+          email_subject: "%{requester_name} is afgewezen om toegang te krijgen als bijdrager van de %{resource_title} gezamenlijk ontwerp."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} gevraagde toegang als een bijdrager. U kunt <strong>verzoek</strong> van de <a href="%{resource_path}">%{resource_title}</a> pagina met samenwerkingsontwerp accepteren of weigeren.'
-          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} gevraagde toegang om bij te dragen aan %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking. Gelieve <strong>accepteren of het verzoek af te wijzen</strong>.
+          email_intro: '%{requester_name} verzocht toegang als een bijdrager. U kunt <strong>verzoek</strong> van de <a href="%{resource_path}">%{resource_title}</a> pagina met gezamenlijk ontwerp accepteren of weigeren.'
+          email_outro: U heeft deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} vroeg om toegang om bij te dragen aan %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp. Gelieve <strong>accepteren of het verzoek af te wijzen</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: U bent geaccepteerd om toegang te krijgen als bijdrager voor de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: U hebt deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: U bent geaccepteerd om toegang te krijgen als bijdrager voor het gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: U heeft deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a> te worden.
           email_subject: Je bent geaccepteerd als een bijdrager van %{resource_title}.
-          notification_title: U bent <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking toegang te krijgen.
+          notification_title: U bent <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_requester_rejected:
-          email_intro: U bent afgewezen om toegang te krijgen als bijdrager voor de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: U hebt deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: U bent afgewezen om toegang te krijgen als bijdrager voor de gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: U heeft deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a> te worden.
           email_subject: Je bent afgewezen als een bijdrager van %{resource_title}.
-          notification_title: U bent <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke trekking.
+          notification_title: U bent <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke ontwerp.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> de gezamenlijke trekking <a href="%{resource_path}">%{resource_title}</a> ingetrokken.
-          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} de %{resource_title} gezamenlijke trekkingen ingetrokken."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>teruggetrokken</strong> de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke inzinking.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft het gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a> ingetrokken.
+          email_outro: U heeft deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} de %{resource_title} gezamenlijk ontwerp ingetrokken."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>teruggetrokken</strong> de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         creation_enabled:
           email_intro: 'Je kan nu nieuwe voorstellen maken in %{participatory_space_title}! Neem deel via deze link:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: Voorstellen nu beschikbaar in %{participatory_space_title}
           notification_title: U kunt nu <a href="%{resource_path}">nieuwe voorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Je kan voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
+          email_intro: 'U kunt voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Je kan nu de voorstellen in %{participatory_space_title} steunen
           notification_title: U kunt nu <a href="%{resource_path}">endorsievoorstellen</a> starten in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is geaccepteerd. U kunt het antwoord op deze pagina lezen:'
-            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            email_subject: Uw voorstel is geaccepteerd
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+            email_outro: U heeft deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
+            email_subject: Uw voorstel is aanvaard
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is aanvaard.
           follower:
-            email_intro: 'Het voorstel "%{resource_title}" is geaccepteerd. Je kan het antwoord op deze pagina lezen:'
+            email_intro: 'Het voorstel "%{resource_title}" is aanvaard. Je kan het antwoord op deze pagina lezen:'
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
@@ -206,11 +208,11 @@ nl:
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, wie u volgt, heeft een nieuw voorstel gepubliceerd met de naam "%{resource_title}". Bekijk het en draag bij:'
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
-          email_subject: Nieuw voorstel "%{resource_title}" met %{author_nickname}
+          email_subject: Nieuw voorstel "%{resource_title}" door %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
+          email_outro: U heeft deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Schakel de meldingen uit door op de voorgaande link te klikken.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
@@ -225,39 +227,39 @@ nl:
             email_subject: Een voorstel dat je volgt, is afgewezen
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
-          email_intro: 'Een beheerder heeft de categorie van je voorstel "%{resource_title}" bijgewerkt, bekijk het eens:'
+          email_intro: 'Een beheerder heeft de categorie van uw voorstel "%{resource_title} bijgewerkt, bekijk het op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
           email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
           notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
         voting_enabled:
-          email_intro: 'Je kan op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
+          email_intro: 'U kunt op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
-          email_subject: Je kan nu stemmen op de voorstellen van %{participatory_space_title}
-          notification_title: Je kan nu beginnen met <a href="%{resource_path}">stemmen op</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: U kunt nu stemmen op de voorstellen van %{participatory_space_title}
+          notification_title: U kunt nu beginnen met <a href="%{resource_path}">stemmen op</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
           conditions:
             - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
             - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
-          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze worden geaccepteerd.
-          description_another: Deze gebruiker heeft %{score} voorstellen geaccepteerd gekregen.
-          description_own: Je hebt %{score} voorstellen geaccepteerd.
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze aanvaard worden.
+          description_another: Deze gebruiker heeft %{score} aanvaarde voorstellen.
+          description_own: Je hebt %{score} aanvaarde voorstellen.
           name: Geaccepteerde voorstellen
           next_level_in: Ontvang nog %{score} voorstellen die worden geaccepteerd om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen voorstellen geaccepteerd.
-          unearned_own: Je hebt nog geen voorstellen geaccepteerd.
+          unearned_another: Deze gebruiker heeft nog geen aanvaarde voorstellen.
+          unearned_own: U heeft nog geen aanvaarde voorstellen.
         proposal_votes:
           conditions:
-            - Blader door en besteed wat tijd aan het lezen van de voorstellen van anderen
-            - Geef steun aan de voorstellen die je leuk vindt of interessant vindt
+            - Blader en besteed wat tijd aan het lezen van de voorstellen van anderen
+            - Steun de voorstellen die u leuk of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van andere mensen steunt.
           description_another: Deze gebruiker heeft %{score} voorstellen ondersteund.
           description_own: U hebt %{score} voorstellen ondersteund.
           name: Voorstel ondersteunt
           next_level_in: Geef %{score} extra voorstellen om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen ondersteuning gegeven aan eventuele voorstellen.
-          unearned_own: Je hebt nog geen steun gegeven aan nog geen voorstellen.
+          unearned_another: Deze gebruiker heeft nog geen steun gegeven aan eventuele voorstellen.
+          unearned_own: U heeft nog geen steun gegeven aan voorstellen.
         proposals:
           conditions:
             - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
@@ -267,23 +269,23 @@ nl:
           description_own: U hebt %{score} voorstellen gemaakt.
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen voorstellen gedaan.
+          unearned_another: Deze gebruiker heeft nog geen voorstellen gemaakt.
           unearned_own: U hebt nog geen voorstellen gemaakt.
     metrics:
       accepted_proposals:
-        description: Aantal door gebruikers geaccepteerde voorstellen
+        description: Aantal geaccepteerde voorstellen
         object: voorstellen
         title: Aanvaarde voorstellen
       endorsements:
-        description: Aantal aantekeningen gegenereerd in voorstellen
-        object: aantekeningen
-        title: Endorsements
+        description: Aantal goedkeuringen van voorstellen
+        object: goedkeuringen
+        title: Goedkeuringen
       proposals:
-        description: Aantal gegenereerde voorstellen
+        description: Aantal voorstellen
         object: voorstellen
         title: voorstellen
       votes:
-        description: Aantal stemmen dat is gegenereerd in voorstellen van gebruikers
+        description: Aantal stemmen voor voorstellen
         object: stemmen
         title: stemmen
     participatory_processes:
@@ -314,16 +316,16 @@ nl:
         participatory_texts:
           bulk-actions:
             are_you_sure: Weet je zeker dat je de hele ontwerptekst wilt verwijderen?
-            discard_all: Gooi alles weg
+            discard_all: Alles verwijderen
             import_doc: Document importeren
           discard:
             success: Alle participatieve tekstconcepten zijn genegeerd.
           import:
             invalid: Het formulier is ongeldig!
             invalid_file: Het bestand bevat een fout, probeer de inhoud van het bestand te bewerken en opnieuw te uploaden.
-            success: Gefeliciteerd, de volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+            success: Gefeliciteerd, de volgende secties zijn omgezet in voorstellen. U kunt ze nu bekijken en aanpassen voordat u publiceert.
           index:
-            info_1: De volgende secties zijn geparseerd uit het geïmporteerde document, ze zijn geconverteerd naar voorstellen. Nu kunt u alles bekijken en aanpassen wat u nodig heeft voordat u publiceert.
+            info_1: De volgende secties zijn omgezet in voorstellen. U kunt ze nu bekijken en aanpassen voordat u publiceert.
             publish_document: Publiceer document
             save_draft: Concept opslaan
             title: VOORBEELD PARTICIPATIEVE TEKST BEKIJKEN
@@ -334,7 +336,7 @@ nl:
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
             document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Gestuurde indelingen zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
-            upload_document: Upload document
+            upload_document: Document uploaden
           publish:
             invalid: Kan voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
@@ -368,7 +370,7 @@ nl:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
             success: Voorstel succesvol aangemaakt
           edit:
-            title: Update voorstel
+            title: Voorstel bijwerken
             update: Bijwerken
           form:
             add_images: Afbeeldingen toevoegen
@@ -381,12 +383,12 @@ nl:
             actions: acties
             cancel: Annuleer
             change_category: Categorie wijzigen
-            merge: Voeg in een nieuwe
-            merge_button: samensmelten
+            merge: Samenvoegen met een nieuwe
+            merge_button: Samensmelten
             select_component: Selecteer een component
             selected: Geselecteerd
             split: Voorstellen splitsen
-            split_button: spleet
+            split_button: Splits
             title: Voorstellen
             update: Bijwerken
           new:
@@ -403,13 +405,13 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Geïmporteerde voorstellen
-            no_components: Er zijn geen andere onderdelen van het voorstel in deze burgerinspraak om in te voeren.
+            no_components: Er zijn geen andere componenten van het voorstel in deze participatieruimte om de voorstellen in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
             invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
-            success: De voorstellen succesvol samengevoegd tot een nieuwe.
+            success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
             invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
@@ -422,11 +424,11 @@ nl:
             proposals: Voorstellen
       admin_log:
         proposal:
-          answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} spatie"
-          create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte gemaakt als officieel voorstel"
+          answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
+          create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte als officieel voorstel gemaakt"
           update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:
-          create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} spatie"
+          create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} ruimte"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
@@ -435,60 +437,60 @@ nl:
         withdrawn: Ingetrokken
       application_helper:
         filter_origin_values:
-          all: Allemaal
+          all: Alle
           citizens: Burgers
           meetings: vergaderingen
           official: Officieel
-          user_groups: Gebruikersgroepen
+          user_groups: Groepen
         filter_state_values:
           accepted: Aanvaard
-          all: Allemaal
+          all: Alle
           evaluating: Evalueren
           except_rejected: Alles behalve afgewezen
-          rejected: Verworpen
+          rejected: Afgewezen
         filter_type_values:
-          all: Allemaal
+          all: Alle
           amendments: wijzigingen
           proposals: voorstellen
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Er zijn fouten opgetreden bij het publiceren van de gezamenlijke conceptversie.
+            error: Er zijn fouten opgetreden bij het publiceren van de gezamenlijk ontwerp.
             irreversible_action_modal:
-              body: Nadat het concept als een voorstel is gepubliceerd, kan het concept niet meer worden bewerkt. Het voorstel accepteert geen nieuwe auteurs of bijdragen.
+              body: Nadat het concept als een voorstel is gepubliceerd, kan het concept niet meer worden bewerkt. Het voorstel aanvaardt geen nieuwe auteurs of bijdragen.
               cancel: Annuleer
               ok: Publiceer als een voorstel
               title: De volgende actie is onomkeerbaar
             success: Samenwerkingsconcept met succes gepubliceerd als een voorstel.
-          view_collaborative_draft: Collaborative Draft bekijken
+          view_collaborative_draft: Gezamenlijk ontwerp bekijken
           withdraw:
-            error: Er zijn fouten opgetreden bij het sluiten van de gezamenlijke conceptversie.
+            error: Er zijn fouten opgetreden bij het sluiten van het gezamenlijk ontwerp.
             irreversible_action_modal:
-              body: Nadat het concept is gesloten, kan het concept niet meer worden bewerkt. Het concept accepteert geen nieuwe auteurs of bijdragen.
+              body: Nadat het concept is gesloten, kan het niet meer worden bewerkt. Het concept aanvaardt geen nieuwe auteurs of bijdragen.
               cancel: Annuleer
-              ok: Trek de gezamenlijke trekking in
+              ok: Trek het gezamenlijk ontwerp in
               title: De volgende actie is onomkeerbaar
-            success: Gezamenlijk concept is succesvol ingetrokken.
+            success: Gezamenlijk ontwerp is succesvol ingetrokken.
         compare:
-          mine_is_different: Mijn samenwerkingsconcept is anders
-          no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
-          title: Vergelijkbare samenwerkende concepten
+          mine_is_different: Mijn gezamenlijk ontwerp is anders
+          no_similars_found: Goed gedaan! Geen vergelijkbare gezamenlijke ontwerpen gevonden
+          title: Vergelijkbare gezamenlijke ontwerpen
         complete:
-          send: Sturen
-          title: Voltooi uw gezamenlijke concept
+          send: Verzenden
+          title: Voltooi uw gezamenlijk ontwerp
         count:
           drafts_count:
-            one: "%{count} gezamenlijke trekking"
-            other: "%{count} gezamenlijke trekking"
+            one: "%{count} gezamenlijk ontwerp"
+            other: "%{count} gezamenlijke ontwerpen"
         create:
-          error: Er is een probleem opgetreden bij het maken van deze samenwerkingsconcepten
-          success: Samenwerkingsconcept met succes gemaakt.
+          error: Er is een probleem opgetreden bij het maken van dit gezamenlijk ontwerp
+          success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           select_a_category: Selecteer een categorie
-          send: Sturen
-          title: Bewerk samenwerkingsconcept
+          send: Verzenden
+          title: Bewerk gezamenlijk ontwerp
         filters:
           all: Alle
           amendment: wijzigingen
@@ -498,27 +500,27 @@ nl:
           published: Gepubliceerd
           related_to: Gerelateerd aan
           search: Zoeken
-          state: Staat
+          state: Status
           withdrawn: teruggetrokken
         filters_small_view:
-          close_modal: Modal sluiten
+          close_modal: Sluit venster
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
         new:
           send: Doorgaan met
-          title: Creëer uw gezamenlijke concept
+          title: Creëer uw gezamenlijk ontwerp
         new_collaborative_draft_button:
-          new_collaborative_draft: Nieuwe gezamenlijke trekking
+          new_collaborative_draft: Nieuw gezamenlijk ontwerp
         orders:
-          label: 'Schetsen bestellen op:'
-          most_contributed: De meeste hebben bijgedragen
+          label: 'Concepten sorteren op:'
+          most_contributed: Meest bijgedragen
           random: Willekeurig
           recent: recent
         requests:
           accepted_request:
-            error: Kan niet worden geaccepteerd als bijdrager, probeer het later opnieuw.
-            success: "@%{user} is succesvol geaccepteerd als bijdrager"
+            error: Kan niet worden aanvaard als bijdrager, probeer het later opnieuw.
+            success: "@%{user} is succesvol aanvaard als bijdrager"
           access_requested:
             error: Uw verzoek kan niet worden voltooid, probeer het later opnieuw.
             success: Uw verzoek om samen te werken is met succes verzonden
@@ -531,12 +533,12 @@ nl:
             success: "@%{user} is succesvol afgewezen als bijdrager"
         show:
           back: Terug
-          edit: Bewerk samenwerkingsconcept
+          edit: Bewerk gezamenlijk ontwerp
           final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
           hidden_authors_count:
             one: en nog %{count} persoon
-            other: en nog %{count} mensen
+            other: en nog %{count} personen
           info-message: Dit is een <strong>concept</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen om het voorstel vorm te geven door gebruik te maken van de commentaarsectie hieronder of het direct te verbeteren door toegang aan te vragen om het te bewerken. Zodra de auteurs u toegang verlenen, kunt u wijzigingen aanbrengen in dit concept.
           of_versions: "(van %{number})"
           publish: Publiceren
@@ -547,25 +549,25 @@ nl:
           see_other_versions: zie andere versies
           version: Versie %{number}
           version_history: bekijk versiegeschiedenis voor dit voorstel
-          withdraw: trek de trek weg
+          withdraw: het ontwerp terugtrekken
         states:
           open: Open
           published: Gepubliceerd
-          withdrawn: teruggetrokken
+          withdrawn: Ingetrokken
         update:
-          error: Er zijn fouten opgetreden bij het opslaan van de gezamenlijke conceptversie.
+          error: Er is een fout opgetreden bij het opslaan van de gezamenlijke conceptversie.
           success: Samenwerkingsconcept met succes bijgewerkt.
         wizard_aside:
           back: Terug
-          info: U maakt een <strong>samenwerkende versie</strong>.
+          info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_steps:
           see_steps: zie stappen
-          step_1: Maak uw gezamenlijke concept
-          step_2: Vergelijk met samenwerkende concepten
-          step_3: Voltooi uw gezamenlijke concept
+          step_1: Maak uw gezamenlijk ontwerp
+          step_2: Vergelijk met gezamenlijke ontwerpen
+          step_3: Voltooi uw gezamenlijke ontwerp
           step_of: Stap %{current_step_num} van %{total_steps}
       create:
-        error: Er zijn fouten geweest bij het opslaan van het voorstel.
+        error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
       destroy_draft:
         error: Er zijn fouten opgetreden bij het verwijderen van het concept.
@@ -576,13 +578,13 @@ nl:
         collaborative_draft:
           fields:
             authors: auteurs
-            comments: Comments
+            comments: Opmerkingen
             contributions: bijdragen
         proposal:
           fields:
             category: Categorie
             comments: Reacties
-            endorsements: Endorsements
+            endorsements: Goedkeuringen
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
@@ -598,7 +600,7 @@ nl:
         buttons:
           amend: Wijzigen
           comment: Commentaar
-          comments: Comments
+          comments: Commentaren
           endorse: Onderschrijven
       proposal_endorsements:
         create:
@@ -621,7 +623,7 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
           title: Vergelijkbare voorstellen
         complete:
-          send: Sturen
+          send: Verzenden
           title: Maak uw voorstel af
         count:
           proposals_count:
@@ -641,7 +643,7 @@ nl:
         endorsement_identities_cabin:
           endorse: Aanbevelen
         endorsements_card_row:
-          comments: Comments
+          comments: Commentaren
         filters:
           activity: Mijn activiteit
           all: Alle
@@ -652,7 +654,7 @@ nl:
           origin: Oorsprong
           related_to: Gerelateerd aan
           search: Zoeken
-          state: staat
+          state: Status
           voted: Gestemd
         filters_small_view:
           close_modal: Dialoogvenster sluiten
@@ -688,7 +690,7 @@ nl:
         preview:
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
-            one: Je kan dit voorstel bewerken in de eerste %{count} minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
+            one: Je kan dit voorstel bewerken in de eerste minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceer
           title: Publiceer je voorstel
@@ -704,7 +706,7 @@ nl:
             one: en nog %{count} persoon
             other: en nog %{count} mensen
           link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk concept. Bekijk de geschiedenis
-          link_to_collaborative_draft_text: Bekijk de samenwerkende trekking
+          link_to_collaborative_draft_text: Bekijk het gezamenlijke ontwerp
           link_to_promoted_emendation_help_text: Dit voorstel is een gepromoot amendement
           link_to_promoted_emendation_text: Bekijk het verworpen amendement.
           link_to_proposal_from_emendation_help_text: Dit is een verworpen amendement
@@ -737,12 +739,12 @@ nl:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           minimum_votes_per_user:
             description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
-            given_enough_votes: Je hebt voldoende steun gegeven.
-            supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
+            given_enough_votes: U heeft voldoende steun gegeven.
+            supports_remaining: U moet %{remaining_votes} meer voorstellen steunen om rekening te houden met uw ondersteuning.
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
           threshold_per_proposal:
-            description: Je voorstel moet minimum %{limit} stemmen ontvangen voordat het aanvaard wordt
+            description: Om te worden gevalideerd, moeten voorstellen %{limit} ondersteuningen bereiken
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
@@ -759,20 +761,20 @@ nl:
           step_4: Publiceer uw voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
       publish:
-        error: Er zijn fouten opgetreden bij het publiceren van het voorstel.
+        error: Er is een fout opgetreden bij het publiceren van het voorstel.
         success: Voorstel succesvol gepubliceerd.
       update:
-        error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
+        error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
       update_draft:
-        error: Er zijn fouten opgetreden bij het opslaan van je concept.
+        error: Er is een fout opgetreden bij het opslaan van het gezamenlijk concept.
         success: Concept succesvol bijgewerkt.
       versions:
         changes_at_title: Veranderingen bij "%{title}"
         index:
           title: versies
         stats:
-          back_to_collaborative_draft: Ga terug naar de gezamenlijke conceptversie
+          back_to_collaborative_draft: Ga terug naar de gezamenlijk ontwerp
           back_to_proposal: Ga terug naar het voorstel
           number_of_versions: versies
           show_all_versions: Toon alle versies

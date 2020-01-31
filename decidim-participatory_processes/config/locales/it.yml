@@ -78,7 +78,7 @@ it:
         duplicate: Duplica
         edit: Modifica
         filter:
-          all: Mostra tutti i processi
+          all_processes: Mostra tutti i processi
           process_groups: Gruppi di processi
         import_process: Importa
         new_process: Nuovo processo

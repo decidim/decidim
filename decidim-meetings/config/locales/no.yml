@@ -7,27 +7,85 @@
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
+        location: Plassering
+        location_hints: Plasseringstips
         title: Tittel
       minutes:
         audio_url: Audio url
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Varigheten av elementene overskrider møtets varighet med %{count} minutter
+              too_many_minutes_child: Varigheten av underelement overskrider dagsorden-elementet "%{parent_title}" foreldre varighet av %{count} minutter
   decidim:
     components:
       meetings:
         settings:
           global:
             announcement: Kunngjøring
+            comments_enabled: Kommentarer aktivert
+            enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
           step:
             announcement: Kunngjøring
+            comments_blocked: Kommentarer blokkert
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Møte ditt "%{resource_title}" ble avsluttet. Du kan lese konklusjonen fra siden:'
+            email_outro: Du har mottatt denne varslingen fordi du arrangerte "%{resource_title}" møtet.
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble lukket.
+          follower:
+            email_intro: 'Møtet "%{resource_title}" var lukket. Du kan lese konklusjonen fra siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble lukket.
+        meeting_created:
+          email_intro: Møtet "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Nytt møte lagt til %{participatory_space_title}
+          notification_title: Møtet <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Registreringen din for møtet <a href="%{resource_url}">%{resource_title}</a> er bekreftet. Registreringskoden din er %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: De tildelte plassene for "%{resource_title}" møtet er over %{percentage}%.
+          email_outro: Du har mottatt denne varslingen fordi du er administrator av møtets deltaker-område.
+          email_subject: De tildelte plassene for "%{resource_title}" møtet er over %{percentage}%
+          notification_title: De tildelte plassene for <a href="%{resource_path}">%{resource_title}</a> møtet er over %{percentage}%.
+        meeting_updated:
+          email_intro: 'Møtet "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble oppdatert.
+        registration_code_validated:
+          email_intro: Din registreringskode "%{registration_code}" for "%{resource_title}" møtet er blitt validert.
+          email_outro: Du har mottatt denne varslingen fordi registreringskoden din for "%{resource_title}" møtet er blitt validert.
+          email_subject: Din registreringskode "%{registration_code}" for "%{resource_title}" møtet er blitt validert
+          notification_title: Din registreringskode "%{registration_code}" for <a href="%{resource_path}">%{resource_title}</a> møtet er blitt validert.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" møtet har muliggjort registreringer. Du kan registrere deg selv på siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Møtet "%{resource_title}" har muliggjort registreringer.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet har muliggjort registreringer.
+        upcoming_meeting:
+          email_intro: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
+          email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+          email_subject: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet starter om mindre enn 48 timer.
     gamification:
       badges:
         attended_meetings:
+          description: Dette merket blir gitt når du deltar på flere møter ansikt til ansikt.
+          description_another: Denne deltakeren har deltatt på %{score} møter.
           name: Deltok møter
           next_level_in: Delta %{score} flere møter for å nå neste nivå!
+          unearned_another: Denne deltakeren har ikke deltatt noen møter ennå.
     meetings:
       actions:
         agenda: Dagsorden
         attachments: Vedlegg
+        close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
         edit: Rediger
         title: Handlinger
@@ -52,20 +110,37 @@
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
         invites:
+          create:
+            error: Det oppstod et problem med å invitere deltakeren til å delta på møtet.
+            success: Deltakeren ble invitert til å delta møtet.
           form:
             attendee_type: Deltaker type
+            invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
           index:
             filter:
               accepted: Aksepterte
               all: Alle
+            registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
+        meeting_closes:
+          edit:
+            close: Lukk
+            title: Lukk møte
         meetings:
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+            location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
+            location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
           service:
             remove: Fjern
             title: Tittel
           services:
             add_service: Legg til tjeneste
+        registrations:
+          form:
+            available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+          update:
+            invalid: Det oppstod et problem med å lagre registrerings innstillingene.
+            success: Innstillinger for møte registreringer er lagret.
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
@@ -77,9 +152,15 @@
           delete: "%{user_name} slettet %{resource_name} møte på %{space_name} rommet"
           export_registrations: "%{user_name} eksporterte registreringen av %{resource_name} møte på %{space_name} rommet"
           update: "%{user_name} oppdaterte %{resource_name} møte på %{space_name} rommet"
+          value_types:
+            organizer_presenter:
+              not_found: 'Arrangøren ble ikke funnet i databasen (ID: %{id})'
         minutes:
           create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
           update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
+      calendar_modal:
+        calendar_url: Kalender URL
+        close_window: Lukk vindu
       directory:
         meetings:
           index:
@@ -91,6 +172,13 @@
       meetings:
         filters:
           category: Kategori
+        filters_small_view:
+          close_modal: Lukk modal
+        meetings:
+          no_meetings_warning: Ingen møter samsvarer med søkekriteriene, eller det er ikke planlagt noe møte.
+          upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
+        registration_confirm:
+          cancel: Avbryt
         show:
           attendees: Antall deltakere
           organizations: Deltakende organisasjoner
@@ -107,5 +195,10 @@
             accepted: Aksepterte (%{at})
         meeting:
           fields:
+            closed: Lukket
             title: Tittel
       read_more: "(Les mer)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
+          details: Du finner møtets detaljer i vedlegget.
