@@ -176,18 +176,8 @@ fi:
             title: Yleistä tietoa
           index:
             actions_title: Toiminnot
-            filter:
-              accepted: Hyväksytyt
-              all: Kaikki
-              created: Luodut
-              discarded: Hylätyt
-              published: Julkaistut
-              rejected: Torjutut
-              validating: Teknisessä validoinnissa
-            filter_by: Suodata
             preview: Esikatsele
             print: Tulosta
-            search: Hae
           show:
             print: Tulosta
           update:

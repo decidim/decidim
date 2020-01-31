@@ -16,6 +16,7 @@ hu:
         created_by_other: Más által létrehozott
         creation_date: Létrehozás dátuma
         decidim_area_id: Terület
+        decidim_assemblies_type_id: Gyűlés típusa
         decidim_scope_id: Hatáskör
         description: Leírás
         developer_group: Kezdeményező csoport
@@ -78,6 +79,7 @@ hu:
     admin:
       actions:
         new_assembly: Új gyűlés
+        new_assembly_type: Új Gyűlés típus
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -99,6 +101,18 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
+      assemblies_types:
+        create:
+          error: Hiba történt az új gyűlés létrehozása során.
+          success: Gyűlés típus létrehozása sikeres.
+        destroy:
+          success: Gyűlés típus törlése sikeres.
+        new:
+          create: Létrehozás
+          title: Új Gyűlés típus
+        update:
+          error: Hiba történt a gyűlés frissítése során.
+          success: Gyűlés típus frissítése sikeres.
       assembly_copies:
         new:
           copy: Másolás
@@ -158,7 +172,12 @@ hu:
           info: Info
           moderations: Moderálás
           private_users: Privát felhasználók
+        assemblies_types: Gyűlés típusa
       models:
+        assemblies_types:
+          fields:
+            created_at: Létrehozva
+            title: Cím
         assembly:
           fields:
             created_at: 'Létrehozva:'
@@ -191,6 +210,7 @@ hu:
             moderator: Moderátor
       titles:
         assemblies: Gyűlések
+        assemblies_types: Gyűlés típusa
     admin_log:
       assembly:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
@@ -201,6 +221,12 @@ hu:
         create: "%{user_name} létrehozta a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
         delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésből"
         update: "%{user_name} frissítette a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+      assembly_type:
+        create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
+        delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlés típusból"
+        publish: "%{user_name} közzétette a(z) %{resource_name} gyűlés típust"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés típus közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} gyűlés típust"
       assembly_user_role:
         create: "%{user_name} meghívta a(z) %{resource_name} nevű tagot ide: %{space_name}"
         delete: "%{user_name} eltávolította a(z) %{resource_name} nevű felhasználót innen: %{space_name}"
@@ -224,6 +250,9 @@ hu:
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
+        assemblies_types:
+          form:
+            title: Cím
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
@@ -342,6 +371,8 @@ hu:
       value_types:
         assembly_presenter:
           not_found: 'A gyűlés nem található az adatbázisban (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'A gyűlés típus nem található az adatbázisban (ID: %{id})'
     menu:
       assemblies: Gyűlések
     metrics:

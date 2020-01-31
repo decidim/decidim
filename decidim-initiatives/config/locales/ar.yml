@@ -183,18 +183,8 @@ ar:
             title: معلومات عامة
           index:
             actions_title: عمل
-            filter:
-              accepted: وافقت
-              all: الكل
-              created: تمّ إنشاؤه
-              discarded: التخلص منها
-              published: نشرت
-              rejected: مرفوض
-              validating: المصادقة الفنية
-            filter_by: مصنف بواسطة
             preview: معاينة
             print: طباعة
-            search: بحث
           show:
             print: طباعة
           update:

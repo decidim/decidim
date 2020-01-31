@@ -4,10 +4,10 @@ ar:
       assembly:
         area_id: المنطقة
         assembly_type: نوع التجمع
-        assembly_type_other: نوع التجمع الآخر
+        assembly_type_other: نوع آخر مِن الجمعيات
         banner_image: صورة اللافتة
         closing_date: الموعد النهائي
-        closing_date_reason: إغلاق تاريخ السبب
+        closing_date_reason: سبب تاريخ الإغلاق
         composition: المكونات
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
@@ -27,11 +27,11 @@ ar:
         hero_image: الصورة الرئيسية
         included_at: المدرجة في
         instagram: انستجرام
-        internal_organisation: تنظيم داخلي
+        internal_organisation: التنظيم الداخلي
         is_transparent: شفافة
         local_area: منطقة التنظيم
         meta_scope: نطاق البيانات الوصفية
-        parent_id: التجمع الرئيسي
+        parent_id: الجمعية الرئيسية الأصلية
         participatory_processes_ids: العمليات التشاركية ذات الصلة
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
@@ -40,7 +40,7 @@ ar:
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
         scope_id: نطاق
-        scopes_enabled: تم تمكين النطاقات
+        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
@@ -153,10 +153,10 @@ ar:
           assembly_admins_title: مدراء الجمعية
         new:
           create: إنشاء
-          title: مشرف التجميع الجديد.
+          title: مشرف جديد على الجمعية.
         update:
-          error: حدثت مشكلة أثناء تحديث مسؤول لهذا التجميع.
-          success: تم تحديث المشرف بنجاح لهذا التجميع.
+          error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
+          success: تم تحديث المشرف على هذه الجمعية بنجاح.
       menu:
         assemblies: الجمعيات
         assemblies_submenu:
@@ -205,33 +205,33 @@ ar:
         assemblies: الجمعيات
     admin_log:
       assembly:
-        create: "%{user_name} خلق التجمع %{resource_name}"
-        publish: "%{user_name} نشرت %{resource_name} التجمع"
-        unpublish: "%{user_name} غير منشور التجمع %{resource_name}"
-        update: "%{user_name} تحديث التجمع %{resource_name}"
+        create: "%{user_name} أنشأ الجمعية %{resource_name}"
+        publish: "%{user_name} قام بنشر %{resource_name} الجمعية"
+        unpublish: "%{user_name} قام بإلغاء نشر الجمعية %{resource_name}"
+        update: "%{user_name} قام بتحديث الجمعية %{resource_name}"
       assembly_member:
-        create: "%{user_name} أنشأ العضو %{resource_name} في التجميع %{space_name}"
-        delete: "%{user_name} إزالة العضو %{resource_name} من التجميع %{space_name}"
-        update: "%{user_name} بتحديث العضو %{resource_name} في التجميع %{space_name}"
+        create: "%{user_name} أنشأ العضو %{resource_name} في الجمعية %{space_name}"
+        delete: "%{user_name} إزالة العضو %{resource_name} من الجمعية %{space_name}"
+        update: "%{user_name} بتحديث العضو %{resource_name} في الجمعية %{space_name}"
       assembly_user_role:
-        create: "%{user_name} دعا %{resource_name} إلى %{space_name} التجمع"
-        delete: "%{user_name} أزال المشارك %{resource_name} من التجميع %{space_name}"
-        update: "%{user_name} غير دور %{resource_name} في التجميع %{space_name}"
+        create: "%{user_name} دعا %{resource_name} إلى %{space_name} الجمعية"
+        delete: "%{user_name} أزال المشارك %{resource_name} من الجمعية %{space_name}"
+        update: "%{user_name} غير دور %{resource_name} في الجمعية %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             duration: المدة الزمنية
-            duration_help: إذا كانت مدة هذا التجميع محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
+            duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             filters: مرشحات
             images: الصور
-            included_at_help: حدد التاريخ الذي تمت فيه إضافة هذا التجميع إلى Decidim. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
+            included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى Decidim. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
             select_an_area: اختر منطقة
-            select_an_assembly_type: حدد نوع التجميع
-            select_parent_assembly: حدد التجميع الأصل
+            select_an_assembly_type: حدد نوع الجمعية
+            select_parent_assembly: حدد الجمعية الأصلية
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
@@ -286,7 +286,7 @@ ar:
       index:
         title: الجمعيات
       last_activity:
-        new_assembly: التجمع الجديد
+        new_assembly: جمعية جديدة
       pages:
         home:
           highlighted_assemblies:
@@ -297,7 +297,7 @@ ar:
             member_of: عضو في
       show:
         area: المنطقة
-        assembly_type: نوع التجمع
+        assembly_type: نوع الجمعية
         children: الجمعيات
         closing_date: الموعد النهائي
         composition: المكونات
@@ -307,14 +307,14 @@ ar:
         duration: المدة الزمنية
         included_at: المدرجة في
         indefinite_duration: غير محدد
-        internal_organisation: تنظيم داخلي
+        internal_organisation: التنظيم الداخلي
         is_transparent:
           'false': مبهمة
           'true': شفافة
         local_area: منطقة التنظيم
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
-        private_space: هذا هو التجمع الخاص
+        private_space: هذه جمعية خاصة
         purpose_of_action: الغرض من الإجراء
         read_less: أقرأ أقل
         read_more: اقرأ المزيد
@@ -357,7 +357,7 @@ ar:
       assemblies: الجمعيات
     metrics:
       assemblies:
-        description: عدد التجميعات التي تم إنشاؤها
+        description: عدد الجمعيات التي تم إنشاؤها
         object: المجالس
         title: الجمعيات
   errors:
