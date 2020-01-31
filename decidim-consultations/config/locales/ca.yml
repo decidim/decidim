@@ -184,10 +184,21 @@ ca:
       response_groups:
         create:
           error: S'ha produït un error en crear un nou grup de respostes.
+          success: Grup de respostes creat correctament.
+        destroy:
+          error: S'ha produït un error a l'eliminat el grup de respostes. Comprova que cap resposta depèn d'això.
+          success: Grup de respostes esborrat correctament.
         edit:
           update: Actualitza
         form:
           title: Informació general
+        help: Fes servir els grups per a organitzar les opcions múltiples en paquets.
+        new:
+          create: Crear
+          title: Nou grup de respostes
+        update:
+          error: Hi ha un problema actualitzant la resposta.
+          success: Resposta actualitzada directament.
       responses:
         create:
           error: Se ha producido un error al crear una nueva respuesta.
@@ -208,6 +219,7 @@ ca:
       titles:
         consultations: Consultes
         questions: Preguntes
+        response_groups: Grups de repsostes
         responses: Respostes
         results: Resultats
     consultations:

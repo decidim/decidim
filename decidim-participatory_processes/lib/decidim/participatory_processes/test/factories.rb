@@ -45,6 +45,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :private do
+      private_space { true }
+    end
+
     trait :with_steps do
       transient { current_step_ends { 1.month.from_now } }
 

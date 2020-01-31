@@ -78,7 +78,7 @@ hu:
         duplicate: Duplikálás
         edit: Szerkesztés
         filter:
-          all: Az összes folyamat megjelenítése
+          all_processes: Az összes folyamat megjelenítése
           process_groups: Folyamatcsoportok
         import_process: Importál
         new_process: Új folyamat

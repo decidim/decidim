@@ -47,6 +47,7 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             name: Név
+            omniauth_settings: Omniauth beállítások
             smtp_settings: SMTP beállítások
           name: Szervezet
       organizations:
@@ -61,6 +62,19 @@ hu:
           reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
           secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
+        omniauth_settings:
+          enabled: Engedélyezve
+          facebook:
+            app_id: Alkalmazás ID
+            app_secret: Alkalmazás titkos kulcs
+          google_oauth2:
+            client_id: Ügyfél ID
+            client_secret: Client Secret
+          icon: Ikon
+          icon_path: Ikon útja
+          twitter:
+            api_key: API-kulcs
+            api_secret: API Titkos
         update:
           error: Hiba történt a szervezet frissítése során.
           success: Szervezet sikeresen frissítve.

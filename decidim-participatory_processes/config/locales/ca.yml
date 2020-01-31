@@ -78,7 +78,7 @@ ca:
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostra tots els processos
+          all_processes: Mostra tots els processos
           process_groups: Grups de processos
         import_process: Importar
         new_process: Nou procés

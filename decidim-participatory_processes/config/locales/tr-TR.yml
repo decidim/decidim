@@ -72,7 +72,7 @@ tr:
         duplicate: Çift
         edit: Düzenle
         filter:
-          all: Tüm işlemleri göster
+          all_processes: Tüm işlemleri göster
           process_groups: İşlem Grupları
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
