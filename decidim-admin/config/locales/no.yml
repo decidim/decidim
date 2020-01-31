@@ -323,6 +323,9 @@
           created_at: Opprette På
           name: Navn
           status: Status
+      organization:
+        update:
+          error: Det oppstod et problem med å oppdatere denne organisasjon.
       organization_appearance:
         form:
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
