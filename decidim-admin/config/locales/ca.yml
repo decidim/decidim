@@ -577,6 +577,7 @@ ca:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunes àrees de text, els participants podran inserir algunes etiquetes HTML utilitzant el editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
           url: URL
