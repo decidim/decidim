@@ -158,7 +158,7 @@ es:
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
-          alert: 'Requerido: Revise nuestros Términos y Condiciones de Administración'
+          alert: 'Requerido: Revisa nuestros Términos y Condiciones de Administración'
           callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
