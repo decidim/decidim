@@ -13,7 +13,7 @@
 
     <div class="row column">
       <strong><%= t ".authors" %>:</strong>
-        <ul>
+        <ul id="proposal-authors-list">
           <% coauthor_presenters_for(proposal).each do |presented_author| %>
             <li>
               <%= link_to_if(
@@ -57,7 +57,7 @@
 
     <div class="row column">
       <strong><%= t ".comments_count" %>:</strong> <%= proposal.comments.count %>
-      <ul>
+      <ul id="proposal-comments-alignment-count">
         <li><strong><%= t ".comments_positive_count" %>:</strong> <%= proposal.comments.positive.count %></li>
         <li><strong><%= t ".comments_neutral_count" %>:</strong> <%= proposal.comments.neutral.count %></li>
         <li><strong><%= t ".comments_negative_count" %>:</strong> <%= proposal.comments.negative.count %></li>
@@ -66,7 +66,7 @@
 
     <div class="row column">
       <strong><%= t ".endorsers" %>:</strong>
-        <ul>
+        <ul id="proposal-endorsers-list">
           <% endorsers_presenters_for(proposal).each do |presented_endorser| %>
             <li>
               <%= link_to_if(
