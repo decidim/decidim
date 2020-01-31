@@ -16,7 +16,7 @@ nl:
   decidim:
     budgets:
       actions:
-        attachment_collections: folders
+        attachment_collections: Mappen
         attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
@@ -31,7 +31,7 @@ nl:
             name: Project
         projects:
           create:
-            invalid: Er is een probleem opgetreden met het creëren van dit project
+            invalid: Er is een probleem opgetreden bij het creëren van dit project
             success: Voorstel succesvol aangemaakt
           destroy:
             success: Project succesvol verwijderd
@@ -141,10 +141,10 @@ nl:
     orders:
       checkout:
         error: Er is een fout opgetreden tijdens het verwerken van uw stem
-        success: Uw stem is succesvol geaccepteerd
+        success: Uw stem is aanvaard
       destroy:
         error: Er is een fout opgetreden tijdens het annuleren van uw stem
-        success: Uw stem is succesvol geannuleerd
+        success: Uw stem is geannuleerd
     resource_links:
       included_proposals:
         project_proposal: 'Voorstellen opgenomen in dit project:'

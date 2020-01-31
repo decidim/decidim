@@ -446,18 +446,12 @@ uk:
           actions: Дії
           badge: Відзнака
           created_at: 'Створено:'
-          filter:
-            all: Усі
-            not_officialized: Не має службового статусу
-            officialized: Має службовий статус
-          filter_by: 'Відібрати за ознакою:'
           name: Ім'я
           nickname: Псевдонім
           not_officialized: Не має службового статусу
           officialize: Надати службовий статус
           officialized: Має службовий статус
           reofficialize: Знову надати службовий статус
-          search: Шукати
           status: Стан
           unofficialize: Скасувати службовий статус
         new:
