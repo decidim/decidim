@@ -4,10 +4,6 @@ module Decidim
   module Assemblies
     # This type represents a assembly.
     AssembliesTypeType = GraphQL::ObjectType.define do
-      interfaces [
-        # -> { Decidim::Core::ParticipatorySpaceInterface },
-      ]
-
       name "AssembliesType"
       description "An assemblies type"
 
