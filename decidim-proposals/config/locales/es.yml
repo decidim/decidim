@@ -113,8 +113,8 @@ es:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Apoyos mínimos por participante
-            new_proposal_body_template: Nueva plantilla de cuerpo de propuesta
-            new_proposal_body_template_help: Puede definir el texto pre rellenado que tendrán las nuevas propuestas
+            new_proposal_body_template: Plantilla para el texto de nueva propuesta
+            new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -697,12 +697,12 @@ es:
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
-          most_endorsed: Más avalados
-          most_followed: Más seguidos
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
-          with_more_authors: Con más autores
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice del documento
