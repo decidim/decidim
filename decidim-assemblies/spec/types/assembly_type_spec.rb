@@ -254,18 +254,22 @@ module Decidim
       end
 
       describe "assemblyType" do
-        let(:query) { "{ assemblyType }" }
+        let(:query) { "{ assemblyType { id } }" }
 
         it "returns the assemblyType field" do
-          expect(response["assemblyType"]).to eq(model.assembly_type)
+          expect(response["assemblyType"]).to be nil
         end
       end
 
-      describe "assemblyTypeOther" do
-        let(:query) { '{ assemblyTypeOther { translation(locale: "en" )}}' }
+      context "when there is type" do
+        let(:model) { create(:assembly, :with_type) }
 
-        it "returns the assemblyTypeOther field" do
-          expect(response["assemblyTypeOther"]["translation"]).to eq(model.assembly_type_other["en"])
+        describe "assemblyeType" do
+          let(:query) { "{ assemblyType { id } }" }
+
+          it "returns the assemblyType field" do
+            expect(response["assemblyType"]["id"]).to eq(model.assembly_type.id.to_s)
+          end
         end
       end
 

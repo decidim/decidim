@@ -43,8 +43,7 @@ module Decidim
       field :childrenCount, types.Int, "Number of children assemblies", property: :children_count
       field :purposeOfAction, Decidim::Core::TranslatedFieldType, "Purpose of action", property: :purpose_of_action
       field :composition, Decidim::Core::TranslatedFieldType, "Composition of this assembly"
-      field :assemblyType, types.String, "Type of the assembly", property: :assembly_type
-      field :assemblyTypeOther, Decidim::Core::TranslatedFieldType, "Custom assembly type", property: :assembly_type_other
+      field :assemblyType, Decidim::Assemblies::AssembliesTypeType, "Type of the assembly", property: :assembly_type
       field :creationDate, Decidim::Core::DateType, "Creation date of this assembly", property: :creation_date
       field :createdBy, types.String, "The creator of this assembly", property: :created_by
       field :createdByOther, Decidim::Core::TranslatedFieldType, "Custom creator", property: :created_by_other
