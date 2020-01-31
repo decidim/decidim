@@ -226,6 +226,7 @@ ca:
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el tipus d'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat el tipus d'assemblea %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus d'assemblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de l'assemblea %{space_name}"
@@ -370,6 +371,8 @@ ca:
       value_types:
         assembly_presenter:
           not_found: 'L''assemblea no s''ha trobada a la base de dades (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'El tipus d''assemblea no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Assemblees
     metrics:
