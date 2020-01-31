@@ -2,7 +2,7 @@
   <ul class="tags tags--proposal">
     <% if category.present? %>
       <li>
-        <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: category.id }) %>
+        <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_ids: [category.id.to_s] }) %>
         <% if previous_category.present? && show_previous_category? %>
           &nbsp;
           <small class="text-small">
@@ -13,7 +13,7 @@
     <% end %>
 
     <% if has_visible_scopes?(model) %>
-      <li><%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %></li>
+      <li><%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_ids: [scope.id] }) %></li>
     <% end %>
   </ul>
 </figure>
