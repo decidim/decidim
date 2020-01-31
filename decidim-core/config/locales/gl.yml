@@ -61,8 +61,6 @@ gl:
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
-        invalid_token: O token fornecido non é válido.
-        no_token: Sen token fornecido
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
@@ -496,7 +494,7 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.
+        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -539,16 +537,6 @@ gl:
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
-        continuity:
-          conditions:
-            - Veña aquí a miúdo
-          description: Este distintivo concedeuse cando visitas a plataforma dun xeito regular. Gústanos de telo por aquí.
-          description_another: Este usuario conectouse por %{score} días consecutivos nalgún momento.
-          description_own: Conectado por %{score} días consecutivos nalgún momento.
-          name: Continuidade
-          next_level_in: Conéctese por %{score} días consecutivos para chegar ao seguinte nivel.
-          unearned_another: Este usuario non iniciou sesión máis de un día consecutivo.
-          unearned_own: Non estás conectado por máis dun día consecutivo.
         followers:
           conditions:
             - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.

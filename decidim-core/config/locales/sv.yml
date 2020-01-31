@@ -69,8 +69,6 @@ sv:
     account:
       data_portability_export:
         file_no_exists: Filen finns inte
-        invalid_token: Den angivna koden är ogiltig.
-        no_token: Ingen kod gavs
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
         alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in.
@@ -515,7 +513,7 @@ sv:
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
-        click_button: Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.
+        click_button: 'Klicka på nästa knapp för att ladda ner dina data. <br/> Du kommer att få filen tillgänglig fram till %{date}.'
         download: Hämta
       export:
         ready: En komprimerad version av exporten är bifogad.
@@ -561,16 +559,6 @@ sv:
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
-        continuity:
-          conditions:
-            - Kommer ofta hit
-          description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
-          description_another: Deltagaren har någon gång varit ansluten %{score} på dagar i följd.
-          description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
-          name: Kontinuitet
-          next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
-          unearned_another: Deltagaren har inte loggat in mer än en dag i följd.
-          unearned_own: Du har inte anslutit dig mer än en dag i följd.
         followers:
           conditions:
             - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.

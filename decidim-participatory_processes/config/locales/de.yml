@@ -72,7 +72,7 @@ de:
         duplicate: Duplizieren
         edit: Bearbeiten
         filter:
-          all: Alle Beteiligungsprozesse anzeigen
+          all_processes: Alle Beteiligungsprozesse anzeigen
           process_groups: Prozessgruppen
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe

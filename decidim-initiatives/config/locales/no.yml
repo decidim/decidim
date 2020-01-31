@@ -3,23 +3,59 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        signature_type_values:
+          offline: Personlig
         state: Status
         title: Tittel
       initiative_author:
         address: Adresse
+        city: By
+      initiatives_committee_member:
+        user: Komité medlem
       initiatives_type:
         banner_image: Bannerafbeelding
+        collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
+        extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         title: Tittel
+        undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
       organization_data:
         address: Adresse
+        name: Komplett navn
+  activerecord:
+    models:
+      decidim/initiative_comittee:
+        one: Komité
+        other: Komitér
   decidim:
     admin:
       models:
         initiatives:
           fields:
             state: Status
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: Slutdatoen for signaturene for initiativet %{resource_title} er blitt utvidet!
+          email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          notification_title: Slutdatoen for signaturene for <a href="%{resource_path}">%{resource_title}</a> initiativet er blitt utvidet.
+        milestone_completed:
+          affected_user:
+            email_intro: Ditt initiativ %{resource_title} har oppnådd %{percentage}% av signaturene!
+            email_outro: Du har mottatt denne varslingen fordi du er forfatteren av initiativet %{resource_title}.
+            notification_title: Ditt <a href="%{resource_path}">%{resource_title}</a> initiativ har oppnådd %{percentage}% av signaturene.
+          follower:
+            email_intro: Initiativet %{resource_title} har oppnådd %{percentage}% av signaturene!
+            email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
+    gamification:
+      badges:
+        initiatives:
+          description: Dette merket blir gitt når du setter i gang nye initiativer, og samarbeider med andre for å gjennomføre dem.
+          description_another: Denne deltakeren har fått %{score} initiativer publisert.
+          next_level_in: Få %{score} flere initiativer publisert for å nå neste nivå!
+          unearned_another: Denne deltakeren har ikke fått publisert noen tiltak ennå.
     help:
       participatory_spaces:
         initiatives:
@@ -37,15 +73,16 @@
           index:
             approve: Godkjenn
             confirm_revoke: Er du sikker?
+            invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
+            no_members_yet: Det er ingen medlemmer i promotør komiteen
+            title: Komité medlemer
         initiatives:
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            success: Initiativet er sendt til teknisk validering
           index:
             actions_title: Handling
-            filter:
-              accepted: Aksepterte
-              all: Alle
           update:
             error: Det oppstod en feil
         initiatives_type_scopes:
@@ -63,10 +100,13 @@
           create:
             error: Det oppstod en feil
             success: En ny initiativtype er blitt opprettet
+          destroy:
+            success: Initiativ typen er fjernet
           edit:
             confirm_destroy: Er du sikker?
           update:
             error: Det oppstod en feil
+            success: Initiativ typen er oppdatert
       admin_log:
         initiative:
           publish: "%{user_name} publiserte %{resource_name} initiativet"
@@ -75,37 +115,80 @@
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
         accepted: Aksepterte
+      committee_requests:
+        new:
+          continue: Fortsett
+          help_text: Du er i ferd med å be om å bli medlem av promotør komiteen for dette initiativet
+        spawn:
+          success: Forespørselen din er sendt til initiativforfatteren.
       create_initiative:
         fill_data:
           back: Tilbake
+          continue: Fortsett
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           more_information: "(Mer informasjon)"
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
+          callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
           more_information: "(Mer informasjon)"
         finish_help:
+          access_reminder: Husk at du vil alltid kunne få tilgang til dine initiativer gjennom deltakermenyen.
+          help_for_organizations: Hvis du er en forening, må du laste opp referatet fra styret for alle organisasjonene som utgjør Promoterings Kommisjonen
+          help_in_person_signatures: Hvis du har valgt å samle inn underskriftene personlig eller kombinert med online, må du laste opp den nødvendige informasjonen.
+          help_text: Husk at for å kunne behandle initiativet riktig må du gå til administrasjonspanelet der du finner brukermenyen, laste opp den nødvendige informasjonen og sende den til behandling.
+          initiatives_page_link: Du kan slå opp all denne informasjonen på %{link} som er dedikert til å informere om initiativer.
           page: side
         previous_form:
           back: Tilbake
+          continue: Fortsett
+          help: Hva består initiativet av? Skriv tittelen og beskrivelsen. Vi anbefaler en kort og kortfattet tittel og en beskrivelse med fokus på den foreslåtte løsningen.
           more_information: "(Mer informasjon)"
         promotal_committee:
           back: Tilbake
+          individual_help_text: Denne typen innbyggerinitiativ krever en Promotør Kommisjon bestående av minst %{committee_size} personer (attester). Du må dele følgende lenke med de andre menneskene som er en del av dette initiativet. Når kontaktene dine mottar denne lenken, må de følge de angitte trinnene.
           more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
           more_information: "(Mer informasjon)"
+          select_initiative_type_help: Innbyggerinitiativer er et middel som statsborgerskapet kan gripe inn slik at byrådet kan iverksette tiltak til forsvar for allmenn interesse som er innenfor felt av kommunal jurisdiksjon. Hvilket initiativ vil du sette i gang?
+        share_committee_link:
+          continue: Fortsett
+          invite_to_committee_help: Lenke for å invitere folk som vil være en del av promotør komiteen
         show_similar_initiatives:
           back: Tilbake
+          compare_help: Hvis noen av de følgende initiativene ligner dine, oppfordrer vi deg til å signere den. Forslaget ditt vil ha flere muligheter for å bli gjort.
           more_information: "(Mer informasjon)"
       events:
         create_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
+          email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble opprettet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
+          email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble påtegnet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
+        fill_personal_data:
+          continue: Fortsett
+          help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
           back_to_initiative: Tilbake til initiativ
+        sms_code:
+          continue: Sjekk kode og fortsett
+          help: Sjekk SMS mottatt på telefonen
+        sms_phone_number:
+          help: Fyll skjemaet med det verifiserte telefonnummeret ditt for å be om verifiseringskoden din
+      initiative_votes:
+        create:
+          invalid: Dataene som er gitt for å signere initiativet er ikke gyldige
+          success_html: Gratulerer! Initiativet <strong> %{title}</strong> er signert
+        personal_data:
+          invalid: Personopplysninger samsvar ikke med informasjonen som er gitt for autorisering.
+        sms_code:
+          invalid: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
+        sms_phone:
+          invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
         author_list:
           hidden_authors_count:
@@ -118,18 +201,34 @@
         filters:
           any: Alle
           author: Forfatter
+          closed: Lukket
           state: Status
+        filters_small_view:
+          close_modal: Lukk vindu
         interactions:
           comments_count:
             count:
               one: Kommentar
               other: Kommentar
+        result:
+          initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
+        show:
+          any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
+          follow_description: Motta et varsel når det er nyheter i dette initiativet
+          offline_method: Dette innbyggerinitiativet samler bare inn personlige underskrifter.
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
+      initiatives_mailer:
+        more_information: Her har du mer informasjon om initiativets opprettelses prosess.
+        progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
+        promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
+        status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
+        technical_validation_body_for: Initiativet %{title} har bedt om sin tekniske validering.
+        technical_validation_for: Initiativet %{title} har bedt om sin tekniske validering.
       pages:
         home:
           highlighted_initiatives:
@@ -145,7 +244,18 @@
       admin:
         initiative:
           attachments: Vedlegg
+          committee_members: Komité medlemer
+          components: Komponenter
       initiative_creation_header:
         back: Tilbake
+        promotal_committee: Promotør komitè
+        select_initiative_type: Velg
+        show_similar_initiatives: Sammenlign
       initiative_signature_creation_header:
         back: Tilbake
+        fill_personal_data: Fullfør dataene dine
+        sms_code: SMS-kode verifisering
+      initiatives:
+        initiative:
+          check: Sjekk det ut
+          check_and_support: Sjekk det ut og signer

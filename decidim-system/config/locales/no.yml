@@ -7,27 +7,45 @@
         title: Handlinger
       admins:
         create:
+          error: Det oppstod et problem med å opprette en ny administrator.
           success: Admin opprettet
         destroy:
           success: Admin ble slettet
+        edit:
+          title: Endre administrator
         index:
           title: Adminer
+        new:
+          title: Ny administrator
         update:
+          error: Det oppsto et problem med å oppdatere administratoren.
           success: Admin ble oppdatert
+      default_pages:
+        placeholders:
+          content: Legg til meningsfylt innhold til den statiske siden %{page} på administrator kontrollpanelet.
       menu:
         admins: Adminer
       models:
         admin:
           fields:
             email: Epost
-          name: Admin
+          name: Administrator
           validations:
-            email_uniqueness: en annen admin med samme email eksisterer allerede
+            email_uniqueness: en annen administrator med samme email eksisterer allerede
         organization:
+          actions:
+            save_and_invite: Opprett organisasjon og inviter administrator
           fields:
             name: Navn
       organizations:
+        create:
+          error: Det oppstod et problem med å opprette en ny organisasjon.
+        new:
+          reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
           existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn
+      shared:
+        notices:
+          no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.

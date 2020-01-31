@@ -17,6 +17,7 @@ es:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -41,6 +42,7 @@ es:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
+              cant_be_equal_to_template: no puede ser igual a la plantilla
               identical: Y el título no puede ser idéntico
             title:
               identical: Y el cuerpo no puede ser idéntico
@@ -73,6 +75,23 @@ es:
         one: Apoyo
         other: Apoyos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propuestas
+            'true': Enmiendas
+        search_placeholder:
+          id_string_or_title_cont: Buscar %{collection} por ID o título.
+        state_eq:
+          values:
+            evaluating: En evaluación
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': No contestado
     components:
       proposals:
         actions:
@@ -94,6 +113,8 @@ es:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Apoyos mínimos por participante
+            new_proposal_body_template: Plantilla para el texto de nueva propuesta
+            new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -643,13 +664,18 @@ es:
         endorsements_card_row:
           comments: Comentarios
         filters:
+          activity: Mi actividad
+          all: Todo
           amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona una categoría
+          my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
+          scope: Ámbito
           search: Buscar
           state: Estado
+          type: Tipo
           voted: Has dado apoyo
         filters_small_view:
           close_modal: Cerrar ventana
@@ -670,9 +696,13 @@ es:
           title: Crear tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
+          most_commented: Más comentadas
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice del documento

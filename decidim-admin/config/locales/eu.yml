@@ -475,18 +475,12 @@ eu:
           actions: Ekintzak
           badge: Badge
           created_at: Sortua
-          filter:
-            all: guztiak
-            not_officialized: Ez ofiziala
-            officialized: Officialized
-          filter_by: Iragazi arabera
           name: izena
           nickname: ezizena
           not_officialized: Ez ofiziala
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
           status: Egoera
           unofficialize: Unofficialize
         new:

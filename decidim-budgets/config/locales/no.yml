@@ -15,7 +15,10 @@
       admin:
         proposals_imports:
           create:
+            invalid: Det oppsto et problem med å importere forslagene til prosjektet
             success: "%{number} forslag importert til prosjekter"
+          new:
+            no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene inn i prosjekter.
       admin_log:
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
@@ -26,15 +29,28 @@
           fields:
             title: Tittel
       projects:
+        budget_confirm:
+          are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
+          cancel: Avbryt
+          description: Dette er prosjektene du har valgt å være en del av budsjettet.
+        budget_excess:
+          close: Lukk
+          description: Dette prosjektet overskrider det maksimale budsjettet og kan ikke bli lagt til. Hvis du ønsker, kan du slette et prosjekt du har allerede har valgt å legge til, eller avgi stemme på dine preferanser.
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
           assigned: 'Tildelt:'
+          checked_out:
+            description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
+            title: Budtjett avstemning fullført
+          description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
         count:
           projects_count:
             one: 1 prosjekt
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+        filters_small_view:
+          close_modal: Lukk modal
         order_selected_projects:
           remove: Fjern
         project:
@@ -50,9 +66,12 @@
           budget: Budsjett
     components:
       budgets:
+        name: Budsjetter
         settings:
           global:
             announcement: Kunngjøring
+            comments_enabled: Kommentarer aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
           step:
             announcement: Kunngjøring
+            comments_blocked: Kommentarer blokkert
