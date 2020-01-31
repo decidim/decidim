@@ -1041,6 +1041,7 @@ en:
         represent_user_group: I represent a group
         select_user_group: Select a group
       results_per_page:
+        title: Select number of results per page
         label: 'Results per page:'
       share_modal:
         close_window: Close window
@@ -1348,3 +1349,4 @@ en:
       next: Next &rsaquo;
       previous: "&lsaquo; Prev"
       truncate: "&hellip;"
+      title: "Page number: "
