@@ -139,6 +139,8 @@ hu:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalom, nagy felelősségvállalás jár.</li></ol>"
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
