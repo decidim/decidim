@@ -238,8 +238,8 @@ ca:
           edit:
             update: Actualitzar
           form:
-            address_help: 'Adreça: usada per Geocoder per a trobar la localització'
-            location_help: 'Localització: missatge dirigit als usuaris indicant el lloc on trobar-se'
+            address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
             select_organizer: Selecciona l'organitzadora
           index:
