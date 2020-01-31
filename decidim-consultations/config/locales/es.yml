@@ -187,7 +187,7 @@ es:
           success: Grupo de respuesta creado correctamente.
         destroy:
           error: Hubo un problema al eliminar el grupo de respuestas. Compruebe que ninguna respuesta depende de ello.
-          success: Grupo de respuesta eliminado correctamente.
+          success: Grupo de respuestas eliminado correctamente.
         edit:
           update: Actualizar
         form:
@@ -195,7 +195,7 @@ es:
         help: Utilice grupos para organizar preguntas de opciones múltiples en paquetes.
         new:
           create: Crear
-          title: Nuevo grupo de respuesta
+          title: Nuevo grupo de respuestas
         update:
           error: Se ha producido un error al actualizar esta respuesta.
           success: Respuesta actualizada correctamente.
