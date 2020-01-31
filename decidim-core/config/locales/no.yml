@@ -541,6 +541,10 @@
       check: Sjekk fingeravtrykket
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+    forms:
+      errors:
+        decidim/user:
+          password_confirmation: Passordbekreftelse må samsvare med passordet.
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
@@ -889,6 +893,9 @@
       long_words: inneholder ord som er for lange (over 35 tegn)
       nesting_too_deep: kan ikke være inni en underkategori
       not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
+      not_saved:
+        one: 'Det oppstod en feil under behandling av forespørselen din:'
+        other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
   layouts:
