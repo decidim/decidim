@@ -71,4 +71,22 @@ FactoryBot.define do
     answer
     answer_option { create(:answer_option, question: answer.question) }
   end
+
+  factory :question_condition, class: "Decidim::Forms::QuestionCondition" do
+    condition_question { create(:questionnaire_question) }
+    question { create(:questionnaire_question, position: 1) }
+    condition_type { :answered }
+    mandatory { true }
+
+    trait :equal do
+      condition_type { :equal }
+      condition_question { create(:questionnaire_question, :with_answer_options) }
+      answer_option { condition_question.answer_options.first }
+    end
+
+    trait :match do
+      condition_type { :match }
+      conditon_value { Decidim::Faker::Localized.word }
+    end
+  end
 end

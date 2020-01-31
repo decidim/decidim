@@ -14,6 +14,12 @@ module Decidim
                dependent: :destroy,
                inverse_of: :question
 
+      has_many :conditions,
+               class_name: "QuestionCondition",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
+
       validates :question_type, inclusion: { in: TYPES }
 
       def multiple_choice?
