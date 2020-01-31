@@ -54,6 +54,7 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Denúncia un problema
+        single_comment_link_title: Aconsegueix l'enllaç al comentari
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -66,7 +67,10 @@ ca:
       comments:
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
+        comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
+        single_comment_warning: 'Pots revisar la resta de comentaris a: <a href="%{url}">here</a>.'
+        single_comment_warning_title: Estàs veient un sol comentari
         title: "%{count} comentaris"
     events:
       comments:

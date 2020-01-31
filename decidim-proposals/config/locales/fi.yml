@@ -21,7 +21,7 @@ fi:
         has_address: Ehdotuksella on sijainti
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
-        title: Ehdotuksen nimi
+        title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
@@ -42,6 +42,7 @@ fi:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
+              cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
             title:
               identical: JA kuvaus ei voi olla täysin sama
@@ -95,6 +96,8 @@ fi:
             comments_enabled: Kommentit käytössä
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
+            new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
+            new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_disabled_help: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
