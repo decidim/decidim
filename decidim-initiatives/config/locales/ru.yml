@@ -117,18 +117,8 @@ ru:
             title: Общие сведения
           index:
             actions_title: Действие
-            filter:
-              accepted: Принято
-              all: Все
-              created: Созданные
-              discarded: Отброшенные
-              published: Обнародовано
-              rejected: Отклоненные
-              validating: Техническая проверка
-            filter_by: 'Отобрать по признаку:'
             preview: Предпросмотр
             print: Распечатать
-            search: Поиск
           show:
             print: Распечатать
           update:

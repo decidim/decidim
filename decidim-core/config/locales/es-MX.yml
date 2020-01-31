@@ -69,8 +69,6 @@ es-MX:
     account:
       data_portability_export:
         file_no_exists: El archivo no existe
-        invalid_token: El token proporcionado no es válido.
-        no_token: No se proporciona token
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
@@ -549,7 +547,7 @@ es-MX:
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        click_button: 'Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.'
         download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -595,16 +593,6 @@ es-MX:
     gamification:
       all_badges_link: Ver todas los distintivos disponibles.
       badges:
-        continuity:
-          conditions:
-            - Viene aquí a menudo
-          description: Este distintivo se otorga cuando visitas la plataforma de forma regular. ¡Nos gusta tenerte por aquí!
-          description_another: Este usuario se ha conectado durante %{score} días consecutivos en algún momento.
-          description_own: Te has conectado durante %{score} días consecutivos en algún momento.
-          name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha entrado durante más de un día consecutivo.
-          unearned_own: No te has conectado por más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.

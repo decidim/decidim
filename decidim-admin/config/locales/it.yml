@@ -70,10 +70,12 @@ it:
         port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
+        rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
         send_welcome_notification: Invia notifica di benvenuto
         show_statistics: Mostra statistiche
         success_color: Successo
+        time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
@@ -236,6 +238,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
+          error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
@@ -512,18 +515,12 @@ it:
           actions: Azioni
           badge: Distintivo
           created_at: Creato a
-          filter:
-            all: Tutti
-            not_officialized: Non ufficializzato
-            officialized: ufficializzato
-          filter_by: Filtra per
           name: Nome
           nickname: Nickname
           not_officialized: Non ufficializzato
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
           status: Stato
           unofficialize: Unofficialize
         new:

@@ -69,8 +69,6 @@
     account:
       data_portability_export:
         file_no_exists: Filen finnes ikke
-        invalid_token: Nøkkelen du ga er ugyldig.
-        no_token: Ingen nøkkel oppgitt
         notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
       delete:
         alert: Denne handlingen er endelig. Hvis du sletter denne kontoen vil du ikke kunne logge deg inn igjen.
@@ -99,7 +97,7 @@
         create: "%{user_name} la til %{resource_name} komponent til %{space_name} rommet"
         delete: "%{user_name} fjernet %{resource_name} komponent fra %{space_name} rommet"
         publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
-        unpublish: "%{user_name} upubliserte %{resource_name} komponent til %{space_name} rommet"
+        unpublish: "%{user_name} avpubliserte %{resource_name} komponent til %{space_name} rommet"
       moderation:
         hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} rommet"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
@@ -227,6 +225,10 @@
         related_documents: Relaterte dokumenter
       photos:
         related_photos: Relaterte bilder
+    author:
+      comments:
+        one: kommentar
+        other: kommentarer
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
@@ -353,6 +355,7 @@
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
+          newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
           sign_up: Register deg
@@ -366,13 +369,17 @@
       sessions:
         new:
           register: Opprett en konto
+          sign_up_disabled: Registreringen er deaktivert, du kan bruke en eksisterende konto for å få tilgang
       shared:
         newsletter_modal:
+          buttons:
+            check: Sjekk og fortsett
+            close_modal: Lukk modal
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
             Det er veldig viktig for oss at du kan motta sporadiske e-poster
-            for å gi viktige kunngjøringer, du kan alltids endre dette på 
+            for å gi viktige kunngjøringer, du kan alltids endre dette på
             varslingsinnstillinger siden.</p>
             <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
             om nye deltaker muligheter innen plattformen.<br>
@@ -384,6 +391,8 @@
         new:
           authorize: Autoriser søknad
           by_organization_link_html: <small class="heading-small">av %{link}</small>
+          cancel: Avbryt
+          connect_your_account_html: Koble til kontoen din ved å logge på <strong>%{organization}</strong>
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
@@ -403,33 +412,45 @@
         amendment_accepted:
           affected_user:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
             email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt akseptert for %{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             email_subject: Aksepterte ending til %{amendable_title} fra %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt godtatt for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
             notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
             email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'En avslått ending for %{amendable_title} er blitt publisert som en ny %{amendable_type}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             email_subject: En endring fra %{emendation_author_nickname} er blitt publisert som en ny %{amendable_type}
             notification_title: En <a href="%{emendation_path}">avvist endring</a> til <a href="%{amendable_path}">%{amendable_title}</a> har blitt publisert som et nytt %{amendable_type} av <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
             email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En endring har blitt avvist for %{amendable_title}. Du kan se den fra denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             email_subject: Endring avvist for %{amendable_title} fra %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Endingen</a> opprettet av <a href="%{emendation_author_path}">%{emendation_author_nickname}%</a> har blitt avvist for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Et nytt dokument er blitt lagt til %{resource_title}. Du kan se den fra denne siden:'
@@ -438,52 +459,143 @@
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
+          email_intro: 'Komponentet %{resource_title} er nå aktiv for %{participatory_space_title}. Du kan se den fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: En oppdatering til %{participatory_space_title}
+          notification_title: '%{resource_title} komponentet er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
+        email_intro: 'Det har vært en oppdatering til "%{resource_title}". Du kan se den fra denne siden:'
+        email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
         email_subject: En oppdatering til %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gratulerer! Du har tjent <a href="%{resource_url}">%{badge_name} merket</a> (Level%{current_level}).
+          email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
+          notification_title: Gratulerer! Du har tjent <a href="%{resource_path}">%{badge_name} merket</a> (Level%{current_level}).
+        level_up:
+          email_intro: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_url}">%{badge_name} merket</a>!
+          email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
+          email_subject: Du har nådd nivå %{current_level} på %{badge_name} merket!
+          notification_title: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_path}">%{badge_name} merket</a>!
       groups:
         demoted_membership:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
+          email_outro: Du har mottatt denne varslingen fordi du er medlem av den gruppen.
+          email_subject: Du er ikke lengre en administrator av gruppen %{user_group_name}!
+          notification_title: Du er ikke lengre en administrator av <a href="%{resource_path}">%{user_group_name}</a> gruppen.
         invited_to_group:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har invitert deg til å være med i den.
+          email_outro: Du har mottatt denne varslingen fordi du er invitert til en gruppe. Sjekk kategorien Grupper i profilen din for å godkjenne den.
+          email_subject: Du har blitt invitert til å delta i gruppen %{user_group_name}!
+          notification_title: Du har blitt invitert til å bli med i <a href="%{resource_path}">%{user_group_name}</a> gruppen. See <a href="%{groups_profile_tab_path}"> Grupper side</a> i profilen din for å godkjenne den!
+        join_request_accepted:
+          email_intro: Gratulerer! En administrator av gruppen <a href="%{resource_url}">%{user_group_name}</a> har akseptert forespørselen din om å bli med i den.
+          email_outro: Du har mottatt denne varslingen fordi din forespørsel om å bli med er oppdatert.
+          email_subject: Du ble godtatt til %{user_group_name} gruppen!
+          notification_title: Du ble akseptert til <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+        join_request_created:
+          email_intro: Noen spurte om å bli med i %{user_group_name} gruppen. Du kan godta eller avvise dem fra <a href="%{resource_url}">gruppe medlems siden</a>.
+          email_outro: Du har mottatt denne varslingen fordi du kan administrere %{user_group_name} gruppen.
+          email_subject: Noen ba om å bli med i %{user_group_name} gruppen!
+          notification_title: Noen spurte om å bli med i %{user_group_name} gruppen. Du kan godta eller avvise dem fra <a href="%{resource_path}">gruppe medlems siden</a>.
         join_request_rejected:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen avviste forespørselen din om å bli med i den.
+          email_outro: Du har mottatt denne varslingen fordi din forespørsel om å bli med er oppdatert.
+          email_subject: Forespørselen din om å bli med i %{user_group_name} gruppen ble avvist!
+          notification_title: Forespørselen din om å bli med i <a href="%{resource_path}">%{user_group_name}</a> gruppen ble avvist.
         promoted_to_admin:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har gitt deg admin rettigheter for den gruppen.
+          email_outro: Du har mottatt denne varslingen fordi du er medlem av den gruppen.
+          email_subject: Du er nå en administrator av %{user_group_name} gruppen!
+          notification_title: Du er nå en administrator av <a href="%{resource_path}">%{user_group_name}</a> gruppen.
         removed_from_group:
           email_intro: En admind av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet deg fra den.
+          email_outro: Du har mottatt denne varslingen fordi du var medlem av den gruppen.
+          email_subject: Du er fjernet fra %{user_group_name} gruppen!
+          notification_title: Du er fjernet fra <a href="%{resource_path}">%{user_group_name}</a> gruppen.
       notification_event:
         notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
+          email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
+          email_outro: Du har mottatt denne varslingen fordi du følger %{nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: "%{nickname} oppdaterte profilens sin"
+          notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
+    export_mailer:
+      export:
+        ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
     filters:
       linked_classes:
         all: Alle
+        collaborative_draft: Samarbeids utkast
+        dummy_resource: Dummy ressurser
+        meeting: Møter
+        project: Prosjekter
+        proposal: Forslag
+        result: Resultater
+    fingerprint:
+      check: Sjekk fingeravtrykket
+      explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
+      replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
     gamification:
+      all_badges_link: Se alle tilgjengelige merker.
       badges:
         followers:
+          conditions:
+            - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
+          description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
           description_own: "%{score} folk følger deg."
+          next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
+          unearned_another: Denne deltakeren har ikke noen følgere ennå.
         index:
           badge_title: "%{name} merke"
           page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
           title: Merker
+        invitations:
+          conditions:
+            - Bruk "invitere venner" lenken på din bruker side for å invitere vennene dine
+            - Tilpass, hvis du vil, meldingen du sender
+            - Du vil gå opp i nivå ved å sende invitasjoner og få dem registrert.
+          description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
+          next_level_in: Inviter %{score} flere folk for å nå neste nivå!
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
     group_admins:
       actions:
         are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
         demote_admin: Fjern admin
+      demote:
+        error: Det oppstod et problem med å fjerne denne deltakeren fra administrator listen
+        success: Deltakeren ble fjernet fra administrator
+      index:
+        current_admins: 'Nåværende administratorer:'
+        manage_admins: Administrer administrator
     group_invites:
       accept_invitation: Aksepter
+      accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
     group_members:
       actions:
         are_you_sure: Er du sikker?
+        promote_to_admin: Lag administrator
         remove_from_group: Fjern deltaker
+      index:
+        current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
+      remove:
+        error: Det oppstod et problem med å fjerne denne deltakeren fra gruppen
     groups:
       actions:
         are_you_sure: Er du sikker?
+      form:
+        email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
+        fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
+        name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
+        nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
+      join:
+        success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
       members:
+        accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
         accept_request: Aksepter
+      new:
+        subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       roles:
         admin: Administrator
     help:
@@ -502,6 +614,17 @@
         unknown_action_with_space: "%{user_name} utførete en handlig på %{resource_name} i %{space_name}"
         update: "%{user_name} oppdaterte %{resource_name}"
         update_with_space: "%{user_name} oppdaterte %{resource_name} i %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Området ble ikke funnet i databasen (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Områdstypen ble ikke funnet i databasen (ID: %{id})'
+        scope_presenter:
+          not_found: 'Omfanget ble ikke funnet i databasen (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Omfangstypen ble ikke funnet i databasen (ID: %{id})'
+    managed_users:
+      expired_session: Den nåværende administrasjonsøkten til en deltaker har gått ut.
     menu:
       help: Hjelp
     messaging:
@@ -511,24 +634,84 @@
           subject: "%{sender} har startet en samtale med deg"
         new_message:
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+    metrics:
+      followers:
+        description: Antall deltakere som følger dette deltakerområdet
+    newsletter_mailer:
+      newsletter:
+        note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
+        see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
+        unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
+        token_error: Lenken er utløpt.
+    newsletters_opt_in:
+      unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
+        body_2: 'Hvordan kan du gi oss ditt samtykke? Bare klikk på følgende knapp:'
+        body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
+        button: Ja, jeg vil fortsette å motta relevant informasjon
+        greetings: Hilsener,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        subject: Vil du fortsette å motta relevant informasjon om %{organization_name}?
+    notifications_settings:
+      show:
+        email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
+        own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
+      update:
+        error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
+        success: Varslings innstillingene dine ble oppdatert.
+    open_data:
+      not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
+    pad_iframe:
+      disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
+      explanation: Bruk denne padden til å samarbeide med å ta notater i løpet av møtet, så det blir lettere å skrive ned referatet etterpå.
+      pad: Pad
     pages:
       home:
+        extended:
+          debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
+          meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
+          proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
+        footer_sub_hero:
+          footer_sub_hero_body: La oss bygge et mer åpent, gjennomsynlig og samarbeidende samfunn.<br /> Bli med, delta og bestem.
+          footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
         statistics:
+          answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
+          comments_count: Kommentarer
+          endorsements_count: Påtegnelser
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
       index:
         standalone_pages: Sider
         title: Hjelp
+      participatory_space:
+        metrics:
+          link: Vis all statistikk
       terms_and_conditions:
+        accept:
+          error: Det oppstod et problem med å godta vilkårene.
+          success: Flott! Du har godtatt vilkårene for bruk.
         form:
           legend: Godta vilkårene for bruk
         refuse:
+          modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
+          modal_close: Lukk modal
+          modal_title: Nekter du virkelig de oppdaterte vilkårene?
+        required_review:
+          alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
+          body: Vennligst ta deg tid til å se gjennom oppdateringer til våres Vilkår for Bruk. Ellers vil du ikke kunne bruke plattformen.
+          title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profiles:
+      default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
+      default_officialization_text_for_users: Denne deltakeren er verifisert offentlig, hans/hennes navn eller rolle er verifisert for å samsvare med hans/hennes virkelige navn og rolle
       show:
         activity: Aktivitet
         badges: Merker
@@ -536,6 +719,10 @@
         badges:
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
+      user:
+        fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
+        manage_user_group_admins: Administrer administrator
+        resend_email_confirmation_instructions: Send email bekreftelses instruksjoner på nytt
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
@@ -546,6 +733,10 @@
     reports:
       create:
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
+        success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
+    scopes:
+      picker:
+        cancel: Avbryt
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -554,49 +745,147 @@
         state:
           active: Aktiv
           all: Alle
+      filters_small_view:
+        close_modal: Lukk modal
       results:
         results:
           one: "%{count} resultat"
           other: "%{count} resultater"
     shared:
+      embed_modal:
+        close_window: Lukk vindu
+        embed_link: Bedde inn
+      flag_modal:
+        already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
+        close: Lukk
+        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
+        offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
+        spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
       floating_help:
         help: Hjelp
+      follow_button:
+        sign_in_before_follow: Logg på før du utfører denne handlingen
       participatory_space_filters:
         filters:
           areas: Områder
+      share_modal:
+        close_window: Lukk vindu
+        share_link: Del lenke
+    user_interests:
+      show:
+        select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
     wizard_step_form:
       wizard_aside:
         back: Tilbake
   devise:
+    confirmations:
+      confirmed: Din e-postadresse er bekreftet.
+      new:
+        resend_confirmation_instructions: Send bekreftelses instruksjoner på nytt
+      send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
+      send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
+    failure:
+      invited: Du har en ventende invitasjon, godta den for å fullføre opprettelsen av kontoen din.
+      last_attempt: Du har ett forsøk til før kontoen låses.
+      timeout: Økten din har utløpt. Vennligst logg inn igjen for å fortsette.
+      unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
     invitations:
+      edit:
+        subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
+      updated: Passordet ditt ble angitt. Du er nå pålogget.
     mailer:
+      confirmation_instructions:
+        instruction: 'Du kan bekrefte emailen din via lenken nedenfor:'
+      email_changed:
+        message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
         accept: Godta invitasjon
+        ignore: |-
+          Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
+          Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
         invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
+        someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
+        someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
+        someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
+      invite_collaborator:
+        subject: Du har blitt invitert til å samarbeide om %{organization}
+      invite_private_user:
+        subject: Du har blitt invitert til en privat deltaker prosess på %{organization}
+      password_change:
+        message: Vi kontakter deg for å varsle om at passordet ditt er endret.
+      reset_password_instructions:
+        action: Endre passordet mitt
+        instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
+        instruction_2: Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.
+        instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
+      unlock_instructions:
+        instruction: 'Klikk på lenken nedenfor for å låse opp kontoen din:'
+        message: Kontoen din er låst på grunn av en for stor mengde mislykkede påloggingsforsøk.
+    omniauth_callbacks:
+      failure: Kunne ikke verifisere deg fra %{kind} fordi "%{reason}".
+      success: Autorisert fra %{kind} konto.
     passwords:
       edit:
+        change_my_password: Endre passordet mitt
+        change_your_password: Endre passordet ditt
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+      no_token: Du får ikke tilgang til denne siden uten å komme i fra en passord tilbakestilling email. Hvis du kommer fra en passord tilbakestilling email. kontroller at du bruker hele URL-adressen.
+      send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
+      send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
+      updated: Passordet ditt er endret. Du er nå logget inn.
     registrations:
+      destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
       edit:
         are_you_sure: Er du sikker?
+        cancel_my_account: Avbryt kontoen min
+        we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
+      signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
+      signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
+      update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
     shared:
       links:
         back: Tilbake
+        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelsesinstruksjoner?
+        didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
+        forgot_your_password: Glemt ditt passord?
+        sign_in: Logg inn
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Send opplåsings instruksjoner på nytt
+      send_instructions: Du vil om få minutter motta en epost med instruksjoner om hvordan du låser opp kontoen din.
+      send_paranoid_instructions: Hvis din konto finnes, vil du om få minutter motta en e-post med instruksjoner om hvordan du låser den opp.
+      unlocked: Kontoen din er låst opp. Logg på for å fortsette.
   errors:
     messages:
+      confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
+      file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
+      long_words: inneholder ord som er for lange (over 35 tegn)
+      nesting_too_deep: kan ikke være inni en underkategori
+      too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
+      too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Denne siden bruker informasjonskapsler. Ved å fortsette å bla gjennom nettstedet, godtar du vår bruk av informasjonskapsler. Finn ut mer om det %{link}.
       edit_link:
         edit: Editar
+      footer:
+        made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
+      header:
+        close_menu: Lukk meny
+      impersonation_warning:
+        close_session: Lukk økt
+        description_html: Du administrerer deltakeren <b>%{user_name}</b>.
+        expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
       user_menu:
         admin_dashboard: Admin hovedpanel
       user_profile:
@@ -607,6 +896,8 @@
     password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
+    linkedin: Linkedin
+    wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
   time:
     formats:
       day_of_month: "%b %d"
@@ -626,6 +917,8 @@
   versions:
     directions:
       right: Tillegg
+    dropdown:
+      choose_diff_view_mode: 'Sammenlign visningsmodus:'
   views:
     pagination:
       first: "&laquo; Først"

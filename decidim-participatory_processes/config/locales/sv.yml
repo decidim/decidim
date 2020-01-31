@@ -72,7 +72,7 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         filter:
-          all: Visa alla processer
+          all_processes: Visa alla processer
           process_groups: Processgrupper
         import_process: Importera
         new_process: Ny process
