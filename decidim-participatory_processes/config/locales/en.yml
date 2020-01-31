@@ -79,7 +79,7 @@ en:
         duplicate: Duplicate
         edit: Edit
         filter:
-          all: Show all processes
+          all_processes: Show all processes
           process_groups: Process Groups
         import_process: Import
         new_process: New process

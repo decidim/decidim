@@ -145,6 +145,7 @@ en:
         export: Export
         manage: Manage
         new: New %{name}
+        per_page: Per page
         permissions: Permissions
         reject: Reject
         verify: Verify
@@ -293,6 +294,31 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      filters:
+        category_id_eq:
+          label: Category
+        filter_label: Filter
+        officialized_at_null:
+          label: State
+          values:
+            'false': Officialized
+            'true': Not officialized
+        private_space_eq:
+          label: Private
+          values:
+            'false': Public
+            'true': Private
+        published_at_null:
+          label: Published
+          values:
+            'false': Published
+            'true': Unpublished
+        scope_id_eq:
+          label: Scope
+        search_label: Search
+        search_placeholder:
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          title_cont: Search %{collection} by title.
       help_sections:
         error: There was a problem updating the help sections
         form:
@@ -532,18 +558,12 @@ en:
           actions: Actions
           badge: Badge
           created_at: Created At
-          filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
           name: Name
           nickname: Nickname
           not_officialized: Not officialized
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
           status: Status
           unofficialize: Unofficialize
         new:
