@@ -14,7 +14,7 @@ hu:
       report:
         details: További megjegyzések
       user:
-        about: Rólunk
+        about: Magamról
         email: Email címed
         name: Neved
         nickname: Becenév
@@ -398,7 +398,7 @@ hu:
           notice: |-
             <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
             Gondold át mégegyszer a döntést.<br>
-            Számunkra ugyanis nagyon fontos, hogy a leglényeges bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
+            Számunkra ugyanis nagyon fontos, hogy a leglényegesebb bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
             <p>Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk.</p>
             <p>Köszönjük, hogy elolvastad az üzenetet!</p>
           title: Hírlevél értesítések
@@ -824,7 +824,7 @@ hu:
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
         newsletters: Hírlevelek
-        own_activity: Saját tevékenységem, mint amikor valaki megjegyzi a javaslatomat, vagy megemlíti nekem
+        own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
         send_notifications_by_email: Értesítések küldése e-mailben
         update_notifications_settings: Változások mentése
@@ -1038,7 +1038,7 @@ hu:
         my_interests: Érdeklődési köreim
         no_scopes: Ennek a szervezetnek még nincs hatóköre!
         select_your_interests: Válaszd ki a téged érdeklő témákat, hogy hozzájuss a hozzájuk kapcsolódó eseményekhez a profilod Idővonal lapján.
-        update_my_interests: Érdeklődésem frissítése
+        update_my_interests: Érdeklődési köreim frissítése
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
@@ -1254,7 +1254,7 @@ hu:
         authorizations: Engedélyezések
         delete_my_account: Fiók törlése
         my_data: Adataim
-        my_interests: Érdekeim
+        my_interests: Érdeklődési köröm
         notifications_settings: Értesítési beállítások
         title: A résztvevő beállításai
         user_groups: Csoportok
