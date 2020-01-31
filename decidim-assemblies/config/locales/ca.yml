@@ -223,6 +223,9 @@ ca:
         update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
       assembly_type:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat el tipus d'assemblea %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el tipus d'assemblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de l'assemblea %{space_name}"
