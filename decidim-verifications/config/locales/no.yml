@@ -45,6 +45,7 @@
     verifications:
       authorizations:
         create:
+          error: Det oppstod et problem med å opprette autoriseringen.
           unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
         first_login:
           actions:
