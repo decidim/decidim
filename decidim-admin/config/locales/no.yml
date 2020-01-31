@@ -117,6 +117,9 @@
       actions:
         add: Legg til
         browse: Bla gjennom
+      admin_terms_of_use:
+        accept:
+          success: Flott! Du har godtatt administratorenes vilkår for bruk.
       area_types:
         create:
           success: Områdetype ble opprettet.
