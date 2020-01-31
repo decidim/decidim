@@ -6,9 +6,13 @@
         assembly_type: Forsamlings type
         assembly_type_other: Forsamlings type annet
         banner_image: Bannerafbeelding
+        closing_date: Lukkings dato
+        closing_date_reason: Lukkings dato begrunnelse
+        composition: Sammensetning
         decidim_area_id: Område
         title: Tittel
       assembly_member:
+        birthday: Fødselsdag
         birthplace: Fødested
       assembly_user_role:
         email: Epost
@@ -35,27 +39,39 @@
         create:
           success: Forsamlingen ble duplisert.
       assembly_members:
+        create:
+          error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
         index:
           assembly_members_title: Forsamlings medlemmer
+        update:
+          error: Det oppstod et problem med å oppdatere medlemmet for denne forsamlingen.
       assembly_publications:
         create:
           success: Forsamlingen ble publisert.
         destroy:
-          success: Forsamlingen ble upublisert.
+          success: Forsamlingen ble avpublisert.
       assembly_user_roles:
         create:
+          error: Det oppstod et problem med å legge til en administrator for denne forsamlingen.
           success: Admin ble lagt til i denne forsamlingen.
         destroy:
           success: Admin slettet fra denne forsamlingen.
+        edit:
+          title: Oppdater forsamling administrator.
         index:
           assembly_admins_title: Forsamlings adminer
+        new:
+          title: Ny forsamlings administrator.
         update:
+          error: Det oppstod et problem med å oppdatere en administrator for denne forsamlingen.
           success: Admin ble oppdatert for denne forsamlingen.
       menu:
         assemblies: Forsamlinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
           attachments: Vedlegg
+          categories: Kategorier
+          components: Komponenter
       models:
         assembly:
           fields:
@@ -71,13 +87,14 @@
           name: Forsamlings admin
           roles:
             admin: Administrator
+            collaborator: Samarbeidspartner
       titles:
         assemblies: Forsamlinger
     admin_log:
       assembly:
         create: "%{user_name} opprettet %{resource_name} forsamlingen"
         publish: "%{user_name} publiserte %{resource_name} forsamlingen"
-        unpublish: "%{user_name} upubliserte %{resource_name} forsamlingen"
+        unpublish: "%{user_name} avpubliserte %{resource_name} forsamlingen"
         update: "%{user_name} oppdaterte %{resource_name} forsamlingen"
       assembly_member:
         create: "%{user_name} opprettet %{resource_name} medlemmet i %{space_name} samlingen"
@@ -89,12 +106,25 @@
         update: "%{user_name} endret rollen av %{resource_name} i %{space_name} forsamlingen"
     assemblies:
       admin:
+        assemblies:
+          form:
+            duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
+            included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
+            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
           index:
             filter:
               all: Alle
+      assembly_types:
+        commission: Kommisjon
+      created_by:
+        city_council: Byrådet
       filter:
         all: Alle typer
+        commission: Kommisjon
       index:
         title: Forsamlinger
       pages:
@@ -105,9 +135,14 @@
         area: Område
         assembly_type: Forsamlings type
         children: Forsamlinger
+        closing_date: Lukkings dato
+        composition: Sammensetning
+        indefinite_duration: Ubestemt
       statistics:
         answers_count: Svar
         assemblies_count: Forsamlinger
+        comments_count: Kommentarer
+        endorsements_count: Påtegnelser
         headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
@@ -116,12 +151,19 @@
         assemblies:
           contextual: "<p> En <strong>forsamling</strong> er en gruppe medlemmer av en organisasjon som møtes med jevne mellomrom for å ta beslutninger om et spesifikt område eller omfang av organisasjonen.</p> <p>Forsamlinger holder møter, noen er private og noen er åpne. Hvis de er åpne, er det mulig å delta dem (for eksempel: delta på om kapasiteten tillater det, legge punkter til dagsordenen eller kommentere forslagene og beslutningene som er tatt av dette organet).</p> <p>Eksempler: En generalforsamling (som møtes en gang i året for å definere organisasjonens hovedhandlingslinjer i tillegg til dens overordnede organer ved avstemning), et råd for likestillingsråd (som møtes annenhver måned for å komme med forslag til hvordan man kan forbedre kjønnsrelasjoner i organisasjon), en evaluering kommisjon (som møtes hver måned for å overvåke en prosess) eller et garantiorgan (som samler hendelser, missbruk eller forslag for å forbedre beslutningsprosessene) er alle eksempler på forsamlinger.</p>\n"
           page: "<p>En <strong>forsamling</strong> er en gruppe medlemmer av en organisasjon som møtes med jevne mellomrom for å ta beslutninger om et spesifikt område eller omfang av organisasjonen.</p> <p>Forsamlinger holder møter, noen er private og noen er åpne. Hvis de er åpne, er det mulig å delta dem (for eksempel: delta på om kapasiteten tillater det, legge punkter til dagsordenen eller kommentere forslagene og beslutningene som er tatt av dette organet).</p> <p>Eksempler: En generalforsamling (som møtes en gang i året for å definere organisasjonens hovedhandlingslinjer i tillegg til dens overordnede organer ved avstemning), et råd for likestillingsråd (som møtes annenhver måned for å komme med forslag til hvordan man kan forbedre kjønnsrelasjoner i organisasjon), en evaluering kommisjon (som møtes hver måned for å overvåke en prosess) eller et garantiorgan (som samler hendelser, missbruk eller forslag for å forbedre beslutningsprosessene) er alle eksempler på forsamlinger.</p>\n"
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Forsamlingen ble ikke funnet i databasen (ID: %{id})'
     menu:
       assemblies: Forsamlinger
     metrics:
       assemblies:
         object: forsamlinger
         title: Forsamlinger
+  errors:
+    messages:
+      cannot_be_blank: kan ikke være blank
   layouts:
     decidim:
       assemblies:

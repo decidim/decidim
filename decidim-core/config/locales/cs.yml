@@ -75,8 +75,6 @@ cs:
     account:
       data_portability_export:
         file_no_exists: Soubor neexistuje
-        invalid_token: Zadaný token je neplatný.
-        no_token: Žádný token není k dispozici
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       delete:
         alert: Tuto akci nelze vrátit zpět. Pokud odstraníte svůj účet, nebudete se moci přihlásit.
@@ -565,7 +563,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
-        click_button: Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.
+        click_button: 'Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -611,16 +609,6 @@ cs:
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
-        continuity:
-          conditions:
-            - Choďte sem často
-          description: Tento odznak je udělen při pravidelné návštěvě platformy. Rádi bychom vás tu měli!
-          description_another: Tento účastník se v určitém okamžiku připojil po dobu %{score} po sobě jdoucích dnů.
-          description_own: Připojili jste na %{score} po sobě jdoucích dnů v určitém okamžiku.
-          name: Kontinuita
-          next_level_in: Připojte se na %{score} po sobě jdoucích dní, abyste se dostali na další úroveň!
-          unearned_another: Tento uživatel se nepřihlásil na více než jeden po sobě následující den.
-          unearned_own: Nejste připojeni více než jeden po sobě následující den.
         followers:
           conditions:
             - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
