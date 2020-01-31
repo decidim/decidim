@@ -17,6 +17,7 @@ es:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -643,9 +644,12 @@ es:
         endorsements_card_row:
           comments: Comentarios
         filters:
+          activity: Mi actividad
+          all: Todo
           amendment_type: Tipo
           category: Categoría
           category_prompt: Selecciona una categoría
+          my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
           search: Buscar
@@ -670,9 +674,13 @@ es:
           title: Crear tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
+          most_commented: Más comentadas
+          most_endorsed: Más avalados
+          most_followed: Más seguidos
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
+          with_more_authors: Con más autores
         participatory_texts:
           index:
             document_index: Índice del documento
