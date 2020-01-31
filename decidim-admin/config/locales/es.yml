@@ -158,7 +158,7 @@ es:
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
-          alert: 'Requerido: Revisa nuestros Términos y Condiciones de Administración'
+          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
           callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
@@ -316,7 +316,7 @@ es:
           label: Ámbito
         search_label: Buscar
         search_placeholder:
-          name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o apodo.
+          name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           title_cont: Buscar %{collection} por título.
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
@@ -497,7 +497,7 @@ es:
           not_sent: No enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
-          subscribed_count: 'Subscritas:'
+          subscribed_count: 'Suscritas:'
           title: Boletines
         new:
           save: Guardar
@@ -510,7 +510,7 @@ es:
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
-          recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarios.
+          recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
           scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
