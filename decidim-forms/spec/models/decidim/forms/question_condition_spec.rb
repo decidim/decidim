@@ -22,26 +22,37 @@ module Decidim
 
       it { is_expected.to be_valid }
 
-      it "has an association of question" do
-        expect(subject.question).to eq(question)
-      end
-      
-      it "has an association of condition_question" do
-        expect(subject.condition_question).to eq(condition_question)
-      end
-
-      context "when condition type doesn't exists in allowed types" do
-        let(:condition_type) { :foo }
-
-        it { is_expected.not_to be_valid }
-      end
-
       context "when condition_question is positioned before question" do
         before do
           question.position = condition_question.position - 1
         end
-        
+
         it { is_expected.not_to be_valid }
+      end
+
+      it "has a question association" do
+        expect(subject.question).to eq(question)
+      end
+
+      it "has a condition_question association" do
+        expect(subject.condition_question).to eq(condition_question)
+      end
+
+      context "when condition_type is :equal" do
+        let(:answer_option) { create(:answer_option, question: condition_question) }
+        let(:question_condition) do
+          create(
+            :question_condition,
+            :equal,
+            question: question,
+            condition_question: condition_question,
+            answer_option: answer_option
+          )
+        end
+
+        it "has an answer_option association" do
+          expect(subject.answer_option).to eq(answer_option)
+        end
       end
     end
   end

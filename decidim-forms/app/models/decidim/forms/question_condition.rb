@@ -4,14 +4,15 @@ module Decidim
   module Forms
     # The data store for a QuestionCondition in the Decidim::Forms component.
     class QuestionCondition < Forms::ApplicationRecord
-      enum condition_types: [:answered, :not_answered, :equal, :not_equal, :match]
+      enum condition_type: [:answered, :not_answered, :equal, :not_equal, :match], _prefix: true
 
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_forms_question_id"
+      belongs_to :question, class_name: "Question", foreign_key: "decidim_forms_question_id", inverse_of: :conditions
       belongs_to :condition_question, class_name: "Question", foreign_key: "decidim_forms_question_condition_id"
-      belongs_to :answer_option, class_name: "AnswerOption", foreign_key: "decidim_forms_answer_option_id"
+      belongs_to :answer_option, class_name: "AnswerOption", foreign_key: "decidim_forms_answer_option_id", optional: true
 
       validate :condition_question_position
-      validates :answer_option, presence: true, if: -> { [:equal, :not_equal].include?(condition_type) }
+      validate :answer_option_from_condition_question
+      validates :answer_option, presence: true, if: :answer_option_mandatory?
 
       def fulfilled?(answer)
         case condition_type
@@ -29,6 +30,18 @@ module Decidim
       end
 
       private
+
+      def answer_option_mandatory?
+        [:equal, :not_equal].include?(condition_type)
+      end
+
+      def answer_option_from_condition_question
+        return unless answer_option_mandatory?
+        
+        if answer_option.question.id != condition_question.id
+          errors.add(:answer_option, :invalid)
+        end
+      end
 
       def condition_question_position
         errors.add(:condition_question, :invalid) if condition_question.position > question.position

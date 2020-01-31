@@ -20,6 +20,8 @@ module Decidim
                dependent: :destroy,
                inverse_of: :question
 
+      has_many :conditioned_questions, through: :conditions, source: "decidim_forms_question_condition_id"
+
       validates :question_type, inclusion: { in: TYPES }
 
       def multiple_choice?

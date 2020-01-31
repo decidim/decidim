@@ -80,8 +80,7 @@ FactoryBot.define do
 
     trait :equal do
       condition_type { :equal }
-      condition_question { create(:questionnaire_question, :with_answer_options) }
-      answer_option { condition_question.answer_options.first }
+      answer_option { create(:answer_option, question: condition_question) }
     end
 
     trait :match do
