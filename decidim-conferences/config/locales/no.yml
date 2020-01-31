@@ -15,6 +15,8 @@
   decidim:
     admin:
       conference_publications:
+        create:
+          error: Det oppstod et problem med å publisere denne konferansen.
         destroy:
           error: Det oppstod et problem med å avpublisere denne konferansen.
           success: Konferansen ble avpublisert.
