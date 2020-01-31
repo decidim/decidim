@@ -54,7 +54,7 @@ hu:
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
-        single_comment_link_title: Egyetlen megjegyzés linkjének megszerzése
+        single_comment_link_title: Link a kommenthez
       comment_order_selector:
         order:
           best_rated: Legjobbra értékelt
