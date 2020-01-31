@@ -317,12 +317,10 @@ en:
         see_all: See all (%{count})
     proposals:
       actions:
-        answer: Answer
         edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal
         participatory_texts: Participatory texts
-        private_notes: Private notes
         show: Show proposal
         title: Actions
       admin:
@@ -429,8 +427,8 @@ en:
             endorsers: Endorsers
             link: Link
             proposals: Proposals
-            votes_count: Supports count
             ranking: "%{ranking} of %{total}"
+            votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{category} category: %{proposals}.'
