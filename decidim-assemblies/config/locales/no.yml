@@ -54,6 +54,7 @@
         create:
           success: Forsamlingen ble publisert.
         destroy:
+          error: Det oppstod et problem med å avpublisere denne forsamlingen.
           success: Forsamlingen ble avpublisert.
       assembly_user_roles:
         create:
