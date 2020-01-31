@@ -54,6 +54,7 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita ongelmasta
+        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
