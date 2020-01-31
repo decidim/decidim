@@ -4,7 +4,7 @@ module Decidim
   module Core
     class ComponentInputFilter < BaseInputFilter
       include HasPublishableInputFilter
-      include HasLocaleInputFilter
+      include HasLocalizedInputFilter
 
       graphql_name "ComponentFilter"
       description "A type used for filtering any component parent objects"

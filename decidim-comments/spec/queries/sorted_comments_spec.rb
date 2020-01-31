@@ -4,8 +4,15 @@ require "spec_helper"
 
 module Decidim::Comments
   describe SortedComments do
-    subject { described_class.new(commentable, order_by: order_by) }
+    subject { described_class.new(commentable, options) }
 
+    let(:options) do
+      {
+        order_by: order_by,
+        id: id
+      }
+    end
+    let(:id) { nil }
     let!(:organization) { create(:organization) }
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
     let!(:component) { create(:component, participatory_space: participatory_process) }
@@ -31,6 +38,15 @@ module Decidim::Comments
       previous_comment = create(:comment, commentable: commentable, author: author, created_at: 1.week.ago, updated_at: 1.week.ago)
       future_comment = create(:comment, commentable: commentable, author: author, created_at: 1.week.from_now, updated_at: 1.week.from_now)
       expect(subject.query).to eq [previous_comment, comment, future_comment]
+    end
+
+    context "when filtering by id" do
+      let!(:another_comment) { create(:comment, commentable: commentable, author: author) }
+      let(:id) { comment.id }
+
+      it "only returns the requested comment" do
+        expect(subject.query).to eq [comment]
+      end
     end
 
     context "when the comment is hidden" do

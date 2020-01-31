@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    module NeedsFilterAndOrder
+    module NeedsApiFilterAndOrder
       # Converts the result of a GraphQL::Schema::InputObject into ActiverRecord where argument
       # Each value InputObject can return 4 types of values:
       # 1. A Scalar, will filter by a simple match (==) with the default field name

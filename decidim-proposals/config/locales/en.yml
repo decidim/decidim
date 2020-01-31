@@ -43,6 +43,7 @@ en:
             attachment:
               needs_to_be_reattached: Needs to be reattached
             body:
+              cant_be_equal_to_template: cannot be equal to the template
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
@@ -75,6 +76,23 @@ en:
         one: Support
         other: Supports
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Proposals
+            'true': Amendments
+        search_placeholder:
+          id_string_or_title_cont: Search %{collection} by ID or title.
+        state_eq:
+          values:
+            evaluating: Evaluating
+            withdrawn: Withdrawn
+        state_null:
+          label: Status
+          values:
+            'true': Not answered
     components:
       proposals:
         actions:
@@ -96,6 +114,8 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
+            new_proposal_body_template: New proposal body template
+            new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
@@ -653,8 +673,10 @@ en:
           my_proposals: My proposals
           origin: Origin
           related_to: Related to
+          scope: Scope
           search: Search
           state: Status
+          type: Type
           voted: Supported
         filters_small_view:
           close_modal: Close modal

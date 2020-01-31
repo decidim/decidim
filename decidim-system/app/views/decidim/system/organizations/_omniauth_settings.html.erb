@@ -1,0 +1,11 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.omniauth_settings") %></h4>
+
+  <%= f.fields_for :omniauth_settings do %>
+    <% providers = Decidim::OmniauthProvider.available.keys %>
+
+    <% providers.each do |provider| %>
+      <%= render partial: "omniauth_provider", locals: { f: f, provider: provider } %>
+    <% end %>
+  <% end %>
+</div>
