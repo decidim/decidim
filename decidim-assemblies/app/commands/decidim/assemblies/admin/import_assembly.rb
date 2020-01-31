@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when copying a new assembly
+      # A command with all the business logic to import a new assembly
       # in the system.
       class ImportAssembly < Rectify::Command
         # Public: Initializes the command.

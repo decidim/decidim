@@ -2,8 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This class serializes an Assembly so can be exported to CSV, JSON or other
-    # formats.
+    # This class serializes an Assembly so it can be exported to CSV, JSON or other formats.
     class AssemblySerializer < Decidim::Exporters::Serializer
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
