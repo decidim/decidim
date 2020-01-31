@@ -675,12 +675,12 @@ es:
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
-          most_endorsed: Más avalados
-          most_followed: Más seguidos
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Con más apoyos
           random: Aleatorio
           recent: Reciente
-          with_more_authors: Con más autores
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice del documento
