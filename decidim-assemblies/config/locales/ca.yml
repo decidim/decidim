@@ -79,6 +79,7 @@ ca:
     admin:
       actions:
         new_assembly: Nova assemblea
+        new_assembly_type: Nou tipus d'assemblea
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -100,6 +101,18 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquesta assemblea.
           success: L'assemblea s'ha duplicat correctament.
+      assemblies_types:
+        create:
+          error: S'ha produït un error en crear una nova assemblea.
+          success: Tipus d'assemblea creat correctament.
+        destroy:
+          success: Tipus d'assemblea esborrat amb èxit.
+        new:
+          create: Crea
+          title: Nou tipus d'assemblea
+        update:
+          error: S'ha produït un error a l'actualitzar el tipus d'assemblea.
+          success: Tipus d'assemblea esborrat amb èxit.
       assembly_copies:
         new:
           copy: Còpia
@@ -159,9 +172,11 @@ ca:
           info: Informació
           moderations: Moderacions
           private_users: Participants privades
+        assemblies_types: Tipus d'assemblees
       models:
         assemblies_types:
           fields:
+            created_at: Creat el
             title: Títol
         assembly:
           fields:
@@ -195,6 +210,7 @@ ca:
             moderator: Moderadora
       titles:
         assemblies: Assemblees
+        assemblies_types: Tipus d'assemblees
     admin_log:
       assembly:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
@@ -205,6 +221,8 @@ ca:
         create: "%{user_name} ha afegit el membre %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} esborrat el membre %{resource_name} de l'assemblea %{space_name}"
         update: "%{user_name} ha actualitzat el membre %{resource_name} de l'assemblea %{space_name}"
+      assembly_type:
+        create: "%{user_name} ha creat l'assemblea %{resource_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de l'assemblea %{space_name}"
