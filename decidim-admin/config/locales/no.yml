@@ -200,6 +200,9 @@
       exports:
         export_as: "%{name} som %{export_format}"
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
+      filters:
+        search_placeholder:
+          name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
       impersonatable_users:
         index:
           filter:
