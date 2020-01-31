@@ -285,6 +285,8 @@
       newsletters:
         create:
           success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
+        deliver:
+          error: Det oppstod et problem med å levere dette nyhetsbrevet.
         destroy:
           error_already_sent: 'Kan ikke ødelegge nyhetsbrevet: Det er allerede sendt.'
         form:
