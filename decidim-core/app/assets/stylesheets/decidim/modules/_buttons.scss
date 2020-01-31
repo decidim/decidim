@@ -253,7 +253,8 @@
   background-color: var(--twitter);
 
   &:hover{
-    filter: brightness(50%);
+    background-color: var(--twitter);
+    filter: brightness(90%);
   }
 }
 
@@ -261,14 +262,40 @@
   background-color: var(--facebook);
 
   &:hover{
-    filter: brightness(50%);
+    background-color: var(--facebook);
+    filter: brightness(90%);
   }
 }
 
 .button--google{
   background-color: var(--google);
+  font-family: Roboto;
 
   &:hover{
-    filter: brightness(50%);
+    background-color: var(--google);
+    filter: brightness(90%);
+  }
+
+  .button--social__icon{
+    padding: 0;
+
+    svg.icon{
+      fill: inherit;
+      width: inherit;
+      height: inherit;
+      margin-top: 2px;
+    }
+  }
+
+  &.button--social--mini{
+    .button--social__icon{
+      font-size: 0;
+      min-width: auto;
+      padding: 0;
+
+      svg.icon{
+        margin: 1px;
+      }
+    }
   }
 }
