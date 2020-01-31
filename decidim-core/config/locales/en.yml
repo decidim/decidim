@@ -68,6 +68,12 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    proposals:
+      proposals:
+        endorsements_card_row:
+          comments_title: Proposal comments count
+      proposal_endorsements_helper:
+        endorsements_count_title: Proposal endorsements count
     accessibility:
       logo_alt: "Link to %{organization}"
     account:
