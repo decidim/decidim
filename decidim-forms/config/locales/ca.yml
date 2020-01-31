@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       answer:
-        body: Respondre
+        body: Resposta
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
