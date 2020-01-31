@@ -38,6 +38,9 @@
       assemblies_copies:
         create:
           success: Forsamlingen ble duplisert.
+      assemblies_types:
+        create:
+          error: Det oppstod et problem med å lage en ny forsamlings type.
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
