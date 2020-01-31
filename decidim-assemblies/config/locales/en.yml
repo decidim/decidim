@@ -333,6 +333,7 @@ en:
           member_of:
             member_of: Member of
       show:
+        social_networks_title: Share this assembly on
         area: Area
         assembly_type: Assembly type
         children: Assemblies
