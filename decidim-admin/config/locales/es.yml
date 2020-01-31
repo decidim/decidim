@@ -161,6 +161,7 @@ es:
           alert: 'Requerido: Revise nuestros Términos y Condiciones de Administración'
           callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
           cta: Revísalos ahora.
+        title: Términos y Condiciones de Administración
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
@@ -252,6 +253,7 @@ es:
           success: Categoría actualizada correctamente.
       component_permissions:
         update:
+          error: Hubo un problema al actualizar los permisos de este componente.
           success: Permisos actualizados con éxito.
       components:
         create:
@@ -291,6 +293,31 @@ es:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Tu exportación está actualmente en curso. Recibiras un correo electrónico cuando haya finalizado.
+      filters:
+        category_id_eq:
+          label: Categoría
+        filter_label: Filtro
+        officialized_at_null:
+          label: Estado
+          values:
+            'false': Oficializada
+            'true': No oficializada
+        private_space_eq:
+          label: Privado
+          values:
+            'false': Público
+            'true': Privado
+        published_at_null:
+          label: Publicado
+          values:
+            'false': Publicada
+            'true': Sin publicar
+        scope_id_eq:
+          label: Ámbito
+        search_label: Buscar
+        search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o apodo.
+          title_cont: Buscar %{collection} por título.
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -470,6 +497,7 @@ es:
           not_sent: No enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Subscritas:'
           title: Boletines
         new:
           save: Guardar
@@ -482,6 +510,7 @@ es:
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarios.
           scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
@@ -548,6 +577,7 @@ es:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
           url: URL
