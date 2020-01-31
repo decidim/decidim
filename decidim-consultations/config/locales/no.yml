@@ -27,6 +27,7 @@
           error: Det oppstod et problem med å publisere resultatene for denne konsultasjonen.
         destroy:
           error: Det oppstod et problem med å avpublisere resultatene for denne konsultasjonen.
+          success: Konsultasjons resultatene ble avpublisert.
       consultations:
         create:
           error: Det oppstod et problem med å lage en ny konsultasjon.
