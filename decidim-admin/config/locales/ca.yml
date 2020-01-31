@@ -236,7 +236,7 @@ ca:
           success: Categoria actualitzada correctament.
       component_permissions:
         update:
-          error: Ha hagut un problema actualitzant els permisos d'aquest component.
+          error: S'ha produït un error actualitzant els permisos d'aquest component.
           success: Permisos actualitzats correctament.
       components:
         create:
