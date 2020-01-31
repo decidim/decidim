@@ -37,6 +37,8 @@
         results:
           not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
           participants: "%{count} deltakere"
+        update:
+          error: Det oppstod et problem med å oppdatere denne konsultasjonen.
       menu:
         questions_submenu:
           components: Komponenter
@@ -55,6 +57,9 @@
         form:
           help: Sett opp flere valg spørsmål ved å øke det maksimale antallet svar en deltaker kan velge. Standard maksimumsverdi er 1, noe som betyr at bare ett svar kan bli stemt.
           title: Avansert konfigurasjon
+      question_publications:
+        destroy:
+          error: Det oppstod et problem med å avpublisere dette spørsmålet.
       response_groups:
         create:
           error: Det oppstod et problem med å opprette en ny svargruppe.
