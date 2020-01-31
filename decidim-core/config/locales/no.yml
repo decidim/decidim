@@ -583,8 +583,11 @@
         remove_from_group: Fjern deltaker
       index:
         current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
+      reject:
+        error: Det oppstod et problem med å avvise denne bli med forespørselen
       remove:
         error: Det oppstod et problem med å fjerne denne deltakeren fra gruppen
+        success: Deltakeren ble fjernet fra gruppen
     groups:
       actions:
         are_you_sure: Er du sikker?
