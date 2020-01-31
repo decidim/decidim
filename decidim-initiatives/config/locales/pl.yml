@@ -181,18 +181,8 @@ pl:
             title: Informacje ogólne
           index:
             actions_title: Akcja
-            filter:
-              accepted: Przyjęty
-              all: Wszystko
-              created: Stworzony
-              discarded: Odrzucona
-              published: Opublikowany
-              rejected: Odrzucono
-              validating: Walidacja techniczna
-            filter_by: Filtruj według
             preview: Zapowiedź
             print: Wydrukować
-            search: Szukaj
           show:
             print: Wydrukować
           update:

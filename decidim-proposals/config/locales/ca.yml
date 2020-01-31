@@ -42,6 +42,7 @@ ca:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
             body:
+              cant_be_equal_to_template: No pot ser igual a la plantilla
               identical: I el títol no pot ser idèntic
             title:
               identical: I el cos no pot ser idèntic
@@ -74,6 +75,23 @@ ca:
         one: Suport
         other: Suports
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipus
+          values:
+            'false': Propostes
+            'true': Esmenes
+        search_placeholder:
+          id_string_or_title_cont: Cerca %{collection} per ID o títol.
+        state_eq:
+          values:
+            evaluating: En avaluació
+            withdrawn: Retirada
+        state_null:
+          label: Estat
+          values:
+            'true': No resposta
     components:
       proposals:
         actions:
@@ -95,6 +113,8 @@ ca:
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per participant
+            new_proposal_body_template: Plantilla pel text de nova proposta
+            new_proposal_body_template_help: Pots definir el text predefinit que hauria de tenir una nova proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             participatory_texts_disabled_help: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
@@ -652,8 +672,10 @@ ca:
           my_proposals: Les meves propostes
           origin: Origen
           related_to: Relacionat amb
+          scope: Àmbit
           search: Cerca
           state: Estat
+          type: Tipus
           voted: Has donat suport
         filters_small_view:
           close_modal: Tancar finestra
@@ -674,13 +696,13 @@ ca:
           title: Crea la teva proposta
         orders:
           label: 'Ordenar propostes per:'
-          most_commented: Més comentats
-          most_endorsed: Més recolzats
-          most_followed: Més seguits
+          most_commented: Més comentades
+          most_endorsed: Amb més adhesions
+          most_followed: Amb més seguidores
           most_voted: Amb més suports
           random: Aleatori
           recent: Recent
-          with_more_authors: Amb més autors
+          with_more_authors: Amb més autores
         participatory_texts:
           index:
             document_index: Índex del document

@@ -48,6 +48,12 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -72,8 +78,9 @@ es:
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostrar todos los procesos
+          all_processes: Mostrar todos los procesos
           process_groups: Grupos de procesos
+        import_process: Importar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -147,6 +154,14 @@ es:
         update:
           error: Se ha producido un error al actualizar este grupo de procesos participativos.
           success: Grupo de procesos participativos actualizado correctamente.
+      participatory_process_imports:
+        create:
+          error: Se ha producido un error al importar este proceso participativo.
+          success: El proceso participativo se ha importado correctamente.
+        new:
+          import: Importar
+          select: Selecciona qué datos quieres importar
+          title: Importar proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -291,6 +306,10 @@ es:
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Añadir un documento
+            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'

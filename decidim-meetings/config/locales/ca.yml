@@ -238,8 +238,8 @@ ca:
           edit:
             update: Actualitzar
           form:
-            address_help: 'Adreça: usada per Geocoder per a trobar la localització'
-            location_help: 'Localització: missatge dirigit als usuaris indicant el lloc on trobar-se'
+            address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
             select_organizer: Selecciona l'organitzadora
           index:
@@ -411,7 +411,7 @@ ca:
       registrations:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
-          success: T'has inscrit a la trobada amb èxit.
+          success: T'has inscrit a la trobada amb èxit. Al estar inscrita, rebràs notificacions si s'hi produeixen actualitzacions.
         decline_invitation:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.

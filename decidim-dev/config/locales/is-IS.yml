@@ -1,0 +1,21 @@
+is-IS:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Búið til á
+        field: Sviði mitt
+        start_date: Upphafsdagur
+        title: Titill
+        updated_at: Uppfært á
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies hár
+        dummies_count_medium: Dummies miðlungs
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Tengd dummy
