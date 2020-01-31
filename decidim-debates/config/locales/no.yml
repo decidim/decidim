@@ -11,8 +11,10 @@
         settings:
           global:
             announcement: Kunngjøring
+            comments_enabled: Kommentarer aktivert
           step:
             announcement: Kunngjøring
+            comments_blocked: Kommentarer blokkert
     debates:
       actions:
         confirm_destroy: Er du sikker?
@@ -30,6 +32,9 @@
         filters:
           all: Alle
           category: Kategori
+          citizens: Borgere
+        filters_small_view:
+          close_modal: Lukk modal
         new:
           back: Tilbake
       last_activity:
@@ -41,5 +46,36 @@
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei, 
+              En ny debatt "%{resource_title}" har blitt opprettet på deltaker området %{space_title}, sjekk det ut og bidra:
+            email_outro: Du har mottatt denne varslingen fordi du følger deltaker-området %{space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            email_subject: Ny debatt "%{resource_title}" på %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten var opprettet på <a href="%{space_path}">%{space_title} </a>.
           user_followers:
+            email_intro: |-
+              Hei,
+              %{author_name} %{author_nickname}, som du følger, har opprettet en ny debatt "%{resource_title}". Sjekk det ut og bidra:
+            email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            email_subject: Ny debatt "%{resource_title}" av %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> opprettet <a href="%{resource_path}">%{resource_title}</a> debatten.
+        creation_disabled:
+          email_intro: 'Debatt opprettelse er ikke lenger aktiv i %{participatory_space_title} Du kan fortsatt delta i åpne debatter fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          email_subject: Debattopprettelse deaktivert i %{participatory_space_title}
+          notification_title: Debattopprettelse er nå deaktivert i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Du kan nå starte nye debatter i %{participatory_space_title}! Begynn å delta på denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          email_subject: Debatter nå tilgjengelig i %{participatory_space_title}
+          notification_title: Du kan nå begynne å <a href="%{resource_path}">nye dabatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Velg en åpen debatt å delta i
+          description: Dette merket tildeles når du aktivt deltar i de forskjellige debattene ved å legge igjen kommentarene dine.
+          description_another: Denne deltakeren har deltatt i %{score} debatter.
+          next_level_in: Delta i %{score} flere debatter for å nå neste nivå!
+          unearned_another: Denne deltakeren har ikke deltatt i en debatt ennå.

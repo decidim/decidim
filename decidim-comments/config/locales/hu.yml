@@ -54,6 +54,7 @@ hu:
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
+        single_comment_link_title: Link a kommenthez
       comment_order_selector:
         order:
           best_rated: Legjobbra értékelt
@@ -66,7 +67,10 @@ hu:
       comments:
         blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
+        comment_details_title: Megjegyzés részletei
         loading: Hozzászólások betöltése ...
+        single_comment_warning: A többi hozzászólást <a href="%{url}">itt</a> ellenőrizheti.
+        single_comment_warning_title: Egyetlen megjegyzést látsz
         title: "%{count} megjegyzés"
     events:
       comments:

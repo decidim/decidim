@@ -69,8 +69,6 @@ nl:
     account:
       data_portability_export:
         file_no_exists: Bestand bestaat niet
-        invalid_token: Het geleverde token is ongeldig.
-        no_token: Geen token verstrekt
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
@@ -549,7 +547,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: Klik op de volgende knop om uw gegevens te downloaden. <br/> Het bestand blijft beschikbaar tot %{date}.
+        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href=''https://www.7-zip.org/''>7-Zip</a> nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -595,16 +593,6 @@ nl:
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
-        continuity:
-          conditions:
-            - Kijk hier regelmatig
-          description: Deze badge wordt toegekend wanneer u het platform regelmatig bezoekt. We vinden het leuk om je hier in de buurt te hebben!
-          description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
-          description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
-          name: Continuïteit
-          next_level_in: Meld je %{score} opeenvolgende dagen aan om naar het volgende niveau te gaan!
-          unearned_another: Deze gebruiker heeft zich niet langer dan één opeenvolgende dag aangemeld.
-          unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
             - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
@@ -1216,6 +1204,7 @@ nl:
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
+      invalid_time_zone: is geen geldige tijdszone
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
       nesting_too_deep: kan niet binnen een subcategorie zijn
@@ -1328,6 +1317,7 @@ nl:
       left: Verwijderingen
       right: Toevoegingen
     dropdown:
+      choose_diff_view_html: 'HTML weergavemodus:'
       choose_diff_view_mode: 'Vergelijk weergavemodus:'
       option_split: Naast elkaar
       option_unified: Verenigd

@@ -13,6 +13,8 @@ Decidim.register_component(:budgets) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Budgets::Order"]
 
+  component.query_type = "Decidim::Budgets::BudgetsType"
+
   component.actions = %(vote)
 
   component.on(:before_destroy) do |instance|

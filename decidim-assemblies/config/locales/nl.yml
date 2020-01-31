@@ -33,7 +33,7 @@ nl:
         meta_scope: Scope metadata
         parent_id: Hoofdgroep
         participatory_processes_ids: Verwante inspraakprocessen
-        participatory_scope: Wat wordt besloten
+        participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
         promoted: Gepromoveerd
@@ -46,12 +46,12 @@ nl:
         slug: URL pad
         special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
-        target: Wie doet mee
+        target: Wie neemt deel
         title: Titel
         twitter: Twitter
         youtube: YouTube
       assembly_member:
-        birthday: Verjaardag
+        birthday: Geboortedatum
         birthplace: Geboorteplaats
         ceased_date: Sluitingsdatum
         designation_date: Ontwerpdatum
@@ -99,6 +99,9 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
+      assemblies_types:
+        new:
+          create: Aanmaken
       assembly_copies:
         new:
           copy: Kopiëren
@@ -144,7 +147,7 @@ nl:
           title: Nieuwe groepsadmin.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
+          success: Beheerder is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Groepen
         assemblies_submenu:
@@ -159,6 +162,10 @@ nl:
           moderations: Moderaties
           private_users: Particuliere gebruikers
       models:
+        assemblies_types:
+          fields:
+            created_at: Aangemaakt op
+            title: Titel
         assembly:
           fields:
             created_at: Aangemaakt op
@@ -191,6 +198,7 @@ nl:
             moderator: Moderator
       titles:
         assemblies: Groepen
+        assemblies_types: Groepstype
     admin_log:
       assembly:
         create: "%{user_name} heeft de groep %{resource_name} gemaakt"
@@ -201,6 +209,12 @@ nl:
         create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep gemaakt"
         delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
         update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
+      assembly_type:
+        create: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
+        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
+        unpublish: "%{user_name} heeft de publicatie van de groep %{resource_name} ongedaan gemaakt"
+        update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
       assembly_user_role:
         create: "%{user_name} nodigde %{resource_name} uit voor de groep %{space_name}"
         delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} groep"
@@ -224,6 +238,9 @@ nl:
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
@@ -301,7 +318,7 @@ nl:
           'false': ondoorzichtig
           'true': Transparant
         local_area: Organisatiegebied
-        participatory_scope: Wat wordt besloten
+        participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
         purpose_of_action: Doelstelling
@@ -336,12 +353,14 @@ nl:
       participatory_spaces:
         assemblies:
           contextual: "<p>Een groep is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene groep (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van groepen.</p>\n"
-          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          page: "<p>Een assemblee is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Assemblees houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene assemblee (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie), een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van assemblees.</p>\n"
           title: Wat zijn groepen?
     log:
       value_types:
         assembly_presenter:
           not_found: 'De groep is niet gevonden in de database (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Dit type groep is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Groepen
     metrics:
