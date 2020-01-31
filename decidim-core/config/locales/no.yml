@@ -577,6 +577,8 @@
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
     group_members:
+      accept:
+        error: Det oppstod et problem med å godta denne bli med forespørselen
       actions:
         are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
