@@ -70,10 +70,12 @@ ca:
         port: Port
         primary_color: Primària
         reference_prefix: prefix de referència
+        rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
         show_statistics: Mostrar estadístiques
         success_color: Èxit
+        time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
@@ -142,9 +144,24 @@ ca:
         export: Exporta
         manage: Gestionar
         new: Nou %{name}
+        per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      admin_terms_of_use:
+        accept:
+          error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
+          success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
+        actions:
+          accept: Estic d'acord amb aquests termes
+          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          refuse: Rebutjar els termes
+          title: Accepto els Termes i Condicions d'Administració
+        required_review:
+          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          cta: Revisa-les ara.
+        title: Termes i Condicions del panell d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -236,6 +253,7 @@ ca:
           success: Categoria actualitzada correctament.
       component_permissions:
         update:
+          error: S'ha produït un error actualitzant els permisos d'aquest component.
           success: Permisos actualitzats correctament.
       components:
         create:
@@ -275,6 +293,31 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      filters:
+        category_id_eq:
+          label: Categoria
+        filter_label: Filtre
+        officialized_at_null:
+          label: Estat
+          values:
+            'false': Oficialitza
+            'true': No oficialitzada
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Públic
+            'true': Privat
+        published_at_null:
+          label: Publicat
+          values:
+            'false': Publicat
+            'true': Despublicat
+        scope_id_eq:
+          label: Àmbit
+        search_label: Cerca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          title_cont: Buscar %{collection} per títol.
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
@@ -454,6 +497,7 @@ ca:
           not_sent: No enviat
           participants: 'participants '
           segmented_to: 'Segmentat a %{subject}: '
+          subscribed_count: 'Subscrites:'
           title: Butlletins
         new:
           save: Desar
@@ -466,6 +510,7 @@ ca:
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
           scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
@@ -512,18 +557,12 @@ ca:
           actions: Accions
           badge: Insígnia
           created_at: Creat el
-          filter:
-            all: Todas
-            not_officialized: No oficialitzada
-            officialized: Oficialitzada
-          filter_by: Filtra per
           name: Nom
           nickname: Àlies
           not_officialized: No oficialitzada
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
-          search: Cerca
           status: Estat
           unofficialize: Des-oficialitzar
         new:
@@ -538,6 +577,7 @@ ca:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
           url: URL

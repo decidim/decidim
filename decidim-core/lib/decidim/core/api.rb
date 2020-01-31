@@ -11,6 +11,7 @@ module Decidim
     autoload :ScopableInterface, "decidim/api/scopable_interface"
     autoload :AttachableInterface, "decidim/api/attachable_interface"
     autoload :HashtagInterface, "decidim/api/hashtag_interface"
+    autoload :ParticipatorySpaceResourceableInterface, "decidim/api/participatory_space_resourceable_interface"
     autoload :FingerprintInterface, "decidim/api/fingerprint_interface"
     autoload :AmendableInterface, "decidim/api/amendable_interface"
     autoload :AmendableEntityInterface, "decidim/api/amendable_entity_interface"

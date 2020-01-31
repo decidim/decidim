@@ -512,18 +512,12 @@ fr:
           actions: Actions
           badge: Badge
           created_at: Créée le
-          filter:
-            all: Tout
-            not_officialized: Non validé
-            officialized: Validé
-          filter_by: Filtrer par
           name: Nom
           nickname: Pseudonyme
           not_officialized: Non validé
           officialize: Valider
           officialized: Validé
           reofficialize: De nouveau validé
-          search: Rechercher
           status: Statut
           unofficialize: Invalider
         new:
