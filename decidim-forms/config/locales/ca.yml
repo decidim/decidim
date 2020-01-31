@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       answer:
-        body: Respondre
+        body: Resposta
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -21,15 +21,15 @@ ca:
         models:
           components:
             description: Descripció
-            tos: Termes i condicions d'ús
+            tos: Termes del servei
         questionnaires:
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
-            remove: Eliminar
+            remove: Elimina
             statement: Declaració
           edit:
-            save: Desar
+            save: Desa
             title: Títol
           form:
             add_question: Afegeix una pregunta
