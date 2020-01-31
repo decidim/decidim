@@ -17,11 +17,11 @@
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= form.chained_check_boxes :scope_id, filter_scopes_values, legend_title: t(".scope") %>
+    <%= form.chained_check_boxes :scope_ids, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.chained_check_boxes :category_id, filter_categories_values, legend_title: t(".category") %>
+    <%= form.chained_check_boxes :category_ids, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <% if component_settings.official_proposals_enabled %>

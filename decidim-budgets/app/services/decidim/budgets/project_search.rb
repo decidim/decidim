@@ -19,15 +19,11 @@ module Decidim
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
       end
 
-      def search_category_id
-        return query if category_id.member?("all")
-
+      def search_category_ids
         super
       end
 
-      def search_scope_id
-        return query if scope_id.member?("all")
-
+      def search_scope_ids
         super
       end
 

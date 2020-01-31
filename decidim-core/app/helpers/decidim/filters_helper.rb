@@ -19,29 +19,6 @@ module Decidim
       end
     end
 
-    # This method returns a hash with the options for the checkbox and its label
-    # used in filters that uses chained checkboxes
-    def chained_check_box_options(value, label, **options)
-      checkbox_options = {
-        value: value,
-        label: label,
-        multiple: true,
-        include_hidden: false,
-        label_options: {
-          "data-children-checkbox": "",
-          value: value
-        }
-      }
-      options.merge!(checkbox_options)
-
-      if value == "all"
-        options[:label_options].merge!("data-global-checkbox": "")
-        options[:label_options].delete(:"data-children-checkbox")
-      end
-
-      options
-    end
-
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in

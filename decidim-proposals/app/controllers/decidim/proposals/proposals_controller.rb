@@ -214,9 +214,9 @@ module Decidim
           search_text: "",
           origin: default_filter_origin_params,
           activity: "all",
-          category_id: default_filter_category_params,
+          category_ids: default_filter_category_params,
           state: %w(accepted evaluating not_answered),
-          scope_id: default_filter_scope_params,
+          scope_ids: default_filter_scope_params,
           related_to: "",
           type: "all"
         }
@@ -230,15 +230,20 @@ module Decidim
       end
 
       def default_filter_category_params
-        return unless current_participatory_space.categories.any?
+        return unless current_component.participatory_space.categories.any?
 
-        current_participatory_space.categories.map { |category| category.id.to_s }
+        current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def default_filter_scope_params
-        return unless current_participatory_space.scopes.any?
+        return unless current_component.participatory_space.scopes.any?
 
-        current_participatory_space.scopes.map { |scope| scope.id.to_s }
+        if current_component.participatory_space.scope
+          space_ids = [current_component.participatory_space.scope.id]
+          space_ids << current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+        end
       end
 
       def proposal_draft

@@ -42,6 +42,7 @@ module Decidim
                          attribute: attribute,
                          collection: collection,
                          chained_check_boxes_id: chained_check_boxes_id(attribute),
+                         hide_node: "false",
                          options: options).html_safe
       end
     end

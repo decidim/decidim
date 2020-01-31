@@ -27,21 +27,26 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          scope_id: default_filter_scope_params,
-          category_id: default_filter_category_params
+          scope_ids: default_filter_scope_params,
+          category_ids: default_filter_category_params
         }
       end
 
-      def default_filter_scope_params
-        return unless current_participatory_space.scopes.any?
+      def default_filter_category_params
+        return unless current_component.participatory_space.categories.any?
 
-        current_participatory_space.scopes.map { |scope| scope.id.to_s }
+        current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
-      def default_filter_category_params
-        return unless current_participatory_space.categories.any?
+      def default_filter_scope_params
+        return unless current_component.participatory_space.scopes.any?
 
-        current_participatory_space.categories.map { |category| category.id.to_s }
+        if current_component.participatory_space.scope
+          space_ids = [current_component.participatory_space.scope.id]
+          space_ids << current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+        end
       end
 
       def context_params

@@ -76,18 +76,6 @@ module Decidim
         end
       end
 
-      def search_category_id
-        return query if category_id.member?("all")
-
-        super
-      end
-
-      def search_scope_id
-        return query if scope_id.member?("all")
-
-        super
-      end
-
       # Handle the amendment type filter
       def search_type
         case type
@@ -98,6 +86,14 @@ module Decidim
         else # Assume 'all'
           query.amendables_and_visible_emendations_for(@current_user, @component)
         end
+      end
+
+      def search_category_ids
+        super
+      end
+
+      def search_scope_ids
+        super
       end
 
       # Filters Proposals by the name of the classes they are linked to. By default,
