@@ -42,6 +42,8 @@
           error: Det oppstod et problem med å opprette en ny organisasjon.
         new:
           reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
+        update:
+          error: Det oppstod et problem med å oppdatere denne organisasjon.
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
