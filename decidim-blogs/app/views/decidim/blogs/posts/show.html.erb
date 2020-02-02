@@ -24,9 +24,29 @@
       <p><%= decidim_sanitize translated_attribute post.body %></p>
     </div>
   </div>
+  <% if show_endorsements_card? %>
+        <div class="card">
+          <div class="card__content">
+            <div class="row collapse buttons__row">
+              <% if endorsements_enabled? %>
+                <div class="column small-9 collapse">
+                  <%= endorsement_buttons_cell(post) %>
+                </div>
+              <% end %>
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments.count %>
+                <% end %>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+    <% end %>
   <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
     <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
   </div>
+<%= cell "decidim/endorsers_list", post %>
 </div>
 <%= attachments_for post %>
 <%= comments_for post %>

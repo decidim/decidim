@@ -55,28 +55,25 @@ module Decidim
     end
 
     def creation_date?
-      return true if posts_controller?
       return unless from_context
       return unless proposals_controller? || collaborative_drafts_controller?
-      return unless show_action?
+      return unless show_action? && (from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at))
 
       true
     end
 
     def creation_date
-      date_at = if proposals_controller?
-                  from_context.published_at
-                else
-                  from_context.created_at
-                end
+      date_at = from_context.try(:published_at) || from_context.try(:created_at)
 
       l date_at, format: :decidim_short
     end
 
     def commentable?
-      return unless posts_controller?
+      from_context && from_context.class.include?(Decidim::Comments::Commentable)
+    end
 
-      true
+    def endorsable?
+      from_context && from_context.class.include?(Decidim::Endorsable)
     end
 
     def author_classes
@@ -85,13 +82,12 @@ module Decidim
 
     def actionable?
       return false if options[:has_actions] == false
-      return true if user_author? && posts_controller?
 
-      true if withdrawable? || flagable?
+      (user_author? && posts_controller?) || withdrawable? || flagable?
     end
 
     def user_author?
-      true if "Decidim::UserPresenter".include? model.class.to_s
+      "Decidim::UserPresenter".include?(model.class.to_s)
     end
 
     def profile_path?
