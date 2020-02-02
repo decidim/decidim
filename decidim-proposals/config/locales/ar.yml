@@ -93,6 +93,13 @@ ar:
         many: الدعم
         other: الدعم
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: النوع
+          values:
+            'false': مقترحات
+            'true': تعديلات
     components:
       proposals:
         actions:
@@ -654,8 +661,10 @@ ar:
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
+          scope: النطاق
           search: بحث
           state: الحالة
+          type: النوع
           voted: أيد
         filters_small_view:
           close_modal: إغلاق مشروط
