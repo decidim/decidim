@@ -395,6 +395,7 @@ ar:
         confirmation:
           confirmed_html: تم تأكيد تسجيلك للمؤتمر <a href="%{url}">%{title}</a>.
           details_1: 'أنت مسجل في المؤتمر مع %{registration_type} نوع. تبلغ تكلفتها %{price} ويمكنك حضور الأحداث التالية:'
+          details_2: سوف تجد تفاصيل المحاضرة في المرفقات.
         pending_validation:
           confirmation_pending: سوف تتلقى التأكيد قريبا
           details: 'لقد قمت بالتسجيل إلى %{registration_type} نوع بتكلفة %{price} ويمكنك حضور الأحداث التالية:'
