@@ -175,18 +175,8 @@ de:
             title: Allgemeine Information
           index:
             actions_title: Aktion
-            filter:
-              accepted: Akzeptiert
-              all: Alle
-              created: Erstellt
-              discarded: Verworfen
-              published: Veröffentlicht
-              rejected: Abgelehnt
-              validating: Technische Validierung
-            filter_by: Filtern nach
             preview: Vorschau
             print: Drucken
-            search: Suche
           show:
             print: Drucken
           update:

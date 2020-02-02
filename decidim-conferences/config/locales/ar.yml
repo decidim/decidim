@@ -16,7 +16,7 @@ ar:
         promoted: سلط الضوء
         published_at: نشرت في
         scope_id: نطاق
-        scopes_enabled: تم تمكين النطاقات
+        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
         slogan: شعار
@@ -384,7 +384,7 @@ ar:
           registration: التسجيل
       conference_program:
         program_meeting:
-          content: يحتوى
+          content: المحتوى
           location: موقعك
           speakers: مكبرات الصوت
           streaming: تدفق
