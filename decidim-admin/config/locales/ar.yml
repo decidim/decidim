@@ -74,6 +74,7 @@ ar:
         send_welcome_notification: إرسال إشعار بالترحيب
         show_statistics: عرض الإحصائيات
         success_color: نجاح
+        time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
@@ -274,6 +275,22 @@ ar:
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
+      filters:
+        category_id_eq:
+          label: الفئة
+        private_space_eq:
+          label: خاص
+          values:
+            'false': علني
+            'true': خاص
+        published_at_null:
+          label: تم نشره
+          values:
+            'false': تم نشره
+            'true': لم يُنشَر
+        scope_id_eq:
+          label: النطاق
+        search_label: البحث
       help_sections:
         error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
