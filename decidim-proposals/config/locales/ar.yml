@@ -103,6 +103,8 @@ ar:
             'true': تعديلات
         state_null:
           label: الحالة
+          values:
+            'true': لم تتم الإجابة عليها
     components:
       proposals:
         actions:
