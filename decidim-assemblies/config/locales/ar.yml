@@ -175,6 +175,9 @@ ar:
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
       models:
+        assemblies_types:
+          fields:
+            title: العنوان
         assembly:
           fields:
             created_at: تاريخ الإنشاء
@@ -240,6 +243,9 @@ ar:
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
+        assemblies_types:
+          form:
+            title: العنوان
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -279,6 +285,7 @@ ar:
         others: أخرى
         public: عامة
       filter:
+        all: كل الأنواع
         commission: لجنة
         consultative_advisory: استشاري / الاستشارية
         executive: تنفيذية
