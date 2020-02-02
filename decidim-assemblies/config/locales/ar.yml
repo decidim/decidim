@@ -275,6 +275,7 @@ ar:
         others: أخرى
         public: عامة
       filter:
+        all: كل الأنواع
         commission: لجنة
         consultative_advisory: استشاري / الاستشارية
         executive: تنفيذية
