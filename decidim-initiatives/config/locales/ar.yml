@@ -140,6 +140,7 @@ ar:
             email_intro: لقد حازت المبادرة %{resource_title} على %{percentage}% مِن التوقيعات!
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
             email_subject: مرحلة جديدة تم تجاوزها!
+            notification_title: لقد حازت المبادرة <a href="%{resource_path}">%{resource_title}</a> على %{percentage} مِن التوقيعات.
     gamification:
       badges:
         initiatives:
