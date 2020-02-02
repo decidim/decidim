@@ -189,6 +189,8 @@ ar:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
       response_groups:
+        edit:
+          update: تحديث
         new:
           create: إنشاء
       responses:
