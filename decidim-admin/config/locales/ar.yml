@@ -146,6 +146,13 @@ ar:
         permissions: تصريحات
         reject: رفض
         verify: التحقق
+      admin_terms_of_use:
+        actions:
+          accept: أوافق على شروط المدير هذه
+          are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
+          refuse: ارفض شروط المدير
+          title: وافق على شروط وأحكام الإستخدام
+        title: شروط الاستخدام الخاصة بالمدير
       area_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
@@ -278,6 +285,11 @@ ar:
       filters:
         category_id_eq:
           label: الفئة
+        officialized_at_null:
+          label: الحالة
+          values:
+            'false': تم جعله رسمي
+            'true': لم يُصبِح رسميا
         private_space_eq:
           label: خاص
           values:
@@ -291,6 +303,9 @@ ar:
         scope_id_eq:
           label: النطاق
         search_label: البحث
+        search_placeholder:
+          name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
+          title_cont: البحث عن %{collection} بحسب العنوان.
       help_sections:
         error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
@@ -466,9 +481,11 @@ ar:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
           followers: 'مُتابِعون '
           has_been_sent_to: 'تم إرسالها إلى: '
+          no_scopes: لا نطاقات
           not_sent: غير مرسَلة
           participants: 'مشاركون '
           segmented_to: 'مقسمه إلى %{subject}: '
+          subscribed_count: 'مُشترِك:'
           title: الرسائل الإخبارية
         new:
           save: حفظ
