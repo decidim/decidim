@@ -62,6 +62,8 @@ ar:
           secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
         omniauth_settings:
+          icon: الأيقونة
+          icon_path: مسار الأيقونة
           twitter:
             api_key: مفتاح API
             api_secret: سر API
