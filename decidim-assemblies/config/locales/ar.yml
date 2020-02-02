@@ -375,6 +375,14 @@ ar:
           organizational_chart: الهيكل التنظيمي
           promoted_assemblies: المجالس البارزة
           reset_chart: إعادة تعيين
+        order_by_assemblies:
+          assemblies:
+            zero: "%{count} اجتماعات"
+            one: "%{count} اجتماع"
+            two: "%{count} اجتماعَيْن"
+            few: "%{count} اجتماعات"
+            many: "%{count} اجتماع"
+            other: "%{count} اجتماعات"
         promoted_assembly:
           more_info: مزيد من المعلومات
           take_part: خذ جزء
