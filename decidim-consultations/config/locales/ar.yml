@@ -119,6 +119,7 @@ ar:
           results: النتائج
         questions_submenu:
           components: المكونات
+          configuration: الإعدادا
           consultation: تشاور
           info: معلومات
           responses: استجابات
@@ -158,6 +159,9 @@ ar:
             few: استجابات
             many: استجابات
             other: استجابات
+      question_configuration:
+        form:
+          title: الإعداد المتقدّم
       question_publications:
         create:
           error: حدثت مشكلة في نشر هذا السؤال.
