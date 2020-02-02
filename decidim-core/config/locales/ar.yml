@@ -202,7 +202,7 @@ ar:
         steps:
           '1': إنشاء التعديل الخاص بك
           '2': قارن تعديلك
-          '3': Complete your amendment
+          '3': اكمل تعديلك
           '4': انشر تعديلك
     anonymous_user: مجهول
     application:
