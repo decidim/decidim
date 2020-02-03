@@ -16,15 +16,15 @@ module Decidim
 
       def fulfilled?(answer)
         case condition_type
-        when :answered
+        when "answered"
           answer.present?
-        when :not_answered
+        when "not_answered"
           answer.blank?
-        when :equal
-          answer.choices.pluck(:decidim_answer_option_id).include?(answer_option)
-        when :not_equal
-          !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option)
-        when :match
+        when "equal"
+          answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id)
+        when "not_equal"
+          !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id)
+        when "match"
           condition_value.values.any? { |value| answer.body.match?(Regexp.new(value)) }
         end
       end
@@ -32,15 +32,13 @@ module Decidim
       private
 
       def answer_option_mandatory?
-        [:equal, :not_equal].include?(condition_type)
+        %w(equal not_equal).include?(condition_type)
       end
 
       def answer_option_from_condition_question
         return unless answer_option_mandatory?
-        
-        if answer_option.question.id != condition_question.id
-          errors.add(:answer_option, :invalid)
-        end
+
+        errors.add(:answer_option, :invalid) if answer_option.question.id != condition_question.id
       end
 
       def condition_question_position
