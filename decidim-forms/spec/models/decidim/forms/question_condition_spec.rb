@@ -30,30 +30,8 @@ module Decidim
         )
       end
 
-      let(:answer) { create(:answer, question: question, questionnaire: questionnaire) }
-      let(:answer_option) { create(:answer_option, question: question) }
-
-      describe "validations" do
-        it { is_expected.to be_valid }
-
-        context "when condition_question is positioned before question" do
-          before do
-            question.position = condition_question.position - 1
-          end
-
-          it { is_expected.not_to be_valid }
-        end
-
-        context "when answer_option is not from condition_question" do
-          let(:question_condition) { question_condition_equal }
-
-          before do
-            question_condition.answer_option { create(:answer_option) }
-          end
-
-          it { is_expected.not_to be_valid }
-        end
-      end
+      let(:answer) { create(:answer, question: condition_question, questionnaire: questionnaire) }
+      let(:answer_option) { create(:answer_option, question: condition_question) }
 
       describe "associations" do
         it "has a question association" do

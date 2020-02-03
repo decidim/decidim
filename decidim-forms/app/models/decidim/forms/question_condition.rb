@@ -10,10 +10,6 @@ module Decidim
       belongs_to :condition_question, class_name: "Question", foreign_key: "decidim_forms_question_condition_id"
       belongs_to :answer_option, class_name: "AnswerOption", foreign_key: "decidim_forms_answer_option_id", optional: true
 
-      validate :condition_question_position
-      validate :answer_option_from_condition_question
-      validates :answer_option, presence: true, if: :answer_option_mandatory?
-
       def fulfilled?(answer)
         case condition_type
         when "answered"
@@ -27,22 +23,6 @@ module Decidim
         when "match"
           condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) }
         end
-      end
-
-      private
-
-      def answer_option_mandatory?
-        %w(equal not_equal).include?(condition_type)
-      end
-
-      def answer_option_from_condition_question
-        return unless answer_option_mandatory?
-
-        errors.add(:answer_option, :invalid) if answer_option.question.id != condition_question.id
-      end
-
-      def condition_question_position
-        errors.add(:condition_question, :invalid) if condition_question.position > question.position
       end
     end
   end
