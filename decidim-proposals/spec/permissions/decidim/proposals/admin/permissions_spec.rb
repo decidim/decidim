@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user }
+  let(:user) { build :user, :admin }
   let(:current_component) { create(:proposal_component) }
   let(:proposal) { nil }
   let(:context) do
@@ -36,15 +36,54 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
-  describe "proposal note creation" do
-    let(:action) do
-      { scope: :admin, action: :create, subject: :proposal_note }
-    end
+  shared_examples "can create proposal notes" do
+    describe "proposal note creation" do
+      let(:action) do
+        { scope: :admin, action: :create, subject: :proposal_note }
+      end
 
-    context "when the space allows it" do
-      it { is_expected.to eq true }
+      context "when the space allows it" do
+        it { is_expected.to eq true }
+      end
     end
   end
+
+  shared_examples "can answer proposals" do
+    describe "proposal answering" do
+      let(:action) do
+        { scope: :admin, action: :create, subject: :proposal_answer }
+      end
+
+      context "when everything is OK" do
+        it { is_expected.to eq true }
+      end
+
+      context "when answering is disabled in the step level" do
+        let(:current_settings_proposal_answering_enabled?) { false }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when answering is disabled in the component level" do
+        let(:component_settings_proposal_answering_enabled?) { false }
+
+        it { is_expected.to eq false }
+      end
+    end
+  end
+
+  context "when user is a valuator" do
+    let(:organization) { space.organization }
+    let(:space) { current_component.participatory_space }
+    let!(:valuator_role) { create :participatory_process_user_role, user: user, role: :valuator, participatory_process: space }
+    let!(:user) { create :user, organization: organization }
+
+    it_behaves_like "can create proposal notes"
+    it_behaves_like "can answer proposals"
+  end
+
+  it_behaves_like "can create proposal notes"
+  it_behaves_like "can answer proposals"
 
   describe "proposal creation" do
     let(:action) do
@@ -96,28 +135,6 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  describe "proposal answering" do
-    let(:action) do
-      { scope: :admin, action: :create, subject: :proposal_answer }
-    end
-
-    context "when everything is OK" do
-      it { is_expected.to eq true }
-    end
-
-    context "when answering is disabled in the step level" do
-      let(:current_settings_proposal_answering_enabled?) { false }
-
-      it { is_expected.to eq false }
-    end
-
-    context "when answering is disabled in the component level" do
-      let(:component_settings_proposal_answering_enabled?) { false }
-
-      it { is_expected.to eq false }
-    end
-  end
-
   describe "update proposal category" do
     let(:action) do
       { scope: :admin, action: :update, subject: :proposal_category }
@@ -129,6 +146,30 @@ describe Decidim::Proposals::Admin::Permissions do
   describe "import proposals from another component" do
     let(:action) do
       { scope: :admin, action: :import, subject: :proposals }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "split proposals" do
+    let(:action) do
+      { scope: :admin, action: :split, subject: :proposals }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "merge proposals" do
+    let(:action) do
+      { scope: :admin, action: :merge, subject: :proposals }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "assign proposals to a valuator" do
+    let(:action) do
+      { scope: :admin, action: :assign_to_valuator, subject: :proposals }
     end
 
     it { is_expected.to eq true }

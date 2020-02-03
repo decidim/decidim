@@ -8,6 +8,14 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
+          # Valuators can only perform these actions
+          if user_is_valuator?
+            can_create_proposal_note?
+            can_create_proposal_answer?
+
+            return permission_action
+          end
+
           if create_permission_action?
             can_create_proposal_note?
             can_create_proposal_from_admin?
@@ -30,6 +38,9 @@ module Decidim
           # Every user allowed by the space can split proposals to another component
           allow! if permission_action.subject == :proposals && permission_action.action == :split
 
+          # Every user allowed by the space can assign proposals to a valuator
+          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
+
           if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
             # Every user allowed by the space can manage (import, update and publish) participatory texts to proposals
             allow! if permission_action.action == :manage
@@ -42,6 +53,12 @@ module Decidim
 
         def proposal
           @proposal ||= context.fetch(:proposal, nil)
+        end
+
+        def user_is_valuator?
+          return if user.admin?
+
+          space.user_roles(:valuator).where(user: user).any?
         end
 
         def admin_creation_is_enabled?

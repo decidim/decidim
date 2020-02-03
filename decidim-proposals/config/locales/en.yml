@@ -32,6 +32,9 @@ en:
       proposals_import:
         import_proposals: Import proposals
         keep_authors: Keep original authors
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Valuator name
     errors:
       models:
         participatory_text:
@@ -402,6 +405,8 @@ en:
             select_a_meeting: Select a meeting
           index:
             actions: Actions
+            assign_to_valuator: Assign to valuator
+            assign_to_valuator_button: Assign
             cancel: Cancel
             change_category: Change category
             merge: Merge into a new one
@@ -467,6 +472,8 @@ en:
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
+        valuation_assignment:
+          create: "%{user_name} assigned the %{resource_name} proposal to a valuator"
       answers:
         accepted: Accepted
         evaluating: Evaluating
