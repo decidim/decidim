@@ -36,6 +36,19 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when question is not present" do
+          let!(:question) { nil }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when condition_question is not present" do
+          let!(:condition_question) { nil }
+          let!(:answer_option) { nil } # otherwise it will try to use condition_question overriden in previous line
+
+          it { is_expected.not_to be_valid }
+        end
+
         context "when the condition_type is not present" do
           let!(:condition_type) { nil }
 
@@ -63,6 +76,13 @@ module Decidim
         context "when answer_option is not from condition_question" do
           let(:condition_type) { :equal }
           let(:answer_option) { create(:answer_option) }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when answer_option is mandatory" do
+          let(:condition_type) { :equal }
+          let!(:answer_option) { nil }
 
           it { is_expected.not_to be_valid }
         end

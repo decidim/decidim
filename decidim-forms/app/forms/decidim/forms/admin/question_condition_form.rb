@@ -22,7 +22,7 @@ module Decidim
         validates :answer_option, presence: true, if: :answer_option_mandatory?
 
         validate :condition_question_position
-        validate :answer_option_from_condition_question
+        validate :valid_answer_option?
 
         def to_param
           return id if id.present?
@@ -35,18 +35,20 @@ module Decidim
         def condition_value_mandatory?
           condition_type == "match"
         end
-  
+
         def answer_option_mandatory?
           %w(equal not_equal).include?(condition_type)
         end
-  
-        def answer_option_from_condition_question
+
+        def valid_answer_option?
           return unless answer_option_mandatory?
-  
-          errors.add(:answer_option, :invalid) if answer_option.question.id != condition_question.id
+
+          errors.add(:answer_option, :invalid) if answer_option&.question&.id != condition_question&.id
         end
-  
+
         def condition_question_position
+          return unless condition_question && question
+
           errors.add(:condition_question, :invalid) if condition_question.position > question.position
         end
       end
