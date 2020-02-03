@@ -70,10 +70,12 @@ nl:
         port: Poort
         primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
+        rich_text_editor_in_public_views: Gebruik de tekst editor voor deelnemers
         secondary_color: Tweede
         send_welcome_notification: Stuur welkomstmelding
         show_statistics: Toon statistieken
         success_color: Succes
+        time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
@@ -145,6 +147,20 @@ nl:
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
+      admin_terms_of_use:
+        accept:
+          error: Er is een fout opgetreden bij het accepteren van de admin gebruiksvoorwaarden.
+          success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
+        actions:
+          accept: Ik ga akkoord met deze admin gebruiksvoorwaarden
+          are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
+          refuse: Weiger de admin gebruiksvoorwaarden
+          title: Ga akkoord met de gebruiksvoorwaarden
+        required_review:
+          alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
+          callout: Neem even de tijd om Admin Gebruiksvoorwaarden door te nemen. Anders kunt u het platform niet beheren.
+          cta: Bekijk ze nu.
+        title: Admin gebruiksvoorwaarden
       area_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
@@ -236,6 +252,7 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
+          error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
           success: Toelatingen succesvol bijgewerkt.
       components:
         create:
@@ -454,6 +471,7 @@ nl:
           not_sent: Niet verzonden
           participants: 'deelnemers '
           segmented_to: 'Gesplitst naar %{subject}: '
+          subscribed_count: 'Geabonneerd:'
           title: Nieuwsbrieven
         new:
           save: Opslaan
@@ -466,6 +484,7 @@ nl:
           followers_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die de geselecteerde participatieve ruimtes in de lijst volgen.
           none: Geen
           participants_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die hebben deelgenomen aan een van de geselecteerde participatieve ruimten in de lijst.
+          recipients_count: Deze nieuwsbrief zal worden verzonden naar <strong id='recipients_count'>%{count}</strong> gebruikers.
           scopes_help: Verstuurt nieuwsbrief naar gebruikers die de geselecteerde scope geactiveerd hebben in de "Mijn interesses" instellingen van hun account.
           select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
@@ -512,18 +531,12 @@ nl:
           actions: acties
           badge: badge
           created_at: Aangemaakt op
-          filter:
-            all: Alle
-            not_officialized: Niet gevalideerd
-            officialized: Gevalideerd
-          filter_by: Sorteer op
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd
           officialize: "Valideren\n"
           officialized: Gevalideerd
           reofficialize: Hervalideren
-          search: Zoeken
           status: status
           unofficialize: Ingetrokken
         new:
@@ -538,6 +551,7 @@ nl:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
           twitter: Twitter
           url: Url
