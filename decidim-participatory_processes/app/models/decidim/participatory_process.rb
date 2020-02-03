@@ -153,6 +153,13 @@ module Decidim
       "#{admin_module_name}::Moderators".constantize.for(self)
     end
 
+    def user_roles(role_name)
+      roles = Decidim::ParticipatoryProcessUserRole.where(participatory_process: self)
+      return roles if role_name.blank?
+
+      roles.where(role: role_name)
+    end
+
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
