@@ -12,7 +12,7 @@ module Decidim
 
     alias participatory_space participatory_process
 
-    ROLES = %w(admin collaborator moderator).freeze
+    ROLES = %w(admin collaborator moderator valuator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :participatory_process] }
     validate :user_and_participatory_process_same_organization
 

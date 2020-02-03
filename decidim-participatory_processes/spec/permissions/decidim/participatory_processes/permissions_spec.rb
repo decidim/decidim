@@ -13,6 +13,17 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_admin) { create :process_admin, participatory_process: process }
   let(:process_collaborator) { create :process_collaborator, participatory_process: process }
   let(:process_moderator) { create :process_moderator, participatory_process: process }
+  let(:process_valuator) { create :process_valuator, participatory_process: process }
+
+  shared_examples "allows any action on subject" do |action_subject|
+    context "when action subject is #{action_subject}" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: action_subject }
+      end
+
+      it { is_expected.to eq true }
+    end
+  end
 
   shared_examples "access for role" do |access|
     if access == true
@@ -46,6 +57,12 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
       it_behaves_like "access for role", access[:moderator]
     end
+
+    context "when user is a space valuator" do
+      let(:user) { process_valuator }
+
+      it_behaves_like "access for role", access[:valuator]
+    end
   end
 
   context "when the action is for the public part" do
@@ -54,7 +71,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :public, action: :read, subject: :admin_dashboard }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: true,
+        moderator: true,
+        valuator: true
+      )
     end
 
     context "when reading a process" do
@@ -149,7 +173,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
     let(:context) { { space_name: :processes } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when reading the admin dashboard from the admin part" do
@@ -157,7 +188,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :read, subject: :admin_dashboard }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when acting on process groups" do
@@ -165,7 +203,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :any_action_is_accepted, subject: :process_group }
     end
 
-    it_behaves_like "access for roles", org_admin: true, badmin: false, collaborator: false, moderator: false
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: false,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
   end
 
   context "when acting on component data" do
@@ -174,7 +219,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
     let(:context) { { current_participatory_space: process } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: :not_set,
+      moderator: :not_set,
+      valuator: :not_set
+    )
   end
 
   context "when reading the processes list" do
@@ -182,7 +234,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :read, subject: :process_list }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when reading a process" do
@@ -191,7 +250,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
     let(:context) { { process: process } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when reading a participatory_space" do
@@ -200,7 +266,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
     let(:context) { { current_participatory_space: process } }
 
-    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: true, moderator: true
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
   end
 
   context "when creating a process" do
@@ -208,7 +281,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       { scope: :admin, action: :create, subject: :process }
     end
 
-    it_behaves_like "access for roles", org_admin: true, admin: false, collaborator: false, moderator: false
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: false,
+      collaborator: false,
+      moderator: false,
+      valuator: false
+    )
   end
 
   context "with a process" do
@@ -219,7 +299,29 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :admin, action: :foo, subject: :moderation }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: true
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: true,
+        valuator: :not_set
+      )
+    end
+
+    context "when updating a process" do
+      let(:action) do
+        { scope: :admin, action: :update, subject: :process }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: :not_set
+      )
     end
 
     context "when publishing a process" do
@@ -227,7 +329,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :admin, action: :publish, subject: :process }
       end
 
-      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: :not_set, moderator: :not_set
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: :not_set
+      )
     end
 
     context "when user is a collaborator" do
@@ -261,16 +370,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         it { is_expected.to eq false }
       end
 
-      shared_examples "allows any action on subject" do |action_subject|
-        context "when action subject is #{action_subject}" do
-          let(:action) do
-            { scope: :admin, action: :foo, subject: action_subject }
-          end
-
-          it { is_expected.to eq true }
-        end
-      end
-
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
       it_behaves_like "allows any action on subject", :category
@@ -281,23 +380,13 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process_user_role
     end
 
-    context "when user is n org admin" do
+    context "when user is an org admin" do
       context "when creating a process" do
         let(:action) do
           { scope: :admin, action: :create, subject: :process }
         end
 
         it { is_expected.to eq true }
-      end
-
-      shared_examples "allows any action on subject" do |action_subject|
-        context "when action subject is #{action_subject}" do
-          let(:action) do
-            { scope: :admin, action: :foo, subject: action_subject }
-          end
-
-          it { is_expected.to eq true }
-        end
       end
 
       it_behaves_like "allows any action on subject", :attachment
@@ -309,6 +398,18 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
       it_behaves_like "allows any action on subject", :space_private_user
+    end
+
+    context "when user is a valuator" do
+      let(:user) { process_valuator }
+
+      context "when reading a component" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :component }
+        end
+
+        it { is_expected.to eq true }
+      end
     end
   end
 end

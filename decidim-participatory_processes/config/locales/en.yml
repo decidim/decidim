@@ -136,6 +136,7 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+            valuator: Valuator
         user:
           fields:
             invitation_accepted_at: Invitation accepted at
@@ -207,13 +208,13 @@ en:
         destroy:
           success: Admin successfully removed from this participatory process.
         edit:
-          title: Update participatory process admin.
+          title: Update participatory process admin
           update: Update
         index:
           process_admins_title: Participatory process admins
         new:
           create: Create
-          title: New participatory process admin.
+          title: New participatory process admin
         update:
           error: There was a problem updating an admin for this participatory process.
           success: Admin successfully updated for this participatory process.
