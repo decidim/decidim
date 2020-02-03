@@ -85,7 +85,7 @@ FactoryBot.define do
 
     trait :match do
       condition_type { :match }
-      conditon_value { Decidim::Faker::Localized.word }
+      condition_value { generate_localized_title }
     end
   end
 end

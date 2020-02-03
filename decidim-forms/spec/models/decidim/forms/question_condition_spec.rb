@@ -97,8 +97,32 @@ module Decidim
           let(:answer_choice) { create(:answer_choice, answer: answer) }
           let(:answer_option) { answer_choice.answer_option }
 
-          it "if the answer choices include answer_option" do
+          it "is fulfilled if the answer choices include answer_option" do
             expect(subject.fulfilled?(answer)).to be true
+          end
+        end
+
+        context "when condition_type is :match" do
+          let(:condition_type) { :match }
+          let(:question_condition) do
+            build(:question_condition,
+                  :match,
+                  question: question,
+                  condition_question: condition_question,
+                  answer_option: answer_option,
+                  condition_value: { en: "Yes", es: "Sí", ca: "Sí" } )
+          end
+
+          let(:match_text) { question_condition.condition_value["en"].downcase }
+          let(:answer_matched) { create(:answer, body: "Fulfill #{match_text}. Yay!") }
+          let(:answer_unmatched) { create(:answer, body: "Hi! I won't fulfill the condition.") }
+
+          it "is fulfilled if the answer body matches the given value" do
+            expect(subject.fulfilled?(answer_matched)).to be true
+          end
+
+          it "is not fulfilled if the answer body doesn't match the given value" do
+            expect(subject.fulfilled?(answer_unmatched)).to be false
           end
         end
       end

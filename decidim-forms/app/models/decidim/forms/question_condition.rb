@@ -25,7 +25,7 @@ module Decidim
         when "not_equal"
           !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id)
         when "match"
-          condition_value.values.any? { |value| answer.body.match?(Regexp.new(value)) }
+          condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) }
         end
       end
 
