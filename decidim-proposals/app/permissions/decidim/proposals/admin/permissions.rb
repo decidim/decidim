@@ -9,17 +9,9 @@ module Decidim
           return permission_action if permission_action.scope != :admin
 
           if create_permission_action?
-            # There's no special condition to create proposal notes, only
-            # users with access to the admin section can do it.
-            allow! if permission_action.subject == :proposal_note
-
-            # Proposals can only be created from the admin when the
-            # corresponding setting is enabled.
-            toggle_allow(admin_creation_is_enabled?) if permission_action.subject == :proposal
-
-            # Proposals can only be answered from the admin when the
-            # corresponding setting is enabled.
-            toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
+            can_create_proposal_note?
+            can_create_proposal_from_admin?
+            can_create_proposal_answer?
           end
 
           # Admins can only edit official proposals if they are within the
@@ -74,6 +66,24 @@ module Decidim
 
         def participatory_texts_are_enabled?
           component_settings.participatory_texts_enabled?
+        end
+
+        # There's no special condition to create proposal notes, only
+        # users with access to the admin section can do it.
+        def can_create_proposal_note?
+          allow! if permission_action.subject == :proposal_note
+        end
+
+        # Proposals can only be created from the admin when the
+        # corresponding setting is enabled.
+        def can_create_proposal_from_admin?
+          toggle_allow(admin_creation_is_enabled?) if permission_action.subject == :proposal
+        end
+
+        # Proposals can only be answered from the admin when the
+        # corresponding setting is enabled.
+        def can_create_proposal_answer?
+          toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
         end
       end
     end
