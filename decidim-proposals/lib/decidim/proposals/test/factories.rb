@@ -329,6 +329,10 @@ FactoryBot.define do
       answered_at { Time.current }
     end
 
+    trait :not_answered do
+      state { nil }
+    end
+
     trait :draft do
       published_at { nil }
     end

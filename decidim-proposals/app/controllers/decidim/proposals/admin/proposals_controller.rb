@@ -6,6 +6,7 @@ module Decidim
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Proposals::Admin::Filterable
 
         helper Proposals::ApplicationHelper
         helper_method :proposals, :query, :form_presenter
@@ -88,20 +89,16 @@ module Decidim
 
         private
 
-        def query
-          @query ||= if current_component.settings.participatory_texts_enabled?
-                       Proposal.where(component: current_component).published.order(:position).ransack(params[:q])
-                     else
-                       Proposal.where(component: current_component).published.ransack(params[:q])
-                     end
+        def collection
+          @collection ||= Proposal.where(component: current_component).published
         end
 
         def proposals
-          @proposals ||= query.result.page(params[:page]).per(15)
+          @proposals ||= filtered_collection
         end
 
         def proposal
-          @proposal ||= Proposal.where(component: current_component).find(params[:id])
+          @proposal ||= collection.find(params[:id])
         end
 
         def update_proposals_category_response_successful(response)

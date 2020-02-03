@@ -67,8 +67,6 @@ pl:
     account:
       data_portability_export:
         file_no_exists: Plik nie istnieje
-        invalid_token: Podany token jest nieprawidłowy.
-        no_token: Nie podano tokena
         notice: Twoje dane są obecnie w toku. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już logować z jego pomocą.
@@ -508,7 +506,7 @@ pl:
           notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.
+        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -551,16 +549,6 @@ pl:
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
-        continuity:
-          conditions:
-            - Chodź tu często
-          description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
-          description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
-          description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
-          name: Ciągłość
-          next_level_in: Łącz przez %{score} kolejnych dni, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie zalogował się przez więcej niż jeden kolejny dzień.
-          unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
             - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.

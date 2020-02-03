@@ -236,6 +236,7 @@ cs:
           success: Kategorie byla úspěšně aktualizována.
       component_permissions:
         update:
+          error: Při aktualizaci oprávnění této komponenty došlo k chybě.
           success: Oprávnění byla úspěšně aktualizována.
       components:
         create:
@@ -512,18 +513,12 @@ cs:
           actions: Akce
           badge: Odznak
           created_at: Vytvořeno na
-          filter:
-            all: Všechno
-            not_officialized: Není oficializováno
-            officialized: Úředně
-          filter_by: Filtrovat podle
           name: název
           nickname: Přezdívka
           not_officialized: Není oficializováno
           officialize: Úředně
           officialized: Úředně
           reofficialize: Reofficialize
-          search: Vyhledávání
           status: Postavení
           unofficialize: Neoficiálně
         new:

@@ -34,6 +34,8 @@ ar:
         title: عنوان
         vote: نظام التصويت الخارجي
         what_is_decided: ما الذي تقرر
+      response:
+        decidim_consultations_response_group_id: الفريق
     errors:
       vote:
         decidim_consultations_response_id:
@@ -71,9 +73,11 @@ ar:
   decidim:
     admin:
       actions:
+        back_to_responses: العودة إلى الأجوبة
         new_consultation: استشارة جديدة
         new_question: سؤال جديد
         new_response: استجابة جديدة
+        new_response_group: فريق جديد
         publish_results: نشر النتائج
         unpublish_results: نتائج غير منشورة
       consultation_publications:
@@ -184,6 +188,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
+      response_groups:
+        new:
+          create: إنشاء
       responses:
         create:
           error: كانت هناك مشكلة في إنشاء استجابة جديدة.

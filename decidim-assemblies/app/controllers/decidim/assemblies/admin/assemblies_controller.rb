@@ -6,13 +6,13 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
-        include Decidim::Paginable
-        helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space, :query
+        include Decidim::Assemblies::Admin::Filterable
+        helper_method :current_assembly, :parent_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 
         def index
           enforce_permission_to :read, :assembly_list
-          @assemblies = collection
+          @assemblies = filtered_collection
         end
 
         def new
@@ -28,7 +28,7 @@ module Decidim
           CreateAssembly.call(@form) do
             on(:ok) do |assembly|
               flash[:notice] = I18n.t("assemblies.create.success", scope: "decidim.admin")
-              redirect_to assemblies_path(parent_id: assembly.parent_id)
+              redirect_to assemblies_path(q: { parent_id_eq: assembly.parent_id })
             end
 
             on(:invalid) do
@@ -70,35 +70,20 @@ module Decidim
 
         private
 
-        def organization_assemblies
-          @organization_assemblies ||= OrganizationAssemblies.new(current_user.organization).query
-        end
-
-        def query
-          organization_assemblies
-            .where(parent_id: params[:parent_id])
-            .ransack(params[:q])
-        end
-
         def collection
-          @collection ||= paginate(query.result)
+          @collection ||= OrganizationAssemblies.new(current_user.organization).query
         end
 
         def current_assembly
-          scope = organization_assemblies
-          @current_assembly ||= scope.where(slug: params[:slug]).or(
-            scope.where(id: params[:slug])
+          @current_assembly ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
           ).first
         end
 
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= organization_assemblies.find_by(id: params[:parent_id])
-        end
-
-        def parent_assemblies
-          @parent_assemblies ||= organization_assemblies.where.not(id: current_assembly)
+          @parent_assembly ||= collection.find_by(id: ransack_params[:parent_id_eq])
         end
 
         def assembly_params
