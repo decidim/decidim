@@ -95,7 +95,7 @@ ar:
         plural: جمع
       static_page:
         changed_notably: كانت هناك تغييرات ملحوظة.
-        content: يحتوى
+        content: المحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
@@ -123,7 +123,7 @@ ar:
   activerecord:
     attributes:
       decidim/static_page:
-        content: يحتوى
+        content: المحتوى
         slug: سبيكة العنوان الشبكي
         title: العنوان
       doorkeeper/application:
@@ -498,18 +498,12 @@ ar:
           actions: أفعال
           badge: شارة
           created_at: أنشئت في
-          filter:
-            all: الكل
-            not_officialized: غير رسمي
-            officialized: Officialized
-          filter_by: مصنف بواسطة
           name: اسم
           nickname: كنية
           not_officialized: غير رسمي
           officialize: الصفة الرسمية
           officialized: Officialized
           reofficialize: Reofficialize
-          search: بحث
           status: الحالة
           unofficialize: Unofficialize
         new:
