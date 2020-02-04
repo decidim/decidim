@@ -5,6 +5,7 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
+  let(:show_metrics) { true }
   let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_process) do
@@ -14,6 +15,7 @@ describe "Participatory Processes", type: :system do
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      show_metrics: show_metrics,
       show_statistics: show_statistics
     )
   end
@@ -223,8 +225,8 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      context "and organization show_statistics attribute is true" do
-        let(:organization) { create(:organization, show_statistics: true) }
+      context "and organization show_metrics attribute is true" do
+        let(:organization) { create(:organization, show_metrics: true) }
         let(:metrics) do
           Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
             create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
@@ -257,7 +259,15 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      context "and the process stats are not enabled" do
+      context "and the process statistics are enabled" do
+        let(:show_statistics) { true }
+
+        it "the stats for those components are visible" do
+          expect(page).to have_content("3 PROPOSALS")
+        end
+      end
+
+      context "and the process statistics are not enabled" do
         let(:show_statistics) { false }
 
         it "the stats for those components are not visible" do
@@ -268,7 +278,7 @@ describe "Participatory Processes", type: :system do
       context "and the process doesn't have hashtag" do
         let(:hashtag) { false }
 
-        it "the stats for those components are not visible" do
+        it "the hashtags for those components are not visible" do
           expect(page).to have_no_content("#")
         end
       end

@@ -35,6 +35,7 @@ module Decidim
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process."
       field :participatoryScope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process.", property: :participatory_scope
       field :participatoryStructure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process.", property: :participatory_structure
+      field :showMetrics, types.Boolean, "If this participatory process should show metrics", property: :show_metrics
       field :showStatistics, types.Boolean, "If this participatory process should show statistics", property: :show_statistics
       field :scopesEnabled, types.Boolean, "If this participatory process has scopes enabled", property: :scopes_enabled
 

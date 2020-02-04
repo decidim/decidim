@@ -132,6 +132,9 @@ edit_link(
 
   <% if current_participatory_space.show_statistics? %>
     <%= render partial: "statistics" %>
+  <% end %>
+
+  <% if current_participatory_space.show_metrics? %>
     <%= render partial: "metrics" %>
   <% end %>
 </div>

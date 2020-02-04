@@ -27,6 +27,7 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_metrics: Show metrics
         show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
