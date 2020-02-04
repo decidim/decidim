@@ -47,6 +47,12 @@
         this.mounted = true;
         this.$form.on("change", "input, select", this._debounce(this._onFormChange, 250));
 
+        this.currentFormRequest = null;
+        this.$form.on("ajax:beforeSend", (e) => {
+          if (this.currentFormRequest) this.currentFormRequest.abort();
+          this.currentFormRequest = e.originalEvent.detail[0];
+        });
+
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
         });
