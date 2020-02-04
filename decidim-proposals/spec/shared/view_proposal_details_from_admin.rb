@@ -150,12 +150,36 @@ shared_examples "view proposal details from admin" do
     let(:meeting_component) { create :meeting_component, participatory_space: participatory_process }
     let(:meeting) { create :meeting, component: meeting_component }
 
-    it "lists the relaed meetings" do
+    it "lists the related meetings" do
       proposal.link_resources(meeting, "proposals_from_meeting")
       go_to_admin_proposal_page(proposal)
 
       within "#related-meetings" do
         expect(page).to have_selector("a", text: translated(meeting.title))
+      end
+    end
+  end
+
+  context "with attached documents" do
+    it "lists the documents" do
+      document = create :attachment, :with_pdf, attached_to: proposal
+      go_to_admin_proposal_page(proposal)
+
+      within "#documents" do
+        expect(page).to have_selector("a", text: translated(document.title))
+        expect(page).to have_content(document.file_type)
+      end
+    end
+  end
+
+  context "with attached photos" do
+    it "lists the documents" do
+      image = create :attachment, :with_image, attached_to: proposal
+      go_to_admin_proposal_page(proposal)
+
+      within "#photos" do
+        expect(page).to have_selector(:xpath, "//img[@src=\"#{image.thumbnail_url}\"]")
+        expect(page).to have_selector(:xpath, "//a[@href=\"#{image.big_url}\"]")
       end
     end
   end

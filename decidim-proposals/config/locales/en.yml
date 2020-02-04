@@ -422,10 +422,12 @@ en:
             comments_neutral_count: Neutral
             comments_positive_count: Favor
             created_at: Creation date
+            documents: Documents
             endorsements_count: Endorsements count
             endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
             link: Link
+            photos: Photos
             proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
