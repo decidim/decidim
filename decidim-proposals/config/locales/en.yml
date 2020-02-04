@@ -428,6 +428,7 @@ en:
             link: Link
             proposals: Proposals
             ranking: "%{ranking} of %{total}"
+            related_meetings: Related meetings
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:

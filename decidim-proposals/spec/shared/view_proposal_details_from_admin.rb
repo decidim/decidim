@@ -141,6 +141,20 @@ shared_examples "view proposal details from admin" do
     end
   end
 
+  context "with related meetings" do
+    let(:meeting_component) { create :meeting_component, participatory_space: participatory_process }
+    let(:meeting) { create :meeting, component: meeting_component }
+
+    it "lists the relaed meetings" do
+      proposal.link_resources(meeting, "proposals_from_meeting")
+      go_to_admin_proposal_page(proposal)
+
+      within "#related-meetings" do
+        expect(page).to have_selector("a", text: translated(meeting.title))
+      end
+    end
+  end
+
   def go_to_admin_proposal_page(proposal)
     within find("tr", text: proposal.title) do
       click_link "Show"

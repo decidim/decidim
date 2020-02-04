@@ -79,6 +79,18 @@
           <% end %>
         </ul>
     </div>
+
+    <div class="row column">
+      <strong><%= t ".related_meetings" %>:</strong>
+        <ul id="related-meetings">
+          <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
+            <% presented_meeting = present(meeting) %>
+            <li>
+              <%= link_to presented_meeting.title, presented_meeting.profile_path %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
   </div>
 </div>
 
