@@ -26,7 +26,12 @@ shared_examples "view proposal details from admin" do
 
       within "#proposal-authors-list" do
         proposal.authors.each do |author|
-          expect(page).to have_selector("a", text: author.name)
+          list_item = find("li", text: author.name)
+
+          within list_item do
+            expect(page).to have_selector("a", text: author.name)
+            expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+          end
         end
       end
     end

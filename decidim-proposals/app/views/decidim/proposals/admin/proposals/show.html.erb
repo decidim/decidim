@@ -22,6 +22,9 @@
                 presented_author.profile_path,
                 target: :blank
               ) %>
+              <% if presented_author.can_be_contacted? %>
+                <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(presented_author), t("decidim.contact"), class:"action-icon--new" %>
+              <% end %>
             </li>
           <% end %>
         </ul>
