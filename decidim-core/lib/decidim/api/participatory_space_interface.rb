@@ -17,15 +17,10 @@ module Decidim
         }
       end
 
-      field :components, types[ComponentInterface] do
-        description "Lists the components this space contains."
-
-        resolve ->(participatory_space, _args, _ctx) {
-                  Decidim::Component.where(
-                    participatory_space: participatory_space
-                  ).published
-                }
-      end
+      field :components,
+            type: types[ComponentInterface],
+            description: "Lists the components this space contains.",
+            function: ComponentListHelper.new
 
       field :stats, types[Decidim::Core::StatisticType] do
         resolve ->(participatory_space, _args, _ctx) {
@@ -40,6 +35,11 @@ module Decidim
       end
 
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
+    end
+
+    class ComponentListHelper < ComponentList
+      argument :order, ComponentInputSort, "Provides several methods to order the results"
+      argument :filter, ComponentInputFilter, "Provides several methods to filter the results"
     end
   end
 end

@@ -475,18 +475,12 @@ pt-BR:
           actions: Ações
           badge: Badge
           created_at: Criado em
-          filter:
-            all: Tudo
-            not_officialized: Não oficializado
-            officialized: Oficializado
-          filter_by: Filtrar por
           name: Nome
           nickname: Apelido
           not_officialized: Não oficializado
           officialize: Oficialize
           officialized: Oficializado
           reofficialize: Reorientar
-          search: Pesquisa
           status: Status
           unofficialize: Não oficializar
         new:

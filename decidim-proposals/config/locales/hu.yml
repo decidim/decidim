@@ -42,6 +42,7 @@ hu:
             attachment:
               needs_to_be_reattached: Újra kell csatolni
             body:
+              cant_be_equal_to_template: nem lehet egyenlő a sablonnal
               identical: A cím nem lehet azonos
             title:
               identical: A szövegtörzs nem lehet azonos
@@ -74,6 +75,23 @@ hu:
         one: Támogatás
         other: Szavazások
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Típus
+          values:
+            'false': Javaslatok
+            'true': Módosítások
+        search_placeholder:
+          id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
+        state_eq:
+          values:
+            evaluating: Értékelés
+            withdrawn: Visszavonva
+        state_null:
+          label: Állapot
+          values:
+            'true': Nem megválaszolt
     components:
       proposals:
         actions:
@@ -95,6 +113,8 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             geocoding_enabled: Geokódolás engedélyezve
             minimum_votes_per_user: Minimális támogatás felhasználónként
+            new_proposal_body_template: Új javaslat szövegtörzse
+            new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
             new_proposal_help_text: Új javaslat súgószöveg
             official_proposals_enabled: Hivatalos javaslatok engedélyezve
             participatory_texts_disabled_help: Meglévő javaslatok esetén nem lehet alkalmazni ezt a beállítást. Legyen szíves, egy új 'Javaslatok komponens' -t hozzon létre, hogy ezt a funkciót használja, vagy vesse el az importált javaslatokat a "Részvételi Szövegek" menüben, ha ki akarja kapcsolni.
@@ -242,7 +262,7 @@ hu:
             - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
             - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
-          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
@@ -652,8 +672,10 @@ hu:
           my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
+          scope: Hatáskör
           search: Keresés
           state: Állapot
+          type: Típus
           voted: Szavazott
         filters_small_view:
           close_modal: Modal bezárása

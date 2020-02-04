@@ -69,8 +69,6 @@ es:
     account:
       data_portability_export:
         file_no_exists: El archivo no existe
-        invalid_token: El token proporcionado no es válido.
-        no_token: Token no proporcionado
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
@@ -90,6 +88,9 @@ es:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
@@ -138,6 +139,8 @@ es:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
@@ -546,7 +549,7 @@ es:
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
-        click_button: Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}.
+        click_button: 'Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}. <br/> Necesitarás <a href=''https://www.7-zip.org/''>7-Zip</a> para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
         ready: Se adjunta una versión comprimida de su exportación.
@@ -592,16 +595,6 @@ es:
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
       badges:
-        continuity:
-          conditions:
-            - Viene aquí a menudo
-          description: Esta insígnia se otorga cuando visitas la plataforma de forma regular. ¡Nos encanta tenerte por aquí!
-          description_another: Esta participante se ha conectado durante %{score} días consecutivos en algún momento.
-          description_own: Te has conectado durante %{score} días consecutivos en algún momento.
-          name: Continuidad
-          next_level_in: '¡Conéctate durante %{score} días consecutivos para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante no ha iniciado sesión durante más de un día consecutivo.
-          unearned_own: No te has conectado más de un día consecutivo.
         followers:
           conditions:
             - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
@@ -1212,6 +1205,7 @@ es:
       cycle_detected: uno de los padres de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, por favor, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
+      invalid_time_zone: no es una zona horaria válida
       long_words: contiene palabras demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
@@ -1324,8 +1318,11 @@ es:
       left: Supresiones
       right: Adiciones
     dropdown:
+      choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_escaped: Escapado
       option_split: En paralelo
+      option_unescaped: Desescapado
       option_unified: Unificado
   views:
     pagination:
