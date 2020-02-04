@@ -455,12 +455,6 @@ en:
           create:
             invalid: There was a problem spliting the selected proposals.
             success: Successfully splitted the proposals into new ones.
-        shared:
-          info_proposal:
-            body: Body
-            created_at: Creation date
-            proposal_votes_count: Supports count
-            proposals: Proposals
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
