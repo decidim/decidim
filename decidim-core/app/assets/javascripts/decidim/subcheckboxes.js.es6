@@ -44,7 +44,9 @@ $(() => {
     }
     function checkTheCheckParent(e) {
       let $this = this || e;
-      const checkBoxContext = $this.parentNode.parentNode.getAttribute('id');
+
+      const checkBoxContext = $this.parentNode.parentNode.parentNode.getAttribute('id');
+      
       if (!checkBoxContext) {
         checkGlobalCheck();
         return;
@@ -53,10 +55,10 @@ $(() => {
         '[data-sub-checkboxes=' + checkBoxContext + ']'
       );
       const totalCheckSiblings = document.querySelectorAll(
-        '#' + checkBoxContext + '> [data-children-checkbox] input'
+        '#' + checkBoxContext + '> div > [data-children-checkbox] input'
       );
       const checkedSiblings = document.querySelectorAll(
-        '#' + checkBoxContext + '> [data-children-checkbox] input:checked'
+        '#' + checkBoxContext + '> div > [data-children-checkbox] input:checked'
       );
 
       if (checkedSiblings.length === 0) {
@@ -69,7 +71,8 @@ $(() => {
         parentCheck.checked = true;
         parentCheck.indeterminate = true;
       }
-      checkGlobalCheck();
+
+      checkTheCheckParent(parentCheck);
     }
 
     // Event listeners
