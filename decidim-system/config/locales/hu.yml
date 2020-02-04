@@ -71,7 +71,7 @@ hu:
             client_id: Ügyfél ID
             client_secret: Client Secret
           icon: Ikon
-          icon_path: Ikon útja
+          icon_path: Ikon elérési útja
           twitter:
             api_key: API-kulcs
             api_secret: API Titkos
