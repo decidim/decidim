@@ -607,7 +607,7 @@ hu:
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
-          success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
+          success: Magán résztvevő részvételi helyhez való hozzáférése biztosítva.
         destroy:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
@@ -766,7 +766,7 @@ hu:
     forms:
       errors:
         impersonate_user:
-          reason: Indokolnod kell a nem felügyelt felhasználók felhatalmazását
+          reason: Indokolnod kell a nem menedzselt résztvevők felhatalmazását
     moderations:
       actions:
         hidden: Rejtett
