@@ -59,6 +59,7 @@ module Decidim
 
       initializer "decidim.middleware" do |app|
         app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
       end
 
