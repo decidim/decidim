@@ -14,13 +14,23 @@ module Decidim
                dependent: :destroy,
                inverse_of: :question
 
-      has_many :conditions,
-               class_name: "QuestionCondition",
+      has_many :display_conditions,
+               class_name: "DisplayCondition",
                foreign_key: "decidim_question_id",
                dependent: :destroy,
                inverse_of: :question
 
-      has_many :conditioned_questions, through: :conditions, source: "decidim_forms_question_condition_id"
+      # TODO: is this below necessary?
+      has_many :display_conditions_for_other_questions,
+               class_name: "DisplayCondition",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
+
+      has_many :conditioned_questions,
+               through: :display_conditions_for_other_questions,
+               foreign_key: "decidim_condition_question_id",
+               class_name: "Question"
 
       validates :question_type, inclusion: { in: TYPES }
 
