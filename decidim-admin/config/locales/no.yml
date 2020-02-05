@@ -307,6 +307,7 @@
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       oauth_applications:
         create:
+          error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble opprettet.
         destroy:
           error: Det oppstod et problem med å ødelegge denne applikasjonen.
