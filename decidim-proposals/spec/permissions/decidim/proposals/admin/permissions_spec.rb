@@ -78,8 +78,13 @@ describe Decidim::Proposals::Admin::Permissions do
     let!(:valuator_role) { create :participatory_process_user_role, user: user, role: :valuator, participatory_process: space }
     let!(:user) { create :user, organization: organization }
 
-    it_behaves_like "can create proposal notes"
-    it_behaves_like "can answer proposals"
+    context "and can valuate the current proposal" do
+      let(:proposal) { create :proposal, component: current_component }
+      let!(:assignment) { create :valuation_assignment, proposal: proposal, valuator_role: valuator_role }
+
+      it_behaves_like "can create proposal notes"
+      it_behaves_like "can answer proposals"
+    end
   end
 
   it_behaves_like "can create proposal notes"

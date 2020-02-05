@@ -41,11 +41,9 @@
     </td>
   <% end %>
 
-  <% if allowed_to? :create, :proposal_note %>
-    <td>
-      <%= proposal.proposal_notes_count %>
-    </td>
-  <% end %>
+  <td>
+    <%= proposal.proposal_notes_count %>
+  </td>
 
   <td>
     <%= proposal.valuation_assignments.count %>

@@ -10,8 +10,10 @@ module Decidim
 
           # Valuators can only perform these actions
           if user_is_valuator?
-            can_create_proposal_note?
-            can_create_proposal_answer?
+            if valuator_assigned_to_proposal?
+              can_create_proposal_note?
+              can_create_proposal_answer?
+            end
 
             return permission_action
           end
@@ -55,10 +57,21 @@ module Decidim
           @proposal ||= context.fetch(:proposal, nil)
         end
 
+        def user_valuator_role
+          @user_valuator_role ||= space.user_roles(:valuator).find_by(user: user)
+        end
+
         def user_is_valuator?
           return if user.admin?
 
-          space.user_roles(:valuator).where(user: user).any?
+          user_valuator_role.present?
+        end
+
+        def valuator_assigned_to_proposal?
+          @valuator_assigned_to_proposal ||=
+            Decidim::Proposals::ValuationAssignment
+            .where(proposal: proposal, valuator_role: user_valuator_role)
+            .any?
         end
 
         def admin_creation_is_enabled?
