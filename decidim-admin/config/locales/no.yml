@@ -311,6 +311,7 @@
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
         update:
+          error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
       officializations:
         index:
@@ -347,6 +348,8 @@
         new:
           explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltaker området, uten overskrifter.
       scope_types:
+        create:
+          error: Det oppstod et problem med å lage en ny omfangs type.
         new:
           create: Opprett omfang type
       scopes:
