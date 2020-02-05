@@ -101,7 +101,7 @@ describe "Conferences", type: :system do
 
     it "lists all the conferences" do
       within "#conferences-grid" do
-        within "#conferences-grid h2" do
+        within "#conferences-grid h3" do
           expect(page).to have_content("2")
         end
 

@@ -26,7 +26,7 @@ module Decidim
       end
 
       it "adds a legend tag with a h6 tag inside with value provided by 'legend' option" do
-        expect(parsed.css("legend h6.heading6").first.text).to eq("Date")
+        expect(parsed.css("legend.mini-title").first.text).to eq("Date")
       end
     end
 
