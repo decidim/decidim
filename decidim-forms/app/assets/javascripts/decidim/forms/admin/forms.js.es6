@@ -12,6 +12,9 @@
   const answerOptionsWrapperSelector = ".questionnaire-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
+  const displayConditionFieldSelector = ".questionnaire-question-display-condition";
+  const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
+  const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
@@ -53,6 +56,25 @@
     });
   };
 
+  const createDynamicFieldsForDisplayConditions = (fieldId) => {
+    return createDynamicFields({
+      placeholderId: "questionnaire-question-display-condition-id",
+      wrapperSelector: `#${fieldId} ${displayConditionsWrapperSelector}`,
+      containerSelector: ".questionnaire-question-display-conditions-list",
+      fieldSelector: displayConditionFieldSelector,
+      addFieldButtonSelector: ".add-display-condition",
+      removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
+      onAddField: () => {
+        alert("added display condition");
+      },
+      onRemoveField: () => {
+        alert("removed display condition");
+      }
+    });
+  };
+
+  const dynamicFieldsForDisplayConditions = {};
+
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
     const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
@@ -87,6 +109,7 @@
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
+    // Create inputs for answer options
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
@@ -97,6 +120,7 @@
       }
     });
 
+    // Create input for max choices
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
@@ -108,6 +132,7 @@
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
+    dynamicFieldsForDisplayConditions[fieldId] = createDynamicFieldsForDisplayConditions(fieldId);
 
     const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
 

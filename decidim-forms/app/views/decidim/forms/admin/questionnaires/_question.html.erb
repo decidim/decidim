@@ -81,7 +81,7 @@
     <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
     <%= form.hidden_field :deleted, disabled: !editable %>
 
-    <div class="questionnaire-question-answer-options" data-template="<%= child_template_selector %>">
+    <div class="questionnaire-question-answer-options" data-template="<%= answer_option_template_selector %>">
       <div class="questionnaire-question-answer-options-list">
         <% question.answer_options.each do |answer_option| %>
           <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
@@ -104,6 +104,20 @@
           disabled: !editable
         )
       %>
+    </div>
+
+    <div class="questionnaire-question-display-conditions" data-template="<%= display_condition_template_selector %>">
+      <div class="questionnaire-question-display-conditions-list">
+        <% question.display_conditions.each do |display_condition| %>
+          <%= fields_for "questionnaire[questions][#{question.to_param}][display_conditions][]", display_condition do |display_condition_form| %>
+            <%= render "decidim/forms/admin/questionnaires/display_condition", form: display_condition_form, question: question, editable: editable %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if editable %>
+        <button class="button add-display-condition"><%= t(".add_display_condition") %></button>
+      <% end %>
     </div>
   </div>
 </div>

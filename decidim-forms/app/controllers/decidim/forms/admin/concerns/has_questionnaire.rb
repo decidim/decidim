@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :question_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_display_condition, :question_types, :display_condition_types, :update_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -82,9 +82,19 @@ module Decidim
               @blank_answer_option ||= Admin::AnswerOptionForm.new
             end
 
+            def blank_display_condition
+              @blank_display_condition ||= Admin::DisplayConditionForm.new
+            end
+
             def question_types
               @question_types ||= Question::TYPES.map do |question_type|
                 [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
+              end
+            end
+
+            def display_condition_types
+              @display_condition_types ||= DisplayCondition.condition_types.keys.map do |condition_type|
+                [condition_type, I18n.t("decidim.forms.admin.questionnaires.display_condition.condition_types.#{condition_type}")]
               end
             end
           end

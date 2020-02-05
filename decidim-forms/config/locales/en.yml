@@ -31,6 +31,19 @@ en:
             free_text: Free text
             remove: Remove
             statement: Statement
+          display_condition:
+            answer_option: Answer option
+            condition_type: Operator
+            condition_types:
+              answered: Answered
+              equal: Equal
+              match: Includes text
+              not_answered: Not answered
+              not_equal: Not equal
+            condition_value: Included text
+            display_condition: Display condition
+            mandatory: Mandatory
+            remove: Remove
           edit:
             save: Save
             title: Title
@@ -39,6 +52,7 @@ en:
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
+            add_display_condition: Add display condition
             any: Any
             description: Description
             down: Down
