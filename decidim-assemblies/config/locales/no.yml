@@ -37,6 +37,7 @@
           success: Forsamlingen ble oppdatert.
       assemblies_copies:
         create:
+          error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
       assemblies_types:
         create:
@@ -46,6 +47,9 @@
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
+          success: Medlem ble opprettet for denne forsamlingen.
+        destroy:
+          success: Medlem ble slettet for denne forsamlingen.
         index:
           assembly_members_title: Forsamlings medlemmer
         update:
