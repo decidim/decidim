@@ -192,6 +192,22 @@ describe "Participatory Processes", type: :system do
       let(:collection_for) { participatory_process }
     end
 
+    context "when it has some linked processes" do
+      let(:published_process) { create :participatory_process, :published, organization: organization }
+      let(:unpublished_process) { create :participatory_process, :unpublished, organization: organization }
+
+      it "only shows the published linked processes" do
+        participatory_process
+          .link_participatory_space_resources(
+            [published_process, unpublished_process],
+            "related_processes"
+          )
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+        expect(page).to have_content(translated(published_process.title))
+        expect(page).to have_no_content(translated(unpublished_process.title))
+      end
+    end
+
     context "and the process has some components" do
       it "shows the components" do
         within ".process-nav" do
