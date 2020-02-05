@@ -17,10 +17,14 @@ $(() => {
         const checkedInputs = document.querySelectorAll(
           '#' + checksContext + " input[type='checkbox']:checked"
         );
+        const indeterminateInputs = document.querySelectorAll(
+          '#' + checksContext + " input[type='checkbox']:indeterminate"
+        );
+
         if (checkedInputs.length === 0) {
           e.checked = false;
           e.indeterminate = false;
-        } else if (checkedInputs.length === totalInputs.length) {
+        } else if (checkedInputs.length === totalInputs.length && indeterminateInputs.length == 0) {
           e.checked = true;
           e.indeterminate = false;
         } else {
@@ -29,10 +33,11 @@ $(() => {
         }
 
         totalInputs.forEach((input) => {
-          if (e.indeterminate)
+          if (e.indeterminate && !input.indeterminate) {
             input.classList.remove("ignore-filter");
-          else
+          } else {
             input.classList.add("ignore-filter");
+          }
           const subfilters = input.parentNode.parentNode.nextElementSibling;
           if (subfilters && subfilters.classList.contains("filters__subfilters")) {
             if (input.indeterminate)
@@ -57,15 +62,16 @@ $(() => {
         e.classList.add("ignore-filter");
       });
     }
+
     function checkTheCheckParent(e) {
       let $this = this || e;
 
       const checkBoxContext = $this.parentNode.parentNode.parentNode.getAttribute('id');
-      
       if (!checkBoxContext) {
         checkGlobalCheck();
         return;
       }
+
       const parentCheck = document.querySelector(
         '[data-sub-checkboxes=' + checkBoxContext + ']'
       );
@@ -75,11 +81,14 @@ $(() => {
       const checkedSiblings = document.querySelectorAll(
         '#' + checkBoxContext + '> div > [data-children-checkbox] > input:checked'
       );
+      const indeterminateSiblings = document.querySelectorAll(
+        '#' + checkBoxContext + '> div > [data-children-checkbox] > input:indeterminate'
+      );
 
       if (checkedSiblings.length === 0) {
         parentCheck.checked = false;
         parentCheck.indeterminate = false;
-      } else if (checkedSiblings.length === totalCheckSiblings.length) {
+      } else if (checkedSiblings.length === totalCheckSiblings.length && indeterminateSiblings.length == 0) {
         parentCheck.checked = true;
         parentCheck.indeterminate = false;
       } else {
@@ -88,11 +97,11 @@ $(() => {
       }
 
       totalCheckSiblings.forEach((input) => {
-        if (e.indeterminate)
+        if (e.indeterminate && !input.indeterminate) {
           input.classList.remove("ignore-filter");
-        else
+        } else {
           input.classList.add("ignore-filter");
-        
+        }
         const subfilters = input.parentNode.parentNode.nextElementSibling;
         if (subfilters && subfilters.classList.contains("filters__subfilters")) {
           if (input.indeterminate)
