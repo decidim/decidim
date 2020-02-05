@@ -4,16 +4,16 @@ require "spec_helper"
 
 module Decidim
   module Forms
-    describe QuestionCondition do
-      subject { question_condition }
+    describe DisplayCondition do
+      subject { display_condition }
 
       let(:questionnaire) { create(:questionnaire) }
       let(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
       let(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 3) }
       let(:condition_type) { :answered }
-      let(:question_condition) do
+      let(:display_condition) do
         build(
-          :question_condition,
+          :display_condition,
           question: question,
           condition_question: condition_question,
           condition_type: condition_type
@@ -22,7 +22,7 @@ module Decidim
 
       let(:question_condition_equal) do
         build(
-          :question_condition,
+          :display_condition,
           :equal,
           question: question,
           condition_question: condition_question,
@@ -43,7 +43,7 @@ module Decidim
         end
 
         context "when condition_type is :equal" do
-          let(:question_condition) { question_condition_equal }
+          let(:display_condition) { question_condition_equal }
           let(:answer_option) { create(:answer_option, question: condition_question) }
 
           it "has an answer_option association" do
@@ -73,7 +73,7 @@ module Decidim
 
         context "when condition_type is :equal" do
           let(:condition_type) { :equal }
-          let(:question_condition) { question_condition_equal }
+          let(:display_condition) { question_condition_equal }
           let(:answer_choice) { create(:answer_choice, answer: answer) }
           let(:answer_option) { answer_choice.answer_option }
 
@@ -84,8 +84,8 @@ module Decidim
 
         context "when condition_type is :match" do
           let(:condition_type) { :match }
-          let(:question_condition) do
-            build(:question_condition,
+          let(:display_condition) do
+            build(:display_condition,
                   :match,
                   question: question,
                   condition_question: condition_question,
@@ -93,7 +93,7 @@ module Decidim
                   condition_value: { en: "Yes", es: "Sí", ca: "Sí" })
           end
 
-          let(:match_text) { question_condition.condition_value["en"].downcase }
+          let(:match_text) { display_condition.condition_value["en"].downcase }
           let(:answer_matched) { create(:answer, body: "Fulfill #{match_text}. Yay!") }
           let(:answer_unmatched) { create(:answer, body: "Hi! I won't fulfill the condition.") }
 

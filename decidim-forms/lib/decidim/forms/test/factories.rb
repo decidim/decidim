@@ -72,7 +72,7 @@ FactoryBot.define do
     answer_option { create(:answer_option, question: answer.question) }
   end
 
-  factory :question_condition, class: "Decidim::Forms::QuestionCondition" do
+  factory :display_condition, class: "Decidim::Forms::DisplayCondition" do
     condition_question { create(:questionnaire_question) }
     question { create(:questionnaire_question, position: 1) }
     condition_type { :answered }
