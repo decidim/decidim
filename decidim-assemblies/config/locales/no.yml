@@ -50,6 +50,7 @@
           assembly_members_title: Forsamlings medlemmer
         update:
           error: Det oppstod et problem med å oppdatere medlemmet for denne forsamlingen.
+          success: Medlem ble oppdatert for denne forsamlingen.
       assembly_publications:
         create:
           success: Forsamlingen ble publisert.
