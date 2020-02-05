@@ -22,7 +22,7 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists only the not private participatory process" do
         within "#processes-grid" do
-          within "#processes-grid h2" do
+          within "#processes-grid h3" do
             expect(page).to have_content("1")
           end
 
@@ -43,7 +43,7 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists only the not private participatory process" do
         within "#processes-grid" do
-          within "#processes-grid h2" do
+          within "#processes-grid h3" do
             expect(page).to have_content("1")
           end
 
@@ -63,7 +63,7 @@ describe "Private Participatory Processes", type: :system do
 
         it "lists private participatory processes" do
           within "#processes-grid" do
-            within "#processes-grid h2" do
+            within "#processes-grid h3" do
               expect(page).to have_content("2")
             end
 
@@ -84,7 +84,7 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists private participatory processes" do
         within "#processes-grid" do
-          within "#processes-grid h2" do
+          within "#processes-grid h3" do
             expect(page).to have_content("2")
           end
 

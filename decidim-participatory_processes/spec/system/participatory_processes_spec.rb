@@ -109,7 +109,7 @@ describe "Participatory Processes", type: :system do
 
     it "lists the active processes" do
       within "#processes-grid" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
