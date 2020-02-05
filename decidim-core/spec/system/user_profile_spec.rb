@@ -41,7 +41,7 @@ describe "Profile", type: :system do
     end
 
     it "shows user name in the header, its nickname and a contact link" do
-      expect(page).to have_selector("h5", text: user.name)
+      expect(page).to have_selector("h1", text: user.name)
       expect(page).to have_content(user.nickname)
       expect(page).to have_link("Contact")
     end
