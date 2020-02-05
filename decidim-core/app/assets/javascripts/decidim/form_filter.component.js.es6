@@ -45,21 +45,25 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        this.$form.on("change", "input, select", this._debounce(this._onFormChange, 250));
+
+        this._delayedOnFormChange = this._delayed(this._onFormChange, 50);
+        this.$form.on("change", "input, select", this._delayedOnFormChange);
 
         this.currentFormRequest = null;
         this.$form.on("ajax:beforeSend", (e) => {
-          if (this.currentFormRequest) this.currentFormRequest.abort();
+          if (this.currentFormRequest) {
+            this.currentFormRequest.abort();
+          }
           this.currentFormRequest = e.originalEvent.detail[0];
         });
 
-        this.$form.on("ajax:before", (e) => {
+        this.$form.on("ajax:before", () => {
           this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
             elem.disabled = true;
           });
         });
 
-        this.$form.on("ajax:send", (e) => {
+        this.$form.on("ajax:send", () => {
           this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
             elem.disabled = false;
           });
@@ -257,24 +261,24 @@
     /**
      * Returns a function, that, as long as it continues to be invoked, will not
      * be triggered. The function will be called after it stops being called for
-     * N milliseconds. If `immediate` is passed, trigger the function on the
-     * leading edge, instead of the trailing.
+     * N milliseconds.
+     * @param {Function} func - the function to be executed.
+     * @param {int} wait - number of milliseconds to wait before executing the function.
      * @private
      * @returns {Void} - Returns nothing.
      */
-    _debounce(func, wait, immediate) {
-      let timeout;
-      return function() {
-        let context = this,
-            args = arguments;
-        let later = function() {
+    _delayed(func, wait) {
+      let that = this,
           timeout = null;
-          if (!immediate) {func.apply(context, args);}
-        };
-        let callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) {func.apply(context, args);}
+
+      return function(...args) {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+          timeout = null;
+          Reflect.apply(func, that, args);
+        }, wait);
       }
     }
   }
