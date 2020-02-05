@@ -12,9 +12,13 @@
   const answerOptionsWrapperSelector = ".questionnaire-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
+  
+  const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
   const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
+  const conditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
+  const conditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
@@ -64,8 +68,32 @@
       fieldSelector: displayConditionFieldSelector,
       addFieldButtonSelector: ".add-display-condition",
       removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
-      onAddField: () => {
+      onAddField: ($field) => {
         alert("added display condition");
+
+        const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
+
+        /* Create value input for display condition */
+        createFieldDependentInputs({
+          controllerField: $conditionTypeSelect,
+          wrapperSelector: fieldSelector,
+          dependentFieldsSelector: conditionValueWrapperSelector,
+          dependentInputSelector: "select",
+          enablingCondition: ($field) => {
+            return $field.val() === "match"
+          }
+        });
+        
+        /* Create answer option select for display condition */
+        createFieldDependentInputs({
+          controllerField: $conditionTypeSelect,
+          wrapperSelector: fieldSelector,
+          dependentFieldsSelector: conditionAnswerOptionWrapperSelector,
+          dependentInputSelector: "select",
+          enablingCondition: ($field) => {
+            return $field.val() === "equal" || $field.val() === "not_equal"
+          }
+        });
       },
       onRemoveField: () => {
         alert("removed display condition");
@@ -109,7 +137,6 @@
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
-    // Create inputs for answer options
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
@@ -120,7 +147,6 @@
       }
     });
 
-    // Create input for max choices
     createFieldDependentInputs({
       controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
@@ -146,7 +172,7 @@
         }
       }
     };
-
+    
     $fieldQuestionTypeSelect.on("change", onQuestionTypeChange);
 
     onQuestionTypeChange();

@@ -43,6 +43,7 @@ en:
             condition_value: Included text
             display_condition: Display condition
             mandatory: Mandatory
+            question: Question statement
             remove: Remove
           edit:
             save: Save

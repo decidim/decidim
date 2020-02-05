@@ -18,8 +18,8 @@
         form.select(
           :question,
           options_from_collection_for_select([['question', 1]], :first, :last, display_condition.question),
-          {},
-          disabled: !editable
+          label: t(".question"),
+          disabled: true
         )
       %>
     </div>
@@ -33,7 +33,7 @@
         )
       %>
     </div>
-    <div class="row column">
+    <div class="row column questionnaire-question-display-condition-answer-option">
       <%=
         form.select(
           :answer_option,
@@ -44,7 +44,7 @@
         )
       %>
     </div>
-    <div class="row column">
+    <div class="row column questionnaire-question-display-condition-value">
       <%=
         form.translated(
           :text_field,
@@ -55,7 +55,6 @@
         )
       %>
     </div>
-
     <div class="row column">
       <%=
         form.check_box(
