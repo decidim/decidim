@@ -213,6 +213,9 @@
         pending_validation:
           details: 'Du har registrert deg på %{registration_type} type med en kostnad på %{price}, og du kan delta på følgende arrangementer:'
           pending_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> venter på bekreftelse.
+      conference_registrations:
+        decline_invitation:
+          success: Du har avslått invitasjonen.
       conferences:
         partners:
           collaborators: Partnere
