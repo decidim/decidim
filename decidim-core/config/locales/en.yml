@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -68,14 +67,8 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
-    proposals:
-      proposals:
-        endorsements_card_row:
-          comments_title: Proposal comments count
-      proposal_endorsements_helper:
-        endorsements_count_title: Proposal endorsements count
     accessibility:
-      logo_alt: "Link to %{organization}"
+      logo_alt: Link to %{organization}
     account:
       data_portability_export:
         file_no_exists: File does not exist
@@ -232,12 +225,12 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
-      document:
-        download: Download file
       collection:
         documents:
           one: Document
           other: Documents
+      document:
+        download: Download file
       documents:
         related_documents: Related documents
       photos:
@@ -962,6 +955,12 @@ en:
         manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
         resend_email_confirmation_instructions: Resend email confirmation instructions
+    proposals:
+      proposal_endorsements_helper:
+        endorsements_count_title: Proposal endorsements count
+      proposals:
+        endorsements_card_row:
+          comments_title: Proposal comments count
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -1041,8 +1040,8 @@ en:
         represent_user_group: I represent a group
         select_user_group: Select a group
       results_per_page:
-        title: Select number of results per page
         label: 'Results per page:'
+        title: Select number of results per page
       share_modal:
         close_window: Close window
         share: Share
@@ -1344,13 +1343,13 @@ en:
       option_unified: Unified
   views:
     pagination:
-      previous_title: Link to the previous page
-      first_title: Link to the first page
-      last_title: Link to the last page
-      next_title: Link to the next page
       first: "&laquo; First"
+      first_title: Link to the first page
       last: Last &raquo;
+      last_title: Link to the last page
       next: Next &rsaquo;
+      next_title: Link to the next page
       previous: "&lsaquo; Prev"
+      previous_title: Link to the previous page
+      title: 'Page number: '
       truncate: "&hellip;"
-      title: "Page number: "
