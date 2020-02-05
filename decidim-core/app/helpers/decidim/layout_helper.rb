@@ -67,7 +67,6 @@ module Decidim
       ""
     end
 
-
     def _icon_classes(options = {})
       classes = options[:remove_icon_class] ? [] : ["icon"]
       classes += [options[:class]]
