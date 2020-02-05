@@ -56,6 +56,10 @@
             <% end %>
 
             <th>
+              <%= sort_link(query, :valuation_assignments_count, t("models.proposal.fields.valuators", scope: "decidim.proposals") ) %>
+            </th>
+
+            <th>
               <%= sort_link(query, :published_at, t("models.proposal.fields.published_at", scope: "decidim.proposals") ) %>
             </th>
 

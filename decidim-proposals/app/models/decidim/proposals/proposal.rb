@@ -46,7 +46,7 @@ module Decidim
                counter_cache: "proposal_votes_count"
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
-      has_many :valuation_assignments, dependent: :destroy
+      has_many :valuation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy
 
       validates :title, :body, presence: true
 
@@ -270,6 +270,18 @@ module Decidim
          WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
          AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
          GROUP BY decidim_comments_comments.decidim_commentable_id
+         )
+        SQL
+        Arel.sql(query)
+      end
+
+      # method for sort_link by number of valuation assignments
+      ransacker :valuation_assignments_count do
+        query = <<-SQL
+        (SELECT COUNT(decidim_proposals_valuation_assignments.id)
+         FROM decidim_proposals_valuation_assignments
+         WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+         GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
          )
         SQL
         Arel.sql(query)
