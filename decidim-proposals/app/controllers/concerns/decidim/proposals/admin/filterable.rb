@@ -19,7 +19,13 @@ module Decidim
           def base_query
             return collection.order(:position) if current_component.settings.participatory_texts_enabled?
 
-            collection
+            accessible_proposals_collection
+          end
+
+          def accessible_proposals_collection
+            return collection if current_participatory_space.user_roles(:valuator).where(user: current_user).empty?
+
+            collection.with_valuation_assigned_to(current_user, current_participatory_space)
           end
 
           def search_field_predicate
