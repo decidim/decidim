@@ -53,6 +53,18 @@
           this.currentFormRequest = e.originalEvent.detail[0];
         });
 
+        this.$form.on("ajax:before", (e) => {
+          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
+            elem.disabled = true;
+          });
+        });
+
+        this.$form.on("ajax:send", (e) => {
+          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
+            elem.disabled = false;
+          });
+        });
+
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
         });
@@ -212,7 +224,7 @@
      */
     _onFormChange() {
       const formAction = this.$form.attr("action");
-      const params = this.$form.serialize();
+      const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
 
       let newUrl = "";
       let newState = {};

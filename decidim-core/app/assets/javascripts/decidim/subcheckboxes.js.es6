@@ -27,6 +27,20 @@ $(() => {
           e.checked = true;
           e.indeterminate = true;
         }
+
+        totalInputs.forEach((input) => {
+          if (e.indeterminate)
+            input.classList.remove("ignore-filter");
+          else
+            input.classList.add("ignore-filter");
+          const subfilters = input.parentNode.parentNode.nextElementSibling;
+          if (subfilters && subfilters.classList.contains("filters__subfilters")) {
+            if (input.indeterminate)
+              subfilters.classList.remove("ignore-filters");
+            else
+              subfilters.classList.add("ignore-filters");
+          }
+        });
       });
     }
 
@@ -40,6 +54,7 @@ $(() => {
       allChecks.forEach(function(e) {
         e.checked = checkStatus;
         e.indeterminate = false;
+        e.classList.add("ignore-filter");
       });
     }
     function checkTheCheckParent(e) {
@@ -55,10 +70,10 @@ $(() => {
         '[data-sub-checkboxes=' + checkBoxContext + ']'
       );
       const totalCheckSiblings = document.querySelectorAll(
-        '#' + checkBoxContext + '> div > [data-children-checkbox] input'
+        '#' + checkBoxContext + '> div > [data-children-checkbox] > input'
       );
       const checkedSiblings = document.querySelectorAll(
-        '#' + checkBoxContext + '> div > [data-children-checkbox] input:checked'
+        '#' + checkBoxContext + '> div > [data-children-checkbox] > input:checked'
       );
 
       if (checkedSiblings.length === 0) {
@@ -71,6 +86,21 @@ $(() => {
         parentCheck.checked = true;
         parentCheck.indeterminate = true;
       }
+
+      totalCheckSiblings.forEach((input) => {
+        if (e.indeterminate)
+          input.classList.remove("ignore-filter");
+        else
+          input.classList.add("ignore-filter");
+        
+        const subfilters = input.parentNode.parentNode.nextElementSibling;
+        if (subfilters && subfilters.classList.contains("filters__subfilters")) {
+          if (input.indeterminate)
+            subfilters.classList.remove("ignore-filters");
+          else
+            subfilters.classList.add("ignore-filters");
+        }
+      });
 
       checkTheCheckParent(parentCheck);
     }
