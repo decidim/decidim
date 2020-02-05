@@ -11,30 +11,30 @@ $comment-form-bg: $light-gray;
 
 /* Comments */
 
-.comments {
+.comments{
   padding-top: 3rem;
 }
 
-.comment-thread {
+.comment-thread{
   @extend .card;
 }
 
-.comment-thread__title {
+.comment-thread__title{
   font-weight: normal;
   font-size: 90%;
   text-transform: none;
   color: $muted;
 }
 
-.comment__header {
+.comment__header{
   padding: $comment-padding;
   display: flex;
 }
 
-.comment__content {
+.comment__content{
   padding: 0 $comment-padding;
 
-  > :last-child {
+  > :last-child{
     margin-bottom: 0;
   }
 
@@ -46,6 +46,7 @@ $comment-form-bg: $light-gray;
 .comment__additionalreply{
   padding: $comment-padding;
   font-size: 90%;
+
   @include clearfix;
 }
 
@@ -63,11 +64,11 @@ $comment-form-bg: $light-gray;
   margin: $comment-padding;
   padding-bottom: 1px;
 
-  &.comment--nested--alt {
+  &.comment--nested--alt{
     background: $comment-nested-alt-bg;
   }
 
-  &:first-of-type {
+  &:first-of-type{
     margin-top: 0;
   }
 }
@@ -95,63 +96,59 @@ $comment-form-bg: $light-gray;
   }
 }
 
-.comment__votes {
+.comment__votes{
   float: right;
-<<<<<<< HEAD
   margin-top: .5rem;
-=======
-  margin-top: 0.5rem;
->>>>>>> e2b77fe26... Improved comments - design proposal
 }
 
-.comment__votes--up {
+.comment__votes--up{
   color: $muted;
 
-  .icon {
+  .icon{
     color: $comment-vote-up-color;
   }
 
   &:hover,
-  &.is-vote-selected {
+  &.is-vote-selected{
     color: darken($comment-vote-up-color, 10);
 
-    .icon {
+    .icon{
       color: inherit;
     }
   }
 
-  &.is-vote-notselected {
+  &.is-vote-notselected{
     color: $muted;
-    opacity: 0.3;
+    opacity: .3;
 
-    .icon {
+    .icon{
       color: inherit;
     }
   }
 }
 
-.comment__votes--down {
+.comment__votes--down{
   color: $muted;
-  padding-left: 0.3rem;
+  padding-left: .3rem;
 
-  .icon {
+  .icon{
     color: $comment-vote-down-color;
   }
 
   &:hover,
-  &.is-vote-selected {
+  &.is-vote-selected{
     color: darken($comment-vote-down-color, 10);
 
-    .icon {
+    .icon{
       color: inherit;
     }
   }
 
-  &.is-vote-notselected {
+  &.is-vote-notselected{
     color: $muted;
-    opacity: 0.3;
+    opacity: .3;
 
-    .icon {
+    .icon{
       color: inherit;
     }
   }
@@ -175,30 +172,31 @@ $comment-form-bg: $light-gray;
 
 /* Comment form */
 
-.comment__quote {
+.comment__quote{
   border-left-width: 6px;
   font-size: 80%;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, .03);
   padding: 1rem;
   margin-bottom: 1rem;
-  > p:last-child {
+
+  > p:last-child{
     margin-bottom: 0;
   }
 }
 
-.add-comment {
+.add-comment{
   background: $comment-form-bg;
   padding: $comment-padding;
 
-  .button {
+  .button{
     margin-bottom: 0;
   }
 }
 
-.add-comment--reply {
+.add-comment--reply{
   display: none;
 
-  &.is-active {
+  &.is-active{
     display: block;
   }
 }
