@@ -577,6 +577,7 @@
             - Tilpass, hvis du vil, meldingen du sender
             - Du vil gå opp i nivå ved å sende invitasjoner og få dem registrert.
           description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
+          description_another: Denne deltakeren har invitert %{score} folk.
           next_level_in: Inviter %{score} flere folk for å nå neste nivå!
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
     group_admins:
