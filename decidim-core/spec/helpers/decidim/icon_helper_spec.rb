@@ -30,6 +30,30 @@ module Decidim
             </svg>
           SVG
         end
+
+        context "with role attribute specified" do
+          it "implements role attribute" do
+            result = helper.component_icon(component, role: "img")
+            expect(result).to eq <<~SVG
+              <svg class="icon external-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02">
+                <circle cx="18.01" cy="18.01" r="15.75" stroke="#2ecc71" stroke-width="4" fill="none"></circle>
+                <circle cx="18.01" cy="18.01" r="11.25" stroke="#08BCD0" stroke-width="4" fill="none" />
+              </svg>
+            SVG
+          end
+        end
+
+        context "with no role attribute specified" do
+          it "doesn't implement role attribute" do
+            result = helper.component_icon(component)
+            expect(result).to eq <<~SVG
+              <svg class="icon external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02">
+                <circle cx="18.01" cy="18.01" r="15.75" stroke="#2ecc71" stroke-width="4" fill="none"></circle>
+                <circle cx="18.01" cy="18.01" r="11.25" stroke="#08BCD0" stroke-width="4" fill="none" />
+              </svg>
+            SVG
+          end
+        end
       end
 
       describe "resource_icon" do
