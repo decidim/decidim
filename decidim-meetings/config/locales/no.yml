@@ -202,3 +202,6 @@
         confirmation:
           confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
           details: Du finner møtets detaljer i vedlegget.
+      registrations:
+        decline_invitation:
+          success: Du har avslått invitasjonen.
