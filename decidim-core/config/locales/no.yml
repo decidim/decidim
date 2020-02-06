@@ -579,8 +579,14 @@
         current_admins: 'Nåværende administratorer:'
         manage_admins: Administrer administrator
     group_invites:
+      accept:
+        error: Det oppstod et problem med å godta denne invitasjonen
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
+      invite:
+        error: Det oppstod et problem med å invitere denne deltakeren
+      reject:
+        error: Det oppstod et problem med å avslå denne invitasjonen
     group_members:
       accept:
         error: Det oppstod et problem med å godta denne bli med forespørselen
