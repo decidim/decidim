@@ -38,6 +38,18 @@ module Decidim
         t(i18n_key, scope: "decidim.proposals.proposals.show")
       end
 
+      def filter_proposals_state_values
+        Decidim::ChainedCheckBoxesHelper::TreeNode.new(
+          Decidim::ChainedCheckBoxesHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
+          [
+            Decidim::ChainedCheckBoxesHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            Decidim::ChainedCheckBoxesHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
+            Decidim::ChainedCheckBoxesHelper::TreePoint.new("not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
+            Decidim::ChainedCheckBoxesHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+          ]
+        )
+      end
+
       def scopes_picker_filter_depth(form, name, checkboxes_on_top = true)
         options = {
           multiple: true,

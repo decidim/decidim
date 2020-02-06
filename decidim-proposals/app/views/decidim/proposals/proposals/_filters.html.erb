@@ -13,7 +13,7 @@
   </div>
 
   <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
-    <%= form.chained_check_boxes :state, filter_state_values, legend_title: t(".state") %>
+    <%= form.chained_check_boxes :state, filter_proposals_state_values, legend_title: t(".state") %>
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>

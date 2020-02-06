@@ -12,7 +12,7 @@ module Decidim
           [
             Decidim::ChainedCheckBoxesHelper::TreePoint.new("open", t("open", scope: scope)),
             Decidim::ChainedCheckBoxesHelper::TreePoint.new("withdrawn", t("withdrawn", scope: scope)),
-            Decidim::ChainedCheckBoxesHelper::TreePoint.new("published", t("published", scope: scope)),
+            Decidim::ChainedCheckBoxesHelper::TreePoint.new("published", t("published", scope: scope))
           ]
         )
       end

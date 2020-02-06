@@ -54,18 +54,6 @@ module Decidim
       )
     end
 
-    def filter_state_values
-      TreeNode.new(
-        TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
-        [
-          TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
-          TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
-          TreePoint.new("not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-          TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
-        ]
-      )
-    end
-
     def filter_categories_values
       organization = current_participatory_space.organization
 
