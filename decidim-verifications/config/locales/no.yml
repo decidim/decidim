@@ -113,6 +113,8 @@
             send: Be om verifikasjon igjen
           new:
             send: Be om verifikasjon
+          update:
+            error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
       postal_letter:
         admin:
           pending_authorizations:
