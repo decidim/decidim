@@ -286,6 +286,7 @@
             name: Navn
       newsletters:
         create:
+          error: Det oppstod et problem med å opprette dette nyhetsbrevet.
           success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
@@ -309,6 +310,7 @@
           select_users: Velg hvilke brukere du vil sende nyhetsbrevet
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         update:
+          error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       oauth_applications:
         create:
@@ -361,6 +363,8 @@
           error: Det oppstod et problem med å lage en ny omfangs type.
         new:
           create: Opprett omfang type
+        update:
+          error: Det oppstod et problem med å oppdatere denne omfangs typen.
       scopes:
         new:
           create: Opprett omfang
@@ -410,6 +414,10 @@
     moderations:
       actions:
         title: Handlinger
+      admin:
+        reportable:
+          unreport:
+            invalid: Det oppstod et problem med å avrapportere ressursen.
       models:
         moderation:
           fields:
