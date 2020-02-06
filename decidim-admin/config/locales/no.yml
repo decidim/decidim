@@ -192,6 +192,8 @@
         new:
           add: Legg til komponent
           title: 'Legg til komponent: %{name}'
+        publish:
+          success: Komponentet har blitt publisert.
         title: Komponenter
         unpublish:
           success: Komponentet har blitt avpublisert.
