@@ -20,6 +20,10 @@
               too_many_minutes: Varigheten av elementene overskrider møtets varighet med %{count} minutter
               too_many_minutes_child: Varigheten av underelement overskrider dagsorden-elementet "%{parent_title}" foreldre varighet av %{count} minutter
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Det oppstod et problem med å publisere dette møtet.
     components:
       meetings:
         settings:
