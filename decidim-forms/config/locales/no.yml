@@ -10,9 +10,14 @@
             choices:
               missing: er ikke fullstendig
               too_many: er for mange
+        questionnaire:
+          request_invalid: Det har oppstod en feil med håndtering av forespørselen. Prøv på nytt
   decidim:
     forms:
       admin:
+        models:
+          components:
+            tos: Tjenestevilkår
         questionnaires:
           answer_option:
             answer_option: Svaralternativ
@@ -21,6 +26,7 @@
             title: Tittel
           form:
             add_question: Legg til spørsmål
+            already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
           question:
             add_answer_option: Legg til svaralternativ
             any: Alle
@@ -33,8 +39,10 @@
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
             title: Svar på skjemaet
+          are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           questionnaire_answered:
             title: Allerede besvart
+          tos_agreement: Ved å delta godtar du vilkårene for bruk
       user_answers_serializer:
         created_at: Besvart på
         id: Svar ID

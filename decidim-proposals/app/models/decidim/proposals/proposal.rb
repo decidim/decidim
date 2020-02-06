@@ -25,6 +25,8 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
 
+      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+
       fingerprint fields: [:title, :body]
 
       amendable(
@@ -246,6 +248,23 @@ module Decidim
          AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
          GROUP BY decidim_comments_comments.decidim_commentable_id
          )
+        SQL
+        Arel.sql(query)
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
+      end
+
+      ransacker :is_emendation do |_parent|
+        query = <<-SQL
+        (
+          SELECT EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          )
+        )
         SQL
         Arel.sql(query)
       end

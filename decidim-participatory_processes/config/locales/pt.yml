@@ -72,7 +72,7 @@ pt:
         duplicate: Duplicar
         edit: Editar
         filter:
-          all: Mostrar todos os processos
+          all_processes: Mostrar todos os processos
           process_groups: Grupos de Processos
         new_process: Novo processo
         new_process_group: Novo grupo de processos

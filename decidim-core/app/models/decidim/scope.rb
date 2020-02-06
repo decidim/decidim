@@ -42,8 +42,10 @@ module Decidim
     # Scope to return only the top level scopes.
     #
     # Returns an ActiveRecord::Relation.
-    def self.top_level
-      where parent_id: nil
+    def self.top_level(organization_id = nil)
+      query = where parent_id: nil
+      query = query.where(decidim_organization_id: organization_id) if organization_id
+      query
     end
 
     def self.log_presenter_class_for(_log)

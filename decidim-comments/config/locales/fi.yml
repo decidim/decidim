@@ -54,6 +54,7 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita ongelmasta
+        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -66,7 +67,9 @@ fi:
       comments:
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
+        comment_details_title: Kommentin yksityiskohdat
         loading: Ladataan kommentteja ...
+        single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
         title: "%{count} kommenttia"
     events:
       comments:

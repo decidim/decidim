@@ -3,7 +3,15 @@
     attributes:
       config:
         available_methods: Tilgjengelige metoder
+        offline_explanation: Instruksjoner for offline verifisering
+      postal_letter_confirmation:
+        verification_code: Verifiseringskode
+      postal_letter_postage:
+        verification_code: Verifiseringskode
   decidim:
+    admin:
+      menu:
+        authorization_workflows: Verifikasjoner
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} oppdaterte identitets dokumentasjonens verifikasjons konfigurasjon"
@@ -14,23 +22,125 @@
         csv_census:
           help:
             - Adminier laster opp en CSV med e-postene til de aksepterte deltakerne
-            - Only participants with an email in that CSV file can get verified
+            - Bare deltakere med en email i CSV-filen kan bli verifisert
+        id_documents:
+          help:
+            - Brukere fyller ut sin identitets-informasjon og laster opp en kopi av dokumentet.
+            - Du fyller ut informasjonen som er tilstede i det opplastede bildet.
+            - Informasjonen skal samsvare med hva brukeren fylte ut.
+            - Hvis du ikke kan tydelig se informasjonen, eller du ikke kan få den verifisert, kan du avvise forespørselen og brukeren vil kunne fikse den.
+        postal_letter:
+          help:
+            - Deltakere ber om at en verifiseringskode sendes til adressen deres.
+            - Du sendte brevet til adressen deres med verifiseringskoden.
+            - You mark the letter as sent.
+            - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
       help: Hjelp
+      id_documents:
+        explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
       name: Navn
+      postal_letter:
+        explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
+        name: Kode med post brev
     verifications:
+      authorizations:
+        create:
+          unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verifiser mot et annet eksempel på autorisasjons behandler
+            dummy_authorization_handler: Verifiser mot eksempelets autoriserings behandler
+            dummy_authorization_workflow: Verifiser mot eksempelets autoriserings arbeidsflyt
+            id_documents: Bli verifisert med å laste opp ditt identitets dokumentet
+            postal_letter: Bli verifisert med å motta en verifiseringskode gjennom posten
+          verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
+        skip_verification: Du kan hoppe over dette for nå og %{link}
       csv_census:
         admin:
           census:
+            create:
+              success: Importerte %{count} elementer (%{errors} feil)
             destroy_all:
               success: Alle folketellingene er slettet
+          destroy:
+            confirm: Slett all folketellingen kan ikke angres. Er du sikker på at du vil fortsette?
+          index:
+            data: Det er %{count} poster lastet totalt. Siste opplastningsdato var den %{due_date}
+            empty: Det er ingen data for folketellingen. Bruk skjemaet nedenfor for å importere det ved hjelp av en CSV-fil.
+          instructions:
+            body: For å gjøre dette må du gå inn i systemadministrasjon og legge til cvs_census autoriseringen til organisasjonen
+            title: Du må aktivere csv-folketellingen for denne organisasjonen
           new:
             file: ".csv fil med e-postdata"
+            info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
+        authorizations:
+          new:
+            error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.
+      dummy_authorization:
+        extra_explanation:
+          one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
+          other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Verifikasjonen stemmer ikke overens. Prøv igjen eller avvis bekreftelsen slik at deltakeren kan endre den
+          offline_confirmations:
+            create:
+              error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
+            new:
+              cancel: Avbryt
+              introduce_user_data: Introduser deltakerens email og dokumentdata
+          pending_authorizations:
+            index:
+              offline_verification: Offline verifisering
+              title: Venter på online verifiseringer
+              verification_number: 'Verifikasjon #%{n}'
+          rejections:
+            create:
+              success: Verifikasjon avvist. Deltakeren vil bli bedt om å endre sine dokumenter
+        authorizations:
+          edit:
+            being_reviewed: Vi vurderer dokumentene dine. Du vil bli verifisert snart
+            offline: Bruk offline verifisering
+            online: Bruk online verifisering
+            rejection_clarity: Forsikre deg om at informasjonen er tydelig synlig i det opplastede bildet
+            rejection_notice: Det oppstod et problem med din verifikasjon. Prøv igjen
+            send: Be om verifikasjon igjen
+          new:
+            send: Be om verifikasjon
       postal_letter:
         admin:
           pending_authorizations:
             index:
               address: Adresse
+              title: Pågående verifiseringer
+              verification_code: Verifiseringskode
+        authorizations:
+          create:
+            success: Takk! Vi sender en verifiseringskode til adressen din
+          edit:
+            title: Introduser verifiseringskoden du mottok
+            waiting_for_letter: Vi sender snart et brev til adressen din med verifiseringskoden
+          new:
+            title: Be om din verifiseringskode
+          update:
+            error: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk brevet vi sendte til deg
+            success: Gratulerer. Du har blitt verifisert
       sms:
         authorizations:
+          destroy:
+            success: Verifiseringskode vellykket tilbakestilt. Vennligst legg inn telefonnummeret ditt på nytt.
           edit:
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
+            destroy: Tilbakestill verifiseringskode
+            resend: Mottok ikke verifiseringskoden?
+            title: Introduser verifiseringskoden du mottok
+          new:
+            title: Be om din verifiseringskode
+          update:
+            error: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
+            success: Gratulerer. Du har blitt verifisert.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: må bare være store bokstaver og inneholder bare bokstaver og/eller tall
