@@ -182,6 +182,7 @@
         create:
           success: Komponent ble opprettet.
         destroy:
+          error: Det oppstod et problem med å ødelegge dette komponentet.
           success: Komponent ble slettet.
         form:
           default_step_settings: Standard trinn innstillinger
@@ -206,6 +207,8 @@
       filters:
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+      help_sections:
+        error: Det oppsto et problem med å oppdatere hjelpeseksjonene
       impersonatable_users:
         index:
           filter:
