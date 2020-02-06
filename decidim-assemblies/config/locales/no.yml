@@ -57,6 +57,7 @@
           success: Medlem ble oppdatert for denne forsamlingen.
       assembly_publications:
         create:
+          error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere denne forsamlingen.
