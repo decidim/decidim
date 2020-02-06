@@ -664,6 +664,8 @@
     metrics:
       followers:
         description: Antall deltakere som følger dette deltakerområdet
+      participants:
+        description: Antall aktive deltakere i organisasjone
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
@@ -798,6 +800,9 @@
       share_modal:
         close_window: Lukk vindu
         share_link: Del lenke
+    user_activity:
+      index:
+        no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_interests:
       show:
         select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
