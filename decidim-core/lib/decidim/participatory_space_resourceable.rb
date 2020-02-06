@@ -20,6 +20,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      extend Decidim::Deprecations
+
       # An association with all the links that point to this model.
       has_many :participatory_space_resource_links_to, as: :to, class_name: "Decidim::ParticipatorySpaceLink"
 
@@ -77,7 +79,7 @@ module Decidim
           end
         end
       end
-      alias_method :link_participatory_spaces_resources, :link_participatory_space_resources
+      deprecated_alias :link_participatory_spaces_resources, :link_participatory_space_resources
 
       # Public: This method will be used to represent this participatory space in other contexts, like cards
       # or search results.

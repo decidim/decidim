@@ -2,6 +2,12 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Deprecation warnings
+
+PR [\#5676](https://github.com/decidim/decidim/pull/5676) introduced a deprecation warning:
+
+- `Decidim::ParticipatorySpaceResourceable#link_participatory_spaces_resources` should be renamed to `link_participatory_space_resources` (notice singular `spaces`)
+
 ### Upgrade notes
 
 - **Assembly types**
