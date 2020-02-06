@@ -78,8 +78,8 @@ module Decidim
           Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
         end
 
-        def processes(organization)
-          @processes ||= Decidim::ParticipatoryProcess.where(organization: organization)
+        def processes
+          @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
         end
 
         private

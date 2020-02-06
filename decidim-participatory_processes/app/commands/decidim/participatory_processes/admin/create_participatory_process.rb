@@ -112,7 +112,7 @@ module Decidim
         end
 
         def link_related_processes
-          process.link_participatory_spaces_resources(related_processes, "related_processes")
+          process.link_participatory_space_resources(related_processes, "related_processes")
         end
       end
     end
