@@ -35,6 +35,8 @@ es-MX:
         title: Título
         vote: Sistema de votación externa
         what_is_decided: Qué se decide
+      response:
+        decidim_consultations_response_group_id: Grupo
     errors:
       models:
         question:
@@ -67,10 +69,13 @@ es-MX:
   decidim:
     admin:
       actions:
+        back_to_responses: Volver a las respuestas
         new_consultation: Nueva consulta
         new_question: Nueva pregunta
         new_response: Nueva respuesta
+        new_response_group: Nuevo grupo
         publish_results: Publicar resultados
+        response_groups: Administrar grupos de respuesta
         unpublish_results: Anular la publicación de resultados
       consultation_publications:
         create:
@@ -140,6 +145,7 @@ es-MX:
         response:
           fields:
             created_at: Creado en
+            response_group: Grupo
             title: Título
           name:
             one: Respuesta
@@ -175,6 +181,24 @@ es-MX:
         update:
           error: Hubo un error al actualizar esta pregunta.
           success: Pregunta actualizada con éxito.
+      response_groups:
+        create:
+          error: Hubo un problema al crear un nuevo grupo de respuestas.
+          success: Grupo de respuesta creado correctamente.
+        destroy:
+          error: Hubo un problema al eliminar el grupo de respuestas. Compruebe que ninguna respuesta depende de ello.
+          success: Grupo de respuestas eliminado correctamente.
+        edit:
+          update: Actualizar
+        form:
+          title: Información general
+        help: Utilice grupos para organizar preguntas de opciones múltiples en paquetes.
+        new:
+          create: Crear
+          title: Nuevo grupo de respuestas
+        update:
+          error: Se ha producido un error al actualizar esta respuesta.
+          success: Respuesta actualizada correctamente.
       responses:
         create:
           error: Hubo un error al crear una nueva respuesta.
@@ -195,6 +219,7 @@ es-MX:
       titles:
         consultations: Consultas
         questions: Preguntas
+        response_groups: Grupos de respuesta
         responses: Respuestas
         results: Resultados
     consultations:
