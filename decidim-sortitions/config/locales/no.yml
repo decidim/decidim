@@ -34,6 +34,8 @@
             confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
             destroy: Avbryt sortering
             title: Avbryting av sorteringen
+          create:
+            error: Det oppstod et problem med å lage en ny sortering.
           destroy:
             error: Kan ikke avbryte sorteringen.
           form:
