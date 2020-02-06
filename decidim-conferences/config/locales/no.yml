@@ -275,7 +275,7 @@
         conference_updated:
           email_intro: 'Konferansen "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansen ble oppdatert.
+          notification_title: Konferansen <a href="%{resource_path}">%{resource_title}</a> ble oppdatert.
         registrations_enabled:
           email_intro: '"%{resource_title}" konferansen har muliggjort registreringer. Du kan registrere deg selv på siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
