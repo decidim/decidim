@@ -222,7 +222,7 @@
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Registreringen av konferansen din er bekreftet
+            subject: Registrering av konferansen din er bekreftet
           pending_validation:
             subject: Registrering av konferansen din venter på bekreftelse
         send_conference_diploma_mailer:
