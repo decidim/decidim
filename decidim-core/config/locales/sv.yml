@@ -204,6 +204,7 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
+      avatar: Avatar
       comments:
         one: kommentar
         other: kommentarer
