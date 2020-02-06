@@ -675,8 +675,8 @@ ca:
         orders:
           label: 'Ordenar propostes per:'
           most_commented: Més comentades
-          most_endorsed: Més recolzades 
-          most_followed: Més seguides
+          most_endorsed: Amb més adhesions
+          most_followed: Amb més seguidores
           most_voted: Amb més suports
           random: Aleatori
           recent: Recent
