@@ -59,6 +59,8 @@
           help: Sett opp flere valg spørsmål ved å øke det maksimale antallet svar en deltaker kan velge. Standard maksimumsverdi er 1, noe som betyr at bare ett svar kan bli stemt.
           title: Avansert konfigurasjon
       question_publications:
+        create:
+          error: Det oppstod et problem med å publisere dette spørsmålet.
         destroy:
           error: Det oppstod et problem med å avpublisere dette spørsmålet.
       response_groups:
