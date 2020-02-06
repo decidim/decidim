@@ -34,6 +34,8 @@ module Decidim
 
       validates :question_type, inclusion: { in: TYPES }
 
+      scope :previous_to, ->(position) { where("position < ?", position || 0) }
+
       def multiple_choice?
         %w(single_option multiple_option sorting).include?(question_type)
       end
@@ -48,6 +50,10 @@ module Decidim
 
       def number_of_options
         answer_options.size
+      end
+
+      def translated_body
+        Decidim::Forms::QuestionPresenter.new(self).translated_body
       end
     end
   end
