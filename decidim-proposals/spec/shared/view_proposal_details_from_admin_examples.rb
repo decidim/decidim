@@ -87,9 +87,7 @@ shared_examples "view proposal details from admin" do
   end
 
   describe "with endorsements" do
-    before do
-      create_list :proposal_endorsement, 2, proposal: proposal
-    end
+    let!(:endorsements) { create_list :proposal_endorsement, 2, proposal: proposal }
 
     it "shows the number of endorsements" do
       go_to_admin_proposal_page(proposal)
@@ -112,6 +110,18 @@ shared_examples "view proposal details from admin" do
         proposal.endorsements.for_listing.each do |endorsement|
           endorser = endorsement.normalized_author
           expect(page).to have_selector("a", text: endorser.name)
+        end
+      end
+    end
+
+    context "with more than 5 endorsements" do
+      let!(:endorsements) { create_list :proposal_endorsement, 6, proposal: proposal }
+
+      it "links to the proposal page to check the rest of endorsements" do
+        go_to_admin_proposal_page(proposal)
+
+        within "#proposal-endorsers-list" do
+          expect(page).to have_selector("a", text: "and 1 more")
         end
       end
     end

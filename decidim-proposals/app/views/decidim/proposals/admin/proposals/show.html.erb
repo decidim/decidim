@@ -70,13 +70,22 @@
     <div class="row column">
       <strong><%= t ".endorsers" %>:</strong>
         <ul id="proposal-endorsers-list">
-          <% endorsers_presenters_for(proposal).each do |presented_endorser| %>
+          <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
+          <% presented_endorsers.first(5).each do |presented_endorser| %>
             <li>
               <%= link_to_if(
                 presented_endorser.profile_path.present?,
                 presented_endorser.name,
                 presented_endorser.profile_path,
                 target: :blank
+              ) %>
+            </li>
+          <% end %>
+          <% if presented_endorsers.count > 5 %>
+            <li>
+              <%= link_to(
+                  t(".n_more_endorsers", count: presented_endorsers.count - 5),
+                  resource_locator(proposal).path
               ) %>
             </li>
           <% end %>

@@ -427,6 +427,9 @@ en:
             endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
             link: Link
+            n_more_endorsers:
+              one: and 1 more
+              other: and %{count} more
             photos: Photos
             proposals: Proposals
             ranking: "%{ranking} of %{total}"
