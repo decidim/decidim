@@ -138,6 +138,7 @@
         registrations:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            reserved_slots_help: Sett den til 0 hvis du ikke har reserverte plasser
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
@@ -167,6 +168,10 @@
             all: Alle
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Registrering av møtet ditt er bekreftet
       meeting:
         not_allowed: Du er ikke tillatt å se dette møtet
       meetings:
