@@ -122,6 +122,7 @@
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
       area_types:
         create:
+          error: Det oppstod et problem med å lage en ny område type.
           success: Områdetype ble opprettet.
         destroy:
           success: Områdetype ble ødelagt
@@ -223,6 +224,7 @@
           error: Det oppstod et problem med å lukke den gjeldene deltaker-styringsøkten.
           success: Den nåværende etterligningsøkten er avsluttet.
         create:
+          error: Det oppstod et problem med å administrere deltakeren.
           success: Den administrerte deltakeren ble opprettet.
         form:
           authorization_method: Autoriseringsmetode
@@ -292,6 +294,7 @@
             name: Navn
       newsletters:
         create:
+          error: Det oppstod et problem med å opprette dette nyhetsbrevet.
           success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
