@@ -2,7 +2,9 @@
     <% data_sub_checkboxes_id = "#{chained_check_boxes_id}-#{collection.leaf.value}" %>
     <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
     <% is_root_check_box = (collection.leaf.value == "") ? true : false %>
-    <% unless is_root_check_box %>
+    <% if is_root_check_box %>
+      <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "" %>
+    <% else %>
       <div class="filters__has-subfilters">
     <% end %>
       <%= form.check_box attribute,
