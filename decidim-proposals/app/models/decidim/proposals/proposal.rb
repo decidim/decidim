@@ -61,23 +61,23 @@ module Decidim
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
-      scope :from_official, lambda {
+      scope :official_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :from_citizens, lambda {
+      scope :citizens_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :from_user_group, lambda {
+      scope :user_group_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
              .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
       }
-      scope :from_meeting, lambda {
+      scope :meeting_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })

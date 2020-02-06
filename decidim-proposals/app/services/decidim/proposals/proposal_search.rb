@@ -26,10 +26,10 @@ module Decidim
       def search_origin
         return query if origin.member?("all")
 
-        official = origin.member?("official") ? query.from_official : nil
-        citizens = origin.member?("citizens") ? query.from_citizens : nil
-        user_group = origin.member?("user_group") ? query.from_user_group : nil
-        meeting = origin.member?("meeting") ? query.from_meeting : nil
+        official = origin.member?("official") ? query.official_origin : nil
+        citizens = origin.member?("citizens") ? query.citizens_origin : nil
+        user_group = origin.member?("user_group") ? query.user_group_origin : nil
+        meeting = origin.member?("meeting") ? query.meeting_origin : nil
 
         query
           .where(id: official)
