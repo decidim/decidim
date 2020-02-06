@@ -16,10 +16,10 @@
     <div class="row column">
       <%=
         form.select(
-          :question,
-          options_from_collection_for_select([['question', 1]], :first, :last, display_condition.question),
-          label: t(".question"),
-          disabled: true
+          :condition_question,
+          options_from_collection_for_select(questionnaire.questions.previous_to(question.position), :id, :translated_body, display_condition.condition_question),
+          { prompt: t(".select_condition_question") },
+          disabled: !editable
         )
       %>
     </div>
@@ -28,18 +28,17 @@
         form.select(
           :condition_type,
           options_from_collection_for_select(display_condition_types, :first, :last, display_condition.condition_type),
-          {},
+          { prompt: t(".select_condition_type") },
           disabled: !editable
         )
       %>
     </div>
     <div class="row column questionnaire-question-display-condition-answer-option">
-      <%=
+      <%#
         form.select(
           :answer_option,
-          # TODO: add array
-          options_from_collection_for_select([['hey', 1]], :first, :last, display_condition.answer_option),
-          {},
+          options_from_collection_for_select(display_condition.answer_options, :first, :last, display_condition.answer_option),
+          { prompt: t(".select_answer_option") },
           disabled: !editable
         )
       %>

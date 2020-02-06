@@ -45,6 +45,9 @@ en:
             mandatory: Mandatory
             question: Question statement
             remove: Remove
+            select_answer_option: Select answer option
+            select_condition_question: Select a question
+            select_condition_type: Select a condition type
           edit:
             save: Save
             title: Title
