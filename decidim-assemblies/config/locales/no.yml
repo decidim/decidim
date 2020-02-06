@@ -44,6 +44,9 @@
           error: Det oppstod et problem med å lage en ny forsamlings type.
         update:
           error: Det oppsto et problem med å oppdatere denne forsamlings typen.
+      assembly_copies:
+        new:
+          select: Velg hvilke data du vil duplisere
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
