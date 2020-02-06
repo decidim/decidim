@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin assigns valuator to proposal", type: :system do
+describe "Admin manages proposals valuators", type: :system do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create :proposal, component: current_component }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }
@@ -17,12 +17,10 @@ describe "Admin assigns valuator to proposal", type: :system do
 
   include_context "when managing a component as an admin"
 
-  before do
-    visit current_path
-  end
-
-  context "when assigning to a valuator from the actions dropdown" do
+  context "when assigning to a valuator" do
     before do
+      visit current_path
+
       within find("tr", text: proposal.title) do
         page.first(".js-proposal-list-check").set(true)
       end
@@ -54,6 +52,31 @@ describe "Admin assigns valuator to proposal", type: :system do
           expect(page).to have_selector("td.valuators-count", text: 1)
         end
       end
+    end
+  end
+
+  context "when filtering proposals by assigned valuator" do
+    let!(:unassigned_proposal) { create :proposal, component: component }
+    let(:assigned_proposal) { proposal }
+
+    before do
+      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+
+      visit current_path
+    end
+
+    it "only shows the proposals assigned to the selected valuator" do
+      expect(page).to have_content(assigned_proposal.title)
+      expect(page).to have_content(unassigned_proposal.title)
+
+      within ".filters__section" do
+        find("a.dropdown", text: "FILTER").hover
+        find("a", text: "Assigned to valuator").hover
+        find("a", text: valuator.name).click
+      end
+
+      expect(page).to have_content(assigned_proposal.title)
+      expect(page).to have_no_content(unassigned_proposal.title)
     end
   end
 end

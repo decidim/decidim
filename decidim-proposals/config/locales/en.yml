@@ -96,6 +96,8 @@ en:
           label: Status
           values:
             "true": Not answered
+        valuator_role_ids_eq:
+          label: Assigned to valuator
     components:
       proposals:
         actions:
@@ -651,6 +653,7 @@ en:
             scope: Scope
             state: Status
             title: Title
+            valuator: Valuator
             valuators: Valuators
             votes: Votes
       new:
