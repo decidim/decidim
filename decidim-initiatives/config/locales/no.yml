@@ -30,6 +30,9 @@
         other: Komitér
   decidim:
     admin:
+      filters:
+        search_placeholder:
+          title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
       models:
         initiatives:
           fields:
