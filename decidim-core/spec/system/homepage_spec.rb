@@ -244,7 +244,7 @@ describe "Homepage", type: :system do
 
           it "shows the metrics block" do
             within "#metrics" do
-              expect(page).to have_content("Participation in figures")
+              expect(page).to have_content("Metrics")
               Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                 expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: false)
               end
@@ -255,14 +255,14 @@ describe "Homepage", type: :system do
           end
         end
 
-        context "and not have metric records" do
+        context "and does not have metric records" do
           before do
             visit current_path
           end
 
           it "shows the metrics block empty" do
             within "#metrics" do
-              expect(page).to have_content("Participation in figures")
+              expect(page).to have_content("Metrics")
               Decidim.metrics_registry.highlighted.each do |metric_registry|
                 expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
               end

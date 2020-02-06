@@ -218,15 +218,8 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      it "shows the stats for those components" do
-        within ".process_stats" do
-          expect(page).to have_content("3 PROPOSALS")
-          expect(page).to have_no_content("0 MEETINGS")
-        end
-      end
-
-      context "and organization show_metrics attribute is true" do
-        let(:organization) { create(:organization, show_metrics: true) }
+      context "and the process metrics are enabled" do
+        let(:organization) { create(:organization) }
         let(:metrics) do
           Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
             create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
@@ -239,23 +232,24 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows the metrics charts" do
+          expect(page).to have_css("h4.section-heading", text: "METRICS")
+
           within "#metrics" do
-            expect(page).to have_content(/Participation in figures/i)
             Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
               expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
             end
           end
         end
 
-        it "check link its present" do
+        it "renders a link to all metrics" do
           within "#metrics" do
-            expect(page).to have_link("Show all statistics")
+            expect(page).to have_link("Show all metrics")
           end
         end
 
         it "click link" do
-          click_link("Show all statistics")
-          have_current_path(decidim_participatory_processes.statistics_participatory_process_path(participatory_process))
+          click_link("Show all metrics")
+          have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
         end
       end
 
@@ -263,7 +257,9 @@ describe "Participatory Processes", type: :system do
         let(:show_statistics) { true }
 
         it "the stats for those components are visible" do
+          expect(page).to have_css("h4.section-heading", text: "STATISTICS")
           expect(page).to have_content("3 PROPOSALS")
+          expect(page).to have_no_content("0 MEETINGS")
         end
       end
 
@@ -271,7 +267,20 @@ describe "Participatory Processes", type: :system do
         let(:show_statistics) { false }
 
         it "the stats for those components are not visible" do
+          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
           expect(page).to have_no_content("3 PROPOSALS")
+        end
+      end
+
+      context "and the process metrics are not enabled" do
+        let(:show_metrics) { false }
+
+        it "the metrics for the participatory processes are not rendered" do
+          expect(page).to have_no_css("h4.section-heading", text: "METRICS")
+        end
+
+        it "has no link to all metrics" do
+          expect(page).to have_no_link("Show all metrics")
         end
       end
 

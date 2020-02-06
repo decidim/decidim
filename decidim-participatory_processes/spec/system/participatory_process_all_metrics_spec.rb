@@ -29,7 +29,7 @@ describe "Participatory Processes", type: :system, download: true do
     before do
       switch_to_host(organization.host)
       metrics
-      visit decidim_participatory_processes.statistics_participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
     end
 
     it "renders the metric charts" do
@@ -79,21 +79,21 @@ describe "Participatory Processes", type: :system, download: true do
 
     before do
       switch_to_host(organization.host)
-      visit decidim_participatory_processes.statistics_participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)
     end
 
     it "does not render any metric chart" do
       # BIG CHART
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
       # MEDIUM CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
       # LITTLE CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
     end
   end
