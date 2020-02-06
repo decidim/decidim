@@ -39,6 +39,9 @@
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
+      assembly_copies:
+        new:
+          select: Velg hvilke data du vil duplisere
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
