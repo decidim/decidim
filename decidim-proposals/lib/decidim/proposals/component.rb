@@ -87,7 +87,7 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :supports_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end

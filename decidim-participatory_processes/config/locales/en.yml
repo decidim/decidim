@@ -400,9 +400,9 @@ en:
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
+        supports_count: Supports
         surveys_count: Surveys
         users_count: Participants
-        votes_count: Supports
   layouts:
     decidim:
       participatory_process_groups:

@@ -21,7 +21,9 @@ module Decidim
             content_tag :div, class: "process_stats-item" do
               safe_join(
                 stats.each_with_index.map do |stat, index|
-                  render_stats_data(stat[0], stat[1], stat[2], index)
+                  stat.each_with_index.map do |_item, subindex|
+                    render_stats_data(stat[subindex], stat[subindex + 1], stat[subindex + 2], (index + subindex)) if (subindex % 3).zero?
+                  end
                 end
               )
             end
@@ -33,7 +35,10 @@ module Decidim
 
       def component_stats(conditions)
         Decidim.component_manifests.map do |component_manifest|
-          component_manifest.stats.filter(conditions).with_context(published_components).map { |name, data| [component_manifest, name, data] }.flatten
+          component_manifest.stats.except([:proposals_accepted])
+                            .filter(conditions)
+                            .with_context(published_components)
+                            .map { |name, data| [component_manifest, name, data] }.flatten
         end
       end
 
