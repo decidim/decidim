@@ -1,7 +1,7 @@
 <div class="card profile--sidebar">
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <div class="card__content">
-    <h1>
+    <h1 class="profile--sidebar--title">
       <div><strong><%= profile_user.name %></strong></div>
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
