@@ -9,6 +9,11 @@ class SubCheckBoxes {
     }
 
     this.globalChecks = document.querySelectorAll("[data-global-checkbox] input");
+    this.globalChecks.forEach((global) => {
+      if (global.value === "") {
+        global.classList.add("ignore-filter")
+      }
+    });
     this.checkGlobalCheck();
 
     // Event listeners
