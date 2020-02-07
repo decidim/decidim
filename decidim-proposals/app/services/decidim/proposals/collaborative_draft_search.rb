@@ -34,11 +34,11 @@ module Decidim
           .or(query.where(id: published))
       end
 
-      def search_category_ids
+      def search_category_id
         super
       end
 
-      def search_scope_ids
+      def search_scope_id
         super
       end
 

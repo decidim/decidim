@@ -214,9 +214,9 @@ module Decidim
           search_text: "",
           origin: default_filter_origin_params,
           activity: "all",
-          category_ids: default_filter_category_params,
+          category_id: default_filter_category_params,
           state: %w(accepted evaluating not_answered),
-          scope_ids: default_filter_scope_params,
+          scope_id: default_filter_scope_params,
           related_to: "",
           type: "all"
         }

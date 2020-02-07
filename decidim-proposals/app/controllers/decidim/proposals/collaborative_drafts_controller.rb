@@ -171,9 +171,9 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          category_ids: default_filter_category_params,
+          category_id: default_filter_category_params,
           state: %w(open),
-          scope_ids: default_filter_scope_params,
+          scope_id: default_filter_scope_params,
           related_to: ""
         }
       end
