@@ -102,6 +102,11 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Comments::Comment.where(root_commentable: proposals).count
   end
 
+  component.register_stat :followers_count, tag: :follows, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
+    Decidim::Follow.where(followable: proposals).count
+  end
+
   component.exports :proposals do |exports|
     exports.collection do |component_instance|
       Decidim::Proposals::Proposal

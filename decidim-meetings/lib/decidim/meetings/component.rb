@@ -24,10 +24,13 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    meetings = Decidim::Meetings::Meeting.where(component: components)
-    meetings = meetings.where("created_at >= ?", start_at) if start_at.present?
-    meetings = meetings.where("created_at <= ?", end_at) if end_at.present?
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
     meetings.count
+  end
+
+  component.register_stat :followers_count, tag: :follows, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
+    Decidim::Follow.where(followable: meetings).count
   end
 
   component.exports :meetings do |exports|

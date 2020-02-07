@@ -49,7 +49,7 @@ module Decidim
     private
 
     def global_stats(conditions)
-      Decidim.stats.except([:users_count, :processes_count])
+      Decidim.stats.except([:users_count, :processes_count, :followers_count])
              .filter(conditions)
              .with_context(organization)
              .map { |name, data| [name, data] }

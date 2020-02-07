@@ -45,6 +45,11 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Comments::Comment.where(root_commentable: projects).count
   end
 
+  component.register_stat :followers_count, tag: :follows, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
+    Decidim::Follow.where(followable: projects).count
+  end
+
   component.settings(:global) do |settings|
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :total_budget, type: :integer, default: 100_000_000

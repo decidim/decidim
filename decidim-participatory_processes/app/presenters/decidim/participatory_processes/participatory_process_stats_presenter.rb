@@ -9,7 +9,8 @@ module Decidim
 
       # Public: Render a collection of primary stats.
       def highlighted
-        highlighted_stats = component_stats(priority: StatsRegistry::HIGH_PRIORITY)
+        highlighted_stats = process_stats(priority: StatsRegistry::HIGH_PRIORITY)
+        highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
         highlighted_stats = highlighted_stats.reject(&:empty?)
         highlighted_stats = highlighted_stats.reject { |_manifest, _name, data| data.zero? }
@@ -34,6 +35,13 @@ module Decidim
         Decidim.component_manifests.map do |component_manifest|
           component_manifest.stats.filter(conditions).with_context(published_components).map { |name, data| [component_manifest, name, data] }.flatten
         end
+      end
+
+      def process_stats(conditions)
+        Decidim.stats.only([:followers_count])
+               .filter(conditions)
+               .with_context(participatory_process)
+               .map { |name, data| [participatory_process.manifest, name, data] }
       end
 
       def render_stats_data(component_manifest, name, data, index)
