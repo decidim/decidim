@@ -230,6 +230,7 @@
           success: Du har avslått invitasjonen.
         destroy:
           invalid: Det oppstod et problem med å forlate denne konferansen.
+          success: Du har forlatt konferansen.
       conferences:
         partners:
           collaborators: Partnere
