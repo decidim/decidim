@@ -80,6 +80,8 @@
       responses:
         create:
           error: Det oppstod et problem med å opprette en ny respons.
+        destroy:
+          error: Det oppstod et problem med å fjerne responsen.
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
     consultations:
