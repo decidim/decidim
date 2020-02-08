@@ -722,7 +722,6 @@ fi-pl:
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu aihepiiristä <u>%{previous_category}</u> ylläpitäjä toimesta)"
-          filed_as: Merkitty
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
