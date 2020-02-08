@@ -114,6 +114,7 @@
             offline: Bruk offline verifisering
             online: Bruk online verifisering
             rejection_clarity: Forsikre deg om at informasjonen er tydelig synlig i det opplastede bildet
+            rejection_correctness: Forsikre deg om at den oppgitte informasjonen er riktig
             rejection_notice: Det oppstod et problem med din verifikasjon. Prøv igjen
             send: Be om verifikasjon igjen
           new:
