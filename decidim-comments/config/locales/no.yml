@@ -66,6 +66,7 @@
           notification_title: Du er blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
+        description: Antall kommenterer generert av deltakerne
         object: kommentarer
         title: Kommentarer
   errors:
