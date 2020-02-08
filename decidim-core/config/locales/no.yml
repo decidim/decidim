@@ -884,6 +884,7 @@
       edit:
         are_you_sure: Er du sikker?
         cancel_my_account: Avbryt kontoen min
+        currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
@@ -907,6 +908,7 @@
       unlocked: Kontoen din er låst opp. Logg på for å fortsette.
   errors:
     messages:
+      already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
