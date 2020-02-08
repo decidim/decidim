@@ -175,9 +175,10 @@
           success: Kategorien oppdatert.
       component_permissions:
         update:
-          error: Det oppstod et problem med å oppdatere tillatelsene til dette komponentet.
+          error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
       components:
         create:
+          error: Det oppstod et problem med å opprette denne komponenten.
           success: Komponent ble opprettet.
         destroy:
           error: Det oppstod et problem med å ødelegge dette komponentet.
@@ -198,6 +199,8 @@
         title: Komponenter
         unpublish:
           success: Komponentet har blitt avpublisert.
+        update:
+          error: Det oppstod et problem med å oppdatere denne komponenten.
       dashboard:
         show:
           welcome: Velkommen til Decidim administrator Panel.
@@ -355,6 +358,7 @@
           success: Deltaker område privat deltaker tilgang ødelagt.
         new:
           create: Opprett
+          title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         create:
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
