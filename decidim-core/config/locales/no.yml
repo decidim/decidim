@@ -844,6 +844,7 @@
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
         accept: Godta invitasjon
+        accept_until: Denne invitasjonen forfaller i %{due_date}.
         ignore: |-
           Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
           Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
