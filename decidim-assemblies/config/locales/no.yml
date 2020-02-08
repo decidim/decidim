@@ -3,7 +3,7 @@
     attributes:
       assembly:
         area_id: Område
-        assembly_type: Forsamlings type
+        assembly_type: Forsamlingstype
         assembly_type_other: Forsamlings type annet
         banner_image: Bannerafbeelding
         closing_date: Lukkings dato
@@ -145,7 +145,7 @@
             active_assemblies: Aktive forsamlinger
       show:
         area: Område
-        assembly_type: Forsamlings type
+        assembly_type: Forsamlingstype
         children: Forsamlinger
         closing_date: Lukkings dato
         composition: Sammensetning
