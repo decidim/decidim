@@ -25,6 +25,7 @@
       consultation_results_publications:
         create:
           error: Det oppstod et problem med å publisere resultatene for denne konsultasjonen.
+          success: Konsultasjons resultatene ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere resultatene for denne konsultasjonen.
           success: Konsultasjons resultatene ble avpublisert.
@@ -61,6 +62,12 @@
           error: Det oppstod et problem med å publisere dette spørsmålet.
         destroy:
           error: Det oppstod et problem med å avpublisere dette spørsmålet.
+      questions:
+        create:
+          error: Det oppstod et problem med å lage et nytt spørsmål.
+      responses:
+        create:
+          error: Det oppstod et problem med å opprette en ny respons.
     consultations:
       count:
         title:
