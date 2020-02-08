@@ -741,7 +741,6 @@ ca:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_category}</u> per una administradora)"
-          filed_as: Arxivat com a
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
