@@ -128,7 +128,7 @@
       registration_types:
         create:
           error: Det oppstod et problem med å legge til en registreringstype for denne konferansen.
-          success: Konferanse registrerings-type ble lagt til.
+          success: Konferanse registrerings-typen ble lagt til.
         destroy:
           success: Konferanse registrerings-typen ble fjernet.
         update:
