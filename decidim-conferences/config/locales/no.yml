@@ -221,9 +221,14 @@
           details: 'Du har registrert deg på %{registration_type} type med en kostnad på %{price}, og du kan delta på følgende arrangementer:'
           pending_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> venter på bekreftelse.
       conference_registrations:
+        create:
+          invalid: Det oppstod et problem med å bli med i denne konferansen.
+          success: Du har blitt med i konferansen.
         decline_invitation:
           invalid: Det oppstod et problem med å avslå invitasjonen.
           success: Du har avslått invitasjonen.
+        destroy:
+          invalid: Det oppstod et problem med å forlate denne konferansen.
       conferences:
         partners:
           collaborators: Partnere
