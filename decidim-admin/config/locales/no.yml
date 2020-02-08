@@ -139,6 +139,8 @@
         update:
           success: Området ble oppdatert
       attachment_collections:
+        create:
+          error: Det oppstod et problem med å opprette en ny mappe.
         index:
           attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
           attachment_collections_title: Vedleggsmapper
@@ -425,6 +427,8 @@
         title: Handlinger
       admin:
         reportable:
+          unhide:
+            invalid: Det oppstod et problem med å skjule ressursen.
           unreport:
             invalid: Det oppstod et problem med å avrapportere ressursen.
       models:
