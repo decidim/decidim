@@ -461,10 +461,10 @@
           notification_title: Et <a href="%{resource_path}">nytt dokument</a> er lagt til <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Komponentet %{resource_title} er nå aktiv for %{participatory_space_title}. Du kan se den fra denne siden:'
+          email_intro: 'Komponenten %{resource_title} er nå aktiv for %{participatory_space_title}. Du kan se den fra denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: En oppdatering til %{participatory_space_title}
-          notification_title: '%{resource_title} komponentet er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} komponenten er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_intro: 'Det har vært en oppdatering til "%{resource_title}". Du kan se den fra denne siden:'
         email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
