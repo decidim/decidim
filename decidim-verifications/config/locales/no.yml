@@ -35,6 +35,8 @@
             - Du sendte brevet til adressen deres med verifiseringskoden.
             - You mark the letter as sent.
             - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
+      csv_census:
+        explanation: Få verifisering med å bruke organisasjonens folketelling
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
@@ -77,6 +79,7 @@
         authorizations:
           new:
             error: Vi kunne ikke bekrefte kontoen din, eller du er ikke i organisasjonens folketelling.
+            success: Kontoen din er verifisert.
       dummy_authorization:
         extra_explanation:
           one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
@@ -104,6 +107,8 @@
             create:
               success: Verifikasjon avvist. Deltakeren vil bli bedt om å endre sine dokumenter
         authorizations:
+          choose:
+            title: Verifiser deg selv ved å bruke ditt identitetsdokument
           edit:
             being_reviewed: Vi vurderer dokumentene dine. Du vil bli verifisert snart
             offline: Bruk offline verifisering
