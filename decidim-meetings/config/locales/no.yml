@@ -82,6 +82,8 @@
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Registrer for møtene du ønsker å delta
           description: Dette merket blir gitt når du deltar på flere møter ansikt til ansikt.
           description_another: Denne deltakeren har deltatt på %{score} møter.
           name: Deltok møter
