@@ -32,6 +32,7 @@
     admin:
       assemblies:
         create:
+          error: Det oppstod et problem med å lage en ny forsamling.
           success: Forsamling ble opprettet.
         update:
           success: Forsamlingen ble oppdatert.
