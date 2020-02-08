@@ -130,7 +130,7 @@
           error: Det oppstod et problem med å legge til en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble lagt til.
         destroy:
-          success: Konferanse registrerings-type ble fjernet.
+          success: Konferanse registrerings-typen ble fjernet.
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
@@ -176,7 +176,7 @@
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
             success: Deltakeren ble invitert til å delta konferansen.
           form:
-            attendee_type: Deltaker type
+            attendee_type: Deltakertype
             invite_explanation: Deltakeren vil bli invitert til å delta på konferansen og i organisasjonen også.
           index:
             filter:
