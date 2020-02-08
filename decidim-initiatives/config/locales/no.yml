@@ -108,12 +108,12 @@
             error: Det oppstod en feil
             success: En ny initiativtype er blitt opprettet
           destroy:
-            success: Initiativ typen er fjernet
+            success: Initiativtypen er fjernet
           edit:
             confirm_destroy: Er du sikker?
           update:
             error: Det oppstod en feil
-            success: Initiativ typen er oppdatert
+            success: Initiativtypen er oppdatert
       admin_log:
         initiative:
           publish: "%{user_name} publiserte %{resource_name} initiativet"
@@ -132,7 +132,7 @@
         fill_data:
           back: Tilbake
           continue: Fortsett
-          fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
+          fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur-typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           more_information: "(Mer informasjon)"
         finish:
           back: Tilbake
