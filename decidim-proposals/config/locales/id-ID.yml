@@ -680,7 +680,6 @@ id:
           withdraw_proposal: Tarik proposal
         tags:
           changed_from: "(diubah dari <u>%{previous_category}</u> oleh administrator)"
-          filed_as: Diarsipkan sebagai
         vote_button:
           already_voted: Sudah memilih
           already_voted_hover: Batalkan suara
