@@ -119,15 +119,15 @@
         browse: Bla gjennom
       area_types:
         create:
-          error: Det oppstod et problem med å lage en ny område type.
-          success: Områdetype ble opprettet.
+          error: Det oppstod et problem med å lage en ny områdetype.
+          success: Områdetypen ble opprettet.
         destroy:
           success: Områdetype ble ødelagt
         new:
           create: Opprett områdetype
         update:
           error: Det oppstod et problem med å oppdatere denne områdetypen.
-          success: Områdetype ble oppdatert
+          success: Områdetypen ble oppdatert
       areas:
         create:
           success: Området ble opprettet.
@@ -371,11 +371,11 @@
           explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltaker området, uten overskrifter.
       scope_types:
         create:
-          error: Det oppstod et problem med å lage en ny omfangs type.
+          error: Det oppstod et problem med å lage en ny omfangstype.
         new:
-          create: Opprett omfang type
+          create: Opprett omfangstype
         update:
-          error: Det oppstod et problem med å oppdatere denne omfangs typen.
+          error: Det oppstod et problem med å oppdatere denne omfangstypen.
       scopes:
         new:
           create: Opprett omfang
