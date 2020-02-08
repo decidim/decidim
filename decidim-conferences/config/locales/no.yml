@@ -124,6 +124,7 @@
           error: Det oppstod et problem med å publisere denne registreringstypen.
         destroy:
           error: Det oppstod et problem med å avpublisere denne registreringstypen.
+          success: Registreringstypen ble avpublisert.
       registration_types:
         create:
           error: Det oppstod et problem med å legge til en registreringstype for denne konferansen.
