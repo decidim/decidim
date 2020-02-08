@@ -19,6 +19,10 @@
             base:
               too_many_minutes: Varigheten av elementene overskrider møtets varighet med %{count} minutter
               too_many_minutes_child: Varigheten av underelement overskrider dagsorden-elementet "%{parent_title}" foreldre varighet av %{count} minutter
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Denne e-postadressen er allerede invitert
   decidim:
     admin:
       meeting_copies:
