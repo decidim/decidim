@@ -81,8 +81,8 @@
         name: Navn
         organization: Organisasjon
         parent_id: Forelder
-        scope_type: Omfangs type
-        scope_type_id: Omfangs type
+        scope_type: Omfangstype
+        scope_type_id: Omfangstype
       scope_type:
         name: Navn
         organization: Organisasjon
@@ -124,7 +124,7 @@
         destroy:
           success: Områdetype ble ødelagt
         new:
-          create: Opprett område type
+          create: Opprett områdetype
         update:
           error: Det oppstod et problem med å oppdatere denne områdetypen.
           success: Områdetype ble oppdatert
