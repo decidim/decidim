@@ -889,6 +889,7 @@
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
       update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
+      updated: Kontoen din er oppdatert.
     shared:
       links:
         back: Tilbake
