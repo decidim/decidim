@@ -88,6 +88,7 @@
               all: Alle
           update:
             error: Det oppstod en feil
+            success: Initiativet er oppdatert
         initiatives_type_scopes:
           create:
             error: Det oppstod en feil
