@@ -108,6 +108,7 @@
               success: Verifikasjon avvist. Deltakeren vil bli bedt om å endre sine dokumenter
         authorizations:
           choose:
+            choose_a_type: 'Vennligst velg hvordan du vil bli verifisert:'
             title: Verifiser deg selv ved å bruke ditt identitetsdokument
           create:
             error: Det oppstod et problem med å laste opp dokumentet
