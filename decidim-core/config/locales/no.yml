@@ -69,7 +69,7 @@
     account:
       data_portability_export:
         file_no_exists: Filen finnes ikke
-        invalid_token: Nøkkelen du ga er ugyldig.
+        invalid_token: Nøkkelen er ugyldig.
         no_token: Ingen nøkkel oppgitt
         notice: Opplastingen av dataen din holder på nå. Du vil få en e-mail når den er ferdig.
       delete:
@@ -834,13 +834,16 @@
       send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
     failure:
+      invalid: Ugyldig %{authentication_keys} eller passord.
       invited: Du har en ventende invitasjon, godta den for å fullføre opprettelsen av kontoen din.
       last_attempt: Du har ett forsøk til før kontoen låses.
+      not_found_in_database: Ugyldig %{authentication_keys} eller passord.
       timeout: Økten din har utløpt. Vennligst logg inn igjen for å fortsette.
       unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
     invitations:
       edit:
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
+      invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
       updated: Passordet ditt ble angitt. Du er nå pålogget.
     mailer:
@@ -931,6 +934,8 @@
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
+  invisible_captcha:
+    timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
       cookie_warning:
