@@ -163,6 +163,7 @@
           success: Vedlegg ble oppdatert.
       categories:
         create:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
           success: Kategorien opprettet.
         destroy:
           error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
@@ -173,6 +174,7 @@
         new:
           create: Opprett kategori
         update:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
           success: Kategorien oppdatert.
       components:
         create:
