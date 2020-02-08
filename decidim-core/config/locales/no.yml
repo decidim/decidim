@@ -834,7 +834,7 @@
       updated: Passordet ditt ble angitt. Du er nå pålogget.
     mailer:
       confirmation_instructions:
-        instruction: 'Du kan bekrefte emailen din via lenken nedenfor:'
+        instruction: 'Du kan bekrefte email-adressen din via lenken nedenfor:'
       email_changed:
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
