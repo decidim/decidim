@@ -741,7 +741,6 @@ cs:
           withdraw_proposal: Návrh stáhnout
         tags:
           changed_from: "(změněn z <u>%{previous_category}</u> správcem)"
-          filed_as: Soubor jako
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte
