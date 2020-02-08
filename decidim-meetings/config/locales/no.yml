@@ -67,6 +67,7 @@
         meeting_updated:
           email_intro: 'Møtet "%{resource_title}" var oppdatert. Du kan lese den nye versjonen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+          email_subject: Møtet "%{resource_title}" ble oppdatert
           notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble oppdatert.
         registration_code_validated:
           email_intro: Din registreringskode "%{registration_code}" for "%{resource_title}" møtet er blitt validert.
