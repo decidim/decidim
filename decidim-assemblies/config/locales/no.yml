@@ -4,7 +4,7 @@
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
-        assembly_type_other: Forsamlings type annet
+        assembly_type_other: Forsamlingstype annet
         banner_image: Bannerafbeelding
         closing_date: Lukkings dato
         closing_date_reason: Lukkings dato begrunnelse
