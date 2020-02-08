@@ -691,7 +691,6 @@ pt:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
-          filed_as: Arquivado como
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote
