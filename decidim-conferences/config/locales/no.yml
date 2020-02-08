@@ -158,10 +158,10 @@
           delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
           update: "%{user_name} oppdaterte %{resource_name} i %{space_name} konferansen"
         registration_type:
-          create: "%{user_name} opprettet redigerings typen %{resource_name} i %{space_name} konferansen"
+          create: "%{user_name} opprettet redigeringstypen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
-          unpublish: "%{user_name} avpubliserte %{resource_name} registrerings typen in i %{space_name} konferansen"
-          update: "%{user_name} oppdaterte redigerings typen %{resource_name} i %{space_name} konferansen"
+          unpublish: "%{user_name} avpubliserte %{resource_name} registreringstypen in i %{space_name} konferansen"
+          update: "%{user_name} oppdaterte redigeringstypen %{resource_name} i %{space_name} konferansen"
       media_link:
         create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
         delete: "%{user_name} fjernet %{resource_name} media lenken fra %{space_name} konferansen"
