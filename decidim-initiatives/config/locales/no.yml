@@ -186,6 +186,7 @@
           help: Fyll skjemaet med det verifiserte telefonnummeret ditt for å be om verifiseringskoden din
       initiative_votes:
         create:
+          error: Det oppstod et problem med å signere initiativet.
           invalid: Dataene som er gitt for å signere initiativet er ikke gyldige
           success_html: Gratulerer! Initiativet <strong> %{title}</strong> er signert
         personal_data:
