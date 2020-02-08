@@ -874,6 +874,7 @@
       send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
       updated: Passordet ditt er endret. Du er nå logget inn.
+      updated_not_active: Passordet ditt er blitt endret.
     registrations:
       destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
       edit:
