@@ -154,6 +154,7 @@
           more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
+          choose_html: Jeg vil opprette en <strong>%{title}</strong>
           more_information: "(Mer informasjon)"
           select_initiative_type_help: Innbyggerinitiativer er et middel som statsborgerskapet kan gripe inn slik at byrådet kan iverksette tiltak til forsvar for allmenn interesse som er innenfor felt av kommunal jurisdiksjon. Hvilket initiativ vil du sette i gang?
         share_committee_link:
