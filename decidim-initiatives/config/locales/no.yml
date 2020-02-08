@@ -55,6 +55,9 @@
     gamification:
       badges:
         initiatives:
+          conditions:
+            - Gå til deltakelsesområdet av Initiativer
+            - Følg trinnene for å opprette et nytt initiativ
           description: Dette merket blir gitt når du setter i gang nye initiativer, og samarbeider med andre for å gjennomføre dem.
           description_another: Denne deltakeren har fått %{score} initiativer publisert.
           next_level_in: Få %{score} flere initiativer publisert for å nå neste nivå!
