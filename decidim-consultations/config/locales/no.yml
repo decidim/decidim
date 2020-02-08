@@ -65,9 +65,13 @@
       questions:
         create:
           error: Det oppstod et problem med å lage et nytt spørsmål.
+        update:
+          error: Det oppstod et problem med å oppdatere dette spørsmålet.
       responses:
         create:
           error: Det oppstod et problem med å opprette en ny respons.
+        update:
+          error: Det oppstod et problem med å oppdatere denne responsen.
     consultations:
       count:
         title:
