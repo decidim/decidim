@@ -916,6 +916,7 @@
       unlocked: Kontoen din er låst opp. Logg på for å fortsette.
   errors:
     messages:
+      already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
