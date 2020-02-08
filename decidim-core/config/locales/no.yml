@@ -728,6 +728,7 @@
           surveys_count: Undersøkelse
       index:
         standalone_pages: Sider
+        subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
       participatory_space:
         metrics:
