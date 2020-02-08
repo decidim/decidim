@@ -268,6 +268,7 @@
           choose_an_option: 'Velg ditt registrerings alternativ:'
       shared:
         conference_user_login:
+          already_account: Har du allerede en konto i decidim?
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       statistics:
         answers_count: Svar
