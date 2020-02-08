@@ -719,7 +719,6 @@
           withdraw_proposal: Trekk tilbake forslag
         tags:
           changed_from: "(endret fra <u>%{previous_category}</u> av en administrator)"
-          filed_as: Arkivert som
         vote_button:
           already_voted: Støttet allerede
           already_voted_hover: Trekk tilbake støtte
