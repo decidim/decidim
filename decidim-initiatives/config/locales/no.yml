@@ -228,6 +228,7 @@
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
       initiatives_mailer:
+        creation_subject: Initiativet ditt '%{title}' er opprettet
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
