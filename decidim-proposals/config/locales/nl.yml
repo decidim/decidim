@@ -720,7 +720,6 @@ nl:
           withdraw_proposal: Voorstel intrekken
         tags:
           changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
-          filed_as: Gemarkeerd als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
