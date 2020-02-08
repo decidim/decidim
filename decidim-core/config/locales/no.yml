@@ -572,6 +572,7 @@
           next_level_in: Inviter %{score} flere folk for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke invitert noen ennå.
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
+      reached_top: Du har nådd det høyeste nivået for dette merket.
     group_admins:
       actions:
         are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
@@ -882,6 +883,7 @@
       edit:
         are_you_sure: Er du sikker?
         cancel_my_account: Avbryt kontoen min
+        currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
