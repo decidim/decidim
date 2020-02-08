@@ -695,7 +695,6 @@ de:
           withdraw_proposal: Vorschlag zurückziehen
         tags:
           changed_from: "(geändert von <u>%{previous_category}</u> durch einen Administrator)"
-          filed_as: Abgelegt als
         vote_button:
           already_voted: Bereits unterstützt
           already_voted_hover: Unterstützung zurückziehen
