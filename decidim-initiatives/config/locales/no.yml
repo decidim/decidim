@@ -231,6 +231,7 @@
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
+          verification_required: Verifiser kontoen din for å signere initiativet
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
