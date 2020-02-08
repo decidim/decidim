@@ -35,6 +35,7 @@
           notification_title: Undersøkelsen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> er nå åpen.
     metrics:
       survey_answers:
+        description: Antall undersøkelser besvart av deltakerne
         object: svar på undersøkelser
         title: Svar på undersøkelser
     surveys:
