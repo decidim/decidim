@@ -129,7 +129,7 @@
             error: Det oppstod et problem med å invitere deltakeren til å delta på møtet.
             success: Deltakeren ble invitert til å delta møtet.
           form:
-            attendee_type: Deltaker type
+            attendee_type: Deltakertype
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
           index:
             filter:
