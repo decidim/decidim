@@ -713,7 +713,6 @@ pl:
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
-          filed_as: Zapisano jako
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
