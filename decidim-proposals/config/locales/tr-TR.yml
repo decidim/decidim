@@ -698,7 +698,6 @@ tr:
           withdraw_proposal: Teklifi geri çek
         tags:
           changed_from: "(bir yönetici tarafından <u>%{previous_category}</u> değiştirildi)"
-          filed_as: Olarak dosyalandı
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote
