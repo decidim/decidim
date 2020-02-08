@@ -741,7 +741,6 @@ hu:
           withdraw_proposal: Javaslat visszavonása
         tags:
           changed_from: "(<u>%{previous_category}</u> a rendszergazda megváltoztatta)"
-          filed_as: Iktatva mint
         vote_button:
           already_voted: Már szavazott
           already_voted_hover: Szavazat visszavonása
