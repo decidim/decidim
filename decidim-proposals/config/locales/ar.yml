@@ -744,7 +744,6 @@ ar:
           withdraw_proposal: سحب الاقتراح
         tags:
           changed_from: "(تم التغيير من <u>%{previous_category}</u> بواسطة مسؤول)"
-          filed_as: قدم كما
         vote_button:
           already_voted: معتمد بالفعل
           already_voted_hover: سحب الدعم
