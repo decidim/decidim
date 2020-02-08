@@ -40,6 +40,8 @@
           are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           questionnaire_answered:
             title: Allerede besvart
+          questionnaire_for_private_users:
+            body: Skjemaet er bare tilgjengelig for private brukere
           tos_agreement: Ved å delta godtar du vilkårene for bruk
       user_answers_serializer:
         created_at: Besvart på
