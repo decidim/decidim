@@ -266,7 +266,6 @@ is-IS:
           withdraw_proposal: Afturkalla tillögu
         tags:
           changed_from: "(breytt frá <u>%{previous_category}</u> af stjórnanda)"
-          filed_as: Skráður sem
         votes_count:
           most_popular_proposal: Vinsælasta tillöguna
         voting_rules:
