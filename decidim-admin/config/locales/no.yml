@@ -126,6 +126,7 @@
         new:
           create: Opprett område type
         update:
+          error: Det oppstod et problem med å oppdatere denne områdetypen.
           success: Områdetype ble oppdatert
       areas:
         create:
@@ -181,7 +182,7 @@
           error: Det oppstod et problem med å opprette denne komponenten.
           success: Komponent ble opprettet.
         destroy:
-          error: Det oppstod et problem med å ødelegge dette komponentet.
+          error: Det oppstod et problem med å ødelegge denne komponenten.
           success: Komponent ble slettet.
         form:
           default_step_settings: Standard trinn innstillinger
@@ -195,10 +196,10 @@
           add: Legg til komponent
           title: 'Legg til komponent: %{name}'
         publish:
-          success: Komponentet har blitt publisert.
+          success: Komponenten har blitt publisert.
         title: Komponenter
         unpublish:
-          success: Komponentet har blitt avpublisert.
+          success: Komponenten har blitt avpublisert.
         update:
           error: Det oppstod et problem med å oppdatere denne komponenten.
       dashboard:
