@@ -742,7 +742,6 @@ en:
           withdraw_proposal: Withdraw proposal
         tags:
           changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
-          filed_as: Filed as
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support
