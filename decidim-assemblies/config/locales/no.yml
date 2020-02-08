@@ -35,6 +35,7 @@
           error: Det oppstod et problem med å lage en ny forsamling.
           success: Forsamling ble opprettet.
         update:
+          error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
       assemblies_copies:
         create:
