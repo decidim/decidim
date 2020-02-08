@@ -47,10 +47,12 @@
           affected_user:
             email_intro: 'Møte ditt "%{resource_title}" ble avsluttet. Du kan lese konklusjonen fra siden:'
             email_outro: Du har mottatt denne varslingen fordi du arrangerte "%{resource_title}" møtet.
+            email_subject: Møtet "%{resource_title}" ble avsluttet
             notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble lukket.
           follower:
             email_intro: 'Møtet "%{resource_title}" var lukket. Du kan lese konklusjonen fra siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
+            email_subject: Møtet "%{resource_title}" ble avsluttet
             notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble lukket.
         meeting_created:
           email_intro: Møtet "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
