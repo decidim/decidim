@@ -711,7 +711,6 @@ fr:
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
-          filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote
