@@ -4,7 +4,7 @@
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
-        assembly_type_other: Forsamlings type annet
+        assembly_type_other: Forsamlingstype annet
         banner_image: Bannerafbeelding
         closing_date: Lukkings dato
         closing_date_reason: Lukkings dato begrunnelse
@@ -43,9 +43,9 @@
           success: Forsamlingen ble duplisert.
       assemblies_types:
         create:
-          error: Det oppstod et problem med å lage en ny forsamlings type.
+          error: Det oppstod et problem med å lage en ny forsamlingstype.
         update:
-          error: Det oppsto et problem med å oppdatere denne forsamlings typen.
+          error: Det oppsto et problem med å oppdatere denne forsamlingstypen.
       assembly_copies:
         new:
           select: Velg hvilke data du vil duplisere
