@@ -706,7 +706,6 @@ sv:
           withdraw_proposal: Dra tillbaka förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
-          filed_as: Arkiverat som
         vote_button:
           already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
