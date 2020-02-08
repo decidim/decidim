@@ -118,7 +118,7 @@
         delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingen"
         update: "%{user_name} oppdaterte %{resource_name} medlemmet i %{space_name} samlingen"
       assembly_type:
-        publish: "%{user_name} publiserte %{resource_name} forsamlings typen"
+        publish: "%{user_name} publiserte %{resource_name} forsamlingstypen"
       assembly_user_role:
         create: "%{user_name} inviterte %{resource_name} til %{space_name} forsamlingen"
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} forsamlingen"
