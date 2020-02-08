@@ -691,7 +691,6 @@ eu:
           withdraw_proposal: Ezabatu proposamena
         tags:
           changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
-          filed_as: Filed gisa
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote
