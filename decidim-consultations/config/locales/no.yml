@@ -102,6 +102,7 @@
         voting_rules:
           minimum_votes_per_user:
             description: Du må fordele minimum %{votes} stemmer mellom forskjellige alternativer.
+          title: 'Stemmene er underlagt følgende regler:'
       question_votes:
         create:
           success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
