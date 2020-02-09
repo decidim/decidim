@@ -473,6 +473,7 @@
         badge_earned:
           email_intro: Gratulerer! Du har tjent <a href="%{resource_url}">%{badge_name} merket</a> (Level%{current_level}).
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
+          email_subject: 'Du har fått et nytt merke: %{badge_name}!'
           notification_title: Gratulerer! Du har tjent <a href="%{resource_path}">%{badge_name} merket</a> (Level%{current_level}).
         level_up:
           email_intro: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_url}">%{badge_name} merket</a>!
@@ -663,6 +664,9 @@
           subject: "%{sender} har startet en samtale med deg"
         new_message:
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+      conversations:
+        create:
+          error: Samtalen har ikke startet. Prøv igjen senere
     metrics:
       followers:
         description: Antall deltakere som følger dette deltakerområdet
@@ -893,6 +897,7 @@
         currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
+      signed_up: Velkommen! Din registrering er fullført.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
