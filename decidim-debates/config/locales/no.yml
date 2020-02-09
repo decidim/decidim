@@ -20,6 +20,10 @@
         confirm_destroy: Er du sikker?
         edit: Editar
         title: Handlinger
+      admin:
+        debates:
+          update:
+            invalid: Det oppstod et problem med å oppdatere denne debatten.
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
