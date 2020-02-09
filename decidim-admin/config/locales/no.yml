@@ -66,6 +66,7 @@
         port: Port
         primary_color: Primært
         reference_prefix: Referanse prefiks
+        rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
         send_welcome_notification: Send velkomst varsel
         show_statistics: Vis statistikk
@@ -120,6 +121,8 @@
       admin_terms_of_use:
         accept:
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
+        actions:
+          title: Godta vilkårene for bruk
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
