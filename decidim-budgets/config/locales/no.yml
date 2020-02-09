@@ -80,3 +80,8 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+    orders:
+      checkout:
+        success: Stemmen din ble godtatt
+      destroy:
+        success: Stemmen din ble kansellert
