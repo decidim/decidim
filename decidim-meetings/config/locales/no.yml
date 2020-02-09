@@ -150,6 +150,13 @@
             title: Tittel
           services:
             add_service: Legg til tjeneste
+          update:
+            invalid: Det oppstod et problem med å oppdatere dette møtet
+        minutes:
+          create:
+            invalid: Det oppstod et problem med å opprette dette referatet
+          update:
+            invalid: Det oppstod et problem med å oppdatere dette referatet
         registrations:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
@@ -223,6 +230,11 @@
           confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
           details: Du finner møtets detaljer i vedlegget.
       registrations:
+        create:
+          invalid: Det oppstod et problem med å bli med på dette møtet.
+          success: Du har blitt med på møtet.
         decline_invitation:
           invalid: Det oppstod et problem med å avslå invitasjonen.
           success: Du har avslått invitasjonen.
+        destroy:
+          invalid: Det oppstod et problem med å forlate dette møtet.
