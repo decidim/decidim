@@ -146,6 +146,8 @@
           attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
+        update:
+          error: Det oppstod et problem med å oppdatere denne mappen.
       attachments:
         create:
           error: Det oppsto et problem med å opprette et nytt vedlegg.
@@ -378,9 +380,13 @@
         update:
           error: Det oppstod et problem med å oppdatere denne omfangstypen.
       scopes:
+        create:
+          error: Det oppstod et problem med å opprette et nytt omfang.
         new:
           create: Opprett omfang
       static_page_topics:
+        create:
+          error: Det oppstod et problem med å opprette et nytt emne.
         new:
           create: Opprett emne
       static_pages:
