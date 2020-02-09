@@ -558,6 +558,7 @@
           conditions:
             - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
           description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
+          description_another: Denne deltakeren har %{score} følgere.
           description_own: "%{score} folk følger deg."
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke noen følgere ennå.
@@ -655,6 +656,8 @@
           not_found: 'Omfangstypen ble ikke funnet i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nåværende administrasjonsøkten til en deltaker har gått ut.
+    members:
+      no_members: Denne gruppen har ikke noen medlemmer ennå.
     menu:
       help: Hjelp
     messaging:
@@ -683,6 +686,8 @@
         token_error: Lenken er utløpt.
     newsletters_opt_in:
       unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
+      update:
+        success: Innstillinger for nyhetsbrev ble oppdatert
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
