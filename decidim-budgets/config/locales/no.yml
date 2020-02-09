@@ -82,6 +82,7 @@
             comments_blocked: Kommentarer blokkert
     orders:
       checkout:
+        error: Det oppstod et problem med å behandle din stemme
         success: Stemmen din ble godtatt
       destroy:
         success: Stemmen din ble kansellert
