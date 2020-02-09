@@ -22,6 +22,8 @@
         title: Handlinger
       admin:
         debates:
+          create:
+            invalid: Det oppstod et problem med å opprette debatten.
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
       admin_log:
@@ -33,6 +35,8 @@
           debates_count:
             one: "%{count} debatt"
             other: "%{count} debatter"
+        create:
+          invalid: Det oppstod et problem med å opprette debatten.
         filters:
           all: Alle
           category: Kategori
