@@ -6,6 +6,7 @@ module Decidim
     ParticipatoryProcessType = GraphQL::ObjectType.define do
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
+        -> { Decidim::Core::ParticipatorySpaceResourceableInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface }
       ]
@@ -13,6 +14,7 @@ module Decidim
       name "ParticipatoryProcess"
       description "A participatory process"
 
+      field :id, !types.ID, "The internal ID for this participatory process"
       field :slug, !types.String
       field :hashtag, types.String, "The hashtag for this participatory process"
       field :createdAt, !Decidim::Core::DateTimeType, "The time this page was created", property: :created_at
@@ -40,6 +42,8 @@ module Decidim
 
       field :reference, types.String, "Reference prefix for this participatory process"
       field :steps, !types[ParticipatoryProcessStepType], "All the steps of this process."
+      field :categories, !types[Decidim::Core::CategoryType], "Categories for this participatory process"
+
       field :participatoryProcessGroup, ParticipatoryProcessGroupType do
         description "The participatory process group in which this process belong to"
         property :participatory_process_group

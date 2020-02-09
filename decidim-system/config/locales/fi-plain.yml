@@ -47,6 +47,7 @@ fi-pl:
           fields:
             created_at: Luotu
             name: Nimi
+            omniauth_settings: Omniauth-asetukset
             smtp_settings: SMTP-asetukset
           name: Organisaatio
       organizations:
@@ -61,6 +62,19 @@ fi-pl:
           reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Uusi organisaatio
+        omniauth_settings:
+          enabled: Käytössä
+          facebook:
+            app_id: Sovelluksen ID (App ID)
+            app_secret: Sovelluksen salausavain (App secret)
+          google_oauth2:
+            client_id: Asiakkaan tunniste (Client ID)
+            client_secret: Asiakkaan salausavain (Client secret)
+          icon: Ikoni
+          icon_path: Ikonin polku
+          twitter:
+            api_key: API-avain
+            api_secret: API-salausavain
         update:
           error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.

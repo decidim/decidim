@@ -26,9 +26,14 @@ module Decidim
         if name == :amendments_visibility
           amendments_visibility_form_field(form, options)
         elsif attribute.translated?
-          form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
+          form_method = form_method_for_attribute(attribute)
+          tab_options = { tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs" }
+          extra_options = tab_options.merge(extra_options_for_type(form_method))
+          form.send(:translated, form_method, name, options.merge(extra_options))
         else
-          form.send(form_method_for_attribute(attribute), name, options.merge(extra_options_for(name)))
+          form_method = form_method_for_attribute(attribute)
+          extra_options = extra_options_for(name).merge(extra_options_for_type(form_method))
+          form.send(form_method, name, options.merge(extra_options))
         end
       end
 
@@ -73,6 +78,17 @@ module Decidim
             :amendment_reaction_enabled,
             :amendment_promotion_enabled
           amendments_extra_options
+        else
+          {}
+        end
+      end
+
+      # Handles special cases.
+      # Returns an empty Hash or a Hash with extra HTML options.
+      def extra_options_for_type(input_type)
+        case input_type
+        when :text_area
+          { rows: 6 }
         else
           {}
         end
