@@ -136,6 +136,7 @@
           success: Områdetypen ble oppdatert
       areas:
         create:
+          error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
           has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
@@ -392,12 +393,18 @@
           error: Det oppstod et problem med å opprette et nytt omfang.
         new:
           create: Opprett omfang
+        update:
+          error: Det oppstod et problem med å oppdatere dette omfanget.
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
         new:
           create: Opprett emne
+        update:
+          error: Det oppstod et problem med å oppdatere dette emnet.
       static_pages:
+        create:
+          error: Det oppstod et problem med å opprette en ny side.
         edit:
           changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
@@ -447,6 +454,8 @@
         title: Handlinger
       admin:
         reportable:
+          hide:
+            invalid: Det oppstod et problem med å skjule ressursen.
           unhide:
             invalid: Det oppstod et problem med å skjule ressursen.
           unreport:
