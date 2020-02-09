@@ -115,11 +115,13 @@
             agenda_item_child: Dagsordens underelement
             remove: Fjern
           create:
+            invalid: Det oppstod et problem med å opprette denne dagsordenen
             success: Dagsorden opprettet
           form:
             add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
           update:
+            invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
         invite_join_meeting_mailer:
           invite:
@@ -141,6 +143,8 @@
             close: Lukk
             title: Lukk møte
         meetings:
+          close:
+            invalid: Det oppstod et problem med å avslutte dette møtet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
           service:
