@@ -400,7 +400,12 @@
         static_pages: Sider
       user_group:
         csv_verify:
+          invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
+        reject:
+          invalid: Det oppstod et problem med å avvise denne gruppen.
+        verify:
+          invalid: Det oppstod et problem med å verifisere denne gruppen.
       user_groups:
         index:
           filter:
