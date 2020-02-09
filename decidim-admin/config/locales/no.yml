@@ -310,6 +310,7 @@
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
         select_recipients_to_deliver:
           all_spaces: Alle
+          all_users_help: Sender nyhetsbrev til alle bekreftede brukere.
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           deliver: Lever nyhetsbrev
           followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltaker områdene på listen.
