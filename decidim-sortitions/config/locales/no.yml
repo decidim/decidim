@@ -38,6 +38,8 @@
             error: Det oppstod et problem med å lage en ny sortering.
           destroy:
             error: Kan ikke avbryte sorteringen.
+          edit:
+            title: Oppdater informasjonen om sorteringen
           form:
             all_categories: Alle kategorier
           new:
