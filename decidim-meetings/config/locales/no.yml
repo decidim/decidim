@@ -141,6 +141,8 @@
             close: Lukk
             title: Lukk møte
         meetings:
+          create:
+            invalid: Det oppstod et problem med å opprette dette møtet
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
