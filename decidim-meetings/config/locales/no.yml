@@ -166,6 +166,8 @@
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
+          validate_registration_code:
+            success: Registreringskoden ble validert.
       admin_log:
         invite:
           create: "%{user_name} inviterte %{attendee_name} til å delta i %{resource_name} møtet på %{space_name} rommet"
