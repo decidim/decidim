@@ -141,6 +141,8 @@
             close: Lukk
             title: Lukk møte
         meetings:
+          create:
+            invalid: Det oppstod et problem med å opprette dette møtet
           service:
             remove: Fjern
             title: Tittel
