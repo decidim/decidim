@@ -122,6 +122,7 @@
       registration_type_publications:
         create:
           error: Det oppstod et problem med å publisere denne registreringstypen.
+          success: Registreringstypen ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere denne registreringstypen.
           success: Registreringstypen ble avpublisert.
