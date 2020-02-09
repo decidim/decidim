@@ -236,6 +236,8 @@
       conferences:
         partners:
           collaborators: Partnere
+        show:
+          make_conference_registration: 'Foreta din registrering til denne konferansen:'
       mailer:
         conference_registration_mailer:
           confirmation:
