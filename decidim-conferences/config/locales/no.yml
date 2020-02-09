@@ -30,8 +30,12 @@
       conference_speakers:
         create:
           error: Det oppstod et problem med å legge en foredragsholder til denne konferansen.
+          success: Konferansetaler ble opprettet.
+        destroy:
+          success: Konferansetaler ble slettet.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
+          success: Konferansetaler ble oppdatert.
       conference_user_roles:
         create:
           error: Det oppstod et problem med å legge til en administrator til denne konferansen.
