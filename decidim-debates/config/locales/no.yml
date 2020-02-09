@@ -77,6 +77,7 @@
             - Velg en åpen debatt å delta i
           description: Dette merket tildeles når du aktivt deltar i de forskjellige debattene ved å legge igjen kommentarene dine.
           description_another: Denne deltakeren har deltatt i %{score} debatter.
+          description_own: Du har deltatt i %{score} debatter.
           next_level_in: Delta i %{score} flere debatter for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i en debatt ennå.
           unearned_own: Du har ikke deltatt i noen debatter ennå.
