@@ -13,6 +13,11 @@
         edit: Editar
         title: Handlinger
       admin:
+        projects:
+          create:
+            invalid: Det oppstod et problem med å opprette dette prosjektet
+          update:
+            invalid: Det oppstod et problem med å oppdatere dette prosjektet
         proposals_imports:
           create:
             invalid: Det oppsto et problem med å importere forslagene til prosjektet
