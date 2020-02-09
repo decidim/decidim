@@ -175,11 +175,11 @@
           accepted: |-
             Denne endringen for %{amendable_type}%{proposal_link} var akseptert på <strong>%{date}</strong>.
           evaluating: |-
-            Denne endrignen for %{amendable_type} %{proposal_link} holder på å bli evaluert.
+            Denne endringen for %{amendable_type} %{proposal_link} holder på å bli evaluert.
           promoted: Promotert til en %{amendable_type}.
           rejected: Denne endringen for %{amendable_type}%{proposal_link} var avslått på <strong>%{date}</strong>.
           withdrawn: |-
-            Denne endrignen for %{amendable_type} %{proposal_link} har blitt trukket av forfatteren.
+            Denne endringen for %{amendable_type} %{proposal_link} har blitt trukket av forfatteren.
       new:
         amendment_author: Endrings forfatter
         send: Opprett
@@ -889,6 +889,7 @@
         are_you_sure: Er du sikker?
         cancel_my_account: Avbryt kontoen min
         currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
