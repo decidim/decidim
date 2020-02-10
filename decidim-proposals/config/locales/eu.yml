@@ -283,12 +283,10 @@ eu:
         see_all: Ikusi dena (%{count})
     proposals:
       actions:
-        answer: Erantzuna
         edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
         participatory_texts: Testu partehartzaileak
-        private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
         actions:
@@ -332,11 +330,7 @@ eu:
           update:
             success: Parte hartzailearen testua behar bezala eguneratu da.
         proposal_answers:
-          edit:
-            accepted: Onartuta
-            answer_proposal: Erantzuna
-            evaluating: Ebaluatzen
-            rejected: Ukatua
+          form:
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
           create:
@@ -377,6 +371,9 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          show:
+            created_at: Sortze data
+            votes_count: Botoen zenbaketa
           update_category:
             invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
             select_a_category: Hautatu kategoria bat
@@ -399,12 +396,6 @@ eu:
           create:
             invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
             success: Proposamen berrietara egokitu dira.
-        shared:
-          info_proposal:
-            body: Gorputzeko
-            created_at: Sortze data
-            proposal_votes_count: Botoen zenbaketa
-            proposals: proposamenak
       admin_log:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
