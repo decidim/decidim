@@ -222,6 +222,8 @@
               one: Kommentar
               other: Kommentar
         result:
+          answer_title:
+            discarded: Dette forslaget har blitt forkastet fordi
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
