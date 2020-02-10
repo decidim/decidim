@@ -337,7 +337,7 @@ de:
           edit:
             accepted: Angenommen
             answer_proposal: Antworten
-            evaluating: In Bearbeitung
+            evaluating: In Bewertung
             rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
