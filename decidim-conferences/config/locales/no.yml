@@ -294,7 +294,7 @@
           notification_title: Din påmelding til konferansen <a href="%{resource_url}">%{resource_title}</a> venter på å bli bekreftet.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" konferansens okkuperte plasser er over %{percentage}%.'
-          email_outro: Du har mottatt denne varslingen fordi du er administrator for konferansens deltaker-område.
+          email_outro: Du har mottatt denne varslingen fordi du er administrator for konferansens deltakerområde.
           email_subject: '"%{resource_title}" konferansens okkuperte plasser er over %{percentage}%'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansens okkuperte plasser er over %{percentage}%.
         conference_updated:
