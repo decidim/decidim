@@ -316,12 +316,10 @@ hu:
         see_all: Összes (%{count})
     proposals:
       actions:
-        answer: Válasz
         edit_proposal: Javaslat szerkesztése
         import: Importálás egy másik elemből
         new: Új javaslat
         participatory_texts: Részvételi szövegek
-        private_notes: Privát jegyzet
         title: Műveletek
       admin:
         actions:
@@ -366,11 +364,7 @@ hu:
           update:
             success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
-          edit:
-            accepted: Elfogadva
-            answer_proposal: Válasz
-            evaluating: Értékelés
-            rejected: Elutasítva
+          form:
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
           create:
@@ -413,6 +407,9 @@ hu:
           new:
             create: Létrehozás
             title: Javaslat létrehozása
+          show:
+            created_at: Létrehozás dátuma
+            votes_count: Támogatók száma
           update_category:
             invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
             select_a_category: Kérlek, válassz kategóriát
@@ -435,12 +432,6 @@ hu:
           create:
             invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
-        shared:
-          info_proposal:
-            body: Szöveg
-            created_at: Létrehozás dátuma
-            proposal_votes_count: Támogatók száma
-            proposals: Javaslatok
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
