@@ -52,11 +52,18 @@ module Decidim
     # Private: Creates an array of category ids.
     # It contains categories' subcategories ids as well.
     def all_category_ids
+      cat_ids = category_ids.without("without")
+
       component
         .categories
-        .where(id: category_id)
-        .or(component.categories.where(parent_id: category_id))
-        .pluck(:id)
+        .where(id: cat_ids)
+        .or(component.categories.where(parent_id: cat_ids))
+        .pluck(:id).tap { |ids| ids.prepend(nil) if category_ids.include?("without") }
+    end
+
+    # Private: Returns an array with checked category ids.
+    def category_ids
+      [category_id].flatten
     end
 
     # Private: Returns an array with checked scope ids.

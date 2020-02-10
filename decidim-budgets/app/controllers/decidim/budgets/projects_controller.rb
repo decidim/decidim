@@ -33,19 +33,18 @@ module Decidim
       end
 
       def default_filter_category_params
-        return unless current_component.participatory_space.categories.any?
+        return "" unless current_component.participatory_space.categories.any?
 
-        current_component.participatory_space.categories.map { |category| category.id.to_s }
+        ["without"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
       end
 
       def default_filter_scope_params
-        return unless current_component.participatory_space.scopes.any?
+        return "" unless current_component.participatory_space.scopes.any?
 
         if current_component.participatory_space.scope
-          space_ids = [current_component.participatory_space.scope.id]
-          space_ids << current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+          [current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
         else
-          current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+          ["global"] + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
         end
       end
 
