@@ -296,12 +296,10 @@
         see_all: Vis alle (%{count})
     proposals:
       actions:
-        answer: Svar
         edit_proposal: Rediger forslaget
         import: Importer fra en annen komponent
         new: Nytt forslag
         participatory_texts: Deltakende tekster
-        private_notes: Private notater
         title: Handlinger
       admin:
         actions:
@@ -346,11 +344,7 @@
           update:
             success: Deltakende tekst ble oppdatert.
         proposal_answers:
-          edit:
-            accepted: Aksepterte
-            answer_proposal: Svar
-            evaluating: Vurderer
-            rejected: Avvist
+          form:
             title: Svar for forslag %{title}
         proposal_notes:
           create:
@@ -393,6 +387,9 @@
           new:
             create: Opprett
             title: Opprett forslag
+          show:
+            created_at: Opprettelsesdato
+            votes_count: Støtter antall
           update_category:
             invalid: 'Disse forslagene hadde allerede %{category} kategorien: %{proposals}.'
             select_a_category: Velg en kategori
@@ -415,12 +412,6 @@
           create:
             invalid: Det oppstod et problem med å splitte de valgte forslagene.
             success: Delte forslagene vellykket til nye.
-        shared:
-          info_proposal:
-            body: Tekst
-            created_at: Opprettelsesdato
-            proposal_votes_count: Støtter antall
-            proposals: Forslag
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
