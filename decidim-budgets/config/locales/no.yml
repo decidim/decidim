@@ -23,7 +23,7 @@
             invalid: Det oppsto et problem med å importere forslagene til prosjektet
             success: "%{number} forslag importert til prosjekter"
           new:
-            no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene inn i prosjekter.
+            no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
       admin_log:
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
@@ -85,4 +85,5 @@
         error: Det oppstod et problem med å behandle din stemme
         success: Stemmen din ble godtatt
       destroy:
+        error: Det oppstod et problem med å avbryte stemmen din
         success: Stemmen din ble kansellert
