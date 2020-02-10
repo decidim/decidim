@@ -224,7 +224,9 @@
               other: Kommentar
         result:
           answer_title:
+            accepted: Dette forslaget ble akseptert fordi
             discarded: Dette forslaget har blitt forkastet fordi
+            rejected: Dette forslaget ble avvist fordi
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
