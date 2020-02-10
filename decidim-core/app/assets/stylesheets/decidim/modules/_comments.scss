@@ -28,6 +28,7 @@ $comment-form-bg: $light-gray;
 
 .comment__header{
   padding: $comment-padding;
+  display: flex;
 }
 
 .comment__content{
@@ -36,14 +37,26 @@ $comment-form-bg: $light-gray;
   > :last-child{
     margin-bottom: 0;
   }
+
+  p:empty{
+    display: none;
+  }
 }
 
-.comment__footer,
 .comment__additionalreply{
   padding: $comment-padding;
   font-size: 90%;
 
   @include clearfix;
+}
+
+.comment__footer{
+  padding: $comment-padding;
+  font-size: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .comment--nested{
@@ -60,13 +73,32 @@ $comment-form-bg: $light-gray;
   }
 }
 
-.comment__reply{
+.comment__actions{
+  display: flex;
+  flex-wrap: wrap;
+
+  > button,
+  a{
+    cursor: pointer;
+    margin-top: .5rem;
+  }
+}
+
+.comment__reply,
+.comment__reply[data-toggle]{
   float: left;
   color: $muted;
+  margin-right: .75rem;
+  margin-bottom: 0;
+
+  span{
+    margin-right: 0;
+  }
 }
 
 .comment__votes{
   float: right;
+  margin-top: .5rem;
 }
 
 .comment__votes--up{
@@ -122,6 +154,22 @@ $comment-form-bg: $light-gray;
   }
 }
 
+.comment__quote{
+  border-left-width: 6px;
+  font-size: 80%;
+  background-color: rgba(0, 0, 0, .03);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  > p:last-of-type{
+    margin-bottom: 0;
+  }
+
+  > br{
+    display: none;
+  }
+}
+
 /* Comment form */
 
 .add-comment{
@@ -138,5 +186,21 @@ $comment-form-bg: $light-gray;
 
   &.is-active{
     display: block;
+  }
+}
+
+/* Comments toggle */
+
+.comment{
+  &__text-is-open{
+    display: none;
+  }
+
+  &__is-open &__text-is-open{
+    display: inline-block;
+  }
+
+  &__is-open &__text-is-closed{
+    display: none;
   }
 }

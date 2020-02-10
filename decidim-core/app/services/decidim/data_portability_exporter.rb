@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "seven_zip_ruby"
+require_relative "zip_stream/zip_stream_writer"
 
 module Decidim
   # Public: Generates a 7z(seven zip) file with data files ready to be persisted
@@ -8,6 +9,8 @@ module Decidim
   #
   # In fact, the 7z file wraps a ZIP file which finally contains the data files.
   class DataPortabilityExporter
+    include ::Decidim::ZipStream::Writer
+
     DEFAULT_EXPORT_FORMAT = "CSV"
     ZIP_FILE_NAME = "data-portability.zip"
 
@@ -39,10 +42,10 @@ module Decidim
 
     def data
       buffer = Zip::OutputStream.write_buffer do |out|
-        user_data, export_images = data_for(@user, @export_format)
+        user_data, attachments = data_for(@user, @export_format)
 
         add_user_data_to_zip_stream(out, user_data)
-        add_images_to_zip_stream(out, export_images)
+        add_attachments_to_zip_stream(out, attachments)
       end
 
       buffer.string
@@ -50,62 +53,20 @@ module Decidim
 
     def data_for(user, format)
       export_data = []
-      export_images = []
+      export_attachments = []
 
       data_portability_entities.each do |object|
         klass = Object.const_get(object)
         export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(format).new(klass.user_collection(user), klass.export_serializer).export]
-        export_images << [klass.model_name.name.parameterize.pluralize, klass.data_portability_images(user).flatten] unless klass.data_portability_images(user).nil?
+        attachments = klass.data_portability_images(user)
+        export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
       end
 
-      [export_data, export_images]
+      [export_data, export_attachments]
     end
 
     def data_portability_entities
       @data_portability_entities ||= DataPortabilitySerializers.data_entities
-    end
-
-    def add_user_data_to_zip_stream(out, user_data)
-      user_data.each do |element|
-        filename_file = element.last.filename(element.first.parameterize)
-
-        out.put_next_entry(filename_file)
-        if element.last.read.presence
-          out.write element.last.read
-        else
-          out.write "No data"
-        end
-      end
-    end
-
-    def add_images_to_zip_stream(out, export_images)
-      export_images.each do |image_block|
-        next if image_block.last.nil?
-
-        folder_name = image_block.first.parameterize
-        image_block.last.each do |image|
-          next if image.file.nil?
-
-          uploader = ApplicationUploader.new(image.model, image.mounted_as)
-          if image.file.respond_to? :file
-            uploader.cache!(File.open(image.file.file))
-            uploader.retrieve_from_store!(image.file.filename)
-          else
-            my_uploader = element.send(image.mounted_as)
-
-            my_uploader.cache_stored_file!
-            my_uploader.retrieve_from_cache!(my_uploader.cache_name)
-          end
-          my_image_path = image.file.file
-          next unless File.exist?(my_image_path)
-
-          out.put_next_entry("#{folder_name}/#{image.file.filename}")
-          File.open(image.file.file) do |f|
-            out << f.read
-          end
-          CarrierWave.clean_cached_files!
-        end
-      end
     end
   end
 end

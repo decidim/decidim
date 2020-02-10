@@ -292,7 +292,7 @@ shared_examples "manage proposals" do
       end
 
       it "can reject a proposal" do
-        go_to_edit_answer(proposal)
+        go_to_admin_proposal_page_answer_section(proposal)
 
         within ".edit_proposal_answer" do
           fill_in_i18n_editor(
@@ -314,7 +314,7 @@ shared_examples "manage proposals" do
       end
 
       it "can accept a proposal" do
-        go_to_edit_answer(proposal)
+        go_to_admin_proposal_page_answer_section(proposal)
 
         within ".edit_proposal_answer" do
           choose "Accepted"
@@ -329,7 +329,7 @@ shared_examples "manage proposals" do
       end
 
       it "can mark a proposal as evaluating" do
-        go_to_edit_answer(proposal)
+        go_to_admin_proposal_page_answer_section(proposal)
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
@@ -358,7 +358,7 @@ shared_examples "manage proposals" do
           expect(page).to have_content("Rejected")
         end
 
-        go_to_edit_answer(proposal)
+        go_to_admin_proposal_page_answer_section(proposal)
 
         within ".edit_proposal_answer" do
           choose "Accepted"
@@ -413,11 +413,9 @@ shared_examples "manage proposals" do
     end
 
     it "cannot answer a proposal" do
-      visit current_path
+      go_to_admin_proposal_page(proposal)
 
-      within find("tr", text: proposal.title) do
-        expect(page).to have_no_link("Answer")
-      end
+      expect(page).to have_no_selector(".edit_proposal_answer")
     end
   end
 
@@ -461,10 +459,14 @@ shared_examples "manage proposals" do
     end
   end
 
-  def go_to_edit_answer(proposal)
+  def go_to_admin_proposal_page(proposal)
     within find("tr", text: proposal.title) do
-      click_link "Answer"
+      click_link "Show"
     end
+  end
+
+  def go_to_admin_proposal_page_answer_section(proposal)
+    go_to_admin_proposal_page(proposal)
 
     expect(page).to have_selector(".edit_proposal_answer")
   end

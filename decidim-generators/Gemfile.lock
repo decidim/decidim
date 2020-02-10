@@ -58,6 +58,7 @@ PATH
     decidim-comments (0.21.0.pre.dev)
       decidim-core (= 0.21.0.pre.dev)
       jquery-rails (~> 4.3)
+      redcarpet (~> 3.4)
     decidim-consultations (0.21.0.pre.dev)
       decidim-admin (= 0.21.0.pre.dev)
       decidim-comments (= 0.21.0.pre.dev)
