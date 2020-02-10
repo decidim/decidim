@@ -289,12 +289,10 @@ tr:
         see_all: Tümünü gör (%{count})
     proposals:
       actions:
-        answer: Cevap
         edit_proposal: Teklifi düzenle
         import: Başka bir bileşenden içe aktar
         new: Yeni teklif
         participatory_texts: Katılımcı metinler
-        private_notes: Özel notlar
         title: Eylemler
       admin:
         actions:
@@ -338,11 +336,7 @@ tr:
           update:
             success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
-          edit:
-            accepted: Kabul edilmiş
-            answer_proposal: Cevap
-            evaluating: değerlendirilmesi
-            rejected: Reddedilen
+          form:
             title: Teklifin cevabı %{title}
         proposal_notes:
           create:
@@ -383,6 +377,9 @@ tr:
           new:
             create: yaratmak
             title: Teklif oluştur
+          show:
+            created_at: Oluşturulma tarihi
+            votes_count: Oy sayısı
           update_category:
             invalid: 'Bu teklifler zaten %{category} kategorisine sahipti: %{proposals}.'
             select_a_category: Lütfen bir kategori seçin
@@ -405,12 +402,6 @@ tr:
           create:
             invalid: Seçilen teklifleri bölen bir hata oluştu.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
-        shared:
-          info_proposal:
-            body: Vücut
-            created_at: Oluşturulma tarihi
-            proposal_votes_count: Oy sayısı
-            proposals: Teklif
       admin_log:
         proposal:
           answer: "%{user_name} , %{space_name} uzayda %{resource_name} teklifi yanıtladı"
