@@ -2,20 +2,26 @@
 
 /* Typography - Foundation overrides */
 button,
-input{
+input {
   font-family: inherit;
 }
 
-@mixin heading($heading){
+@mixin heading($heading) {
   line-height: 1.2;
-  font-size: map-get(map-get(map-get($header-styles, small), $heading), 'font-size') / 16 + em;
+  font-size: map-get(
+      map-get(map-get($header-styles, small), $heading),
+      "font-size"
+    ) / 16 + em;
 
-  @include breakpoint(medium){
-    font-size: map-get(map-get(map-get($header-styles, medium), $heading), 'font-size') / 16 + em;
+  @include breakpoint(medium) {
+    font-size: map-get(
+        map-get(map-get($header-styles, medium), $heading),
+        "font-size"
+      ) / 16 + em;
   }
 }
 
-.heading1{
+.heading1 {
   font-weight: 600;
 
   @include heading(h1);
@@ -23,7 +29,7 @@ input{
   line-height: 1.1;
 }
 
-.subheading1{
+.subheading1 {
   text-align: center;
   font-size: 1.25rem;
   margin: 0 auto;
@@ -32,156 +38,188 @@ input{
   margin-top: -3rem;
 }
 
-.heading2{
+.heading2 {
   @include heading(h2);
 }
 
-.heading3{
+.heading3 {
   @include heading(h3);
 }
 
-.heading4{
+.heading4 {
   @include heading(h4);
 }
 
-.heading5{
+.heading5 {
   @include heading(h5);
 }
 
-.heading6{
+.heading6 {
   text-transform: uppercase;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   font-weight: 600;
 
   @include heading(h6);
 }
 
-.heading-small{
+.heading-small {
   font-size: 1rem;
 }
 
-hr{
+hr {
   width: 50%;
 
-  &.reset{
+  &.reset {
     width: 100%;
   }
 }
 
 /* New typographic styles */
 
-.section-heading{
+.section-heading {
   position: relative;
   margin-bottom: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1.125em;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 
-  &::before{
+  &::before {
     content: "";
     display: inline-block;
     width: 4px;
-    height: .8em;
+    height: 0.8em;
     background-color: var(--primary);
-    margin-right: .5rem;
-    margin-bottom: -.1rem;
+    margin-right: 0.5rem;
+    margin-bottom: -0.1rem;
   }
 
-  &.collapse{
+  &.collapse {
     margin: 0;
   }
 
-  span{
+  span {
     font-weight: normal;
   }
 }
 
-.mini-title{
+.mini-title {
   color: $muted;
   text-transform: uppercase;
-  font-size: .9rem;
-  letter-spacing: .01em;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
   font-weight: 600;
   margin-bottom: 0;
 
-  &__strong{
+  &__strong {
     color: $body-font-color;
     font-size: 1.2rem;
     font-weight: 800;
   }
 
-  &__strong--highlight{
+  &__strong--highlight {
     font-size: 1.4rem;
   }
 }
 
-.page-title{
+.data-title {
+  &__over {
+    color: $muted;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  &__main {
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    font-weight: 800;
+    margin-bottom: 0;
+  }
+
+  &__sub {
+    color: $muted;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+}
+
+.page-title {
   margin-bottom: 3rem;
 }
 
-.text-highlight{
+.text-highlight {
   margin-bottom: 0;
   color: $white;
-  text-shadow: 0 0 10px rgba(black, .8);
+  text-shadow: 0 0 10px rgba(black, 0.8);
 
-  &.heading1{
+  &.heading1 {
     font-weight: 800;
   }
 
-  > a{
+  > a {
     color: inherit;
 
-    &:hover{
+    &:hover {
       color: var(--primary);
     }
   }
 }
 
 // text status-color
-$map: map-merge($foundation-palette, (muted: $muted));
+$map: map-merge(
+  $foundation-palette,
+  (
+    muted: $muted,
+  )
+);
 
-@each $key, $value in $map{
-  .text-#{$key}{
+@each $key, $value in $map {
+  .text-#{$key} {
     color: $value;
   }
 
-  .bg-#{$key}{
+  .bg-#{$key} {
     background-color: lighten($value, 30);
   }
 }
 
-.text-large{
+.text-large {
   font-size: 130%;
 }
 
-.text-medium{
+.text-medium {
   font-size: 90%;
   color: $muted;
 }
 
-.text-small{
+.text-small {
   font-size: 80%;
   color: $muted;
 }
 
-.text-uppercase{
+.text-uppercase {
   text-transform: uppercase;
 }
 
-.text-lowercase{
+.text-lowercase {
   text-transform: lowercase;
 }
 
-.text-ellipsis{
+.text-ellipsis {
   @include ellipsis();
 }
 
-.text-compact{
+.text-compact {
   line-height: 1;
 }
 
-.word-wrapper{
+.word-wrapper {
   display: inline-block;
 }
 
@@ -217,6 +255,11 @@ sup,
 textarea,
 time,
 tt,
-var{
-  @include modifiers(color, (muted: $muted));
+var {
+  @include modifiers(
+    color,
+    (
+      muted: $muted,
+    )
+  );
 }
