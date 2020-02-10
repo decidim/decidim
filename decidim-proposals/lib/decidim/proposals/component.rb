@@ -57,6 +57,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true

@@ -141,6 +141,7 @@ en:
             amendments_visibility: Amendment visibility
             amendments_visibility_help: If the option "Amendments are visible only to their authors" is selected, participant must be logged in to see the amendments made.
             announcement: Announcement
+            answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
