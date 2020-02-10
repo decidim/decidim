@@ -42,6 +42,7 @@
         initiative_extended:
           email_intro: Slutdatoen for signaturene for initiativet %{resource_title} er blitt utvidet!
           email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          email_subject: Initiativunderskrifters sluttdato forlenget!
           notification_title: Slutdatoen for signaturene for <a href="%{resource_path}">%{resource_title}</a> initiativet er blitt utvidet.
         milestone_completed:
           affected_user:
