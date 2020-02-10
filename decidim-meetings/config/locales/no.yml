@@ -196,6 +196,7 @@
         meetings:
           index:
             all: Alle
+            space_type: Deltakerområde
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
