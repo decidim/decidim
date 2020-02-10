@@ -12,6 +12,19 @@
   }
 }
 
+.wrapper-mini{
+  padding: 1.2rem 1rem;
+  position: relative;
+
+  @include breakpoint(medium){
+    padding: 2rem 1.5rem;
+  }
+
+  @include breakpoint(large){
+    padding: 3rem 4rem;
+  }
+}
+
 .wrapper--inner{
   background: $light-gray-dark;
   padding-top: 1rem;

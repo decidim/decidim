@@ -1,11 +1,5 @@
 <figure>
-  <figcaption class="text-uppercase">
-    <strong>
-      <%= t("filed_as", scope: "decidim.proposals.proposals.tags") %>
-    </strong>
-  </figcaption>
-
-  <ul>
+  <ul class="tags tags--proposal">
     <% if category.present? %>
       <li>
         <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: category.id }) %>
