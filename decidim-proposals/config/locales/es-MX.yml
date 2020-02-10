@@ -316,12 +316,10 @@ es-MX:
         see_all: Ver todo (%{count})
     proposals:
       actions:
-        answer: Respuesta
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
         title: Acciones
       admin:
         actions:
@@ -366,11 +364,7 @@ es-MX:
           update:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
-          edit:
-            accepted: Aceptada
-            answer_proposal: Respuesta
-            evaluating: En evaluación
-            rejected: Rechazada
+          form:
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -413,6 +407,9 @@ es-MX:
           new:
             create: Crear
             title: Crear propuesta
+          show:
+            created_at: Fecha de creación
+            votes_count: Número de apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
@@ -435,12 +432,6 @@ es-MX:
           create:
             invalid: Hubo un error dividiendo las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
-        shared:
-          info_proposal:
-            body: Cuerpo
-            created_at: Fecha de creación
-            proposal_votes_count: Número de apoyos
-            proposals: Propuestas
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
