@@ -255,10 +255,10 @@
         create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
         update: "%{user_name} oppdaterte %{resource_name} deltakernes prosessgruppe"
       participatory_process_step:
-        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} \ndeltaker prosessen"
-        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
-        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakernes prosessen"
-        update: "%{user_name} oppdaterte %{resource_name} fasen i %{space_name} deltakernes prosessen"
+        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} deltakerprosessen"
+        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakerprosessen"
+        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakerprosessen"
+        update: "%{user_name} oppdaterte %{resource_name} fasen i %{space_name} deltakerprosessen"
       participatory_process_user_role:
         create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltakerprosessen"
         delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltakerprosessen"
