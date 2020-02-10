@@ -12,7 +12,9 @@ module Decidim
       def initialize(options = {})
         @component = options[:component]
         @current_user = options[:current_user]
-        super(Proposal.all, options)
+
+        base = options[:state]&.member?("withdrawn") ? Proposal.withdrawn : Proposal.except_withdrawn
+        super(base, options)
       end
 
       # Handle the search_text filter
@@ -24,8 +26,6 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
-        return query if origin.member?("all")
-
         official = origin.member?("official") ? query.official_origin : nil
         citizens = origin.member?("citizens") ? query.citizens_origin : nil
         user_group = origin.member?("user_group") ? query.user_group_origin : nil
@@ -58,22 +58,18 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        if state.member? "withdrawn"
-          query.withdrawn
-        else
-          return query.except_withdrawn if state.member?("all")
+        return query if state.member? "withdrawn"
 
-          accepted = state.member?("accepted") ? query.accepted : nil
-          rejected = state.member?("rejected") ? query.rejected : nil
-          evaluating = state.member?("evaluating") ? query.evaluating : nil
-          not_answered = state.member?("not_answered") ? query.not_answered : nil
+        accepted = state.member?("accepted") ? query.accepted : nil
+        rejected = state.member?("rejected") ? query.rejected : nil
+        evaluating = state.member?("evaluating") ? query.evaluating : nil
+        not_answered = state.member?("not_answered") ? query.not_answered : nil
 
-          query
-            .where(id: accepted)
-            .or(query.where(id: rejected))
-            .or(query.where(id: evaluating))
-            .or(query.where(id: not_answered))
-        end
+        query
+          .where(id: accepted)
+          .or(query.where(id: rejected))
+          .or(query.where(id: evaluating))
+          .or(query.where(id: not_answered))
       end
 
       # Handle the amendment type filter
