@@ -347,7 +347,7 @@ es-PY:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
-            accepted: Aceptada
+            accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
             rejected: Rechazada
