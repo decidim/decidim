@@ -417,10 +417,10 @@ it:
             success: Suddiviso con successo le proposte in nuove.
         shared:
           info_proposal:
-            body: Corpo
+            body: Corpo del testo
             created_at: Data di creazione
             proposal_votes_count: Contare i voti
-            proposals: proposte
+            proposals: Proposte
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
