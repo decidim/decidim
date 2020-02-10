@@ -123,6 +123,8 @@
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
           title: Godta vilkårene for bruk
+        required_review:
+          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -172,6 +174,8 @@
         update:
           error: Det oppsto et problem med å oppdatere dette vedlegget.
           success: Vedlegg ble oppdatert.
+      autocomplete:
+        search_prompt: Skriv minst tre tegn for å søke
       categories:
         create:
           error: Det oppstod et problem med å oppdatere denne kategorien.
