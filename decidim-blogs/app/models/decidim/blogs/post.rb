@@ -58,6 +58,10 @@ module Decidim
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
       end
+
+      def users_to_notify_on_comment_created
+        followers
+      end
     end
   end
 end
