@@ -15,6 +15,7 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            creation_enabled: Debattoppretting av deltakere aktivert
     debates:
       actions:
         confirm_destroy: Er du sikker?
