@@ -299,12 +299,10 @@ fi-pl:
         see_all: Näytä kaikki (%{count})
     proposals:
       actions:
-        answer: Vastaa
         edit_proposal: Muokkaa ehdotusta
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
-        private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
         actions:
@@ -349,11 +347,7 @@ fi-pl:
           update:
             success: Ehdotusaineisto päivitettiin onnistuneesti.
         proposal_answers:
-          edit:
-            accepted: Hyväksytty
-            answer_proposal: Vastaa
-            evaluating: Arvioitavana
-            rejected: Hylätty
+          form:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
@@ -396,6 +390,9 @@ fi-pl:
           new:
             create: Luo
             title: Luo ehdotus
+          show:
+            created_at: Luonnin ajankohta
+            votes_count: Äänten määrä
           update_category:
             invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
             select_a_category: Valitse aihepiiri
@@ -418,12 +415,6 @@ fi-pl:
           create:
             invalid: Jaettaessa ehdotuksia esiintyi virhe.
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
-        shared:
-          info_proposal:
-            body: Tekstin runko
-            created_at: Luonnin ajankohta
-            proposal_votes_count: Äänten määrä
-            proposals: Ehdotukset
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} tilassa %{space_name}"
