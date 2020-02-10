@@ -418,6 +418,8 @@ en:
             split: Split proposals
             split_button: Split
             title: Proposals
+            unassign_from_valuator: Unassign from valuator
+            unassign_from_valuator_button: Unassign
             update: Update
           new:
             create: Create
@@ -477,6 +479,9 @@ en:
           create:
             invalid: There was an error assigning proposals to a valuator
             success: Proposals assigned to a valuator successfully
+          delete:
+            invalid: There was an error unassigning proposals from a valuator
+            success: Valuator unassigned from proposals successfully
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -486,6 +491,7 @@ en:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
         valuation_assignment:
           create: "%{user_name} assigned the %{resource_name} proposal to a valuator"
+          delete: "%{user_name} unassigned a valuator from the %{proposal_title} proposal"
       answers:
         accepted: Accepted
         evaluating: Evaluating

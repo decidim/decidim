@@ -8,13 +8,14 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:user) { build :user, :admin }
   let(:current_component) { create(:proposal_component) }
   let(:proposal) { nil }
+  let(:extra_context) { {} }
   let(:context) do
     {
       proposal: proposal,
       current_component: current_component,
       current_settings: current_settings,
       component_settings: component_settings
-    }
+    }.merge(extra_context)
   end
   let(:component_settings) do
     double(
@@ -84,6 +85,17 @@ describe Decidim::Proposals::Admin::Permissions do
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
+    end
+
+    context "when current user is the valuator" do
+      describe "unassign proposals from themselves" do
+        let(:action) do
+          { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
+        end
+        let(:extra_context) { { valuator: user } }
+
+        it { is_expected.to eq true }
+      end
     end
   end
 
@@ -175,6 +187,14 @@ describe Decidim::Proposals::Admin::Permissions do
   describe "assign proposals to a valuator" do
     let(:action) do
       { scope: :admin, action: :assign_to_valuator, subject: :proposals }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  describe "unassign proposals from a valuator" do
+    let(:action) do
+      { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
     end
 
     it { is_expected.to eq true }

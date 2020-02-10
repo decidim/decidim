@@ -79,4 +79,46 @@ describe "Admin manages proposals valuators", type: :system do
       expect(page).to have_no_content(unassigned_proposal.title)
     end
   end
+
+  context "when unassigning valuators from a proposal" do
+    let(:assigned_proposal) { proposal }
+
+    before do
+      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+
+      visit current_path
+
+      within find("tr", text: proposal.title) do
+        page.first(".js-proposal-list-check").set(true)
+      end
+
+      click_button "Actions"
+      click_button "Unassign from valuator"
+    end
+
+    it "shows the component select" do
+      expect(page).to have_css("#js-form-unassign-proposals-from-valuator select", count: 1)
+    end
+
+    it "shows an update button" do
+      expect(page).to have_css("button#js-submit-unassign-proposals-from-valuator", count: 1)
+    end
+
+    context "when submitting the form" do
+      before do
+        within "#js-form-unassign-proposals-from-valuator" do
+          select valuator.name, from: :valuator_role_id
+          page.find("button#js-submit-unassign-proposals-from-valuator").click
+        end
+      end
+
+      it "assigns the proposals to the valuator" do
+        expect(page).to have_content("Valuator unassigned from proposals successfully")
+
+        within find("tr", text: proposal.title) do
+          expect(page).to have_selector("td.valuators-count", text: 0)
+        end
+      end
+    end
+  end
 end

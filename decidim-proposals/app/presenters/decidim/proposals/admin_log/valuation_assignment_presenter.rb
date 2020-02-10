@@ -27,7 +27,7 @@ module Decidim
 
         def action_string
           case action
-          when "create"
+          when "create", "delete"
             "decidim.proposals.admin_log.valuation_assignment.#{action}"
           else
             super
@@ -39,7 +39,11 @@ module Decidim
         end
 
         def has_diff?
-          action == "assign_to_valuator" || super
+          %w(create delete).include?(action) || super
+        end
+
+        def i18n_params
+          super.merge(proposal_title: h.translated_attribute(action_log.extra["proposal_title"]))
         end
       end
     end

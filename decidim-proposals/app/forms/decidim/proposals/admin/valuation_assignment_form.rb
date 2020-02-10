@@ -20,6 +20,12 @@ module Decidim
           @valuator_role ||= current_component.participatory_space.user_roles(:valuator).find_by(id: id)
         end
 
+        def valuator_user
+          return unless valuator_role
+
+          @valuator_user ||= valuator_role.user
+        end
+
         def same_participatory_space
           return if !valuator_role || !current_component
 
