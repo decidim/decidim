@@ -71,17 +71,17 @@ module Decidim::Blogs
       end
     end
 
-      describe "#users_to_notify_on_comment_created" do
-        let!(:follows) { create_list(:follow, 3, followable: subject) }
-        let(:followers) { follows.map(&:user) }
-        let(:participatory_space) { subject.component.participatory_space }
-        let(:organization) { participatory_space.organization }
+    describe "#users_to_notify_on_comment_created" do
+      let!(:follows) { create_list(:follow, 3, followable: subject) }
+      let(:followers) { follows.map(&:user) }
+      let(:participatory_space) { subject.component.participatory_space }
+      let(:organization) { participatory_space.organization }
 
-        context "when creating new comment" do
-          it "returns the followers" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers)
-          end
+      context "when creating new comment" do
+        it "returns the followers" do
+          expect(subject.users_to_notify_on_comment_created).to match_array(followers)
         end
       end
+    end
   end
 end
