@@ -166,6 +166,8 @@
         update:
           error: Det oppsto et problem med å oppdatere dette vedlegget.
           success: Vedlegg ble oppdatert.
+      autocomplete:
+        search_prompt: Skriv minst tre tegn for å søke
       categories:
         create:
           error: Det oppstod et problem med å oppdatere denne kategorien.
