@@ -316,12 +316,10 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
-        answer: Respondre
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
-        private_notes: Notes privades
         title: Accions
       admin:
         actions:
@@ -366,11 +364,7 @@ ca:
           update:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
-          edit:
-            accepted: Acceptada
-            answer_proposal: Resposta
-            evaluating: En avaluació
-            rejected: Rebutjada
+          form:
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -413,6 +407,9 @@ ca:
           new:
             create: Crea
             title: Crea proposta
+          show:
+            created_at: Data de creació
+            votes_count: Nombre de suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
             select_a_category: Selecciona una categoria
@@ -435,12 +432,6 @@ ca:
           create:
             invalid: S'ha produït un error en dividir les propostes seleccionades.
             success: Les propostes s'han dividit en d'altres de noves correctament.
-        shared:
-          info_proposal:
-            body: Cos
-            created_at: Data de creació
-            proposal_votes_count: Nombre de suports
-            proposals: Propostes
       admin_log:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
