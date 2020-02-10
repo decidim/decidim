@@ -115,6 +115,7 @@
           title: 'Stemmene er underlagt følgende regler:'
       question_votes:
         create:
+          error: Det oppstod et problem med å stemme spørsmålet
           success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
     help:
       participatory_spaces:
