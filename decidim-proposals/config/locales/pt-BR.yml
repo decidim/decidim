@@ -283,7 +283,7 @@ pt-BR:
         see_all: Ver todos (%{count})
     proposals:
       actions:
-        answer: Responda
+        answer: Responder
         edit_proposal: Editar proposta
         import: Importar de outro componente
         new: Nova proposta
@@ -334,7 +334,7 @@ pt-BR:
         proposal_answers:
           edit:
             accepted: Aceitaram
-            answer_proposal: Responda
+            answer_proposal: Responder
             evaluating: Avaliando
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
