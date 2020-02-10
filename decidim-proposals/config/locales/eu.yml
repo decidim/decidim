@@ -401,10 +401,10 @@ eu:
             success: Proposamen berrietara egokitu dira.
         shared:
           info_proposal:
-            body: Gorputzeko
+            body: Testua
             created_at: Sortze data
             proposal_votes_count: Botoen zenbaketa
-            proposals: proposamenak
+            proposals: Proposamenak
       admin_log:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
