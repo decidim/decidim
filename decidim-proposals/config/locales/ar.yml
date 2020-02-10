@@ -303,12 +303,10 @@ ar:
         see_all: شاهد الكل (%{count})
     proposals:
       actions:
-        answer: إجابة
         edit_proposal: تعديل الاقتراح
         import: استيراد من مكون آخر
         new: عرض جديد
         participatory_texts: النصوص التشاركية
-        private_notes: ملاحظات خاصة
         title: أفعال
       admin:
         actions:
@@ -352,11 +350,7 @@ ar:
           update:
             success: تم تحديث النص التشاركي بنجاح.
         proposal_answers:
-          edit:
-            accepted: وافقت
-            answer_proposal: إجابة
-            evaluating: تقييم
-            rejected: مرفوض
+          form:
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
           create:
@@ -398,6 +392,9 @@ ar:
           new:
             create: إنشاء
             title: إنشاء اقتراح
+          show:
+            created_at: تاريخ الإنشاء
+            votes_count: يدعم العد
           update_category:
             invalid: 'هذه المقترحات لديها بالفعل فئة %{category} : %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
@@ -420,12 +417,6 @@ ar:
           create:
             invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
-        shared:
-          info_proposal:
-            body: الجسم
-            created_at: تاريخ الإنشاء
-            proposal_votes_count: يدعم العد
-            proposals: اقتراحات
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
