@@ -12,7 +12,7 @@
       this.id = this.$form.attr("id") || this._getUID();
       this.mounted = false;
 
-      this._onFormChange = this._onFormChange.bind(this);
+      this._onFormChange = this._delayed(this._onFormChange.bind(this));
       this._onPopState = this._onPopState.bind(this);
 
       if (window.Decidim.PopStateHandler) {
@@ -46,8 +46,7 @@
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
 
-        this._delayedOnFormChange = this._delayed(this._onFormChange, 50);
-        this.$form.on("change", "input, select", this._delayedOnFormChange);
+        this.$form.on("change", "input, select", this._onFormChange);
 
         this.currentFormRequest = null;
         this.$form.on("ajax:beforeSend", (e) => {
@@ -192,7 +191,6 @@
           // Since we are using Ruby on Rails generated forms the field ids for a
           // checkbox or a radio button has the following form: filter_${key}_${value}
           field = this.$form.find(`input#filter_${fieldId}_${filterParams[fieldId]}`);
-
           if (field.length > 0) {
             field[0].checked = true;
           } else {

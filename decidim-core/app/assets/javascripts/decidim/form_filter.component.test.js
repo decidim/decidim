@@ -73,7 +73,7 @@ describe("FormFilterComponent", () => {
     });
 
     it("binds the form change event", () => {
-      expect(subject.$form.on).toHaveBeenCalledWith("change", "input, select", subject._delayedOnFormChange);
+      expect(subject.$form.on).toHaveBeenCalledWith("change", "input, select", subject._onFormChange);
     });
 
     describe("onpopstate event", () => {

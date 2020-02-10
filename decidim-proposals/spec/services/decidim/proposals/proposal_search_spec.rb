@@ -23,6 +23,7 @@ module Decidim
             origin: origins,
             related_to: related_to,
             scope_id: scope_ids,
+            category_id: category_ids,
             current_user: user
           ).results
         end
@@ -31,8 +32,9 @@ module Decidim
         let(:search_text) { nil }
         let(:origins) { nil }
         let(:related_to) { nil }
-        let(:states) { %w(all) }
+        let(:states) { nil }
         let(:scope_ids) { nil }
+        let(:category_ids) { nil }
 
         it "only includes proposals from the given component" do
           other_proposal = create(:proposal)
@@ -239,6 +241,53 @@ module Decidim
 
             it "returns proposals without a scope and with selected scopes" do
               expect(subject).to match_array [resource_without_scope, proposal, proposal2, proposal3]
+            end
+          end
+        end
+
+        describe "category_id filter" do
+          let(:category1) { create :category, participatory_space: participatory_process }
+          let(:category2) { create :category, participatory_space: participatory_process }
+          let(:child_category) { create :category, participatory_space: participatory_process, parent: category2 }
+          let!(:proposal2) { create(:proposal, component: component, category: category1) }
+          let!(:proposal3) { create(:proposal, component: component, category: category2) }
+          let!(:proposal4) { create(:proposal, component: component, category: child_category) }
+
+          context "when no category filter is present" do
+            it "includes all proposals" do
+              expect(subject).to match_array [proposal, proposal2, proposal3, proposal4]
+            end
+          end
+
+          context "when a category is selected" do
+            let(:category_ids) { [category2.id] }
+
+            it "includes only proposals for that category and its children" do
+              expect(subject).to match_array [proposal3, proposal4]
+            end
+          end
+
+          context "when a subcategory is selected" do
+            let(:category_ids) { [child_category.id] }
+
+            it "includes only proposals for that category" do
+              expect(subject).to eq [proposal4]
+            end
+          end
+
+          context "when `without` is being sent" do
+            let(:category_ids) { ["without"] }
+
+            it "returns proposals without a category" do
+              expect(subject).to eq [proposal]
+            end
+          end
+
+          context "when `without` and some category id is being sent" do
+            let(:category_ids) { ["without", category1.id] }
+
+            it "returns proposals without a category and with the selected category" do
+              expect(subject).to match_array [proposal, proposal2]
             end
           end
         end

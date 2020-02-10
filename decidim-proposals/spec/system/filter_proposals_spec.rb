@@ -254,14 +254,17 @@ describe "Filter Proposals", type: :system do
 
   context "when filtering proposals by CATEGORY", :slow do
     context "when the user is logged in" do
+      let!(:category2) { create :category, participatory_space: participatory_process }
+      let!(:category3) { create :category, participatory_space: participatory_process }
+      let!(:proposal1) { create(:proposal, component: component, category: category) }
+      let!(:proposal2) { create(:proposal, component: component, category: category2) }
+      let!(:proposal3) { create(:proposal, component: component, category: category3) }
+
       before do
         login_as user, scope: :user
       end
 
-      it "can be filtered by category" do
-        create_list(:proposal, 3, component: component)
-        create(:proposal, component: component, category: category)
-
+      it "can be filtered by a category" do
         visit_component
 
         within ".filters .category_id_chained_check_boxes_filter" do
@@ -270,6 +273,18 @@ describe "Filter Proposals", type: :system do
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
+      end
+
+      it "can be filtered by two categories" do
+        visit_component
+
+        within ".filters .category_id_chained_check_boxes_filter" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
+          check category2.name[I18n.locale.to_s]
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
       end
     end
   end
