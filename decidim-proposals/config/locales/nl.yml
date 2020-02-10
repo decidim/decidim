@@ -350,7 +350,7 @@ nl:
             accepted: Aanvaard
             answer_proposal: Antwoord
             evaluating: Aan het beoordelen
-            rejected: Verworpen
+            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -417,7 +417,7 @@ nl:
             success: De voorstellen succesvol gesplitst in nieuwe.
         shared:
           info_proposal:
-            body: Tekstgedeelte
+            body: Body
             created_at: Aangemaakt op
             proposal_votes_count: Aantal stemmen
             proposals: Voorstellen
