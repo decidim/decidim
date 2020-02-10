@@ -42,6 +42,7 @@ ca:
           against: En contra
           in_favor: A favor
         deleted_user: Participant eliminada
+        hide_replies: Oculta les respostes
         reply: Respondre
         report:
           action: Denúncia
