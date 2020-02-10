@@ -365,6 +365,9 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
+            accepted: Acceptat
+            answer_proposal: Resposta
+            rejected: Rebutjat
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -408,7 +411,16 @@ ca:
             create: Crea
             title: Crea proposta
           show:
+            body: Cos
+            comments_count: Comptador de comentaris
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
             created_at: Data de creació
+            documents: Documents
+            link: Enllaç
+            photos: Fotos
+            proposals: Propostes
             votes_count: Nombre de suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
