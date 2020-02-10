@@ -147,6 +147,7 @@
         new:
           create: Opprett område
         update:
+          error: Det oppstod et problem med å oppdatere dette området.
           success: Området ble oppdatert
       attachment_collections:
         create:
@@ -288,6 +289,8 @@
           fields:
             created_at: Opprettet på
             name: Navn
+        participatory_space_private_user:
+          name: Deltakerområdets private deltaker
         scope:
           fields:
             name: Navn
@@ -331,7 +334,7 @@
           all_users_help: Sender nyhetsbrev til alle bekreftede brukere.
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           deliver: Lever nyhetsbrev
-          followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltaker områdene på listen.
+          followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
           select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
@@ -354,6 +357,8 @@
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
       officializations:
+        destroy:
+          success: Deltaker ble uoffisialisert
         index:
           actions: Handlinger
           badge: Merke
@@ -373,11 +378,11 @@
           active_content_blocks: Aktive innholdsblokker
       participatory_space_private_users:
         create:
-          error: Det oppstod et problem med å legge til en privat deltaker for dette deltaker-området.
-          success: Deltaker område privat deltaker tilgang opprettet.
+          error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
+          success: Deltakerområde privat deltaker tilgang opprettet.
         destroy:
-          error: Det oppstod et problem med å slette en privat deltaker for dette deltaker-området.
-          success: Deltaker område privat deltaker tilgang ødelagt.
+          error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
+          success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
           title: Deltakerområdets private deltaker
         new:
