@@ -284,12 +284,10 @@ de:
         see_all: Alle anzeigen (%{count})
     proposals:
       actions:
-        answer: Antworten
         edit_proposal: Vorschlag bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
         participatory_texts: Partizipative Texte
-        private_notes: Private Notizen
         title: Aktionen
       admin:
         actions:
@@ -333,11 +331,7 @@ de:
           update:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
-          edit:
-            accepted: Angenommen
-            answer_proposal: Antworten
-            evaluating: In Bearbeitung
-            rejected: Abgelehnt
+          form:
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -380,6 +374,9 @@ de:
           new:
             create: Erstellen
             title: Vorschlag erstellen
+          show:
+            created_at: Erstellungsdatum
+            votes_count: Anzahl der Unterstützungen
           update_category:
             invalid: 'Diese Vorschläge hatten bereits die Kategorie %{category} : %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie
@@ -402,12 +399,6 @@ de:
           create:
             invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
-        shared:
-          info_proposal:
-            body: Haupttext
-            created_at: Erstellungsdatum
-            proposal_votes_count: Anzahl der Unterstützungen
-            proposals: Vorschläge
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
