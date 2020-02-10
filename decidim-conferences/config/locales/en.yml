@@ -290,7 +290,7 @@ en:
       admin:
         conference_copies:
           form:
-            slug_help: "URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -332,7 +332,7 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-            slug_help: "URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
+            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
             save: Save
@@ -381,11 +381,11 @@ en:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: "You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:"
+          details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
           details_2: You will find the conference's details in the attachment.
         pending_validation:
           confirmation_pending: You will receive the confirmation shortly
-          details: "You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:"
+          details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
           pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending confirmation.
       conference_registrations:
         create:
@@ -417,7 +417,7 @@ en:
           main_promotors: Organizers
         show:
           login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: "Make your registration in the conference:"
+          make_conference_registration: 'Make your registration in the conference:'
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -471,7 +471,7 @@ en:
           related_photos: Images
       registration_types:
         index:
-          choose_an_option: "Choose your registration option:"
+          choose_an_option: 'Choose your registration option:'
           login_as: You are logged in as %{name} <%{email}>
           register: Register
           title: Registration types
@@ -534,7 +534,7 @@ en:
     log:
       value_types:
         conference_presenter:
-          not_found: "The conference was not found on the database (ID: %{id})"
+          not_found: 'The conference was not found on the database (ID: %{id})'
     media:
       index:
         description: Links about this conference

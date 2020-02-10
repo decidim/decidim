@@ -248,7 +248,7 @@ en:
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             select_parent_assembly: Select parent assembly
-            slug_help: "URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
             visbility: Visibility
@@ -257,7 +257,7 @@ en:
             title: Title
         assembly_copies:
           form:
-            slug_help: "URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -299,7 +299,7 @@ en:
         consultative_advisory: Consultative/Advisory
         executive: Executive
         government: Government
-        help: "Show:"
+        help: 'Show:'
         others: Others
         participatory: Participatory
         working_group: Working group
@@ -329,8 +329,8 @@ en:
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
         is_transparent:
-          "false": opaque
-          "true": transparent
+          'false': opaque
+          'true': transparent
         local_area: Organization area
         participatory_scope: What is decided
         participatory_structure: How is it decided
@@ -372,9 +372,9 @@ en:
     log:
       value_types:
         assembly_presenter:
-          not_found: "The assembly was not found on the database (ID: %{id})"
+          not_found: 'The assembly was not found on the database (ID: %{id})'
         assembly_type_presenter:
-          not_found: "The assembly type was not found on the database (ID: %{id})"
+          not_found: 'The assembly type was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
     metrics:
@@ -392,7 +392,7 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: "Assemblies: "
+          children: 'Assemblies: '
           organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
           reset_chart: Reset
