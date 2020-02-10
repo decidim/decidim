@@ -3,6 +3,10 @@
     <h2 class="card-title">
       <%= link_to "#{t ".proposals"} > ", proposals_path %>
       <%= decidim_html_escape(present(proposal).title).html_safe %>
+
+      <% if allowed_to? :edit, :proposal, proposal: proposal %>
+        <%= icon_link_to "pencil", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+      <% end %>
     </h2>
   </div>
 
