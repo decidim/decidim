@@ -22,8 +22,10 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          assignments = assign_proposals
-          return broadcast(:ok) if assignments.all?(&:persisted?)
+          transaction do
+            assignments = assign_proposals
+            return broadcast(:ok) if assignments.all?(&:persisted?)
+          end
 
           broadcast(:invalid)
         end
@@ -33,10 +35,8 @@ module Decidim
         attr_reader :form
 
         def assign_proposals
-          transaction do
-            form.proposals.flat_map do |proposal|
-              find_assignment(proposal) || assign_proposal(proposal)
-            end
+          form.proposals.flat_map do |proposal|
+            find_assignment(proposal) || assign_proposal(proposal)
           end
         end
 
