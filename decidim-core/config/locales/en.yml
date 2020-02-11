@@ -839,6 +839,8 @@ en:
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
+        direct_messages: Receive direct messages from anyone
+        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.

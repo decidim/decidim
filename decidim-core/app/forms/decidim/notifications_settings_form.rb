@@ -10,11 +10,13 @@ module Decidim
     attribute :newsletter_notifications, Boolean
     attribute :notifications_from_followed, Boolean
     attribute :notifications_from_own_activity, Boolean
+    attribute :allow_public_contact, Boolean
 
     def map_model(user)
       self.newsletter_notifications = user.newsletter_notifications_at.present?
       self.notifications_from_followed = ["all", "followed-only"].include? user.notification_types
       self.notifications_from_own_activity = ["all", "own-only"].include? user.notification_types
+      self.allow_public_contact = user.direct_message_types == "all"
     end
 
     def newsletter_notifications_at
@@ -33,6 +35,11 @@ module Decidim
       else
         "none"
       end
+    end
+
+    def direct_message_types
+      return "all" if allow_public_contact
+      "followed-only"
     end
   end
 end
