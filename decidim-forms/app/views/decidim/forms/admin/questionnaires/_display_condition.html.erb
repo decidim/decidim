@@ -20,7 +20,7 @@
           questionnaire.questions.previous_to(question.position).map { |question| [question.translated_body, question.id, { 'data-type' => question.question_type} ] },
           { prompt: t(".select_condition_question") },
           disabled: !editable,
-          data: { url: "provisional" }
+          data: { url: answer_options_url }
         )
       %>
     </div>

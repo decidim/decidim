@@ -15,7 +15,7 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_display_condition, :question_types, :display_condition_types, :update_url
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_display_condition, :question_types, :display_condition_types, :update_url, :answer_options_url
 
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
@@ -46,6 +46,17 @@ module Decidim
               end
             end
 
+            def answer_options
+              # TODO: enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
+              respond_to do |format|
+                format.json do
+                  question_id = params["id"]
+                  question = Question.find_by(id: question_id)
+                  render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).json }
+                end
+              end
+            end
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for
@@ -62,6 +73,11 @@ module Decidim
             # where the user will be redirected after updating the questionnaire
             def after_update_url
               url_for(questionnaire.questionnaire_for)
+            end
+
+            # TODO: Doc
+            def answer_options_url
+              url_for([questionnaire.questionnaire_for, action: :answer_options, format: :json]) 
             end
 
             private
