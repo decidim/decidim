@@ -200,6 +200,7 @@
           invite:
             decline: Avvis invitasjon '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+            registration: Påmelding til '%{conference_title}'
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
