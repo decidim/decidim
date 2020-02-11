@@ -22,6 +22,7 @@
           error: Det oppstod et problem med å publisere denne konsultasjonen.
         destroy:
           error: Det oppstod et problem med å avpublisere denne konsultasjonen.
+          success: Konsultasjonen ble avpublisert.
       consultation_results_publications:
         create:
           error: Det oppstod et problem med å publisere resultatene for denne konsultasjonen.
