@@ -146,6 +146,7 @@
       sms:
         authorizations:
           create:
+            error: Det oppstod et problem med forespørselen din
             success: Takk! Vi har sendt en melding til telefonen din.
           destroy:
             success: Verifiseringskode vellykket tilbakestilt. Vennligst legg inn telefonnummeret ditt på nytt.
