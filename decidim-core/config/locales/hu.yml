@@ -996,8 +996,8 @@ hu:
         unfold: Kibont
       results:
         results:
-          one: "%{count} eredmény"
-          other: "%{count} eredmény"
+          one: "%{count} találat"
+          other: "%{count} eredmények"
         view_all: Összes megtekintése (%{count})
     shared:
       embed_modal:
