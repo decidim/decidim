@@ -95,6 +95,10 @@ module Decidim
 
           components_follows + spaces_follows
         end
+
+        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_process)
+        end
       end
 
       initializer "decidim_participatory_processes.register_metrics" do

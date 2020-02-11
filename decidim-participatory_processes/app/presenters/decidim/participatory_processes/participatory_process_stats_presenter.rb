@@ -7,55 +7,50 @@ module Decidim
       attribute :participatory_process, Decidim::ParticipatoryProcess
       include Decidim::IconHelper
 
-      # Public: Render a collection of primary stats.
-      def highlighted
-        highlighted_stats = process_stats(priority: StatsRegistry::HIGH_PRIORITY)
+      # Public: returns a collection of stats (Hash) for the Process Home.
+      def collection
+        highlighted_stats = process_participants_stats
+        highlighted_stats = highlighted_stats.concat(process_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
         highlighted_stats = highlighted_stats.reject(&:empty?)
-        highlighted_stats = highlighted_stats.reject { |_manifest, _name, data| data.zero? }
-        grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name }
+        highlighted_stats = highlighted_stats.reject { |_stat_manifest, _stat_title, stat_number| stat_number.zero? }
+        grouped_highlighted_stats = highlighted_stats.group_by(&:first)
 
-        safe_join(
-          grouped_highlighted_stats.map do |_manifest_name, stats|
-            safe_join(
-              stats.each_with_index.map do |stat, index|
-                stat.each_with_index.map do |_item, subindex|
-                  next unless (subindex % 3).zero?
+        statistics = []
+        grouped_highlighted_stats.each do |_manifest_name, stats|
+          stats.each_with_index.each do |stat, _index|
+            stat.each_with_index.map do |_item, subindex|
+              next unless (subindex % 3).zero?
 
-                  render_stats_data(stat[subindex], stat[subindex + 1], stat[subindex + 2], (index + subindex))
-                end
-              end
-            )
+              statistics << { stat_title: stat[subindex + 1], stat_number: stat[subindex + 2] }
+            end
           end
-        )
+        end
+        statistics
       end
 
       private
+
+      def process_participants_stats
+        Decidim.stats.only([:participants_count]).with_context(participatory_process)
+               .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }
+      end
 
       def component_stats(conditions)
         Decidim.component_manifests.map do |component_manifest|
           component_manifest.stats.except([:proposals_accepted])
                             .filter(conditions)
                             .with_context(published_components)
-                            .map { |name, data| [component_manifest, name, data] }.flatten
+                            .map { |stat_title, stat_number| [component_manifest.name, stat_title, stat_number] }.flatten
         end
       end
 
-      def process_stats(conditions)
+      def process_followers_stats(conditions)
         Decidim.stats.only([:followers_count])
                .filter(conditions)
                .with_context(participatory_process)
-               .map { |name, data| [participatory_process.manifest, name, data] }
-      end
-
-      def render_stats_data(_component_manifest, name, data, _index)
-        content_tag :div, class: "process-stats__data" do
-          safe_join([
-                      content_tag(:span, number_with_delimiter(data), class: "process-stats__number"),
-                      content_tag(:h4, t(name, scope: "decidim.participatory_processes.statistics"), class: "process-stats__title")
-                    ])
-        end
+               .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }
       end
 
       def published_components
