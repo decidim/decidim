@@ -15,6 +15,7 @@
   
   const displayConditionQuestionSelector = "select[name$=\\[condition_question\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
+  const displayConditionAnswerOptionSelector = "select[name$=\\[answer_option\\]]";
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
   const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
@@ -64,12 +65,24 @@
   const setupDisplayConditionInputs = ($field) => {
     const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
     const $questionSelect = $field.find(displayConditionQuestionSelector);
+    const $answerOptionSelect = $field.find(displayConditionAnswerOptionSelector);
 
     const url = $questionSelect.data("url");
     
     $questionSelect.on("change", (event) => {
       const questionId = event.target.value;
-      $.getJSON(url, { id: questionId }, (data) => { console.log(data); } );
+
+      $.getJSON(
+        url,
+        { id: questionId },
+        function(data) {
+          $answerOptionSelect.find("option").remove();
+
+          data.forEach((answerOption) => {
+            $(`<option value="${answerOption.id}">${answerOption.body}</option>`).appendTo($answerOptionSelect);
+          });
+        }
+      );
     });
 
     /* Create value input for display condition */

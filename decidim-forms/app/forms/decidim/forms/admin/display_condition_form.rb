@@ -27,12 +27,14 @@ module Decidim
         validate :condition_question_position
         validate :valid_answer_option?
 
-        delegate :answer_options, to: :condition_question
-
         def to_param
           return id if id.present?
 
           "questionnaire-display-condition-id"
+        end
+
+        def answer_options
+          condition_question&.answer_options || []
         end
 
         private

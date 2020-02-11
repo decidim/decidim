@@ -35,7 +35,7 @@
       %>
     </div>
     <div class="row column questionnaire-question-display-condition-answer-option">
-      <%#
+      <%=
         form.select(
           :answer_option,
           options_from_collection_for_select(display_condition.answer_options, :first, :last, display_condition.answer_option),
