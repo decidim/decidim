@@ -19,20 +19,20 @@ module Decidim
             component: component,
             activity: activity,
             search_text: search_text,
-            state: state,
-            origin: origin,
+            state: states,
+            origin: origins,
             related_to: related_to,
-            scope_id: scope_id,
+            scope_id: scope_ids,
             current_user: user
           ).results
         end
 
         let(:activity) { [] }
         let(:search_text) { nil }
-        let(:origin) { nil }
+        let(:origins) { nil }
         let(:related_to) { nil }
-        let(:state) { "not_withdrawn" }
-        let(:scope_id) { nil }
+        let(:states) { %w(all) }
+        let(:scope_ids) { nil }
 
         it "only includes proposals from the given component" do
           other_proposal = create(:proposal)
@@ -79,7 +79,7 @@ module Decidim
 
         describe "origin filter" do
           context "when filtering official proposals" do
-            let(:origin) { "official" }
+            let(:origins) { %w(official) }
 
             it "returns only official proposals" do
               official_proposals = create_list(:proposal, 3, :official, component: component)
@@ -91,7 +91,7 @@ module Decidim
           end
 
           context "when filtering citizen proposals" do
-            let(:origin) { "citizens" }
+            let(:origins) { %w(citizens) }
             let(:another_user) { create(:user, organization: component.organization) }
 
             it "returns only citizen proposals" do
@@ -106,7 +106,7 @@ module Decidim
           end
 
           context "when filtering user groups proposals" do
-            let(:origin) { "user_group" }
+            let(:origins) { %w(user_group) }
             let(:user_group) { create :user_group, :verified, users: [user], organization: user.organization }
 
             it "returns only user groups proposals" do
@@ -121,7 +121,7 @@ module Decidim
           end
 
           context "when filtering meetings proposals" do
-            let(:origin) { "meeting" }
+            let(:origins) { %w(meeting) }
             let(:meeting) { create :meeting }
 
             it "returns only meeting proposals" do
@@ -147,7 +147,7 @@ module Decidim
           end
 
           context "when filtering :except_rejected proposals" do
-            let(:state) { "except_rejected" }
+            let(:states) { %w(accepted evaluating not_answered) }
 
             it "hides withdrawn and rejected proposals" do
               create(:proposal, :withdrawn, component: component)
@@ -160,7 +160,7 @@ module Decidim
           end
 
           context "when filtering accepted proposals" do
-            let(:state) { "accepted" }
+            let(:states) { %w(accepted) }
 
             it "returns only accepted proposals" do
               accepted_proposals = create_list(:proposal, 3, :accepted, component: component)
@@ -172,7 +172,7 @@ module Decidim
           end
 
           context "when filtering rejected proposals" do
-            let(:state) { "rejected" }
+            let(:states) { %w(rejected) }
 
             it "returns only rejected proposals" do
               create_list(:proposal, 3, component: component)
@@ -184,7 +184,7 @@ module Decidim
           end
 
           context "when filtering withdrawn proposals" do
-            let(:state) { "withdrawn" }
+            let(:states) { %w(withdrawn) }
 
             it "returns only withdrawn proposals" do
               create_list(:proposal, 3, component: component)
@@ -201,7 +201,7 @@ module Decidim
           let!(:proposal3) { create(:proposal, component: component, scope: subscope1) }
 
           context "when a parent scope id is being sent" do
-            let(:scope_id) { scope1.id }
+            let(:scope_ids) { [scope1.id] }
 
             it "filters proposals by scope" do
               expect(subject).to match_array [proposal, proposal3]
@@ -209,7 +209,7 @@ module Decidim
           end
 
           context "when a subscope id is being sent" do
-            let(:scope_id) { subscope1.id }
+            let(:scope_ids) { [subscope1.id] }
 
             it "filters proposals by scope" do
               expect(subject).to eq [proposal3]
@@ -217,7 +217,7 @@ module Decidim
           end
 
           context "when multiple ids are sent" do
-            let(:scope_id) { [scope2.id, scope1.id] }
+            let(:scope_ids) { [scope2.id, scope1.id] }
 
             it "filters proposals by scope" do
               expect(subject).to match_array [proposal, proposal2, proposal3]
@@ -226,7 +226,7 @@ module Decidim
 
           context "when `global` is being sent" do
             let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
-            let(:scope_id) { ["global"] }
+            let(:scope_ids) { ["global"] }
 
             it "returns proposals without a scope" do
               expect(subject).to eq [resource_without_scope]
@@ -235,7 +235,7 @@ module Decidim
 
           context "when `global` and some ids is being sent" do
             let!(:resource_without_scope) { create(:proposal, component: component, scope: nil) }
-            let(:scope_id) { ["global", scope2.id, scope1.id] }
+            let(:scope_ids) { ["global", scope2.id, scope1.id] }
 
             it "returns proposals without a scope and with selected scopes" do
               expect(subject).to match_array [resource_without_scope, proposal, proposal2, proposal3]
