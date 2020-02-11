@@ -70,19 +70,21 @@
     const url = $questionSelect.data("url");
     
     $questionSelect.on("change", (event) => {
-      const questionId = event.target.value;
+      const select = event.target;
+      const questionId = select.value;
+      const questionType = getSelectedQuestionType(select);
 
-      $.getJSON(
-        url,
-        { id: questionId },
-        function(data) {
-          $answerOptionSelect.find("option").remove();
+      if (isMultipleChoiceOption(questionType)) {
+        
+        $.getJSON(url, { id: questionId }, function(data) {
+            $answerOptionSelect.find("option:not(:first-child)").remove();
 
-          data.forEach((answerOption) => {
-            $(`<option value="${answerOption.id}">${answerOption.body}</option>`).appendTo($answerOptionSelect);
-          });
-        }
-      );
+            data.forEach((answerOption) => {
+              $(`<option value="${answerOption.id}">${answerOption.body}</option>`).appendTo($answerOptionSelect);
+            });
+          }
+        );
+      }
     });
 
     /* Create value input for display condition */
@@ -103,7 +105,10 @@
       dependentFieldsSelector: conditionAnswerOptionWrapperSelector,
       dependentInputSelector: "select",
       enablingCondition: ($field) => {
-        return $field.val() === "equal" || $field.val() === "not_equal"
+        const $questionSelector = $conditionTypeSelect.parents(displayConditionFieldSelector).find(displayConditionQuestionSelector);
+        const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
+
+        return isMultipleChoiceOption(selectedQuestionType) && $field.val() === "equal" || $field.val() === "not_equal"
       }
     });
 
@@ -151,10 +156,13 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
-  const isMultipleChoiceOption = ($selectField) => {
-    const value = $selectField.val();
-
+  const isMultipleChoiceOption = (value) => {
     return value === "single_option" || value === "multiple_option" || value === "sorting"
+  }
+
+  const getSelectedQuestionType = (select) => {
+    const selectedOption = select.options[select.selectedIndex];
+    return $(selectedOption).data("type");
   }
 
   const setupInitialQuestionAttributes = ($target) => {
@@ -167,7 +175,7 @@
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
       enablingCondition: ($field) => {
-        return isMultipleChoiceOption($field);
+        return isMultipleChoiceOption($field.val());
       }
     });
 
@@ -187,7 +195,7 @@
     const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
 
     const onQuestionTypeChange = () => {
-      if (isMultipleChoiceOption($fieldQuestionTypeSelect)) {
+      if (isMultipleChoiceOption($fieldQuestionTypeSelect.val())) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {
