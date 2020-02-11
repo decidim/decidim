@@ -343,6 +343,8 @@
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
       officializations:
+        create:
+          success: Deltaker ble offisiell
         destroy:
           success: Deltaker ble uoffisialisert
         index:
