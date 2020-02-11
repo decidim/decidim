@@ -21,8 +21,8 @@
       <% if collection.node.present? %>
         <button type="button" aria-label="show/hide" data-toggle="<%= data_sub_checkboxes_id %> <%= data_sub_checkboxes_id %>-trigger">
           <span id="<%= data_sub_checkboxes_id %>-trigger" data-toggler=".filters__is-open">
-            <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-top" %></span>
-            <span class="filters__icon-is-open" aria-hidden="true"><%= icon "chevron-bottom" %></span>
+            <span class="filters__icon-is-closed" aria-hidden="true"><%= icon "chevron-bottom" %></span>
+            <span class="filters__icon-is-open" aria-hidden="true"><%= icon "chevron-top" %></span>
           </span>
         </button>
       <% end %>
