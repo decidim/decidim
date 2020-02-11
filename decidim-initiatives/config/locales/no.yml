@@ -246,6 +246,7 @@
         creation_subject: Initiativet ditt '%{title}' er opprettet
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
+        progress_report_for: 'Sammendrag om initiativet: %{title}'
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
         status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
         status_change_for: Initiativet %{title} har endret sin status
