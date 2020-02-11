@@ -21,7 +21,7 @@ describe "Valuator manages proposals", type: :system do
 
   before do
     user.admin = false
-    admin.save
+    user.save
 
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role
