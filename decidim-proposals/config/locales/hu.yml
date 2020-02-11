@@ -320,6 +320,7 @@ hu:
         import: Importálás egy másik elemből
         new: Új javaslat
         participatory_texts: Részvételi szövegek
+        show: Javaslat megtekintése
         title: Műveletek
       admin:
         actions:
@@ -365,6 +366,10 @@ hu:
             success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
           form:
+            accepted: Elfogadva
+            answer_proposal: Válasz
+            evaluating: Értékelés alatt
+            rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
           create:
@@ -408,7 +413,23 @@ hu:
             create: Létrehozás
             title: Javaslat létrehozása
           show:
+            amendments_count: Módosítás száma (%{count}
+            authors: Szerzők
+            body: Szöveg
+            comments_count: Hozzászólások száma
+            comments_negative_count: Ellene
+            comments_neutral_count: Semleges
+            comments_positive_count: Kedvenc
             created_at: Létrehozás dátuma
+            documents: Dokumentumok
+            endorsers: Támogatók
+            link: Link
+            n_more_endorsers:
+              one: és még egy
+              other: és még %{count}
+            photos: Fotók
+            proposals: Javaslatok
+            related_meetings: Kapcsolódó találkozók
             votes_count: Támogatók száma
           update_category:
             invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
