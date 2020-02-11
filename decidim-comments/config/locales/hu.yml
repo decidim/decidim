@@ -42,6 +42,7 @@ hu:
           against: Ellenzem
           in_favor: Támogatom
         deleted_user: Törölt felhasználó
+        hide_replies: Válaszok elrejtése
         reply: Válasz
         report:
           action: Jelentés
@@ -54,6 +55,7 @@ hu:
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Jelentem a problémát
+        show_replies: '%{replies_count} válasz mutatása'
         single_comment_link_title: Link a kommenthez
       comment_order_selector:
         order:
