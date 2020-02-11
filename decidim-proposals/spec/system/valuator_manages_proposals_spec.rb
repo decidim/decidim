@@ -20,7 +20,8 @@ describe "Valuator manages proposals", type: :system do
   include_context "when managing a component as an admin"
 
   before do
-    user.update_attribute(:admin, false)
+    user.admin = false
+    admin.save
 
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role
