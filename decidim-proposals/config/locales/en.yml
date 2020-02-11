@@ -40,7 +40,7 @@ en:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              invalid_document_type: "Invalid document type. Accepted formats are: %{valid_mime_types}"
         proposal:
           attributes:
             attachment:
@@ -84,8 +84,8 @@ en:
         is_emendation_true:
           label: Type
           values:
-            'false': Proposals
-            'true': Amendments
+            "false": Proposals
+            "true": Amendments
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
         state_eq:
@@ -95,7 +95,7 @@ en:
         state_null:
           label: Status
           values:
-            'true': Not answered
+            "true": Not answered
         valuator_role_ids_eq:
           label: Assigned to valuator
     components:
@@ -191,12 +191,12 @@ en:
           email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
-          email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
+          email_intro: "You can now create new proposals in %{participatory_space_title}! Start participating in this page:"
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
           notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
+          email_intro: "You can endorse proposals in %{participatory_space_title}! Start participating in this page:"
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals endorsing has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -259,7 +259,7 @@ en:
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
         voting_enabled:
-          email_intro: 'You can support proposals in %{participatory_space_title}! Start participating in this page:'
+          email_intro: "You can support proposals in %{participatory_space_title}! Start participating in this page:"
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposal support has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">supporting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -267,8 +267,8 @@ en:
       badges:
         accepted_proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This participant had %{score} accepted proposals.
           description_own: You got %{score} proposals accepted.
@@ -278,8 +278,8 @@ en:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-          - Browse and spend some time reading other people's proposals
-          - Give support to the proposals you like or find interesting
+            - Browse and spend some time reading other people's proposals
+            - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This participant has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -289,8 +289,8 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-          - Choose the participation space of your interest with submission for proposals enabled
-          - Create a new proposal
+            - Choose the participation space of your interest with submission for proposals enabled
+            - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This participant has created %{score} proposals.
           description_own: You have created %{score} proposals.
@@ -360,7 +360,7 @@ en:
               md: Markdown
               odt: Odt
             bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}'
+            document_legend: "Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}"
             title: ADD DOCUMENT
             upload_document: Upload document
           publish:
@@ -448,10 +448,10 @@ en:
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
-            invalid: 'These proposals already had the %{category} category: %{proposals}.'
+            invalid: "These proposals already had the %{category} category: %{proposals}."
             select_a_category: Please select a category
             select_a_proposal: Please select a proposal
-            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
+            success: "Proposals successfully updated to the %{category} category: %{proposals}."
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals
@@ -469,12 +469,6 @@ en:
           create:
             invalid: There was a problem spliting the selected proposals.
             success: Successfully splitted the proposals into new ones.
-        shared:
-          info_proposal:
-            body: Body
-            created_at: Creation date
-            proposal_votes_count: Supports count
-            proposals: Proposals
         valuation_assignments:
           create:
             invalid: There was an error assigning proposals to a valuator
@@ -580,7 +574,7 @@ en:
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
-          label: 'Order drafts by:'
+          label: "Order drafts by:"
           most_contributed: Most contributed
           random: Random
           recent: Recent
@@ -744,7 +738,7 @@ en:
           send: Continue
           title: Create Your Proposal
         orders:
-          label: 'Order proposals by:'
+          label: "Order proposals by:"
           most_commented: Most commented
           most_endorsed: Most endorsed
           most_followed: Most followed
@@ -765,7 +759,7 @@ en:
           publish: Publish
           title: Publish your proposal
         proposal:
-          creation_date: 'Creation: %{date}'
+          creation_date: "Creation: %{date}"
           view_proposal: View proposal
         show:
           back_to: Back to
@@ -782,7 +776,7 @@ en:
           link_to_promoted_emendation_text: See the rejected emendation.
           link_to_proposal_from_emendation_help_text: This is a rejected emendation
           link_to_proposal_from_emendation_text: See the Proposal
-          proposal_accepted_reason: 'This proposal has been accepted because:'
+          proposal_accepted_reason: "This proposal has been accepted because:"
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: "This proposal has been rejected because:"
           read_less: Read less
@@ -817,7 +811,7 @@ en:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
             description: In order to be validated proposals need to reach %{limit} supports
-          title: 'Supports are subject to the following rules:'
+          title: "Supports are subject to the following rules:"
           vote_limit:
             description: You can support up to %{limit} proposals.
             left: Remaining
@@ -863,7 +857,7 @@ en:
       copied_from_component:
         proposal_proposal: Related proposals
       included_projects:
-        project_result: 'Results appearing in this project:'
+        project_result: "Results appearing in this project:"
       included_proposals:
-        proposal_project: 'Proposal appearing in these projects:'
-        proposal_result: 'Proposal appearing in these results:'
+        proposal_project: "Proposal appearing in these projects:"
+        proposal_result: "Proposal appearing in these results:"
