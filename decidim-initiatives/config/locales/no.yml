@@ -98,6 +98,8 @@
           create:
             error: Det oppstod en feil
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
+          destroy:
+            success: Omfanget ble fjernet
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
@@ -105,6 +107,7 @@
             back: Tilbake
           update:
             error: Det oppstod en feil
+            success: Omfanget ble oppdatert
         initiatives_types:
           create:
             error: Det oppstod en feil
