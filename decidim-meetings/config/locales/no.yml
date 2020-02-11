@@ -247,3 +247,4 @@
           success: Du har avslått invitasjonen.
         destroy:
           invalid: Det oppstod et problem med å forlate dette møtet.
+          success: Du har forlatt møtet.
