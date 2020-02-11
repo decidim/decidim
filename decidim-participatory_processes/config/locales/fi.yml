@@ -78,7 +78,7 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         filter:
-          all: Näytä kaikki prosessit
+          all_processes: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
         import_process: Tuo
         new_process: Uusi prosessi

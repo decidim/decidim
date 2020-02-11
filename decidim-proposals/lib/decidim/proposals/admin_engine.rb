@@ -10,7 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :proposals, only: [:index, :new, :create, :edit, :update] do
+        resources :proposals, only: [:show, :index, :new, :create, :edit, :update] do
           post :update_category, on: :collection
           collection do
             resource :proposals_import, only: [:new, :create]
@@ -18,7 +18,7 @@ module Decidim
             resource :proposals_split, only: [:create]
           end
           resources :proposal_answers, only: [:edit, :update]
-          resources :proposal_notes, only: [:index, :create]
+          resources :proposal_notes, only: [:create]
         end
 
         resources :participatory_texts, only: [:index] do

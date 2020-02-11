@@ -6,6 +6,7 @@ Decidim.register_component(:sortitions) do |component|
   component.icon = "decidim/sortitions/icon.svg"
   # component.stylesheet = "decidim/sortitions/sortitions"
   component.permissions_class_name = "Decidim::Sortitions::Permissions"
+  component.query_type = "Decidim::Sortitions::SortitionsType"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Sortitions::Sortition.where(component: instance).any?

@@ -18,7 +18,7 @@ nl:
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Groep van processen
-        participatory_scope: Wat wordt besloten
+        participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
@@ -78,7 +78,7 @@ nl:
         duplicate: Dupliceren
         edit: Bewerken
         filter:
-          all: Toon alle processen
+          all_processes: Toon alle processen
           process_groups: Procesgroepen
         import_process: Importeren
         new_process: Nieuw proces
@@ -152,7 +152,7 @@ nl:
           create: Creëren
           title: Nieuwe groep
         update:
-          error: Er was een fout bij het bijwerken van deze participatief procesgroep.
+          error: Er is een fout opgetreden bij het bijwerken van deze participatief procesgroep.
           success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_imports:
         create:
@@ -216,7 +216,7 @@ nl:
       participatory_processes:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
-          success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
+          success: Participatief proces is succesvol gecreëerd. Configureer nu de stappen.
         edit:
           update: Bijwerken
         index:
@@ -232,7 +232,7 @@ nl:
           success: Participatief proces succesvol bijgewerkt.
       participatory_processes_copies:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          error: Er is een fout opgetreden bij het dupliceren van dit participatief proces.
           success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
@@ -256,13 +256,13 @@ nl:
         update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} het inspraakproces geactiveerd"
-        create: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak geactiveerd"
-        delete: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak verwijderd"
-        update: "%{user_name} heeft de %{resource_name} stap in de %{space_name} burgerinspraak bijgewerkt"
+        create: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces geactiveerd"
+        delete: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces verwijderd"
+        update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces bijgewerkt"
       participatory_process_user_role:
-        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor de %{space_name} burgerinspraak"
-        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd van de %{space_name} burgerinspraak"
-        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in de %{space_name} burgerinspraak"
+        create: "%{user_name} nodigde gebruiker %{resource_name} uit voor het%{space_name} participatief proces"
+        delete: "%{user_name} heeft gebruiker %{resource_name} verwijderd uit het %{space_name} participatief proces"
+        update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in het %{space_name} participatief proces"
     events:
       participatory_process:
         step_activated:
@@ -271,7 +271,7 @@ nl:
           email_subject: Een update naar %{participatory_space_title}
           notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk het hier:'
+          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk ze hier:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
           email_subject: Een update op %{participatory_space_title} werd uitgevoerd
           notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
@@ -312,7 +312,7 @@ nl:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gebruik hier gedeeltelijke paden, niet volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
+            cta_path_help: 'Gebruik hier gedeeltelijke paden, geen volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
             cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:

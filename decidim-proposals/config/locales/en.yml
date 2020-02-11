@@ -43,6 +43,7 @@ en:
             attachment:
               needs_to_be_reattached: Needs to be reattached
             body:
+              cant_be_equal_to_template: cannot be equal to the template
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
@@ -75,6 +76,23 @@ en:
         one: Support
         other: Supports
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Type
+          values:
+            'false': Proposals
+            'true': Amendments
+        search_placeholder:
+          id_string_or_title_cont: Search %{collection} by ID or title.
+        state_eq:
+          values:
+            evaluating: Evaluating
+            withdrawn: Withdrawn
+        state_null:
+          label: Status
+          values:
+            'true': Not answered
     components:
       proposals:
         actions:
@@ -96,6 +114,8 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
+            new_proposal_body_template: New proposal body template
+            new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             participatory_texts_disabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
@@ -297,12 +317,11 @@ en:
         see_all: See all (%{count})
     proposals:
       actions:
-        answer: Answer
         edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal
         participatory_texts: Participatory texts
-        private_notes: Private notes
+        show: Show proposal
         title: Actions
       admin:
         actions:
@@ -347,7 +366,7 @@ en:
           update:
             success: Participatory text successfully updated.
         proposal_answers:
-          edit:
+          form:
             accepted: Accepted
             answer_proposal: Answer
             evaluating: Evaluating
@@ -394,6 +413,29 @@ en:
           new:
             create: Create
             title: Create proposal
+          show:
+            amendments_count: Amendments count
+            authors: Authors
+            body: Body
+            comments_count: Comments count
+            comments_negative_count: Against
+            comments_neutral_count: Neutral
+            comments_positive_count: Favor
+            created_at: Creation date
+            documents: Documents
+            endorsements_count: Endorsements count
+            endorsements_ranking: Ranking by endorsements
+            endorsers: Endorsers
+            link: Link
+            n_more_endorsers:
+              one: and 1 more
+              other: and %{count} more
+            photos: Photos
+            proposals: Proposals
+            ranking: "%{ranking} of %{total}"
+            related_meetings: Related meetings
+            votes_count: Supports count
+            votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{category} category: %{proposals}.'
             select_a_category: Please select a category
@@ -416,12 +458,6 @@ en:
           create:
             invalid: There was a problem spliting the selected proposals.
             success: Successfully splitted the proposals into new ones.
-        shared:
-          info_proposal:
-            body: Body
-            created_at: Creation date
-            proposal_votes_count: Supports count
-            proposals: Proposals
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -653,8 +689,10 @@ en:
           my_proposals: My proposals
           origin: Origin
           related_to: Related to
+          scope: Scope
           search: Search
           state: Status
+          type: Type
           voted: Supported
         filters_small_view:
           close_modal: Close modal
@@ -720,7 +758,6 @@ en:
           withdraw_proposal: Withdraw proposal
         tags:
           changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
-          filed_as: Filed as
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support

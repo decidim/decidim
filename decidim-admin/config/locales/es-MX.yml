@@ -512,18 +512,12 @@ es-MX:
           actions: Acciones
           badge: Distintivo
           created_at: Creado el
-          filter:
-            all: Todas
-            not_officialized: No oficializado
-            officialized: Oficializado
-          filter_by: Filtrado por
           name: Nombre
           nickname: Apodo
           not_officialized: No oficializado
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Re-oficializar
-          search: Buscar
           status: Estado
           unofficialize: Des-oficializar
         new:

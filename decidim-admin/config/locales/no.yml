@@ -39,6 +39,8 @@
         address: SMTP vertsnavn
         alert_color: Varsel
         badges_enabled: Aktiver merker
+        cta_button_path: Kall til Handlingsknappens vei
+        cta_button_text: Kall til Handlingsknappens tekst
         customize_welcome_notification: Tilpass dine velkomst varsler
         default_locale: Standard språk
         description: Beskrivelse
@@ -91,6 +93,7 @@
         organization: Organisasjon
         title: Tittel
       static_page_topic:
+        description: Beskrivelse
         title: Tittel
     errors:
       models:
@@ -103,18 +106,24 @@
   activerecord:
     attributes:
       decidim/static_page:
+        content: Innhold
         title: Tittel
       doorkeeper/application:
         authorize_url: Autoriser URL
+        client_id: Klient ID
+        client_secret: Klient Hemmlighet
   decidim:
     admin:
       actions:
         add: Legg til
+        browse: Bla gjennom
       area_types:
         create:
           success: Områdetype ble opprettet.
         destroy:
           success: Områdetype ble ødelagt
+        new:
+          create: Opprett område type
         update:
           success: Områdetype ble oppdatert
       areas:
@@ -123,11 +132,16 @@
         destroy:
           has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
           success: Området ble ødelagt
+        new:
+          create: Opprett område
         update:
           success: Området ble oppdatert
       attachment_collections:
         index:
+          attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
           attachment_collections_title: Vedleggsmapper
+        new:
+          create: Opprett
       attachments:
         create:
           error: Det oppsto et problem med å opprette et nytt vedlegg.
@@ -145,32 +159,78 @@
         update:
           error: Det oppsto et problem med å oppdatere dette vedlegget.
           success: Vedlegg ble oppdatert.
+      categories:
+        create:
+          success: Kategorien opprettet.
+        destroy:
+          error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
+          success: Kategorien slettet.
+        index:
+          categories_title: Kategorier
+          category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
+        new:
+          create: Opprett kategori
+        update:
+          success: Kategorien oppdatert.
+      component_permissions:
+        update:
+          error: Det oppstod et problem med å oppdatere tillatelsene til dette komponentet.
       components:
+        create:
+          success: Komponent ble opprettet.
+        destroy:
+          success: Komponent ble slettet.
+        form:
+          default_step_settings: Standard trinn innstillinger
         index:
           add: Legg til komponent
           headers:
             actions: Handlinger
+            name: Komponentnavn
+            type: Komponenttype
         new:
           add: Legg til komponent
           title: 'Legg til komponent: %{name}'
+        title: Komponenter
+        unpublish:
+          success: Komponentet har blitt avpublisert.
+      dashboard:
+        show:
+          welcome: Velkommen til Decidim administrator Panel.
       exports:
         export_as: "%{name} som %{export_format}"
+        notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       impersonatable_users:
         index:
           filter:
             all: Alle
           name: Navn
+          needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
           status: Status
       impersonations:
+        close_session:
+          error: Det oppstod et problem med å lukke den gjeldene deltaker-styringsøkten.
+          success: Den nåværende etterligningsøkten er avsluttet.
+        create:
+          success: Den administrerte deltakeren ble opprettet.
         form:
           authorization_method: Autoriseringsmetode
           name: Navn
+      managed_users:
+        promotion:
+          error: Det oppstod et problem med å promotere den administrerte deltakeren.
+          success: Den administrerte deltakeren ble promotert.
+        promotions:
+          new:
+            explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
       menu:
         admin_log: Admin aktivitet logg
         admins: Adminer
         appearance: Utseende
         area_types: Områdetyper
         areas: Områder
+        configuration: Konfigurasjon
+        dashboard: Skrivebord
         static_pages: Sider
       models:
         area:
@@ -188,9 +248,13 @@
           name: Kategori
         impersonation_log:
           fields:
-            admin: Admin
+            admin: Administrator
+        newsletter:
+          fields:
+            created_at: Opprettet på
         oauth_application:
           fields:
+            created_at: Opprettet på
             name: Navn
         scope:
           fields:
@@ -200,18 +264,28 @@
             name: Navn
         static_page:
           fields:
+            created_at: Opprettet på
             title: Tittel
         user:
           fields:
+            created_at: Opprettelsesdato
             email: Epost
             name: Navn
             roles:
-              admin: Admin
+              admin: Administrator
         user_group:
           fields:
             actions: Handlinger
+            created_at: Opprettet på
+            document_number: Dokumentnummer
             name: Navn
       newsletters:
+        create:
+          success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
+        destroy:
+          error_already_sent: 'Kan ikke ødelegge nyhetsbrevet: Det er allerede sendt.'
+        form:
+          interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
         index:
           all: alle
           all_users: 'Alle brukere '
@@ -220,11 +294,20 @@
         select_recipients_to_deliver:
           all_spaces: Alle
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
+          deliver: Lever nyhetsbrev
+          followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltaker områdene på listen.
+          participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltaker områdene på listen.
+          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
+          select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
+          select_users: Velg hvilke brukere du vil sende nyhetsbrevet
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
+        update:
+          success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       oauth_applications:
         create:
           success: Søknaden ble opprettet.
         destroy:
+          error: Det oppstod et problem med å ødelegge denne applikasjonen.
           success: Søknaden ble ødelagt.
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
@@ -234,29 +317,84 @@
         index:
           actions: Handlinger
           badge: Merke
-          filter:
-            all: Alle
+          created_at: Opprette På
           name: Navn
           status: Status
+      organization_appearance:
+        form:
+          cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
+          cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
+          header_snippets_help: "Bruk dette feltet til å legge til ting i HTML head. Den vanligste bruken er å integrere tredjeparts tjenester som krever litt ekstra JavaScript eller CSS. Du kan også bruke den til å legge til ekstra meta tags til HTML. Merk at dette bare blir gjengitt på offentlige sider, ikke i \nadministrator seksjonen."
       organization_homepage:
         edit:
           active_content_blocks: Aktive innholdsblokker
+      participatory_space_private_users:
+        create:
+          error: Det oppstod et problem med å legge til en privat deltaker for dette deltaker-området.
+          success: Deltaker område privat deltaker tilgang opprettet.
+        destroy:
+          error: Det oppstod et problem med å slette en privat deltaker for dette deltaker-området.
+          success: Deltaker område privat deltaker tilgang ødelagt.
+        new:
+          create: Opprett
+      participatory_space_private_users_csv_imports:
+        create:
+          success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
+        new:
+          explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltaker området, uten overskrifter.
+      scope_types:
+        new:
+          create: Opprett omfang type
+      scopes:
+        new:
+          create: Opprett omfang
+      static_page_topics:
+        new:
+          create: Opprett emne
       static_pages:
         edit:
+          changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
+        form:
+          slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
+        new:
+          create: Opprett side
       titles:
         admin_log: Admin logg
         area_types: Områdetyper
         areas: Områder
+        authorization_workflows: Verifiseringsmetoder
+        dashboard: Skrivebord
         static_pages: Sider
+      user_group:
+        csv_verify:
+          success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
       user_groups:
         index:
           filter:
             all: Alle
+      user_groups_csv_verifications:
+        new:
+          explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
       users:
+        create:
+          error: Det oppstod et problem med å invitere denne administratoren.
+        destroy:
+          error: Det oppstod et problem med å prøve å slette denne administratoren.
+          success: Deltakeren er ikke lengre en administrator.
         form:
           email: Epost
           name: Navn
+        new:
+          title: Inviter deltaker som administrator
+    forms:
+      errors:
+        impersonate_user:
+          reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
     moderations:
       actions:
         title: Handlinger
+      models:
+        moderation:
+          fields:
+            report_count: Antall

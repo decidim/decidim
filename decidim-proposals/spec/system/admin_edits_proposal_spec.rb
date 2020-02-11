@@ -32,7 +32,7 @@ describe "Admin edits proposals", type: :system do
       expect(page).to have_content "UPDATE PROPOSAL"
 
       fill_in "Title", with: new_title
-      fill_in "Body", with: new_body
+      fill_in_editor :proposal_body, with: new_body
       click_button "Update"
 
       preview_window = window_opened_by { find("a.action-icon--preview").click }

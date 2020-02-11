@@ -5,15 +5,22 @@ module Decidim
     # A class used to find the recipients of the
     # Newsletter depending on the params of the form
     class NewsletterRecipients < Rectify::Query
-      # newsletter - the Newsletter that will be send and needs to be selected the recipients.
+      # Syntactic sugar to initialize the class and return the queried objects.
+      #
       # form - params to filter the query
-      def initialize(newsletter, form)
-        @newsletter = newsletter
+      def self.for(form)
+        new(form).query
+      end
+
+      # Initializes the class.
+      #
+      # form - params to filter the query
+      def initialize(form)
         @form = form
       end
 
       def query
-        recipients = Decidim::User.where(organization: @newsletter.organization)
+        recipients = Decidim::User.where(organization: @form.current_organization)
                                   .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
                                   .not_deleted
 

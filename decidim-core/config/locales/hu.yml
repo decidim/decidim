@@ -14,7 +14,7 @@ hu:
       report:
         details: További megjegyzések
       user:
-        about: Rólunk
+        about: Magamról
         email: Email címed
         name: Neved
         nickname: Becenév
@@ -26,7 +26,7 @@ hu:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
       decidim/demoted_membership: Már nem egy csoport admin
-      decidim/gamification/badge_earned_event: Megszerzett jelvény
+      decidim/gamification/badge_earned_event: Jelvény megszerezve
       decidim/gamification/level_up_event: Szintet léptél
       decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
       decidim/join_request_rejected_event: Csatlakozási kérelem elutasítva
@@ -69,8 +69,6 @@ hu:
     account:
       data_portability_export:
         file_no_exists: Fájl nem létezik
-        invalid_token: A megadott token érvénytelen.
-        no_token: Nincs token megadva
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
@@ -90,6 +88,9 @@ hu:
         error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
         success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
+    admin:
+      actions:
+        cancel: Mégse
     admin_log:
       area:
         create: "%{user_name} létrehozta a(z) %{resource_name} területet"
@@ -138,6 +139,8 @@ hu:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalom, nagy felelősségvállalás jár.</li></ol>"
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
@@ -398,7 +401,7 @@ hu:
           notice: |-
             <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
             Gondold át mégegyszer a döntést.<br>
-            Számunkra ugyanis nagyon fontos, hogy a leglényeges bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
+            Számunkra ugyanis nagyon fontos, hogy a leglényegesebb bejelentésekről emailen keresztül mindenkit értesítsünk. A beállításokat ráadásul bármikor módosíthatód az értesítések menüpontban.</p>
             <p>Amennyiben nem jelölöd be a négyzetet, előfordulhat, hogy lemaradsz a platformon elérhető új lehetőségekről. Ha továbbra sem szeretnél hírleveleket kapni, döntésedet tiszteletben tartjuk.</p>
             <p>Köszönjük, hogy elolvastad az üzenetet!</p>
           title: Hírlevél értesítések
@@ -494,8 +497,8 @@ hu:
         badge_earned:
           email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
-          email_subject: 'Új jelvényed: %{badge_name}!'
-          notification_title: 'Szép munka! Megszerezted a(z) <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
+          email_subject: 'Új jelvényt szerzett: %{badge_name}!'
+          notification_title: Gratulálunk! Megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint %{current_level}).
         level_up:
           email_intro: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_url}">%{badge_name} jelvényhez</a>!
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
@@ -593,20 +596,10 @@ hu:
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
-        continuity:
-          conditions:
-            - Gyere ide gyakran
-          description: Ez a jelvény akkor érhető el, ha rendszeresen meglátogatja a platformot. Szeretünk itt lenni!
-          description_another: Ez a résztvevő egy bizonyos időpontban %{score} egymást követő napon keresztül csatlakozott.
-          description_own: Ön egy bizonyos időpontban %{score} egymást követő napra kapcsolódott.
-          name: Folytonosság
-          next_level_in: Csatlakoztasson %{score} egymást követő napot, hogy eljusson a következő szintre!
-          unearned_another: Ez a résztvevő nem lépett be több mint egy egymást követő napon.
-          unearned_own: Nem kapcsolódott több mint egymást követő napon.
         followers:
           conditions:
             - Az aktív és más emberek követése biztosan másokat követni fog.
-          description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. %{organization_name} egy társadalmi és politikai hálózat, szövik a webet, hogy kommunikáljon más emberekkel a platformon.
+          description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. A %{organization_name} egy társadalmi és politikai hálózat, ahol rengeteg tér van arra, hogy értelmesen kommunikáljon más emberekkel.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
           name: Követő
@@ -615,15 +608,15 @@ hu:
           unearned_own: Még nincsenek követői.
         index:
           badge_title: "%{name} jelvény"
-          how: Hogyan lehet keresni?
-          page_description: A jelvények felismerik a résztvevők tevékenységét és a platformon elért haladást. Amint elkezdi felfedezni, részt venni és kölcsönhatni a platformon, akkor különböző jelvényeket kapsz. Itt van a jelvények listája, és néhány módon, amiket kereshet.
-          title: Kitűzők
+          how: Így lehet megszerezni
+          page_description: A jelvények megmutatják, milyen tevékenységeket végzünk a platformon. Amint a résztvevők elkezdik felfedezni mi minden módon tudnak részt venni a platformon, úgy különböző jelvényekhez juthatnak hozzá. Itt van a jelvények listája, és néhány mód, amellyel megszerezhetők.
+          title: Jelvények
         invitations:
           conditions:
             - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
             - Testreszabása, ha szeretné, az elküldött üzenetet
             - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
-          description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és kis időbe telik, hogy regisztráljon %{organization_name} és részt vegyen. Köszönjük, hogy %{organization_name} ismertek mások, és segít bővíteni a közösség!
+          description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és az illető rövid idő alatt regisztrál a %{organization_name} terébe. Köszönjük, hogy a %{organization_name} -t megismerteti másokkal, és segít bővíteni a közösséget!
           description_another: Felhasználó meghívott %{score} felhasználókat.
           description_own: '%{score} embert hívott meg.'
           name: Meghívók
@@ -834,7 +827,7 @@ hu:
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
         newsletters: Hírlevelek
-        own_activity: Saját tevékenységem, mint amikor valaki megjegyzi a javaslatomat, vagy megemlíti nekem
+        own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
         send_notifications_by_email: Értesítések küldése e-mailben
         update_notifications_settings: Változások mentése
@@ -940,7 +933,7 @@ hu:
         view_full_profile: Teljes profil megtekintése
       sidebar:
         badges:
-          info: A jelvények a platformban végzett konkrét tevékenység végrehajtásával érhetők el.
+          info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
         confirmation_instructions_sent: E-mail megerősítési utasításokat küldött
@@ -1048,12 +1041,12 @@ hu:
         my_interests: Érdeklődési köreim
         no_scopes: Ennek a szervezetnek még nincs hatóköre!
         select_your_interests: Válaszd ki a téged érdeklő témákat, hogy hozzájuss a hozzájuk kapcsolódó eseményekhez a profilod Idővonal lapján.
-        update_my_interests: Érdeklődésem frissítése
+        update_my_interests: Érdeklődési köreim frissítése
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
     welcome_notification:
-      default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}}</li><li> szervezetben. Végül, de nem utolsósorban, kapcsolódj más emberekhez is, oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához, gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</li></ul>
+      default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
     wizard_step_form:
       wizard_aside:
@@ -1214,6 +1207,7 @@ hu:
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
       expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'
+      invalid_time_zone: ez nem érvényes időzóna
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
@@ -1264,7 +1258,7 @@ hu:
         authorizations: Engedélyezések
         delete_my_account: Fiók törlése
         my_data: Adataim
-        my_interests: Érdekeim
+        my_interests: Érdeklődési köröm
         notifications_settings: Értesítési beállítások
         title: A résztvevő beállításai
         user_groups: Csoportok
@@ -1326,8 +1320,11 @@ hu:
       left: Törlések
       right: Kiegészítések
     dropdown:
+      choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      option_escaped: Feloldott
       option_split: Egymás mellet
+      option_unescaped: Feloldatlan
       option_unified: Egyesített
   views:
     pagination:

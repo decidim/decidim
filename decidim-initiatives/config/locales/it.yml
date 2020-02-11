@@ -176,18 +176,8 @@ it:
             title: Informazione generale
           index:
             actions_title: Azione
-            filter:
-              accepted: Accettato
-              all: Tutti
-              created: Creato
-              discarded: Discarded
-              published: Pubblicato
-              rejected: Respinto
-              validating: Convalida tecnica
-            filter_by: Filtra per
             preview: Anteprima
             print: Stampare
-            search: Ricerca
           show:
             print: Stampare
           update:
