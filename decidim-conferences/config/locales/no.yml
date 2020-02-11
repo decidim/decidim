@@ -242,6 +242,7 @@
         partners:
           collaborators: Partnere
         show:
+          login_as: Du er innlogget som %{name} <%{email}>
           make_conference_registration: 'Foreta din registrering til denne konferansen:'
       mailer:
         conference_registration_mailer:
@@ -275,6 +276,7 @@
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
+          login_as: Du er innlogget som %{name} <%{email}>
       shared:
         conference_user_login:
           already_account: Har du allerede en konto i decidim?
