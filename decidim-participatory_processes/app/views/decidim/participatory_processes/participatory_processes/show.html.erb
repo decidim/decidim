@@ -37,6 +37,17 @@ edit_link(
       </div>
       <%= attachments_for current_participatory_space %>
       <%= render_hook(:participatory_space_highlighted_elements) %>
+
+      <% if related_processes.any? %>
+        <div class="section row collapse related_processes">
+          <h4 class="section-heading"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h4>
+          <div class="collapsible-list row small-up-1 medium-up-2 card-grid">
+            <% related_processes.each do |related_process| %>
+              <%= card_for(related_process) %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">
