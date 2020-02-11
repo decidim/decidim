@@ -45,7 +45,7 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Comments::Comment.where(root_commentable: projects).count
   end
 
-  component.register_stat :followers_count, tag: :follows, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
     Decidim::Follow.where(followable: projects).count
   end

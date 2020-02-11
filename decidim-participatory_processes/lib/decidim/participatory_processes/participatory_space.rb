@@ -25,7 +25,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     resource.card = "decidim/participatory_processes/process_group"
   end
 
-  participatory_space.register_stat :followers_count, tag: :follows, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
+  participatory_space.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
     Decidim::Follow.where(followable: spaces).count
   end
 

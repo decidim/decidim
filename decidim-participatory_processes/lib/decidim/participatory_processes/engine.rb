@@ -85,15 +85,7 @@ module Decidim
 
       initializer "decidim_participatory_processes.stats" do
         Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          components_follows = Decidim.component_manifests.sum do |component|
-            component.stats.filter(tag: :follows).with_context(participatory_process.components.published).map { |_name, value| value }.sum
-          end
-
-          spaces_follows = Decidim.participatory_space_manifests.sum do |space|
-            space.stats.filter(tag: :follows).with_context(participatory_process).map { |_name, value| value }.sum
-          end
-
-          components_follows + spaces_follows
+          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)
         end
 
         Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
