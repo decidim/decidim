@@ -543,6 +543,8 @@
       check: Sjekk fingeravtrykket
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+    following:
+      no_followings: Følger ikke noen eller noe ennå.
     follows:
       create:
         error: Det oppstod et problem med å følge denne ressursen.
@@ -625,13 +627,18 @@
     groups:
       actions:
         are_you_sure: Er du sikker?
+      create:
+        error: Det oppstod et problem med å opprette gruppen
       form:
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
         fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
         name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
         nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
       join:
+        error: Det oppstod et problem med å bli med i gruppen
         success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
+      leave:
+        error: Det oppstod et problem med å forlate gruppen
       members:
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
         accept_request: Aksepter
@@ -639,6 +646,8 @@
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       roles:
         admin: Administrator
+      update:
+        error: Det oppstod et problem med å oppdatere gruppen
     help:
       main_topic:
         default_page:
@@ -975,6 +984,7 @@
         authorizations: Fullmakter
         notifications_settings: Varslingsinnstillinger
   password_validator:
+    not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
