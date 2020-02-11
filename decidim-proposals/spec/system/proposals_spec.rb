@@ -144,6 +144,38 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when a proposal has costs" do
+      let!(:proposal) do
+        create(
+          :proposal,
+          :accepted,
+          :with_answer,
+          component: component,
+          cost: 20000,
+          cost_report: { en: "My cost report" },
+          execution_period: { en: "My execution period" }
+        )
+      end
+      let!(:author) { create(:user, :confirmed, organization: component.organization) }
+
+      it "shows the costs" do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              answers_with_costs: true
+            }
+          }
+        )
+
+        visit_component
+        click_link proposal.title
+
+        expect(page).to have_content("20,000.00")
+        expect(page).to have_content("MY EXECUTION PERIOD")
+        expect(page).to have_content("My cost report")
+      end
+    end
+
     context "when a proposal has been linked in a meeting" do
       let(:proposal) { create(:proposal, component: component) }
       let(:meeting_component) do

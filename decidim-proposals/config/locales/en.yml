@@ -744,6 +744,7 @@ en:
           changes_at_title: Amendment to "%{title}"
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
+          estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
             other: and %{count} more people

@@ -87,6 +87,30 @@ edit_link(
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>
+      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
+        <div class="card card--secondary">
+          <div class="card__content">
+              <div class="mb-s">
+                <div class="data-title">
+                  <h3 class="data-title__over">
+                    <%= t(".estimated_cost") %>
+                  </h3>
+                  <div>
+                    <strong class="data-title__main">
+                      <%= number_to_currency(@proposal.cost) %>
+                    </strong>
+                  </div>
+                  <div class="data-title__sub">
+                    <%= translated_attribute(@proposal.execution_period).html_safe %>
+                  </div>
+                </div>
+              </div>
+            <div>
+              <%= translated_attribute(@proposal.cost_report).html_safe %>
+            </div>
+          </div>
+        </div>
+      <% end %>
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
 
