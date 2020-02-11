@@ -513,7 +513,7 @@ fr:
           badge: Badge
           created_at: Créée le
           filter:
-            all: Tout
+            all: Tous
             not_officialized: Non validé
             officialized: Validé
           filter_by: Filtrer par

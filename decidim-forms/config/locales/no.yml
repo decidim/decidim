@@ -13,6 +13,9 @@
   decidim:
     forms:
       admin:
+        models:
+          components:
+            tos: Tjenestevilkår
         questionnaires:
           answer_option:
             answer_option: Svaralternativ
@@ -21,6 +24,7 @@
             title: Tittel
           form:
             add_question: Legg til spørsmål
+            already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
           question:
             add_answer_option: Legg til svaralternativ
             any: Alle
@@ -29,12 +33,20 @@
         answer:
           body: Teksten kan ikke være blank
       questionnaires:
+        answer:
+          invalid: Det oppstod et problem med å svare på skjemaet.
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
             title: Svar på skjemaet
+          are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           questionnaire_answered:
             title: Allerede besvart
+          questionnaire_closed:
+            body: Skjemaet er lukket og kan ikke besvares.
+          questionnaire_for_private_users:
+            body: Skjemaet er bare tilgjengelig for private brukere
+          tos_agreement: Ved å delta godtar du vilkårene for bruk
       user_answers_serializer:
         created_at: Besvart på
         id: Svar ID

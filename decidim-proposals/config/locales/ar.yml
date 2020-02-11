@@ -187,6 +187,8 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: تم قبول الاقتراح الخاص بك
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+          follower:
+            notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.

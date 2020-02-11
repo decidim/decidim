@@ -513,7 +513,7 @@ ca:
           badge: Insígnia
           created_at: Creat el
           filter:
-            all: Todas
+            all: Tots
             not_officialized: No oficialitzada
             officialized: Oficialitzada
           filter_by: Filtra per

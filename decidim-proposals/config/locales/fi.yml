@@ -21,7 +21,7 @@ fi:
         scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
-        title: Ehdotuksen nimi
+        title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
@@ -417,7 +417,7 @@ fi:
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         shared:
           info_proposal:
-            body: Tekstin runko
+            body: Ehdotuksen kuvaus
             created_at: Luonnin ajankohta
             proposal_votes_count: Kannatusten määrä
             proposals: Ehdotukset

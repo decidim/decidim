@@ -347,8 +347,8 @@ es:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
           edit:
-            accepted: Aceptada
-            answer_proposal: Respuesta
+            accepted: Aceptadas
+            answer_proposal: Responder
             evaluating: En evaluación
             rejected: Rechazada
             title: Responder a la propuesta %{title}
