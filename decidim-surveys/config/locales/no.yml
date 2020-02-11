@@ -39,6 +39,10 @@
         object: svar på undersøkelser
         title: Svar på undersøkelser
     surveys:
+      admin:
+        surveys:
+          update:
+            invalid: Det oppstod et problem med å lagre undersøkelsen.
       last_activity:
         new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"
       surveys:
