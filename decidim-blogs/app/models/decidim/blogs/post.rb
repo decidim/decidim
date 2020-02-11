@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::Searchable
       include Decidim::Endorsable
+      include Decidim::Followable
       include Traceable
       include Loggable
 
@@ -56,6 +57,10 @@ module Decidim
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
+      end
+
+      def users_to_notify_on_comment_created
+        followers
       end
     end
   end

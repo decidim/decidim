@@ -9,6 +9,7 @@ module Decidim
       include SanitizeHelper
       include Decidim::Blogs::PostsHelper
       include ::Decidim::EndorsableHelper
+      include ::Decidim::FollowableHelper
       include Decidim::Comments::CommentsHelper
     end
   end
