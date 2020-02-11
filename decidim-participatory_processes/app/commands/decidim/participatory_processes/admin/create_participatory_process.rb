@@ -22,10 +22,11 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          process = create_participatory_process
+          create_participatory_process
 
           if process.persisted?
             add_admins_as_followers(process)
+            link_related_processes
             broadcast(:ok, process)
           else
             form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
@@ -36,10 +37,10 @@ module Decidim
 
         private
 
-        attr_reader :form
+        attr_reader :form, :process
 
         def create_participatory_process
-          process = ParticipatoryProcess.new(
+          @process = ParticipatoryProcess.new(
             organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
@@ -104,6 +105,14 @@ module Decidim
 
             Decidim::CreateFollow.new(form, admin).call
           end
+        end
+
+        def related_processes
+          @related_processes ||= Decidim::ParticipatoryProcess.where(id: form.related_process_ids)
+        end
+
+        def link_related_processes
+          process.link_participatory_space_resources(related_processes, "related_processes")
         end
       end
     end
