@@ -212,6 +212,7 @@
           success: Komponenten har blitt avpublisert.
         update:
           error: Det oppstod et problem med å oppdatere denne komponenten.
+          success: Komponenten ble oppdatert.
       dashboard:
         show:
           welcome: Velkommen til Decidim administrator Panel.
