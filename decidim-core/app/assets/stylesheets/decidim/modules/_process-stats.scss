@@ -1,12 +1,8 @@
-.main-stats{
+.process-stats{
   overflow: hidden;
   margin: 2rem 0;
   display: flex;
   flex-wrap: wrap;
-
-  // @include breakpoint(mediumlarge) {
-  //   margin: 5rem 0;
-  // }
 
   &__title{
     color: $muted;
@@ -36,16 +32,15 @@
 
     @include breakpoint(medium down){
       &:nth-child(odd)::after{
-        border-left: 0;
+        border: none;
       }
     }
 
     @include breakpoint(mediumlarge){
       width: calc(25% - 1rem);
 
-      &:nth-child(1)::after,
-      &:nth-child(5)::after{
-        border-left: 0;
+      &:nth-child(4n+1)::after{
+        border: none;
       }
     }
   }

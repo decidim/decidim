@@ -18,15 +18,15 @@ module Decidim
 
         safe_join(
           grouped_highlighted_stats.map do |_manifest_name, stats|
-            content_tag :div, class: "process_stats-item" do
-              safe_join(
-                stats.each_with_index.map do |stat, index|
-                  stat.each_with_index.map do |_item, subindex|
-                    render_stats_data(stat[subindex], stat[subindex + 1], stat[subindex + 2], (index + subindex)) if (subindex % 3).zero?
-                  end
+            safe_join(
+              stats.each_with_index.map do |stat, index|
+                stat.each_with_index.map do |_item, subindex|
+                  next unless (subindex % 3).zero?
+
+                  render_stats_data(stat[subindex], stat[subindex + 1], stat[subindex + 2], (index + subindex))
                 end
-              )
-            end
+              end
+            )
           end
         )
       end
@@ -49,12 +49,13 @@ module Decidim
                .map { |name, data| [participatory_process.manifest, name, data] }
       end
 
-      def render_stats_data(component_manifest, name, data, index)
-        safe_join([
-                    index.zero? ? manifest_icon(component_manifest) : " /&nbsp".html_safe,
-                    content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name, scope: "decidim.participatory_processes.statistics"),
-                                class: "#{name} process_stats-text")
-                  ])
+      def render_stats_data(_component_manifest, name, data, _index)
+        content_tag :div, class: "process-stats__data" do
+          safe_join([
+                      content_tag(:span, number_with_delimiter(data), class: "process-stats__number"),
+                      content_tag(:h4, t(name, scope: "decidim.participatory_processes.statistics"), class: "process-stats__title")
+                    ])
+        end
       end
 
       def published_components
