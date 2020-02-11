@@ -29,6 +29,7 @@ module Decidim
         attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
+        attribute :related_process_ids, Array[Integer]
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
@@ -61,6 +62,8 @@ module Decidim
         def map_model(model)
           self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
+          self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
+          @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 
         def scope
@@ -73,6 +76,10 @@ module Decidim
 
         def participatory_process_group
           Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
+        end
+
+        def processes
+          @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
         end
 
         private

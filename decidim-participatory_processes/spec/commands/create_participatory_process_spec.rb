@@ -12,6 +12,7 @@ module Decidim::ParticipatoryProcesses
     let(:area) { create :area, organization: organization }
     let(:current_user) { create :user, :admin, organization: organization }
     let(:errors) { double.as_null_object }
+    let(:related_process_ids) { [] }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
@@ -40,6 +41,7 @@ module Decidim::ParticipatoryProcesses
         scope: scope,
         area: area,
         errors: errors,
+        related_process_ids: related_process_ids,
         participatory_process_group: participatory_process_group
       )
     end
@@ -114,6 +116,18 @@ module Decidim::ParticipatoryProcesses
       it "adds the admins as followers" do
         subject.call
         expect(current_user.follows?(process)).to be true
+      end
+
+      context "with related processes" do
+        let!(:another_process) { create :participatory_process, organization: organization }
+        let(:related_process_ids) { [another_process.id] }
+
+        it "links related processes" do
+          subject.call
+
+          linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
+          expect(linked_processes).to match_array([another_process])
+        end
       end
     end
   end

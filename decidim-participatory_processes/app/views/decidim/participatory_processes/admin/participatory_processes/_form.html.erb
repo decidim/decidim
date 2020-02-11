@@ -148,6 +148,21 @@
   </div>
 
   <div class="card-divider">
+    <h2 class="card-title"><%= t(".related_processes") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.select(
+        :related_process_ids,
+        @form.processes.order(title: :asc).map{|process| [translated_attribute(process.title), process.id]},
+        { include_blank: true },
+        { multiple: true, class: "chosen-select" }
+      ) %>
+    </div>
+  </div>
+
+  <div class="card-divider">
     <h2 class="card-title"><%= t(".other") %></h2>
   </div>
 
