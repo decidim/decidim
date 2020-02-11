@@ -13,6 +13,7 @@
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
   
+  const displayConditionQuestionSelector = "select[name$=\\[condition_question\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
@@ -60,6 +61,41 @@
     });
   };
 
+  const setupDisplayConditionInputs = ($field) => {
+    const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
+    const $questionSelect = $field.find(displayConditionQuestionSelector);
+
+    const url = $questionSelect.data("url");
+    
+    $questionSelect.on("change", (event) => {
+      const questionId = event.target.value;
+      $.getJSON(url, { id: questionId }, (data) => { console.log(data); } );
+    });
+
+    /* Create value input for display condition */
+    createFieldDependentInputs({
+      controllerField: $conditionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: conditionValueWrapperSelector,
+      dependentInputSelector: "select",
+      enablingCondition: ($field) => {
+        return $field.val() === "match"
+      }
+    });
+    
+    /* Create answer option select for display condition */
+    createFieldDependentInputs({
+      controllerField: $conditionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: conditionAnswerOptionWrapperSelector,
+      dependentInputSelector: "select",
+      enablingCondition: ($field) => {
+        return $field.val() === "equal" || $field.val() === "not_equal"
+      }
+    });
+
+  };
+
   const createDynamicFieldsForDisplayConditions = (fieldId) => {
     return createDynamicFields({
       placeholderId: "questionnaire-question-display-condition-id",
@@ -69,34 +105,9 @@
       addFieldButtonSelector: ".add-display-condition",
       removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
       onAddField: ($field) => {
-        alert("added display condition");
-
-        const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
-
-        /* Create value input for display condition */
-        createFieldDependentInputs({
-          controllerField: $conditionTypeSelect,
-          wrapperSelector: fieldSelector,
-          dependentFieldsSelector: conditionValueWrapperSelector,
-          dependentInputSelector: "select",
-          enablingCondition: ($field) => {
-            return $field.val() === "match"
-          }
-        });
-        
-        /* Create answer option select for display condition */
-        createFieldDependentInputs({
-          controllerField: $conditionTypeSelect,
-          wrapperSelector: fieldSelector,
-          dependentFieldsSelector: conditionAnswerOptionWrapperSelector,
-          dependentInputSelector: "select",
-          enablingCondition: ($field) => {
-            return $field.val() === "equal" || $field.val() === "not_equal"
-          }
-        });
+        setupDisplayConditionInputs($field);
       },
       onRemoveField: () => {
-        alert("removed display condition");
       }
     });
   };
