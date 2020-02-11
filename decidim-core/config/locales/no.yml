@@ -371,6 +371,7 @@
       sessions:
         new:
           register: Opprett en konto
+          sign_in_disabled: Du kan få tilgang til med en ekstern konto
           sign_up_disabled: Registreringen er deaktivert, du kan bruke en eksisterende konto for å få tilgang
       shared:
         newsletter_modal:
@@ -827,6 +828,8 @@
     wizard_step_form:
       wizard_aside:
         back: Tilbake
+      wizard_header:
+        step_of: Trinn %{current_step} av %{total_steps}
   devise:
     confirmations:
       confirmed: Din e-postadresse er bekreftet.
