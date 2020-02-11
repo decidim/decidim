@@ -92,6 +92,9 @@
         home:
           highlighted_consultations:
             active_consultations: Aktive konsultasjoner
+            voting_ends_in:
+              one: Avstemmingen slutter <strong>i morgen</strong>
+              other: Avstemmingen slutter om <strong>%{count} dager</strong>
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
