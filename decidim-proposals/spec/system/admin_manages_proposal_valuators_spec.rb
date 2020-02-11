@@ -80,7 +80,7 @@ describe "Admin manages proposals valuators", type: :system do
     end
   end
 
-  context "when unassigning valuators from a proposal" do
+  context "when unassigning valuators from a proposal from the proposals index page" do
     let(:assigned_proposal) { proposal }
 
     before do
@@ -112,13 +112,39 @@ describe "Admin manages proposals valuators", type: :system do
         end
       end
 
-      it "assigns the proposals to the valuator" do
+      it "unassigns the proposals to the valuator" do
         expect(page).to have_content("Valuator unassigned from proposals successfully")
 
         within find("tr", text: proposal.title) do
           expect(page).to have_selector("td.valuators-count", text: 0)
         end
       end
+    end
+  end
+
+  context "when unassigning valuators from a proposal from the proposal show page" do
+    let(:assigned_proposal) { proposal }
+
+    before do
+      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+
+      visit current_path
+
+      find("a", text: proposal.title).click
+    end
+
+    it "can unassign a valuator" do
+      within "#valuators" do
+        expect(page).to have_content(valuator.name)
+
+        accept_confirm do
+          find("a.red-icon").click
+        end
+      end
+
+      expect(page).to have_content("Valuator unassigned from proposals successfully")
+
+      expect(page).to have_no_selector("#valuators")
     end
   end
 end

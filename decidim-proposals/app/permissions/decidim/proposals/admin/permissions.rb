@@ -14,7 +14,7 @@ module Decidim
               can_create_proposal_note?
               can_create_proposal_answer?
             end
-            valuator_can_unassign_proposals_from_valuator?
+            valuator_can_unassign_valuator_from_proposals?
 
             return permission_action
           end
@@ -44,8 +44,8 @@ module Decidim
           # Every user allowed by the space can assign proposals to a valuator
           allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
 
-          # Every user allowed by the space can unassign proposals from a valuator
-          can_unassign_proposals_from_valuator?
+          # Every user allowed by the space can unassign a valuator from proposals
+          can_unassign_valuator_from_proposals?
 
           if permission_action.subject == :participatory_texts && participatory_texts_are_enabled?
             # Every user allowed by the space can manage (import, update and publish) participatory texts to proposals
@@ -120,12 +120,12 @@ module Decidim
           toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
         end
 
-        def can_unassign_proposals_from_valuator?
+        def can_unassign_valuator_from_proposals?
           allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_valuator
         end
 
-        def valuator_can_unassign_proposals_from_valuator?
-          can_unassign_proposals_from_valuator? if user == context.fetch(:valuator, nil)
+        def valuator_can_unassign_valuator_from_proposals?
+          can_unassign_valuator_from_proposals? if user == context.fetch(:valuator, nil)
         end
       end
     end

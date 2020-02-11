@@ -24,6 +24,7 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
+      include Decidim::Proposals::Valuatable
 
       POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
@@ -46,7 +47,6 @@ module Decidim
                counter_cache: "proposal_votes_count"
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
-      has_many :valuation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy
 
       validates :title, :body, presence: true
 

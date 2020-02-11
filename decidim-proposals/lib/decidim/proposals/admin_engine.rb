@@ -11,8 +11,9 @@ module Decidim
 
       routes do
         resources :proposals, only: [:show, :index, :new, :create, :edit, :update] do
-          post :update_category, on: :collection
+          resources :valuation_assignments, only: [:destroy]
           collection do
+            post :update_category
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]
             resource :proposals_split, only: [:create]

@@ -12,13 +12,18 @@ describe "Valuator manages proposals", type: :system do
   end
   let!(:user) { create :user, organization: organization }
   let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
+  let!(:another_user) { create :user, organization: organization }
+  let!(:another_valuator_role) { create :participatory_process_user_role, role: :valuator, user: another_user, participatory_process: participatory_process }
 
   include Decidim::ComponentPathHelper
 
   include_context "when managing a component as an admin"
 
   before do
+    user.update_attribute(:admin, false)
+
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
+    create :valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role
 
     visit current_path
   end
@@ -27,6 +32,86 @@ describe "Valuator manages proposals", type: :system do
     it "can only see the assigned proposals" do
       expect(page).to have_content(assigned_proposal.title)
       expect(page).to have_no_content(unassigned_proposal.title)
+    end
+  end
+
+  context "when bulk unassigning valuators" do
+    before do
+      within find("tr", text: assigned_proposal.title) do
+        page.first(".js-proposal-list-check").set(true)
+      end
+
+      click_button "Actions"
+      click_button "Unassign from valuator"
+    end
+
+    it "can unassign themselves" do
+      within "#js-form-unassign-proposals-from-valuator" do
+        select user.name, from: :valuator_role_id
+        page.find("button#js-submit-unassign-proposals-from-valuator").click
+      end
+
+      expect(page).to have_content("Valuator unassigned from proposals successfully")
+    end
+
+    it "cannot unassign others" do
+      within "#js-form-unassign-proposals-from-valuator" do
+        select another_user.name, from: :valuator_role_id
+        page.find("button#js-submit-unassign-proposals-from-valuator").click
+      end
+
+      expect(page).to have_content("You are not authorized to perform this action")
+    end
+  end
+
+  context "when in the proposal page" do
+    before do
+      click_link assigned_proposal.title
+    end
+
+    it "can only unassign themselves" do
+      within "#valuators" do
+        expect(page).to have_content(user.name)
+        expect(page).to have_content(another_user.name)
+
+        within find("li", text: another_user.name) do
+          expect(page).to have_no_selector("a.red-icon")
+        end
+
+        within find("li", text: user.name) do
+          expect(page).to have_selector("a.red-icon")
+          accept_confirm do
+            find("a.red-icon").click
+          end
+        end
+      end
+
+      expect(page).to have_content("successfully")
+    end
+
+    it "can leave proposal notes" do
+      expect(page).to have_content("PRIVATE NOTES")
+      within ".add-comment" do
+        fill_in "Note", with: " This is my note"
+        click_button "Submit"
+      end
+
+      within ".comment-thread" do
+        expect(page).to have_content("This is my note")
+      end
+    end
+
+    it "can answer proposals" do
+      within "form.edit_proposal_answer" do
+        choose "Accepted"
+        fill_in_i18n_editor(
+          :proposal_answer_answer,
+          "#proposal_answer-answer-tabs",
+          en: "This is my answer"
+        )
+        click_button "Answer"
+      end
+      expect(page).to have_content("successfully")
     end
   end
 end

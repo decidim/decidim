@@ -15,6 +15,10 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ValuationAssignmentPresenter
       end
+
+      def valuator
+        valuator_role.user
+      end
     end
   end
 end

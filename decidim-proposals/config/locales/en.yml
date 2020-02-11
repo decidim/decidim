@@ -426,6 +426,7 @@ en:
             title: Create proposal
           show:
             amendments_count: Amendments count
+            assigned_valuators: Assigned valuators
             authors: Authors
             body: Body
             comments_count: Comments count
@@ -445,6 +446,9 @@ en:
             proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
+            remove_assignment: Remove assignment
+            remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
+            valuators: Valuators
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
