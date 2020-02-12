@@ -64,6 +64,20 @@ module Decidim
               expect(action_log.version).to be_present
               expect(action_log.version.event).to eq "create"
             end
+
+            context "when it raises an error while creating assignments" do
+              before do
+                allow(Decidim::Proposals::ValuationAssignment).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+              end
+
+              it "broadcasts invalid" do
+                expect { command.call }.to broadcast(:invalid)
+              end
+
+              it "does not create any assignment" do
+                expect { command.call }.not_to change(ValuationAssignment, :count)
+              end
+            end
           end
         end
       end
