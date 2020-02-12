@@ -25,6 +25,8 @@ module Decidim
 
     # Handle the category_id filter
     def search_category_id
+      return query if category_ids.include?("all")
+
       query
         .includes(:categorization)
         .where(decidim_categorizations: { decidim_category_id: all_category_ids })
@@ -38,6 +40,8 @@ module Decidim
     # `"global"` as parameter, and in the method we do the needed changes to search
     # properly.
     def search_scope_id
+      return query if scope_ids.include?("all")
+
       clean_scope_ids = scope_ids
 
       conditions = []
