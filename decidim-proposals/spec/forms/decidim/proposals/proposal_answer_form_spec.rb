@@ -71,7 +71,7 @@ module Decidim
             it { is_expected.to be_invalid }
 
             context "and cost data is filled" do
-              let(:cost) { 20000 }
+              let(:cost) { 20_000 }
               let(:cost_report) { { en: "Cost report" } }
               let(:execution_period) { { en: "Execution period" } }
 

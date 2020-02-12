@@ -151,7 +151,7 @@ describe "Proposals", type: :system do
           :accepted,
           :with_answer,
           component: component,
-          cost: 20000,
+          cost: 20_000,
           cost_report: { en: "My cost report" },
           execution_period: { en: "My execution period" }
         )
