@@ -9,7 +9,8 @@ module Decidim
         notifications_from_followed: notifications_from_followed,
         notifications_from_own_activity: notifications_from_own_activity,
         email_on_notification: email_on_notification,
-        newsletter_notifications: newsletter_notifications
+        newsletter_notifications: newsletter_notifications,
+        allow_public_contact: allow_public_contact
       ).with_context(
         current_user: user
       )
@@ -21,6 +22,7 @@ module Decidim
     let(:notifications_from_own_activity) { "1" }
     let(:email_on_notification) { "1" }
     let(:newsletter_notifications) { "1" }
+    let(:allow_public_contact) { "1" }
 
     context "with correct data" do
       it "is valid" do
@@ -57,6 +59,22 @@ module Decidim
 
         it "returns all" do
           expect(subject.notification_types).to eq "none"
+        end
+      end
+    end
+
+    describe "direct_message_types" do
+      context "when allow_public_contact is present" do
+        it "returns all" do
+          expect(subject.direct_message_types).to eq "all"
+        end
+      end
+
+      context "when allow_public_contact is blank" do
+        let(:allow_public_contact) { "0" }
+
+        it "returns followed-only" do
+          expect(subject.direct_message_types).to eq "followed-only"
         end
       end
     end
@@ -113,6 +131,22 @@ module Decidim
 
         it "maps the fields correctly" do
           expect(subject.newsletter_notifications).to eq false
+        end
+      end
+
+      context "with allow_public_contact present" do
+        let(:user) { create :user, direct_message_types: "all" }
+
+        it "maps the fields correctly" do
+          expect(subject.allow_public_contact).to eq true
+        end
+      end
+
+      context "with allow_public_contact blank" do
+        let(:user) { create :user, direct_message_types: "followed-only" }
+
+        it "maps the fields correctly" do
+          expect(subject.allow_public_contact).to eq false
         end
       end
     end

@@ -38,8 +38,7 @@ module Decidim
     end
 
     def direct_message_types
-      return "all" if allow_public_contact
-      "followed-only"
+      allow_public_contact ? "all" : "followed-only"
     end
   end
 end
