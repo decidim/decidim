@@ -124,6 +124,13 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    # Public: wheter the user accepts direct messages from another
+    def accept_conversation?(user)
+      return follows?(user) if direct_message_types == "followed-only"
+
+      true
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end

@@ -117,6 +117,9 @@ module Decidim
       return allow! if [:create, :list].include?(permission_action.action)
 
       conversation = context.fetch(:conversation, nil)
+
+      return disallow! unless conversation.accept_user? user
+
       toggle_allow(conversation.participants.include?(user))
     end
 
