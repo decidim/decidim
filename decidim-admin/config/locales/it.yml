@@ -144,9 +144,23 @@ it:
         export: Esporta
         manage: Gestisci
         new: Nuovo %{name}
+        per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
         verify: Verifica
+      admin_terms_of_use:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+        actions:
+          accept: Accetto i termini di amministrazione
+          are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
+          refuse: Rifiutare i termini di amministrazione
+          title: Accetta i termini e le condizioni di utilizzo
+        required_review:
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
+          callout: Prenditi un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
