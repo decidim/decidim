@@ -19,6 +19,7 @@
     admin:
       actions:
         back_to_responses: Tilbake til svar
+        response_groups: Administrer responsgrupper
       consultation_publications:
         create:
           error: Det oppstod et problem med å publisere denne konsultasjonen.
@@ -73,9 +74,13 @@
       response_groups:
         create:
           error: Det oppstod et problem med å opprette en ny responsgruppe.
+          success: Responsgruppen ble opprettet.
         destroy:
-          error: Det oppstod et problem med å fjerne svargruppen. Sjekk at ingen svar er avhengig av det.
+          error: Det oppstod et problem med å fjerne responsgruppen. Sjekk at ingen svar er avhengig av det.
+          success: Responsgruppen ble slettet.
         help: Bruk grupper til å organisere flere spørsmåls valg i pakker.
+        new:
+          title: Ny responsgruppe
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
       responses:
@@ -85,6 +90,8 @@
           error: Det oppstod et problem med å fjerne responsen.
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
+      titles:
+        response_groups: Responsgrupper
     consultations:
       count:
         title:
@@ -117,6 +124,8 @@
           minimum_votes_per_user:
             description: Du må fordele minimum %{votes} stemmer mellom forskjellige alternativer.
           title: 'Stemmene er underlagt følgende regler:'
+          vote_limit:
+            description: Du kan stemme opptil %{limit} alternativer.
       question_votes:
         create:
           error: Det oppstod et problem med å stemme spørsmålet
