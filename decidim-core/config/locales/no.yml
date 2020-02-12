@@ -427,10 +427,12 @@
           affected_user:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av %{amendable_title}.
+            email_subject: Ny endring for %{amendable_title}
             notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'En ny endring er blitt opprettet for%{amendable_title}. Du kan se den fra denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger %{amendable_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            email_subject: Ny endring for %{amendable_title}
             notification_title: En ny endring har blitt opprettet for <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
