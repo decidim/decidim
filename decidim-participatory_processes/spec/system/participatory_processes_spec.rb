@@ -257,9 +257,13 @@ describe "Participatory Processes", type: :system do
         let(:show_statistics) { true }
 
         it "the stats for those components are visible" do
-          expect(page).to have_css("h4.section-heading", text: "STATISTICS")
-          expect(page).to have_content("3 PROPOSALS")
-          expect(page).to have_no_content("0 MEETINGS")
+          within "#participatory_process-statistics" do
+            expect(page).to have_css("h4.section-heading", text: "STATISTICS")
+            expect(page).to have_css(".process-stats__title", text: "PROPOSALS")
+            expect(page).to have_css(".process-stats__number", text: "3")
+            expect(page).to have_no_css(".process-stats__title", text: "MEETINGS")
+            expect(page).to have_no_css(".process-stats__number", text: "0")
+          end
         end
       end
 
@@ -268,7 +272,8 @@ describe "Participatory Processes", type: :system do
 
         it "the stats for those components are not visible" do
           expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
-          expect(page).to have_no_content("3 PROPOSALS")
+          expect(page).to have_no_css(".process-stats__title", text: "PROPOSALS")
+          expect(page).to have_no_css(".process-stats__number", text: "3")
         end
       end
 

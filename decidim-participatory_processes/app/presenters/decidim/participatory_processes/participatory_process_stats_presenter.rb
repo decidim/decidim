@@ -22,6 +22,7 @@ module Decidim
           stats.each_with_index.each do |stat, _index|
             stat.each_with_index.map do |_item, subindex|
               next unless (subindex % 3).zero?
+              next if stat[subindex + 2].zero?
 
               statistics << { stat_title: stat[subindex + 1], stat_number: stat[subindex + 2] }
             end
