@@ -107,6 +107,8 @@
           minimum_votes_per_user:
             description: Du må fordele minimum %{votes} stemmer mellom forskjellige alternativer.
           title: 'Stemmene er underlagt følgende regler:'
+          vote_limit:
+            description: Du kan stemme opptil %{limit} alternativer.
       question_votes:
         create:
           error: Det oppstod et problem med å stemme spørsmålet
