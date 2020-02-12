@@ -26,6 +26,7 @@ module Decidim
 
         transaction do
           reject_amendment!
+          notify_emendation_state_change!
           notify_emendation_authors_and_followers
         end
 
@@ -41,6 +42,10 @@ module Decidim
           { state: "rejected" },
           visibility: "public-only"
         )
+      end
+
+      def notify_emendation_state_change!
+        @emendation.process_amendment_state_change!
       end
 
       def notify_emendation_authors_and_followers

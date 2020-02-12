@@ -26,7 +26,7 @@ module Decidim
 
         transaction do
           withdraw_amendment!
-          withdraw_emendation!
+          notify_emendation_state_change!
         end
 
         broadcast(:ok, emendation)
@@ -45,17 +45,8 @@ module Decidim
         )
       end
 
-      # Unlike other Amendable commands, we need to update the state of the
-      # emendation for the scope Decidim::Proposals::Proposal::expect_withdrawn
-      # to be able to retrieve rejected emendations.
-      #
-      # Because we are modifying the emendation itself, we need to prevent
-      # PaperTrail from creating an additional version to ensure that this
-      # change does not appear in the diff renderer of the emendation page.
-      def withdraw_emendation!
-        PaperTrail.request(enabled: false) do
-          emendation.update!(state: "withdrawn")
-        end
+      def notify_emendation_state_change!
+        emendation.process_amendment_state_change!
       end
     end
   end

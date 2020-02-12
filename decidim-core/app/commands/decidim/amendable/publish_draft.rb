@@ -30,6 +30,7 @@ module Decidim
           set_first_emendation_version
           publish_emendation
           change_amendment_state_to_evaluating
+          notify_emendation_state_change!
           notify_amendable_authors_and_followers
         end
 
@@ -60,6 +61,10 @@ module Decidim
 
       def change_amendment_state_to_evaluating
         emendation.amendment.update(state: "evaluating")
+      end
+
+      def notify_emendation_state_change!
+        emendation.process_amendment_state_change!
       end
 
       def notify_amendable_authors_and_followers

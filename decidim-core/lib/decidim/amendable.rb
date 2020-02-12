@@ -160,6 +160,9 @@ module Decidim
       end
     end
 
+    # Callback called when amendment state is updated
+    def process_amendment_state_change!; end
+
     # Returns an Array of Decidim::User.
     def notifiable_identities
       if is_a?(Decidim::Authorable)
