@@ -65,7 +65,7 @@ module Decidim
 
           def translated_valuator_role_ids_eq(valuator_role_id)
             user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
-            user_role.try(:user).try(:name)
+            user_role&.user&.name
           end
 
           # An Array<Symbol> of possible values for `state_eq` filter.
