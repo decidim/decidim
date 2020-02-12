@@ -134,6 +134,7 @@
               verification_code: Verifiseringskode
         authorizations:
           create:
+            error: Det oppstod et problem med forespørselen din
             success: Takk! Vi sender en verifiseringskode til adressen din
           edit:
             title: Introduser verifiseringskoden du mottok
