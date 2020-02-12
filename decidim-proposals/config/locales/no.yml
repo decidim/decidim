@@ -74,6 +74,10 @@
         one: Støtte
         other: Støttere
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
     components:
       proposals:
         actions:
