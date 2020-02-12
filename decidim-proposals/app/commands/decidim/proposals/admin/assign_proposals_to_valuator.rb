@@ -22,8 +22,8 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          assignments = assign_proposals
-          return broadcast(:ok)
+          assign_proposals
+          broadcast(:ok)
         rescue ActiveRecord::RecordInvalid
           broadcast(:invalid)
         end
