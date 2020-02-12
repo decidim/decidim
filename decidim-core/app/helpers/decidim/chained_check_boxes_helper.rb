@@ -101,7 +101,7 @@ module Decidim
     end
 
     def scope_children_to_tree(scope)
-      return if scope.scope_type == current_participatory_space&.scope_type_max_depth
+      return if scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
       return unless scope.children.any?
 
       scope.children.flat_map do |child|
