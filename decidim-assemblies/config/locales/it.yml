@@ -159,6 +159,9 @@ it:
           moderations: Moderazione
           private_users: Utenti privati
       models:
+        assemblies_types:
+          fields:
+            title: Titolo
         assembly:
           fields:
             created_at: Data/ora di creazione
@@ -191,6 +194,7 @@ it:
             moderator: Moderatore
       titles:
         assemblies: assemblee
+        assemblies_types: Tipo di assemblea
     admin_log:
       assembly:
         create: "%{user_name} ha creato l'assemblaggio %{resource_name}"
