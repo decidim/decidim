@@ -114,13 +114,22 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official meeting proposal" do
-      let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
+      let!(:official_meeting_proposal) { create(:proposal, :official_meeting, body: content, component: component) }
+      let!(:proposal) { official_meeting_proposal }
+
+      before do
+        # organization.update(rich_text_editor_in_public_views: true)
+        visit_component
+        click_link proposal.title
+      end
 
       it "shows the author as meeting" do
         visit_component
         click_link official_meeting_proposal.title
         expect(page).to have_content(translated(official_meeting_proposal.authors.first.title))
       end
+
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
     context "when a proposal has comments" do
