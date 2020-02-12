@@ -565,6 +565,7 @@
           description_own: "%{score} folk følger deg."
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke noen følgere ennå.
+          unearned_own: Du har ingen følgere ennå.
         index:
           badge_title: "%{name} merke"
           page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
@@ -944,6 +945,7 @@
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
+      expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
       long_words: inneholder ord som er for lange (over 35 tegn)
       nesting_too_deep: kan ikke være inni en underkategori
