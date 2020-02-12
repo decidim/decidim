@@ -20,11 +20,13 @@ module Decidim
 
       private
 
+      attr_reader :participatory_space
+
       def components_query
         Decidim.component_manifests.sum do |component|
           component.stats
                    .filter(tag: :followers)
-                   .with_context(@participatory_space.components.published)
+                   .with_context(participatory_space.components.published)
                    .map { |_name, value| value }
                    .sum
         end
@@ -34,7 +36,7 @@ module Decidim
         Decidim.participatory_space_manifests.sum do |space|
           space.stats
                .filter(tag: :followers)
-               .with_context(@participatory_process)
+               .with_context(participatory_space)
                .map { |_name, value| value }
                .sum
         end

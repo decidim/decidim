@@ -28,9 +28,11 @@ module Decidim
 
       private
 
+      attr_reader :participatory_space
+
       def comments_query
         Decidim::Comments::Comment
-          .where(decidim_root_commentable_id: @participatory_space.id)
+          .where(decidim_root_commentable_id: participatory_space.id)
           .pluck(:decidim_author_id)
           .uniq
       end
@@ -85,7 +87,7 @@ module Decidim
       end
 
       def space_components
-        @space_components ||= @participatory_space.components
+        @space_components ||= participatory_space.components
       end
 
       def proposals_components
