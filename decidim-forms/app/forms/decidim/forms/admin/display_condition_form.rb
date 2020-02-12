@@ -7,22 +7,21 @@ module Decidim
       class DisplayConditionForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :question, Decidim::Forms::Question
-        attribute :condition_question, Decidim::Forms::Question
-        attribute :answer_option, Decidim::Forms::AnswerOption
+        attribute :question_id, Integer
+        attribute :condition_question_id, Integer
+        attribute :answer_option_id, Integer
         attribute :condition_type, String
-        attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :condition_value, String
 
-        validates :question, presence: true
-        validates :condition_question, presence: true
-        validates :answer_option, presence: true, if: :answer_option_mandatory?
+        validates :question, presence: true, if: ->(form) { form.question_id.present? }
+        validates :condition_question, presence: true, if: ->(form) { form.condition_question_id.present? }
+        validates :answer_option, presence: true, if: ->(form) { answer_option_mandatory? && form.question_id.present? }
+
         validates :condition_value, translatable_presence: true, if: :condition_value_mandatory?
         validates :condition_type, presence: true
-        validates :position, numericality: { greater_than_or_equal_to: 0 }
 
         validate :condition_question_position
         validate :valid_answer_option?
@@ -34,7 +33,30 @@ module Decidim
         end
 
         def answer_options
-          condition_question&.answer_options || []
+          return [] if condition_question.blank?
+
+          condition_question.answer_options
+        end
+
+        # Finds the Question from the given question_id/
+        #
+        # Returns a Decidim::Forms::Question
+        def question
+          @question ||= Question.find_by(id: @question_id)
+        end
+
+        # Finds the Condition Question from the given condition_question_id/
+        #
+        # Returns a Decidim::Forms::Question
+        def condition_question
+          @condition_question ||= Question.find_by(id: @condition_question_id)
+        end
+
+        # Finds the Answer Option from the given answer_option_id/
+        #
+        # Returns a Decidim::Forms::AnswerOption
+        def answer_option
+          @answer_option ||= AnswerOption.find_by(id: @answer_option_id)
         end
 
         private
@@ -50,11 +72,11 @@ module Decidim
         def valid_answer_option?
           return unless answer_option_mandatory?
 
-          errors.add(:answer_option, :invalid) if answer_option&.question&.id != condition_question&.id
+          errors.add(:answer_option_id, :invalid) if answer_option.question.id != condition_question_id
         end
 
         def condition_question_position
-          return unless condition_question && question
+          return unless condition_question_id && question_id
 
           errors.add(:condition_question, :invalid) if condition_question.position > question.position
         end

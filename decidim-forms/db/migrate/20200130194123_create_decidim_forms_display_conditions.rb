@@ -9,8 +9,6 @@ class CreateDecidimFormsDisplayConditions < ActiveRecord::Migration[5.1]
       t.integer :condition_type, default: 0, null: false
       t.jsonb :condition_value
       t.boolean :mandatory, default: false
-      t.boolean :deleted, default: false
-      t.integer :position, default: 0
 
       t.timestamps
     end

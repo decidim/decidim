@@ -13,9 +13,9 @@
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
   const maxChoicesWrapperSelector = ".questionnaire-question-max-choices";
   
-  const displayConditionQuestionSelector = "select[name$=\\[condition_question\\]]";
+  const displayConditionQuestionSelector = "select[name$=\\[condition_question_id\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
-  const displayConditionAnswerOptionSelector = "select[name$=\\[answer_option\\]]";
+  const displayConditionAnswerOptionSelector = "select[name$=\\[answer_option_id\\]]";
   const displayConditionFieldSelector = ".questionnaire-question-display-condition";
   const displayConditionsWrapperSelector = ".questionnaire-question-display-conditions";
   const displayConditionRemoveFieldButtonSelector = ".remove-display-condition";
@@ -108,7 +108,7 @@
         const $questionSelector = $conditionTypeSelect.parents(displayConditionFieldSelector).find(displayConditionQuestionSelector);
         const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
 
-        return isMultipleChoiceOption(selectedQuestionType) && $field.val() === "equal" || $field.val() === "not_equal"
+        return isMultipleChoiceOption(selectedQuestionType) && ($field.val() === "equal" || $field.val() === "not_equal")
       }
     });
 
