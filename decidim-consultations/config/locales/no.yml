@@ -144,6 +144,7 @@
         already_voted: Stemt allerede
       vote_modal_confirm:
         change: Endre
+        contextual_help: Bekreft det valgte alternativet.
   layouts:
     decidim:
       admin:
