@@ -26,6 +26,7 @@
       conference_publications:
         create:
           error: Det oppstod et problem med å publisere denne konferansen.
+          success: Konferansen ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere denne konferansen.
           success: Konferansen ble avpublisert.
