@@ -285,8 +285,9 @@
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
+          confirmation_instructions: 'Hvis du ikke har mottatt bekreftelse instruksjonene kan du be om de igjen:'
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
-          request_confirmation_instructions: Be om bekreftelseinstruksjoner
+          request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
     collapsible_list:
       hidden_elements_count:
@@ -785,10 +786,10 @@
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
       user:
-        confirmation_instructions_sent: Email bekreftelsesinstruksjoner sendt
+        confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         manage_user_group_admins: Administrer administrator
-        resend_email_confirmation_instructions: Send email bekreftelsesinstruksjoner på nytt
+        resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
@@ -849,6 +850,7 @@
         success: Interessene dine er oppdatert.
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li>Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, kommentarer, debattere, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytte og lese for å bli overbevist, uttrykke ideene dine på en konkret og direkte måte, svare med tålmodighet og beslutning, forsvare ideene dine og beholde et åpent sinn for å samarbeide og bli med på andres ideer.</li></ul>
+      default_subject: Takk for at du ble med {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Tilbake
@@ -858,7 +860,7 @@
     confirmations:
       confirmed: Din e-postadresse er bekreftet.
       new:
-        resend_confirmation_instructions: Send bekreftelsesinstruksjoner på nytt
+        resend_confirmation_instructions: Send bekreftelse instruksjoner på nytt
       send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
     failure:
@@ -876,8 +878,10 @@
       updated: Passordet ditt ble angitt. Du er nå pålogget.
     mailer:
       confirmation_instructions:
+        action: Bekreft kontoen min
+        greeting: Velkommen %{recipient}!
         instruction: 'Du kan bekrefte email-adressen din via lenken nedenfor:'
-        subject: Bekreftelseinstruksjoner
+        subject: Bekreftelse instruksjoner
       email_changed:
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
@@ -939,7 +943,7 @@
     shared:
       links:
         back: Tilbake
-        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelsesinstruksjonen?
+        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelse instruksjonen?
         didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
