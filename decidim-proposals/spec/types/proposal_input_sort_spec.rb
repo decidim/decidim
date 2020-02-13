@@ -24,7 +24,6 @@ module Decidim
       end
 
       context "when sorting by endorsement_count" do
-
         describe "ASC" do
           let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
 
