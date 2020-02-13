@@ -14,19 +14,19 @@ module Decidim
       helper_method :username_list, :conversation
 
       def new
-        enforce_permission_to :create, :conversation
         @form = form(ConversationForm).from_params(params)
-
-        redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
-
         conversation = conversation_between(current_user, @form.recipient)
-        redirect_to conversation_path(conversation) if conversation
+
+        return redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
+
+        return redirect_to conversation_path(conversation) if conversation
+
+        enforce_permission_to :create, :conversation, conversation: empty_conversation(@form.recipient)
       end
 
       def create
-        enforce_permission_to :create, :conversation
-
         @form = form(ConversationForm).from_params(params)
+        enforce_permission_to :create, :conversation, conversation: empty_conversation(@form.recipient)
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
@@ -76,6 +76,10 @@ module Decidim
 
       def conversation
         @conversation ||= Conversation.find(params[:id])
+      end
+
+      def empty_conversation(recipient)
+        Conversation.new(participants: [current_user, recipient])
       end
 
       def username_list(users)
