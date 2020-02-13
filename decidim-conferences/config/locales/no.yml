@@ -7,6 +7,12 @@
       conference_user_role:
         email: Epost
         name: Navn
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Denne e-postadressen er allerede invitert
   activerecord:
     models:
       decidim/conference:
@@ -61,6 +67,7 @@
       conferences_copies:
         create:
           error: Det oppstod et problem med å duplisere denne konferansen.
+          success: Konferansen ble duplisert.
       media_links:
         create:
           error: Det oppstod et problem med å opprette en ny media lenke.
