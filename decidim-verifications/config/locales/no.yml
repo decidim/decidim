@@ -92,6 +92,7 @@
           config:
             update:
               error: Det oppsto et problem med å oppdatere konfigurasjonen.
+              success: Konfigurasjonen ble oppdatert
           confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller avvis bekreftelsen slik at deltakeren kan endre den
