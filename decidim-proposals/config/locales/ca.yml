@@ -366,7 +366,7 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
-            accepted: Acceptat
+            accepted: Acceptada
             answer_proposal: Resposta
             evaluating: En avaluació
             rejected: Rebutjat
@@ -413,17 +413,28 @@ ca:
             create: Crea
             title: Crea proposta
           show:
-            body: Cos
+            amendments_count: Número d'esmenes
+            authors: Autores
+            body: Descripció
             comments_count: Comptador de comentaris
             comments_negative_count: En contra
             comments_neutral_count: Neutral
             comments_positive_count: A favor
             created_at: Data de creació
             documents: Documents
+            endorsements_count: Número d'esmenes
+            endorsements_ranking: Classificació per esmenes
+            endorsers: Adherides
             link: Enllaç
+            n_more_endorsers:
+              one: i 1 més
+              other: i %{count} més
             photos: Fotos
             proposals: Propostes
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Trobades relacionades
             votes_count: Nombre de suports
+            votes_ranking: Classificació per suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
             select_a_category: Selecciona una categoria
