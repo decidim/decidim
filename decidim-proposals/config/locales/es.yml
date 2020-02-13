@@ -424,11 +424,17 @@ es:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsements_ranking: Clasificación por adhesiones
+            endorsers: Adheridas
             link: Enlace
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
             photos: Fotos
             proposals: Propuestas
+            ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             votes_count: Número de apoyos
+            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Selecciona una categoría
