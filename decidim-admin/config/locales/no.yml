@@ -51,6 +51,7 @@
         highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
         highlighted_content_banner_action_title: Handlingsknapp tittel
         highlighted_content_banner_action_url: Handlingsknapp URL
+        highlighted_content_banner_enabled: Vis det markerte innholdsbanner
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
