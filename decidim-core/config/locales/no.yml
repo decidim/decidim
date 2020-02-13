@@ -285,9 +285,8 @@
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
-          confirmation_instructions: 'Hvis du ikke har fått bekreftelse instruksjonene kan du be om de igjen:'
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
-          request_confirmation_instructions: Be om bekreftelse instruksjoner
+          request_confirmation_instructions: Be om bekreftelseinstruksjoner
           title: Bekreft e-posten din
     collapsible_list:
       hidden_elements_count:
@@ -786,9 +785,10 @@
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
       user:
+        confirmation_instructions_sent: Email bekreftelsesinstruksjoner sendt
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         manage_user_group_admins: Administrer administrator
-        resend_email_confirmation_instructions: Send email bekreftelses instruksjoner på nytt
+        resend_email_confirmation_instructions: Send email bekreftelsesinstruksjoner på nytt
     reported_mailer:
       hide:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
@@ -858,7 +858,7 @@
     confirmations:
       confirmed: Din e-postadresse er bekreftet.
       new:
-        resend_confirmation_instructions: Send bekreftelses instruksjoner på nytt
+        resend_confirmation_instructions: Send bekreftelsesinstruksjoner på nytt
       send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
     failure:
@@ -877,6 +877,7 @@
     mailer:
       confirmation_instructions:
         instruction: 'Du kan bekrefte email-adressen din via lenken nedenfor:'
+        subject: Bekreftelseinstruksjoner
       email_changed:
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
@@ -938,7 +939,7 @@
     shared:
       links:
         back: Tilbake
-        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelsesinstruksjoner?
+        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelsesinstruksjonen?
         didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
