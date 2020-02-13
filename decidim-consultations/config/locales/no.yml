@@ -67,6 +67,7 @@
           error: Det oppstod et problem med å publisere dette spørsmålet.
         destroy:
           error: Det oppstod et problem med å avpublisere dette spørsmålet.
+          success: Spørsmålet ble avpublisert.
       questions:
         create:
           error: Det oppstod et problem med å lage et nytt spørsmål.
@@ -94,6 +95,10 @@
       titles:
         response_groups: Responsgrupper
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maksimal mengde elementer som skal vises
       count:
         title:
           one: "%{count} konsultasjon"
@@ -113,6 +118,7 @@
             voting_ends_in:
               one: Avstemmingen slutter <strong>i morgen</strong>
               other: Avstemmingen slutter om <strong>%{count} dager</strong>
+            voting_ends_today: Avstemmingen slutter <strong>i dag</strong>
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
