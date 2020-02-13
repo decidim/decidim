@@ -3,6 +3,7 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        signature_start_date: Start av innsamlingsperiode for signatur
         signature_type_values:
           offline: Personlig
         state: Status
