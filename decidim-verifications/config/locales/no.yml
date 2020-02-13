@@ -63,6 +63,7 @@
         admin:
           census:
             create:
+              error: Det oppstod et problem under import av folketellingen.
               success: Importerte %{count} elementer (%{errors} feil)
             destroy_all:
               success: Alle folketellingene er slettet
