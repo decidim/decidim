@@ -422,6 +422,8 @@ hu:
             comments_positive_count: Kedvenc
             created_at: Létrehozás dátuma
             documents: Dokumentumok
+            endorsements_count: Jóváhagyások száma
+            endorsements_ranking: Jóváhagyások szerinti besorolás
             endorsers: Támogatók
             link: Link
             n_more_endorsers:
@@ -429,8 +431,10 @@ hu:
               other: és még %{count}
             photos: Fotók
             proposals: Javaslatok
+            ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
             votes_count: Támogatók száma
+            votes_ranking: Támogatások szerinti rangsorolás
           update_category:
             invalid: 'A javaslatok már a(z) %{category} kategóriába tartoznak: %{proposals}.'
             select_a_category: Kérlek, válassz kategóriát
