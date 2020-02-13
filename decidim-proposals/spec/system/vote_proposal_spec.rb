@@ -283,7 +283,7 @@ describe "Support Proposal", type: :system, slow: true do
       it "cannot be voted" do
         visit_component
 
-        within ".filters .state_chained_check_boxes_filter" do
+        within ".filters .state_check_boxes_tree_filter" do
           check "All"
           uncheck "All"
           check "Rejected"

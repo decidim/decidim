@@ -1,10 +1,10 @@
 /**
- * Subcheckboxes component.
+ * Checkboxes tree component.
  */
-class SubCheckBoxes {
+class CheckBoxesTree {
   constructor() {
-    this.subCheckboxes = document.querySelectorAll("[data-sub-checkboxes]");
-    if (!this.subCheckboxes) {
+    this.checkboxesTree = document.querySelectorAll("[data-checkboxes-tree]");
+    if (!this.checkboxesTree) {
       return;
     }
 
@@ -17,7 +17,7 @@ class SubCheckBoxes {
     this.checkGlobalCheck();
 
     // Event listeners
-    this.subCheckboxes.forEach((input) => input.addEventListener("click", this.checkTheCheckBoxes));
+    this.checkboxesTree.forEach((input) => input.addEventListener("click", this.checkTheCheckBoxes));
     document.querySelectorAll("[data-children-checkbox] input").forEach((input) => {
       input.addEventListener("change", (event) => this.checkTheCheckParent(event.target));
     });
@@ -36,7 +36,7 @@ class SubCheckBoxes {
    */
   checkTheCheckBoxes(event) {
     // Quis custodiet ipsos custodes?
-    const targetChecks = event.target.dataset.subCheckboxes;
+    const targetChecks = event.target.dataset.checkboxesTree;
     const checkStatus = event.target.checked;
     const allChecks = document.querySelectorAll(`#${targetChecks} input[type='checkbox']`);
 
@@ -54,7 +54,7 @@ class SubCheckBoxes {
    */
   checkGlobalCheck() {
     this.globalChecks.forEach((global) => {
-      const checksContext = global.dataset.subCheckboxes;
+      const checksContext = global.dataset.checkboxesTree;
       const totalInputs = document.querySelectorAll(
         `#${checksContext} input[type='checkbox']`
       );
@@ -108,7 +108,7 @@ class SubCheckBoxes {
     }
 
     const parentCheck = document.querySelector(
-      `[data-sub-checkboxes=${checkBoxContext}`
+      `[data-checkboxes-tree=${checkBoxContext}]`
     );
     const totalCheckSiblings = document.querySelectorAll(
       `#${checkBoxContext} > div > [data-children-checkbox] > input`
@@ -151,4 +151,4 @@ class SubCheckBoxes {
   }
 }
 
-$(() => new SubCheckBoxes());
+$(() => new CheckBoxesTree());

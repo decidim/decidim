@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This helper include some methods for rendering resources static and dynamic maps.
-  module ChainedCheckBoxesHelper
+  # This helper include some methods for rendering a checkboxes tree input.
+  module CheckBoxesTreeHelper
     # This method returns a hash with the options for the checkbox and its label
-    # used in filters that uses chained checkboxes
-    def chained_check_box_options(value, label, **options)
+    # used in filters that uses checkboxes trees
+    def check_boxes_tree_options(value, label, **options)
       checkbox_options = {
         value: value,
         label: label,
@@ -27,14 +27,14 @@ module Decidim
       options
     end
 
-    # struct for nodes of chained checkboxes
+    # struct for nodes of checkboxes trees
     TreeNode = Struct.new(:leaf, :node) do
       def tree_node?
         is_a?(TreeNode)
       end
     end
 
-    # struct for leafs of chained checkboxes
+    # struct for leafs of checkboxes trees
     TreePoint = Struct.new(:value, :label) do
       def tree_node?
         is_a?(TreeNode)

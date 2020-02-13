@@ -7,12 +7,12 @@ module Decidim
     module CollaborativeDraftHelper
       def filter_collaborative_drafts_state_values
         scope = "decidim.proposals.collaborative_drafts.filters"
-        Decidim::ChainedCheckBoxesHelper::TreeNode.new(
-          Decidim::ChainedCheckBoxesHelper::TreePoint.new("", t("all", scope: scope)),
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("all", scope: scope)),
           [
-            Decidim::ChainedCheckBoxesHelper::TreePoint.new("open", t("open", scope: scope)),
-            Decidim::ChainedCheckBoxesHelper::TreePoint.new("withdrawn", t("withdrawn", scope: scope)),
-            Decidim::ChainedCheckBoxesHelper::TreePoint.new("published", t("published", scope: scope))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("open", t("open", scope: scope)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("withdrawn", t("withdrawn", scope: scope)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("published", t("published", scope: scope))
           ]
         )
       end

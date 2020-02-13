@@ -60,7 +60,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows state filters" do
-        within ".filters .state_chained_check_boxes_filter" do
+        within ".filters .state_check_boxes_tree_filter" do
           expect(page).to have_field("All")
           expect(page).to have_field("Open")
           expect(page).to have_field("Withdrawn")
@@ -69,7 +69,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows category filters" do
-        within ".filters .category_id_chained_check_boxes_filter" do
+        within ".filters .category_id_check_boxes_tree_filter" do
           expect(page).to have_field("All")
           [category, category2, category3].each do |cat|
             expect(page).to have_field(cat.name[I18n.locale.to_s])
