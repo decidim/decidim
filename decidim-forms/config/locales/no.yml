@@ -29,6 +29,8 @@
             add_answer_option: Legg til svaralternativ
             any: Alle
             remove: Fjern
+          update:
+            invalid: Det oppstod et problem med å lagre dette skjema.
       errors:
         answer:
           body: Teksten kan ikke være blank
@@ -41,6 +43,7 @@
             title: Svar på skjemaet
           are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           questionnaire_answered:
+            body: Dy har allerede svart på dette skjemaet.
             title: Allerede besvart
           questionnaire_closed:
             body: Skjemaet er lukket og kan ikke besvares.
