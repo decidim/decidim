@@ -33,8 +33,8 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
-    debates = Decidim::Debates::Debate.where(component: components).not_hidden
-    Decidim::Follow.where(followable: debates).count
+    debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
+    Decidim::Follow.where(decidim_followable_type: "Decidim::Debates::Debate", decidim_followable_id: debates_ids).count
   end
 
   component.register_resource(:debate) do |resource|

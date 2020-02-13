@@ -29,8 +29,8 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
-    Decidim::Follow.where(followable: meetings).count
+    meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).pluck(:id)
+    Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
   component.exports :meetings do |exports|
