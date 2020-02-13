@@ -141,6 +141,9 @@
           index:
             filter:
               all: Alle
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksimal mengde elementer som skal vises
       assembly_types:
         commission: Kommisjon
       created_by:
