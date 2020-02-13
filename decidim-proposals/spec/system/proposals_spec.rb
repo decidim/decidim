@@ -114,6 +114,7 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official meeting proposal" do
+      include_context "with rich text editor content"
       let!(:proposal) { create(:proposal, :official_meeting, body: content, component: component) }
 
       before do
