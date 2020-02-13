@@ -175,6 +175,7 @@
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
           validate_registration_code:
+            invalid: Denne registreringskoden er ugyldig.
             success: Registreringskoden ble validert.
       admin_log:
         invite:
@@ -242,6 +243,7 @@
         confirmation:
           confirmed_html: Din påmelding til møtet <a href="%{url}">%{title}</a> er bekreftet.
           details: Du finner møtets detaljer i vedlegget.
+          registration_code: Registreringskoden din er %{code}.
       registrations:
         create:
           invalid: Det oppstod et problem med å bli med på dette møtet.
