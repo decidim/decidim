@@ -16,15 +16,15 @@ module Decidim
 
         translatable_attribute :condition_value, String
 
-        validates :question, presence: true
-        validates :condition_question, presence: true
+        validates :question, presence: true, unless: :deleted
+        validates :condition_question, presence: true, unless: :deleted
         validates :answer_option, presence: true, if: :answer_option_mandatory?
 
         validates :condition_value, translatable_presence: true, if: :condition_value_mandatory?
-        validates :condition_type, presence: true
+        validates :condition_type, presence: true, unless: :deleted
 
-        validate :condition_question_position
-        validate :valid_answer_option?
+        validate :condition_question_position, unless: :deleted
+        validate :valid_answer_option?, unless: :deleted
 
         def to_param
           return id if id.present?
@@ -39,9 +39,12 @@ module Decidim
         end
 
         def questions_for_select(questionnaire, position)
-          questions = questionnaire.questions.previous_to(position)
-          questions.map do |question|
-            [ question.translated_body, question.id, { "data-type" => question.question_type } ]
+          @questions_for_select ||= questionnaire.questions.previous_to(position).map do |question|
+            [
+              question.translated_body,
+              question.id,
+              { "data-type" => question.question_type }
+            ]
           end
         end
 
@@ -78,7 +81,7 @@ module Decidim
 
         def valid_answer_option?
           return unless answer_option_mandatory?
-          return unless answer_option.present?
+          return if answer_option.blank?
 
           errors.add(:answer_option_id, :invalid) if answer_option.question.id != condition_question_id
         end
