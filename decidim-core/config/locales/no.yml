@@ -679,6 +679,7 @@
           subject: "%{sender} har startet en samtale med deg"
         new_message:
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+          subject: Du har nye meldinger fra %{sender}
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
