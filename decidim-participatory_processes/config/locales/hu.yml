@@ -22,6 +22,7 @@ hu:
         participatory_structure: Hogyan döntenek
         promoted: Támogatott
         published_at: Közzétéve
+        related_process_ids: Kapcsolódó folyamatok
         scope_id: Hatáskör
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
@@ -322,6 +323,7 @@ hu:
             images: képek
             metadata: Metaadatok
             other: Más
+            related_processes: Kapcsolódó folyamatok
             select_an_area: Válasszon egy területet
             select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
@@ -377,6 +379,7 @@ hu:
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
         private_space: Ez egy privát folyamat
+        related_processes: Kapcsolódó folyamatok
         scope: Hatáskör
         start_date: Kezdő dátum
         target: Ki részt vesz
