@@ -3,6 +3,7 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        signature_end_date: Slutt av innsamlingsperiode for signatur
         signature_start_date: Start av innsamlingsperiode for signatur
         signature_type_values:
           offline: Personlig
@@ -86,6 +87,9 @@
             invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
             no_members_yet: Det er ingen medlemmer i promotør komiteen
             title: Komité medlemer
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksimal mengde elementer som skal vises
         initiatives:
           edit:
             accept: Godta initiativ
@@ -232,6 +236,7 @@
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
             discarded: Dette forslaget har blitt forkastet fordi
+            published: Dette forslaget er publisert fordi
             rejected: Dette forslaget ble avvist fordi
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
