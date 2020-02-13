@@ -320,6 +320,7 @@ ca:
         import: Importa des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
+        show: Veure proposta
         title: Accions
       admin:
         actions:
@@ -367,6 +368,7 @@ ca:
           form:
             accepted: Acceptat
             answer_proposal: Resposta
+            evaluating: En avaluació
             rejected: Rebutjat
             title: Respondre a la proposta %{title}
         proposal_notes:
