@@ -281,6 +281,7 @@
       shared:
         conference_user_login:
           already_account: Har du allerede en konto i decidim?
+          sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       statistics:
         answers_count: Svar
