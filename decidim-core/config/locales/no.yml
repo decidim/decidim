@@ -811,6 +811,7 @@
     shared:
       embed_modal:
         close_window: Lukk vindu
+        embed: Lim inn denne koden på siden din
         embed_link: Bedde inn
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
@@ -866,6 +867,7 @@
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
       updated: Passordet ditt ble angitt. Du er nå pålogget.
+      updated_not_active: Passordet ditt ble angitt.
     mailer:
       confirmation_instructions:
         action: Bekreft kontoen min
@@ -911,6 +913,8 @@
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+      new:
+        send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord
       no_token: Du får ikke tilgang til denne siden uten å komme i fra en passord tilbakestilling email. Hvis du kommer fra en passord tilbakestilling email. kontroller at du bruker hele URL-adressen.
       send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
@@ -962,6 +966,7 @@
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
   invisible_captcha:
+    sentence_for_humans: Hvis du er menneske, ignorerer dette feltet
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
