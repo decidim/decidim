@@ -681,6 +681,7 @@
           subject: "%{sender} har startet en samtale med deg"
         new_message:
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+          subject: Du har nye meldinger fra %{sender}
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
@@ -912,6 +913,8 @@
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
+      new:
+        send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord
       no_token: Du får ikke tilgang til denne siden uten å komme i fra en passord tilbakestilling email. Hvis du kommer fra en passord tilbakestilling email. kontroller at du bruker hele URL-adressen.
       send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
