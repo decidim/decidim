@@ -3,6 +3,8 @@
     attributes:
       agenda:
         title: Tittel
+      close_meeting:
+        attending_organizations: Liste over organisasjoner som deltok
       meeting:
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
