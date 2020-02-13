@@ -222,6 +222,7 @@
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
+        success: Hjelpeseksjoner ble oppdatert
       impersonatable_users:
         index:
           filter:
