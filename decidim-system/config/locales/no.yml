@@ -47,6 +47,7 @@
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
+          success: Organisasjonen ble oppdatert.
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
