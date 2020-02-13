@@ -16,9 +16,9 @@ module Decidim
 
         translatable_attribute :condition_value, String
 
-        validates :question, presence: true, if: ->(form) { form.question_id.present? }
-        validates :condition_question, presence: true, if: ->(form) { form.condition_question_id.present? }
-        validates :answer_option, presence: true, if: ->(form) { answer_option_mandatory? && form.question_id.present? }
+        validates :question, presence: true
+        validates :condition_question, presence: true
+        validates :answer_option, presence: true, if: :answer_option_mandatory?
 
         validates :condition_value, translatable_presence: true, if: :condition_value_mandatory?
         validates :condition_type, presence: true
@@ -36,6 +36,13 @@ module Decidim
           return [] if condition_question.blank?
 
           condition_question.answer_options
+        end
+
+        def questions_for_select(questionnaire, position)
+          questions = questionnaire.questions.previous_to(position)
+          questions.map do |question|
+            [ question.translated_body, question.id, { "data-type" => question.question_type } ]
+          end
         end
 
         # Finds the Question from the given question_id/
@@ -71,6 +78,7 @@ module Decidim
 
         def valid_answer_option?
           return unless answer_option_mandatory?
+          return unless answer_option.present?
 
           errors.add(:answer_option_id, :invalid) if answer_option.question.id != condition_question_id
         end
