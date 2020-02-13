@@ -606,6 +606,7 @@
     group_members:
       accept:
         error: Det oppstod et problem med å godta denne bli med forespørselen
+        success: Bli med forespørsel godtatt
       actions:
         are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
@@ -616,6 +617,7 @@
         error: Det oppstod et problem med å promotere denne deltakeren
       reject:
         error: Det oppstod et problem med å avvise denne bli med forespørselen
+        success: Bli med forespørsel avvist
       remove:
         error: Det oppstod et problem med å fjerne denne deltakeren fra gruppen
         success: Deltakeren ble fjernet fra gruppen
@@ -857,6 +859,7 @@
       send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
     failure:
+      inactive: Din konto er ikke aktivert enda.
       invalid: Ugyldig %{authentication_keys} eller passord.
       invited: Du har en ventende invitasjon, godta den for å fullføre opprettelsen av kontoen din.
       last_attempt: Du har ett forsøk til før kontoen låses.
@@ -967,6 +970,7 @@
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
+      too_short: er for kort (under 15 tegn)
   invisible_captcha:
     sentence_for_humans: Hvis du er menneske, ignorerer dette feltet
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
@@ -991,6 +995,7 @@
         authorizations: Fullmakter
         notifications_settings: Varslingsinnstillinger
   password_validator:
+    domain_included_in_password: er for lik dette domenenavnet
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
   social_share_button:
