@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation, :can_conversate_with?
+      helper_method :username_list, :conversation
 
       def new
         @form = form(ConversationForm).from_params(params)
@@ -21,12 +21,12 @@ module Decidim
 
         return redirect_to conversation_path(conversation) if conversation
 
-        enforce_permission_to :create, :conversation, conversation: empty_conversation(@form.recipient)
+        enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
       end
 
       def create
         @form = form(ConversationForm).from_params(params)
-        enforce_permission_to :create, :conversation, conversation: empty_conversation(@form.recipient)
+        enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
@@ -78,16 +78,14 @@ module Decidim
         @conversation ||= Conversation.find(params[:id])
       end
 
-      def empty_conversation(recipient)
+      def new_conversation(recipient)
+        return nil unless recipient
+
         Conversation.new(participants: [current_user, recipient])
       end
 
       def username_list(users)
         users.pluck(:name).join(", ")
-      end
-
-      def can_conversate_with?(recipient)
-        recipient.accepts_conversation? recipient
       end
     end
   end
