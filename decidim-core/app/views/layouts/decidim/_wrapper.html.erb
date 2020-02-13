@@ -82,7 +82,9 @@ end
                 </div>
               </div>
             <% end %>
-            <%= render partial: "layouts/decidim/edit_link" %>
+
+            <%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
+            <%= content_for(:edit_link) if content_for?(:edit_link) %>
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">
