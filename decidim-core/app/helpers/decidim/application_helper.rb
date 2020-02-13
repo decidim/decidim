@@ -44,6 +44,10 @@ module Decidim
     # action        - The Symbol action to check the permissions for.
     # subject       - The Symbol subject to perform the action to.
     # extra_context - An optional Hash to check the permissions.
+    # link_options   - An optional Hash to change the default name and icon link.
+    # link_options[:name]   - An optional String to be used as the label of the link.
+    # link_options[:icon]   - An optional String with the identifier name of the icon.
+    # link_options[:class]  - An optional String to add as a css class to the link wrapper.
     #
     # Returns nothing.
     def edit_link(link_url, action, subject, extra_context = {}, link_options = { class: "topbar__edit__link" })

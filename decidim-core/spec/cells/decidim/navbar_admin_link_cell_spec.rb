@@ -7,10 +7,11 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
 
   subject { cell("decidim/navbar_admin_link", model).call }
 
-  let(:model) { { link_url: "https://link.url", link_options: link_options } }
+  let(:model) { { link_url: link_url, link_options: link_options } }
+  let(:link_url) { "https://link.url" }
   let(:link_options) { {} }
 
-  context "when rendering with the defults" do
+  context "when rendering with the defaults" do
     it "renders the link wrapper" do
       expect(subject).to have_css(".topbar__admin__link")
     end
@@ -29,12 +30,17 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
   end
 
   context "when rendering with custom options" do
+    let(:link_url) { "https://another.link.url" }
     let(:link_options) do
       {
         name: "Answer",
         icon: "comment-square",
         class: "my-class"
       }
+    end
+
+    it "renders the link url" do
+      expect(subject).to have_link(href: "https://another.link.url")
     end
 
     it "renders the link wrapper with the custom class" do
