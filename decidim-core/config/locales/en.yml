@@ -780,6 +780,7 @@ en:
           send: Send
           title: Reply
         show:
+          not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -1046,6 +1047,7 @@ en:
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
+    user_contact_disabled: This participant does not accept direct messages.
     user_interests:
       show:
         my_interests: My interests

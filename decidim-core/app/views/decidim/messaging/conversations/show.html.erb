@@ -5,5 +5,9 @@
     <% end %>
   </div>
 
-  <%= render "reply", form: @form, conversation: conversation %>
+  <% if conversation.accept_user?(current_user) %>
+    <%= render "reply", form: @form, conversation: conversation %>
+  <% else %>
+    <em><%= t ".not_allowed" %></em>
+  <% end %>
 <% end %>

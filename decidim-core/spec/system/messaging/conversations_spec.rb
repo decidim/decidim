@@ -26,6 +26,21 @@ describe "Conversations", type: :system do
     end
   end
 
+  shared_examples "create new conversation" do
+    it "allows sending an initial message", :slow do
+      start_conversation("Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+    end
+
+    it "redirects to an existing conversation if it exists already", :slow do
+      start_conversation("Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+
+      visit decidim.new_conversation_path(recipient_id: recipient.id)
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+    end
+  end
+
   context "when starting a conversation" do
     let(:recipient) { create(:user, organization: organization) }
 
@@ -35,19 +50,45 @@ describe "Conversations", type: :system do
 
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
+      expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
-    it "allows sending an initial message", :slow do
-      start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
-    end
+    it_behaves_like "create new conversation"
 
-    it "redirects to an existing conversation if it exists already" do
-      start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+    context "and recipient has restricted communications" do
+      let(:recipient) { create(:user, direct_message_types: "followed-only", organization: organization) }
 
-      visit decidim.new_conversation_path(recipient_id: recipient.id)
-      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+      context "and recipient does not follow user" do
+        it "redirects user with access error" do
+          expect(page).not_to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
+          expect(page).to have_content("You are not authorized to perform this action")
+        end
+
+        context "and a conversation exists already" do
+          let!(:conversation) do
+            Decidim::Messaging::Conversation.start!(
+              originator: user,
+              interlocutors: [recipient],
+              body: "Is this a Ryanair style democracy?"
+            )
+          end
+
+          it "redirects to the existing conversation" do
+            visit decidim.new_conversation_path(recipient_id: recipient.id)
+            expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+          end
+        end
+      end
+
+      context "and recipient follows user" do
+        let!(:follow) { create :follow, user: recipient, followable: user }
+
+        before do
+          visit decidim.new_conversation_path(recipient_id: recipient.id)
+        end
+
+        it_behaves_like "create new conversation"
+      end
     end
   end
 
@@ -142,6 +183,69 @@ describe "Conversations", type: :system do
 
           find("a.card--list__data__icon--back").click
           expect(page).to have_no_selector(".card--list__item .card--list__counter")
+        end
+      end
+    end
+
+    context "when interlocutor has restricted conversations" do
+      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+
+      context "and interlocutor does not follow user" do
+        before do
+          visit_inbox
+          click_link interlocutor.name
+        end
+
+        it "allows user to see old messages" do
+          expect(page).to have_content("Conversation with #{interlocutor.name}")
+          expect(page).to have_content("who wants apples?")
+        end
+
+        it "does not show the sending form" do
+          expect(page).not_to have_selector("textarea#message_body")
+        end
+      end
+
+      context "and interlocutor follows user" do
+        let!(:follow) { create :follow, user: interlocutor, followable: user }
+
+        before do
+          visit_inbox
+          click_link interlocutor.name
+        end
+
+        it "show the sending form" do
+          expect(page).to have_selector("textarea#message_body")
+        end
+
+        it "sends a message" do
+          visit_inbox
+          click_link interlocutor.name
+          fill_in "message_body", with: "Please reply!"
+          click_button "Send"
+
+          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+        end
+      end
+    end
+
+    context "when visiting recipient's profile page" do
+      let(:recipient) { create(:user, :confirmed, organization: organization) }
+
+      before do
+        visit decidim.profile_path(recipient.nickname)
+      end
+
+      it "has a contact link" do
+        expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
+      end
+
+      context "and recipient has restricted communications" do
+        let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+
+        it "has contact muted" do
+          expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
+          expect(page).to have_selector("svg.icon--envelope-closed.muted")
         end
       end
     end

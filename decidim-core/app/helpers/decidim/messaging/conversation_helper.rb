@@ -7,8 +7,15 @@ module Decidim
       # Links to the conversation between the current user and another user
       #
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
-        link_to current_or_new_conversation_path_with(user), title: title do
-          icon "envelope-closed", aria_label: title, class: "icon--small"
+        conversation_path = current_or_new_conversation_path_with(user)
+        if conversation_path
+          link_to conversation_path, title: title do
+            icon "envelope-closed", aria_label: title, class: "icon--small"
+          end
+        else
+          content_tag :span, title: t("decidim.user_contact_disabled"), data: { tooltip: true } do
+            icon "envelope-closed", aria_label: title, class: "icon--small muted"
+          end
         end
       end
 
@@ -35,7 +42,7 @@ module Decidim
 
         if conversation
           decidim_routes.conversation_path(conversation)
-        else
+        elsif user.accepts_conversation?(current_user)
           decidim_routes.new_conversation_path(recipient_id: user.id)
         end
       end

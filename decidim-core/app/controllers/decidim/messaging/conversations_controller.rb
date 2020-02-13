@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :username_list, :conversation
+      helper_method :username_list, :conversation, :can_conversate_with?
 
       def new
         @form = form(ConversationForm).from_params(params)
@@ -84,6 +84,10 @@ module Decidim
 
       def username_list(users)
         users.pluck(:name).join(", ")
+      end
+
+      def can_conversate_with?(recipient)
+        recipient.accepts_conversation? recipient
       end
     end
   end

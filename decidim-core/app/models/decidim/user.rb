@@ -125,7 +125,7 @@ module Decidim
     end
 
     # Public: wheter the user accepts direct messages from another
-    def accept_conversation?(user)
+    def accepts_conversation?(user)
       return follows?(user) if direct_message_types == "followed-only"
 
       true

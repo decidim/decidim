@@ -117,7 +117,7 @@ module Decidim
       # @return Boolean
       #
       def accept_user?(user)
-        blocked = interlocutors(user).detect { |participant| !participant.accept_conversation?(user) }
+        blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
         blocked.blank?
       end
 

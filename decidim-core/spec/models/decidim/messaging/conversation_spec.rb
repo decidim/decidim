@@ -46,13 +46,13 @@ describe Decidim::Messaging::Conversation do
       let(:interlocutor2) { create(:user) }
 
       before do
-        allow(interlocutor).to receive(:accept_conversation?).and_return(true)
-        allow(interlocutor2).to receive(:accept_conversation?).and_return(true)
+        allow(interlocutor).to receive(:accepts_conversation?).and_return(true)
+        allow(interlocutor2).to receive(:accepts_conversation?).and_return(true)
       end
 
       context "and some interlocutor does not accept the originator" do
         before do
-          allow(interlocutor).to receive(:accept_conversation?).and_return(false)
+          allow(interlocutor).to receive(:accepts_conversation?).and_return(false)
         end
 
         it "accept_user? returns false" do
