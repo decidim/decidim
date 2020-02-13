@@ -39,6 +39,18 @@ module Decidim
 
       delegate :organization, to: :commentable
 
+      def self.positive
+        where(alignment: 1)
+      end
+
+      def self.neutral
+        where(alignment: 0)
+      end
+
+      def self.negative
+        where(alignment: -1)
+      end
+
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
 

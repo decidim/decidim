@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: proposal_proposal_notes_path(proposal, @form), html: { class: "form new_proposal_note" }) do |f| %>
+<%= decidim_form_for(@notes_form, url: proposal_proposal_notes_path(proposal, @notes_form), html: { class: "form new_proposal_note" }) do |f| %>
   <div class="row column">
     <%= f.text_area :body, rows: 10, label: t(".note") %>
   </div>

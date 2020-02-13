@@ -24,7 +24,9 @@ describe "Index Proposal Notes", type: :system do
   include_context "when managing a component as an admin"
 
   before do
-    visit current_path + "proposals/#{proposal.id}/proposal_notes"
+    within find("tr", text: proposal.title) do
+      click_link "Show proposal"
+    end
   end
 
   it "shows proposal notes for the current proposal" do
