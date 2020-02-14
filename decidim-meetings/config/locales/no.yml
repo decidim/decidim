@@ -30,6 +30,7 @@
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
+          success: Møtet ble duplisert.
         new:
           select: Velg hvilke data du vil duplisere
     components:
