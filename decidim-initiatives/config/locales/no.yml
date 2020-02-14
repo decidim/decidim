@@ -252,6 +252,8 @@
           verification_required: Verifiser kontoen din for å signere initiativet
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
+        initiative_link:
+          check_initiative_details: Du kan se initiativ detaljene
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
         progress_report_for: 'Sammendrag om initiativet: %{title}'
