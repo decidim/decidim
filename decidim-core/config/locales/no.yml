@@ -697,6 +697,8 @@
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        index:
+          no_conversations: Du har ingen samtaler ennå
         show:
           title: Samtale med %{usernames}
         update:
@@ -734,6 +736,7 @@
     notifications_settings:
       show:
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
+        newsletter_notifications: Jeg ønsker å motta nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
       update:
@@ -805,7 +808,7 @@
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
