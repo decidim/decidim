@@ -35,6 +35,7 @@
         report:
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
+          description: Er dette innholdet upassende?
           details: Ytterlige kommentarer
           reasons:
             does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
