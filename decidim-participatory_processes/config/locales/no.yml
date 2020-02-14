@@ -244,7 +244,7 @@
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
-          success: Invitasjon sendt på nytt.
+          success: Invitasjonen sendt på nytt.
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
