@@ -646,6 +646,7 @@
         accept_request: Aksepter
       new:
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
+      no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
       update:
@@ -753,6 +754,7 @@
           assemblies_count: Forsamlinger
           comments_count: Kommentarer
           endorsements_count: Påtegnelser
+          headline: Nåværende tilstand av %{organization}
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
@@ -975,6 +977,7 @@
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
       long_words: inneholder ord som er for lange (over 35 tegn)
+      must_start_with_caps: må starte med en stor bokstav
       nesting_too_deep: kan ikke være inni en underkategori
       not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
       not_saved:
