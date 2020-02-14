@@ -132,6 +132,7 @@
             send: Be om verifikasjon
           update:
             error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
+            success: Dokumentet ble lastet opp på nytt
       postal_letter:
         admin:
           pending_authorizations:
