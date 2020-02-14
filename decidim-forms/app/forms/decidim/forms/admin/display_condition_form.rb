@@ -7,9 +7,9 @@ module Decidim
       class DisplayConditionForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :question_id, Integer
-        attribute :condition_question_id, Integer
-        attribute :answer_option_id, Integer
+        attribute :decidim_question_id, Integer
+        attribute :decidim_condition_question_id, Integer
+        attribute :decidim_answer_option_id, Integer
         attribute :condition_type, String
         attribute :mandatory, Boolean, default: false
         attribute :deleted, Boolean, default: false
@@ -48,25 +48,25 @@ module Decidim
           end
         end
 
-        # Finds the Question from the given question_id/
+        # Finds the Question from the given decidim_question_id
         #
         # Returns a Decidim::Forms::Question
         def question
-          @question ||= Question.find_by(id: @question_id)
+          @question ||= Question.find_by(id: @decidim_question_id)
         end
 
-        # Finds the Condition Question from the given condition_question_id/
+        # Finds the Condition Question from the given decidim_condition_question_id
         #
         # Returns a Decidim::Forms::Question
         def condition_question
-          @condition_question ||= Question.find_by(id: @condition_question_id)
+          @condition_question ||= Question.find_by(id: @decidim_condition_question_id)
         end
 
-        # Finds the Answer Option from the given answer_option_id/
+        # Finds the Answer Option from the given decidim_answer_option_id
         #
         # Returns a Decidim::Forms::AnswerOption
         def answer_option
-          @answer_option ||= AnswerOption.find_by(id: @answer_option_id)
+          @answer_option ||= AnswerOption.find_by(id: @decidim_answer_option_id)
         end
 
         private
@@ -83,11 +83,11 @@ module Decidim
           return unless answer_option_mandatory?
           return if answer_option.blank?
 
-          errors.add(:answer_option_id, :invalid) if answer_option.question.id != condition_question_id
+          errors.add(:answer_option_id, :invalid) if answer_option.question.id != decidim_condition_question_id
         end
 
         def condition_question_position
-          return unless condition_question_id && question_id
+          return unless decidim_condition_question_id && decidim_question_id
 
           errors.add(:condition_question, :invalid) if condition_question.position > question.position
         end

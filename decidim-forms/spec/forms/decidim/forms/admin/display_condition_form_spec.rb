@@ -8,21 +8,21 @@ module Decidim
     module Admin
       describe DisplayConditionForm do
         subject do
-          described_class.new(question_id: question_id,
-                              condition_question_id: condition_question_id,
+          described_class.new(decidim_question_id: decidim_question_id,
+                              decidim_condition_question_id: decidim_condition_question_id,
                               condition_value: condition_value,
                               condition_type: condition_type,
-                              answer_option_id: answer_option_id,
+                              decidim_answer_option_id: decidim_answer_option_id,
                               mandatory: true).with_context(current_organization: organization)
         end
 
         let(:organization) { create(:organization) }
         let(:condition_question) { create(:questionnaire_question, position: 1) }
-        let(:condition_question_id) { condition_question.id }
+        let(:decidim_condition_question_id) { condition_question.id }
         let(:question) { create(:questionnaire_question, position: 2) }
-        let(:question_id) { question.id }
+        let(:decidim_question_id) { question.id }
         let(:answer_option) { create(:answer_option, question: condition_question) }
-        let(:answer_option_id) { answer_option.id }
+        let(:decidim_answer_option_id) { answer_option.id }
 
         let(:condition_type) { :answered }
         let(:condition_value) do
@@ -37,15 +37,15 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when question_id is not present" do
-          let!(:question_id) { nil }
+        context "when decidim_question_id is not present" do
+          let!(:decidim_question_id) { nil }
 
           it { is_expected.not_to be_valid }
         end
 
-        context "when condition_question_id is not present" do
-          let!(:condition_question_id) { nil }
-          let!(:answer_option_id) { nil } # otherwise it will try to use condition_question overriden in previous line
+        context "when decidim_condition_question_id is not present" do
+          let!(:decidim_condition_question_id) { nil }
+          let!(:decidim_answer_option_id) { nil } # otherwise it will try to use condition_question overriden in previous line
 
           it { is_expected.not_to be_valid }
         end
@@ -90,7 +90,7 @@ module Decidim
         context "when it is deleted" do
           let!(:condition_type) { :equal }
           let!(:condition_value) { nil }
-          let!(:answer_option_id) { nil }
+          let!(:decidim_answer_option_id) { nil }
 
           before do
             subject.deleted = true
