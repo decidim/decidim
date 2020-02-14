@@ -264,6 +264,9 @@
             subject: Registrering av konferansen din er bekreftet
           pending_validation:
             subject: Registrering av konferansen din venter på bekreftelse
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitasjon til å delta en konferanse
         send_conference_diploma_mailer:
           diploma:
             subject: Ditt konferanse deltakelsesbevis er sendt
@@ -339,6 +342,10 @@
       index:
         description: Lenker om denne konferansen
         title: Media og Lenker
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitasjon til å delta en konferanse
   layouts:
     decidim:
       conferences:
