@@ -429,6 +429,7 @@
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny omfangstype.
+          success: Omfangstypen ble opprettet.
         destroy:
           success: Omfangstype ble ødelagt
         new:
