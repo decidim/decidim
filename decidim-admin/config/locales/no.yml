@@ -234,6 +234,11 @@
         export_as: "%{name} som %{export_format}"
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       filters:
+        officialized_at_null:
+          label: Stat
+          values:
+            'false': Offisialisert
+            'true': Ikke offisialisert
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
       help_sections:
@@ -367,7 +372,7 @@
           success: Søknaden ble oppdatert.
       officializations:
         create:
-          success: Deltaker ble offisiell
+          success: Deltaker ble offisialisert
         destroy:
           success: Deltaker ble uoffisialisert
         index:
@@ -375,7 +380,15 @@
           badge: Merke
           created_at: Opprette På
           name: Navn
+          not_officialized: Ikke offisialisert
+          officialize: Offisialiser
+          officialized: Offisialisert
+          reofficialize: Offisialiser igjen
           status: Status
+          unofficialize: Uoffisialisert
+        new:
+          officialize: Offisialiser
+          title: Offisialiser deltaker "%{name}"
       organization:
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
