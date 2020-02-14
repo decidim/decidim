@@ -34,6 +34,7 @@
       consultations:
         create:
           error: Det oppstod et problem med å lage en ny konsultasjon.
+          success: Konsultasjonen ble opprettet.
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         results:
@@ -41,6 +42,7 @@
           participants: "%{count} deltakere"
         update:
           error: Det oppstod et problem med å oppdatere denne konsultasjonen.
+          success: Konsultasjonen ble oppdatert.
       menu:
         questions_submenu:
           components: Komponenter
