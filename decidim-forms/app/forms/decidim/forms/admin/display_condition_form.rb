@@ -39,7 +39,7 @@ module Decidim
         end
 
         def questions_for_select(questionnaire, position)
-          @questions_for_select ||= questionnaire.questions.previous_to(position).map do |question|
+          questionnaire.questions.previous_to(position).map do |question|
             [
               question.translated_body,
               question.id,

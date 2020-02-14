@@ -17,7 +17,7 @@
       <%=
         form.select(
           :condition_question_id,
-          questionnaire.questions.previous_to(question.position).map { |question| [question.translated_body, question.id, { 'data-type' => question.question_type } ] },
+          options_for_select(display_condition.questions_for_select(questionnaire, question.position), selected: display_condition.condition_question_id),
           { prompt: t(".select_condition_question") },
           disabled: !editable,
           data: { url: answer_options_url }
