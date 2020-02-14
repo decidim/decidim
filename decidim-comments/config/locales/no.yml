@@ -35,11 +35,13 @@
         report:
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
+          description: Er dette innholdet upassende?
           details: Ytterlige kommentarer
           reasons:
             does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
+        show_replies: Vis %{replies_count} svar
       comment_order_selector:
         order:
           best_rated: Best vurdert
