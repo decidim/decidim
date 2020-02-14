@@ -23,6 +23,7 @@
         form:
           body:
             label: Kommentar
+            placeholder: Hva mener du om dette?
           form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
           user_group_id:
             label: Kommenter som
