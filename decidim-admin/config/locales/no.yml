@@ -445,6 +445,8 @@
           slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
         new:
           create: Opprett side
+        topic:
+          empty: Det er ingen side under dette emnet
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
       titles:
