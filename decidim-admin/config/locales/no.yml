@@ -201,6 +201,7 @@
       component_permissions:
         update:
           error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
+          success: Tillatelsene ble oppdatert.
       components:
         create:
           error: Det oppstod et problem med å opprette denne komponenten.
@@ -426,6 +427,8 @@
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny omfangstype.
+        destroy:
+          success: Omfangstype ble ødelagt
         new:
           create: Opprett omfangstype
         update:
@@ -505,6 +508,7 @@
             invalid: Det oppstod et problem med å skjule ressursen.
           unreport:
             invalid: Det oppstod et problem med å avrapportere ressursen.
+            success: Ressursen ble urapportert.
       models:
         moderation:
           fields:
