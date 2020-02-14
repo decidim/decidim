@@ -98,6 +98,10 @@
         title: Tittel
     errors:
       models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings URI må være en SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -311,8 +315,10 @@
           success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
+          success: Nyhetsbrevet ble levert.
         destroy:
           error_already_sent: 'Kan ikke ødelegge nyhetsbrevet: Det er allerede sendt.'
+          success: Nyhetsbrevet ble ødelagt.
         form:
           interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
         index:
@@ -363,6 +369,7 @@
       organization:
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
+          success: Organisasjonen ble oppdatert.
       organization_appearance:
         form:
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
@@ -447,6 +454,7 @@
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.
+          success: Deltakeren ble invitert.
         destroy:
           error: Det oppstod et problem med å prøve å slette denne administratoren.
           success: Deltakeren er ikke lengre en administrator.
