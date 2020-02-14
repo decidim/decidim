@@ -101,7 +101,7 @@
         publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
         unpublish: "%{user_name} avpubliserte %{resource_name} komponent til %{space_name} rommet"
       moderation:
-        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} rommet"
+        hide: "%{user_name} skjulte en ressurs av type %{resource_type} i %{space_name} rommet"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
       newsletter:
         create: "%{user_name} opprettet %{resource_name} nyhetsbrevet"
