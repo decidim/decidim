@@ -339,6 +339,8 @@
           select_spaces: Velg rom for å segmentere nyhetsbrevet
           select_users: Velg hvilke brukere du vil sende nyhetsbrevet
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
+        send:
+          no_recipients: Ingen mottakere for dette valget
         update:
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
