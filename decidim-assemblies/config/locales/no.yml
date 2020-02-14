@@ -10,6 +10,7 @@
         closing_date_reason: Lukkings dato begrunnelse
         composition: Sammensetning
         decidim_area_id: Område
+        participatory_processes_ids: Relaterte deltakerprosesser
         title: Tittel
       assembly_member:
         birthday: Fødselsdag
