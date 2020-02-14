@@ -352,7 +352,7 @@
           success: Søknaden ble oppdatert.
       officializations:
         create:
-          success: Deltaker ble offisiell
+          success: Deltaker ble offisialisert
         destroy:
           success: Deltaker ble uoffisialisert
         index:
@@ -361,8 +361,18 @@
           created_at: Opprette På
           filter:
             all: Alle
+            not_officialized: Ikke offisialisert
+            officialized: Offisialisert
           name: Navn
+          not_officialized: Ikke offisialisert
+          officialize: Offisialiser
+          officialized: Offisialisert
+          reofficialize: Offisialiser igjen
           status: Status
+          unofficialize: Uoffisialisert
+        new:
+          officialize: Offisialiser
+          title: Offisialiser deltaker "%{name}"
       organization:
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
