@@ -242,6 +242,7 @@
             'true': Ikke offisialisert
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+          title_cont: Søk %{collection} etter tittel.
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         success: Hjelpeseksjoner ble oppdatert
@@ -436,6 +437,7 @@
           create: Opprett omfangstype
         update:
           error: Det oppstod et problem med å oppdatere denne omfangstypen.
+          success: Omfangstypen ble oppdatert
       scopes:
         create:
           error: Det oppstod et problem med å opprette et nytt omfang.
