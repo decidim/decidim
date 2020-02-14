@@ -1,3 +1,6 @@
-function scrollToBottom() {
-	window.scrollTo(0, document.body.scrollHeight);
+/**
+ * Scroll to bottom automatically when the page is loaded.
+ */
+const scrollToBottom = () => {
+  window.scrollTo(0, document.body.scrollHeight);
 }
