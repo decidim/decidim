@@ -530,6 +530,7 @@
     export_mailer:
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
+      subject: Eksporten din "%{name}" er klar
     filters:
       linked_classes:
         all: Alle
@@ -694,6 +695,8 @@
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        show:
+          title: Samtale med %{usernames}
         update:
           error: Melding ikke sendt. Prøv igjen senere
     metrics:
