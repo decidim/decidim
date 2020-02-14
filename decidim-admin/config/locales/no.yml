@@ -497,6 +497,7 @@
             invalid: Det oppstod et problem med å skjule ressursen.
           unhide:
             invalid: Det oppstod et problem med å skjule ressursen.
+            success: Ressursen ble ugjemt.
           unreport:
             invalid: Det oppstod et problem med å avrapportere ressursen.
             success: Ressursen ble urapportert.
