@@ -71,15 +71,22 @@
       questions:
         create:
           error: Det oppstod et problem med å lage et nytt spørsmål.
+          success: Spørsmålet ble opprettet.
+        destroy:
+          success: Spørsmålet ble slettet.
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
+          success: Spørsmålet ble oppdatert.
       responses:
         create:
           error: Det oppstod et problem med å opprette en ny respons.
+          success: Svaret ble opprettet.
         destroy:
           error: Det oppstod et problem med å fjerne responsen.
+          success: Svaret ble slettet.
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
+          success: Svaret ble oppdatert.
     consultations:
       admin:
         content_blocks:
