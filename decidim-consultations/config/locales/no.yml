@@ -130,6 +130,7 @@
         create:
           error: Det oppstod et problem med å stemme spørsmålet
           success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
+          title_success: Stemmen ble registrert
       regular_questions:
         title: Spørsmål til denne konsultasjonen
     help:
