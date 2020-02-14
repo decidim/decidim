@@ -61,10 +61,12 @@
       conferences:
         create:
           error: Det oppstod et problem med å opprette denne konferansen.
+          success: Konferansen ble opprettet.
         new:
           title: Konferanse
         update:
           error: Det oppstod et problem med å oppdatere denne konferansen.
+          success: Konferansen ble oppdatert.
       conferences_copies:
         create:
           error: Det oppstod et problem med å duplisere denne konferansen.
