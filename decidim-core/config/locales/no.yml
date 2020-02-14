@@ -532,6 +532,7 @@
         click_button: Klikk på neste knapp for å laste ned din data. <br/> Du må ha filen tilgjengelig frem til %{date}.
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
+      subject: Eksporten din "%{name}" er klar
     filters:
       linked_classes:
         all: Alle
@@ -705,6 +706,8 @@
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        show:
+          title: Samtale med %{usernames}
         update:
           error: Melding ikke sendt. Prøv igjen senere
     metrics:
@@ -845,6 +848,7 @@
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
+        description: Er dette innholdet upassende?
         does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
         spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
