@@ -122,6 +122,7 @@
             title: Verifiser deg selv ved å bruke ditt identitetsdokument
           create:
             error: Det oppstod et problem med å laste opp dokumentet
+            success: Dokumentet ble lastet opp
           edit:
             being_reviewed: Vi vurderer dokumentene dine. Du vil bli verifisert snart
             offline: Bruk offline verifisering
