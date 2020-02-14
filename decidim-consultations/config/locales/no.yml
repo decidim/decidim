@@ -67,6 +67,7 @@
       question_publications:
         create:
           error: Det oppstod et problem med å publisere dette spørsmålet.
+          success: Spørsmålet ble publisert.
         destroy:
           error: Det oppstod et problem med å avpublisere dette spørsmålet.
           success: Spørsmålet ble avpublisert.
