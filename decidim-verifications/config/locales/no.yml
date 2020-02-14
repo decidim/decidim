@@ -96,9 +96,11 @@
           confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller avvis bekreftelsen slik at deltakeren kan endre den
+              success: Deltakeren ble validert
           offline_confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
+              success: Deltakeren ble validert
             new:
               cancel: Avbryt
               introduce_user_data: Introduser deltakerens email og dokumentdata
@@ -135,6 +137,9 @@
               address: Adresse
               title: Pågående verifiseringer
               verification_code: Verifiseringskode
+          postages:
+            create:
+              success: Brevet ble markert som sendt
         authorizations:
           create:
             error: Det oppstod et problem med forespørselen din
