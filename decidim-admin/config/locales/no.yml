@@ -498,6 +498,7 @@
         reportable:
           hide:
             invalid: Det oppstod et problem med å skjule ressursen.
+            success: Ressursen ble gjemt.
           unhide:
             invalid: Det oppstod et problem med å skjule ressursen.
             success: Ressursen ble ugjemt.
