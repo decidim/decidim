@@ -11,6 +11,8 @@ module Decidim
         -> { Decidim::Core::AuthorInterface }
       ]
 
+      field :id, !types.ID, "The user's id"
+
       field :name, !types.String, "The user's name"
 
       field :nickname, !types.String, "The user's nickname" do
@@ -35,6 +37,10 @@ module Decidim
 
       field :badge, !types.String, "A badge for the user group" do
         resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge }
+      end
+
+      field :groups, !types[UserGroupType], "Groups where this user belongs" do
+        resolve ->(obj, _args, _ctx) { UserGroups::AcceptedUserGroups.for(obj) }
       end
     end
   end

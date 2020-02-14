@@ -27,12 +27,20 @@ module Decidim
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).profile_path }
       end
 
+      field :organizationName, !types.String, "The user group's organization name" do
+        resolve ->(obj, _args, _ctx) { obj.organization.name }
+      end
+
       field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).deleted? }
       end
 
       field :badge, !types.String, "A badge for the user group" do
         resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).badge }
+      end
+
+      field :members, !types[UserType], "Members of this group" do
+        resolve ->(obj, _args, _ctx) { UserGroups::AcceptedMemberships.for(obj).map(&:user) }
       end
     end
   end
