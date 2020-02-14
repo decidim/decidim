@@ -37,7 +37,6 @@ module Decidim
               respond_with user, location: after_inactive_sign_up_path_for(user)
             end
           end
-
           on(:invalid) do
             render :new
           end

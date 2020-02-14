@@ -25,7 +25,7 @@ module Decidim
               "password" => password,
               "password_confirmation" => password_confirmation,
               "tos_agreement" => tos_agreement,
-              "newsletter_at" => newsletter
+              "newsletter" => newsletter
             }
           }
         end
@@ -88,14 +88,25 @@ module Decidim
           end
 
           context "when a user was invited but never accepted" do
+            let(:name) { "Abril 23" }
+            let(:nickname) { "lexercitdelfenix" }
             let!(:pending_user) do
               create(:user, email: email, organization: organization, invitation_token: "foobar", invitation_accepted_at: nil)
             end
 
             it "deletes the previous user and creates a new one" do
-              command.call
+              previous_pwd = pending_user.encrypted_password
+              expect do
+                command.call
+              end.to(change(Decidim::User, :count).by(0) && change(enqueued_jobs, :size).by(+1))
 
-              expect(Decidim::User.exists?(id: pending_user.id)).to be false
+              expect(pending_user.reload.name).to eq(name)
+              expect(pending_user.nickname).to eq(nickname)
+              expect(pending_user.encrypted_password).not_to eq(previous_pwd)
+              expect(pending_user.newsletter_notifications_at).to be_present
+              expect(pending_user.email_on_notification).to be true
+              expect(pending_user.accepted_tos_version.to_s).to eq(organization.tos_version.to_s)
+              expect(enqueued_jobs.first[:args].include?("confirmation_instructions")).to be(true)
             end
           end
         end
