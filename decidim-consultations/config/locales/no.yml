@@ -140,6 +140,8 @@
         create:
           error: Det oppstod et problem med å stemme spørsmålet
           success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
+      regular_questions:
+        title: Spørsmål til denne konsultasjonen
     help:
       participatory_spaces:
         consultations:
