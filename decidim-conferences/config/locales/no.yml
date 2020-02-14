@@ -21,6 +21,8 @@
         other: Konferanser
   decidim:
     admin:
+      actions:
+        send_diplomas: Send deltakerbevis
       conference_copies:
         new:
           select: Velg hvilke data du vil duplisere
