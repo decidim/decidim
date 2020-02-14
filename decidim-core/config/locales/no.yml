@@ -101,7 +101,7 @@
         publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
         unpublish: "%{user_name} avpubliserte %{resource_name} komponent til %{space_name} rommet"
       moderation:
-        hide: "%{user_name} gjemte en ressurs av type %{resource_type} i %{space_name} rommet"
+        hide: "%{user_name} skjulte en ressurs av type %{resource_type} i %{space_name} rommet"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
       newsletter:
         create: "%{user_name} opprettet %{resource_name} nyhetsbrevet"
@@ -699,6 +699,8 @@
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        index:
+          no_conversations: Du har ingen samtaler ennå
         show:
           title: Samtale med %{usernames}
         update:
@@ -736,6 +738,7 @@
     notifications_settings:
       show:
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
+        newsletter_notifications: Jeg ønsker å motta nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
       update:
@@ -807,7 +810,7 @@
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
-        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk gjemt.</p>
+        report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
