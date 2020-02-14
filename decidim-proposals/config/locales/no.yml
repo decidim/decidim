@@ -42,6 +42,7 @@
             attachment:
               needs_to_be_reattached: Må festes på nytt
             body:
+              cant_be_equal_to_template: kan ikke være lik malen
               identical: OG tittelen kan ikke være identisk
             title:
               identical: OG teksten kan ikke være identisk
