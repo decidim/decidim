@@ -4,6 +4,11 @@
       config:
         available_methods: Tilgjengelige metoder
         offline_explanation: Instruksjoner for offline verifisering
+      id_document_information:
+        document_number: Dokumentnummer (med brev)
+      id_document_upload:
+        document_number: Dokumentnummer (med brev)
+        verification_attachment: Skannet kopi av dokumentet ditt
       postal_letter_confirmation:
         verification_code: Verifiseringskode
       postal_letter_postage:
@@ -133,6 +138,7 @@
             send: Be om verifikasjon igjen
           new:
             send: Be om verifikasjon
+            title: Last opp dine identitetsdokumentet
           update:
             error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
             success: Dokumentet ble lastet opp på nytt
