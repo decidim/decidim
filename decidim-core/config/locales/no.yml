@@ -699,6 +699,8 @@
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        update:
+          error: Melding ikke sendt. Prøv igjen senere
     metrics:
       followers:
         description: Antall deltakere som følger dette deltakerområdet
