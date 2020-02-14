@@ -422,6 +422,7 @@
           create: Opprett omfangstype
         update:
           error: Det oppstod et problem med å oppdatere denne omfangstypen.
+          success: Omfangstypen ble oppdatert
       scopes:
         create:
           error: Det oppstod et problem med å opprette et nytt omfang.
