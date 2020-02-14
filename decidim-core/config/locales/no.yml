@@ -579,6 +579,7 @@
             - Du vil gå opp i nivå ved å sende invitasjoner og få dem registrert.
           description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
           description_another: Denne deltakeren har invitert %{score} folk.
+          description_own: Du har invitert %{score} folk.
           next_level_in: Inviter %{score} flere folk for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke invitert noen ennå.
           unearned_own: Du har ikke invitert noen ennå.
@@ -615,6 +616,7 @@
         current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
       promote:
         error: Det oppstod et problem med å promotere denne deltakeren
+        success: Deltakeren ble promotert
       reject:
         error: Det oppstod et problem med å avvise denne bli med forespørselen
         success: Bli med forespørsel avvist
@@ -702,6 +704,8 @@
     newsletters:
       unsubscribe:
         check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
+        error: Det oppstod et problem med å avslutte abonnementet
+        success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
     newsletters_opt_in:
       unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
@@ -868,6 +872,7 @@
       unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
     invitations:
       edit:
+        nickname_help: Kallenavnet ditt i %{organization}.
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
