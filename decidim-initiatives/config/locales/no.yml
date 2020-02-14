@@ -122,6 +122,8 @@
             success: Initiativtypen er fjernet
           edit:
             confirm_destroy: Er du sikker?
+          initiative_type_scopes:
+            title: Omfang for initiativtypen
           update:
             error: Det oppstod en feil
             success: Initiativtypen er oppdatert
@@ -236,6 +238,7 @@
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
+            created: Dette forslaget er opprettet
             discarded: Dette forslaget har blitt forkastet fordi
             published: Dette forslaget er publisert fordi
             rejected: Dette forslaget ble avvist fordi
