@@ -76,6 +76,7 @@
           error: Det oppstod et problem med å lage et nytt spørsmål.
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
+          success: Spørsmålet ble oppdatert.
       response_groups:
         create:
           error: Det oppstod et problem med å opprette en ny responsgruppe.
@@ -88,6 +89,7 @@
           title: Ny responsgruppe
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
+          success: Svaret ble oppdatert.
       responses:
         create:
           error: Det oppstod et problem med å opprette en ny respons.
@@ -95,6 +97,7 @@
           error: Det oppstod et problem med å fjerne responsen.
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
+          success: Svaret ble oppdatert.
       titles:
         response_groups: Responsgrupper
     consultations:
