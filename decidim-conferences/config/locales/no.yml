@@ -3,6 +3,7 @@
     attributes:
       conference:
         banner_image: Bannerafbeelding
+        participatory_processes_ids: Relaterte deltakerprosesser
         title: Tittel
       conference_user_role:
         email: Epost
@@ -293,6 +294,8 @@
           already_account: Har du allerede en konto i decidim?
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
+      show:
+        related_participatory_processes: Relaterte deltakerprosesser
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
