@@ -38,10 +38,11 @@
     width: $dropdown-width;
 
     li{
-      padding: $global-padding;
 
       a{
-        color: $body-font-color;
+        display: block;
+        padding: $global-padding;
+        //color: $body-font-color;
       }
 
       &:not(:last-child){
