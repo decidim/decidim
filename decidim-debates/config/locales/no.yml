@@ -25,8 +25,12 @@
         debates:
           create:
             invalid: Det oppstod et problem med å opprette debatten.
+            success: Debatten ble opprettet.
+          destroy:
+            success: Debatten ble slettet.
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
+            success: Debatten ble oppdatert.
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
@@ -38,6 +42,7 @@
             other: "%{count} debatter"
         create:
           invalid: Det oppstod et problem med å opprette debatten.
+          success: Debatten ble opprettet.
         filters:
           all: Alle
           category: Kategori
