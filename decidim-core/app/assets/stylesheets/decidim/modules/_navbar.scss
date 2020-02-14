@@ -71,15 +71,16 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 
   button{
+    width: 100%;
+    height: 100%;
     padding: 5px;
     cursor: pointer;
     border: 1px solid $primary;
     border-radius: 0 4px 4px 0;
     background-color: $navbar-bg;
-    width: 20%;
   }
 
-  label{
+  form:first-child{
     display: inline-flex;
   }
 
