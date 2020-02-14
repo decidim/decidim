@@ -556,6 +556,7 @@
       errors:
         decidim/user:
           password_confirmation: Passordbekreftelse må samsvare med passordet.
+        error: Det er en feil i dette feltet.
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
