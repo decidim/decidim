@@ -239,6 +239,7 @@
             discarded: Dette forslaget har blitt forkastet fordi
             published: Dette forslaget er publisert fordi
             rejected: Dette forslaget ble avvist fordi
+            validating: Dette forslaget blir evaluert
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
