@@ -148,7 +148,7 @@
         error: Det oppsto feil under endringen av denne resurssen.
         help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
         promote_button: Promoter til %{model_name}
-        promote_confirm_text: Er du sikker på at du vil fremme denne emendasjonen?
+        promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
         promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
         section_heading: Endringer (%{count})
       compare_draft:
@@ -649,6 +649,7 @@
       main_topic:
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
+          title: Hva kan jeg gjøre i %{organization}?
     last_activities:
       all: Alle aktivitetstyper
     log:
@@ -721,6 +722,7 @@
       show:
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
+        receive_notifications_about: Jeg ønsker å få varslet om
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
         success: Varslings innstillingene dine ble oppdatert.
