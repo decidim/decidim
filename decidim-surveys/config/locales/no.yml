@@ -46,3 +46,4 @@
       surveys:
         answer:
           invalid: Det oppstod et problem med å svare på undersøkelsen.
+          success: Undersøkelsen ble besvart.
