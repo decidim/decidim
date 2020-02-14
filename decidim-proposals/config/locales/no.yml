@@ -134,7 +134,7 @@
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
             votes_blocked: Støtter blokkert
             votes_enabled: Støtter aktivert
-            votes_hidden: Støtter gjemt (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
+            votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
         collaborative_draft_access_accepted:
