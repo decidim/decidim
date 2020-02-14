@@ -1,4 +1,4 @@
-<section class="wrapper-home home-section" xmlns="http://www.w3.org/1999/html">
+<section class="wrapper-home home-section" xmlns="http://www.w3.org/1999/xhtml">
   <div class="row" id="highlighted-assemblies">
     <h3 class="section-heading"><%= t("active_assemblies", scope: i18n_scope) %></h3>
     <div class="row collapse">
@@ -14,7 +14,7 @@
               <% end %>
               <div class="card__content">
                 <%= link_to decidim_assemblies.assembly_path(assembly), class: "card__link" do %>
-                  <span class="card__title"><%= translated_attribute assembly.title %></span>
+                  <h4 class="card__title"><%= translated_attribute assembly.title %></h4>
                 <% end %>
               </div>
             </article>
