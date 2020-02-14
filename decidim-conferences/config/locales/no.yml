@@ -205,6 +205,9 @@
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            registrations_count:
+              one: Det har vært 1 registrering.
+              other: Det har vært %{count} registreringer.
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
