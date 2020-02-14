@@ -6,6 +6,10 @@ module Decidim
       default_scope { order(arel_table[:id].asc) }
 
       belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
+
+      def translated_body
+        Decidim::Forms::AnswerOptionPresenter.new(self).translated_body
+      end
     end
   end
 end
