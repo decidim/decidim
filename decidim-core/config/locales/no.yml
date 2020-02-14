@@ -753,6 +753,7 @@
       home:
         extended:
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
+          how_to_participate: Hvordan deltar jeg i en prosess?
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
