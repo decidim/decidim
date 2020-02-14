@@ -85,6 +85,19 @@
     .highlight{
       background-color: $input-prefix-background;
     }
+
+    .tribute-item{
+      .author__avatar{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0;
+      }
+
+      svg.icon{
+        height: 1.6rem;
+        float: right;
+      }
+    }
   }
 
   &.is-active{

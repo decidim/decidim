@@ -25,7 +25,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    $.post("/api", {query: `{users(wildcard:"${text}") {nickname,name}}`}).
+    $.post("/api", {query: `{users(filter: { wildcard: "${text}" }) {nickname, name, avatarUrl, __typename}}`}).
 
       then((response) => {
         let data = response.data.users || {};
@@ -54,8 +54,10 @@ $(() => {
     },
     positionMenu: true,
     menuContainer: null,
+    allowSpaces: true,
     menuItemLimit: 5,
     fillAttr: "nickname",
+    selectClass: "highlight",
     noMatchTemplate: noMatchTemplate,
     lookup: (item) => item.nickname + item.name,
     selectTemplate: function(item) {
@@ -89,8 +91,17 @@ $(() => {
       return item.original.nickname;
     },
     menuItemTemplate: function(item) {
-      let tpl = `<strong>${item.original.nickname}</strong>&nbsp;<small>${item.original.name}</small>`;
-      return tpl;
+      let svg = "";
+      if (window.DecidimComments && item.original.__typename === "UserGroup") {
+        let icons = window.DecidimComments.assets["icons.svg"];
+        svg = `<svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg>`;
+      }
+      return `<div class="tribute-item ${item.original.__typename}">
+      <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
+        <strong>${item.original.nickname}</strong>
+        <small>${item.original.name}</small>
+        ${svg}
+      </div>`;
     }
   });
 
@@ -122,7 +133,6 @@ $(() => {
         $parent.removeClass("is-active");
       }
     });
-
   };
 
   setupEvents($mentionContainer);
