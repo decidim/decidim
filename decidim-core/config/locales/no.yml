@@ -598,12 +598,15 @@
     group_invites:
       accept:
         error: Det oppstod et problem med å godta denne invitasjonen
+        success: Invitasjonen ble godtatt
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
       invite:
         error: Det oppstod et problem med å invitere denne deltakeren
+        success: Deltakeren ble invitert
       reject:
         error: Det oppstod et problem med å avslå denne invitasjonen
+        success: Invitasjonen ble avvist
     group_members:
       accept:
         error: Det oppstod et problem med å godta denne bli med forespørselen
