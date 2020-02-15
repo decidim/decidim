@@ -10,6 +10,7 @@
         closing_date_reason: Lukkings dato begrunnelse
         composition: Sammensetning
         decidim_area_id: Område
+        internal_organisation: Intern organisasjon
         participatory_processes_ids: Relaterte deltakerprosesser
         title: Tittel
       assembly_member:
@@ -140,6 +141,7 @@
             max_results: Maksimal mengde elementer som skal vises
       assembly_types:
         commission: Kommisjon
+        consultative_advisory: Rådgivende
       content_blocks:
         highlighted_assemblies:
           name: Fremhevede forsamlinger
@@ -162,6 +164,7 @@
         closing_date: Lukkings dato
         composition: Sammensetning
         indefinite_duration: Ubestemt
+        internal_organisation: Intern organisasjon
         private_space: Dette er en privat forsamling
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
