@@ -415,7 +415,6 @@ id:
           accepted: Diterima
           all: Semua
           evaluating: Mengevaluasi
-          except_rejected: Semua kecuali ditolak
           rejected: Ditolak
         filter_type_values:
           all: Semua
@@ -463,7 +462,6 @@ id:
           all: Semua
           amendment: Amandemen
           category: Kategori
-          category_prompt: Kategori Prompt
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
@@ -613,7 +611,6 @@ id:
         filters:
           amendment_type: Mengetik
           category: Kategori
-          category_prompt: Pilih Kategori
           origin: Asal
           related_to: Berhubungan dengan
           search: Pencarian
