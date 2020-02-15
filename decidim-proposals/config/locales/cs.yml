@@ -446,7 +446,6 @@ cs:
           accepted: Přijato
           all: Všechno
           evaluating: Hodnocení
-          except_rejected: Všechno kromě zamítnuto
           rejected: Odmítnuto
         filter_type_values:
           all: Všechno
@@ -497,7 +496,6 @@ cs:
           all: Všechno
           amendment: Změny
           category: Kategorie
-          category_prompt: Kategorie Prompt
           open: otevřeno
           published: Publikováno
           related_to: Související s
@@ -655,7 +653,6 @@ cs:
           all: Vše
           amendment_type: Typ
           category: Kategorie
-          category_prompt: Vyberte kategorii
           my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
