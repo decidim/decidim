@@ -89,7 +89,7 @@ module Decidim
         def condition_question_position
           return unless decidim_condition_question_id && decidim_question_id
 
-          errors.add(:condition_question, :invalid) if condition_question.position > question.position
+          errors.add(:condition_question_id, :invalid) if condition_question.position > question.position
         end
       end
     end

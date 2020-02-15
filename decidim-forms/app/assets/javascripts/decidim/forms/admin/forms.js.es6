@@ -20,6 +20,10 @@
 
   const displayConditionQuestionSelector = "select[name$=\\[decidim_condition_question_id\\]]";
   const displayConditionAnswerOptionSelector = "select[name$=\\[decidim_answer_option_id\\]]";
+  const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
+
+  const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
+  const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
@@ -102,18 +106,50 @@
       addFieldButtonSelector: ".add-display-condition",
       removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
       onAddField: ($field) => {
-        const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
-        autoSelectByUrl.run();
+        initializeDisplayConditionField($field);
       },
       onRemoveField: () => {
       }
     });
   };
 
+  const initializeDisplayConditionField = ($field) => {
+    const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
+    autoSelectByUrl.run();
+
+    $field.find(displayConditionTypeSelector).on("change", (event) => {
+      onDisplayConditionTypeChange($field);
+    });
+
+    onDisplayConditionTypeChange($field);
+  }
+
+  const onDisplayConditionTypeChange = ($field) => {
+    const value = $field.find(displayConditionTypeSelector).val();
+    const $valueWrapper = $field.find(displayConditionValueWrapperSelector);
+    const $answerOptionWrapper = $field.find(displayconditionAnswerOptionWrapperSelector);
+
+    const $questionSelector = $field.find(displayConditionQuestionSelector);
+    const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
+
+    const isMultiple = isMultipleChoiceOption(selectedQuestionType);
+
+    if (value == "match") { $valueWrapper.show(); }
+    else { $valueWrapper.hide(); }
+
+    if (isMultiple && (value == "not_equal" || value == "equal")) { $answerOptionWrapper.show(); }
+    else { $answerOptionWrapper.hide(); }
+  };
+
   const dynamicFieldsForDisplayConditions = {};
 
   const isMultipleChoiceOption = (value) => {
     return value === "single_option" || value === "multiple_option" || value === "sorting"
+  };
+
+  const getSelectedQuestionType = (select) => {
+    const selectedOption = select.options[select.selectedIndex];
+    return $(selectedOption).data("type");
   };
 
   const setupInitialQuestionAttributes = ($target) => {
@@ -214,6 +250,11 @@
 
     hideDeletedQuestion($target);
     setupInitialQuestionAttributes($target);
+  });
+
+  $(displayConditionFieldSelector).each((idx, el) => {
+    const $field = $(el);
+    initializeDisplayConditionField($field)
   });
 
   autoLabelByPosition.run();
