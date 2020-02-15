@@ -148,6 +148,7 @@
       filter:
         all: Alle typer
         commission: Kommisjon
+        consultative_advisory: Rådgivende
       index:
         title: Forsamlinger
       pages:
