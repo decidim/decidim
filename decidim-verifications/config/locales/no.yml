@@ -103,13 +103,13 @@
           confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller avvis bekreftelsen slik at deltakeren kan endre den
-              success: Deltakeren ble validert
+              success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
           offline_confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
-              success: Deltakeren ble validert
+              success: Deltakeren ble verifisert
             new:
               cancel: Avbryt
               introduce_user_data: Introduser deltakerens email og dokumentdata
