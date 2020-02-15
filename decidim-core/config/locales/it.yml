@@ -1136,7 +1136,7 @@ it:
         subject: Sblocca le istruzioni
     omniauth_callbacks:
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
-      success: Autenticato con successo da %{kind} account.
+      success: Autenticato con successo da account %{kind}.
     passwords:
       edit:
         change_my_password: Cambia la mia password
