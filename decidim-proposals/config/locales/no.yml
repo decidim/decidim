@@ -395,6 +395,7 @@
             title: Opprett forslag
           show:
             created_at: Opprettelsesdato
+            endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
             votes_count: Støtter antall
           update_category:
