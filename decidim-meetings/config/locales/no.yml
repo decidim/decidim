@@ -40,6 +40,7 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
           step:
