@@ -142,6 +142,7 @@
           form:
             attendee_type: Deltakertype
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
+            non_user: Ikke eksisterende deltaker
           index:
             filter:
               accepted: Aksepterte
