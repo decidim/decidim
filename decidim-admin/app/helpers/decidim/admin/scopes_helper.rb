@@ -32,6 +32,12 @@ module Decidim
             Option.new(scope_type.id, translated_attribute(scope_type.name))
           end
       end
+
+      def organization_scope_depths(organization = current_organization)
+        organization.scope_types.map do |scope_type|
+          Option.new(scope_type.id, translated_attribute(scope_type.name))
+        end.reverse
+      end
     end
   end
 end

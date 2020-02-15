@@ -40,7 +40,7 @@ module Decidim
     end
 
     def category_path
-      resource_locator(model).index(filter: { category_id: model.category.id })
+      resource_locator(model).index(filter: { category_id: [model.category.id.to_s] })
     end
 
     def scope?
@@ -56,7 +56,7 @@ module Decidim
     end
 
     def scope_path
-      resource_locator(model).index(filter: { scope_id: model.scope.id })
+      resource_locator(model).index(filter: { scope_id: [model.scope.id] })
     end
   end
 end

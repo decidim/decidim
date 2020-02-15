@@ -472,17 +472,21 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       application_helper:
+        filter_category_values:
+          all: All
         filter_origin_values:
           all: All
           citizens: Citizens
           meetings: Meetings
           official: Official
           user_groups: Groups
+        filter_scope_values:
+          all: All
         filter_state_values:
           accepted: Accepted
           all: All
           evaluating: Evaluating
-          except_rejected: All except rejected
+          not_answered: Not answered
           rejected: Rejected
         filter_type_values:
           all: All
@@ -531,10 +535,10 @@ en:
           all: All
           amendment: Amendments
           category: Category
-          category_prompt: Category Prompt
           open: Open
           published: Published
           related_to: Related to
+          scope: Scope
           search: Search
           state: Status
           withdrawn: Withdrawn
@@ -685,7 +689,6 @@ en:
           all: All
           amendment_type: Type
           category: Category
-          category_prompt: Select a category
           my_proposals: My proposals
           origin: Origin
           related_to: Related to

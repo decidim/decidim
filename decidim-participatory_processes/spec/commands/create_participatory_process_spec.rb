@@ -39,6 +39,7 @@ module Decidim::ParticipatoryProcesses
         scopes_enabled: true,
         private_space: false,
         scope: scope,
+        scope_type_max_depth: nil,
         area: area,
         errors: errors,
         related_process_ids: related_process_ids,

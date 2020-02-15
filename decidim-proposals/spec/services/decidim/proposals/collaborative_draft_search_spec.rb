@@ -18,17 +18,17 @@ module Decidim
           described_class.new(
             component: component,
             search_text: search_text,
-            state: state,
+            state: states,
             related_to: related_to,
-            scope_id: scope_id
+            scope_id: scope_ids
             # current_user: user
           ).results
         end
 
         let(:search_text) { nil }
         let(:related_to) { nil }
-        let(:state) { "open" }
-        let(:scope_id) { nil }
+        let(:states) { %w(open) }
+        let(:scope_ids) { nil }
 
         it "only includes drafts from the given component" do
           other_draft = create(:collaborative_draft)
@@ -51,7 +51,7 @@ module Decidim
 
         describe "state filter" do
           context "when filtering open collaborative_drafts" do
-            let(:state) { "open" }
+            let(:states) { %w(open) }
 
             it "returns only open collaborative_drafts" do
               open_drafts = create_list(:collaborative_draft, 3, :open, component: component)
@@ -63,7 +63,7 @@ module Decidim
           end
 
           context "when filtering withdrawn collaborative_drafts" do
-            let(:state) { "withdrawn" }
+            let(:states) { %w(withdrawn) }
 
             it "returns only withdrawn collaborative_drafts" do
               create_list(:collaborative_draft, 3, component: component)
@@ -75,7 +75,7 @@ module Decidim
           end
 
           context "when filtering published collaborative_drafts" do
-            let(:state) { "published" }
+            let(:states) { %w(published) }
 
             it "returns only published collaborative_drafts" do
               create_list(:collaborative_draft, 3, component: component)
@@ -87,12 +87,12 @@ module Decidim
           end
         end
 
-        describe "scope_id filter" do
+        describe "scope_ids filter" do
           let!(:draft2) { create(:collaborative_draft, component: component, scope: scope2) }
           let!(:draft3) { create(:collaborative_draft, component: component, scope: subscope1) }
 
           context "when a parent scope id is being sent" do
-            let(:scope_id) { scope1.id }
+            let(:scope_ids) { [scope1.id] }
 
             it "filters collaborative_drafts by scope" do
               expect(subject).to match_array [collaborative_draft, draft3]
@@ -100,7 +100,7 @@ module Decidim
           end
 
           context "when a subscope id is being sent" do
-            let(:scope_id) { subscope1.id }
+            let(:scope_ids) { [subscope1.id] }
 
             it "filters collaborative_drafts by scope" do
               expect(subject).to eq [draft3]
@@ -108,7 +108,7 @@ module Decidim
           end
 
           context "when multiple ids are sent" do
-            let(:scope_id) { [scope2.id, scope1.id] }
+            let(:scope_ids) { [scope2.id, scope1.id] }
 
             it "filters collaborative_drafts by scope" do
               expect(subject).to match_array [collaborative_draft, draft2, draft3]
@@ -117,7 +117,7 @@ module Decidim
 
           context "when `global` is being sent" do
             let!(:resource_without_scope) { create(:collaborative_draft, component: component, scope: nil) }
-            let(:scope_id) { ["global"] }
+            let(:scope_ids) { ["global"] }
 
             it "returns collaborative_draft without a scope" do
               expect(subject).to eq [resource_without_scope]
@@ -126,7 +126,7 @@ module Decidim
 
           context "when `global` and some ids is being sent" do
             let!(:resource_without_scope) { create(:collaborative_draft, component: component, scope: nil) }
-            let(:scope_id) { ["global", scope2.id, scope1.id] }
+            let(:scope_ids) { ["global", scope2.id, scope1.id] }
 
             it "returns collaborative_drafts without a scope and with selected scopes" do
               expect(subject).to match_array [resource_without_scope, collaborative_draft, draft2, draft3]
