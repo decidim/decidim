@@ -761,6 +761,8 @@
         footer_sub_hero:
           footer_sub_hero_body: La oss bygge et mer åpent, gjennomsynlig og samarbeidende samfunn.<br /> Bli med, delta og bestem.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
+        hero:
+          welcome: Velkommen til %{organization}!
         statistics:
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
