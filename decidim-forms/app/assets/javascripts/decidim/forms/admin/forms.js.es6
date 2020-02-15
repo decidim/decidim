@@ -158,6 +158,12 @@
         $option.hide();
       }
     });
+
+    if (conditionTypes.indexOf($conditionTypeSelect.val()) < 0) {
+      $conditionTypeSelect.val(conditionTypes[0]);
+    }
+
+    $conditionTypeSelect.trigger("change");
   };
 
   const onDisplayConditionTypeChange = ($field) => {

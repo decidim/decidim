@@ -18,7 +18,7 @@
       const url = this.$source.data("url");
 
       $.getJSON(url, params, function (data) {
-        select.find("option:not(:first-child)").remove();
+        select.find("option:not([value=''])").remove();
 
         data.forEach((option) => {
           $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
