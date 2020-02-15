@@ -96,3 +96,6 @@
           next_level_in: Delta i %{score} flere debatter for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i en debatt ennå.
           unearned_own: Du har ikke deltatt i noen debatter ennå.
+    metrics:
+      debates:
+        description: Antall debatter opprettet
