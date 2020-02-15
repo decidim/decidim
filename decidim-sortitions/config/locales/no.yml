@@ -71,6 +71,7 @@
         filters_small_view:
           close_modal: Lukk modal
         show:
+          algorithm: Sorterings algoritmekode
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
           candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
