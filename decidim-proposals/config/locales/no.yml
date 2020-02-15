@@ -100,6 +100,7 @@
             comments_enabled: Kommentarer aktivert
             geocoding_enabled: Geokoding aktivert
             minimum_votes_per_user: Minimum støtter per bruker
+            new_proposal_body_template: Nytt forslag korppsmal
             new_proposal_help_text: Ny forslag hjelpetekst
             official_proposals_enabled: Offisielle forslag aktivert
             participatory_texts_disabled_help: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
