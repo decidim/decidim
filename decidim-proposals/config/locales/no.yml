@@ -397,6 +397,7 @@
             created_at: Opprettelsesdato
             endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
+            ranking: "%{ranking} av %{total}"
             votes_count: Støtter antall
           update_category:
             invalid: 'Disse forslagene hadde allerede %{category} kategorien: %{proposals}.'
