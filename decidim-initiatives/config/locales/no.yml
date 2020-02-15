@@ -74,6 +74,7 @@
         initiatives:
           contextual: "<p>Et <strong>initiativ</strong> er et forslag som kan forfremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
           page: "<p>Et <strong>initiativ</strong> er et forslag som kan forfremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          title: Hva er initiativer?
     initiatives:
       actions:
         answer: Svar
@@ -310,6 +311,7 @@
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
         step: Trinn %{current} av %{total}
+        title: Opprett nytt initiativ
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
