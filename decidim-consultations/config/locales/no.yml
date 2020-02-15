@@ -159,6 +159,7 @@
         already_voted: Stemt allerede
         verification_required: Verifiser kontoen din for å stemme
       vote_modal:
+        contextual_help: Vennligst velg et alternativ.
         title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
