@@ -481,7 +481,6 @@ es:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          except_rejected: Todas excepto las rechazadas
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -530,7 +529,6 @@ es:
           all: Todas
           amendment: Enmiendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
@@ -684,7 +682,6 @@ es:
           all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
