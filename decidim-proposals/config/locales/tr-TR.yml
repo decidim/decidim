@@ -426,7 +426,6 @@ tr:
           accepted: Kabul edilmiş
           all: Herşey
           evaluating: değerlendirilmesi
-          except_rejected: Reddedilenlerin tümü hariç
           rejected: Reddedilen
         filter_type_values:
           all: Herşey
@@ -475,7 +474,6 @@ tr:
           all: Herşey
           amendment: Değişiklikler
           category: Kategori
-          category_prompt: Kategori İstemi
           open: Açık
           published: Yayınlanan
           related_to: İle ilgili
@@ -627,7 +625,6 @@ tr:
         filters:
           amendment_type: tip
           category: Kategori
-          category_prompt: bir kategori seç
           origin: Menşei
           related_to: İle ilgili
           search: Arama
