@@ -6,6 +6,7 @@
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        i_frame_url: Ekstern stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         question_context: Kontekst
         title: Tittel
@@ -117,6 +118,9 @@
         content_blocks:
           highlighted_consultations:
             max_results: Maksimal mengde elementer som skal vises
+      content_blocks:
+        highlighted_consultations:
+          name: Fremhevede konsultasjoner
       count:
         title:
           one: "%{count} konsultasjon"
@@ -173,6 +177,7 @@
         already_voted: Stemt allerede
         verification_required: Verifiser kontoen din for å stemme
       vote_modal:
+        contextual_help: Vennligst velg et alternativ.
         title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
