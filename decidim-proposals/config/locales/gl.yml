@@ -420,7 +420,6 @@ gl:
           accepted: Aceptada
           all: Todo
           evaluating: Avaliación
-          except_rejected: Todos excepto rexeitados
           rejected: Rexeitado
         filter_type_values:
           all: Todo
@@ -469,7 +468,6 @@ gl:
           all: Todo
           amendment: Enmendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Aberto
           published: Publicado
           related_to: Relacionado con
@@ -621,7 +619,6 @@ gl:
         filters:
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona unha categoría
           origin: Orixe
           related_to: Relacionado con
           search: Busca
