@@ -323,6 +323,8 @@
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
+      highlighted_content_banner:
+        name: Markert innholdsbanner
       how_to_participate:
         name: Hvordan delta
       html:
@@ -890,6 +892,7 @@
       send_instructions: Du vil motta en mail med instruksjonene for hvordan du bekrefter din email adresse om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en mail med instruksjoner om hvordan du kan bekrefte din e-postadresse om noen minutter.
     failure:
+      already_authenticated: Du er allerede logget inn.
       inactive: Din konto er ikke aktivert enda.
       invalid: Ugyldig %{authentication_keys} eller passord.
       invited: Du har en ventende invitasjon, godta den for å fullføre opprettelsen av kontoen din.
