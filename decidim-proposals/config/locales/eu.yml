@@ -420,7 +420,6 @@ eu:
           accepted: Onartu
           all: guztiak
           evaluating: ebaluatzea
-          except_rejected: Guztiak baztertuak izan ezik
           rejected: Baztertuta
         filter_type_values:
           all: guztiak
@@ -469,7 +468,6 @@ eu:
           all: guztiak
           amendment: Aldaketak
           category: Kategoria
-          category_prompt: Kategoria galdetu
           open: Open
           published: Argitaratutako
           related_to: Lotutako gaiak
@@ -621,7 +619,6 @@ eu:
         filters:
           amendment_type: Mota
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
           origin: Jatorria
           related_to: Honekin lotuta
           search: Bilatu
