@@ -548,6 +548,7 @@
     fingerprint:
       check: Sjekk fingeravtrykket
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
+      online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
     following:
       no_followings: Følger ikke noen eller noe ennå.
@@ -743,6 +744,8 @@
         button: Ja, jeg vil fortsette å motta relevant informasjon
         greetings: Hilsener,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         subject: Vil du fortsette å motta relevant informasjon om %{organization_name}?
+    notifications:
+      no_notifications: Ingen varslinger ennå.
     notifications_settings:
       show:
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
