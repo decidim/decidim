@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       sortition:
+        additional_info: Sorterings informasjon
         decidim_category_id: Kategorier av settet med forslag der du vil bruke trekningen
         dice: Resultat av terningkast. Rull en 6-sidet terning, eller finn en annen tilfeldig måte å generere et tall fra 1 til 6, og legg inn det resulterende tallet foran noen vitner. Dette bidrar til kvaliteten og garanterer tilfeldigheten til resultatet
         target_items: Antall forslag som skal velges (indikerer antall forslag du vil skal bli valgt ved å trekke mange av gruppen av forslag du har valgt tidligere)
