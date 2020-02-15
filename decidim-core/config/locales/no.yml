@@ -913,6 +913,7 @@
       invalid: Ugyldig %{authentication_keys} eller passord.
       invited: Du har en ventende invitasjon, godta den for å fullføre opprettelsen av kontoen din.
       last_attempt: Du har ett forsøk til før kontoen låses.
+      locked: Din konto er låst.
       not_found_in_database: Ugyldig %{authentication_keys} eller passord.
       timeout: Økten din har utløpt. Vennligst logg inn igjen for å fortsette.
       unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
@@ -946,6 +947,7 @@
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
         someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
+        subject: Invitasjonsinstruksjoner
       invite_admin:
         subject: Du har blitt invitert til å administrere %{organization}
       invite_collaborator:
@@ -996,6 +998,7 @@
       updated: Kontoen din er oppdatert.
     sessions:
       already_signed_out: Logget ut.
+      signed_in: Logget inn.
       signed_out: Logget ut.
     shared:
       links:
