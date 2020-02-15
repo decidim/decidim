@@ -69,6 +69,7 @@
           email_subject: "%{author_name} har svart kommentaren din i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svart kommentaren din i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
+          email_intro: Du har blitt nevnt
           email_outro: Du har mottatt denne varslingen fordi du er nevnt i %{resource_title}.
           email_subject: Du er blitt nevnt i %{resource_title}
           notification_title: Du er blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
