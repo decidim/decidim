@@ -320,6 +320,7 @@ es-PY:
         import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
+        show: Ver propuesta
         title: Acciones
       admin:
         actions:
@@ -365,6 +366,10 @@ es-PY:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           form:
+            accepted: Aceptadas
+            answer_proposal: Respuesta
+            evaluating: En evaluación
+            rejected: Rechazadas
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -408,8 +413,28 @@ es-PY:
             create: Crear
             title: Crear propuesta
           show:
+            amendments_count: Número de enmiendas
+            authors: Autoras
+            body: Cuerpo
+            comments_count: Número de comentarios
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
             created_at: Fecha de creación
+            documents: Documentos
+            endorsements_count: Número de adhesiones
+            endorsements_ranking: Clasificación por adhesiones
+            endorsers: Adheridas
+            link: Enlace
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
+            photos: Fotos
+            proposals: Propuestas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Encuentros relacionados
             votes_count: Número de votos
+            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
@@ -456,7 +481,6 @@ es-PY:
           accepted: Aceptado
           all: Todos
           evaluating: Evaluando
-          except_rejected: Todos excepto rechazados
           rejected: Rechazado
         filter_type_values:
           all: Todos
@@ -505,7 +529,6 @@ es-PY:
           all: Todas
           amendment: Enmiendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
@@ -659,7 +682,6 @@ es-PY:
           all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionado con
