@@ -231,8 +231,6 @@ uk:
         filter_origin_values:
           citizens: Громадяни
           official: Службове
-        filter_state_values:
-          except_rejected: Усі, окрім відхилених
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -294,7 +292,6 @@ uk:
           comments: Коментарі
         filters:
           category: Категорія
-          category_prompt: Оберіть категорію
           origin: Джерело
           related_to: Пов'язане з
           search: Шукати
