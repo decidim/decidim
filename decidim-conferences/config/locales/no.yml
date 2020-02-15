@@ -43,6 +43,8 @@
           success: Konferansetaler ble opprettet.
         destroy:
           success: Konferansetaler ble slettet.
+        edit:
+          title: Oppdater konferanse taler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
           success: Konferansetaler ble oppdatert.
