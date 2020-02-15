@@ -154,6 +154,9 @@
             invalid: Det oppstod et problem med å avslutte dette møtet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
+            success: Møtet ble opprettet
+          destroy:
+            success: Møtet ble slettet
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
@@ -165,6 +168,7 @@
             add_service: Legg til tjeneste
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
+            success: Møtet ble oppdatert
         minutes:
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
