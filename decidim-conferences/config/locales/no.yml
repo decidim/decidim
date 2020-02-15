@@ -45,6 +45,8 @@
           success: Konferansetaler ble slettet.
         edit:
           title: Oppdater konferanse taler.
+        new:
+          title: Ny konferanse taler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
           success: Konferansetaler ble oppdatert.
@@ -269,6 +271,9 @@
         show:
           login_as: Du er innlogget som %{name} <%{email}>
           make_conference_registration: 'Foreta din registrering til denne konferansen:'
+      content_blocks:
+        highlighted_conferences:
+          name: Fremhevede konferanser
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -360,6 +365,8 @@
   layouts:
     decidim:
       conferences:
+        index:
+          promoted_conferences: Fremhevede konferanser
         order_by_conferences:
           conferences:
             one: "%{count} konferanse"
