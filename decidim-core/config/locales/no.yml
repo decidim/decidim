@@ -400,6 +400,7 @@
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           connect_your_account_html: Koble til kontoen din ved å logge på <strong>%{organization}</strong>
+          publish_content: Publiser innhold for deg
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
