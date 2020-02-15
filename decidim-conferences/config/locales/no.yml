@@ -151,6 +151,8 @@
           success: Konferanse registrerings-typen ble lagt til.
         destroy:
           success: Konferanse registrerings-typen ble fjernet.
+        edit:
+          title: Oppdater registreringstype.
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
