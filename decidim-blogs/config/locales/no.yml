@@ -12,6 +12,9 @@
         posts:
           create:
             invalid: Det oppstod et problem med å opprette dette innlegget
+            success: Innlegget ble opprettet
+          destroy:
+            success: Innlegget ble slettet
           update:
             invalid: Det oppstod et problem med å lagre dette innlegget.
       last_activity:
