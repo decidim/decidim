@@ -437,7 +437,6 @@ nl:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
-          except_rejected: Alles behalve afgewezen
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -486,7 +485,6 @@ nl:
           all: Alle
           amendment: wijzigingen
           category: Categorie
-          category_prompt: Categorie Prompt
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
@@ -640,7 +638,6 @@ nl:
           all: Alle
           amendment_type: Type
           category: Categorie
-          category_prompt: Kies een categorie
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
