@@ -43,6 +43,7 @@
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
         show_replies: Vis %{replies_count} svar
+        single_comment_link_title: Få lenke til enkeltkommentar
       comment_order_selector:
         order:
           best_rated: Best vurdert
