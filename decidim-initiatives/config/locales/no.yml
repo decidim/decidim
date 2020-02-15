@@ -21,6 +21,7 @@
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
+        online_signature_enabled: Online signatur aktivert
         promoting_committee_enabled: Aktiver promoteringskomité
         title: Tittel
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
@@ -53,10 +54,12 @@
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har oppnådd %{percentage}% av signaturene!
             email_outro: Du har mottatt denne varslingen fordi du er forfatteren av initiativet %{resource_title}.
+            email_subject: Ny milepæl fullført!
             notification_title: Ditt <a href="%{resource_path}">%{resource_title}</a> initiativ har oppnådd %{percentage}% av signaturene.
           follower:
             email_intro: Initiativet %{resource_title} har oppnådd %{percentage}% av signaturene!
             email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            email_subject: Ny milepæl fullført!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
     gamification:
       badges:
@@ -97,6 +100,7 @@
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            export_pdf_signatures: Eksporter PDF av signaturer
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
           index:
@@ -305,6 +309,7 @@
         finished: Initiativsignatur opprettet
         sms_code: SMS-kode verifisering
         step: Trinn %{current} av %{total}
+        title: Signer %{initiative_title}
       initiatives:
         initiative:
           check: Sjekk det ut
