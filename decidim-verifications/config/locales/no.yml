@@ -77,6 +77,7 @@
               success: Alle folketellingene er slettet
           destroy:
             confirm: Slett all folketellingen kan ikke angres. Er du sikker på at du vil fortsette?
+            title: Slett alle folketellingsdata
           index:
             data: Det er %{count} poster lastet totalt. Siste opplastningsdato var den %{due_date}
             empty: Det er ingen data for folketellingen. Bruk skjemaet nedenfor for å importere det ved hjelp av en CSV-fil.
