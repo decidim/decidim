@@ -15,6 +15,13 @@
           attributes:
             max_votes:
               lower_than_min: Maksimalt antall stemmer bør være høyere eller lik enn minimum.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Antall stemmer er ugyldig
   decidim:
     admin:
       actions:
