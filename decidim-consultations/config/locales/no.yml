@@ -102,6 +102,9 @@
         content_blocks:
           highlighted_consultations:
             max_results: Maksimal mengde elementer som skal vises
+      consultations:
+        orders:
+          label: 'Sorter konsultasjoner etter:'
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner
