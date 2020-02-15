@@ -437,6 +437,7 @@
       scopes:
         create:
           error: Det oppstod et problem med å opprette et nytt omfang.
+          success: Omfang ble opprettet.
         destroy:
           success: Omfanget ble ødelagt
         new:
