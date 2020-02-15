@@ -443,7 +443,6 @@
           accepted: Aksepterte
           all: Alle
           evaluating: Vurderer
-          except_rejected: Alle unntatt avvist
           rejected: Avvist
         filter_type_values:
           all: Alle
@@ -492,7 +491,6 @@
           all: Alle
           amendment: Endringer
           category: Kategori
-          category_prompt: Kategori ledetekst
           open: Åpen
           published: Publisert
           related_to: Relatert til
@@ -646,7 +644,6 @@
           all: Alle
           amendment_type: Type
           category: Kategori
-          category_prompt: Velg en kategori
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
