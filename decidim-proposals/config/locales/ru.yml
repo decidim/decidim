@@ -231,8 +231,6 @@ ru:
         filter_origin_values:
           citizens: Граждане
           official: Служебные
-        filter_state_values:
-          except_rejected: Все, кроме отклоненных
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -294,7 +292,6 @@ ru:
           comments: Комментарии
         filters:
           category: Категория
-          category_prompt: Выберите категорию
           origin: Источник
           related_to: Связано с
           search: Поиск
