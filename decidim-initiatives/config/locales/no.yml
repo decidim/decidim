@@ -112,6 +112,7 @@
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
+            title: Rediger initiativtypens omgang
           new:
             back: Tilbake
             title: Opprett initiativtype omfang
@@ -184,6 +185,7 @@
         show_similar_initiatives:
           back: Tilbake
           compare_help: Hvis noen av de følgende initiativene ligner dine, oppfordrer vi deg til å signere den. Forslaget ditt vil ha flere muligheter for å bli gjort.
+          continue: Initiativet mitt er annerledes
           more_information: "(Mer informasjon)"
       events:
         create_initiative_event:
