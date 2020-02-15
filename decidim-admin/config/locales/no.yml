@@ -236,6 +236,7 @@
         index:
           filter:
             all: Alle
+          impersonate_new_managed_user: Administrer ny deltaker
           name: Navn
           needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
           status: Status
@@ -252,6 +253,7 @@
         new:
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
+          impersonate_new_managed_user: Administrer ny deltaker
       managed_users:
         promotion:
           error: Det oppstod et problem med å promotere den administrerte deltakeren.
