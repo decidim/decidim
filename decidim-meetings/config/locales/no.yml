@@ -27,6 +27,8 @@
           attributes:
             email:
               already_invited: Denne e-postadressen er allerede invitert
+    models:
+      decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
   decidim:
     admin:
       meeting_copies:
