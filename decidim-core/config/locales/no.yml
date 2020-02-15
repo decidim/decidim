@@ -904,6 +904,7 @@
       unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
     invitations:
       edit:
+        header: Fullfør oppretting av kontoen din
         nickname_help: Kallenavnet ditt i %{organization}.
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
@@ -1035,6 +1036,7 @@
         notifications_settings: Varslingsinnstillinger
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
+    email_included_in_password: er for lik e-postadressen din
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
   social_share_button:
