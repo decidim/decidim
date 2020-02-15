@@ -3,6 +3,7 @@
     attributes:
       consultation:
         banner_image: Bannerafbeelding
+        introductory_video_url: Innledende video URL
         title: Tittel
       question:
         banner_image: Bannerafbeelding
@@ -51,6 +52,7 @@
         results:
           not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
           participants: "%{count} deltakere"
+          total_votes: 'Totalt: %{count} stemmer'
         update:
           error: Det oppstod et problem med å oppdatere denne konsultasjonen.
           success: Konsultasjonen ble oppdatert.
