@@ -244,6 +244,7 @@
         show:
           attendees: Antall deltakere
           organizations: Deltakende organisasjoner
+          registration_code_help_text: Din registreringskode
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
