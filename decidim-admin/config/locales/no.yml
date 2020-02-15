@@ -157,6 +157,7 @@
       attachment_collections:
         create:
           error: Det oppstod et problem med å opprette en ny mappe.
+          success: Mappen ble opprettet.
         destroy:
           success: Mappen ble ødelagt.
         index:
@@ -166,6 +167,7 @@
           create: Opprett
         update:
           error: Det oppstod et problem med å oppdatere denne mappen.
+          success: Mappen ble oppdatert.
       attachments:
         create:
           error: Det oppsto et problem med å opprette et nytt vedlegg.
@@ -456,6 +458,8 @@
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
+        destroy:
+          success: Emnet ble ødelagt
         new:
           create: Opprett emne
         update:
