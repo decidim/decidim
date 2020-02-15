@@ -880,6 +880,8 @@
       participatory_space_filters:
         filters:
           areas: Områder
+      reference:
+        reference: 'Referanse: %{reference}'
       share_modal:
         close_window: Lukk vindu
         share_link: Del lenke
