@@ -493,7 +493,6 @@ ar:
           all: الكل
           amendment: تعديلات
           category: الفئة
-          category_prompt: الفئة موجه
           open: افتح
           published: نشرت
           related_to: متعلق ب
@@ -655,7 +654,6 @@ ar:
           all: الكل
           amendment_type: نوع
           category: الفئة
-          category_prompt: اختر تصنيف
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
