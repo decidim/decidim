@@ -6,12 +6,13 @@
         title: Tittel
       question:
         banner_image: Bannerafbeelding
-        i_frame_url: Ekstern stemmesystem URL
+        i_frame_url: Eksternt stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
         question_context: Kontekst
         title: Tittel
+        vote: Eksternt stemmesystem
     errors:
       models:
         question:
@@ -120,6 +121,9 @@
         content_blocks:
           highlighted_consultations:
             max_results: Maksimal mengde elementer som skal vises
+      consultations:
+        orders:
+          label: 'Sorter konsultasjoner etter:'
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner
