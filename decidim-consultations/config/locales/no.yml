@@ -185,6 +185,7 @@
         comments_count_title: Kommentarer
       vote_button:
         already_voted: Stemt allerede
+        starting_from: Starter fra %{date}
         verification_required: Verifiser kontoen din for å stemme
       vote_modal:
         contextual_help: Vennligst velg et alternativ.
@@ -200,4 +201,5 @@
           attachments: Vedlegg
           categories: Kategorier
       question_header:
+        back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet
