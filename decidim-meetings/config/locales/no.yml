@@ -152,6 +152,7 @@
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
+            success: Møtet ble avsluttet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
             success: Møtet ble opprettet
@@ -270,6 +271,9 @@
         destroy:
           invalid: Det oppstod et problem med å forlate dette møtet.
           success: Du har forlatt møtet.
+    resource_links:
+      proposals_from_meeting:
+        meeting_proposal: 'Relaterte forslag:'
   devise:
     mailer:
       join_meeting:
