@@ -481,7 +481,6 @@ hu:
           accepted: Elfogadva
           all: Minden
           evaluating: Értékelés
-          except_rejected: Összes elutasítva
           rejected: Elutasítva
         filter_type_values:
           all: Minden
@@ -530,7 +529,6 @@ hu:
           all: Összes
           amendment: Módosítások
           category: Kategória
-          category_prompt: Prompt Kategória
           open: Megnyitás
           published: Közzétéve
           related_to: Kapcsolódó
@@ -684,7 +682,6 @@ hu:
           all: Összes
           amendment_type: Típus
           category: Kategória
-          category_prompt: Válassz kategóriát
           my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
