@@ -117,12 +117,48 @@
     const autoSelectByUrl = createAutoSelectOptionsFromUrl($field);
     autoSelectByUrl.run();
 
+    $field.find(displayConditionQuestionSelector).on("change", (event) => {
+      onDisplayConditionQuestionChange($field);
+    });
+
     $field.find(displayConditionTypeSelector).on("change", (event) => {
       onDisplayConditionTypeChange($field);
     });
 
     onDisplayConditionTypeChange($field);
+    onDisplayConditionQuestionChange($field);
   }
+
+  const onDisplayConditionQuestionChange = ($field) => {
+    const $questionSelector = $field.find(displayConditionQuestionSelector);
+    const selectedQuestionType = getSelectedQuestionType($questionSelector[0]);
+
+    const isMultiple = isMultipleChoiceOption(selectedQuestionType);
+
+    let conditionTypes = ["answered", "not_answered"];
+
+    if (isMultiple) {
+      conditionTypes.push("equal");
+      conditionTypes.push("not_equal");
+    }
+
+    conditionTypes.push("match");
+
+    const $conditionTypeSelect = $field.find(displayConditionTypeSelector);
+
+    $conditionTypeSelect.find("option").each((idx, option) => {
+      const $option = $(option);
+      const value = $option.val();
+
+      if (!value) return;
+
+      $option.show();
+
+      if (conditionTypes.indexOf(value) < 0) {
+        $option.hide();
+      }
+    });
+  };
 
   const onDisplayConditionTypeChange = ($field) => {
     const value = $field.find(displayConditionTypeSelector).val();
