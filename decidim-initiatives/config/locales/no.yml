@@ -42,10 +42,13 @@
         state_eq:
           values:
             discarded: Forkastet
+            validating: Teknisk validering
       models:
         initiatives:
           fields:
             state: Status
+        initiatives_type_scope:
+          name: Initiativtypens omgang
     events:
       initiatives:
         initiative_extended:
@@ -274,6 +277,8 @@
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
+        supports:
+          title: Liste over underskrifter
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
