@@ -71,8 +71,8 @@
         user_mentioned:
           email_intro: Du har blitt nevnt
           email_outro: Du har mottatt denne varslingen fordi du er nevnt i %{resource_title}.
-          email_subject: Du er blitt nevnt i %{resource_title}
-          notification_title: Du er blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_subject: Du har blitt nevnt i %{resource_title}
+          notification_title: Du har blitt nevnt i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
         description: Antall kommenterer generert av deltakerne
