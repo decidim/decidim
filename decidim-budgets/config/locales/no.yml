@@ -17,6 +17,8 @@
         projects:
           create:
             invalid: Det oppstod et problem med å opprette dette prosjektet
+          destroy:
+            success: Prosjektet ble slettet
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
         proposals_imports:
