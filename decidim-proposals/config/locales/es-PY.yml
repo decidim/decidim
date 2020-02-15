@@ -648,7 +648,7 @@ es-PY:
           all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
+          category_prompt: Seleccione una categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionado con
