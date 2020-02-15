@@ -164,6 +164,9 @@
         comments_count_title: Kommentarer
       vote_button:
         already_voted: Stemt allerede
+        verification_required: Verifiser kontoen din for å stemme
+      vote_modal:
+        title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
         contextual_help: Bekreft det valgte alternativet.
