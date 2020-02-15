@@ -92,7 +92,6 @@ it:
             other: "%{count} progetti"
         filters:
           category: Categoria
-          category_prompt: Scegli una categoria
           search: Cerca
         filters_small_view:
           close_modal: Chiudi modalità
