@@ -30,6 +30,7 @@
           new:
             create: Importer forslag til prosjekter
             no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
+            select_component: Velg en komponent
       admin_log:
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
