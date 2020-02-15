@@ -294,11 +294,13 @@
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
+        step: Trinn %{current} av %{total}
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
         finished: Initiativsignatur opprettet
         sms_code: SMS-kode verifisering
+        step: Trinn %{current} av %{total}
       initiatives:
         initiative:
           check: Sjekk det ut
