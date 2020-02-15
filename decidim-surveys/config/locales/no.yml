@@ -38,6 +38,8 @@
         title: Svar på undersøkelser
     surveys:
       admin:
+        exports:
+          survey_user_answers: Undersøkelsens deltaker svar
         surveys:
           update:
             invalid: Det oppstod et problem med å lagre undersøkelsen.
