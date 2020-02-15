@@ -96,7 +96,6 @@ cs:
             other: "%{count} projektů"
         filters:
           category: Kategorie
-          category_prompt: Vyberte kategorii
           search: Vyhledávání
         filters_small_view:
           close_modal: Zavřít modální
