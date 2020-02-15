@@ -127,6 +127,7 @@
         accept:
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
+          accept: Jeg er enig i disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           title: Godta vilkårene for bruk
         required_review:
@@ -489,6 +490,7 @@
           empty: Det er ingen side under dette emnet
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
+          success: Siden ble oppdatert
       titles:
         admin_log: Admin logg
         area_types: Områdetyper
