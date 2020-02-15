@@ -116,6 +116,18 @@
 
     <div class="row column">
       <%= scopes_picker_field form, :scope_id, root: nil %>
+
+      <div class="row" id="scope-depth ">
+        <%= form.collection_select :scope_type_max_depth_id,
+                                    organization_scope_depths,
+                                    :id,
+                                    :name,
+                                    scope_type_depth_select_options,
+                                    scope_type_depth_select_html_options %>
+        <p class="help-text">
+          <%== t(".scope_type_max_depth_help") %>
+        </p>
+      </div>
     </div>
 
     <div class="row column">
