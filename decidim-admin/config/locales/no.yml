@@ -353,6 +353,7 @@
           all_users: 'Alle brukere '
           and: 'og '
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+          segmented_to: 'Segmentert til %{subject}: '
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sender nyhetsbrev til alle bekreftede brukere.
@@ -458,6 +459,7 @@
           create: Opprett omfang
         update:
           error: Det oppstod et problem med å oppdatere dette omfanget.
+          success: Omfanget ble oppdatert
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
@@ -472,6 +474,7 @@
       static_pages:
         create:
           error: Det oppstod et problem med å opprette en ny side.
+          success: Siden ble opprettet.
         destroy:
           success: Siden ble ødelagt
         edit:
