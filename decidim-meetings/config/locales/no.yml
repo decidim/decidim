@@ -168,8 +168,10 @@
         minutes:
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
+            success: Referatet ble opprettet
           update:
             invalid: Det oppstod et problem med å oppdatere dette referatet
+            success: Referatet ble oppdatert
         registrations:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
@@ -212,6 +214,9 @@
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Invitasjon til å delta et møtet
         registration_mailer:
           confirmation:
             subject: Registrering av møtet ditt er bekreftet
@@ -261,3 +266,7 @@
         destroy:
           invalid: Det oppstod et problem med å forlate dette møtet.
           success: Du har forlatt møtet.
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitasjon til å delta et møtet
