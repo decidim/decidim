@@ -97,6 +97,7 @@
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            discard: Forkastet initiativet
             export_pdf_signatures: Eksporter PDF av signaturer
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
@@ -105,6 +106,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              discarded: Forkastet
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -141,10 +143,11 @@
         initiative:
           publish: "%{user_name} publiserte %{resource_name} initiativet"
           send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
-          unpublish: "%{user_name} la ned %{resource_name} initiativet"
+          unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
         accepted: Aksepterte
+        discarded: Forkastet
       committee_requests:
         new:
           continue: Fortsett
