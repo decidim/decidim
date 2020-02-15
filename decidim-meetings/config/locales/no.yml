@@ -178,6 +178,8 @@
             invalid: Det oppstod et problem med å oppdatere dette referatet
             success: Referatet ble oppdatert
         registrations:
+          edit:
+            validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             registrations_count:
