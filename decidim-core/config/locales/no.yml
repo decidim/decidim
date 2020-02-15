@@ -633,10 +633,12 @@
       create:
         error: Det oppstod et problem med å opprette gruppen
       form:
+        document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
         fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
         name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
         nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
+        phone_help: Ikke bruk streker eller mellomrom
       join:
         error: Det oppstod et problem med å bli med i gruppen
         success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
@@ -893,6 +895,7 @@
       edit:
         nickname_help: Kallenavnet ditt i %{organization}.
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
+      invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
       updated: Passordet ditt ble angitt. Du er nå pålogget.
