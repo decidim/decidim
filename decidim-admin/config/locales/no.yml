@@ -456,6 +456,8 @@
       static_pages:
         create:
           error: Det oppstod et problem med å opprette en ny side.
+        destroy:
+          success: Siden ble ødelagt
         edit:
           changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
