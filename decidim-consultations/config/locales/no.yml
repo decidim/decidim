@@ -6,6 +6,7 @@
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        i_frame_url: Ekstern stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         question_context: Kontekst
         title: Tittel
