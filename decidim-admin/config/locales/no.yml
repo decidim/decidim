@@ -445,6 +445,7 @@
       static_page_topics:
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
+          success: Emnet ble opprettet.
         destroy:
           success: Emnet ble ødelagt
         new:
@@ -478,8 +479,10 @@
           success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
         reject:
           invalid: Det oppstod et problem med å avvise denne gruppen.
+          success: Gruppen ble avvist
         verify:
           invalid: Det oppstod et problem med å verifisere denne gruppen.
+          success: Gruppen ble verifisert
       user_groups:
         index:
           filter:
