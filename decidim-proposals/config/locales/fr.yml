@@ -435,7 +435,6 @@ fr:
           accepted: Accepté
           all: Tout
           evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
         filter_type_values:
           all: Tout
@@ -484,7 +483,6 @@ fr:
           all: Tout
           amendment: Amendements
           category: Catégorie
-          category_prompt: Catégories
           open: Ouvrir
           published: Publié
           related_to: Lié à
@@ -636,7 +634,6 @@ fr:
         filters:
           amendment_type: Type
           category: Catégorie
-          category_prompt: Sélectionner une catégorie
           origin: Auteurs
           related_to: Liées à
           search: Rechercher
