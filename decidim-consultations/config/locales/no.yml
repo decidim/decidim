@@ -8,6 +8,8 @@
         banner_image: Bannerafbeelding
         i_frame_url: Ekstern stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
+        max_votes: Maksimalt antall stemmer
+        min_votes: Minimum antall stemmer
         question_context: Kontekst
         title: Tittel
     errors:
