@@ -187,6 +187,7 @@
       assemblies: Forsamlinger
     metrics:
       assemblies:
+        description: Antall forsmalinger opprettet
         object: forsamlinger
         title: Forsamlinger
   errors:
