@@ -126,6 +126,7 @@
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
             select_an_assembly_type: Velg en forsamlingstype
+            select_parent_assembly: Velg foreldre-forsamling
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_copies:
           form:
@@ -139,6 +140,9 @@
             max_results: Maksimal mengde elementer som skal vises
       assembly_types:
         commission: Kommisjon
+      content_blocks:
+        highlighted_assemblies:
+          name: Fremhevede forsamlinger
       created_by:
         city_council: Byrådet
       filter:
