@@ -741,6 +741,7 @@
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
+        send_notifications_by_email: Send varsler via email
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
         success: Varslings innstillingene dine ble oppdatert.
@@ -935,6 +936,7 @@
         instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
         instruction_2: Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.
         instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
+        subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
         instruction: 'Klikk på lenken nedenfor for å låse opp kontoen din:'
         message: Kontoen din er låst på grunn av en for stor mengde mislykkede påloggingsforsøk.
@@ -1026,6 +1028,7 @@
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
+    name_included_in_password: er for likt navnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
   social_share_button:
