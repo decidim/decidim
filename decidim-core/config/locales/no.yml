@@ -644,6 +644,7 @@
         are_you_sure: Er du sikker?
       create:
         error: Det oppstod et problem med å opprette gruppen
+        success: Gruppe ble opprettet
       form:
         document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
@@ -667,6 +668,7 @@
         admin: Administrator
       update:
         error: Det oppstod et problem med å oppdatere gruppen
+        success: Gruppe oppdatert
     help:
       main_topic:
         default_page:
