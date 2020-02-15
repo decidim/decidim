@@ -12,6 +12,7 @@
         decidim_category_id: Kategori
         location: Plassering
         location_hints: Plasseringstips
+        registration_form_enabled: Registreringsskjemaet aktivert
         title: Tittel
       minutes:
         audio_url: Audio url
