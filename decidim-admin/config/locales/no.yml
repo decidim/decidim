@@ -274,6 +274,9 @@
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
+      logs:
+        logs_list:
+          no_logs_yet: Det er ingen logger ennå
       managed_users:
         promotion:
           error: Det oppstod et problem med å promotere den administrerte deltakeren.
@@ -407,6 +410,7 @@
           status: Status
           unofficialize: Uoffisialisert
         new:
+          badge: Offisialiserings merke
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
       organization:
@@ -444,6 +448,7 @@
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
           explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
+          title: Last opp din CSV fil
       resource_permissions:
         update:
           success: Tillatelsene ble oppdatert.
