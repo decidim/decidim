@@ -154,6 +154,7 @@
         closing_date: Lukkings dato
         composition: Sammensetning
         indefinite_duration: Ubestemt
+        private_space: Dette er en privat forsamling
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
         answers_count: Svar
