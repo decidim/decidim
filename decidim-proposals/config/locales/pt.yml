@@ -420,7 +420,6 @@ pt:
           accepted: Aceitaram
           all: Todos
           evaluating: Avaliando
-          except_rejected: Todos exceto rejeitados
           rejected: Rejeitado
         filter_type_values:
           all: Todos
@@ -469,7 +468,6 @@ pt:
           all: Todos
           amendment: Emendas
           category: Categoria
-          category_prompt: Prompt de categoria
           open: Aberto
           published: Publicados
           related_to: Relacionado a
@@ -621,7 +619,6 @@ pt:
         filters:
           amendment_type: Tipo
           category: Categoria
-          category_prompt: Selecione uma categoria
           origin: Origem
           related_to: Relacionado a
           search: Pesquisa
