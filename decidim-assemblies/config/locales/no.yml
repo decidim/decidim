@@ -51,6 +51,8 @@
           success: Medlem ble opprettet for denne forsamlingen.
         destroy:
           success: Medlem ble slettet for denne forsamlingen.
+        edit:
+          title: Oppdater forsamlings medlem.
         index:
           assembly_members_title: Forsamlings medlemmer
         update:
@@ -123,6 +125,7 @@
           form:
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
+            select_an_assembly_type: Velg en forsamlingstype
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_copies:
           form:
