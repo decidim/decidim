@@ -57,6 +57,7 @@
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
           description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
+          title: Du bestemmer budsjettet
         count:
           projects_count:
             one: 1 prosjekt
