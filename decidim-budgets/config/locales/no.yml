@@ -17,10 +17,12 @@
         projects:
           create:
             invalid: Det oppstod et problem med å opprette dette prosjektet
+            success: Prosjektet ble opprettet
           destroy:
             success: Prosjektet ble slettet
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
+            success: Prosjektet ble oppdatert
         proposals_imports:
           create:
             invalid: Det oppsto et problem med å importere forslagene til prosjektet
