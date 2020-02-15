@@ -52,6 +52,7 @@
           close_modal: Lukk modal
         new:
           back: Tilbake
+          select_a_category: Velg en kategori
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
