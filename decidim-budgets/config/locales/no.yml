@@ -86,6 +86,7 @@
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
