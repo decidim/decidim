@@ -64,6 +64,8 @@
             id_documents: Bli verifisert med å laste opp ditt identitets dokumentet
             postal_letter: Bli verifisert med å motta en verifiseringskode gjennom posten
           verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
+        new:
+          authorize_with: Verifiser med %{authorizer}
         skip_verification: Du kan hoppe over dette for nå og %{link}
       csv_census:
         admin:
