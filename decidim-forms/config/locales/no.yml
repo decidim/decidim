@@ -3,6 +3,8 @@
     attributes:
       answer:
         body: Svar
+      question:
+        max_choices: Maksimalt antall valg
     errors:
       models:
         answer:
@@ -33,6 +35,7 @@
             remove: Fjern
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
+            success: Skjemaene ble lagret.
       errors:
         answer:
           body: Teksten kan ikke være blank
