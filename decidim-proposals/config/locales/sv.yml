@@ -430,7 +430,6 @@ sv:
           accepted: Godkända
           all: Alla
           evaluating: utvärdera
-          except_rejected: Alla förutom avslagna
           rejected: avvisade
         filter_type_values:
           all: Alla
@@ -479,7 +478,6 @@ sv:
           all: Alla
           amendment: Tillägg
           category: Kategori
-          category_prompt: Kategorifråga
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
@@ -631,7 +629,6 @@ sv:
         filters:
           amendment_type: Typ
           category: Kategori
-          category_prompt: Välj en kategori
           origin: Ursprung
           related_to: Relaterade till
           search: Sök
