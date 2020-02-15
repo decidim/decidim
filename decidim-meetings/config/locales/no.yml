@@ -5,6 +5,7 @@
         title: Tittel
       close_meeting:
         attending_organizations: Liste over organisasjoner som deltok
+        contributions_count: Antall bidrag
         proposal_ids: Forslag opprettet i møtet
       meeting:
         address: Adresse
