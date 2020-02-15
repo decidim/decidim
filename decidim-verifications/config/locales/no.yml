@@ -38,7 +38,7 @@
           help:
             - Deltakere ber om at en verifiseringskode sendes til adressen deres.
             - Du sendte brevet til adressen deres med verifiseringskoden.
-            - You mark the letter as sent.
+            - Du merkere brevet som sendt.
             - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
       csv_census:
         explanation: Få verifisering med å bruke organisasjonens folketelling
@@ -151,6 +151,7 @@
               verification_code: Verifiseringskode
           postages:
             create:
+              error: Feil med å merkere brevet som sendt
               success: Brevet ble markert som sendt
         authorizations:
           create:
