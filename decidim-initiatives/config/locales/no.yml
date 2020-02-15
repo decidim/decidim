@@ -20,6 +20,7 @@
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
+        promoting_committee_enabled: Aktiver promoteringskomité
         title: Tittel
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
