@@ -392,6 +392,7 @@
             Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
             beslutningen din.</p>
             <p>Takk for at du leste dette!</p>
+          title: Varsler om nyhetsbrev
     doorkeeper:
       authorizations:
         new:
@@ -731,6 +732,7 @@
     newsletters_opt_in:
       unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
       update:
+        error: Det oppstod en feil
         success: Innstillinger for nyhetsbrev ble oppdatert
     newsletters_opt_in_mailer:
       notify:
@@ -768,6 +770,8 @@
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
         hero:
           welcome: Velkommen til %{organization}!
+        metrics:
+          headline: Deltakelse i tall
         statistics:
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
@@ -783,6 +787,7 @@
         title: Hjelp
       participatory_space:
         metrics:
+          headline: Deltakelse i tall
           link: Vis all statistikk
       terms_and_conditions:
         accept:
@@ -907,6 +912,7 @@
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
+      no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
       updated: Passordet ditt ble angitt. Du er nå pålogget.
       updated_not_active: Passordet ditt ble angitt.
@@ -977,6 +983,9 @@
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
       update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
       updated: Kontoen din er oppdatert.
+    sessions:
+      already_signed_out: Logget ut.
+      signed_out: Logget ut.
     shared:
       links:
         back: Tilbake
@@ -984,6 +993,7 @@
         didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
+        sign_in_with_provider: Logg deg på med %{provider}
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
@@ -993,6 +1003,9 @@
       send_instructions: Du vil om få minutter motta en epost med instruksjoner om hvordan du låser opp kontoen din.
       send_paranoid_instructions: Hvis din konto finnes, vil du om få minutter motta en e-post med instruksjoner om hvordan du låser den opp.
       unlocked: Kontoen din er låst opp. Logg på for å fortsette.
+  doorkeeper:
+    scopes:
+      public: Din offentlige informasjon.
   errors:
     messages:
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
