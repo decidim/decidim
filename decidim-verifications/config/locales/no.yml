@@ -42,6 +42,7 @@
             - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
       csv_census:
         explanation: Få verifisering med å bruke organisasjonens folketelling
+        name: Organisasjonens folketelling
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
