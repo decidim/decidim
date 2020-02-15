@@ -14,6 +14,7 @@
         location: Plassering
         location_hints: Plasseringstips
         registration_form_enabled: Registreringsskjemaet aktivert
+        registrations_enabled: Registreringer aktivert
         title: Tittel
       minutes:
         audio_url: Audio url
@@ -29,6 +30,7 @@
             email:
               already_invited: Denne e-postadressen er allerede invitert
     models:
+      decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
   decidim:
     admin:
