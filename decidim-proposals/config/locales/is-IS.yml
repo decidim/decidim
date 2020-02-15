@@ -217,7 +217,6 @@ is-IS:
           endorse: Styðja
         filters:
           category: Flokkur
-          category_prompt: Veldu flokk
           origin: Uppruni
           related_to: Tengjast
           search: Leita
