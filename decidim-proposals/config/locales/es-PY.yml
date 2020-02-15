@@ -647,7 +647,7 @@ es-PY:
           activity: Actividad
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
+          category_prompt: Seleccione una categoría
           origin: Origen
           related_to: Relacionado con
           search: Buscar
