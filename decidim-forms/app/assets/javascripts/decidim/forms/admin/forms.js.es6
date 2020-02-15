@@ -25,18 +25,20 @@
   const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
   const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
 
+  const autoButtonsByPosition = new AutoButtonsByPositionComponent({
+    listSelector: ".questionnaire-question:not(.hidden)",
+    hideOnFirstSelector: ".move-up-question",
+    hideOnLastSelector: ".move-down-question"
+  });
+
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
     labelSelector: ".card-title span:first",
     onPositionComputed: (el, idx) => {
       $(el).find("input[name$=\\[position\\]]").val(idx);
-    }
-  });
 
-  const autoButtonsByPosition = new AutoButtonsByPositionComponent({
-    listSelector: ".questionnaire-question:not(.hidden)",
-    hideOnFirstSelector: ".move-up-question",
-    hideOnLastSelector: ".move-down-question"
+      autoButtonsByPosition.run();
+    }
   });
 
   const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
