@@ -23,6 +23,7 @@
       default_pages:
         placeholders:
           content: Legg til meningsfylt innhold til den statiske siden %{page} på administrator kontrollpanelet.
+          title: Standard tittel for %{page}
       menu:
         admins: Adminer
       models:
@@ -56,3 +57,4 @@
       shared:
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
+          our_getting_started_guide: vår begynner guide
