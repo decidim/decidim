@@ -247,6 +247,9 @@
         form:
           authorization_method: Autoriseringsmetode
           name: Navn
+        new:
+          impersonate_existing_managed_user: Administrer deltaker "%{name}"
+          impersonate_existing_user: Administrer deltaker "%{name}"
       managed_users:
         promotion:
           error: Det oppstod et problem med å promotere den administrerte deltakeren.
