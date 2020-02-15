@@ -95,6 +95,7 @@
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
           index:
             actions_title: Handling
@@ -112,6 +113,7 @@
             confirm_destroy: Er du sikker?
           new:
             back: Tilbake
+            title: Opprett initiativtype omfang
           update:
             error: Det oppstod en feil
             success: Omfanget ble oppdatert
