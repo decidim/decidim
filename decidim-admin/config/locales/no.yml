@@ -129,6 +129,7 @@
         actions:
           accept: Jeg er enig i disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
+          refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
