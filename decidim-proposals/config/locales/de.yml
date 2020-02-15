@@ -423,7 +423,6 @@ de:
           accepted: Angenommen
           all: Alle
           evaluating: In Bearbeitung
-          except_rejected: Alle außer abgelehnte
           rejected: Abgelehnt
         filter_type_values:
           all: Alle
@@ -472,7 +471,6 @@ de:
           all: Alle
           amendment: Änderungsanträge
           category: Kategorie
-          category_prompt: Kategorie Eingabeaufforderung
           open: Offen
           published: Veröffentlicht
           related_to: In Zusammenhang mit
@@ -624,7 +622,6 @@ de:
         filters:
           amendment_type: Art
           category: Kategorie
-          category_prompt: Wählen Sie eine Kategorie
           origin: Ursprung
           related_to: Bezüglich
           search: Suche
