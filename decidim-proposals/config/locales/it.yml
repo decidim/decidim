@@ -436,7 +436,6 @@ it:
           accepted: Accettato
           all: Tutti
           evaluating: Valutare
-          except_rejected: Tutto tranne rifiutato
           rejected: Respinto
         filter_type_values:
           all: Tutti
@@ -485,7 +484,6 @@ it:
           all: Tutti
           amendment: Modifiche
           category: Categoria
-          category_prompt: Prompt di categoria
           open: Aperto
           published: Pubblicato
           related_to: Relativo a
@@ -639,7 +637,6 @@ it:
           all: Tutti
           amendment_type: genere
           category: Categoria
-          category_prompt: Scegli una categoria
           my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
