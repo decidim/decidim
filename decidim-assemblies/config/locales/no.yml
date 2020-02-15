@@ -195,6 +195,7 @@
       assemblies:
         index:
           children: 'Forsamlinger: '
+          promoted_assemblies: Fremhevede forsamlinger
         order_by_assemblies:
           assemblies:
             one: "%{count} sammenstillinger"
