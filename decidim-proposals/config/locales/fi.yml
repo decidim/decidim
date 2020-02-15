@@ -439,7 +439,6 @@ fi:
           accepted: Hyväksytyt
           all: Kaikki
           evaluating: Arvioitavana
-          except_rejected: Kaikki paitsi hylätyt
           rejected: Hylätty
         filter_type_values:
           all: Kaikki
@@ -488,7 +487,6 @@ fi:
           all: Kaikki
           amendment: Muutokset
           category: Aihepiiri
-          category_prompt: Aihepiiri-ilmoitus
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
@@ -642,7 +640,6 @@ fi:
           all: Kaikki
           amendment_type: Tyyppi
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
           my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
