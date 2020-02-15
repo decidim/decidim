@@ -150,6 +150,9 @@
           help_text: Du er i ferd med å be om å bli medlem av promotør komiteen for dette initiativet
         spawn:
           success: Forespørselen din er sendt til initiativforfatteren.
+      content_blocks:
+        highlighted_initiatives:
+          name: Fremhevede initiativer
       create_initiative:
         fill_data:
           back: Tilbake
@@ -267,6 +270,8 @@
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
+        votes_count:
+          most_popular_initiative: Mest populært initiativ
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
         initiative_link:
