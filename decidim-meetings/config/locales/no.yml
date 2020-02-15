@@ -271,6 +271,9 @@
         destroy:
           invalid: Det oppstod et problem med å forlate dette møtet.
           success: Du har forlatt møtet.
+    metrics:
+      meetings:
+        description: Antall møter opprettet
     resource_links:
       proposals_from_meeting:
         meeting_proposal: 'Relaterte forslag:'
