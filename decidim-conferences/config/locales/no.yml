@@ -3,6 +3,7 @@
     attributes:
       conference:
         banner_image: Bannerafbeelding
+        consultations_ids: Relaterte konsultasjoner
         participatory_processes_ids: Relaterte deltakerprosesser
         title: Tittel
       conference_user_role:
@@ -318,6 +319,7 @@
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
+        related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
         answers_count: Svar
