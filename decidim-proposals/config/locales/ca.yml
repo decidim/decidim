@@ -481,7 +481,6 @@ ca:
           accepted: Acceptada
           all: Totes
           evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
           rejected: Rebutjada
         filter_type_values:
           all: Totes
@@ -530,7 +529,6 @@ ca:
           all: Todas
           amendment: Esmenes
           category: Categoria
-          category_prompt: Avís de categoria
           open: Obert
           published: Publicat
           related_to: Relacionat amb
@@ -684,7 +682,6 @@ ca:
           all: Tots
           amendment_type: Tipus
           category: Categoria
-          category_prompt: Selecciona una categoria
           my_proposals: Les meves propostes
           origin: Origen
           related_to: Relacionat amb
