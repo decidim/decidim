@@ -177,6 +177,7 @@
       vote_modal_confirm:
         change: Endre
         contextual_help: Bekreft det valgte alternativet.
+        title: 'Konsultasjon: bekreft stemme'
   layouts:
     decidim:
       admin:
