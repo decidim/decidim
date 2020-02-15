@@ -147,6 +147,7 @@
         home:
           highlighted_consultations:
             active_consultations: Aktive konsultasjoner
+            see_all_consultations: Se alle konsultasjonene
             voting_ends_in:
               one: Avstemmingen slutter <strong>i morgen</strong>
               other: Avstemmingen slutter om <strong>%{count} dager</strong>
