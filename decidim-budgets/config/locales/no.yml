@@ -11,6 +11,7 @@
         attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         edit: Editar
+        import: Importer forslag til prosjekter
         title: Handlinger
       admin:
         projects:
@@ -23,6 +24,7 @@
             invalid: Det oppsto et problem med å importere forslagene til prosjektet
             success: "%{number} forslag importert til prosjekter"
           new:
+            create: Importer forslag til prosjekter
             no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
       admin_log:
         project:
