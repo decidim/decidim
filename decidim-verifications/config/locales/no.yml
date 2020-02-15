@@ -8,6 +8,7 @@
         document_number: Dokumentnummer (med brev)
       id_document_upload:
         document_number: Dokumentnummer (med brev)
+        document_type: Ditt type dokument
         verification_attachment: Skannet kopi av dokumentet ditt
       postal_letter_confirmation:
         verification_code: Verifiseringskode
