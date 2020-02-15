@@ -453,6 +453,7 @@
           create: Opprett emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
+          success: Emnet ble oppdatert
       static_pages:
         create:
           error: Det oppstod et problem med å opprette en ny side.
