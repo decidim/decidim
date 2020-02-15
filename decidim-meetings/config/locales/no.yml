@@ -154,6 +154,9 @@
             invalid: Det oppstod et problem med å avslutte dette møtet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
+            success: Møtet ble opprettet
+          destroy:
+            success: Møtet ble slettet
           service:
             remove: Fjern
             title: Tittel
@@ -161,6 +164,7 @@
             add_service: Legg til tjeneste
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
+            success: Møtet ble oppdatert
         minutes:
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
