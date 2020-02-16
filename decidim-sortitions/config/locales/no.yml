@@ -29,6 +29,7 @@
           sortition:
             fields:
               category: Kategori
+              decidim_proposals_component: Forslags komponent
               title: Tittel
         sortitions:
           confirm_destroy:
@@ -76,6 +77,7 @@
           label: 'Sorter sorteringer etter:'
         show:
           algorithm: Sorterings algoritmekode
+          any_category: fra alle kategorier
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
           candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
