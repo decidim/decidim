@@ -38,6 +38,7 @@
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
             name: Navn
+            smtp_settings: SMTP innstillinger
       organizations:
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
