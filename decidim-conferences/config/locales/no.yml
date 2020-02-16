@@ -238,6 +238,7 @@
           form:
             existing_user: Eksisterende deltaker
             select_user: Velg deltaker
+            user_type: Deltakertype
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
@@ -297,6 +298,11 @@
         destroy:
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
+      conference_speaker:
+        personal_website: Personlig nettside
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personlig nettside
       conferences:
         partners:
           collaborators: Partnere
@@ -327,6 +333,7 @@
             status: Status
           status:
             accepted: Aksepterte (%{at})
+            rejected: Avvist (%{at})
         conference_registration:
           fields:
             email: Epost
