@@ -37,6 +37,7 @@
     admin:
       actions:
         back_to_responses: Tilbake til svar
+        new_consultation: Ny konsultasjon
         response_groups: Administrer responsgrupper
         unpublish_results: Avpubliser resultater
       consultation_publications:
@@ -156,6 +157,7 @@
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
       last_activity:
+        new_consultation: Ny konsultasjon
         new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
       pages:
         home:
