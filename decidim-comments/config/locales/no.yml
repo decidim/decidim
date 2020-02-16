@@ -33,6 +33,7 @@
       comment:
         alignment:
           against: Imot
+        deleted_user: Slettet deltaker
         report:
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
