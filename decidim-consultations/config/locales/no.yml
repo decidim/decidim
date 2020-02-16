@@ -100,6 +100,8 @@
         destroy:
           error: Det oppstod et problem med å fjerne responsgruppen. Sjekk at ingen svar er avhengig av det.
           success: Responsgruppen ble slettet.
+        form:
+          title: Generell informasjon
         help: Bruk grupper til å organisere flere spørsmåls valg i pakker.
         new:
           title: Ny responsgruppe
