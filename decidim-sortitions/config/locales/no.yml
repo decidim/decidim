@@ -85,6 +85,10 @@
           proposals_selected_by_sortition: Forslag valgt etter sortering
           sortition_reproducibility_details: Detaljer for sorterings reproduksjonbarhet
           time_seed: "(2) Tids seed"
+        sortition_author:
+          deleted: Slettet deltaker
+        sortition_cancel_author:
+          deleted: Slettet deltaker
         sortitions_count:
           count:
             one: 1 sortering
