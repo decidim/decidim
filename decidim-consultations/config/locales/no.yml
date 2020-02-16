@@ -65,6 +65,8 @@
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
           title: Generell informasjon
+        index:
+          not_published: Ikke publisert
         new:
           title: Ny konsultasjon
         results:
