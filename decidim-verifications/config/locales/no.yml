@@ -192,6 +192,7 @@
             resend: Mottok ikke verifiseringskoden?
             title: Introduser verifiseringskoden du mottok
           new:
+            send: Send meg en meldig
             title: Be om din verifiseringskode
           update:
             error: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
