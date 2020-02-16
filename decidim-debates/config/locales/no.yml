@@ -9,6 +9,7 @@
         title: Tittel
     models:
       decidim/debates/creation_disabled_event: Debatter deaktivert
+      decidim/debates/creation_enabled_event: Debatter aktivert
   decidim:
     components:
       debates:
