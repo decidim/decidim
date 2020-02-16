@@ -25,6 +25,7 @@
         actions:
           destroy: Avbryt sorteringen
           edit: Editar
+          show: Sorterings detaljer
         models:
           sortition:
             fields:
@@ -70,6 +71,7 @@
           all: Alle
           cancelled: Avbrutt
           category: Kategori
+          category_prompt: Velg en kategori
           state: Status
         filters_small_view:
           close_modal: Lukk modal
@@ -77,6 +79,10 @@
           selected_proposals: Utvalgte forslag
         orders:
           label: 'Sorter sorteringer etter:'
+        results_count:
+          count:
+            one: valgt forslag
+            other: utvalgte forslag
         show:
           algorithm: Sorterings algoritmekode
           any_category: fra alle kategorier
