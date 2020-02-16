@@ -7,6 +7,7 @@
         consultations_ids: Relaterte konsultasjoner
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
+        copy_features: Kopier funksjoner
         participatory_processes_ids: Relaterte deltakerprosesser
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
@@ -86,8 +87,12 @@
         create:
           error: Det oppstod et problem med å opprette denne konferansen.
           success: Konferansen ble opprettet.
+        exports:
+          registrations: Registreringer
         form:
           title: Generell Informasjon
+        index:
+          not_published: Ikke publisert
         new:
           title: Konferanse
         update:
@@ -121,6 +126,7 @@
           diploma: Sertifikat for Oppmøte
           media_links: Media Lenker
           registration_types: Registrerings Typer
+          registrations: Registreringer
           user_registrations: Bruker Registreringer
       models:
         conference:
@@ -149,6 +155,7 @@
             name: Navn
           types:
             collaborator: Samarbeidspartner
+            main_promotor: Hovedpromotør
         registration_type:
           fields:
             conference_meetings: Konferanse møter
@@ -241,6 +248,9 @@
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
             new_invite: Inviter deltaker
+        conference_registrations:
+          index:
+            registrations: Registreringer
         conference_speakers:
           form:
             existing_user: Eksisterende deltaker
@@ -307,10 +317,13 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
+        go_to_twitter: Gå til Twitter
         personal_website: Personlig nettside
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig nettside
+        twitter_handle:
+          go_to_twitter: Gå til Twitter
       conferences:
         partners:
           collaborators: Partnere
