@@ -93,9 +93,11 @@
         changed_notably: Det har vært merkbare endringer.
         content: Innhold
         organization: Organisasjon
+        show_in_footer: Vis i bunnteksten
         title: Tittel
       static_page_topic:
         description: Beskrivelse
+        show_in_footer: Vis i bunnteksten
         title: Tittel
     errors:
       models:
@@ -127,7 +129,7 @@
         accept:
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          accept: Jeg er enig i disse administrasjonsvilkårene
+          accept: Jeg er enig med disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
