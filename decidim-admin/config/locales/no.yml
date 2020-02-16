@@ -550,3 +550,4 @@
         moderation:
           fields:
             report_count: Antall
+            reported_content_url: Rapportert innholds URL
