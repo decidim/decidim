@@ -1,8 +1,9 @@
 // = require ./option_attached_inputs.component
 // = require ./autosortable_checkboxes.component
+// = require ./display_conditions.component
 
 ((exports) => {
-  const { createOptionAttachedInputs, createAutosortableCheckboxes } = exports.Decidim;
+  const { createOptionAttachedInputs, createAutosortableCheckboxes, createDisplayConditions } = exports.Decidim;
 
   $(".radio-button-collection, .check-box-collection").each((idx, el) => {
     createOptionAttachedInputs({
@@ -17,4 +18,11 @@
       wrapperField: $(el)
     })
   });
+
+  $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
+    createDisplayConditions({
+      wrapperField: $(el)
+    });
+  });
+
 })(window);
