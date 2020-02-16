@@ -484,6 +484,8 @@
           title: Rediger side
         form:
           slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
+        index:
+          last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
         topic:
