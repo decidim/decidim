@@ -283,6 +283,7 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
+        impersonations: Etterligninger
         oauth_applications: OAuth applikasjoner
         static_pages: Sider
       models:
@@ -456,6 +457,7 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
+          import_via_csv: Improter via csv
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
@@ -554,6 +556,7 @@
         index:
           filter:
             all: Alle
+          verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
         new:
           explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
