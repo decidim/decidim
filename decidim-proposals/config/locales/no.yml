@@ -306,6 +306,7 @@
         import: Importer fra en annen komponent
         new: Nytt forslag
         participatory_texts: Deltakende tekster
+        show: Vis forslag
         title: Handlinger
       admin:
         actions:
