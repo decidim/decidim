@@ -44,14 +44,16 @@
           success: Konferanse registrering ble bekreftet.
       conference_speakers:
         create:
-          error: Det oppstod et problem med å legge en foredragsholder til denne konferansen.
+          error: Det oppstod et problem med å legge en konferansetaler til denne konferansen.
           success: Konferansetaler ble opprettet.
         destroy:
           success: Konferansetaler ble slettet.
         edit:
-          title: Oppdater konferanse taler.
+          title: Oppdater konferansetaler.
+        index:
+          conference_speakers_title: Konferansetalere
         new:
-          title: Ny konferanse taler.
+          title: Ny konferansetaler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
           success: Konferansetaler ble oppdatert.
@@ -74,6 +76,8 @@
         create:
           error: Det oppstod et problem med å opprette denne konferansen.
           success: Konferansen ble opprettet.
+        form:
+          title: Generell Informasjon
         new:
           title: Konferanse
         update:
@@ -221,6 +225,7 @@
         conference_speakers:
           form:
             existing_user: Eksisterende deltaker
+            select_user: Velg deltaker
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
@@ -315,6 +320,7 @@
         home:
           highlighted_conferences:
             active_conferences: Aktive konferanser
+            see_all_conferences: Se alle konferanser
       photo:
         show:
           close_modal: Lukk modal
