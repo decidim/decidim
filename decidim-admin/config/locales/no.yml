@@ -55,6 +55,7 @@
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
+        instagram_handler: Instagram brukernavn
         logo: Logo
         name: Navn
         official_img_footer: Offisiell logo footer
@@ -318,6 +319,7 @@
           fields:
             created_at: Opprettelsesdato
             email: Epost
+            last_sign_in_at: Siste påloggingsdato
             name: Navn
             roles:
               admin: Administrator
@@ -409,6 +411,8 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
       organization:
+        edit:
+          title: Rediger organisasjon
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
@@ -446,6 +450,8 @@
           explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
           title: Last opp din CSV fil
       resource_permissions:
+        edit:
+          title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
       scope_types:
@@ -542,6 +548,7 @@
           name: Navn
         new:
           title: Inviter deltaker som administrator
+      view_public_page: Vis offentlig side
     forms:
       errors:
         impersonate_user:
