@@ -111,6 +111,7 @@
             discard: Forkastet initiativet
             export_pdf_signatures: Eksporter PDF av signaturer
             export_votes: Eksporter signaturer
+            reject: Avvis initiativ
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
           form:
