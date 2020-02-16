@@ -34,6 +34,7 @@
     models:
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
+      decidim/meetings/upcoming_meeting_event: Kommende møte
   decidim:
     admin:
       meeting_copies:
@@ -255,6 +256,7 @@
       meetings:
         filters:
           category: Kategori
+          category_prompt: Velg en kategori
         filters_small_view:
           close_modal: Lukk modal
         meeting_minutes:
@@ -283,6 +285,7 @@
             status: Status
           status:
             accepted: Aksepterte (%{at})
+            rejected: Avvist (%{at})
         meeting:
           fields:
             closed: Lukket
@@ -316,6 +319,7 @@
         upcoming_meetings: Kommende møter
     resource_links:
       meetings_through_proposals:
+        meeting_result: 'Relaterte resultater:'
         result_meeting: 'Relaterte møter:'
       proposals_from_meeting:
         meeting_proposal: 'Relaterte forslag:'
