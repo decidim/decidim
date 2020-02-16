@@ -835,6 +835,7 @@
       show:
         activity: Aktivitet
         badges: Merker
+        view_full_profile: Vis hele profilen
       sidebar:
         badges:
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
@@ -849,9 +850,11 @@
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
+        manage_moderations: Administrer moderasjoner
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
+        manage_moderations: Administrer moderasjoner
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
         subject: En ressurs er blitt rapportert
     reports:
