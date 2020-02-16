@@ -24,6 +24,7 @@ hu:
         published_at: Közzétéve
         related_process_ids: Kapcsolódó folyamatok
         scope_id: Hatáskör
+        scope_type_max_depth_id: Hatáskör szűrő mélység
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
@@ -324,6 +325,7 @@ hu:
             metadata: Metaadatok
             other: Más
             related_processes: Kapcsolódó folyamatok
+            scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
             select_an_area: Válasszon egy területet
             select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
