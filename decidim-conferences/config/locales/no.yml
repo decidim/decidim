@@ -30,6 +30,7 @@
       conference_copies:
         new:
           select: Velg hvilke data du vil duplisere
+          title: Duplisert konferanse
       conference_publications:
         create:
           error: Det oppstod et problem med å publisere denne konferansen.
