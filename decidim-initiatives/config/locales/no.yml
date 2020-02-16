@@ -159,6 +159,7 @@
       admin_states:
         accepted: Aksepterte
         discarded: Forkastet
+        validating: Teknisk validering
       committee_requests:
         new:
           continue: Fortsett
@@ -178,6 +179,7 @@
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
           callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
+          go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
         finish_help:
           access_reminder: Husk at du vil alltid kunne få tilgang til dine initiativer gjennom deltakermenyen.
@@ -263,6 +265,8 @@
             count:
               one: Kommentar
               other: Kommentar
+        orders:
+          label: 'Sorter initiativer etter:'
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
