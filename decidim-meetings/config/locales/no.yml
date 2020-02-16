@@ -15,6 +15,7 @@
         location: Plassering
         location_hints: Plasseringstips
         registration_form_enabled: Registreringsskjemaet aktivert
+        registration_terms: Registrerings vilkår
         registrations_enabled: Registreringer aktivert
         title: Tittel
       minutes:
@@ -257,6 +258,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
           registration_code_help_text: Din registreringskode
           registration_state:
