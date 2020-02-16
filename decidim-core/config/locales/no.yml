@@ -580,6 +580,7 @@
           unearned_own: Du har ingen følgere ennå.
         index:
           badge_title: "%{name} merke"
+          how: Hvordan kan du tjene det
           page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
           title: Merker
         invitations:
@@ -950,6 +951,7 @@
         instruction: 'Du kan bekrefte email-adressen din via lenken nedenfor:'
         subject: Bekreftelse instruksjoner
       email_changed:
+        greeting: Hei %{recipient}!
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
       invitation_instructions:
         accept: Godta invitasjon
@@ -975,13 +977,16 @@
         message: Vi kontakter deg for å varsle om at passordet ditt er endret.
       reset_password_instructions:
         action: Endre passordet mitt
+        greeting: Hei %{recipient}!
         instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
         instruction_2: Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.
         instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
         subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
+        greeting: Hei %{recipient}!
         instruction: 'Klikk på lenken nedenfor for å låse opp kontoen din:'
         message: Kontoen din er låst på grunn av en for stor mengde mislykkede påloggingsforsøk.
+        subject: Instruksjoner for å låse opp
     omniauth_callbacks:
       failure: Kunne ikke verifisere deg fra %{kind} fordi "%{reason}".
       success: Autorisert fra %{kind} konto.
