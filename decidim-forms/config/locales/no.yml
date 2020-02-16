@@ -39,6 +39,7 @@
           body: Teksten kan ikke være blank
       question_types:
         multiple_option: Flere alternativer
+        single_option: Enkelt alternativ
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.
