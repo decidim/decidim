@@ -395,6 +395,7 @@
             title: Opprett forslag
           show:
             created_at: Opprettelsesdato
+            endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
             ranking: "%{ranking} av %{total}"
