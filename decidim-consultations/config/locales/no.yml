@@ -6,15 +6,19 @@
         decidim_highlighted_scope_id: Markert omfang
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
+        start_voting_date: Stemming begynner
         title: Tittel
       question:
         banner_image: Bannerafbeelding
+        decidim_scope_id: Kommunalt område
         i_frame_url: Eksternt stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
         participatory_scope: Deltaker omfang
+        promoter_group: Promotør gruppe
         question_context: Kontekst
+        scope: Kommunalt område
         title: Tittel
         vote: Eksternt stemmesystem
         what_is_decided: Hva er bestemt
@@ -63,6 +67,8 @@
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
           title: Generell informasjon
+        index:
+          not_published: Ikke publisert
         new:
           title: Ny konsultasjon
         results:
@@ -73,8 +79,10 @@
           error: Det oppstod et problem med å oppdatere denne konsultasjonen.
           success: Konsultasjonen ble oppdatert.
       menu:
+        consultations: Konsultasjoner
         questions_submenu:
           components: Komponenter
+          configuration: Konfigurasjon
       models:
         consultation:
           fields:
@@ -105,6 +113,8 @@
           success: Spørsmålet ble slettet.
         form:
           title: Generell informasjon
+        index:
+          not_published: Ikke publisert
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
           success: Spørsmålet ble oppdatert.
@@ -136,12 +146,15 @@
           error: Det oppstod et problem med å oppdatere denne responsen.
           success: Svaret ble oppdatert.
       titles:
+        consultations: Konsultasjoner
         response_groups: Responsgrupper
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
             max_results: Maksimal mengde elementer som skal vises
+      consultation:
+        start_voting_date: Stemming begynner
       consultations:
         orders:
           label: 'Sorter konsultasjoner etter:'
@@ -160,6 +173,8 @@
         close_modal: Lukk vindu
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
+      index:
+        title: Konsultasjoner
       last_activity:
         new_consultation: Ny konsultasjon
         new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
@@ -196,17 +211,27 @@
       show:
         badge_name:
           published_results: Resulter publisert
+        unspecified: Ikke spesifisert
     help:
       participatory_spaces:
         consultations:
           contextual: "<p><strong>Konsultasjoner</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, ring for å delta i konsultasjonen, gnist og beordre debatten for eller imot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater.</p>\n"
           page: "<p><strong>Konsultasjoner</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, ring for å delta i konsultasjonen, gnist og beordre debatten for eller imot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater i organisasjonen.</p>\n"
           title: Hva er konsultasjoner?
+    menu:
+      consultations: Konsultasjoner
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultasjoner
     questions:
+      next_button: Neste spørsmål
       previous_button: Forrige spørsmål
       statistics:
         assistants_count_title: Assistenter
         comments_count_title: Kommentarer
+      technical_info:
+        technical_data: Tekniske data
       vote_button:
         already_voted: Stemt allerede
         starting_from: Starter fra %{date}
@@ -224,6 +249,8 @@
         question:
           attachments: Vedlegg
           categories: Kategorier
+      consultation_voting_data:
+        start_voting_date: Stemming begynner
       question_header:
         back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet
