@@ -1,4 +1,7 @@
 "no":
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogg-innlegg
   decidim:
     blogs:
       actions:
