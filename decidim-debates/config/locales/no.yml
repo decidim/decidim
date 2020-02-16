@@ -4,6 +4,7 @@
       debate:
         category_id: Kategori
         decidim_category_id: Kategori
+        information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
         title: Tittel
   decidim:
