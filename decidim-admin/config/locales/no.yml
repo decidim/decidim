@@ -92,6 +92,7 @@
         changed_notably: Det har vært merkbare endringer.
         content: Innhold
         organization: Organisasjon
+        show_in_footer: Vis i bunnteksten
         title: Tittel
       static_page_topic:
         description: Beskrivelse
