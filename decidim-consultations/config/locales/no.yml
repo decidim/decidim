@@ -3,6 +3,7 @@
     attributes:
       consultation:
         banner_image: Bannerafbeelding
+        decidim_highlighted_scope_id: Markert omfang
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
         title: Tittel
@@ -37,6 +38,7 @@
       actions:
         back_to_responses: Tilbake til svar
         response_groups: Administrer responsgrupper
+        unpublish_results: Avpubliser resultater
       consultation_publications:
         create:
           error: Det oppstod et problem med å publisere denne konsultasjonen.
