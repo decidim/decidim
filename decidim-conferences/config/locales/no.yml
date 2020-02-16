@@ -20,6 +20,9 @@
       decidim/conference:
         one: Konferanse
         other: Konferanser
+      decidim/conference_user_role:
+        one: Konferansens bruker rolle
+        other: Konferansens bruker roller
   decidim:
     admin:
       actions:
