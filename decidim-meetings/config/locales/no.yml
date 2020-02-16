@@ -158,6 +158,9 @@
           edit:
             close: Lukk
             title: Lukk møte
+        meeting_copies:
+          form:
+            select_organizer: Velg arrangøren
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
@@ -167,6 +170,8 @@
             success: Møtet ble opprettet
           destroy:
             success: Møtet ble slettet
+          form:
+            select_organizer: Velg arrangøren
           service:
             remove: Fjern
             title: Tittel
