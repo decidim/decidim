@@ -333,6 +333,8 @@
         name: Siste aktivitet
         title: Siste aktivitet
         view_all: Vis alle
+      metrics:
+        name: Organisasjonens målinger
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -806,6 +808,7 @@
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
+          modal_btn_exit: Jeg vil vurdere det senere
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
@@ -974,6 +977,7 @@
       edit:
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
+        confirm_new_password: Bekreft nytt passord
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
