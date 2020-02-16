@@ -13,7 +13,9 @@
         copy_components: Kopier komponenter
         created_by_other: Opprettet av annet
         decidim_area_id: Område
+        developer_group: Promotør gruppe
         internal_organisation: Intern organisasjon
+        is_transparent: Er privat
         local_area: Organisasjonsområdet
         parent_id: Foreldre forsamling
         participatory_processes_ids: Relaterte deltakerprosesser
@@ -114,6 +116,8 @@
           fields:
             designation_date: Benevnelsesdato
             full_name: Navn
+          positions:
+            vice_president: Visepresident
         assembly_user_role:
           fields:
             email: Epost
@@ -190,8 +194,11 @@
         children: Forsamlinger
         closing_date: Lukkings dato
         composition: Sammensetning
+        developer_group: Promotør gruppe
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
+        is_transparent:
+          'true': privat
         local_area: Organisasjonsområdet
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
