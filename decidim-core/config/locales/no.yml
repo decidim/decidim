@@ -576,6 +576,7 @@
           password: Dette passordet er for kort.
           password_confirmation: Passordbekreftelse må samsvare med passordet.
         error: Det er en feil i dette feltet.
+      remove_this_file: Fjern denne filen
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
@@ -873,6 +874,7 @@
     scopes:
       picker:
         cancel: Avbryt
+        title: Velg %{field}
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -982,6 +984,7 @@
         accept: Godta invitasjon
         accept_until: Denne invitasjonen forfaller i %{due_date}.
         decline: Avvis invitasjon
+        hello: Hei %{email},
         ignore: |-
           Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
           Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
@@ -1108,6 +1111,8 @@
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
         expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
+      notifications_dashboard:
+        mark_all_as_read: Merk alt som lest
       user_menu:
         admin_dashboard: Admin hovedpanel
         public_profile: Min offentlige profil
@@ -1125,6 +1130,7 @@
     password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
+    google_bookmark: Google-Bokmerker
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
