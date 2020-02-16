@@ -33,6 +33,7 @@
             email:
               already_invited: Denne e-postadressen er allerede invitert
     models:
+      decidim/meetings/close_meeting_event: Møttet lukket
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
@@ -196,6 +197,8 @@
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
             success: Referatet ble opprettet
+          new:
+            title: Opprett referat
           update:
             invalid: Det oppstod et problem med å oppdatere dette referatet
             success: Referatet ble oppdatert
@@ -313,6 +316,7 @@
           success: Du har forlatt møtet.
       types:
         private_meeting: Privat møte
+        transparent: Gjennomsiktig
     metrics:
       meetings:
         description: Antall møter opprettet
