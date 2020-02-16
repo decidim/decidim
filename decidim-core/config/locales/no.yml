@@ -337,6 +337,8 @@
         name: Organisasjonens målinger
       stats:
         name: Organisasjonsstatistikk
+      sub_hero:
+        name: Underhelt banner
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -970,6 +972,7 @@
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
       new:
+        header: Send invitasjon
         submit_button: Send en invitasjon
       no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
