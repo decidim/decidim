@@ -216,12 +216,15 @@
             existing_user: Eksisterende deltaker
             invite_explanation: Deltakeren vil bli invitert til å delta på konferansen og i organisasjonen også.
             non_user: Ikke eksisterende deltaker
+            select_user: Velg deltaker
           index:
             filter:
               accepted: Aksepterte
               all: Alle
+            invite_attendee: Inviter deltaker
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
+            new_invite: Inviter deltaker
         conference_speakers:
           form:
             existing_user: Eksisterende deltaker
@@ -244,6 +247,8 @@
         registration_types:
           form:
             select_conference_meetings: Velg konferansemøter
+          index:
+            title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
@@ -328,12 +333,14 @@
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
           login_as: Du er innlogget som %{name} <%{email}>
+          title: Registreringstyper
       shared:
         conference_user_login:
           already_account: Har du allerede en konto i decidim?
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
+        related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
