@@ -42,6 +42,9 @@
             state: Status
         initiatives_type_scope:
           name: Initiativtypens omgang
+        initiatives_votes:
+          fields:
+            initiative_signatures_count: Antall underskrifter
     events:
       initiatives:
         initiative_extended:
@@ -282,6 +285,7 @@
           verification_required: Verifiser kontoen din for å signere initiativet
         votes_count:
           most_popular_initiative: Mest populært initiativ
+          need_more_votes: Trenger flere underskrifter
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
         initiative_link:
