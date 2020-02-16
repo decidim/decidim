@@ -214,6 +214,7 @@
       assemblies:
         index:
           children: 'Forsamlinger: '
+          organizational_chart: Organisasjonsgraf
           promoted_assemblies: Fremhevede forsamlinger
         order_by_assemblies:
           assemblies:
