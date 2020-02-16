@@ -29,6 +29,7 @@
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
       initiatives_vote:
+        date_of_birth: Fødselsdato
         document_number: Dokumentnummer
         name_and_surname: Navn og etternavn
       organization_data:
@@ -59,10 +60,13 @@
           name: Initiativtype
         initiatives_votes:
           fields:
+            date_of_birth: Fødselsdato
             document_number: Dokumentnummer
+            initiative_id: Initiativ ID
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
+            time_and_date: Tid og dato
       titles:
         initiatives_types: Initiativtyper
     events:
@@ -287,6 +291,7 @@
           closed: Lukket
           myself: Initiativene mine
           state: Status
+          type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
         index_header:
