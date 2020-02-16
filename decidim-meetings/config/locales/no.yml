@@ -139,6 +139,7 @@
             success: Dagsorden oppdatert
         invite_join_meeting_mailer:
           invite:
+            decline: Avvis invitasjon
             invited_you_to_join_a_meeting: "%{invited_by} har invitert deg til å delta et møte på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
             join: Bli med på møte '%{meeting_title}'
         invites:
