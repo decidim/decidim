@@ -41,6 +41,8 @@
           fields:
             state: Status
         initiatives_type_scope:
+          fields:
+            supports_required: Signaturer påkrevd
           name: Initiativtypens omgang
         initiatives_votes:
           fields:
@@ -332,6 +334,7 @@
         fill_personal_data: Fullfør dataene dine
         finished: Initiativsignatur opprettet
         sms_code: SMS-kode verifisering
+        sms_phone_number: Mobiltelefon number
         step: Trinn %{current} av %{total}
         title: Signer %{initiative_title}
       initiatives:
