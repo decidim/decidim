@@ -48,6 +48,7 @@
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         from: Fra e-postadresse
+        github_handler: GitHub brukernavn
         header_snippets: Topptekstutdrag
         highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
         highlighted_content_banner_action_title: Handlingsknapp tittel
@@ -149,6 +150,8 @@
           success: Områdetypen ble opprettet.
         destroy:
           success: Områdetype ble ødelagt
+        edit:
+          title: Rediger områdetype
         new:
           create: Opprett områdetype
         update:
@@ -226,6 +229,8 @@
         destroy:
           error: Det oppstod et problem med å ødelegge denne komponenten.
           success: Komponent ble slettet.
+        edit:
+          title: Rediger komponent
         form:
           default_step_settings: Standard trinn innstillinger
           global_settings: Globale innstillinger
@@ -248,6 +253,7 @@
           success: Komponenten ble oppdatert.
       dashboard:
         show:
+          view_more_logs: Vis flere logger
           welcome: Velkommen til Decidim administrator Panel.
       exports:
         export_as: "%{name} som %{export_format}"
@@ -305,6 +311,7 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
+        help_sections: Hjelpeseksjoner
         impersonations: Etterligninger
         oauth_applications: OAuth applikasjoner
         static_pages: Sider
@@ -386,7 +393,10 @@
           and: 'og '
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
           has_been_sent_to: 'Har blitt sendt til: '
+          participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
+        new:
+          title: Nytt nyhetsbrev
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sender nyhetsbrev til alle bekreftede brukere.
