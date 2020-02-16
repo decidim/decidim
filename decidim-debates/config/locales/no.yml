@@ -7,6 +7,7 @@
         information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
         title: Tittel
+        user_group_id: Opprett debatt som
     models:
       decidim/debates/creation_disabled_event: Debatter deaktivert
       decidim/debates/creation_enabled_event: Debatter aktivert
@@ -63,6 +64,7 @@
       models:
         debate:
           fields:
+            official_debate: Offisiell debatt
             title: Tittel
     events:
       debates:
