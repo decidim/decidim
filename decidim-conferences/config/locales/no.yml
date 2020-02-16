@@ -5,8 +5,11 @@
         assemblies_ids: Relaterte Forsamlinger
         banner_image: Bannerafbeelding
         consultations_ids: Relaterte konsultasjoner
+        copy_categories: Kopier kategorier
+        copy_components: Kopier komponenter
         participatory_processes_ids: Relaterte deltakerprosesser
         short_description: Kort beskrivelse
+        show_statistics: Vis statistikk
         title: Tittel
       conference_user_role:
         email: Epost
@@ -156,6 +159,8 @@
           success: Konferansepartner ble lagt til.
         destroy:
           success: Konferansepartner ble fjernet.
+        edit:
+          title: Oppdater partner.
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -237,6 +242,7 @@
         conference_speakers:
           form:
             existing_user: Eksisterende deltaker
+            non_user: Ingen deltakende
             select_user: Velg deltaker
             user_type: Deltakertype
         conferences:
