@@ -45,6 +45,7 @@
         default_locale: Standard språk
         description: Beskrivelse
         enable_omnipresent_banner: Vis enerådende banner
+        facebook_handler: Facebook brukernavn
         favicon: Ikon
         from: Fra e-postadresse
         header_snippets: Topptekstutdrag
@@ -73,6 +74,7 @@
         show_statistics: Vis statistikk
         success_color: Vellykket
         tos_version: Vilkår for tjenester versjon
+        twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         user_name: Brukernavn
         warning_color: Advarsel
@@ -122,6 +124,7 @@
         client_id: Klient ID
         client_secret: Klient Hemmlighet
         organization_name: Navn på organisasjonen
+        organization_url: Orginasjonens URL
   decidim:
     admin:
       actions:
@@ -182,6 +185,7 @@
           error: Det oppsto et problem med å oppdatere dette vedlegget.
           success: Vedlegg ble oppdatert.
       autocomplete:
+        no_results: Ingen resultat funnet
         search_prompt: Skriv minst tre tegn for å søke
       categories:
         create:
@@ -333,6 +337,10 @@
             document_number: Dokumentnummer
             name: Navn
             users_count: Deltakere teller
+      moderations:
+        report:
+          reasons:
+            does_not_belong: Tilhører ikke
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -343,6 +351,8 @@
         destroy:
           error_already_sent: 'Kan ikke ødelegge nyhetsbrevet: Det er allerede sendt.'
           success: Nyhetsbrevet ble ødelagt.
+        edit:
+          title: Rediger nyhetsbrev
         form:
           interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
         index:
@@ -382,6 +392,8 @@
         destroy:
           error: Det oppstod et problem med å ødelegge denne applikasjonen.
           success: Søknaden ble ødelagt.
+        edit:
+          title: Rediger applikasjon
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
           title: OAuth applikasjoner
@@ -464,6 +476,8 @@
           success: Omfangstypen ble opprettet.
         destroy:
           success: Omfangstype ble ødelagt
+        edit:
+          title: Rediger omfangstype
         new:
           create: Opprett omfangstype
         update:
