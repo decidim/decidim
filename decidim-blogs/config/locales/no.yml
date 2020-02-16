@@ -29,6 +29,7 @@
       posts:
         sidebar_blog:
           comments: kommentarer
+          most_commented_posts: Mest kommenterte innlegg
     components:
       blogs:
         name: Blogg
