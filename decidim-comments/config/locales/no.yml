@@ -49,6 +49,7 @@
       comment_order_selector:
         order:
           best_rated: Best vurdert
+          most_discussed: Mest omtalt
       comment_thread:
         title: Samtale med %{authorName}
       comments:
