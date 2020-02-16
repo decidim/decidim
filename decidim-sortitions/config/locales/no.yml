@@ -72,6 +72,8 @@
           state: Status
         filters_small_view:
           close_modal: Lukk modal
+        orders:
+          label: 'Sorter sorteringer etter:'
         show:
           algorithm: Sorterings algoritmekode
           cancelled: Avbrutt sortering
