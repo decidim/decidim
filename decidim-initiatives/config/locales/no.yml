@@ -3,6 +3,7 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        offline_votes: Personlige underskrifter
         signature_end_date: Slutt av innsamlingsperiode for signatur
         signature_start_date: Start av innsamlingsperiode for signatur
         signature_type: Signatur innsamingstype
