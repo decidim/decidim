@@ -201,6 +201,7 @@
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur-typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
+          select_scope: Velg et omfang
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
@@ -258,6 +259,7 @@
           continue: Sjekk kode og fortsett
           help: Sjekk SMS mottatt på telefonen
         sms_phone_number:
+          continue: Send meg en meldig
           help: Fyll skjemaet med det verifiserte telefonnummeret ditt for å be om verifiseringskoden din
       initiative_votes:
         create:
@@ -283,9 +285,12 @@
           any: Alle
           author: Forfatter
           closed: Lukket
+          myself: Initiativene mine
           state: Status
         filters_small_view:
           close_modal: Lukk vindu
+        index_header:
+          new_initiative: Nytt initiativ
         interactions:
           comments_count:
             count:
@@ -293,6 +298,7 @@
               other: Kommentar
         orders:
           label: 'Sorter initiativer etter:'
+          most_commented: Mest kommentert
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
@@ -333,6 +339,8 @@
         status_change_for: Initiativet %{title} har endret sin status
         technical_validation_body_for: Initiativet %{title} har bedt om sin tekniske validering.
         technical_validation_for: Initiativet %{title} har bedt om sin tekniske validering.
+      last_activity:
+        new_initiative: Nytt initiativ
       pages:
         home:
           highlighted_initiatives:
