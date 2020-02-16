@@ -118,6 +118,7 @@
             confirm: Er du sikker?
             discard: Forkastet initiativet
             export_pdf_signatures: Eksporter PDF av signaturer
+            export_votes: Eksporter signaturer
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
           form:
@@ -323,6 +324,7 @@
             see_all_initiatives: Se alle initiativer
       states:
         accepted: Aksepterte
+      unavailable_scope: Utilgjengelig omfang
     resources:
       initiatives_type:
         actions:
