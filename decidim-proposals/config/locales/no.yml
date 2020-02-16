@@ -395,6 +395,7 @@
             title: Opprett forslag
           show:
             amendments_count: Endringer teller
+            comments_count: Kommentarer teller
             created_at: Opprettelsesdato
             endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
