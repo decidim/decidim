@@ -726,6 +726,8 @@
           no_conversations: Du har ingen samtaler ennå
         show:
           title: Samtale med %{usernames}
+        start:
+          title: Start en samtale
         update:
           error: Melding ikke sendt. Prøv igjen senere
     metrics:
@@ -817,6 +819,7 @@
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
+          modal_btn_exit: Jeg vil vurdere det senere
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
