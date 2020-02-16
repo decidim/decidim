@@ -14,6 +14,7 @@
         local_area: Organisasjonsområdet
         participatory_processes_ids: Relaterte deltakerprosesser
         participatory_structure: Hvordan blir det bestemt
+        purpose_of_action: Hensikt med handlingen
         title: Tittel
       assembly_member:
         birthday: Fødselsdag
@@ -195,6 +196,7 @@
         local_area: Organisasjonsområdet
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
+        purpose_of_action: Hensikt med handlingen
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
         answers_count: Svar
