@@ -135,6 +135,7 @@
         registration_type:
           fields:
             conference_meetings: Konferanse møter
+            registrations_count: Registrerings teller
             title: Tittel
       partners:
         create:
