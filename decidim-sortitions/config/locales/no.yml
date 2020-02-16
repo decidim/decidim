@@ -31,6 +31,7 @@
             fields:
               category: Kategori
               decidim_proposals_component: Forslags komponent
+              target_items: Gjenstander å velge
               title: Tittel
         sortitions:
           confirm_destroy:
