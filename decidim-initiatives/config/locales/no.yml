@@ -14,6 +14,7 @@
       initiative_author:
         address: Adresse
         city: By
+        name: Navn og Etternavn
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
@@ -42,6 +43,8 @@
     admin:
       actions:
         new_initiative_type: Ny intiativtype
+      menu:
+        initiatives_types: Initiativtyper
       models:
         initiatives:
           fields:
@@ -51,6 +54,8 @@
             supports_required: Signaturer påkrevd
           name: Initiativtypens omgang
         initiatives_types:
+          fields:
+            title: Initiativtyper
           name: Initiativtype
         initiatives_votes:
           fields:
@@ -58,6 +63,8 @@
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
+      titles:
+        initiatives_types: Initiativtyper
     events:
       initiatives:
         initiative_extended:
