@@ -274,6 +274,7 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
+        oauth_applications: OAuth applikasjoner
         static_pages: Sider
       models:
         area:
@@ -375,6 +376,7 @@
           success: Søknaden ble ødelagt.
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
+          title: OAuth applikasjoner
         update:
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
