@@ -32,6 +32,8 @@
         other: Forsamlings bruker roller
   decidim:
     admin:
+      actions:
+        new_assembly_type: Ny forsamlingstype
       assemblies:
         create:
           error: Det oppstod et problem med å lage en ny forsamling.
@@ -49,6 +51,8 @@
           success: Forsamlingtypen ble opprettet.
         destroy:
           success: Forsamlingstypen ble slettet.
+        new:
+          title: Ny forsamlingstype
         update:
           error: Det oppsto et problem med å oppdatere denne forsamlingstypen.
           success: Forsamlingstypen ble oppdatert.
