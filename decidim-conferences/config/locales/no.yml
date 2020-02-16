@@ -8,6 +8,7 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         participatory_processes_ids: Relaterte deltakerprosesser
+        scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         title: Tittel
@@ -34,6 +35,7 @@
   decidim:
     admin:
       actions:
+        new_conference: Ny Konferanse
         send_diplomas: Send deltakerbevis
       conference_copies:
         new:
