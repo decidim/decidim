@@ -23,6 +23,7 @@
         promoted: Forfremmet
         published_at: Publisert på
         scope_id: Omfang
+        scope_type_max_depth_id: Omfang filterdybde
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
