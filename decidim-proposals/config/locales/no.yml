@@ -394,11 +394,13 @@
             create: Opprett
             title: Opprett forslag
           show:
+            amendments_count: Endringer teller
             created_at: Opprettelsesdato
             endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
             ranking: "%{ranking} av %{total}"
+            related_meetings: Relaterte møter
             votes_count: Støtter antall
             votes_ranking: Rangering etter støttere
           update_category:
