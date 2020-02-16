@@ -21,17 +21,22 @@
 
       if ($textInput.length) { return $textInput.val(); }
 
-      $conditionWrapperField.find(".collection-input").find("label").each((idx, el) => {
-        const $label = $(el);
-        const checked = $label.find("input:not([type='hidden'])").prop("disabled");
+      let multipleInput = null;
+
+      $conditionWrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
+        const $label = $(el).find("label");
+        const checked = !$label.find("input[type='hidden']").is("[disabled]");
+        console.log(idx + " CHECKED: " + checked);
 
         if (checked) {
           const id = $label.find("input[type='hidden']").val();
           const value = $label.find("input:not([type='hidden'])").val();
 
-          return { id, value };
+          multipleInput = { id, value };
         }
       });
+
+      return multipleInput;
     }
 
     _getInputsToListen() {
@@ -41,13 +46,15 @@
 
       if ($textInput.length) { return $textInput; }
 
-      return $conditionWrapperField.find(".collection-input").find("input[type='hidden']");
+      return $conditionWrapperField.find(".collection-input").find("input:not([type='hidden'])");
     }
 
     _checkCondition() {
       const value = this._getInputValue();
       const simpleValue = typeof (value) != "object";
       let fulfilled = false;
+
+      console.log("VALUE: " + JSON.stringify(value));
 
       switch (this.type) {
         case "answered":
@@ -62,7 +69,7 @@
           break;
         case "equal":
         case "not_equal":
-          fulfilled = value.value == this.answerOption;
+          fulfilled = value ? value.id == this.answerOption : false;
           break;
         case "match":
           fulfilled = simpleValue ? value.match(this.value) : value.value.match(this.value);
