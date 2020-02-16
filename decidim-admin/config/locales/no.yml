@@ -154,6 +154,7 @@
           title: Rediger områdetype
         new:
           create: Opprett områdetype
+          title: Ny områdetype
         update:
           error: Det oppstod et problem med å oppdatere denne områdetypen.
           success: Områdetypen ble oppdatert
@@ -234,6 +235,7 @@
         form:
           default_step_settings: Standard trinn innstillinger
           global_settings: Globale innstillinger
+          step_settings: Trinninnstillinger
         index:
           add: Legg til komponent
           headers:
