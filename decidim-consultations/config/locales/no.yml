@@ -185,6 +185,9 @@
           title_success: Stemmen ble registrert
       regular_questions:
         title: Spørsmål til denne konsultasjonen
+      show:
+        badge_name:
+          published_results: Resulter publisert
     help:
       participatory_spaces:
         consultations:
