@@ -158,6 +158,9 @@
           edit:
             close: Lukk
             title: Lukk møte
+        meeting_copies:
+          form:
+            select_organizer: Velg arrangøren
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
@@ -171,6 +174,7 @@
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
+            select_organizer: Velg arrangøren
           service:
             remove: Fjern
             title: Tittel
