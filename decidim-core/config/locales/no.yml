@@ -713,9 +713,11 @@
     messaging:
       conversation_mailer:
         new_conversation:
+          greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
           subject: "%{sender} har startet en samtale med deg"
         new_message:
+          greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
           subject: Du har nye meldinger fra %{sender}
       conversations:
@@ -823,6 +825,7 @@
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
+          modal_button: Avslå vilkårene
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
@@ -895,6 +898,7 @@
         does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
         spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
+        title: Rapporter et problem
       floating_help:
         help: Hjelp
       follow_button:
@@ -906,6 +910,8 @@
         reference: 'Referanse: %{reference}'
       represent_user_group:
         represent_user_group: Jeg representerer en gruppe
+      results_per_page:
+        label: 'Resultater per side:'
       share_modal:
         close_window: Lukk vindu
         share_link: Del lenke
@@ -993,6 +999,7 @@
       password_change:
         greeting: Hei %{recipient}!
         message: Vi kontakter deg for å varsle om at passordet ditt er endret.
+        subject: Passord endret
       reset_password_instructions:
         action: Endre passordet mitt
         greeting: Hei %{recipient}!
@@ -1030,6 +1037,7 @@
         cancel_my_account: Avbryt kontoen min
         currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
+        title: Endre %{resource}
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       signed_up: Velkommen! Din registrering er fullført.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
@@ -1099,9 +1107,11 @@
         expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
       user_menu:
         admin_dashboard: Admin hovedpanel
+        public_profile: Min offentlige profil
       user_profile:
         account: Konto
         authorizations: Fullmakter
+        delete_my_account: Slett kontoen min
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
   password_validator:
@@ -1113,6 +1123,7 @@
   social_share_button:
     email: Epost
     linkedin: Linkedin
+    share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
   time:
     formats:
