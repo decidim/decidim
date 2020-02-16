@@ -871,6 +871,7 @@
     scopes:
       picker:
         cancel: Avbryt
+        title: Velg %{field}
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -1124,6 +1125,7 @@
     password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
+    google_bookmark: Google-Bokmerker
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
