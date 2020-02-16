@@ -333,6 +333,8 @@
         name: Siste aktivitet
         title: Siste aktivitet
         view_all: Vis alle
+      metrics:
+        name: Organisasjonens målinger
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -972,6 +974,7 @@
       edit:
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
+        confirm_new_password: Bekreft nytt passord
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
