@@ -64,6 +64,7 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+          category_prompt: Velg en kategori
         filters_small_view:
           close_modal: Lukk modal
         order_selected_projects:
