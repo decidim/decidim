@@ -86,6 +86,7 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            projects_per_page: Prosjekter per side
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             vote_threshold_percent: Stemmeterskel prosent
           step:
