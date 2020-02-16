@@ -14,6 +14,7 @@
         decidim_category_id: Kategori
         location: Plassering
         location_hints: Plasseringstips
+        private_meeting: Privat møte
         registration_form_enabled: Registreringsskjemaet aktivert
         registration_terms: Registrerings vilkår
         registrations_enabled: Registreringer aktivert
@@ -35,6 +36,7 @@
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
+      decidim/meetings/update_meeting_event: Møtet oppdatert
   decidim:
     admin:
       meeting_copies:
@@ -159,6 +161,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+            invite_attendee: Inviter deltaker
             registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
         meeting_closes:
           edit:
@@ -230,9 +233,11 @@
       calendar_modal:
         calendar_url: Kalender URL
         close_window: Lukk vindu
+        export_calendar: Eksporter kalender
       conference_venues: Konferanse Arenaer
       content_blocks:
         upcoming_events:
+          name: Kommende hendelser
           upcoming_events: Kommende møter
       directory:
         meetings:
@@ -257,6 +262,7 @@
         filters_small_view:
           close_modal: Lukk modal
         meeting_minutes:
+          meeting_minutes: Møte referater
           related_information: Relatert Informasjon
         meetings:
           no_meetings_warning: Ingen møter samsvarer med søkekriteriene, eller det er ikke planlagt noe møte.
@@ -303,6 +309,8 @@
         destroy:
           invalid: Det oppstod et problem med å forlate dette møtet.
           success: Du har forlatt møtet.
+      types:
+        private_meeting: Privat møte
     metrics:
       meetings:
         description: Antall møter opprettet
