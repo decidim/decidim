@@ -9,7 +9,9 @@
         closing_date: Lukkings dato
         closing_date_reason: Lukkings dato begrunnelse
         composition: Sammensetning
+        copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
+        created_by_other: Opprettet av annet
         decidim_area_id: Område
         internal_organisation: Intern organisasjon
         local_area: Organisasjonsområdet
@@ -26,6 +28,8 @@
       assembly_member:
         birthday: Fødselsdag
         birthplace: Fødested
+        designation_date: Benevnelsesdato
+        designation_mode: Benevnelsesmodus
       assembly_user_role:
         email: Epost
         name: Navn
@@ -108,6 +112,7 @@
           name: Forsamling
         assembly_member:
           fields:
+            designation_date: Benevnelsesdato
             full_name: Navn
         assembly_user_role:
           fields:
