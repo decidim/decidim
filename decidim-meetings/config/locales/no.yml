@@ -244,6 +244,8 @@
           category: Kategori
         filters_small_view:
           close_modal: Lukk modal
+        meeting_minutes:
+          related_information: Relatert Informasjon
         meetings:
           no_meetings_warning: Ingen møter samsvarer med søkekriteriene, eller det er ikke planlagt noe møte.
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
