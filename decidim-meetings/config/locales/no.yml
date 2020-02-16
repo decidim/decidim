@@ -228,6 +228,10 @@
       calendar_modal:
         calendar_url: Kalender URL
         close_window: Lukk vindu
+      conference_venues: Konferanse Arenaer
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Kommende møter
       directory:
         meetings:
           index:
@@ -302,8 +306,11 @@
       highlighted_meetings:
         see_all: Vis alle (%{count})
     resource_links:
+      meetings_through_proposals:
+        result_meeting: 'Relaterte møter:'
       proposals_from_meeting:
         meeting_proposal: 'Relaterte forslag:'
+        proposal_meeting: 'Relaterte møter:'
   devise:
     mailer:
       join_meeting:
