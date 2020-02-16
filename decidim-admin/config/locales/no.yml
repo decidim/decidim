@@ -515,6 +515,7 @@
       user_groups_csv_verifications:
         new:
           explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
+          title: Last opp din CSV fil
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.
