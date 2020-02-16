@@ -606,6 +606,7 @@
           unearned_another: Denne deltakeren har ikke invitert noen ennå.
           unearned_own: Du har ikke invitert noen ennå.
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
+      level: Nivå %{level}
       reached_top: Du har nådd det høyeste nivået for dette merket.
     group_admins:
       actions:
@@ -641,6 +642,7 @@
         remove_from_group: Fjern deltaker
       index:
         current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
+        manage_members: Administrere medlemmer
       promote:
         error: Det oppstod et problem med å promotere denne deltakeren
         success: Deltakeren ble promotert
@@ -857,6 +859,7 @@
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
         manage_user_group_admins: Administrer administrator
+        manage_user_group_users: Administrere medlemmer
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
@@ -910,10 +913,12 @@
       participatory_space_filters:
         filters:
           areas: Områder
+          select_an_area: Velg et område
       reference:
         reference: 'Referanse: %{reference}'
       represent_user_group:
         represent_user_group: Jeg representerer en gruppe
+        select_user_group: Velg en gruppe
       results_per_page:
         label: 'Resultater per side:'
       share_modal:
@@ -1087,6 +1092,7 @@
       must_start_with_caps: må starte med en stor bokstav
       nesting_too_deep: kan ikke være inni en underkategori
       not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
+      not_locked: var ikke låst
       not_saved:
         one: 'Det oppstod en feil under behandling av forespørselen din:'
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
