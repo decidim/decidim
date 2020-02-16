@@ -73,11 +73,13 @@
         show_statistics: Vis statistikk
         success_color: Vellykket
         tos_version: Vilkår for tjenester versjon
+        twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         user_name: Brukernavn
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
+        youtube_handler: YouTube brukernavn
       scope:
         code: Kode
         name: Navn
@@ -210,6 +212,7 @@
           success: Komponent ble slettet.
         form:
           default_step_settings: Standard trinn innstillinger
+          global_settings: Globale innstillinger
         index:
           add: Legg til komponent
           headers:
@@ -384,6 +387,8 @@
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
           title: OAuth applikasjoner
+        new:
+          title: Ny applikasjon
         update:
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
