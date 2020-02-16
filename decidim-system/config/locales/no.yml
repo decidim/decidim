@@ -47,6 +47,7 @@
         new:
           reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+          title: Ny organisasjon
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
