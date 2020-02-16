@@ -399,6 +399,7 @@
             link: Lenke
             ranking: "%{ranking} av %{total}"
             votes_count: Støtter antall
+            votes_ranking: Rangering etter støttere
           update_category:
             invalid: 'Disse forslagene hadde allerede %{category} kategorien: %{proposals}.'
             select_a_category: Velg en kategori
