@@ -576,6 +576,7 @@
           password: Dette passordet er for kort.
           password_confirmation: Passordbekreftelse må samsvare med passordet.
         error: Det er en feil i dette feltet.
+      remove_this_file: Fjern denne filen
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
@@ -882,6 +883,7 @@
     scopes:
       picker:
         cancel: Avbryt
+        title: Velg %{field}
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -1117,6 +1119,8 @@
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
         expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
+      notifications_dashboard:
+        mark_all_as_read: Merk alt som lest
       user_menu:
         admin_dashboard: Admin hovedpanel
         public_profile: Min offentlige profil
@@ -1134,6 +1138,7 @@
     password_not_allowed: er ikke tillatt
   social_share_button:
     email: Epost
+    google_bookmark: Google-Bokmerker
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
