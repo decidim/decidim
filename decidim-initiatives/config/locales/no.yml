@@ -27,6 +27,7 @@
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
       initiatives_vote:
+        document_number: Dokumentnummer
         name_and_surname: Navn og etternavn
       organization_data:
         address: Adresse
@@ -48,8 +49,11 @@
           fields:
             supports_required: Signaturer påkrevd
           name: Initiativtypens omgang
+        initiatives_types:
+          name: Initiativtype
         initiatives_votes:
           fields:
+            document_number: Dokumentnummer
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
@@ -187,6 +191,7 @@
           back: Tilbake
           continue: Fortsett
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur-typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
+          initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
         finish:
           back: Tilbake
@@ -350,6 +355,7 @@
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
         finished: Initiativsignatur opprettet
+        select_identity: Velg identitet
         sms_code: SMS-kode verifisering
         sms_phone_number: Mobiltelefon number
         step: Trinn %{current} av %{total}
