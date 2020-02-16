@@ -11,7 +11,9 @@
         composition: Sammensetning
         decidim_area_id: Område
         internal_organisation: Intern organisasjon
+        local_area: Organisasjonsområdet
         participatory_processes_ids: Relaterte deltakerprosesser
+        participatory_structure: Hvordan blir det bestemt
         title: Tittel
       assembly_member:
         birthday: Fødselsdag
@@ -155,6 +157,7 @@
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
+            select_a_position: Velg en posisjon
             select_user: Velg en deltaker
           index:
             filter:
@@ -189,6 +192,8 @@
         composition: Sammensetning
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
+        local_area: Organisasjonsområdet
+        participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
         related_participatory_processes: Relaterte deltakerprosesser
       statistics:
