@@ -3,6 +3,7 @@
     attributes:
       consultation:
         banner_image: Bannerafbeelding
+        decidim_highlighted_scope_id: Markert omfang
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
         title: Tittel
@@ -34,6 +35,8 @@
               invalid_num_votes: Antall stemmer er ugyldig
   decidim:
     admin:
+      actions:
+        unpublish_results: Avpubliser resultater
       consultation_publications:
         create:
           error: Det oppstod et problem med å publisere denne konsultasjonen.
