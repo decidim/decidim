@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Relaterte Forsamlinger
         banner_image: Bannerafbeelding
         consultations_ids: Relaterte konsultasjoner
         participatory_processes_ids: Relaterte deltakerprosesser
@@ -20,6 +21,9 @@
       decidim/conference:
         one: Konferanse
         other: Konferanser
+      decidim/conference_speaker:
+        one: Konferansetaler
+        other: Konferansetalere
       decidim/conference_user_role:
         one: Konferansens bruker rolle
         other: Konferansens bruker roller
@@ -110,6 +114,8 @@
           conference_admins: Konferanse administratorer
           diploma: Sertifikat for Oppmøte
           media_links: Media Lenker
+          registration_types: Registrerings Typer
+          user_registrations: Bruker Registreringer
       models:
         conference:
           fields:
@@ -117,6 +123,7 @@
         conference_speaker:
           fields:
             affiliation: Tilknytning
+          name: Konferanse Taler
         conference_user_role:
           fields:
             email: Epost
@@ -247,6 +254,8 @@
         registration_types:
           form:
             select_conference_meetings: Velg konferansemøter
+          index:
+            title: Registreringstyper
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
@@ -262,6 +271,7 @@
           cancel: Avbryt
         show:
           going: Møtende
+          no_slots_available: Ingen plasser tilgjengelig
       conference_program:
         program_meeting:
           content: Innhold
@@ -331,6 +341,7 @@
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
           login_as: Du er innlogget som %{name} <%{email}>
+          title: Registreringstyper
       shared:
         conference_user_login:
           already_account: Har du allerede en konto i decidim?
