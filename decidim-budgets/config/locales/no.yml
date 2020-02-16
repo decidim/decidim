@@ -97,6 +97,7 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            votes_enabled: Stemming aktivert
     orders:
       checkout:
         error: Det oppstod et problem med å behandle din stemme
