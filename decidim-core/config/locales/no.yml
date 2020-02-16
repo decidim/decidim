@@ -335,6 +335,8 @@
         view_all: Vis alle
       metrics:
         name: Organisasjonens målinger
+      stats:
+        name: Organisasjonsstatistikk
     core:
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
@@ -812,6 +814,7 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
+          agreement: Jeg er enig med disse vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
@@ -839,6 +842,7 @@
           title: Merker
       user:
         confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
+        edit_user_group: Rediger gruppeprofil
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
@@ -944,6 +948,8 @@
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
+      new:
+        submit_button: Send en invitasjon
       no_invitations_remaining: Ingen invitasjoner igjen
       send_instructions: En invitasjons epost har blitt sendt til %{email}.
       updated: Passordet ditt ble angitt. Du er nå pålogget.
@@ -960,6 +966,7 @@
       invitation_instructions:
         accept: Godta invitasjon
         accept_until: Denne invitasjonen forfaller i %{due_date}.
+        decline: Avvis invitasjon
         ignore: |-
           Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
           Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
