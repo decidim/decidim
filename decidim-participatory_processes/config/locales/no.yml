@@ -22,6 +22,7 @@
         participatory_structure: Hvordan blir det bestemt
         promoted: Forfremmet
         published_at: Publisert på
+        related_process_ids: Relaterte prosesser
         scope_id: Omfang
         scope_type_max_depth_id: Omfang filterdybde
         scopes_enabled: Omfang aktivert
@@ -323,6 +324,7 @@
             images: Bilder
             metadata: Metadata
             other: Annet
+            related_processes: Relaterte prosesser
             select_an_area: Velg et Område
             select_process_group: Velg en prosess gruppe
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -378,6 +380,7 @@
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat prosess
+        related_processes: Relaterte prosesser
         scope: Omfang
         start_date: Startdato
         target: Hvem deltar
