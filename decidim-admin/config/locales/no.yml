@@ -504,6 +504,7 @@
           create: Opprett side
         topic:
           empty: Det er ingen side under dette emnet
+          without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
           success: Siden ble oppdatert
