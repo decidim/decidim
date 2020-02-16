@@ -95,6 +95,7 @@
         title: Tittel
       static_page_topic:
         description: Beskrivelse
+        show_in_footer: Vis i bunnteksten
         title: Tittel
     errors:
       models:
@@ -324,6 +325,7 @@
             created_at: Opprettet på
             document_number: Dokumentnummer
             name: Navn
+            users_count: Deltakere teller
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -341,6 +343,7 @@
           all_users: 'Alle brukere '
           and: 'og '
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+          has_been_sent_to: 'Har blitt sendt til: '
           segmented_to: 'Segmentert til %{subject}: '
         select_recipients_to_deliver:
           all_spaces: Alle
