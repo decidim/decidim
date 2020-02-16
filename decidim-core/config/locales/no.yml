@@ -375,6 +375,7 @@
           username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
       sessions:
         new:
+          are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
           sign_in_disabled: Du kan få tilgang til med en ekstern konto
           sign_up_disabled: Registreringen er deaktivert, du kan bruke en eksisterende konto for å få tilgang
