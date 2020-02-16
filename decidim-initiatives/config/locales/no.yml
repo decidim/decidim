@@ -37,6 +37,8 @@
         other: Komitér
   decidim:
     admin:
+      actions:
+        new_initiative_type: Ny intiativtype
       models:
         initiatives:
           fields:
