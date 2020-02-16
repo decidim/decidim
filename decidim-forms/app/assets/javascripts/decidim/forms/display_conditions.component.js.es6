@@ -7,6 +7,7 @@
       this.answerOption = options.answerOption;
       this.mandatory = options.mandatory;
       this.value = options.value;
+      this.onFulfilled = options.onFulfilled;
       this._bindEvent();
     }
 
@@ -76,47 +77,70 @@
           break;
       }
 
-      if (fulfilled) { this._showQuestion(); }
-      else { this._hideQuestion(); }
+      if (fulfilled) { this.onFulfilled(true); }
+      else { this.onFulfilled(false); }
 
       console.log(`Fulfilled ${fulfilled}`); // # TODO: Remove logs 
       console.log(this);
       console.log("-----------------------");
-    }
-
-    _showQuestion() {
-      this.wrapperField.attr("style", "opacity: 1");
-      this.wrapperField.find("input, textarea").prop("disabled", null);
-    }
-
-    _hideQuestion() {
-      this.wrapperField.attr("style", "opacity: 0.5");
-      this.wrapperField.find("input, textarea").prop("disabled", "disabled");
     }
   }
 
   class DisplayConditionsComponent {
     constructor(options = {}) {
       this.wrapperField = options.wrapperField;
-      this._initialize();
+      this.wrapperField.attr("style", "background: #ffaacc"); // DEBUG
+      this.conditions = {};
+      this._initializeConditions();
     }
 
-    _initialize() {
-      this.wrapperField.attr("style", "background: #ffaacc");
+    _initializeConditions() {
 
       const $conditionElements = this.wrapperField.find(".display-condition");
-      this.conditions = $conditionElements.map((idx, el) => {
-        const $condition = $(el);
 
-        return new DisplayCondition({
+      $conditionElements.each((idx, el) => {
+        const $condition = $(el);
+        const id = $condition.data("id");
+        this.conditions[id] = {};
+
+        this.conditions[id] = new DisplayCondition({
           wrapperField: this.wrapperField,
           type: $condition.data("type"),
           conditionQuestion: $condition.data("condition"),
           answerOption: $condition.data("option"),
           mandatory: $condition.data("mandatory"),
-          value: $condition.data("value")
+          value: $condition.data("value"),
+          onFulfilled: (fulfilled) => {
+            this._onFulfilled(id, fulfilled);
+          }
         });
       });
+    }
+
+    _onFulfilled(id, fulfilled) {
+      this.conditions[id].fulfilled = fulfilled;
+
+      const singleCondition = Object.keys(this.conditions).length == 1;
+      const mustShow = singleCondition ? fulfilled : Object.values(this.conditions).filter((c) => c.mandatory).every((c) => c.fulfilled);
+
+      if (mustShow) {
+        this._showQuestion();
+      }
+      else {
+        this._hideQuestion();
+      }
+    }
+
+    _showQuestion() {
+      this.wrapperField.removeClass("question-hidden");
+      this.wrapperField.attr("style", "opacity: 1");
+      this.wrapperField.find("input, textarea").prop("disabled", null);
+    }
+
+    _hideQuestion() {
+      this.wrapperField.addClass("question-hidden");
+      this.wrapperField.attr("style", "opacity: 0.5");
+      this.wrapperField.find("input, textarea").prop("disabled", "disabled");
     }
   }
 
