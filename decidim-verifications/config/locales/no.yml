@@ -160,6 +160,7 @@
           pending_authorizations:
             index:
               address: Adresse
+              letter_sent_at: Brev sendt
               title: Pågående verifiseringer
               verification_code: Verifiseringskode
           postages:
