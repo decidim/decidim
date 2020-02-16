@@ -12,7 +12,9 @@
         decidim_area_id: Område
         internal_organisation: Intern organisasjon
         local_area: Organisasjonsområdet
+        parent_id: Foreldre forsamling
         participatory_processes_ids: Relaterte deltakerprosesser
+        participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         purpose_of_action: Hensikt med handlingen
         short_description: Kort beskrivelse
@@ -163,6 +165,7 @@
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
+            non_user: Ingen deltakende
             select_a_position: Velg en posisjon
             select_user: Velg en deltaker
             user_type: Deltakertype
@@ -200,10 +203,12 @@
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
         local_area: Organisasjonsområdet
+        participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
         purpose_of_action: Hensikt med handlingen
         related_participatory_processes: Relaterte deltakerprosesser
+        social_networks: Sosiale nettverk
         target: Hvem deltar
       statistics:
         answers_count: Svar
