@@ -471,16 +471,21 @@ hu:
         rejected: Elutasítva
         withdrawn: Visszavonva
       application_helper:
+        filter_category_values:
+          all: Mind
         filter_origin_values:
           all: Minden
           citizens: Állampolgárok
           meetings: Találkozók
           official: Hivatalos
           user_groups: Felhasználói csoportok
+        filter_scope_values:
+          all: Mind
         filter_state_values:
           accepted: Elfogadva
           all: Minden
           evaluating: Értékelés
+          not_answered: Nem megválaszolt
           rejected: Elutasítva
         filter_type_values:
           all: Minden
@@ -532,6 +537,7 @@ hu:
           open: Megnyitás
           published: Közzétéve
           related_to: Kapcsolódó
+          scope: Hatáskör
           search: Keresés
           state: Állapot
           withdrawn: Visszavonva
