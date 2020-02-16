@@ -4,6 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
+        proposal_ids: Relaterte forslag
         title: Tittel
   decidim:
     budgets:
@@ -68,6 +69,9 @@
           close_modal: Lukk modal
         order_selected_projects:
           remove: Fjern
+          selected_projects:
+            one: prosjekt valgt
+            other: prosjekter valgt
         project:
           add: Legg til
           count:
@@ -79,6 +83,7 @@
           added: Lagt til
         show:
           budget: Budsjett
+          view_all_projects: Vis alle prosjekter
     components:
       budgets:
         name: Budsjetter
