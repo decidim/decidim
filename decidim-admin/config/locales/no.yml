@@ -120,6 +120,7 @@
         authorize_url: Autoriser URL
         client_id: Klient ID
         client_secret: Klient Hemmlighet
+        organization_name: Navn på organisasjonen
   decidim:
     admin:
       actions:
@@ -322,6 +323,7 @@
           fields:
             created_at: Opprettet på
             name: Navn
+          name: OAuth applikasjon
         participatory_space_private_user:
           name: Deltakerområdets private deltaker
         scope:
