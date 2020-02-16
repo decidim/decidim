@@ -409,6 +409,7 @@
           cancel: Avbryt
           connect_your_account_html: Koble til kontoen din ved å logge på <strong>%{organization}</strong>
           publish_content: Publiser innhold for deg
+          see_email: Se din email
           see_name: Se navnet ditt
           see_username: Se kallenavnet ditt
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
@@ -569,6 +570,7 @@
       create:
         error: Det oppstod et problem med å følge denne ressursen.
       destroy:
+        button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
       errors:
@@ -690,6 +692,8 @@
         description: Les mer om %{organization}
     last_activities:
       all: Alle aktivitetstyper
+      index:
+        last_activity: Siste aktivitet
     log:
       base_presenter:
         create: "%{user_name} opprettet %{resource_name}"
@@ -720,16 +724,19 @@
         new_conversation:
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
+          outro: Kos deg med desidim!
           subject: "%{sender} har startet en samtale med deg"
         new_message:
           greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
+          outro: Kos deg med desidim!
           subject: Du har nye meldinger fra %{sender}
       conversations:
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         index:
           no_conversations: Du har ingen samtaler ennå
+          title: Samtaler
         show:
           title: Samtale med %{usernames}
         start:
@@ -863,10 +870,12 @@
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
+        hello: Hei %{name},
         manage_moderations: Administrer moderasjoner
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
+        hello: Hei %{name},
         manage_moderations: Administrer moderasjoner
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
         subject: En ressurs er blitt rapportert
@@ -878,6 +887,7 @@
       picker:
         cancel: Avbryt
         title: Velg %{field}
+      prompt: Velg et omfang
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
     searches:
@@ -910,6 +920,8 @@
         help: Hjelp
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
+      login_modal:
+        please_sign_in: Vennligst logg inn
       participatory_space_filters:
         filters:
           areas: Områder
@@ -985,6 +997,7 @@
       email_changed:
         greeting: Hei %{recipient}!
         message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
+        subject: Email endret
       invitation_instructions:
         accept: Godta invitasjon
         accept_until: Denne invitasjonen forfaller i %{due_date}.
@@ -1134,6 +1147,7 @@
     name_included_in_password: er for likt navnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
+    password_too_common: er for vanlig
   social_share_button:
     email: Epost
     google_bookmark: Google-Bokmerker
