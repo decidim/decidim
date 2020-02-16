@@ -3,6 +3,7 @@
     attributes:
       consultation:
         banner_image: Bannerafbeelding
+        introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
         title: Tittel
       question:
