@@ -6,6 +6,7 @@
         banner_image: Bannerafbeelding
         consultations_ids: Relaterte konsultasjoner
         participatory_processes_ids: Relaterte deltakerprosesser
+        short_description: Kort beskrivelse
         title: Tittel
       conference_user_role:
         email: Epost
@@ -408,3 +409,5 @@
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
+      conferences_nav:
+        venues: Arenaer
