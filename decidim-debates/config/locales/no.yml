@@ -34,6 +34,10 @@
             success: Debatten ble opprettet.
           destroy:
             success: Debatten ble slettet.
+          edit:
+            update: Oppdater debatt
+          new:
+            create: Opprett debatt
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
             success: Debatten ble oppdatert.
