@@ -196,6 +196,7 @@
             validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            registration_form: Registreingsskjema
             registrations_count:
               one: Det har vært %{count} registrering.
               other: Det har vært %{count} registreringer.
