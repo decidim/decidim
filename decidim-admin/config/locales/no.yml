@@ -407,6 +407,8 @@
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
           title: OAuth applikasjoner
+        new:
+          title: Ny applikasjon
         update:
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
           success: Søknaden ble oppdatert.
