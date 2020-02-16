@@ -477,6 +477,7 @@
           email_subject: En oppdatering til %{participatory_space_title}
           notification_title: '%{resource_title} komponenten er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
+        email_greeting: Hei %{user_name},
         email_intro: 'Det har vært en oppdatering til "%{resource_title}". Du kan se den fra denne siden:'
         email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
         email_subject: En oppdatering til %{resource_title}
@@ -837,6 +838,7 @@
       user:
         confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
+        invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
         manage_user_group_admins: Administrer administrator
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
@@ -974,6 +976,7 @@
       organization_admin_invitation_instructions:
         subject: Du har blitt invitert til å administrere %{organization}
       password_change:
+        greeting: Hei %{recipient}!
         message: Vi kontakter deg for å varsle om at passordet ditt er endret.
       reset_password_instructions:
         action: Endre passordet mitt
