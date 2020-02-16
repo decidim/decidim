@@ -559,6 +559,8 @@
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+    followers:
+      no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
     follows:
@@ -1008,6 +1010,7 @@
         instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
         subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
+        action: Lås opp kontoen min
         greeting: Hei %{recipient}!
         instruction: 'Klikk på lenken nedenfor for å låse opp kontoen din:'
         message: Kontoen din er låst på grunn av en for stor mengde mislykkede påloggingsforsøk.
