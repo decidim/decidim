@@ -717,6 +717,8 @@
           no_conversations: Du har ingen samtaler ennå
         show:
           title: Samtale med %{usernames}
+        start:
+          title: Start en samtale
         update:
           error: Melding ikke sendt. Prøv igjen senere
     metrics:
