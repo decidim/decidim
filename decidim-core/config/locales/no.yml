@@ -610,6 +610,8 @@
         success: Invitasjonen ble godtatt
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
+      index:
+        invite_user: Inviter en deltaker
       invite:
         error: Det oppstod et problem med å invitere denne deltakeren
         success: Deltakeren ble invitert
@@ -1061,6 +1063,7 @@
         account: Konto
         authorizations: Fullmakter
         notifications_settings: Varslingsinnstillinger
+        title: Deltaker innstillinger
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
