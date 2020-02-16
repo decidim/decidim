@@ -61,6 +61,8 @@
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
           title: Generell informasjon
+        new:
+          title: Ny konsultasjon
         results:
           not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
           participants: "%{count} deltakere"
