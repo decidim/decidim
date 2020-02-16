@@ -63,6 +63,7 @@
       models:
         debate:
           fields:
+            official_debate: Offisiell debatt
             title: Tittel
     events:
       debates:
