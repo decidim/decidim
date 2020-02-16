@@ -7,6 +7,8 @@
         information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
         title: Tittel
+    models:
+      decidim/debates/creation_disabled_event: Debatter deaktivert
   decidim:
     components:
       debates:
@@ -48,6 +50,7 @@
         filters:
           all: Alle
           category: Kategori
+          category_prompt: Velg en kategori
           citizens: Borgere
         filters_small_view:
           close_modal: Lukk modal
