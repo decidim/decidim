@@ -13,14 +13,19 @@
         copy_components: Kopier komponenter
         created_by_other: Opprettet av annet
         decidim_area_id: Område
+        decidim_assemblies_type_id: Forsamlingstype
         developer_group: Promotør gruppe
         internal_organisation: Intern organisasjon
+        is_transparent: Er privat
         local_area: Organisasjonsområdet
+        meta_scope: Omfang metadata
         parent_id: Foreldre forsamling
         participatory_processes_ids: Relaterte deltakerprosesser
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
+        private_space: Privat området
         purpose_of_action: Hensikt med handlingen
+        scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         special_features: Spesialfunksjoner
@@ -119,6 +124,7 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
+          private_users: Private brukere
         assemblies_types: Forsamlingstyper
       models:
         assembly:
@@ -165,6 +171,7 @@
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
             select_a_created_by: Velg en opprettet av
+            select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -197,6 +204,8 @@
         all: Alle typer
         commission: Kommisjon
         consultative_advisory: Rådgivende
+        participatory: Deltakende
+        working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
       pages:
@@ -213,6 +222,9 @@
         developer_group: Promotør gruppe
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
+        is_transparent:
+          'false': opaque
+          'true': privat
         local_area: Organisasjonsområdet
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
@@ -229,6 +241,9 @@
         headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
+    assembly_members:
+      assembly_member:
+        designated_on: Utpekt på
     help:
       participatory_spaces:
         assemblies:
