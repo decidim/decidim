@@ -55,6 +55,7 @@
       assembly_copies:
         new:
           select: Velg hvilke data du vil duplisere
+          title: Dupliser forsamling
       assembly_members:
         create:
           error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
@@ -175,6 +176,7 @@
         home:
           highlighted_assemblies:
             active_assemblies: Aktive forsamlinger
+            see_all_assemblies: Se alle forsamlingene
       show:
         area: Område
         assembly_type: Forsamlingstype
