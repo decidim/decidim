@@ -17,6 +17,7 @@
         question_context: Kontekst
         title: Tittel
         vote: Eksternt stemmesystem
+        what_is_decided: Hva er bestemt
     errors:
       models:
         question:
@@ -38,6 +39,7 @@
       actions:
         back_to_responses: Tilbake til svar
         new_consultation: Ny konsultasjon
+        publish_results: Publiser resultater
         response_groups: Administrer responsgrupper
         unpublish_results: Avpubliser resultater
       consultation_publications:
