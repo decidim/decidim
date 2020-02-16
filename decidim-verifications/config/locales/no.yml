@@ -48,6 +48,7 @@
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
+        name: Identitets dokumenter
       name: Navn
       postal_letter:
         explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
