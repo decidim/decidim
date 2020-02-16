@@ -204,6 +204,7 @@
             success: Deltakeren ble invitert til å delta konferansen.
           form:
             attendee_type: Deltakertype
+            existing_user: Eksisterende deltaker
             invite_explanation: Deltakeren vil bli invitert til å delta på konferansen og i organisasjonen også.
             non_user: Ikke eksisterende deltaker
           index:
@@ -212,6 +213,9 @@
               all: Alle
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
+        conference_speakers:
+          form:
+            existing_user: Eksisterende deltaker
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
