@@ -19,6 +19,7 @@
         registration_terms: Registrerings vilkår
         registrations_enabled: Registreringer aktivert
         title: Tittel
+        transparent: Privat
       minutes:
         audio_url: Audio url
     errors:
@@ -182,6 +183,8 @@
             success: Møtet ble slettet
           form:
             select_organizer: Velg arrangøren
+          new:
+            title: Opprett møte
           service:
             remove: Fjern
             title: Tittel
@@ -210,6 +213,7 @@
               other: Det har vært %{count} registreringer.
             reserved_slots_help: Sett den til 0 hvis du ikke har reserverte plasser
             reserved_slots_less_than: Må være mindre enn eller lik %{count}
+            title: Registreringer
           update:
             invalid: Det oppstod et problem med å lagre registrerings innstillingene.
             success: Innstillinger for møte registreringer er lagret.
@@ -275,6 +279,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
           registration_code_help_text: Din registreringskode
@@ -314,7 +319,7 @@
           success: Du har forlatt møtet.
       types:
         private_meeting: Privat møte
-        transparent: Gjennomsiktig
+        transparent: Privat
     metrics:
       meetings:
         description: Antall møter opprettet
