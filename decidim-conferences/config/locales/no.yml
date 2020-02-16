@@ -148,6 +148,7 @@
             conference_meetings: Konferanse møter
             registrations_count: Registrerings teller
             title: Tittel
+          name: Registreringstype
       partners:
         create:
           error: Det oppstod et problem med å legge til en partner for denne konferansen.
@@ -321,6 +322,7 @@
           fields:
             email: Epost
             name: Navn
+            registration_type: Registreringstype
             status: Status
           status:
             accepted: Aksepterte (%{at})
@@ -328,6 +330,7 @@
           fields:
             email: Epost
             name: Navn
+            registration_type: Registreringstype
             state: Status
       pages:
         home:
