@@ -4,6 +4,7 @@
       agenda:
         title: Tittel
       close_meeting:
+        attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
         contributions_count: Antall bidrag
         proposal_ids: Forslag opprettet i møtet
@@ -149,6 +150,7 @@
             existing_user: Eksisterende deltaker
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
             non_user: Ikke eksisterende deltaker
+            select_user: Velg deltaker
           index:
             filter:
               accepted: Aksepterte
@@ -256,8 +258,11 @@
           cancel: Avbryt
         show:
           attendees: Antall deltakere
+          contributions: Bidrag teller
           organizations: Deltakende organisasjoner
           registration_code_help_text: Din registreringskode
+          registration_state:
+            validation_pending: VALIDERING VENTER
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
