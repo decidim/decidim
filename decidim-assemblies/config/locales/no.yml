@@ -133,6 +133,9 @@
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
+          form:
+            existing_user: Eksisterende deltaker
+            select_user: Velg en deltaker
           index:
             filter:
               all: Alle
