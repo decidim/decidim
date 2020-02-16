@@ -11,6 +11,7 @@
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
+        participatory_scope: Deltaker omfang
         question_context: Kontekst
         title: Tittel
         vote: Eksternt stemmesystem
@@ -20,6 +21,9 @@
           attributes:
             max_votes:
               lower_than_min: Maksimalt antall stemmer bør være høyere eller lik enn minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svaret ble ikke funnet.
   activerecord:
     errors:
       models:
@@ -52,6 +56,7 @@
           success: Konsultasjonen ble opprettet.
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+          title: Generell informasjon
         results:
           not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
           participants: "%{count} deltakere"
@@ -90,6 +95,8 @@
           success: Spørsmålet ble opprettet.
         destroy:
           success: Spørsmålet ble slettet.
+        form:
+          title: Generell informasjon
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
           success: Spørsmålet ble oppdatert.
@@ -115,6 +122,8 @@
         destroy:
           error: Det oppstod et problem med å fjerne responsen.
           success: Svaret ble slettet.
+        form:
+          title: Generell informasjon
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
           success: Svaret ble oppdatert.
