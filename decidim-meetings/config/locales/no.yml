@@ -25,6 +25,7 @@
         registration_form_enabled: Registreringsskjemaet aktivert
         registration_terms: Registrerings vilkår
         registrations_enabled: Registreringer aktivert
+        start_time: Start-Tid
         title: Tittel
         transparent: Privat
       minutes:
@@ -165,19 +166,23 @@
             agenda_item_children: Dagsordens underelementer
             down: Ned
             remove: Fjern
+            up: Opp
           agenda_item_child:
             agenda_item_child: Dagsordens underelement
             down: Ned
             remove: Fjern
+            up: Opp
           create:
             invalid: Det oppstod et problem med å opprette denne dagsordenen
             success: Dagsorden opprettet
           edit:
             title: Rediger agenda
+            update: Oppdater
           form:
             add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
             end_date: Sluttdato
+            start_date: Startdato
           new:
             create: Opprett
             title: Ny agenda
@@ -230,6 +235,8 @@
             success: Møtet ble opprettet
           destroy:
             success: Møtet ble slettet
+          edit:
+            update: Oppdater
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
@@ -246,8 +253,10 @@
             remove: Fjern
             service: Tjeneste
             title: Tittel
+            up: Opp
           services:
             add_service: Legg til tjeneste
+            services: Tjenester
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
             success: Møtet ble oppdatert
@@ -255,6 +264,8 @@
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
             success: Referatet ble opprettet
+          edit:
+            update: Oppdater
           new:
             create: Opprett
             title: Opprett referat
@@ -321,6 +332,7 @@
             past: Fortid
             search: Søk
             space_type: Deltakerområde
+            upcoming: Kommende
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
@@ -339,10 +351,12 @@
           date: Dato
           past: Fortid
           search: Søk
+          upcoming: Kommende
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
+          unfold: Åpne
         meeting_minutes:
           meeting_minutes: Møte referater
           related_information: Relatert Informasjon
@@ -386,6 +400,7 @@
             closed: Lukket
             end_time: Sluttdato
             map: Kart
+            start_time: Startdato
             title: Tittel
       read_more: "(Les mer)"
       registration_mailer:
