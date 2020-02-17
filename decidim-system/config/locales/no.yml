@@ -6,6 +6,7 @@
         destroy: Slett
         edit: Editar
         new: Nytt
+        save: Lagre
         title: Handlinger
       admins:
         create:
@@ -15,6 +16,7 @@
           success: Admin ble slettet
         edit:
           title: Endre administrator
+          update: Oppdater
         index:
           title: Adminer
         new:
