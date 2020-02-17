@@ -538,7 +538,7 @@ fi:
           hidden_authors_count:
             one: ja %{count} muu henkilö
             other: ja %{count} muuta henkilöä
-          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa tekijöitä muodostamaan ehdotuksen alla olevan kommenttikohdan avulla tai parantaa sitä suoraan pyytämällä käyttöoikeutta sen muokkaamiseksi. Kun tekijät antavat sinulle käyttöoikeuden, voit tehdä muutoksia tähän luonnokseen.
+          info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
           of_versions: "( %{number}:sta)"
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
