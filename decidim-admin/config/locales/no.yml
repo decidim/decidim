@@ -285,6 +285,7 @@
           name: Navn
           needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
           not_managed: Ikke klart
+          search: Søk
           status: Status
       impersonations:
         close_session:
@@ -296,6 +297,7 @@
         form:
           authorization_method: Autoriseringsmetode
           name: Navn
+          reason: Årsak
         new:
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
@@ -311,6 +313,7 @@
           new:
             explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
             new_managed_user_promotion: Ny administrert deltaker forfremmelse
+            promote: Promoter
       menu:
         admin_log: Admin aktivitet logg
         admins: Adminer
@@ -323,6 +326,8 @@
         impersonations: Etterligninger
         oauth_applications: OAuth applikasjoner
         participants: Deltakere
+        scope_types: Omfangstyper
+        scopes: Omfang
         static_pages: Sider
         user_groups: Grupper
         users: Deltakere
@@ -337,6 +342,7 @@
         attachment:
           fields:
             collection: Mappe
+            content_type: Type
             title: Tittel
           name: Vedlegg
         attachment_collection:
@@ -346,9 +352,12 @@
         impersonation_log:
           fields:
             admin: Administrator
+            reason: Årsak
+            user: Deltaker
         newsletter:
           fields:
             created_at: Opprettet på
+            subject: Emne
         oauth_application:
           fields:
             created_at: Opprettet på
@@ -359,6 +368,7 @@
         scope:
           fields:
             name: Navn
+            scope_type: Omfangstype
         scope_type:
           fields:
             name: Navn
@@ -375,12 +385,14 @@
             roles:
               admin: Administrator
               user_manager: Deltaker sjef
+          name: Deltaker
         user_group:
           fields:
             actions: Handlinger
             created_at: Opprettet på
             document_number: Dokumentnummer
             name: Navn
+            state: Stat
             users_count: Deltakere teller
       moderations:
         report:
@@ -436,6 +448,7 @@
           no_recipients: Ingen mottakere for dette valget
         show:
           select_recipients_to_deliver: Velg mottakere som skal leveres
+          subject: Emne
         update:
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
@@ -475,6 +488,7 @@
           officialize: Offisialiser
           officialized: Offisialisert
           reofficialize: Offisialiser igjen
+          search: Søk
           status: Status
           unofficialize: Uoffisialisert
         new:
@@ -486,6 +500,7 @@
           title: Rediger organisasjon
         form:
           github: GitHub
+          twitter: Twitter
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -526,6 +541,7 @@
           title: Last opp din CSV fil
       resource_permissions:
         edit:
+          submit: Send inn
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
@@ -601,6 +617,8 @@
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         participants: Deltakere
+        scope_types: Omfangstyper
+        scopes: Omfang
         static_pages: Sider
         user_groups: Grupper
         users: Deltakere
@@ -618,6 +636,7 @@
         index:
           filter:
             all: Alle
+          search: Søk
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
         new:
