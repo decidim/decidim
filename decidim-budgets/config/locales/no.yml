@@ -4,6 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
+        description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
   decidim:
@@ -11,6 +12,7 @@
       actions:
         attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
+        destroy: Slett
         edit: Editar
         import: Importer forslag til prosjekter
         title: Handlinger
@@ -48,7 +50,9 @@
         budget_confirm:
           are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
           cancel: Avbryt
+          confirm: Bekreft
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
+          title: Bekreft stemme
         budget_excess:
           close: Lukk
           description: Dette prosjektet overskrider det maksimale budsjettet og kan ikke bli lagt til. Hvis du ønsker, kan du slette et prosjekt du har allerede har valgt å legge til, eller avgi stemme på dine preferanser.
