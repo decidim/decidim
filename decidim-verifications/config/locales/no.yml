@@ -173,6 +173,7 @@
             success: Dokumentet ble lastet opp på nytt
         dni: DNI
         nie: NIE
+        passport: Pass
       postal_letter:
         admin:
           pending_authorizations:
