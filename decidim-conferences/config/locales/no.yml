@@ -8,6 +8,7 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
+        description: Beskrivelse
         participatory_processes_ids: Relaterte deltakerprosesser
         published_at: Publisert på
         scopes_enabled: Omfang aktivert
@@ -37,10 +38,12 @@
   decidim:
     admin:
       actions:
+        confirm: Bekreft
         new_conference: Ny Konferanse
         send_diplomas: Send deltakerbevis
       conference_copies:
         new:
+          copy: Kopier
           select: Velg hvilke data du vil duplisere
           title: Duplisert konferanse
       conference_publications:
@@ -119,6 +122,7 @@
           error: Det oppstod et problem med å oppdatere denne media lenken.
           success: Media Lenke ble oppdatert.
       menu:
+        conferences: Konferanser
         conferences_submenu:
           attachments: Vedlegg
           categories: Kategorier
@@ -194,6 +198,8 @@
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
           success: Konferanse registrerings-type ble oppdatert.
+      titles:
+        conferences: Konferanser
     admin_log:
       conference:
         create: "%{user_name} opprettet %{resource_name} konferansen"
@@ -291,6 +297,7 @@
       conference:
         registration_confirm:
           cancel: Avbryt
+          confirm: Bekreft
         show:
           going: Møtende
           no_slots_available: Ingen plasser tilgjengelig
@@ -335,6 +342,8 @@
       content_blocks:
         highlighted_conferences:
           name: Fremhevede konferanser
+      index:
+        title: Konferanser
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -363,6 +372,8 @@
             name: Navn
             registration_type: Registreringstype
             state: Status
+            states:
+              confirmed: Bekreftet
       pages:
         home:
           highlighted_conferences:
@@ -389,6 +400,8 @@
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
+        conference_count: Konferanser
+        debates_count: Debatter
         endorsements_count: Påtegnelser
         headline: Aktivitet
         pages_count: Sider
@@ -428,6 +441,8 @@
       index:
         description: Lenker om denne konferansen
         title: Media og Lenker
+    menu:
+      conferences: Konferanser
   devise:
     mailer:
       join_conference:
