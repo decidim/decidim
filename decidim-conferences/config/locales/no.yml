@@ -9,6 +9,7 @@
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
         participatory_processes_ids: Relaterte deltakerprosesser
+        published_at: Publisert på
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
@@ -293,6 +294,7 @@
         show:
           going: Møtende
           no_slots_available: Ingen plasser tilgjengelig
+          registration: Registrering
       conference_program:
         program_meeting:
           content: Innhold
@@ -380,6 +382,7 @@
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
+        introduction: Introduksjon
         related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
@@ -390,6 +393,7 @@
         headline: Aktivitet
         pages_count: Sider
         surveys_count: Undersøkelse
+        users_count: Deltakere
     events:
       conferences:
         conference_registration_confirmed:
