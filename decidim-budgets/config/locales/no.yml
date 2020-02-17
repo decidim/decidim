@@ -4,6 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
+        decidim_scope_id: Omfang
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
@@ -74,6 +75,8 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+          scope: Omfang
+          search: Søk
         filters_small_view:
           close_modal: Lukk modal
         order_selected_projects:
@@ -102,6 +105,7 @@
             comments_enabled: Kommentarer aktivert
             projects_per_page: Prosjekter per side
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            total_budget: Totalt budsjett
             vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring
@@ -117,3 +121,4 @@
     resource_links:
       included_proposals:
         project_proposal: 'Forslag inkludert i dette prosjektet:'
+  total_budget: Totalt budsjett
