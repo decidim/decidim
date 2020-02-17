@@ -377,9 +377,9 @@
           nickname_help: Aliaset ditt i %{organization}
           password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
-          sign_up: Register deg
+          sign_up: Registrer deg
           sign_up_as:
-            legend: Register deg som
+            legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og støtte forslag.
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
@@ -573,6 +573,7 @@
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+      source: Kilde
       title: Fingeravtrykk
       value: Verdi
     followers:
@@ -807,6 +808,7 @@
         error: Det oppstod et problem med å avslutte abonnementet
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
+        unsubscribe: Avslutt abonnement
     newsletters_opt_in:
       unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
       update:
@@ -1017,6 +1019,7 @@
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
         please_sign_in: Vennligst logg inn
+        sign_up: Registrer deg
       participatory_space_filters:
         filters:
           areas: Områder
@@ -1030,6 +1033,7 @@
         label: 'Resultater per side:'
       share_modal:
         close_window: Lukk vindu
+        share: Del
         share_link: Del lenke
       version_author:
         deleted: Slettet deltaker
@@ -1075,6 +1079,7 @@
       edit:
         header: Fullfør oppretting av kontoen din
         nickname_help: Kallenavnet ditt i %{organization}.
+        submit_button: Lagre
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
@@ -1160,7 +1165,11 @@
         currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
         title: Endre %{resource}
+        unhappy: Ikke fornøyd?
+        update: Oppdater
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
+      new:
+        sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
@@ -1181,6 +1190,7 @@
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
+        sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
@@ -1232,6 +1242,8 @@
       header:
         close_menu: Lukk meny
         navigation: Navigasjon
+        sign_in: Logg på
+        sign_up: Registrer Deg
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1244,6 +1256,7 @@
         notifications: Varsler
         profile: Min konto
         public_profile: Min offentlige profil
+        sign_out: Logg ut
       user_profile:
         account: Konto
         authorizations: Fullmakter
@@ -1286,6 +1299,7 @@
     vkontakte: Vkontakte
     wechat: Wechat
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
+    weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
     xing: Xing
@@ -1315,6 +1329,7 @@
       option_escaped: Rømt
       option_split: Side-ved-side
       option_unescaped: Urømt
+      option_unified: Udefinert
   views:
     pagination:
       first: "&laquo; Først"
