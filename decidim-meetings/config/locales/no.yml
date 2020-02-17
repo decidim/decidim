@@ -3,6 +3,7 @@
     attributes:
       agenda:
         description: Beskrivelse
+        duration: Varighet
         title: Tittel
       close_meeting:
         attendees_count: Antall deltagere
@@ -15,6 +16,7 @@
         decidim_category_id: Kategori
         decidim_scope_id: Omfang
         description: Beskrivelse
+        end_time: Sluttid
         location: Plassering
         location_hints: Plasseringstips
         organizer_id: Planlegger
@@ -27,6 +29,7 @@
       minutes:
         audio_url: Audio url
         description: Beskrivelse
+        video_url: Video url
         visible: Er synlig
     errors:
       models:
@@ -162,9 +165,12 @@
           create:
             invalid: Det oppstod et problem med å opprette denne dagsordenen
             success: Dagsorden opprettet
+          edit:
+            title: Rediger agenda
           form:
             add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
+            end_date: Sluttdato
           new:
             create: Opprett
           update:
@@ -239,6 +245,7 @@
             invalid: Det oppstod et problem med å opprette dette referatet
             success: Referatet ble opprettet
           new:
+            create: Opprett
             title: Opprett referat
           update:
             invalid: Det oppstod et problem med å oppdatere dette referatet
@@ -292,10 +299,12 @@
         upcoming_events:
           name: Kommende hendelser
           upcoming_events: Kommende møter
+          view_all_events: Vis alle
       directory:
         meetings:
           index:
             all: Alle
+            date: Dato
             meetings: Møter
             search: Søk
             space_type: Deltakerområde
@@ -314,6 +323,7 @@
         filters:
           category: Kategori
           category_prompt: Velg en kategori
+          date: Dato
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
@@ -341,6 +351,7 @@
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
+          view: Vis
       meetings_map:
         view_meeting: Vis møte
       models:
@@ -356,6 +367,7 @@
         meeting:
           fields:
             closed: Lukket
+            end_time: Sluttdato
             map: Kart
             title: Tittel
       read_more: "(Les mer)"
