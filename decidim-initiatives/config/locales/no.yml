@@ -21,6 +21,7 @@
         id_document: DNI/NIE
         name: Navn og Etternavn
         phone_number: Telefonnummer
+        post_code: Postnummer
         province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
@@ -40,8 +41,10 @@
         date_of_birth: Fødselsdato
         document_number: Dokumentnummer
         name_and_surname: Navn og etternavn
+        postal_code: Postnummer
       organization_data:
         address: Adresse
+        id_document: ID dokument
         name: Komplett navn
   activerecord:
     models:
@@ -65,6 +68,7 @@
             created: Opprettet
             discarded: Forkastet
             published: Publisert
+            rejected: Avvist
             validating: Teknisk validering
       menu:
         initiatives: Initiativer
@@ -73,6 +77,7 @@
         initiatives:
           fields:
             created_at: Opprettet på
+            id: ID
             state: Status
             title: Initiativer
         initiatives_type_scope:
@@ -95,6 +100,7 @@
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
+            postal_code: Postnummer
             time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
@@ -157,6 +163,7 @@
             confirm_revoke: Er du sikker?
             invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
             no_members_yet: Det er ingen medlemmer i promotør komiteen
+            revoke: Tilbakekalle
             title: Komité medlemer
         content_blocks:
           highlighted_initiatives:
@@ -230,6 +237,7 @@
         created: Opprettet
         discarded: Forkastet
         published: Publisert
+        rejected: Avvist
         validating: Teknisk validering
       committee_requests:
         new:
@@ -347,6 +355,7 @@
           type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
+          filter: Filter
           filter_by: Filtrer etter
         index_header:
           new_initiative: Nytt initiativ
@@ -393,6 +402,7 @@
         creation_subject: Initiativet ditt '%{title}' er opprettet
         initiative_link:
           check_initiative_details: Du kan se initiativ detaljene
+          here: her
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
         progress_report_for: 'Sammendrag om initiativet: %{title}'
