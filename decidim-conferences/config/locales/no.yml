@@ -10,7 +10,10 @@
         copy_features: Kopier funksjoner
         decidim_scope_id: Omfang
         description: Beskrivelse
+        hashtag: Hastag
+        hero_image: Hjem bilde
         participatory_processes_ids: Relaterte deltakerprosesser
+        promoted: Fremhevet
         published_at: Publisert på
         scope_id: Omfang
         scopes_enabled: Omfang aktivert
@@ -23,6 +26,7 @@
       conference_user_role:
         email: Epost
         name: Navn
+        role: Rolle
     errors:
       models:
         conference_registration_invite:
@@ -136,6 +140,7 @@
         conferences: Konferanser
         conferences_submenu:
           attachment_collections: Mapper
+          attachment_files: Filer
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
@@ -153,17 +158,20 @@
         conference:
           fields:
             created_at: Opprettet på
+            promoted: Fremhevet
             published: Publisert
             title: Tittel
         conference_speaker:
           fields:
             affiliation: Tilknytning
             full_name: Fullt navn
+            position: Stilling
           name: Konferanse Taler
         conference_user_role:
           fields:
             email: Epost
             name: Navn
+            role: Rolle
           name: Konferanse Administrator
           roles:
             admin: Administrator
@@ -204,6 +212,7 @@
           update: Oppdater
         new:
           create: Opprett
+          title: Ny partner
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -322,6 +331,9 @@
             decline: Avvis invitasjon '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
             registration: Påmelding til '%{conference_title}'
+        partners:
+          index:
+            title: Partnere
         registration_types:
           form:
             select_conference_meetings: Velg konferansemøter
@@ -415,10 +427,12 @@
             email: Epost
             name: Navn
             registration_type: Registreringstype
+            sent_at: Sendt på
             status: Status
           status:
             accepted: Aksepterte (%{at})
             rejected: Avvist (%{at})
+            sent: Sendt
         conference_registration:
           fields:
             email: Epost
@@ -427,6 +441,7 @@
             state: Status
             states:
               confirmed: Bekreftet
+              pending: Venter
       pages:
         home:
           highlighted_conferences:
@@ -435,6 +450,10 @@
       photo:
         show:
           close_modal: Lukk modal
+          photo: Bilde
+      photos_list:
+        show:
+          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
@@ -444,6 +463,7 @@
       shared:
         conference_user_login:
           already_account: Har du allerede en konto i decidim?
+          new_user: Ny bruker?
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
@@ -463,8 +483,10 @@
         meetings_count: Møter
         orders_count: Støtter
         pages_count: Sider
+        posts_count: Innlegg
         projects_count: Prosjekter
         proposals_count: Forslag
+        results_count: Resultater
         surveys_count: Undersøkelse
         users_count: Deltakere
         votes_count: Støtter
@@ -530,5 +552,6 @@
           take_part: Delta
       conferences_nav:
         conference_menu_item: Informasjon
+        conference_partners_menu_item: Partnere
         media: Medier
         venues: Arenaer
