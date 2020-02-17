@@ -24,6 +24,7 @@
         transparent: Privat
       minutes:
         audio_url: Audio url
+        description: Beskrivelse
     errors:
       models:
         meeting_agenda:
@@ -128,6 +129,7 @@
     meetings:
       actions:
         agenda: Dagsorden
+        attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
@@ -141,9 +143,11 @@
             add_agenda_item_child: Legg til dagsordens underelement
             agenda_item: Dagsordens element
             agenda_item_children: Dagsordens underelementer
+            down: Ned
             remove: Fjern
           agenda_item_child:
             agenda_item_child: Dagsordens underelement
+            down: Ned
             remove: Fjern
           create:
             invalid: Det oppstod et problem med å opprette denne dagsordenen
@@ -204,6 +208,8 @@
             create: Opprett
             title: Opprett møte
           service:
+            description: Beskrivelse
+            down: Ned
             remove: Fjern
             title: Tittel
           services:
@@ -298,6 +304,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          going: Skal
           meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
