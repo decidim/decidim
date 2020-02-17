@@ -58,6 +58,7 @@
         blocked_comments_warning: Kommenterer er deaktivert på dette tidspunktet, men du kan lese de forrige.
         comment_details_title: Kommenter detaljer
         loading: Laster inn kommenterer ...
+        single_comment_warning: Du kan sjekke resten av kommentarene <a href="%{url}">her</a>.
         single_comment_warning_title: Du ser en enkelt kommentar
         title: "%{count} kommentarer"
     events:
