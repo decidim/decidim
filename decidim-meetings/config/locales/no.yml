@@ -124,6 +124,7 @@
         close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
         edit: Rediger
+        registrations: Registreringer
         title: Handlinger
       admin:
         agenda:
@@ -144,6 +145,8 @@
           update:
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
+        exports:
+          registrations: Registreringer
         invite_join_meeting_mailer:
           invite:
             decline: Avvis invitasjon
