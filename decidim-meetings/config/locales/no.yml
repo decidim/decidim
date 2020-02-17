@@ -25,6 +25,7 @@
       minutes:
         audio_url: Audio url
         description: Beskrivelse
+        visible: Er synlig
     errors:
       models:
         meeting_agenda:
@@ -38,12 +39,16 @@
               already_invited: Denne e-postadressen er allerede invitert
     models:
       decidim/meetings/close_meeting_event: Møttet lukket
+      decidim/meetings/create_meeting_event: Møte
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
       decidim/meetings/update_meeting_event: Møtet oppdatert
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Møte
+        other: Møter
       decidim/meetings/registration:
         one: Registrering
         other: Registreringer
@@ -59,6 +64,9 @@
           title: Duplisert møte
     components:
       meetings:
+        actions:
+          join: Bli med
+        name: Møter
         settings:
           global:
             announcement: Kunngjøring
@@ -161,6 +169,7 @@
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
         exports:
+          meetings: Møter
           registrations: Registreringer
         invite_join_meeting_mailer:
           invite:
@@ -206,6 +215,8 @@
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
             select_organizer: Velg arrangøren
+          index:
+            title: Møter
           new:
             create: Opprett
             title: Opprett møte
@@ -228,6 +239,9 @@
           update:
             invalid: Det oppstod et problem med å oppdatere dette referatet
             success: Referatet ble oppdatert
+        models:
+          meeting:
+            name: Møte
         registrations:
           edit:
             validate_registration_code: Valider registreringskode
@@ -277,6 +291,7 @@
         meetings:
           index:
             all: Alle
+            meetings: Møter
             space_type: Deltakerområde
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
@@ -308,6 +323,7 @@
           attendees: Antall deltakere
           contributions: Bidrag teller
           going: Skal
+          join: Bli med på møte
           meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
@@ -331,6 +347,7 @@
         meeting:
           fields:
             closed: Lukket
+            map: Kart
             title: Tittel
       read_more: "(Les mer)"
       registration_mailer:
@@ -354,6 +371,8 @@
     metrics:
       meetings:
         description: Antall møter opprettet
+        object: møter
+        title: Møter
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
