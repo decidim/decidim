@@ -16,6 +16,7 @@
           success: Admin ble slettet
         edit:
           title: Endre administrator
+          update: Oppdater
         index:
           title: Adminer
         new:
