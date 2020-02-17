@@ -35,7 +35,9 @@
               created_at: Opprettelsesdato
               decidim_proposals_component: Forslags komponent
               dice: Terning
+              reference: Referanse
               request_timestamp: Uavgjort tid
+              seed: Seed
               target_items: Gjenstander å velge
               title: Tittel
         sortitions:
@@ -79,6 +81,7 @@
           cancelled: Avbrutt
           category: Kategori
           category_prompt: Velg en kategori
+          search: Søk
           state: Status
         filters_small_view:
           close_modal: Lukk modal
@@ -87,6 +90,8 @@
           selected_proposals: Utvalgte forslag
         orders:
           label: 'Sorter sorteringer etter:'
+          random: Tilfeldig
+          recent: Nylig
         results_count:
           count:
             one: valgt forslag
@@ -105,6 +110,7 @@
           sortition_reproducibility_details: Detaljer for sorterings reproduksjonbarhet
           time_seed: "(2) Tids seed"
         sortition:
+          random_seed: Tilfeldig seed
           selected_proposals:
             one: forslag valgt
             other: forslag valgt
