@@ -26,6 +26,7 @@
             label: Kommentar
             placeholder: Hva mener du om dette?
           form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
+          submit: Send
           user_group_id:
             label: Kommenter som
         remaining_characters: "%{count} tegn igjen"
@@ -50,6 +51,8 @@
           best_rated: Best vurdert
           most_discussed: Mest omtalt
           older: Eldre
+          recent: Nylig
+        title: 'Sorter etter:'
       comment_thread:
         title: Samtale med %{authorName}
       comments:
