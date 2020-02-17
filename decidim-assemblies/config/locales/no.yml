@@ -13,6 +13,7 @@
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
         created_by_other: Opprettet av annet
+        creation_date: Dato opprettet
         decidim_area_id: Område
         decidim_assemblies_type_id: Forsamlingstype
         developer_group: Promotør gruppe
@@ -54,6 +55,7 @@
   decidim:
     admin:
       actions:
+        new_assembly: Ny forsamling
         new_assembly_type: Ny forsamlingstype
       assemblies:
         create:
@@ -213,6 +215,8 @@
         working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
+      last_activity:
+        new_assembly: Ny forsamling
       pages:
         home:
           highlighted_assemblies:
@@ -224,6 +228,7 @@
         children: Forsamlinger
         closing_date: Lukkings dato
         composition: Sammensetning
+        creation_date: Dato opprettet
         developer_group: Promotør gruppe
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
@@ -280,3 +285,5 @@
           assemblies:
             one: "%{count} sammenstillinger"
             other: "%{count} sammenstillingene"
+      assembly_navigation:
+        assembly_menu_item: Forsamlingen
