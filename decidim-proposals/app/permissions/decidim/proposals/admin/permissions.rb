@@ -35,6 +35,9 @@ module Decidim
           # Every user allowed by the space can import proposals from another_component
           allow! if permission_action.subject == :proposals && permission_action.action == :import
 
+          # Every user allowed by the space can export proposals
+          allow! if permission_action.subject == :proposals && permission_action.action == :export
+
           # Every user allowed by the space can merge proposals to another component
           allow! if permission_action.subject == :proposals && permission_action.action == :merge
 

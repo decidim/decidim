@@ -104,6 +104,16 @@ describe Decidim::Proposals::Admin::Permissions do
 
   describe "proposal creation" do
     let(:action) do
+      { scope: :admin, action: :export, subject: :proposals }
+    end
+
+    context "when everything is OK" do
+      it { is_expected.to eq true }
+    end
+  end
+
+  describe "proposal creation" do
+    let(:action) do
       { scope: :admin, action: :create, subject: :proposal }
     end
 
