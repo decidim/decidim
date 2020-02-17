@@ -27,6 +27,8 @@
             success: Innlegget ble opprettet
           destroy:
             success: Innlegget ble slettet
+          edit:
+            save: Oppdater
           index:
             title: Innlegg
           new:
