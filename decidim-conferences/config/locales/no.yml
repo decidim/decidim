@@ -8,12 +8,15 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
+        decidim_scope_id: Omfang
         description: Beskrivelse
         participatory_processes_ids: Relaterte deltakerprosesser
         published_at: Publisert på
+        scope_id: Omfang
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
+        slug: URL slug
         title: Tittel
       conference_speaker:
         full_name: Fullt navn
@@ -99,6 +102,7 @@
           title: Generell Informasjon
         index:
           not_published: Ikke publisert
+          published: Publisert
         new:
           title: Konferanse
         update:
@@ -116,6 +120,7 @@
           success: Media Lenke slettet.
         edit:
           title: Oppdater media lenke.
+          update: Oppdater
         index:
           media_links_title: Media Lenker
         new:
@@ -134,12 +139,14 @@
           conference_invites: Invitasjoner
           diploma: Sertifikat for Oppmøte
           media_links: Media Lenker
+          partners: Partnere
           registration_types: Registrerings Typer
           registrations: Registreringer
           user_registrations: Bruker Registreringer
       models:
         conference:
           fields:
+            published: Publisert
             title: Tittel
         conference_speaker:
           fields:
@@ -164,6 +171,8 @@
             link: Lenke
             logo: Logo
             name: Navn
+            partner_type: Type
+          name: Partner
           types:
             collaborator: Samarbeidspartner
             main_promotor: Hovedpromotør
@@ -181,6 +190,7 @@
           success: Konferansepartner ble fjernet.
         edit:
           title: Oppdater partner.
+          update: Oppdater
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -199,6 +209,7 @@
           success: Konferanse registrerings-typen ble fjernet.
         edit:
           title: Oppdater registreringstype.
+          update: Oppdater
         new:
           title: Ny registreringstype
         update:
@@ -257,9 +268,11 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              sent: Sendt
             filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
+            search: Søk
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
             invite: Inviter
@@ -273,6 +286,8 @@
             non_user: Ingen deltakende
             select_user: Velg deltaker
             user_type: Deltakertype
+          index:
+            search: Søk
         conferences:
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
@@ -282,6 +297,7 @@
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
+            save: Lagre
             title: Sertifikat for Oppmøte
         invite_join_conference_mailer:
           invite:
@@ -316,6 +332,7 @@
         program_meeting:
           content: Innhold
           location: Plassering
+          streaming: Strømming
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> er bekreftet.
@@ -346,9 +363,11 @@
       conferences:
         partners:
           collaborators: Partnere
+          main_promotors: Planleggere
         show:
           login_as: Du er innlogget som %{name} <%{email}>
           make_conference_registration: 'Foreta din registrering til denne konferansen:'
+          register: Registrer
       content_blocks:
         highlighted_conferences:
           name: Fremhevede konferanser
@@ -417,9 +436,12 @@
         endorsements_count: Påtegnelser
         headline: Aktivitet
         meetings_count: Møter
+        orders_count: Støtter
         pages_count: Sider
+        proposals_count: Forslag
         surveys_count: Undersøkelse
         users_count: Deltakere
+        votes_count: Støtter
     events:
       conferences:
         conference_registration_confirmed:
@@ -462,13 +484,20 @@
         subject: Invitasjon til å delta en konferanse
   layouts:
     decidim:
+      conference_widgets:
+        show:
+          take_part: Delta
       conferences:
+        conference:
+          take_part: Delta
         index:
           promoted_conferences: Fremhevede konferanser
         order_by_conferences:
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
+        promoted_conference:
+          take_part: Delta
       conferences_nav:
         media: Medier
         venues: Arenaer
