@@ -66,6 +66,7 @@
           fields:
             date_of_birth: Fødselsdato
             document_number: Dokumentnummer
+            hash: Hash
             initiative_id: Initiativ ID
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
