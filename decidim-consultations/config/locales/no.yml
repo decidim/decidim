@@ -168,9 +168,11 @@
       filters:
         active: Aktiv
         all: Alle
+        finished: Fullført
         state: Status
       filters_small_view:
         close_modal: Lukk vindu
+        filter_by: Filtrer etter
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
       index:
@@ -212,6 +214,7 @@
         title: Spørsmål til denne konsultasjonen
       show:
         badge_name:
+          finished: Fullført
           published_results: Resulter publisert
         footer_button_text:
           debate: Debatt
