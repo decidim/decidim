@@ -3,6 +3,7 @@
     system:
       actions:
         confirm_destroy: Er du sikker på at du vil slette dette?
+        destroy: Slett
         edit: Editar
         title: Handlinger
       admins:
@@ -16,6 +17,7 @@
         index:
           title: Adminer
         new:
+          create: Opprett
           title: Ny administrator
         update:
           error: Det oppsto et problem med å oppdatere administratoren.
@@ -54,7 +56,11 @@
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
           title: Ny organisasjon
         omniauth_settings:
+          facebook:
+            app_id: App ID
+            app_secret: App hemmelighet
           google_oauth2:
+            client_id: Klient ID
             client_secret: Klient hemmlighet
           twitter:
             api_key: API-nøkkel
