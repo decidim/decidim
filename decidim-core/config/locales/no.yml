@@ -406,6 +406,8 @@
             beslutningen din.</p>
             <p>Takk for at du leste dette!</p>
           title: Varsler om nyhetsbrev
+        omniauth_buttons:
+          or: Eller
     doorkeeper:
       authorizations:
         new:
@@ -757,9 +759,12 @@
         index:
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
+        reply:
+          send: Send
         show:
           title: Samtale med %{usernames}
         start:
+          send: Send
           title: Start en samtale
         update:
           error: Melding ikke sendt. Prøv igjen senere
@@ -813,6 +818,7 @@
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
         send_notifications_by_email: Send varsler via email
+        update_notifications_settings: Lagre endringer
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
         success: Varslings innstillingene dine ble oppdatert.
@@ -830,11 +836,14 @@
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings: Møter
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
+          proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_body: La oss bygge et mer åpent, gjennomsynlig og samarbeidende samfunn.<br /> Bli med, delta og bestem.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
+          register: Registrer
         hero:
+          participate: Delta
           welcome: Velkommen til %{organization}!
         metrics:
           headline: Deltakelse i tall
@@ -849,12 +858,17 @@
           meetings_count: Møter
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
+          proposals_count: Forslag
           surveys_count: Undersøkelse
           users_count: Deltakere
+        sub_hero:
+          register: Registrer
       index:
+        read_more: Les mer
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
+        topics: Emner
       participatory_space:
         metrics:
           headline: Deltakelse i tall
@@ -891,6 +905,7 @@
         following: Følger
         groups: Grupper
         members: Medlemmer
+        timeline: Tidslinje
         view_full_profile: Vis hele profilen
       sidebar:
         badges:
@@ -927,10 +942,13 @@
       global: Global omfang
       picker:
         cancel: Avbryt
+        choose: Velg
         title: Velg %{field}
       prompt: Velg et omfang
+      scopes: Omfang
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
+      term_input_placeholder: Søk
     searches:
       filters:
         back: Tilbake til resultater
@@ -1000,6 +1018,7 @@
       wizard_aside:
         back: Tilbake
       wizard_header:
+        see_steps: se trinn
         step_of: Trinn %{current_step} av %{total_steps}
   devise:
     confirmations:
@@ -1193,6 +1212,8 @@
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
+      widget:
+        see_more: Se mer
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
@@ -1211,7 +1232,12 @@
     google_plus: Google+
     hacker_news: Hacker Nyheter
     linkedin: Linkedin
+    qq: Qsone
+    reddit: Reddit
     share_to: Del til %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
     xing: Xing
   time:
