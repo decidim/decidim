@@ -4,6 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
+        proposal_ids: Relaterte forslag
         title: Tittel
   decidim:
     budgets:
@@ -11,19 +12,28 @@
         attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         edit: Editar
+        import: Importer forslag til prosjekter
         title: Handlinger
       admin:
         projects:
           create:
             invalid: Det oppstod et problem med å opprette dette prosjektet
+            success: Prosjektet ble opprettet
+          destroy:
+            success: Prosjektet ble slettet
+          index:
+            finished_orders: Avsluttede stemmer
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
+            success: Prosjektet ble oppdatert
         proposals_imports:
           create:
             invalid: Det oppsto et problem med å importere forslagene til prosjektet
             success: "%{number} forslag importert til prosjekter"
           new:
+            create: Importer forslag til prosjekter
             no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
+            select_component: Velg en komponent
       admin_log:
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
@@ -41,23 +51,30 @@
         budget_excess:
           close: Lukk
           description: Dette prosjektet overskrider det maksimale budsjettet og kan ikke bli lagt til. Hvis du ønsker, kan du slette et prosjekt du har allerede har valgt å legge til, eller avgi stemme på dine preferanser.
+          title: Maksimalt budsjett overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
           assigned: 'Tildelt:'
+          cancel_order: slett stemmen din og begynn på nytt
           checked_out:
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
           description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
+          title: Du bestemmer budsjettet
         count:
           projects_count:
             one: 1 prosjekt
             other: "%{count} prosjekter"
         filters:
           category: Kategori
+          category_prompt: Velg en kategori
         filters_small_view:
           close_modal: Lukk modal
         order_selected_projects:
           remove: Fjern
+          selected_projects:
+            one: prosjekt valgt
+            other: prosjekter valgt
         project:
           add: Legg til
           count:
@@ -69,6 +86,7 @@
           added: Lagt til
         show:
           budget: Budsjett
+          view_all_projects: Vis alle prosjekter
     components:
       budgets:
         name: Budsjetter
@@ -76,10 +94,13 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            projects_per_page: Prosjekter per side
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            votes_enabled: Stemming aktivert
     orders:
       checkout:
         error: Det oppstod et problem med å behandle din stemme
@@ -87,3 +108,6 @@
       destroy:
         error: Det oppstod et problem med å avbryte stemmen din
         success: Stemmen din ble kansellert
+    resource_links:
+      included_proposals:
+        project_proposal: 'Forslag inkludert i dette prosjektet:'

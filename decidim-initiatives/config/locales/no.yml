@@ -3,6 +3,10 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        offline_votes: Personlige underskrifter
+        signature_end_date: Slutt av innsamlingsperiode for signatur
+        signature_start_date: Start av innsamlingsperiode for signatur
+        signature_type: Signatur innsamingstype
         signature_type_values:
           offline: Personlig
         state: Status
@@ -10,6 +14,7 @@
       initiative_author:
         address: Adresse
         city: By
+        name: Navn og Etternavn
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
@@ -17,9 +22,15 @@
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
+        minimum_committee_members: Minimum av komitémedlemmer
+        online_signature_enabled: Online signatur aktivert
         title: Tittel
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
         validate_sms_code_on_votes: Legg til SMS kode validerings trinn i signatur prosessen
+      initiatives_vote:
+        date_of_birth: Fødselsdato
+        document_number: Dokumentnummer
+        name_and_surname: Navn og etternavn
       organization_data:
         address: Adresse
         name: Komplett navn
@@ -30,10 +41,33 @@
         other: Komitér
   decidim:
     admin:
+      actions:
+        new_initiative_type: Ny intiativtype
+      menu:
+        initiatives_types: Initiativtyper
       models:
         initiatives:
           fields:
             state: Status
+        initiatives_type_scope:
+          fields:
+            supports_required: Signaturer påkrevd
+          name: Initiativtypens omgang
+        initiatives_types:
+          fields:
+            title: Initiativtyper
+          name: Initiativtype
+        initiatives_votes:
+          fields:
+            date_of_birth: Fødselsdato
+            document_number: Dokumentnummer
+            initiative_id: Initiativ ID
+            initiative_signatures_count: Antall underskrifter
+            initiative_title: Tittel på initiativet
+            name_and_surname: Navn og etternavn
+            time_and_date: Tid og dato
+      titles:
+        initiatives_types: Initiativtyper
     events:
       initiatives:
         initiative_extended:
@@ -45,10 +79,12 @@
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har oppnådd %{percentage}% av signaturene!
             email_outro: Du har mottatt denne varslingen fordi du er forfatteren av initiativet %{resource_title}.
+            email_subject: Ny milepæl fullført!
             notification_title: Ditt <a href="%{resource_path}">%{resource_title}</a> initiativ har oppnådd %{percentage}% av signaturene.
           follower:
             email_intro: Initiativet %{resource_title} har oppnådd %{percentage}% av signaturene!
             email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+            email_subject: Ny milepæl fullført!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
     gamification:
       badges:
@@ -59,13 +95,16 @@
           description: Dette merket blir gitt når du setter i gang nye initiativer, og samarbeider med andre for å gjennomføre dem.
           description_another: Denne deltakeren har fått %{score} initiativer publisert.
           description_own: Du har fått %{score} initiativer publisert.
+          name: Publiserte initiativ
           next_level_in: Få %{score} flere initiativer publisert for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke fått publisert noen tiltak ennå.
+          unearned_own: Du har ingen initiativer publisert ennå.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
-          page: "<p>Et <strong>initiativ</strong> er et forslag som kan fremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          contextual: "<p>Et <strong>initiativ</strong> er et forslag som kan forfremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          page: "<p>Et <strong>initiativ</strong> er et forslag som kan forfremmes av alle på eget initiativ (uavhengig av andre kanaler eller deltakelsesrom) gjennom innsamling av (digitale) signaturer for organisasjonen for å utføre en spesifikk handling (endre en regulering, sette i gang et prosjekt, endre navnet på en avdeling eller en gate, etc.).</p> <p>Initiativtakerne kan definere dens mål, samle støtte, debattere, formidle det og definere møtepunkter der underskrifter kan samles fra deltakerne eller debattene, åpene for andre deltakere.</p> <p>Eksempler: Et initiativ kan samle underskrifter for å innkalle til en konsultasjon blant alle leddene i organisasjonene, eller for å opprette eller innkalle en forsamling, eller for å sette i gang en prosess med budsjettøkning for et territorium eller område av organisasjonen. I løpet av prosessen med å samle underskrifter, kan flere legge til dette kravet og føre det videre i organisasjonen.</p>\n"
+          title: Hva er initiativer?
     initiatives:
       actions:
         answer: Svar
@@ -81,16 +120,28 @@
             invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
             no_members_yet: Det er ingen medlemmer i promotør komiteen
             title: Komité medlemer
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksimal mengde elementer som skal vises
         initiatives:
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            discard: Forkastet initiativet
+            export_pdf_signatures: Eksporter PDF av signaturer
+            export_votes: Eksporter signaturer
+            reject: Avvis initiativ
+            send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
+          form:
+            title: Generell informasjon
           index:
             actions_title: Handling
             filter:
               accepted: Aksepterte
               all: Alle
+              discarded: Forkastet
+              validating: Teknisk validering
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -98,13 +149,18 @@
           create:
             error: Det oppstod en feil
             success: Et nytt omfang for den gitte initiativtypen er blitt opprettet
+          destroy:
+            success: Omfanget ble fjernet
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
+            title: Rediger initiativtypens omgang
           new:
             back: Tilbake
+            title: Opprett initiativtype omfang
           update:
             error: Det oppstod en feil
+            success: Omfanget ble oppdatert
         initiatives_types:
           create:
             error: Det oppstod en feil
@@ -113,6 +169,12 @@
             success: Initiativtypen er fjernet
           edit:
             confirm_destroy: Er du sikker?
+          form:
+            title: Generell informasjon
+          initiative_type_scopes:
+            title: Omfang for initiativtypen
+          new:
+            title: Ny intiativtype
           update:
             error: Det oppstod en feil
             success: Initiativtypen er oppdatert
@@ -120,26 +182,34 @@
         initiative:
           publish: "%{user_name} publiserte %{resource_name} initiativet"
           send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
-          unpublish: "%{user_name} la ned %{resource_name} initiativet"
+          unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
         accepted: Aksepterte
+        discarded: Forkastet
+        validating: Teknisk validering
       committee_requests:
         new:
           continue: Fortsett
           help_text: Du er i ferd med å be om å bli medlem av promotør komiteen for dette initiativet
         spawn:
           success: Forespørselen din er sendt til initiativforfatteren.
+      content_blocks:
+        highlighted_initiatives:
+          name: Fremhevede initiativer
       create_initiative:
         fill_data:
           back: Tilbake
           continue: Fortsett
           fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signatur-typen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
+          initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
+          select_scope: Velg et omfang
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
           callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
+          go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
         finish_help:
           access_reminder: Husk at du vil alltid kunne få tilgang til dine initiativer gjennom deltakermenyen.
@@ -161,6 +231,7 @@
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
           more_information: "(Mer informasjon)"
+          select: Jeg ønsker å promotere dette initiativet
           select_initiative_type_help: Innbyggerinitiativer er et middel som statsborgerskapet kan gripe inn slik at byrådet kan iverksette tiltak til forsvar for allmenn interesse som er innenfor felt av kommunal jurisdiksjon. Hvilket initiativ vil du sette i gang?
         share_committee_link:
           continue: Fortsett
@@ -168,11 +239,13 @@
         show_similar_initiatives:
           back: Tilbake
           compare_help: Hvis noen av de følgende initiativene ligner dine, oppfordrer vi deg til å signere den. Forslaget ditt vil ha flere muligheter for å bli gjort.
+          continue: Initiativet mitt er annerledes
           more_information: "(Mer informasjon)"
       events:
         create_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har opprettet et nytt initiativ, sjekk det ut og bidra:"
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
+          email_subject: Nytt initiativ av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble opprettet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name}%{author_nickname}, som du følger, har sluttet seg til følgende initiativ: kanskje du vil bidra til samtalen:"
@@ -189,6 +262,7 @@
           continue: Sjekk kode og fortsett
           help: Sjekk SMS mottatt på telefonen
         sms_phone_number:
+          continue: Send meg en meldig
           help: Fyll skjemaet med det verifiserte telefonnummeret ditt for å be om verifiseringskoden din
       initiative_votes:
         create:
@@ -214,46 +288,71 @@
           any: Alle
           author: Forfatter
           closed: Lukket
+          myself: Initiativene mine
           state: Status
+          type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
+        index_header:
+          new_initiative: Nytt initiativ
         interactions:
           comments_count:
             count:
               one: Kommentar
               other: Kommentar
+        orders:
+          label: 'Sorter initiativer etter:'
+          most_commented: Mest kommentert
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
+            created: Dette forslaget er opprettet
             discarded: Dette forslaget har blitt forkastet fordi
+            published: Dette forslaget er publisert fordi
             rejected: Dette forslaget ble avvist fordi
+            validating: Dette forslaget blir evaluert
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
           follow_description: Motta et varsel når det er nyheter i dette initiativet
           offline_method: Dette innbyggerinitiativet samler bare inn personlige underskrifter.
+        signature_identities:
+          select_identity: Velg deltaker identifikator
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
+        supports:
+          title: Liste over underskrifter
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
+          votes_blocked: Underskriving deaktivert
+        votes_count:
+          most_popular_initiative: Mest populært initiativ
+          need_more_votes: Trenger flere underskrifter
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
+        initiative_link:
+          check_initiative_details: Du kan se initiativ detaljene
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
+        progress_report_for: 'Sammendrag om initiativet: %{title}'
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
         status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
         status_change_for: Initiativet %{title} har endret sin status
         technical_validation_body_for: Initiativet %{title} har bedt om sin tekniske validering.
         technical_validation_for: Initiativet %{title} har bedt om sin tekniske validering.
+      last_activity:
+        new_initiative: Nytt initiativ
       pages:
         home:
           highlighted_initiatives:
             active_initiatives: Aktive initiativer
+            see_all_initiatives: Se alle initiativer
       states:
         accepted: Aksepterte
+      unavailable_scope: Utilgjengelig omfang
     resources:
       initiatives_type:
         actions:
@@ -270,11 +369,20 @@
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
+        step: Trinn %{current} av %{total}
+        title: Opprett nytt initiativ
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
+        finished: Initiativsignatur opprettet
+        select_identity: Velg identitet
         sms_code: SMS-kode verifisering
+        sms_phone_number: Mobiltelefon number
+        step: Trinn %{current} av %{total}
+        title: Signer %{initiative_title}
       initiatives:
         initiative:
           check: Sjekk det ut
           check_and_support: Sjekk det ut og signer
+        no_initiatives_yet:
+          no_initiatives_yet: Ingen intiativer ennå!

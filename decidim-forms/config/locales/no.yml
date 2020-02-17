@@ -3,6 +3,8 @@
     attributes:
       answer:
         body: Svar
+      question:
+        max_choices: Maksimalt antall valg
     errors:
       models:
         answer:
@@ -29,18 +31,28 @@
             add_answer_option: Legg til svaralternativ
             any: Alle
             remove: Fjern
+          update:
+            invalid: Det oppstod et problem med å lagre dette skjema.
+            success: Skjemaene ble lagret.
       errors:
         answer:
           body: Teksten kan ikke være blank
+      question_types:
+        multiple_option: Flere alternativer
+        single_option: Enkelt alternativ
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.
+          success: Skjema ble besvart.
+        question:
+          max_choices: 'Maksimum valg: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
             title: Svar på skjemaet
           are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           questionnaire_answered:
+            body: Dy har allerede svart på dette skjemaet.
             title: Allerede besvart
           questionnaire_closed:
             body: Skjemaet er lukket og kan ikke besvares.

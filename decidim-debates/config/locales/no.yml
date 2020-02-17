@@ -4,7 +4,13 @@
       debate:
         category_id: Kategori
         decidim_category_id: Kategori
+        information_updates: Informasjons oppdateringer
+        instructions: Instruksjoner for å delta
         title: Tittel
+        user_group_id: Opprett debatt som
+    models:
+      decidim/debates/creation_disabled_event: Debatter deaktivert
+      decidim/debates/creation_enabled_event: Debatter aktivert
   decidim:
     components:
       debates:
@@ -25,8 +31,16 @@
         debates:
           create:
             invalid: Det oppstod et problem med å opprette debatten.
+            success: Debatten ble opprettet.
+          destroy:
+            success: Debatten ble slettet.
+          edit:
+            update: Oppdater debatt
+          new:
+            create: Opprett debatt
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
+            success: Debatten ble oppdatert.
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
@@ -38,19 +52,23 @@
             other: "%{count} debatter"
         create:
           invalid: Det oppstod et problem med å opprette debatten.
+          success: Debatten ble opprettet.
         filters:
           all: Alle
           category: Kategori
+          category_prompt: Velg en kategori
           citizens: Borgere
         filters_small_view:
           close_modal: Lukk modal
         new:
           back: Tilbake
+          select_a_category: Velg en kategori
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
         debate:
           fields:
+            official_debate: Offisiell debatt
             title: Tittel
     events:
       debates:
@@ -90,3 +108,6 @@
           next_level_in: Delta i %{score} flere debatter for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i en debatt ennå.
           unearned_own: Du har ikke deltatt i noen debatter ennå.
+    metrics:
+      debates:
+        description: Antall debatter opprettet

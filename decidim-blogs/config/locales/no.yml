@@ -1,4 +1,7 @@
 "no":
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogg-innlegg
   decidim:
     blogs:
       actions:
@@ -9,6 +12,15 @@
         models:
           components:
             body: Tekst
+        posts:
+          create:
+            invalid: Det oppstod et problem med å opprette dette innlegget
+            success: Innlegget ble opprettet
+          destroy:
+            success: Innlegget ble slettet
+          update:
+            invalid: Det oppstod et problem med å lagre dette innlegget.
+            success: Innlegget ble lagret
       last_activity:
         new_post_at_html: "<span>Nytt innlegg på %{link}</span>"
       models:
@@ -20,6 +32,7 @@
       posts:
         sidebar_blog:
           comments: kommentarer
+          most_commented_posts: Mest kommenterte innlegg
     components:
       blogs:
         name: Blogg

@@ -114,7 +114,7 @@
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_creation_enabled_help: Deltakeren kan endre forslag.
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
-            amendment_promotion_enabled_help: Emandasjons forfattere vil være i stand til å fremme til Forslag den avviste emendasjonen.
+            amendment_promotion_enabled_help: Emandasjons forfattere vil være i stand til å forfremme til Forslag den avviste emendasjonen.
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendment_reaction_enabled_help: Forslagets forfattere vil kunne godta eller avvise Deltakerens emendasjoner.
             amendments_visibility: Endringens synlighet
@@ -129,7 +129,7 @@
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
             votes_blocked: Støtter blokkert
             votes_enabled: Støtter aktivert
-            votes_hidden: Støtter gjemt (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
+            votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -700,7 +700,7 @@
             other: og %{count} flere personer
           link_to_collaborative_draft_help_text: Dette forslaget er resultatet av et samarbeids utkast. Gå gjennom historien
           link_to_collaborative_draft_text: Se samarbeids utkastet
-          link_to_promoted_emendation_help_text: Dette forslaget er en fremmet emendasjon
+          link_to_promoted_emendation_help_text: Dette forslaget er en forfremmet emendasjon
           link_to_promoted_emendation_text: Se den avviste emendasjonen.
           link_to_proposal_from_emendation_help_text: Dette er en avvist emendasjon
           link_to_proposal_from_emendation_text: Se forslaget

@@ -10,7 +10,7 @@
         copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
-        developer_group: Arrangør gruppe
+        developer_group: Promotør gruppe
         domain: Domene
         end_date: Sluttdato
         hashtag: Hastag
@@ -229,7 +229,7 @@
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
-          success: Invitasjon sendt på nytt.
+          success: Invitasjonen sendt på nytt.
     admin_log:
       participatory_process:
         create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
@@ -352,7 +352,7 @@
           loading: Laster inn resultater...
       show:
         area: Område
-        developer_group: Arrangør gruppe
+        developer_group: Promotør gruppe
         end_date: Sluttdato
         local_area: Organisasjonsområdet
         participatory_scope: Hva er bestemt

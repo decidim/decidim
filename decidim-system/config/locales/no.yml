@@ -23,6 +23,7 @@
       default_pages:
         placeholders:
           content: Legg til meningsfylt innhold til den statiske siden %{page} på administrator kontrollpanelet.
+          title: Standard tittel for %{page}
       menu:
         admins: Adminer
       models:
@@ -37,13 +38,20 @@
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
             name: Navn
+            smtp_settings: SMTP innstillinger
       organizations:
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
+          success: Organisasjonen ble opprettet.
+        edit:
+          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
         new:
           reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
+          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+          title: Ny organisasjon
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
+          success: Organisasjonen ble oppdatert.
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
@@ -51,3 +59,4 @@
       shared:
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
+          our_getting_started_guide: vår begynner guide
