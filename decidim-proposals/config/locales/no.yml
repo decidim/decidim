@@ -370,6 +370,7 @@
             accepted: Aksepterte
             answer_proposal: Svar
             evaluating: Vurderer
+            rejected: Avvist
             title: Svar for forslag %{title}
         proposal_notes:
           create:
@@ -419,6 +420,7 @@
             comments_count: Kommentarer teller
             comments_negative_count: Imot
             comments_neutral_count: Nøytral
+            comments_positive_count: Tjeneste
             created_at: Opprettelsesdato
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
@@ -428,6 +430,7 @@
             n_more_endorsers:
               one: og 1 til
               other: og %{count} til
+            photos: Bilder
             proposals: Forslag
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
