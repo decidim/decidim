@@ -43,6 +43,7 @@
             name: Navn
             omniauth_settings: Omniauth innstillinger
             smtp_settings: SMTP innstillinger
+          name: Organisasjon
       organizations:
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
