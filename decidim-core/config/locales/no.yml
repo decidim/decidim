@@ -546,6 +546,7 @@
     export_mailer:
       data_portability_export:
         click_button: Klikk på neste knapp for å laste ned din data. <br/> Du må ha filen tilgjengelig frem til %{date}.
+        download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
       subject: Eksporten din "%{name}" er klar
@@ -809,6 +810,7 @@
     pages:
       home:
         extended:
+          debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
@@ -824,6 +826,8 @@
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
           comments_count: Kommentarer
+          conferences_count: Konferanser
+          debates_count: Debatter
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
           pages_count: Sider
@@ -1170,6 +1174,8 @@
     password_too_common: er for vanlig
     password_too_short: er for kort
   social_share_button:
+    delicious: Nydelig
+    douban: Douban
     email: Epost
     google_bookmark: Google-Bokmerker
     linkedin: Linkedin
@@ -1194,6 +1200,7 @@
       time_of_day: "%H:%M"
   versions:
     directions:
+      left: Slettinger
       right: Tillegg
     dropdown:
       choose_diff_view_mode: 'Sammenlign visningsmodus:'
