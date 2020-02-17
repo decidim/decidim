@@ -47,6 +47,7 @@
       csv_census:
         explanation: Få verifisering med å bruke organisasjonens folketelling
         name: Organisasjonens folketelling
+      direct: Direkte
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
@@ -128,6 +129,7 @@
               introduce_user_data: Introduser deltakerens email og dokumentdata
           pending_authorizations:
             index:
+              config: Konfigurer
               offline_verification: Offline verifisering
               title: Venter på online verifiseringer
               verification_number: 'Verifikasjon #%{n}'
@@ -155,6 +157,7 @@
           update:
             error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
             success: Dokumentet ble lastet opp på nytt
+        dni: DNI
       postal_letter:
         admin:
           pending_authorizations:
@@ -172,6 +175,7 @@
             error: Det oppstod et problem med forespørselen din
             success: Takk! Vi sender en verifiseringskode til adressen din
           edit:
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
             waiting_for_letter: Vi sender snart et brev til adressen din med verifiseringskoden
           new:
@@ -191,6 +195,7 @@
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
             destroy: Tilbakestill verifiseringskode
             resend: Mottok ikke verifiseringskoden?
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
           new:
             send: Send meg en meldig
