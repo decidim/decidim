@@ -257,7 +257,8 @@ module Decidim
       def valuator_action?
         return unless can_manage_conference?(role: :valuator)
 
-        allow! if permission_action.action == :read || permission_action.subject == :component
+        allow! if permission_action.action == :read && permission_action.subject == :component
+        allow! if permission_action.action == :export && permission_action.subject == :component_data
       end
 
       # Process admins can eprform everything *inside* that conference. They cannot

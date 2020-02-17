@@ -14,6 +14,7 @@ module Decidim
               can_create_proposal_note?
               can_create_proposal_answer?
             end
+            can_export_proposals?
             valuator_can_unassign_valuator_from_proposals?
 
             return permission_action
@@ -36,7 +37,7 @@ module Decidim
           allow! if permission_action.subject == :proposals && permission_action.action == :import
 
           # Every user allowed by the space can export proposals
-          allow! if permission_action.subject == :proposals && permission_action.action == :export
+          can_export_proposals?
 
           # Every user allowed by the space can merge proposals to another component
           allow! if permission_action.subject == :proposals && permission_action.action == :merge
@@ -129,6 +130,10 @@ module Decidim
 
         def valuator_can_unassign_valuator_from_proposals?
           can_unassign_valuator_from_proposals? if user == context.fetch(:valuator, nil)
+        end
+
+        def can_export_proposals?
+          allow! if permission_action.subject == :proposals && permission_action.action == :export
         end
       end
     end

@@ -73,6 +73,18 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
+  shared_examples "can export proposals" do
+    describe "export proposals" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :proposals }
+      end
+
+      context "when everything is OK" do
+        it { is_expected.to eq true }
+      end
+    end
+  end
+
   context "when user is a valuator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
@@ -85,6 +97,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
+      it_behaves_like "can export proposals"
     end
 
     context "when current user is the valuator" do
@@ -101,16 +114,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
   it_behaves_like "can create proposal notes"
   it_behaves_like "can answer proposals"
-
-  describe "proposal creation" do
-    let(:action) do
-      { scope: :admin, action: :export, subject: :proposals }
-    end
-
-    context "when everything is OK" do
-      it { is_expected.to eq true }
-    end
-  end
+  it_behaves_like "can export proposals"
 
   describe "proposal creation" do
     let(:action) do

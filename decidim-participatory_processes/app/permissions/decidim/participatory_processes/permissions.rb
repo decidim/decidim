@@ -211,6 +211,7 @@ module Decidim
         return unless can_manage_process?(role: :valuator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
+        allow! if permission_action.action == :export && permission_action.subject == :component_data
       end
 
       # Process admins can eprform everything *inside* that process. They cannot

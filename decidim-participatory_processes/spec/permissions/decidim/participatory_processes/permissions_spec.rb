@@ -214,19 +214,37 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   context "when acting on component data" do
-    let(:action) do
-      { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
-    end
-    let(:context) { { current_participatory_space: process } }
+    context "when exporting component data" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: process } }
 
-    it_behaves_like(
-      "access for roles",
-      org_admin: true,
-      admin: true,
-      collaborator: :not_set,
-      moderator: :not_set,
-      valuator: :not_set
-    )
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: true
+      )
+    end
+
+    context "when performing any other action" do
+      let(:action) do
+        { scope: :admin, action: :any_action_is_accepted, subject: :component_data }
+      end
+      let(:context) { { current_participatory_space: process } }
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: :not_set,
+        moderator: :not_set,
+        valuator: :not_set
+      )
+    end
   end
 
   context "when reading the processes list" do
