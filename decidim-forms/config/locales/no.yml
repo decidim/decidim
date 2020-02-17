@@ -42,6 +42,7 @@
             question: Spørsmål
             remove: Fjern
             statement: Uttalelse
+            up: Opp
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
             success: Skjemaene ble lagret.
@@ -53,6 +54,7 @@
         multiple_option: Flere alternativer
         short_answer: Kort svar
         single_option: Enkelt alternativ
+        sorting: Sortering
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.
