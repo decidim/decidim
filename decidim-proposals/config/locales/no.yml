@@ -77,6 +77,9 @@
   decidim:
     admin:
       filters:
+        is_emendation_true:
+          values:
+            'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_null:
@@ -93,6 +96,7 @@
         name: Forslag
         settings:
           global:
+            allow_card_image: Tillat kortbilde
             amendments_enabled: Endringer aktivert
             amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
@@ -104,6 +108,7 @@
             geocoding_enabled: Geokoding aktivert
             minimum_votes_per_user: Minimum støtter per bruker
             new_proposal_body_template: Nytt forslag korppsmal
+            new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
             official_proposals_enabled: Offisielle forslag aktivert
             participatory_texts_disabled_help: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
@@ -355,6 +360,8 @@
             success: Deltakende tekst ble oppdatert.
         proposal_answers:
           form:
+            accepted: Aksepterte
+            answer_proposal: Svar
             title: Svar for forslag %{title}
         proposal_notes:
           create:
@@ -400,10 +407,14 @@
           show:
             amendments_count: Endringer teller
             comments_count: Kommentarer teller
+            comments_negative_count: Imot
             created_at: Opprettelsesdato
             endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
+            n_more_endorsers:
+              one: og 1 til
+              other: og %{count} til
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
             votes_count: Støtter antall
@@ -444,12 +455,16 @@
         rejected: Avvist
         withdrawn: Trukket tilbake
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_origin_values:
           all: Alle
           citizens: Borgere
           meetings: Møter
           official: Offisiell
           user_groups: Grupper
+        filter_scope_values:
+          all: Alle
         filter_state_values:
           accepted: Aksepterte
           all: Alle
