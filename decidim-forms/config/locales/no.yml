@@ -5,6 +5,8 @@
         body: Svar
       question:
         max_choices: Maksimalt antall valg
+      questionnaire_question:
+        mandatory: Obligatorisk
     errors:
       models:
         answer:
@@ -42,6 +44,7 @@
         answer:
           body: Teksten kan ikke være blank
       question_types:
+        long_answer: Langt svar
         multiple_option: Flere alternativer
         short_answer: Kort svar
         single_option: Enkelt alternativ
