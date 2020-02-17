@@ -406,6 +406,8 @@
             title: Opprett forslag
           show:
             amendments_count: Endringer teller
+            authors: Forfattere
+            body: Tekst
             comments_count: Kommentarer teller
             comments_negative_count: Imot
             created_at: Opprettelsesdato
