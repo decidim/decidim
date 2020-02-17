@@ -573,6 +573,8 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
+      current_image: Nåværende bilde
+      default_image: Standard bilde
       errors:
         decidim/user:
           password: Dette passordet er for kort.
@@ -1144,6 +1146,7 @@
       user_menu:
         admin_dashboard: Admin hovedpanel
         conversations: Samtaler
+        notifications: Varsler
         public_profile: Min offentlige profil
       user_profile:
         account: Konto
@@ -1188,5 +1191,6 @@
   views:
     pagination:
       first: "&laquo; Først"
+      next: Neste &rsaquo;
       previous: "&lsaquo; Tidligere"
       truncate: "&hellip;"
