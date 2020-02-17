@@ -319,6 +319,7 @@ en:
         see_all: See all (%{count})
     proposals:
       actions:
+        answer_proposal: Answer proposal
         edit_proposal: Edit proposal
         import: Import from another component
         new: New proposal

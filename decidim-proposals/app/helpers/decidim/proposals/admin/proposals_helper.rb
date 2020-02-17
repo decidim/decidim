@@ -115,6 +115,15 @@ module Decidim
           end
           html.join(" ").html_safe
         end
+
+        def proposal_tr_tooltip(proposal)
+          i18n_key = if allowed_to?(:create, :proposal_answer) && !proposal.emendation?
+            :answer_proposal
+          else
+            :show
+          end
+          t(i18n_key, scope: "decidim.proposals.actions")
+        end
       end
     end
   end
