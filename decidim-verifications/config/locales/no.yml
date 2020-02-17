@@ -12,6 +12,7 @@
       id_document_upload:
         document_number: Dokumentnummer (med brev)
         document_type: Ditt type dokument
+        user: Deltaker
         verification_attachment: Skannet kopi av dokumentet ditt
       offline_confirmation:
         email: Deltaker email
@@ -78,6 +79,7 @@
           title: Verifiser din identitet
           verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
         new:
+          authorize: Send
           authorize_with: Verifiser med %{authorizer}
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
