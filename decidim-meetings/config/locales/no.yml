@@ -129,6 +129,7 @@
     meetings:
       actions:
         agenda: Dagsorden
+        attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
@@ -303,6 +304,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          going: Skal
           meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
