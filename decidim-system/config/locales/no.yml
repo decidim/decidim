@@ -56,6 +56,9 @@
         omniauth_settings:
           google_oauth2:
             client_secret: Klient hemmlighet
+          twitter:
+            api_key: API-nøkkel
+            api_secret: API secret
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
