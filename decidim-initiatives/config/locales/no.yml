@@ -55,6 +55,7 @@
       models:
         initiatives:
           fields:
+            created_at: Opprettet på
             state: Status
         initiatives_type_scope:
           fields:
@@ -63,6 +64,7 @@
           name: Initiativtypens omgang
         initiatives_types:
           fields:
+            created_at: Opprettet på
             title: Initiativtyper
           name: Initiativtype
         initiatives_votes:
@@ -70,6 +72,7 @@
             date_of_birth: Fødselsdato
             document_number: Dokumentnummer
             hash: Hash
+            initiative_end_date: Sluttdato
             initiative_id: Initiativ ID
             initiative_signatures_count: Antall underskrifter
             initiative_title: Tittel på initiativet
@@ -124,7 +127,9 @@
             answer: Svar
             title: Svar for %{title}
           info_initiative:
+            created_at: Opprettet på
             description: Beskrivelse
+            initiative_votes_count: Stemmer teller
             state: Stat
         committee_requests:
           index:
@@ -153,6 +158,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              created: Opprettet
               discarded: Forkastet
               published: Publisert
               validating: Teknisk validering
@@ -174,6 +180,7 @@
             title: Rediger initiativtypens omgang
           new:
             back: Tilbake
+            create: Opprett
             title: Opprett initiativtype omfang
           update:
             error: Det oppstod en feil
@@ -192,6 +199,7 @@
           initiative_type_scopes:
             title: Omfang for initiativtypen
           new:
+            create: Opprett
             title: Ny intiativtype
           update:
             error: Det oppstod en feil
@@ -204,6 +212,7 @@
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
         accepted: Aksepterte
+        created: Opprettet
         discarded: Forkastet
         published: Publisert
         validating: Teknisk validering
@@ -275,6 +284,7 @@
         fill_personal_data:
           continue: Fortsett
           date_select:
+            day: Dag
             year: År
           help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
@@ -380,6 +390,7 @@
             see_all_initiatives: Se alle initiativer
       states:
         accepted: Aksepterte
+        expired: Utløpt
       unavailable_scope: Utilgjengelig omfang
     resources:
       initiatives_type:
@@ -394,6 +405,7 @@
           components: Komponenter
       initiative_creation_header:
         back: Tilbake
+        fill_data: Opprett
         finish: Fullfør
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
