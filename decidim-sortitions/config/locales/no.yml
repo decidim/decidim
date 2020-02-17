@@ -87,6 +87,7 @@
           state: Status
         filters_small_view:
           close_modal: Lukk modal
+          filter: Filter
           filter_by: Filtrer etter
         linked_sortitions:
           selected_proposals: Utvalgte forslag
