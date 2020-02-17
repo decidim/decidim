@@ -411,6 +411,7 @@
             comments_count: Kommentarer teller
             comments_negative_count: Imot
             created_at: Opprettelsesdato
+            documents: Dokumenter
             endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
             link: Lenke
