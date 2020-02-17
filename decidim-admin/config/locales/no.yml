@@ -191,6 +191,7 @@
           attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
+          title: Ny mappe
         update:
           error: Det oppstod et problem med å oppdatere denne mappen.
           success: Mappen ble oppdatert.
@@ -228,6 +229,7 @@
           category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
         new:
           create: Opprett kategori
+          title: Ny kategori
         update:
           error: Det oppstod et problem med å oppdatere denne kategorien.
           success: Kategorien oppdatert.
@@ -273,6 +275,8 @@
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
+        form:
+          save: Lagre
         success: Hjelpeseksjoner ble oppdatert
       impersonatable_users:
         index:
@@ -280,6 +284,7 @@
             all: Alle
             managed: Fikk til
             not_managed: Ikke klart
+          filter_by: Filtrer etter
           impersonate: Etterligne
           impersonate_new_managed_user: Administrer ny deltaker
           managed: Fikk til
@@ -327,7 +332,9 @@
         configuration: Konfigurasjon
         dashboard: Skrivebord
         help_sections: Hjelpeseksjoner
+        homepage: Hjemmeside
         impersonations: Etterligninger
+        newsletters: Nyhetsbrev
         oauth_applications: OAuth applikasjoner
         participants: Deltakere
         scope_types: Omfangstyper
@@ -343,6 +350,7 @@
         area_type:
           fields:
             name: Navn
+            plural: Flertall
         attachment:
           fields:
             collection: Mappe
@@ -357,6 +365,7 @@
           fields:
             admin: Administrator
             ended_at: Avsluttet
+            expired_at: Utgått på
             reason: Årsak
             user: Deltaker
         newsletter:
@@ -364,6 +373,7 @@
             created_at: Opprettet på
             progress: Framgang
             subject: Emne
+          name: Nyhetsbrev
         oauth_application:
           fields:
             created_at: Opprettet på
@@ -378,6 +388,7 @@
         scope_type:
           fields:
             name: Navn
+            plural: Flertall
         static_page:
           fields:
             created_at: Opprettet på
@@ -388,6 +399,7 @@
             email: Epost
             last_sign_in_at: Siste påloggingsdato
             name: Navn
+            role: Rolle
             roles:
               admin: Administrator
               user_manager: Deltaker sjef
@@ -398,6 +410,7 @@
             created_at: Opprettet på
             document_number: Dokumentnummer
             name: Navn
+            phone: Telefon
             state: Stat
             users_count: Deltakere teller
       moderations:
@@ -433,7 +446,9 @@
           not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
+          title: Nyhetsbrev
         new:
+          save: Lagre
           title: Nytt nyhetsbrev
         select_recipients_to_deliver:
           all_spaces: Alle
@@ -469,11 +484,13 @@
           error: Det oppstod et problem med å ødelegge denne applikasjonen.
           success: Søknaden ble ødelagt.
         edit:
+          save: Lagre
           title: Rediger applikasjon
         index:
           confirm_delete: Er du sikker på at du vil slette dette programmet?
           title: OAuth applikasjoner
         new:
+          save: Lagre
           title: Ny applikasjon
         update:
           error: Det oppstod et problem med å oppdatere denne applikasjonen.
@@ -491,6 +508,7 @@
             all: Alle
             not_officialized: Ikke offisialisert
             officialized: Offisialisert
+          filter_by: Filtrer etter
           name: Navn
           nickname: Kallenavn
           not_officialized: Ikke offisialisert
@@ -508,6 +526,7 @@
         edit:
           title: Rediger organisasjon
         form:
+          facebook: Facebook
           github: GitHub
           instagram: Instagram
           twitter: Twitter
@@ -567,6 +586,7 @@
           title: Rediger omfangstype
         new:
           create: Opprett omfangstype
+          title: Nytt omfang
         update:
           error: Det oppstod et problem med å oppdatere denne omfangstypen.
           success: Omfangstypen ble oppdatert
@@ -580,6 +600,7 @@
           title: Rediger omfang
         new:
           create: Opprett omfang
+          title: Nytt omfang
         no_scopes: Ingen omfang på dette nivået.
         update:
           error: Det oppstod et problem med å oppdatere dette omfanget.
@@ -595,6 +616,7 @@
           update: Oppdater emne
         new:
           create: Opprett emne
+          title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
           success: Emnet ble oppdatert
@@ -616,6 +638,7 @@
           last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
+          title: Ny side
         topic:
           destroy: Fjern emne
           edit: Rediger emne
@@ -652,9 +675,14 @@
         index:
           filter:
             all: Alle
+            pending: Venter
+            rejected: Avvist
             verified: Verifisert
+          filter_by: Filtrer etter
           search: Søk
           state:
+            pending: Venter
+            rejected: Avvist
             verified: Verifisert
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
@@ -672,6 +700,7 @@
         form:
           email: Epost
           name: Navn
+          role: Rolle
         new:
           create: Inviter
           title: Inviter deltaker som administrator
@@ -682,6 +711,8 @@
           reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
     moderations:
       actions:
+        hidden: Skjult
+        hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
       admin:
@@ -698,8 +729,11 @@
       models:
         moderation:
           fields:
+            hidden_at: Skjult på
             report_count: Antall
+            reportable: Rapporterbar
             reported_content_url: Rapportert innholds URL
+            reports: Rapporter
             visit_url: Besøk URL
   errors:
     messages:
