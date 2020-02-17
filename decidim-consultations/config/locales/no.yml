@@ -38,11 +38,17 @@
           attributes:
             question:
               invalid_num_votes: Antall stemmer er ugyldig
+    models:
+      decidim/consultation:
+        one: Konsultasjon
+        other: Konsultasjoner
   decidim:
     admin:
       actions:
         back_to_responses: Tilbake til svar
         new_consultation: Ny konsultasjon
+        new_question: Nytt spørsmål
+        new_response: Ny respons
         publish_results: Publiser resultater
         response_groups: Administrer responsgrupper
         unpublish_results: Avpubliser resultater
@@ -83,10 +89,14 @@
         questions_submenu:
           components: Komponenter
           configuration: Konfigurasjon
+          consultation: Konsultasjon
       models:
         consultation:
           fields:
             title: Tittel
+          name:
+            one: Konsultasjon
+            other: Konsultasjoner
         question:
           fields:
             title: Tittel
@@ -115,6 +125,8 @@
           title: Generell informasjon
         index:
           not_published: Ikke publisert
+        new:
+          title: Nytt spørsmål
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
           success: Spørsmålet ble oppdatert.
@@ -142,6 +154,8 @@
           success: Svaret ble slettet.
         form:
           title: Generell informasjon
+        new:
+          title: Ny respons
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
           success: Svaret ble oppdatert.
@@ -155,6 +169,9 @@
             max_results: Maksimal mengde elementer som skal vises
       consultation:
         start_voting_date: Stemming begynner
+        view_results: Vis resultater
+      consultation_card:
+        view_results: Vis resultater
       consultations:
         orders:
           label: 'Sorter konsultasjoner etter:'
@@ -187,6 +204,8 @@
               one: Avstemmingen slutter <strong>i morgen</strong>
               other: Avstemmingen slutter om <strong>%{count} dager</strong>
             voting_ends_today: Avstemmingen slutter <strong>i dag</strong>
+      question:
+        view_results: Vis resultater
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
@@ -211,6 +230,8 @@
       show:
         badge_name:
           published_results: Resulter publisert
+        footer_button_text:
+          view_results: Vis resultater
         unspecified: Ikke spesifisert
     help:
       participatory_spaces:
@@ -251,6 +272,8 @@
           categories: Kategorier
       consultation_voting_data:
         start_voting_date: Stemming begynner
+      question_components:
+        question_menu_item: Spørsmålet
       question_header:
         back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet
