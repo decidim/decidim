@@ -24,7 +24,7 @@
         form.select(
           :decidim_condition_question_id,
           options_for_select(display_condition.questions_for_select(questionnaire, question.position), selected: display_condition.decidim_condition_question_id),
-          { prompt: t(".select_condition_question") },
+          { prompt: t(".select_condition_question"), label: t(".condition_question") },
           disabled: !editable,
           data: { url: answer_options_url }
         )
@@ -35,8 +35,8 @@
         form.select(
           :condition_type,
           options_from_collection_for_select(display_condition_types, :first, :last, display_condition.condition_type),
-          { prompt: t(".select_condition_type") },
-          disabled: !editable
+          { prompt: t(".select_condition_type"), label: t(".condition_type") },
+          disabled: !editable,
         )
       %>
     </div>
@@ -45,7 +45,7 @@
         form.select(
           :decidim_answer_option_id,
           options_from_collection_for_select(display_condition.answer_options, :id, :translated_body, display_condition.answer_option),
-          { prompt: t(".select_answer_option") },
+          { prompt: t(".select_answer_option"), label: t(".answer_option") },
           disabled: !editable
         )
       %>
