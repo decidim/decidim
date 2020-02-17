@@ -224,6 +224,7 @@
           success: Kategorien slettet.
         edit:
           title: Rediger kategori
+          update: Oppdater
         index:
           categories_title: Kategorier
           category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
@@ -246,6 +247,7 @@
           success: Komponent ble slettet.
         edit:
           title: Rediger komponent
+          update: Oppdater
         form:
           default_step_settings: Standard trinn innstillinger
           global_settings: Globale innstillinger
@@ -340,6 +342,7 @@
         participants: Deltakere
         scope_types: Omfangstyper
         scopes: Omfang
+        settings: Innstillinger
         static_pages: Sider
         user_groups: Grupper
         users: Deltakere
@@ -356,6 +359,7 @@
           fields:
             collection: Mappe
             content_type: Type
+            file_size: Størrelse
             title: Tittel
           name: Vedlegg
         attachment_collection:
@@ -368,6 +372,7 @@
             ended_at: Avsluttet
             expired_at: Utgått på
             reason: Årsak
+            started_at: Startet på
             user: Deltaker
         newsletter:
           fields:
@@ -423,6 +428,7 @@
           reasons:
             does_not_belong: Tilhører ikke
             offensive: Offensiv
+            spam: Søppelpost
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -528,10 +534,12 @@
       organization:
         edit:
           title: Rediger organisasjon
+          update: Oppdater
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          social_handlers: Sosial
           twitter: Twitter
           url: Url
           youtube: YouTube
@@ -539,6 +547,8 @@
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
       organization_appearance:
+        edit:
+          update: Oppdater
         form:
           colors_title: Organisasjonens farger
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
@@ -552,6 +562,9 @@
         edit:
           active_content_blocks: Aktive innholdsblokkerer
           inactive_content_blocks: Inaktivt innholdsblokkerer
+      organization_homepage_content_blocks:
+        edit:
+          update: Oppdater
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
@@ -587,6 +600,7 @@
           success: Omfangstype ble ødelagt
         edit:
           title: Rediger omfangstype
+          update: Oppdater
         new:
           create: Opprett omfangstype
           title: Nytt omfang
@@ -601,6 +615,7 @@
           success: Omfanget ble ødelagt
         edit:
           title: Rediger omfang
+          update: Oppdater
         new:
           create: Opprett omfang
           title: Nytt omfang
@@ -634,6 +649,7 @@
         edit:
           changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
+          update: Oppdater
         form:
           none: Ingen
           slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -718,6 +734,8 @@
         hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
+        unhide: Ikke skjul
+        unreport: Urapporter
       admin:
         reportable:
           hide:
@@ -746,5 +764,7 @@
       admin:
         newsletters:
           title: Nyhetsbrev
+        settings:
+          title: Innstillinger
         users:
           title: Deltakere
