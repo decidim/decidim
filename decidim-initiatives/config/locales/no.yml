@@ -54,6 +54,9 @@
       decidim/initiative_comittee:
         one: Komité
         other: Komitér
+      decidim/initiative_vote:
+        one: Underskrift
+        other: Underskrifter
   decidim:
     admin:
       actions:
@@ -79,6 +82,7 @@
             created_at: Opprettet på
             id: ID
             state: Status
+            supports_count: Underskrifter
             title: Initiativer
         initiatives_type_scope:
           fields:
@@ -98,6 +102,7 @@
             initiative_end_date: Sluttdato
             initiative_id: Initiativ ID
             initiative_signatures_count: Antall underskrifter
+            initiative_start_date: Startdato
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
@@ -178,6 +183,7 @@
             reject: Avvis initiativ
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
+            update: Oppdater
           form:
             title: Generell informasjon
           index:
@@ -200,6 +206,7 @@
             confirm_destroy: Er du sikker?
             destroy: Slett
             title: Rediger initiativtypens omgang
+            update: Oppdater
           new:
             back: Tilbake
             create: Opprett
@@ -216,6 +223,7 @@
           edit:
             confirm_destroy: Er du sikker?
             destroy: Slett
+            update: Oppdater
           form:
             title: Generell informasjon
           initiative_type_scopes:
@@ -357,6 +365,7 @@
           close_modal: Lukk vindu
           filter: Filter
           filter_by: Filtrer etter
+          unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
         interactions:
@@ -394,8 +403,12 @@
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
+          vote: Signer
           votes_blocked: Underskriving deaktivert
         votes_count:
+          count:
+            one: SIGNATUR
+            other: SIGNATURER
           most_popular_initiative: Mest populært initiativ
           need_more_votes: Trenger flere underskrifter
       initiatives_mailer:
@@ -428,6 +441,7 @@
       initiatives_type:
         actions:
           title: Handlinger
+          vote: Signer
   layouts:
     decidim:
       admin:
@@ -440,6 +454,7 @@
         back: Tilbake
         fill_data: Opprett
         finish: Fullfør
+        previous_form: Start
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
