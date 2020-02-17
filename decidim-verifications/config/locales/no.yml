@@ -13,9 +13,12 @@
         verification_attachment: Skannet kopi av dokumentet ditt
       offline_confirmation:
         email: Deltaker email
+      postal_letter_address:
+        full_address: Full adresse
       postal_letter_confirmation:
         verification_code: Verifiseringskode
       postal_letter_postage:
+        full_address: Full adresse
         verification_code: Verifiseringskode
   decidim:
     admin:
@@ -47,6 +50,7 @@
       csv_census:
         explanation: Få verifisering med å bruke organisasjonens folketelling
         name: Organisasjonens folketelling
+      direct: Direkte
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
@@ -156,6 +160,7 @@
           update:
             error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
             success: Dokumentet ble lastet opp på nytt
+        dni: DNI
       postal_letter:
         admin:
           pending_authorizations:
