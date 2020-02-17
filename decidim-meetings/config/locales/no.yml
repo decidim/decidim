@@ -13,9 +13,11 @@
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
+        decidim_scope_id: Omfang
         description: Beskrivelse
         location: Plassering
         location_hints: Plasseringstips
+        organizer_id: Planlegger
         private_meeting: Privat møte
         registration_form_enabled: Registreringsskjemaet aktivert
         registration_terms: Registrerings vilkår
@@ -191,9 +193,11 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              sent: Sendt
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
+            search: Søk
         meeting_closes:
           edit:
             close: Lukk
@@ -292,6 +296,7 @@
           index:
             all: Alle
             meetings: Møter
+            search: Søk
             space_type: Deltakerområde
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
@@ -308,6 +313,7 @@
         filters:
           category: Kategori
           category_prompt: Velg en kategori
+          search: Søk
         filters_small_view:
           close_modal: Lukk modal
         meeting_minutes:
@@ -344,6 +350,7 @@
           status:
             accepted: Aksepterte (%{at})
             rejected: Avvist (%{at})
+            sent: Sendt
         meeting:
           fields:
             closed: Lukket
