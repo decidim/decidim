@@ -37,6 +37,9 @@ $(() => {
   if (window.Decidim.DataPicker) {
     window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
   }
+  if (window.Decidim.CheckBoxesTree) {
+    window.theCheckBoxesTree = new window.Decidim.CheckBoxesTree();
+  }
 
   $(document).foundation();
 
