@@ -26,6 +26,7 @@
           title: Standard tittel for %{page}
       menu:
         admins: Adminer
+        organizations: Organisasjoner
       models:
         admin:
           fields:
@@ -45,6 +46,8 @@
           success: Organisasjonen ble opprettet.
         edit:
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+        index:
+          title: Organisasjoner
         new:
           reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
