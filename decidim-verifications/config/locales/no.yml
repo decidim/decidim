@@ -58,6 +58,7 @@
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
         name: Identitets dokumenter
+      multistep: Multi-skritt
       name: Navn
       postal_letter:
         explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
@@ -128,6 +129,7 @@
               success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
+              reject: Avvis
               verify: Verifiser
           offline_confirmations:
             create:
