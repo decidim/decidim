@@ -287,6 +287,7 @@
           name: Navn
           needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
           not_managed: Ikke klart
+          promote: Promoter
           search: Søk
           status: Status
           view_logs: Vis logger
@@ -362,6 +363,7 @@
         newsletter:
           fields:
             created_at: Opprettet på
+            progress: Framgang
             subject: Emne
         oauth_application:
           fields:
@@ -400,6 +402,8 @@
             state: Stat
             users_count: Deltakere teller
       moderations:
+        index:
+          title: Moderering
         report:
           reasons:
             does_not_belong: Tilhører ikke
@@ -452,6 +456,7 @@
         send:
           no_recipients: Ingen mottakere for dette valget
         show:
+          preview: Forhåndsvis
           select_recipients_to_deliver: Velg mottakere som skal leveres
           subject: Emne
         update:
@@ -505,6 +510,7 @@
           title: Rediger organisasjon
         form:
           github: GitHub
+          instagram: Instagram
           twitter: Twitter
           url: Url
           youtube: YouTube
@@ -647,9 +653,11 @@
         index:
           filter:
             all: Alle
+            rejected: Avvist
             verified: Verifisert
           search: Søk
           state:
+            rejected: Avvist
             verified: Verifisert
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
@@ -696,6 +704,9 @@
             report_count: Antall
             reported_content_url: Rapportert innholds URL
             visit_url: Besøk URL
+  errors:
+    messages:
+      invalid_json: Ugyldig JSON
   layouts:
     decidim:
       admin:
