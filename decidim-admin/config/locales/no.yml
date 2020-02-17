@@ -278,9 +278,13 @@
         index:
           filter:
             all: Alle
+            managed: Fikk til
+            not_managed: Ikke klart
           impersonate_new_managed_user: Administrer ny deltaker
+          managed: Fikk til
           name: Navn
           needs_authorization_warning: Du trenger minst én autorisasjon aktivert for denne organisasjonen.
+          not_managed: Ikke klart
           status: Status
       impersonations:
         close_session:
@@ -382,6 +386,7 @@
         report:
           reasons:
             does_not_belong: Tilhører ikke
+            offensive: Offensiv
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
@@ -404,6 +409,8 @@
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
           followers: 'følgere '
           has_been_sent_to: 'Har blitt sendt til: '
+          no_scopes: Ingen omfang
+          not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
         new:
@@ -414,6 +421,7 @@
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           deliver: Lever nyhetsbrev
           followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
+          none: Ingen
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
           select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
@@ -462,6 +470,7 @@
             not_officialized: Ikke offisialisert
             officialized: Offisialisert
           name: Navn
+          nickname: Kallenavn
           not_officialized: Ikke offisialisert
           officialize: Offisialiser
           officialized: Offisialisert
@@ -570,6 +579,7 @@
           changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
         form:
+          none: Ingen
           slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
         index:
           last_notable_change: Siste merkbare endring
@@ -633,6 +643,7 @@
           reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
     moderations:
       actions:
+        not_hidden: Ikke skjult
         title: Handlinger
       admin:
         reportable:
@@ -653,5 +664,7 @@
   layouts:
     decidim:
       admin:
+        newsletters:
+          title: Nyhetsbrev
         users:
           title: Deltakere
