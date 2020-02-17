@@ -4,6 +4,7 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommenter svar
+      decidim/comments/user_mentioned_event: Omtal
   activerecord:
     models:
       decidim/comments/comment:
@@ -48,6 +49,7 @@
         order:
           best_rated: Best vurdert
           most_discussed: Mest omtalt
+          older: Eldre
       comment_thread:
         title: Samtale med %{authorName}
       comments:
