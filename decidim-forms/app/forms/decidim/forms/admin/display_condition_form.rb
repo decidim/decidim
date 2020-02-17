@@ -43,7 +43,10 @@ module Decidim
             [
               question.translated_body,
               question.id,
-              { "data-type" => question.question_type }
+              {
+                "disabled" => question.question_type == "sorting",
+                "data-type" => question.question_type
+              }
             ]
           end
         end
@@ -83,13 +86,13 @@ module Decidim
           return unless answer_option_mandatory?
           return if answer_option.blank?
 
-          errors.add(:answer_option_id, :invalid) if answer_option.question.id != decidim_condition_question_id
+          errors.add(:decidim_answer_option_id, :invalid) if answer_option.question.id != decidim_condition_question_id
         end
 
         def condition_question_position
-          return unless decidim_condition_question_id && decidim_question_id
+          return if decidim_question_id.blank?
 
-          errors.add(:condition_question_id, :invalid) if condition_question.position > question.position
+          errors.add(:decidim_question_id, :invalid) if question.position.zero?
         end
       end
     end
