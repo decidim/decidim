@@ -131,6 +131,7 @@
           categories: Kategorier
           components: Komponenter
           conference_admins: Konferanse administratorer
+          conference_invites: Invitasjoner
           diploma: Sertifikat for Oppmøte
           media_links: Media Lenker
           registration_types: Registrerings Typer
@@ -257,8 +258,10 @@
               all: Alle
             filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
+            invites: Invitasjoner
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
+            invite: Inviter
             new_invite: Inviter deltaker
         conference_registrations:
           index:
