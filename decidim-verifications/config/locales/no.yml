@@ -129,6 +129,7 @@
               success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
+              reject: Avvis
               verify: Verifiser
           offline_confirmations:
             create:
@@ -172,6 +173,7 @@
             success: Dokumentet ble lastet opp på nytt
         dni: DNI
         nie: NIE
+        passport: Pass
       postal_letter:
         admin:
           pending_authorizations:
