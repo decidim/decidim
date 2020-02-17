@@ -1,5 +1,5 @@
 <figure>
-  <ul class="tags tags--proposal">
+  <ul class="tags tags--proposal tags--list">
     <% if category.present? %>
       <li>
         <%= link_to translated_attribute(category.name), resource_locator(model).index(filter: { category_id: [category.id.to_s] }) %>
