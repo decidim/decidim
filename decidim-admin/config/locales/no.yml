@@ -281,6 +281,7 @@
             all: Alle
             managed: Fikk til
             not_managed: Ikke klart
+          impersonate: Etterligne
           impersonate_new_managed_user: Administrer ny deltaker
           managed: Fikk til
           name: Navn
@@ -288,6 +289,7 @@
           not_managed: Ikke klart
           search: Søk
           status: Status
+          view_logs: Vis logger
       impersonations:
         close_session:
           error: Det oppstod et problem med å lukke den gjeldene deltaker-styringsøkten.
@@ -300,6 +302,7 @@
           name: Navn
           reason: Årsak
         new:
+          impersonate: Etterligne
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
@@ -353,6 +356,7 @@
         impersonation_log:
           fields:
             admin: Administrator
+            ended_at: Avsluttet
             reason: Årsak
             user: Deltaker
         newsletter:
@@ -502,6 +506,7 @@
         form:
           github: GitHub
           twitter: Twitter
+          url: Url
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -566,6 +571,8 @@
           success: Omfang ble opprettet.
         destroy:
           success: Omfanget ble ødelagt
+        edit:
+          title: Rediger omfang
         new:
           create: Opprett omfang
         no_scopes: Ingen omfang på dette nivået.
@@ -579,6 +586,7 @@
         destroy:
           success: Emnet ble ødelagt
         edit:
+          title: Rediger emne
           update: Oppdater emne
         new:
           create: Opprett emne
@@ -605,6 +613,7 @@
           create: Opprett side
         topic:
           destroy: Fjern emne
+          edit: Rediger emne
           empty: Det er ingen side under dette emnet
           without_topic: Sider uten emne
         update:
@@ -638,7 +647,10 @@
         index:
           filter:
             all: Alle
+            verified: Verifisert
           search: Søk
+          state:
+            verified: Verifisert
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
         new:
@@ -683,6 +695,7 @@
           fields:
             report_count: Antall
             reported_content_url: Rapportert innholds URL
+            visit_url: Besøk URL
   layouts:
     decidim:
       admin:
