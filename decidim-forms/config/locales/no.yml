@@ -22,6 +22,7 @@
         questionnaires:
           answer_option:
             answer_option: Svaralternativ
+            free_text: Fri tekst
             remove: Fjern
           edit:
             title: Tittel
@@ -32,6 +33,7 @@
             add_answer_option: Legg til svaralternativ
             any: Alle
             description: Beskrivelse
+            down: Ned
             remove: Fjern
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
@@ -59,8 +61,10 @@
             title: Allerede besvart
           questionnaire_closed:
             body: Skjemaet er lukket og kan ikke besvares.
+            title: Skjema lukket
           questionnaire_for_private_users:
             body: Skjemaet er bare tilgjengelig for private brukere
+            title: Skjema lukket
           tos_agreement: Ved å delta godtar du vilkårene for bruk
       user_answers_serializer:
         created_at: Besvart på
