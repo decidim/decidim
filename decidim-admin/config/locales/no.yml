@@ -290,6 +290,8 @@
         export_as: "%{name} som %{export_format}"
         notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       filters:
+        category_id_eq:
+          label: Kategori
         officialized_at_null:
           label: Stat
           values:
