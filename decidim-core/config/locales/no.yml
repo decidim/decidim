@@ -1133,6 +1133,7 @@
         mark_all_as_read: Merk alt som lest
       user_menu:
         admin_dashboard: Admin hovedpanel
+        conversations: Samtaler
         public_profile: Min offentlige profil
       user_profile:
         account: Konto
