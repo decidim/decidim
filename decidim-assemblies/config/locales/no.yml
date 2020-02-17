@@ -12,6 +12,7 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
+        created_by: Opprettet av
         created_by_other: Opprettet av annet
         creation_date: Dato opprettet
         decidim_area_id: Område
@@ -19,6 +20,7 @@
         description: Beskrivelse
         developer_group: Promotør gruppe
         domain: Domene
+        duration: Varighet
         github: GitHub
         hashtag: Hastag
         internal_organisation: Intern organisasjon
@@ -36,6 +38,7 @@
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
+        slug: URL slug
         special_features: Spesialfunksjoner
         subtitle: Undertittel
         target: Hvem deltar
@@ -76,6 +79,8 @@
           not_published: Ikke publisert
           public: Offentlig
           published: Publisert
+        new:
+          create: Opprett
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
@@ -99,6 +104,7 @@
         index:
           assembly_members_title: Forsamlings medlemmer
         new:
+          create: Opprett
           title: Nytt forsamlingsmedlem.
         update:
           error: Det oppstod et problem med å oppdatere medlemmet for denne forsamlingen.
@@ -121,6 +127,7 @@
         index:
           assembly_admins_title: Forsamlings adminer
         new:
+          create: Opprett
           title: Ny forsamlings administrator.
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne forsamlingen.
@@ -138,6 +145,7 @@
       models:
         assembly:
           fields:
+            created_at: Opprettet på
             published: Publisert
             title: Tittel
           name: Forsamling
@@ -179,6 +187,7 @@
       admin:
         assemblies:
           form:
+            duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             filters: Filter
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
@@ -190,6 +199,7 @@
             select_parent_assembly: Velg foreldre-forsamling
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell Informasjon
+            visbility: Synlighet
         assembly_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -215,6 +225,7 @@
       assembly_types:
         commission: Kommisjon
         consultative_advisory: Rådgivende
+        executive: Overordnet
         government: Myndighetene
         others: Andre
         participatory: Deltakende
@@ -230,6 +241,7 @@
         all: Alle typer
         commission: Kommisjon
         consultative_advisory: Rådgivende
+        executive: Overordnet
         government: Myndighetene
         others: Andre
         participatory: Deltakende
@@ -252,8 +264,10 @@
         children: Forsamlinger
         closing_date: Lukkings dato
         composition: Sammensetning
+        created_by: Opprettet av
         creation_date: Dato opprettet
         developer_group: Promotør gruppe
+        duration: Varighet
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
         is_transparent:
