@@ -5,6 +5,7 @@
         decidim_user_group_id: Forfatter
         description: Beskrivelse
         offline_votes: Personlige underskrifter
+        scope_id: Omfang
         signature_end_date: Slutt av innsamlingsperiode for signatur
         signature_start_date: Start av innsamlingsperiode for signatur
         signature_type: Signatur innsamingstype
@@ -19,6 +20,7 @@
         id_document: DNI/NIE
         name: Navn og Etternavn
         phone_number: Telefonnummer
+        province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
@@ -57,6 +59,7 @@
             state: Status
         initiatives_type_scope:
           fields:
+            scope: Omfang
             supports_required: Signaturer påkrevd
           name: Initiativtypens omgang
         initiatives_types:
@@ -73,6 +76,7 @@
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             time_and_date: Tid og dato
+            timestamp: Tidsstempel
       titles:
         initiatives_types: Initiativtyper
     events:
@@ -122,6 +126,7 @@
             title: Svar for %{title}
           info_initiative:
             description: Beskrivelse
+            state: Stat
         committee_requests:
           index:
             approve: Godkjenn
@@ -150,8 +155,10 @@
               accepted: Aksepterte
               all: Alle
               discarded: Forkastet
+              published: Publisert
               validating: Teknisk validering
             filter_by: Filtrer etter
+            search: Søk
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -199,6 +206,7 @@
       admin_states:
         accepted: Aksepterte
         discarded: Forkastet
+        published: Publisert
         validating: Teknisk validering
       committee_requests:
         new:
@@ -306,7 +314,9 @@
           closed: Lukket
           myself: Initiativene mine
           open: Åpen
+          search: Søk
           state: Status
+          type: Type
           type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
@@ -321,6 +331,7 @@
         orders:
           label: 'Sorter initiativer etter:'
           most_commented: Mest kommentert
+          random: Tilfeldig
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
@@ -395,6 +406,7 @@
         fill_personal_data: Fullfør dataene dine
         finish: Fullfør
         finished: Initiativsignatur opprettet
+        see_steps: se trinn
         select_identity: Velg identitet
         sms_code: SMS-kode verifisering
         sms_phone_number: Mobiltelefon number
