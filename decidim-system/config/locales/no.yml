@@ -28,10 +28,12 @@
           title: Standard tittel for %{page}
       menu:
         admins: Adminer
+        dashboard: Skrivebord
         organizations: Organisasjoner
       models:
         admin:
           fields:
+            created_at: Opprettet på
             email: Epost
           name: Administrator
           validations:
@@ -40,6 +42,7 @@
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
+            created_at: Opprettet på
             name: Navn
             omniauth_settings: Omniauth innstillinger
             smtp_settings: SMTP innstillinger
@@ -57,6 +60,7 @@
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
           title: Ny organisasjon
         omniauth_settings:
+          enabled: Aktivert
           facebook:
             app_id: App ID
             app_secret: App hemmelighet
@@ -77,3 +81,5 @@
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
           our_getting_started_guide: vår begynner guide
+      titles:
+        dashboard: Skrivebord
