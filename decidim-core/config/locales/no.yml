@@ -323,12 +323,15 @@
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
+      hero:
+        name: Heltebilde
       highlighted_content_banner:
         name: Markert innholdsbanner
       how_to_participate:
         name: Hvordan delta
       html:
         html_content: HTML-innhold
+        name: HTML block
       last_activity:
         name: Siste aktivitet
         title: Siste aktivitet
@@ -696,6 +699,7 @@
         reject_request: Avvis
       new:
         create_user_group: Opprett gruppe
+        new_user_group: Ny gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
@@ -744,6 +748,7 @@
       no_members: Denne gruppen har ikke noen medlemmer ennå.
     menu:
       help: Hjelp
+      home: Hjem
     messaging:
       conversation_mailer:
         new_conversation:
@@ -810,6 +815,7 @@
         body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
         button: Ja, jeg vil fortsette å motta relevant informasjon
         greetings: Hilsener,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
         subject: Vil du fortsette å motta relevant informasjon om %{organization_name}?
     notifications:
       no_notifications: Ingen varslinger ennå.
@@ -830,6 +836,7 @@
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
     own_user_groups:
       index:
+        pending: Venter
         rejected: Avvist
         verified: Verifisert
     pad_iframe:
@@ -871,6 +878,7 @@
           projects_count: Prosjekter
           proposals_accepted: Godkjente Forslag
           proposals_count: Forslag
+          results_count: Resultater
           surveys_count: Undersøkelse
           users_count: Deltakere
           votes_count: Stemmer
@@ -971,8 +979,11 @@
           active: Aktiv
           all: Alle
           future: Fremtidige
+          past: Fortid
       filters_small_view:
         close_modal: Lukk modal
+        filter: Filter
+        filter_by: Filtrer etter
         unfold: Åpne
       results:
         results:
@@ -1060,6 +1071,7 @@
       edit:
         header: Fullfør oppretting av kontoen din
         nickname_help: Kallenavnet ditt i %{organization}.
+        submit_button: Lagre
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
@@ -1197,6 +1209,8 @@
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
       too_short: er for kort (under 15 tegn)
+  forms:
+    required: Påkrevd
   invisible_captcha:
     sentence_for_humans: Hvis du er menneske, ignorerer dette feltet
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
@@ -1204,6 +1218,8 @@
     decidim:
       cookie_warning:
         description_html: Denne siden bruker informasjonskapsler. Ved å fortsette å bla gjennom nettstedet, godtar du vår bruk av informasjonskapsler. Finn ut mer om det %{link}.
+        link_label: her
+        ok: Jeg er enig
       edit_link:
         edit: Editar
       footer:
@@ -1251,10 +1267,12 @@
     delicious: Nydelig
     douban: Douban
     email: Epost
+    facebook: Facebook
     google_bookmark: Google-Bokmerker
     google_plus: Google+
     hacker_news: Hacker Nyheter
     linkedin: Linkedin
+    pinterest: Pinterest
     qq: Qsone
     reddit: Reddit
     share_to: Del til %{name}
