@@ -19,6 +19,7 @@
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
+        slogan: Slagord
         slug: URL slug
         title: Tittel
       conference_speaker:
@@ -74,6 +75,7 @@
           success: Konferansetaler ble slettet.
         edit:
           title: Oppdater konferansetaler.
+          update: Oppdater
         index:
           conference_speakers_title: Konferansetalere
         new:
@@ -90,6 +92,7 @@
           success: Konferanse administrator ble fjernet.
         edit:
           title: Oppdater konferanse administrator.
+          update: Oppdater
         index:
           conference_admins_title: konferanse administratorer
         new:
@@ -102,6 +105,8 @@
         create:
           error: Det oppstod et problem med å opprette denne konferansen.
           success: Konferansen ble opprettet.
+        edit:
+          update: Oppdater
         exports:
           registrations: Registreringer
         form:
@@ -146,6 +151,7 @@
           components: Komponenter
           conference_admins: Konferanse administratorer
           conference_invites: Invitasjoner
+          conference_speakers: Talere
           diploma: Sertifikat for Oppmøte
           info: Info
           media_links: Media Lenker
@@ -275,6 +281,9 @@
     conference_program:
       index:
         title: Program
+    conference_speakers:
+      index:
+        title: Talere
     conferences:
       admin:
         conference_copies:
@@ -362,6 +371,7 @@
         program_meeting:
           content: Innhold
           location: Plassering
+          speakers: Talere
           streaming: Strømming
         show:
           day: Dag
@@ -396,6 +406,9 @@
           personal_website: Personlig nettside
         twitter_handle:
           go_to_twitter: Gå til Twitter
+      conference_speakers:
+        index:
+          speakers: Talere
       conferences:
         partners:
           collaborators: Partnere
@@ -427,6 +440,7 @@
             email: Epost
             name: Navn
             registration_type: Registreringstype
+            sent_at: Sendt på
             status: Status
           status:
             accepted: Aksepterte (%{at})
@@ -552,5 +566,6 @@
       conferences_nav:
         conference_menu_item: Informasjon
         conference_partners_menu_item: Partnere
+        conference_speaker_menu_item: Talere
         media: Medier
         venues: Arenaer
