@@ -15,6 +15,8 @@
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         title: Tittel
+      conference_speaker:
+        full_name: Fullt navn
       conference_user_role:
         email: Epost
         name: Navn
@@ -124,6 +126,7 @@
       menu:
         conferences: Konferanser
         conferences_submenu:
+          attachment_collections: Mapper
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
@@ -140,6 +143,7 @@
         conference_speaker:
           fields:
             affiliation: Tilknytning
+            full_name: Fullt navn
           name: Konferanse Taler
         conference_user_role:
           fields:
@@ -251,6 +255,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
           new:
             explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
@@ -299,6 +304,7 @@
           cancel: Avbryt
           confirm: Bekreft
         show:
+          free: Fri
           going: Møtende
           no_slots_available: Ingen plasser tilgjengelig
           registration: Registrering
@@ -393,6 +399,7 @@
           sign_in: Logg inn for å registrere deg på konferansen
           sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
+        details: Detaljer
         introduction: Introduksjon
         related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
