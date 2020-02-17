@@ -98,11 +98,16 @@
         content: Innhold
         organization: Organisasjon
         show_in_footer: Vis i bunnteksten
+        slug: URL slug
         title: Tittel
+        weight: Vekt
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
+        weight: Vekt
+      user_group_csv_verification:
+        file: Fil
     errors:
       models:
         oauth_application:
@@ -119,6 +124,7 @@
     attributes:
       decidim/static_page:
         content: Innhold
+        slug: URL slug
         title: Tittel
       doorkeeper/application:
         authorize_url: Autoriser URL
@@ -126,11 +132,19 @@
         client_secret: Klient Hemmlighet
         organization_name: Navn på organisasjonen
         organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
+        site: Nettside
   decidim:
     admin:
       actions:
         add: Legg til
         browse: Bla gjennom
+        export: Eksport
+        manage: Administrer
+        new: Nytt %{name}
+        permissions: Tillatelser
+        reject: Avvis
+        verify: Verifiser
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -296,7 +310,9 @@
         help_sections: Hjelpeseksjoner
         impersonations: Etterligninger
         oauth_applications: OAuth applikasjoner
+        participants: Deltakere
         static_pages: Sider
+        users: Deltakere
       models:
         area:
           fields:
@@ -519,6 +535,8 @@
           success: Emnet ble opprettet.
         destroy:
           success: Emnet ble ødelagt
+        edit:
+          update: Oppdater emne
         new:
           create: Opprett emne
         update:
@@ -542,6 +560,7 @@
         new:
           create: Opprett side
         topic:
+          destroy: Fjern emne
           empty: Det er ingen side under dette emnet
           without_topic: Sider uten emne
         update:
@@ -555,7 +574,9 @@
         dashboard: Skrivebord
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
+        participants: Deltakere
         static_pages: Sider
+        users: Deltakere
       user_group:
         csv_verify:
           invalid: Det oppstod et problem med å lese CSV-filen.
@@ -611,3 +632,8 @@
           fields:
             report_count: Antall
             reported_content_url: Rapportert innholds URL
+  layouts:
+    decidim:
+      admin:
+        users:
+          title: Deltakere
