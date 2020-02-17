@@ -120,6 +120,7 @@
           config:
             edit:
               title: Konfigurasjon av identitetsdokumenter
+              update: Oppdater
             update:
               error: Det oppsto et problem med å oppdatere konfigurasjonen.
               success: Konfigurasjonen ble oppdatert
