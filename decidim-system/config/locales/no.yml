@@ -68,6 +68,8 @@
           google_oauth2:
             client_id: Klient ID
             client_secret: Klient hemmlighet
+          icon: Ikon
+          icon_path: Ikon sti
           twitter:
             api_key: API-nøkkel
             api_secret: API secret
