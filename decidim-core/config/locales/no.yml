@@ -88,6 +88,9 @@
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din ble oppdatert.
         success_with_email_confirmation: Kontoen ble oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
+    admin:
+      actions:
+        cancel: Avbryt
     admin_log:
       area:
         create: "%{user_name} opprettet %{resource_name} området"
@@ -228,6 +231,7 @@
       photos:
         related_photos: Relaterte bilder
     author:
+      avatar: Profilbilde
       comments:
         one: kommentar
         other: kommentarer
@@ -544,6 +548,8 @@
           email_subject: "%{nickname} oppdaterte profilens sin"
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
+      data_portability_export:
+        click_button: 'Trykk på den neste knappen for å laste ned dataene dine. <br/> Du vil ha filen tilgjengelig frem til %{date}. <br/> Du vil trenge <a href=''https://www.7-zip.org/''>7-Zip</a> for å åpne den. Passord: %{password}'
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
       subject: Eksporten din "%{name}" er klar
@@ -807,6 +813,7 @@
     pages:
       home:
         extended:
+          debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
@@ -822,6 +829,8 @@
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
           comments_count: Kommentarer
+          conferences_count: Konferanser
+          debates_count: Debatter
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
           pages_count: Sider
@@ -1169,6 +1178,7 @@
     password_too_common: er for vanlig
     password_too_short: er for kort
   social_share_button:
+    delicious: Nydelig
     email: Epost
     google_bookmark: Google-Bokmerker
     linkedin: Linkedin
@@ -1193,6 +1203,7 @@
       time_of_day: "%H:%M"
   versions:
     directions:
+      left: Slettinger
       right: Tillegg
     dropdown:
       choose_diff_view_html: 'HTML visningsmodus:'
