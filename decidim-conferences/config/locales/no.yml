@@ -142,7 +142,9 @@
           conference_admins: Konferanse administratorer
           conference_invites: Invitasjoner
           diploma: Sertifikat for Oppmøte
+          info: Info
           media_links: Media Lenker
+          moderations: Moderering
           partners: Partnere
           registration_types: Registrerings Typer
           registrations: Registreringer
@@ -166,6 +168,7 @@
           roles:
             admin: Administrator
             collaborator: Samarbeidspartner
+            moderator: Moderator
         media_link:
           fields:
             date: Dato
@@ -185,6 +188,7 @@
         registration_type:
           fields:
             conference_meetings: Konferanse møter
+            price: Pris
             registrations_count: Registrerings teller
             title: Tittel
             weight: Vekt
@@ -259,6 +263,9 @@
         create: "%{user_name} opprettet %{resource_name} media linken i %{space_name} konferansen"
         delete: "%{user_name} fjernet %{resource_name} media lenken fra %{space_name} konferansen"
         update: "%{user_name} oppdaterte %{resource_name} media lenken i %{space_name} konferansen"
+    conference_program:
+      index:
+        title: Program
     conferences:
       admin:
         conference_copies:
@@ -278,6 +285,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              rejected: Avvist
               sent: Sendt
             filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
@@ -345,6 +353,7 @@
           streaming: Strømming
         show:
           day: Dag
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> er bekreftet.
@@ -366,7 +375,10 @@
           success: Du har forlatt konferansen.
       conference_speaker:
         go_to_twitter: Gå til Twitter
+        more_info: mer info
         personal_website: Personlig nettside
+        show:
+          more_info: mer info
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig nettside
@@ -427,6 +439,7 @@
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
           login_as: Du er innlogget som %{name} <%{email}>
+          register: Registrer
           title: Registreringstyper
       shared:
         conference_user_login:
@@ -450,6 +463,7 @@
         meetings_count: Møter
         orders_count: Støtter
         pages_count: Sider
+        projects_count: Prosjekter
         proposals_count: Forslag
         surveys_count: Undersøkelse
         users_count: Deltakere
@@ -496,11 +510,14 @@
         subject: Invitasjon til å delta en konferanse
   layouts:
     decidim:
+      conference_hero:
+        register: Registrer
       conference_widgets:
         show:
           take_part: Delta
       conferences:
         conference:
+          more_info: Mer info
           take_part: Delta
         index:
           promoted_conferences: Fremhevede konferanser
@@ -509,7 +526,9 @@
             one: "%{count} konferanse"
             other: "%{count} konferanser"
         promoted_conference:
+          more_info: Mer info
           take_part: Delta
       conferences_nav:
+        conference_menu_item: Informasjon
         media: Medier
         venues: Arenaer
