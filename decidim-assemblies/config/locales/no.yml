@@ -84,6 +84,8 @@
         create:
           error: Det oppstod et problem med å lage en ny forsamling.
           success: Forsamling ble opprettet.
+        edit:
+          update: Oppdater
         index:
           not_published: Ikke publisert
           private: Privat
@@ -124,6 +126,7 @@
           success: Medlem ble slettet for denne forsamlingen.
         edit:
           title: Oppdater forsamlings medlem.
+          update: Oppdater
         index:
           assembly_members_title: Forsamlings medlemmer
         new:
@@ -147,6 +150,7 @@
           success: Admin slettet fra denne forsamlingen.
         edit:
           title: Oppdater forsamling administrator.
+          update: Oppdater
         index:
           assembly_admins_title: Forsamlings adminer
         new:
@@ -243,6 +247,7 @@
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+            social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
         assemblies_types:
@@ -292,6 +297,7 @@
         consultative_advisory: Rådgivende
         executive: Overordnet
         government: Myndighetene
+        help: 'Vis:'
         others: Andre
         participatory: Deltakende
         working_group: Arbeidsgruppe
