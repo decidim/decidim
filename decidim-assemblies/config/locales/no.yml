@@ -24,6 +24,8 @@
         duration: Varighet
         github: GitHub
         hashtag: Hastag
+        included_at: Inkludert på
+        instagram: Instagram
         internal_organisation: Intern organisasjon
         is_transparent: Er privat
         local_area: Organisasjonsområdet
@@ -79,6 +81,7 @@
           success: Forsamling ble opprettet.
         index:
           not_published: Ikke publisert
+          private: Privat
           public: Offentlig
           published: Publisert
         new:
@@ -155,6 +158,8 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
+          info: Info
+          moderations: Moderering
           private_users: Private brukere
         assemblies_types: Forsamlingstyper
       models:
@@ -165,6 +170,7 @@
         assembly:
           fields:
             created_at: Opprettet på
+            private: Privat
             published: Publisert
             title: Tittel
           name: Forsamling
@@ -176,6 +182,7 @@
           name: Medlem
           positions:
             other: Annet
+            president: President
             secretary: Sekretær
             vice_president: Visepresident
         assembly_user_role:
@@ -186,6 +193,7 @@
           roles:
             admin: Administrator
             collaborator: Samarbeidspartner
+            moderator: Moderator
       titles:
         assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper
@@ -297,6 +305,7 @@
         creation_date: Dato opprettet
         developer_group: Promotør gruppe
         duration: Varighet
+        included_at: Inkludert på
         indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
         is_transparent:
@@ -358,6 +367,7 @@
     decidim:
       assemblies:
         assembly:
+          more_info: Mer info
           take_part: Delta
         index:
           children: 'Forsamlinger: '
@@ -368,6 +378,7 @@
             one: "%{count} sammenstillinger"
             other: "%{count} sammenstillingene"
         promoted_assembly:
+          more_info: Mer info
           take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmer
