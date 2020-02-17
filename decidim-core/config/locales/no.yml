@@ -591,6 +591,7 @@
           description: Dette merket gis når du besøker plattformen på en vanlig måte. Vi liker å ha deg her!
           description_another: Denne deltakeren har vært tilkoblet i %{score} påfølgende dager på et tidspunkt.
           description_own: Du har vært tilkoblet i %{score} påfølgende dager på et tidspunkt.
+          name: Kontinuitet
           next_level_in: Koble til i %{score} påfølgende dager for å komme til neste nivå!
           unearned_another: Denne deltakeren har ikke logget på mer enn en dag på rad.
           unearned_own: Du har ikke vært tilkoblet i mer enn en påfølgende dag.
@@ -818,6 +819,7 @@
     pages:
       home:
         extended:
+          debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
@@ -833,6 +835,8 @@
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
           comments_count: Kommentarer
+          conferences_count: Konferanser
+          debates_count: Debatter
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
           pages_count: Sider
@@ -1179,6 +1183,7 @@
     password_too_common: er for vanlig
     password_too_short: er for kort
   social_share_button:
+    delicious: Nydelig
     email: Epost
     google_bookmark: Google-Bokmerker
     linkedin: Linkedin
@@ -1203,6 +1208,7 @@
       time_of_day: "%H:%M"
   versions:
     directions:
+      left: Slettinger
       right: Tillegg
     dropdown:
       choose_diff_view_mode: 'Sammenlign visningsmodus:'
