@@ -203,7 +203,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "Rejected", name: "filter[state]"
+        check "Rejected"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
