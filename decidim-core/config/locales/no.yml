@@ -564,12 +564,14 @@
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+      title: Fingeravtrykk
     followers:
       no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
     follows:
       create:
+        button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
       destroy:
         button: Stopp å følge
@@ -592,6 +594,7 @@
           description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
           description_another: Denne deltakeren har %{score} følgere.
           description_own: "%{score} folk følger deg."
+          name: Følgere
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke noen følgere ennå.
           unearned_own: Du har ingen følgere ennå.
@@ -756,6 +759,8 @@
         csv: Last ned data (csv)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
+        object: følgere
+        title: Følgere
       participants:
         description: Antall aktive deltakere i organisasjonen
         object: deltakere
@@ -870,6 +875,8 @@
       show:
         activity: Aktivitet
         badges: Merker
+        followers: Følgere
+        following: Følger
         view_full_profile: Vis hele profilen
       sidebar:
         badges:
@@ -902,6 +909,7 @@
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
     scopes:
+      global: Global omfang
       picker:
         cancel: Avbryt
         title: Velg %{field}
@@ -914,6 +922,7 @@
         state:
           active: Aktiv
           all: Alle
+          future: Fremtidige
       filters_small_view:
         close_modal: Lukk modal
       results:
@@ -1178,6 +1187,7 @@
     douban: Douban
     email: Epost
     google_bookmark: Google-Bokmerker
+    google_plus: Google+
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
