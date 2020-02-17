@@ -23,6 +23,8 @@
         title: Tittel
         vote: Eksternt stemmesystem
         what_is_decided: Hva er bestemt
+      response:
+        decidim_consultations_response_group_id: Gruppe
     errors:
       models:
         question:
@@ -103,6 +105,7 @@
             title: Tittel
         response:
           fields:
+            response_group: Gruppe
             title: Tittel
       question_configuration:
         disable_external_voting: Vennlist deaktiver ekstern avstemning for avanserte konfigurasjoner
