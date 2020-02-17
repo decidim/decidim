@@ -78,11 +78,14 @@
     admin:
       filters:
         is_emendation_true:
+          label: Type
           values:
+            'false': Forslag
             'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
         state_null:
+          label: Status
           values:
             'true': Ikke besvart
     components:
@@ -418,6 +421,7 @@
             n_more_endorsers:
               one: og 1 til
               other: og %{count} til
+            proposals: Forslag
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
             votes_count: Støtter antall
@@ -524,6 +528,7 @@
           open: Åpen
           published: Publisert
           related_to: Relatert til
+          scope: Omfang
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -677,8 +682,10 @@
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
+          scope: Omfang
           search: Søk
           state: Status
+          type: Type
           voted: Støttet
         filters_small_view:
           close_modal: Lukk modal
