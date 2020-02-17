@@ -148,6 +148,7 @@
               all: Alle
               discarded: Forkastet
               validating: Teknisk validering
+            filter_by: Filtrer etter
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -305,6 +306,7 @@
           type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
+          filter_by: Filtrer etter
         index_header:
           new_initiative: Nytt initiativ
         interactions:
@@ -378,6 +380,7 @@
           components: Komponenter
       initiative_creation_header:
         back: Tilbake
+        finish: Fullfør
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
@@ -386,6 +389,7 @@
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
+        finish: Fullfør
         finished: Initiativsignatur opprettet
         select_identity: Velg identitet
         sms_code: SMS-kode verifisering
