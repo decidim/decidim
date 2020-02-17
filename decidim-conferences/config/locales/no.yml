@@ -16,6 +16,7 @@
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
+        slug: URL slug
         title: Tittel
       conference_speaker:
         full_name: Fullt navn
@@ -72,6 +73,7 @@
         index:
           conference_speakers_title: Konferansetalere
         new:
+          create: Opprett
           title: Ny konferansetaler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
@@ -87,6 +89,7 @@
         index:
           conference_admins_title: konferanse administratorer
         new:
+          create: Opprett
           title: Ny konferanse administrator.
         update:
           error: Det oppstod et problem med å oppdatere denne konferanse administratoren.
@@ -103,6 +106,7 @@
           not_published: Ikke publisert
           published: Publisert
         new:
+          create: Opprett
           title: Konferanse
         update:
           error: Det oppstod et problem med å oppdatere denne konferansen.
@@ -119,9 +123,11 @@
           success: Media Lenke slettet.
         edit:
           title: Oppdater media lenke.
+          update: Oppdater
         index:
           media_links_title: Media Lenker
         new:
+          create: Opprett
           title: Media Lenke
         update:
           error: Det oppstod et problem med å oppdatere denne media lenken.
@@ -144,6 +150,7 @@
       models:
         conference:
           fields:
+            created_at: Opprettet på
             published: Publisert
             title: Tittel
         conference_speaker:
@@ -161,6 +168,7 @@
             collaborator: Samarbeidspartner
         media_link:
           fields:
+            date: Dato
             link: Lenke
             title: Tittel
           name: Media Lenke
@@ -179,6 +187,7 @@
             conference_meetings: Konferanse møter
             registrations_count: Registrerings teller
             title: Tittel
+            weight: Vekt
           name: Registreringstype
       partners:
         create:
@@ -188,6 +197,9 @@
           success: Konferansepartner ble fjernet.
         edit:
           title: Oppdater partner.
+          update: Oppdater
+        new:
+          create: Opprett
         update:
           error: Det oppstod et problem med å oppdatere en partner for denne konferansen.
           success: Konferansepartner ble oppdatert.
@@ -206,7 +218,9 @@
           success: Konferanse registrerings-typen ble fjernet.
         edit:
           title: Oppdater registreringstype.
+          update: Oppdater
         new:
+          create: Opprett
           title: Ny registreringstype
         update:
           error: Det oppstod et problem med å oppdatere en registreringstype for denne konferansen.
@@ -329,6 +343,8 @@
           content: Innhold
           location: Plassering
           streaming: Strømming
+        show:
+          day: Dag
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din påmelding til konferansen <a href="%{url}">%{title}</a> er bekreftet.
