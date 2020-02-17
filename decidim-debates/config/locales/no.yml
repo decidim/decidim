@@ -7,6 +7,7 @@
         description: Beskrivelse
         information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
+        start_time: Starter på
         title: Tittel
         user_group_id: Opprett debatt som
     models:
@@ -66,12 +67,16 @@
         create:
           invalid: Det oppstod et problem med å opprette debatten.
           success: Debatten ble opprettet.
+        debate:
+          participate: Delta
         filters:
           all: Alle
           category: Kategori
           category_prompt: Velg en kategori
           citizens: Borgere
           official: Offisiell
+          origin: Opprinnelse
+          search: Søk
         filters_small_view:
           close_modal: Lukk modal
         new:
