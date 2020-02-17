@@ -71,6 +71,7 @@
           category: Kategori
           category_prompt: Velg en kategori
           citizens: Borgere
+          official: Offisiell
         filters_small_view:
           close_modal: Lukk modal
         new:
