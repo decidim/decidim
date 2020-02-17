@@ -10,6 +10,9 @@
       decidim/comments/comment:
         one: Kommentar
         other: Kommentarer
+      decidim/comments/comment_vote:
+        one: Stemme
+        other: Stemmer
   decidim:
     comments:
       comments: Kommentarer
