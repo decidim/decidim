@@ -45,15 +45,7 @@
                     <div class="row column question" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
                       
                       <% answer.question.display_conditions.each do |display_condition| %>
-                        <%= content_tag :div, nil,  class: "display-condition", data: {
-                            id: display_condition.id,
-                            type: display_condition.condition_type,
-                            condition: display_condition.decidim_condition_question_id,
-                            option: display_condition.decidim_answer_option_id,
-                            mandatory: display_condition.mandatory,
-                            value: display_condition.condition_value[I18n.locale.to_s]
-                          }
-                        %>
+                        <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
                       <% end %>
 
                       <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>

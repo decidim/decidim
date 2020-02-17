@@ -24,6 +24,17 @@ module Decidim
           condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) }
         end
       end
+
+      def to_html_data
+        {
+          id: id,
+          type: condition_type,
+          condition: decidim_condition_question_id,
+          option: decidim_answer_option_id,
+          mandatory: mandatory,
+          value: condition_value&.dig(I18n.locale.to_s)
+        }
+      end
     end
   end
 end
