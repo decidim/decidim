@@ -6,6 +6,7 @@
     blogs:
       actions:
         confirm_destroy: Er du sikker på at du vil slette dette innlegget?
+        destroy: Slett
         edit: Editar
         title: Handlinger
       admin:
