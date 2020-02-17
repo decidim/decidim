@@ -16,6 +16,8 @@
       question:
         banner_image: Bannerafbeelding
         decidim_scope_id: Kommunalt område
+        hashtag: Hastag
+        hero_image: Hjem bilde
         i_frame_url: Eksternt stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
@@ -58,6 +60,9 @@
       decidim/consultations/question:
         one: Spørsmål
         other: Spørsmål
+      decidim/consultations/response:
+        one: Svar
+        other: Svar
       decidim/consultations/vote:
         one: Stemme
         other: Stemmer
@@ -68,6 +73,7 @@
         new_consultation: Ny konsultasjon
         new_question: Nytt spørsmål
         new_response: Ny respons
+        new_response_group: Ny gruppe
         publish_results: Publiser resultater
         response_groups: Administrer responsgrupper
         unpublish_results: Avpubliser resultater
@@ -110,11 +116,13 @@
         consultations_submenu:
           info: Informasjon
           questions: Spørsmål
+          results: Resultater
         questions_submenu:
           components: Komponenter
           configuration: Konfigurasjon
           consultation: Konsultasjon
           info: Informasjon
+          responses: Svar
       models:
         consultation:
           fields:
@@ -137,6 +145,9 @@
             created_at: Opprettet på
             response_group: Gruppe
             title: Tittel
+          name:
+            one: Svar
+            other: Svar
       question_configuration:
         disable_external_voting: Vennlist deaktiver ekstern avstemning for avanserte konfigurasjoner
         form:
@@ -201,6 +212,8 @@
         consultations: Konsultasjoner
         questions: Spørsmål
         response_groups: Responsgrupper
+        responses: Svar
+        results: Resultater
     consultations:
       admin:
         content_blocks:
@@ -231,6 +244,7 @@
         state: Status
       filters_small_view:
         close_modal: Lukk vindu
+        filter: Filter
         filter_by: Filtrer etter
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
@@ -305,6 +319,8 @@
     questions:
       next_button: Neste spørsmål
       previous_button: Forrige spørsmål
+      results:
+        title: Resultater
       show:
         read_more: Les mer
       statistics:
@@ -316,6 +332,7 @@
         technical_data: Tekniske data
       vote_button:
         already_voted: Stemt allerede
+        already_voted_hover: Tilbakekalle stemme
         starting_from: Starter fra %{date}
         verification_required: Verifiser kontoen din for å stemme
         vote: Stemme
