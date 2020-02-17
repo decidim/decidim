@@ -35,6 +35,7 @@
               created_at: Opprettelsesdato
               decidim_proposals_component: Forslags komponent
               dice: Terning
+              request_timestamp: Uavgjort tid
               target_items: Gjenstander å velge
               title: Tittel
         sortitions:
@@ -81,6 +82,7 @@
           state: Status
         filters_small_view:
           close_modal: Lukk modal
+          filter_by: Filtrer etter
         linked_sortitions:
           selected_proposals: Utvalgte forslag
         orders:
