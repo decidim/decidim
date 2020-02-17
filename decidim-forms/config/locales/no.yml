@@ -82,3 +82,4 @@
         id: Svar ID
         ip_hash: Ip Hash
         unregistered: Uregistrert
+        user_status: Brukerstatus
