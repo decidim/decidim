@@ -32,12 +32,15 @@
           submit: Send
           user_group_id:
             label: Kommenter som
+        opinion:
+          neutral: Nøytral
         remaining_characters: "%{count} tegn igjen"
         remaining_characters_1: "%{count} tegn igjen"
         title: Legg til kommentaren din
       comment:
         alignment:
           against: Imot
+          in_favor: I favør
         deleted_user: Slettet deltaker
         report:
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
