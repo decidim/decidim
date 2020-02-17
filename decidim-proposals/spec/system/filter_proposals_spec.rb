@@ -557,4 +557,61 @@ describe "Filter Proposals", type: :system do
       end
     end
   end
+
+    context "when using the browser history", :slow do
+      let(:proposals) { create_list(:proposal, 2, component: component) }
+      let(:official_proposals) { create_list(:proposal, 2, :official, component: component) }
+      let(:accepted_proposals) { create_list(:proposal, 2, :official, :accepted, component: component) }
+      let(:rejected_proposals) { create_list(:proposal, 2, :official, :rejected, component: component) }
+
+      before do
+        proposals && official_proposals && accepted_proposals && rejected_proposals
+
+        visit_component
+      end
+
+      it "recover filters from initial pages" do
+        within ".filters .state_check_boxes_tree_filter" do
+          check "Rejected"
+        end
+
+        expect(page).to have_css(".card.card--proposal", count: 8)
+
+        page.go_back
+
+        expect(page).to have_css(".card.card--proposal", count: 6)
+      end
+
+      it "recover filters from previous pages" do
+        within ".filters .state_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+        end
+        within ".filters .origin_check_boxes_tree_filter" do
+          uncheck "All"
+        end
+
+        within ".filters .origin_check_boxes_tree_filter" do
+          check "Official"
+        end
+
+        within ".filters .state_check_boxes_tree_filter" do
+          check "Accepted"
+        end
+
+        expect(page).to have_css(".card.card--proposal", count: 2)
+
+        page.go_back
+
+        expect(page).to have_css(".card.card--proposal", count: 6)
+
+        page.go_back
+
+        expect(page).to have_css(".card.card--proposal", count: 8)
+
+        page.go_forward
+
+        expect(page).to have_css(".card.card--proposal", count: 6)
+      end
+    end
 end
