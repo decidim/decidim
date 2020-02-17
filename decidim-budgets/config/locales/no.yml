@@ -8,6 +8,11 @@
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Prosjekt
+        other: Prosjekter
   decidim:
     budgets:
       actions:
@@ -17,8 +22,12 @@
         destroy: Slett
         edit: Editar
         import: Importer forslag til prosjekter
+        preview: Forhåndsvis
         title: Handlinger
       admin:
+        models:
+          project:
+            name: Prosjekt
         projects:
           create:
             invalid: Det oppstod et problem med å opprette dette prosjektet
@@ -30,6 +39,7 @@
           index:
             finished_orders: Avsluttede stemmer
             pending_orders: Ventende stemmer
+            title: Prosjekter
           new:
             create: Opprett
           update:
