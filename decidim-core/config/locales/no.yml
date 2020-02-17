@@ -1184,6 +1184,7 @@
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
+    xing: Xing
   time:
     formats:
       day_of_month: "%b %d"
