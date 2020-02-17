@@ -43,7 +43,9 @@
           in_favor: I favør
         deleted_user: Slettet deltaker
         hide_replies: Skjul svar
+        reply: Svar
         report:
+          action: Rapport
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
           description: Er dette innholdet upassende?
