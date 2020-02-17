@@ -325,6 +325,7 @@
             metadata: Metadata
             other: Annet
             related_processes: Relaterte prosesser
+            scope_type_max_depth_help: Begrens omfangets filterdybde; Filteret viser fra generelt til valgt omfangstype.
             select_an_area: Velg et Område
             select_process_group: Velg en prosess gruppe
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
