@@ -19,6 +19,9 @@
             success: Innlegget ble opprettet
           destroy:
             success: Innlegget ble slettet
+          new:
+            create: Opprett
+            title: Opprett innlegg
           update:
             invalid: Det oppstod et problem med å lagre dette innlegget.
             success: Innlegget ble lagret
@@ -29,8 +32,11 @@
           fields:
             author: Forfatter
             body: Tekst
+            created_at: Opprettet på
             title: tittel
       posts:
+        show:
+          view: Vis
         sidebar_blog:
           comments: kommentarer
           most_commented_posts: Mest kommenterte innlegg
