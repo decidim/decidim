@@ -11,7 +11,13 @@
     <% end %>
     </h2>
   </div>
-
+  <div class="card-section">
+    <div class="row column">
+      <small class="text-muted">
+        <%= t(".save_warning") %>
+      </small>
+    </div>
+  </div>
   <div class="card-section">
     <div class="row column questionnaire-question-display-condition-condition-question">     
       <%=
@@ -64,8 +70,13 @@
         )
       %>
     </div>
+    <div class="row column">
+      <% display_condition.errors.full_messages.each do |msg| %>
+        <small class="form-error is-visible"><%= msg %></small>
+      <% end %>
+    </div>
   </div>
-  
+
   <%= form.hidden_field :decidim_question_id, value: question.id, disabled: !editable %>
 
   <% if display_condition.persisted? %>

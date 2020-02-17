@@ -45,6 +45,7 @@ en:
             mandatory: Mandatory
             question: Question statement
             remove: Remove
+            save_warning: Remember to save the form before configuring display conditions
             select_answer_option: Select answer option
             select_condition_question: Select a question
             select_condition_type: Select a condition type
