@@ -104,6 +104,7 @@
           new:
             file: ".csv fil med e-postdata"
             info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
+            submit: Last opp fil
             title: Last opp en ny folketelling
         authorizations:
           new:
@@ -127,6 +128,7 @@
               success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
+              verify: Verifiser
           offline_confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
@@ -134,6 +136,7 @@
             new:
               cancel: Avbryt
               introduce_user_data: Introduser deltakerens email og dokumentdata
+              verify: Verifiser
           pending_authorizations:
             index:
               config: Konfigurer
