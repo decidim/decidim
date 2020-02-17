@@ -34,6 +34,7 @@
         alignment:
           against: Imot
         deleted_user: Slettet deltaker
+        hide_replies: Skjul svar
         report:
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
