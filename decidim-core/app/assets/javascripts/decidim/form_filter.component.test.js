@@ -17,7 +17,7 @@ describe("FormFilterComponent", () => {
     let form = `
       <form id="new_filter" action="/filters" method="get">
         <fieldset>
-          <div id="filter_scope_id" class="data-picker picker-multiple" data-picker-name="filter[scope_id]">
+          <div id="filter_somerandomid_scope_id" class="data-picker picker-multiple" data-picker-name="filter[scope_id]">
             <div class="picker-values">
               <div>
                 <a href="picker_url_1" data-picker-value="1">Scope 1</a>
@@ -33,7 +33,7 @@ describe("FormFilterComponent", () => {
         </fieldset>
 
         <fieldset>
-          <select id="filter_category_id" name="filter[category_id]">
+          <select id="filter_somerandomid_category_id" name="filter[category_id]">
             <option value="1">Category 1</option>
             <option value="2">Category 2</option>
           </select>

@@ -30,6 +30,18 @@
     }
 
     /**
+     * Set input as checked
+     * @public
+     * @param {Input} input - the checkbox to check
+     * @returns {Void} - Returns nothing.
+     */
+    Check(input) {
+      input.checked = true;
+      this.checkTheCheckBoxes(input);
+      this.checkTheCheckParent(input);
+    }
+
+    /**
      * Handles the click action on any checkbox.
      * @private
      * @param {Input} target - the input that has been checked
