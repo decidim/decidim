@@ -21,9 +21,26 @@
   const displayConditionQuestionSelector = "select[name$=\\[decidim_condition_question_id\\]]";
   const displayConditionAnswerOptionSelector = "select[name$=\\[decidim_answer_option_id\\]]";
   const displayConditionTypeSelector = "select[name$=\\[condition_type\\]]";
+  const displayConditionDeletedSelector = "input[name$=\\[deleted\\]]";
 
   const displayConditionValueWrapperSelector = ".questionnaire-question-display-condition-value";
   const displayconditionAnswerOptionWrapperSelector = ".questionnaire-question-display-condition-answer-option";
+
+  const addDisplayConditionButtonSelector = ".add-display-condition";
+
+  const removeDisplayConditionsForFirstQuestion = () => {
+    $(fieldSelector).each((idx, el) => {
+      const $question = $(el);
+      if (idx) {
+        $question.find(displayConditionsWrapperSelector).find(displayConditionDeletedSelector).val("false");
+        $question.find(displayConditionsWrapperSelector).show();
+      }
+      else {
+        $question.find(displayConditionsWrapperSelector).find(displayConditionDeletedSelector).val("true");
+        $question.find(displayConditionsWrapperSelector).hide();
+      }
+    });
+  };
 
   const autoButtonsByPosition = new AutoButtonsByPositionComponent({
     listSelector: ".questionnaire-question:not(.hidden)",
@@ -38,6 +55,8 @@
       $(el).find("input[name$=\\[position\\]]").val(idx);
 
       autoButtonsByPosition.run();
+
+      removeDisplayConditionsForFirstQuestion();
     }
   });
 
@@ -105,7 +124,7 @@
       wrapperSelector: `#${fieldId} ${displayConditionsWrapperSelector}`,
       containerSelector: ".questionnaire-question-display-conditions-list",
       fieldSelector: displayConditionFieldSelector,
-      addFieldButtonSelector: ".add-display-condition",
+      addFieldButtonSelector: addDisplayConditionButtonSelector,
       removeFieldButtonSelector: displayConditionRemoveFieldButtonSelector,
       onAddField: ($field) => {
         initializeDisplayConditionField($field);
