@@ -88,6 +88,7 @@
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
+          unfold: Åpne
         index:
           new_debate: Ny debatt
         new:
@@ -102,6 +103,7 @@
           fields:
             end_time: Sluttdato
             official_debate: Offisiell debatt
+            start_time: Startdato
             title: Tittel
     events:
       debates:
