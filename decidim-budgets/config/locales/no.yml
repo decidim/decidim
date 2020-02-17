@@ -22,6 +22,7 @@
         destroy: Slett
         edit: Editar
         import: Importer forslag til prosjekter
+        new: Nytt prosjekt
         preview: Forhåndsvis
         title: Handlinger
       admin:
@@ -42,6 +43,7 @@
             title: Prosjekter
           new:
             create: Opprett
+            title: Nytt prosjekt
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
             success: Prosjektet ble oppdatert
@@ -93,6 +95,8 @@
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
         order_progress:
           vote: Stemme
         order_selected_projects:
