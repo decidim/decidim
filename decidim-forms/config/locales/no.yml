@@ -19,6 +19,7 @@
       admin:
         models:
           components:
+            description: Beskrivelse
             tos: Tjenestevilkår
         questionnaires:
           answer_option:
@@ -32,6 +33,8 @@
           question:
             add_answer_option: Legg til svaralternativ
             any: Alle
+            description: Beskrivelse
+            down: Ned
             remove: Fjern
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
