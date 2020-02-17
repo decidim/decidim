@@ -320,6 +320,7 @@
         oauth_applications: OAuth applikasjoner
         participants: Deltakere
         static_pages: Sider
+        user_groups: Grupper
         users: Deltakere
       models:
         area:
@@ -591,6 +592,7 @@
         impersonations: Deltakernes administrasjon
         participants: Deltakere
         static_pages: Sider
+        user_groups: Grupper
         users: Deltakere
       user_group:
         csv_verify:
@@ -622,6 +624,7 @@
           email: Epost
           name: Navn
         new:
+          create: Inviter
           title: Inviter deltaker som administrator
       view_public_page: Vis offentlig side
     forms:
