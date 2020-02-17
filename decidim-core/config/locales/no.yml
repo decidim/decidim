@@ -697,6 +697,7 @@
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
+        member: Medlem
       update:
         error: Det oppstod et problem med å oppdatere gruppen
         success: Gruppe oppdatert
@@ -708,6 +709,8 @@
         description: Les mer om %{organization}
         title: Generell hjelp
     last_activities:
+      activities:
+        no_activities_warning: Ingen aktivitet
       all: Alle aktivitetstyper
       index:
         last_activity: Siste aktivitet
@@ -806,6 +809,7 @@
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
+        newsletters: Nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
         send_notifications_by_email: Send varsler via email
@@ -824,6 +828,7 @@
           debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
           how_to_participate: Hvordan deltar jeg i en prosess?
+          meetings: Møter
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
@@ -841,6 +846,7 @@
           debates_count: Debatter
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
+          meetings_count: Møter
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
@@ -884,6 +890,7 @@
         followers: Følgere
         following: Følger
         groups: Grupper
+        members: Medlemmer
         view_full_profile: Vis hele profilen
       sidebar:
         badges:
@@ -897,6 +904,7 @@
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
+        leave_user_group: Forlat gruppe
         manage_user_group_admins: Administrer administrator
         manage_user_group_users: Administrere medlemmer
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
@@ -926,6 +934,7 @@
     searches:
       filters:
         back: Tilbake til resultater
+        jump_to: 'Hopp til:'
         state:
           active: Aktiv
           all: Alle
@@ -1107,6 +1116,8 @@
       updated: Kontoen din er oppdatert.
     sessions:
       already_signed_out: Logget ut.
+      new:
+        sign_in: Logg inn
       signed_in: Logget inn.
       signed_out: Logget ut.
     shared:
@@ -1190,6 +1201,7 @@
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
+    password_too_long: er for lang
     password_too_short: er for kort
   social_share_button:
     delicious: Nydelig
@@ -1229,6 +1241,7 @@
   views:
     pagination:
       first: "&laquo; Først"
+      last: Siste &raquo;
       next: Neste &rsaquo;
       previous: "&lsaquo; Tidligere"
       truncate: "&hellip;"
