@@ -451,6 +451,7 @@
           accepted: Aksepterte
           all: Alle
           evaluating: Vurderer
+          not_answered: Ikke besvart
           rejected: Avvist
         filter_type_values:
           all: Alle
