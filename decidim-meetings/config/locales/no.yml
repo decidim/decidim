@@ -54,6 +54,9 @@
       decidim/meetings/meeting:
         one: Møte
         other: Møter
+      decidim/meetings/minutes:
+        one: Referat
+        other: Referat
       decidim/meetings/registration:
         one: Registrering
         other: Registreringer
@@ -148,6 +151,8 @@
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
         destroy: Slett
         edit: Rediger
+        minutes: Referat
+        preview: Forhåndsvis
         registrations: Registreringer
         title: Handlinger
       admin:
@@ -199,6 +204,7 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              rejected: Avvist
               sent: Sendt
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
