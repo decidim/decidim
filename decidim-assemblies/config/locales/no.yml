@@ -122,6 +122,7 @@
         assemblies: Forsamlinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
+          assembly_members: Medlemmer
           attachment_collections: Mapper
           attachments: Vedlegg
           categories: Kategorier
@@ -137,6 +138,7 @@
             ceased_date: Opphørt dato
             designation_date: Benevnelsesdato
             full_name: Navn
+          name: Medlem
           positions:
             vice_president: Visepresident
         assembly_user_role:
@@ -170,6 +172,7 @@
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             filters: Filter
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
+            metadata: Metadata
             select_a_created_by: Velg en opprettet av
             select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
@@ -190,9 +193,13 @@
             filter:
               all: Alle
               ceased: Opphørt
+              not_ceased: Ikke opphørt
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
+      assembly_members:
+        index:
+          members: Medlemmer
       assembly_types:
         commission: Kommisjon
         consultative_advisory: Rådgivende
@@ -220,6 +227,9 @@
           highlighted_assemblies:
             active_assemblies: Aktive forsamlinger
             see_all_assemblies: Se alle forsamlingene
+        user_profile:
+          member_of:
+            member_of: Medlem av
       show:
         area: Område
         assembly_type: Forsamlingstype
@@ -248,11 +258,14 @@
         debates_count: Debatter
         endorsements_count: Påtegnelser
         headline: Aktivitet
+        meetings_count: Møter
         pages_count: Sider
         surveys_count: Undersøkelse
     assembly_members:
       assembly_member:
         designated_on: Utpekt på
+      index:
+        title: Medlemmer
     help:
       participatory_spaces:
         assemblies:
@@ -285,4 +298,5 @@
             one: "%{count} sammenstillinger"
             other: "%{count} sammenstillingene"
       assembly_navigation:
+        assembly_member_menu_item: Medlemmer
         assembly_menu_item: Forsamlingen
