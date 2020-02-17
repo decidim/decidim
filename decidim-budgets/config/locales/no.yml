@@ -37,6 +37,7 @@
             success: Prosjektet ble slettet
           edit:
             title: Rediger prosjekt
+            update: Oppdater
           index:
             finished_orders: Avsluttede stemmer
             pending_orders: Ventende stemmer
@@ -97,6 +98,7 @@
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
+          unfold: Åpne
         order_progress:
           vote: Stemme
         order_selected_projects:
@@ -134,6 +136,7 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            show_votes: Vis stemmer
             votes_enabled: Stemming aktivert
     orders:
       checkout:
