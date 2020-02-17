@@ -79,6 +79,9 @@
       filters:
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
+        state_null:
+          values:
+            'true': Ikke besvart
     components:
       proposals:
         actions:
