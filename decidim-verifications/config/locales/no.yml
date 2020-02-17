@@ -128,6 +128,7 @@
               introduce_user_data: Introduser deltakerens email og dokumentdata
           pending_authorizations:
             index:
+              config: Konfigurer
               offline_verification: Offline verifisering
               title: Venter på online verifiseringer
               verification_number: 'Verifikasjon #%{n}'
@@ -172,6 +173,7 @@
             error: Det oppstod et problem med forespørselen din
             success: Takk! Vi sender en verifiseringskode til adressen din
           edit:
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
             waiting_for_letter: Vi sender snart et brev til adressen din med verifiseringskoden
           new:
@@ -191,6 +193,7 @@
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
             destroy: Tilbakestill verifiseringskode
             resend: Mottok ikke verifiseringskoden?
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
           new:
             send: Send meg en meldig
