@@ -104,11 +104,13 @@
       menu:
         consultations: Konsultasjoner
         consultations_submenu:
+          info: Informasjon
           questions: Spørsmål
         questions_submenu:
           components: Komponenter
           configuration: Konfigurasjon
           consultation: Konsultasjon
+          info: Informasjon
       models:
         consultation:
           fields:
@@ -191,6 +193,7 @@
         orders:
           label: 'Sorter konsultasjoner etter:'
           random: Tilfeldig
+          recent: Nyligst
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner
