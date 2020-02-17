@@ -25,9 +25,13 @@
             success: Prosjektet ble opprettet
           destroy:
             success: Prosjektet ble slettet
+          edit:
+            title: Rediger prosjekt
           index:
             finished_orders: Avsluttede stemmer
             pending_orders: Ventende stemmer
+          new:
+            create: Opprett
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
             success: Prosjektet ble oppdatert
@@ -79,17 +83,21 @@
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
+        order_progress:
+          vote: Stemme
         order_selected_projects:
           remove: Fjern
           selected_projects:
             one: prosjekt valgt
             other: prosjekter valgt
+          view: Vis
         project:
           add: Legg til
           count:
             one: 1 støtte
             other: "%{count} støttere"
           remove: Fjern
+          view: Vis
         project_budget_button:
           add: Legg til
           added: Lagt til
@@ -98,6 +106,8 @@
           view_all_projects: Vis alle prosjekter
     components:
       budgets:
+        actions:
+          vote: Stemme
         name: Budsjetter
         settings:
           global:
@@ -121,4 +131,6 @@
     resource_links:
       included_proposals:
         project_proposal: 'Forslag inkludert i dette prosjektet:'
+  index:
+    confirmed_orders_count: Stemmer teller
   total_budget: Totalt budsjett
