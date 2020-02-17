@@ -13,7 +13,7 @@ shared_examples_for "participatory space resourcable interface" do
       let(:query) { "{ linkedParticipatorySpaces { participatorySpace { id } } }" }
 
       before do
-        model.link_participatory_spaces_resources([process1, process2], :included_participatory_processes)
+        model.link_participatory_space_resources([process1, process2], :included_participatory_processes)
       end
 
       it "includes the linked resources" do
@@ -29,8 +29,8 @@ shared_examples_for "participatory space resourcable interface" do
       let(:query) { "{ linkedParticipatorySpaces { participatorySpace { id } } }" }
 
       before do
-        process1.link_participatory_spaces_resources(model, :included_participatory_processes)
-        process2.link_participatory_spaces_resources(model, :included_participatory_processes)
+        process1.link_participatory_space_resources(model, :included_participatory_processes)
+        process2.link_participatory_space_resources(model, :included_participatory_processes)
       end
 
       it "includes the linked resources" do

@@ -15,6 +15,20 @@ module Decidim
           @meetings_as_authors_selected ||= @proposal.authors.pluck(:id)
         end
 
+        def coauthor_presenters_for(proposal)
+          proposal.authors.map do |identity|
+            if identity.is_a?(Decidim::Organization)
+              Decidim::Proposals::OfficialAuthorPresenter.new
+            else
+              present(identity)
+            end
+          end
+        end
+
+        def endorsers_presenters_for(proposal)
+          proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
+        end
+
         def proposals_admin_filter_tree
           {
             t("proposals.filters.type", scope: "decidim.proposals") => {

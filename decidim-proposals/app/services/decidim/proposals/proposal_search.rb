@@ -12,7 +12,9 @@ module Decidim
       def initialize(options = {})
         @component = options[:component]
         @current_user = options[:current_user]
-        super(Proposal.all, options)
+
+        base = options[:state]&.member?("withdrawn") ? Proposal.withdrawn : Proposal.except_withdrawn
+        super(base, options)
       end
 
       # Handle the search_text filter
@@ -24,31 +26,16 @@ module Decidim
 
       # Handle the origin filter
       def search_origin
-        case origin
-        when "official"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        when "citizens"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-        when "user_group"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-            .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
-        when "meeting"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
-        else # Assume 'all'
-          query
-        end
+        official = origin.member?("official") ? query.official_origin : nil
+        citizens = origin.member?("citizens") ? query.citizens_origin : nil
+        user_group = origin.member?("user_group") ? query.user_group_origin : nil
+        meeting = origin.member?("meeting") ? query.meeting_origin : nil
+
+        query
+          .where(id: official)
+          .or(query.where(id: citizens))
+          .or(query.where(id: user_group))
+          .or(query.where(id: meeting))
       end
 
       # Handle the activity filter
@@ -71,20 +58,18 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        case state
-        when "accepted"
-          query.accepted
-        when "rejected"
-          query.rejected
-        when "evaluating"
-          query.evaluating
-        when "withdrawn"
-          query.withdrawn
-        when "except_rejected"
-          query.except_rejected.except_withdrawn
-        else # Assume 'not_withdrawn'
-          query.except_withdrawn
-        end
+        return query if state.member? "withdrawn"
+
+        accepted = state.member?("accepted") ? query.accepted : nil
+        rejected = state.member?("rejected") ? query.rejected : nil
+        evaluating = state.member?("evaluating") ? query.evaluating : nil
+        not_answered = state.member?("not_answered") ? query.not_answered : nil
+
+        query
+          .where(id: accepted)
+          .or(query.where(id: rejected))
+          .or(query.where(id: evaluating))
+          .or(query.where(id: not_answered))
       end
 
       # Handle the amendment type filter
@@ -97,6 +82,14 @@ module Decidim
         else # Assume 'all'
           query.amendables_and_visible_emendations_for(@current_user, @component)
         end
+      end
+
+      def search_category_id
+        super
+      end
+
+      def search_scope_id
+        super
       end
 
       # Filters Proposals by the name of the classes they are linked to. By default,

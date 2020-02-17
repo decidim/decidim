@@ -51,7 +51,7 @@ $process-title-height: 3rem;
 .process-content{
   padding-top: 1rem;
 
-  .card{
+  & > .card:first-child{
     margin-top: -2rem;
   }
 

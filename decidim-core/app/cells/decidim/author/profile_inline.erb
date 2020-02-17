@@ -1,5 +1,5 @@
 <span class="author__avatar">
-  <%= image_tag model.avatar_url %>
+  <%= image_tag model.avatar_url, alt: t("decidim.author.avatar") %>
 </span>
 
 <% if model.deleted? %>
@@ -17,7 +17,7 @@
     data-keep-on-hover="true"
     data-allow-html="true"
     data-template-classes="light expanded"
-    tabindex="1"
+    tabindex="0"
     data-tip-text='<%= h render(:profile_minicard) %>'>
     <%= model.name %>
   </span>
