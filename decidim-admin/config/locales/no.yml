@@ -298,8 +298,10 @@
             'false': Offisialisert
             'true': Ikke offisialisert
         private_space_eq:
+          label: Privat
           values:
             'false': Offentlig
+            'true': Privat
         published_at_null:
           label: Publisert
           values:
@@ -319,6 +321,7 @@
             all: Alle
             managed: Fikk til
             not_managed: Ikke klart
+          impersonate: Etterligne
           impersonate_new_managed_user: Administrer ny deltaker
           managed: Fikk til
           name: Navn
@@ -339,6 +342,7 @@
           name: Navn
           reason: Årsak
         new:
+          impersonate: Etterligne
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
@@ -436,6 +440,8 @@
             state: Stat
             users_count: Deltakere teller
       moderations:
+        index:
+          title: Moderering
         report:
           reasons:
             does_not_belong: Tilhører ikke
@@ -490,6 +496,7 @@
         send:
           no_recipients: Ingen mottakere for dette valget
         show:
+          preview: Forhåndsvis
           select_recipients_to_deliver: Velg mottakere som skal leveres
           subject: Emne
         update:
@@ -538,6 +545,8 @@
           title: Rediger organisasjon
         form:
           github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           twitter: Twitter
           url: Url
           youtube: YouTube
@@ -729,6 +738,9 @@
             report_count: Antall
             reported_content_url: Rapportert innholds URL
             visit_url: Besøk URL
+  errors:
+    messages:
+      invalid_json: Ugyldig JSON
   layouts:
     decidim:
       admin:
