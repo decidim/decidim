@@ -81,5 +81,6 @@
         created_at: Besvart på
         id: Svar ID
         ip_hash: Ip Hash
+        registered: Registrert
         unregistered: Uregistrert
         user_status: Brukerstatus
