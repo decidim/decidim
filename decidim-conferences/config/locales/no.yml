@@ -162,6 +162,7 @@
         partner:
           fields:
             link: Lenke
+            logo: Logo
             name: Navn
           types:
             collaborator: Samarbeidspartner
@@ -404,6 +405,7 @@
       show:
         details: Detaljer
         introduction: Introduksjon
+        objectives: Mål
         related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
@@ -414,6 +416,7 @@
         debates_count: Debatter
         endorsements_count: Påtegnelser
         headline: Aktivitet
+        meetings_count: Møter
         pages_count: Sider
         surveys_count: Undersøkelse
         users_count: Deltakere
@@ -467,4 +470,5 @@
             one: "%{count} konferanse"
             other: "%{count} konferanser"
       conferences_nav:
+        media: Medier
         venues: Arenaer
