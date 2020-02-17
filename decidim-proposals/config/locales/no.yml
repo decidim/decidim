@@ -418,6 +418,7 @@
             body: Tekst
             comments_count: Kommentarer teller
             comments_negative_count: Imot
+            comments_neutral_count: Nøytral
             created_at: Opprettelsesdato
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
