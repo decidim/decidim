@@ -64,3 +64,4 @@
       user_answers_serializer:
         created_at: Besvart på
         id: Svar ID
+        unregistered: Uregistrert
