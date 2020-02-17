@@ -39,6 +39,7 @@
         confirm_destroy: Er du sikker?
         destroy: Slett
         edit: Editar
+        new: Nytt %{name}
         title: Handlinger
       admin:
         debates:
@@ -54,6 +55,7 @@
             title: Debatter
           new:
             create: Opprett debatt
+            title: Ny debatt
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
             success: Debatten ble oppdatert.
@@ -84,10 +86,15 @@
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
+        index:
+          new_debate: Ny debatt
         new:
           back: Tilbake
           create: Opprett
           select_a_category: Velg en kategori
+          title: Ny debatt
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
