@@ -389,6 +389,7 @@
           buttons:
             check: Sjekk og fortsett
             close_modal: Lukk modal
+            uncheck: Hold usjekket
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
@@ -660,6 +661,8 @@
       create:
         error: Det oppstod et problem med å opprette gruppen
         success: Gruppe ble opprettet
+      edit:
+        update_user_group: Oppdater gruppe
       form:
         document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
@@ -677,6 +680,7 @@
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
         accept_request: Aksepter
       new:
+        create_user_group: Opprett gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
@@ -690,6 +694,7 @@
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
         description: Les mer om %{organization}
+        title: Generell hjelp
     last_activities:
       all: Alle aktivitetstyper
       index:
@@ -750,8 +755,12 @@
         description: Antall deltakere som følger dette deltakerområdet
       participants:
         description: Antall aktive deltakere i organisasjonen
+        object: deltakere
+        title: Deltakere
       users:
         description: Antall deltakere i organisasjonen
+        object: deltakere
+        title: Deltakere
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
@@ -818,6 +827,7 @@
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           surveys_count: Undersøkelse
+          users_count: Deltakere
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
@@ -861,6 +871,8 @@
           title: Merker
       user:
         confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
+        create_user_group: Opprett gruppe
+        edit_profile: Rediger profil
         edit_user_group: Rediger gruppeprofil
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
@@ -943,6 +955,7 @@
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_interests:
       show:
+        my_interests: Mine interesser
         no_scopes: Denne organisasjonen har ikke noe omfang ennå!
         select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
@@ -1045,6 +1058,7 @@
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
         confirm_new_password: Bekreft nytt passord
+        new_password: New password
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
@@ -1142,15 +1156,18 @@
         account: Konto
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
+        my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
+    fallback: er ikke gyldig
     name_included_in_password: er for likt navnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
+    password_too_short: er for kort
   social_share_button:
     email: Epost
     google_bookmark: Google-Bokmerker
@@ -1179,6 +1196,7 @@
     dropdown:
       choose_diff_view_html: 'HTML visningsmodus:'
       choose_diff_view_mode: 'Sammenlign visningsmodus:'
+      option_split: Side-ved-side
   views:
     pagination:
       first: "&laquo; Først"
