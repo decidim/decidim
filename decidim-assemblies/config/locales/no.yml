@@ -16,6 +16,7 @@
         creation_date: Dato opprettet
         decidim_area_id: Område
         decidim_assemblies_type_id: Forsamlingstype
+        decidim_scope_id: Omfang
         description: Beskrivelse
         developer_group: Promotør gruppe
         domain: Domene
@@ -30,13 +31,17 @@
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Privat området
+        published_at: Publisert på
         purpose_of_action: Hensikt med handlingen
+        scope_id: Omfang
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         special_features: Spesialfunksjoner
+        subtitle: Undertittel
         target: Hvem deltar
         title: Tittel
+        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Fødselsdag
@@ -71,6 +76,8 @@
           success: Forsamling ble opprettet.
         index:
           not_published: Ikke publisert
+          public: Offentlig
+          published: Publisert
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
@@ -143,8 +150,12 @@
           private_users: Private brukere
         assemblies_types: Forsamlingstyper
       models:
+        assemblies_types:
+          fields:
+            title: Tittel
         assembly:
           fields:
+            published: Publisert
             title: Tittel
           name: Forsamling
         assembly_member:
@@ -154,6 +165,8 @@
             full_name: Navn
           name: Medlem
           positions:
+            other: Annet
+            secretary: Sekretær
             vice_president: Visepresident
         assembly_user_role:
           fields:
@@ -194,12 +207,16 @@
             filters: Filter
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
             metadata: Metadata
+            other: Annet
             select_a_created_by: Velg en opprettet av
             select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell Informasjon
+        assemblies_types:
+          form:
+            title: Tittel
         assembly_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
@@ -215,6 +232,7 @@
               all: Alle
               ceased: Opphørt
               not_ceased: Ikke opphørt
+            search: Søk
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
@@ -225,6 +243,7 @@
         commission: Kommisjon
         consultative_advisory: Rådgivende
         government: Myndighetene
+        others: Andre
         participatory: Deltakende
         working_group: Arbeidsgruppe
       content_blocks:
@@ -232,11 +251,14 @@
           name: Fremhevede forsamlinger
       created_by:
         city_council: Byrådet
+        others: Andre
+        public: Offentlig
       filter:
         all: Alle typer
         commission: Kommisjon
         consultative_advisory: Rådgivende
         government: Myndighetene
+        others: Andre
         participatory: Deltakende
         working_group: Arbeidsgruppe
       index:
@@ -269,7 +291,10 @@
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
         purpose_of_action: Hensikt med handlingen
+        read_less: Les mindre
+        read_more: Les mer
         related_participatory_processes: Relaterte deltakerprosesser
+        scope: Omfang
         social_networks: Sosiale nettverk
         target: Hvem deltar
       statistics:
@@ -280,8 +305,12 @@
         endorsements_count: Påtegnelser
         headline: Aktivitet
         meetings_count: Møter
+        orders_count: Støtter
         pages_count: Sider
+        proposals_count: Forslag
         surveys_count: Undersøkelse
+        users_count: Deltakere
+        votes_count: Støtter
     assembly_members:
       assembly_member:
         designated_on: Utpekt på
@@ -297,6 +326,8 @@
       value_types:
         assembly_presenter:
           not_found: 'Forsamlingen ble ikke funnet i databasen (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Forsamlingstypen ble ikke funnet i databasen (ID: %{id})'
     menu:
       assemblies: Forsamlinger
     metrics:
@@ -310,6 +341,8 @@
   layouts:
     decidim:
       assemblies:
+        assembly:
+          take_part: Delta
         index:
           children: 'Forsamlinger: '
           organizational_chart: Organisasjonsgraf
@@ -318,6 +351,11 @@
           assemblies:
             one: "%{count} sammenstillinger"
             other: "%{count} sammenstillingene"
+        promoted_assembly:
+          take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmer
         assembly_menu_item: Forsamlingen
+      assembly_widgets:
+        show:
+          take_part: Delta
