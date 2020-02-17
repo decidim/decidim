@@ -19,6 +19,7 @@
         developer_group: Promotør gruppe
         domain: Domene
         github: GitHub
+        hashtag: Hastag
         internal_organisation: Intern organisasjon
         is_transparent: Er privat
         local_area: Organisasjonsområdet
@@ -207,6 +208,7 @@
         all: Alle typer
         commission: Kommisjon
         consultative_advisory: Rådgivende
+        government: Myndighetene
         participatory: Deltakende
         working_group: Arbeidsgruppe
       index:
