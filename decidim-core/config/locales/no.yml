@@ -567,6 +567,7 @@
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
       title: Fingeravtrykk
+      value: Verdi
     followers:
       no_followers: Ingen følgere ennå.
     following:
@@ -579,6 +580,7 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
+      current_file: Nåværende fil
       current_image: Nåværende bilde
       default_image: Standard bilde
       errors:
@@ -682,6 +684,7 @@
         error: Det oppstod et problem med å opprette gruppen
         success: Gruppe ble opprettet
       edit:
+        edit_user_group: Rediger gruppe
         update_user_group: Oppdater gruppe
       form:
         document_number_help: Ikke bruk streker eller mellomrom
@@ -705,6 +708,7 @@
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
+        creator: Forfatter
         member: Medlem
       update:
         error: Det oppstod et problem med å oppdatere gruppen
@@ -831,6 +835,9 @@
         success: Varslings innstillingene dine ble oppdatert.
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
+    own_user_groups:
+      index:
+        verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
       explanation: Bruk denne padden til å samarbeide med å ta notater i løpet av møtet, så det blir lettere å skrive ned referatet etterpå.
@@ -863,11 +870,13 @@
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
           meetings_count: Møter
+          orders_count: Stemmer
           pages_count: Sider
           proposals_accepted: Godkjente Forslag
           proposals_count: Forslag
           surveys_count: Undersøkelse
           users_count: Deltakere
+          votes_count: Stemmer
         sub_hero:
           register: Registrer
       index:
@@ -902,6 +911,7 @@
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Deltakeren slettet
+      view: Vis
     profiles:
       default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
       default_officialization_text_for_users: Denne deltakeren er verifisert offentlig, hans/hennes navn eller rolle er verifisert for å samsvare med hans/hennes virkelige navn og rolle
@@ -966,6 +976,7 @@
           future: Fremtidige
       filters_small_view:
         close_modal: Lukk modal
+        unfold: Åpne
       results:
         results:
           one: "%{count} resultat"
@@ -976,6 +987,8 @@
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
         embed_link: Bedde inn
+      extended_navigation_bar:
+        unfold: Åpne
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
@@ -1220,6 +1233,8 @@
         user_groups: Grupper
       widget:
         see_more: Se mer
+  locale:
+    name: Engelsk
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
@@ -1244,7 +1259,11 @@
     telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: Wechat
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
