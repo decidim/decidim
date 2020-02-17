@@ -8,6 +8,7 @@
       close_meeting:
         attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
+        closing_report: Rapport
         contributions_count: Antall bidrag
         proposal_ids: Forslag opprettet i møtet
       meeting:
@@ -152,6 +153,7 @@
         destroy: Slett
         edit: Rediger
         minutes: Referat
+        new: Nytt møte
         preview: Forhåndsvis
         registrations: Registreringer
         title: Handlinger
@@ -178,6 +180,7 @@
             end_date: Sluttdato
           new:
             create: Opprett
+            title: Ny agenda
           update:
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
@@ -206,6 +209,7 @@
               all: Alle
               rejected: Avvist
               sent: Sendt
+            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
@@ -237,6 +241,7 @@
             description: Beskrivelse
             down: Ned
             remove: Fjern
+            service: Tjeneste
             title: Tittel
           services:
             add_service: Legg til tjeneste
@@ -258,6 +263,7 @@
             name: Møte
         registrations:
           edit:
+            save: Lagre
             validate: Valider
             validate_registration_code: Valider registreringskode
           form:
@@ -309,6 +315,7 @@
             all: Alle
             date: Dato
             meetings: Møter
+            past: Fortid
             search: Søk
             space_type: Deltakerområde
       last_activity:
@@ -327,9 +334,12 @@
           category: Kategori
           category_prompt: Velg en kategori
           date: Dato
+          past: Fortid
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
         meeting_minutes:
           meeting_minutes: Møte referater
           related_information: Relatert Informasjon
@@ -362,6 +372,7 @@
           fields:
             email: Epost
             name: Navn
+            sent_at: Sendt på
             status: Status
           status:
             accepted: Aksepterte (%{at})
