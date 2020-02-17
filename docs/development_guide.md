@@ -41,7 +41,7 @@ This model introduces the `develop` branch as a kind of queue for new features t
 
 In summary, Decidim developers that work on `feature/...` or `fix/...` branches will branch off from `develop` and must be merged back into `develop`.
 
-Then, to start a new feature branch off from `develop` in the following maneer:
+Then, to start a new feature branch off from `develop` in the following way:
 
 ```
 git checkout develop
