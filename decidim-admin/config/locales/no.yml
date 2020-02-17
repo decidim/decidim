@@ -331,8 +331,11 @@
             name: Navn
         attachment:
           fields:
+            collection: Mappe
             title: Tittel
           name: Vedlegg
+        attachment_collection:
+          name: Mappe
         category:
           name: Kategori
         impersonation_log:
@@ -398,6 +401,7 @@
           all_users: 'Alle brukere '
           and: 'og '
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
+          followers: 'følgere '
           has_been_sent_to: 'Har blitt sendt til: '
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
@@ -471,6 +475,7 @@
         edit:
           title: Rediger organisasjon
         form:
+          github: GitHub
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
