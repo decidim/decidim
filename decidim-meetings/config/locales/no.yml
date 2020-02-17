@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       agenda:
+        description: Beskrivelse
         title: Tittel
       close_meeting:
         attendees_count: Antall deltagere
@@ -12,6 +13,7 @@
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
+        description: Beskrivelse
         location: Plassering
         location_hints: Plasseringstips
         private_meeting: Privat møte
@@ -22,6 +24,7 @@
         transparent: Privat
       minutes:
         audio_url: Audio url
+        description: Beskrivelse
     errors:
       models:
         meeting_agenda:
@@ -51,6 +54,7 @@
           error: Det oppstod et problem med å publisere dette møtet.
           success: Møtet ble duplisert.
         new:
+          copy: Kopier
           select: Velg hvilke data du vil duplisere
           title: Duplisert møte
     components:
@@ -128,6 +132,7 @@
         attachments: Vedlegg
         close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
+        destroy: Slett
         edit: Rediger
         registrations: Registreringer
         title: Handlinger
@@ -137,9 +142,11 @@
             add_agenda_item_child: Legg til dagsordens underelement
             agenda_item: Dagsordens element
             agenda_item_children: Dagsordens underelementer
+            down: Ned
             remove: Fjern
           agenda_item_child:
             agenda_item_child: Dagsordens underelement
+            down: Ned
             remove: Fjern
           create:
             invalid: Det oppstod et problem med å opprette denne dagsordenen
@@ -147,6 +154,8 @@
           form:
             add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
+          new:
+            create: Opprett
           update:
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
@@ -195,8 +204,11 @@
             location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
             select_organizer: Velg arrangøren
           new:
+            create: Opprett
             title: Opprett møte
           service:
+            description: Beskrivelse
+            down: Ned
             remove: Fjern
             title: Tittel
           services:
@@ -287,6 +299,7 @@
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:
           cancel: Avbryt
+          confirm: Bekreft
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
