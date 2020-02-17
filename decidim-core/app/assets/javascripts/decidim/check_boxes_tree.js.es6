@@ -101,7 +101,7 @@ class CheckBoxesTree {
    * @returns {Void} - Returns nothing.
    */
   checkTheCheckParent(input) {
-    const checkBoxContext = input.parentNode.parentNode.parentNode.getAttribute("id");
+      const checkBoxContext = input.parentNode.parentNode.getAttribute("id");
     if (!checkBoxContext) {
       this.checkGlobalCheck();
       return;
@@ -111,13 +111,13 @@ class CheckBoxesTree {
       `[data-checkboxes-tree=${checkBoxContext}]`
     );
     const totalCheckSiblings = document.querySelectorAll(
-      `#${checkBoxContext} > div > [data-children-checkbox] > input`
+        `#${checkBoxContext} > [data-children-checkbox] > input`
     );
     const checkedSiblings = document.querySelectorAll(
-      `#${checkBoxContext} > div > [data-children-checkbox] > input:checked`
+        `#${checkBoxContext} > [data-children-checkbox] > input:checked`
     );
     const indeterminateSiblings = document.querySelectorAll(
-      `#${checkBoxContext} > div > [data-children-checkbox] > input:indeterminate`
+        `#${checkBoxContext} > [data-children-checkbox] > input:indeterminate`
     );
 
     if (checkedSiblings.length === 0) {
