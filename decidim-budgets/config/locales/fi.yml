@@ -92,6 +92,7 @@ fi:
             other: "%{count} suunnitelmaa"
         filters:
           category: Aihepiiri
+          scope: Teema
           search: Haku
         filters_small_view:
           close_modal: Sulje ikkuna
