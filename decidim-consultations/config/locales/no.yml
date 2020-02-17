@@ -4,6 +4,7 @@
       consultation:
         banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Markert omfang
+        description: Beskrivelse
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
         start_voting_date: Stemming begynner
@@ -213,6 +214,7 @@
         badge_name:
           published_results: Resulter publisert
         footer_button_text:
+          debate: Debatt
           view_results: Vis resultater
         unspecified: Ikke spesifisert
     help:
@@ -244,6 +246,7 @@
         title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
+        confirm: Bekreft
         contextual_help: Bekreft det valgte alternativet.
         title: 'Konsultasjon: bekreft stemme'
   layouts:
