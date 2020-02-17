@@ -75,6 +75,23 @@ fi:
         one: Kannatus
         other: Kannatukset
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tyyppi
+          values:
+            'false': Ehdotukset
+            'true': Muutokset
+        search_placeholder:
+          id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
+        state_eq:
+          values:
+            evaluating: Arvioitavana
+            withdrawn: Peruutettu
+        state_null:
+          label: Tila
+          values:
+            'true': Vastaamaton
     components:
       proposals:
         actions:
@@ -86,6 +103,7 @@ fi:
         name: Ehdotukset
         settings:
           global:
+            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -303,6 +321,7 @@ fi:
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
+        show: Näytä ehdotus
         title: Toiminnot
       admin:
         actions:
@@ -348,6 +367,10 @@ fi:
             success: Ehdotusaineiston päivittäminen onnistui.
         proposal_answers:
           form:
+            accepted: Hyväksytty
+            answer_proposal: Vastaa
+            evaluating: Arvioitavana
+            rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
@@ -391,6 +414,8 @@ fi:
             create: Luo
             title: Luo ehdotus
           show:
+            amendments_count: Muutosten lukumäärä
+            authors: Laatijat
             created_at: Luonnin ajankohta
             votes_count: Kannatusten määrä
           update_category:
