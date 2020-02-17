@@ -10,6 +10,7 @@
         signature_type: Signatur innsamingstype
         signature_type_values:
           offline: Personlig
+          online: Online
         state: Status
         title: Tittel
       initiative_author:
@@ -303,6 +304,7 @@
           author: Forfatter
           closed: Lukket
           myself: Initiativene mine
+          open: Åpen
           state: Status
           type_prompt: Velg en type
         filters_small_view:
