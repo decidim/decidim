@@ -657,6 +657,7 @@
       reject:
         error: Det oppstod et problem med å avslå denne invitasjonen
         success: Invitasjonen ble avvist
+      reject_invitation: Avvis
     group_members:
       accept:
         error: Det oppstod et problem med å godta denne bli med forespørselen
@@ -702,6 +703,7 @@
       members:
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
         accept_request: Aksepter
+        reject_request: Avvis
       new:
         create_user_group: Opprett gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
@@ -837,6 +839,7 @@
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
     own_user_groups:
       index:
+        rejected: Avvist
         verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
@@ -850,6 +853,7 @@
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings: Møter
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
+          more_info: Mer info
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
@@ -872,6 +876,8 @@
           meetings_count: Møter
           orders_count: Stemmer
           pages_count: Sider
+          processes_count: Prosesser
+          projects_count: Prosjekter
           proposals_accepted: Godkjente Forslag
           proposals_count: Forslag
           surveys_count: Undersøkelse
@@ -988,6 +994,7 @@
         embed: Lim inn denne koden på siden din
         embed_link: Bedde inn
       extended_navigation_bar:
+        more: Mer
         unfold: Åpne
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
@@ -1212,6 +1219,7 @@
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
       header:
         close_menu: Lukk meny
+        navigation: Navigasjon
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1222,11 +1230,13 @@
         admin_dashboard: Admin hovedpanel
         conversations: Samtaler
         notifications: Varsler
+        profile: Min konto
         public_profile: Min offentlige profil
       user_profile:
         account: Konto
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
+        my_data: Min data
         my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
