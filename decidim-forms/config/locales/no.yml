@@ -41,6 +41,7 @@
           body: Teksten kan ikke være blank
       question_types:
         multiple_option: Flere alternativer
+        short_answer: Kort svar
         single_option: Enkelt alternativ
       questionnaires:
         answer:
