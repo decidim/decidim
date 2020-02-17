@@ -18,6 +18,7 @@
         description: Beskrivelse
         developer_group: Promotør gruppe
         domain: Domene
+        github: GitHub
         internal_organisation: Intern organisasjon
         is_transparent: Er privat
         local_area: Organisasjonsområdet
@@ -41,6 +42,8 @@
         ceased_date: Opphørt dato
         designation_date: Benevnelsesdato
         designation_mode: Benevnelsesmodus
+        full_name: Fullt navn
+        gender: Kjønn
       assembly_user_role:
         email: Epost
         name: Navn
@@ -118,6 +121,7 @@
         assemblies: Forsamlinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
+          attachment_collections: Mapper
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
@@ -163,6 +167,7 @@
         assemblies:
           form:
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
+            filters: Filter
             included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
             select_a_created_by: Velg en opprettet av
             select_an_area: Velg et Område
@@ -190,6 +195,7 @@
       assembly_types:
         commission: Kommisjon
         consultative_advisory: Rådgivende
+        government: Myndighetene
         participatory: Deltakende
         working_group: Arbeidsgruppe
       content_blocks:
