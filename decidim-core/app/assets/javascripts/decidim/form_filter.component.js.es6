@@ -13,6 +13,7 @@
       this.mounted = false;
       this.change_events = true;
 
+      this._updateInitialState();
       this._onFormChange = this._delayed(this._onFormChange.bind(this));
       this._onPopState = this._onPopState.bind(this);
 
@@ -73,6 +74,17 @@
           this._onPopState(state);
         });
       }
+    }
+
+    /**
+     * Updates URL with the initial filters state, to allow to restoring it when using browser history.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
+    _updateInitialState() {
+      const [initialUrl, initialState] = this._currentStateAndUrl();
+
+      exports.Decidim.History.replaceState(initialUrl, initialState);
     }
 
     /**
