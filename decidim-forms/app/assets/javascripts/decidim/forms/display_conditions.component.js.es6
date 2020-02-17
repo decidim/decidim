@@ -18,11 +18,11 @@
 
     _getInputValue() {
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
-      const $textInput = $conditionWrapperField.find("textarea, input[type='text']"); // :not([name$=\\[custom_body\\]])
+      const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
 
       if ($textInput.length) { return $textInput.val(); }
 
-      let multipleInput = null;
+      let multipleInput = [];
 
       $conditionWrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
         const $label = $(el).find("label");
@@ -30,12 +30,12 @@
         console.log(idx + " CHECKED: " + checked);
 
         if (checked) {
-          // const $textField = $label.find("input[name$=\\[custom_body\\]]");
-          // const value = $textField.length ? $textField.val() : $label.find("input:not([type='hidden'])").val();
-          const id = $label.find("input[type='hidden']").val();
+          const $textField = $(el).find("input[name$=\\[custom_body\\]]");
+          const text = $textField.val();
           const value = $label.find("input:not([type='hidden'])").val();
+          const id = $label.find("input[type='hidden']").val();
 
-          multipleInput = { id, value };
+          multipleInput.push({ id, value, text });
         }
       });
 
@@ -44,8 +44,9 @@
 
     _getInputsToListen() {
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
+      const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
+
       $conditionWrapperField.attr("style", "background: #ccffaa");
-      const $textInput = $conditionWrapperField.find("textarea, input[type='text']");
 
       if ($textInput.length) { return $textInput; }
 
@@ -61,21 +62,23 @@
 
       switch (this.type) {
         case "answered":
-          if (simpleValue ? !!value : value.value) {
+          if (simpleValue ? !!value : !!value.some((v) => v.value)) {
             fulfilled = true;
           }
           break;
         case "not_answered":
-          if (simpleValue ? !value : !value.value) {
+          if (simpleValue ? !value : !value.some((v) => v.value)) {
             fulfilled = true;
           }
           break;
         case "equal":
+          fulfilled = value.length ? value.some((v) => v.id == this.answerOption) : false;
+          break;
         case "not_equal":
-          fulfilled = value ? value.id == this.answerOption : false;
+          fulfilled = value.length ? value.every((v) => v.id != this.answerOption) : true;
           break;
         case "match":
-          fulfilled = simpleValue ? value.match(this.value) : value.value.match(this.value);
+          fulfilled = simpleValue ? value.match(this.value) : value.some((v) => v.text ? v.text.match(this.value) : false);
           break;
       }
 
@@ -83,8 +86,6 @@
       else { this.onFulfilled(false); }
 
       console.log(`Fulfilled ${fulfilled}`); // # TODO: Remove logs 
-      console.log(this);
-      console.log("-----------------------");
     }
   }
 
