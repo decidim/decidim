@@ -5,6 +5,7 @@
         confirm_destroy: Er du sikker på at du vil slette dette?
         destroy: Slett
         edit: Editar
+        new: Nytt
         title: Handlinger
       admins:
         create:
