@@ -28,10 +28,12 @@
           title: Standard tittel for %{page}
       menu:
         admins: Adminer
+        dashboard: Skrivebord
         organizations: Organisasjoner
       models:
         admin:
           fields:
+            created_at: Opprettet på
             email: Epost
           name: Administrator
           validations:
@@ -40,6 +42,7 @@
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
+            created_at: Opprettet på
             name: Navn
             smtp_settings: SMTP innstillinger
           name: Organisasjon
@@ -66,3 +69,5 @@
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
           our_getting_started_guide: vår begynner guide
+      titles:
+        dashboard: Skrivebord
