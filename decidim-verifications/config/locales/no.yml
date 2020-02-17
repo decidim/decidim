@@ -13,9 +13,12 @@
         verification_attachment: Skannet kopi av dokumentet ditt
       offline_confirmation:
         email: Deltaker email
+      postal_letter_address:
+        full_address: Full adresse
       postal_letter_confirmation:
         verification_code: Verifiseringskode
       postal_letter_postage:
+        full_address: Full adresse
         verification_code: Verifiseringskode
   decidim:
     admin:
