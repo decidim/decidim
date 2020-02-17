@@ -95,6 +95,8 @@
         create:
           error: Det oppstod et problem med å lage en ny konsultasjon.
           success: Konsultasjonen ble opprettet.
+        edit:
+          update: Oppdater
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
           title: Generell informasjon
@@ -166,6 +168,8 @@
           success: Spørsmålet ble opprettet.
         destroy:
           success: Spørsmålet ble slettet.
+        edit:
+          update: Oppdater
         form:
           title: Generell informasjon
         index:
@@ -184,6 +188,8 @@
         destroy:
           error: Det oppstod et problem med å fjerne responsgruppen. Sjekk at ingen svar er avhengig av det.
           success: Responsgruppen ble slettet.
+        edit:
+          update: Oppdater
         form:
           title: Generell informasjon
         help: Bruk grupper til å organisere flere spørsmåls valg i pakker.
@@ -200,6 +206,8 @@
         destroy:
           error: Det oppstod et problem med å fjerne responsen.
           success: Svaret ble slettet.
+        edit:
+          update: Oppdater
         form:
           title: Generell informasjon
         new:
@@ -242,10 +250,12 @@
         finished: Fullført
         search: Søk
         state: Status
+        upcoming: Kommende
       filters_small_view:
         close_modal: Lukk vindu
         filter: Filter
         filter_by: Filtrer etter
+        unfold: Åpne
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
       index:
@@ -358,6 +368,7 @@
         start_voting_date: Stemming begynner
       question_components:
         question_menu_item: Spørsmålet
+        unfold: Åpne
       question_header:
         back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet
