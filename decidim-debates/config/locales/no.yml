@@ -4,6 +4,7 @@
       debate:
         category_id: Kategori
         decidim_category_id: Kategori
+        description: Beskrivelse
         information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
         title: Tittel
@@ -11,9 +12,15 @@
     models:
       decidim/debates/creation_disabled_event: Debatter deaktivert
       decidim/debates/creation_enabled_event: Debatter aktivert
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debatt
+        other: Debatter
   decidim:
     components:
       debates:
+        name: Debatter
         settings:
           global:
             announcement: Kunngjøring
@@ -25,6 +32,7 @@
     debates:
       actions:
         confirm_destroy: Er du sikker?
+        destroy: Slett
         edit: Editar
         title: Handlinger
       admin:
@@ -36,11 +44,16 @@
             success: Debatten ble slettet.
           edit:
             update: Oppdater debatt
+          index:
+            title: Debatter
           new:
             create: Opprett debatt
           update:
             invalid: Det oppstod et problem med å oppdatere denne debatten.
             success: Debatten ble oppdatert.
+        models:
+          debate:
+            name: Debatt
       admin_log:
         debate:
           create: "%{user_name} opprettet %{resource_name} debatten på %{space_name} rommet"
@@ -105,9 +118,12 @@
           description: Dette merket tildeles når du aktivt deltar i de forskjellige debattene ved å legge igjen kommentarene dine.
           description_another: Denne deltakeren har deltatt i %{score} debatter.
           description_own: Du har deltatt i %{score} debatter.
+          name: Debatter
           next_level_in: Delta i %{score} flere debatter for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i en debatt ennå.
           unearned_own: Du har ikke deltatt i noen debatter ennå.
     metrics:
       debates:
         description: Antall debatter opprettet
+        object: debatter
+        title: Debatter
