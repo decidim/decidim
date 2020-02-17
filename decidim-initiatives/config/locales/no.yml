@@ -10,6 +10,7 @@
         signature_start_date: Start av innsamlingsperiode for signatur
         signature_type: Signatur innsamingstype
         signature_type_values:
+          any: Blandet
           offline: Personlig
           online: Online
         state: Status
@@ -44,6 +45,9 @@
         name: Komplett navn
   activerecord:
     models:
+      decidim/initiative:
+        one: Initiativ
+        other: Initiativer
       decidim/initiative_comittee:
         one: Komité
         other: Komitér
@@ -63,12 +67,14 @@
             published: Publisert
             validating: Teknisk validering
       menu:
+        initiatives: Initiativer
         initiatives_types: Initiativtyper
       models:
         initiatives:
           fields:
             created_at: Opprettet på
             state: Status
+            title: Initiativer
         initiatives_type_scope:
           fields:
             scope: Omfang
@@ -92,6 +98,7 @@
             time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
+        initiatives: Initiativer
         initiatives_types: Initiativtyper
     events:
       initiatives:
@@ -142,6 +149,7 @@
             created_at: Opprettet på
             description: Beskrivelse
             initiative_votes_count: Stemmer teller
+            initiatives: Initiativer
             state: Stat
         committee_requests:
           index:
@@ -167,6 +175,10 @@
             title: Generell informasjon
           index:
             actions_title: Handling
+            preview: Forhåndsvis
+            print: Skriv ut
+          show:
+            print: Skriv ut
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -283,11 +295,14 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Initiativ påtegne av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble påtegnet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiativer
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett
           date_select:
             day: Dag
+            month: Måned
             year: År
           help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
@@ -343,7 +358,9 @@
         orders:
           label: 'Sorter initiativer etter:'
           most_commented: Mest kommentert
+          most_voted: Mest signert
           random: Tilfeldig
+          recent: Nyligst
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
@@ -395,6 +412,8 @@
         accepted: Aksepterte
         expired: Utløpt
       unavailable_scope: Utilgjengelig omfang
+    menu:
+      initiatives: Initiativer
     resources:
       initiatives_type:
         actions:
@@ -406,6 +425,7 @@
           attachments: Vedlegg
           committee_members: Komité medlemer
           components: Komponenter
+          information: Informasjon
       initiative_creation_header:
         back: Tilbake
         fill_data: Opprett
@@ -415,6 +435,8 @@
         show_similar_initiatives: Sammenlign
         step: Trinn %{current} av %{total}
         title: Opprett nytt initiativ
+      initiative_header:
+        initiative_menu_item: Initiativ
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
