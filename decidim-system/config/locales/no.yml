@@ -42,6 +42,7 @@
           fields:
             name: Navn
             smtp_settings: SMTP innstillinger
+          name: Organisasjon
       organizations:
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
