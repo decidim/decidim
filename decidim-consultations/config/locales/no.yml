@@ -215,6 +215,7 @@
       show:
         badge_name:
           finished: Fullført
+          open: Åpen
           published_results: Resulter publisert
         footer_button_text:
           debate: Debatt
@@ -238,6 +239,7 @@
       statistics:
         assistants_count_title: Assistenter
         comments_count_title: Kommentarer
+        meetings_count_title: Møter
       technical_info:
         technical_data: Tekniske data
       vote_button:
