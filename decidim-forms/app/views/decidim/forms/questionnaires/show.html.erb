@@ -46,7 +46,7 @@
                       
                       <% answer.question.display_conditions.each do |display_condition| %>
                         <%= content_tag :div, nil,  class: "display-condition", data: {
-                            id: display_condition,
+                            id: display_condition.id,
                             type: display_condition.condition_type,
                             condition: display_condition.decidim_condition_question_id,
                             option: display_condition.decidim_answer_option_id,

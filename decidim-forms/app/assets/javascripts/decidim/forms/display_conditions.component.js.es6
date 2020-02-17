@@ -18,7 +18,7 @@
 
     _getInputValue() {
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
-      const $textInput = $conditionWrapperField.find("textarea, input[type='text']");
+      const $textInput = $conditionWrapperField.find("textarea, input[type='text']"); // :not([name$=\\[custom_body\\]])
 
       if ($textInput.length) { return $textInput.val(); }
 
@@ -30,6 +30,8 @@
         console.log(idx + " CHECKED: " + checked);
 
         if (checked) {
+          // const $textField = $label.find("input[name$=\\[custom_body\\]]");
+          // const value = $textField.length ? $textField.val() : $label.find("input:not([type='hidden'])").val();
           const id = $label.find("input[type='hidden']").val();
           const value = $label.find("input:not([type='hidden'])").val();
 
@@ -95,7 +97,6 @@
     }
 
     _initializeConditions() {
-
       const $conditionElements = this.wrapperField.find(".display-condition");
 
       $conditionElements.each((idx, el) => {
@@ -117,13 +118,18 @@
       });
     }
 
+    _mustShow() {
+      const conditions = Object.values(this.conditions);
+      const mandatoryConditions = conditions.filter((c) => c.mandatory);
+      const nonMandatoryConditions = conditions.filter((c) => !c.mandatory);
+
+      return mandatoryConditions.length ? mandatoryConditions.every((c) => c.fulfilled) : nonMandatoryConditions.some((c) => c.fulfilled);
+    }
+
     _onFulfilled(id, fulfilled) {
       this.conditions[id].fulfilled = fulfilled;
 
-      const singleCondition = Object.keys(this.conditions).length == 1;
-      const mustShow = singleCondition ? fulfilled : Object.values(this.conditions).filter((c) => c.mandatory).every((c) => c.fulfilled);
-
-      if (mustShow) {
+      if (this._mustShow()) {
         this._showQuestion();
       }
       else {
