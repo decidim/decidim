@@ -15,6 +15,7 @@
         created_by_other: Opprettet av annet
         creation_date: Dato opprettet
         decidim_area_id: Område
+        description: Beskrivelse
         developer_group: Promotør gruppe
         internal_organisation: Intern organisasjon
         is_transparent: Er privat
@@ -36,6 +37,7 @@
       assembly_member:
         birthday: Fødselsdag
         birthplace: Fødested
+        ceased_date: Opphørt dato
         designation_date: Benevnelsesdato
         designation_mode: Benevnelsesmodus
       assembly_user_role:
@@ -71,6 +73,7 @@
           success: Forsamlingen ble duplisert.
       assembly_copies:
         new:
+          copy: Kopier
           select: Velg hvilke data du vil duplisere
           title: Dupliser forsamling
       assembly_members:
@@ -125,6 +128,7 @@
           name: Forsamling
         assembly_member:
           fields:
+            ceased_date: Opphørt dato
             designation_date: Benevnelsesdato
             full_name: Navn
           positions:
@@ -178,6 +182,7 @@
           index:
             filter:
               all: Alle
+              ceased: Opphørt
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
@@ -231,6 +236,7 @@
         answers_count: Svar
         assemblies_count: Forsamlinger
         comments_count: Kommentarer
+        debates_count: Debatter
         endorsements_count: Påtegnelser
         headline: Aktivitet
         pages_count: Sider
