@@ -9,9 +9,17 @@
         target_items: Antall forslag som skal velges (indikerer antall forslag du vil skal bli valgt ved å trekke mange av gruppen av forslag du har valgt tidligere)
         title: Tittel
         witnesses: Tilbaketrukket
+    models:
+      decidim/sortitions/create_sortition_event: Sortering
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortering
+        other: Sorteringer
   decidim:
     components:
       sortitions:
+        name: Sorteringer
         settings:
           global:
             comments_enabled: Kommentarer aktivert
@@ -22,6 +30,13 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
           email_subject: Ny sortering lagt til %{participatory_space_title}
           notification_title: Sorteringen <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sorteringer
+    participatory_processes:
+      statistics:
+        sortitions_count: Sorteringer
     sortitions:
       admin:
         actions:
@@ -41,6 +56,9 @@
               seed: Seed
               target_items: Gjenstander å velge
               title: Tittel
+            name:
+              one: Sortering
+              other: Sorteringer
         sortitions:
           confirm_destroy:
             confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
@@ -54,10 +72,13 @@
             success: Sorteringen ble avbrutt
           edit:
             title: Oppdater informasjonen om sorteringen
+            update: Oppdater
           form:
             all_categories: Alle kategorier
             select_proposal_component: Velg forslagets set
             title: Ny sortering for forslag
+          index:
+            title: Sorteringer
           new:
             confirm: Ved å trykke på neste knapp vil Decidim registrere dato og tid (med presisjon på sekunder) og sammen med terningkastet vil denne informasjonen bli brukt til å generere et tilfeldig valg. Denne handlingen vil ikke kunne gjøres om, når knappen er klikket blir resultatet av denne trekningen publisert, sammen med dataene som er lagt inn i dette skjemaet og ikke kan endres, vennligst sjekk innholdet nøye
             create: Opprett
@@ -89,6 +110,7 @@
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
+          unfold: Åpne
         linked_sortitions:
           selected_proposals: Utvalgte forslag
         orders:
