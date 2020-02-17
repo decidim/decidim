@@ -84,6 +84,10 @@
             'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
+        state_eq:
+          values:
+            evaluating: Vurderer
+            withdrawn: Tilbaketrukket
         state_null:
           label: Status
           values:
@@ -365,6 +369,7 @@
           form:
             accepted: Aksepterte
             answer_proposal: Svar
+            evaluating: Vurderer
             title: Svar for forslag %{title}
         proposal_notes:
           create:
@@ -417,6 +422,7 @@
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
             endorsements_ranking: Rankingliste av påtegninger
+            endorsers: Påtegnelser
             link: Lenke
             n_more_endorsers:
               one: og 1 til
