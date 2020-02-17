@@ -153,6 +153,7 @@
           success: Områdetype ble ødelagt
         edit:
           title: Rediger områdetype
+          update: Oppdater
         new:
           create: Opprett områdetype
           title: Ny områdetype
@@ -166,8 +167,13 @@
         destroy:
           has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
           success: Området ble ødelagt
+        edit:
+          title: Endre området
+          update: Oppdater
         new:
           create: Opprett område
+          title: Nytt område
+        no_areas: Ingen Områder
         update:
           error: Det oppstod et problem med å oppdatere dette området.
           success: Området ble oppdatert
@@ -177,6 +183,9 @@
           success: Mappen ble opprettet.
         destroy:
           success: Mappen ble ødelagt.
+        edit:
+          title: Rediger mappe
+          update: Oppdater
         index:
           attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
           attachment_collections_title: Vedleggsmapper
@@ -461,6 +470,8 @@
       organization:
         edit:
           title: Rediger organisasjon
+        form:
+          youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
