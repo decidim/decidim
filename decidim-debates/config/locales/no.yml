@@ -5,12 +5,14 @@
         category_id: Kategori
         decidim_category_id: Kategori
         description: Beskrivelse
+        end_time: Utløper den
         information_updates: Informasjons oppdateringer
         instructions: Instruksjoner for å delta
         start_time: Starter på
         title: Tittel
         user_group_id: Opprett debatt som
     models:
+      decidim/debates/create_debate_event: Debatt
       decidim/debates/creation_disabled_event: Debatter deaktivert
       decidim/debates/creation_enabled_event: Debatter aktivert
   activerecord:
@@ -21,6 +23,8 @@
   decidim:
     components:
       debates:
+        actions:
+          create: Opprett
         name: Debatter
         settings:
           global:
@@ -44,6 +48,7 @@
           destroy:
             success: Debatten ble slettet.
           edit:
+            title: Rediger debatt
             update: Oppdater debatt
           index:
             title: Debatter
@@ -81,12 +86,14 @@
           close_modal: Lukk modal
         new:
           back: Tilbake
+          create: Opprett
           select_a_category: Velg en kategori
       last_activity:
         new_debate_at_html: "<span>Ny debatt på %{link}</span>"
       models:
         debate:
           fields:
+            end_time: Sluttdato
             official_debate: Offisiell debatt
             title: Tittel
     events:
