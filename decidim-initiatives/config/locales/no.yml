@@ -50,6 +50,7 @@
           title_or_description_cont: Søk %{collection} etter tittel eller beskrivelse.
         state_eq:
           values:
+            accepted: Aksepterte
             discarded: Forkastet
             validating: Teknisk validering
       menu:
@@ -259,6 +260,8 @@
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett
+          date_select:
+            year: År
           help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
           back_to_initiative: Tilbake til initiativ
