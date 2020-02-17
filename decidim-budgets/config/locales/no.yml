@@ -23,6 +23,7 @@
             success: Prosjektet ble slettet
           index:
             finished_orders: Avsluttede stemmer
+            pending_orders: Ventende stemmer
           update:
             invalid: Det oppstod et problem med å oppdatere dette prosjektet
             success: Prosjektet ble oppdatert
