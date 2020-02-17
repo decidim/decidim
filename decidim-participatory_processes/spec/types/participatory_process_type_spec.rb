@@ -236,6 +236,19 @@ module Decidim
         end
       end
 
+      describe "categories" do
+        let(:category) { create(:category) }
+        let(:query) { "{ categories { id } }" }
+
+        before do
+          model.categories << category
+        end
+
+        it "returns its categories" do
+          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
+        end
+      end
+
       describe "participatoryProcessGroup" do
         let!(:group) { create(:participatory_process_group, participatory_processes: [model]) }
 
