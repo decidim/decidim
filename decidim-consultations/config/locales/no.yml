@@ -7,7 +7,9 @@
         description: Beskrivelse
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
+        questions: Spørsmål
         start_voting_date: Stemming begynner
+        subtitle: Undertittel
         title: Tittel
       question:
         banner_image: Bannerafbeelding
@@ -16,10 +18,15 @@
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
+        origin_scope: Omfang
+        origin_title: Opprinnelse
+        origin_url: Opprinnlig URL
         participatory_scope: Deltaker omfang
         promoter_group: Promotør gruppe
         question_context: Kontekst
+        reference: Referanse
         scope: Kommunalt område
+        subtitle: Undertittel
         title: Tittel
         vote: Eksternt stemmesystem
         what_is_decided: Hva er bestemt
@@ -43,6 +50,9 @@
       decidim/consultation:
         one: Konsultasjon
         other: Konsultasjoner
+      decidim/consultations/question:
+        one: Spørsmål
+        other: Spørsmål
   decidim:
     admin:
       actions:
@@ -74,6 +84,7 @@
           title: Generell informasjon
         index:
           not_published: Ikke publisert
+          published: Publisert
         new:
           title: Ny konsultasjon
         results:
@@ -85,6 +96,8 @@
           success: Konsultasjonen ble oppdatert.
       menu:
         consultations: Konsultasjoner
+        consultations_submenu:
+          questions: Spørsmål
         questions_submenu:
           components: Komponenter
           configuration: Konfigurasjon
@@ -92,13 +105,18 @@
       models:
         consultation:
           fields:
+            published: Publisert
             title: Tittel
           name:
             one: Konsultasjon
             other: Konsultasjoner
         question:
           fields:
+            published: Publisert
             title: Tittel
+          name:
+            one: Spørsmål
+            other: Spørsmål
         response:
           fields:
             title: Tittel
@@ -124,6 +142,7 @@
           title: Generell informasjon
         index:
           not_published: Ikke publisert
+          published: Publisert
         new:
           title: Nytt spørsmål
         update:
@@ -145,6 +164,7 @@
           success: Svaret ble oppdatert.
       titles:
         consultations: Konsultasjoner
+        questions: Spørsmål
     consultations:
       admin:
         content_blocks:
@@ -158,6 +178,7 @@
       consultations:
         orders:
           label: 'Sorter konsultasjoner etter:'
+          random: Tilfeldig
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner
@@ -169,6 +190,7 @@
         active: Aktiv
         all: Alle
         finished: Fullført
+        search: Søk
         state: Status
       filters_small_view:
         close_modal: Lukk vindu
@@ -190,6 +212,7 @@
               other: Avstemmingen slutter om <strong>%{count} dager</strong>
             voting_ends_today: Avstemmingen slutter <strong>i dag</strong>
       question:
+        take_part: Delta
         view_results: Vis resultater
       question_multiple_votes:
         results_rules:
@@ -216,6 +239,7 @@
         badge_name:
           finished: Fullført
           open: Åpen
+          open_votes: Åpne stemmer
           published_results: Resulter publisert
         footer_button_text:
           debate: Debatt
@@ -236,6 +260,8 @@
     questions:
       next_button: Neste spørsmål
       previous_button: Forrige spørsmål
+      show:
+        read_more: Les mer
       statistics:
         assistants_count_title: Assistenter
         comments_count_title: Kommentarer
