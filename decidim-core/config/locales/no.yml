@@ -844,6 +844,7 @@
           how_to_participate: Hvordan deltar jeg i en prosess?
           meetings: Møter
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
+          more_info: Mer info
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
@@ -866,6 +867,7 @@
           meetings_count: Møter
           orders_count: Stemmer
           pages_count: Sider
+          processes_count: Prosesser
           proposals_accepted: Godkjente Forslag
           proposals_count: Forslag
           surveys_count: Undersøkelse
@@ -982,6 +984,7 @@
         embed: Lim inn denne koden på siden din
         embed_link: Bedde inn
       extended_navigation_bar:
+        more: Mer
         unfold: Åpne
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
@@ -1207,6 +1210,7 @@
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
       header:
         close_menu: Lukk meny
+        navigation: Navigasjon
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1217,11 +1221,13 @@
         admin_dashboard: Admin hovedpanel
         conversations: Samtaler
         notifications: Varsler
+        profile: Min konto
         public_profile: Min offentlige profil
       user_profile:
         account: Konto
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
+        my_data: Min data
         my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
