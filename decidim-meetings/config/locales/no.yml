@@ -39,6 +39,11 @@
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
       decidim/meetings/update_meeting_event: Møtet oppdatert
+  activerecord:
+    models:
+      decidim/meetings/registration:
+        one: Registrering
+        other: Registreringer
   decidim:
     admin:
       meeting_copies:
@@ -294,6 +299,8 @@
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
+      meetings_map:
+        view_meeting: Vis møte
       models:
         invite:
           fields:
