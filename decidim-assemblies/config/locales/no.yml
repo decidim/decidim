@@ -59,6 +59,8 @@
         create:
           error: Det oppstod et problem med å lage en ny forsamling.
           success: Forsamling ble opprettet.
+        index:
+          not_published: Ikke publisert
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
