@@ -25,6 +25,7 @@
       minutes:
         audio_url: Audio url
         description: Beskrivelse
+        visible: Er synlig
     errors:
       models:
         meeting_agenda:
@@ -59,6 +60,8 @@
           title: Duplisert møte
     components:
       meetings:
+        actions:
+          join: Bli med
         settings:
           global:
             announcement: Kunngjøring
@@ -174,6 +177,7 @@
           form:
             attendee_type: Deltakertype
             existing_user: Eksisterende deltaker
+            invite: Inviter
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
             non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
@@ -182,6 +186,7 @@
               accepted: Aksepterte
               all: Alle
             invite_attendee: Inviter deltaker
+            invites: Invitasjoner
             registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
         meeting_closes:
           edit:
@@ -231,6 +236,7 @@
             validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            invites: Invitasjoner
             registration_form: Registreingsskjema
             registrations_count:
               one: Det har vært %{count} registrering.
@@ -305,6 +311,7 @@
           attendees: Antall deltakere
           contributions: Bidrag teller
           going: Skal
+          join: Bli med på møte
           meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
