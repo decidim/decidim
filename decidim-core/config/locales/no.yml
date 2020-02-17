@@ -615,6 +615,7 @@
           description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
           description_another: Denne deltakeren har invitert %{score} folk.
           description_own: Du har invitert %{score} folk.
+          name: Invitasjoner
           next_level_in: Inviter %{score} flere folk for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke invitert noen ennå.
           unearned_own: Du har ikke invitert noen ennå.
@@ -638,6 +639,7 @@
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
       index:
+        invite: Inviter
         invite_user: Inviter en deltaker
       invite:
         error: Det oppstod et problem med å invitere denne deltakeren
@@ -881,6 +883,7 @@
         badges: Merker
         followers: Følgere
         following: Følger
+        groups: Grupper
         view_full_profile: Vis hele profilen
       sidebar:
         badges:
@@ -1178,6 +1181,7 @@
         my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
+        user_groups: Grupper
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
@@ -1193,6 +1197,7 @@
     email: Epost
     google_bookmark: Google-Bokmerker
     google_plus: Google+
+    hacker_news: Hacker Nyheter
     linkedin: Linkedin
     share_to: Del til %{name}
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
