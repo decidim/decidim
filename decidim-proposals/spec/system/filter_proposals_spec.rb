@@ -559,13 +559,12 @@ describe "Filter Proposals", type: :system do
   end
 
     context "when using the browser history", :slow do
-      let(:proposals) { create_list(:proposal, 2, component: component) }
-      let(:official_proposals) { create_list(:proposal, 2, :official, component: component) }
-      let(:accepted_proposals) { create_list(:proposal, 2, :official, :accepted, component: component) }
-      let(:rejected_proposals) { create_list(:proposal, 2, :official, :rejected, component: component) }
 
       before do
-        proposals && official_proposals && accepted_proposals && rejected_proposals
+        create_list(:proposal, 2, component: component)
+        create_list(:proposal, 2, :official, component: component)
+        create_list(:proposal, 2, :official, :accepted, component: component)
+        create_list(:proposal, 2, :official, :rejected, component: component)
 
         visit_component
       end
