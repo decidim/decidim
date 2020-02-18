@@ -23,8 +23,8 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
-              render action: "edit"
+              flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
+              redirect_to proposal_path(id: proposal.id)
             end
           end
         end
