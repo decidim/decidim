@@ -28,6 +28,7 @@ en:
         scope_type_max_depth_id: Scope filter depth
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_metrics: Show metrics
         show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
@@ -392,17 +393,20 @@ en:
         comments_count: Comments
         debates_count: Debates
         endorsements_count: Endorsements
-        headline: Activity
+        followers_count: Followers
+        headline: Statistics
         meetings_count: Meetings
+        no_stats: There are no statistics yet.
         orders_count: Supports
         pages_count: Pages
+        participants_count: Participants
         processes_count: Processes
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
+        supports_count: Supports
         surveys_count: Surveys
         users_count: Participants
-        votes_count: Supports
   layouts:
     decidim:
       participatory_process_groups:
