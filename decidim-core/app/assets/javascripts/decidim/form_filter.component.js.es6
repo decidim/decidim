@@ -11,7 +11,7 @@
       this.$form = $form;
       this.id = this.$form.attr("id") || this._getUID();
       this.mounted = false;
-      this.change_events = true;
+      this.changeEvents = true;
 
       this._updateInitialState();
       this._onFormChange = exports.delayed(this, this._onFormChange.bind(this));
@@ -179,7 +179,7 @@
      * @returns {Void} - Returns nothing.
      */
     _onPopState(state) {
-      this.change_events = false;
+      this.changeEvents = false;
       this._clearForm();
 
       const filterParams = this._parseLocationFilterValues();
@@ -200,14 +200,14 @@
           } else {
             this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
               switch (element.type) {
-                case 'hidden':
-                  break;
-                case 'radio':
-                case 'checkbox':
-                  element.checked = value == element.value;
-                  break;
-                default:
-                  element.value = value;
+              case "hidden":
+                break;
+              case "radio":
+              case "checkbox":
+                element.checked = value === element.value;
+                break;
+              default:
+                element.value = value;
               }
             });
           }
@@ -227,7 +227,7 @@
         exports.Rails.fire(this.$form[0], "submit");
       }
 
-      this.change_events = true;
+      this.changeEvents = true;
     }
 
     /**
@@ -235,12 +235,16 @@
      * @private
      * @returns {Void} - Returns nothing.
      */
-    _onFormChange(replace) {
-      if (!this.change_events) return;
+    _onFormChange() {
+      if (!this.changeEvents) {
+        return;
+      }
 
       const [newUrl, newState] = this._currentStateAndUrl();
 
-      if (newUrl == window.location.pathname + window.location.search + window.location.hash) return;
+      if (newUrl === window.location.pathname + window.location.search + window.location.hash) {
+        return;
+      }
 
       exports.Rails.fire(this.$form[0], "submit");
       exports.Decidim.History.pushState(newUrl, newState);

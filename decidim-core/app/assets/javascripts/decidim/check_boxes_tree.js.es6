@@ -86,7 +86,7 @@
     }
 
     /**
-     * Update global checkboxes state when the currention selection changes
+     * Update global checkboxes state when the current selection changes
      * @private
      * @returns {Void} - Returns nothing.
      */
@@ -133,7 +133,7 @@
     }
 
     /**
-     * Update children checkboxes state when the currention selection changes
+     * Update children checkboxes state when the current selection changes
      * @private
      * @param {Input} input - the checkbox to check its parent
      * @returns {Void} - Returns nothing.
