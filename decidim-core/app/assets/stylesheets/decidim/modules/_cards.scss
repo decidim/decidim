@@ -402,7 +402,8 @@ $datetime-bg: var(--primary);
 .card__link{
   color: $anchor-color;
 
-  &:hover{
+  &:hover,
+  &:focus{
     color: $anchor-color;
     text-decoration: underline;
   }
