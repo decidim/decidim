@@ -23,6 +23,7 @@ module Decidim
         let(:decidim_question_id) { question&.id }
         let(:answer_option) { create(:answer_option, question: condition_question) }
         let(:decidim_answer_option_id) { answer_option&.id }
+        let(:questionnaire) { question.questionnaire }
 
         let(:condition_type) { :answered }
         let(:condition_value) do
@@ -106,6 +107,25 @@ module Decidim
             let!(:answer_option) { nil }
 
             it { expect(subject.answer_options).to be_empty }
+          end
+        end
+
+        describe "#questions_for_select" do
+          let(:questions_for_select) { subject.questions_for_select(questionnaire) }
+
+          it "returns an array of arrays containing translated body, id, and a hash" do
+            expect(questions_for_select.first.first).to eq(questionnaire.questions.first.translated_body)
+            expect(questions_for_select.first.second).to eq(questionnaire.questions.first.id)
+            expect(questions_for_select.first.third).to be_a(Hash)
+          end
+
+          it "attaches a 'data-type' attribute to every question with its question_type" do
+            expect(questions_for_select.map { |q| q.last["data-type"] }).to contain_exactly(*questionnaire.questions.pluck(:question_type))
+          end
+
+          it "disables current question" do
+            this_question = questions_for_select.find { |q| q.second == decidim_question_id }
+            expect(this_question.last["disabled"]).to be true
           end
         end
 
