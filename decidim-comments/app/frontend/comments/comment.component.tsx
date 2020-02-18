@@ -179,6 +179,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private countReplies = (comment: CommentFragment): number => {
     const { comments } = comment;
 
+    if (!comments) {
+      return 0;
+    }
+
     return comments.length + comments.map(this.countReplies).reduce((a: number, b: number) => a + b, 0);
   }
 

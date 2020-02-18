@@ -113,6 +113,25 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
+    context "when it is a proposal with card image enabled" do
+      let!(:component) do
+        create(:proposal_component,
+               :with_card_image_allowed,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      let!(:proposal) { create(:proposal, component: component) }
+      let!(:image) { create(:attachment, attached_to: proposal) }
+
+      it "shows the card image" do
+        visit_component
+        within "#proposal_#{proposal.id}" do
+          expect(page).to have_selector(".card__image")
+        end
+      end
+    end
+
     context "when it is an official meeting proposal" do
       include_context "with rich text editor content"
       let!(:proposal) { create(:proposal, :official_meeting, body: content, component: component) }
@@ -203,7 +222,7 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        choose "Rejected", name: "filter[state]"
+        check "Rejected"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
