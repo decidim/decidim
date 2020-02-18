@@ -83,7 +83,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     display: inline-flex;
   }
 
-  button:hover, button:focus{
+  button:hover,
+  button:focus{
     background-color: $secondary;
     transition: .6s;
     border-color: $secondary;
@@ -180,7 +181,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
         padding: .5rem;
         color: $anchor-color;
 
-        &:hover, &:focus{
+        &:hover,
+        &:focus{
           color: lighten($body-font-color, 20);
           text-decoration: underline;
         }
@@ -190,7 +192,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
         border-bottom: $border;
       }
 
-      &:hover, &:focus{
+      &:hover,
+      &:focus{
         cursor: pointer;
         background-color: rgba(var(--secondary-rgb), .05);
         text-decoration: underline;
@@ -233,7 +236,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     left: .5rem;
     margin-left: 0;
 
-    &:hover, &:focus{
+    &:hover,
+    &:focus{
       text-decoration: underline;
     }
 
@@ -242,7 +246,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
       right: 10px;
       margin-top: 0;
 
-      &:hover, &:focus{
+      &:hover,
+      &:focus{
         text-decoration: underline;
       }
     }
@@ -347,7 +352,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     color: $medium-gray;
     font-weight: 600;
 
-    &:hover, &:focus{
+    &:hover,
+    &:focus{
       color: $anchor-color;
       text-decoration: underline;
     }
@@ -383,7 +389,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__edit__link a{
   color: $medium-gray;
 
-  &:hover, &:focus{
+  &:hover,
+  &:focus{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
     text-decoration: underline;
@@ -407,7 +414,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     padding: 1em 2em;
     color: $navbar-color;
 
-    &:hover, &:focus{
+    &:hover,
+    &:focus{
       background: $navbar-bg-hover;
       color: $navbar-color-hover;
       text-decoration: underline;
@@ -449,7 +457,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding: 1em 2em;
   color: $navbar-color;
 
-  &:hover, &:focus{
+  &:hover,
+  &:focus{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
     text-decoration: underline;
