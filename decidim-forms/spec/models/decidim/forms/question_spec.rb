@@ -18,7 +18,7 @@ module Decidim
         expect(subject.questionnaire).to eq(questionnaire)
       end
 
-      it "has an association of question_conditions" do
+      it "has an association of display_conditions" do
         expect(subject.display_conditions).to contain_exactly(*display_conditions)
       end
 

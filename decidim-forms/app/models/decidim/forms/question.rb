@@ -20,10 +20,9 @@ module Decidim
                dependent: :destroy,
                inverse_of: :question
 
-      # TODO: is this below necessary?
       has_many :display_conditions_for_other_questions,
                class_name: "DisplayCondition",
-               foreign_key: "decidim_question_id",
+               foreign_key: "decidim_condition_question_id",
                dependent: :destroy,
                inverse_of: :question
 
