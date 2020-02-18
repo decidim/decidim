@@ -46,7 +46,7 @@
       const $conditionWrapperField = $(`.question[data-question-id='${this.conditionQuestion}']`);
       const $textInput = $conditionWrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])");
 
-      $conditionWrapperField.attr("style", "background: #ccffaa");
+      $conditionWrapperField.attr("style", "background: #ccffaa"); // # TODO: Remove debug line
 
       if ($textInput.length) { return $textInput; }
 
@@ -75,10 +75,12 @@
           fulfilled = value.length ? value.some((v) => v.id == this.answerOption) : false;
           break;
         case "not_equal":
-          fulfilled = value.length ? value.every((v) => v.id != this.answerOption) : true;
+          fulfilled = value.length ? value.every((v) => v.id != this.answerOption) : false;
           break;
         case "match":
-          fulfilled = simpleValue ? value.match(this.value) : value.some((v) => v.text ? v.text.match(this.value) : false);
+          const regexp = new RegExp(this.value, "i");
+          const match = simpleValue ? value.match(regexp) : value.some((v) => v.text ? v.text.match(regexp) : v.value.match(regexp));
+          fulfilled = !!match;
           break;
       }
 
@@ -92,8 +94,8 @@
   class DisplayConditionsComponent {
     constructor(options = {}) {
       this.wrapperField = options.wrapperField;
-      this.wrapperField.attr("style", "background: #ffaacc"); // DEBUG
       this.conditions = {};
+      this.showCount = 0;
       this._initializeConditions();
     }
 
@@ -139,14 +141,15 @@
     }
 
     _showQuestion() {
-      this.wrapperField.removeClass("question-hidden");
-      this.wrapperField.attr("style", "opacity: 1");
+      this.wrapperField.fadeIn();
       this.wrapperField.find("input, textarea").prop("disabled", null);
+      this.showCount++;
     }
 
     _hideQuestion() {
-      this.wrapperField.addClass("question-hidden");
-      this.wrapperField.attr("style", "opacity: 0.5");
+      if (this.showCount) this.wrapperField.fadeOut();
+      else this.wrapperField.hide();
+
       this.wrapperField.find("input, textarea").prop("disabled", "disabled");
     }
   }
