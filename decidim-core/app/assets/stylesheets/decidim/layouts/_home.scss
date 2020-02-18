@@ -209,6 +209,10 @@
   color: var(--primary);
   display: inline-block;
 
+  &:focus{
+    text-decoration: underline;
+  }
+
   .icon{
     vertical-align: -1px;
   }
