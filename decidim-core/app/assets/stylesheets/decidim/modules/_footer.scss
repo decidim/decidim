@@ -10,8 +10,10 @@ $footer-bg: $black;
   a{
     color: darken($medium-gray, 40%);
 
-    &:hover{
+    &:hover,
+    &:focus{
       color: darken($medium-gray, 20%);
+      text-decoration: underline;
     }
   }
 }
