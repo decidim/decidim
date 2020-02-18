@@ -38,13 +38,13 @@ module Decidim
           condition_question.answer_options
         end
 
-        def questions_for_select(questionnaire, position)
-          questionnaire.questions.previous_to(position).map do |question|
+        def questions_for_select(questionnaire)
+          questionnaire.questions.map do |question|
             [
               question.translated_body,
               question.id,
               {
-                "disabled" => question.question_type == "sorting",
+                "disabled" => (question.question_type == "sorting" || question.id == decidim_question_id),
                 "data-type" => question.question_type
               }
             ]
