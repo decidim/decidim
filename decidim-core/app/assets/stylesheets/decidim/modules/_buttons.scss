@@ -158,12 +158,40 @@
 .button--icon{
   display: flex;
   align-items: center;
+  position: relative;
+
+  .icon-wrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: .85em;
+    border-right: 1px solid var(--secondary);
+    height: 100%;
+    min-width: 3.5em;
+    white-space: no-wrap;
+    padding-right: 5px;
+
+    .icon{
+      margin: 0;
+      vertical-align: bottom;
+    }
+  }
+
+  .text-wrap{
+    display: block;
+    margin-left: 2rem;
+  }
 
   .icon{
     margin: 0 2px;
   }
 
   &.small{
+    .icon-wrap{
+      padding: .5rem;
+      min-width: 2.5rem;
+    }
+
     .icon{
       width: 12px;
       height: 12px;
