@@ -116,13 +116,19 @@ module Decidim
           html.join(" ").html_safe
         end
 
-        def proposal_tr_tooltip(proposal)
-          i18n_key = if allowed_to?(:create, :proposal_answer) && !proposal.emendation?
-            :answer_proposal
-          else
-            :show
-          end
-          t(i18n_key, scope: "decidim.proposals.actions")
+        def icon_link_to_proposal_tr(proposal)
+          icon, tooltip = if allowed_to?(:create, :proposal_answer) && !proposal.emendation?
+                            [
+                              "comment-square",
+                              t(:answer_proposal, scope: "decidim.proposals.actions")
+                            ]
+                          else
+                            [
+                              "info",
+                              t(:show, scope: "decidim.proposals.actions")
+                            ]
+                          end
+          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small")
         end
       end
     end
