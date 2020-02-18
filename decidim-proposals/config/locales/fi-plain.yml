@@ -427,7 +427,15 @@ fi-pl:
             endorsements_ranking: Luokittelu suositusten mukaan
             endorsers: Suosittelijat
             link: Linkki
+            n_more_endorsers:
+              one: ja 1 muu
+              other: ja %{count} muuta
+            photos: Kuvat
+            proposals: Ehdotukset
+            ranking: "%{ranking} / %{total}"
+            related_meetings: Liittyvät tapahtumat
             votes_count: Äänten määrä
+            votes_ranking: Luokittelu suositusten mukaan
           update_category:
             invalid: 'Näissä ehdotuksissa oli jo aihepiiri %{category}: %{proposals}.'
             select_a_category: Valitse aihepiiri
@@ -464,16 +472,21 @@ fi-pl:
         rejected: Hylätty
         withdrawn: Peruutettu
       application_helper:
+        filter_category_values:
+          all: Kaikki
         filter_origin_values:
           all: Kaikki
           citizens: Kansalaiset
           meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät
+        filter_scope_values:
+          all: Kaikki
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
           evaluating: Arvioitavana
+          not_answered: Vastaamaton
           rejected: Hylätty
         filter_type_values:
           all: Kaikki
@@ -525,6 +538,7 @@ fi-pl:
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
+          scope: Teema
           search: Hae
           state: Tila
           withdrawn: Peruttu
@@ -678,8 +692,10 @@ fi-pl:
           my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
+          scope: Teema
           search: Haku
           state: Tila
+          type: Tyyppi
           voted: Äänestetty
         filters_small_view:
           close_modal: Sulje ikkuna
