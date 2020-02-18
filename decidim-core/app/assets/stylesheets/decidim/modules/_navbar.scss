@@ -83,18 +83,17 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     display: inline-flex;
   }
 
-  button:hover{
+  button:hover, button:focus{
     background-color: $secondary;
     transition: .6s;
     border-color: $secondary;
+    text-decoration: underline;
 
     svg{
       color: white;
     }
   }
 }
-
-
 
 /* Top bar */
 .topbar{
@@ -181,8 +180,9 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
         padding: .5rem;
         color: $anchor-color;
 
-        &:hover{
+        &:hover, &:focus{
           color: lighten($body-font-color, 20);
+          text-decoration: underline;
         }
       }
 
@@ -190,9 +190,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
         border-bottom: $border;
       }
 
-      &:hover{
+      &:hover, &:focus{
         cursor: pointer;
         background-color: rgba(var(--secondary-rgb), .05);
+        text-decoration: underline;
       }
     }
   }
@@ -232,10 +233,18 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     left: .5rem;
     margin-left: 0;
 
+    &:hover, &:focus{
+      text-decoration: underline;
+    }
+
     .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
       border-width: 3px;
       right: 10px;
       margin-top: 0;
+
+      &:hover, &:focus{
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -338,8 +347,9 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     color: $medium-gray;
     font-weight: 600;
 
-    &:hover{
+    &:hover, &:focus{
       color: $anchor-color;
+      text-decoration: underline;
     }
   }
 
@@ -373,9 +383,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__edit__link a{
   color: $medium-gray;
 
-  &:hover{
+  &:hover, &:focus{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
+    text-decoration: underline;
   }
 }
 
@@ -396,9 +407,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     padding: 1em 2em;
     color: $navbar-color;
 
-    &:hover{
+    &:hover, &:focus{
       background: $navbar-bg-hover;
       color: $navbar-color-hover;
+      text-decoration: underline;
     }
   }
 }
@@ -442,7 +454,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     color: $navbar-color-hover;
     text-decoration: underline;
   }
-
 
   @include breakpoint(medium){
     padding: .75em 2em;
