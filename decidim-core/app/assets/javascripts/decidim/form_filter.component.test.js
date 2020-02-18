@@ -2,8 +2,10 @@
 /* eslint-disable id-length */
 window.$ = require("jquery");
 
+require("./delayed.js.es6");
 require("./history.js.es6");
 require("./data_picker.js.es6");
+require("./check_boxes_tree.js.es6");
 require("./form_filter.component.js.es6");
 
 const { Decidim: { FormFilterComponent } } = window;
@@ -11,7 +13,7 @@ const { Decidim: { FormFilterComponent } } = window;
 describe("FormFilterComponent", () => {
   const selector = "form#new_filter";
   let subject = null;
-  let scopesPickerState = {filter_scope_id: [{ url: "picker_url_3", value: 3, text: "Scope 3"}, { url: "picker_url_4", value: 4, text: "Scope 4"}]} // eslint-disable-line camelcase
+  let scopesPickerState = {filter_somerandomid_scope_id: [{ url: "picker_url_3", value: 3, text: "Scope 3"}, { url: "picker_url_4", value: 4, text: "Scope 4"}]} // eslint-disable-line camelcase
 
   beforeEach(() => {
     let form = `
@@ -38,11 +40,38 @@ describe("FormFilterComponent", () => {
             <option value="2">Category 2</option>
           </select>
         </fieldset>
+
+        <fieldset>
+          <input type="hidden" name="filter[state][]" id="filter_state_" value="">
+          <label data-global-checkbox="" for="filter_state_all">
+            <input data-checkboxes-tree="state-options" is_root_check_box="true" value="" type="checkbox" name="filter[state][]" id="filter_state_all" class="ignore-filter">
+            All
+          </label>
+          <div id="state-options" class="filters__subfilters ">
+            <label data-children-checkbox="" for="filter_state_accepted">
+              <input value="accepted" type="checkbox" name="filter[state][]" id="filter_state_accepted" class="ignore-filter">
+              Accepted
+            </label>
+            <label data-children-checkbox="" for="filter_state_evaluating">
+              <input value="evaluating" type="checkbox" name="filter[state][]" id="filter_state_evaluating" class="ignore-filter">
+              Evaluating
+            </label>
+            <label data-children-checkbox="" for="filter_state_not_answered">
+              <input value="not_answered" type="checkbox" name="filter[state][]" id="filter_state_not_answered" class="ignore-filter">
+              Not answered
+            </label>
+            <label data-children-checkbox="" for="filter_state_rejected">
+              <input value="rejected" type="checkbox" name="filter[state][]" id="filter_state_rejected" class="ignore-filter">
+              Rejected
+            </label>
+          </div>
+        </fieldset>
       </form>
     `;
     $("body").append(form);
 
     window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+    window.theCheckBoxesTree = new window.Decidim.CheckBoxesTree();
     subject = new FormFilterComponent($(document).find("form"));
   });
 
@@ -90,13 +119,18 @@ describe("FormFilterComponent", () => {
       });
 
       it("sets the correct form fields based on the current location", () => {
-        spyOn(subject, "_getLocation").and.returnValue("/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2");
+        const path = "/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2&filter[state][]=&filter[state][]=accepted&filter[state][]=evaluating";
+        spyOn(subject, "_getLocation").and.returnValue(path);
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
-        expect($(selector).find("select#filter_category_id").val()).toEqual("2");
-        expect($(`${selector} #filter_scope_id .picker-values div input`).map(function(_index, input) {
+        expect($(selector).find("select#filter_somerandomid_category_id").val()).toEqual("2");
+        expect($(`${selector} #filter_somerandomid_scope_id .picker-values div input`).map(function(_index, input) {
           return $(input).val();
         }).get()).toEqual(["3", "4"]);
+
+        let checked = Array.from($(`${selector} input[name="filter[state][]"]:checked`));
+        expect(checked.map((input) => input.value)).toEqual(["", "accepted", "evaluating"]);
+        expect(checked.filter((input) => input.indeterminate).map((input) => input.value)).toEqual([""]);
       });
     });
   });

@@ -99,9 +99,7 @@
         const checkedInputs = document.querySelectorAll(
           `#${checksContext} input[type='checkbox']:checked`
         );
-        const indeterminateInputs = document.querySelectorAll(
-          `#${checksContext} input[type='checkbox']:indeterminate`
-        );
+        const indeterminateInputs = Array.from(checkedInputs).filter((checkbox) => checkbox.indeterminate)
 
         if (checkedInputs.length === 0) {
           global.checked = false;
@@ -154,9 +152,7 @@
       const checkedSiblings = document.querySelectorAll(
         `#${checkBoxContext} > [data-children-checkbox] > input:checked`
       );
-      const indeterminateSiblings = document.querySelectorAll(
-        `#${checkBoxContext} > [data-children-checkbox] > input:indeterminate`
-      );
+      const indeterminateSiblings = Array.from(checkedSiblings).filter((checkbox) => checkbox.indeterminate)
 
       if (checkedSiblings.length === 0) {
         parentCheck.checked = false;
