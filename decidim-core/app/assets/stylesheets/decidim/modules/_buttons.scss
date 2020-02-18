@@ -41,7 +41,8 @@
     color: var(--primary);
     border-color: var(--primary);
 
-    &:hover{
+    &:hover,
+    &:focus{
       text-decoration: underline;
     }
   }
