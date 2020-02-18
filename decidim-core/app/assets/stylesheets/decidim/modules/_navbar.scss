@@ -438,11 +438,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding: 1em 2em;
   color: $navbar-color;
 
-  &:hover{
+  &:hover, &:focus{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
     text-decoration: underline;
   }
+
 
   @include breakpoint(medium){
     padding: .75em 2em;
