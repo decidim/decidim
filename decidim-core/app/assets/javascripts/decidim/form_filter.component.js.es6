@@ -58,17 +58,7 @@
           this.currentFormRequest = e.originalEvent.detail[0];
         });
 
-        this.$form.on("ajax:before", () => {
-          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
-            elem.disabled = true;
-          });
-        });
-
-        this.$form.on("ajax:send", () => {
-          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
-            elem.disabled = false;
-          });
-        });
+        exports.theCheckBoxesTree.setContainerForm(this.$form);
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
@@ -206,11 +196,7 @@
 
           if (Array.isArray(value)) {
             let checkboxes = this.$form.find(`input[type=checkbox][name="filter[${fieldName}][]"]`);
-            checkboxes.each((index, element) => {
-              if ((element.value === "" && value.length === 1) || (element.value !== "" && value.includes(element.value))) {
-                window.theCheckBoxesTree.Check(element);
-              }
-            });
+            window.theCheckBoxesTree.updateChecked(checkboxes, value);
           } else {
             this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
               switch (element.type) {

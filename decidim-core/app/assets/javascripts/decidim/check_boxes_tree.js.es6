@@ -30,15 +30,40 @@
     }
 
     /**
-     * Set input as checked
+     * Set checkboxes as checked if included in given values
      * @public
-     * @param {Input} input - the checkbox to check
+     * @param {Array} checkboxes - array of checkboxs to check
+     * @param {Array} values - values of checkboxes that should be checked
      * @returns {Void} - Returns nothing.
      */
-    Check(input) {
-      input.checked = true;
-      this.checkTheCheckBoxes(input);
-      this.checkTheCheckParent(input);
+    updateChecked(checkboxes, values) {
+      checkboxes.each((index, checkbox) => {
+        if ((checkbox.value === "" && values.length === 1) || (checkbox.value !== "" && values.includes(checkbox.value))) {
+          checkbox.checked = true;
+          this.checkTheCheckBoxes(checkbox);
+          this.checkTheCheckParent(checkbox);
+        }
+      });
+    }
+
+    /**
+     * Set the container form(s) for the component, to disable ignored filters before submitting them
+     * @public
+     * @param {query} theForm - form or forms where the component will be used
+     * @returns {Void} - Returns nothing.
+     */
+    setContainerForm(theForm) {
+      theForm.on("submit ajax:before", () => {
+        theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+          elem.disabled = true;
+        });
+      });
+
+      theForm.on("ajax:send", () => {
+        theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+          elem.disabled = false;
+        });
+      });
     }
 
     /**
