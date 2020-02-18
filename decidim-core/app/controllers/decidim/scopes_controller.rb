@@ -8,21 +8,33 @@ module Decidim
     def picker
       enforce_permission_to :pick, :scope
 
-      context = root ? { root: root.id, title: title } : { title: title }
+      context = root ? { root: root.id, title: title, max_depth: max_depth } : { title: title, max_depth: max_depth }
       required = params[:required] && params[:required] != "false"
-      current = (root&.descendants || current_organization.scopes).find_by(id: params[:current]) if params[:current].present?
 
       if current
-        scopes = current.children
+        scopes = current.children unless scope_depth_limit?
         parent_scopes = current.part_of_scopes(root)
       else
-        current = root
-        scopes = root&.children || current_organization.scopes.top_level
+        scopes = root&.children || current_organization.scopes.top_level unless scope_depth_limit?
+
         parent_scopes = [root].compact
       end
 
-      render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),
-                                             parent_scopes: parent_scopes, global_value: params[:global_value], context: context }
+      render(
+        :picker,
+        layout: nil,
+        locals: {
+          required: required,
+          title: title,
+          root: root,
+          current: (current || root),
+          scopes: scopes&.order(name: :asc),
+          parent_scopes: parent_scopes,
+          global_value: params[:global_value],
+          max_depth: max_depth,
+          context: context
+        }
+      )
     end
 
     private
@@ -35,6 +47,28 @@ module Decidim
       return if params[:root].blank?
 
       @root ||= current_organization.scopes.find(params[:root])
+    end
+
+    def current
+      return if params[:current].blank?
+
+      @current ||= (root&.descendants || current_organization.scopes).find_by(id: params[:current])
+    end
+
+    def filter_scope_depth?
+      @filter_scope_depth ||= params[:max_depth].present?
+    end
+
+    def scope_depth_limit?
+      return unless filter_scope_depth?
+
+      @scope_depth_limit ||= current&.scope_type == max_depth
+    end
+
+    def max_depth
+      return unless filter_scope_depth?
+
+      @max_depth ||= current_organization.scope_types.find(params[:max_depth])
     end
   end
 end

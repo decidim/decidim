@@ -12,6 +12,20 @@
       <div class="row column">
         <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
       </div>
+
+      <% if current_component.current_settings.answers_with_costs? %>
+        <div class="row column">
+          <%= f.number_field :cost %>
+        </div>
+
+        <div class="row column">
+          <%= f.translated :editor, :cost_report, lines: 12 %>
+        </div>
+
+        <div class="row column">
+          <%= f.translated :editor, :execution_period, lines: 12 %>
+        </div>
+      <% end %>
     </div>
   </div>
 
