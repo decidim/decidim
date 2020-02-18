@@ -53,6 +53,7 @@ module Decidim
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            scope_type_max_depth: form.scope_type_max_depth,
             private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
