@@ -584,6 +584,7 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
+        participatory_space: Følger allerede deltakerområdet
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
