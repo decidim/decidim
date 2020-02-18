@@ -141,6 +141,7 @@
             amendments_visibility: Endringens synlighet
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
             announcement: Kunngjøring
+            answers_with_costs: Aktiver kostnader på forslag til svar
             automatic_hashtags: Hashtagger lagt til i alle forslag
             comments_blocked: Kommentarer blokkert
             creation_enabled: Opprettelse av forslag aktivert
@@ -743,6 +744,7 @@
           changes_at_title: Endring til "%{title}"
           edit_proposal: Rediger forslaget
           endorsements_list: Liste over Påtegnelser
+          estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
             other: og %{count} flere personer
@@ -755,6 +757,8 @@
           proposal_accepted_reason: 'Dette forslaget ble akseptert fordi:'
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
+          read_less: Vis mindre
+          read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
           withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
