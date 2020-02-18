@@ -41,7 +41,7 @@
     color: var(--primary);
     border-color: var(--primary);
 
-    &:hover {
+    &:hover{
       text-decoration: underline;
     }
   }
@@ -57,9 +57,9 @@
       color: var(--secondary);
       border-color: var(--secondary);
 
-      &:hover {
+      &:hover{
         text-decoration: underline;
-      };
+      }
     }
   }
 }
@@ -205,7 +205,7 @@
   letter-spacing: .05em;
   font-weight: 600;
 
-  &:hover {
+  &:hover{
     text-decoration: underline;
   }
 
