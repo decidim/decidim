@@ -147,7 +147,7 @@ PATH
       rubocop-rails (~> 2.0)
       rubocop-rspec (~> 1.21)
       selenium-webdriver (~> 3.142)
-      simplecov (~> 0.16)
+      simplecov (~> 0.17.1)
       system_test_html_screenshots (~> 0.1.1)
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)

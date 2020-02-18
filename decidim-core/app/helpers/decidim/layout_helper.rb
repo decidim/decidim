@@ -55,18 +55,18 @@ module Decidim
 
       if path.split(".").last == "svg"
         asset = Rails.application.assets_manifest.find_sources(path).first
-        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" #{role(options)} ").html_safe
+        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" #{role(options)}").html_safe
       else
         image_tag(path, class: classes.join(" "), style: "display: none")
       end
     end
 
+    # Allows to create role attribute according to accessibility rules
+    #
+    # Returns role attribute string if role option is specified
     def role(options = {})
-      return "role=#{options[:role]}" if options[:role]
-
-      ""
+      "role=\"#{options[:role]}\" " if options[:role]
     end
-
 
     def _icon_classes(options = {})
       classes = options[:remove_icon_class] ? [] : ["icon"]
