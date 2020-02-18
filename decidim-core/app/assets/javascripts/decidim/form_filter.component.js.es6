@@ -14,7 +14,7 @@
       this.change_events = true;
 
       this._updateInitialState();
-      this._onFormChange = this._delayed(this._onFormChange.bind(this));
+      this._onFormChange = exports.delayed(this, this._onFormChange.bind(this));
       this._onPopState = this._onPopState.bind(this);
 
       if (window.Decidim.PopStateHandler) {
@@ -293,30 +293,6 @@
      */
     _getUID() {
       return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
-    }
-
-    /**
-     * Returns a function, that, as long as it continues to be invoked, will not
-     * be triggered. The function will be called after it stops being called for
-     * N milliseconds.
-     * @param {Function} func - the function to be executed.
-     * @param {int} wait - number of milliseconds to wait before executing the function.
-     * @private
-     * @returns {Void} - Returns nothing.
-     */
-    _delayed(func, wait) {
-      let that = this,
-          timeout = null;
-
-      return function(...args) {
-        if (timeout) {
-          clearTimeout(timeout);
-        }
-        timeout = setTimeout(() => {
-          timeout = null;
-          Reflect.apply(func, that, args);
-        }, wait);
-      }
     }
   }
 
