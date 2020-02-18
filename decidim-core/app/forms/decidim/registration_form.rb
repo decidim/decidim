@@ -27,7 +27,7 @@ module Decidim
     def newsletter_at
       return nil unless newsletter?
 
-      Time.current
+      @newsletter_at ||= Time.current
     end
 
     private
