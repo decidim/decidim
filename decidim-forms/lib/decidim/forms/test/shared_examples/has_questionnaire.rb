@@ -524,5 +524,191 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("are not complete")
       end
     end
+
+    context "when a question has a display condition of type 'answered'" do
+      context "when the condition_question type is short answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is long answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is single option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is multiple option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is sorting" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+    end
+
+    context "when a question has a display condition of type 'not_answered'" do
+      context "when the condition_question type is short answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is long answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is single option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is multiple option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is sorting" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+    end
+
+    context "when a question has a display condition of type 'equal'" do
+      context "when the condition_question type is short answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is long answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is single option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is multiple option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is sorting" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+    end
+
+    context "when a question has a display condition of type 'not_equal'" do
+      context "when the condition_question type is short answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is long answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is single option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is multiple option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is sorting" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+    end
+
+    context "when a question has a display condition of type 'match'" do
+      context "when the condition_question type is short answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is long answer" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is single option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is multiple option" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+      context "when the condition_question type is sorting" do
+        it "show the question if the condition is fulfilled" do
+        end
+        it "does not show the question if the condition is not fulfilled" do
+        end
+      end
+    end
+
+    context "when a question has multiple display conditions" do
+      context "when all conditions are mandatory" do
+        it "is displayed if all conditions are fulfilled" do
+        end
+
+        it "is not displayed if one of the conditions is not fulfilled" do
+        end
+      end
+
+      context "when all conditions are non-mandatory" do
+        it "is displayed if one of the conditions is fulfilled" do
+        end
+
+        it "is not displayed if none of the conditions are fulfilled" do
+        end
+      end
+    end
+
+    context "when a mandatory question has conditions that have not been fulfilled" do
+    end
   end
 end
