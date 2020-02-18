@@ -18,11 +18,11 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:condition_question) { create(:questionnaire_question, position: 1) }
-        let(:decidim_condition_question_id) { condition_question.id }
+        let(:decidim_condition_question_id) { condition_question&.id }
         let(:question) { create(:questionnaire_question, position: 2) }
-        let(:decidim_question_id) { question.id }
+        let(:decidim_question_id) { question&.id }
         let(:answer_option) { create(:answer_option, question: condition_question) }
-        let(:decidim_answer_option_id) { answer_option.id }
+        let(:decidim_answer_option_id) { answer_option&.id }
 
         let(:condition_type) { :answered }
         let(:condition_value) do
@@ -66,9 +66,8 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when condition_question is positioned before question" do
-          let!(:question) { create(:questionnaire_question, position: 3) }
-          let!(:condition_question) { create(:questionnaire_question, position: 5) }
+        context "when question is the first in the questionnaire" do
+          let!(:question) { create(:questionnaire_question, position: 0) }
 
           it { is_expected.not_to be_valid }
         end
@@ -82,7 +81,7 @@ module Decidim
 
         context "when answer_option is mandatory" do
           let!(:condition_type) { :equal }
-          let!(:answer_option_id) { nil }
+          let!(:decidim_answer_option_id) { nil }
 
           it { is_expected.not_to be_valid }
         end
@@ -92,11 +91,59 @@ module Decidim
           let!(:condition_value) { nil }
           let!(:decidim_answer_option_id) { nil }
 
-          before do
-            subject.deleted = true
-          end
+          before { subject.deleted = true }
 
           it { is_expected.to be_valid }
+        end
+
+        describe "#answer_options" do
+          context "when decidim_condition_question_id is set" do
+            it { expect(subject.answer_options).to contain_exactly(*condition_question.answer_options) }
+          end
+
+          context "when decidim_condition_question_id is not set" do
+            let!(:condition_question) { nil }
+            let!(:answer_option) { nil }
+
+            it { expect(subject.answer_options).to be_empty }
+          end
+        end
+
+        describe "#question" do
+          context "when decidim_question_id is set" do
+            it { expect(subject.question).to eq(question) }
+          end
+
+          context "when decidim_question_id is not set" do
+            let!(:question) { nil }
+
+            it { expect(subject.question).to be_nil }
+          end
+        end
+
+        describe "#condition_question" do
+          context "when decidim_condition_question_id is set" do
+            it { expect(subject.condition_question).to eq(condition_question) }
+          end
+
+          context "when decidim_condition_question_id is not set" do
+            let!(:condition_question) { nil }
+            let!(:answer_option) { nil }
+
+            it { expect(subject.condition_question).to be_nil }
+          end
+        end
+
+        describe "#answer_option" do
+          context "when decidim_answer_option_id is set" do
+            it { expect(subject.answer_option).to eq(answer_option) }
+          end
+
+          context "when decidim_answer_option_id is not set" do
+            let!(:answer_option) { nil }
+
+            it { expect(subject.answer_option).to be_nil }
+          end
         end
 
         it_behaves_like "form to param", default_id: "questionnaire-display-condition-id"
