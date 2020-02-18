@@ -44,10 +44,33 @@ module Decidim
         recipients.each { |recipient| receipts.build(recipient: recipient) }
       end
 
+      # Public: Returns the message ready to display (it is expected to include HTML)
+      def formatted_body
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
+      end
+
       private
 
       def sender_is_participant
         errors.add(:sender, :invalid) unless conversation.participants.include?(sender)
+      end
+
+      # Private: Returns the comment body sanitized, sanitizing HTML tags
+      def sanitized_body
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          render_markdown(body),
+          scrubber: Decidim::UserInputScrubber.new
+        ).try(:html_safe)
+      end
+
+      # Private: Initializes the Markdown parser
+      def markdown
+        @markdown ||= Decidim::Comments::Markdown.new
+      end
+
+      # Private: converts the string from markdown to html
+      def render_markdown(string)
+        markdown.render(string)
       end
     end
   end

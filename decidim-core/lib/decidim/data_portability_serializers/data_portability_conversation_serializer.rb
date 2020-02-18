@@ -31,7 +31,7 @@ module Decidim
             message_id: message.id,
             sender_id: message.sender.id,
             sender_name: message.sender.name,
-            body: message.body,
+            body: message.formatted_body,
             created_at: message.created_at,
             updated_at: message.updated_at
           }
