@@ -33,7 +33,7 @@ module Decidim
           option: decidim_answer_option_id,
           mandatory: mandatory,
           value: condition_value&.dig(I18n.locale.to_s)
-        }
+        }.compact
       end
     end
   end

@@ -20,13 +20,22 @@ module Decidim
         )
       end
 
-      let(:question_condition_equal) do
+      let(:display_condition_equal) do
         build(
           :display_condition,
           :equal,
           question: question,
           condition_question: condition_question,
           answer_option: answer_option
+        )
+      end
+
+      let(:display_condition_match) do
+        build(
+          :display_condition,
+          :match,
+          question: question,
+          condition_question: condition_question
         )
       end
 
@@ -43,7 +52,7 @@ module Decidim
         end
 
         context "when condition_type is :equal" do
-          let(:display_condition) { question_condition_equal }
+          let(:display_condition) { display_condition_equal }
           let(:answer_option) { create(:answer_option, question: condition_question) }
 
           it "has an answer_option association" do
@@ -73,7 +82,7 @@ module Decidim
 
         context "when condition_type is :equal" do
           let(:condition_type) { :equal }
-          let(:display_condition) { question_condition_equal }
+          let(:display_condition) { display_condition_equal }
           let(:answer_choice) { create(:answer_choice, answer: answer) }
           let(:answer_option) { answer_choice.answer_option }
 
@@ -103,6 +112,43 @@ module Decidim
 
           it "is not fulfilled if the answer body doesn't match the given value" do
             expect(subject.fulfilled?(answer_unmatched)).to be false
+          end
+        end
+      end
+
+      describe "#to_html_data" do
+        let(:html_data) { subject.to_html_data }
+
+        it "returns a hash" do
+          expect(html_data).to be_a(Hash)
+        end
+
+        it "has an 'id' attribute with the display_condition id" do
+          expect(html_data[:id]).to eq(subject.id)
+        end
+
+        it "has a 'condition' attribute with the display_condition's condition question id" do
+          expect(html_data[:condition]).to eq(subject.condition_question.id)
+        end
+
+        it "has an 'mandatory' attribute with the display_condition's 'mandatory' value" do
+          expect(html_data[:mandatory]).to eq(subject.mandatory)
+        end
+
+        context "when the display condition has a related answer_option" do
+          let(:display_condition) { display_condition_equal }
+          let(:answer_option) { create(:answer_option, question: condition_question) }
+
+          it "has an 'option' attribute with the display_condition's answer_option id" do
+            expect(html_data[:option]).to eq(subject.answer_option.id)
+          end
+        end
+
+        context "when the display condition has a condition_value" do
+          let(:display_condition) { display_condition_match }
+
+          it "has a 'value' attribute with the display_condition's condition_value translated to current locale" do
+            expect(html_data[:value]).to eq(subject.condition_value[I18n.locale.to_s])
           end
         end
       end
