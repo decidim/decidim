@@ -51,6 +51,7 @@ module Decidim
         )
 
         mentioned_users = parsed.metadata[:user].users
+        # mentioned_groups = parsed.metadata[:user_group].groups
         CommentCreation.publish(@comment, parsed.metadata)
         send_notifications(mentioned_users)
       end
