@@ -22,7 +22,7 @@ module Decidim
       end
 
       def image_big
-        image_tag model.big_url
+        image_tag model.big_url, alt: "media-picture"
       end
 
       def title
