@@ -114,6 +114,10 @@ module Decidim
       def user_roles(_role_name = nil)
         self.class.none
       end
+
+      def user_role_config_for(_user, _role_name)
+        Decidim::UserRoleConfig::Base.new(:empty_role_name)
+      end
     end
 
     class_methods do

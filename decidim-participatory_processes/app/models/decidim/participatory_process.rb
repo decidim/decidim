@@ -153,11 +153,28 @@ module Decidim
       "#{admin_module_name}::Moderators".constantize.for(self)
     end
 
-    def user_roles(role_name)
+    def user_roles(role_name = nil)
       roles = Decidim::ParticipatoryProcessUserRole.where(participatory_process: self)
       return roles if role_name.blank?
 
       roles.where(role: role_name)
+    end
+
+    def user_role_config_for(user, role_name)
+      case role_name.to_sym
+      when :organization_admin
+        Decidim::ParticipatoryProcessRoleConfig::Admin.new(user)
+      when :admin # process admin
+        Decidim::ParticipatoryProcessRoleConfig::ProcessAdmin.new(user)
+      when :valuator
+        Decidim::ParticipatoryProcessRoleConfig::Valuator.new(user)
+      when :moderator
+        Decidim::ParticipatoryProcessRoleConfig::Moderator.new(user)
+      when :collaborator
+        Decidim::ParticipatoryProcessRoleConfig::Collaborator.new(user)
+      else
+        Decidim::ParticipatoryProcessRoleConfig::NullObject.new(user)
+      end
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
