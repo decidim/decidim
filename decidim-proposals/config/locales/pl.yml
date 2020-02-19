@@ -293,12 +293,10 @@ pl:
         see_all: Zobacz wszystko (%{count})
     proposals:
       actions:
-        answer: Odpowiedź
         edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
         participatory_texts: Teksty uczestniczące
-        private_notes: Prywatne notatki
         title: działania
       admin:
         actions:
@@ -342,11 +340,7 @@ pl:
           update:
             success: Tekst uczestnictwa został zaktualizowany pomyślnie.
         proposal_answers:
-          edit:
-            accepted: Przyjęty
-            answer_proposal: Odpowiedź
-            evaluating: Ocena
-            rejected: Odrzucone
+          form:
             title: Odpowiedź na wniosek %{title}
         proposal_notes:
           create:
@@ -387,6 +381,9 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+          show:
+            created_at: Data utworzenia
+            votes_count: Liczenie głosów
           update_category:
             invalid: 'Te propozycje miały już kategorię %{category} : %{proposals}.'
             select_a_category: Proszę wybierz kategorie
@@ -409,12 +406,6 @@ pl:
           create:
             invalid: Wystąpił błąd podczas podziału wybranych propozycji.
             success: Pomyślnie podzielono propozycje na nowe.
-        shared:
-          info_proposal:
-            body: Ciało
-            created_at: Data utworzenia
-            proposal_votes_count: Liczenie głosów
-            proposals: Propozycje
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedziało na propozycję %{resource_name} na przestrzeni %{space_name}"
@@ -439,7 +430,6 @@ pl:
           accepted: Przyjęty
           all: Wszystko
           evaluating: Ewaluacja
-          except_rejected: Wszystkie oprócz odrzuconych
           rejected: Odrzucono
         filter_type_values:
           all: Wszystko
@@ -490,7 +480,6 @@ pl:
           all: Wszystko
           amendment: Poprawki
           category: Kategoria
-          category_prompt: Monit kategorii
           open: otwarty
           published: Opublikowany
           related_to: Związany z
@@ -646,7 +635,6 @@ pl:
         filters:
           amendment_type: Rodzaj
           category: Kategoria
-          category_prompt: Wybierz kategorię
           origin: Pochodzenie
           related_to: Związany z
           search: Szukanie
@@ -713,7 +701,6 @@ pl:
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
-          filed_as: Zapisano jako
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote

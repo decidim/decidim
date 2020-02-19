@@ -33,6 +33,7 @@ ar:
         extra_fields_legal_information: معلومات قانونية حول جمع البيانات الشخصية
         minimum_committee_members: الحد الأدنى من أعضاء اللجنة
         online_signature_enabled: تم تمكين التوقيع عبر الإنترنت
+        promoting_committee_enabled: تفعيل لجنة الترويج
         title: عنوان
         undo_online_signatures_enabled: تمكين المشاركين من التراجع عن توقيعاتهم على الإنترنت
         validate_sms_code_on_votes: إضافة خطوة التحقق من صحة رمز SMS لعملية التوقيع
@@ -72,6 +73,18 @@ ar:
     admin:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
+      filters:
+        search_placeholder:
+          title_or_description_cont: البحث عن %{collection} بحسب العنوان أو الوصف.
+        state_eq:
+          label: الحالة
+          values:
+            accepted: تم قبوله
+            created: تمّ إنشاؤه
+            discarded: تم تجاهله
+            published: تم نشره
+            rejected: تم رفضه
+            validating: تأكيد تقني
       menu:
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة
@@ -121,9 +134,13 @@ ar:
           affected_user:
             email_intro: حققت مبادرتك %{resource_title} ٪ %{percentage}من التوقيعات!
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف المبادرة %{resource_title}.
+            email_subject: مرحلة جديدة تم تجاوزها!
             notification_title: لقد حققت مبادرة <a href="%{resource_path}">%{resource_title}</a> الخاصة بك %{percentage}٪ من التوقيعات.
           follower:
+            email_intro: لقد حازت المبادرة %{resource_title} على %{percentage}% مِن التوقيعات!
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
+            email_subject: مرحلة جديدة تم تجاوزها!
+            notification_title: لقد حازت المبادرة <a href="%{resource_path}">%{resource_title}</a> على %{percentage} مِن التوقيعات.
     gamification:
       badges:
         initiatives:

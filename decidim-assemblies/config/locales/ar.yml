@@ -16,6 +16,7 @@ ar:
         created_by_other: التي أنشأتها الآخرون
         creation_date: تاريخ الإنشاء
         decidim_area_id: المنطقة
+        decidim_assemblies_type_id: نوع الجمعية
         decidim_scope_id: النطاق
         description: الوصف
         developer_group: مجموعة المروجين
@@ -90,6 +91,7 @@ ar:
     admin:
       actions:
         new_assembly: جمعية جديدة
+        new_assembly_type: نوع جديد للجمعية
       assemblies:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
@@ -111,6 +113,10 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
+      assemblies_types:
+        new:
+          create: إنشاء
+          title: نوع جديد للجمعية
       assembly_copies:
         new:
           copy: نسخ
@@ -171,6 +177,9 @@ ar:
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
       models:
+        assemblies_types:
+          fields:
+            title: العنوان
         assembly:
           fields:
             created_at: تاريخ الإنشاء
@@ -236,6 +245,9 @@ ar:
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
+        assemblies_types:
+          form:
+            title: العنوان
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
@@ -275,6 +287,7 @@ ar:
         others: أخرى
         public: عامة
       filter:
+        all: كل الأنواع
         commission: لجنة
         consultative_advisory: استشاري / الاستشارية
         executive: تنفيذية
@@ -374,6 +387,14 @@ ar:
           organizational_chart: الهيكل التنظيمي
           promoted_assemblies: المجالس البارزة
           reset_chart: إعادة تعيين
+        order_by_assemblies:
+          assemblies:
+            zero: "%{count} اجتماعات"
+            one: "%{count} اجتماع"
+            two: "%{count} اجتماعَيْن"
+            few: "%{count} اجتماعات"
+            many: "%{count} اجتماع"
+            other: "%{count} اجتماعات"
         promoted_assembly:
           more_info: مزيد من المعلومات
           take_part: خذ جزء

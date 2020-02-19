@@ -22,7 +22,9 @@ hu:
         participatory_structure: Hogyan döntenek
         promoted: Támogatott
         published_at: Közzétéve
+        related_process_ids: Kapcsolódó folyamatok
         scope_id: Hatáskör
+        scope_type_max_depth_id: Hatáskör szűrő mélység
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
@@ -84,7 +86,7 @@ hu:
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
-        new_process_user_role: Új folyamat felhasználó
+        new_process_user_role: Új folyamat adminisztrátor
         preview: Előnézet
         publish: Közzétesz
         resend_invitation: Meghívó újraküldése
@@ -101,7 +103,7 @@ hu:
           info: Info
           moderations: Moderálások
           private_users: Privát felhasználók
-          process_admins: Folyamat felhasználók
+          process_admins: Folyamat adminisztrátorok
           steps: Lépések
       models:
         participatory_process:
@@ -127,7 +129,7 @@ hu:
             email: Email
             name: Név
             role: Szerep
-          name: Részvételi folyamat felhasználó
+          name: Részvételi folyamat adminisztrátor
           roles:
             admin: Admin
             collaborator: Közreműködő
@@ -203,13 +205,13 @@ hu:
         destroy:
           success: Felhasználó eltávolítása a részvételi folyamatból sikeres.
         edit:
-          title: Részvételi folyamat felhasználó frissítése.
+          title: Részvételi folyamat adminisztrátor frissítése.
           update: Frissítés
         index:
-          process_admins_title: Részvételi folyamat felhasználók
+          process_admins_title: Részvételi folyamat adminisztrátorok
         new:
           create: Létrehozás
-          title: Új részvételi folyamat felhasználó.
+          title: Új részvételi folyamat adminisztrátor.
         update:
           error: Hiba a felhasználó részvételi folyamatban történő frissítése során.
           success: Felhasználó frissítése a részvételi folyamatban sikeres.
@@ -322,6 +324,8 @@ hu:
             images: képek
             metadata: Metaadatok
             other: Más
+            related_processes: Kapcsolódó folyamatok
+            scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
             select_an_area: Válasszon egy területet
             select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
@@ -377,6 +381,7 @@ hu:
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
         private_space: Ez egy privát folyamat
+        related_processes: Kapcsolódó folyamatok
         scope: Hatáskör
         start_date: Kezdő dátum
         target: Ki részt vesz

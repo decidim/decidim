@@ -724,10 +724,10 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al rebutjar aquest grup.
           success: El grup s'ha rebutjat correctament
         verify:
-          invalid: S'ha produït un error en rebutjar aquest grup.
+          invalid: S'ha produït un error al verificar aquest grup.
           success: Grup verificat correctament
       user_groups:
         index:
