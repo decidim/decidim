@@ -151,6 +151,30 @@ module Decidim
       closing_date < Date.current
     end
 
+    def user_roles(role_name = nil)
+      roles = Decidim::AssemblyUserRole.where(assembly: self)
+      return roles if role_name.blank?
+
+      roles.where(role: role_name)
+    end
+
+    def user_role_config_for(user, role_name)
+      case role_name.to_sym
+      when :organization_admin
+        Decidim::AssemblyRoleConfig::Admin.new(user)
+      when :admin # assembly admin
+        Decidim::AssemblyRoleConfig::AssemblyAdmin.new(user)
+      when :valuator
+        Decidim::AssemblyRoleConfig::Valuator.new(user)
+      when :moderator
+        Decidim::AssemblyRoleConfig::Moderator.new(user)
+      when :collaborator
+        Decidim::AssemblyRoleConfig::Collaborator.new(user)
+      else
+        Decidim::AssemblyRoleConfig::NullObject.new(user)
+      end
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
