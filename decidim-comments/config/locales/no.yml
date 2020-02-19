@@ -4,11 +4,15 @@
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommenter svar
+      decidim/comments/user_mentioned_event: Omtal
   activerecord:
     models:
       decidim/comments/comment:
         one: Kommentar
         other: Kommentarer
+      decidim/comments/comment_vote:
+        one: Stemme
+        other: Stemmer
   decidim:
     comments:
       comments: Kommentarer
@@ -25,16 +29,22 @@
             label: Kommentar
             placeholder: Hva mener du om dette?
           form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
+          submit: Send
           user_group_id:
             label: Kommenter som
+        opinion:
+          neutral: Nøytral
         remaining_characters: "%{count} tegn igjen"
         remaining_characters_1: "%{count} tegn igjen"
         title: Legg til kommentaren din
       comment:
         alignment:
           against: Imot
+          in_favor: I favør
         deleted_user: Slettet deltaker
+        reply: Svar
         report:
+          action: Rapport
           already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
           close: Lukk
           description: Er dette innholdet upassende?
@@ -48,6 +58,9 @@
         order:
           best_rated: Best vurdert
           most_discussed: Mest omtalt
+          older: Eldre
+          recent: Nylig
+        title: 'Sorter etter:'
       comment_thread:
         title: Samtale med %{authorName}
       comments:

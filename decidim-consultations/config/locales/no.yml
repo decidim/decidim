@@ -4,21 +4,34 @@
       consultation:
         banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Markert omfang
+        description: Beskrivelse
+        end_voting_date: Stemming ender
         introductory_image: Innledende bilde
         introductory_video_url: Innledende video URL
+        questions: Spørsmål
+        slug: URL slug
         start_voting_date: Stemming begynner
+        subtitle: Undertittel
         title: Tittel
       question:
         banner_image: Bannerafbeelding
         decidim_scope_id: Kommunalt område
+        hashtag: Hastag
+        hero_image: Hjem bilde
         i_frame_url: Eksternt stemmesystem URL
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
+        origin_scope: Omfang
+        origin_title: Opprinnelse
+        origin_url: Opprinnlig URL
         participatory_scope: Deltaker omfang
         promoter_group: Promotør gruppe
         question_context: Kontekst
+        reference: Referanse
         scope: Kommunalt område
+        slug: URL slug
+        subtitle: Undertittel
         title: Tittel
         vote: Eksternt stemmesystem
         what_is_decided: Hva er bestemt
@@ -38,10 +51,25 @@
           attributes:
             question:
               invalid_num_votes: Antall stemmer er ugyldig
+    models:
+      decidim/consultation:
+        one: Konsultasjon
+        other: Konsultasjoner
+      decidim/consultations/question:
+        one: Spørsmål
+        other: Spørsmål
+      decidim/consultations/response:
+        one: Svar
+        other: Svar
+      decidim/consultations/vote:
+        one: Stemme
+        other: Stemmer
   decidim:
     admin:
       actions:
         new_consultation: Ny konsultasjon
+        new_question: Nytt spørsmål
+        new_response: Ny respons
         publish_results: Publiser resultater
         unpublish_results: Avpubliser resultater
       consultation_publications:
@@ -62,12 +90,16 @@
         create:
           error: Det oppstod et problem med å lage en ny konsultasjon.
           success: Konsultasjonen ble opprettet.
+        edit:
+          update: Oppdater
         form:
           slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konsultasjonen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
           title: Generell informasjon
         index:
           not_published: Ikke publisert
+          published: Publisert
         new:
+          create: Opprett
           title: Ny konsultasjon
         results:
           not_visible: Resultatene vil være tilgjengelige når konsultasjonen stenger
@@ -78,19 +110,40 @@
           success: Konsultasjonen ble oppdatert.
       menu:
         consultations: Konsultasjoner
+        consultations_submenu:
+          info: Informasjon
+          questions: Spørsmål
+          results: Resultater
         questions_submenu:
           components: Komponenter
           configuration: Konfigurasjon
+          consultation: Konsultasjon
+          info: Informasjon
+          responses: Svar
       models:
         consultation:
           fields:
+            created_at: Opprettet på
+            published: Publisert
             title: Tittel
+          name:
+            one: Konsultasjon
+            other: Konsultasjoner
         question:
           fields:
+            created_at: Opprettet på
+            published: Publisert
             title: Tittel
+          name:
+            one: Spørsmål
+            other: Spørsmål
         response:
           fields:
+            created_at: Opprettet på
             title: Tittel
+          name:
+            one: Svar
+            other: Svar
       question_configuration:
         disable_external_voting: Vennlist deaktiver ekstern avstemning for avanserte konfigurasjoner
         form:
@@ -109,10 +162,16 @@
           success: Spørsmålet ble opprettet.
         destroy:
           success: Spørsmålet ble slettet.
+        edit:
+          update: Oppdater
         form:
           title: Generell informasjon
         index:
           not_published: Ikke publisert
+          published: Publisert
+        new:
+          create: Opprett
+          title: Nytt spørsmål
         update:
           error: Det oppstod et problem med å oppdatere dette spørsmålet.
           success: Spørsmålet ble oppdatert.
@@ -123,13 +182,21 @@
         destroy:
           error: Det oppstod et problem med å fjerne responsen.
           success: Svaret ble slettet.
+        edit:
+          update: Oppdater
         form:
           title: Generell informasjon
+        new:
+          create: Opprett
+          title: Ny respons
         update:
           error: Det oppstod et problem med å oppdatere denne responsen.
           success: Svaret ble oppdatert.
       titles:
         consultations: Konsultasjoner
+        questions: Spørsmål
+        responses: Svar
+        results: Resultater
     consultations:
       admin:
         content_blocks:
@@ -137,9 +204,14 @@
             max_results: Maksimal mengde elementer som skal vises
       consultation:
         start_voting_date: Stemming begynner
+        view_results: Vis resultater
+      consultation_card:
+        view_results: Vis resultater
       consultations:
         orders:
           label: 'Sorter konsultasjoner etter:'
+          random: Tilfeldig
+          recent: Nyligst
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner
@@ -150,9 +222,15 @@
       filters:
         active: Aktiv
         all: Alle
+        finished: Fullført
+        search: Søk
         state: Status
+        upcoming: Kommende
       filters_small_view:
         close_modal: Lukk vindu
+        filter: Filter
+        filter_by: Filtrer etter
+        unfold: Åpne
       highlighted_questions:
         title: Spørsmål fra %{scope_name}
       index:
@@ -169,6 +247,12 @@
               one: Avstemmingen slutter <strong>i morgen</strong>
               other: Avstemmingen slutter om <strong>%{count} dager</strong>
             voting_ends_today: Avstemmingen slutter <strong>i dag</strong>
+      question:
+        take_part: Delta
+        view_results: Vis resultater
+        votes_out_of:
+          one: stemme ut av
+          other: stemmer ut av
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
@@ -183,16 +267,27 @@
           title: 'Stemmene er underlagt følgende regler:'
           vote_limit:
             description: Du kan stemme opptil %{limit} alternativer.
+            left: Gjenstår
+            votes: Stemmer
       question_votes:
         create:
           error: Det oppstod et problem med å stemme spørsmålet
           success: Du kan endre det til slutten av konsultasjon. Bare den siste avstemningen blir akseptert.
+          title_error: Stemme feil!
           title_success: Stemmen ble registrert
       regular_questions:
         title: Spørsmål til denne konsultasjonen
       show:
         badge_name:
+          finished: Fullført
+          open: Åpen
+          open_votes: Åpne stemmer
           published_results: Resulter publisert
+        footer_button_text:
+          debate: Debatt
+          view: Vis
+          view_results: Vis resultater
+          vote: Stemme
         unspecified: Ikke spesifisert
     help:
       participatory_spaces:
@@ -209,22 +304,35 @@
     questions:
       next_button: Neste spørsmål
       previous_button: Forrige spørsmål
+      results:
+        title: Resultater
+      show:
+        read_more: Les mer
       statistics:
         assistants_count_title: Assistenter
         comments_count_title: Kommentarer
+        meetings_count_title: Møter
+        supports_count_title: Stemmer
       technical_info:
         technical_data: Tekniske data
       vote_button:
         already_voted: Stemt allerede
+        already_voted_hover: Tilbakekalle stemme
         starting_from: Starter fra %{date}
         verification_required: Verifiser kontoen din for å stemme
+        vote: Stemme
       vote_modal:
         contextual_help: Vennligst velg et alternativ.
         title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
+        confirm: Bekreft
         contextual_help: Bekreft det valgte alternativet.
         title: 'Konsultasjon: bekreft stemme'
+    resources:
+      consultations:
+        actions:
+          vote: Stemme
   layouts:
     decidim:
       admin:
@@ -233,6 +341,9 @@
           categories: Kategorier
       consultation_voting_data:
         start_voting_date: Stemming begynner
+      question_components:
+        question_menu_item: Spørsmålet
+        unfold: Åpne
       question_header:
         back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet

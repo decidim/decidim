@@ -3,23 +3,32 @@
     attributes:
       initiative:
         decidim_user_group_id: Forfatter
+        description: Beskrivelse
         offline_votes: Personlige underskrifter
+        scope_id: Omfang
         signature_end_date: Slutt av innsamlingsperiode for signatur
         signature_start_date: Start av innsamlingsperiode for signatur
         signature_type: Signatur innsamingstype
         signature_type_values:
+          any: Blandet
           offline: Personlig
+          online: Online
         state: Status
         title: Tittel
       initiative_author:
         address: Adresse
         city: By
+        id_document: DNI/NIE
         name: Navn og Etternavn
+        phone_number: Telefonnummer
+        post_code: Postnummer
+        province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
         banner_image: Bannerafbeelding
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
+        description: Beskrivelse
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
@@ -31,42 +40,63 @@
         date_of_birth: Fødselsdato
         document_number: Dokumentnummer
         name_and_surname: Navn og etternavn
+        postal_code: Postnummer
       organization_data:
         address: Adresse
+        id_document: ID dokument
         name: Komplett navn
   activerecord:
     models:
+      decidim/initiative:
+        one: Initiativ
+        other: Initiativer
       decidim/initiative_comittee:
         one: Komité
         other: Komitér
+      decidim/initiative_vote:
+        one: Underskrift
+        other: Underskrifter
   decidim:
     admin:
       actions:
         new_initiative_type: Ny intiativtype
       menu:
+        initiatives: Initiativer
         initiatives_types: Initiativtyper
       models:
         initiatives:
           fields:
+            created_at: Opprettet på
+            id: ID
             state: Status
+            supports_count: Underskrifter
+            title: Initiativer
         initiatives_type_scope:
           fields:
+            scope: Omfang
             supports_required: Signaturer påkrevd
           name: Initiativtypens omgang
         initiatives_types:
           fields:
+            created_at: Opprettet på
             title: Initiativtyper
           name: Initiativtype
         initiatives_votes:
           fields:
             date_of_birth: Fødselsdato
             document_number: Dokumentnummer
+            hash: Hash
+            initiative_end_date: Sluttdato
             initiative_id: Initiativ ID
             initiative_signatures_count: Antall underskrifter
+            initiative_start_date: Startdato
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
+            postal_code: Postnummer
             time_and_date: Tid og dato
+            timestamp: Tidsstempel
       titles:
+        initiatives: Initiativer
         initiatives_types: Initiativtyper
     events:
       initiatives:
@@ -113,12 +143,19 @@
           edit:
             answer: Svar
             title: Svar for %{title}
+          info_initiative:
+            created_at: Opprettet på
+            description: Beskrivelse
+            initiative_votes_count: Stemmer teller
+            initiatives: Initiativer
+            state: Stat
         committee_requests:
           index:
             approve: Godkjenn
             confirm_revoke: Er du sikker?
             invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
             no_members_yet: Det er ingen medlemmer i promotør komiteen
+            revoke: Tilbakekalle
             title: Komité medlemer
         content_blocks:
           highlighted_initiatives:
@@ -133,6 +170,7 @@
             reject: Avvis initiativ
             send_to_technical_validation: Send til teknisk validering
             success: Initiativet er sendt til teknisk validering
+            update: Oppdater
           form:
             title: Generell informasjon
           index:
@@ -140,8 +178,17 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              created: Opprettet
               discarded: Forkastet
+              published: Publisert
+              rejected: Avvist
               validating: Teknisk validering
+            filter_by: Filtrer etter
+            preview: Forhåndsvis
+            print: Skriv ut
+            search: Søk
+          show:
+            print: Skriv ut
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
@@ -154,9 +201,12 @@
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
+            destroy: Slett
             title: Rediger initiativtypens omgang
+            update: Oppdater
           new:
             back: Tilbake
+            create: Opprett
             title: Opprett initiativtype omfang
           update:
             error: Det oppstod en feil
@@ -169,11 +219,14 @@
             success: Initiativtypen er fjernet
           edit:
             confirm_destroy: Er du sikker?
+            destroy: Slett
+            update: Oppdater
           form:
             title: Generell informasjon
           initiative_type_scopes:
             title: Omfang for initiativtypen
           new:
+            create: Opprett
             title: Ny intiativtype
           update:
             error: Det oppstod en feil
@@ -186,7 +239,10 @@
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
         accepted: Aksepterte
+        created: Opprettet
         discarded: Forkastet
+        published: Publisert
+        rejected: Avvist
         validating: Teknisk validering
       committee_requests:
         new:
@@ -252,9 +308,15 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Initiativ påtegne av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble påtegnet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiativer
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett
+          date_select:
+            day: Dag
+            month: Måned
+            year: År
           help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
           back_to_initiative: Tilbake til initiativ
@@ -276,6 +338,8 @@
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
+        author:
+          deleted: Slettet
         author_list:
           hidden_authors_count:
             one: og 1 til persjon
@@ -289,10 +353,16 @@
           author: Forfatter
           closed: Lukket
           myself: Initiativene mine
+          open: Åpen
+          search: Søk
           state: Status
+          type: Type
           type_prompt: Velg en type
         filters_small_view:
           close_modal: Lukk vindu
+          filter: Filter
+          filter_by: Filtrer etter
+          unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
         interactions:
@@ -303,6 +373,9 @@
         orders:
           label: 'Sorter initiativer etter:'
           most_commented: Mest kommentert
+          most_voted: Mest signert
+          random: Tilfeldig
+          recent: Nyligst
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi
@@ -327,14 +400,19 @@
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
+          vote: Signer
           votes_blocked: Underskriving deaktivert
         votes_count:
+          count:
+            one: SIGNATUR
+            other: SIGNATURER
           most_popular_initiative: Mest populært initiativ
           need_more_votes: Trenger flere underskrifter
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
         initiative_link:
           check_initiative_details: Du kan se initiativ detaljene
+          here: her
         more_information: Her har du mer informasjon om initiativets opprettelses prosess.
         progress_report_body_for: Initiativet %{title} har nådd %{percentage}% av de nødvendige signaturene.
         progress_report_for: 'Sammendrag om initiativet: %{title}'
@@ -352,11 +430,15 @@
             see_all_initiatives: Se alle initiativer
       states:
         accepted: Aksepterte
+        expired: Utløpt
       unavailable_scope: Utilgjengelig omfang
+    menu:
+      initiatives: Initiativer
     resources:
       initiatives_type:
         actions:
           title: Handlinger
+          vote: Signer
   layouts:
     decidim:
       admin:
@@ -364,17 +446,25 @@
           attachments: Vedlegg
           committee_members: Komité medlemer
           components: Komponenter
+          information: Informasjon
       initiative_creation_header:
         back: Tilbake
+        fill_data: Opprett
+        finish: Fullfør
+        previous_form: Start
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
         show_similar_initiatives: Sammenlign
         step: Trinn %{current} av %{total}
         title: Opprett nytt initiativ
+      initiative_header:
+        initiative_menu_item: Initiativ
       initiative_signature_creation_header:
         back: Tilbake
         fill_personal_data: Fullfør dataene dine
+        finish: Fullfør
         finished: Initiativsignatur opprettet
+        see_steps: se trinn
         select_identity: Velg identitet
         sms_code: SMS-kode verifisering
         sms_phone_number: Mobiltelefon number

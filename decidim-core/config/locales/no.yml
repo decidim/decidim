@@ -323,12 +323,15 @@
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
+      hero:
+        name: Heltebilde
       highlighted_content_banner:
         name: Markert innholdsbanner
       how_to_participate:
         name: Hvordan delta
       html:
         html_content: HTML-innhold
+        name: HTML block
       last_activity:
         name: Siste aktivitet
         title: Siste aktivitet
@@ -370,9 +373,9 @@
           nickname_help: Aliaset ditt i %{organization}
           password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
-          sign_up: Register deg
+          sign_up: Registrer deg
           sign_up_as:
-            legend: Register deg som
+            legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og støtte forslag.
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
@@ -389,6 +392,7 @@
           buttons:
             check: Sjekk og fortsett
             close_modal: Lukk modal
+            uncheck: Hold usjekket
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
@@ -401,6 +405,8 @@
             beslutningen din.</p>
             <p>Takk for at du leste dette!</p>
           title: Varsler om nyhetsbrev
+        omniauth_buttons:
+          or: Eller
     doorkeeper:
       authorizations:
         new:
@@ -545,6 +551,7 @@
     export_mailer:
       data_portability_export:
         click_button: Klikk på neste knapp for å laste ned din data. <br/> Du må ha filen tilgjengelig frem til %{date}.
+        download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
       subject: Eksporten din "%{name}" er klar
@@ -562,17 +569,24 @@
       explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
+      source: Kilde
+      title: Fingeravtrykk
+      value: Verdi
     followers:
       no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
     follows:
       create:
+        button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
+      current_file: Nåværende fil
+      current_image: Nåværende bilde
+      default_image: Standard bilde
       errors:
         decidim/user:
           password: Dette passordet er for kort.
@@ -588,6 +602,7 @@
           description: Dette merket gis når du besøker plattformen på en vanlig måte. Vi liker å ha deg her!
           description_another: Denne deltakeren har vært tilkoblet i %{score} påfølgende dager på et tidspunkt.
           description_own: Du har vært tilkoblet i %{score} påfølgende dager på et tidspunkt.
+          name: Kontinuitet
           next_level_in: Koble til i %{score} påfølgende dager for å komme til neste nivå!
           unearned_another: Denne deltakeren har ikke logget på mer enn en dag på rad.
           unearned_own: Du har ikke vært tilkoblet i mer enn en påfølgende dag.
@@ -597,6 +612,7 @@
           description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
           description_another: Denne deltakeren har %{score} følgere.
           description_own: "%{score} folk følger deg."
+          name: Følgere
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke noen følgere ennå.
           unearned_own: Du har ingen følgere ennå.
@@ -613,6 +629,7 @@
           description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
           description_another: Denne deltakeren har invitert %{score} folk.
           description_own: Du har invitert %{score} folk.
+          name: Invitasjoner
           next_level_in: Inviter %{score} flere folk for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke invitert noen ennå.
           unearned_own: Du har ikke invitert noen ennå.
@@ -636,6 +653,7 @@
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
       index:
+        invite: Inviter
         invite_user: Inviter en deltaker
       invite:
         error: Det oppstod et problem med å invitere denne deltakeren
@@ -643,6 +661,7 @@
       reject:
         error: Det oppstod et problem med å avslå denne invitasjonen
         success: Invitasjonen ble avvist
+      reject_invitation: Avvis
     group_members:
       accept:
         error: Det oppstod et problem med å godta denne bli med forespørselen
@@ -669,6 +688,9 @@
       create:
         error: Det oppstod et problem med å opprette gruppen
         success: Gruppe ble opprettet
+      edit:
+        edit_user_group: Rediger gruppe
+        update_user_group: Oppdater gruppe
       form:
         document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
@@ -685,11 +707,16 @@
       members:
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
         accept_request: Aksepter
+        reject_request: Avvis
       new:
+        create_user_group: Opprett gruppe
+        new_user_group: Ny gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
+        creator: Forfatter
+        member: Medlem
       update:
         error: Det oppstod et problem med å oppdatere gruppen
         success: Gruppe oppdatert
@@ -699,10 +726,14 @@
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
         description: Les mer om %{organization}
+        title: Generell hjelp
     last_activities:
+      activities:
+        no_activities_warning: Ingen aktivitet
       all: Alle aktivitetstyper
       index:
         last_activity: Siste aktivitet
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} opprettet %{resource_name}"
@@ -728,6 +759,7 @@
       no_members: Denne gruppen har ikke noen medlemmer ennå.
     menu:
       help: Hjelp
+      home: Hjem
     messaging:
       conversation_mailer:
         new_conversation:
@@ -746,9 +778,13 @@
         index:
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
+        reply:
+          send: Send
+          title: Svar
         show:
           title: Samtale med %{usernames}
         start:
+          send: Send
           title: Start en samtale
         update:
           error: Melding ikke sendt. Prøv igjen senere
@@ -757,10 +793,16 @@
         csv: Last ned data (csv)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
+        object: følgere
+        title: Følgere
       participants:
         description: Antall aktive deltakere i organisasjonen
+        object: deltakere
+        title: Deltakere
       users:
         description: Antall deltakere i organisasjonen
+        object: deltakere
+        title: Deltakere
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
@@ -772,6 +814,7 @@
         error: Det oppstod et problem med å avslutte abonnementet
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
+        unsubscribe: Avslutt abonnement
     newsletters_opt_in:
       unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
       update:
@@ -784,6 +827,7 @@
         body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
         button: Ja, jeg vil fortsette å motta relevant informasjon
         greetings: Hilsener,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
         subject: Vil du fortsette å motta relevant informasjon om %{organization_name}?
     notifications:
       no_notifications: Ingen varslinger ennå.
@@ -792,14 +836,21 @@
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
+        newsletters: Nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
         send_notifications_by_email: Send varsler via email
+        update_notifications_settings: Lagre endringer
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
         success: Varslings innstillingene dine ble oppdatert.
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
+    own_user_groups:
+      index:
+        pending: Venter
+        rejected: Avvist
+        verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
       explanation: Bruk denne padden til å samarbeide med å ta notater i løpet av møtet, så det blir lettere å skrive ned referatet etterpå.
@@ -807,14 +858,20 @@
     pages:
       home:
         extended:
+          debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berik de aktuelle temaene.
           how_to_participate: Hvordan deltar jeg i en prosess?
+          meetings: Møter
           meetings_explanation: Finn ut hvor og når du kan delta på offentlige møter.
+          more_info: Mer info
+          proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_body: La oss bygge et mer åpent, gjennomsynlig og samarbeidende samfunn.<br /> Bli med, delta og bestem.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
+          register: Registrer
         hero:
+          participate: Delta
           welcome: Velkommen til %{organization}!
         metrics:
           headline: Deltakelse i tall
@@ -822,15 +879,29 @@
           answers_count: Gjennomførte Undersøkelser
           assemblies_count: Forsamlinger
           comments_count: Kommentarer
+          conferences_count: Konferanser
+          debates_count: Debatter
           endorsements_count: Påtegnelser
           headline: Nåværende tilstand av %{organization}
+          meetings_count: Møter
+          orders_count: Stemmer
           pages_count: Sider
+          processes_count: Prosesser
+          projects_count: Prosjekter
           proposals_accepted: Godkjente Forslag
+          proposals_count: Forslag
+          results_count: Resultater
           surveys_count: Undersøkelse
+          users_count: Deltakere
+          votes_count: Stemmer
+        sub_hero:
+          register: Registrer
       index:
+        read_more: Les mer
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
         title: Hjelp
+        topics: Emner
       participatory_space:
         metrics:
           headline: Deltakelse i tall
@@ -857,12 +928,18 @@
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Deltakeren slettet
+      view: Vis
     profiles:
       default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
       default_officialization_text_for_users: Denne deltakeren er verifisert offentlig, hans/hennes navn eller rolle er verifisert for å samsvare med hans/hennes virkelige navn og rolle
       show:
         activity: Aktivitet
         badges: Merker
+        followers: Følgere
+        following: Følger
+        groups: Grupper
+        members: Medlemmer
+        timeline: Tidslinje
         view_full_profile: Vis hele profilen
       sidebar:
         badges:
@@ -870,10 +947,13 @@
           title: Merker
       user:
         confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
+        create_user_group: Opprett gruppe
+        edit_profile: Rediger profil
         edit_user_group: Rediger gruppeprofil
         fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
+        leave_user_group: Forlat gruppe
         manage_user_group_admins: Administrer administrator
         manage_user_group_users: Administrere medlemmer
         resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
@@ -893,20 +973,30 @@
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
     scopes:
+      global: Global omfang
       picker:
         cancel: Avbryt
+        choose: Velg
         title: Velg %{field}
       prompt: Velg et omfang
+      scopes: Omfang
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
+      term_input_placeholder: Søk
     searches:
       filters:
         back: Tilbake til resultater
+        jump_to: 'Hopp til:'
         state:
           active: Aktiv
           all: Alle
+          future: Fremtidige
+          past: Fortid
       filters_small_view:
         close_modal: Lukk modal
+        filter: Filter
+        filter_by: Filtrer etter
+        unfold: Åpne
       results:
         results:
           one: "%{count} resultat"
@@ -917,12 +1007,16 @@
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
         embed_link: Bedde inn
+      extended_navigation_bar:
+        more: Mer
+        unfold: Åpne
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
         description: Er dette innholdet upassende?
         does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
+        report: Rapport
         spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
         title: Rapporter et problem
       floating_help:
@@ -931,6 +1025,7 @@
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
         please_sign_in: Vennligst logg inn
+        sign_up: Registrer deg
       participatory_space_filters:
         filters:
           areas: Områder
@@ -944,6 +1039,7 @@
         label: 'Resultater per side:'
       share_modal:
         close_window: Lukk vindu
+        share: Del
         share_link: Del lenke
       version_author:
         deleted: Slettet deltaker
@@ -952,6 +1048,7 @@
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_interests:
       show:
+        my_interests: Mine interesser
         no_scopes: Denne organisasjonen har ikke noe omfang ennå!
         select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
@@ -965,6 +1062,7 @@
       wizard_aside:
         back: Tilbake
       wizard_header:
+        see_steps: se trinn
         step_of: Trinn %{current_step} av %{total_steps}
   devise:
     confirmations:
@@ -987,6 +1085,7 @@
       edit:
         header: Fullfør oppretting av kontoen din
         nickname_help: Kallenavnet ditt i %{organization}.
+        submit_button: Lagre
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
       invitation_token_invalid: Oppfordringsnøkkelen som er gitt, er ikke gyldig!
@@ -1054,6 +1153,7 @@
         change_my_password: Endre passordet mitt
         change_your_password: Endre passordet ditt
         confirm_new_password: Bekreft nytt passord
+        new_password: New password
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
@@ -1071,7 +1171,11 @@
         currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
         title: Endre %{resource}
+        unhappy: Ikke fornøyd?
+        update: Oppdater
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
+      new:
+        sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
@@ -1080,6 +1184,8 @@
       updated: Kontoen din er oppdatert.
     sessions:
       already_signed_out: Logget ut.
+      new:
+        sign_in: Logg inn
       signed_in: Logget inn.
       signed_out: Logget ut.
     shared:
@@ -1090,6 +1196,7 @@
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
+        sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
@@ -1121,6 +1228,8 @@
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
       too_short: er for kort (under 15 tegn)
+  forms:
+    required: Påkrevd
   invisible_captcha:
     sentence_for_humans: Hvis du er menneske, ignorerer dette feltet
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
@@ -1128,6 +1237,8 @@
     decidim:
       cookie_warning:
         description_html: Denne siden bruker informasjonskapsler. Ved å fortsette å bla gjennom nettstedet, godtar du vår bruk av informasjonskapsler. Finn ut mer om det %{link}.
+        link_label: her
+        ok: Jeg er enig
       edit_link:
         edit: Editar
       footer:
@@ -1135,6 +1246,9 @@
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
       header:
         close_menu: Lukk meny
+        navigation: Navigasjon
+        sign_in: Logg på
+        sign_up: Registrer Deg
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1143,26 +1257,57 @@
         mark_all_as_read: Merk alt som lest
       user_menu:
         admin_dashboard: Admin hovedpanel
+        conversations: Samtaler
+        notifications: Varsler
+        profile: Min konto
         public_profile: Min offentlige profil
+        sign_out: Logg ut
       user_profile:
         account: Konto
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
+        my_data: Min data
+        my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
+        user_groups: Grupper
+      widget:
+        see_more: Se mer
+  locale:
+    name: Engelsk
   password_validator:
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
+    fallback: er ikke gyldig
     name_included_in_password: er for likt navnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
+    password_too_long: er for lang
+    password_too_short: er for kort
   social_share_button:
+    delicious: Nydelig
+    douban: Douban
     email: Epost
+    facebook: Facebook
     google_bookmark: Google-Bokmerker
+    google_plus: Google+
+    hacker_news: Hacker Nyheter
     linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qsone
+    reddit: Reddit
     share_to: Del til %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: Wechat
     wechat_footer: Åpne WeChat, klikk "Oppdag" knappen og klikk deretter på "Scan QR kode" menyen.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   time:
     formats:
       day_of_month: "%b %d"
@@ -1181,11 +1326,16 @@
       time_of_day: "%H:%M"
   versions:
     directions:
+      left: Slettinger
       right: Tillegg
     dropdown:
       choose_diff_view_mode: 'Sammenlign visningsmodus:'
+      option_split: Side-ved-side
+      option_unified: Udefinert
   views:
     pagination:
       first: "&laquo; Først"
+      last: Siste &raquo;
+      next: Neste &rsaquo;
       previous: "&lsaquo; Tidligere"
       truncate: "&hellip;"

@@ -3,19 +3,25 @@
     attributes:
       config:
         available_methods: Tilgjengelige metoder
+        offline: Offline
         offline_explanation: Instruksjoner for offline verifisering
+        online: Online
       id_document_information:
         document_number: Dokumentnummer (med brev)
         document_type: Type dokument
       id_document_upload:
         document_number: Dokumentnummer (med brev)
         document_type: Ditt type dokument
+        user: Deltaker
         verification_attachment: Skannet kopi av dokumentet ditt
       offline_confirmation:
         email: Deltaker email
+      postal_letter_address:
+        full_address: Full adresse
       postal_letter_confirmation:
         verification_code: Verifiseringskode
       postal_letter_postage:
+        full_address: Full adresse
         verification_code: Verifiseringskode
   decidim:
     admin:
@@ -47,10 +53,12 @@
       csv_census:
         explanation: Få verifisering med å bruke organisasjonens folketelling
         name: Organisasjonens folketelling
+      direct: Direkte
       help: Hjelp
       id_documents:
         explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
         name: Identitets dokumenter
+      multistep: Multi-skritt
       name: Navn
       postal_letter:
         explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
@@ -72,6 +80,7 @@
           title: Verifiser din identitet
           verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
         new:
+          authorize: Send
           authorize_with: Verifiser med %{authorizer}
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
@@ -96,6 +105,7 @@
           new:
             file: ".csv fil med e-postdata"
             info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
+            submit: Last opp fil
             title: Last opp en ny folketelling
         authorizations:
           new:
@@ -110,6 +120,7 @@
           config:
             edit:
               title: Konfigurasjon av identitetsdokumenter
+              update: Oppdater
             update:
               error: Det oppsto et problem med å oppdatere konfigurasjonen.
               success: Konfigurasjonen ble oppdatert
@@ -119,6 +130,8 @@
               success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
+              reject: Avvis
+              verify: Verifiser
           offline_confirmations:
             create:
               error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
@@ -126,8 +139,10 @@
             new:
               cancel: Avbryt
               introduce_user_data: Introduser deltakerens email og dokumentdata
+              verify: Verifiser
           pending_authorizations:
             index:
+              config: Konfigurer
               offline_verification: Offline verifisering
               title: Venter på online verifiseringer
               verification_number: 'Verifikasjon #%{n}'
@@ -137,6 +152,8 @@
         authorizations:
           choose:
             choose_a_type: 'Vennligst velg hvordan du vil bli verifisert:'
+            offline: Offline
+            online: Online
             title: Verifiser deg selv ved å bruke ditt identitetsdokument
           create:
             error: Det oppstod et problem med å laste opp dokumentet
@@ -155,13 +172,19 @@
           update:
             error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
             success: Dokumentet ble lastet opp på nytt
+        dni: DNI
+        nie: NIE
+        passport: Pass
       postal_letter:
         admin:
           pending_authorizations:
             index:
               address: Adresse
               letter_sent_at: Brev sendt
+              mark_as_sent: Marker som sendt
+              not_yet_sent: Ikke sendt ennå
               title: Pågående verifiseringer
+              username: Kallenavn
               verification_code: Verifiseringskode
           postages:
             create:
@@ -172,6 +195,7 @@
             error: Det oppstod et problem med forespørselen din
             success: Takk! Vi sender en verifiseringskode til adressen din
           edit:
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
             waiting_for_letter: Vi sender snart et brev til adressen din med verifiseringskoden
           new:
@@ -191,6 +215,7 @@
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
             destroy: Tilbakestill verifiseringskode
             resend: Mottok ikke verifiseringskoden?
+            send: Bekreft
             title: Introduser verifiseringskoden du mottok
           new:
             send: Send meg en meldig

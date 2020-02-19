@@ -3,7 +3,10 @@
     system:
       actions:
         confirm_destroy: Er du sikker på at du vil slette dette?
+        destroy: Slett
         edit: Editar
+        new: Nytt
+        save: Lagre
         title: Handlinger
       admins:
         create:
@@ -13,9 +16,11 @@
           success: Admin ble slettet
         edit:
           title: Endre administrator
+          update: Oppdater
         index:
           title: Adminer
         new:
+          create: Opprett
           title: Ny administrator
         update:
           error: Det oppsto et problem med å oppdatere administratoren.
@@ -26,9 +31,12 @@
           title: Standard tittel for %{page}
       menu:
         admins: Adminer
+        dashboard: Skrivebord
+        organizations: Organisasjoner
       models:
         admin:
           fields:
+            created_at: Opprettet på
             email: Epost
           name: Administrator
           validations:
@@ -37,14 +45,18 @@
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
+            created_at: Opprettet på
             name: Navn
             smtp_settings: SMTP innstillinger
+          name: Organisasjon
       organizations:
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
           success: Organisasjonen ble opprettet.
         edit:
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+        index:
+          title: Organisasjoner
         new:
           reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
@@ -60,3 +72,5 @@
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
           our_getting_started_guide: vår begynner guide
+      titles:
+        dashboard: Skrivebord

@@ -2,26 +2,37 @@
   activemodel:
     attributes:
       agenda:
+        description: Beskrivelse
+        duration: Varighet
         title: Tittel
       close_meeting:
         attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
+        closing_report: Rapport
         contributions_count: Antall bidrag
         proposal_ids: Forslag opprettet i møtet
       meeting:
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        end_time: Sluttid
         location: Plassering
         location_hints: Plasseringstips
+        organizer_id: Planlegger
         private_meeting: Privat møte
         registration_form_enabled: Registreringsskjemaet aktivert
         registration_terms: Registrerings vilkår
         registrations_enabled: Registreringer aktivert
+        start_time: Start-Tid
         title: Tittel
         transparent: Privat
       minutes:
         audio_url: Audio url
+        description: Beskrivelse
+        video_url: Video url
+        visible: Er synlig
     errors:
       models:
         meeting_agenda:
@@ -35,10 +46,22 @@
               already_invited: Denne e-postadressen er allerede invitert
     models:
       decidim/meetings/close_meeting_event: Møttet lukket
+      decidim/meetings/create_meeting_event: Møte
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
       decidim/meetings/update_meeting_event: Møtet oppdatert
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Møte
+        other: Møter
+      decidim/meetings/minutes:
+        one: Referat
+        other: Referat
+      decidim/meetings/registration:
+        one: Registrering
+        other: Registreringer
   decidim:
     admin:
       meeting_copies:
@@ -46,10 +69,14 @@
           error: Det oppstod et problem med å publisere dette møtet.
           success: Møtet ble duplisert.
         new:
+          copy: Kopier
           select: Velg hvilke data du vil duplisere
           title: Duplisert møte
     components:
       meetings:
+        actions:
+          join: Bli med
+        name: Møter
         settings:
           global:
             announcement: Kunngjøring
@@ -120,10 +147,16 @@
     meetings:
       actions:
         agenda: Dagsorden
+        attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
+        destroy: Slett
         edit: Rediger
+        minutes: Referat
+        new: Nytt møte
+        preview: Forhåndsvis
+        registrations: Registreringer
         title: Handlinger
       admin:
         agenda:
@@ -131,19 +164,34 @@
             add_agenda_item_child: Legg til dagsordens underelement
             agenda_item: Dagsordens element
             agenda_item_children: Dagsordens underelementer
+            down: Ned
             remove: Fjern
+            up: Opp
           agenda_item_child:
             agenda_item_child: Dagsordens underelement
+            down: Ned
             remove: Fjern
+            up: Opp
           create:
             invalid: Det oppstod et problem med å opprette denne dagsordenen
             success: Dagsorden opprettet
+          edit:
+            title: Rediger agenda
+            update: Oppdater
           form:
             add_agenda_item: Legg til dagsordens element
             agenda_items: Dagsordens elementer
+            end_date: Sluttdato
+            start_date: Startdato
+          new:
+            create: Opprett
+            title: Ny agenda
           update:
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
+        exports:
+          meetings: Møter
+          registrations: Registreringer
         invite_join_meeting_mailer:
           invite:
             decline: Avvis invitasjon
@@ -156,6 +204,7 @@
           form:
             attendee_type: Deltakertype
             existing_user: Eksisterende deltaker
+            invite: Inviter
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
             non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
@@ -163,8 +212,13 @@
             filter:
               accepted: Aksepterte
               all: Alle
+              rejected: Avvist
+              sent: Sendt
+            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
+            invites: Invitasjoner
             registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
+            search: Søk
         meeting_closes:
           edit:
             close: Lukk
@@ -181,15 +235,25 @@
             success: Møtet ble opprettet
           destroy:
             success: Møtet ble slettet
+          edit:
+            update: Oppdater
           form:
             select_organizer: Velg arrangøren
+          index:
+            title: Møter
           new:
+            create: Opprett
             title: Opprett møte
           service:
+            description: Beskrivelse
+            down: Ned
             remove: Fjern
+            service: Tjeneste
             title: Tittel
+            up: Opp
           services:
             add_service: Legg til tjeneste
+            services: Tjenester
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
             success: Møtet ble oppdatert
@@ -197,16 +261,25 @@
           create:
             invalid: Det oppstod et problem med å opprette dette referatet
             success: Referatet ble opprettet
+          edit:
+            update: Oppdater
           new:
+            create: Opprett
             title: Opprett referat
           update:
             invalid: Det oppstod et problem med å oppdatere dette referatet
             success: Referatet ble oppdatert
+        models:
+          meeting:
+            name: Møte
         registrations:
           edit:
+            save: Lagre
+            validate: Valider
             validate_registration_code: Valider registreringskode
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
+            invites: Invitasjoner
             registration_form: Registreingsskjema
             registrations_count:
               one: Det har vært %{count} registrering.
@@ -246,11 +319,17 @@
         upcoming_events:
           name: Kommende hendelser
           upcoming_events: Kommende møter
+          view_all_events: Vis alle
       directory:
         meetings:
           index:
             all: Alle
+            date: Dato
+            meetings: Møter
+            past: Fortid
+            search: Søk
             space_type: Deltakerområde
+            upcoming: Kommende
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
@@ -266,8 +345,15 @@
         filters:
           category: Kategori
           category_prompt: Velg en kategori
+          date: Dato
+          past: Fortid
+          search: Søk
+          upcoming: Kommende
         filters_small_view:
           close_modal: Lukk modal
+          filter: Filter
+          filter_by: Filtrer etter
+          unfold: Åpne
         meeting_minutes:
           meeting_minutes: Møte referater
           related_information: Relatert Informasjon
@@ -276,30 +362,42 @@
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:
           cancel: Avbryt
+          confirm: Bekreft
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          going: Skal
+          join: Bli med på møte
           meeting_report: Møtet rapportert
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
           registration_code_help_text: Din registreringskode
           registration_state:
+            validated: VALIDERT
             validation_pending: VALIDERING VENTER
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
+          view: Vis
+      meetings_map:
+        view_meeting: Vis møte
       models:
         invite:
           fields:
             email: Epost
             name: Navn
+            sent_at: Sendt på
             status: Status
           status:
             accepted: Aksepterte (%{at})
             rejected: Avvist (%{at})
+            sent: Sendt
         meeting:
           fields:
             closed: Lukket
+            end_time: Sluttdato
+            map: Kart
+            start_time: Startdato
             title: Tittel
       read_more: "(Les mer)"
       registration_mailer:
@@ -323,6 +421,8 @@
     metrics:
       meetings:
         description: Antall møter opprettet
+        object: møter
+        title: Møter
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
