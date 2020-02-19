@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcessRoleConfig
-    class Admin < Base
+    class ProcessAdmin < Base
       def component_is_whitelisted?(_manifest)
         true
       end
