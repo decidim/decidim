@@ -137,7 +137,7 @@
      * @returns {Void} - Returns nothing.
      */
     checkTheCheckParent(input) {
-      const checkBoxContext = input.parentNode.parentNode.getAttribute("id");
+      const checkBoxContext = $(input).parents(".filters__subfilters").attr("id");
       if (!checkBoxContext) {
         this.checkGlobalCheck();
         return;
@@ -147,10 +147,10 @@
         `[data-checkboxes-tree=${checkBoxContext}]`
       );
       const totalCheckSiblings = document.querySelectorAll(
-        `#${checkBoxContext} > [data-children-checkbox] > input`
+        `#${checkBoxContext} > div > [data-children-checkbox] > input, #${checkBoxContext} > [data-children-checkbox] > input`
       );
       const checkedSiblings = document.querySelectorAll(
-        `#${checkBoxContext} > [data-children-checkbox] > input:checked`
+        `#${checkBoxContext} > div > [data-children-checkbox] > input:checked, #${checkBoxContext} > [data-children-checkbox] > input:checked`
       );
       const indeterminateSiblings = Array.from(checkedSiblings).filter((checkbox) => checkbox.indeterminate)
 
