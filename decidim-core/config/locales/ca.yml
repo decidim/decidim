@@ -231,6 +231,7 @@ ca:
       photos:
         related_photos: Imatges relacionades
     author:
+      avatar: Avatar
       comments:
         one: comentari
         other: comentaris

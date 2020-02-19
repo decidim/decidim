@@ -47,6 +47,7 @@ cs:
           fields:
             created_at: Vytvořeno u
             name: název
+            omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
           name: Organizace
       organizations:
@@ -61,6 +62,19 @@ cs:
           reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
           title: Nová organizace
+        omniauth_settings:
+          enabled: Povoleno
+          facebook:
+            app_id: ID aplikace
+            app_secret: Tajný klíč aplikace
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Tajný klíč klienta
+          icon: Ikona
+          icon_path: Cesta k ikonám
+          twitter:
+            api_key: Klíč API
+            api_secret: API heslo
         update:
           error: Při aktualizaci této organizace došlo k chybě.
           success: Organizace byla úspěšně aktualizována.

@@ -42,6 +42,7 @@ es:
           against: En contra
           in_favor: A favor
         deleted_user: Participante eliminada
+        hide_replies: Ocultar respuestas
         reply: Respuesta
         report:
           action: Denunciar
@@ -54,6 +55,7 @@ es:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Denunciar un problema
+        show_replies: Mostrar %{replies_count} respuestas
         single_comment_link_title: Obtener enlace a un solo comentario
       comment_order_selector:
         order:

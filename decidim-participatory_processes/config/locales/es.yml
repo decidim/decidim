@@ -22,6 +22,7 @@ es:
         participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
+        related_process_ids: Procesos relacionados
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -322,6 +323,7 @@ es:
             images: Imágenes
             metadata: Metadatos
             other: Otro
+            related_processes: Procesos relacionados
             select_an_area: Seleccione una área
             select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -377,6 +379,7 @@ es:
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Este es un proceso privado
+        related_processes: Procesos relacionados
         scope: Ámbito
         start_date: Fecha de inicio
         target: Quién participa

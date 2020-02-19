@@ -92,7 +92,6 @@ nl:
             other: "%{count} projecten"
         filters:
           category: Categorie
-          category_prompt: Kies een categorie
           search: Zoeken
         filters_small_view:
           close_modal: Dialoogvenster sluiten
