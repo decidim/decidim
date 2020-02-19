@@ -128,7 +128,7 @@ module Decidim
                               t(:show, scope: "decidim.proposals.actions")
                             ]
                           end
-          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small")
+          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small action-icon--show-proposal")
         end
       end
     end
