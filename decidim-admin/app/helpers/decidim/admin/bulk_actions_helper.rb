@@ -56,6 +56,35 @@ module Decidim
         prompt = t("decidim.proposals.admin.proposals.index.select_component")
         select(:target_component_id, nil, options_for_select(components, selected: []), prompt: prompt)
       end
+
+      # Public: Generates a select field with the scopes.
+      #
+      #
+      # Returns a String.
+      def bulk_scopes_select
+        # raise
+        # scopes = siblings.map do |component|
+        #   [translated_attribute(component.name, component.organization), component.id]
+        # end
+        if current_component.participatory_space.scope
+          # scopes = []
+          # scopes << [translated_attribute(current_component.participatory_space.scope.name, current_component.organization), current_component.participatory_space.scope.id]
+          scopes = current_component.participatory_space.scope.children.map do |scope|
+            [translated_attribute(scope.name, current_component.organization), scope.id]
+          end
+          scopes
+        else
+          scopes = []
+          scopes << ["global", nil]
+          scopes << current_component.participatory_space.scopes.map do |scope|
+            [translated_attribute(scope.name, current_component.organization), scope.id]
+          end
+          scopes
+        end
+
+        prompt = t("decidim.proposals.admin.proposals.index.change_scope")
+        select(:scope, nil, options_for_select(scopes, selected: []), prompt: prompt)
+      end
     end
   end
 end
