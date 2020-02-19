@@ -250,7 +250,7 @@ Decidim.register_component(:proposals) do |component|
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
           title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
           body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
-          state: nil,
+          state: "evaluating",
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current
