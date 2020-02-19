@@ -92,12 +92,10 @@ export class Comments extends React.Component<CommentsProps, { page: number }> {
             {this._renderCommentOrderSelector()}
           </div>
           {this._renderSingleCommentWarning()}
-          {this._renderBlockedCommentsWarning()}
-          {this._renderCommentThreads()}
-          {this._renderAddCommentForm()}
           {this._renderBlockedCommentsForUserWarning()}
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
+          {this._renderAddCommentForm()}
         </section>
       </div>
     );
