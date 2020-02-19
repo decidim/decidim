@@ -1,3 +1,6 @@
+<% session_token = participant.first["session_token"] %>
+<% participant = Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(questionnaire: questionnaire, session_token: session_token) %>
+
 <div class="answer">
   <h2 class="title"><%= t(".title", number: participant_counter + 1) %></h2>
 

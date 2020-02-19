@@ -17,13 +17,7 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export(template:, layout:, orientation: "Portrait")
-        ac = ActionController::Base.new
-        ac.class_eval do
-          include Decidim::TranslationsHelper
-          helper Decidim::TranslationsHelper
-        end
-
-        html = ac.render_to_string(
+        html = controller.render_to_string(
           template: template,
           layout: layout,
           locals: { collection: collection }
@@ -32,6 +26,10 @@ module Decidim
         document = WickedPdf.new.pdf_from_string(html, orientation: orientation)
 
         ExportData.new(document, "pdf")
+      end
+
+      def controller
+        @controller ||= ActionController::Base.new
       end
     end
   end

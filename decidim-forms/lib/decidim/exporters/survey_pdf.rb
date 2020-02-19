@@ -19,6 +19,14 @@ module Decidim
       def export(template:, layout:, orientation: "Portrait")
         super(template: template, layout: layout, orientation: orientation)
       end
+
+      def controller
+        super.class_eval do
+          helper Decidim::TranslationsHelper
+          helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
+        end
+        super
+      end
     end
   end
 end
