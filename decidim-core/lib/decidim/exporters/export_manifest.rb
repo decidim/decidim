@@ -67,6 +67,37 @@ module Decidim
       def serializer(serializer = nil)
         @serializer ||= serializer || Decidim::Exporters::Serializer
       end
+
+      # Public: Sets the options hash when an argument is provided, returns the
+      # stored options hash otherwise.
+      #
+      # The options hash is used to provide custom configuration options
+      # to the exporters.
+      #
+      # options - The hash containing options.
+      #
+      # Returns the stored options hash if previously stored, or
+      # an empty hash as a default implementation.
+      def options(options = nil)
+        @options ||= options || {}
+      end
+
+      # Public: Sets the available formats an argument is provided and
+      # loads the required exporters, returns the array with default available
+      # formats otherwise.
+      #
+      # The formats array is used to define which exporters are available
+      # in the component.
+      #
+      # formats - The array containing the available formats.
+      #
+      # Returns the stored formats if previously stored, or
+      # the default formats array.
+      def formats(formats = nil)
+        formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
+
+        @formats ||= formats || %w(CSV JSON Excel)
+      end
     end
   end
 end

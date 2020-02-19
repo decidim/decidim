@@ -12,7 +12,7 @@ module Decidim
       collection = export_manifest.collection.call(component)
       serializer = export_manifest.serializer
 
-      export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
+      export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export(**export_manifest.options)
 
       ExportMailer.export(user, name, export_data).deliver_now
     end
