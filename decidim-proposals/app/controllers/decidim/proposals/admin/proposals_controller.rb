@@ -63,9 +63,39 @@ module Decidim
             end
 
             on(:update_proposals_category) do
-              flash.now[:notice] = update_proposals_category_response_successful @response
-              flash.now[:alert] = update_proposals_category_response_errored @response
+              flash.now[:notice] = update_proposals_bulk_response_successful(@response, :category)
+              flash.now[:alert] = update_proposals_bulk_response_errored(@response, :category)
             end
+            respond_to do |format|
+              format.js
+            end
+          end
+        end
+
+        def update_scope
+          enforce_permission_to :update, :proposal_scope
+          @proposal_ids = params[:proposal_ids]
+
+          Admin::UpdateProposalScope.call(params[:category][:id], params[:proposal_ids]) do
+            on(:invalid_scope) do
+              flash.now[:error] = I18n.t(
+                "proposals.update_scope.select_a_scope",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:invalid_proposal_ids) do
+              flash.now[:alert] = I18n.t(
+                "proposals.update_scope.select_a_proposal",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:update_proposals_scope) do
+              flash.now[:notice] = update_proposals_bulk_response_successful(@response, :scope)
+              flash.now[:alert] = update_proposals_bulk_response_errored(@response, :scope)
+            end
+
             respond_to do |format|
               format.js
             end
@@ -109,23 +139,23 @@ module Decidim
           @proposal ||= collection.find(params[:id])
         end
 
-        def update_proposals_category_response_successful(response)
+        def update_proposals_bulk_response_successful(response, subject)
           return if response[:successful].blank?
 
           I18n.t(
-            "proposals.update_category.success",
-            category: response[:category_name],
+            "proposals.update_#{subject}.success",
+            "#{subject}": response[:"#{subject}_name"],
             proposals: response[:successful].to_sentence,
             scope: "decidim.proposals.admin"
           )
         end
 
-        def update_proposals_category_response_errored(response)
+        def update_proposals_bulk_response_errored(response, subject)
           return if response[:errored].blank?
 
           I18n.t(
-            "proposals.update_category.invalid",
-            category: response[:category_name],
+            "proposals.update_#{subject}.invalid",
+            "#{subject}": response[:"#{subject}_name"],
             proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )

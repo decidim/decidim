@@ -258,6 +258,11 @@ en:
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+        proposal_update_scope:
+          email_intro: 'An admin has updated the scope of your proposal "%{resource_title}", check it out in this page:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal scope has been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
         voting_enabled:
           email_intro: 'You can support proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -412,6 +417,7 @@ en:
             assign_to_valuator_button: Assign
             cancel: Cancel
             change_category: Change category
+            change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
             select_component: Select a component
@@ -422,6 +428,7 @@ en:
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
             update: Update
+            update_scope_button: Update Scope
           new:
             create: Create
             title: Create proposal
@@ -457,6 +464,11 @@ en:
             select_a_category: Please select a category
             select_a_proposal: Please select a proposal
             success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
+          update_scope:
+            invalid: 'These proposals already had the %{scope} scope: %{proposals}.'
+            select_a_category: Please select a scope
+            select_a_proposal: Please select a proposal
+            success: 'Proposals successfully updated to the %{scope} scope: %{proposals}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals

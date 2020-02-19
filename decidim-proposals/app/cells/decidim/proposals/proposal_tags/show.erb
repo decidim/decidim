@@ -13,7 +13,15 @@
     <% end %>
 
     <% if has_visible_scopes?(model) %>
-      <li><%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %></li>
+      <li>
+        <%= link_to translated_attribute(scope.name), resource_locator(model).index(filter: { scope_id: [scope.id] }) %>
+        <% if previous_scope.present? && show_previous_scope? %>
+          &nbsp;
+          <small class="text-small">
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_scope: "#{previous_scope.translated_name}").html_safe %>
+          </small>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </figure>

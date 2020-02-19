@@ -1,10 +1,10 @@
 <% if flash.now[:error].present? %>
-  $("#js-form-recategorize-proposals #category_id").addClass("is-invalid-input")
+  $("#js-form-scope-change-proposals #scope_id").addClass("is-invalid-input")
   $("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: %q{alert}, text: flash.now[:error] }) %>").appendTo(".callout-wrapper");
 <% end %>
 
 <% if flash.now[:alert].present? %>
-  $("#js-form-recategorize-proposals #category_id").removeClass("is-invalid-input")
+  $("#js-form-scope-change-proposals #scope_id").removeClass("is-invalid-input")
   $("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: %q{warning}, text: flash.now[:alert] }) %>").appendTo(".callout-wrapper");
 <% end %>
 
@@ -16,7 +16,7 @@
       .replaceWith("<%= escape_javascript(render partial: %q{proposal-tr}, locals: { proposal: proposal_find(id) }) %>");
   <% end %>
 
-  $("#js-form-recategorize-proposals #category_id").removeClass("is-invalid-input")
+  $("#js-form-scope-change-proposals #scope_id").removeClass("is-invalid-input")
   $(".js-check-all").prop('checked', false);
   $(".js-check-all-proposal").prop('checked', false);
   window.hideBulkActionsButton();
