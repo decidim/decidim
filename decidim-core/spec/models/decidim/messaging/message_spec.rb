@@ -22,7 +22,6 @@ describe Decidim::Messaging::Message do
     end
 
     context "when the body contains urls" do
-      before { allow(Decidim).to receive(:content_processors).and_return([:link]) }
       subject(:conversation) do
         Decidim::Messaging::Conversation.start(
           originator: originator,
@@ -30,6 +29,8 @@ describe Decidim::Messaging::Message do
           body: "Hei!"
         )
       end
+
+      before { allow(Decidim).to receive(:content_processors).and_return([:link]) }
 
       let(:body) do
         %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
