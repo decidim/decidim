@@ -7,6 +7,11 @@ module Decidim
       class ProposalAnswersController < Admin::ApplicationController
         helper_method :proposal
 
+        helper Proposals::ApplicationHelper
+        helper Decidim::Proposals::Admin::ProposalsHelper
+        helper Decidim::Proposals::Admin::ProposalRankingsHelper
+        helper Decidim::Messaging::ConversationHelper
+
         def edit
           enforce_permission_to :create, :proposal_answer
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)
@@ -14,9 +19,10 @@ module Decidim
 
         def update
           enforce_permission_to :create, :proposal_answer
-          @form = form(Admin::ProposalAnswerForm).from_params(params)
+          @notes_form = form(ProposalNoteForm).instance
+          @answer_form = form(Admin::ProposalAnswerForm).from_params(params)
 
-          Admin::AnswerProposal.call(@form, proposal) do
+          Admin::AnswerProposal.call(@answer_form, proposal) do
             on(:ok) do
               flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
               redirect_to proposals_path
@@ -24,7 +30,7 @@ module Decidim
 
             on(:invalid) do
               flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
-              redirect_to proposal_path(id: proposal.id)
+              render template: "decidim/proposals/admin/proposals/show"
             end
           end
         end

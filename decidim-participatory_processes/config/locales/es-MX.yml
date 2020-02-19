@@ -22,6 +22,7 @@ es-MX:
         participatory_structure: Cómo se decide
         promoted: Destacado
         published_at: Publicado en
+        related_process_ids: Procesos relacionados
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -48,6 +49,12 @@ es-MX:
         email: Correo electrónico
         name: Nombre
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -74,6 +81,7 @@ es-MX:
         filter:
           all_processes: Mostrar todos los procesos
           process_groups: Grupos de proceso
+        import_process: Importar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -147,6 +155,14 @@ es-MX:
         update:
           error: Se ha producido un error actualizando este grupo.
           success: Grupo actualizado correctamente.
+      participatory_process_imports:
+        create:
+          error: Se ha producido un error al importar este proceso participativo.
+          success: El proceso participativo se ha importado correctamente.
+        new:
+          import: Importar
+          select: Selecciona qué datos quieres importar
+          title: Importar proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -291,6 +307,10 @@ es-MX:
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Añadir un documento
+            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
@@ -303,6 +323,7 @@ es-MX:
             images: Imágenes
             metadata: Metadatos
             other: Otro
+            related_processes: Procesos relacionados
             select_an_area: Seleccione una área
             select_process_group: Seleccione un grupo de proceso
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -358,6 +379,7 @@ es-MX:
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Este es un proceso privado
+        related_processes: Procesos relacionados
         scope: Ámbito
         start_date: Fecha de inicio
         target: Quién participa
