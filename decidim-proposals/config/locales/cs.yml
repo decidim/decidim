@@ -306,12 +306,10 @@ cs:
         see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
-        answer: Odpovědět
         edit_proposal: Upravit návrh
         import: Import z jiné součásti
         new: Nový návrh
         participatory_texts: Participující texty
-        private_notes: Soukromé poznámky
         title: Akce
       admin:
         actions:
@@ -356,11 +354,7 @@ cs:
           update:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
-          edit:
-            accepted: Přijato
-            answer_proposal: Odpovědět
-            evaluating: Hodnocení
-            rejected: Odmítnuto
+          form:
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -403,6 +397,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte návrh
+          show:
+            created_at: Datum vzniku
+            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy již měly kategorii %{category} : %{proposals}.'
             select_a_category: Vyberte kategorii
@@ -425,12 +422,6 @@ cs:
           create:
             invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
-        shared:
-          info_proposal:
-            body: Tělo
-            created_at: Datum vzniku
-            proposal_votes_count: Počet hlasů
-            proposals: Návrhy
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
@@ -455,7 +446,6 @@ cs:
           accepted: Přijato
           all: Všechno
           evaluating: Hodnocení
-          except_rejected: Všechno kromě zamítnuto
           rejected: Odmítnuto
         filter_type_values:
           all: Všechno
@@ -506,7 +496,6 @@ cs:
           all: Všechno
           amendment: Změny
           category: Kategorie
-          category_prompt: Kategorie Prompt
           open: otevřeno
           published: Publikováno
           related_to: Související s
@@ -664,7 +653,6 @@ cs:
           all: Vše
           amendment_type: Typ
           category: Kategorie
-          category_prompt: Vyberte kategorii
           my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
@@ -741,7 +729,6 @@ cs:
           withdraw_proposal: Návrh stáhnout
         tags:
           changed_from: "(změněn z <u>%{previous_category}</u> správcem)"
-          filed_as: Soubor jako
         vote_button:
           already_voted: Již bylo hlasováno
           already_voted_hover: Zavolejte

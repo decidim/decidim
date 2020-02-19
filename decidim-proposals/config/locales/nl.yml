@@ -121,6 +121,7 @@ nl:
             amendments_visibility: Zichtbaarheid van amendement
             amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Aankondiging
+            answers_with_costs: Kosten inschakelen bij antwoorden op voorstel
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Creatie nieuw voorstel toegestaan
@@ -297,12 +298,10 @@ nl:
         see_all: Alles zien (%{count})
     proposals:
       actions:
-        answer: Antwoord
         edit_proposal: Bewerk voorstel
         import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
         participatory_texts: Participatieve teksten
-        private_notes: Privé-opmerkingen
         title: Acties
       admin:
         actions:
@@ -347,11 +346,7 @@ nl:
           update:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
-          edit:
-            accepted: Aanvaard
-            answer_proposal: Antwoord
-            evaluating: Aan het beoordelen
-            rejected: Verworpen
+          form:
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
@@ -394,6 +389,9 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+          show:
+            created_at: Aangemaakt op
+            votes_count: Aantal stemmen
           update_category:
             invalid: 'Deze voorstellen hadden al de %{category} categorie: %{proposals}.'
             select_a_category: Gelieve een categorie te selecteren
@@ -416,12 +414,6 @@ nl:
           create:
             invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
             success: De voorstellen succesvol gesplitst in nieuwe.
-        shared:
-          info_proposal:
-            body: Tekstgedeelte
-            created_at: Aangemaakt op
-            proposal_votes_count: Aantal stemmen
-            proposals: Voorstellen
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
@@ -446,7 +438,6 @@ nl:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
-          except_rejected: Alles behalve afgewezen
           rejected: Afgewezen
         filter_type_values:
           all: Alle
@@ -495,7 +486,6 @@ nl:
           all: Alle
           amendment: wijzigingen
           category: Categorie
-          category_prompt: Categorie Prompt
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
@@ -649,7 +639,6 @@ nl:
           all: Alle
           amendment_type: Type
           category: Categorie
-          category_prompt: Kies een categorie
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
@@ -702,6 +691,7 @@ nl:
           changes_at_title: Amendement op "%{title}"
           edit_proposal: Bewerk voorstel
           endorsements_list: Lijst met aanbevelingen
+          estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
             other: en nog %{count} mensen
@@ -714,13 +704,14 @@ nl:
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
+          read_less: Minder lezen
+          read_more: Lees meer
           report: Rapporteren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
         tags:
           changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
-          filed_as: Gemarkeerd als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken

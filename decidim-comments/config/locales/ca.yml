@@ -42,6 +42,7 @@ ca:
           against: En contra
           in_favor: A favor
         deleted_user: Participant eliminada
+        hide_replies: Oculta les respostes
         reply: Respondre
         report:
           action: Denúncia
@@ -54,6 +55,7 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Denúncia un problema
+        show_replies: Mostra %{replies_count} respostes
         single_comment_link_title: Aconsegueix l'enllaç al comentari
       comment_order_selector:
         order:

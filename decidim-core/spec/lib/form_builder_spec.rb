@@ -106,6 +106,29 @@ module Decidim
         end
       end
 
+      context "when a text field with hashtaggable option" do
+        let(:output) do
+          available_locales.each do |loc|
+            resource.name[loc] = "dummy name value #{loc}"
+          end
+          builder.translated :text_field, :name, hashtaggable: true
+        end
+
+        it "renders a multilingual input with correct value" do
+          available_locales.each do |loc|
+            expect(parsed.css("input[type='text'][value='dummy name value #{loc}']")).not_to be_empty
+          end
+        end
+
+        context "with a single locale" do
+          let(:available_locales) { %w(en) }
+
+          it "renders a single input" do
+            expect(parsed.css("input[type='text'][value]").first.attributes["value"].value).not_to be_empty
+          end
+        end
+      end
+
       context "with an editor field" do
         let(:output) do
           builder.translated :editor, :short_description
