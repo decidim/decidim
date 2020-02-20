@@ -12,9 +12,10 @@
         <% if title.present? %>
           <span class="text-small"><%= title %></span>
         <% end %>
+        <br>
         <%= link_to resource_link_path, class: "card__link" do %>
           <span class="card__title mb-none">
-            <%= html_truncate strip_tags(decidim_sanitize resource_link_text), length: 100 %>
+            <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 100 %>
           </span>
         <% end %>
         <%= description %>
