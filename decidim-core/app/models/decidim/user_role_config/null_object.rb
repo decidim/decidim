@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ConferenceRoleConfig
-    class ConferenceAdmin < Base
+  module ParticipatorySpaceRoleConfig
+    class NullObject < Base
       def component_is_whitelisted?(_manifest)
-        true
+        false
       end
     end
   end

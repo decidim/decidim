@@ -115,8 +115,21 @@ module Decidim
         self.class.none
       end
 
-      def user_role_config_for(_user, _role_name)
-        Decidim::UserRoleConfig::Base.new(:empty_role_name)
+      def user_role_config_for(user, role_name)
+        case role_name.to_sym
+        when :organization_admin
+          Decidim::ParticipatorySpaceRoleConfig::Admin.new(user)
+        when :admin # ParticipatorySpace admin
+          Decidim::ParticipatorySpaceRoleConfig::ParticipatorySpaceAdmin.new(user)
+        when :valuator
+          Decidim::ParticipatorySpaceRoleConfig::Valuator.new(user)
+        when :moderator
+          Decidim::ParticipatorySpaceRoleConfig::Moderator.new(user)
+        when :collaborator
+          Decidim::ParticipatorySpaceRoleConfig::Collaborator.new(user)
+        else
+          Decidim::ParticipatorySpaceRoleConfig::NullObject.new(user)
+        end
       end
     end
 

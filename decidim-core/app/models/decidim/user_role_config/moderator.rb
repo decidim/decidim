@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module AssemblyRoleConfig
-    class Collaborator < Base
+  module ParticipatorySpaceRoleConfig
+    class Moderator < Base
       def component_is_whitelisted?(_manifest)
-        true
+        false
       end
     end
   end

@@ -160,23 +160,6 @@ module Decidim
       roles.where(role: role_name)
     end
 
-    def user_role_config_for(user, role_name)
-      case role_name.to_sym
-      when :organization_admin
-        Decidim::ParticipatoryProcessRoleConfig::Admin.new(user)
-      when :admin # process admin
-        Decidim::ParticipatoryProcessRoleConfig::ProcessAdmin.new(user)
-      when :valuator
-        Decidim::ParticipatoryProcessRoleConfig::Valuator.new(user)
-      when :moderator
-        Decidim::ParticipatoryProcessRoleConfig::Moderator.new(user)
-      when :collaborator
-        Decidim::ParticipatoryProcessRoleConfig::Collaborator.new(user)
-      else
-        Decidim::ParticipatoryProcessRoleConfig::NullObject.new(user)
-      end
-    end
-
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
