@@ -42,6 +42,10 @@ module Decidim
       field :members, !types[UserType], "Members of this group" do
         resolve ->(obj, _args, _ctx) { UserGroups::AcceptedMemberships.for(obj).map(&:user) }
       end
+
+      field :membersCount, !types.Int, "Number of members in this group" do
+        resolve ->(obj, _args, _ctx) { UserGroups::AcceptedMemberships.for(obj).count }
+      end
     end
   end
 end

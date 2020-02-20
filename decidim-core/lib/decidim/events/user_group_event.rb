@@ -6,7 +6,7 @@ module Decidim
     # whose resource has an in the "extra" options a user_group in the keyword :group.
     #
     # It adds the group_name, group_nickname, group_path and group_url to the i18n interpolations.
-    module GroupEvent
+    module UserGroupEvent
       extend ActiveSupport::Concern
 
       included do
