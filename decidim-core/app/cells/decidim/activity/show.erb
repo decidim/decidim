@@ -13,9 +13,9 @@
           <span class="text-small"><%= title %></span>
         <% end %>
         <%= link_to resource_link_path, class: "card__link" do %>
-          <h4 class="card__title mb-none">
+          <span class="card__title mb-none">
             <%= html_truncate strip_tags(decidim_sanitize resource_link_text), length: 100 %>
-          </h4>
+          </span>
         <% end %>
         <%= description %>
       </div>
