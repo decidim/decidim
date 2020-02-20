@@ -332,6 +332,13 @@ module Decidim
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
 
+    # Public: Returns an empty object. This method should be implemented by
+    # `ParticipatorySpaceResourceable`, but for some reason this model does not
+    # implement this interface.
+    def user_role_config_for(_user, _role_name)
+      Decidim::UserRoleConfig::Base.new(:empty_role_name)
+    end
+
     private
 
     def signature_type_allowed
