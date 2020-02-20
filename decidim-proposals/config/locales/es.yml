@@ -316,12 +316,11 @@ es:
         see_all: Ver todo (%{count})
     proposals:
       actions:
-        answer: Responder
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
+        show: Ver propuesta
         title: Acciones
       admin:
         actions:
@@ -366,11 +365,11 @@ es:
           update:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
-          edit:
-            accepted: Aceptada
+          form:
+            accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazada
+            rejected: Rechazadas
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -413,6 +412,29 @@ es:
           new:
             create: Crear
             title: Crear propuesta
+          show:
+            amendments_count: Número de enmiendas
+            authors: Autoras
+            body: Cuerpo
+            comments_count: Número de comentarios
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
+            created_at: Fecha de creación
+            documents: Documentos
+            endorsements_count: Número de adhesiones
+            endorsements_ranking: Clasificación por adhesiones
+            endorsers: Adheridas
+            link: Enlace
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
+            photos: Fotos
+            proposals: Propuestas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Encuentros relacionados
+            votes_count: Número de apoyos
+            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Selecciona una categoría
@@ -435,12 +457,6 @@ es:
           create:
             invalid: Se ha producido un error al dividir las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
-        shared:
-          info_proposal:
-            body: Cuerpo
-            created_at: Fecha de creación
-            proposal_votes_count: Número de apoyos
-            proposals: Propuestas
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
@@ -465,7 +481,6 @@ es:
           accepted: Aceptada
           all: Todas
           evaluating: En evaluación
-          except_rejected: Todas excepto las rechazadas
           rejected: Rechazada
         filter_type_values:
           all: Todas
@@ -514,7 +529,6 @@ es:
           all: Todas
           amendment: Enmiendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
@@ -668,7 +682,6 @@ es:
           all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
@@ -741,7 +754,6 @@ es:
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por una administradora)"
-          filed_as: Archivado como
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo

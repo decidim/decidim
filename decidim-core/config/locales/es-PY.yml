@@ -88,6 +88,9 @@ es-PY:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin:
+      actions:
+        cancel: Cancelar
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
@@ -136,6 +139,8 @@ es-PY:
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
+    admin_terms_of_use:
+      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
@@ -229,6 +234,7 @@ es-PY:
       photos:
         related_photos: Fotos relacionadas
     author:
+      avatar: Avatar
       comments:
         one: comentario
         other: comentarios
@@ -1204,6 +1210,7 @@ es-PY:
       cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, solicite uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
+      invalid_time_zone: no es una zona horaria válida
       long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
@@ -1316,8 +1323,11 @@ es-PY:
       left: Supresiones
       right: Adiciones
     dropdown:
+      choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      option_escaped: Escapado
       option_split: En paralelo
+      option_unescaped: Desescapado
       option_unified: Unificado
   views:
     pagination:

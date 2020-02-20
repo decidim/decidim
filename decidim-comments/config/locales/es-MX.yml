@@ -42,6 +42,7 @@ es-MX:
           against: En contra
           in_favor: A favor
         deleted_user: Usuario eliminado
+        hide_replies: Ocultar respuestas
         reply: Respuesta
         report:
           action: Denunciar
@@ -54,6 +55,8 @@ es-MX:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Denunciar un problema
+        show_replies: Mostrar %{replies_count} respuestas
+        single_comment_link_title: Obtener enlace a un solo comentario
       comment_order_selector:
         order:
           best_rated: Mejor valoración
@@ -66,7 +69,10 @@ es-MX:
       comments:
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
+        comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
+        single_comment_warning: Puedes revisar el resto de los comentarios <a href="%{url}">aquí</a>.
+        single_comment_warning_title: Estás viendo un solo comentario
         title: "%{count} comentarios"
     events:
       comments:
