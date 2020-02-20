@@ -44,5 +44,46 @@ module Decidim
         end
       end
     end
+
+    describe "#options" do
+      context "when no options are specified" do
+        it "returns an empty hash" do
+          expect(subject.options).to eq({})
+        end
+      end
+
+      context "when options are set" do
+        it "returns the options hash" do
+          options = { foo: "bar", bar: "foo" }
+          subject.options options
+          expect(subject.options).to eq(options)
+        end
+      end
+    end
+
+    describe "#formats" do
+      context "when no formats are specified" do
+        it "returns the default formats array" do
+          expect(subject.formats).to eq(described_class::DEFAULT_FORMATS)
+        end
+      end
+
+      context "when formats are set" do
+        let(:formats) { %w(CSV PDF) }
+
+        before do
+          subject.formats formats
+        end
+
+        it "returns the formats array" do
+          expect(subject.formats).to eq(formats)
+        end
+
+        it "loads the exporter classes for each format" do
+          expect(Decidim::Exporters.const_get(formats.first)).to be_present
+          expect(Decidim::Exporters.const_get(formats.second)).to be_present
+        end
+      end
+    end
   end
 end

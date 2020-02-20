@@ -82,6 +82,8 @@ module Decidim
         @options ||= options || {}
       end
 
+      DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
+
       # Public: Sets the available formats an argument is provided and
       # loads the required exporters, returns the array with default available
       # formats otherwise.
@@ -94,9 +96,13 @@ module Decidim
       # Returns the stored formats if previously stored, or
       # the default formats array.
       def formats(formats = nil)
-        formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
+        load_exporters(formats)
+        @formats ||= formats || DEFAULT_FORMATS
+      end
 
-        @formats ||= formats || %w(CSV JSON Excel)
+      # TODO: Doc
+      def load_exporters(formats)
+        formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
       end
     end
   end
