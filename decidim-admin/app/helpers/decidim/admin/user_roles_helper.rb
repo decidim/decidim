@@ -11,7 +11,7 @@ module Decidim
                               space.user_role_config_for(current_user, :organization_admin)
                             else
                               role = space.user_roles.find_by(user: current_user)
-                              @user_role_config = space.user_role_config_for(current_user, role&.role)
+                              space.user_role_config_for(current_user, role&.role)
                             end
       end
     end
