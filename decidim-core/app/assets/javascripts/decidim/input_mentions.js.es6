@@ -25,7 +25,18 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    $.post("/api", {query: `{users(filter: { wildcard: "${text}" }) {nickname, name, avatarUrl, __typename}}`}).
+    let query = `{
+      users(filter: { wildcard: "${text}" }) {
+        nickname
+        name
+        avatarUrl
+        __typename
+        ...on UserGroup {
+          membersCount
+        }
+      }
+    }`;
+    $.post("/api", {query: query}).
 
       then((response) => {
         let data = response.data.users || {};
@@ -94,7 +105,7 @@ $(() => {
       let svg = "";
       if (window.DecidimComments && item.original.__typename === "UserGroup") {
         let icons = window.DecidimComments.assets["icons.svg"];
-        svg = `<svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg>`;
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
       }
       return `<div class="tribute-item ${item.original.__typename}">
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>

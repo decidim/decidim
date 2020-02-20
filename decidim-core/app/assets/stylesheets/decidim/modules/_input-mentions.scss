@@ -1,6 +1,7 @@
 @import "tribute";
 
-.mentions__container{
+.mentions__container,
+.hashtags__container{
   width: 100%;
 
   span{
@@ -27,7 +28,8 @@
     display: block; // firefox
   }
 
-  &.mentions__container--textarea{
+  &.mentions__container--textarea,
+  &.hashtags__container--textarea{
     [contenteditable=true]{
       -webkit-appearance: textfield;
       -moz-appearance: textfield-multiline;
@@ -93,9 +95,14 @@
         padding: 0;
       }
 
-      svg.icon{
+      .is-group{
         height: 1.6rem;
         float: right;
+        font-weight: normal;
+
+        svg{
+          vertical-align: middle;
+        }
       }
     }
   }
