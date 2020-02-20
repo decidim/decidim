@@ -25,19 +25,8 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{
-      users(filter: { wildcard: "${text}" }) {
-        nickname
-        name
-        avatarUrl
-        __typename
-        ...on UserGroup {
-          membersCount
-        }
-      }
-    }`;
+    let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename,...on UserGroup{membersCount}}}`;
     $.post("/api", {query: query}).
-
       then((response) => {
         let data = response.data.users || {};
         cb(data)
@@ -136,8 +125,11 @@ $(() => {
         // We need to move the container to the wrapper selected
         let $tribute = $(".tribute-container");
         $tribute.appendTo($parent);
-        // // Remove the inline styles, relative to absolute positioning
-        $tribute.removeAttr("style");
+
+        // Remove the inline styles, relative to absolute positioning
+        // If allowSpaces is activated this flashes continuosly the container
+        // $tribute.removeAttr("style");
+
         // Parent adaptation
         $parent.addClass("is-active");
       } else {
