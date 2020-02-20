@@ -23,6 +23,21 @@ $(() => {
     }
   });
 
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds
+  /* eslint no-invalid-this: 0 */
+  /* eslint consistent-this: 0 */
+  /* eslint prefer-reflect: 0 */
+  const debounce = function(callback, wait) {
+    let timeout = null;
+    return (...args) => {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => callback.apply(context, args), wait);
+    };
+  }
+
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
     let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename,...on UserGroup{membersCount}}}`;
@@ -49,9 +64,10 @@ $(() => {
   /* global Tribute*/
   let tribute = new Tribute({
     trigger: "@",
-    values: function (text, cb) {
+    // avoid overloading the API if the user types too fast
+    values: debounce(function (text, cb) {
       remoteSearch(text, (users) => cb(users));
-    },
+    }, 250),
     positionMenu: true,
     menuContainer: null,
     allowSpaces: true,
