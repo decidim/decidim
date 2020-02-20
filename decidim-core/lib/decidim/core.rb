@@ -5,6 +5,7 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
@@ -69,8 +70,7 @@ module Decidim
   autoload :Fingerprintable, "decidim/fingerprintable"
   autoload :DataPortability, "decidim/data_portability"
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
-  autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
-  autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :DataPortabilityExporter, "decidim/data_portability_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"

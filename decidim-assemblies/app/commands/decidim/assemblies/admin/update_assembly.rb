@@ -84,7 +84,6 @@ module Decidim
             purpose_of_action: form.purpose_of_action,
             composition: form.composition,
             assembly_type: form.assembly_type,
-            assembly_type_other: form.assembly_type_other,
             creation_date: form.creation_date,
             created_by: form.created_by,
             created_by_other: form.created_by_other,
@@ -108,7 +107,7 @@ module Decidim
         end
 
         def link_participatory_processes(assembly)
-          assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
+          assembly.link_participatory_space_resources(participatory_processes(assembly), "included_participatory_processes")
         end
 
         # Resets the children counter cache to its correct value using an SQL count query.

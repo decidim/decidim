@@ -175,18 +175,8 @@ tr:
             title: Genel bilgi
           index:
             actions_title: Aksiyon
-            filter:
-              accepted: Kabul edilmiş
-              all: Herşey
-              created: düzenlendi
-              discarded: Atılan
-              published: Yayınlanan
-              rejected: Reddedilen
-              validating: Teknik doğrulama
-            filter_by: Tarafından filtre
             preview: Ön izleme
             print: baskı
-            search: Arama
           show:
             print: baskı
           update:

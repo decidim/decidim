@@ -23,7 +23,7 @@ ar:
         promoted: رقية
         published_at: نشرت في
         scope_id: نطاق
-        scopes_enabled: تم تمكين النطاقات
+        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
@@ -84,8 +84,9 @@ ar:
         duplicate: مكرر
         edit: تعديل
         filter:
-          all: عرض جميع العمليات
+          all_processes: عرض جميع العمليات
           process_groups: مجموعات العملية
+        import_process: استيراد
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
         new_process_step: مرحلة جديدة
@@ -158,6 +159,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
           success: تم تحديث مجموعة العملية التشاركية بنجاح.
+      participatory_process_imports:
+        new:
+          import: استيراد
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
@@ -303,6 +307,9 @@ ar:
         participatory_process_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: إضافة وثيقة
         participatory_process_steps:
           form:
             cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'

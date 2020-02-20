@@ -8,10 +8,18 @@ input{
 
 @mixin heading($heading){
   line-height: 1.2;
-  font-size: map-get(map-get(map-get($header-styles, small), $heading), 'font-size') / 16 + em;
+  font-size:
+    map-get(
+      map-get(map-get($header-styles, small), $heading),
+      "font-size"
+    ) / 16 + em;
 
   @include breakpoint(medium){
-    font-size: map-get(map-get(map-get($header-styles, medium), $heading), 'font-size') / 16 + em;
+    font-size:
+      map-get(
+        map-get(map-get($header-styles, medium), $heading),
+        "font-size"
+      ) / 16 + em;
   }
 }
 
@@ -116,6 +124,33 @@ hr{
   }
 }
 
+.data-title{
+  &__over{
+    color: $muted;
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: .01em;
+    font-weight: 800;
+    margin-bottom: .5rem;
+  }
+
+  &__main{
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: .01em;
+    font-weight: 800;
+    margin-bottom: 0;
+  }
+
+  &__sub{
+    color: $muted;
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: .01em;
+    line-height: 1;
+  }
+}
+
 .page-title{
   margin-bottom: 3rem;
 }
@@ -139,7 +174,12 @@ hr{
 }
 
 // text status-color
-$map: map-merge($foundation-palette, (muted: $muted));
+$map: map-merge(
+  $foundation-palette,
+  (
+    muted: $muted,
+  )
+);
 
 @each $key, $value in $map{
   .text-#{$key}{
@@ -218,5 +258,10 @@ textarea,
 time,
 tt,
 var{
-  @include modifiers(color, (muted: $muted));
+  @include modifiers(
+    color,
+    (
+      muted: $muted,
+    )
+  );
 }

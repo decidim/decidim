@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
-  let!(:current_user) { create(:user, :admin, organization: component.participatory_space.organization) }
+  let(:organization) { component.organization }
+  let!(:current_user) { create(:user, :admin, organization: organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
@@ -33,16 +34,24 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   end
 
   describe "on update" do
+    let(:manifest) { component.manifest }
+    let(:participatory_space) { component.participatory_space }
+    let(:active_step_id) { participatory_space.active_step.id }
     let(:form) do
-      instance_double(
-        Decidim::Admin::ComponentForm,
-        invalid?: !valid,
+      Decidim::Admin::ComponentForm.from_params(
+        id: component.id,
         weight: 0,
-        name: {},
+        manifest: manifest,
+        participatory_space: participatory_space,
+        name: generate_localized_title,
         default_step_settings: {},
-        settings: settings,
-        step_settings: step_settings
-      )
+        settings: new_settings(:global, settings),
+        step_settings: { active_step_id => new_settings(:step, step_settings) }
+      ).with_context(current_organization: organization)
+    end
+
+    def new_settings(name, data)
+      Decidim::Component.build_settings(manifest, name, data, organization)
     end
 
     describe "participatory_texts_enabled" do
@@ -50,8 +59,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:step_settings) { {} }
 
       context "when there are no proposals for the component" do
-        let(:valid) { true }
-
         it "updates the component" do
           expect do
             Decidim::Admin::UpdateComponent.call(form, component)
@@ -60,8 +67,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
 
       context "when there are proposals for the component" do
-        let(:proposal) { create(:proposal, component: component) }
-        let(:valid) { false }
+        let!(:proposal) { create(:proposal, component: component) }
 
         it "does NOT update the component" do
           expect do
@@ -73,17 +79,10 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     describe "amendments_visibility" do
       let(:settings) { { amendments_enabled: true } }
-      let(:step_settings) do
-        {
-          component.participatory_space.active_step.id => {
-            amendments_visibility: amendment_visibility_option
-          }
-        }
-      end
+      let(:step_settings) { { amendments_visibility: amendment_visibility_option } }
 
       context "when the amendment visibility option is valid" do
         let(:amendment_visibility_option) { "all" }
-        let(:valid) { true }
 
         it "updates the component" do
           expect do
@@ -94,7 +93,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       context "when the amendment visibility option is NOT valid" do
         let(:amendment_visibility_option) { "INVALID" }
-        let(:valid) { false }
 
         it "does NOT update the component" do
           expect do
@@ -148,8 +146,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "votes_count" do
-      let(:stats_name) { :votes_count }
+    describe "supports_count" do
+      let(:stats_name) { :supports_count }
 
       before do
         create_list :proposal_vote, 2, proposal: proposal
@@ -197,7 +195,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     end
 
     before do
-      switch_to_host(component.organization.host)
+      switch_to_host(organization.host)
       login_as current_user, scope: :user
     end
 

@@ -31,8 +31,9 @@ describe "Filter Proposals", type: :system do
           create(:proposal, component: component, scope: scope)
           visit_component
 
-          within ".filters" do
-            choose "Official"
+          within ".filters .origin_check_boxes_tree_filter" do
+            uncheck "All"
+            check "Official"
           end
 
           expect(page).to have_css(".card--proposal", count: 2)
@@ -46,8 +47,9 @@ describe "Filter Proposals", type: :system do
           create(:proposal, :official, component: component, scope: scope)
           visit_component
 
-          within ".filters" do
-            choose "Citizens"
+          within ".filters .origin_check_boxes_tree_filter" do
+            uncheck "All"
+            check "Citizens"
           end
 
           expect(page).to have_css(".card--proposal", count: 2)
@@ -84,14 +86,15 @@ describe "Filter Proposals", type: :system do
 
     it "can be filtered by scope" do
       within "form.new_filter" do
-        expect(page).to have_content(/Scopes/i)
+        expect(page).to have_content(/Scope/i)
       end
     end
 
     context "when selecting the global scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters" do
-          scope_pick scopes_picker, nil
+        within ".filters .scope_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Global"
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
@@ -101,8 +104,9 @@ describe "Filter Proposals", type: :system do
 
     context "when selecting one scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters" do
-          scope_pick scopes_picker, scope
+        within ".filters .scope_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check scope.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card--proposal", count: 2)
@@ -112,9 +116,10 @@ describe "Filter Proposals", type: :system do
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters" do
-          scope_pick scopes_picker, scope
-          scope_pick scopes_picker, nil
+        within ".filters .scope_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Global"
+          check scope.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card--proposal", count: 3)
@@ -122,25 +127,13 @@ describe "Filter Proposals", type: :system do
       end
     end
 
-    context "when modifying the selected scope" do
-      it "lists the filtered proposals" do
-        within ".filters" do
-          scope_pick scopes_picker, scope
-          scope_pick scopes_picker, nil
-          scope_repick scopes_picker, scope, scope2
-        end
-
-        expect(page).to have_css(".card--proposal", count: 2)
-        expect(page).to have_content("2 PROPOSALS")
-      end
-    end
-
     context "when unselecting the selected scope" do
       it "lists the filtered proposals" do
-        within ".filters" do
-          scope_pick scopes_picker, scope
-          scope_pick scopes_picker, nil
-          scope_unpick scopes_picker, scope
+        within ".filters .scope_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check scope.name[I18n.locale.to_s]
+          check "Global"
+          uncheck scope.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
@@ -190,8 +183,10 @@ describe "Filter Proposals", type: :system do
           create(:proposal, :accepted, component: component, scope: scope)
           visit_component
 
-          within ".filters" do
-            choose "Accepted"
+          within ".filters .state_check_boxes_tree_filter" do
+            check "All"
+            uncheck "All"
+            check "Accepted"
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
@@ -206,8 +201,10 @@ describe "Filter Proposals", type: :system do
           create(:proposal, :rejected, component: component, scope: scope)
           visit_component
 
-          within ".filters" do
-            choose "Rejected"
+          within ".filters .state_check_boxes_tree_filter" do
+            check "All"
+            uncheck "All"
+            check "Rejected"
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
@@ -255,23 +252,39 @@ describe "Filter Proposals", type: :system do
     end
   end
 
-  context "when filtering proposals by CATEGORY" do
+  context "when filtering proposals by CATEGORY", :slow do
     context "when the user is logged in" do
+      let!(:category2) { create :category, participatory_space: participatory_process }
+      let!(:category3) { create :category, participatory_space: participatory_process }
+      let!(:proposal1) { create(:proposal, component: component, category: category) }
+      let!(:proposal2) { create(:proposal, component: component, category: category2) }
+      let!(:proposal3) { create(:proposal, component: component, category: category3) }
+
       before do
         login_as user, scope: :user
       end
 
-      it "can be filtered by category" do
-        create_list(:proposal, 3, component: component)
-        create(:proposal, component: component, category: category)
-
+      it "can be filtered by a category" do
         visit_component
 
-        within "form.new_filter" do
-          select category.name[I18n.locale.to_s], from: "filter[category_id]"
+        within ".filters .category_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card--proposal", count: 1)
+      end
+
+      it "can be filtered by two categories" do
+        visit_component
+
+        within ".filters .category_id_check_boxes_tree_filter" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
+          check category2.name[I18n.locale.to_s]
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
       end
     end
   end

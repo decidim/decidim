@@ -498,18 +498,12 @@ de:
           actions: Aktionen
           badge: Abzeichen
           created_at: Hergestellt in
-          filter:
-            all: Alle
-            not_officialized: Nicht offiziell
-            officialized: Offizialisiert
-          filter_by: Filtern nach
           name: Name
           nickname: Spitzname
           not_officialized: Nicht offiziell
           officialize: Offizialisieren
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
-          search: Suche
           status: Status
           unofficialize: Nicht offiziell
         new:

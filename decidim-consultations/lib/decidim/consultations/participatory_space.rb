@@ -10,6 +10,8 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     Decidim::Consultation.where(organization: organization)
   end
 
+  participatory_space.query_type = "Decidim::Consultations::ConsultationType"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Consultations::Engine
     context.layout = "layouts/decidim/question"

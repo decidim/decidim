@@ -96,7 +96,6 @@ uk:
             other: "%{count} проектів"
         filters:
           category: Категорія
-          category_prompt: Оберіть категорію
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце

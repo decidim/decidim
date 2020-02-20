@@ -9,11 +9,12 @@ module Decidim
 
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
-      let(:params) do
+      let(:proposal_params) do
         {
           component_id: component.id
         }
       end
+      let(:params) { { proposal: proposal_params } }
 
       before do
         request.env["decidim.current_organization"] = component.organization
@@ -97,12 +98,16 @@ module Decidim
 
         context "when creation is enabled" do
           let(:component) { create(:proposal_component, :with_creation_enabled) }
-
-          it "creates a proposal" do
-            post :create, params: params.merge(
+          let(:proposal_params) do
+            {
+              component_id: component.id,
               title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
               body: "Ut sed dolor vitae purus volutpat venenatis. Donec sit amet sagittis sapien. Curabitur rhoncus ullamcorper feugiat. Aliquam et magna metus."
-            )
+            }
+          end
+
+          it "creates a proposal" do
+            post :create, params: params
 
             expect(flash[:notice]).not_to be_empty
             expect(response).to have_http_status(:found)

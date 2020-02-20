@@ -13,6 +13,8 @@ module Decidim
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
       include ControlVersionHelper
+      include Decidim::RichTextEditorHelper
+      include Decidim::CheckBoxesTreeHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 
@@ -78,6 +80,40 @@ module Decidim
         minimum_votes_per_user.positive?
       end
 
+      def not_from_collaborative_draft(proposal)
+        proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
+      end
+
+      def not_from_participatory_text(proposal)
+        proposal.participatory_text_level.nil?
+      end
+
+      # If the proposal is official or the rich text editor is enabled on the
+      # frontend, the proposal body is considered as safe content; that's unless
+      # the proposal comes from a collaborative_draft or a participatory_text.
+      def safe_content?
+        rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal) ||
+          (@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)
+      end
+
+      # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
+      def render_proposal_body(proposal)
+        body = present(proposal).body(links: true, strip_tags: !safe_content?)
+
+        safe_content? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
+      end
+
+      # Returns :text_area or :editor based on the organization' settings.
+      def text_editor_for_proposal_body(form)
+        options = {
+          class: "js-hashtags",
+          hashtaggable: true,
+          value: form_presenter.body(extras: false).strip
+        }
+
+        text_editor_for(form, :body, options)
+      end
+
       def proposal_limit
         return if component_settings.proposal_limit.zero?
 
@@ -123,31 +159,6 @@ module Decidim
         return true if proposal_limit_enabled?
         return true if can_accumulate_supports_beyond_threshold?
         return true if minimum_votes_per_user_enabled?
-      end
-
-      def filter_origin_values
-        base = if component_settings.official_proposals_enabled
-                 [
-                   ["all", t("decidim.proposals.application_helper.filter_origin_values.all")],
-                   ["official", t("decidim.proposals.application_helper.filter_origin_values.official")]
-                 ]
-               else
-                 [["all", t("decidim.proposals.application_helper.filter_origin_values.all")]]
-               end
-
-        base += [["citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens")]]
-        base += [["user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")]] if current_organization.user_groups_enabled?
-        base + [["meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings")]]
-      end
-
-      def filter_state_values
-        [
-          ["except_rejected", t("decidim.proposals.application_helper.filter_state_values.except_rejected")],
-          ["accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")],
-          ["evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")],
-          ["rejected", t("decidim.proposals.application_helper.filter_state_values.rejected")],
-          ["all", t("decidim.proposals.application_helper.filter_state_values.all")]
-        ]
       end
 
       def filter_type_values

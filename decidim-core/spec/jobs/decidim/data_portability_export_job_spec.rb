@@ -8,7 +8,9 @@ module Decidim
     let!(:user) { create(:user, organization: organization) }
 
     it "sends an email with the result of the export" do
-      DataPortabilityExportJob.perform_now(user, "CSV")
+      perform_enqueued_jobs do
+        DataPortabilityExportJob.perform_now(user, "CSV")
+      end
 
       email = last_email
       expect(email.subject).to include("export")

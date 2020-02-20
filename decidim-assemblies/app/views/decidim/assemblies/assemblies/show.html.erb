@@ -157,11 +157,7 @@ edit_link(
         <% if current_participatory_space.assembly_type.present? %>
           <div class="definition-data__item assembly_type">
             <span class="definition-data__title"><%= t("assembly_type", scope: "decidim.assemblies.show") %></span>
-            <% if current_participatory_space.assembly_type == "others" %>
-              <%= translated_attribute(current_participatory_space.assembly_type_other) %>
-            <% else %>
-              <%= t("assembly_types.#{current_participatory_space.assembly_type }", scope: "decidim.assemblies") %>
-            <% end %>
+              <%= translated_attribute(current_participatory_space.assembly_type.title) %>
           </div>
         <% end %>
 

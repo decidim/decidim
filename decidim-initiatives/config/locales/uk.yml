@@ -117,18 +117,8 @@ uk:
             title: Загальні відомості
           index:
             actions_title: Дія
-            filter:
-              accepted: Прийнято
-              all: Усі
-              created: Створені
-              discarded: Відкинуті
-              published: Оприлюднено
-              rejected: Відхилені
-              validating: Технічна перевірка
-            filter_by: 'Відібрати за ознакою:'
             preview: Попередній перегляд
             print: Друк
-            search: Шукати
           show:
             print: Друк
           update:

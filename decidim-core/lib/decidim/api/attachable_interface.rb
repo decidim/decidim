@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # This interface represents a commentable object.
+    # This interface represents a attachable object.
     AttachableInterface = GraphQL::InterfaceType.define do
       name "AttachableInterface"
       description "An interface that can be used in objects with attachments"

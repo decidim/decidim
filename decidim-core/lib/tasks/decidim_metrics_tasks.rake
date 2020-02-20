@@ -42,23 +42,24 @@ namespace :decidim do
       begin
         raise ArgumentError if day.blank?
 
-        (Date.parse(day)..Time.zone.today).each do |d|
+        (Date.parse(day)..Date.current).each do |d|
+          current_day = d.to_s
           Decidim::Organization.find_each do |organization|
             if metric
               m_manifest = Decidim.metrics_registry.for(metric)
-              puts "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{d}]"
-              call_metric_job(m_manifest, organization, day)
+              log_info "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{current_day}]"
+              call_metric_job(m_manifest, organization, current_day)
             else
-              puts "[#{organization.name}]: rebuilding all metrics for day [#{d}]"
+              log_info "[#{organization.name}]: rebuilding all metrics for day [#{current_day}]"
               Decidim.metrics_registry.all.each do |metric_manifest|
-                call_metric_job(metric_manifest, organization, day)
+                call_metric_job(metric_manifest, organization, current_day)
               end
             end
           end
         end
       rescue ArgumentError
-        puts "ERROR: Please specify since which date should the metrics be rebuild"
-        puts "ie: rails decidim:metrics:rebuild[2019-01-01]"
+        log_error "ERROR: Please specify since which date should the metrics be rebuild"
+        log_error "ie: rails decidim:metrics:rebuild[2019-01-01]"
       end
     end
 
@@ -73,6 +74,16 @@ namespace :decidim do
         organization.id,
         day
       )
+    end
+
+    def log_info(msg)
+      puts msg
+      Rails.logger.info(msg)
+    end
+
+    def log_error(msg)
+      puts msg
+      Rails.logger.error(msg)
     end
   end
 end

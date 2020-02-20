@@ -11,8 +11,6 @@ module Decidim
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
 
-    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -22,7 +20,7 @@ module Decidim
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :lockable,
            :decidim_validatable, :decidim_newsletterable,
-           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
 
@@ -166,6 +164,10 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
+    def admin_terms_accepted?
+      return true if admin_terms_accepted_at
+    end
+
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?
@@ -181,6 +183,14 @@ module Decidim
 
     def interested_scopes
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    def data_portability_file(filename)
+      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+        uploader.retrieve_from_store!(filename)
+        uploader.cache!(filename)
+      end
     end
 
     protected

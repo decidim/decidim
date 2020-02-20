@@ -32,6 +32,10 @@
   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
 </div>
 
+<div class="row column">
+  <%= form.time_zone_select :time_zone %>
+</div>
+
 <div class="row">
   <div class="columns xlarge-6">
     <%= form.text_field :reference_prefix %>
@@ -50,6 +54,12 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.check_box :rich_text_editor_in_public_views, help_text: t(".rich_text_editor_in_public_views_help") %>
+  </div>
+</div>
+
 <div class="row" id="welcome-notification-details">
   <div class="columns xlarge-6">
     <%= form.check_box :send_welcome_notification %>
@@ -61,6 +71,12 @@
         <%= form.translated :editor, :welcome_notification_body %>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.translated :editor, :admin_terms_of_use_body %>
   </div>
 </div>
 
