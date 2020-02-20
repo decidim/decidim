@@ -68,20 +68,6 @@ module Decidim
         @serializer ||= serializer || Decidim::Exporters::Serializer
       end
 
-      # Public: Sets the options hash when an argument is provided, returns the
-      # stored options hash otherwise.
-      #
-      # The options hash is used to provide custom configuration options
-      # to the exporters.
-      #
-      # options - The hash containing options.
-      #
-      # Returns the stored options hash if previously stored, or
-      # an empty hash as a default implementation.
-      def options(options = nil)
-        @options ||= options || {}
-      end
-
       DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
 
       # Public: Sets the available formats an argument is provided and

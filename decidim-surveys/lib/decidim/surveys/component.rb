@@ -72,14 +72,6 @@ Decidim.register_component(:surveys) do |component|
 
     exports.formats %w(CSV JSON Excel SurveyPDF)
 
-    exports.options(
-      "SurveyPDF" => {
-        template: "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb",
-        layout: "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb",
-        orientation: "Portrait"
-      }
-    )
-
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end
 

@@ -12,20 +12,24 @@ module Decidim
     # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
     # the columns: [TODO!]
     class SurveyPDF < PDF
-      # Public: Exports a PDF version of the collection using the
-      # [TODO!].
-      #
-      # Returns an ExportData instance.
-      def export(template:, layout:, orientation: "Portrait")
-        super(template: template, layout: layout, orientation: orientation)
-      end
-
       def controller
         super.class_eval do
           helper Decidim::TranslationsHelper
           helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
         end
         super
+      end
+
+      def template
+        "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb"
+      end
+
+      def layout
+        "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+      end
+
+      def orientation
+        "Portrait"
       end
     end
   end

@@ -16,7 +16,7 @@ module Decidim
       # [TODO!].
       #
       # Returns an ExportData instance.
-      def export(template:, layout:, orientation: "Portrait")
+      def export
         html = controller.render_to_string(
           template: template,
           layout: layout,
@@ -30,6 +30,18 @@ module Decidim
 
       def controller
         @controller ||= ActionController::Base.new
+      end
+
+      def template
+        raise NotImplementedError
+      end
+
+      def layout
+        raise NotImplementedError
+      end
+
+      def orientation
+        raise NotImplementedError
       end
     end
   end

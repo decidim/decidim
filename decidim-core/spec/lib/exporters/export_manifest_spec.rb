@@ -45,22 +45,6 @@ module Decidim
       end
     end
 
-    describe "#options" do
-      context "when no options are specified" do
-        it "returns an empty hash" do
-          expect(subject.options).to eq({})
-        end
-      end
-
-      context "when options are set" do
-        it "returns the options hash" do
-          options = { foo: "bar", bar: "foo" }
-          subject.options options
-          expect(subject.options).to eq(options)
-        end
-      end
-    end
-
     describe "#formats" do
       context "when no formats are specified" do
         it "returns the default formats array" do
