@@ -462,6 +462,9 @@ fr:
             active_conferences: Conférences actives
             see_all_conferences: Voir toutes les conférences
       photo:
+        image:
+          attributes:
+            alt: Image media
         show:
           close_modal: Fermer la fenêtre
           photo: Photo
