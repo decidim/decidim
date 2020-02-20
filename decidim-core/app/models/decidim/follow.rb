@@ -26,6 +26,7 @@ module Decidim
     def self.user_follower_ids_for_participatory_spaces(spaces)
       spaces = spaces.map do |space|
         if space.respond_to? :questions
+          # space is a Consultation
           space.questions
         else
           space
