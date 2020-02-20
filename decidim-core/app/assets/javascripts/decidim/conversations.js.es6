@@ -4,7 +4,7 @@
  * @returns {void}
  */
 const scrollToBottom = () => {
-  if (document.getElementsByClassName("scroll-to-bottom").length > 0) {
+  if (document.querySelector('.scroll-to-bottom') !== null) {
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: 'smooth'
