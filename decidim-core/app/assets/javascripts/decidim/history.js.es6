@@ -35,11 +35,19 @@
     }
   };
 
+  const state = () => {
+    if (window.history) {
+      return window.history.state;
+    }
+    return null;
+  };
+
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.History = {
     registerCallback,
     unregisterCallback,
     pushState,
-    replaceState
+    replaceState,
+    state
   };
 })(window);

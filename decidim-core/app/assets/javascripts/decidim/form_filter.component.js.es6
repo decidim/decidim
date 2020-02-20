@@ -67,38 +67,36 @@
     }
 
     /**
-     * Updates URL with the initial filters state, to allow to restoring it when using browser history.
+     * Sets path in the browser history with the initial filters state, to allow to restoring it when using browser history.
      * @private
      * @returns {Void} - Returns nothing.
      */
     _updateInitialState() {
-      const [initialUrl, initialState] = this._currentStateAndUrl();
-
-      exports.Decidim.History.replaceState(initialUrl, initialState);
+      const [initialPath, initialState] = this._currentStateAndPath();
+      initialState._path = initialPath
+      exports.Decidim.History.replaceState(null, initialState);
     }
 
     /**
      * Finds the current location.
+     * @param {boolean} withHost - include the host part in the returned location
      * @private
      * @returns {String} - Returns the current location.
      */
-    _getLocation() {
-      return exports.location.toString();
-    }
+    _getLocation(withHost = true) {
+      const state = exports.Decidim.History.state();
+      let path = "";
 
-    /**
-     * Finds the values of the location params that match the given regexp.
-     * @private
-     * @param {Regexp} regex - a Regexp to match the params.
-     * @returns {String[]} - An array of values of the params that match the regexp.
-     */
-    _getLocationParams(regex) {
-      const location = decodeURIComponent(this._getLocation());
-      let values = location.match(regex);
-      if (values) {
-        values = values.map((val) => val.match(/=(.*)/)[1]);
+      if (state && state._path) {
+        path = state._path;
+      } else {
+        path = exports.location.pathname + exports.location.search + exports.location.hash;
       }
-      return values;
+
+      if (withHost) {
+        return exports.location.origin + path;
+      }
+      return path;
     }
 
     /**
@@ -240,32 +238,33 @@
         return;
       }
 
-      const [newUrl, newState] = this._currentStateAndUrl();
+      const [newPath, newState] = this._currentStateAndPath();
+      const path = this._getLocation(false);
 
-      if (newUrl === window.location.pathname + window.location.search + window.location.hash) {
+      if (newPath === path) {
         return;
       }
 
       exports.Rails.fire(this.$form[0], "submit");
-      exports.Decidim.History.pushState(newUrl, newState);
+      exports.Decidim.History.pushState(newPath, newState);
     }
 
     /**
-     * Calculates the URL and the state associated to the filters inputs.
+     * Calculates the path and the state associated to the filters inputs.
      * @private
-     * @returns {Array} - Returns an array with the URL and the state for the current filters state.
+     * @returns {Array} - Returns an array with the path and the state for the current filters state.
      */
-    _currentStateAndUrl() {
+    _currentStateAndPath() {
       const formAction = this.$form.attr("action");
       const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
 
-      let url = "";
+      let path = "";
       let state = {};
 
       if (formAction.indexOf("?") < 0) {
-        url = `${formAction}?${params}`;
+        path = `${formAction}?${params}`;
       } else {
-        url = `${formAction}&${params}`;
+        path = `${formAction}&${params}`;
       }
 
       // Stores picker information for selected values (value, text and link) in the state object
@@ -273,7 +272,7 @@
         state[picker.id] = exports.theDataPicker.save(picker);
       })
 
-      return [url, state];
+      return [path, state];
     }
 
     /**
