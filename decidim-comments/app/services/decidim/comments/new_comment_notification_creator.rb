@@ -49,11 +49,13 @@ module Decidim
       end
 
       def notify_mentioned_groups
-        group_users += mentioned_groups.map { |group| UserGroups::AcceptedMemberships.for(group).map(&:user) }
-        affected_users = group_users - already_notified_users
-        @already_notified_users += affected_users
+        mentioned_groups.each do |group|
+          group_users = UserGroups::AcceptedMemberships.for(group).map(&:user)
+          affected_users = group_users - already_notified_users
+          @already_notified_users += affected_users
 
-        notify(:user_group_mentioned, affected_users: affected_users)
+          notify(:user_group_mentioned, affected_users: affected_users, extra: { group: group })
+        end
       end
 
       # Notifies the author of a comment that their comment has been replied.
@@ -102,7 +104,7 @@ module Decidim
           extra: {
             comment_id: comment.id
           }
-        }.merge(users)
+        }.deep_merge(users)
 
         Decidim::EventsManager.publish(data)
       end

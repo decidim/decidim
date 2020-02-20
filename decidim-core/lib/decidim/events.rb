@@ -8,5 +8,6 @@ module Decidim
     autoload :SimpleEvent, "decidim/events/simple_event"
     autoload :AuthorEvent, "decidim/events/author_event"
     autoload :CoauthorEvent, "decidim/events/coauthor_event"
+    autoload :GroupEvent, "decidim/events/group_event"
   end
 end
