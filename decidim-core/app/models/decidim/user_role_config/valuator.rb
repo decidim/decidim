@@ -3,8 +3,8 @@
 module Decidim
   module ParticipatorySpaceRoleConfig
     class Valuator < Base
-      def component_is_whitelisted?(manifest)
-        manifest.to_sym == :proposals
+      def accepted_components
+        [:proposals]
       end
     end
   end

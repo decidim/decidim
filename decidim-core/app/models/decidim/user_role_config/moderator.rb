@@ -3,8 +3,8 @@
 module Decidim
   module ParticipatorySpaceRoleConfig
     class Moderator < Base
-      def component_is_whitelisted?(_manifest)
-        false
+      def accepted_components
+        []
       end
     end
   end
