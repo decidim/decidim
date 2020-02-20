@@ -9,7 +9,19 @@ module Decidim
 
       before_action :configure_permitted_parameters
 
-      # We don't users to create invitations, so we just redirect them to the
+      # GET /resource/invitation/accept?invitation_token=abcdef
+      def edit
+        # if the resource was invited but registered before accepting the invitation
+        if resource.try(:confirmed?) || resource.try(:confirmation_sent_at?)
+          resource.accept_invitation!
+          flash[:notice] = t("devise.invitations.already_registered", email: resource.email)
+          return redirect_to after_accept_path_for(resource)
+        end
+
+        super
+      end
+
+      # We don't want users to create invitations, so we just redirect them to the
       # homepage.
       def authenticate_inviter!
         redirect_to root_path
