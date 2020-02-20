@@ -12,7 +12,7 @@
       this.id = this.$form.attr("id") || this._getUID();
       this.mounted = false;
 
-      this._onFormChange = this._onFormChange.bind(this);
+      this._onFormChange = this._delayed(this._onFormChange.bind(this));
       this._onPopState = this._onPopState.bind(this);
 
       if (window.Decidim.PopStateHandler) {
@@ -45,7 +45,28 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
+
         this.$form.on("change", "input, select", this._onFormChange);
+
+        this.currentFormRequest = null;
+        this.$form.on("ajax:beforeSend", (e) => {
+          if (this.currentFormRequest) {
+            this.currentFormRequest.abort();
+          }
+          this.currentFormRequest = e.originalEvent.detail[0];
+        });
+
+        this.$form.on("ajax:before", () => {
+          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
+            elem.disabled = true;
+          });
+        });
+
+        this.$form.on("ajax:send", () => {
+          this.$form.find(".ignore-filters input, .ignore-filters select, .ignore-filter").each((idx, elem) => {
+            elem.disabled = false;
+          });
+        });
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
@@ -170,7 +191,6 @@
           // Since we are using Ruby on Rails generated forms the field ids for a
           // checkbox or a radio button has the following form: filter_${key}_${value}
           field = this.$form.find(`input#filter_${fieldId}_${filterParams[fieldId]}`);
-
           if (field.length > 0) {
             field[0].checked = true;
           } else {
@@ -206,7 +226,7 @@
      */
     _onFormChange() {
       const formAction = this.$form.attr("action");
-      const params = this.$form.serialize();
+      const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
 
       let newUrl = "";
       let newState = {};
@@ -234,6 +254,30 @@
      */
     _getUID() {
       return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    }
+
+    /**
+     * Returns a function, that, as long as it continues to be invoked, will not
+     * be triggered. The function will be called after it stops being called for
+     * N milliseconds.
+     * @param {Function} func - the function to be executed.
+     * @param {int} wait - number of milliseconds to wait before executing the function.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
+    _delayed(func, wait) {
+      let that = this,
+          timeout = null;
+
+      return function(...args) {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+          timeout = null;
+          Reflect.apply(func, that, args);
+        }, wait);
+      }
     }
   }
 
