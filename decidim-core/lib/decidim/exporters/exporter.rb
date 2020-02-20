@@ -17,7 +17,7 @@ module Decidim
 
       # Public: Should generate an `ExportData` with the result of the export.
       # Responsibility of the subclass.
-      def export
+      def export(*)
         raise NotImplementedError
       end
 

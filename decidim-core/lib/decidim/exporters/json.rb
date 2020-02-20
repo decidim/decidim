@@ -11,7 +11,7 @@ module Decidim
       # Serializer.
       #
       # Returns an ExportData with the export.
-      def export
+      def export(*)
         data = ::JSON.pretty_generate(@collection.map do |resource|
           @serializer.new(resource).serialize
         end)

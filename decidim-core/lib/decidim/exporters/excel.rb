@@ -17,7 +17,7 @@ module Decidim
       # Public: Exports a file in an Excel readable format.
       #
       # Returns an ExportData instance.
-      def export
+      def export(*)
         book = Spreadsheet::Workbook.new
         sheet = book.create_worksheet
         sheet.name = "Export"
