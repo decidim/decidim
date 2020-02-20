@@ -14,17 +14,14 @@
     blogpost: post
   )
 %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute post.title %></h2>
+  <%= cell "decidim/author", present(post.author), from: post %>
+</div>
 <div class="row">
-  <div class="columns medium-7 mediumlarge-8">
-    <div class="row column view-header">
-      <h2 class="heading2"><%= translated_attribute post.title %></h2>
-      <%= cell "decidim/author", present(post.author), from: post %>
-    </div>
-    <div class="section">
-      <p><%= decidim_sanitize translated_attribute post.body %></p>
-    </div>
-  </div>
   <% if show_endorsements_card? %>
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
         <div class="card">
           <div class="card__content">
             <div class="row collapse buttons__row">
@@ -40,13 +37,17 @@
               </div>
             </div>
             <br>
+            <%= follow_button_for(post) %>
           </div>
         </div>
-    <% end %>
-  <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
-    <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
+      </div>
+  <% end %>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <p><%= decidim_sanitize translated_attribute post.body %></p>
+    </div>
+    <%= cell "decidim/endorsers_list", post %>
   </div>
-<%= cell "decidim/endorsers_list", post %>
 </div>
 <%= attachments_for post %>
 <%= comments_for post %>

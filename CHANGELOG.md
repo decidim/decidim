@@ -35,6 +35,7 @@ Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now sup
 
 **Added**:
 
+- **decidim-blogs**, **decidim-core**, **decidim-proposals**: [Feature] Make Blog Posts followable. [\#5690](https://github.com/decidim/decidim/pull/5690)
 - **decidim-blogs**, **decidim-core**: [Feature] Make Blog Posts endorsable. [\#5668](https://github.com/decidim/decidim/pull/5668)
 - **decidim-api**: Added documentation to use the API (newcomers friendly). [\#5582](https://github.com/decidim/decidim/pull/5582)
 - **decidim-blogs**: GraphQL API: Complete Blogs specification. [\#5569](https://github.com/decidim/decidim/pull/5569)

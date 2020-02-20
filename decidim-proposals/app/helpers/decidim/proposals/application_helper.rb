@@ -9,6 +9,7 @@ module Decidim
       include PaginateHelper
       include ProposalVotesHelper
       include ::Decidim::EndorsableHelper
+      include ::Decidim::FollowableHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
       include CollaborativeDraftHelper
@@ -125,10 +126,6 @@ module Decidim
           proposal: Proposal.where(component: current_component),
           author: current_user
         ).count
-      end
-
-      def follow_button_for(model, large = nil)
-        render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
       end
 
       def votes_count_for(model, from_proposals_list)

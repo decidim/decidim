@@ -9,6 +9,9 @@ module Decidim
   module Proposals
     describe ProposalInputSort, type: :graphql do
       include_context "with a graphql type"
+
+      subject { proposal }
+
       let(:type_class) { Decidim::Proposals::ProposalsType }
 
       let(:model) { create(:proposal_component) }
@@ -23,7 +26,7 @@ module Decidim
       end
 
       context "when sorting by endorsement_count" do
-        let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: models.last) }
+        let!(:endorsements) { create_list(:endorsement, 3, resource: subject) }
 
         describe "ASC" do
           let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
