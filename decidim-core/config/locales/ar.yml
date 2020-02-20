@@ -100,6 +100,9 @@ ar:
         error: حدثت مشكلة أثناء تحديث حسابك.
         success: تم تحديث حسابك بنجاح.
         success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
+    admin:
+      actions:
+        cancel: إلغاء
     admin_log:
       area:
         create: "%{user_name} خلق المنطقة %{resource_name}"
@@ -199,7 +202,7 @@ ar:
         steps:
           '1': إنشاء التعديل الخاص بك
           '2': قارن تعديلك
-          '3': Complete your amendment
+          '3': اكمل تعديلك
           '4': انشر تعديلك
     anonymous_user: مجهول
     application:
@@ -1180,6 +1183,7 @@ ar:
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
+      invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية

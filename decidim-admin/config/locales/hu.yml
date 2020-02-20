@@ -353,20 +353,20 @@ hu:
           reason: Indok
         new:
           impersonate: Megszemélyesítés
-          impersonate_existing_managed_user: '"%{name}" felügyelt felhasználó felhatalmazása'
-          impersonate_existing_user: '"%{name}" felhasználó felhatalmazása'
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
+          impersonate_existing_managed_user: '"%{name}" felhasználó kezelése'
+          impersonate_existing_user: '"%{name}" felhasználó kezelése'
+          impersonate_new_managed_user: Új résztvevő kezelése
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
         promotion:
-          error: Hiba történt a felügyelt felhasználó előléptetése során.
-          success: A felügyelt felhasználó előléptetése sikeres.
+          error: Hiba történt a résztvevő előléptetésekor.
+          success: A kezelt résztvevő előléptetése sikeres.
         promotions:
           new:
-            explanation: A felügyelt felhasználók egyszerű felhasználóvá alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra felhatalmazni. Erről emailben kapnak értesítést.
-            new_managed_user_promotion: Új felügyelt felhasználó előléptetése
+            explanation: A kezelt résztvevők sztenderd résztvevőkké alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra kezelni. Erről emailben kapnak értesítést.
+            new_managed_user_promotion: Új résztvevő előléptetése
             promote: Előléptetés
       menu:
         admin_log: Admin tevékenységnapló
@@ -452,7 +452,7 @@ hu:
             role: Szerepkör
             roles:
               admin: Admin
-              user_manager: Felhasználói menedzser
+              user_manager: Résztvevők menedzsere
           name: Résztvevő
         user_group:
           fields:
@@ -607,7 +607,7 @@ hu:
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
-          success: Privát felhasználó részvételi helyhez való hozzáférése biztosítva.
+          success: Magán résztvevő részvételi helyhez való hozzáférése biztosítva.
         destroy:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
@@ -766,7 +766,7 @@ hu:
     forms:
       errors:
         impersonate_user:
-          reason: Indokolnod kell a nem felügyelt felhasználók felhatalmazását
+          reason: Indokolnod kell a nem menedzselt résztvevők felhatalmazását
     moderations:
       actions:
         hidden: Rejtett

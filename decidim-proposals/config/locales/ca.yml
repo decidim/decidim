@@ -316,12 +316,11 @@ ca:
         see_all: Veure tots (%{count})
     proposals:
       actions:
-        answer: Respondre
         edit_proposal: Edita la proposta
         import: Importa des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
-        private_notes: Notes privades
+        show: Veure proposta
         title: Accions
       admin:
         actions:
@@ -366,11 +365,11 @@ ca:
           update:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
-          edit:
+          form:
             accepted: Acceptada
             answer_proposal: Resposta
             evaluating: En avaluació
-            rejected: Rebutjada
+            rejected: Rebutjat
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -413,6 +412,29 @@ ca:
           new:
             create: Crea
             title: Crea proposta
+          show:
+            amendments_count: Número d'esmenes
+            authors: Autores
+            body: Descripció
+            comments_count: Comptador de comentaris
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
+            created_at: Data de creació
+            documents: Documents
+            endorsements_count: Número d'esmenes
+            endorsements_ranking: Classificació per esmenes
+            endorsers: Adherides
+            link: Enllaç
+            n_more_endorsers:
+              one: i 1 més
+              other: i %{count} més
+            photos: Fotos
+            proposals: Propostes
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Trobades relacionades
+            votes_count: Nombre de suports
+            votes_ranking: Classificació per suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{category}: %{proposals}.'
             select_a_category: Selecciona una categoria
@@ -435,12 +457,6 @@ ca:
           create:
             invalid: S'ha produït un error en dividir les propostes seleccionades.
             success: Les propostes s'han dividit en d'altres de noves correctament.
-        shared:
-          info_proposal:
-            body: Cos
-            created_at: Data de creació
-            proposal_votes_count: Nombre de suports
-            proposals: Propostes
       admin_log:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
@@ -465,7 +481,6 @@ ca:
           accepted: Acceptada
           all: Totes
           evaluating: En avaluació
-          except_rejected: Totes menys rebutjades
           rejected: Rebutjada
         filter_type_values:
           all: Totes
@@ -514,7 +529,6 @@ ca:
           all: Todas
           amendment: Esmenes
           category: Categoria
-          category_prompt: Avís de categoria
           open: Obert
           published: Publicat
           related_to: Relacionat amb
@@ -668,7 +682,6 @@ ca:
           all: Tots
           amendment_type: Tipus
           category: Categoria
-          category_prompt: Selecciona una categoria
           my_proposals: Les meves propostes
           origin: Origen
           related_to: Relacionat amb
@@ -741,7 +754,6 @@ ca:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_category}</u> per una administradora)"
-          filed_as: Arxivat com a
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport

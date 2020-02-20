@@ -577,6 +577,7 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
+        participatory_space: U volgt de participatieve ruimte al
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.

@@ -144,6 +144,7 @@ fi-pl:
         export: Vie
         manage: Hallitse
         new: Uusi %{name}
+        per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
@@ -292,6 +293,31 @@ fi-pl:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      filters:
+        category_id_eq:
+          label: Aihepiiri
+        filter_label: Suodata
+        officialized_at_null:
+          label: Tila
+          values:
+            'false': Virallistettu
+            'true': Ei virallistettu
+        private_space_eq:
+          label: Yksityinen
+          values:
+            'false': Julkinen
+            'true': Yksityinen
+        published_at_null:
+          label: Julkaistu
+          values:
+            'false': Julkaistu
+            'true': Julkaisematon
+        scope_id_eq:
+          label: Teema
+        search_label: Hae
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
+          title_cont: '%{collection}: Hae otsikon perusteella'
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:

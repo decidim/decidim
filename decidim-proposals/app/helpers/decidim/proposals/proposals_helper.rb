@@ -37,6 +37,24 @@ module Decidim
 
         t(i18n_key, scope: "decidim.proposals.proposals.show")
       end
+
+      def filter_proposals_state_values
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
+          [
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("not_answered", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+          ]
+        )
+      end
+
+      def proposal_has_costs?
+        @proposal.cost.present? &&
+          translated_attribute(@proposal.cost_report).present? &&
+          translated_attribute(@proposal.execution_period).present?
+      end
     end
   end
 end
