@@ -3,8 +3,7 @@
     <span class="results-per-page__text"><%= t("decidim.shared.results_per_page.label") %></span>
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="is-dropdown-submenu-parent">
-        <a href="#" title="<%= t("decidim.shared.results_per_page.title") %>" aria-label="<%= t("decidim.shared.results_per_page.label") %>"><%= per_page %></a>
-
+        <a href="#" title="<%= t("decidim.shared.results_per_page.title") %>"><%= per_page %></a>
         <ul class="menu">
           <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
             <li>
