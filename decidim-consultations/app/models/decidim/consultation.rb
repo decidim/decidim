@@ -13,7 +13,6 @@ module Decidim
     include Decidim::Randomable
     include Decidim::Searchable
 
-
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -28,7 +27,7 @@ module Decidim
              inverse_of: :consultation,
              dependent: :destroy
 
-    alias_method :component_ids, :question_ids
+    alias component_ids question_ids
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }

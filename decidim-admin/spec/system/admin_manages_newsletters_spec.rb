@@ -206,7 +206,6 @@ describe "Admin manages newsletters", type: :system do
     end
 
     context "when participants are selected" do
-
       let(:recipients_count) { deliverable_users.size }
       let!(:component) { create(:dummy_component, organization: newsletter.organization) }
 
