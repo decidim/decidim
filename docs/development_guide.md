@@ -117,28 +117,40 @@ Refer to the [testing](advanced/testing.md) guide.
 
 In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. (Try `gem owners decidim`).
 
-Releasing new ***patch versions*** is quite easy, it's the same process whether it's a new version or a patch:
+Remember to follow the Gitflow branching workflow.
 
-1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
-1. Update `.decidim-version` to the new version number.
+### Create the release branch
+
+
+### PRE-release
+
+If this is a **major PRE version** release:
+
+1. Go to develop with `git checkout develop`
+1. Create the release branch `git checkout -b release/x.y.z && git push origin release/x.y.z`, where release/x.y.z is the Gitflow release branch for this version.
+1. Update `.decidim-version` to the new major development version `release/x.y.z.pre.1`
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Update `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty section. After that, the header with the current version and link.
-1. Commit all the changes: `git add . && git commit -m "Prepare VERSION release"`
-1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
-1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
-1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
+1. Commit all the changes: `git add . && git commit -m "Bump to pre-release version" && git push origin release/x.y.z`.
+1. Follow the link resulting from the previous command to create the PR for the new version.
+1. Normally here a deploy to metadecidim is done during, at least, one week to validate the stability of the version.
+1. During the validation period bugfixes will go directly to the current release/x.y.z branch
 
-If this was a **major version** release:
+Mark `develop` as the reference to the next release:
 
-1. Go back to master with `git checkout master`
-1. Update `.decidim-version` to the new major development version
-1. Run `bin/rake update_versions`, this will update all references to the new version.
-1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+1. Go to develop with `git checkout develop`
+1. Turn develop into the dev branch for the next release:
+  1. Update `.decidim-version` to the new `dev` development version: x.y.z.dev
+  1. Run `bin/rake update_versions`, this will update all references to the new version.
+  1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
+  1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
+
+### If this is a **major version** release:
+
+
 1. Update `SECURITY.md` and change the supported version to the new version.
-1. Commit all the changes: `git add . && git commit -m "Bump version" && git push origin master`
 1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
 1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml) and create the sibling branch at the Docker repository. NOTE: You should also take into account if the Ruby version has changed, in which case the Dockerfile should also be updated.
@@ -152,3 +164,17 @@ To branch the stable version and let master be the new devel branch again:
   1. Run `bin/rake update_versions`, this will update all references to the new version.
   1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
   1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+
+
+Releasing new ***patch versions*** is quite easy, it's the same process whether it's a new version or a patch:
+
+1. Checkout the branch you want to release: `git checkout -b VERSION-stable`
+1. Update `.decidim-version` to the new version number.
+1. Run `bin/rake update_versions`, this will update all references to the new version.
+1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
+1. Run `bin/rake webpack`, this will update the JavaScript bundle.
+1. Update `CHANGELOG.MD`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty section. After that, the header with the current version and link.
+1. Commit all the changes: `git add . && git commit -m "Prepare VERSION release"`
+1. Run `bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
+1. Finally, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
