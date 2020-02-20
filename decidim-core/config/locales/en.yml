@@ -154,8 +154,9 @@ en:
       user_group:
         reject: "%{user_name} rejected the %{resource_name} group verification"
         verify: "%{user_name} verified the group %{resource_name}"
-        verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV
-          file"
+        verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     amendments:
       accepted:
         error: An error ocurred while accepting the amendment.
@@ -678,8 +679,7 @@ en:
             (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: Click the next button to download your data. <br/> You will
-          have the file available until %{date}.
+        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -1453,8 +1453,8 @@ en:
       content_type_whitelist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
-      file_size_is_less_than_or_equal_to: file size must be less than or equal to
-        %{count}
+      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: can't be inside of a subcategory
@@ -1572,8 +1572,11 @@ en:
       left: Deletions
       right: Additions
     dropdown:
+      choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      option_escaped: Escaped
       option_split: Side-by-side
+      option_unescaped: Unescaped
       option_unified: Unified
   views:
     pagination:

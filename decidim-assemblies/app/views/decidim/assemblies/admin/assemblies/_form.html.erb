@@ -196,14 +196,10 @@
     </div>
 
     <div class="row column">
-      <%= form.select :assembly_type,
+      <%= form.select :decidim_assemblies_type_id,
                       @form.assembly_types_for_select,
                       { include_blank: t(".select_an_assembly_type") },
                       { multiple: false } %>
-    </div>
-
-    <div class="row column" id="assembly_type_other">
-      <%= form.translated :text_field, :assembly_type_other %>
     </div>
 
     <div class="row column">

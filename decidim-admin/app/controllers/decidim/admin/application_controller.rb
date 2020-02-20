@@ -8,6 +8,7 @@ module Decidim
       include NeedsPermission
       include FormFactory
       include LocaleSwitcher
+      include UseOrganizationTimeZone
       include PayloadInfo
       include HttpCachingDisabler
 

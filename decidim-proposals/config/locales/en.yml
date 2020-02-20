@@ -539,7 +539,7 @@ en:
           hidden_authors_count:
             one: and %{count} more person
             other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
           of_versions: "(of %{number})"
           publish: Publish
           publish_info: Publish this version of the draft or

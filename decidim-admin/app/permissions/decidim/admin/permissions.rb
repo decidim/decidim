@@ -18,12 +18,12 @@ module Decidim
 
         return user_manager_permissions if user_manager?
 
-        allow! if user_can_enter_space_area?
+        allow! if user_can_enter_space_area?(require_admin_terms_accepted: true)
 
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        if user.admin?
+        if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if static_page_action?
           allow! if organization_action?
@@ -66,6 +66,7 @@ module Decidim
       end
 
       def apply_newsletter_permissions_for_admin!
+        return unless admin_terms_accepted?
         return unless permission_action.subject == :newsletter
         return allow! if user.admin?
         return unless space_allows_admin_access?
@@ -157,15 +158,19 @@ module Decidim
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
 
-      def user_can_enter_space_area?
+      def user_can_enter_space_area?(**args)
         return unless permission_action.action == :enter &&
                       permission_action.subject == :space_area
 
-        space_allows_admin_access_to_current_action?
+        space_allows_admin_access_to_current_action?(args)
       end
 
-      def space_allows_admin_access_to_current_action?
+      def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
         Decidim.participatory_space_manifests.any? do |manifest|
+          if manifest.name != :initiatives && require_admin_terms_accepted
+            next unless admin_terms_accepted?
+          end
+
           new_permission_action = Decidim::PermissionAction.new(
             action: permission_action.action,
             scope: permission_action.scope,
@@ -179,6 +184,12 @@ module Decidim
 
       def user_manager_permissions
         Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).permissions
+      end
+
+      def admin_terms_accepted?
+        return unless permission_action.scope == :admin
+
+        user&.admin_terms_accepted?
       end
 
       def available_authorization_handlers?

@@ -3,10 +3,16 @@
 RSpec.shared_examples "manage debates" do
   let!(:debate) { create :debate, category: category, component: current_component }
 
+  before { visit_component_admin }
+
+  describe "admin form" do
+    before { click_on "New Debate" }
+
+    it_behaves_like "having a rich text editor", "new_debate", "full"
+  end
+
   describe "updating a debate" do
     it "updates a debate" do
-      visit_component_admin
-
       within find("tr", text: translated(debate.title)) do
         page.find(".action-icon--edit").click
       end
@@ -36,8 +42,6 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, :with_author, component: current_component) }
 
       it "cannot edit the debate" do
-        visit_component_admin
-
         within find("tr", text: translated(debate.title)) do
           expect(page).to have_no_selector(".action-icon--edit")
         end
@@ -46,10 +50,6 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "previewing debates" do
-    before do
-      visit_component_admin
-    end
-
     it "links the debate correctly" do
       link = find("a", text: translated(debate.title))
       expect(link[:href]).to include(resource_locator(debate).path)
@@ -62,8 +62,6 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new debate" do
-    visit_component_admin
-
     within ".card-title" do
       page.find(".button.button--title").click
     end

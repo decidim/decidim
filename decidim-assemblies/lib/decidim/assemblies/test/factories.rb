@@ -8,6 +8,11 @@ FactoryBot.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  factory :assemblies_type, class: "Decidim::AssembliesType" do
+    title { generate_localized_title }
+    organization
+  end
+
   factory :assembly, class: "Decidim::Assembly" do
     title { generate_localized_title }
     slug { generate(:assembly_slug) }
@@ -28,8 +33,6 @@ FactoryBot.define do
     private_space { false }
     purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    assembly_type { "others" }
-    assembly_type_other { generate_localized_title }
     creation_date { 1.month.ago }
     created_by { "others" }
     created_by_other { Decidim::Faker::Localized.word }
@@ -45,6 +48,10 @@ FactoryBot.define do
     instagram_handler { "others" }
     youtube_handler { "others" }
     github_handler { "others" }
+
+    trait :with_type do
+      assembly_type { create :assemblies_type, organization: organization }
+    end
 
     trait :promoted do
       promoted { true }

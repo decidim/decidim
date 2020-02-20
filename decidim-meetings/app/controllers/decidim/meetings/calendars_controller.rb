@@ -8,6 +8,7 @@ module Decidim
       layout false
       helper_method :meetings
       before_action :set_default_request_format
+      skip_around_action :use_organization_time_zone
 
       def show
         render plain: CalendarRenderer.for(current_component), content_type: "type/calendar"

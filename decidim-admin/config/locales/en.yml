@@ -71,10 +71,12 @@ en:
         port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
+        rich_text_editor_in_public_views: Enable rich text editor for participants
         secondary_color: Secondary
         send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
+        time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
@@ -146,6 +148,20 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      admin_terms_of_use:
+        accept:
+          error: There's been an error while accepting the admin terms of use.
+          success: Great! You've accepted the admin terms of use.
+        actions:
+          accept: I agree this admin terms
+          are_you_sure: Are you sure to refuse the admin terms?
+          refuse: Refuse the admin terms
+          title: Agree to the terms and conditions of use
+        required_review:
+          alert: 'Required: Review our admin terms of use'
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
+          cta: Review them now.
+        title: Admin Terms of Use
       area_types:
         create:
           error: There was a problem creating a new area type.
@@ -456,6 +472,7 @@ en:
           not_sent: Not sent
           participants: 'participants '
           segmented_to: 'Segmented to %{subject}: '
+          subscribed_count: 'Subscribed:'
           title: Newsletters
         new:
           save: Save
@@ -468,6 +485,7 @@ en:
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: None
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
           scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
@@ -540,6 +558,7 @@ en:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: Twitter
           url: Url

@@ -8,6 +8,7 @@ module Decidim::Assemblies
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:assembly_type) { create :assemblies_type, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
@@ -49,8 +50,7 @@ module Decidim::Assemblies
         show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type: "others",
-        assembly_type_other: "others",
+        assembly_type: assembly_type,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: "other created by",
@@ -132,6 +132,22 @@ module Decidim::Assemblies
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+
+      it "links to assembly type" do
+        subject.call
+
+        expect(assembly.assembly_type).to eq(assembly_type)
+      end
+
+      context "when no assembly type is set" do
+        let(:assembly_type) { nil }
+
+        it "assembly type is null" do
+          subject.call
+
+          expect(assembly.assembly_type).to eq(nil)
+        end
       end
 
       it "links participatory processes" do

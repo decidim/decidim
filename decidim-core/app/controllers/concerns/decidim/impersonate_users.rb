@@ -12,7 +12,14 @@ module Decidim
 
       helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes, :current_user_impersonated?
 
-      alias_method :real_user, :current_user
+      # Get the current user from warden because at the load time the
+      # `current_user` method may not yet be available. It is added mounting of
+      # the routes.
+      # See:
+      # https://github.com/plataformatec/devise/blob/14863ba4c92cd9781a961be0486f0ea7dfe84144/lib/devise/controllers/helpers.rb#L125-L127
+      def real_user
+        @real_user ||= warden.authenticate(scope: :user)
+      end
 
       # Returns a manager user if the real user has an active impersonation
       def current_user

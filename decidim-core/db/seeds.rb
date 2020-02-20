@@ -120,7 +120,8 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(2),
-    accepted_tos_version: organization.tos_version
+    accepted_tos_version: organization.tos_version,
+    admin_terms_accepted_at: Time.current
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")

@@ -9,12 +9,10 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
 
-        ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
         CREATED_BY = %w(city_council public others).freeze
 
         mimic :assembly
 
-        translatable_attribute :assembly_type_other, String
         translatable_attribute :composition, String
         translatable_attribute :closing_date_reason, String
         translatable_attribute :created_by_other, String
@@ -32,7 +30,6 @@ module Decidim
         translatable_attribute :target, String
         translatable_attribute :title, String
 
-        attribute :assembly_type, String
         attribute :created_by, String
         attribute :facebook_handler, String
         attribute :github_handler, String
@@ -42,6 +39,7 @@ module Decidim
         attribute :twitter_handler, String
         attribute :youtube_handler, String
 
+        attribute :decidim_assemblies_type_id, Integer
         attribute :area_id, Integer
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
@@ -69,8 +67,8 @@ module Decidim
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
         validate :slug_uniqueness
+        validate :same_type_organization, if: ->(form) { form.decidim_assemblies_type_id }
 
-        validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
@@ -94,12 +92,8 @@ module Decidim
         end
 
         def assembly_types_for_select
-          ASSEMBLY_TYPES.map do |type|
-            [
-              I18n.t("assembly_types.#{type}", scope: "decidim.assemblies"),
-              type
-            ]
-          end
+          @assembly_types_for_select ||= organization_assembly_types
+                                          &.map { |type| [translated_attribute(type.title), type.id] }
         end
 
         def created_by_for_select
@@ -121,7 +115,15 @@ module Decidim
                                     &.sort_by { |arr| arr[0] }
         end
 
+        def assembly_type
+          AssembliesType.find_by(id: decidim_assemblies_type_id)
+        end
+
         private
+
+        def organization_assembly_types
+          AssembliesType.where(organization: current_organization)
+        end
 
         def organization_participatory_processes
           Decidim.find_participatory_space_manifest(:participatory_processes)
@@ -139,6 +141,13 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def same_type_organization
+          return unless assembly_type
+          return if assembly_type.organization == current_organization
+
+          errors.add(:assembly_type, :invalid)
         end
       end
     end

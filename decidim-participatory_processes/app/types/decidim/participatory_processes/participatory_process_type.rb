@@ -40,11 +40,10 @@ module Decidim
 
       field :reference, types.String, "Reference prefix for this participatory process"
       field :steps, !types[ParticipatoryProcessStepType], "All the steps of this process."
-
-      # These fields may be private:
-      # decidim_participatory_process_group_id
-      # decidim_organization_id
-      # private_space
+      field :participatoryProcessGroup, ParticipatoryProcessGroupType do
+        description "The participatory process group in which this process belong to"
+        property :participatory_process_group
+      end
     end
   end
 end
