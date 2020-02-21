@@ -1,0 +1,7 @@
+{
+  "name":"Decidim Reviews",
+  "buildpacks": [ { "url": "heroku/ruby" } ],
+  "scripts": {
+    "postdeploy": "bin/rake development_app && cd development_app && bundle exec rake db:schema:load db:seed"
+  }
+}
