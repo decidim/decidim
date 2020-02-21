@@ -406,13 +406,14 @@ ar:
         meetings_count: اجتماعات
         orders_count: الدعم
         pages_count: صفحات
+        participants_count: المشاركين
         processes_count: العمليات
         projects_count: مشاريع
         proposals_count: اقتراحات
         results_count: النتائج
+        supports_count: الدعم
         surveys_count: الدراسات الاستقصائية
         users_count: المشاركين
-        votes_count: الدعم
   layouts:
     decidim:
       participatory_process_groups:
