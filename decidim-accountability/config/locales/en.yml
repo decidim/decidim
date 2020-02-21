@@ -42,10 +42,6 @@ en:
         title: Actions
       admin:
         exports:
-          formats:
-            CSV: CSV
-            Excel: Excel
-            JSON: JSON
           results: Results
         models:
           result:

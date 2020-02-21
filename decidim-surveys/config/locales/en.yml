@@ -46,11 +46,6 @@ en:
     surveys:
       admin:
         exports:
-          formats:
-            CSV: CSV
-            Excel: Excel
-            JSON: JSON
-            SurveyPDF: PDF
           survey_user_answers: Survey participant answers
         surveys:
           update:

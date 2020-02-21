@@ -330,10 +330,6 @@ en:
           preview: Preview
         exports:
           comments: Comments
-          formats:
-            CSV: CSV
-            Excel: Excel
-            JSON: JSON
           proposals: Proposals
         models:
           proposal:
