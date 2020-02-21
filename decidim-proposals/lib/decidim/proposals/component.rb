@@ -34,12 +34,14 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
+    settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :amendments_wizard_help_text, type: :text, translated: true, editor: true, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :new_proposal_body_template, type: :text, translated: true, editor: false, required: false
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
@@ -56,6 +58,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -86,7 +89,7 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :supports_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
@@ -99,6 +102,11 @@ Decidim.register_component(:proposals) do |component|
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Comments::Comment.where(root_commentable: proposals).count
+  end
+
+  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    proposals_ids = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden.pluck(:id)
+    Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
   end
 
   component.exports :proposals do |exports|
@@ -247,7 +255,7 @@ Decidim.register_component(:proposals) do |component|
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
           title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
           body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
-          state: nil,
+          state: "evaluating",
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current

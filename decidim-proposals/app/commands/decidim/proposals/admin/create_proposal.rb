@@ -39,6 +39,7 @@ module Decidim
             create_proposal
             create_attachment if process_attachments?
             create_gallery if process_gallery?
+            link_author_meeeting if form.created_in_meeting?
             send_notification
           end
 
@@ -71,6 +72,10 @@ module Decidim
             created_in_meeting: form.created_in_meeting,
             published_at: Time.current
           }
+        end
+
+        def link_author_meeeting
+          proposal.link_resources(form.author, "proposals_from_meeting")
         end
 
         def send_notification

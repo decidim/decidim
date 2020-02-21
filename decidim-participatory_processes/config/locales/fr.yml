@@ -78,7 +78,7 @@ fr:
         duplicate: Dupliquer
         edit: Modifier
         filter:
-          all: Afficher tous les processus
+          all_processes: Afficher tous les processus
           process_groups: Groupes de processus
         import_process: Importer
         new_process: Nouvelle concertation

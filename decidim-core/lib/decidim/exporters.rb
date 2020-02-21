@@ -6,6 +6,7 @@ module Decidim
     autoload :JSON, "decidim/exporters/json"
     autoload :CSV, "decidim/exporters/csv"
     autoload :Excel, "decidim/exporters/excel"
+    autoload :PDF, "decidim/exporters/pdf"
     autoload :ExportData, "decidim/exporters/export_data"
 
     # Get the exporter class constant from the format as a string.

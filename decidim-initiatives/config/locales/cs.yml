@@ -182,18 +182,8 @@ cs:
             title: Obecná informace
           index:
             actions_title: Akce
-            filter:
-              accepted: Přijato
-              all: Vše
-              created: Vytvořeno
-              discarded: Vyřazeno
-              published: Publikováno
-              rejected: Odmítnuto
-              validating: Technická validace
-            filter_by: Filtrovat podle
             preview: Náhled
             print: Tisk
-            search: Vyhledávání
           show:
             print: Vytisknout
           update:

@@ -54,6 +54,7 @@ nl:
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld een probleem
+        single_comment_link_title: Krijg link naar enkele reactie
       comment_order_selector:
         order:
           best_rated: Best beoordeeld
@@ -66,7 +67,10 @@ nl:
       comments:
         blocked_comments_for_user_warning: U kunt op dit moment geen opmerkingen maken, maar u kunt de vorige wel lezen.
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
+        comment_details_title: Opmerking details
         loading: Reacties laden...
+        single_comment_warning: U kunt de rest van de opmerkingen <a href="%{url}">hier</a> controleren.
+        single_comment_warning_title: Je ziet een enkele reactie
         title: "%{count} reacties"
     events:
       comments:

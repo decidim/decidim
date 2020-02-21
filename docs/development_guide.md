@@ -30,6 +30,26 @@ Once created you are ready to:
 
 - `bin/rails s`
 
+## Gitflow Branching model
+
+The Decidim respository follows the Gitflow branching model. There are good documentations on it at:
+
+- the original post: https://nvie.com/posts/a-successful-git-branching-model/
+- provided by Atlassian: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow.
+
+This model introduces the `develop` branch as a kind of queue for new features to enter into the next release.
+
+In summary, Decidim developers that work on `feature/...` or `fix/...` branches will branch off from `develop` and must be merged back into `develop`.
+
+Then, to start a new feature branch off from `develop` in the following way:
+
+```
+git checkout develop
+git checkout -b feature/xxx
+```
+
+Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
+
 ## During development
 
 When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
@@ -37,6 +57,8 @@ When creating new migrations in Decidim's modules, you will need to "apply" this
 ```console
 bin/rails decidim:upgrade
 ```
+
+Anyway we recommend re-creating your development_app every once in a while.
 
 ## Useful commands
 

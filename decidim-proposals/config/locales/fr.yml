@@ -295,12 +295,10 @@ fr:
         see_all: Tout voir (%{count})
     proposals:
       actions:
-        answer: Répondre
         edit_proposal: Modifier la proposition
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
         participatory_texts: Textes participatifs
-        private_notes: Notes privées
         title: Actions
       admin:
         actions:
@@ -345,11 +343,7 @@ fr:
           update:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
-          edit:
-            accepted: Retenue
-            answer_proposal: Répondre
-            evaluating: En cours d'évaluation
-            rejected: Non retenue
+          form:
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -392,6 +386,9 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+          show:
+            created_at: Date de création
+            votes_count: Nombre de votes
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{category} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie
@@ -414,12 +411,6 @@ fr:
           create:
             invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
             success: Divisé avec succès les propositions en nouvelles.
-        shared:
-          info_proposal:
-            body: Corps du texte
-            created_at: Date de création
-            proposal_votes_count: Nombre de votes
-            proposals: Propositions
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
@@ -444,7 +435,6 @@ fr:
           accepted: Accepté
           all: Tout
           evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
         filter_type_values:
           all: Tout
@@ -493,7 +483,6 @@ fr:
           all: Tout
           amendment: Amendements
           category: Catégorie
-          category_prompt: Catégories
           open: Ouvrir
           published: Publié
           related_to: Lié à
@@ -645,7 +634,6 @@ fr:
         filters:
           amendment_type: Type
           category: Catégorie
-          category_prompt: Sélectionner une catégorie
           origin: Auteurs
           related_to: Liées à
           search: Rechercher
@@ -711,7 +699,6 @@ fr:
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(modifié depuis <u>%{previous_category}</u> par un administrateur)"
-          filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote

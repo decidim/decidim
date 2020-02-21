@@ -110,6 +110,10 @@ en:
           update: Update
         exports:
           registrations: Registrations
+          formats:
+            CSV: CSV
+            JSON: JSON
+            Excel: Excel
         form:
           title: General Information
         index:

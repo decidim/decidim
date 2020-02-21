@@ -11,6 +11,7 @@ Decidim.register_component(:surveys) do |component|
   component.serializes_specific_data = true
   component.specific_data_serializer_class_name = "Decidim::Surveys::DataSerializer"
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
+  component.query_type = "Decidim::Surveys::SurveysType"
 
   component.on(:copy) do |context|
     Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
@@ -68,6 +69,8 @@ Decidim.register_component(:surveys) do |component|
       survey = Decidim::Surveys::Survey.find_by(component: f)
       Decidim::Forms::QuestionnaireUserAnswers.for(survey.questionnaire)
     end
+
+    exports.formats %w(CSV JSON Excel SurveyPDF)
 
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end

@@ -92,7 +92,6 @@ gl:
             other: "%{count} proxectos"
         filters:
           category: Categoría
-          category_prompt: Selecciona unha categoría
           search: Busca
         filters_small_view:
           close_modal: Pechar modal

@@ -12,11 +12,12 @@ import {
   GetCommentsQueryVariables
 } from "../support/schema";
 
-const { I18n } = require("react-i18nify");
+const { I18n, Translate } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
+  singleCommentId?: string;
   reorderComments: (orderBy: string) => void;
 }
 
@@ -37,9 +38,12 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments, totalCommentsCount = 0, userAllowedToComment }, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
+    if (singleCommentId && singleCommentId !== "") {
+      commentHeader = I18n.t("components.comments.comment_details_title");
+    }
 
     if (loading) {
       commentClasses += " loading-comments";
@@ -53,17 +57,63 @@ export class Comments extends React.Component<CommentsProps> {
             <h2 className="order-by__text section-heading">
               {commentHeader}
             </h2>
-            <CommentOrderSelector
-              reorderComments={reorderComments}
-              defaultOrderBy={orderBy}
-            />
+            {this._renderCommentOrderSelector()}
           </div>
+          {this._renderSingleCommentWarning()}
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
           {this._renderBlockedCommentsForUserWarning()}
         </section>
       </div>
+    );
+  }
+
+  /**
+   * Renders warning message when viewing a single comment.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderSingleCommentWarning() {
+    const { singleCommentId, reorderComments, orderBy } = this.props;
+
+    if (singleCommentId && singleCommentId !== "") {
+      const newUrl = `${window.location.pathname}${window.location.search.replace(`commentId=${singleCommentId}`, "")}`;
+
+      return (
+        <div className="callout secondary">
+          <h5>{I18n.t("components.comments.single_comment_warning_title")}</h5>
+          <p>
+            <Translate
+              value="components.comments.single_comment_warning"
+              url={newUrl}
+              dangerousHTML={true}
+            />
+          </p>
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Renders an order selector.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderCommentOrderSelector() {
+    const { singleCommentId, reorderComments, orderBy } = this.props;
+
+    if (singleCommentId && singleCommentId !== "") {
+      return null;
+    }
+
+    return (
+      <CommentOrderSelector
+        reorderComments={reorderComments}
+        defaultOrderBy={orderBy}
+      />
     );
   }
 
@@ -135,8 +185,12 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   private _renderAddCommentForm() {
-    const { session, commentable, orderBy } = this.props;
+    const { session, commentable, orderBy, singleCommentId } = this.props;
     const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment } = commentable;
+
+    if (singleCommentId && singleCommentId !== "") {
+      return null;
+    }
 
     if (acceptsNewComments && userAllowedToComment) {
       return (
@@ -176,6 +230,7 @@ const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(commentsQ
         session,
         commentable,
         orderBy: ownProps.orderBy,
+        singleCommentId: ownProps.singleCommentId,
         reorderComments: (orderBy: string) => {
           return refetch({
             orderBy
@@ -187,6 +242,7 @@ const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(commentsQ
 })(Comments);
 
 export interface CommentsApplicationProps extends GetCommentsQueryVariables {
+  singleCommentId: string;
   locale: string;
 }
 
@@ -195,12 +251,13 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType }) => (
+const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType, singleCommentId }) => (
   <Application locale={locale}>
     <CommentsWithData
       commentableId={commentableId}
       commentableType={commentableType}
       orderBy="older"
+      singleCommentId={singleCommentId}
     />
   </Application>
 );

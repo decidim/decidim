@@ -283,12 +283,10 @@ eu:
         see_all: Ikusi dena (%{count})
     proposals:
       actions:
-        answer: Erantzuna
         edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
         participatory_texts: Testu partehartzaileak
-        private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
         actions:
@@ -332,11 +330,7 @@ eu:
           update:
             success: Parte hartzailearen testua behar bezala eguneratu da.
         proposal_answers:
-          edit:
-            accepted: Onartuta
-            answer_proposal: Erantzuna
-            evaluating: Ebaluatzen
-            rejected: Ukatua
+          form:
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
           create:
@@ -377,6 +371,9 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          show:
+            created_at: Sortze data
+            votes_count: Botoen zenbaketa
           update_category:
             invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
             select_a_category: Hautatu kategoria bat
@@ -399,12 +396,6 @@ eu:
           create:
             invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
             success: Proposamen berrietara egokitu dira.
-        shared:
-          info_proposal:
-            body: Gorputzeko
-            created_at: Sortze data
-            proposal_votes_count: Botoen zenbaketa
-            proposals: proposamenak
       admin_log:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
@@ -429,7 +420,6 @@ eu:
           accepted: Onartu
           all: guztiak
           evaluating: ebaluatzea
-          except_rejected: Guztiak baztertuak izan ezik
           rejected: Baztertuta
         filter_type_values:
           all: guztiak
@@ -478,7 +468,6 @@ eu:
           all: guztiak
           amendment: Aldaketak
           category: Kategoria
-          category_prompt: Kategoria galdetu
           open: Open
           published: Argitaratutako
           related_to: Lotutako gaiak
@@ -630,7 +619,6 @@ eu:
         filters:
           amendment_type: Mota
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
           origin: Jatorria
           related_to: Honekin lotuta
           search: Bilatu
@@ -691,7 +679,6 @@ eu:
           withdraw_proposal: Ezabatu proposamena
         tags:
           changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
-          filed_as: Filed gisa
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote

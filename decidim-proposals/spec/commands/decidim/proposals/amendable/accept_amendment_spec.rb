@@ -27,7 +27,11 @@ module Decidim
 
       let(:form) { Decidim::Amendable::ReviewForm.from_params(form_params) }
 
-      include_examples "accept amendment"
+      include_examples "accept amendment" do
+        it "changes the emendation state" do
+          expect { command.call } .to change { emendation.reload[:state] } .from(nil).to("accepted")
+        end
+      end
     end
   end
 end

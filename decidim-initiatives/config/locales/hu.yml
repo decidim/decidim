@@ -61,6 +61,18 @@ hu:
     admin:
       actions:
         new_initiative_type: Új kezdeményezés típusa
+      filters:
+        search_placeholder:
+          title_or_description_cont: Keresés cím vagy leírás alapján a %{collection} -ban.
+        state_eq:
+          label: Állapot
+          values:
+            accepted: Elfogadva
+            created: Létrehozva
+            discarded: Elvetve
+            published: Közzétéve
+            rejected: Elutasítva
+            validating: Technikai érvényesítés
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
@@ -124,11 +136,11 @@ hu:
             - Menjen az Intiatives részvételi helyére
             - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
           description: Ezt a jelvényt akkor kapja meg, ha új kezdeményezéseket indít el, és másokkal partnerséget hajt végre.
-          description_another: Ez a felhasználó %{score} kezdeményezést kapott.
+          description_another: Ez a résztvevő %{score} kezdeményezést tett közzé.
           description_own: '%{score} kezdeményezéseid közzétéve.'
           name: Közzétett kezdeményezések
           next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
-          unearned_another: A felhasználó még nem tett közzé kezdeményezéseket.
+          unearned_another: Ez a résztvevő még nem tett közzé semmilyen kezdeményezést.
           unearned_own: Még nem tettél közzé kezdeményezéseket.
     help:
       participatory_spaces:
@@ -176,18 +188,8 @@ hu:
             title: Általános információ
           index:
             actions_title: Művelet
-            filter:
-              accepted: Elfogadva
-              all: Összes
-              created: Létrehozva
-              discarded: Elvetve
-              published: Közzétett
-              rejected: Elutasított
-              validating: Technikai érvényesítés
-            filter_by: 'Szűrés ez alapján:'
             preview: Előnézet
             print: Nyomtatás
-            search: Keresés
           show:
             print: Nyomtatás
           update:
@@ -416,7 +418,7 @@ hu:
           here: itt
         more_information: Itt további információkat találsz a kezdeményezés létrehozásának folyamatáról.
         progress_report_body_for: A(z) %{title} kezdeményezést már %{percentage}% támogatja.
-        progress_report_for: 'Helyzetjelentés a kezdeményezésről: %{title}'
+        progress_report_for: 'Összefoglaló a kezdeményezésről: %{title}'
         promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a támogató bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A(z) %{title} kezdeményezés megváltozott állapota: %{state}'
         status_change_for: A(z) %{title} kezdeményezés állapota változott
