@@ -86,7 +86,12 @@ module Decidim
         @formats ||= formats || DEFAULT_FORMATS
       end
 
-      # TODO: Doc
+      private
+
+      # Private: Loads the given exporters when formats argument is provided.
+      #
+      # formats - The array containing the formats for which to load exporters.
+      #
       def load_exporters(formats)
         formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
       end
