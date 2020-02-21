@@ -4,7 +4,7 @@
     <% component.manifest.export_manifests.each do |manifest| %>
       <% manifest.formats.each do |format| %>
         <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>">
-          <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase),
+          <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("admin.exports.formats.#{format}", scope: "decidim.#{component.manifest.name}")),
             exports_path(component, id: manifest.name, format: format),
             method: :post %>
         </li>
