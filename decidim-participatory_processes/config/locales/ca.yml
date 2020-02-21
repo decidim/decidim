@@ -393,13 +393,14 @@ ca:
         meetings_count: Trobades presencials
         orders_count: Suports
         pages_count: Pàgines
+        participants_count: Participants
         processes_count: Processos
         projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
+        supports_count: Suports
         surveys_count: Enquestes
         users_count: Participants
-        votes_count: Suports
   layouts:
     decidim:
       participatory_process_groups:
