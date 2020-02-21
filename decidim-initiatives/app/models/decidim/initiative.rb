@@ -336,7 +336,7 @@ module Decidim
     # `ParticipatorySpaceResourceable`, but for some reason this model does not
     # implement this interface.
     def user_role_config_for(_user, _role_name)
-      Decidim::UserRoleConfig::Base.new(:empty_role_name)
+      Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
     end
 
     private
