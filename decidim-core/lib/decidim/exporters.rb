@@ -9,6 +9,10 @@ module Decidim
     autoload :PDF, "decidim/exporters/pdf"
     autoload :ExportData, "decidim/exporters/export_data"
 
+    # i18n-tasks-use t('decidim.admin.exports.formats.JSON')
+    # i18n-tasks-use t('decidim.admin.exports.formats.CSV')
+    # i18n-tasks-use t('decidim.admin.exports.formats.Excel')
+
     # Get the exporter class constant from the format as a string.
     #
     # format - The exporter format as a string. i.e "CSV"
