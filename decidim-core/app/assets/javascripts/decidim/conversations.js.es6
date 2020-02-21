@@ -4,16 +4,16 @@
  * @returns {void}
  */
 const scrollToBottom = () => {
-  if (document.querySelector('.scroll-to-bottom') !== null) {
+  if (document.querySelector(".scroll-to-bottom") !== null) {
     window.scrollTo({
       top: document.body.scrollHeight,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   }
 };
 
 document.onreadystatechange = () => {
-  if (document.readyState === 'complete') {
+  if (document.readyState === "complete") {
     scrollToBottom();
   }
 };
