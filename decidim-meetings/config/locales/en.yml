@@ -193,6 +193,10 @@ en:
         exports:
           meetings: Meetings
           registrations: Registrations
+          formats:
+            CSV: CSV
+            JSON: JSON
+            Excel: Excel
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation

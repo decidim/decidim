@@ -331,6 +331,10 @@ en:
         exports:
           comments: Comments
           proposals: Proposals
+          formats:
+            CSV: CSV
+            JSON: JSON
+            Excel: Excel
         models:
           proposal:
             name: Proposal

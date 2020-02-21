@@ -48,9 +48,9 @@ en:
         exports:
           survey_user_answers: Survey participant answers
           formats:
+            CSV: CSV
             JSON: JSON
             Excel: Excel
-            CSV: CSV
             SurveyPDF: PDF
         surveys:
           update:

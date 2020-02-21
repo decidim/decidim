@@ -14,6 +14,10 @@ en:
       admin:
         exports:
           dummies: Dummies
+          formats:
+            CSV: CSV
+            JSON: JSON
+            Excel: Excel
     gamification:
       badges:
         test:

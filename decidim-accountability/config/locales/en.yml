@@ -43,6 +43,10 @@ en:
       admin:
         exports:
           results: Results
+          formats:
+            CSV: CSV
+            JSON: JSON
+            Excel: Excel
         models:
           result:
             name: Result
