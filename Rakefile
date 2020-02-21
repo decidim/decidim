@@ -9,8 +9,6 @@ rescue LoadError
 end
 require "decidim/gem_manager"
 
-RSpec::Core::RakeTask.new(:spec)
-
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
