@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+  # no rspec available
+end
 require "decidim/gem_manager"
-
-RSpec::Core::RakeTask.new(:spec)
 
 task default: :spec
 
@@ -73,6 +76,9 @@ task test_app: "decidim:generate_external_test_app"
 
 desc "Generates a development app."
 task development_app: "decidim:generate_external_development_app"
+
+desc "Generates a review app."
+task review_app: "decidim:generate_external_review_app"
 
 desc "Build webpack bundle files"
 task :webpack do

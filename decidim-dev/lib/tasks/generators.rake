@@ -48,4 +48,19 @@ namespace :decidim do
       )
     end
   end
+
+  desc "Generates a review app for trying out external modules"
+  task :generate_external_review_app do
+    Bundler.with_original_env do
+      generate_decidim_app(
+        "development_app",
+        "--app_name",
+        "#{base_app_name}_development_app",
+        "--path",
+        "..",
+        "--seed_db",
+        "--demo"
+      )
+    end
+  end
 end
