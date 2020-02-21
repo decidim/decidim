@@ -395,13 +395,14 @@ hu:
         meetings_count: Találkozók
         orders_count: Szavazatok
         pages_count: Oldalak
+        participants_count: Résztvevők
         processes_count: Folyamatok
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
+        supports_count: Szavazatok
         surveys_count: Felmérések
         users_count: Résztvevők
-        votes_count: Szavazatok
   layouts:
     decidim:
       participatory_process_groups:
