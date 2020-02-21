@@ -395,13 +395,14 @@
         meetings_count: Møter
         orders_count: Støtter
         pages_count: Sider
+        participants_count: Deltakere
         processes_count: Prosesser
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
+        supports_count: Støtter
         surveys_count: Undersøkelse
         users_count: Deltakere
-        votes_count: Støtter
   layouts:
     decidim:
       participatory_process_groups:
