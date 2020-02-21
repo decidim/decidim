@@ -383,13 +383,14 @@ pl:
         meetings_count: Spotkania
         orders_count: Głosowania
         pages_count: Strony
+        participants_count: Uczestnicy
         processes_count: Procesy
         projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
+        supports_count: Głosowania
         surveys_count: Ankiety
         users_count: Uczestnicy
-        votes_count: Głosowania
   layouts:
     decidim:
       participatory_process_groups:
