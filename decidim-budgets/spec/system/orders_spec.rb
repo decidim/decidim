@@ -17,6 +17,10 @@ describe "Orders", type: :system do
            participatory_space: participatory_process)
   end
 
+  before do
+    switch_to_host(organization.host)
+  end
+
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
 

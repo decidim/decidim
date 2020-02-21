@@ -9,7 +9,7 @@ module Decidim
       include Orderable
       include Decidim::Budgets::Orderable
 
-      helper_method :projects, :project
+      helper_method :projects, :project, :component_base_url
 
       private
 
@@ -54,6 +54,10 @@ module Decidim
 
       def context_params
         { component: current_component, organization: current_organization }
+      end
+
+      def component_base_url
+        EngineRouter.main_proxy(current_component).root_url
       end
     end
   end
