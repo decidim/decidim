@@ -140,7 +140,7 @@ module Decidim
         end
 
         def link_participatory_processes
-          @conference.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
+          @conference.link_participatory_space_resources(participatory_processes, "included_participatory_processes")
         end
 
         def assemblies
@@ -148,7 +148,7 @@ module Decidim
         end
 
         def link_assemblies
-          @conference.link_participatory_spaces_resources(assemblies, "included_assemblies")
+          @conference.link_participatory_space_resources(assemblies, "included_assemblies")
         end
 
         def consultations
@@ -157,7 +157,7 @@ module Decidim
         end
 
         def link_consultations
-          @conference.link_participatory_spaces_resources(consultations, "included_consultations")
+          @conference.link_participatory_space_resources(consultations, "included_consultations")
         end
       end
     end

@@ -34,6 +34,8 @@ ar:
         title: عنوان
         vote: نظام التصويت الخارجي
         what_is_decided: ما الذي تقرر
+      response:
+        decidim_consultations_response_group_id: الفريق
     errors:
       vote:
         decidim_consultations_response_id:
@@ -71,9 +73,11 @@ ar:
   decidim:
     admin:
       actions:
+        back_to_responses: العودة إلى الأجوبة
         new_consultation: استشارة جديدة
         new_question: سؤال جديد
         new_response: استجابة جديدة
+        new_response_group: فريق جديد
         publish_results: نشر النتائج
         unpublish_results: نتائج غير منشورة
       consultation_publications:
@@ -119,6 +123,7 @@ ar:
           results: النتائج
         questions_submenu:
           components: المكونات
+          configuration: الإعدادا
           consultation: تشاور
           info: معلومات
           responses: استجابات
@@ -150,6 +155,7 @@ ar:
         response:
           fields:
             created_at: أنشئت في
+            response_group: الفريق
             title: عنوان
           name:
             zero: استجابات
@@ -158,6 +164,9 @@ ar:
             few: استجابات
             many: استجابات
             other: استجابات
+      question_configuration:
+        form:
+          title: الإعداد المتقدّم
       question_publications:
         create:
           error: حدثت مشكلة في نشر هذا السؤال.
@@ -184,6 +193,13 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
+      response_groups:
+        edit:
+          update: تحديث
+        form:
+          title: معلومات عامة
+        new:
+          create: إنشاء
       responses:
         create:
           error: كانت هناك مشكلة في إنشاء استجابة جديدة.

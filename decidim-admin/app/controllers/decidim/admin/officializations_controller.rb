@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing user officializations at the admin panel.
     #
     class OfficializationsController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Officializations::Filterable
+
       layout "decidim/admin/users"
 
       helper_method :user
@@ -12,12 +14,7 @@ module Decidim
 
       def index
         enforce_permission_to :read, :officialization
-        @query = params[:q]
-        @state = params[:state]
-
-        @users = Decidim::Admin::UserFilter.for(current_organization.users.not_deleted, @query, @state)
-                                           .page(params[:page])
-                                           .per(15)
+        @users = filtered_collection
       end
 
       def new
@@ -53,6 +50,10 @@ module Decidim
       end
 
       private
+
+      def collection
+        @collection ||= current_organization.users.not_deleted
+      end
 
       def user
         @user ||= Decidim::User.find_by(

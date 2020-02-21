@@ -1,0 +1,70 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "decidim/api/test/type_context"
+require "decidim/core/test"
+require "decidim/core/test/shared_examples/input_sort_examples"
+
+module Decidim
+  module Proposals
+    describe ProposalInputSort, type: :graphql do
+      include_context "with a graphql type"
+      let(:type_class) { Decidim::Proposals::ProposalsType }
+
+      let(:model) { create(:proposal_component) }
+      let!(:models) { create_list(:proposal, 3, :published, component: model) }
+
+      context "when sorting by proposals id" do
+        include_examples "connection has input sort", "proposals", "id"
+      end
+
+      context "when sorting by published_at" do
+        include_examples "connection has input sort", "proposals", "publishedAt"
+      end
+
+      context "when sorting by endorsement_count" do
+        let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: models.last) }
+
+        describe "ASC" do
+          let(:query) { %[{ proposals(order: {endorsementCount: "ASC"}) { edges { node { id } } } }] }
+
+          it "returns the most endorsed last" do
+            expect(response["proposals"]["edges"].count).to eq(3)
+            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(models.last.id.to_s)
+          end
+        end
+
+        describe "DESC" do
+          let(:query) { %[{ proposals(order: {endorsementCount: "DESC"}) { edges { node { id } } } }] }
+
+          it "returns the most endorsed first" do
+            expect(response["proposals"]["edges"].count).to eq(3)
+            expect(response["proposals"]["edges"].first["node"]["id"]).to eq(models.last.id.to_s)
+          end
+        end
+      end
+
+      context "when sorting by vote_count" do
+        let!(:votes) { create_list(:proposal_vote, 3, proposal: models.last) }
+
+        describe "ASC" do
+          let(:query) { %[{ proposals(order: {voteCount: "ASC"}) { edges { node { id } } } }] }
+
+          it "returns the most voted last" do
+            expect(response["proposals"]["edges"].count).to eq(3)
+            expect(response["proposals"]["edges"].last["node"]["id"]).to eq(models.last.id.to_s)
+          end
+        end
+
+        describe "DESC" do
+          let(:query) { %[{ proposals(order: {voteCount: "DESC"}) { edges { node { id } } } }] }
+
+          it "returns the most voted first" do
+            expect(response["proposals"]["edges"].count).to eq(3)
+            expect(response["proposals"]["edges"].first["node"]["id"]).to eq(models.last.id.to_s)
+          end
+        end
+      end
+    end
+  end
+end

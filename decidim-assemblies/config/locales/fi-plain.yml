@@ -16,6 +16,7 @@ fi-pl:
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
         decidim_area_id: alue
+        decidim_assemblies_type_id: Ryhmän tyyppi
         decidim_scope_id: Teema
         description: Kuvaus
         developer_group: Perustajaryhmä
@@ -78,6 +79,7 @@ fi-pl:
     admin:
       actions:
         new_assembly: Uusi ryhmä
+        new_assembly_type: Uusi ryhmätyyppi
       assemblies:
         create:
           error: Virhe luotaessa uutta ryhmää.
@@ -99,6 +101,18 @@ fi-pl:
         create:
           error: Virhe kopioitaessa ryhmää.
           success: Ryhmä kopioitu onnistuneesti.
+      assemblies_types:
+        create:
+          error: Uuden ryhmätyypin luonti epäonnistui.
+          success: Ryhmätyypin luonti onnistui.
+        destroy:
+          success: Ryhmätyypin poisto onnistui.
+        new:
+          create: Luo
+          title: Uusi ryhmätyyppi
+        update:
+          error: Ryhmätyypin päivitys epäonnistui.
+          success: Ryhmätyypin päivitys onnistui.
       assembly_copies:
         new:
           copy: Kopioi
@@ -158,7 +172,12 @@ fi-pl:
           info: Tiedot
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
+        assemblies_types: Ryhmien tyypit
       models:
+        assemblies_types:
+          fields:
+            created_at: Luonnin ajankohta
+            title: Otsikko
         assembly:
           fields:
             created_at: Luonnin ajankohta
@@ -191,6 +210,7 @@ fi-pl:
             moderator: Moderoija
       titles:
         assemblies: Ryhmät
+        assemblies_types: Ryhmien tyypit
     admin_log:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
@@ -201,6 +221,12 @@ fi-pl:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
         delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
+      assembly_type:
+        create: "%{user_name} loi ryhmätyypin %{resource_name}"
+        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
+        publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
+        unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
+        update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
         delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
@@ -224,6 +250,9 @@ fi-pl:
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: näkyvyys
+        assemblies_types:
+          form:
+            title: Otsikko
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -342,6 +371,8 @@ fi-pl:
       value_types:
         assembly_presenter:
           not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Ryhmätyyppiä ei löytynyt tietokannasta (ID-numero: %{id})'
     menu:
       assemblies: Ryhmät
     metrics:

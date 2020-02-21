@@ -81,8 +81,6 @@ ar:
     account:
       data_portability_export:
         file_no_exists: الملف غير موجود
-        invalid_token: الرمز المميز المقدم غير صالح.
-        no_token: لا رمزية المقدمة
         notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       delete:
         alert: لا يمكن التراجع عن هذا الإجراء. إذا حذفت حسابك ، فلن تتمكن من تسجيل الدخول.
@@ -102,6 +100,9 @@ ar:
         error: حدثت مشكلة أثناء تحديث حسابك.
         success: تم تحديث حسابك بنجاح.
         success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
+    admin:
+      actions:
+        cancel: إلغاء
     admin_log:
       area:
         create: "%{user_name} خلق المنطقة %{resource_name}"
@@ -162,6 +163,7 @@ ar:
       compare_draft:
         continue: متابعة
       edit_draft:
+        discard: تجاهل هذه المسودة
         send: معاينة
       emendation:
         actions:
@@ -199,9 +201,9 @@ ar:
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': قارن تعديلك
+          '3': اكمل تعديلك
+          '4': انشر تعديلك
     anonymous_user: مجهول
     application:
       collection:
@@ -518,7 +520,7 @@ ar:
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
       data_portability_export:
-        click_button: انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.
+        click_button: 'انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -563,16 +565,6 @@ ar:
     gamification:
       all_badges_link: رؤية جميع الشارات المتاحة.
       badges:
-        continuity:
-          conditions:
-            - تعال هنا في كثير من الأحيان
-          description: تُمنح هذه الشارة عند زيارة المنصة بطريقة منتظمة. نود وجودك هنا!
-          description_another: تم توصيل هذا المشارك لمدة %{score} أيام متتالية في وقت ما
-          description_own: لقد قمت بالاتصال لمدة %{score} أيام متتالية في مرحلة ما.
-          name: استمرارية
-          next_level_in: الاتصال لمدة %{score} أيام متتالية للوصول إلى المستوى التالي!
-          unearned_another: لم يسجل هذا المشارك الدخول لأكثر من يوم واحد على التوالي.
-          unearned_own: أنت غير متصل لأكثر من يوم واحد على التوالي.
         followers:
           conditions:
             - كونك نشيطًا ومتابعة أشخاصًا آخرين سيجعل بالتأكيد أشخاصًا آخرين يتبعونك.
@@ -1191,6 +1183,7 @@ ar:
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
+      invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
@@ -1292,6 +1285,9 @@ ar:
             accept_until_format: "%B %d، %Y %I:%M %p"
       time_of_day: "%H:%M"
   versions:
+    directions:
+      left: المحذوفات
+      right: الإضافات
     dropdown:
       option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
       option_unified: مُوَحَّدة

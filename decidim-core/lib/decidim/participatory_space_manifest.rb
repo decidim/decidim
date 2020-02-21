@@ -24,6 +24,8 @@ module Decidim
     attribute :route_name, String
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
+    attribute :query_finder, String, default: "Decidim::Core::ParticipatorySpaceFinder"
+    attribute :query_list, String, default: "Decidim::Core::ParticipatorySpaceList"
 
     # An array with the name of the classes that will be exported with
     # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``

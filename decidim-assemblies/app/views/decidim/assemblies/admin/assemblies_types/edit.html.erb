@@ -1,0 +1,6 @@
+<%= decidim_form_for(@form, html: { class: "form edit_assembly_type" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
+  </div>
+<% end %>

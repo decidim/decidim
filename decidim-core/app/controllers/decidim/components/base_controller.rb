@@ -15,6 +15,7 @@ module Decidim
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
       helper Decidim::ResourceReferenceHelper
+      helper Decidim::ResourceVersionsHelper
       helper Decidim::TranslationsHelper
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
