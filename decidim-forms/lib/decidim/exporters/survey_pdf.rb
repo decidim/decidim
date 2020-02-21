@@ -4,13 +4,9 @@ require "wicked_pdf"
 
 module Decidim
   module Exporters
-    # TODO: Write doc!
-    # Exports any serialized object (Hash) into a readable PDF. It transforms
-    # the columns [TODO!]
-    # into the original nested hash.
+    # Inherits from abstract PDF exporter. This class is used to set
+    # the parameters used to create a PDF when exporting Survey Answers.
     #
-    # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
-    # the columns: [TODO!]
     class SurveyPDF < PDF
       def controller
         super.class_eval do

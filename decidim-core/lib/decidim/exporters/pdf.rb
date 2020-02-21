@@ -4,16 +4,14 @@ require "wicked_pdf"
 
 module Decidim
   module Exporters
-    # TODO: Write doc
-    # Exports any serialized object (Hash) into a readable PDF. It transforms
-    # the columns [TODO!]
-    # into the original nested hash.
+    # Exports a PDF using the provided hash, given a collection and a
+    # Serializer. This is an abstract class that should be inherited
+    # to create PDF exporters, with each pdf exporter class setting
+    # the desired template, layout and orientation.
     #
-    # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
-    # the columns: [TODO!]
     class PDF < Exporter
-      # Public: Exports a PDF version of the collection using the
-      # [TODO!].
+      # Public: Exports a PDF version of the collection by rendering
+      # the template into html and then converting it to PDF.
       #
       # Returns an ExportData instance.
       def export
@@ -27,6 +25,8 @@ module Decidim
 
         ExportData.new(document, "pdf")
       end
+
+      protected
 
       def controller
         @controller ||= ActionController::Base.new
