@@ -42,11 +42,11 @@ en:
         title: Actions
       admin:
         exports:
-          results: Results
           formats:
             CSV: CSV
-            JSON: JSON
             Excel: Excel
+            JSON: JSON
+          results: Results
         models:
           result:
             name: Result

@@ -46,12 +46,12 @@ en:
     surveys:
       admin:
         exports:
-          survey_user_answers: Survey participant answers
           formats:
             CSV: CSV
-            JSON: JSON
             Excel: Excel
+            JSON: JSON
             SurveyPDF: PDF
+          survey_user_answers: Survey participant answers
         surveys:
           update:
             invalid: There was a problem saving the survey.

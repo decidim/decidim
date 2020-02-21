@@ -109,11 +109,11 @@ en:
         edit:
           update: Update
         exports:
-          registrations: Registrations
           formats:
             CSV: CSV
-            JSON: JSON
             Excel: Excel
+            JSON: JSON
+          registrations: Registrations
         form:
           title: General Information
         index:

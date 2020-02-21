@@ -191,12 +191,12 @@ en:
             invalid: There was a problem updating this agenda
             success: Agenda successfully updated
         exports:
-          meetings: Meetings
-          registrations: Registrations
           formats:
             CSV: CSV
-            JSON: JSON
             Excel: Excel
+            JSON: JSON
+          meetings: Meetings
+          registrations: Registrations
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
