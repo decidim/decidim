@@ -77,6 +77,9 @@ task test_app: "decidim:generate_external_test_app"
 desc "Generates a development app."
 task development_app: "decidim:generate_external_development_app"
 
+desc "Generates a review app."
+task review_app: "decidim:generate_external_review_app"
+
 desc "Build webpack bundle files"
 task :webpack do
   sh "npm install && npm run build:prod"
