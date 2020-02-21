@@ -460,15 +460,15 @@ en:
             votes_count: Supports count
             votes_ranking: Ranking by supports
           update_category:
-            invalid: 'These proposals already had the %{category} category: %{proposals}.'
+            invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category
             select_a_proposal: Please select a proposal
-            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
+            success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
           update_scope:
-            invalid: 'These proposals already had the %{scope} scope: %{proposals}.'
-            select_a_category: Please select a scope
+            invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
+            select_a_scope: Please select a scope
             select_a_proposal: Please select a proposal
-            success: 'Proposals successfully updated to the %{scope} scope: %{proposals}.'
+            success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals
@@ -804,7 +804,7 @@ en:
           withdraw_confirmation: Are you sure you want to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
         tags:
-          changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
+          changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
         vote_button:
           already_voted: Already supported
           already_voted_hover: Withdraw support

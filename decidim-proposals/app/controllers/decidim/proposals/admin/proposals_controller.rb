@@ -76,16 +76,16 @@ module Decidim
           enforce_permission_to :update, :proposal_scope
           @proposal_ids = params[:proposal_ids]
 
-          Admin::UpdateProposalScope.call(params[:category][:id], params[:proposal_ids]) do
+          Admin::UpdateProposalScope.call(params[:scope][:id], params[:proposal_ids]) do
             on(:invalid_scope) do
-              flash.now[:error] = I18n.t(
+              flash.now[:error] = t(
                 "proposals.update_scope.select_a_scope",
                 scope: "decidim.proposals.admin"
               )
             end
 
             on(:invalid_proposal_ids) do
-              flash.now[:alert] = I18n.t(
+              flash.now[:alert] = t(
                 "proposals.update_scope.select_a_proposal",
                 scope: "decidim.proposals.admin"
               )
@@ -114,12 +114,12 @@ module Decidim
           @form = form(Admin::ProposalForm).from_params(params)
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              flash[:notice] = t("proposals.update.success", scope: "decidim")
               redirect_to proposals_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              flash.now[:alert] = t("proposals.update.error", scope: "decidim")
               render :edit
             end
           end
@@ -142,9 +142,9 @@ module Decidim
         def update_proposals_bulk_response_successful(response, subject)
           return if response[:successful].blank?
 
-          I18n.t(
+          t(
             "proposals.update_#{subject}.success",
-            "#{subject}": response[:"#{subject}_name"],
+            subject_name: response[:"#{subject}_name"],
             proposals: response[:successful].to_sentence,
             scope: "decidim.proposals.admin"
           )
@@ -153,9 +153,9 @@ module Decidim
         def update_proposals_bulk_response_errored(response, subject)
           return if response[:errored].blank?
 
-          I18n.t(
+          t(
             "proposals.update_#{subject}.invalid",
-            "#{subject}": response[:"#{subject}_name"],
+            subject_name: response[:"#{subject}_name"],
             proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )

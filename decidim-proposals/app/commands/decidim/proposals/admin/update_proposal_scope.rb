@@ -30,7 +30,7 @@ module Decidim
           return broadcast(:invalid_scope) if @scope.blank?
           return broadcast(:invalid_proposal_ids) if @proposal_ids.blank?
 
-          @response[:scope_name] = @scope.translated_name
+          @response[:scope_name] = translated_attribute(@scope.name)
           Proposal.where(id: @proposal_ids).find_each do |proposal|
             if @scope == proposal.scope
               @response[:errored] << proposal.title

@@ -61,9 +61,9 @@ module Decidim
     #
     # Returns a Decidim::Scope
     def previous_scope
-      return if scope.versions.count <= 1
+      return if versions.count <= 1
 
-      Decidim::Scope.find_by(id: scope.versions.last.reify.decidim_scope_id)
+      Decidim::Scope.find_by(id: versions.last.reify.decidim_scope_id)
     end
 
     private

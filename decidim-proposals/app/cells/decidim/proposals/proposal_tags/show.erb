@@ -6,7 +6,7 @@
         <% if previous_category.present? && show_previous_category? %>
           &nbsp;
           <small class="text-small">
-            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_category: "#{previous_category.translated_name}").html_safe %>
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_name: "#{previous_category.translated_name}").html_safe %>
           </small>
         <% end %>
       </li>
@@ -18,7 +18,7 @@
         <% if previous_scope.present? && show_previous_scope? %>
           &nbsp;
           <small class="text-small">
-            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_scope: "#{previous_scope.translated_name}").html_safe %>
+            <%= t("changed_from", scope: "decidim.proposals.proposals.tags", previous_name: "#{translated_attribute(previous_scope.name)}").html_safe %>
           </small>
         <% end %>
       </li>
