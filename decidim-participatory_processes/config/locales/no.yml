@@ -27,6 +27,7 @@
         scope_type_max_depth_id: Omfang filterdybde
         scopes_enabled: Omfang aktivert
         short_description: Kort beskrivelse
+        show_metrics: Vis statistikk
         show_statistics: Vis statistikk
         slug: URL slug
         start_date: Startdato
@@ -391,8 +392,10 @@
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Påtegnelser
+        followers_count: Følgere
         headline: Aktivitet
         meetings_count: Møter
+        no_stats: Det finnes ingen statistikk enda.
         orders_count: Støtter
         pages_count: Sider
         participants_count: Deltakere
