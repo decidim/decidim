@@ -3,26 +3,29 @@
 require "spec_helper"
 
 describe "Valuator checks components", type: :system do
-  let(:manifest_name) { "proposals" }
+  let(:current_component) { create :component, manifest_name: "proposals", participatory_space: assembly }
   let!(:assigned_proposal) { create :proposal, component: current_component }
   let(:assembly) { create(:assembly, organization: organization) }
   let(:participatory_space_path) do
-    decidim_admin_assemblies.edit_assembly_path(assembly)
+    decidim_admin_assemblies.components_path(assembly)
   end
+  let(:components_path) { participatory_space_path }
   let!(:user) { create :user, organization: organization }
   let!(:valuator_role) { create :assembly_user_role, role: :valuator, user: user, assembly: assembly }
   let(:another_component) { create :component, participatory_space: assembly }
 
   include Decidim::ComponentPathHelper
 
-  include_context "when managing a component as an admin"
+  include_context "when administrating an assembly"
 
   before do
     user.update(admin: false)
 
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
 
-    visit current_path
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit components_path
   end
 
   context "when listing the space components in the sidebar" do
