@@ -1,7 +1,4 @@
 {
   "name":"Decidim Reviews",
-  "buildpacks": [ { "url": "heroku/ruby" } ],
-  "scripts": {
-    "postdeploy": "bin/rake review_app"
-  }
+  "buildpacks": [ { "url": "heroku/ruby" } ]
 }
