@@ -14,7 +14,12 @@ shared_examples_for "display conditions" do
   end
 
   def answer_options
-    3.times.to_a.map { |x| { "body" => Hash[[:en, :es, :ca].map { |key| [key, "Body #{x}"] }] } }
+    3.times.to_a.map do |x|
+      {
+        "body" => Decidim::Faker::Localized.sentence,
+        "free_text" => x == 2
+      }
+    end
   end
 
   def condition_question_short_answer
@@ -344,15 +349,67 @@ shared_examples_for "display conditions" do
       end
 
       context "when the condition_question type is single option" do
-        it "shows the question only if the condition is fulfilled"
+        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_value) { { en: condition_question.answer_options.first.body["en"].split.second.upcase } }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          choose condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+        end
+      end
+
+      context "when the condition_question type is single option with free text" do
+        let!(:condition_question) { condition_question_single_option }
+        let!(:condition_value) { { en: "forty two" } }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          choose condition_question.answer_options.third.body["en"]
+          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.first.body["en"]
+          expect_question_to_be_visible(false)
+
+          choose condition_question.answer_options.third.body["en"]
+          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "oh no not 42 again"
+          change_focus
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is multiple option" do
-        it "shows the question only if the condition is fulfilled"
-      end
+        let!(:condition_question) { condition_question_multiple_option }
+        let!(:condition_value) { { en: "forty two" } }
 
-      context "when the condition_question type is sorting" do
-        it "shows the question only if the condition is fulfilled"
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.third.body["en"]
+          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "The answer is #{condition_value[:en]}"
+          change_focus
+
+          expect_question_to_be_visible(true)
+
+          check condition_question.answer_options.first.body["en"]
+          expect_question_to_be_visible(true)
+
+          uncheck condition_question.answer_options.third.body["en"]
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.third.body["en"]
+          fill_in "questionnaire_answers_0_choices_2_custom_body", with: "oh no not 42 again"
+          change_focus
+
+          expect_question_to_be_visible(false)
+        end
       end
     end
 
