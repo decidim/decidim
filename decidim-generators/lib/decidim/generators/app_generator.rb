@@ -122,7 +122,7 @@ module Decidim
           end
         end
 
-        run "bundle install"
+        run "bundle install" unless options[:skip_bundle]
       end
 
       def tweak_bootsnap
@@ -193,6 +193,7 @@ module Decidim
           [
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
+            "--skip_bundle=#{options[:skip_bundle]}",
             "--skip_gemfile=#{options[:skip_gemfile]}",
             "--app_name=#{app_name}"
           ]
