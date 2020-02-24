@@ -1,1 +1,1 @@
-web: bin/rake review_app && cd development_app && bundle config --delete frozen && echo 'gem "wicked_pdf"' >> Gemfile && echo 'gem "wkhtmltopdf-binary"' >> Gemfile && bundle install && bin/rails server
+web: bin/rake review_app && cd development_app && bundle exec rails s -b 0.0.0.0 
