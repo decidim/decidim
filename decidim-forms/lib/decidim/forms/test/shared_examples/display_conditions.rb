@@ -9,6 +9,10 @@ shared_examples_for "display conditions" do
     expect(page).to have_css(conditioned_question_id, visible: visible)
   end
 
+  def change_focus
+    check "questionnaire_tos_agreement"
+  end
+
   def answer_options
     3.times.to_a.map { |x| { "body" => Hash[[:en, :es, :ca].map { |key| [key, "Body #{x}"] }] } }
   end
@@ -43,58 +47,74 @@ shared_examples_for "display conditions" do
       context "when the condition_question type is short answer" do
         let!(:condition_question) { condition_question_short_answer }
 
-        it "does not show the question if the condition is not fulfilled" do
+        it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
-        end
 
-        it "shows the question if the condition is fulfilled" do
           fill_in "questionnaire_answers_0", with: "Cacatua"
-          check "questionnaire_tos_agreement"
+          change_focus
 
           expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: ""
+          change_focus
+
+          expect_question_to_be_visible(false)
         end
       end
 
       context "when the condition_question type is long answer" do
         let!(:condition_question) { condition_question_long_answer }
 
-        it "does not show the question if the condition is not fulfilled" do
+        it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
-        end
 
-        it "shows the question if the condition is fulfilled" do
           fill_in "questionnaire_answers_0", with: "Cacatua"
-          check "questionnaire_tos_agreement"
+          change_focus
 
           expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: ""
+          change_focus
+
+          expect_question_to_be_visible(false)
         end
       end
 
       context "when the condition_question type is single option" do
         let!(:condition_question) { condition_question_single_option }
 
-        it "does not show the question if the condition is not fulfilled" do
+        it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
-        end
 
-        it "shows the question if the condition is fulfilled" do
           choose condition_question.answer_options.first.body["en"]
-          check "questionnaire_tos_agreement"
 
           expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(false)
         end
       end
 
       context "when the condition_question type is multiple option" do
         let!(:condition_question) { condition_question_multiple_option }
 
-        it "does not show the question if the condition is not fulfilled" do
+        it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(false)
-        end
 
-        it "shows the question if the condition is fulfilled" do
           check condition_question.answer_options.first.body["en"]
-          check "questionnaire_tos_agreement"
+
+          expect_question_to_be_visible(true)
+
+          uncheck condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.first.body["en"]
 
           expect_question_to_be_visible(true)
         end
@@ -111,96 +131,161 @@ shared_examples_for "display conditions" do
       context "when the condition_question type is short answer" do
         let!(:condition_question) { condition_question_short_answer }
 
-        it "shows the question if the condition is fulfilled" do
+        it "shows the question only if the condition is fulfilled" do
           expect_question_to_be_visible(true)
-        end
 
-        it "does not show the question if the condition is not fulfilled" do
           fill_in "questionnaire_answers_0", with: "Cacatua"
-          check "questionnaire_tos_agreement"
+          change_focus
 
           expect_question_to_be_visible(false)
+
+          fill_in "questionnaire_answers_0", with: ""
+          change_focus
+
+          expect_question_to_be_visible(true)
         end
       end
 
       context "when the condition_question type is long answer" do
         let!(:condition_question) { condition_question_long_answer }
 
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
+
+          fill_in "questionnaire_answers_0", with: "Cacatua"
+          change_focus
+
+          expect_question_to_be_visible(false)
+
+          fill_in "questionnaire_answers_0", with: ""
+          change_focus
+
+          expect_question_to_be_visible(true)
+        end
       end
 
       context "when the condition_question type is single option" do
         let!(:condition_question) { condition_question_single_option }
 
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is multiple option" do
         let!(:condition_question) { condition_question_multiple_option }
 
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
-      end
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
 
-      context "when the condition_question type is sorting" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+          check condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          uncheck condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+        end
       end
     end
 
     context "when a question has a display condition of type 'equal'" do
-      context "when the condition_question type is short answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
-      end
+      let!(:display_condition) { create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first) }
 
-      context "when the condition_question type is long answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+      before do
+        visit questionnaire_public_path
       end
 
       context "when the condition_question type is single option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        let!(:condition_question) { condition_question_single_option }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          choose condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(false)
+        end
       end
 
       context "when the condition_question type is multiple option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
-      end
+        let!(:condition_question) { condition_question_multiple_option }
 
-      context "when the condition_question type is sorting" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+
+          uncheck condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          check condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+        end
       end
     end
 
     context "when a question has a display condition of type 'not_equal'" do
-      context "when the condition_question type is short answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
-      end
+      let!(:display_condition) { create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first) }
 
-      context "when the condition_question type is long answer" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+      before do
+        visit questionnaire_public_path
       end
 
       context "when the condition_question type is single option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        let!(:condition_question) { condition_question_single_option }
+
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
+
+          choose condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          choose condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(true)
+        end
       end
 
       context "when the condition_question type is multiple option" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
-      end
+        let!(:condition_question) { condition_question_multiple_option }
 
-      context "when the condition_question type is sorting" do
-        it "shows the question if the condition is fulfilled"
-        it "does not show the question if the condition is not fulfilled"
+        it "shows the question only if the condition is fulfilled" do
+          expect_question_to_be_visible(true)
+
+          check condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+
+          uncheck condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(true)
+
+          check condition_question.answer_options.second.body["en"]
+
+          expect_question_to_be_visible(true)
+
+          check condition_question.answer_options.first.body["en"]
+
+          expect_question_to_be_visible(false)
+        end
       end
     end
 
