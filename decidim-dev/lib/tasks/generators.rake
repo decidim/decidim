@@ -59,6 +59,7 @@ namespace :decidim do
         "--path",
         "..",
         "--seed_db",
+        "--skip_bundle",
         "--demo"
       )
     end
