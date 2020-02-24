@@ -13,7 +13,15 @@ shared_examples_for "display conditions" do
     check "questionnaire_tos_agreement"
   end
 
-  def answer_options
+  let!(:conditioned_question_id) { "#questionnaire_answers_1" }
+  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+
+  let(:condition_question_short_answer) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 1) }
+  let(:condition_question_long_answer) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", position: 1) }
+  let(:condition_question_single_option) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", position: 1, options: answer_options) }
+  let(:condition_question_multiple_option) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", position: 1, options: answer_options) }
+
+  let(:answer_options) do
     3.times.to_a.map do |x|
       {
         "body" => Decidim::Faker::Localized.sentence,
@@ -22,26 +30,7 @@ shared_examples_for "display conditions" do
     end
   end
 
-  def condition_question_short_answer
-    create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 1)
-  end
-
-  def condition_question_long_answer
-    create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", position: 1)
-  end
-
-  def condition_question_single_option
-    create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", position: 1, options: answer_options)
-  end
-
-  def condition_question_multiple_option
-    create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", position: 1, options: answer_options)
-  end
-
   context "when a question has a display condition" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
-    let!(:conditioned_question_id) { "#questionnaire_answers_1" }
-
     context "when condition is of type 'answered'" do
       let!(:display_condition) { create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question) }
 
@@ -412,18 +401,59 @@ shared_examples_for "display conditions" do
         end
       end
     end
+  end
 
-    context "when a question has multiple display conditions" do
-      context "when all conditions are mandatory" do
-        it "is displayed if all conditions are fulfilled"
+  context "when a question has multiple display conditions" do
+    before do
+      visit questionnaire_public_path
+    end
 
-        it "is not displayed if one of the conditions is not fulfilled"
+    context "when all conditions are mandatory" do
+      let!(:condition_question) { condition_question_single_option }
+      let!(:display_conditions) do
+        [
+          create(:display_condition, condition_type: "answered", question: question, condition_question: condition_question, mandatory: true),
+          create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, mandatory: true, answer_option: condition_question.answer_options.second)
+        ]
       end
 
-      context "when all conditions are non-mandatory" do
-        it "is displayed if one of the conditions is fulfilled"
+      it "is displayed only if all conditions are fulfilled" do
+        expect_question_to_be_visible(false)
 
-        it "is not displayed if none of the conditions are fulfilled"
+        choose condition_question.answer_options.second.body["en"]
+
+        expect_question_to_be_visible(false)
+
+        choose condition_question.answer_options.first.body["en"]
+
+        expect_question_to_be_visible(true)
+      end
+    end
+
+    context "when all conditions are non-mandatory" do
+      let!(:condition_question) { condition_question_multiple_option }
+      let!(:display_conditions) do
+        [
+          create(:display_condition, condition_type: "equal", question: question, condition_question: condition_question, answer_option: condition_question.answer_options.first),
+          create(:display_condition, condition_type: "not_equal", question: question, condition_question: condition_question, mandatory: false, answer_option: condition_question.answer_options.third)
+        ]
+      end
+
+      it "is displayed if any of the conditions is fulfilled" do
+        expect_question_to_be_visible(false)
+
+        check condition_question.answer_options.first.body["en"]
+
+        expect_question_to_be_visible(true)
+
+        uncheck condition_question.answer_options.first.body["en"]
+        check condition_question.answer_options.second.body["en"]
+
+        expect_question_to_be_visible(true)
+
+        check condition_question.answer_options.first.body["en"]
+
+        expect_question_to_be_visible(true)
       end
     end
 
