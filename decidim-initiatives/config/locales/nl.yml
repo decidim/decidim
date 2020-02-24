@@ -179,15 +179,15 @@ nl:
             filter:
               accepted: Aanvaard
               all: Alle
-              created: Aangemaakt
-              discarded: verworpen
+              created: gemaakt
+              discarded: Afgedankte
               published: Gepubliceerd
-              rejected: Verworpen
+              rejected: Afgewezen
               validating: Technische validatie
             filter_by: Sorteer op
             preview: Voorbeeld
             print: Afdrukken
-            search: Zoek
+            search: Zoeken
           show:
             print: Afdrukken
           update:

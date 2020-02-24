@@ -118,7 +118,7 @@ ru:
           index:
             actions_title: Действие
             filter:
-              accepted: Принято
+              accepted: Принятые
               all: Все
               created: Созданные
               discarded: Отброшенные

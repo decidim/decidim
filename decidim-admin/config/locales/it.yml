@@ -236,6 +236,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
+          error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
           success: Autorizzazioni aggiornate correttamente.
       components:
         create:
@@ -513,7 +514,7 @@ it:
           badge: Distintivo
           created_at: Creato a
           filter:
-            all: Tutti
+            all: Tutto
             not_officialized: Non ufficializzato
             officialized: ufficializzato
           filter_by: Filtra per
@@ -523,7 +524,7 @@ it:
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
-          search: Ricerca
+          search: Cerca
           status: Stato
           unofficialize: Unofficialize
         new:

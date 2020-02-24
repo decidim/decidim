@@ -236,6 +236,7 @@ es:
           success: Categoría actualizada correctamente.
       component_permissions:
         update:
+          error: Hubo un problema al actualizar los permisos de este componente.
           success: Permisos actualizados con éxito.
       components:
         create:
@@ -513,10 +514,10 @@ es:
           badge: Insignias
           created_at: Creado el
           filter:
-            all: Todas
+            all: Todos
             not_officialized: No oficializada
             officialized: Oficializada
-          filter_by: Filtrado por
+          filter_by: Filtrar por
           name: Nombre
           nickname: Alias
           not_officialized: No oficializada

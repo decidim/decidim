@@ -33,6 +33,7 @@ es-MX:
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
+        promoting_committee_enabled: Habilitar el comité promotor
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma

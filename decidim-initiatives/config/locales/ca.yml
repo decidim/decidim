@@ -31,7 +31,7 @@ ca:
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en les signatures
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
-        minimum_committee_members: Mínim de membres de la comissió
+        minimum_committee_members: Nombre mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura digital
         promoting_committee_enabled: Habilita el comitè promotor
         title: Títol
@@ -177,7 +177,7 @@ ca:
           index:
             actions_title: Acció
             filter:
-              accepted: Acceptat
+              accepted: Acceptada
               all: Totes
               created: Creada
               discarded: Rebutjada

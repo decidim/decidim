@@ -17,6 +17,7 @@ cs:
         automatic_hashtags: Hashtags se automaticky přidali
         body: Tělo
         category_id: Kategorie
+        decidim_scope_id: Rozsah
         has_address: Má adresu
         state: Stát
         suggested_hashtags: Navrhované hashtags
@@ -659,9 +660,12 @@ cs:
         endorsements_card_row:
           comments: Komentáře
         filters:
+          activity: Moje aktivita
+          all: Vše
           amendment_type: Typ
           category: Kategorie
           category_prompt: Vyberte kategorii
+          my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
           search: Vyhledávání
@@ -688,9 +692,13 @@ cs:
           title: Vytvořte svůj návrh
         orders:
           label: 'Objednejte návrhy podle:'
+          most_commented: Nejvíce komentované
+          most_endorsed: Nejvíce schválené
+          most_followed: Nejvíce sledované
           most_voted: Nejvíce hlasovalo
           random: Náhodný
           recent: Nedávno
+          with_more_authors: S více autory
         participatory_texts:
           index:
             document_index: Index dokumentů

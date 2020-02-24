@@ -236,6 +236,7 @@ fi-pl:
           success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
+          error: Komponentin oikeuksien päivitys epäonnistui.
           success: Käyttöoikeudet päivitetty onnistuneesti.
       components:
         create:
@@ -523,7 +524,7 @@ fi-pl:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
-          search: Hae
+          search: Etsi
           status: Tila
           unofficialize: Poista virallistaminen
         new:

@@ -346,7 +346,7 @@ sv:
             accepted: Godkända
             answer_proposal: Svara
             evaluating: Utvärderas
-            rejected: Avslaget
+            rejected: Avvisade
             title: Svar på förslaget %{title}
         proposal_notes:
           create:

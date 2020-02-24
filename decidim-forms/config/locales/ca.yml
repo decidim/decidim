@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       answer:
-        body: Respondre
+        body: Resposta
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -15,21 +15,23 @@ ca:
             choices:
               missing: no estan complets
               too_many: en són masses
+        questionnaire:
+          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau torna-ho a provar
   decidim:
     forms:
       admin:
         models:
           components:
             description: Descripció
-            tos: Termes i condicions d'ús
+            tos: Termes del servei
         questionnaires:
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
-            remove: Eliminar
+            remove: Elimina
             statement: Declaració
           edit:
-            save: Desar
+            save: Desa
             title: Títol
           form:
             add_question: Afegeix una pregunta
@@ -80,3 +82,7 @@ ca:
       user_answers_serializer:
         created_at: Respost el
         id: Identificador de resposta
+        ip_hash: Ip Hash
+        registered: Registrada
+        unregistered: No registrada
+        user_status: Estat de l'usuària

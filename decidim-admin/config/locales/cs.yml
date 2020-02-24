@@ -236,6 +236,7 @@ cs:
           success: Kategorie byla úspěšně aktualizována.
       component_permissions:
         update:
+          error: Při aktualizaci oprávnění této komponenty došlo k chybě.
           success: Oprávnění byla úspěšně aktualizována.
       components:
         create:
@@ -513,7 +514,7 @@ cs:
           badge: Odznak
           created_at: Vytvořeno na
           filter:
-            all: Všechno
+            all: Vše
             not_officialized: Není oficializováno
             officialized: Úředně
           filter_by: Filtrovat podle

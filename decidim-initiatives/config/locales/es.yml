@@ -33,6 +33,7 @@ es:
         extra_fields_legal_information: Información legal sobre la recogida de datos personales
         minimum_committee_members: Mínimo de miembros del comité
         online_signature_enabled: Firma digital habilitada
+        promoting_committee_enabled: Habilitar el comité promotor
         title: Título
         undo_online_signatures_enabled: Permitir a las participantes deshacer sus firmas digitales
         validate_sms_code_on_votes: Añadir paso de validación mediante SMS al proceso de firma
@@ -176,14 +177,14 @@ es:
           index:
             actions_title: Acción
             filter:
-              accepted: Aceptado
+              accepted: Aceptada
               all: Todas
               created: Creada
               discarded: Descartada
               published: Publicada
               rejected: Rechazada
               validating: Validación técnica
-            filter_by: Filtra por
+            filter_by: Filtrado por
             preview: Vista previa
             print: Imprimir
             search: Buscar

@@ -347,8 +347,8 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           edit:
-            accepted: Acceptada
-            answer_proposal: Resposta
+            accepted: Acceptades
+            answer_proposal: Respondre
             evaluating: En avaluació
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
@@ -674,13 +674,13 @@ ca:
           title: Crea la teva proposta
         orders:
           label: 'Ordenar propostes per:'
-          most_commented: Més comentats
-          most_endorsed: Més recolzats
-          most_followed: Més seguits
+          most_commented: Més comentades
+          most_endorsed: Amb més adhesions
+          most_followed: Amb més seguidores
           most_voted: Amb més suports
           random: Aleatori
           recent: Recent
-          with_more_authors: Amb més autors
+          with_more_authors: Amb més autores
         participatory_texts:
           index:
             document_index: Índex del document

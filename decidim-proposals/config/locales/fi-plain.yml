@@ -417,7 +417,7 @@ fi-pl:
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         shared:
           info_proposal:
-            body: Tekstin runko
+            body: Ehdotuksen kuvaus
             created_at: Luonnin ajankohta
             proposal_votes_count: Äänten määrä
             proposals: Ehdotukset

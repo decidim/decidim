@@ -561,16 +561,6 @@ sv:
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
-        continuity:
-          conditions:
-            - Kommer ofta hit
-          description: Du får detta märke om du regelbundet besöker plattformen. Vi gillar att ha dig här!
-          description_another: Deltagaren har någon gång varit ansluten %{score} på dagar i följd.
-          description_own: Du har någon gång varit ansluten varje dag under %{score} dagar.
-          name: Kontinuitet
-          next_level_in: Kom till nästa nivå genom att ansluta %{score} dagar i följd!
-          unearned_another: Deltagaren har inte loggat in mer än en dag i följd.
-          unearned_own: Du har inte anslutit dig mer än en dag i följd.
         followers:
           conditions:
             - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.

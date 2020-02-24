@@ -242,7 +242,7 @@ hu:
             - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
             - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
-          description_another: A felhasználó %{score} javaslatait elfogadták.
+          description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
@@ -301,7 +301,7 @@ hu:
         import: Importálás egy másik elemből
         new: Új javaslat
         participatory_texts: Részvételi szövegek
-        private_notes: Privát jegyzet
+        private_notes: Privát jegyzetek
         title: Műveletek
       admin:
         actions:
@@ -419,7 +419,7 @@ hu:
           info_proposal:
             body: Szöveg
             created_at: Létrehozás dátuma
-            proposal_votes_count: Szavazatok száma
+            proposal_votes_count: Támogatók száma
             proposals: Javaslatok
       admin_log:
         proposal:
@@ -518,7 +518,7 @@ hu:
           recent: Legutóbbi
         requests:
           accepted_request:
-            error: Nem lehet közreműködő partner, próbáld újra később.
+            error: Nem lehetsz közreműködő partner, próbáld újra később.
             success: "@%{user} elfogadva, mint közreműködő"
           access_requested:
             error: Nem sikerült befejezni a műveletet, próbáld újra később.
@@ -537,7 +537,7 @@ hu:
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
             one: és még %{count} személy
-            other: és még %{count} ember
+            other: és még %{count} személy
           info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
           of_versions: "(ennyiből: %{number})"
           publish: Közzétesz
@@ -597,10 +597,10 @@ hu:
       participatory_text_proposal:
         alternative_title: Jelenleg nincsenek részvételi szövegek
         buttons:
-          amend: módosítandó
+          amend: Módosítás
           comment: Megjegyzés
           comments: Hozzászólások
-          endorse: Támogassa
+          endorse: Támogatás
       proposal_endorsements:
         create:
           error: Hiba történt a javaslat jóváhagyása során.
@@ -618,7 +618,7 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          continue: Folytatni
+          continue: Folytatás
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
@@ -674,7 +674,7 @@ hu:
           title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
-          most_commented: Legkommentáltabb
+          most_commented: Legtöbb hozzászólással
           most_endorsed: Legtámogatottabb
           most_followed: Legkövetettebb
           most_voted: Legtöbb szavazattal

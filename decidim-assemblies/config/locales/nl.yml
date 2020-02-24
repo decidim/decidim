@@ -33,7 +33,7 @@ nl:
         meta_scope: Scope metadata
         parent_id: Hoofdgroep
         participatory_processes_ids: Verwante inspraakprocessen
-        participatory_scope: Wat wordt besloten
+        participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
         promoted: Gepromoveerd
@@ -46,12 +46,12 @@ nl:
         slug: URL pad
         special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
-        target: Wie doet mee
+        target: Wie neemt deel
         title: Titel
         twitter: Twitter
         youtube: YouTube
       assembly_member:
-        birthday: Verjaardag
+        birthday: Geboortedatum
         birthplace: Geboorteplaats
         ceased_date: Sluitingsdatum
         designation_date: Ontwerpdatum
@@ -144,7 +144,7 @@ nl:
           title: Nieuwe groepsadmin.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
+          success: Beheerder is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Groepen
         assemblies_submenu:
@@ -301,7 +301,7 @@ nl:
           'false': ondoorzichtig
           'true': Transparant
         local_area: Organisatiegebied
-        participatory_scope: Wat wordt besloten
+        participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
         purpose_of_action: Doelstelling
@@ -336,7 +336,7 @@ nl:
       participatory_spaces:
         assemblies:
           contextual: "<p>Een groep is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene groep (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van groepen.</p>\n"
-          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          page: "<p>Een assemblee is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Assemblees houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene assemblee (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie), een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van assemblees.</p>\n"
           title: Wat zijn groepen?
     log:
       value_types:

@@ -95,7 +95,7 @@ ar:
         plural: جمع
       static_page:
         changed_notably: كانت هناك تغييرات ملحوظة.
-        content: يحتوى
+        content: المحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
@@ -123,7 +123,7 @@ ar:
   activerecord:
     attributes:
       decidim/static_page:
-        content: يحتوى
+        content: المحتوى
         slug: سبيكة العنوان الشبكي
         title: العنوان
       doorkeeper/application:
@@ -449,6 +449,7 @@ ar:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
           followers: 'مُتابِعون '
           has_been_sent_to: 'تم إرسالها إلى: '
+          no_scopes: لا نطاقات
           not_sent: غير مرسَلة
           participants: 'مشاركون '
           segmented_to: 'مقسمه إلى %{subject}: '

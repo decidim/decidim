@@ -537,16 +537,6 @@ id:
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
-        continuity:
-          conditions:
-            - Sering ke sini
-          description: Lencana ini diberikan saat Anda mengunjungi platform dengan cara biasa. Kami suka ada Anda di sini!
-          description_another: Pengguna ini telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          description_own: Anda telah terhubung selama %{score} hari berturut-turut di beberapa titik.
-          name: Kontinuitas
-          next_level_in: Terhubung selama %{score} hari berturut-turut untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum masuk selama lebih dari satu hari berturut-turut.
-          unearned_own: Anda belum terhubung selama lebih dari satu hari berturut-turut.
         followers:
           conditions:
             - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.

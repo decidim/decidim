@@ -236,6 +236,7 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
+          error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
           success: Toelatingen succesvol bijgewerkt.
       components:
         create:
@@ -516,7 +517,7 @@ nl:
             all: Alle
             not_officialized: Niet gevalideerd
             officialized: Gevalideerd
-          filter_by: Sorteer op
+          filter_by: Filteren op
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd

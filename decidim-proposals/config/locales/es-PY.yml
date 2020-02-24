@@ -17,6 +17,7 @@ es-PY:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -346,7 +347,7 @@ es-PY:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           edit:
-            accepted: Aceptada
+            accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
             rejected: Rechazada
@@ -643,9 +644,12 @@ es-PY:
         endorsements_card_row:
           comments: Comentarios
         filters:
+          activity: Mi actividad
+          all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
+          category_prompt: Seleccione una categoría
+          my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionado con
           search: Buscar
@@ -670,9 +674,13 @@ es-PY:
           title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
+          most_commented: Más comentadas
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Más votado
           random: Aleatorio
           recent: Reciente
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice de documentos
