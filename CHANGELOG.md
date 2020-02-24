@@ -27,6 +27,7 @@ For those who have not changed the Rails `config.time_zone` (thus using UTC glob
 Thanks to [#5342](https://github.com/decidim/decidim/pull/5342), Decidim now supports removal of user's data portability expired files from Amazon S3. Check out the [scheduled tasks in the getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md#scheduled-tasks) for information in how to configure it.
 
 **Added**:
+- **decidim-core**: Add new language: Greek [#5597](https://github.com/decidim/decidim/pull/5597)
 
 - **decidim-proposals**: Add images to proposal cards [\#5640](https://github.com/decidim/decidim/pull/5640)
 - **decidim-api**: Added documentation to use the API (newcomers friendly). [\#5582](https://github.com/decidim/decidim/pull/5582)
