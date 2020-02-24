@@ -1319,6 +1319,7 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%A %d %B %Y %H h %M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

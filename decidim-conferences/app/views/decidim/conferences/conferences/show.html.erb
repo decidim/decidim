@@ -30,17 +30,13 @@ edit_link(
         <div class="column medium-9 medium-centered">
           <% if current_participatory_space.registrations_enabled? %>
             <div class="column medium-6">
-              <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>
-                <button type="button" class="button button--sc light expanded"><%= t(".register") %></button>
-              <% end %>
+              <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
             </div>
           <% end %>
           <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
             <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
               <div class="column medium-6 end">
-                <%= link_to decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id) do %>
-                  <button type="button" class="button button--sc secondary light expanded"><%= translated_attribute(component_meeting.name) %></button>
-                <% end %>
+                <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
               </div>
             <% end %>
           <% end %>
@@ -61,9 +57,7 @@ edit_link(
             <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
             <p><%= t(".make_conference_registration") %></p>
             <div class="medium-3" style="margin: 0 auto;">
-              <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>
-                <button type="button" class="button button--sc light expanded"><%= t(".register") %></button>
-              <% end %>
+              <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
             </div>
           </div>
         <% else %>
