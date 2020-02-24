@@ -302,6 +302,14 @@ module Decidim
         Time.current < limit
       end
 
+      def process_amendment_state_change!
+        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+
+        PaperTrail.request(enabled: false) do
+          update!(state: amendment.state)
+        end
+      end
+
       private
 
       def copied_from_other_component?

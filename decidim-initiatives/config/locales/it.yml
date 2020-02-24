@@ -61,6 +61,18 @@ it:
     admin:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
+      filters:
+        search_placeholder:
+          title_or_description_cont: Cerca %{collection} per titolo o descrizione.
+        state_eq:
+          label: Stati
+          values:
+            accepted: Accettati
+            created: Creati
+            discarded: Scartati
+            published: Pubblicato
+            rejected: Rifiutato
+            validating: Convalida tecnica
       menu:
         initiatives: iniziative
         initiatives_types: Tipi di iniziativa

@@ -102,9 +102,7 @@ is-IS:
           proposals: Tillögur
     proposals:
       actions:
-        answer: Svara
         import: Flytja frá öðrum hlutum
-        private_notes: Einkaskilaboð
         title: Aðgerðir
       admin:
         actions:
@@ -116,11 +114,7 @@ is-IS:
           proposal:
             name: Tillaga
         proposal_answers:
-          edit:
-            accepted: Samþykkt
-            answer_proposal: Svara
-            evaluating: Mat
-            rejected: Hafnað
+          form:
             title: Svar fyrir tillögu %{title}
         proposal_notes:
           create:
@@ -150,6 +144,8 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
+          show:
+            created_at: Sköpunardegi
           update_category:
             invalid: 'Þessar tillögur áttu nú þegar %{category} flokkinn: %{proposals}.'
             select_a_category: Vinsamlegast veldu flokk
@@ -162,11 +158,6 @@ is-IS:
             create: Innflutningur tillögur
             no_components: Það eru engar aðrar tillögur í þessum þátttökustíl til að flytja tillögur frá.
             select_component: Vinsamlegast veldu hluta
-        shared:
-          info_proposal:
-            body: Líkami
-            created_at: Sköpunardegi
-            proposals: Tillögur
       admin_log:
         proposal:
           answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
@@ -226,7 +217,6 @@ is-IS:
           endorse: Styðja
         filters:
           category: Flokkur
-          category_prompt: Veldu flokk
           origin: Uppruni
           related_to: Tengjast
           search: Leita
@@ -266,7 +256,6 @@ is-IS:
           withdraw_proposal: Afturkalla tillögu
         tags:
           changed_from: "(breytt frá <u>%{previous_category}</u> af stjórnanda)"
-          filed_as: Skráður sem
         votes_count:
           most_popular_proposal: Vinsælasta tillöguna
         voting_rules:

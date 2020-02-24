@@ -123,6 +123,7 @@ ar:
           results: النتائج
         questions_submenu:
           components: المكونات
+          configuration: الإعدادا
           consultation: تشاور
           info: معلومات
           responses: استجابات
@@ -154,6 +155,7 @@ ar:
         response:
           fields:
             created_at: أنشئت في
+            response_group: الفريق
             title: عنوان
           name:
             zero: استجابات
@@ -162,6 +164,9 @@ ar:
             few: استجابات
             many: استجابات
             other: استجابات
+      question_configuration:
+        form:
+          title: الإعداد المتقدّم
       question_publications:
         create:
           error: حدثت مشكلة في نشر هذا السؤال.
@@ -189,6 +194,10 @@ ar:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
       response_groups:
+        edit:
+          update: تحديث
+        form:
+          title: معلومات عامة
         new:
           create: إنشاء
       responses:

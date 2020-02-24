@@ -154,10 +154,8 @@ ru:
           proposals: Предложения
     proposals:
       actions:
-        answer: Ответить
         import: Позаимствовать из другой составляющей
         new: Внести новое предложение
-        private_notes: Частные примечания
         title: Действия
       admin:
         actions:
@@ -169,11 +167,7 @@ ru:
           proposal:
             name: Предложение
         proposal_answers:
-          edit:
-            accepted: Принято
-            answer_proposal: Ответить
-            evaluating: Рассматривается
-            rejected: Отклонено
+          form:
             title: Ответ на предложение %{title}
         proposal_notes:
           create:
@@ -204,6 +198,9 @@ ru:
           new:
             create: Внести
             title: Создать предложение
+          show:
+            created_at: Дата создания
+            votes_count: Количество голосов
           update_category:
             invalid: 'Эти предложения уже относились к категории %{category}: %{proposals}.'
             select_a_category: Пожалуйста, выберите категорию
@@ -218,12 +215,6 @@ ru:
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
             select_component: Пожалуйста, выберите составляющую
             select_states: Проверьте состояние предложений, которые вы хотите позаимствовать
-        shared:
-          info_proposal:
-            body: Основной текст
-            created_at: Дата создания
-            proposal_votes_count: Количество голосов
-            proposals: Предложения
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
@@ -240,8 +231,6 @@ ru:
         filter_origin_values:
           citizens: Граждане
           official: Служебные
-        filter_state_values:
-          except_rejected: Все, кроме отклоненных
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -303,7 +292,6 @@ ru:
           comments: Комментарии
         filters:
           category: Категория
-          category_prompt: Выберите категорию
           origin: Источник
           related_to: Связано с
           search: Поиск
@@ -356,7 +344,6 @@ ru:
           withdraw_proposal: Снять предложение
         tags:
           changed_from: "(изменено с <u>%{previous_category}</u> администратором)"
-          filed_as: Отмечено как
         vote_button:
           already_voted: Уже проголосовали
           already_voted_hover: Отменить голос

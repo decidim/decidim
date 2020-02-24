@@ -17,6 +17,7 @@ es-PY:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Tiene dirección
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -41,6 +42,7 @@ es-PY:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
+              cant_be_equal_to_template: no puede ser igual a la plantilla
               identical: Y el título no puede ser idéntico
             title:
               identical: Y el cuerpo no puede ser idéntico
@@ -73,6 +75,23 @@ es-PY:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      filters:
+        is_emendation_true:
+          label: Tipo
+          values:
+            'false': Propuestas
+            'true': Enmiendas
+        search_placeholder:
+          id_string_or_title_cont: Buscar %{collection} por ID o título.
+        state_eq:
+          values:
+            evaluating: En evaluación
+            withdrawn: Retirado
+        state_null:
+          label: Estado
+          values:
+            'true': No contestado
     components:
       proposals:
         actions:
@@ -94,6 +113,8 @@ es-PY:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Votos mínimos por usuario
+            new_proposal_body_template: Plantilla para el texto de nueva propuesta
+            new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_disabled_help: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -295,12 +316,11 @@ es-PY:
         see_all: Ver todo (%{count})
     proposals:
       actions:
-        answer: Respuesta
         edit_proposal: Editar propuesta
         import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
-        private_notes: Notas privadas
+        show: Ver propuesta
         title: Acciones
       admin:
         actions:
@@ -345,11 +365,11 @@ es-PY:
           update:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
-          edit:
-            accepted: Aceptada
+          form:
+            accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
-            rejected: Rechazada
+            rejected: Rechazadas
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -392,6 +412,29 @@ es-PY:
           new:
             create: Crear
             title: Crear propuesta
+          show:
+            amendments_count: Número de enmiendas
+            authors: Autoras
+            body: Cuerpo
+            comments_count: Número de comentarios
+            comments_negative_count: En contra
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
+            created_at: Fecha de creación
+            documents: Documentos
+            endorsements_count: Número de adhesiones
+            endorsements_ranking: Clasificación por adhesiones
+            endorsers: Adheridas
+            link: Enlace
+            n_more_endorsers:
+              one: y 1 más
+              other: y %{count} más
+            photos: Fotos
+            proposals: Propuestas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Encuentros relacionados
+            votes_count: Número de votos
+            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
             select_a_category: Por favor selecciona una categoría
@@ -414,12 +457,6 @@ es-PY:
           create:
             invalid: Hubo un error dividiendo las propuestas seleccionadas.
             success: Dividió con éxito las propuestas en otras nuevas.
-        shared:
-          info_proposal:
-            body: Cuerpo
-            created_at: Fecha de creación
-            proposal_votes_count: Número de votos
-            proposals: Propuestas
       admin_log:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
@@ -444,7 +481,6 @@ es-PY:
           accepted: Aceptado
           all: Todos
           evaluating: Evaluando
-          except_rejected: Todos excepto rechazados
           rejected: Rechazado
         filter_type_values:
           all: Todos
@@ -493,7 +529,6 @@ es-PY:
           all: Todas
           amendment: Enmiendas
           category: Categoría
-          category_prompt: Aviso de categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
@@ -643,13 +678,17 @@ es-PY:
         endorsements_card_row:
           comments: Comentarios
         filters:
+          activity: Mi actividad
+          all: Todo
           amendment_type: Tipo
           category: Categoría
-          category_prompt: Selecciona una categoría
+          my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionado con
+          scope: Ámbito
           search: Buscar
           state: Estado
+          type: Tipo
           voted: Votado
         filters_small_view:
           close_modal: Cerrar ventana
@@ -670,9 +709,13 @@ es-PY:
           title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
+          most_commented: Más comentadas
+          most_endorsed: Con más adhesiones
+          most_followed: Con más seguidoras
           most_voted: Más votado
           random: Aleatorio
           recent: Reciente
+          with_more_authors: Con más autoras
         participatory_texts:
           index:
             document_index: Índice de documentos
@@ -711,7 +754,6 @@ es-PY:
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado desde <u>%{previous_category}</u> por un administrador)"
-          filed_as: Archivado como
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto

@@ -88,6 +88,9 @@ fi:
         error: Tilisi päivitys epäonnistui.
         success: Tilisi päivitys onnistui.
         success_with_email_confirmation: Tilisi päivittäminen onnistui. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    admin:
+      actions:
+        cancel: Peruuta
     admin_log:
       area:
         create: "%{user_name} loi %{resource_name} alueen"
@@ -231,6 +234,7 @@ fi:
       photos:
         related_photos: Liittyvät kuvat
     author:
+      avatar: Avatar
       comments:
         one: kommentti
         other: kommentit
